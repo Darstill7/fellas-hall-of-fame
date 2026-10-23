@@ -1,0 +1,26 @@
+{
+  "release_status": "AUDITED_RELEASE_CANDIDATE \u2014 source verification incomplete",
+  "audit_date": "2026-10-23",
+  "checks": {
+    "html_pages": 173,
+    "broken_internal_resources": 0,
+    "duplicate_html_ids": 0,
+    "broken_anchor_targets": 0,
+    "standings_recalculation_discrepancies": 0,
+    "championship_book_discrepancies": 0,
+    "draft_selection_count": 1050,
+    "draft_duplicate_slots": 0,
+    "trade_sides": 101,
+    "distinct_reconstructed_trade_events": 51,
+    "incomplete_trade_events": 4,
+    "v9_trade_engine_csv_rows": 101,
+    "v9_draft_engine_csv_rows": 1050
+  },
+  "source_limitations": [
+    "Historical Sleeper raw API responses not contained in package",
+    "2016\u20132019 weekly ESPN history incomplete",
+    "Four trade events ungraded due to unverifiable details",
+    "2026 grades provisional through Week 6",
+    "Automated browser/device visual testing not completed"
+  ]
+}

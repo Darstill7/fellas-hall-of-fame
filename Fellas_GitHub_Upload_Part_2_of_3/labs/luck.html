@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Luck Lab — The Fellas</title><meta content="#071019" name="theme-color"/><meta content="The Fellas Fantasy Football League — history, analytics, rivalries, records and weekly league intelligence." name="description"/><meta content="yes" name="apple-mobile-web-app-capable"/><link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;&lt;path fill='%23d7af55' d='M32 2 57 11l-4 37-21 14L11 48 7 11z'/&gt;&lt;text x='32' y='42' text-anchor='middle' font-size='31' font-weight='900' font-family='Arial' fill='%23071019'&gt;F&lt;/text&gt;&lt;/svg&gt;" rel="icon"/><style data-fellas-inline="v8.1">
+:root{--bg:#071018;--panel:#101c27;--panel2:#142534;--line:#29445b;--text:#f4f1e8;--muted:#9fb1c1;--gold:#d7af55;--gold2:#f0d98e;--green:#8bd17f;--red:#ff8f84;--blue:#83bfff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0,#21364b,#09131c 35%,#050a0f 80%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit}.wrap{max-width:1280px;margin:auto;padding:0 18px 80px}.top{padding:34px 0 22px;display:flex;justify-content:space-between;gap:20px;align-items:end}.eyebrow,.label{color:var(--gold2);font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.top h1{font-size:clamp(42px,7vw,86px);line-height:.92;letter-spacing:-.055em;margin:7px 0}.top p{color:#c1ced9;max-width:780px;line-height:1.55}.pill{display:inline-flex;border:1px solid #56687a;border-radius:999px;padding:6px 10px;font-size:10px;font-weight:900;color:#cad6df;text-decoration:none}.pill.gold{background:#302713;border-color:#725e32;color:var(--gold2)}
+.nav{position:sticky;top:0;z-index:20;background:#061018ee;border-block:1px solid var(--line);backdrop-filter:blur(12px);overflow:auto;white-space:nowrap;margin:0 -18px 30px;padding:0 10px}.nav a{display:inline-block;padding:14px 11px;text-decoration:none;color:#adbdca;font-size:12px;font-weight:850}.nav a:hover{color:var(--gold2)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:0 14px 40px #0004}.card h2,.card h3{margin:6px 0}.muted{color:var(--muted);font-size:12px;line-height:1.5}.metric{font-size:36px;font-weight:1000;letter-spacing:-.04em}.section{margin:50px 0}.section h2{font-size:34px;letter-spacing:-.04em;margin:4px 0 16px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:15px}table{width:100%;border-collapse:collapse;min-width:700px;background:#0b151e}th,td{padding:10px 11px;border-bottom:1px solid var(--line);font-size:12px}th{background:#12212e;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;font-size:9px;text-align:left}.pos{color:#aee6a3;font-weight:900}.neg{color:#ffaaa2;font-weight:900}.rank{color:var(--gold2);font-weight:1000}.score{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:9px 0}.score:last-child{border-bottom:0}.score b{font-size:13px}.bar{height:8px;border-radius:99px;background:#223445;overflow:hidden;margin-top:8px}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2))}.manager-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.manager-card{text-decoration:none}.manager-card:hover{border-color:#77663b;transform:translateY(-1px)}.manager-card .name{font-size:22px;font-weight:1000}.tag{display:inline-block;border:1px solid #445a6c;border-radius:999px;padding:4px 8px;font-size:9px;margin:2px;color:#c2d0da}.tag.gold{border-color:#735f35;background:#2b2413;color:var(--gold2)}.callout{border:1px solid #6f5d34;background:linear-gradient(145deg,#211c10,#101a24);border-radius:18px;padding:17px}.list{margin:0;padding-left:18px}.list li{margin:7px 0;color:#c4d0da;line-height:1.45}.subnav{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.footer{margin-top:50px;border-top:1px solid var(--line);padding-top:18px;color:#718597;font-size:10px;line-height:1.5}.roster{display:grid;grid-template-columns:1fr 1fr;gap:10px}.roster ul{margin:6px 0 0;padding-left:16px}.roster li{font-size:12px;margin:5px 0;color:#c7d3dd}.timeline{border-left:2px solid #3c5368;padding-left:14px}.timeline div{margin:11px 0;color:#c5d0da;font-size:12px}.timeline b{color:var(--gold2)}.hero-stat{padding:13px;border:1px solid var(--line);border-radius:14px;background:#0b151e}.hero-stat small{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.1em}.hero-stat b{font-size:20px}.scorecard{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.trade{border-left:3px solid var(--gold);padding-left:12px}.trade .grade{font-size:26px;font-weight:1000;color:var(--gold2)}.week-card a{text-decoration:none}.week-card:hover{border-color:#786640}.week-card .hi{font-size:28px;font-weight:1000;color:var(--gold2)}.smallcaps{text-transform:uppercase;font-size:9px;letter-spacing:.11em;color:var(--muted);font-weight:900}
+@media(max-width:900px){.c3,.c4,.c5,.c6,.c7,.c8{grid-column:span 12}.manager-grid{grid-template-columns:repeat(2,1fr)}.scorecard{grid-template-columns:1fr 1fr}.top{display:block}.roster{grid-template-columns:1fr}}
+@media(max-width:520px){.manager-grid{grid-template-columns:1fr}.scorecard{grid-template-columns:1fr}.wrap{padding-inline:12px}.nav{margin-inline:-12px}}
+
+.hero-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.hero-grid .hero-stat{grid-column:span 1}
+.badge{display:inline-block;padding:5px 8px;border:1px solid #53687a;border-radius:999px;font-size:9px;font-weight:900;color:#c7d5df}
+.badge.win{border-color:#4d7b4b;color:#aee6a3}.badge.loss{border-color:#80524c;color:#ffaaa2}
+.bracket{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}.round{display:grid;gap:10px}.game{background:#0b151e;border:1px solid var(--line);border-radius:13px;padding:10px}.game .team{display:flex;justify-content:space-between;padding:5px 0}.game .winner{color:var(--gold2);font-weight:1000}
+.hof-score{font-size:42px;font-weight:1000;color:var(--gold2)}.meter{height:7px;background:#223445;border-radius:99px;overflow:hidden}.meter span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.rival-hero{display:flex;justify-content:space-between;gap:14px;align-items:center}.vs{font-size:28px;font-weight:1000;color:var(--gold2)}
+.searchbox{width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:#0b151e;color:var(--text);font:inherit}
+.hidden{display:none!important}
+@media(max-width:900px){.hero-grid{grid-template-columns:repeat(2,1fr)}.bracket{grid-template-columns:1fr}.rival-hero{display:block}.vs{margin:8px 0}}
+
+.news-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}.news-main{min-height:220px}.ticker{display:flex;gap:8px;overflow:auto;padding:8px 0}.ticker .tag{white-space:nowrap}
+.grade{font-size:34px;font-weight:1000;color:var(--gold2)}.lab-row{display:grid;grid-template-columns:100px 1fr 120px;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding:11px 0}
+@media(max-width:900px){.news-grid{grid-template-columns:1fr}.lab-row{grid-template-columns:1fr}}
+
+/* v7 pre-publish product polish */
+body{padding-bottom:76px}
+.mobile-dock{
+  display:none;position:fixed;left:8px;right:8px;bottom:8px;z-index:50;
+  background:#071018f2;border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 18px 55px #000a;backdrop-filter:blur(16px);overflow:hidden
+}
+.mobile-dock a{
+  flex:1;text-align:center;text-decoration:none;padding:10px 4px;
+  color:#b7c5d1;font-size:9px;font-weight:900;letter-spacing:.04em
+}
+.mobile-dock a span{display:block;font-size:16px;line-height:1.1;margin-bottom:3px}
+.mobile-dock a:hover{color:var(--gold2)}
+.mobile-menu{display:none;margin:0 0 14px}
+.mobile-menu summary{cursor:pointer;list-style:none}
+.mobile-menu summary::-webkit-details-marker{display:none}
+.mobile-menu .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:9px}
+.mobile-menu .menu-grid a{text-decoration:none;padding:11px;border:1px solid var(--line);border-radius:11px;background:#0b151e;font-size:11px;font-weight:850}
+.audit-ok{border-left:4px solid #70c66b}.audit-note{border-left:4px solid var(--gold)}.audit-warn{border-left:4px solid #df8379}
+.source-tier{font-size:11px;font-weight:1000;color:var(--gold2)}
+.search-result{display:block;text-decoration:none}.search-result em{color:var(--gold2);font-style:normal}
+.route{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#9fc3dd}
+@media(max-width:760px){
+  body{padding-bottom:84px}
+  .wrap{padding-inline:11px}
+  .top{padding-top:23px}
+  .top h1{font-size:46px}
+  .top p{font-size:13px}
+  .nav{display:none}
+  .mobile-menu{display:block}
+  .mobile-dock{display:flex}
+  .metric{font-size:30px}
+  .card{padding:14px;border-radius:15px}
+  .section{margin:36px 0}
+  .section h2{font-size:27px}
+  table{min-width:620px}
+  th,td{padding:9px 8px}
+  .manager-grid{grid-template-columns:1fr}
+  .scorecard{grid-template-columns:1fr 1fr}
+  .hero-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+
+/* =========================================================
+   THE FELLAS OS v8 — CHAMPIONSHIP BROADCAST DESIGN SYSTEM
+   ========================================================= */
+
+:root{
+  --ink:#05080c;
+  --stadium:#071019;
+  --navy:#0b1621;
+  --panel3:#0e1b27;
+  --cream:#f6f1e4;
+  --gold3:#ffe39a;
+  --line2:#31495d;
+  --shadow:0 22px 60px rgba(0,0,0,.38);
+  --accent:var(--gold2);
+  --accent-soft:rgba(240,217,142,.10);
+}
+html{background:var(--ink)}
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 12% -10%,rgba(77,119,153,.34),transparent 31%),
+    radial-gradient(circle at 92% 5%,rgba(215,175,85,.10),transparent 25%),
+    linear-gradient(180deg,#07111a 0%,#050a0f 48%,#04070a 100%);
+  background-attachment:fixed;
+}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.18;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,black,transparent 72%);
+}
+::selection{background:var(--gold);color:#111}
+.wrap{max-width:1320px;padding-left:22px;padding-right:22px}
+.brandbar{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 0 12px;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.brandmark{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+.brand-crest{
+  width:38px;height:44px;display:grid;place-items:center;flex:0 0 auto;
+  color:#101010;font-weight:1000;font-size:18px;
+  clip-path:polygon(50% 0,93% 15%,88% 72%,50% 100%,12% 72%,7% 15%);
+  background:linear-gradient(145deg,var(--gold3),#bf8d31 80%);
+  box-shadow:0 8px 24px rgba(215,175,85,.2)
+}
+.brand-copy strong{display:block;font-size:13px;letter-spacing:.16em}
+.brand-copy small{display:block;color:#8297a8;font-size:9px;margin-top:2px;letter-spacing:.09em;text-transform:uppercase}
+.live-chip{display:inline-flex;align-items:center;gap:7px;font-size:9px;font-weight:1000;letter-spacing:.11em;text-transform:uppercase;color:#bfd1dd}
+.live-dot{width:7px;height:7px;background:#8bd17f;border-radius:50%;box-shadow:0 0 0 4px rgba(139,209,127,.09)}
+.top{position:relative;padding:46px 0 32px;align-items:center}
+.top:after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:linear-gradient(90deg,var(--accent),rgba(255,255,255,.08),transparent)
+}
+.top h1{
+  font-weight:1000;text-transform:uppercase;
+  text-shadow:0 10px 42px rgba(0,0,0,.35)
+}
+.top p{font-size:14px;max-width:760px}
+.eyebrow,.label{color:var(--accent);letter-spacing:.16em}
+.card{
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(20,37,52,.94),rgba(11,22,32,.96));
+  border-color:rgba(91,120,143,.42);box-shadow:0 12px 36px rgba(0,0,0,.20);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease
+}
+.card:before{
+  content:"";position:absolute;inset:0 auto auto 0;width:100%;height:1px;
+  background:linear-gradient(90deg,rgba(255,255,255,.17),transparent 65%);pointer-events:none
+}
+.card:hover{border-color:rgba(215,175,85,.52);box-shadow:var(--shadow);transform:translateY(-2px)}
+.callout{box-shadow:0 14px 42px rgba(0,0,0,.24);position:relative;overflow:hidden}
+.callout:after{
+  content:"";position:absolute;width:120px;height:120px;border-radius:50%;
+  right:-45px;top:-55px;background:rgba(215,175,85,.08);filter:blur(2px)
+}
+.metric{font-variant-numeric:tabular-nums;line-height:1}
+.section{position:relative}
+.section>.eyebrow{display:flex;align-items:center;gap:9px}
+.section>.eyebrow:before{content:"";width:18px;height:2px;background:var(--accent);border-radius:4px}
+.section h2{font-weight:950}
+.table-wrap{box-shadow:0 16px 42px rgba(0,0,0,.18)}
+tbody tr{transition:background .15s ease}
+tbody tr:hover{background:rgba(255,255,255,.025)}
+th{position:sticky;top:0;z-index:1}
+.rank{font-variant-numeric:tabular-nums}
+.nav{
+  margin-top:0;border:1px solid rgba(77,105,128,.45);border-radius:0 0 15px 15px;
+  border-top:0;background:rgba(5,13,20,.88);box-shadow:0 12px 30px rgba(0,0,0,.16)
+}
+.nav a{position:relative}
+.nav a:after{content:"";position:absolute;height:2px;left:11px;right:11px;bottom:6px;background:var(--accent);transform:scaleX(0);transition:.16s ease}
+.nav a:hover:after{transform:scaleX(1)}
+.pill{transition:.16s ease}
+.pill:hover{border-color:var(--gold);color:var(--gold3);transform:translateY(-1px)}
+.hero-ribbon{
+  display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr);
+  gap:16px;align-items:stretch;margin:24px 0 6px
+}
+.broadcast-hero{
+  min-height:330px;padding:28px;border:1px solid rgba(215,175,85,.35);border-radius:22px;
+  position:relative;overflow:hidden;background:
+    radial-gradient(circle at 85% 10%,rgba(215,175,85,.19),transparent 25%),
+    linear-gradient(135deg,#13283a 0%,#0a1621 60%,#080f16 100%);
+  box-shadow:0 24px 70px rgba(0,0,0,.36)
+}
+.broadcast-hero:before{
+  content:"18";position:absolute;right:-8px;bottom:-45px;font-size:220px;font-weight:1000;
+  line-height:.8;color:rgba(255,255,255,.025);letter-spacing:-.08em
+}
+.broadcast-hero .kicker{font-size:11px;color:var(--gold3);letter-spacing:.18em;text-transform:uppercase;font-weight:950}
+.broadcast-hero .headline{font-size:clamp(34px,5vw,65px);line-height:.93;max-width:760px;letter-spacing:-.05em;font-weight:1000;margin:11px 0 16px}
+.broadcast-hero .deck{max-width:680px;color:#b8c9d5;line-height:1.6}
+.broadcast-side{display:grid;gap:12px}
+.scorebug{
+  border-radius:18px;border:1px solid rgba(99,129,151,.46);background:#0a151f;padding:18px;
+  box-shadow:0 14px 42px rgba(0,0,0,.2)
+}
+.scorebug .number{font-size:38px;font-weight:1000;letter-spacing:-.05em;color:var(--cream)}
+.scorebug .sub{color:#8fa4b4;font-size:11px;line-height:1.45}
+.stat-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid var(--line);
+  background:var(--line);border-radius:17px;overflow:hidden
+}
+.stat-strip>div{background:#0a151f;padding:15px}
+.stat-strip small{display:block;color:#8196a7;font-size:9px;text-transform:uppercase;letter-spacing:.12em;font-weight:900}
+.stat-strip b{display:block;margin-top:5px;font-size:19px}
+.section-band{
+  margin:58px -22px 24px;padding:13px 22px;border-block:1px solid rgba(255,255,255,.07);
+  background:linear-gradient(90deg,rgba(215,175,85,.06),rgba(255,255,255,.018),transparent)
+}
+.section-band b{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:#b8c8d4}
+.champion-rail{display:flex;gap:9px;overflow:auto;padding:5px 0 12px;scrollbar-width:thin}
+.champion-chip{
+  min-width:105px;border:1px solid rgba(107,127,143,.42);border-radius:13px;padding:11px 12px;
+  background:#09131c;box-shadow:0 10px 28px rgba(0,0,0,.15)
+}
+.champion-chip span{display:block;font-size:9px;color:#8194a4;text-transform:uppercase;letter-spacing:.1em}
+.champion-chip b{display:block;margin-top:3px;font-size:13px}
+.power-bars{display:grid;gap:9px}
+.power-row{display:grid;grid-template-columns:74px 1fr 70px;align-items:center;gap:10px}
+.power-row b{font-size:12px}
+.power-track{height:10px;border-radius:100px;background:#172634;overflow:hidden}
+.power-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,#987029,var(--gold3))}
+.power-value{text-align:right;color:#b7c5cf;font-size:11px;font-weight:900}
+.manager-card{min-height:168px}
+.manager-card .name{font-size:24px;letter-spacing:-.025em}
+.manager-card:after{
+  content:"";position:absolute;width:70px;height:70px;border-radius:50%;right:-30px;bottom:-35px;
+  background:var(--accent-soft)
+}
+.manager-page{--accent:var(--manager-accent,var(--gold2));--accent-soft:color-mix(in srgb,var(--accent) 11%,transparent)}
+.manager-page .top h1{color:var(--cream)}
+.manager-page .top:before{
+  content:"";position:absolute;left:-100px;top:-110px;width:320px;height:320px;border-radius:50%;
+  background:color-mix(in srgb,var(--accent) 12%,transparent);filter:blur(45px);z-index:-1
+}
+.manager-stilly{--manager-accent:#f0d98e}
+.manager-jmid{--manager-accent:#75c7ff}
+.manager-tom{--manager-accent:#ff8585}
+.manager-stew{--manager-accent:#d697ff}
+.manager-scott{--manager-accent:#78dca2}
+.manager-mitch{--manager-accent:#ffbd68}
+.manager-tony{--manager-accent:#72d5d5}
+.manager-stover{--manager-accent:#a8b6ff}
+.manager-kuhl{--manager-accent:#ff9fd0}
+.manager-birch{--manager-accent:#b9db77}
+.page-kicker{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;
+  color:#8297a8;font-size:9px;text-transform:uppercase;letter-spacing:.12em
+}
+.footer{padding-bottom:28px}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(139,209,127,.14)}50%{box-shadow:0 0 0 7px rgba(139,209,127,0)}}
+.live-dot{animation:pulseGlow 2.2s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
+@media(max-width:900px){
+  .hero-ribbon{grid-template-columns:1fr}
+  .broadcast-hero{min-height:300px}
+  .stat-strip{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .brand-copy small{display:none}
+  .brandbar{padding-top:10px}
+  .broadcast-hero{padding:20px;min-height:300px}
+  .broadcast-hero .headline{font-size:42px}
+  .broadcast-hero:before{font-size:160px;bottom:-28px}
+  .stat-strip>div{padding:12px}
+  .section-band{margin-left:-11px;margin-right:-11px;padding-left:11px;padding-right:11px}
+  .power-row{grid-template-columns:62px 1fr 58px}
+}
+</style><style>.fellas-review-notice{position:relative;z-index:100;box-sizing:border-box;text-align:center;background:#291f0d;border-bottom:1px solid #d7af55;color:#ffe7a6;padding:9px 14px;font:600 12px/1.5 system-ui,Arial,sans-serif}.fellas-review-notice a{color:#ffe7a6;text-decoration:underline;text-underline-offset:2px}</style></head><body class=""><div aria-label="Historical verification notice" class="fellas-review-notice" role="status">REVIEW BUILD · <a href="../data-integrity/source-status.html">Historical audit in progress: 2020–2026 draft boards and 2026 Week 6 standings verified; trade rankings remain provisional. Review audit status.</a></div><div class="wrap"><div class="brandbar">
+<a class="brandmark" href="../index.html">
+<span class="brand-crest">F</span>
+<span class="brand-copy"><strong>THE FELLAS</strong><small>Fantasy Football League · Est. 2016</small></span>
+</a>
+<span class="live-chip"><i class="live-dot"></i>2026 · Week 6 snapshot</span>
+</div><div class="page-kicker"><span>Fellas OS v8</span><span>Verified through 2026 W6</span></div><header class="top"><div><div class="eyebrow">#11 · Schedule fortune</div><h1>LUCK LAB</h1><p>Expected wins come from all-play: each weekly score is compared with all nine league opponents. Schedule fortune = actual wins − all-play expected wins. It measures schedule, not roster quality or injury luck.</p></div></header><nav class="nav"><a href="../index.html">Dashboard</a><a href="../labs/luck.html">Luck</a><a href="../labs/repair.html">Roster Repair</a><a href="../labs/transactions.html">Transaction Alpha</a><a href="../labs/faab.html">FAAB</a><a href="../labs/lineups.html">Lineups</a><a href="../labs/alternate-history.html">Alternate History</a><a href="../labs/power-index.html">Power Index</a><a href="../labs/eras.html">Eras</a><a href="../labs/record-watch.html">Record Watch</a><a href="../analytics/search.html">Search</a></nav>
+<details class="mobile-menu">
+<summary class="pill gold">☰ Explore Fellas OS</summary>
+<div class="menu-grid">
+<a href="../index.html">🏠 Dashboard</a>
+<a href="../analytics/search.html">🔎 Search</a>
+<a href="../managers/stilly.html">👤 Managers</a>
+<a href="../seasons/2026.html">📅 Seasons</a>
+<a href="../analytics/rivalries.html">⚔️ Rivalries</a>
+<a href="../labs/power-index.html">🏆 Power Index</a>
+<a href="../data-integrity/replay-booth.html">🎥 Replay Booth</a>
+<a href="../data-integrity/audit.html">✅ Audit</a>
+</div></details>
+<div class="mobile-dock">
+<a href="../index.html"><span>⌂</span>Home</a>
+<a href="../analytics/search.html"><span>⌕</span>Search</a>
+<a href="../managers/stilly.html"><span>♟</span>Managers</a>
+<a href="../analytics/rivalries.html"><span>⚔</span>Rivals</a>
+<a href="../data-integrity/replay-booth.html"><span>↺</span>Replay</a>
+</div><section class="section"><div class="table-wrap"><table><thead><tr><th>#</th><th>Manager</th><th>Actual wins</th><th>Expected wins</th><th>Career schedule fortune</th><th>All-play</th></tr></thead><tbody><tr><td class="rank">1</td><td><b>Birch</b></td><td>50</td><td>43.87</td><td class="pos">+6.13</td><td>395–396</td></tr><tr><td class="rank">2</td><td><b>Stover</b></td><td>50</td><td>47.66</td><td class="pos">+2.34</td><td>429–362</td></tr><tr><td class="rank">3</td><td><b>Mitch</b></td><td>55</td><td>52.88</td><td class="pos">+2.12</td><td>516–275</td></tr><tr><td class="rank">4</td><td><b>Scott</b></td><td>16</td><td>15.77</td><td class="pos">+0.23</td><td>142–162</td></tr><tr><td class="rank">5</td><td><b>Stilly</b></td><td>40</td><td>40.00</td><td class="neg">-0.00</td><td>360–432</td></tr><tr><td class="rank">6</td><td><b>Tom</b></td><td>41</td><td>42.10</td><td class="neg">-1.10</td><td>379–412</td></tr><tr><td class="rank">7</td><td><b>Tony</b></td><td>49</td><td>50.34</td><td class="neg">-1.34</td><td>453–338</td></tr><tr><td class="rank">8</td><td><b>JMid</b></td><td>14</td><td>16.33</td><td class="neg">-2.33</td><td>147–174</td></tr><tr><td class="rank">9</td><td><b>Kuhl</b></td><td>36</td><td>38.56</td><td class="neg">-2.56</td><td>347–444</td></tr><tr><td class="rank">10</td><td><b>Stew</b></td><td>37</td><td>40.23</td><td class="neg">-3.23</td><td>362–429</td></tr></tbody></table></div></section><section class="section"><div class="grid"><div class="card c6"><div class="label">Stilly</div><div class="metric">-0.00</div><p class="muted">Career schedule fortune. Most favorable: 2022 (+0.89). Most schedule-dented: 2021 (-0.89).</p></div><div class="card c6"><div class="label">JMid</div><div class="metric">-2.33</div><p class="muted">Career schedule fortune. Most favorable: 2025 (-0.33). Most schedule-dented: 2026 (-1.44).</p></div><div class="card c6"><div class="label">Tom</div><div class="metric">-1.10</div><p class="muted">Career schedule fortune. Most favorable: 2024 (+2.56). Most schedule-dented: 2020 (-2.56).</p></div><div class="card c6"><div class="label">Stew</div><div class="metric">-3.23</div><p class="muted">Career schedule fortune. Most favorable: 2022 (+1.22). Most schedule-dented: 2021 (-1.78).</p></div><div class="card c6"><div class="label">Scott</div><div class="metric">+0.23</div><p class="muted">Career schedule fortune. Most favorable: 2026 (+0.89). Most schedule-dented: 2024 (-0.44).</p></div><div class="card c6"><div class="label">Mitch</div><div class="metric">+2.12</div><p class="muted">Career schedule fortune. Most favorable: 2025 (+2.22). Most schedule-dented: 2023 (-1.67).</p></div><div class="card c6"><div class="label">Tony</div><div class="metric">-1.34</div><p class="muted">Career schedule fortune. Most favorable: 2026 (+1.11). Most schedule-dented: 2020 (-2.00).</p></div><div class="card c6"><div class="label">Stover</div><div class="metric">+2.34</div><p class="muted">Career schedule fortune. Most favorable: 2023 (+1.56). Most schedule-dented: 2024 (-0.33).</p></div><div class="card c6"><div class="label">Kuhl</div><div class="metric">-2.56</div><p class="muted">Career schedule fortune. Most favorable: 2020 (+2.33). Most schedule-dented: 2021 (-2.11).</p></div><div class="card c6"><div class="label">Birch</div><div class="metric">+6.13</div><p class="muted">Career schedule fortune. Most favorable: 2021 (+3.56). Most schedule-dented: 2025 (-0.33).</p></div></div></section><div class="footer">The Fellas OS v6 · pre-publish analytics pass · exact metrics are labeled separately from editorial or incomplete-history indexes.</div></div></body></html>
