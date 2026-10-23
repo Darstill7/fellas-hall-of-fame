@@ -1,0 +1,159 @@
+{
+  "version": "v9.11",
+  "source": "Existing Fellas OS league.json; no live refresh",
+  "scope": "2026 regular season through Week 6",
+  "last_completed_week": 6,
+  "ranking_method": "40% all-play win rate; 30% points per game capped at 150; 20% league win percentage; 10% last-three-week win rate. Heuristic descriptive index only.",
+  "rankings": [
+    {
+      "manager": "Mitch",
+      "team": "Suck My Njigba",
+      "rating": 86.8,
+      "record": "6\u20130",
+      "pf": 816.22,
+      "allplay": "40\u201314",
+      "form": "WWW"
+    },
+    {
+      "manager": "Birch",
+      "team": "Nacua Matata",
+      "rating": 79.5,
+      "record": "5\u20131",
+      "pf": 740.64,
+      "allplay": "38\u201316",
+      "form": "WWW"
+    },
+    {
+      "manager": "Stew",
+      "team": "Worst Team on Paper!",
+      "rating": 68.6,
+      "record": "3\u20133",
+      "pf": 758.68,
+      "allplay": "36\u201318",
+      "form": "LWW"
+    },
+    {
+      "manager": "Stilly",
+      "team": "Harry Woody",
+      "rating": 61.4,
+      "record": "3\u20133",
+      "pf": 698.54,
+      "allplay": "29\u201325",
+      "form": "WWL"
+    },
+    {
+      "manager": "Stover",
+      "team": "Gurt",
+      "rating": 59.9,
+      "record": "3\u20133",
+      "pf": 651.94,
+      "allplay": "29\u201325",
+      "form": "LWW"
+    },
+    {
+      "manager": "Tony",
+      "team": "Bowers Castle",
+      "rating": 58.4,
+      "record": "4\u20132",
+      "pf": 675.58,
+      "allplay": "26\u201328",
+      "form": "WLL"
+    },
+    {
+      "manager": "Scott",
+      "team": "Team Sheffla",
+      "rating": 46.5,
+      "record": "3\u20133",
+      "pf": 573.26,
+      "allplay": "19\u201335",
+      "form": "LLW"
+    },
+    {
+      "manager": "Tom",
+      "team": "Green Bowl Packers",
+      "rating": 45.5,
+      "record": "2\u20134",
+      "pf": 598.58,
+      "allplay": "21\u201333",
+      "form": "WLL"
+    },
+    {
+      "manager": "JMid",
+      "team": "Bengals Fan",
+      "rating": 40.3,
+      "record": "1\u20135",
+      "pf": 621.1,
+      "allplay": "22\u201332",
+      "form": "LLL"
+    },
+    {
+      "manager": "Kuhl",
+      "team": "Kirko Chains",
+      "rating": 24.3,
+      "record": "0\u20136",
+      "pf": 506.64,
+      "allplay": "10\u201344",
+      "form": "LLL"
+    }
+  ],
+  "week_games": [
+    {
+      "winner": "Stover",
+      "loser": "Stilly",
+      "ws": 121.68,
+      "ls": 71.3,
+      "margin": 50.38,
+      "a": "Stover",
+      "ap": 121.68,
+      "b": "Stilly",
+      "bp": 71.3
+    },
+    {
+      "winner": "Mitch",
+      "loser": "JMid",
+      "ws": 129.2,
+      "ls": 89.16,
+      "margin": 40.04,
+      "a": "Mitch",
+      "ap": 129.2,
+      "b": "JMid",
+      "bp": 89.16
+    },
+    {
+      "winner": "Stew",
+      "loser": "Tony",
+      "ws": 114.44,
+      "ls": 74.72,
+      "margin": 39.72,
+      "a": "Stew",
+      "ap": 114.44,
+      "b": "Tony",
+      "bp": 74.72
+    },
+    {
+      "winner": "Scott",
+      "loser": "Kuhl",
+      "ws": 114.56,
+      "ls": 101.82,
+      "margin": 12.74,
+      "a": "Scott",
+      "ap": 114.56,
+      "b": "Kuhl",
+      "bp": 101.82
+    },
+    {
+      "winner": "Birch",
+      "loser": "Tom",
+      "ws": 98.88,
+      "ls": 91.7,
+      "margin": 7.18,
+      "a": "Birch",
+      "ap": 98.88,
+      "b": "Tom",
+      "bp": 91.7
+    }
+  ],
+  "next_opponents": "Unavailable in verified packaged data; no upcoming matchup preview asserted",
+  "previous_week": 5,
+  "historical_cutoff": "2016\u20132019 ESPN matchup histories incomplete"
+}

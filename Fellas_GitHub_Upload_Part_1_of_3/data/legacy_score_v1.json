@@ -1,0 +1,160 @@
+{
+  "version": "Legacy v1.0 review",
+  "weights": {
+    "championships": 30,
+    "playoffs": 20,
+    "regular_season": 20,
+    "all_play": 15,
+    "peaks": 10,
+    "longevity": 5
+  },
+  "managers": [
+    {
+      "manager": "Stilly",
+      "display_name": "Stilly",
+      "career_wins": 40,
+      "career_losses": 48,
+      "career_win_pct": 0.454545,
+      "titles": 1,
+      "championship_years": [
+        2023
+      ],
+      "championship_component": 15.0,
+      "record_scope": "packaged career record; exact season inclusion pending per-manager audit",
+      "source": "data/league.json"
+    },
+    {
+      "manager": "JMid",
+      "display_name": "JMid",
+      "career_wins": 14,
+      "career_losses": 20,
+      "career_win_pct": 0.411765,
+      "titles": 0,
+      "championship_years": [],
+      "championship_component": 0.0,
+      "record_scope": "packaged career record; exact season inclusion pending per-manager audit",
+      "source": "data/league.json"
+    },
+    {
+      "manager": "Tom",
+      "display_name": "Tom",
+      "career_wins": 41,
+      "career_losses": 47,
+      "career_win_pct": 0.465909,
+      "titles": 4,
+      "championship_years": [
+        2016,
+        2017,
+        2018,
+        2024
+      ],
+      "championship_component": 30.0,
+      "record_scope": "packaged career record; exact season inclusion pending per-manager audit",
+      "source": "data/league.json"
+    },
+    {
+      "manager": "Stew",
+      "display_name": "Stew",
+      "career_wins": 37,
+      "career_losses": 51,
+      "career_win_pct": 0.420455,
+      "titles": 0,
+      "championship_years": [],
+      "championship_component": 0.0,
+      "record_scope": "packaged career record; exact season inclusion pending per-manager audit",
+      "source": "data/league.json"
+    },
+    {
+      "manager": "Scott",
+      "display_name": "Scott",
+      "career_wins": 16,
+      "career_losses": 18,
+      "career_win_pct": 0.470588,
+      "titles": 1,
+      "championship_years": [
+        2025
+      ],
+      "championship_component": 15.0,
+      "record_scope": "packaged career record; exact season inclusion pending per-manager audit",
+      "source": "data/league.json"
+    },
+    {
+      "manager": "Mitch",
+      "display_name": "Mitch",
+      "career_wins": 55,
+      "career_losses": 33,
+      "career_win_pct": 0.625,
+      "titles": 0,
+      "championship_years": [],
+      "championship_component": 0.0,
+      "record_scope": "packaged career record; exact season inclusion pending per-manager audit",
+      "source": "data/league.json"
+    },
+    {
+      "manager": "Tony",
+      "display_name": "Tony",
+      "career_wins": 49,
+      "career_losses": 39,
+      "career_win_pct": 0.556818,
+      "titles": 1,
+      "championship_years": [
+        2021
+      ],
+      "championship_component": 15.0,
+      "record_scope": "packaged career record; exact season inclusion pending per-manager audit",
+      "source": "data/league.json"
+    },
+    {
+      "manager": "Stover",
+      "display_name": "Stover",
+      "career_wins": 50,
+      "career_losses": 38,
+      "career_win_pct": 0.568182,
+      "titles": 1,
+      "championship_years": [
+        2022
+      ],
+      "championship_component": 15.0,
+      "record_scope": "packaged career record; exact season inclusion pending per-manager audit",
+      "source": "data/league.json"
+    },
+    {
+      "manager": "Kuhl",
+      "display_name": "Kuhl",
+      "career_wins": 36,
+      "career_losses": 52,
+      "career_win_pct": 0.409091,
+      "titles": 0,
+      "championship_years": [],
+      "championship_component": 0.0,
+      "record_scope": "packaged career record; exact season inclusion pending per-manager audit",
+      "source": "data/league.json"
+    },
+    {
+      "manager": "Birch",
+      "display_name": "Birch",
+      "career_wins": 50,
+      "career_losses": 38,
+      "career_win_pct": 0.568182,
+      "titles": 1,
+      "championship_years": [
+        2019
+      ],
+      "championship_component": 15.0,
+      "record_scope": "packaged career record; exact season inclusion pending per-manager audit",
+      "source": "data/league.json"
+    }
+  ],
+  "method": {
+    "championships": "30 * sqrt(titles / 4), capped at 30; 4 is current verified leader. Rebaseline only on a published scoring-version update.",
+    "playoffs": "20 * [0.50*(playoff wins / playoff games) + 0.30*(finals appearances / seasons eligible) + 0.20*(playoff berths / seasons eligible)] when complete league-wide bracket evidence exists.",
+    "regular_season": "20 * regular-season win percentage, after season scope and total games are verified consistently.",
+    "all_play": "15 * league-wide all-play win percentage, season-balanced, from complete manager-weeks.",
+    "peaks": "10 * 0.70*(best completed-season regular-season win-percentage percentile) + 0.30*(verified records top-tier indicator). Requires full seasonal data and uniform benchmark.",
+    "longevity": "5 * min(seasons played / 10, 1); eligible season needs at least one verified official matchup.",
+    "missing": "Do not impute missing component as zero; official ranking withheld until comparable data coverage.",
+    "2026": "2026 incomplete and excluded from all completed-season historical measurements until concluded.",
+    "legacy": "2016\u20132019 ESPN championship outcomes included; weekly performance and all-play excluded unless reconstructed with verified evidence."
+  },
+  "status": "Partial components only. No 100-point scores or definitive all-time rank have been published."
+}

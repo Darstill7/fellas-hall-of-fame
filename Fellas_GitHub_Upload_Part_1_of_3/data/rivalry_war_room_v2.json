@@ -1,0 +1,440 @@
+{
+  "scope": "2026 regular-season Weeks 1\u20136 only for verified weekly matchup timeline; archived career rivalry matrix is separately sourced from data/league.json and may have a different season range. Do not add the two together.",
+  "career_rivalries": {
+    "Stilly": {
+      "JMid": "2\u20131",
+      "Tom": "7\u20133",
+      "Stew": "6\u20135",
+      "Scott": "3\u20132",
+      "Mitch": "1\u20139",
+      "Tony": "4\u20137",
+      "Stover": "2\u20136",
+      "Kuhl": "4\u20134",
+      "Birch": "4\u20135"
+    },
+    "JMid": {
+      "Stilly": "1\u20132",
+      "Tom": "1\u20132",
+      "Stew": "3\u20132",
+      "Scott": "2\u20132",
+      "Mitch": "1\u20133",
+      "Tony": "1\u20133",
+      "Stover": "0\u20131",
+      "Kuhl": "2\u20131",
+      "Birch": "2\u20131"
+    },
+    "Tom": {
+      "Stilly": "3\u20137",
+      "JMid": "2\u20131",
+      "Stew": "4\u20135",
+      "Scott": "3\u20131",
+      "Mitch": "5\u20136",
+      "Tony": "4\u20136",
+      "Stover": "2\u20136",
+      "Kuhl": "7\u20133",
+      "Birch": "4\u20137"
+    },
+    "Stew": {
+      "Stilly": "5\u20136",
+      "JMid": "2\u20133",
+      "Tom": "5\u20134",
+      "Scott": "0\u20132",
+      "Mitch": "5\u20138",
+      "Tony": "3\u20136",
+      "Stover": "1\u20135",
+      "Kuhl": "5\u20135",
+      "Birch": "6\u20133"
+    },
+    "Scott": {
+      "Stilly": "2\u20133",
+      "JMid": "2\u20132",
+      "Tom": "1\u20133",
+      "Stew": "2\u20130",
+      "Mitch": "1\u20133",
+      "Tony": "1\u20132",
+      "Stover": "1\u20130",
+      "Kuhl": "3\u20131",
+      "Birch": "1\u20132"
+    },
+    "Mitch": {
+      "Stilly": "9\u20131",
+      "JMid": "3\u20131",
+      "Tom": "6\u20135",
+      "Stew": "8\u20135",
+      "Scott": "3\u20131",
+      "Tony": "6\u20133",
+      "Stover": "3\u20131",
+      "Kuhl": "5\u20134",
+      "Birch": "6\u20135"
+    },
+    "Tony": {
+      "Stilly": "7\u20134",
+      "JMid": "3\u20131",
+      "Tom": "6\u20134",
+      "Stew": "6\u20133",
+      "Scott": "2\u20131",
+      "Mitch": "3\u20136",
+      "Stover": "2\u20134",
+      "Kuhl": "8\u20132",
+      "Birch": "3\u20138"
+    },
+    "Stover": {
+      "Stilly": "6\u20132",
+      "JMid": "1\u20130",
+      "Tom": "6\u20132",
+      "Stew": "5\u20131",
+      "Scott": "0\u20131",
+      "Mitch": "1\u20133",
+      "Tony": "4\u20132",
+      "Kuhl": "5\u20132",
+      "Birch": "1\u20134"
+    },
+    "Kuhl": {
+      "Stilly": "4\u20134",
+      "JMid": "1\u20132",
+      "Tom": "3\u20137",
+      "Stew": "5\u20135",
+      "Scott": "1\u20133",
+      "Mitch": "4\u20135",
+      "Tony": "2\u20138",
+      "Stover": "2\u20135",
+      "Birch": "4\u20138"
+    },
+    "Birch": {
+      "Stilly": "5\u20134",
+      "JMid": "1\u20132",
+      "Tom": "7\u20134",
+      "Stew": "3\u20136",
+      "Scott": "2\u20131",
+      "Mitch": "5\u20136",
+      "Tony": "8\u20133",
+      "Stover": "4\u20131",
+      "Kuhl": "8\u20134"
+    }
+  },
+  "managers": {
+    "Stilly": {
+      "team": "Harry Woody",
+      "record": "40\u201348",
+      "titles": 1
+    },
+    "JMid": {
+      "team": "Bengals Fan",
+      "record": "14\u201320",
+      "titles": 0
+    },
+    "Tom": {
+      "team": "Green Bowl Packers",
+      "record": "41\u201347",
+      "titles": 4
+    },
+    "Stew": {
+      "team": "Worst Team on Paper!",
+      "record": "37\u201351",
+      "titles": 0
+    },
+    "Scott": {
+      "team": "Team Sheffla",
+      "record": "16\u201318",
+      "titles": 1
+    },
+    "Mitch": {
+      "team": "Suck My Njigba",
+      "record": "55\u201333",
+      "titles": 0
+    },
+    "Tony": {
+      "team": "Bowers Castle",
+      "record": "49\u201339",
+      "titles": 1
+    },
+    "Stover": {
+      "team": "Gurt",
+      "record": "50\u201338",
+      "titles": 1
+    },
+    "Kuhl": {
+      "team": "Kirko Chains",
+      "record": "36\u201352",
+      "titles": 0
+    },
+    "Birch": {
+      "team": "Nacua Matata",
+      "record": "50\u201338",
+      "titles": 1
+    }
+  },
+  "matchups": [
+    {
+      "week": 1,
+      "a": "Scott",
+      "pa": 134.96,
+      "b": "Stilly",
+      "pb": 107.94,
+      "margin": 27.02,
+      "winner": "Scott"
+    },
+    {
+      "week": 1,
+      "a": "Tom",
+      "pa": 89.0,
+      "b": "JMid",
+      "pb": 73.56,
+      "margin": 15.44,
+      "winner": "Tom"
+    },
+    {
+      "week": 1,
+      "a": "Mitch",
+      "pa": 161.26,
+      "b": "Stew",
+      "pb": 158.52,
+      "margin": 2.74,
+      "winner": "Mitch"
+    },
+    {
+      "week": 1,
+      "a": "Tony",
+      "pa": 153.86,
+      "b": "Kuhl",
+      "pb": 105.92,
+      "margin": 47.94,
+      "winner": "Tony"
+    },
+    {
+      "week": 1,
+      "a": "Birch",
+      "pa": 160.26,
+      "b": "Stover",
+      "pb": 70.8,
+      "margin": 89.46,
+      "winner": "Birch"
+    },
+    {
+      "week": 2,
+      "a": "Stilly",
+      "pa": 163.34,
+      "b": "Tom",
+      "pb": 63.0,
+      "margin": 100.34,
+      "winner": "Stilly"
+    },
+    {
+      "week": 2,
+      "a": "Stew",
+      "pa": 113.96,
+      "b": "JMid",
+      "pb": 94.38,
+      "margin": 19.58,
+      "winner": "Stew"
+    },
+    {
+      "week": 2,
+      "a": "Mitch",
+      "pa": 168.72,
+      "b": "Birch",
+      "pb": 99.7,
+      "margin": 69.02,
+      "winner": "Mitch"
+    },
+    {
+      "week": 2,
+      "a": "Stover",
+      "pa": 129.26,
+      "b": "Kuhl",
+      "pb": 56.32,
+      "margin": 72.94,
+      "winner": "Stover"
+    },
+    {
+      "week": 2,
+      "a": "Tony",
+      "pa": 84.32,
+      "b": "Scott",
+      "pb": 46.38,
+      "margin": 37.94,
+      "winner": "Tony"
+    },
+    {
+      "week": 3,
+      "a": "JMid",
+      "pa": 152.58,
+      "b": "Stilly",
+      "pb": 104.98,
+      "margin": 47.6,
+      "winner": "JMid"
+    },
+    {
+      "week": 3,
+      "a": "Tony",
+      "pa": 92.44,
+      "b": "Tom",
+      "pb": 86.66,
+      "margin": 5.78,
+      "winner": "Tony"
+    },
+    {
+      "week": 3,
+      "a": "Birch",
+      "pa": 128.94,
+      "b": "Stew",
+      "pb": 123.22,
+      "margin": 5.72,
+      "winner": "Birch"
+    },
+    {
+      "week": 3,
+      "a": "Scott",
+      "pa": 120.6,
+      "b": "Stover",
+      "pb": 105.78,
+      "margin": 14.82,
+      "winner": "Scott"
+    },
+    {
+      "week": 3,
+      "a": "Mitch",
+      "pa": 91.62,
+      "b": "Kuhl",
+      "pb": 76.16,
+      "margin": 15.46,
+      "winner": "Mitch"
+    },
+    {
+      "week": 4,
+      "a": "Stilly",
+      "pa": 124.62,
+      "b": "Stew",
+      "pb": 105.98,
+      "margin": 18.64,
+      "winner": "Stilly"
+    },
+    {
+      "week": 4,
+      "a": "Tony",
+      "pa": 154.8,
+      "b": "JMid",
+      "pb": 106.12,
+      "margin": 48.68,
+      "winner": "Tony"
+    },
+    {
+      "week": 4,
+      "a": "Mitch",
+      "pa": 92.52,
+      "b": "Scott",
+      "pb": 90.54,
+      "margin": 1.98,
+      "winner": "Mitch"
+    },
+    {
+      "week": 4,
+      "a": "Tom",
+      "pa": 143.28,
+      "b": "Stover",
+      "pb": 110.48,
+      "margin": 32.8,
+      "winner": "Tom"
+    },
+    {
+      "week": 4,
+      "a": "Birch",
+      "pa": 108.28,
+      "b": "Kuhl",
+      "pb": 71.32,
+      "margin": 36.96,
+      "winner": "Birch"
+    },
+    {
+      "week": 5,
+      "a": "Stilly",
+      "pa": 126.36,
+      "b": "Tony",
+      "pb": 115.44,
+      "margin": 10.92,
+      "winner": "Stilly"
+    },
+    {
+      "week": 5,
+      "a": "Stover",
+      "pa": 113.94,
+      "b": "JMid",
+      "pb": 105.3,
+      "margin": 8.64,
+      "winner": "Stover"
+    },
+    {
+      "week": 5,
+      "a": "Mitch",
+      "pa": 172.9,
+      "b": "Tom",
+      "pb": 124.94,
+      "margin": 47.96,
+      "winner": "Mitch"
+    },
+    {
+      "week": 5,
+      "a": "Stew",
+      "pa": 142.56,
+      "b": "Kuhl",
+      "pb": 95.1,
+      "margin": 47.46,
+      "winner": "Stew"
+    },
+    {
+      "week": 5,
+      "a": "Birch",
+      "pa": 144.58,
+      "b": "Scott",
+      "pb": 66.22,
+      "margin": 78.36,
+      "winner": "Birch"
+    },
+    {
+      "week": 6,
+      "a": "Stover",
+      "pa": 121.68,
+      "b": "Stilly",
+      "pb": 71.3,
+      "margin": 50.38,
+      "winner": "Stover"
+    },
+    {
+      "week": 6,
+      "a": "Mitch",
+      "pa": 129.2,
+      "b": "JMid",
+      "pb": 89.16,
+      "margin": 40.04,
+      "winner": "Mitch"
+    },
+    {
+      "week": 6,
+      "a": "Birch",
+      "pa": 98.88,
+      "b": "Tom",
+      "pb": 91.7,
+      "margin": 7.18,
+      "winner": "Birch"
+    },
+    {
+      "week": 6,
+      "a": "Stew",
+      "pa": 114.44,
+      "b": "Tony",
+      "pb": 74.72,
+      "margin": 39.72,
+      "winner": "Stew"
+    },
+    {
+      "week": 6,
+      "a": "Scott",
+      "pa": 114.56,
+      "b": "Kuhl",
+      "pb": 101.82,
+      "margin": 12.74,
+      "winner": "Scott"
+    }
+  ],
+  "pair_count_with_2026_matchup": 30
+}

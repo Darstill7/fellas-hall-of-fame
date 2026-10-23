@@ -1,0 +1,113 @@
+{
+  "version": "v9.6",
+  "records_from": "Existing packaged league.json / record_book_v2.json",
+  "cutoff": "2026 Week 6",
+  "awards": [
+    {
+      "id": "highest-score",
+      "title": "Scoring Explosion",
+      "recipient": "Mitch",
+      "detail": "172.90 points against Tom in Week 5.",
+      "category": "Performances",
+      "scope": "2026 W1\u20136",
+      "metric": "172.90",
+      "evidence": "record_book_v2.high_scores"
+    },
+    {
+      "id": "lowest-score",
+      "title": "The Basement",
+      "recipient": "Scott",
+      "detail": "46.38 points against Tony in Week 2.",
+      "category": "Infamy",
+      "scope": "2026 W1\u20136",
+      "metric": "46.38",
+      "evidence": "record_book_v2.low_scores"
+    },
+    {
+      "id": "blowout",
+      "title": "Statement Win",
+      "recipient": "Stilly",
+      "detail": "Defeated Tom 163.34\u201363.00 in Week 2.",
+      "category": "Performances",
+      "scope": "2026 W1\u20136",
+      "metric": "+100.34",
+      "evidence": "record_book_v2.biggest_wins"
+    },
+    {
+      "id": "nailbiter",
+      "title": "Nail-Biter",
+      "recipient": "Mitch",
+      "detail": "Escaped Scott 92.52\u201390.54 in Week 4.",
+      "category": "Performances",
+      "scope": "2026 W1\u20136",
+      "metric": "1.98 margin",
+      "evidence": "record_book_v2.closest_games"
+    },
+    {
+      "id": "points",
+      "title": "Scoring Leader",
+      "recipient": "Mitch",
+      "detail": "816.22 total points through six weeks.",
+      "category": "Season Pulse",
+      "scope": "2026 W1\u20136",
+      "metric": "816.22",
+      "evidence": "league.standings.pf"
+    },
+    {
+      "id": "allplay",
+      "title": "All-Play Juggernaut",
+      "recipient": "Mitch",
+      "detail": "40 wins and 14 losses if facing every opponent each week.",
+      "category": "Season Pulse",
+      "scope": "2026 W1\u20136",
+      "metric": "40\u201314",
+      "evidence": "league.standings.apw/apl"
+    },
+    {
+      "id": "schedule-lucky",
+      "title": "Schedule Fortune",
+      "recipient": "Mitch",
+      "detail": "6 actual wins versus 4.44 all-play expected wins. This is schedule fortune, not overall luck.",
+      "category": "Season Pulse",
+      "scope": "2026 W1\u20136",
+      "metric": "+1.56",
+      "evidence": "league.standings.luck"
+    },
+    {
+      "id": "schedule-hard",
+      "title": "Schedule Misfortune",
+      "recipient": "JMid",
+      "detail": "1 actual wins versus 2.44 all-play expected wins. Not evidence of poor management.",
+      "category": "Season Pulse",
+      "scope": "2026 W1\u20136",
+      "metric": "-1.44",
+      "evidence": "league.standings.luck"
+    },
+    {
+      "id": "championships",
+      "title": "Dynasty Builder",
+      "recipient": "Tom",
+      "detail": "4 championships in the archived 2016\u20132025 championship timeline.",
+      "category": "History",
+      "scope": "2016\u20132025",
+      "metric": "4 titles",
+      "evidence": "record_book_v2.championships"
+    },
+    {
+      "id": "win-rate",
+      "title": "Regular-Season Standard",
+      "recipient": "Mitch",
+      "detail": "55\u201333 in the stored career record (62.5%); this is not a comprehensive ESPN-era reconstruction.",
+      "category": "History",
+      "scope": "Stored career",
+      "metric": "62.5%",
+      "evidence": "record_book_v2.career_records"
+    }
+  ],
+  "limitations": [
+    "2026 awards reflect Weeks 1\u20136 only",
+    "Historical records do not certify every 2016\u20132019 matchup",
+    "Subjective awards are nominations only; no votes simulated",
+    "Season-end titles already concluded through 2025"
+  ]
+}

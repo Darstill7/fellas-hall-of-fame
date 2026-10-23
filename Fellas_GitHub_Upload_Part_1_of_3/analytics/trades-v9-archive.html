@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#071019" name="theme-color"/><meta content="Every reconstructed Sleeper-era trade, scored on actual Fellas starter points delivered after the deal." name="description"/>
+<title>Full Trade Engine — The Fellas</title><style>
+:root{--bg:#071018;--panel:#101c27;--panel2:#142534;--line:#29445b;--text:#f4f1e8;--muted:#9fb1c1;--gold:#d7af55;--gold2:#f0d98e;--green:#8bd17f;--red:#ff8f84;--blue:#83bfff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0,#21364b,#09131c 35%,#050a0f 80%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit}.wrap{max-width:1280px;margin:auto;padding:0 18px 80px}.top{padding:34px 0 22px;display:flex;justify-content:space-between;gap:20px;align-items:end}.eyebrow,.label{color:var(--gold2);font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.top h1{font-size:clamp(42px,7vw,86px);line-height:.92;letter-spacing:-.055em;margin:7px 0}.top p{color:#c1ced9;max-width:780px;line-height:1.55}.pill{display:inline-flex;border:1px solid #56687a;border-radius:999px;padding:6px 10px;font-size:10px;font-weight:900;color:#cad6df;text-decoration:none}.pill.gold{background:#302713;border-color:#725e32;color:var(--gold2)}
+.nav{position:sticky;top:0;z-index:20;background:#061018ee;border-block:1px solid var(--line);backdrop-filter:blur(12px);overflow:auto;white-space:nowrap;margin:0 -18px 30px;padding:0 10px}.nav a{display:inline-block;padding:14px 11px;text-decoration:none;color:#adbdca;font-size:12px;font-weight:850}.nav a:hover{color:var(--gold2)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:0 14px 40px #0004}.card h2,.card h3{margin:6px 0}.muted{color:var(--muted);font-size:12px;line-height:1.5}.metric{font-size:36px;font-weight:1000;letter-spacing:-.04em}.section{margin:50px 0}.section h2{font-size:34px;letter-spacing:-.04em;margin:4px 0 16px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:15px}table{width:100%;border-collapse:collapse;min-width:700px;background:#0b151e}th,td{padding:10px 11px;border-bottom:1px solid var(--line);font-size:12px}th{background:#12212e;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;font-size:9px;text-align:left}.pos{color:#aee6a3;font-weight:900}.neg{color:#ffaaa2;font-weight:900}.rank{color:var(--gold2);font-weight:1000}.score{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:9px 0}.score:last-child{border-bottom:0}.score b{font-size:13px}.bar{height:8px;border-radius:99px;background:#223445;overflow:hidden;margin-top:8px}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2))}.manager-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.manager-card{text-decoration:none}.manager-card:hover{border-color:#77663b;transform:translateY(-1px)}.manager-card .name{font-size:22px;font-weight:1000}.tag{display:inline-block;border:1px solid #445a6c;border-radius:999px;padding:4px 8px;font-size:9px;margin:2px;color:#c2d0da}.tag.gold{border-color:#735f35;background:#2b2413;color:var(--gold2)}.callout{border:1px solid #6f5d34;background:linear-gradient(145deg,#211c10,#101a24);border-radius:18px;padding:17px}.list{margin:0;padding-left:18px}.list li{margin:7px 0;color:#c4d0da;line-height:1.45}.subnav{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.footer{margin-top:50px;border-top:1px solid var(--line);padding-top:18px;color:#718597;font-size:10px;line-height:1.5}.roster{display:grid;grid-template-columns:1fr 1fr;gap:10px}.roster ul{margin:6px 0 0;padding-left:16px}.roster li{font-size:12px;margin:5px 0;color:#c7d3dd}.timeline{border-left:2px solid #3c5368;padding-left:14px}.timeline div{margin:11px 0;color:#c5d0da;font-size:12px}.timeline b{color:var(--gold2)}.hero-stat{padding:13px;border:1px solid var(--line);border-radius:14px;background:#0b151e}.hero-stat small{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.1em}.hero-stat b{font-size:20px}.scorecard{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.trade{border-left:3px solid var(--gold);padding-left:12px}.trade .grade{font-size:26px;font-weight:1000;color:var(--gold2)}.week-card a{text-decoration:none}.week-card:hover{border-color:#786640}.week-card .hi{font-size:28px;font-weight:1000;color:var(--gold2)}.smallcaps{text-transform:uppercase;font-size:9px;letter-spacing:.11em;color:var(--muted);font-weight:900}
+@media(max-width:900px){.c3,.c4,.c5,.c6,.c7,.c8{grid-column:span 12}.manager-grid{grid-template-columns:repeat(2,1fr)}.scorecard{grid-template-columns:1fr 1fr}.top{display:block}.roster{grid-template-columns:1fr}}
+@media(max-width:520px){.manager-grid{grid-template-columns:1fr}.scorecard{grid-template-columns:1fr}.wrap{padding-inline:12px}.nav{margin-inline:-12px}}
+
+.hero-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.hero-grid .hero-stat{grid-column:span 1}
+.badge{display:inline-block;padding:5px 8px;border:1px solid #53687a;border-radius:999px;font-size:9px;font-weight:900;color:#c7d5df}
+.badge.win{border-color:#4d7b4b;color:#aee6a3}.badge.loss{border-color:#80524c;color:#ffaaa2}
+.bracket{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}.round{display:grid;gap:10px}.game{background:#0b151e;border:1px solid var(--line);border-radius:13px;padding:10px}.game .team{display:flex;justify-content:space-between;padding:5px 0}.game .winner{color:var(--gold2);font-weight:1000}
+.hof-score{font-size:42px;font-weight:1000;color:var(--gold2)}.meter{height:7px;background:#223445;border-radius:99px;overflow:hidden}.meter span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.rival-hero{display:flex;justify-content:space-between;gap:14px;align-items:center}.vs{font-size:28px;font-weight:1000;color:var(--gold2)}
+.searchbox{width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:#0b151e;color:var(--text);font:inherit}
+.hidden{display:none!important}
+@media(max-width:900px){.hero-grid{grid-template-columns:repeat(2,1fr)}.bracket{grid-template-columns:1fr}.rival-hero{display:block}.vs{margin:8px 0}}
+
+.news-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}.news-main{min-height:220px}.ticker{display:flex;gap:8px;overflow:auto;padding:8px 0}.ticker .tag{white-space:nowrap}
+.grade{font-size:34px;font-weight:1000;color:var(--gold2)}.lab-row{display:grid;grid-template-columns:100px 1fr 120px;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding:11px 0}
+@media(max-width:900px){.news-grid{grid-template-columns:1fr}.lab-row{grid-template-columns:1fr}}
+
+/* v7 pre-publish product polish */
+body{padding-bottom:76px}
+.mobile-dock{
+  display:none;position:fixed;left:8px;right:8px;bottom:8px;z-index:50;
+  background:#071018f2;border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 18px 55px #000a;backdrop-filter:blur(16px);overflow:hidden
+}
+.mobile-dock a{
+  flex:1;text-align:center;text-decoration:none;padding:10px 4px;
+  color:#b7c5d1;font-size:9px;font-weight:900;letter-spacing:.04em
+}
+.mobile-dock a span{display:block;font-size:16px;line-height:1.1;margin-bottom:3px}
+.mobile-dock a:hover{color:var(--gold2)}
+.mobile-menu{display:none;margin:0 0 14px}
+.mobile-menu summary{cursor:pointer;list-style:none}
+.mobile-menu summary::-webkit-details-marker{display:none}
+.mobile-menu .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:9px}
+.mobile-menu .menu-grid a{text-decoration:none;padding:11px;border:1px solid var(--line);border-radius:11px;background:#0b151e;font-size:11px;font-weight:850}
+.audit-ok{border-left:4px solid #70c66b}.audit-note{border-left:4px solid var(--gold)}.audit-warn{border-left:4px solid #df8379}
+.source-tier{font-size:11px;font-weight:1000;color:var(--gold2)}
+.search-result{display:block;text-decoration:none}.search-result em{color:var(--gold2);font-style:normal}
+.route{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#9fc3dd}
+@media(max-width:760px){
+  body{padding-bottom:84px}
+  .wrap{padding-inline:11px}
+  .top{padding-top:23px}
+  .top h1{font-size:46px}
+  .top p{font-size:13px}
+  .nav{display:none}
+  .mobile-menu{display:block}
+  .mobile-dock{display:flex}
+  .metric{font-size:30px}
+  .card{padding:14px;border-radius:15px}
+  .section{margin:36px 0}
+  .section h2{font-size:27px}
+  table{min-width:620px}
+  th,td{padding:9px 8px}
+  .manager-grid{grid-template-columns:1fr}
+  .scorecard{grid-template-columns:1fr 1fr}
+  .hero-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+
+/* =========================================================
+   THE FELLAS OS v8 — CHAMPIONSHIP BROADCAST DESIGN SYSTEM
+   ========================================================= */
+
+:root{
+  --ink:#05080c;
+  --stadium:#071019;
+  --navy:#0b1621;
+  --panel3:#0e1b27;
+  --cream:#f6f1e4;
+  --gold3:#ffe39a;
+  --line2:#31495d;
+  --shadow:0 22px 60px rgba(0,0,0,.38);
+  --accent:var(--gold2);
+  --accent-soft:rgba(240,217,142,.10);
+}
+html{background:var(--ink)}
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 12% -10%,rgba(77,119,153,.34),transparent 31%),
+    radial-gradient(circle at 92% 5%,rgba(215,175,85,.10),transparent 25%),
+    linear-gradient(180deg,#07111a 0%,#050a0f 48%,#04070a 100%);
+  background-attachment:fixed;
+}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.18;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,black,transparent 72%);
+}
+::selection{background:var(--gold);color:#111}
+.wrap{max-width:1320px;padding-left:22px;padding-right:22px}
+.brandbar{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 0 12px;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.brandmark{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+.brand-crest{
+  width:38px;height:44px;display:grid;place-items:center;flex:0 0 auto;
+  color:#101010;font-weight:1000;font-size:18px;
+  clip-path:polygon(50% 0,93% 15%,88% 72%,50% 100%,12% 72%,7% 15%);
+  background:linear-gradient(145deg,var(--gold3),#bf8d31 80%);
+  box-shadow:0 8px 24px rgba(215,175,85,.2)
+}
+.brand-copy strong{display:block;font-size:13px;letter-spacing:.16em}
+.brand-copy small{display:block;color:#8297a8;font-size:9px;margin-top:2px;letter-spacing:.09em;text-transform:uppercase}
+.live-chip{display:inline-flex;align-items:center;gap:7px;font-size:9px;font-weight:1000;letter-spacing:.11em;text-transform:uppercase;color:#bfd1dd}
+.live-dot{width:7px;height:7px;background:#8bd17f;border-radius:50%;box-shadow:0 0 0 4px rgba(139,209,127,.09)}
+.top{position:relative;padding:46px 0 32px;align-items:center}
+.top:after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:linear-gradient(90deg,var(--accent),rgba(255,255,255,.08),transparent)
+}
+.top h1{
+  font-weight:1000;text-transform:uppercase;
+  text-shadow:0 10px 42px rgba(0,0,0,.35)
+}
+.top p{font-size:14px;max-width:760px}
+.eyebrow,.label{color:var(--accent);letter-spacing:.16em}
+.card{
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(20,37,52,.94),rgba(11,22,32,.96));
+  border-color:rgba(91,120,143,.42);box-shadow:0 12px 36px rgba(0,0,0,.20);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease
+}
+.card:before{
+  content:"";position:absolute;inset:0 auto auto 0;width:100%;height:1px;
+  background:linear-gradient(90deg,rgba(255,255,255,.17),transparent 65%);pointer-events:none
+}
+.card:hover{border-color:rgba(215,175,85,.52);box-shadow:var(--shadow);transform:translateY(-2px)}
+.callout{box-shadow:0 14px 42px rgba(0,0,0,.24);position:relative;overflow:hidden}
+.callout:after{
+  content:"";position:absolute;width:120px;height:120px;border-radius:50%;
+  right:-45px;top:-55px;background:rgba(215,175,85,.08);filter:blur(2px)
+}
+.metric{font-variant-numeric:tabular-nums;line-height:1}
+.section{position:relative}
+.section>.eyebrow{display:flex;align-items:center;gap:9px}
+.section>.eyebrow:before{content:"";width:18px;height:2px;background:var(--accent);border-radius:4px}
+.section h2{font-weight:950}
+.table-wrap{box-shadow:0 16px 42px rgba(0,0,0,.18)}
+tbody tr{transition:background .15s ease}
+tbody tr:hover{background:rgba(255,255,255,.025)}
+th{position:sticky;top:0;z-index:1}
+.rank{font-variant-numeric:tabular-nums}
+.nav{
+  margin-top:0;border:1px solid rgba(77,105,128,.45);border-radius:0 0 15px 15px;
+  border-top:0;background:rgba(5,13,20,.88);box-shadow:0 12px 30px rgba(0,0,0,.16)
+}
+.nav a{position:relative}
+.nav a:after{content:"";position:absolute;height:2px;left:11px;right:11px;bottom:6px;background:var(--accent);transform:scaleX(0);transition:.16s ease}
+.nav a:hover:after{transform:scaleX(1)}
+.pill{transition:.16s ease}
+.pill:hover{border-color:var(--gold);color:var(--gold3);transform:translateY(-1px)}
+.hero-ribbon{
+  display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr);
+  gap:16px;align-items:stretch;margin:24px 0 6px
+}
+.broadcast-hero{
+  min-height:330px;padding:28px;border:1px solid rgba(215,175,85,.35);border-radius:22px;
+  position:relative;overflow:hidden;background:
+    radial-gradient(circle at 85% 10%,rgba(215,175,85,.19),transparent 25%),
+    linear-gradient(135deg,#13283a 0%,#0a1621 60%,#080f16 100%);
+  box-shadow:0 24px 70px rgba(0,0,0,.36)
+}
+.broadcast-hero:before{
+  content:"18";position:absolute;right:-8px;bottom:-45px;font-size:220px;font-weight:1000;
+  line-height:.8;color:rgba(255,255,255,.025);letter-spacing:-.08em
+}
+.broadcast-hero .kicker{font-size:11px;color:var(--gold3);letter-spacing:.18em;text-transform:uppercase;font-weight:950}
+.broadcast-hero .headline{font-size:clamp(34px,5vw,65px);line-height:.93;max-width:760px;letter-spacing:-.05em;font-weight:1000;margin:11px 0 16px}
+.broadcast-hero .deck{max-width:680px;color:#b8c9d5;line-height:1.6}
+.broadcast-side{display:grid;gap:12px}
+.scorebug{
+  border-radius:18px;border:1px solid rgba(99,129,151,.46);background:#0a151f;padding:18px;
+  box-shadow:0 14px 42px rgba(0,0,0,.2)
+}
+.scorebug .number{font-size:38px;font-weight:1000;letter-spacing:-.05em;color:var(--cream)}
+.scorebug .sub{color:#8fa4b4;font-size:11px;line-height:1.45}
+.stat-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid var(--line);
+  background:var(--line);border-radius:17px;overflow:hidden
+}
+.stat-strip>div{background:#0a151f;padding:15px}
+.stat-strip small{display:block;color:#8196a7;font-size:9px;text-transform:uppercase;letter-spacing:.12em;font-weight:900}
+.stat-strip b{display:block;margin-top:5px;font-size:19px}
+.section-band{
+  margin:58px -22px 24px;padding:13px 22px;border-block:1px solid rgba(255,255,255,.07);
+  background:linear-gradient(90deg,rgba(215,175,85,.06),rgba(255,255,255,.018),transparent)
+}
+.section-band b{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:#b8c8d4}
+.champion-rail{display:flex;gap:9px;overflow:auto;padding:5px 0 12px;scrollbar-width:thin}
+.champion-chip{
+  min-width:105px;border:1px solid rgba(107,127,143,.42);border-radius:13px;padding:11px 12px;
+  background:#09131c;box-shadow:0 10px 28px rgba(0,0,0,.15)
+}
+.champion-chip span{display:block;font-size:9px;color:#8194a4;text-transform:uppercase;letter-spacing:.1em}
+.champion-chip b{display:block;margin-top:3px;font-size:13px}
+.power-bars{display:grid;gap:9px}
+.power-row{display:grid;grid-template-columns:74px 1fr 70px;align-items:center;gap:10px}
+.power-row b{font-size:12px}
+.power-track{height:10px;border-radius:100px;background:#172634;overflow:hidden}
+.power-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,#987029,var(--gold3))}
+.power-value{text-align:right;color:#b7c5cf;font-size:11px;font-weight:900}
+.manager-card{min-height:168px}
+.manager-card .name{font-size:24px;letter-spacing:-.025em}
+.manager-card:after{
+  content:"";position:absolute;width:70px;height:70px;border-radius:50%;right:-30px;bottom:-35px;
+  background:var(--accent-soft)
+}
+.manager-page{--accent:var(--manager-accent,var(--gold2));--accent-soft:color-mix(in srgb,var(--accent) 11%,transparent)}
+.manager-page .top h1{color:var(--cream)}
+.manager-page .top:before{
+  content:"";position:absolute;left:-100px;top:-110px;width:320px;height:320px;border-radius:50%;
+  background:color-mix(in srgb,var(--accent) 12%,transparent);filter:blur(45px);z-index:-1
+}
+.manager-stilly{--manager-accent:#f0d98e}
+.manager-jmid{--manager-accent:#75c7ff}
+.manager-tom{--manager-accent:#ff8585}
+.manager-stew{--manager-accent:#d697ff}
+.manager-scott{--manager-accent:#78dca2}
+.manager-mitch{--manager-accent:#ffbd68}
+.manager-tony{--manager-accent:#72d5d5}
+.manager-stover{--manager-accent:#a8b6ff}
+.manager-kuhl{--manager-accent:#ff9fd0}
+.manager-birch{--manager-accent:#b9db77}
+.page-kicker{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;
+  color:#8297a8;font-size:9px;text-transform:uppercase;letter-spacing:.12em
+}
+.footer{padding-bottom:28px}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(139,209,127,.14)}50%{box-shadow:0 0 0 7px rgba(139,209,127,0)}}
+.live-dot{animation:pulseGlow 2.2s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
+@media(max-width:900px){
+  .hero-ribbon{grid-template-columns:1fr}
+  .broadcast-hero{min-height:300px}
+  .stat-strip{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .brand-copy small{display:none}
+  .brandbar{padding-top:10px}
+  .broadcast-hero{padding:20px;min-height:300px}
+  .broadcast-hero .headline{font-size:42px}
+  .broadcast-hero:before{font-size:160px;bottom:-28px}
+  .stat-strip>div{padding:12px}
+  .section-band{margin-left:-11px;margin-right:-11px;padding-left:11px;padding-right:11px}
+  .power-row{grid-template-columns:62px 1fr 58px}
+}
+
+.engine-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.engine-tabs a{text-decoration:none}
+.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.grade-chip{display:inline-flex;min-width:40px;justify-content:center;padding:4px 7px;border-radius:8px;border:1px solid #43596a;font-size:10px;font-weight:1000}
+.g-ap{color:#ffe39a;border-color:#80652e;background:#2a210f}.g-a{color:#b9eab2;border-color:#4d7449}.g-b{color:#9ddcf4;border-color:#365d6e}.g-c{color:#cad3da}.g-d{color:#f5b27d;border-color:#744f32}.g-f{color:#ff9d94;border-color:#74443d}
+.g-traded{color:#d5a7ff;border-color:#674879}.g-keeper{color:#ffe39a;border-color:#80652e}.g-provisional{border-style:dashed}
+.data-note{font-size:10px;color:#8fa3b3;line-height:1.45}
+.trade-card{border-left:3px solid var(--gold);padding-left:15px}
+.trade-side{display:grid;grid-template-columns:120px 1fr 100px 80px 80px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.trade-side:last-child{border-bottom:0}
+.trade-side .assets{font-size:12px}
+.confidence{font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#90a5b5}
+.audit-badge{padding:3px 7px;border:1px solid #42596b;border-radius:999px;font-size:8px;font-weight:900;white-space:nowrap}
+.draft-table td,.draft-table th{white-space:nowrap}
+.draft-table td.player{white-space:normal;min-width:160px}
+.mini-bar{height:6px;border-radius:99px;background:#203342;overflow:hidden}.mini-bar span{display:block;height:100%;background:linear-gradient(90deg,#987029,#ffe39a)}
+details.year-block{border:1px solid var(--line);border-radius:15px;background:#0a141d;margin:12px 0;overflow:hidden}
+details.year-block>summary{cursor:pointer;padding:15px 17px;font-weight:1000;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details.year-block>summary::-webkit-details-marker{display:none}
+details.year-block[open]>summary{border-bottom:1px solid var(--line);background:#101e2a}
+details.year-block>.inside{padding:14px}
+@media(max-width:900px){.method-grid{grid-template-columns:1fr}.trade-side{grid-template-columns:1fr 1fr}.trade-side .assets{grid-column:1/-1}}
+</style><style>.fellas-review-notice{position:relative;z-index:100;box-sizing:border-box;text-align:center;background:#291f0d;border-bottom:1px solid #d7af55;color:#ffe7a6;padding:9px 14px;font:600 12px/1.5 system-ui,Arial,sans-serif}.fellas-review-notice a{color:#ffe7a6;text-decoration:underline;text-underline-offset:2px}</style></head><body><div aria-label="Historical verification notice" class="fellas-review-notice" role="status">REVIEW BUILD · <a href="../data-integrity/source-status.html">Historical audit in progress: 2020–2026 draft boards and 2026 Week 6 standings verified; trade rankings remain provisional. Review audit status.</a></div><div class="wrap">
+<div class="brandbar"><a class="brandmark" href="../index.html"><span class="brand-crest">F</span><span class="brand-copy"><strong>THE FELLAS</strong><small>Fantasy Football League · Est. 2016</small></span></a><span class="live-chip"><i class="live-dot"></i>v9 audit build</span></div><nav class="nav"><a href="../index.html">Dashboard</a><a href="trades.html">Trade Engine</a><a href="drafts.html">Draft Engine</a><a href="rivalries.html">Rivalries</a><a href="../data-integrity/replay-booth.html">Replay Booth</a><a href="search.html">Search</a></nav><header class="top"><div><div class="eyebrow">Full transaction history · 2020 → 2026 W6</div><h1>TRADE ENGINE</h1>
+<p>Every recoverable Sleeper trade is reconstructed from draft-night ownership plus chronological transactions. Outcome scoring uses <b>actual Fellas starter points delivered from the following week through season end</b>. Direct utility, process, and long-term legacy are intentionally separate ideas.</p></div>
+<div class="callout"><div class="label">Audit coverage</div><div class="metric">55</div><b>trade events found</b><div class="muted">51 reconstructed · 4 preserved ungraded rather than guessed</div></div></header><section class="section"><div class="grid">
+<div class="card c4"><div class="label">Largest direct utility edge</div><div class="metric">+279.3</div><b>Kuhl · 2023</b><p class="muted">Conner + Achane + Puka starter utility versus Stew’s CeeDee + Etienne before CeeDee was flipped again.</p></div>
+<div class="card c4"><div class="label">Championship-builder</div><div class="metric">+175.7</div><b>Stilly · 2023</b><p class="muted">Evans + Henry delivered 261.48 post-trade starter points versus Kupp’s 85.8.</p></div>
+<div class="card c4"><div class="label">Biggest 2024 repair edge</div><div class="metric">+198.0</div><b>Stilly · 2024</b><p class="muted">McLaurin + Achane + Dell versus CMC + Diontae + Higgins.</p></div>
+</div></section><section class="section"><div class="eyebrow">Methodology</div><h2>What This Engine Measures</h2><div class="method-grid">
+<div class="card"><div class="label">Direct utility</div><h3>Starter points delivered</h3><p class="muted">Only points actually placed into the acquiring manager’s starting lineup after the trade. Scoring begins the next full fantasy week.</p></div>
+<div class="card"><div class="label">Outcome ≠ process</div><h3>Injuries and timing matter</h3><p class="muted">A trade can be good process and poor outcome. The W/L column is deliberately labeled direct lineup utility, not a universal trade grade.</p></div>
+<div class="card"><div class="label">Legacy separately</div><h3>Keeper / downstream value</h3><p class="muted">Future flips, keeper value and voided 2023 draft picks can dramatically change the historical interpretation beyond same-season starter points.</p></div>
+</div></section><section class="section"><div class="eyebrow">Completed seasons only · 2020–2025</div><h2>Manager Direct-Utility Ledger</h2>
+<p class="muted">Two-team reconstructed trades only; partial/incomplete rows are excluded from W/L. Ties are within 10 starter points.</p><div class="table-wrap"><table><thead><tr><th>Manager</th><th>Audited sides</th><th>W-L-T</th><th>Cumulative direct edge</th><th>Starter points received</th><th>Read</th></tr></thead><tbody><tr><td><b>Kuhl</b></td><td>10</td><td>6–3–1</td><td class="pos">+299.3</td><td>1376.3</td><td>Strong direct utility</td></tr><tr><td><b>Birch</b></td><td>4</td><td>2–2–0</td><td class="pos">+296.7</td><td>866.4</td><td>Strong direct utility</td></tr><tr><td><b>EvansBrandon</b></td><td>5</td><td>2–0–3</td><td class="pos">+228.9</td><td>962.0</td><td>Strong direct utility</td></tr><tr><td><b>Mitch</b></td><td>3</td><td>2–1–0</td><td class="pos">+212.5</td><td>378.5</td><td>Strong direct utility</td></tr><tr><td><b>Stilly</b></td><td>11</td><td>4–5–1</td><td class="pos">+184.3</td><td>2353.6</td><td>Strong direct utility</td></tr><tr><td><b>Stover</b></td><td>5</td><td>1–2–2</td><td class="pos">+22.5</td><td>355.9</td><td>Positive direct utility</td></tr><tr><td><b>JMid</b></td><td>3</td><td>1–1–0</td><td class="neg">-49.3</td><td>372.1</td><td>Near even</td></tr><tr><td><b>Tony</b></td><td>10</td><td>4–5–1</td><td class="neg">-52.6</td><td>1537.8</td><td>Negative direct utility</td></tr><tr><td><b>Koble</b></td><td>1</td><td>0–1–0</td><td class="neg">-55.5</td><td>137.6</td><td>Negative direct utility</td></tr><tr><td><b>Stew</b></td><td>18</td><td>8–7–3</td><td class="neg">-349.2</td><td>2158.2</td><td>Negative direct utility</td></tr><tr><td><b>Tom</b></td><td>13</td><td>4–7–1</td><td class="neg">-737.6</td><td>2042.3</td><td>Negative direct utility</td></tr></tbody></table></div><p class="data-note">Aggressive re-traders can look artificially low because a player stops generating direct utility for the first acquiring manager once moved again. Use this ledger with the trade-tree context below.</p></section><section class="section"><div class="eyebrow">Biggest measured swings</div><h2>Top Direct Utility Edges</h2><div class="table-wrap"><table><thead><tr><th>#</th><th>Year</th><th>Manager</th><th>Received</th><th>Other side</th><th>Starter pts</th><th>Edge</th></tr></thead><tbody><tr><td class="rank">1</td><td>2023</td><td><b>Kuhl</b></td><td>James Conner + De'Von Achane + Puka Nacua</td><td>CeeDee Lamb + Travis Etienne Jr.</td><td>415.9</td><td class="pos">+279.3</td></tr><tr><td class="rank">2</td><td>2021</td><td><b>Birch</b></td><td>Lamar Jackson + Mark Andrews + Josh Jacobs</td><td>Dak Prescott + Noah Fant + Antonio Gibson</td><td>577.6</td><td class="pos">+213.0</td></tr><tr><td class="rank">3</td><td>2022</td><td><b>Mitch</b></td><td>Adam Thielen + Saquon Barkley</td><td>Jonathan Taylor</td><td>303.9</td><td class="pos">+202.8</td></tr><tr><td class="rank">4</td><td>2024</td><td><b>Stilly</b></td><td>Terry McLaurin + De'Von Achane + Tank Dell</td><td>Christian McCaffrey + Diontae Johnson + Tee Higgins</td><td>453.4</td><td class="pos">+198.0</td></tr><tr><td class="rank">5</td><td>2020</td><td><b>Stilly</b></td><td>DeSean Jackson + Travis Kelce + Marquise Brown</td><td>Allen Robinson II + Tyler Higbee + D'Andre Swift</td><td>290.2</td><td class="pos">+194.1</td></tr><tr><td class="rank">6</td><td>2023</td><td><b>Stilly</b></td><td>Mike Evans + Derrick Henry</td><td>Cooper Kupp</td><td>261.5</td><td class="pos">+175.7</td></tr><tr><td class="rank">7</td><td>2021</td><td><b>EvansBrandon</b></td><td>Aaron Rodgers + Keenan Allen</td><td>Leonard Fournette + Patrick Mahomes + Brandon Aiyuk</td><td>391.5</td><td class="pos">+160.1</td></tr><tr><td class="rank">8</td><td>2023</td><td><b>Birch</b></td><td>CeeDee Lamb + Kenny Gainwell</td><td>Tony Pollard + Jaxon Smith-Njigba</td><td>236.1</td><td class="pos">+158.6</td></tr><tr><td class="rank">9</td><td>2024</td><td><b>Tony</b></td><td>Cooper Kupp + Kareem Hunt + Rico Dowdle</td><td>Travis Kelce + Brandon Aiyuk</td><td>216.9</td><td class="pos">+109.6</td></tr><tr><td class="rank">10</td><td>2025</td><td><b>Kuhl</b></td><td>Nico Collins</td><td>Derrick Henry</td><td>179.0</td><td class="pos">+97.6</td></tr><tr><td class="rank">11</td><td>2021</td><td><b>Stover</b></td><td>Leonard Fournette</td><td>DeVonta Smith</td><td>164.8</td><td class="pos">+95.7</td></tr><tr><td class="rank">12</td><td>2021</td><td><b>Tony</b></td><td>CeeDee Lamb</td><td>Kareem Hunt</td><td>89.2</td><td class="pos">+86.4</td></tr><tr><td class="rank">13</td><td>2024</td><td><b>Kuhl</b></td><td>J.K. Dobbins</td><td>Tank Dell</td><td>93.8</td><td class="pos">+83.3</td></tr><tr><td class="rank">14</td><td>2021</td><td><b>Tony</b></td><td>Corey Davis + A.J. Brown + Jonathan Taylor</td><td>Tyreek Hill + Josh Jacobs + Javonte Williams</td><td>414.5</td><td class="pos">+81.4</td></tr><tr><td class="rank">15</td><td>2025</td><td><b>Stew</b></td><td>Jahmyr Gibbs + RJ Harvey</td><td>Ja'Marr Chase + Chase Brown</td><td>378.8</td><td class="pos">+80.0</td></tr><tr><td class="rank">16</td><td>2025</td><td><b>Stew</b></td><td>TreVeyon Henderson</td><td>Aaron Jones Sr. + Zach Charbonnet</td><td>139.0</td><td class="pos">+72.2</td></tr><tr><td class="rank">17</td><td>2020</td><td><b>Stilly</b></td><td>Lamar Jackson + J.K. Dobbins</td><td>Kyler Murray</td><td>264.3</td><td class="pos">+68.2</td></tr><tr><td class="rank">18</td><td>2025</td><td><b>Stew</b></td><td>Quentin Johnston</td><td>Bhayshul Tuten</td><td>64.5</td><td class="pos">+64.5</td></tr><tr><td class="rank">19</td><td>2022</td><td><b>Tom</b></td><td>Leonard Fournette</td><td>Alvin Kamara</td><td>85.7</td><td class="pos">+64.3</td></tr><tr><td class="rank">20</td><td>2023</td><td><b>EvansBrandon</b></td><td>Joe Mixon</td><td>Jordan Addison</td><td>111.5</td><td class="pos">+63.9</td></tr></tbody></table></div></section><section class="section"><div class="eyebrow">Complete reconstructed ledger</div><h2>Trade-by-Trade Audit</h2><details class="year-block"><summary><span>2020 Trades</span><span class="muted">8 events</span></summary><div class="inside"><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 3 · 2020-09-24 · 614849640176623616</div><div class="trade-side">
+<div><b>EvansBrandon</b><div class="confidence">partial</div></div>
+<div class="assets">Ronald Jones</div>
+<div><b>82.4</b><div class="data-note">starter pts</div></div>
+<div>6<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+79.5</div></div>
+</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">partial</div></div>
+<div class="assets">A.J. Green</div>
+<div><b>2.9</b><div class="data-note">starter pts</div></div>
+<div>1<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-79.5</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 3 · 2020-09-30 · 616864423201554432</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified</div></div>
+<div class="assets">DeSean Jackson + Travis Kelce + Marquise Brown</div>
+<div><b>290.2</b><div class="data-note">starter pts</div></div>
+<div>20<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+194.1</div></div>
+</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Allen Robinson II + Tyler Higbee + D'Andre Swift</div>
+<div><b>96.1</b><div class="data-note">starter pts</div></div>
+<div>9<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-194.1</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 6 · 2020-10-15 · 622492390107738112</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified</div></div>
+<div class="assets">Lamar Jackson + J.K. Dobbins</div>
+<div><b>264.3</b><div class="data-note">starter pts</div></div>
+<div>15<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+68.2</div></div>
+</div><div class="trade-side">
+<div><b>Tony</b><div class="confidence">verified</div></div>
+<div class="assets">Kyler Murray</div>
+<div><b>196.1</b><div class="data-note">starter pts</div></div>
+<div>8<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-68.2</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 8 · 2020-11-03 · 629416763662086144</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">partial</div></div>
+<div class="assets">George Kittle</div>
+<div><b>11.2</b><div class="data-note">starter pts</div></div>
+<div>1<div class="data-note">starts</div></div>
+<div class="">MULTI<div class="data-note">—</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 9 · 2020-11-04 · 629818920752209920</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Michael Thomas</div>
+<div><b>53.1</b><div class="data-note">starter pts</div></div>
+<div>5<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">+8.1</div></div>
+</div><div class="trade-side">
+<div><b>Stover</b><div class="confidence">verified</div></div>
+<div class="assets">D.J. Moore + Clyde Edwards-Helaire</div>
+<div><b>45.0</b><div class="data-note">starter pts</div></div>
+<div>6<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">-8.1</div></div>
+</div></div><div class="card audit-warn" style="margin-bottom:12px"><div class="label">UNGRADABLE · Week 3 · 2020-09-23</div><h3>Stilly ↔ Tony</h3><p class="muted">Sleeper historical row confirms the trade event, but player detail is unavailable.</p><div class="confidence">614536176472264704</div></div><div class="card audit-warn" style="margin-bottom:12px"><div class="label">UNGRADABLE · Week 7 · 2020-10-25</div><h3>Stilly ↔ Stew</h3><p class="muted">Historical transaction row has no recoverable player detail.</p><div class="confidence">625902992721264640</div></div><div class="card audit-warn" style="margin-bottom:12px"><div class="label">UNGRADABLE · Week 7 · 2020-10-25</div><h3>Stilly ↔ Stew</h3><p class="muted">Second same-day historical transaction row has no recoverable player detail.</p><div class="confidence">625903284296683520</div></div></div></details><details class="year-block"><summary><span>2021 Trades</span><span class="muted">10 events</span></summary><div class="inside"><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 1 · 2021-08-30 · 737360507476066304</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Tyreek Hill + Josh Jacobs + Javonte Williams</div>
+<div><b>333.1</b><div class="data-note">starter pts</div></div>
+<div>24<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-81.4</div></div>
+</div><div class="trade-side">
+<div><b>Tony</b><div class="confidence">verified</div></div>
+<div class="assets">Corey Davis + A.J. Brown + Jonathan Taylor</div>
+<div><b>414.5</b><div class="data-note">starter pts</div></div>
+<div>25<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+81.4</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 1 · 2021-08-31 · 738428315181928448</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Dak Prescott + Noah Fant + Antonio Gibson</div>
+<div><b>364.6</b><div class="data-note">starter pts</div></div>
+<div>26<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-213.0</div></div>
+</div><div class="trade-side">
+<div><b>Birch</b><div class="confidence">verified</div></div>
+<div class="assets">Lamar Jackson + Mark Andrews + Josh Jacobs</div>
+<div><b>577.6</b><div class="data-note">starter pts</div></div>
+<div>36<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+213.0</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 2 · 2021-09-22 · 746234454665732096</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Kenyan Drake + Saquon Barkley</div>
+<div><b>100.4</b><div class="data-note">starter pts</div></div>
+<div>9<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+16.0</div></div>
+</div><div class="trade-side">
+<div><b>Kuhl</b><div class="confidence">verified</div></div>
+<div class="assets">Nyheim Miller-Hines + Clyde Edwards-Helaire + Ty'Son Williams</div>
+<div><b>84.4</b><div class="data-note">starter pts</div></div>
+<div>8<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-16.0</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 3 · 2021-09-27 · 748312121284149248</div><div class="trade-side">
+<div><b>EvansBrandon</b><div class="confidence">verified</div></div>
+<div class="assets">Aaron Rodgers + Keenan Allen</div>
+<div><b>391.5</b><div class="data-note">starter pts</div></div>
+<div>22<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+160.1</div></div>
+</div><div class="trade-side">
+<div><b>Kuhl</b><div class="confidence">verified</div></div>
+<div class="assets">Leonard Fournette + Patrick Mahomes + Brandon Aiyuk</div>
+<div><b>231.4</b><div class="data-note">starter pts</div></div>
+<div>13<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-160.1</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 3 · 2021-09-28 · 748585137259884544</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">partial</div></div>
+<div class="assets">AJ Dillon</div>
+<div><b>54.4</b><div class="data-note">starter pts</div></div>
+<div>5<div class="data-note">starts</div></div>
+<div class="">MULTI<div class="data-note">—</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 4 · 2021-10-05 · 751165345997402112</div><div class="trade-side">
+<div><b>Koble</b><div class="confidence">verified</div></div>
+<div class="assets">Zack Moss + James Robinson</div>
+<div><b>137.6</b><div class="data-note">starter pts</div></div>
+<div>15<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-55.5</div></div>
+</div><div class="trade-side">
+<div><b>Tony</b><div class="confidence">verified</div></div>
+<div class="assets">Joe Mixon</div>
+<div><b>193.1</b><div class="data-note">starter pts</div></div>
+<div>10<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+55.5</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 5 · 2021-10-07 · 751504917667168256</div><div class="trade-side">
+<div><b>Stover</b><div class="confidence">verified</div></div>
+<div class="assets">Leonard Fournette</div>
+<div><b>164.8</b><div class="data-note">starter pts</div></div>
+<div>9<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+95.7</div></div>
+</div><div class="trade-side">
+<div><b>Kuhl</b><div class="confidence">verified</div></div>
+<div class="assets">DeVonta Smith</div>
+<div><b>69.1</b><div class="data-note">starter pts</div></div>
+<div>8<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-95.7</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 6 · 2021-10-13 · 754017147822415872</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified</div></div>
+<div class="assets">Kareem Hunt</div>
+<div><b>2.8</b><div class="data-note">starter pts</div></div>
+<div>1<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-86.4</div></div>
+</div><div class="trade-side">
+<div><b>Tony</b><div class="confidence">verified</div></div>
+<div class="assets">CeeDee Lamb</div>
+<div><b>89.2</b><div class="data-note">starter pts</div></div>
+<div>8<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+86.4</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 6 · 2021-10-13 · 754024908207583232</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Amari Cooper</div>
+<div><b>72.5</b><div class="data-note">starter pts</div></div>
+<div>7<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">-5.8</div></div>
+</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Antonio Gibson</div>
+<div><b>78.3</b><div class="data-note">starter pts</div></div>
+<div>7<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">+5.8</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 8 · 2021-10-27 · 759191673220775936</div><div class="trade-side">
+<div><b>Tony</b><div class="confidence">verified</div></div>
+<div class="assets">Kyle Pitts Sr.</div>
+<div><b>63.0</b><div class="data-note">starter pts</div></div>
+<div>8<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-55.4</div></div>
+</div><div class="trade-side">
+<div><b>Kuhl</b><div class="confidence">verified</div></div>
+<div class="assets">Jarvis Landry + George Kittle</div>
+<div><b>118.4</b><div class="data-note">starter pts</div></div>
+<div>8<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+55.4</div></div>
+</div></div></div></details><details class="year-block"><summary><span>2022 Trades</span><span class="muted">6 events</span></summary><div class="inside"><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 2 · 2022-09-15 · 875965138744864768</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified</div></div>
+<div class="assets">Jonathan Taylor</div>
+<div><b>101.1</b><div class="data-note">starter pts</div></div>
+<div>9<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-202.8</div></div>
+</div><div class="trade-side">
+<div><b>Mitch</b><div class="confidence">verified</div></div>
+<div class="assets">Adam Thielen + Saquon Barkley</div>
+<div><b>303.9</b><div class="data-note">starter pts</div></div>
+<div>24<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+202.8</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 3 · 2022-09-27 · 880505837758652416</div><div class="trade-side">
+<div><b>EvansBrandon</b><div class="confidence">verified</div></div>
+<div class="assets">Mike Williams + James Conner + James Robinson</div>
+<div><b>266.2</b><div class="data-note">starter pts</div></div>
+<div>21<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">-1.9</div></div>
+</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Cordarrelle Patterson + Justin Jefferson</div>
+<div><b>268.1</b><div class="data-note">starter pts</div></div>
+<div>14<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">+1.9</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 4 · 2022-09-30 · 881580705233195008</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Leonard Fournette</div>
+<div><b>85.7</b><div class="data-note">starter pts</div></div>
+<div>6<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+64.3</div></div>
+</div><div class="trade-side">
+<div><b>Tony</b><div class="confidence">verified</div></div>
+<div class="assets">Alvin Kamara</div>
+<div><b>21.4</b><div class="data-note">starter pts</div></div>
+<div>1<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-64.3</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 6 · 2022-10-12 · 885980047650119680</div><div class="trade-side">
+<div><b>EvansBrandon</b><div class="confidence">verified</div></div>
+<div class="assets">Alvin Kamara + Gabe Davis</div>
+<div><b>178.8</b><div class="data-note">starter pts</div></div>
+<div>17<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">+8.5</div></div>
+</div><div class="trade-side">
+<div><b>Tony</b><div class="confidence">verified</div></div>
+<div class="assets">A.J. Brown + James Robinson</div>
+<div><b>170.3</b><div class="data-note">starter pts</div></div>
+<div>11<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">-8.5</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 6 · 2022-10-13 · 886267215865982976</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified</div></div>
+<div class="assets">Keenan Allen + Tee Higgins + Najee Harris</div>
+<div><b>327.5</b><div class="data-note">starter pts</div></div>
+<div>26<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-55.0</div></div>
+</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">DK Metcalf + CeeDee Lamb + DeVonta Smith</div>
+<div><b>382.5</b><div class="data-note">starter pts</div></div>
+<div>28<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+55.0</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 10 · 2022-11-10 · 896468742987522048</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Ja'Marr Chase</div>
+<div><b>63.1</b><div class="data-note">starter pts</div></div>
+<div>5<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+10.4</div></div>
+</div><div class="trade-side">
+<div><b>Birch</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Cordarrelle Patterson + Jeff Wilson + Chase Claypool</div>
+<div><b>52.7</b><div class="data-note">starter pts</div></div>
+<div>9<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-10.4</div></div>
+</div></div></div></details><details class="year-block" open=""><summary><span>2023 Trades</span><span class="muted">8 events</span></summary><div class="inside"><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 3 · 2023-09-27 · 1012571602774532096</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">CeeDee Lamb + Travis Etienne Jr.</div>
+<div><b>136.6</b><div class="data-note">starter pts</div></div>
+<div>8<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-279.3</div></div>
+</div><div class="trade-side">
+<div><b>Kuhl</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">James Conner + De'Von Achane + Puka Nacua</div>
+<div><b>415.9</b><div class="data-note">starter pts</div></div>
+<div>29<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+279.3</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 6 · 2023-10-12 · 1018289561511682048</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Tony Pollard + Jaxon Smith-Njigba</div>
+<div><b>77.5</b><div class="data-note">starter pts</div></div>
+<div>10<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-158.6</div></div>
+</div><div class="trade-side">
+<div><b>Birch</b><div class="confidence">verified</div></div>
+<div class="assets">CeeDee Lamb + Kenny Gainwell</div>
+<div><b>236.1</b><div class="data-note">starter pts</div></div>
+<div>10<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+158.6</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 8 · 2023-10-26 · 1023059879336013824</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified</div></div>
+<div class="assets">Mike Evans + Derrick Henry</div>
+<div><b>261.5</b><div class="data-note">starter pts</div></div>
+<div>18<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+175.7</div></div>
+</div><div class="trade-side">
+<div><b>Tony</b><div class="confidence">verified</div></div>
+<div class="assets">Cooper Kupp</div>
+<div><b>85.8</b><div class="data-note">starter pts</div></div>
+<div>8<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-175.7</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 10 · 2023-11-08 · 1028065885325508608</div><div class="trade-side">
+<div><b>EvansBrandon</b><div class="confidence">verified-tenure</div></div>
+<div class="assets">Joe Mixon</div>
+<div><b>111.5</b><div class="data-note">starter pts</div></div>
+<div>7<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+63.9</div></div>
+</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified-tenure</div></div>
+<div class="assets">Jordan Addison</div>
+<div><b>47.6</b><div class="data-note">starter pts</div></div>
+<div>6<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-63.9</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 11 · 2023-11-17 · 1031121022772555776</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Gabe Davis</div>
+<div><b>25.1</b><div class="data-note">starter pts</div></div>
+<div>4<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-49.5</div></div>
+</div><div class="trade-side">
+<div><b>Mitch</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Justin Jefferson + Josh Jacobs</div>
+<div><b>74.6</b><div class="data-note">starter pts</div></div>
+<div>6<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+49.5</div></div>
+</div><p class="data-note">Legacy note: future-pick consideration in this 2023 experiment was later voided. Direct same-season utility therefore understates the long-term asset-value gap.</p></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 11 · 2023-11-17 · 1031251467312775168</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Breece Hall</div>
+<div><b>101.0</b><div class="data-note">starter pts</div></div>
+<div>6<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+13.5</div></div>
+</div><div class="trade-side">
+<div><b>Tony</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Amari Cooper + Travis Etienne Jr.</div>
+<div><b>87.5</b><div class="data-note">starter pts</div></div>
+<div>8<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-13.5</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 14 · 2023-12-06 · 1038099277249245184</div><div class="trade-side">
+<div><b>EvansBrandon</b><div class="confidence">verified-tenure</div></div>
+<div class="assets">Ja'Marr Chase</div>
+<div><b>14.0</b><div class="data-note">starter pts</div></div>
+<div>3<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">-1.7</div></div>
+</div><div class="trade-side">
+<div><b>Kuhl</b><div class="confidence">verified-tenure</div></div>
+<div class="assets">Tyler Lockett</div>
+<div><b>15.7</b><div class="data-note">starter pts</div></div>
+<div>2<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">+1.7</div></div>
+</div><p class="data-note">Legacy note: future-pick consideration in this 2023 experiment was later voided. Direct same-season utility therefore understates the long-term asset-value gap.</p></div><div class="card audit-warn" style="margin-bottom:12px"><div class="label">UNGRADABLE · Week 10 · 2023-11-08</div><h3>Stilly / Tom / Stew</h3><p class="muted">Nine-player three-team deal plus picks; raw direction cannot be reconstructed tightly enough for side-by-side scoring, so it remains ungraded.</p><div class="confidence">1028057686711058432</div></div></div></details><details class="year-block" open=""><summary><span>2024 Trades</span><span class="muted">8 events</span></summary><div class="inside"><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 1 · 2024-09-10 · 1139340571111256064</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Tank Dell</div>
+<div><b>10.5</b><div class="data-note">starter pts</div></div>
+<div>2<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-83.3</div></div>
+</div><div class="trade-side">
+<div><b>Kuhl</b><div class="confidence">verified</div></div>
+<div class="assets">J.K. Dobbins</div>
+<div><b>93.8</b><div class="data-note">starter pts</div></div>
+<div>8<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+83.3</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 2 · 2024-09-12 · 1140082401968836608</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Malik Nabers</div>
+<div><b>171.4</b><div class="data-note">starter pts</div></div>
+<div>12<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+32.4</div></div>
+</div><div class="trade-side">
+<div><b>Stover</b><div class="confidence">verified</div></div>
+<div class="assets">Davante Adams</div>
+<div><b>139.0</b><div class="data-note">starter pts</div></div>
+<div>10<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-32.4</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 2 · 2024-09-17 · 1141777905656143872</div><div class="trade-side">
+<div><b>JMid</b><div class="confidence">verified</div></div>
+<div class="assets">Calvin Ridley + Kyren Williams</div>
+<div><b>227.0</b><div class="data-note">starter pts</div></div>
+<div>14<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+22.9</div></div>
+</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">James Cook III</div>
+<div><b>204.1</b><div class="data-note">starter pts</div></div>
+<div>14<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-22.9</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 3 · 2024-09-24 · 1144362000575840256</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified</div></div>
+<div class="assets">Terry McLaurin + De'Von Achane + Tank Dell</div>
+<div><b>453.4</b><div class="data-note">starter pts</div></div>
+<div>35<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+198.0</div></div>
+</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Christian McCaffrey + Diontae Johnson + Tee Higgins</div>
+<div><b>255.4</b><div class="data-note">starter pts</div></div>
+<div>18<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-198.0</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 4 · 2024-10-01 · 1146946436173623296</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Mark Andrews + Rico Dowdle</div>
+<div><b>21.6</b><div class="data-note">starter pts</div></div>
+<div>2<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-31.8</div></div>
+</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Amari Cooper</div>
+<div><b>53.4</b><div class="data-note">starter pts</div></div>
+<div>9<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+31.8</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 4 · 2024-10-02 · 1146947320588861440</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified</div></div>
+<div class="assets">Chase Brown</div>
+<div><b>154.4</b><div class="data-note">starter pts</div></div>
+<div>10<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-20.2</div></div>
+</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Jordan Love</div>
+<div><b>174.6</b><div class="data-note">starter pts</div></div>
+<div>11<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+20.2</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 7 · 2024-10-17 · 1152708228883660800</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Travis Kelce + Brandon Aiyuk</div>
+<div><b>107.3</b><div class="data-note">starter pts</div></div>
+<div>10<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-109.6</div></div>
+</div><div class="trade-side">
+<div><b>Tony</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Cooper Kupp + Kareem Hunt + Rico Dowdle</div>
+<div><b>216.9</b><div class="data-note">starter pts</div></div>
+<div>19<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+109.6</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 10 · 2024-11-09 · 1159892809005076480</div><div class="trade-side">
+<div><b>Mitch</b><div class="confidence">verified</div></div>
+<div class="assets">Raheem Mostert</div>
+<div><b>0.0</b><div class="data-note">starter pts</div></div>
+<div>0<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-39.8</div></div>
+</div><div class="trade-side">
+<div><b>Kuhl</b><div class="confidence">verified</div></div>
+<div class="assets">Nick Chubb</div>
+<div><b>39.8</b><div class="data-note">starter pts</div></div>
+<div>4<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+39.8</div></div>
+</div></div></div></details><details class="year-block" open=""><summary><span>2025 Trades</span><span class="muted">8 events</span></summary><div class="inside"><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 2 · 2025-09-17 · 1273856224776962053</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Derrick Henry</div>
+<div><b>81.4</b><div class="data-note">starter pts</div></div>
+<div>7<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-97.6</div></div>
+</div><div class="trade-side">
+<div><b>Kuhl</b><div class="confidence">verified</div></div>
+<div class="assets">Nico Collins</div>
+<div><b>179.0</b><div class="data-note">starter pts</div></div>
+<div>13<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+97.6</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 3 · 2025-09-21 · 1274473433362604032</div><div class="trade-side">
+<div><b>JMid</b><div class="confidence">verified</div></div>
+<div class="assets">Aaron Jones Sr. + Zach Charbonnet</div>
+<div><b>66.8</b><div class="data-note">starter pts</div></div>
+<div>7<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-72.2</div></div>
+</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">TreVeyon Henderson</div>
+<div><b>139.0</b><div class="data-note">starter pts</div></div>
+<div>11<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+72.2</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 3 · 2025-09-23 · 1276026193660899328</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified</div></div>
+<div class="assets">Ja'Marr Chase + Chase Brown</div>
+<div><b>298.8</b><div class="data-note">starter pts</div></div>
+<div>17<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-80.0</div></div>
+</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Jahmyr Gibbs + RJ Harvey</div>
+<div><b>378.8</b><div class="data-note">starter pts</div></div>
+<div>20<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+80.0</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 3 · 2025-09-24 · 1276373761972527104</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Quentin Johnston</div>
+<div><b>64.5</b><div class="data-note">starter pts</div></div>
+<div>7<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+64.5</div></div>
+</div><div class="trade-side">
+<div><b>Birch</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Bhayshul Tuten</div>
+<div><b>0.0</b><div class="data-note">starter pts</div></div>
+<div>0<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-64.5</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 3 · 2025-09-24 · 1276326233327570944</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Jordan Addison</div>
+<div><b>39.8</b><div class="data-note">starter pts</div></div>
+<div>4<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+39.8</div></div>
+</div><div class="trade-side">
+<div><b>Stover</b><div class="confidence">verified</div></div>
+<div class="assets">Mike Evans</div>
+<div><b>0.0</b><div class="data-note">starter pts</div></div>
+<div>1<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-39.8</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 11 · 2025-11-12 · 1294424036499025920</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified</div></div>
+<div class="assets">Brian Thomas Jr.</div>
+<div><b>0.0</b><div class="data-note">starter pts</div></div>
+<div>0<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">-7.1</div></div>
+</div><div class="trade-side">
+<div><b>Stover</b><div class="confidence">verified</div></div>
+<div class="assets">Stefon Diggs</div>
+<div><b>7.1</b><div class="data-note">starter pts</div></div>
+<div>2<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">+7.1</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 11 · 2025-11-12 · 1294402688213057536</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Amon-Ra St. Brown + Jordan Addison + Jared Goff</div>
+<div><b>199.7</b><div class="data-note">starter pts</div></div>
+<div>13<div class="data-note">starts</div></div>
+<div class="">MULTI<div class="data-note">—</div></div>
+</div><div class="trade-side">
+<div><b>JMid</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Ja'Marr Chase</div>
+<div><b>78.3</b><div class="data-note">starter pts</div></div>
+<div>5<div class="data-note">starts</div></div>
+<div class="">MULTI<div class="data-note">—</div></div>
+</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">A.J. Brown</div>
+<div><b>98.6</b><div class="data-note">starter pts</div></div>
+<div>6<div class="data-note">starts</div></div>
+<div class="">MULTI<div class="data-note">—</div></div>
+</div><p class="data-note">Three-team deadline deal: W/L is intentionally MULTI because there is no single counterpart. Stilly’s ARSB/Addison/Goff package later carried keeper/asset-chain value.</p></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 11 · 2025-11-13 · 1294724519813988352</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Jake Ferguson + Jaylen Warren</div>
+<div><b>114.8</b><div class="data-note">starter pts</div></div>
+<div>12<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-14.0</div></div>
+</div><div class="trade-side">
+<div><b>Kuhl</b><div class="confidence">verified</div></div>
+<div class="assets">Zach Ertz + Derrick Henry</div>
+<div><b>128.8</b><div class="data-note">starter pts</div></div>
+<div>6<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+14.0</div></div>
+</div></div></div></details><details class="year-block" open=""><summary><span>2026 Trades</span><span class="muted">7 events · PROVISIONAL</span></summary><div class="inside"><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 1 · 2026-08-31 · 1399889389147979776</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified</div></div>
+<div class="assets">MarShawn Lloyd</div>
+<div><b>8.6</b><div class="data-note">starter pts</div></div>
+<div>2<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">+8.6</div></div>
+</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Jonathon Brooks</div>
+<div><b>0.0</b><div class="data-note">starter pts</div></div>
+<div>0<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">-8.6</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 1 · 2026-09-01 · 1400522174271340544</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Ladd McConkey</div>
+<div><b>13.6</b><div class="data-note">starter pts</div></div>
+<div>2<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-34.7</div></div>
+</div><div class="trade-side">
+<div><b>Scott</b><div class="confidence">verified</div></div>
+<div class="assets">Emeka Egbuka</div>
+<div><b>48.3</b><div class="data-note">starter pts</div></div>
+<div>5<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+34.7</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 2 · 2026-09-16 · 1405999320708268032</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified</div></div>
+<div class="assets">Quinshon Judkins</div>
+<div><b>34.0</b><div class="data-note">starter pts</div></div>
+<div>3<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-18.6</div></div>
+</div><div class="trade-side">
+<div><b>Stover</b><div class="confidence">verified</div></div>
+<div class="assets">Trevor Lawrence</div>
+<div><b>52.6</b><div class="data-note">starter pts</div></div>
+<div>3<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+18.6</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 4 · 2026-09-30 · 1411009536306733056</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Christian Watson + Drake Maye</div>
+<div><b>39.5</b><div class="data-note">starter pts</div></div>
+<div>1<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+28.5</div></div>
+</div><div class="trade-side">
+<div><b>Kuhl</b><div class="confidence">verified</div></div>
+<div class="assets">Jalen Hurts + Ladd McConkey</div>
+<div><b>11.0</b><div class="data-note">starter pts</div></div>
+<div>1<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-28.5</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 4 · 2026-09-30 · 1411012593170010112</div><div class="trade-side">
+<div><b>JMid</b><div class="confidence">verified</div></div>
+<div class="assets">J.K. Dobbins + Christian Watson</div>
+<div><b>39.2</b><div class="data-note">starter pts</div></div>
+<div>2<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+37.0</div></div>
+</div><div class="trade-side">
+<div><b>Stew</b><div class="confidence">verified</div></div>
+<div class="assets">Jeremiyah Love</div>
+<div><b>2.2</b><div class="data-note">starter pts</div></div>
+<div>1<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-37.0</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 5 · 2026-10-07 · 1413584172332654592</div><div class="trade-side">
+<div><b>Stilly</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Ja'Marr Chase + Devaughn Vele</div>
+<div><b>5.7</b><div class="data-note">starter pts</div></div>
+<div>1<div class="data-note">starts</div></div>
+<div class="neg">L<div class="data-note">-15.1</div></div>
+</div><div class="trade-side">
+<div><b>JMid</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Davante Adams + George Kittle + Breece Hall</div>
+<div><b>20.8</b><div class="data-note">starter pts</div></div>
+<div>2<div class="data-note">starts</div></div>
+<div class="pos">W<div class="data-note">+15.1</div></div>
+</div></div><div class="card trade-card" style="margin-bottom:12px"><div class="label">Week 5 · 2026-10-09 · 1414340723225976832</div><div class="trade-side">
+<div><b>Tom</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Deebo Samuel Sr.</div>
+<div><b>0.0</b><div class="data-note">starter pts</div></div>
+<div>0<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">+0.0</div></div>
+</div><div class="trade-side">
+<div><b>Birch</b><div class="confidence">verified-recordbook</div></div>
+<div class="assets">Minnesota Vikings</div>
+<div><b>0.0</b><div class="data-note">starter pts</div></div>
+<div>0<div class="data-note">starts</div></div>
+<div class="">T<div class="data-note">+0.0</div></div>
+</div></div></div></details></section><section class="section"><div class="callout"><div class="label">Historical correction surfaced by the audit</div><h2 style="margin:6px 0">The 2023 Stew/Kuhl blockbuster needs a more nuanced plaque.</h2>
+<p>Direct starter utility after the deal strongly favored <b>Kuhl</b>: Conner + Achane + Puka delivered 415.9 starter points versus 136.6 for Stew’s CeeDee + Etienne before Stew flipped CeeDee again. That does not erase CeeDee’s elite season or the downstream trade tree—it means the old “obvious Stew win” label was too simplistic.</p></div></section><div class="footer">The Fellas OS v9 · Transaction &amp; Draft Audit Engine · actual Fellas starter points from Sleeper lineups. 2026 is provisional through Week 6.</div></div></body></html>

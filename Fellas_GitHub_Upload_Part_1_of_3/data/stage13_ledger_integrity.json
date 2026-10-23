@@ -1,0 +1,117 @@
+{
+  "sides": 101,
+  "reconstructed_events": 51,
+  "all_recorded_events": 55,
+  "manager_summaries_recalculated": {
+    "EvansBrandon": {
+      "events": 6,
+      "w": 3,
+      "l": 0,
+      "t": 3,
+      "multi": 0,
+      "pts": 1044.4,
+      "edge": 308.44
+    },
+    "Stew": {
+      "events": 22,
+      "w": 9,
+      "l": 10,
+      "t": 3,
+      "multi": 0,
+      "pts": 2216.32,
+      "edge": -471.98
+    },
+    "Stilly": {
+      "events": 15,
+      "w": 4,
+      "l": 6,
+      "t": 2,
+      "multi": 3,
+      "pts": 2433.48,
+      "edge": 7.54
+    },
+    "Tom": {
+      "events": 16,
+      "w": 4,
+      "l": 8,
+      "t": 3,
+      "multi": 1,
+      "pts": 2246.62,
+      "edge": -594.48
+    },
+    "Tony": {
+      "events": 10,
+      "w": 4,
+      "l": 5,
+      "t": 1,
+      "multi": 0,
+      "pts": 1537.8,
+      "edge": -52.64
+    },
+    "Stover": {
+      "events": 6,
+      "w": 2,
+      "l": 2,
+      "t": 2,
+      "multi": 0,
+      "pts": 408.5,
+      "edge": 41.1
+    },
+    "Birch": {
+      "events": 5,
+      "w": 2,
+      "l": 2,
+      "t": 1,
+      "multi": 0,
+      "pts": 866.38,
+      "edge": 296.68
+    },
+    "Kuhl": {
+      "events": 11,
+      "w": 6,
+      "l": 4,
+      "t": 1,
+      "multi": 0,
+      "pts": 1387.3,
+      "edge": 270.84
+    },
+    "Koble": {
+      "events": 1,
+      "w": 0,
+      "l": 1,
+      "t": 0,
+      "multi": 0,
+      "pts": 137.6,
+      "edge": -55.5
+    },
+    "Mitch": {
+      "events": 3,
+      "w": 2,
+      "l": 1,
+      "t": 0,
+      "multi": 0,
+      "pts": 378.5,
+      "edge": 212.5
+    },
+    "JMid": {
+      "events": 5,
+      "w": 3,
+      "l": 1,
+      "t": 0,
+      "multi": 1,
+      "pts": 432.1,
+      "edge": 2.8
+    },
+    "Scott": {
+      "events": 1,
+      "w": 1,
+      "l": 0,
+      "t": 0,
+      "multi": 0,
+      "pts": 48.3,
+      "edge": 34.7
+    }
+  },
+  "issues": [],
+  "audit_status": "trade-ledger arithmetic validation only; not source certification"
+}

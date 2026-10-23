@@ -1,0 +1,800 @@
+{
+  "standings": [
+    {
+      "manager": "Mitch",
+      "team": "Suck My Njigba",
+      "w": 6,
+      "l": 0,
+      "pf": 816.22,
+      "pa": 639.02,
+      "apw": 40,
+      "apl": 14,
+      "expected": 4.44,
+      "luck": 1.56
+    },
+    {
+      "manager": "Birch",
+      "team": "Nacua Matata",
+      "w": 5,
+      "l": 1,
+      "pf": 740.64,
+      "pa": 591.98,
+      "apw": 38,
+      "apl": 16,
+      "expected": 4.22,
+      "luck": 0.78
+    },
+    {
+      "manager": "Tony",
+      "team": "Bowers Castle",
+      "w": 4,
+      "l": 2,
+      "pf": 675.58,
+      "pa": 585.88,
+      "apw": 26,
+      "apl": 28,
+      "expected": 2.89,
+      "luck": 1.11
+    },
+    {
+      "manager": "Stew",
+      "team": "Worst Team on Paper!",
+      "w": 3,
+      "l": 3,
+      "pf": 758.68,
+      "pa": 679.02,
+      "apw": 36,
+      "apl": 18,
+      "expected": 4.0,
+      "luck": -1.0
+    },
+    {
+      "manager": "Stilly",
+      "team": "Harry Woody",
+      "w": 3,
+      "l": 3,
+      "pf": 698.54,
+      "pa": 693.64,
+      "apw": 29,
+      "apl": 25,
+      "expected": 3.22,
+      "luck": -0.22
+    },
+    {
+      "manager": "Stover",
+      "team": "Gurt",
+      "w": 3,
+      "l": 3,
+      "pf": 651.94,
+      "pa": 657.06,
+      "apw": 29,
+      "apl": 25,
+      "expected": 3.22,
+      "luck": -0.22
+    },
+    {
+      "manager": "Scott",
+      "team": "Team Sheffla",
+      "w": 3,
+      "l": 3,
+      "pf": 573.26,
+      "pa": 636.96,
+      "apw": 19,
+      "apl": 35,
+      "expected": 2.11,
+      "luck": 0.89
+    },
+    {
+      "manager": "Tom",
+      "team": "Green Bowl Packers",
+      "w": 2,
+      "l": 4,
+      "pf": 598.58,
+      "pa": 711.6,
+      "apw": 21,
+      "apl": 33,
+      "expected": 2.33,
+      "luck": -0.33
+    },
+    {
+      "manager": "JMid",
+      "team": "Bengals Fan",
+      "w": 1,
+      "l": 5,
+      "pf": 621.1,
+      "pa": 705.88,
+      "apw": 22,
+      "apl": 32,
+      "expected": 2.44,
+      "luck": -1.44
+    },
+    {
+      "manager": "Kuhl",
+      "team": "Kirko Chains",
+      "w": 0,
+      "l": 6,
+      "pf": 506.64,
+      "pa": 740.14,
+      "apw": 10,
+      "apl": 44,
+      "expected": 1.11,
+      "luck": -1.11
+    }
+  ],
+  "managers": {
+    "Stilly": {
+      "owner": "Darstill",
+      "team": "Harry Woody",
+      "record": "40\u201348",
+      "pf": 9605.42,
+      "titles": 1,
+      "peak": "2023 champion \u00b7 2024 runner-up",
+      "dna": "The Portfolio Manager",
+      "desc": "Constantly consolidates and repairs the roster in-season. Best when turning several good assets into one elite one, or escaping a draft mistake before the market fully collapses.",
+      "best": "2023 Cooper Kupp \u2192 Mike Evans + Derrick Henry; 2024 CMC escape + Chase Brown",
+      "scar": "2020 Shitter Bowl champion; Mitch owns the verified Sleeper series 9\u20131.",
+      "draft": "Jayden Daniels at 14.140 in 2024; later became a 2026 keeper.",
+      "rival": "Mitch",
+      "rival_record": "1\u20139"
+    },
+    "JMid": {
+      "owner": "JMidd",
+      "team": "Bengals Fan",
+      "record": "14\u201320",
+      "pf": 3780.02,
+      "titles": 0,
+      "peak": "2024 \u00b7 8\u20136 \u00b7 league-high 1,730.22 PF",
+      "dna": "The Blockbuster Rebuilder",
+      "desc": "Frequently one major deal away from fixing the roster\u2014and the deal can create two new problems. Immediately showed elite scoring upside in the first full season in the current group.",
+      "best": "2024 James Cook \u2192 Kyren Williams + Calvin Ridley",
+      "scar": "2025: 5\u20139 with the lowest broad lineup-efficiency mark in the league.",
+      "draft": "2024 Ladd McConkey at 9.87 and Chuba Hubbard at 12.114 stand out.",
+      "rival": "Stew",
+      "rival_record": "3\u20132"
+    },
+    "Tom": {
+      "owner": "thommy",
+      "team": "Green Bowl Packers",
+      "record": "41\u201347",
+      "pf": 9699.02,
+      "titles": 4,
+      "peak": "2016\u201318 three-peat \u00b7 2024 champion",
+      "dna": "The Championship Standard",
+      "desc": "Old-school roster builder who can lose isolated trade grades and still assemble a team that wins when it matters. The league\u2019s benchmark because four titles are the only argument that really ends arguments.",
+      "best": "2022 CeeDee + DK + DeVonta package; 2024 Andrews + Dowdle helped stabilize title run",
+      "scar": "Regular-season r\u00e9sum\u00e9 is less dominant than the trophy case suggests.",
+      "draft": "2020 Josh Allen in Round 8; 2022 Garrett Wilson in Round 11; 2024 Chase Brown in Round 10.",
+      "rival": "Kuhl",
+      "rival_record": "7\u20133"
+    },
+    "Stew": {
+      "owner": "Dsylvester9",
+      "team": "Worst Team on Paper!",
+      "record": "37\u201351",
+      "pf": 9558.6,
+      "titles": 0,
+      "peak": "2022 \u00b7 11\u20133 \u00b7 best record, PF and potential PF",
+      "dna": "The Day Trader",
+      "desc": "The league\u2019s highest-volume transaction personality. At his best, he manufactures elite rosters; at his worst, the extra move after the good move is the one that ends up in the museum.",
+      "best": "2022 Justin Jefferson and Ja\u2019Marr Chase acquisitions; Puka Nacua for $6 in 2023",
+      "scar": "2023 Jefferson + Josh Jacobs \u2192 Gabe Davis after the future first was voided.",
+      "draft": "2022 Kenneth Walker at 10.94; 2024 J.K. Dobbins at 13.124.",
+      "rival": "Birch",
+      "rival_record": "6\u20133"
+    },
+    "Scott": {
+      "owner": "Sheffla",
+      "team": "Team Sheffla",
+      "record": "16\u201318",
+      "pf": 3651.12,
+      "titles": 1,
+      "peak": "2025 champion \u00b7 70.32-point title margin",
+      "dna": "The Converter",
+      "desc": "Smallest career sample among the current group, but already owns a title. The 2025 championship paired strong lineup efficiency with a postseason hammer.",
+      "best": "2025 title run; ~92.5% lineup efficiency.",
+      "scar": "2026 Week 2: 46.38, the lowest known Sleeper-era score.",
+      "draft": "2024 Rashee Rice at 7.69; 2026 Bijan kept as a Round 1 foundation.",
+      "rival": "Kuhl",
+      "rival_record": "3\u20131"
+    },
+    "Mitch": {
+      "owner": "huppdawg80",
+      "team": "Suck My Njigba",
+      "record": "55\u201333",
+      "pf": 10671.68,
+      "titles": 0,
+      "peak": "2025 \u00b7 13\u20131 \u00b7 1,894.88 PF",
+      "dna": "The Math Problem",
+      "desc": "Builds teams that look like solvable equations: elite anchors, efficient lineup construction, and relentlessly high regular-season output. The missing championship is the only obvious hole.",
+      "best": "2022 Saquon + Thielen for Jonathan Taylor; sustained elite regular-season construction",
+      "scar": "2025 semifinal: MHJ 1.9 over Chris Rodriguez 13.4; exact lineup flip would have advanced him.",
+      "draft": "2020 Antonio Gibson at 11.103; 2024 JSN in Round 9 became a 2025/26 core asset.",
+      "rival": "Stilly",
+      "rival_record": "9\u20131"
+    },
+    "Tony": {
+      "owner": "tsteg",
+      "team": "Bowers Castle",
+      "record": "49\u201339",
+      "pf": 10124.66,
+      "titles": 1,
+      "peak": "2021 champion \u00b7 10\u20133",
+      "dna": "The Quiet Poker Player",
+      "desc": "Often less noisy than Stew, but historically excellent at turning trades and waivers into usable points. Has one of the league\u2019s strongest title-season transaction r\u00e9sum\u00e9s.",
+      "best": "2021 Joe Mixon for James Robinson + Zack Moss; 2022 Kenneth Walker for $94 FAAB",
+      "scar": "2025 playoff loss by 0.72 with Tony Pollard\u2019s 17.7 on the bench over Kenneth Walker\u2019s 2.4.",
+      "draft": "2020 Stefon Diggs at 7.61; 2023 Raheem Mostert at 14.131.",
+      "rival": "Kuhl",
+      "rival_record": "8\u20132"
+    },
+    "Stover": {
+      "owner": "DillionPanthers15",
+      "team": "Gurt",
+      "record": "50\u201338",
+      "pf": 9925.58,
+      "titles": 1,
+      "peak": "2022 champion \u00b7 2024 10\u20134 best record",
+      "dna": "The Asset Vault",
+      "desc": "Often owns a roster that looks worth more than the weekly score. Strong overall r\u00e9sum\u00e9: a title, 50 Sleeper wins, and another season with the league\u2019s best record.",
+      "best": "2022 championship; 2023 Nico Collins for $33 FAAB",
+      "scar": "2024 Malik Nabers-for-Davante outcome and the expensive Jauan Jennings claim.",
+      "draft": "2024 Brian Thomas Jr. at 10.91 was one of the best value picks of that draft.",
+      "rival": "Stew",
+      "rival_record": "5\u20131"
+    },
+    "Kuhl": {
+      "owner": "ckuhl5",
+      "team": "Kirko Chains",
+      "record": "36\u201352",
+      "pf": 9412.4,
+      "titles": 0,
+      "peak": "2022 \u00b7 8\u20136 \u00b7 3rd",
+      "dna": "The Process / Results Paradox",
+      "desc": "Repeatedly makes useful acquisitions but has one of the league\u2019s weakest conversion records. The archive contains both sharp moves and catastrophic realized-value losses.",
+      "best": "2023 Kyren Williams for $21; 2024 J.K. Dobbins acquisition",
+      "scar": "2023 Ja\u2019Marr Chase \u2192 Tyler Lockett after future picks were voided; repeated lineup-conversion misses.",
+      "draft": "2023 Rashee Rice at 15.144; 2024 Xavier Worthy at 8.78.",
+      "rival": "Tony",
+      "rival_record": "2\u20138"
+    },
+    "Birch": {
+      "owner": "birchhh",
+      "team": "Nacua Matata",
+      "record": "50\u201338",
+      "pf": 9800.26,
+      "titles": 1,
+      "peak": "2019 champion \u00b7 2021 11\u20132",
+      "dna": "The Blackjack Player",
+      "desc": "Will hit on 17, draw a four, and then explain why it was the correct play. The r\u00e9sum\u00e9 has real wins behind the chaos: a title, 50 Sleeper wins, and several strong positional trades.",
+      "best": "2021 Lamar + Mark Andrews + Josh Jacobs positional-advantage trade",
+      "scar": "2022 Ja\u2019Marr Chase \u2192 Patterson + Jeff Wilson + Claypool.",
+      "draft": "2021 James Conner at 11.105; 2022 Brandon Aiyuk at 10.91.",
+      "rival": "Tony",
+      "rival_record": "8\u20133"
+    }
+  },
+  "weeks": {
+    "1": [
+      [
+        "Scott",
+        134.96,
+        "Stilly",
+        107.94
+      ],
+      [
+        "Tom",
+        89.0,
+        "JMid",
+        73.56
+      ],
+      [
+        "Mitch",
+        161.26,
+        "Stew",
+        158.52
+      ],
+      [
+        "Tony",
+        153.86,
+        "Kuhl",
+        105.92
+      ],
+      [
+        "Birch",
+        160.26,
+        "Stover",
+        70.8
+      ]
+    ],
+    "2": [
+      [
+        "Stilly",
+        163.34,
+        "Tom",
+        63.0
+      ],
+      [
+        "Stew",
+        113.96,
+        "JMid",
+        94.38
+      ],
+      [
+        "Mitch",
+        168.72,
+        "Birch",
+        99.7
+      ],
+      [
+        "Stover",
+        129.26,
+        "Kuhl",
+        56.32
+      ],
+      [
+        "Tony",
+        84.32,
+        "Scott",
+        46.38
+      ]
+    ],
+    "3": [
+      [
+        "JMid",
+        152.58,
+        "Stilly",
+        104.98
+      ],
+      [
+        "Tony",
+        92.44,
+        "Tom",
+        86.66
+      ],
+      [
+        "Birch",
+        128.94,
+        "Stew",
+        123.22
+      ],
+      [
+        "Scott",
+        120.6,
+        "Stover",
+        105.78
+      ],
+      [
+        "Mitch",
+        91.62,
+        "Kuhl",
+        76.16
+      ]
+    ],
+    "4": [
+      [
+        "Stilly",
+        124.62,
+        "Stew",
+        105.98
+      ],
+      [
+        "Tony",
+        154.8,
+        "JMid",
+        106.12
+      ],
+      [
+        "Mitch",
+        92.52,
+        "Scott",
+        90.54
+      ],
+      [
+        "Tom",
+        143.28,
+        "Stover",
+        110.48
+      ],
+      [
+        "Birch",
+        108.28,
+        "Kuhl",
+        71.32
+      ]
+    ],
+    "5": [
+      [
+        "Stilly",
+        126.36,
+        "Tony",
+        115.44
+      ],
+      [
+        "Stover",
+        113.94,
+        "JMid",
+        105.3
+      ],
+      [
+        "Mitch",
+        172.9,
+        "Tom",
+        124.94
+      ],
+      [
+        "Stew",
+        142.56,
+        "Kuhl",
+        95.1
+      ],
+      [
+        "Birch",
+        144.58,
+        "Scott",
+        66.22
+      ]
+    ],
+    "6": [
+      [
+        "Stover",
+        121.68,
+        "Stilly",
+        71.3
+      ],
+      [
+        "Mitch",
+        129.2,
+        "JMid",
+        89.16
+      ],
+      [
+        "Birch",
+        98.88,
+        "Tom",
+        91.7
+      ],
+      [
+        "Stew",
+        114.44,
+        "Tony",
+        74.72
+      ],
+      [
+        "Scott",
+        114.56,
+        "Kuhl",
+        101.82
+      ]
+    ]
+  },
+  "rivalries": {
+    "Stilly": {
+      "JMid": "2\u20131",
+      "Tom": "7\u20133",
+      "Stew": "6\u20135",
+      "Scott": "3\u20132",
+      "Mitch": "1\u20139",
+      "Tony": "4\u20137",
+      "Stover": "2\u20136",
+      "Kuhl": "4\u20134",
+      "Birch": "4\u20135"
+    },
+    "JMid": {
+      "Stilly": "1\u20132",
+      "Tom": "1\u20132",
+      "Stew": "3\u20132",
+      "Scott": "2\u20132",
+      "Mitch": "1\u20133",
+      "Tony": "1\u20133",
+      "Stover": "0\u20131",
+      "Kuhl": "2\u20131",
+      "Birch": "2\u20131"
+    },
+    "Tom": {
+      "Stilly": "3\u20137",
+      "JMid": "2\u20131",
+      "Stew": "4\u20135",
+      "Scott": "3\u20131",
+      "Mitch": "5\u20136",
+      "Tony": "4\u20136",
+      "Stover": "2\u20136",
+      "Kuhl": "7\u20133",
+      "Birch": "4\u20137"
+    },
+    "Stew": {
+      "Stilly": "5\u20136",
+      "JMid": "2\u20133",
+      "Tom": "5\u20134",
+      "Scott": "0\u20132",
+      "Mitch": "5\u20138",
+      "Tony": "3\u20136",
+      "Stover": "1\u20135",
+      "Kuhl": "5\u20135",
+      "Birch": "6\u20133"
+    },
+    "Scott": {
+      "Stilly": "2\u20133",
+      "JMid": "2\u20132",
+      "Tom": "1\u20133",
+      "Stew": "2\u20130",
+      "Mitch": "1\u20133",
+      "Tony": "1\u20132",
+      "Stover": "1\u20130",
+      "Kuhl": "3\u20131",
+      "Birch": "1\u20132"
+    },
+    "Mitch": {
+      "Stilly": "9\u20131",
+      "JMid": "3\u20131",
+      "Tom": "6\u20135",
+      "Stew": "8\u20135",
+      "Scott": "3\u20131",
+      "Tony": "6\u20133",
+      "Stover": "3\u20131",
+      "Kuhl": "5\u20134",
+      "Birch": "6\u20135"
+    },
+    "Tony": {
+      "Stilly": "7\u20134",
+      "JMid": "3\u20131",
+      "Tom": "6\u20134",
+      "Stew": "6\u20133",
+      "Scott": "2\u20131",
+      "Mitch": "3\u20136",
+      "Stover": "2\u20134",
+      "Kuhl": "8\u20132",
+      "Birch": "3\u20138"
+    },
+    "Stover": {
+      "Stilly": "6\u20132",
+      "JMid": "1\u20130",
+      "Tom": "6\u20132",
+      "Stew": "5\u20131",
+      "Scott": "0\u20131",
+      "Mitch": "1\u20133",
+      "Tony": "4\u20132",
+      "Kuhl": "5\u20132",
+      "Birch": "1\u20134"
+    },
+    "Kuhl": {
+      "Stilly": "4\u20134",
+      "JMid": "1\u20132",
+      "Tom": "3\u20137",
+      "Stew": "5\u20135",
+      "Scott": "1\u20133",
+      "Mitch": "4\u20135",
+      "Tony": "2\u20138",
+      "Stover": "2\u20135",
+      "Birch": "4\u20138"
+    },
+    "Birch": {
+      "Stilly": "5\u20134",
+      "JMid": "1\u20132",
+      "Tom": "7\u20134",
+      "Stew": "3\u20136",
+      "Scott": "2\u20131",
+      "Mitch": "5\u20136",
+      "Tony": "8\u20133",
+      "Stover": "4\u20131",
+      "Kuhl": "8\u20134"
+    }
+  },
+  "trades": [
+    {
+      "year": 2023,
+      "title": "Stilly acquires Mike Evans + Derrick Henry",
+      "sent": "Cooper Kupp",
+      "got": "Mike Evans + Derrick Henry",
+      "process": "A",
+      "outcome": "A+",
+      "why": "Direct championship-building move. From Weeks 9\u201317, Evans + Henry produced about 257.5 half-PPR points versus about 84.8 for Kupp: roughly +172.7 raw ROS points before lineup context.",
+      "counter": "This is the cleanest example of a trade that wins both the process and outcome tests."
+    },
+    {
+      "year": 2023,
+      "title": "Stew sends Justin Jefferson + Josh Jacobs",
+      "sent": "Justin Jefferson + Josh Jacobs",
+      "got": "Gabe Davis (+ future 1st later voided)",
+      "process": "D",
+      "outcome": "F",
+      "why": "The future first was the only way to defend the package. Once the league voided future-pick trading, the realized historical return became Jefferson + Jacobs for Gabe Davis.",
+      "counter": "The site does not invent a full alternate record, because that would require guessing Stew\u2019s weekly lineup and downstream transactions."
+    },
+    {
+      "year": 2022,
+      "title": "Birch sends Ja\u2019Marr Chase",
+      "sent": "Ja\u2019Marr Chase",
+      "got": "Cordarrelle Patterson + Jeff Wilson + Chase Claypool",
+      "process": "D",
+      "outcome": "F",
+      "why": "One of the strongest all-time value-loss candidates. Chase remained an elite difference-maker; the return did not create comparable positional or weekly value.",
+      "counter": "A pure realized-value loss, even before considering how hard elite WR production is to replace."
+    },
+    {
+      "year": 2021,
+      "title": "Tony acquires Joe Mixon",
+      "sent": "James Robinson + Zack Moss",
+      "got": "Joe Mixon",
+      "process": "A",
+      "outcome": "A",
+      "why": "The cleanest pure-value win of Tony\u2019s championship season. It consolidated replaceable depth into a premium RB during the title run.",
+      "counter": "This is exactly the type of deal the Trade Lab rewards: concentration into a more valuable weekly starter."
+    },
+    {
+      "year": 2024,
+      "title": "Stilly escapes Christian McCaffrey",
+      "sent": "Christian McCaffrey + Diontae Johnson + Tee Higgins",
+      "got": "Terry McLaurin + De\u2019Von Achane + Tank Dell",
+      "process": "A",
+      "outcome": "A+",
+      "why": "The 1.01 CMC disaster could have sunk the season. The trade converted one unavailable cornerstone plus secondary assets into multiple usable starters and helped fuel a runner-up finish.",
+      "counter": "The Hall treats this as roster repair, not simply player-for-player surplus."
+    },
+    {
+      "year": 2025,
+      "title": "Stilly\u2019s Ja\u2019Marr Chase asset chain",
+      "sent": "Jahmyr Gibbs + RJ Harvey (W3), then Ja\u2019Marr Chase in W11",
+      "got": "Ja\u2019Marr Chase + Chase Brown, then Amon-Ra + Jordan Addison + Jared Goff",
+      "process": "A-",
+      "outcome": "Incomplete",
+      "why": "This is a multi-stage keeper-era trade tree, not a single transaction. Amon-Ra became a 2026 Round 1 keeper and the chain still has future value.",
+      "counter": "The right grade changes as downstream assets keep producing."
+    }
+  ],
+  "draft_gems": [
+    [
+      2020,
+      "Tony",
+      "Stefon Diggs",
+      "7.61",
+      "Elite WR at a mid-round price; one of the cleanest draft steals in the early Sleeper era."
+    ],
+    [
+      2020,
+      "Tom",
+      "Josh Allen",
+      "8.79",
+      "A league-winning caliber QB value far below his later draft cost."
+    ],
+    [
+      2020,
+      "Mitch",
+      "Antonio Gibson",
+      "11.103",
+      "Immediate useful RB production from double-digit rounds."
+    ],
+    [
+      2021,
+      "Mitch",
+      "Deebo Samuel",
+      "8.75",
+      "A massive breakout at an eighth-round price."
+    ],
+    [
+      2021,
+      "Birch",
+      "James Conner",
+      "11.105",
+      "Double-digit round RB who produced major weekly value."
+    ],
+    [
+      2021,
+      "Tony",
+      "Jaylen Waddle",
+      "11.110",
+      "Rookie WR value that quickly exceeded draft slot."
+    ],
+    [
+      2022,
+      "Stew",
+      "Kenneth Walker",
+      "10.94",
+      "Impact rookie RB in Round 10."
+    ],
+    [
+      2022,
+      "Tom",
+      "Garrett Wilson",
+      "11.109",
+      "Future star drafted in Round 11."
+    ],
+    [
+      2022,
+      "Tony",
+      "Chris Olave",
+      "10.98",
+      "Strong rookie WR production from Round 10."
+    ],
+    [
+      2023,
+      "Tony",
+      "Raheem Mostert",
+      "14.131",
+      "Perhaps the purest late-round theft: massive RB production at a near-final-round price."
+    ],
+    [
+      2023,
+      "JMid-era roster seat",
+      "De'Von Achane",
+      "11.105",
+      "Explosive rookie value; roster-seat attribution is preserved carefully because of later owner turnover."
+    ],
+    [
+      2023,
+      "Kuhl",
+      "Rashee Rice",
+      "15.144",
+      "Final-round WR who became a weekly starter."
+    ],
+    [
+      2024,
+      "Stilly",
+      "Jayden Daniels",
+      "14.140",
+      "Late-round QB breakout that later carried keeper value."
+    ],
+    [
+      2024,
+      "Stover",
+      "Brian Thomas Jr.",
+      "10.91",
+      "Top-tier rookie WR production from Round 10."
+    ],
+    [
+      2024,
+      "Tony",
+      "Brock Bowers",
+      "9.88",
+      "Position-changing rookie TE from Round 9."
+    ],
+    [
+      2024,
+      "Tom",
+      "Chase Brown",
+      "10.97",
+      "One of the best RB value picks of the season."
+    ]
+  ],
+  "champions": [
+    [
+      2016,
+      "Tom"
+    ],
+    [
+      2017,
+      "Tom"
+    ],
+    [
+      2018,
+      "Tom"
+    ],
+    [
+      2019,
+      "Birch"
+    ],
+    [
+      2020,
+      "Koble"
+    ],
+    [
+      2021,
+      "Tony"
+    ],
+    [
+      2022,
+      "Stover"
+    ],
+    [
+      2023,
+      "Stilly"
+    ],
+    [
+      2024,
+      "Tom"
+    ],
+    [
+      2025,
+      "Scott"
+    ]
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "html_files": 187,
+  "broken_links": 0,
+  "missing_examples": [],
+  "duplicate_ids": 0,
+  "duplicate_examples": [],
+  "playoff_fixture_weeks": 8,
+  "fixture_games": 40,
+  "scenario_iterations_per_spot_count": 25000,
+  "known_limitations": [
+    "No live auto-refresh",
+    "Playoff settings not independently confirmed",
+    "Historical incomplete coverage",
+    "Browser cross-device test not performed"
+  ]
+}

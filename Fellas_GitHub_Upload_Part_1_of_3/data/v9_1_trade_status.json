@@ -1,0 +1,135 @@
+{
+  "release": "v9.1 review \u2014 partial source certification",
+  "excluded": [
+    {
+      "year": 2020,
+      "id": "614536176472264704",
+      "week": 3,
+      "date": "2020-09-23",
+      "managers": "Stilly \u2194 Tony",
+      "reason": "Sleeper transaction exists, but no players are recorded; manager reports possible FAAB-only/test activity, unconfirmed. Preserve archive, exclude player-trade leaderboards.",
+      "classification": "excluded_no_documented_player_assets",
+      "faab_only": "possible_unconfirmed",
+      "include_in_player_trade_rankings": false
+    },
+    {
+      "year": 2020,
+      "id": "625902992721264640",
+      "week": 7,
+      "date": "2020-10-25",
+      "managers": "Stilly \u2194 Stew",
+      "reason": "Sleeper transaction exists, but no players are recorded; manager reports possible FAAB-only/test activity, unconfirmed. Preserve archive, exclude player-trade leaderboards.",
+      "classification": "excluded_no_documented_player_assets",
+      "faab_only": "possible_unconfirmed",
+      "include_in_player_trade_rankings": false
+    },
+    {
+      "year": 2020,
+      "id": "625903284296683520",
+      "week": 7,
+      "date": "2020-10-25",
+      "managers": "Stilly \u2194 Stew",
+      "reason": "Sleeper transaction exists, but no players are recorded; manager reports possible FAAB-only/test activity, unconfirmed. Preserve archive, exclude player-trade leaderboards.",
+      "classification": "excluded_no_documented_player_assets",
+      "faab_only": "possible_unconfirmed",
+      "include_in_player_trade_rankings": false
+    }
+  ],
+  "three_way_2023": {
+    "trade_id": "1028057686711058432",
+    "date": "2023-11-08",
+    "week": 10,
+    "status": "asset_direction_reconciled_scoring_pending",
+    "source": "manager-provided contemporaneous Sleeper trade text, November 8 at 2:13 PM",
+    "managers": {
+      "Stilly": {
+        "team_id": "1",
+        "received": [
+          "Courtland Sutton",
+          "David Montgomery",
+          "Jaylen Waddle"
+        ],
+        "sent": [
+          "DeAndre Hopkins",
+          "Gus Edwards",
+          "Josh Jacobs"
+        ],
+        "sleeper_starter_points_weeks_11_17": 162.9,
+        "sleeper_starts_weeks_11_17": 13
+      },
+      "Tom": {
+        "team_id": "3",
+        "received": [
+          "Davante Adams",
+          "Gus Edwards",
+          "Tony Pollard",
+          "2024 fifth-round pick (originally Stew)"
+        ],
+        "sent": [
+          "Amari Cooper",
+          "David Montgomery",
+          "Jaylen Waddle",
+          "2024 third-round pick (originally Tom)"
+        ],
+        "sleeper_starter_points_weeks_11_17": 212.9,
+        "sleeper_starts_weeks_11_17": 18
+      },
+      "Stew": {
+        "team_id": "4",
+        "received": [
+          "DeAndre Hopkins",
+          "Amari Cooper",
+          "Josh Jacobs",
+          "2024 third-round pick (originally Tom)"
+        ],
+        "sent": [
+          "Davante Adams",
+          "Courtland Sutton",
+          "Tony Pollard",
+          "2024 fifth-round pick (originally Stew)"
+        ],
+        "sleeper_starter_points_weeks_11_17": 77.4,
+        "sleeper_starts_weeks_11_17": 7
+      }
+    },
+    "asset_matching_test": "11/11 incoming assets exactly matched to 11 outgoing assets",
+    "score_status": "source_lineups_reconstructed_weeks_11_17; roster-tenure and cutoff review pending",
+    "draft_pick_effect": "not included in starter-point totals; track separately"
+  },
+  "partial_sides": [
+    {
+      "year": 2020,
+      "trade_id": "629416763662086144",
+      "week": 8,
+      "date": "2020-11-03",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "George Kittle"
+      ],
+      "starter_points": 11.2,
+      "starts": 1,
+      "confidence": "partial",
+      "provisional": false,
+      "direct_edge": null,
+      "direct_outcome": "MULTI"
+    },
+    {
+      "year": 2021,
+      "trade_id": "748585137259884544",
+      "week": 3,
+      "date": "2021-09-28",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "AJ Dillon"
+      ],
+      "starter_points": 54.4,
+      "starts": 5,
+      "confidence": "partial",
+      "provisional": false,
+      "direct_edge": null,
+      "direct_outcome": "MULTI"
+    }
+  ]
+}

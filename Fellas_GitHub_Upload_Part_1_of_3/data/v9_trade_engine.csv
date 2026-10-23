@@ -1,0 +1,102 @@
+year,trade_id,week,date,manager,team_id,assets,starter_points,starts,confidence,provisional,direct_edge,direct_outcome
+2020,614849640176623616,3,2020-09-24,EvansBrandon,2,Ronald Jones,82.4,6,partial,False,79.5,W
+2020,614849640176623616,3,2020-09-24,Stew,4,A.J. Green,2.9,1,partial,False,-79.5,L
+2020,616864423201554432,3,2020-09-30,Stilly,1,DeSean Jackson | Travis Kelce | Marquise Brown,290.16,20,verified,False,23.76,W
+2020,616864423201554432,3,2020-09-30,Tom,3,Allen Robinson II | Tyler Higbee | D'Andre Swift,266.4,21,source-verified-reconciliation,False,-23.76,L
+2020,622492390107738112,6,2020-10-15,Stilly,1,Lamar Jackson | J.K. Dobbins,264.26,15,verified,False,68.16,W
+2020,622492390107738112,6,2020-10-15,Tony,7,Kyler Murray,196.1,8,verified,False,-68.16,L
+2020,629416763662086144,8,2020-11-03,Stilly,1,George Kittle,11.2,1,partial,False,,MULTI
+2020,629818920752209920,9,2020-11-04,Stew,4,Michael Thomas,53.1,5,verified,False,8.100000000000001,T
+2020,629818920752209920,9,2020-11-04,Stover,8,D.J. Moore | Clyde Edwards-Helaire,45.0,6,verified,False,-8.100000000000001,T
+2021,737360507476066304,1,2021-08-30,Tom,3,Tyreek Hill | Josh Jacobs | Javonte Williams,333.1,24,verified,False,-81.39999999999998,L
+2021,737360507476066304,1,2021-08-30,Tony,7,Corey Davis | A.J. Brown | Jonathan Taylor,414.5,25,verified,False,81.39999999999998,W
+2021,738428315181928448,1,2021-08-31,Tom,3,Dak Prescott | Noah Fant | Antonio Gibson,364.6,26,verified,False,-212.98000000000002,L
+2021,738428315181928448,1,2021-08-31,Birch,10,Lamar Jackson | Mark Andrews | Josh Jacobs,577.58,36,verified,False,212.98000000000002,W
+2021,746234454665732096,2,2021-09-22,Stew,4,Kenyan Drake | Saquon Barkley,100.4,9,verified,False,16.0,W
+2021,746234454665732096,2,2021-09-22,Kuhl,9,Nyheim Miller-Hines | Clyde Edwards-Helaire | Ty'Son Williams,84.4,8,verified,False,-16.0,L
+2021,748312121284149248,3,2021-09-27,EvansBrandon,2,Aaron Rodgers | Keenan Allen,391.5,22,verified,False,160.1,W
+2021,748312121284149248,3,2021-09-27,Kuhl,9,Leonard Fournette | Patrick Mahomes | Brandon Aiyuk,231.4,13,verified,False,-160.1,L
+2021,748585137259884544,3,2021-09-28,Stilly,1,AJ Dillon,54.4,5,partial,False,,MULTI
+2021,751165345997402112,4,2021-10-05,Koble,5,Zack Moss | James Robinson,137.6,15,verified,False,-55.5,L
+2021,751165345997402112,4,2021-10-05,Tony,7,Joe Mixon,193.1,10,verified,False,55.5,W
+2021,751504917667168256,5,2021-10-07,Stover,8,Leonard Fournette,164.8,9,verified,False,95.70000000000002,W
+2021,751504917667168256,5,2021-10-07,Kuhl,9,DeVonta Smith,69.1,8,verified,False,-95.70000000000002,L
+2021,754017147822415872,6,2021-10-13,Stilly,1,Kareem Hunt,2.8,1,verified,False,-86.4,L
+2021,754017147822415872,6,2021-10-13,Tony,7,CeeDee Lamb,89.2,8,verified,False,86.4,W
+2021,754024908207583232,6,2021-10-13,Tom,3,Amari Cooper,72.5,7,verified,False,-5.799999999999997,T
+2021,754024908207583232,6,2021-10-13,Stew,4,Antonio Gibson,78.3,7,verified,False,5.799999999999997,T
+2021,759191673220775936,8,2021-10-27,Tony,7,Kyle Pitts Sr.,63.0,8,verified,False,-55.400000000000006,L
+2021,759191673220775936,8,2021-10-27,Kuhl,9,Jarvis Landry | George Kittle,118.4,8,verified,False,55.400000000000006,W
+2022,875965138744864768,2,2022-09-15,Stilly,1,Jonathan Taylor,101.1,9,verified,False,-202.79999999999998,L
+2022,875965138744864768,2,2022-09-15,Mitch,6,Adam Thielen | Saquon Barkley,303.9,24,verified,False,202.79999999999998,W
+2022,880505837758652416,3,2022-09-27,EvansBrandon,2,Mike Williams | James Conner | James Robinson,266.2,21,verified,False,-1.8600000000000136,T
+2022,880505837758652416,3,2022-09-27,Stew,4,Cordarrelle Patterson | Justin Jefferson,268.06,14,verified,False,1.8600000000000136,T
+2022,881580705233195008,4,2022-09-30,Tom,3,Leonard Fournette,85.7,6,verified,False,64.30000000000001,W
+2022,881580705233195008,4,2022-09-30,Tony,7,Alvin Kamara,21.4,1,verified,False,-64.30000000000001,L
+2022,885980047650119680,6,2022-10-12,EvansBrandon,2,Alvin Kamara | Gabe Davis,178.8,17,verified,False,8.5,T
+2022,885980047650119680,6,2022-10-12,Tony,7,A.J. Brown | James Robinson,170.3,11,verified,False,-8.5,T
+2022,886267215865982976,6,2022-10-13,Stilly,1,Keenan Allen | Tee Higgins | Najee Harris,327.46,26,verified,False,-55.04000000000002,L
+2022,886267215865982976,6,2022-10-13,Tom,3,DK Metcalf | CeeDee Lamb | DeVonta Smith,382.5,28,verified,False,55.04000000000002,W
+2022,896468742987522048,10,2022-11-10,Stew,4,Ja'Marr Chase,63.1,5,verified-recordbook,False,10.399999999999999,W
+2022,896468742987522048,10,2022-11-10,Birch,10,Cordarrelle Patterson | Jeff Wilson | Chase Claypool,52.7,9,verified-recordbook,False,-10.399999999999999,L
+2023,1012571602774532096,3,2023-09-27,Stew,4,CeeDee Lamb | Travis Etienne Jr.,136.6,8,verified-recordbook,False,-279.29999999999995,L
+2023,1012571602774532096,3,2023-09-27,Kuhl,9,James Conner | De'Von Achane | Puka Nacua,415.9,29,verified-recordbook,False,279.29999999999995,W
+2023,1018289561511682048,6,2023-10-12,Stew,4,Tony Pollard | Jaxon Smith-Njigba,77.5,10,verified,False,-158.6,L
+2023,1018289561511682048,6,2023-10-12,Birch,10,CeeDee Lamb | Kenny Gainwell,236.1,10,verified,False,158.6,W
+2023,1023059879336013824,8,2023-10-26,Stilly,1,Mike Evans | Derrick Henry,261.48,18,verified,False,175.68,W
+2023,1023059879336013824,8,2023-10-26,Tony,7,Cooper Kupp,85.8,8,verified,False,-175.68,L
+2023,1028065885325508608,10,2023-11-08,EvansBrandon,2,Joe Mixon,111.5,7,verified-tenure,False,63.9,W
+2023,1028065885325508608,10,2023-11-08,Stew,4,Jordan Addison,47.6,6,verified-tenure,False,-63.9,L
+2023,1031121022772555776,11,2023-11-17,Stew,4,Gabe Davis,25.1,4,verified-recordbook,False,-49.49999999999999,L
+2023,1031121022772555776,11,2023-11-17,Mitch,6,Justin Jefferson | Josh Jacobs,74.6,6,verified-recordbook,False,49.49999999999999,W
+2023,1031251467312775168,11,2023-11-17,Stew,4,Breece Hall,101.0,6,verified-recordbook,False,13.5,W
+2023,1031251467312775168,11,2023-11-17,Tony,7,Amari Cooper | Travis Etienne Jr.,87.5,8,verified-recordbook,False,-13.5,L
+2023,1038099277249245184,14,2023-12-06,EvansBrandon,2,Ja'Marr Chase,14.0,3,verified-tenure,False,-1.6999999999999993,T
+2023,1038099277249245184,14,2023-12-06,Kuhl,9,Tyler Lockett,15.7,2,verified-tenure,False,1.6999999999999993,T
+2024,1139340571111256064,1,2024-09-10,Tom,3,Tank Dell,10.5,2,verified,False,-83.3,L
+2024,1139340571111256064,1,2024-09-10,Kuhl,9,J.K. Dobbins,93.8,8,verified,False,83.3,W
+2024,1140082401968836608,2,2024-09-12,Stew,4,Malik Nabers,171.4,12,verified,False,32.400000000000006,W
+2024,1140082401968836608,2,2024-09-12,Stover,8,Davante Adams,139.0,10,verified,False,-32.400000000000006,L
+2024,1141777905656143872,2,2024-09-17,JMid,2,Calvin Ridley | Kyren Williams,227.0,14,verified,False,22.900000000000006,W
+2024,1141777905656143872,2,2024-09-17,Stew,4,James Cook III,204.1,14,verified,False,-22.900000000000006,L
+2024,1144362000575840256,3,2024-09-24,Stilly,1,Terry McLaurin | De'Von Achane | Tank Dell,453.4,35,verified,False,197.99999999999997,W
+2024,1144362000575840256,3,2024-09-24,Tom,3,Christian McCaffrey | Diontae Johnson | Tee Higgins,255.4,18,verified,False,-197.99999999999997,L
+2024,1146946436173623296,4,2024-10-01,Tom,3,Mark Andrews | Rico Dowdle,21.6,2,verified,False,-31.799999999999997,L
+2024,1146946436173623296,4,2024-10-01,Stew,4,Amari Cooper,53.4,9,verified,False,31.799999999999997,W
+2024,1146947320588861440,4,2024-10-02,Stilly,1,Chase Brown,154.4,10,verified,False,-20.22,L
+2024,1146947320588861440,4,2024-10-02,Tom,3,Jordan Love,174.62,11,verified,False,20.22,W
+2024,1152708228883660800,7,2024-10-17,Tom,3,Travis Kelce | Brandon Aiyuk,107.3,10,verified-recordbook,False,-109.60000000000001,L
+2024,1152708228883660800,7,2024-10-17,Tony,7,Cooper Kupp | Kareem Hunt | Rico Dowdle,216.9,19,verified-recordbook,False,109.60000000000001,W
+2024,1159892809005076480,10,2024-11-09,Mitch,6,Raheem Mostert,0.0,0,verified,False,-39.8,L
+2024,1159892809005076480,10,2024-11-09,Kuhl,9,Nick Chubb,39.8,4,verified,False,39.8,W
+2025,1273856224776962053,2,2025-09-17,Stew,4,Derrick Henry,81.4,7,verified,False,-97.6,L
+2025,1273856224776962053,2,2025-09-17,Kuhl,9,Nico Collins,179.0,13,verified,False,97.6,W
+2025,1274473433362604032,3,2025-09-21,JMid,2,Aaron Jones Sr. | Zach Charbonnet,66.8,7,verified,False,-72.2,L
+2025,1274473433362604032,3,2025-09-21,Stew,4,TreVeyon Henderson,139.0,11,verified,False,72.2,W
+2025,1276026193660899328,3,2025-09-23,Stilly,1,Ja'Marr Chase | Chase Brown,298.8,17,verified,False,-80.0,L
+2025,1276026193660899328,3,2025-09-23,Stew,4,Jahmyr Gibbs | RJ Harvey,378.8,20,verified,False,80.0,W
+2025,1276373761972527104,3,2025-09-24,Stew,4,Quentin Johnston,64.5,7,verified-recordbook,False,64.5,W
+2025,1276373761972527104,3,2025-09-24,Birch,10,Bhayshul Tuten,0.0,0,verified-recordbook,False,-64.5,L
+2025,1276326233327570944,3,2025-09-24,Tom,3,Jordan Addison,39.8,4,verified,False,39.8,W
+2025,1276326233327570944,3,2025-09-24,Stover,8,Mike Evans,0.0,1,verified,False,-39.8,L
+2025,1294424036499025920,11,2025-11-12,Stilly,1,Brian Thomas Jr.,0.0,0,verified,False,-7.1,T
+2025,1294424036499025920,11,2025-11-12,Stover,8,Stefon Diggs,7.1,2,verified,False,7.1,T
+2025,1294402688213057536,11,2025-11-12,Stilly,1,Amon-Ra St. Brown | Jordan Addison | Jared Goff,199.72,13,verified-recordbook,False,,MULTI
+2025,1294402688213057536,11,2025-11-12,JMid,2,Ja'Marr Chase,78.3,5,verified-recordbook,False,,MULTI
+2025,1294402688213057536,11,2025-11-12,Tom,3,A.J. Brown,98.6,6,verified-recordbook,False,,MULTI
+2025,1294724519813988352,11,2025-11-13,Stew,4,Jake Ferguson | Jaylen Warren,114.8,12,verified,False,-14.000000000000014,L
+2025,1294724519813988352,11,2025-11-13,Kuhl,9,Zach Ertz | Derrick Henry,128.8,6,verified,False,14.000000000000014,W
+2026,1399889389147979776,1,2026-08-31,Stilly,1,MarShawn Lloyd,8.6,2,verified,True,8.6,T
+2026,1399889389147979776,1,2026-08-31,Tom,3,Jonathon Brooks,0.0,0,verified,True,-8.6,T
+2026,1400522174271340544,1,2026-09-01,Stew,4,Ladd McConkey,13.6,2,verified,True,-34.699999999999996,L
+2026,1400522174271340544,1,2026-09-01,Scott,5,Emeka Egbuka,48.3,5,verified,True,34.699999999999996,W
+2026,1405999320708268032,2,2026-09-16,Tom,3,Quinshon Judkins,34.0,3,verified,True,-18.6,L
+2026,1405999320708268032,2,2026-09-16,Stover,8,Trevor Lawrence,52.6,3,verified,True,18.6,W
+2026,1411009536306733056,4,2026-09-30,Stew,4,Christian Watson | Drake Maye,39.46,1,verified,True,28.46,W
+2026,1411009536306733056,4,2026-09-30,Kuhl,9,Jalen Hurts | Ladd McConkey,11.0,1,verified,True,-28.46,L
+2026,1411012593170010112,4,2026-09-30,JMid,2,J.K. Dobbins | Christian Watson,39.2,2,verified,True,37.0,W
+2026,1411012593170010112,4,2026-09-30,Stew,4,Jeremiyah Love,2.2,1,verified,True,-37.0,L
+2026,1413584172332654592,5,2026-10-07,Stilly,1,Ja'Marr Chase | Devaughn Vele,5.7,1,verified-recordbook,True,-15.100000000000001,L
+2026,1413584172332654592,5,2026-10-07,JMid,2,Davante Adams | George Kittle | Breece Hall,20.8,2,verified-recordbook,True,15.100000000000001,W
+2026,1414340723225976832,5,2026-10-09,Tom,3,Deebo Samuel Sr.,0.0,0,verified-recordbook,True,0.0,T
+2026,1414340723225976832,5,2026-10-09,Birch,10,Minnesota Vikings,0.0,0,verified-recordbook,True,0.0,T

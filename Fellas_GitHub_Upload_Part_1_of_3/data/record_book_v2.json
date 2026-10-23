@@ -1,0 +1,850 @@
+{
+  "metadata": {
+    "version": "v9.5 review",
+    "week_scope": "2026 weeks 1\u20136",
+    "source": "Existing packaged data/league.json",
+    "qualification": "2026 leaderboard entries reflect only archived Weeks 1\u20136; legacy ESPN-era records cannot be asserted universally."
+  },
+  "high_scores": [
+    {
+      "week": 5,
+      "manager": "Mitch",
+      "points": 172.9,
+      "opponent": "Tom"
+    },
+    {
+      "week": 2,
+      "manager": "Mitch",
+      "points": 168.72,
+      "opponent": "Birch"
+    },
+    {
+      "week": 2,
+      "manager": "Stilly",
+      "points": 163.34,
+      "opponent": "Tom"
+    },
+    {
+      "week": 1,
+      "manager": "Mitch",
+      "points": 161.26,
+      "opponent": "Stew"
+    },
+    {
+      "week": 1,
+      "manager": "Birch",
+      "points": 160.26,
+      "opponent": "Stover"
+    },
+    {
+      "week": 1,
+      "manager": "Stew",
+      "points": 158.52,
+      "opponent": "Mitch"
+    },
+    {
+      "week": 4,
+      "manager": "Tony",
+      "points": 154.8,
+      "opponent": "JMid"
+    },
+    {
+      "week": 1,
+      "manager": "Tony",
+      "points": 153.86,
+      "opponent": "Kuhl"
+    },
+    {
+      "week": 3,
+      "manager": "JMid",
+      "points": 152.58,
+      "opponent": "Stilly"
+    },
+    {
+      "week": 5,
+      "manager": "Birch",
+      "points": 144.58,
+      "opponent": "Scott"
+    },
+    {
+      "week": 4,
+      "manager": "Tom",
+      "points": 143.28,
+      "opponent": "Stover"
+    },
+    {
+      "week": 5,
+      "manager": "Stew",
+      "points": 142.56,
+      "opponent": "Kuhl"
+    },
+    {
+      "week": 1,
+      "manager": "Scott",
+      "points": 134.96,
+      "opponent": "Stilly"
+    },
+    {
+      "week": 2,
+      "manager": "Stover",
+      "points": 129.26,
+      "opponent": "Kuhl"
+    },
+    {
+      "week": 6,
+      "manager": "Mitch",
+      "points": 129.2,
+      "opponent": "JMid"
+    },
+    {
+      "week": 3,
+      "manager": "Birch",
+      "points": 128.94,
+      "opponent": "Stew"
+    },
+    {
+      "week": 5,
+      "manager": "Stilly",
+      "points": 126.36,
+      "opponent": "Tony"
+    },
+    {
+      "week": 5,
+      "manager": "Tom",
+      "points": 124.94,
+      "opponent": "Mitch"
+    },
+    {
+      "week": 4,
+      "manager": "Stilly",
+      "points": 124.62,
+      "opponent": "Stew"
+    },
+    {
+      "week": 3,
+      "manager": "Stew",
+      "points": 123.22,
+      "opponent": "Birch"
+    }
+  ],
+  "low_scores": [
+    {
+      "week": 2,
+      "manager": "Scott",
+      "points": 46.38,
+      "opponent": "Tony"
+    },
+    {
+      "week": 2,
+      "manager": "Kuhl",
+      "points": 56.32,
+      "opponent": "Stover"
+    },
+    {
+      "week": 2,
+      "manager": "Tom",
+      "points": 63.0,
+      "opponent": "Stilly"
+    },
+    {
+      "week": 5,
+      "manager": "Scott",
+      "points": 66.22,
+      "opponent": "Birch"
+    },
+    {
+      "week": 1,
+      "manager": "Stover",
+      "points": 70.8,
+      "opponent": "Birch"
+    },
+    {
+      "week": 6,
+      "manager": "Stilly",
+      "points": 71.3,
+      "opponent": "Stover"
+    },
+    {
+      "week": 4,
+      "manager": "Kuhl",
+      "points": 71.32,
+      "opponent": "Birch"
+    },
+    {
+      "week": 1,
+      "manager": "JMid",
+      "points": 73.56,
+      "opponent": "Tom"
+    },
+    {
+      "week": 6,
+      "manager": "Tony",
+      "points": 74.72,
+      "opponent": "Stew"
+    },
+    {
+      "week": 3,
+      "manager": "Kuhl",
+      "points": 76.16,
+      "opponent": "Mitch"
+    },
+    {
+      "week": 2,
+      "manager": "Tony",
+      "points": 84.32,
+      "opponent": "Scott"
+    },
+    {
+      "week": 3,
+      "manager": "Tom",
+      "points": 86.66,
+      "opponent": "Tony"
+    },
+    {
+      "week": 1,
+      "manager": "Tom",
+      "points": 89.0,
+      "opponent": "JMid"
+    },
+    {
+      "week": 6,
+      "manager": "JMid",
+      "points": 89.16,
+      "opponent": "Mitch"
+    },
+    {
+      "week": 4,
+      "manager": "Scott",
+      "points": 90.54,
+      "opponent": "Mitch"
+    },
+    {
+      "week": 3,
+      "manager": "Mitch",
+      "points": 91.62,
+      "opponent": "Kuhl"
+    },
+    {
+      "week": 6,
+      "manager": "Tom",
+      "points": 91.7,
+      "opponent": "Birch"
+    },
+    {
+      "week": 3,
+      "manager": "Tony",
+      "points": 92.44,
+      "opponent": "Tom"
+    },
+    {
+      "week": 4,
+      "manager": "Mitch",
+      "points": 92.52,
+      "opponent": "Scott"
+    },
+    {
+      "week": 2,
+      "manager": "JMid",
+      "points": 94.38,
+      "opponent": "Stew"
+    }
+  ],
+  "biggest_wins": [
+    {
+      "week": 2,
+      "winner": "Stilly",
+      "loser": "Tom",
+      "winner_pts": 163.34,
+      "loser_pts": 63.0,
+      "margin": 100.34,
+      "a": "Stilly",
+      "b": "Tom",
+      "ap": 163.34,
+      "bp": 63.0
+    },
+    {
+      "week": 1,
+      "winner": "Birch",
+      "loser": "Stover",
+      "winner_pts": 160.26,
+      "loser_pts": 70.8,
+      "margin": 89.46,
+      "a": "Birch",
+      "b": "Stover",
+      "ap": 160.26,
+      "bp": 70.8
+    },
+    {
+      "week": 5,
+      "winner": "Birch",
+      "loser": "Scott",
+      "winner_pts": 144.58,
+      "loser_pts": 66.22,
+      "margin": 78.36,
+      "a": "Birch",
+      "b": "Scott",
+      "ap": 144.58,
+      "bp": 66.22
+    },
+    {
+      "week": 2,
+      "winner": "Stover",
+      "loser": "Kuhl",
+      "winner_pts": 129.26,
+      "loser_pts": 56.32,
+      "margin": 72.94,
+      "a": "Stover",
+      "b": "Kuhl",
+      "ap": 129.26,
+      "bp": 56.32
+    },
+    {
+      "week": 2,
+      "winner": "Mitch",
+      "loser": "Birch",
+      "winner_pts": 168.72,
+      "loser_pts": 99.7,
+      "margin": 69.02,
+      "a": "Mitch",
+      "b": "Birch",
+      "ap": 168.72,
+      "bp": 99.7
+    },
+    {
+      "week": 6,
+      "winner": "Stover",
+      "loser": "Stilly",
+      "winner_pts": 121.68,
+      "loser_pts": 71.3,
+      "margin": 50.38,
+      "a": "Stover",
+      "b": "Stilly",
+      "ap": 121.68,
+      "bp": 71.3
+    },
+    {
+      "week": 4,
+      "winner": "Tony",
+      "loser": "JMid",
+      "winner_pts": 154.8,
+      "loser_pts": 106.12,
+      "margin": 48.68,
+      "a": "Tony",
+      "b": "JMid",
+      "ap": 154.8,
+      "bp": 106.12
+    },
+    {
+      "week": 5,
+      "winner": "Mitch",
+      "loser": "Tom",
+      "winner_pts": 172.9,
+      "loser_pts": 124.94,
+      "margin": 47.96,
+      "a": "Mitch",
+      "b": "Tom",
+      "ap": 172.9,
+      "bp": 124.94
+    },
+    {
+      "week": 1,
+      "winner": "Tony",
+      "loser": "Kuhl",
+      "winner_pts": 153.86,
+      "loser_pts": 105.92,
+      "margin": 47.94,
+      "a": "Tony",
+      "b": "Kuhl",
+      "ap": 153.86,
+      "bp": 105.92
+    },
+    {
+      "week": 3,
+      "winner": "JMid",
+      "loser": "Stilly",
+      "winner_pts": 152.58,
+      "loser_pts": 104.98,
+      "margin": 47.6,
+      "a": "JMid",
+      "b": "Stilly",
+      "ap": 152.58,
+      "bp": 104.98
+    },
+    {
+      "week": 5,
+      "winner": "Stew",
+      "loser": "Kuhl",
+      "winner_pts": 142.56,
+      "loser_pts": 95.1,
+      "margin": 47.46,
+      "a": "Stew",
+      "b": "Kuhl",
+      "ap": 142.56,
+      "bp": 95.1
+    },
+    {
+      "week": 6,
+      "winner": "Mitch",
+      "loser": "JMid",
+      "winner_pts": 129.2,
+      "loser_pts": 89.16,
+      "margin": 40.04,
+      "a": "Mitch",
+      "b": "JMid",
+      "ap": 129.2,
+      "bp": 89.16
+    },
+    {
+      "week": 6,
+      "winner": "Stew",
+      "loser": "Tony",
+      "winner_pts": 114.44,
+      "loser_pts": 74.72,
+      "margin": 39.72,
+      "a": "Stew",
+      "b": "Tony",
+      "ap": 114.44,
+      "bp": 74.72
+    },
+    {
+      "week": 2,
+      "winner": "Tony",
+      "loser": "Scott",
+      "winner_pts": 84.32,
+      "loser_pts": 46.38,
+      "margin": 37.94,
+      "a": "Tony",
+      "b": "Scott",
+      "ap": 84.32,
+      "bp": 46.38
+    },
+    {
+      "week": 4,
+      "winner": "Birch",
+      "loser": "Kuhl",
+      "winner_pts": 108.28,
+      "loser_pts": 71.32,
+      "margin": 36.96,
+      "a": "Birch",
+      "b": "Kuhl",
+      "ap": 108.28,
+      "bp": 71.32
+    },
+    {
+      "week": 4,
+      "winner": "Tom",
+      "loser": "Stover",
+      "winner_pts": 143.28,
+      "loser_pts": 110.48,
+      "margin": 32.8,
+      "a": "Tom",
+      "b": "Stover",
+      "ap": 143.28,
+      "bp": 110.48
+    },
+    {
+      "week": 1,
+      "winner": "Scott",
+      "loser": "Stilly",
+      "winner_pts": 134.96,
+      "loser_pts": 107.94,
+      "margin": 27.02,
+      "a": "Scott",
+      "b": "Stilly",
+      "ap": 134.96,
+      "bp": 107.94
+    },
+    {
+      "week": 2,
+      "winner": "Stew",
+      "loser": "JMid",
+      "winner_pts": 113.96,
+      "loser_pts": 94.38,
+      "margin": 19.58,
+      "a": "Stew",
+      "b": "JMid",
+      "ap": 113.96,
+      "bp": 94.38
+    },
+    {
+      "week": 4,
+      "winner": "Stilly",
+      "loser": "Stew",
+      "winner_pts": 124.62,
+      "loser_pts": 105.98,
+      "margin": 18.64,
+      "a": "Stilly",
+      "b": "Stew",
+      "ap": 124.62,
+      "bp": 105.98
+    },
+    {
+      "week": 3,
+      "winner": "Mitch",
+      "loser": "Kuhl",
+      "winner_pts": 91.62,
+      "loser_pts": 76.16,
+      "margin": 15.46,
+      "a": "Mitch",
+      "b": "Kuhl",
+      "ap": 91.62,
+      "bp": 76.16
+    }
+  ],
+  "closest_games": [
+    {
+      "week": 4,
+      "winner": "Mitch",
+      "loser": "Scott",
+      "winner_pts": 92.52,
+      "loser_pts": 90.54,
+      "margin": 1.98,
+      "a": "Mitch",
+      "b": "Scott",
+      "ap": 92.52,
+      "bp": 90.54
+    },
+    {
+      "week": 1,
+      "winner": "Mitch",
+      "loser": "Stew",
+      "winner_pts": 161.26,
+      "loser_pts": 158.52,
+      "margin": 2.74,
+      "a": "Mitch",
+      "b": "Stew",
+      "ap": 161.26,
+      "bp": 158.52
+    },
+    {
+      "week": 3,
+      "winner": "Birch",
+      "loser": "Stew",
+      "winner_pts": 128.94,
+      "loser_pts": 123.22,
+      "margin": 5.72,
+      "a": "Birch",
+      "b": "Stew",
+      "ap": 128.94,
+      "bp": 123.22
+    },
+    {
+      "week": 3,
+      "winner": "Tony",
+      "loser": "Tom",
+      "winner_pts": 92.44,
+      "loser_pts": 86.66,
+      "margin": 5.78,
+      "a": "Tony",
+      "b": "Tom",
+      "ap": 92.44,
+      "bp": 86.66
+    },
+    {
+      "week": 6,
+      "winner": "Birch",
+      "loser": "Tom",
+      "winner_pts": 98.88,
+      "loser_pts": 91.7,
+      "margin": 7.18,
+      "a": "Birch",
+      "b": "Tom",
+      "ap": 98.88,
+      "bp": 91.7
+    },
+    {
+      "week": 5,
+      "winner": "Stover",
+      "loser": "JMid",
+      "winner_pts": 113.94,
+      "loser_pts": 105.3,
+      "margin": 8.64,
+      "a": "Stover",
+      "b": "JMid",
+      "ap": 113.94,
+      "bp": 105.3
+    },
+    {
+      "week": 5,
+      "winner": "Stilly",
+      "loser": "Tony",
+      "winner_pts": 126.36,
+      "loser_pts": 115.44,
+      "margin": 10.92,
+      "a": "Stilly",
+      "b": "Tony",
+      "ap": 126.36,
+      "bp": 115.44
+    },
+    {
+      "week": 6,
+      "winner": "Scott",
+      "loser": "Kuhl",
+      "winner_pts": 114.56,
+      "loser_pts": 101.82,
+      "margin": 12.74,
+      "a": "Scott",
+      "b": "Kuhl",
+      "ap": 114.56,
+      "bp": 101.82
+    },
+    {
+      "week": 3,
+      "winner": "Scott",
+      "loser": "Stover",
+      "winner_pts": 120.6,
+      "loser_pts": 105.78,
+      "margin": 14.82,
+      "a": "Scott",
+      "b": "Stover",
+      "ap": 120.6,
+      "bp": 105.78
+    },
+    {
+      "week": 1,
+      "winner": "Tom",
+      "loser": "JMid",
+      "winner_pts": 89.0,
+      "loser_pts": 73.56,
+      "margin": 15.44,
+      "a": "Tom",
+      "b": "JMid",
+      "ap": 89.0,
+      "bp": 73.56
+    },
+    {
+      "week": 3,
+      "winner": "Mitch",
+      "loser": "Kuhl",
+      "winner_pts": 91.62,
+      "loser_pts": 76.16,
+      "margin": 15.46,
+      "a": "Mitch",
+      "b": "Kuhl",
+      "ap": 91.62,
+      "bp": 76.16
+    },
+    {
+      "week": 4,
+      "winner": "Stilly",
+      "loser": "Stew",
+      "winner_pts": 124.62,
+      "loser_pts": 105.98,
+      "margin": 18.64,
+      "a": "Stilly",
+      "b": "Stew",
+      "ap": 124.62,
+      "bp": 105.98
+    },
+    {
+      "week": 2,
+      "winner": "Stew",
+      "loser": "JMid",
+      "winner_pts": 113.96,
+      "loser_pts": 94.38,
+      "margin": 19.58,
+      "a": "Stew",
+      "b": "JMid",
+      "ap": 113.96,
+      "bp": 94.38
+    },
+    {
+      "week": 1,
+      "winner": "Scott",
+      "loser": "Stilly",
+      "winner_pts": 134.96,
+      "loser_pts": 107.94,
+      "margin": 27.02,
+      "a": "Scott",
+      "b": "Stilly",
+      "ap": 134.96,
+      "bp": 107.94
+    },
+    {
+      "week": 4,
+      "winner": "Tom",
+      "loser": "Stover",
+      "winner_pts": 143.28,
+      "loser_pts": 110.48,
+      "margin": 32.8,
+      "a": "Tom",
+      "b": "Stover",
+      "ap": 143.28,
+      "bp": 110.48
+    },
+    {
+      "week": 4,
+      "winner": "Birch",
+      "loser": "Kuhl",
+      "winner_pts": 108.28,
+      "loser_pts": 71.32,
+      "margin": 36.96,
+      "a": "Birch",
+      "b": "Kuhl",
+      "ap": 108.28,
+      "bp": 71.32
+    },
+    {
+      "week": 2,
+      "winner": "Tony",
+      "loser": "Scott",
+      "winner_pts": 84.32,
+      "loser_pts": 46.38,
+      "margin": 37.94,
+      "a": "Tony",
+      "b": "Scott",
+      "ap": 84.32,
+      "bp": 46.38
+    },
+    {
+      "week": 6,
+      "winner": "Stew",
+      "loser": "Tony",
+      "winner_pts": 114.44,
+      "loser_pts": 74.72,
+      "margin": 39.72,
+      "a": "Stew",
+      "b": "Tony",
+      "ap": 114.44,
+      "bp": 74.72
+    },
+    {
+      "week": 6,
+      "winner": "Mitch",
+      "loser": "JMid",
+      "winner_pts": 129.2,
+      "loser_pts": 89.16,
+      "margin": 40.04,
+      "a": "Mitch",
+      "b": "JMid",
+      "ap": 129.2,
+      "bp": 89.16
+    },
+    {
+      "week": 5,
+      "winner": "Stew",
+      "loser": "Kuhl",
+      "winner_pts": 142.56,
+      "loser_pts": 95.1,
+      "margin": 47.46,
+      "a": "Stew",
+      "b": "Kuhl",
+      "ap": 142.56,
+      "bp": 95.1
+    }
+  ],
+  "career_records": [
+    {
+      "manager": "Stilly",
+      "w": 40,
+      "l": 48,
+      "pct": 0.455,
+      "titles": 1
+    },
+    {
+      "manager": "JMid",
+      "w": 14,
+      "l": 20,
+      "pct": 0.412,
+      "titles": 0
+    },
+    {
+      "manager": "Tom",
+      "w": 41,
+      "l": 47,
+      "pct": 0.466,
+      "titles": 4
+    },
+    {
+      "manager": "Stew",
+      "w": 37,
+      "l": 51,
+      "pct": 0.42,
+      "titles": 0
+    },
+    {
+      "manager": "Scott",
+      "w": 16,
+      "l": 18,
+      "pct": 0.471,
+      "titles": 1
+    },
+    {
+      "manager": "Mitch",
+      "w": 55,
+      "l": 33,
+      "pct": 0.625,
+      "titles": 0
+    },
+    {
+      "manager": "Tony",
+      "w": 49,
+      "l": 39,
+      "pct": 0.557,
+      "titles": 1
+    },
+    {
+      "manager": "Stover",
+      "w": 50,
+      "l": 38,
+      "pct": 0.568,
+      "titles": 1
+    },
+    {
+      "manager": "Kuhl",
+      "w": 36,
+      "l": 52,
+      "pct": 0.409,
+      "titles": 0
+    },
+    {
+      "manager": "Birch",
+      "w": 50,
+      "l": 38,
+      "pct": 0.568,
+      "titles": 1
+    }
+  ],
+  "championships": [
+    {
+      "year": 2016,
+      "manager": "Tom"
+    },
+    {
+      "year": 2017,
+      "manager": "Tom"
+    },
+    {
+      "year": 2018,
+      "manager": "Tom"
+    },
+    {
+      "year": 2019,
+      "manager": "Birch"
+    },
+    {
+      "year": 2020,
+      "manager": "Koble"
+    },
+    {
+      "year": 2021,
+      "manager": "Tony"
+    },
+    {
+      "year": 2022,
+      "manager": "Stover"
+    },
+    {
+      "year": 2023,
+      "manager": "Stilly"
+    },
+    {
+      "year": 2024,
+      "manager": "Tom"
+    },
+    {
+      "year": 2025,
+      "manager": "Scott"
+    }
+  ]
+}

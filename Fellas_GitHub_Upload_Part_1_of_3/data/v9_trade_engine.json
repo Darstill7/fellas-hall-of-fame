@@ -1,0 +1,2473 @@
+{
+  "sides": [
+    {
+      "year": 2020,
+      "trade_id": "614849640176623616",
+      "week": 3,
+      "date": "2020-09-24",
+      "manager": "EvansBrandon",
+      "team_id": "2",
+      "assets": [
+        "Ronald Jones"
+      ],
+      "starter_points": 82.4,
+      "starts": 6,
+      "confidence": "partial",
+      "provisional": false,
+      "direct_edge": 79.5,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2020,
+      "trade_id": "614849640176623616",
+      "week": 3,
+      "date": "2020-09-24",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "A.J. Green"
+      ],
+      "starter_points": 2.9,
+      "starts": 1,
+      "confidence": "partial",
+      "provisional": false,
+      "direct_edge": -79.5,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2020,
+      "trade_id": "616864423201554432",
+      "week": 3,
+      "date": "2020-09-30",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "DeSean Jackson",
+        "Travis Kelce",
+        "Marquise Brown"
+      ],
+      "starter_points": 290.16,
+      "starts": 20,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 23.76,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2020,
+      "trade_id": "616864423201554432",
+      "week": 3,
+      "date": "2020-09-30",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Allen Robinson II",
+        "Tyler Higbee",
+        "D'Andre Swift"
+      ],
+      "starter_points": 266.4,
+      "starts": 21,
+      "confidence": "source-verified-reconciliation",
+      "provisional": false,
+      "direct_edge": -23.76,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2020,
+      "trade_id": "622492390107738112",
+      "week": 6,
+      "date": "2020-10-15",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Lamar Jackson",
+        "J.K. Dobbins"
+      ],
+      "starter_points": 264.26,
+      "starts": 15,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 68.16,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2020,
+      "trade_id": "622492390107738112",
+      "week": 6,
+      "date": "2020-10-15",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "Kyler Murray"
+      ],
+      "starter_points": 196.1,
+      "starts": 8,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -68.16,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2020,
+      "trade_id": "629416763662086144",
+      "week": 8,
+      "date": "2020-11-03",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "George Kittle"
+      ],
+      "starter_points": 11.2,
+      "starts": 1,
+      "confidence": "partial",
+      "provisional": false,
+      "direct_edge": null,
+      "direct_outcome": "MULTI"
+    },
+    {
+      "year": 2020,
+      "trade_id": "629818920752209920",
+      "week": 9,
+      "date": "2020-11-04",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Michael Thomas"
+      ],
+      "starter_points": 53.1,
+      "starts": 5,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 8.100000000000001,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2020,
+      "trade_id": "629818920752209920",
+      "week": 9,
+      "date": "2020-11-04",
+      "manager": "Stover",
+      "team_id": "8",
+      "assets": [
+        "D.J. Moore",
+        "Clyde Edwards-Helaire"
+      ],
+      "starter_points": 45.0,
+      "starts": 6,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -8.100000000000001,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2021,
+      "trade_id": "737360507476066304",
+      "week": 1,
+      "date": "2021-08-30",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Tyreek Hill",
+        "Josh Jacobs",
+        "Javonte Williams"
+      ],
+      "starter_points": 333.1,
+      "starts": 24,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -81.39999999999998,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2021,
+      "trade_id": "737360507476066304",
+      "week": 1,
+      "date": "2021-08-30",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "Corey Davis",
+        "A.J. Brown",
+        "Jonathan Taylor"
+      ],
+      "starter_points": 414.5,
+      "starts": 25,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 81.39999999999998,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "738428315181928448",
+      "week": 1,
+      "date": "2021-08-31",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Dak Prescott",
+        "Noah Fant",
+        "Antonio Gibson"
+      ],
+      "starter_points": 364.6,
+      "starts": 26,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -212.98000000000002,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2021,
+      "trade_id": "738428315181928448",
+      "week": 1,
+      "date": "2021-08-31",
+      "manager": "Birch",
+      "team_id": "10",
+      "assets": [
+        "Lamar Jackson",
+        "Mark Andrews",
+        "Josh Jacobs"
+      ],
+      "starter_points": 577.58,
+      "starts": 36,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 212.98000000000002,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "746234454665732096",
+      "week": 2,
+      "date": "2021-09-22",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Kenyan Drake",
+        "Saquon Barkley"
+      ],
+      "starter_points": 100.4,
+      "starts": 9,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 16.0,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "746234454665732096",
+      "week": 2,
+      "date": "2021-09-22",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "Nyheim Miller-Hines",
+        "Clyde Edwards-Helaire",
+        "Ty'Son Williams"
+      ],
+      "starter_points": 84.4,
+      "starts": 8,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -16.0,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2021,
+      "trade_id": "748312121284149248",
+      "week": 3,
+      "date": "2021-09-27",
+      "manager": "EvansBrandon",
+      "team_id": "2",
+      "assets": [
+        "Aaron Rodgers",
+        "Keenan Allen"
+      ],
+      "starter_points": 391.5,
+      "starts": 22,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 160.1,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "748312121284149248",
+      "week": 3,
+      "date": "2021-09-27",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "Leonard Fournette",
+        "Patrick Mahomes",
+        "Brandon Aiyuk"
+      ],
+      "starter_points": 231.4,
+      "starts": 13,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -160.1,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2021,
+      "trade_id": "748585137259884544",
+      "week": 3,
+      "date": "2021-09-28",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "AJ Dillon"
+      ],
+      "starter_points": 54.4,
+      "starts": 5,
+      "confidence": "partial",
+      "provisional": false,
+      "direct_edge": null,
+      "direct_outcome": "MULTI"
+    },
+    {
+      "year": 2021,
+      "trade_id": "751165345997402112",
+      "week": 4,
+      "date": "2021-10-05",
+      "manager": "Koble",
+      "team_id": "5",
+      "assets": [
+        "Zack Moss",
+        "James Robinson"
+      ],
+      "starter_points": 137.6,
+      "starts": 15,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -55.5,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2021,
+      "trade_id": "751165345997402112",
+      "week": 4,
+      "date": "2021-10-05",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "Joe Mixon"
+      ],
+      "starter_points": 193.1,
+      "starts": 10,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 55.5,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "751504917667168256",
+      "week": 5,
+      "date": "2021-10-07",
+      "manager": "Stover",
+      "team_id": "8",
+      "assets": [
+        "Leonard Fournette"
+      ],
+      "starter_points": 164.8,
+      "starts": 9,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 95.70000000000002,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "751504917667168256",
+      "week": 5,
+      "date": "2021-10-07",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "DeVonta Smith"
+      ],
+      "starter_points": 69.1,
+      "starts": 8,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -95.70000000000002,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2021,
+      "trade_id": "754017147822415872",
+      "week": 6,
+      "date": "2021-10-13",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Kareem Hunt"
+      ],
+      "starter_points": 2.8,
+      "starts": 1,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -86.4,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2021,
+      "trade_id": "754017147822415872",
+      "week": 6,
+      "date": "2021-10-13",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "CeeDee Lamb"
+      ],
+      "starter_points": 89.2,
+      "starts": 8,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 86.4,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "754024908207583232",
+      "week": 6,
+      "date": "2021-10-13",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Amari Cooper"
+      ],
+      "starter_points": 72.5,
+      "starts": 7,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -5.799999999999997,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2021,
+      "trade_id": "754024908207583232",
+      "week": 6,
+      "date": "2021-10-13",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Antonio Gibson"
+      ],
+      "starter_points": 78.3,
+      "starts": 7,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 5.799999999999997,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2021,
+      "trade_id": "759191673220775936",
+      "week": 8,
+      "date": "2021-10-27",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "Kyle Pitts Sr."
+      ],
+      "starter_points": 63.0,
+      "starts": 8,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -55.400000000000006,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2021,
+      "trade_id": "759191673220775936",
+      "week": 8,
+      "date": "2021-10-27",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "Jarvis Landry",
+        "George Kittle"
+      ],
+      "starter_points": 118.4,
+      "starts": 8,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 55.400000000000006,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2022,
+      "trade_id": "875965138744864768",
+      "week": 2,
+      "date": "2022-09-15",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Jonathan Taylor"
+      ],
+      "starter_points": 101.1,
+      "starts": 9,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -202.79999999999998,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2022,
+      "trade_id": "875965138744864768",
+      "week": 2,
+      "date": "2022-09-15",
+      "manager": "Mitch",
+      "team_id": "6",
+      "assets": [
+        "Adam Thielen",
+        "Saquon Barkley"
+      ],
+      "starter_points": 303.9,
+      "starts": 24,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 202.79999999999998,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2022,
+      "trade_id": "880505837758652416",
+      "week": 3,
+      "date": "2022-09-27",
+      "manager": "EvansBrandon",
+      "team_id": "2",
+      "assets": [
+        "Mike Williams",
+        "James Conner",
+        "James Robinson"
+      ],
+      "starter_points": 266.2,
+      "starts": 21,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -1.8600000000000136,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2022,
+      "trade_id": "880505837758652416",
+      "week": 3,
+      "date": "2022-09-27",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Cordarrelle Patterson",
+        "Justin Jefferson"
+      ],
+      "starter_points": 268.06,
+      "starts": 14,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 1.8600000000000136,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2022,
+      "trade_id": "881580705233195008",
+      "week": 4,
+      "date": "2022-09-30",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Leonard Fournette"
+      ],
+      "starter_points": 85.7,
+      "starts": 6,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 64.30000000000001,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2022,
+      "trade_id": "881580705233195008",
+      "week": 4,
+      "date": "2022-09-30",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "Alvin Kamara"
+      ],
+      "starter_points": 21.4,
+      "starts": 1,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -64.30000000000001,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2022,
+      "trade_id": "885980047650119680",
+      "week": 6,
+      "date": "2022-10-12",
+      "manager": "EvansBrandon",
+      "team_id": "2",
+      "assets": [
+        "Alvin Kamara",
+        "Gabe Davis"
+      ],
+      "starter_points": 178.8,
+      "starts": 17,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 8.5,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2022,
+      "trade_id": "885980047650119680",
+      "week": 6,
+      "date": "2022-10-12",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "A.J. Brown",
+        "James Robinson"
+      ],
+      "starter_points": 170.3,
+      "starts": 11,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -8.5,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2022,
+      "trade_id": "886267215865982976",
+      "week": 6,
+      "date": "2022-10-13",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Keenan Allen",
+        "Tee Higgins",
+        "Najee Harris"
+      ],
+      "starter_points": 327.46,
+      "starts": 26,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -55.04000000000002,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2022,
+      "trade_id": "886267215865982976",
+      "week": 6,
+      "date": "2022-10-13",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "DK Metcalf",
+        "CeeDee Lamb",
+        "DeVonta Smith"
+      ],
+      "starter_points": 382.5,
+      "starts": 28,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 55.04000000000002,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2022,
+      "trade_id": "896468742987522048",
+      "week": 10,
+      "date": "2022-11-10",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Ja'Marr Chase"
+      ],
+      "starter_points": 63.1,
+      "starts": 5,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": 10.399999999999999,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2022,
+      "trade_id": "896468742987522048",
+      "week": 10,
+      "date": "2022-11-10",
+      "manager": "Birch",
+      "team_id": "10",
+      "assets": [
+        "Cordarrelle Patterson",
+        "Jeff Wilson",
+        "Chase Claypool"
+      ],
+      "starter_points": 52.7,
+      "starts": 9,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": -10.399999999999999,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1012571602774532096",
+      "week": 3,
+      "date": "2023-09-27",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "CeeDee Lamb",
+        "Travis Etienne Jr."
+      ],
+      "starter_points": 136.6,
+      "starts": 8,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": -279.29999999999995,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1012571602774532096",
+      "week": 3,
+      "date": "2023-09-27",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "James Conner",
+        "De'Von Achane",
+        "Puka Nacua"
+      ],
+      "starter_points": 415.9,
+      "starts": 29,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": 279.29999999999995,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1018289561511682048",
+      "week": 6,
+      "date": "2023-10-12",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Tony Pollard",
+        "Jaxon Smith-Njigba"
+      ],
+      "starter_points": 77.5,
+      "starts": 10,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -158.6,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1018289561511682048",
+      "week": 6,
+      "date": "2023-10-12",
+      "manager": "Birch",
+      "team_id": "10",
+      "assets": [
+        "CeeDee Lamb",
+        "Kenny Gainwell"
+      ],
+      "starter_points": 236.1,
+      "starts": 10,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 158.6,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1023059879336013824",
+      "week": 8,
+      "date": "2023-10-26",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Mike Evans",
+        "Derrick Henry"
+      ],
+      "starter_points": 261.48,
+      "starts": 18,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 175.68,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1023059879336013824",
+      "week": 8,
+      "date": "2023-10-26",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "Cooper Kupp"
+      ],
+      "starter_points": 85.8,
+      "starts": 8,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -175.68,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1028065885325508608",
+      "week": 10,
+      "date": "2023-11-08",
+      "manager": "EvansBrandon",
+      "team_id": "2",
+      "assets": [
+        "Joe Mixon"
+      ],
+      "starter_points": 111.5,
+      "starts": 7,
+      "confidence": "verified-tenure",
+      "provisional": false,
+      "direct_edge": 63.9,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1028065885325508608",
+      "week": 10,
+      "date": "2023-11-08",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Jordan Addison"
+      ],
+      "starter_points": 47.6,
+      "starts": 6,
+      "confidence": "verified-tenure",
+      "provisional": false,
+      "direct_edge": -63.9,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1031121022772555776",
+      "week": 11,
+      "date": "2023-11-17",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Gabe Davis"
+      ],
+      "starter_points": 25.1,
+      "starts": 4,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": -49.49999999999999,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1031121022772555776",
+      "week": 11,
+      "date": "2023-11-17",
+      "manager": "Mitch",
+      "team_id": "6",
+      "assets": [
+        "Justin Jefferson",
+        "Josh Jacobs"
+      ],
+      "starter_points": 74.6,
+      "starts": 6,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": 49.49999999999999,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1031251467312775168",
+      "week": 11,
+      "date": "2023-11-17",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Breece Hall"
+      ],
+      "starter_points": 101.0,
+      "starts": 6,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": 13.5,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1031251467312775168",
+      "week": 11,
+      "date": "2023-11-17",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "Amari Cooper",
+        "Travis Etienne Jr."
+      ],
+      "starter_points": 87.5,
+      "starts": 8,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": -13.5,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1038099277249245184",
+      "week": 14,
+      "date": "2023-12-06",
+      "manager": "EvansBrandon",
+      "team_id": "2",
+      "assets": [
+        "Ja'Marr Chase"
+      ],
+      "starter_points": 14.0,
+      "starts": 3,
+      "confidence": "verified-tenure",
+      "provisional": false,
+      "direct_edge": -1.6999999999999993,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1038099277249245184",
+      "week": 14,
+      "date": "2023-12-06",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "Tyler Lockett"
+      ],
+      "starter_points": 15.7,
+      "starts": 2,
+      "confidence": "verified-tenure",
+      "provisional": false,
+      "direct_edge": 1.6999999999999993,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1139340571111256064",
+      "week": 1,
+      "date": "2024-09-10",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Tank Dell"
+      ],
+      "starter_points": 10.5,
+      "starts": 2,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -83.3,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1139340571111256064",
+      "week": 1,
+      "date": "2024-09-10",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "J.K. Dobbins"
+      ],
+      "starter_points": 93.8,
+      "starts": 8,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 83.3,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1140082401968836608",
+      "week": 2,
+      "date": "2024-09-12",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Malik Nabers"
+      ],
+      "starter_points": 171.4,
+      "starts": 12,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 32.400000000000006,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1140082401968836608",
+      "week": 2,
+      "date": "2024-09-12",
+      "manager": "Stover",
+      "team_id": "8",
+      "assets": [
+        "Davante Adams"
+      ],
+      "starter_points": 139.0,
+      "starts": 10,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -32.400000000000006,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1141777905656143872",
+      "week": 2,
+      "date": "2024-09-17",
+      "manager": "JMid",
+      "team_id": "2",
+      "assets": [
+        "Calvin Ridley",
+        "Kyren Williams"
+      ],
+      "starter_points": 227.0,
+      "starts": 14,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 22.900000000000006,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1141777905656143872",
+      "week": 2,
+      "date": "2024-09-17",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "James Cook III"
+      ],
+      "starter_points": 204.1,
+      "starts": 14,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -22.900000000000006,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1144362000575840256",
+      "week": 3,
+      "date": "2024-09-24",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Terry McLaurin",
+        "De'Von Achane",
+        "Tank Dell"
+      ],
+      "starter_points": 453.4,
+      "starts": 35,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 197.99999999999997,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1144362000575840256",
+      "week": 3,
+      "date": "2024-09-24",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Christian McCaffrey",
+        "Diontae Johnson",
+        "Tee Higgins"
+      ],
+      "starter_points": 255.4,
+      "starts": 18,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -197.99999999999997,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1146946436173623296",
+      "week": 4,
+      "date": "2024-10-01",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Mark Andrews",
+        "Rico Dowdle"
+      ],
+      "starter_points": 21.6,
+      "starts": 2,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -31.799999999999997,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1146946436173623296",
+      "week": 4,
+      "date": "2024-10-01",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Amari Cooper"
+      ],
+      "starter_points": 53.4,
+      "starts": 9,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 31.799999999999997,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1146947320588861440",
+      "week": 4,
+      "date": "2024-10-02",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Chase Brown"
+      ],
+      "starter_points": 154.4,
+      "starts": 10,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -20.22,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1146947320588861440",
+      "week": 4,
+      "date": "2024-10-02",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Jordan Love"
+      ],
+      "starter_points": 174.62,
+      "starts": 11,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 20.22,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1152708228883660800",
+      "week": 7,
+      "date": "2024-10-17",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Travis Kelce",
+        "Brandon Aiyuk"
+      ],
+      "starter_points": 107.3,
+      "starts": 10,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": -109.60000000000001,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1152708228883660800",
+      "week": 7,
+      "date": "2024-10-17",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "Cooper Kupp",
+        "Kareem Hunt",
+        "Rico Dowdle"
+      ],
+      "starter_points": 216.9,
+      "starts": 19,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": 109.60000000000001,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1159892809005076480",
+      "week": 10,
+      "date": "2024-11-09",
+      "manager": "Mitch",
+      "team_id": "6",
+      "assets": [
+        "Raheem Mostert"
+      ],
+      "starter_points": 0.0,
+      "starts": 0,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -39.8,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1159892809005076480",
+      "week": 10,
+      "date": "2024-11-09",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "Nick Chubb"
+      ],
+      "starter_points": 39.8,
+      "starts": 4,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 39.8,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1273856224776962053",
+      "week": 2,
+      "date": "2025-09-17",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Derrick Henry"
+      ],
+      "starter_points": 81.4,
+      "starts": 7,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -97.6,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1273856224776962053",
+      "week": 2,
+      "date": "2025-09-17",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "Nico Collins"
+      ],
+      "starter_points": 179.0,
+      "starts": 13,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 97.6,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1274473433362604032",
+      "week": 3,
+      "date": "2025-09-21",
+      "manager": "JMid",
+      "team_id": "2",
+      "assets": [
+        "Aaron Jones Sr.",
+        "Zach Charbonnet"
+      ],
+      "starter_points": 66.8,
+      "starts": 7,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -72.2,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1274473433362604032",
+      "week": 3,
+      "date": "2025-09-21",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "TreVeyon Henderson"
+      ],
+      "starter_points": 139.0,
+      "starts": 11,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 72.2,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1276026193660899328",
+      "week": 3,
+      "date": "2025-09-23",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Ja'Marr Chase",
+        "Chase Brown"
+      ],
+      "starter_points": 298.8,
+      "starts": 17,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -80.0,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1276026193660899328",
+      "week": 3,
+      "date": "2025-09-23",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Jahmyr Gibbs",
+        "RJ Harvey"
+      ],
+      "starter_points": 378.8,
+      "starts": 20,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 80.0,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1276373761972527104",
+      "week": 3,
+      "date": "2025-09-24",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Quentin Johnston"
+      ],
+      "starter_points": 64.5,
+      "starts": 7,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": 64.5,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1276373761972527104",
+      "week": 3,
+      "date": "2025-09-24",
+      "manager": "Birch",
+      "team_id": "10",
+      "assets": [
+        "Bhayshul Tuten"
+      ],
+      "starter_points": 0.0,
+      "starts": 0,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": -64.5,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1276326233327570944",
+      "week": 3,
+      "date": "2025-09-24",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Jordan Addison"
+      ],
+      "starter_points": 39.8,
+      "starts": 4,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 39.8,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1276326233327570944",
+      "week": 3,
+      "date": "2025-09-24",
+      "manager": "Stover",
+      "team_id": "8",
+      "assets": [
+        "Mike Evans"
+      ],
+      "starter_points": 0.0,
+      "starts": 1,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -39.8,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1294424036499025920",
+      "week": 11,
+      "date": "2025-11-12",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Brian Thomas Jr."
+      ],
+      "starter_points": 0.0,
+      "starts": 0,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -7.1,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1294424036499025920",
+      "week": 11,
+      "date": "2025-11-12",
+      "manager": "Stover",
+      "team_id": "8",
+      "assets": [
+        "Stefon Diggs"
+      ],
+      "starter_points": 7.1,
+      "starts": 2,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 7.1,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1294402688213057536",
+      "week": 11,
+      "date": "2025-11-12",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Amon-Ra St. Brown",
+        "Jordan Addison",
+        "Jared Goff"
+      ],
+      "starter_points": 199.72,
+      "starts": 13,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": null,
+      "direct_outcome": "MULTI"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1294402688213057536",
+      "week": 11,
+      "date": "2025-11-12",
+      "manager": "JMid",
+      "team_id": "2",
+      "assets": [
+        "Ja'Marr Chase"
+      ],
+      "starter_points": 78.3,
+      "starts": 5,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": null,
+      "direct_outcome": "MULTI"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1294402688213057536",
+      "week": 11,
+      "date": "2025-11-12",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "A.J. Brown"
+      ],
+      "starter_points": 98.6,
+      "starts": 6,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": null,
+      "direct_outcome": "MULTI"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1294724519813988352",
+      "week": 11,
+      "date": "2025-11-13",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Jake Ferguson",
+        "Jaylen Warren"
+      ],
+      "starter_points": 114.8,
+      "starts": 12,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": -14.000000000000014,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1294724519813988352",
+      "week": 11,
+      "date": "2025-11-13",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "Zach Ertz",
+        "Derrick Henry"
+      ],
+      "starter_points": 128.8,
+      "starts": 6,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 14.000000000000014,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1399889389147979776",
+      "week": 1,
+      "date": "2026-08-31",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "MarShawn Lloyd"
+      ],
+      "starter_points": 8.6,
+      "starts": 2,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": 8.6,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1399889389147979776",
+      "week": 1,
+      "date": "2026-08-31",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Jonathon Brooks"
+      ],
+      "starter_points": 0.0,
+      "starts": 0,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": -8.6,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1400522174271340544",
+      "week": 1,
+      "date": "2026-09-01",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Ladd McConkey"
+      ],
+      "starter_points": 13.6,
+      "starts": 2,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": -34.699999999999996,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1400522174271340544",
+      "week": 1,
+      "date": "2026-09-01",
+      "manager": "Scott",
+      "team_id": "5",
+      "assets": [
+        "Emeka Egbuka"
+      ],
+      "starter_points": 48.3,
+      "starts": 5,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": 34.699999999999996,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1405999320708268032",
+      "week": 2,
+      "date": "2026-09-16",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Quinshon Judkins"
+      ],
+      "starter_points": 34.0,
+      "starts": 3,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": -18.6,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1405999320708268032",
+      "week": 2,
+      "date": "2026-09-16",
+      "manager": "Stover",
+      "team_id": "8",
+      "assets": [
+        "Trevor Lawrence"
+      ],
+      "starter_points": 52.6,
+      "starts": 3,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": 18.6,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1411009536306733056",
+      "week": 4,
+      "date": "2026-09-30",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Christian Watson",
+        "Drake Maye"
+      ],
+      "starter_points": 39.46,
+      "starts": 1,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": 28.46,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1411009536306733056",
+      "week": 4,
+      "date": "2026-09-30",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "Jalen Hurts",
+        "Ladd McConkey"
+      ],
+      "starter_points": 11.0,
+      "starts": 1,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": -28.46,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1411012593170010112",
+      "week": 4,
+      "date": "2026-09-30",
+      "manager": "JMid",
+      "team_id": "2",
+      "assets": [
+        "J.K. Dobbins",
+        "Christian Watson"
+      ],
+      "starter_points": 39.2,
+      "starts": 2,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": 37.0,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1411012593170010112",
+      "week": 4,
+      "date": "2026-09-30",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Jeremiyah Love"
+      ],
+      "starter_points": 2.2,
+      "starts": 1,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": -37.0,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1413584172332654592",
+      "week": 5,
+      "date": "2026-10-07",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Ja'Marr Chase",
+        "Devaughn Vele"
+      ],
+      "starter_points": 5.7,
+      "starts": 1,
+      "confidence": "verified-recordbook",
+      "provisional": true,
+      "direct_edge": -15.100000000000001,
+      "direct_outcome": "L"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1413584172332654592",
+      "week": 5,
+      "date": "2026-10-07",
+      "manager": "JMid",
+      "team_id": "2",
+      "assets": [
+        "Davante Adams",
+        "George Kittle",
+        "Breece Hall"
+      ],
+      "starter_points": 20.8,
+      "starts": 2,
+      "confidence": "verified-recordbook",
+      "provisional": true,
+      "direct_edge": 15.100000000000001,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1414340723225976832",
+      "week": 5,
+      "date": "2026-10-09",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Deebo Samuel Sr."
+      ],
+      "starter_points": 0.0,
+      "starts": 0,
+      "confidence": "verified-recordbook",
+      "provisional": true,
+      "direct_edge": 0.0,
+      "direct_outcome": "T"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1414340723225976832",
+      "week": 5,
+      "date": "2026-10-09",
+      "manager": "Birch",
+      "team_id": "10",
+      "assets": [
+        "Minnesota Vikings"
+      ],
+      "starter_points": 0.0,
+      "starts": 0,
+      "confidence": "verified-recordbook",
+      "provisional": true,
+      "direct_edge": 0.0,
+      "direct_outcome": "T"
+    }
+  ],
+  "incomplete": [
+    {
+      "year": 2020,
+      "id": "614536176472264704",
+      "week": 3,
+      "date": "2020-09-23",
+      "managers": "Stilly \u2194 Tony",
+      "reason": "Sleeper transaction exists, but no players are recorded; manager reports possible FAAB-only/test activity, unconfirmed. Preserve archive, exclude player-trade leaderboards.",
+      "classification": "excluded_no_documented_player_assets",
+      "faab_only": "possible_unconfirmed",
+      "include_in_player_trade_rankings": false
+    },
+    {
+      "year": 2020,
+      "id": "625902992721264640",
+      "week": 7,
+      "date": "2020-10-25",
+      "managers": "Stilly \u2194 Stew",
+      "reason": "Sleeper transaction exists, but no players are recorded; manager reports possible FAAB-only/test activity, unconfirmed. Preserve archive, exclude player-trade leaderboards.",
+      "classification": "excluded_no_documented_player_assets",
+      "faab_only": "possible_unconfirmed",
+      "include_in_player_trade_rankings": false
+    },
+    {
+      "year": 2020,
+      "id": "625903284296683520",
+      "week": 7,
+      "date": "2020-10-25",
+      "managers": "Stilly \u2194 Stew",
+      "reason": "Sleeper transaction exists, but no players are recorded; manager reports possible FAAB-only/test activity, unconfirmed. Preserve archive, exclude player-trade leaderboards.",
+      "classification": "excluded_no_documented_player_assets",
+      "faab_only": "possible_unconfirmed",
+      "include_in_player_trade_rankings": false
+    },
+    {
+      "year": 2023,
+      "id": "1028057686711058432",
+      "week": 10,
+      "date": "2023-11-08",
+      "managers": "Stilly / Tom / Stew",
+      "reason": "All player and draft-pick directions reconstructed from manager-supplied November 8, 2023 trade details; starter-point grading and pick valuation not yet certified.",
+      "classification": "asset_directions_resolved_per_manager_record",
+      "include_in_player_trade_rankings": false
+    }
+  ],
+  "manager_summary": {
+    "EvansBrandon": {
+      "events": 6,
+      "w": 3,
+      "l": 0,
+      "t": 3,
+      "multi": 0,
+      "pts": 1044.4,
+      "edge": 308.44
+    },
+    "Stew": {
+      "events": 22,
+      "w": 9,
+      "l": 10,
+      "t": 3,
+      "multi": 0,
+      "pts": 2216.32,
+      "edge": -471.98
+    },
+    "Stilly": {
+      "events": 15,
+      "w": 4,
+      "l": 6,
+      "t": 2,
+      "multi": 3,
+      "pts": 2433.48,
+      "edge": 7.54
+    },
+    "Tom": {
+      "events": 16,
+      "w": 4,
+      "l": 8,
+      "t": 3,
+      "multi": 1,
+      "pts": 2246.62,
+      "edge": -594.48
+    },
+    "Tony": {
+      "events": 10,
+      "w": 4,
+      "l": 5,
+      "t": 1,
+      "multi": 0,
+      "pts": 1537.8,
+      "edge": -52.64
+    },
+    "Stover": {
+      "events": 6,
+      "w": 2,
+      "l": 2,
+      "t": 2,
+      "multi": 0,
+      "pts": 408.5,
+      "edge": 41.1
+    },
+    "Birch": {
+      "events": 5,
+      "w": 2,
+      "l": 2,
+      "t": 1,
+      "multi": 0,
+      "pts": 866.38,
+      "edge": 296.68
+    },
+    "Kuhl": {
+      "events": 11,
+      "w": 6,
+      "l": 4,
+      "t": 1,
+      "multi": 0,
+      "pts": 1387.3,
+      "edge": 270.84
+    },
+    "Koble": {
+      "events": 1,
+      "w": 0,
+      "l": 1,
+      "t": 0,
+      "multi": 0,
+      "pts": 137.6,
+      "edge": -55.5
+    },
+    "Mitch": {
+      "events": 3,
+      "w": 2,
+      "l": 1,
+      "t": 0,
+      "multi": 0,
+      "pts": 378.5,
+      "edge": 212.5
+    },
+    "JMid": {
+      "events": 5,
+      "w": 3,
+      "l": 1,
+      "t": 0,
+      "multi": 1,
+      "pts": 432.1,
+      "edge": 2.8
+    },
+    "Scott": {
+      "events": 1,
+      "w": 1,
+      "l": 0,
+      "t": 0,
+      "multi": 0,
+      "pts": 48.3,
+      "edge": 34.7
+    }
+  },
+  "top_direct_edges": [
+    {
+      "year": 2023,
+      "trade_id": "1012571602774532096",
+      "week": 3,
+      "date": "2023-09-27",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "James Conner",
+        "De'Von Achane",
+        "Puka Nacua"
+      ],
+      "starter_points": 415.9,
+      "starts": 29,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": 279.29999999999995,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "738428315181928448",
+      "week": 1,
+      "date": "2021-08-31",
+      "manager": "Birch",
+      "team_id": "10",
+      "assets": [
+        "Lamar Jackson",
+        "Mark Andrews",
+        "Josh Jacobs"
+      ],
+      "starter_points": 577.58,
+      "starts": 36,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 212.98000000000002,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2022,
+      "trade_id": "875965138744864768",
+      "week": 2,
+      "date": "2022-09-15",
+      "manager": "Mitch",
+      "team_id": "6",
+      "assets": [
+        "Adam Thielen",
+        "Saquon Barkley"
+      ],
+      "starter_points": 303.9,
+      "starts": 24,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 202.79999999999998,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1144362000575840256",
+      "week": 3,
+      "date": "2024-09-24",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Terry McLaurin",
+        "De'Von Achane",
+        "Tank Dell"
+      ],
+      "starter_points": 453.4,
+      "starts": 35,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 197.99999999999997,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1023059879336013824",
+      "week": 8,
+      "date": "2023-10-26",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Mike Evans",
+        "Derrick Henry"
+      ],
+      "starter_points": 261.48,
+      "starts": 18,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 175.68,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "748312121284149248",
+      "week": 3,
+      "date": "2021-09-27",
+      "manager": "EvansBrandon",
+      "team_id": "2",
+      "assets": [
+        "Aaron Rodgers",
+        "Keenan Allen"
+      ],
+      "starter_points": 391.5,
+      "starts": 22,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 160.1,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1018289561511682048",
+      "week": 6,
+      "date": "2023-10-12",
+      "manager": "Birch",
+      "team_id": "10",
+      "assets": [
+        "CeeDee Lamb",
+        "Kenny Gainwell"
+      ],
+      "starter_points": 236.1,
+      "starts": 10,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 158.6,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1152708228883660800",
+      "week": 7,
+      "date": "2024-10-17",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "Cooper Kupp",
+        "Kareem Hunt",
+        "Rico Dowdle"
+      ],
+      "starter_points": 216.9,
+      "starts": 19,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": 109.60000000000001,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1273856224776962053",
+      "week": 2,
+      "date": "2025-09-17",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "Nico Collins"
+      ],
+      "starter_points": 179.0,
+      "starts": 13,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 97.6,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "751504917667168256",
+      "week": 5,
+      "date": "2021-10-07",
+      "manager": "Stover",
+      "team_id": "8",
+      "assets": [
+        "Leonard Fournette"
+      ],
+      "starter_points": 164.8,
+      "starts": 9,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 95.70000000000002,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "754017147822415872",
+      "week": 6,
+      "date": "2021-10-13",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "CeeDee Lamb"
+      ],
+      "starter_points": 89.2,
+      "starts": 8,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 86.4,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1139340571111256064",
+      "week": 1,
+      "date": "2024-09-10",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "J.K. Dobbins"
+      ],
+      "starter_points": 93.8,
+      "starts": 8,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 83.3,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "737360507476066304",
+      "week": 1,
+      "date": "2021-08-30",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "Corey Davis",
+        "A.J. Brown",
+        "Jonathan Taylor"
+      ],
+      "starter_points": 414.5,
+      "starts": 25,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 81.39999999999998,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1276026193660899328",
+      "week": 3,
+      "date": "2025-09-23",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Jahmyr Gibbs",
+        "RJ Harvey"
+      ],
+      "starter_points": 378.8,
+      "starts": 20,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 80.0,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2020,
+      "trade_id": "614849640176623616",
+      "week": 3,
+      "date": "2020-09-24",
+      "manager": "EvansBrandon",
+      "team_id": "2",
+      "assets": [
+        "Ronald Jones"
+      ],
+      "starter_points": 82.4,
+      "starts": 6,
+      "confidence": "partial",
+      "provisional": false,
+      "direct_edge": 79.5,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1274473433362604032",
+      "week": 3,
+      "date": "2025-09-21",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "TreVeyon Henderson"
+      ],
+      "starter_points": 139.0,
+      "starts": 11,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 72.2,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2020,
+      "trade_id": "622492390107738112",
+      "week": 6,
+      "date": "2020-10-15",
+      "manager": "Stilly",
+      "team_id": "1",
+      "assets": [
+        "Lamar Jackson",
+        "J.K. Dobbins"
+      ],
+      "starter_points": 264.26,
+      "starts": 15,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 68.16,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1276373761972527104",
+      "week": 3,
+      "date": "2025-09-24",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Quentin Johnston"
+      ],
+      "starter_points": 64.5,
+      "starts": 7,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": 64.5,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2022,
+      "trade_id": "881580705233195008",
+      "week": 4,
+      "date": "2022-09-30",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Leonard Fournette"
+      ],
+      "starter_points": 85.7,
+      "starts": 6,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 64.30000000000001,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1028065885325508608",
+      "week": 10,
+      "date": "2023-11-08",
+      "manager": "EvansBrandon",
+      "team_id": "2",
+      "assets": [
+        "Joe Mixon"
+      ],
+      "starter_points": 111.5,
+      "starts": 7,
+      "confidence": "verified-tenure",
+      "provisional": false,
+      "direct_edge": 63.9,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "751165345997402112",
+      "week": 4,
+      "date": "2021-10-05",
+      "manager": "Tony",
+      "team_id": "7",
+      "assets": [
+        "Joe Mixon"
+      ],
+      "starter_points": 193.1,
+      "starts": 10,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 55.5,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2021,
+      "trade_id": "759191673220775936",
+      "week": 8,
+      "date": "2021-10-27",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "Jarvis Landry",
+        "George Kittle"
+      ],
+      "starter_points": 118.4,
+      "starts": 8,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 55.400000000000006,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2022,
+      "trade_id": "886267215865982976",
+      "week": 6,
+      "date": "2022-10-13",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "DK Metcalf",
+        "CeeDee Lamb",
+        "DeVonta Smith"
+      ],
+      "starter_points": 382.5,
+      "starts": 28,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 55.04000000000002,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2023,
+      "trade_id": "1031121022772555776",
+      "week": 11,
+      "date": "2023-11-17",
+      "manager": "Mitch",
+      "team_id": "6",
+      "assets": [
+        "Justin Jefferson",
+        "Josh Jacobs"
+      ],
+      "starter_points": 74.6,
+      "starts": 6,
+      "confidence": "verified-recordbook",
+      "provisional": false,
+      "direct_edge": 49.49999999999999,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1159892809005076480",
+      "week": 10,
+      "date": "2024-11-09",
+      "manager": "Kuhl",
+      "team_id": "9",
+      "assets": [
+        "Nick Chubb"
+      ],
+      "starter_points": 39.8,
+      "starts": 4,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 39.8,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2025,
+      "trade_id": "1276326233327570944",
+      "week": 3,
+      "date": "2025-09-24",
+      "manager": "Tom",
+      "team_id": "3",
+      "assets": [
+        "Jordan Addison"
+      ],
+      "starter_points": 39.8,
+      "starts": 4,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 39.8,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1411012593170010112",
+      "week": 4,
+      "date": "2026-09-30",
+      "manager": "JMid",
+      "team_id": "2",
+      "assets": [
+        "J.K. Dobbins",
+        "Christian Watson"
+      ],
+      "starter_points": 39.2,
+      "starts": 2,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": 37.0,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2026,
+      "trade_id": "1400522174271340544",
+      "week": 1,
+      "date": "2026-09-01",
+      "manager": "Scott",
+      "team_id": "5",
+      "assets": [
+        "Emeka Egbuka"
+      ],
+      "starter_points": 48.3,
+      "starts": 5,
+      "confidence": "verified",
+      "provisional": true,
+      "direct_edge": 34.699999999999996,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1140082401968836608",
+      "week": 2,
+      "date": "2024-09-12",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Malik Nabers"
+      ],
+      "starter_points": 171.4,
+      "starts": 12,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 32.400000000000006,
+      "direct_outcome": "W"
+    },
+    {
+      "year": 2024,
+      "trade_id": "1146946436173623296",
+      "week": 4,
+      "date": "2024-10-01",
+      "manager": "Stew",
+      "team_id": "4",
+      "assets": [
+        "Amari Cooper"
+      ],
+      "starter_points": 53.4,
+      "starts": 9,
+      "confidence": "verified",
+      "provisional": false,
+      "direct_edge": 31.799999999999997,
+      "direct_outcome": "W"
+    }
+  ]
+}
