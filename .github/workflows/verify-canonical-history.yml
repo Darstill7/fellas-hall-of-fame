@@ -17,7 +17,7 @@ jobs:
           node-version: '22'
       - name: Syntax-check audit and generation scripts
         run: |
-          for file in scripts/generate-season-guide.mjs scripts/generate-career-core.mjs scripts/verify-ledger-projections.mjs scripts/verify-core-consumers.mjs scripts/verify-canonical-history.mjs scripts/audit-internal-links.mjs; do
+          for file in scripts/generate-season-guide.mjs scripts/generate-career-core.mjs scripts/verify-ledger-projections.mjs scripts/verify-core-consumers.mjs scripts/verify-canonical-history.mjs scripts/audit-internal-links.mjs scripts/smoke-static-site.mjs; do
             node --check "$file"
           done
       - name: Inventory internal link issues (advisory)
@@ -35,6 +35,8 @@ jobs:
           name: internal-link-audit
           path: data-integrity/internal-link-audit.json
           if-no-files-found: ignore
+      - name: Smoke-test GitHub Pages routes and manager profile assets
+        run: node scripts/smoke-static-site.mjs
       - name: Verify generated career and H2H data
         run: node scripts/generate-career-core.mjs --check
       - name: Verify historical season guide output
