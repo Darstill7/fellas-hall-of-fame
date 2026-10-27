@@ -21,6 +21,8 @@ const route=p=>'http://127.0.0.1:'+port+base+p;
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const files=['','managers/','seasons/','analytics/records.html','analytics/rivalries.html','analytics/rivalry-war-room.html',
  'data/unified_record_book_2016_2026.json','data/career_core_generated.json','data/season_guide.json',
+ 'data/manager_record_books_2016_2026.json','data/manager_legacy_resumes.json',
+ 'seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records-archive.html','analytics/legacy.html',
  ...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html']),
  'assets/canonical-manager-record.js','assets/manager-h2h-explorer.js','assets/rivalry-archive-v3.js',
  'assets/manager-historical-records.js','assets/manager-trophy-cases.js','assets/manager-verified-season-endings.js','assets/espn-franchise-lineage.js'];
