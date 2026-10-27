@@ -1890,197 +1890,237 @@
       "playerHistory": [
         {
           "rank": 1,
-          "name": "Christian McCaffrey",
+          "name": "Saquon Barkley",
           "position": "RB",
-          "starterPoints": 108,
-          "starts": 6,
+          "starterPoints": 615.2,
+          "starts": 36,
           "seasons": [
             {
-              "year": 2026,
-              "points": 108,
-              "starts": 6
+              "year": 2023,
+              "points": 150.1,
+              "starts": 10
+            },
+            {
+              "year": 2024,
+              "points": 291.5,
+              "starts": 13
+            },
+            {
+              "year": 2025,
+              "points": 173.6,
+              "starts": 13
             }
           ]
         },
         {
           "rank": 2,
-          "name": "Kyren Williams",
-          "position": "RB",
-          "starterPoints": 104,
-          "starts": 6,
+          "name": "Jalen Hurts",
+          "position": "QB",
+          "starterPoints": 524.34,
+          "starts": 26,
           "seasons": [
             {
-              "year": 2026,
-              "points": 104,
-              "starts": 6
+              "year": 2024,
+              "points": 278.48,
+              "starts": 13
+            },
+            {
+              "year": 2025,
+              "points": 245.86,
+              "starts": 13
             }
           ]
         },
         {
           "rank": 3,
-          "name": "Matthew Golden",
-          "position": "WR",
-          "starterPoints": 75.2,
-          "starts": 5,
+          "name": "Derrick Henry",
+          "position": "RB",
+          "starterPoints": 419.36,
+          "starts": 21,
           "seasons": [
             {
-              "year": 2026,
-              "points": 75.2,
-              "starts": 5
+              "year": 2021,
+              "points": 185.3,
+              "starts": 8
+            },
+            {
+              "year": 2022,
+              "points": 234.06,
+              "starts": 13
             }
           ]
         },
         {
           "rank": 4,
-          "name": "George Pickens",
-          "position": "WR",
-          "starterPoints": 66.3,
-          "starts": 6,
+          "name": "Patrick Mahomes",
+          "position": "QB",
+          "starterPoints": 316.4,
+          "starts": 13,
           "seasons": [
             {
-              "year": 2026,
-              "points": 66.3,
-              "starts": 6
+              "year": 2022,
+              "points": 316.4,
+              "starts": 13
             }
           ]
         },
         {
           "rank": 5,
-          "name": "Trevor Lawrence",
+          "name": "Russell Wilson",
           "position": "QB",
-          "starterPoints": 58.76,
-          "starts": 4,
+          "starterPoints": 306.7,
+          "starts": 13,
           "seasons": [
             {
-              "year": 2026,
-              "points": 58.76,
-              "starts": 4
+              "year": 2020,
+              "points": 306.7,
+              "starts": 13
             }
           ]
         },
         {
           "rank": 6,
-          "name": "Dalton Kincaid",
-          "position": "TE",
-          "starterPoints": 50,
-          "starts": 6,
+          "name": "Justin Herbert",
+          "position": "QB",
+          "starterPoints": 295.68,
+          "starts": 13,
           "seasons": [
             {
-              "year": 2026,
-              "points": 50,
-              "starts": 6
+              "year": 2021,
+              "points": 295.68,
+              "starts": 13
             }
           ]
         },
         {
           "rank": 7,
-          "name": "DeVonta Smith",
+          "name": "DK Metcalf",
           "position": "WR",
-          "starterPoints": 39,
-          "starts": 3,
+          "starterPoints": 292.8,
+          "starts": 26,
           "seasons": [
             {
-              "year": 2026,
-              "points": 39,
-              "starts": 3
+              "year": 2021,
+              "points": 151.3,
+              "starts": 13
+            },
+            {
+              "year": 2025,
+              "points": 141.5,
+              "starts": 13
             }
           ]
         },
         {
           "rank": 8,
-          "name": "Carnell Tate",
-          "position": "WR",
-          "starterPoints": 38.9,
-          "starts": 4,
+          "name": "De'Von Achane",
+          "position": "RB",
+          "starterPoints": 246.4,
+          "starts": 13,
           "seasons": [
             {
-              "year": 2026,
-              "points": 38.9,
-              "starts": 4
+              "year": 2025,
+              "points": 246.4,
+              "starts": 13
             }
           ]
         },
         {
           "rank": 9,
-          "name": "Denver Broncos",
-          "position": "DEF",
-          "starterPoints": 30,
-          "starts": 3,
+          "name": "Tyreek Hill",
+          "position": "WR",
+          "starterPoints": 246,
+          "starts": 13,
           "seasons": [
             {
-              "year": 2026,
-              "points": 30,
-              "starts": 3
+              "year": 2022,
+              "points": 246,
+              "starts": 13
             }
           ]
         },
         {
           "rank": 10,
-          "name": "Carolina Panthers",
-          "position": "DEF",
-          "starterPoints": 29,
-          "starts": 2,
+          "name": "DJ Moore",
+          "position": "WR",
+          "starterPoints": 243,
+          "starts": 17,
           "seasons": [
             {
-              "year": 2026,
-              "points": 29,
-              "starts": 2
+              "year": 2020,
+              "points": 47.8,
+              "starts": 4
+            },
+            {
+              "year": 2023,
+              "points": 195.2,
+              "starts": 13
             }
           ]
         }
       ],
       "mountRushmore": [
         {
-          "name": "Christian McCaffrey",
+          "name": "Saquon Barkley",
           "position": "RB",
-          "starterPoints": 108,
-          "starts": 6,
-          "seasonCount": 1,
-          "peak": 108,
-          "score": 145
+          "starterPoints": 615.2,
+          "starts": 36,
+          "seasonCount": 3,
+          "peak": 291.5,
+          "score": 774.6
         },
         {
-          "name": "Kyren Williams",
+          "name": "Jalen Hurts",
+          "position": "QB",
+          "starterPoints": 524.34,
+          "starts": 26,
+          "seasonCount": 2,
+          "peak": 278.48,
+          "score": 647.2
+        },
+        {
+          "name": "Derrick Henry",
           "position": "RB",
-          "starterPoints": 104,
-          "starts": 6,
-          "seasonCount": 1,
-          "peak": 104,
-          "score": 140.5
+          "starterPoints": 419.36,
+          "starts": 21,
+          "seasonCount": 2,
+          "peak": 234.06,
+          "score": 521.6
         },
         {
-          "name": "Matthew Golden",
-          "position": "WR",
-          "starterPoints": 75.2,
-          "starts": 5,
+          "name": "Patrick Mahomes",
+          "position": "QB",
+          "starterPoints": 316.4,
+          "starts": 13,
           "seasonCount": 1,
-          "peak": 75.2,
-          "score": 106.2
-        },
-        {
-          "name": "George Pickens",
-          "position": "WR",
-          "starterPoints": 66.3,
-          "starts": 6,
-          "seasonCount": 1,
-          "peak": 66.3,
-          "score": 98.3
+          "peak": 316.4,
+          "score": 399.9
         }
       ],
       "bestWaiverCandidate": {
-        "player": "Carolina Panthers",
+        "player": "Philadelphia Eagles",
         "position": "DEF",
-        "year": 2026,
+        "year": 2022,
         "acquisitionWeek": 2,
-        "acquisitionType": "add",
-        "transactionId": "1406025277322141696",
-        "creditedStarts": 1,
-        "starterPoints": 3,
-        "pointsAboveBenchmark": 3.75,
+        "acquisitionType": "waiver",
+        "transactionId": "878036817323282432",
+        "creditedStarts": 11,
+        "starterPoints": 117,
+        "pointsAboveBenchmark": 83.83,
         "weeks": [
-          3
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
         ],
-        "confidence": "limited-current-owner-sample"
+        "confidence": "verified-acquisition-and-subsequent-starts"
       },
       "bestTradeCandidate": {
         "year": 2021,
@@ -2102,7 +2142,7 @@
         "edge": -39.8,
         "confidence": "verified"
       },
-      "caveat": "Current-manager player-level attribution is much narrower than Stover's franchise/championship history because older roster-seat ownership has not been fully reassigned."
+      "caveat": "Stover identity is reconciled across the continuous Sleeper owner handle yogurtslinger15 and aliases Gurt / Yogurt Slinger. Player-level coverage still begins in 2020 because the ESPN-era starter archive is incomplete."
     },
     "Kuhl": {
       "playerHistory": [
