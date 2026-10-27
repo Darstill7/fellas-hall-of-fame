@@ -8,10 +8,10 @@
       "wins": 41,
       "losses": 50,
       "biggestRival": {
-        "manager": "Stew",
-        "games": 12,
-        "wins": 7,
-        "losses": 5
+        "manager": "Mitch",
+        "games": 11,
+        "wins": 1,
+        "losses": 10
       },
       "largestWin": {
         "year": 2026,
@@ -61,8 +61,8 @@
       "losses": 25,
       "biggestRival": {
         "manager": "Stew",
-        "games": 6,
-        "wins": 4,
+        "games": 5,
+        "wins": 3,
         "losses": 2
       },
       "largestWin": {
@@ -101,10 +101,10 @@
         "week": 10
       },
       "mostDifficultOpponent": {
-        "manager": "Stilly",
-        "games": 5,
+        "manager": "Mitch",
+        "games": 4,
         "wins": 1,
-        "losses": 4
+        "losses": 3
       }
     },
     "Tom": {
@@ -153,10 +153,10 @@
         "week": 6
       },
       "mostDifficultOpponent": {
-        "manager": "Stilly",
-        "games": 10,
-        "wins": 3,
-        "losses": 7
+        "manager": "Stover",
+        "games": 8,
+        "wins": 2,
+        "losses": 6
       }
     },
     "Stew": {
@@ -205,10 +205,10 @@
         "week": 5
       },
       "mostDifficultOpponent": {
-        "manager": "Tony",
-        "games": 9,
-        "wins": 3,
-        "losses": 6
+        "manager": "Stover",
+        "games": 6,
+        "wins": 1,
+        "losses": 5
       }
     },
     "Scott": {
@@ -372,10 +372,10 @@
       "wins": 3,
       "losses": 4,
       "biggestRival": {
-        "manager": "Birch",
-        "games": 1,
-        "wins": 0,
-        "losses": 1
+        "manager": "Stilly",
+        "games": 8,
+        "wins": 6,
+        "losses": 2
       },
       "largestWin": {
         "year": 2026,
@@ -412,7 +412,12 @@
         "year": 2026,
         "week": 6
       },
-      "mostDifficultOpponent": null
+      "mostDifficultOpponent": {
+        "manager": "Birch",
+        "games": 5,
+        "wins": 1,
+        "losses": 4
+      }
     },
     "Kuhl": {
       "games": 91,
@@ -513,9 +518,9 @@
       },
       "mostDifficultOpponent": {
         "manager": "JMid",
-        "games": 5,
+        "games": 4,
         "wins": 1,
-        "losses": 4
+        "losses": 3
       }
     }
   }
