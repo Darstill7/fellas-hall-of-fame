@@ -20,6 +20,9 @@ jobs:
           for file in scripts/generate-season-guide.mjs scripts/generate-career-core.mjs scripts/verify-ledger-projections.mjs scripts/verify-core-consumers.mjs scripts/verify-canonical-history.mjs scripts/audit-internal-links.mjs scripts/smoke-static-site.mjs scripts/audit-site-dependencies.mjs scripts/verify-specialty-records.mjs scripts/test-browser-release.mjs; do
             node --check "$file"
           done
+      - name: Syntax-check all shipped JavaScript assets
+        run: |
+          find assets -type f -name '*.js' -print0 | xargs -0 -r -n 1 node --check
       - name: Inventory all site data dependencies (advisory)
         run: node scripts/audit-site-dependencies.mjs
       - name: Enforce valid internal links
