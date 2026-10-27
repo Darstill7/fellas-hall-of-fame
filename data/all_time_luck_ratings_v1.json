@@ -1,1 +1,190 @@
-{"version":"v1","scope":"Regular-season archived 2020–2025, and 2026 Weeks 1–7. Excludes postseason, missing games and former roster owners.","method":"All-time luck = total actual wins (ties 0.5) minus sum of weekly all-play expected wins. Normalize per 14 games to compare managers with unequal tenure. Expected wins computed from unrounded weekly all-play proportions where available; stored four-decimal weekly values cause at most small rounding difference.","ranked":[{"manager":"Birch","games":89,"seasons":[2020,2021,2022,2023,2024,2025,2026],"actualWins":50,"expectedWins":43.889,"luckWins":6.111,"luckPerGame":0.0687,"luckPer14":0.962,"rank":1},{"manager":"Mitch","games":90,"seasons":[2020,2021,2022,2023,2024,2025,2026],"actualWins":56,"expectedWins":54.381,"luckWins":1.619,"luckPerGame":0.018,"luckPer14":0.252,"rank":2},{"manager":"Scott","games":35,"seasons":[2024,2025,2026],"actualWins":16,"expectedWins":16.111,"luckWins":-0.111,"luckPerGame":-0.0032,"luckPer14":-0.045,"rank":3},{"manager":"Stilly","games":91,"seasons":[2020,2021,2022,2023,2024,2025,2026],"actualWins":41,"expectedWins":41.381,"luckWins":-0.381,"luckPerGame":-0.0042,"luckPer14":-0.059,"rank":4},{"manager":"Tom","games":91,"seasons":[2020,2021,2022,2023,2024,2025,2026],"actualWins":43,"expectedWins":44.309,"luckWins":-1.309,"luckPerGame":-0.0144,"luckPer14":-0.202,"rank":5},{"manager":"Tony","games":90,"seasons":[2020,2021,2022,2023,2024,2025,2026],"actualWins":50,"expectedWins":51.604,"luckWins":-1.604,"luckPerGame":-0.0178,"luckPer14":-0.249,"rank":6},{"manager":"Stew","games":91,"seasons":[2020,2021,2022,2023,2024,2025,2026],"actualWins":39,"expectedWins":41.182,"luckWins":-2.182,"luckPerGame":-0.024,"luckPer14":-0.336,"rank":7},{"manager":"Kuhl","games":91,"seasons":[2020,2021,2022,2023,2024,2025,2026],"actualWins":37,"expectedWins":39.722,"luckWins":-2.722,"luckPerGame":-0.0299,"luckPer14":-0.419,"rank":8},{"manager":"JMid","games":49,"seasons":[2023,2024,2025,2026],"actualWins":24,"expectedWins":26.722,"luckWins":-2.722,"luckPerGame":-0.0556,"luckPer14":-0.778,"rank":9},{"manager":"Stover","games":7,"seasons":[2026],"actualWins":3,"expectedWins":3.666,"luckWins":-0.666,"luckPerGame":-0.0951,"luckPer14":-1.331,"rank":10}]}
+{
+  "version": "v1.1-stover-reconciled",
+  "scope": "Regular-season archived 2020–2025, and 2026 Weeks 1–7. Stover includes the former Roster 8/yogurtslinger15 history; postseason excluded.",
+  "method": "All-time luck = total actual wins (ties 0.5) minus sum of weekly all-play expected wins. Normalize per 14 games to compare managers with unequal tenure. Expected wins computed from unrounded weekly all-play proportions where available; stored four-decimal weekly values cause at most small rounding difference.",
+  "ranked": [
+    {
+      "manager": "Birch",
+      "games": 89,
+      "seasons": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "actualWins": 50,
+      "expectedWins": 43.889,
+      "luckWins": 6.111,
+      "luckPerGame": 0.0687,
+      "luckPer14": 0.962,
+      "rank": 1
+    },
+    {
+      "manager": "Stover",
+      "games": 91,
+      "seasons": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "actualWins": 52,
+      "expectedWins": 49.254,
+      "luckWins": 2.746,
+      "luckPerGame": 0.0302,
+      "luckPer14": 0.422,
+      "rank": 2
+    },
+    {
+      "manager": "Mitch",
+      "games": 90,
+      "seasons": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "actualWins": 56,
+      "expectedWins": 54.381,
+      "luckWins": 1.619,
+      "luckPerGame": 0.018,
+      "luckPer14": 0.252,
+      "rank": 3
+    },
+    {
+      "manager": "Scott",
+      "games": 35,
+      "seasons": [
+        2024,
+        2025,
+        2026
+      ],
+      "actualWins": 16,
+      "expectedWins": 16.111,
+      "luckWins": -0.111,
+      "luckPerGame": -0.0032,
+      "luckPer14": -0.045,
+      "rank": 4
+    },
+    {
+      "manager": "Stilly",
+      "games": 91,
+      "seasons": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "actualWins": 41,
+      "expectedWins": 41.381,
+      "luckWins": -0.381,
+      "luckPerGame": -0.0042,
+      "luckPer14": -0.059,
+      "rank": 5
+    },
+    {
+      "manager": "Tom",
+      "games": 91,
+      "seasons": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "actualWins": 43,
+      "expectedWins": 44.309,
+      "luckWins": -1.309,
+      "luckPerGame": -0.0144,
+      "luckPer14": -0.202,
+      "rank": 6
+    },
+    {
+      "manager": "Tony",
+      "games": 90,
+      "seasons": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "actualWins": 50,
+      "expectedWins": 51.604,
+      "luckWins": -1.604,
+      "luckPerGame": -0.0178,
+      "luckPer14": -0.249,
+      "rank": 7
+    },
+    {
+      "manager": "Stew",
+      "games": 91,
+      "seasons": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "actualWins": 39,
+      "expectedWins": 41.182,
+      "luckWins": -2.182,
+      "luckPerGame": -0.024,
+      "luckPer14": -0.336,
+      "rank": 8
+    },
+    {
+      "manager": "Kuhl",
+      "games": 91,
+      "seasons": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "actualWins": 37,
+      "expectedWins": 39.722,
+      "luckWins": -2.722,
+      "luckPerGame": -0.0299,
+      "luckPer14": -0.419,
+      "rank": 9
+    },
+    {
+      "manager": "JMid",
+      "games": 49,
+      "seasons": [
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "actualWins": 24,
+      "expectedWins": 26.722,
+      "luckWins": -2.722,
+      "luckPerGame": -0.0556,
+      "luckPer14": -0.778,
+      "rank": 10
+    }
+  ]
+}
