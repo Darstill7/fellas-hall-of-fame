@@ -1,9 +1,9 @@
 {
   "metadata": {
     "version": "v9.5 review",
-    "week_scope": "2026 weeks 1\u20136",
-    "source": "Existing packaged data/league.json",
-    "qualification": "2026 leaderboard entries reflect only archived Weeks 1\u20136; legacy ESPN-era records cannot be asserted universally."
+    "week_scope": "2026 weeks 1–7",
+    "source": "Canonical data/league.json through Week 7",
+    "qualification": "2026 leaderboard entries reflect archived Weeks 1–7; legacy ESPN-era records cannot be asserted universally."
   },
   "high_scores": [
     {
@@ -85,6 +85,12 @@
       "opponent": "Stilly"
     },
     {
+      "week": 7,
+      "manager": "Tom",
+      "points": 133.12,
+      "opponent": "Kuhl"
+    },
+    {
       "week": 2,
       "manager": "Stover",
       "points": 129.26,
@@ -103,6 +109,12 @@
       "opponent": "Stew"
     },
     {
+      "week": 7,
+      "manager": "JMid",
+      "points": 127.28,
+      "opponent": "Birch"
+    },
+    {
       "week": 5,
       "manager": "Stilly",
       "points": 126.36,
@@ -113,18 +125,6 @@
       "manager": "Tom",
       "points": 124.94,
       "opponent": "Mitch"
-    },
-    {
-      "week": 4,
-      "manager": "Stilly",
-      "points": 124.62,
-      "opponent": "Stew"
-    },
-    {
-      "week": 3,
-      "manager": "Stew",
-      "points": 123.22,
-      "opponent": "Birch"
     }
   ],
   "low_scores": [
@@ -143,7 +143,7 @@
     {
       "week": 2,
       "manager": "Tom",
-      "points": 63.0,
+      "points": 63,
       "opponent": "Stilly"
     },
     {
@@ -169,6 +169,12 @@
       "manager": "Kuhl",
       "points": 71.32,
       "opponent": "Birch"
+    },
+    {
+      "week": 7,
+      "manager": "Birch",
+      "points": 73.3,
+      "opponent": "JMid"
     },
     {
       "week": 1,
@@ -203,7 +209,7 @@
     {
       "week": 1,
       "manager": "Tom",
-      "points": 89.0,
+      "points": 89,
       "opponent": "JMid"
     },
     {
@@ -241,12 +247,6 @@
       "manager": "Mitch",
       "points": 92.52,
       "opponent": "Scott"
-    },
-    {
-      "week": 2,
-      "manager": "JMid",
-      "points": 94.38,
-      "opponent": "Stew"
     }
   ],
   "biggest_wins": [
@@ -255,12 +255,12 @@
       "winner": "Stilly",
       "loser": "Tom",
       "winner_pts": 163.34,
-      "loser_pts": 63.0,
+      "loser_pts": 63,
       "margin": 100.34,
       "a": "Stilly",
       "b": "Tom",
       "ap": 163.34,
-      "bp": 63.0
+      "bp": 63
     },
     {
       "week": 1,
@@ -309,6 +309,18 @@
       "b": "Birch",
       "ap": 168.72,
       "bp": 99.7
+    },
+    {
+      "week": 7,
+      "winner": "JMid",
+      "loser": "Birch",
+      "winner_pts": 127.28,
+      "loser_pts": 73.3,
+      "margin": 53.98,
+      "a": "JMid",
+      "b": "Birch",
+      "ap": 127.28,
+      "bp": 73.3
     },
     {
       "week": 6,
@@ -431,6 +443,18 @@
       "bp": 71.32
     },
     {
+      "week": 7,
+      "winner": "Tom",
+      "loser": "Kuhl",
+      "winner_pts": 133.12,
+      "loser_pts": 100.3,
+      "margin": 32.82,
+      "a": "Tom",
+      "b": "Kuhl",
+      "ap": 133.12,
+      "bp": 100.3
+    },
+    {
       "week": 4,
       "winner": "Tom",
       "loser": "Stover",
@@ -465,33 +489,21 @@
       "b": "JMid",
       "ap": 113.96,
       "bp": 94.38
-    },
-    {
-      "week": 4,
-      "winner": "Stilly",
-      "loser": "Stew",
-      "winner_pts": 124.62,
-      "loser_pts": 105.98,
-      "margin": 18.64,
-      "a": "Stilly",
-      "b": "Stew",
-      "ap": 124.62,
-      "bp": 105.98
-    },
-    {
-      "week": 3,
-      "winner": "Mitch",
-      "loser": "Kuhl",
-      "winner_pts": 91.62,
-      "loser_pts": 76.16,
-      "margin": 15.46,
-      "a": "Mitch",
-      "b": "Kuhl",
-      "ap": 91.62,
-      "bp": 76.16
     }
   ],
   "closest_games": [
+    {
+      "week": 7,
+      "winner": "Tony",
+      "loser": "Stover",
+      "winner_pts": 112.12,
+      "loser_pts": 111.2,
+      "margin": 0.92,
+      "a": "Tony",
+      "b": "Stover",
+      "ap": 112.12,
+      "bp": 111.2
+    },
     {
       "week": 4,
       "winner": "Mitch",
@@ -515,6 +527,30 @@
       "b": "Stew",
       "ap": 161.26,
       "bp": 158.52
+    },
+    {
+      "week": 7,
+      "winner": "Stew",
+      "loser": "Scott",
+      "winner_pts": 110.14,
+      "loser_pts": 106.22,
+      "margin": 3.92,
+      "a": "Stew",
+      "b": "Scott",
+      "ap": 110.14,
+      "bp": 106.22
+    },
+    {
+      "week": 7,
+      "winner": "Mitch",
+      "loser": "Stilly",
+      "winner_pts": 119.98,
+      "loser_pts": 115.12,
+      "margin": 4.86,
+      "a": "Mitch",
+      "b": "Stilly",
+      "ap": 119.98,
+      "bp": 115.12
     },
     {
       "week": 3,
@@ -604,12 +640,12 @@
       "week": 1,
       "winner": "Tom",
       "loser": "JMid",
-      "winner_pts": 89.0,
+      "winner_pts": 89,
       "loser_pts": 73.56,
       "margin": 15.44,
       "a": "Tom",
       "b": "JMid",
-      "ap": 89.0,
+      "ap": 89,
       "bp": 73.56
     },
     {
@@ -673,6 +709,18 @@
       "bp": 110.48
     },
     {
+      "week": 7,
+      "winner": "Tom",
+      "loser": "Kuhl",
+      "winner_pts": 133.12,
+      "loser_pts": 100.3,
+      "margin": 32.82,
+      "a": "Tom",
+      "b": "Kuhl",
+      "ap": 133.12,
+      "bp": 100.3
+    },
+    {
       "week": 4,
       "winner": "Birch",
       "loser": "Kuhl",
@@ -683,54 +731,6 @@
       "b": "Kuhl",
       "ap": 108.28,
       "bp": 71.32
-    },
-    {
-      "week": 2,
-      "winner": "Tony",
-      "loser": "Scott",
-      "winner_pts": 84.32,
-      "loser_pts": 46.38,
-      "margin": 37.94,
-      "a": "Tony",
-      "b": "Scott",
-      "ap": 84.32,
-      "bp": 46.38
-    },
-    {
-      "week": 6,
-      "winner": "Stew",
-      "loser": "Tony",
-      "winner_pts": 114.44,
-      "loser_pts": 74.72,
-      "margin": 39.72,
-      "a": "Stew",
-      "b": "Tony",
-      "ap": 114.44,
-      "bp": 74.72
-    },
-    {
-      "week": 6,
-      "winner": "Mitch",
-      "loser": "JMid",
-      "winner_pts": 129.2,
-      "loser_pts": 89.16,
-      "margin": 40.04,
-      "a": "Mitch",
-      "b": "JMid",
-      "ap": 129.2,
-      "bp": 89.16
-    },
-    {
-      "week": 5,
-      "winner": "Stew",
-      "loser": "Kuhl",
-      "winner_pts": 142.56,
-      "loser_pts": 95.1,
-      "margin": 47.46,
-      "a": "Stew",
-      "b": "Kuhl",
-      "ap": 142.56,
-      "bp": 95.1
     }
   ],
   "career_records": [
