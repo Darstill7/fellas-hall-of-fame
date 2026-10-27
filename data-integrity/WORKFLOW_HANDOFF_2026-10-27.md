@@ -105,3 +105,9 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Traced the repeated errors to shared manager modules containing malformed duplicate `'&quot;':'&quot;'` key-value text: `assets/manager-trophy-cases.js` and `assets/espn-franchise-lineage.js`. Corrected all occurrences in commits `85323ac` and `2c0a5f3` rather than changing ten profile pages.
 - Commit `ec1855d` enforces `node --check` on **every** shipped `assets/*.js` script in CI so malformed shared JavaScript cannot slip past the targeted checks again.
 - These fixes require a new completed canonical CI/browser and Pages run before asserting success. Physical iPhone Safari and broader editorial QA remain unverified. **Release blocked.**
+
+### Continuation — proactive inline-JavaScript syntax gate
+- GitHub Pages deployment succeeded on prior head `e9d9131`, but its canonical validation workflow stayed pending with no runner jobs while checked, and was then cancelled by subsequent commits. Therefore the shared-profile fixes have **not yet earned a green complete Chromium run**.
+- Added `scripts/audit-inline-js.mjs` (`44801e4`) to parse all nonempty inline text/javascript and module scripts in HTML with Node's JS parser, excluding JSON data islands and external script tags. This addresses the earlier error class in which inline archive scripts broke despite passing standalone JS checks.
+- Added this blocking test to canonical Actions workflow (`366c4fb`), along with a JS syntax check of the audit script. New workflow needs to run to establish that the repository passes; if it reveals syntax faults, fix source defects rather than deleting the test.
+- Do not mark mobile/Chromium/Safari launch tests passed solely from successful Pages deployments. **Release blocked**.
