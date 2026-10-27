@@ -1,1 +1,684 @@
-{"version":"v1","scope":"Regular-season weeks 1–14 from archived 2020–2025 files and verified 2026 Weeks 1–6. Earlier 2016–2019 weekly game logs not in this dataset. Playoffs excluded.","methodology":{"toughest":"Among opponents with at least 3 documented meetings, lowest head-to-head win percentage; ties broken by most losses.","upset":"Biggest underdog win by pre-game historical win percentage is unavailable; instead report largest victory by a manager against a rival they have a losing lifetime series against. This is a retrospective upset proxy, not betting probability.","trend":"Per-season observed regular-season head-to-head scoring mean, only complete recorded matchups; 2026 partial."},"profiles":{"Stilly":{"toughest":{"name":"Mitch","meetings":10,"wins":1,"losses":9},"retrospectiveUpset":{"year":2023,"week":12,"a":"Stilly","b":"Tony","ownerA":"Darstill","ownerB":"tsteg","teamA":"Jamesons GamblinAddiction","teamB":"Hall & Diggs","pa":173.86,"pb":99.58,"margin":74.28,"winner":"Stilly","source":"archived_sleeper_regular_season"},"trends":[{"year":2020,"games":14,"avgFor":100.64,"avgAgainst":117.94,"wins":5,"losses":9},{"year":2021,"games":14,"avgFor":109.21,"avgAgainst":118.9,"wins":5,"losses":9},{"year":2022,"games":14,"avgFor":108.23,"avgAgainst":110.52,"wins":7,"losses":7},{"year":2023,"games":14,"avgFor":117.54,"avgAgainst":102.57,"wins":8,"losses":6},{"year":2024,"games":14,"avgFor":110,"avgAgainst":112.74,"wins":7,"losses":7},{"year":2025,"games":14,"avgFor":106.63,"avgAgainst":108.58,"wins":6,"losses":8},{"year":2026,"games":6,"avgFor":116.42,"avgAgainst":115.61,"wins":3,"losses":3}]},"JMid":{"toughest":{"name":"Stilly","meetings":5,"wins":1,"losses":4},"retrospectiveUpset":{"year":2026,"week":3,"a":"JMid","b":"Stilly","ownerA":null,"ownerB":null,"teamA":null,"teamB":null,"pa":152.58,"pb":104.98,"margin":47.6,"winner":"JMid","source":"verified_2026_weekly_snapshot"},"trends":[{"year":2023,"games":14,"avgFor":121.35,"avgAgainst":113.44,"wins":9,"losses":5},{"year":2024,"games":14,"avgFor":123.59,"avgAgainst":112.06,"wins":8,"losses":6},{"year":2025,"games":14,"avgFor":102.05,"avgAgainst":116.54,"wins":5,"losses":9},{"year":2026,"games":6,"avgFor":103.52,"avgAgainst":117.65,"wins":1,"losses":5}]},"Tom":{"toughest":{"name":"Stilly","meetings":10,"wins":3,"losses":7},"retrospectiveUpset":{"year":2024,"week":6,"a":"Tom","b":"Tony","ownerA":"thommy","ownerB":"tsteg","teamA":"Green Bowl Packers","teamB":"Stroud Boys","pa":152.02,"pb":79.78,"margin":72.24,"winner":"Tom","source":"archived_sleeper_regular_season"},"trends":[{"year":2020,"games":14,"avgFor":116.22,"avgAgainst":123.17,"wins":5,"losses":9},{"year":2021,"games":14,"avgFor":111.52,"avgAgainst":126.14,"wins":5,"losses":9},{"year":2022,"games":14,"avgFor":105.4,"avgAgainst":112.5,"wins":7,"losses":7},{"year":2023,"games":14,"avgFor":112.5,"avgAgainst":114.14,"wins":6,"losses":8},{"year":2024,"games":14,"avgFor":110.74,"avgAgainst":97.76,"wins":9,"losses":5},{"year":2025,"games":14,"avgFor":112.06,"avgAgainst":105.24,"wins":8,"losses":6},{"year":2026,"games":6,"avgFor":99.76,"avgAgainst":118.6,"wins":2,"losses":4}]},"Stew":{"toughest":{"name":"Tony","meetings":9,"wins":3,"losses":6},"retrospectiveUpset":{"year":2026,"week":6,"a":"Stew","b":"Tony","ownerA":null,"ownerB":null,"teamA":null,"teamB":null,"pa":114.44,"pb":74.72,"margin":39.72,"winner":"Stew","source":"verified_2026_weekly_snapshot"},"trends":[{"year":2020,"games":14,"avgFor":104.22,"avgAgainst":111,"wins":6,"losses":8},{"year":2021,"games":14,"avgFor":102.29,"avgAgainst":117.46,"wins":3,"losses":11},{"year":2022,"games":14,"avgFor":123.38,"avgAgainst":107.67,"wins":11,"losses":3},{"year":2023,"games":14,"avgFor":96.12,"avgAgainst":111.14,"wins":3,"losses":11},{"year":2024,"games":14,"avgFor":104.62,"avgAgainst":107.21,"wins":6,"losses":8},{"year":2025,"games":14,"avgFor":113,"avgAgainst":113.82,"wins":6,"losses":8},{"year":2026,"games":6,"avgFor":126.45,"avgAgainst":113.17,"wins":3,"losses":3}]},"Scott":{"toughest":{"name":"Tom","meetings":4,"wins":1,"losses":3},"retrospectiveUpset":{"year":2024,"week":6,"a":"Scott","b":"Birch","ownerA":"Sheffla","ownerB":"birchhh","teamA":"Team Sheffla","teamB":"Nacua Matata","pa":124.2,"pb":95.4,"margin":28.8,"winner":"Scott","source":"archived_sleeper_regular_season"},"trends":[{"year":2024,"games":14,"avgFor":101.75,"avgAgainst":121.86,"wins":5,"losses":9},{"year":2025,"games":14,"avgFor":118.1,"avgAgainst":114.12,"wins":8,"losses":6},{"year":2026,"games":6,"avgFor":95.54,"avgAgainst":106.16,"wins":3,"losses":3}]},"Mitch":{"toughest":{"name":"Tom","meetings":11,"wins":6,"losses":5},"retrospectiveUpset":null,"trends":[{"year":2020,"games":13,"avgFor":126.96,"avgAgainst":116.22,"wins":9,"losses":4},{"year":2021,"games":14,"avgFor":122.57,"avgAgainst":115.37,"wins":8,"losses":6},{"year":2022,"games":14,"avgFor":114.87,"avgAgainst":112.99,"wins":7,"losses":7},{"year":2023,"games":14,"avgFor":112.57,"avgAgainst":115.12,"wins":6,"losses":8},{"year":2024,"games":14,"avgFor":110.35,"avgAgainst":112.59,"wins":6,"losses":8},{"year":2025,"games":14,"avgFor":135.35,"avgAgainst":111.81,"wins":13,"losses":1},{"year":2026,"games":6,"avgFor":136.04,"avgAgainst":106.5,"wins":6,"losses":0}]},"Tony":{"toughest":{"name":"Birch","meetings":11,"wins":3,"losses":8},"retrospectiveUpset":{"year":2022,"week":2,"a":"Tony","b":"Birch","ownerA":"tsteg","ownerB":"birchhh","teamA":"Tittsburgh Feelers","teamB":"Herbert & Ernie","pa":128.98,"pb":90.06,"margin":38.92,"winner":"Tony","source":"archived_sleeper_regular_season"},"trends":[{"year":2020,"games":14,"avgFor":110.83,"avgAgainst":112.8,"wins":4,"losses":10},{"year":2021,"games":13,"avgFor":131.43,"avgAgainst":110.24,"wins":10,"losses":3},{"year":2022,"games":14,"avgFor":110.84,"avgAgainst":109.26,"wins":6,"losses":8},{"year":2023,"games":14,"avgFor":117.15,"avgAgainst":109.54,"wins":10,"losses":4},{"year":2024,"games":14,"avgFor":108.59,"avgAgainst":114.59,"wins":7,"losses":7},{"year":2025,"games":14,"avgFor":114.59,"avgAgainst":119.56,"wins":8,"losses":6},{"year":2026,"games":6,"avgFor":112.6,"avgAgainst":97.65,"wins":4,"losses":2}]},"Stover":{"toughest":null,"retrospectiveUpset":null,"trends":[{"year":2026,"games":6,"avgFor":108.66,"avgAgainst":109.51,"wins":3,"losses":3}]},"Kuhl":{"toughest":{"name":"Tony","meetings":10,"wins":2,"losses":8},"retrospectiveUpset":{"year":2022,"week":11,"a":"Tom","b":"Kuhl","ownerA":"thommy","ownerB":"ckuhl5","teamA":"Green Bowl Packers","teamB":"Just Joshin’ w/ Ya","pa":83.36,"pb":118.08,"margin":34.72,"winner":"Kuhl","source":"archived_sleeper_regular_season"},"trends":[{"year":2020,"games":14,"avgFor":109.55,"avgAgainst":108.79,"wins":9,"losses":5},{"year":2021,"games":14,"avgFor":110.42,"avgAgainst":114.32,"wins":5,"losses":9},{"year":2022,"games":14,"avgFor":114.55,"avgAgainst":104.82,"wins":8,"losses":6},{"year":2023,"games":14,"avgFor":107.56,"avgAgainst":120.61,"wins":5,"losses":9},{"year":2024,"games":14,"avgFor":108.54,"avgAgainst":116.79,"wins":5,"losses":9},{"year":2025,"games":14,"avgFor":101.98,"avgAgainst":108.87,"wins":5,"losses":9},{"year":2026,"games":6,"avgFor":84.44,"avgAgainst":123.36,"wins":0,"losses":6}]},"Birch":{"toughest":{"name":"JMid","meetings":4,"wins":1,"losses":3},"retrospectiveUpset":{"year":2023,"week":14,"a":"Stew","b":"Birch","ownerA":"Dsylvester9","ownerB":"birchhh","teamA":"FULL SEND","teamB":"Herbert & Ernie","pa":71.54,"pb":105.44,"margin":33.9,"winner":"Birch","source":"archived_sleeper_regular_season"},"trends":[{"year":2020,"games":13,"avgFor":122.58,"avgAgainst":105.65,"wins":9,"losses":4},{"year":2021,"games":13,"avgFor":116.45,"avgAgainst":102.51,"wins":11,"losses":2},{"year":2022,"games":14,"avgFor":96.63,"avgAgainst":105.89,"wins":5,"losses":9},{"year":2023,"games":14,"avgFor":110.45,"avgAgainst":109.67,"wins":7,"losses":7},{"year":2024,"games":14,"avgFor":109.2,"avgAgainst":107.9,"wins":7,"losses":7},{"year":2025,"games":14,"avgFor":108.87,"avgAgainst":113.34,"wins":6,"losses":8},{"year":2026,"games":6,"avgFor":123.44,"avgAgainst":98.66,"wins":5,"losses":1}]}}}
+{
+  "version": "v1",
+  "scope": "Regular-season weeks 1–14 from archived 2020–2025 files and verified 2026 Weeks 1–7. Earlier 2016–2019 weekly game logs not in this dataset. Playoffs excluded.",
+  "methodology": {
+    "toughest": "Among opponents with at least 3 documented meetings, lowest head-to-head win percentage; ties broken by most losses.",
+    "upset": "Biggest underdog win by pre-game historical win percentage is unavailable; instead report largest victory by a manager against a rival they have a losing lifetime series against. This is a retrospective upset proxy, not betting probability.",
+    "trend": "Per-season observed regular-season head-to-head scoring mean, only complete recorded matchups; 2026 partial."
+  },
+  "profiles": {
+    "Stilly": {
+      "toughest": {
+        "name": "Mitch",
+        "meetings": 11,
+        "wins": 1,
+        "losses": 10
+      },
+      "retrospectiveUpset": {
+        "year": 2023,
+        "week": 12,
+        "a": "Stilly",
+        "b": "Tony",
+        "ownerA": "Darstill",
+        "ownerB": "tsteg",
+        "teamA": "Jamesons GamblinAddiction",
+        "teamB": "Hall & Diggs",
+        "pa": 173.86,
+        "pb": 99.58,
+        "margin": 74.28,
+        "winner": "Stilly",
+        "source": "archived_sleeper_regular_season"
+      },
+      "trends": [
+        {
+          "year": 2020,
+          "games": 14,
+          "avgFor": 100.64,
+          "avgAgainst": 117.94,
+          "wins": 5,
+          "losses": 9
+        },
+        {
+          "year": 2021,
+          "games": 14,
+          "avgFor": 109.21,
+          "avgAgainst": 118.9,
+          "wins": 5,
+          "losses": 9
+        },
+        {
+          "year": 2022,
+          "games": 14,
+          "avgFor": 108.23,
+          "avgAgainst": 110.52,
+          "wins": 7,
+          "losses": 7
+        },
+        {
+          "year": 2023,
+          "games": 14,
+          "avgFor": 117.54,
+          "avgAgainst": 102.57,
+          "wins": 8,
+          "losses": 6
+        },
+        {
+          "year": 2024,
+          "games": 14,
+          "avgFor": 110,
+          "avgAgainst": 112.74,
+          "wins": 7,
+          "losses": 7
+        },
+        {
+          "year": 2025,
+          "games": 14,
+          "avgFor": 106.63,
+          "avgAgainst": 108.58,
+          "wins": 6,
+          "losses": 8
+        },
+        {
+          "year": 2026,
+          "games": 7,
+          "avgFor": 116.24,
+          "avgAgainst": 116.23,
+          "wins": 3,
+          "losses": 4
+        }
+      ]
+    },
+    "JMid": {
+      "toughest": {
+        "name": "Stilly",
+        "meetings": 5,
+        "wins": 1,
+        "losses": 4
+      },
+      "retrospectiveUpset": {
+        "year": 2026,
+        "week": 3,
+        "a": "JMid",
+        "b": "Stilly",
+        "ownerA": null,
+        "ownerB": null,
+        "teamA": null,
+        "teamB": null,
+        "pa": 152.58,
+        "pb": 104.98,
+        "margin": 47.6,
+        "winner": "JMid",
+        "source": "verified_2026_weekly_snapshot"
+      },
+      "trends": [
+        {
+          "year": 2023,
+          "games": 14,
+          "avgFor": 121.35,
+          "avgAgainst": 113.44,
+          "wins": 9,
+          "losses": 5
+        },
+        {
+          "year": 2024,
+          "games": 14,
+          "avgFor": 123.59,
+          "avgAgainst": 112.06,
+          "wins": 8,
+          "losses": 6
+        },
+        {
+          "year": 2025,
+          "games": 14,
+          "avgFor": 102.05,
+          "avgAgainst": 116.54,
+          "wins": 5,
+          "losses": 9
+        },
+        {
+          "year": 2026,
+          "games": 7,
+          "avgFor": 106.91,
+          "avgAgainst": 111.31,
+          "wins": 2,
+          "losses": 5
+        }
+      ]
+    },
+    "Tom": {
+      "toughest": {
+        "name": "Stilly",
+        "meetings": 10,
+        "wins": 3,
+        "losses": 7
+      },
+      "retrospectiveUpset": {
+        "year": 2024,
+        "week": 6,
+        "a": "Tom",
+        "b": "Tony",
+        "ownerA": "thommy",
+        "ownerB": "tsteg",
+        "teamA": "Green Bowl Packers",
+        "teamB": "Stroud Boys",
+        "pa": 152.02,
+        "pb": 79.78,
+        "margin": 72.24,
+        "winner": "Tom",
+        "source": "archived_sleeper_regular_season"
+      },
+      "trends": [
+        {
+          "year": 2020,
+          "games": 14,
+          "avgFor": 116.22,
+          "avgAgainst": 123.17,
+          "wins": 5,
+          "losses": 9
+        },
+        {
+          "year": 2021,
+          "games": 14,
+          "avgFor": 111.52,
+          "avgAgainst": 126.14,
+          "wins": 5,
+          "losses": 9
+        },
+        {
+          "year": 2022,
+          "games": 14,
+          "avgFor": 105.4,
+          "avgAgainst": 112.5,
+          "wins": 7,
+          "losses": 7
+        },
+        {
+          "year": 2023,
+          "games": 14,
+          "avgFor": 112.5,
+          "avgAgainst": 114.14,
+          "wins": 6,
+          "losses": 8
+        },
+        {
+          "year": 2024,
+          "games": 14,
+          "avgFor": 110.74,
+          "avgAgainst": 97.76,
+          "wins": 9,
+          "losses": 5
+        },
+        {
+          "year": 2025,
+          "games": 14,
+          "avgFor": 112.06,
+          "avgAgainst": 105.24,
+          "wins": 8,
+          "losses": 6
+        },
+        {
+          "year": 2026,
+          "games": 7,
+          "avgFor": 104.53,
+          "avgAgainst": 115.99,
+          "wins": 3,
+          "losses": 4
+        }
+      ]
+    },
+    "Stew": {
+      "toughest": {
+        "name": "Tony",
+        "meetings": 9,
+        "wins": 3,
+        "losses": 6
+      },
+      "retrospectiveUpset": {
+        "year": 2026,
+        "week": 6,
+        "a": "Stew",
+        "b": "Tony",
+        "ownerA": null,
+        "ownerB": null,
+        "teamA": null,
+        "teamB": null,
+        "pa": 114.44,
+        "pb": 74.72,
+        "margin": 39.72,
+        "winner": "Stew",
+        "source": "verified_2026_weekly_snapshot"
+      },
+      "trends": [
+        {
+          "year": 2020,
+          "games": 14,
+          "avgFor": 104.22,
+          "avgAgainst": 111,
+          "wins": 6,
+          "losses": 8
+        },
+        {
+          "year": 2021,
+          "games": 14,
+          "avgFor": 102.29,
+          "avgAgainst": 117.46,
+          "wins": 3,
+          "losses": 11
+        },
+        {
+          "year": 2022,
+          "games": 14,
+          "avgFor": 123.38,
+          "avgAgainst": 107.67,
+          "wins": 11,
+          "losses": 3
+        },
+        {
+          "year": 2023,
+          "games": 14,
+          "avgFor": 96.12,
+          "avgAgainst": 111.14,
+          "wins": 3,
+          "losses": 11
+        },
+        {
+          "year": 2024,
+          "games": 14,
+          "avgFor": 104.62,
+          "avgAgainst": 107.21,
+          "wins": 6,
+          "losses": 8
+        },
+        {
+          "year": 2025,
+          "games": 14,
+          "avgFor": 113,
+          "avgAgainst": 113.82,
+          "wins": 6,
+          "losses": 8
+        },
+        {
+          "year": 2026,
+          "games": 7,
+          "avgFor": 124.12,
+          "avgAgainst": 112.18,
+          "wins": 4,
+          "losses": 3
+        }
+      ]
+    },
+    "Scott": {
+      "toughest": {
+        "name": "Mitch",
+        "meetings": 4,
+        "wins": 1,
+        "losses": 3
+      },
+      "retrospectiveUpset": {
+        "year": 2024,
+        "week": 6,
+        "a": "Scott",
+        "b": "Birch",
+        "ownerA": "Sheffla",
+        "ownerB": "birchhh",
+        "teamA": "Team Sheffla",
+        "teamB": "Nacua Matata",
+        "pa": 124.2,
+        "pb": 95.4,
+        "margin": 28.8,
+        "winner": "Scott",
+        "source": "archived_sleeper_regular_season"
+      },
+      "trends": [
+        {
+          "year": 2024,
+          "games": 14,
+          "avgFor": 101.75,
+          "avgAgainst": 121.86,
+          "wins": 5,
+          "losses": 9
+        },
+        {
+          "year": 2025,
+          "games": 14,
+          "avgFor": 118.1,
+          "avgAgainst": 114.12,
+          "wins": 8,
+          "losses": 6
+        },
+        {
+          "year": 2026,
+          "games": 7,
+          "avgFor": 97.07,
+          "avgAgainst": 106.73,
+          "wins": 3,
+          "losses": 4
+        }
+      ]
+    },
+    "Mitch": {
+      "toughest": {
+        "name": "Birch",
+        "meetings": 11,
+        "wins": 6,
+        "losses": 5
+      },
+      "retrospectiveUpset": null,
+      "trends": [
+        {
+          "year": 2020,
+          "games": 13,
+          "avgFor": 126.96,
+          "avgAgainst": 116.22,
+          "wins": 9,
+          "losses": 4
+        },
+        {
+          "year": 2021,
+          "games": 14,
+          "avgFor": 122.57,
+          "avgAgainst": 115.37,
+          "wins": 8,
+          "losses": 6
+        },
+        {
+          "year": 2022,
+          "games": 14,
+          "avgFor": 114.87,
+          "avgAgainst": 112.99,
+          "wins": 7,
+          "losses": 7
+        },
+        {
+          "year": 2023,
+          "games": 14,
+          "avgFor": 112.57,
+          "avgAgainst": 115.12,
+          "wins": 6,
+          "losses": 8
+        },
+        {
+          "year": 2024,
+          "games": 14,
+          "avgFor": 110.35,
+          "avgAgainst": 112.59,
+          "wins": 6,
+          "losses": 8
+        },
+        {
+          "year": 2025,
+          "games": 14,
+          "avgFor": 135.35,
+          "avgAgainst": 111.81,
+          "wins": 13,
+          "losses": 1
+        },
+        {
+          "year": 2026,
+          "games": 7,
+          "avgFor": 133.74,
+          "avgAgainst": 107.73,
+          "wins": 7,
+          "losses": 0
+        }
+      ]
+    },
+    "Tony": {
+      "toughest": {
+        "name": "Birch",
+        "meetings": 11,
+        "wins": 3,
+        "losses": 8
+      },
+      "retrospectiveUpset": {
+        "year": 2022,
+        "week": 2,
+        "a": "Tony",
+        "b": "Birch",
+        "ownerA": "tsteg",
+        "ownerB": "birchhh",
+        "teamA": "Tittsburgh Feelers",
+        "teamB": "Herbert & Ernie",
+        "pa": 128.98,
+        "pb": 90.06,
+        "margin": 38.92,
+        "winner": "Tony",
+        "source": "archived_sleeper_regular_season"
+      },
+      "trends": [
+        {
+          "year": 2020,
+          "games": 14,
+          "avgFor": 110.83,
+          "avgAgainst": 112.8,
+          "wins": 4,
+          "losses": 10
+        },
+        {
+          "year": 2021,
+          "games": 13,
+          "avgFor": 131.43,
+          "avgAgainst": 110.24,
+          "wins": 10,
+          "losses": 3
+        },
+        {
+          "year": 2022,
+          "games": 14,
+          "avgFor": 110.84,
+          "avgAgainst": 109.26,
+          "wins": 6,
+          "losses": 8
+        },
+        {
+          "year": 2023,
+          "games": 14,
+          "avgFor": 117.15,
+          "avgAgainst": 109.54,
+          "wins": 10,
+          "losses": 4
+        },
+        {
+          "year": 2024,
+          "games": 14,
+          "avgFor": 108.59,
+          "avgAgainst": 114.59,
+          "wins": 7,
+          "losses": 7
+        },
+        {
+          "year": 2025,
+          "games": 14,
+          "avgFor": 114.59,
+          "avgAgainst": 119.56,
+          "wins": 8,
+          "losses": 6
+        },
+        {
+          "year": 2026,
+          "games": 7,
+          "avgFor": 112.53,
+          "avgAgainst": 99.58,
+          "wins": 5,
+          "losses": 2
+        }
+      ]
+    },
+    "Stover": {
+      "toughest": null,
+      "retrospectiveUpset": null,
+      "trends": [
+        {
+          "year": 2026,
+          "games": 7,
+          "avgFor": 109.02,
+          "avgAgainst": 109.88,
+          "wins": 3,
+          "losses": 4
+        }
+      ]
+    },
+    "Kuhl": {
+      "toughest": {
+        "name": "Tony",
+        "meetings": 10,
+        "wins": 2,
+        "losses": 8
+      },
+      "retrospectiveUpset": {
+        "year": 2022,
+        "week": 11,
+        "a": "Tom",
+        "b": "Kuhl",
+        "ownerA": "thommy",
+        "ownerB": "ckuhl5",
+        "teamA": "Green Bowl Packers",
+        "teamB": "Just Joshin’ w/ Ya",
+        "pa": 83.36,
+        "pb": 118.08,
+        "margin": 34.72,
+        "winner": "Kuhl",
+        "source": "archived_sleeper_regular_season"
+      },
+      "trends": [
+        {
+          "year": 2020,
+          "games": 14,
+          "avgFor": 109.55,
+          "avgAgainst": 108.79,
+          "wins": 9,
+          "losses": 5
+        },
+        {
+          "year": 2021,
+          "games": 14,
+          "avgFor": 110.42,
+          "avgAgainst": 114.32,
+          "wins": 5,
+          "losses": 9
+        },
+        {
+          "year": 2022,
+          "games": 14,
+          "avgFor": 114.55,
+          "avgAgainst": 104.82,
+          "wins": 8,
+          "losses": 6
+        },
+        {
+          "year": 2023,
+          "games": 14,
+          "avgFor": 107.56,
+          "avgAgainst": 120.61,
+          "wins": 5,
+          "losses": 9
+        },
+        {
+          "year": 2024,
+          "games": 14,
+          "avgFor": 108.54,
+          "avgAgainst": 116.79,
+          "wins": 5,
+          "losses": 9
+        },
+        {
+          "year": 2025,
+          "games": 14,
+          "avgFor": 101.98,
+          "avgAgainst": 108.87,
+          "wins": 5,
+          "losses": 9
+        },
+        {
+          "year": 2026,
+          "games": 7,
+          "avgFor": 86.71,
+          "avgAgainst": 124.75,
+          "wins": 0,
+          "losses": 7
+        }
+      ]
+    },
+    "Birch": {
+      "toughest": {
+        "name": "JMid",
+        "meetings": 5,
+        "wins": 1,
+        "losses": 4
+      },
+      "retrospectiveUpset": {
+        "year": 2023,
+        "week": 14,
+        "a": "Stew",
+        "b": "Birch",
+        "ownerA": "Dsylvester9",
+        "ownerB": "birchhh",
+        "teamA": "FULL SEND",
+        "teamB": "Herbert & Ernie",
+        "pa": 71.54,
+        "pb": 105.44,
+        "margin": 33.9,
+        "winner": "Birch",
+        "source": "archived_sleeper_regular_season"
+      },
+      "trends": [
+        {
+          "year": 2020,
+          "games": 13,
+          "avgFor": 122.58,
+          "avgAgainst": 105.65,
+          "wins": 9,
+          "losses": 4
+        },
+        {
+          "year": 2021,
+          "games": 13,
+          "avgFor": 116.45,
+          "avgAgainst": 102.51,
+          "wins": 11,
+          "losses": 2
+        },
+        {
+          "year": 2022,
+          "games": 14,
+          "avgFor": 96.63,
+          "avgAgainst": 105.89,
+          "wins": 5,
+          "losses": 9
+        },
+        {
+          "year": 2023,
+          "games": 14,
+          "avgFor": 110.45,
+          "avgAgainst": 109.67,
+          "wins": 7,
+          "losses": 7
+        },
+        {
+          "year": 2024,
+          "games": 14,
+          "avgFor": 109.2,
+          "avgAgainst": 107.9,
+          "wins": 7,
+          "losses": 7
+        },
+        {
+          "year": 2025,
+          "games": 14,
+          "avgFor": 108.87,
+          "avgAgainst": 113.34,
+          "wins": 6,
+          "losses": 8
+        },
+        {
+          "year": 2026,
+          "games": 7,
+          "avgFor": 116.28,
+          "avgAgainst": 102.75,
+          "wins": 5,
+          "losses": 2
+        }
+      ]
+    }
+  }
+}
