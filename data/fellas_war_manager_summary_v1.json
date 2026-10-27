@@ -1,0 +1,635 @@
+{
+  "version": "v1.0",
+  "updated": "2026-10-27",
+  "label": "Experimental Starter Value — not True Fellas WAR",
+  "coverage": "2020–2025 regular-season Weeks 1–14 and 2026 Weeks 1–6; current-manager identity rules applied where source data already attributes managers.",
+  "method": "Aggregate points above a weekly low-third same-position starter benchmark across credited starts. Matchup swing is one-player-at-a-time and non-additive. These aggregates measure observed starter value, not replacement value or manager WAR.",
+  "certification": {
+    "trueWAR": false,
+    "reason": "Historical free-agent replacement pools are not verified and only 2 of 14 2025 weeks have full archived bench snapshots.",
+    "benchSnapshotWeeks2025": 2,
+    "starterCoveredWeeks2025": 14,
+    "replacementReadyWeeks2025": 0
+  },
+  "allTime": [
+    {
+      "manager": "Mitch",
+      "playerSeasons": 168,
+      "starts": 810,
+      "starterPoints": 10892.62,
+      "aboveBenchmark": 6612.98,
+      "matchupSwing": 78,
+      "matchedWeeks": 801
+    },
+    {
+      "manager": "Tony",
+      "playerSeasons": 182,
+      "starts": 809,
+      "starterPoints": 10371.3,
+      "aboveBenchmark": 6045.95,
+      "matchupSwing": 86,
+      "matchedWeeks": 800
+    },
+    {
+      "manager": "Birch",
+      "playerSeasons": 157,
+      "starts": 810,
+      "starterPoints": 10026.94,
+      "aboveBenchmark": 5720.57,
+      "matchupSwing": 73,
+      "matchedWeeks": 792
+    },
+    {
+      "manager": "Tom",
+      "playerSeasons": 203,
+      "starts": 807,
+      "starterPoints": 9956.88,
+      "aboveBenchmark": 5667.94,
+      "matchupSwing": 41,
+      "matchedWeeks": 807
+    },
+    {
+      "manager": "Stilly",
+      "playerSeasons": 205,
+      "starts": 810,
+      "starterPoints": 9830.08,
+      "aboveBenchmark": 5519.65,
+      "matchupSwing": 65,
+      "matchedWeeks": 810
+    },
+    {
+      "manager": "Stew",
+      "playerSeasons": 208,
+      "starts": 810,
+      "starterPoints": 9769.56,
+      "aboveBenchmark": 5465.89,
+      "matchupSwing": 68,
+      "matchedWeeks": 810
+    },
+    {
+      "manager": "Kuhl",
+      "playerSeasons": 171,
+      "starts": 810,
+      "starterPoints": 9643.06,
+      "aboveBenchmark": 5357.01,
+      "matchupSwing": 62,
+      "matchedWeeks": 810
+    },
+    {
+      "manager": "JMid",
+      "playerSeasons": 109,
+      "starts": 432,
+      "starterPoints": 5478.98,
+      "aboveBenchmark": 3209.19,
+      "matchupSwing": 42,
+      "matchedWeeks": 432
+    },
+    {
+      "manager": "Scott",
+      "playerSeasons": 70,
+      "starts": 306,
+      "starterPoints": 3651.12,
+      "aboveBenchmark": 2034.62,
+      "matchupSwing": 35,
+      "matchedWeeks": 306
+    },
+    {
+      "manager": "Stover",
+      "playerSeasons": 16,
+      "starts": 54,
+      "starterPoints": 651.94,
+      "aboveBenchmark": 392.06,
+      "matchupSwing": 5,
+      "matchedWeeks": 54
+    }
+  ],
+  "byYear": {
+    "2020": [
+      {
+        "manager": "Birch",
+        "playerSeasons": 24,
+        "starts": 126,
+        "starterPoints": 1754.74,
+        "aboveBenchmark": 1081.6,
+        "matchupSwing": 6,
+        "matchedWeeks": 117
+      },
+      {
+        "manager": "Mitch",
+        "playerSeasons": 28,
+        "starts": 126,
+        "starterPoints": 1736.54,
+        "aboveBenchmark": 1070.77,
+        "matchupSwing": 11,
+        "matchedWeeks": 117
+      },
+      {
+        "manager": "Tom",
+        "playerSeasons": 22,
+        "starts": 126,
+        "starterPoints": 1627.14,
+        "aboveBenchmark": 961.22,
+        "matchupSwing": 8,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Tony",
+        "playerSeasons": 26,
+        "starts": 126,
+        "starterPoints": 1551.68,
+        "aboveBenchmark": 888.8,
+        "matchupSwing": 0,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Kuhl",
+        "playerSeasons": 28,
+        "starts": 126,
+        "starterPoints": 1533.72,
+        "aboveBenchmark": 873.84,
+        "matchupSwing": 22,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Stew",
+        "playerSeasons": 34,
+        "starts": 126,
+        "starterPoints": 1459.06,
+        "aboveBenchmark": 799.11,
+        "matchupSwing": 7,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Stilly",
+        "playerSeasons": 37,
+        "starts": 126,
+        "starterPoints": 1409,
+        "aboveBenchmark": 739.93,
+        "matchupSwing": 9,
+        "matchedWeeks": 126
+      }
+    ],
+    "2021": [
+      {
+        "manager": "Tony",
+        "playerSeasons": 28,
+        "starts": 126,
+        "starterPoints": 1827.68,
+        "aboveBenchmark": 1139.84,
+        "matchupSwing": 7,
+        "matchedWeeks": 117
+      },
+      {
+        "manager": "Mitch",
+        "playerSeasons": 29,
+        "starts": 126,
+        "starterPoints": 1716,
+        "aboveBenchmark": 1054.46,
+        "matchupSwing": 23,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Birch",
+        "playerSeasons": 20,
+        "starts": 126,
+        "starterPoints": 1579.32,
+        "aboveBenchmark": 909.68,
+        "matchupSwing": 33,
+        "matchedWeeks": 117
+      },
+      {
+        "manager": "Tom",
+        "playerSeasons": 29,
+        "starts": 126,
+        "starterPoints": 1561.34,
+        "aboveBenchmark": 892.98,
+        "matchupSwing": 2,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Kuhl",
+        "playerSeasons": 26,
+        "starts": 126,
+        "starterPoints": 1545.84,
+        "aboveBenchmark": 889.71,
+        "matchupSwing": 9,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Stilly",
+        "playerSeasons": 28,
+        "starts": 126,
+        "starterPoints": 1528.9,
+        "aboveBenchmark": 866.83,
+        "matchupSwing": 7,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Stew",
+        "playerSeasons": 24,
+        "starts": 126,
+        "starterPoints": 1432.06,
+        "aboveBenchmark": 762.66,
+        "matchupSwing": 11,
+        "matchedWeeks": 126
+      }
+    ],
+    "2022": [
+      {
+        "manager": "Stew",
+        "playerSeasons": 29,
+        "starts": 126,
+        "starterPoints": 1727.34,
+        "aboveBenchmark": 1065.86,
+        "matchupSwing": 20,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Mitch",
+        "playerSeasons": 26,
+        "starts": 126,
+        "starterPoints": 1608.18,
+        "aboveBenchmark": 945.71,
+        "matchupSwing": 7,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Kuhl",
+        "playerSeasons": 23,
+        "starts": 126,
+        "starterPoints": 1603.76,
+        "aboveBenchmark": 942.49,
+        "matchupSwing": 6,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Tony",
+        "playerSeasons": 30,
+        "starts": 126,
+        "starterPoints": 1551.82,
+        "aboveBenchmark": 887.75,
+        "matchupSwing": 6,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Stilly",
+        "playerSeasons": 37,
+        "starts": 126,
+        "starterPoints": 1515.18,
+        "aboveBenchmark": 851.03,
+        "matchupSwing": 10,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Tom",
+        "playerSeasons": 31,
+        "starts": 124,
+        "starterPoints": 1475.62,
+        "aboveBenchmark": 811.71,
+        "matchupSwing": 11,
+        "matchedWeeks": 124
+      },
+      {
+        "manager": "Birch",
+        "playerSeasons": 25,
+        "starts": 126,
+        "starterPoints": 1352.88,
+        "aboveBenchmark": 695.68,
+        "matchupSwing": 10,
+        "matchedWeeks": 126
+      }
+    ],
+    "2023": [
+      {
+        "manager": "JMid",
+        "playerSeasons": 26,
+        "starts": 126,
+        "starterPoints": 1698.96,
+        "aboveBenchmark": 1043.63,
+        "matchupSwing": 20,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Stilly",
+        "playerSeasons": 20,
+        "starts": 126,
+        "starterPoints": 1645.6,
+        "aboveBenchmark": 978.98,
+        "matchupSwing": 7,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Tony",
+        "playerSeasons": 28,
+        "starts": 126,
+        "starterPoints": 1640.12,
+        "aboveBenchmark": 974.38,
+        "matchupSwing": 15,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Mitch",
+        "playerSeasons": 23,
+        "starts": 126,
+        "starterPoints": 1575.92,
+        "aboveBenchmark": 916.07,
+        "matchupSwing": 0,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Tom",
+        "playerSeasons": 40,
+        "starts": 125,
+        "starterPoints": 1574.96,
+        "aboveBenchmark": 915.16,
+        "matchupSwing": 7,
+        "matchedWeeks": 125
+      },
+      {
+        "manager": "Birch",
+        "playerSeasons": 20,
+        "starts": 126,
+        "starterPoints": 1546.36,
+        "aboveBenchmark": 894.91,
+        "matchupSwing": 1,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Kuhl",
+        "playerSeasons": 25,
+        "starts": 126,
+        "starterPoints": 1505.86,
+        "aboveBenchmark": 848.14,
+        "matchupSwing": 13,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Stew",
+        "playerSeasons": 35,
+        "starts": 126,
+        "starterPoints": 1345.74,
+        "aboveBenchmark": 692.1,
+        "matchupSwing": 7,
+        "matchedWeeks": 126
+      }
+    ],
+    "2024": [
+      {
+        "manager": "JMid",
+        "playerSeasons": 28,
+        "starts": 126,
+        "starterPoints": 1730.22,
+        "aboveBenchmark": 1040.53,
+        "matchupSwing": 9,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Tom",
+        "playerSeasons": 35,
+        "starts": 126,
+        "starterPoints": 1550.42,
+        "aboveBenchmark": 852.13,
+        "matchupSwing": 3,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Mitch",
+        "playerSeasons": 28,
+        "starts": 126,
+        "starterPoints": 1544.88,
+        "aboveBenchmark": 847.49,
+        "matchupSwing": 2,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Stilly",
+        "playerSeasons": 24,
+        "starts": 126,
+        "starterPoints": 1540,
+        "aboveBenchmark": 833.39,
+        "matchupSwing": 16,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Birch",
+        "playerSeasons": 26,
+        "starts": 126,
+        "starterPoints": 1528.8,
+        "aboveBenchmark": 827.1,
+        "matchupSwing": 2,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Tony",
+        "playerSeasons": 29,
+        "starts": 125,
+        "starterPoints": 1520.22,
+        "aboveBenchmark": 816.69,
+        "matchupSwing": 25,
+        "matchedWeeks": 125
+      },
+      {
+        "manager": "Kuhl",
+        "playerSeasons": 21,
+        "starts": 126,
+        "starterPoints": 1519.56,
+        "aboveBenchmark": 815.07,
+        "matchupSwing": 3,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Stew",
+        "playerSeasons": 39,
+        "starts": 126,
+        "starterPoints": 1464.68,
+        "aboveBenchmark": 756.17,
+        "matchupSwing": 11,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Scott",
+        "playerSeasons": 31,
+        "starts": 126,
+        "starterPoints": 1424.5,
+        "aboveBenchmark": 728.82,
+        "matchupSwing": 14,
+        "matchedWeeks": 126
+      }
+    ],
+    "2025": [
+      {
+        "manager": "Mitch",
+        "playerSeasons": 21,
+        "starts": 126,
+        "starterPoints": 1894.88,
+        "aboveBenchmark": 1223.42,
+        "matchupSwing": 21,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Scott",
+        "playerSeasons": 24,
+        "starts": 126,
+        "starterPoints": 1653.36,
+        "aboveBenchmark": 993.7,
+        "matchupSwing": 19,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Tony",
+        "playerSeasons": 24,
+        "starts": 126,
+        "starterPoints": 1604.2,
+        "aboveBenchmark": 916.58,
+        "matchupSwing": 29,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Stew",
+        "playerSeasons": 28,
+        "starts": 126,
+        "starterPoints": 1582,
+        "aboveBenchmark": 895.42,
+        "matchupSwing": 11,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Tom",
+        "playerSeasons": 27,
+        "starts": 126,
+        "starterPoints": 1568.82,
+        "aboveBenchmark": 891.71,
+        "matchupSwing": 9,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Birch",
+        "playerSeasons": 26,
+        "starts": 126,
+        "starterPoints": 1524.2,
+        "aboveBenchmark": 838.61,
+        "matchupSwing": 10,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Stilly",
+        "playerSeasons": 35,
+        "starts": 126,
+        "starterPoints": 1492.86,
+        "aboveBenchmark": 802.33,
+        "matchupSwing": 10,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "JMid",
+        "playerSeasons": 36,
+        "starts": 126,
+        "starterPoints": 1428.7,
+        "aboveBenchmark": 756.17,
+        "matchupSwing": 13,
+        "matchedWeeks": 126
+      },
+      {
+        "manager": "Kuhl",
+        "playerSeasons": 28,
+        "starts": 126,
+        "starterPoints": 1427.68,
+        "aboveBenchmark": 738.76,
+        "matchupSwing": 9,
+        "matchedWeeks": 126
+      }
+    ],
+    "2026": [
+      {
+        "manager": "Mitch",
+        "playerSeasons": 13,
+        "starts": 54,
+        "starterPoints": 816.22,
+        "aboveBenchmark": 555.06,
+        "matchupSwing": 14,
+        "matchedWeeks": 54
+      },
+      {
+        "manager": "Stew",
+        "playerSeasons": 19,
+        "starts": 54,
+        "starterPoints": 758.68,
+        "aboveBenchmark": 494.57,
+        "matchupSwing": 1,
+        "matchedWeeks": 54
+      },
+      {
+        "manager": "Birch",
+        "playerSeasons": 16,
+        "starts": 54,
+        "starterPoints": 740.64,
+        "aboveBenchmark": 472.99,
+        "matchupSwing": 11,
+        "matchedWeeks": 54
+      },
+      {
+        "manager": "Stilly",
+        "playerSeasons": 24,
+        "starts": 54,
+        "starterPoints": 698.54,
+        "aboveBenchmark": 447.16,
+        "matchupSwing": 6,
+        "matchedWeeks": 54
+      },
+      {
+        "manager": "Tony",
+        "playerSeasons": 17,
+        "starts": 54,
+        "starterPoints": 675.58,
+        "aboveBenchmark": 421.91,
+        "matchupSwing": 4,
+        "matchedWeeks": 54
+      },
+      {
+        "manager": "Stover",
+        "playerSeasons": 16,
+        "starts": 54,
+        "starterPoints": 651.94,
+        "aboveBenchmark": 392.06,
+        "matchupSwing": 5,
+        "matchedWeeks": 54
+      },
+      {
+        "manager": "JMid",
+        "playerSeasons": 19,
+        "starts": 54,
+        "starterPoints": 621.1,
+        "aboveBenchmark": 368.86,
+        "matchupSwing": 0,
+        "matchedWeeks": 54
+      },
+      {
+        "manager": "Tom",
+        "playerSeasons": 19,
+        "starts": 54,
+        "starterPoints": 598.58,
+        "aboveBenchmark": 343.03,
+        "matchupSwing": 1,
+        "matchedWeeks": 54
+      },
+      {
+        "manager": "Scott",
+        "playerSeasons": 15,
+        "starts": 54,
+        "starterPoints": 573.26,
+        "aboveBenchmark": 312.1,
+        "matchupSwing": 2,
+        "matchedWeeks": 54
+      },
+      {
+        "manager": "Kuhl",
+        "playerSeasons": 20,
+        "starts": 54,
+        "starterPoints": 506.64,
+        "aboveBenchmark": 249,
+        "matchupSwing": 0,
+        "matchedWeeks": 54
+      }
+    ]
+  }
+}
