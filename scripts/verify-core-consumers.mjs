@@ -50,6 +50,15 @@ for(let i=0;i<rivalrySlugs.length;i++)for(let j=i+1;j<rivalrySlugs.length;j++){
  rivalryRoutes++;
 }
 assert(rivalryRoutes===45,'Expected 45 unique manager rivalries');
+const legacyPage=read('analytics/legacy.html');
+const legacyBlock=legacyPage.match(/<script[^>]*id="legacyData"[^>]*>([\\s\\S]*?)<\\/script>/);
+assert(!!legacyBlock,'All-Time Legacy embedded fallback model missing');
+const legacyModel=JSON.parse(legacyBlock[1]);
+for(const entry of legacyModel.managers){
+ const id=entry.manager==='Tom'?'Thommy':entry.manager;
+ const m=careers.managers[id];
+ assert(!!m&&entry.career_wins===m.w&&entry.career_losses===m.l&&(entry.career_ties||0)===m.t,'Legacy page has stale career fallback: '+entry.manager);
+}
 const recordsPage=read('analytics/records.html');
 const recordsArchive=read('analytics/records-archive.html');
 assert(recordsArchive.includes("fetch('../data/career_core_generated.json')"),'Archived Records career table must read generated core');
