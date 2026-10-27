@@ -111,3 +111,9 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Added `scripts/audit-inline-js.mjs` (`44801e4`) to parse all nonempty inline text/javascript and module scripts in HTML with Node's JS parser, excluding JSON data islands and external script tags. This addresses the earlier error class in which inline archive scripts broke despite passing standalone JS checks.
 - Added this blocking test to canonical Actions workflow (`366c4fb`), along with a JS syntax check of the audit script. New workflow needs to run to establish that the repository passes; if it reveals syntax faults, fix source defects rather than deleting the test.
 - Do not mark mobile/Chromium/Safari launch tests passed solely from successful Pages deployments. **Release blocked**.
+
+### Continuation — expanded Chromium regression coverage (verified green)
+- Added five historically broken pages to `scripts/test-browser-release.mjs` in commit `9b0a503`: `analytics/awards-show.html`, `seasons/all-time-schedule-swap.html`, `seasons/espn-records.html`, `seasons/historical-awards.html` and `seasons/unified-record-book.html`.
+- Added a browser-level interaction check that Awards Show year buttons render and switch displayed year on click.
+- Inspected GitHub Actions [run 40596294368](https://github.com/Darstill7/fellas-hall-of-fame/actions/runs/40596294368), commit `9b0a503`: **canonical job SUCCESS, real Chromium browser step SUCCESS**, testing 23 routes at 390px touch/mobile-emulated and 1280px desktop. Prior green checkpoint [40596037731](https://github.com/Darstill7/fellas-hall-of-fame/actions/runs/40596037731) covered 18 routes.
+- Pages deployment for this code commit remained pending when checked. Remember: desktop/mobile-emulated Chromium success does not certify physical iPhone Safari, complete visual/editorial QA, nor every route outside 23 sampled pages. Launch gate remains closed.
