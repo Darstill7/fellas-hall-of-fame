@@ -73,3 +73,11 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Commit `0ebc266`: added automated source-binding and duplicate-WLT regression checks to `scripts/verify-core-consumers.mjs`.
 - The old `manager_record_books_2016_2026.json` reference remains intentional for specialty scoring and postseason fields. Replacing that file entirely requires matching those historical calculations against the ledger before removal.
 - Outstanding release gates: latest CI and deploy, live browser tests, actual iPhone-size overflow/touch checks, and evidence audit for composite Legacy categories. The project remains NOT READY TO SHARE.
+
+### Continuation — specialty record integrity and HTTP regression gates
+- The preceding head `cb16865` had successful canonical CI and Pages deployment (confirmed via the GitHub Actions runs endpoint).
+- New `scripts/verify-specialty-records.mjs` (commit `22bb12e`) independently reconstructs **all 14 historical managers'** regular and postseason games/WLT, first and last seasons, best/worst scoring weeks, win/loss margin extremes, best postseason scoring matchup, opponent WLT and annual WLT from 799 ledger games. It fails on mismatches rather than trusting the archived specialty JSON.
+- An independent in-memory check of canonical ledger against the archive returned **zero mismatches** for all 14 managers on career/postseason WLT and scoring extrema. This is not a substitute for full CI running the committed test.
+- Commit `306e6a5` adds the audit to required GitHub Actions steps, including JavaScript syntax checking.
+- Commit `65b410e` broadens the local-HTTP static smoke suite to historical manager record books, the weekly archive, old Records and Legacy views, and the specialty JSON files. This does **not** test JS rendering, touchscreen interaction, or actual phone browser performance.
+- **Release not approved** pending a successful CI and Pages deployment for latest HEAD, real browser and mobile verification, legacy fallback review, and evidence/content parity across older dossiers.
