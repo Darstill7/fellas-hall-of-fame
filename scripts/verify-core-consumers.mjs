@@ -50,6 +50,9 @@ for(let i=0;i<rivalrySlugs.length;i++)for(let j=i+1;j<rivalrySlugs.length;j++){
 }
 assert(rivalryRoutes===45,'Expected 45 unique manager rivalries');
 const recordsPage=read('analytics/records.html');
+const recordsArchive=read('analytics/records-archive.html');
+assert(recordsArchive.includes("fetch('../data/career_core_generated.json')"),'Archived Records career table must read generated core');
+assert(!recordsArchive.includes("fetch('../data/manager_record_books_2016_2026.json')"),'Archived Records still fetches duplicated career source');
 const warRoom=read('analytics/rivalry-war-room.html');
 assert(recordsPage.includes("fetch('../data/career_core_generated.json')"),'Primary career board must use generated records');
 assert(recordsPage.includes("fetch('../data/unified_record_book_2016_2026.json')"),'Records board weekly extremes must use canonical ledger');
