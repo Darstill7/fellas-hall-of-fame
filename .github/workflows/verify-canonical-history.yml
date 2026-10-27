@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 concurrency:
   group: canonical-history-${{ github.ref }}
   cancel-in-progress: true
@@ -44,3 +45,10 @@ jobs:
         run: node scripts/verify-core-consumers.mjs
       - name: Verify records across published pages
         run: node scripts/verify-canonical-history.mjs
+      - name: Release-readiness summary
+        if: always()
+        run: |
+          echo '### Fellas OS release gate' >> "$GITHUB_STEP_SUMMARY"
+          echo '' >> "$GITHUB_STEP_SUMMARY"
+          echo 'This job checks generated records, historical reconciliation, public consumer bindings, source syntax, and archived record fallbacks.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'A green result is necessary but **not sufficient** for launch: mobile browser verification, live data fetching, navigation, and full editorial audit remain separate gates.' >> "$GITHUB_STEP_SUMMARY"
