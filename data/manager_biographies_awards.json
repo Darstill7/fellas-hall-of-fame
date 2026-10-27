@@ -256,7 +256,7 @@
       }
     },
     "Stover": {
-      "biography": "Stover’s reputation as the Asset Vault reflects a preference for valuable roster pieces and deep talent, not just a single weekly explosion. The franchise’s history includes a 2022 championship and a strong 2024 regular season in the broader team archive. Past source seasons also involve changes in the ownership of the roster slot, so the player-level Mount Rushmore intentionally credits only starts attributable to the documented owner. That distinction matters: the championship résumé is a historical franchise story, while the currently verified individual player archive is narrower. Future reconciliation should bring those two views closer together.",
+      "biography": "Stover’s reputation as the Asset Vault reflects a preference for valuable roster pieces and deep talent, not just a single weekly explosion. The franchise’s history includes a 2022 championship and a strong 2024 regular season in the broader team archive. Stover’s Sleeper-era identity has now been reconciled across the continuous owner handle yogurtslinger15 and team-name aliases including YogurtSlingers, YogurtSlinger and Gurt. That restores his 2020–2025 player, season and starter-value history to the same manager record instead of splitting it into a generic historical roster seat.",
       "bestTradeCandidate": {
         "year": 2021,
         "date": "2021-10-07",
@@ -277,18 +277,18 @@
         "edge": -39.8,
         "confidence": "verified"
       },
-      "waiverStatus": "Provisional current-owner candidate: Carolina Panthers (2026); older Stover roster-seat acquisition history remains incomplete.",
+      "waiverStatus": "Ranked from verified completed Sleeper acquisitions matched to subsequent credited starts: Philadelphia Eagles D/ST (2022) currently leads at +83.83 above the positional starter benchmark.",
       "bestWaiverCandidate": {
-        "year": 2026,
-        "player": "Carolina Panthers",
+        "year": 2022,
+        "player": "Philadelphia Eagles",
         "position": "DEF",
         "acquisitionWeek": 2,
-        "acquisitionType": "add",
-        "transactionId": "1406025277322141696",
-        "starts": 1,
-        "points": 3,
-        "par": 3.75,
-        "confidence": "limited-current-owner-sample"
+        "acquisitionType": "waiver",
+        "transactionId": "878036817323282432",
+        "starts": 11,
+        "points": 117,
+        "par": 83.83,
+        "confidence": "verified"
       }
     },
     "Kuhl": {
