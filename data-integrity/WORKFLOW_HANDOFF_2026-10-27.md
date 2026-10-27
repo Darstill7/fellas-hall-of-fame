@@ -81,3 +81,9 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Commit `306e6a5` adds the audit to required GitHub Actions steps, including JavaScript syntax checking.
 - Commit `65b410e` broadens the local-HTTP static smoke suite to historical manager record books, the weekly archive, old Records and Legacy views, and the specialty JSON files. This does **not** test JS rendering, touchscreen interaction, or actual phone browser performance.
 - **Release not approved** pending a successful CI and Pages deployment for latest HEAD, real browser and mobile verification, legacy fallback review, and evidence/content parity across older dossiers.
+
+### Continuation — fail-closed historical career fallback
+- GitHub Actions canonical CI succeeded at `306e6a5` with the new specialty-record integrity gate, and at `65b410e` with expanded static HTTP route coverage. This confirms test execution in CI, **not** actual JS browser rendering or mobile behavior.
+- Commit `746be52` changes `analytics/records-archive.html` to hide embedded stale career ranking rows pending the fetch of `career_core_generated.json`; if the fetch fails, the career ranking is withheld with an explicit unavailable message instead of showing saved fallback values. Other historical categories and championship chronology remain separately labelled.
+- Commit `14a9d25` adds a blocking source-consumer regression assertion that this page fails closed.
+- Remaining: obtain green CI and Pages deployment on final head, test live mobile/browser navigation and overflow, review full editorial dossier parity and any remaining specialty provenance. **Not ready for public sharing.**
