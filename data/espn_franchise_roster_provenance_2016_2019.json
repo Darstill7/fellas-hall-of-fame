@@ -1,0 +1,716 @@
+{
+  "version": 1,
+  "updated": "2026-10-27",
+  "source": [
+    "data/espn_history_2016_2019.json",
+    "data/franchise_player_legends.json"
+  ],
+  "dataLimits": [
+    "ESPN 2016-2019 team/matchup exports include owner, team name, season wins and points, not per-player starters or transaction records.",
+    "Sleeper franchise_player_legends starts in 2020; absence of a 2016-2019 player from its list is not absence from the historical franchise."
+  ],
+  "managers": {
+    "Birch": {
+      "manager": "Birch",
+      "espnTeams": [
+        {
+          "year": 2017,
+          "teamName": "Hogan's Heroes",
+          "teamAbbreviation": "TACO",
+          "espnOwner": "Alex Birch",
+          "record": [
+            5,
+            7,
+            0
+          ],
+          "pointsFor": 1022,
+          "pointsAgainst": 1113,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2018,
+          "teamName": "HEY DARNOLD!",
+          "teamAbbreviation": "TACO",
+          "espnOwner": "Alex Birch",
+          "record": [
+            6,
+            7,
+            0
+          ],
+          "pointsFor": 1464.32,
+          "pointsAgainst": 1408.36,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2019,
+          "teamName": "AP’s Daycare",
+          "teamAbbreviation": "TACO",
+          "espnOwner": "Alex Birch",
+          "record": [
+            11,
+            2,
+            0
+          ],
+          "pointsFor": 1624.5399999999997,
+          "pointsAgainst": 1279.42,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 124,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Brandon Evans": {
+      "manager": "Brandon Evans",
+      "espnTeams": [
+        {
+          "year": 2016,
+          "teamName": "Hernandez Hitmen",
+          "teamAbbreviation": "EVAN",
+          "espnOwner": "Brandon Evans",
+          "record": [
+            8,
+            5,
+            0
+          ],
+          "pointsFor": 1386,
+          "pointsAgainst": 1276,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2017,
+          "teamName": "Drake's New Favorite Team",
+          "teamAbbreviation": "EVAN",
+          "espnOwner": "Brandon Evans",
+          "record": [
+            6,
+            6,
+            0
+          ],
+          "pointsFor": 1125,
+          "pointsAgainst": 1068,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2018,
+          "teamName": "Trubisky Titty Kissers",
+          "teamAbbreviation": "TTK",
+          "espnOwner": "Brandon Evans",
+          "record": [
+            6,
+            7,
+            0
+          ],
+          "pointsFor": 1378.04,
+          "pointsAgainst": 1450.3199999999997,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2019,
+          "teamName": "I Love  Tubing",
+          "teamAbbreviation": "Dub",
+          "espnOwner": "Brandon Evans",
+          "record": [
+            5,
+            8,
+            0
+          ],
+          "pointsFor": 1188.3200000000002,
+          "pointsAgainst": 1332.92,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 0,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Devon Halderman": {
+      "manager": "Devon Halderman",
+      "espnTeams": [
+        {
+          "year": 2016,
+          "teamName": "Forte Inch Ditka",
+          "teamAbbreviation": "DONG",
+          "espnOwner": "Devon Halderman",
+          "record": [
+            8,
+            4,
+            1
+          ],
+          "pointsFor": 1472,
+          "pointsAgainst": 1216,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2017,
+          "teamName": "Hold Muh Dick",
+          "teamAbbreviation": "DICK",
+          "espnOwner": "Devon Halderman",
+          "record": [
+            4,
+            8,
+            0
+          ],
+          "pointsFor": 916,
+          "pointsAgainst": 1011,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 0,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "JMid": {
+      "manager": "JMid",
+      "espnTeams": [],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 92,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Kuhl": {
+      "manager": "Kuhl",
+      "espnTeams": [
+        {
+          "year": 2018,
+          "teamName": "Vinateri Suites By Hilton",
+          "teamAbbreviation": "KUHL",
+          "espnOwner": "Cory Kuhl",
+          "record": [
+            7,
+            6,
+            0
+          ],
+          "pointsFor": 1370.56,
+          "pointsAgainst": 1288.5800000000002,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2019,
+          "teamName": "Hockenson  Loogies On You",
+          "teamAbbreviation": "KUHL",
+          "espnOwner": "Cory Kuhl",
+          "record": [
+            7,
+            6,
+            0
+          ],
+          "pointsFor": 1518.92,
+          "pointsAgainst": 1500.36,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 138,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Mitch": {
+      "manager": "Mitch",
+      "espnTeams": [
+        {
+          "year": 2018,
+          "teamName": "Mitchell The Bitchell",
+          "teamAbbreviation": "TM11",
+          "espnOwner": "Mitch Huppert",
+          "record": [
+            5,
+            8,
+            0
+          ],
+          "pointsFor": 1437.86,
+          "pointsAgainst": 1367.34,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2019,
+          "teamName": "New England’s QB Room",
+          "teamAbbreviation": "Hupp",
+          "espnOwner": "Mitch Huppert",
+          "record": [
+            9,
+            4,
+            0
+          ],
+          "pointsFor": 1548,
+          "pointsAgainst": 1351.6599999999999,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 133,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Schermerhorn": {
+      "manager": "Schermerhorn",
+      "espnTeams": [
+        {
+          "year": 2016,
+          "teamName": "Team Schermerhorn",
+          "teamAbbreviation": "SCHE",
+          "espnOwner": "Tom Schermerhorn",
+          "record": [
+            4,
+            9,
+            0
+          ],
+          "pointsFor": 1260,
+          "pointsAgainst": 1341,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2017,
+          "teamName": "Team Schermerhorn",
+          "teamAbbreviation": "SCHE",
+          "espnOwner": "Tom Schermerhorn",
+          "record": [
+            8,
+            4,
+            0
+          ],
+          "pointsFor": 1169,
+          "pointsAgainst": 1094,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 0,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Scott": {
+      "manager": "Scott",
+      "espnTeams": [],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 62,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Stew": {
+      "manager": "Stew",
+      "espnTeams": [
+        {
+          "year": 2016,
+          "teamName": "Make America  Gronk Again",
+          "teamAbbreviation": "SYLV",
+          "espnOwner": "Drew Sylvester",
+          "record": [
+            6,
+            7,
+            0
+          ],
+          "pointsFor": 1177,
+          "pointsAgainst": 1275,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2017,
+          "teamName": "Cops and Rodgers",
+          "teamAbbreviation": "SYLV",
+          "espnOwner": "Drew Sylvester",
+          "record": [
+            5,
+            7,
+            0
+          ],
+          "pointsFor": 984,
+          "pointsAgainst": 1151,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2018,
+          "teamName": "Kareem beat that Hunt",
+          "teamAbbreviation": "SYLV",
+          "espnOwner": "Drew Sylvester",
+          "record": [
+            7,
+            6,
+            0
+          ],
+          "pointsFor": 1422.72,
+          "pointsAgainst": 1383.14,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2019,
+          "teamName": "Kickers  SUCK",
+          "teamAbbreviation": "SYLV",
+          "espnOwner": "Drew Sylvester",
+          "record": [
+            9,
+            4,
+            0
+          ],
+          "pointsFor": 1618.3200000000002,
+          "pointsAgainst": 1338.98,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 162,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Stilly": {
+      "manager": "Stilly",
+      "espnTeams": [
+        {
+          "year": 2016,
+          "teamName": "Vick's Out For Harambe",
+          "teamAbbreviation": "RIP",
+          "espnOwner": "Darren Stillson",
+          "record": [
+            6,
+            7,
+            0
+          ],
+          "pointsFor": 1273,
+          "pointsAgainst": 1245,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2017,
+          "teamName": "W-Word Redskins",
+          "teamAbbreviation": "RED",
+          "espnOwner": "Darren Stillson",
+          "record": [
+            6,
+            6,
+            0
+          ],
+          "pointsFor": 1129,
+          "pointsAgainst": 1105,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2018,
+          "teamName": "Schaub On My Knob",
+          "teamAbbreviation": "FUK",
+          "espnOwner": "Darren Stillson",
+          "record": [
+            6,
+            7,
+            0
+          ],
+          "pointsFor": 1273.36,
+          "pointsAgainst": 1482.12,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2019,
+          "teamName": "Dishes? NOTHIN",
+          "teamAbbreviation": "FUK",
+          "espnOwner": "Darren Stillson",
+          "record": [
+            6,
+            7,
+            0
+          ],
+          "pointsFor": 1464.3600000000001,
+          "pointsAgainst": 1537.9200000000003,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 168,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Stover": {
+      "manager": "Stover",
+      "espnTeams": [
+        {
+          "year": 2016,
+          "teamName": "PurpleHeaded YogurtSlingers",
+          "teamAbbreviation": "STOV",
+          "espnOwner": "Landon Stover",
+          "record": [
+            5,
+            8,
+            0
+          ],
+          "pointsFor": 1144,
+          "pointsAgainst": 1366,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2017,
+          "teamName": "Garropolo By The Percy'",
+          "teamAbbreviation": "Stov",
+          "espnOwner": "Landon Stover",
+          "record": [
+            6,
+            6,
+            0
+          ],
+          "pointsFor": 1096,
+          "pointsAgainst": 1077,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2018,
+          "teamName": "Washington Foreskins",
+          "teamAbbreviation": "stov",
+          "espnOwner": "Landon Stover",
+          "record": [
+            8,
+            5,
+            0
+          ],
+          "pointsFor": 1349.2800000000002,
+          "pointsAgainst": 1346.78,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2019,
+          "teamName": "Yogurt Slingers II",
+          "teamAbbreviation": "stov",
+          "espnOwner": "Landon Stover",
+          "record": [
+            4,
+            9,
+            0
+          ],
+          "pointsFor": 1354.6,
+          "pointsAgainst": 1617.6,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 132,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Thommy": {
+      "manager": "Thommy",
+      "espnTeams": [
+        {
+          "year": 2016,
+          "teamName": "It Ertz When Eifert",
+          "teamAbbreviation": "THMS",
+          "espnOwner": "Zach Prescott",
+          "record": [
+            7,
+            5,
+            1
+          ],
+          "pointsFor": 1229,
+          "pointsAgainst": 1291,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2017,
+          "teamName": "It Ertz When Eifert",
+          "teamAbbreviation": "THMS",
+          "espnOwner": "Zach Prescott",
+          "record": [
+            8,
+            4,
+            0
+          ],
+          "pointsFor": 1241,
+          "pointsAgainst": 1092,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2018,
+          "teamName": "2 Gurleys 1 Kupp",
+          "teamAbbreviation": "THMS",
+          "espnOwner": "Zach Prescott",
+          "record": [
+            7,
+            6,
+            0
+          ],
+          "pointsFor": 1373.12,
+          "pointsAgainst": 1447.48,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2019,
+          "teamName": "Boy Named Suh",
+          "teamAbbreviation": "THMS",
+          "espnOwner": "Zach Prescott",
+          "record": [
+            2,
+            11,
+            0
+          ],
+          "pointsFor": 1175.3799999999999,
+          "pointsAgainst": 1377.86,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 147,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Tom": {
+      "manager": "Tom",
+      "espnTeams": [],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 147,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Tony": {
+      "manager": "Tony",
+      "espnTeams": [
+        {
+          "year": 2017,
+          "teamName": "Tittsburgh Feelers",
+          "teamAbbreviation": "STEG",
+          "espnOwner": "Tony Steglich",
+          "record": [
+            6,
+            6,
+            0
+          ],
+          "pointsFor": 1052,
+          "pointsAgainst": 1052,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2018,
+          "teamName": "Tittsburgh Feelers",
+          "teamAbbreviation": "STEG",
+          "espnOwner": "Tony Steglich",
+          "record": [
+            8,
+            5,
+            0
+          ],
+          "pointsFor": 1476.58,
+          "pointsAgainst": 1253.58,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2019,
+          "teamName": "Tittsburgh Feelers",
+          "teamAbbreviation": "STEG",
+          "espnOwner": "Tony Steglich",
+          "record": [
+            8,
+            5,
+            0
+          ],
+          "pointsFor": 1435.8,
+          "pointsAgainst": 1406.6200000000001,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 131,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    },
+    "Trent Koble": {
+      "manager": "Trent Koble",
+      "espnTeams": [
+        {
+          "year": 2016,
+          "teamName": "Team Koble",
+          "teamAbbreviation": "KOBL",
+          "espnOwner": "Trent Koble",
+          "record": [
+            7,
+            6,
+            0
+          ],
+          "pointsFor": 1308,
+          "pointsAgainst": 1239,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2017,
+          "teamName": "Team Koble",
+          "teamAbbreviation": "KOBL",
+          "espnOwner": "Trent Koble",
+          "record": [
+            6,
+            6,
+            0
+          ],
+          "pointsFor": 1092,
+          "pointsAgainst": 1063,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2018,
+          "teamName": "Team Koble",
+          "teamAbbreviation": "KOBL",
+          "espnOwner": "Trent Koble",
+          "record": [
+            5,
+            8,
+            0
+          ],
+          "pointsFor": 1305.96,
+          "pointsAgainst": 1424.1,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        },
+        {
+          "year": 2019,
+          "teamName": "Team Koble",
+          "teamAbbreviation": "KOBL",
+          "espnOwner": "Trent Koble",
+          "record": [
+            4,
+            9,
+            0
+          ],
+          "pointsFor": 1418.3000000000002,
+          "pointsAgainst": 1603.2,
+          "source": "ESPN original team and matchup archive",
+          "playerRosterStatus": "not recovered"
+        }
+      ],
+      "sleeperPlayerStartsCoverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
+      "documentedSleeperLegends": 0,
+      "espnPlayerLevelCoverage": "Missing from the imported ESPN data; team scores do not identify who was drafted, rostered, started, traded or acquired.",
+      "sourceSeparation": "ESPN franchise/weekly data verified; player highlights reflect Sleeper only"
+    }
+  }
+}
