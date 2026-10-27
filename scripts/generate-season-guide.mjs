@@ -41,7 +41,7 @@ const expected=generate();
 const serialized=JSON.stringify(expected,null,2)+'\n';
 const guidePath='data/season_guide.json',pagePath='seasons/index.html';
 const page=read(pagePath);
-const block=/<script\\s+type="application\\/json"\\s+id="seasons-data">[\\s\\S]*?<\\/script>/;
+const block=/<script\s+type="application\/json"\s+id="seasons-data">[\s\S]*?<\/script>/;
 if(!block.test(page))throw Error('Missing seasons-data embedded block');
 const html=page.replace(block,'<script type="application/json" id="seasons-data">'+JSON.stringify(expected)+'</script>');
 if(process.argv.includes('--check')){
