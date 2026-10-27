@@ -46,3 +46,8 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Legacy references remain intentionally unmodified pending proof that their content can be replaced without deleting distinct editorial or historical context; dependency audit is still advisory.
 - **NOT RELEASE-READY:** no real device/browser responsiveness and touch-overflow testing; live network data loading and navigation are not yet verified; ranking/weight methodology and unique dossier data parity are not fully audited. CI cannot replace these checks.
 - Next: inspect new CI result; work through the five remaining legacy consumers and retire duplicate statistics safely; add invariant tests for composite legacy rankings; run actual mobile/browser cross-route checks and record evidence.
+
+### Continuation — historical manager display hardening
+- Updated `assets/manager-historical-records.js` in commit `15c1645` to read the generated career core alongside the specialty historical record-book dataset. The visible regular-season WLT, game count, annual WLT and head-to-head table now come from `career_core_generated.json`; specialty best/worst week, margin extremes and postseason notes remain in the separate archive rather than being thrown away.
+- Updated `scripts/verify-core-consumers.mjs` in commit `f300244` to reject a regression to duplicated historical-panel career statistics.
+- This **does not** remove the historical archive JSON dependency: the archive contains specialty records not defined in the canonical WLT projection. Remaining references need classification and further consolidation. CI result for this latest change must be inspected; live-browser/mobile behavior is still unverified.
