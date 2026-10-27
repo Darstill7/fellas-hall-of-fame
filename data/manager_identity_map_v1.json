@@ -1,5 +1,5 @@
 {
-  "version": "v1.0",
+  "version": "v1.1",
   "updated": "2026-10-27",
   "managers": {
     "Stover": {
@@ -25,7 +25,89 @@
         }
       },
       "ruling": "All Sleeper-era records tied to owner handle yogurtslinger15 are Stover records. Historical roster 8 is a superseded placeholder for this owner and should not be treated as a separate manager.",
-      "legacyAliasNote": "DillonPanthers15 and Yogurt Slinger are user-confirmed Stover aliases. Pre-2020 player-level data remains unavailable unless separately recovered."
+      "legacyAliasNote": "DillonPanthers15 and Yogurt Slinger are user-confirmed Stover aliases. Pre-2020 player-level data remains unavailable unless separately recovered.",
+      "realName": "Landon Stover",
+      "espnAccounts": [
+        "lstover1535"
+      ],
+      "espnOwnerId": "{C9543CF6-1B4C-4F49-943C-F61B4CCF49D3}",
+      "original2016": true,
+      "currentlyActive": true
+    },
+    "Stilly": {
+      "canonical": "Stilly",
+      "realName": "Darren Stillson",
+      "currentTeam": "Harry Woody",
+      "espnAccounts": [
+        "DarrenStillson"
+      ],
+      "espnOwnerId": "{BE233913-D62F-44BA-A339-13D62F14BAD1}",
+      "original2016": true,
+      "currentlyActive": true
+    },
+    "Stew": {
+      "canonical": "Stew",
+      "realName": "Drew Sylvester",
+      "currentTeam": "Worst Team on Paper!",
+      "espnAccounts": [
+        "DrewSyl",
+        "ajsylv0709452"
+      ],
+      "espnOwnerIds": [
+        "{70A4F00C-8F1B-4160-A4F0-0C8F1BD1606E}",
+        "{EFB19C29-3E4E-4D11-A083-CB59EA76C524}"
+      ],
+      "original2016": true,
+      "currentlyActive": true
+    },
+    "Tom": {
+      "canonical": "Tom",
+      "currentAlias": "Thommy",
+      "realName": "Zach Prescott",
+      "currentTeam": "Green Bowl Packers",
+      "espnAccounts": [
+        "zachawyyy"
+      ],
+      "espnOwnerId": "{B3A4D4E9-2FE2-4A09-A4D4-E92FE23A0975}",
+      "original2016": true,
+      "currentlyActive": true,
+      "warning": "Current site manager Tom/Thommy is Zach Prescott, NOT retired 2016-17 owner Tom Schermerhorn."
     }
-  }
+  },
+  "espnEra": {
+    "leagueId": 1313090,
+    "firstVerifiedSeason": 2016,
+    "lastEspnSeason": 2019,
+    "continuedFounders": [
+      "Stilly",
+      "Stew",
+      "Tom",
+      "Stover"
+    ],
+    "historicalOnly2016Managers": [
+      "Devon Halderman",
+      "Brandon Evans",
+      "Tom Schermerhorn",
+      "Trent Koble"
+    ],
+    "note": "2016 had eight teams. Four original managers still active: Darren Stillson (Stilly), Drew Sylvester (Stew), Zach Prescott (Thommy/Tom canonical site key), Landon Stover (Stover). Historical-only owners retain their own records. Do not conflate Tom Schermerhorn with site manager Tom/Thommy (Zach Prescott)."
+  },
+  "espnHistoricalOnlyOwners": [
+    {
+      "name": "Devon Halderman",
+      "ownerId": "{3F8C79CB-A605-4041-8C79-CBA605704196}"
+    },
+    {
+      "name": "Brandon Evans",
+      "ownerId": "{367E411E-1520-47F0-A831-CAC3A8B24D91}"
+    },
+    {
+      "name": "Tom Schermerhorn",
+      "ownerId": "{0C5E895B-70A0-476A-8785-3DAA324417BC}"
+    },
+    {
+      "name": "Trent Koble",
+      "ownerId": "{D25AA4C4-A575-4F68-9AA4-C4A575DF68F7}"
+    }
+  ]
 }
