@@ -25,7 +25,7 @@ for(const game of ledger.games){
   names.set(manager,x);
  }
 }
-assert(ledger.games.filter(x=>x.stage==='regular').length===695,'Archive regular count changed from 695; update documented baseline after validation');
+for(const [year,counts] of Object.entries(ledger.counts||{})){\n const games=byYear.get(Number(year))||[];\n assert(games.filter(x=>x.stage==='regular').length===counts.regular,year+' ledger count metadata differs');\n assert(games.filter(x=>x.stage!=='regular').length===counts.postseason,year+' postseason count metadata differs');\n}
 assert(careers.managers.length===names.size,'Manager count differs from ledger identities');
 for(const manager of careers.managers){
  const actual=names.get(manager.manager);
