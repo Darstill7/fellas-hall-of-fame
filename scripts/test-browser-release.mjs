@@ -20,7 +20,7 @@ await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
 const port=server.address().port,baseUrl='http://127.0.0.1:'+port+base;
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/rivalries.html',...slugs.map(s=>'managers/'+s+'/')];
+const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.map(s=>'managers/'+s+'/')];
 const errors=[];
 try{
  for(const width of [390,1280]){
@@ -49,6 +49,15 @@ try{
      await page.locator('#year').selectOption('2016',{timeout:3000});
      if(!(await page.locator('#summary').innerText()).includes('2016'))errors.push(width+' season selector did not update');
     }else errors.push(width+' weekly archive initialization: '+(await page.locator('#summary').innerText()));
+   }
+   if(route==='analytics/awards-show.html'){
+    const buttons=page.locator('#years button');
+    if(await buttons.count()<2)errors.push(width+' Awards Show year buttons failed to render');
+    else{
+     await buttons.last().click();
+     const chosen=await buttons.last().getAttribute('data-year');
+     if(!(await page.locator('#heading').innerText()).includes(chosen))errors.push(width+' Awards Show year selection not reflected');
+    }
    }
    if(route==='managers/record-books.html'){
     await page.locator('#manager').selectOption('Stilly');
