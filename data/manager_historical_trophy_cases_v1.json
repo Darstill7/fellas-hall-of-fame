@@ -1,0 +1,983 @@
+{
+  "version": 1,
+  "asOf": "2026 Week 7",
+  "sources": [
+    "data/fellas_awards_by_season.json",
+    "data/manager_profile_career_summary_v2.json"
+  ],
+  "classification": {
+    "team": "Scoreboard-derived full-era honors 2016–2025; 2026 is provisional",
+    "championship": "2016–2019 verified ESPN finals; 2020–2025 established championship ledger",
+    "player": "Experimental starter-value and waiver awards, Sleeper years only; do not interpret as proven 2016–2025 leader"
+  },
+  "managers": {
+    "Birch": {
+      "manager": "Birch",
+      "championships": [
+        2019
+      ],
+      "espnFinals": [
+        {
+          "year": 2018,
+          "result": "Runner-up",
+          "points": 106.62,
+          "opponent": "Thommy"
+        },
+        {
+          "year": 2019,
+          "result": "Champion",
+          "points": 114.14,
+          "opponent": "Stew"
+        }
+      ],
+      "teamAwards": [
+        {
+          "year": 2019,
+          "label": "Regular-Season Crown",
+          "detail": "11–2 record",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2019,
+          "label": "Scoring Champion",
+          "detail": "1624.54 total points",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2019,
+          "label": "Single-Week Explosion",
+          "detail": "169.32 points in Week 1",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2021,
+          "label": "Regular-Season King",
+          "detail": "11-2 · 1513.84 PF",
+          "status": "reconstructed",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "label": "Regular-Season Crown",
+          "detail": "11–2 record",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "label": "Biggest Blowout",
+          "detail": "81.7 point margin in Week 5",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ],
+      "playerAwards": [],
+      "pending": []
+    },
+    "Brandon Evans": {
+      "manager": "Brandon Evans",
+      "championships": [],
+      "espnFinals": [],
+      "teamAwards": [
+        {
+          "year": 2019,
+          "label": "The Basement",
+          "detail": "48.24 points in Week 12",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2020,
+          "label": "Scoring Champion",
+          "detail": "1658.26 total points",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ],
+      "playerAwards": [],
+      "pending": []
+    },
+    "Devon Halderman": {
+      "manager": "Devon Halderman",
+      "championships": [],
+      "espnFinals": [
+        {
+          "year": 2016,
+          "result": "Runner-up",
+          "points": 175,
+          "opponent": "Thommy"
+        }
+      ],
+      "teamAwards": [
+        {
+          "year": 2016,
+          "label": "Regular-Season Crown",
+          "detail": "8–4–1 record",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2016,
+          "label": "Scoring Champion",
+          "detail": "1472 total points",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2016,
+          "label": "Single-Week Explosion",
+          "detail": "170 points in Week 5",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2016,
+          "label": "Biggest Blowout",
+          "detail": "100 point margin in Week 5",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        }
+      ],
+      "playerAwards": [],
+      "pending": []
+    },
+    "JMid": {
+      "manager": "JMid",
+      "championships": [],
+      "espnFinals": [],
+      "teamAwards": [
+        {
+          "year": 2023,
+          "label": "Scoring Champion",
+          "detail": "1698.96 total points",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "label": "Scoring Champion",
+          "detail": "1730.22 total points",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "label": "Single-Week Explosion",
+          "detail": "165.02 points in Week 10",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "label": "Biggest Blowout",
+          "detail": "74.94 point margin in Week 10",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "label": "The Basement",
+          "detail": "53.72 points in Week 11",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ],
+      "playerAwards": [
+        {
+          "year": 2024,
+          "label": "Starter Value MVP",
+          "player": "Ja'Marr Chase",
+          "status": "experimental",
+          "detail": "JMid · +223.47 points above starter benchmark · 13 starts",
+          "coverage": "Sleeper player and transaction sample"
+        }
+      ],
+      "pending": []
+    },
+    "Kuhl": {
+      "manager": "Kuhl",
+      "championships": [],
+      "espnFinals": [],
+      "teamAwards": [],
+      "playerAwards": [
+        {
+          "year": 2023,
+          "label": "Waiver Wire Gem",
+          "player": "Kyren Williams",
+          "status": "experimental",
+          "detail": "Kuhl · +72.25 above starter benchmark after waiver acquisition · 6 credited starts",
+          "coverage": "Sleeper player and transaction sample"
+        }
+      ],
+      "pending": []
+    },
+    "Mitch": {
+      "manager": "Mitch",
+      "championships": [],
+      "espnFinals": [],
+      "teamAwards": [
+        {
+          "year": 2020,
+          "label": "Regular-Season King",
+          "detail": "9-4 · 1650.42 PF",
+          "status": "reconstructed",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2020,
+          "label": "Scoring Explosion",
+          "detail": "166.52 points · Week 8 (Regular)",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2020,
+          "label": "Regular-Season Crown",
+          "detail": "9–4 record",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2020,
+          "label": "Single-Week Explosion",
+          "detail": "166.52 points in Week 8",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "label": "Biggest Blowout",
+          "detail": "58.8 point margin in Week 13",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "label": "The Basement",
+          "detail": "50.04 points in Week 9",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "label": "Regular-Season King",
+          "detail": "13-1 · 1894.88 PF",
+          "status": "reconstructed",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "label": "Scoring Explosion",
+          "detail": "180.86 points · Week 7 (Regular)",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "label": "Regular-Season Crown",
+          "detail": "13–1 record",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "label": "Scoring Champion",
+          "detail": "1894.88 total points",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "label": "Single-Week Explosion",
+          "detail": "180.86 points in Week 7",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ],
+      "playerAwards": [
+        {
+          "year": 2020,
+          "label": "Starter Value MVP",
+          "player": "Dalvin Cook",
+          "status": "experimental",
+          "detail": "Mitch · +216.28 points above starter benchmark · 12 starts",
+          "coverage": "Sleeper player and transaction sample"
+        },
+        {
+          "year": 2021,
+          "label": "Starter Value MVP",
+          "player": "Cooper Kupp",
+          "status": "experimental",
+          "detail": "Mitch · +229.75 points above starter benchmark · 13 starts",
+          "coverage": "Sleeper player and transaction sample"
+        },
+        {
+          "year": 2022,
+          "label": "Waiver Wire Gem",
+          "player": "Tyler Lockett",
+          "status": "experimental",
+          "detail": "Mitch · +96.22 above starter benchmark after waiver acquisition · 10 credited starts",
+          "coverage": "Sleeper player and transaction sample"
+        },
+        {
+          "year": 2023,
+          "label": "Starter Value MVP",
+          "player": "Tyreek Hill",
+          "status": "experimental",
+          "detail": "Mitch · +226.17 points above starter benchmark · 13 starts",
+          "coverage": "Sleeper player and transaction sample"
+        },
+        {
+          "year": 2024,
+          "label": "Waiver Wire Gem",
+          "player": "Chuba Hubbard",
+          "status": "experimental",
+          "detail": "Mitch · +82.24 above starter benchmark after waiver acquisition · 10 credited starts",
+          "coverage": "Sleeper player and transaction sample"
+        },
+        {
+          "year": 2025,
+          "label": "Starter Value MVP",
+          "player": "Jonathan Taylor",
+          "status": "experimental",
+          "detail": "Mitch · +217.46 points above starter benchmark · 13 starts",
+          "coverage": "Sleeper player and transaction sample"
+        },
+        {
+          "year": 2025,
+          "label": "Waiver Wire Gem",
+          "player": "Dak Prescott",
+          "status": "experimental",
+          "detail": "Mitch · +81.44 above starter benchmark after waiver acquisition · 8 credited starts",
+          "coverage": "Sleeper player and transaction sample"
+        },
+        {
+          "year": 2026,
+          "label": "Starter Value MVP",
+          "player": "Jaxon Smith-Njigba",
+          "status": "experimental",
+          "detail": "Mitch · +117.87 points above starter benchmark · 6 starts",
+          "coverage": "Sleeper player and transaction sample"
+        }
+      ],
+      "pending": [
+        {
+          "year": 2026,
+          "label": "Current Regular-Season Leader",
+          "detail": "7-0 · 936.20 PF through Week 7",
+          "status": "provisional",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2026,
+          "label": "Scoring Explosion",
+          "detail": "172.90 points · Week 5 (Regular)",
+          "status": "provisional",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2026,
+          "label": "Regular-Season Crown",
+          "detail": "7–0 record",
+          "status": "provisional",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2026,
+          "label": "Scoring Champion",
+          "detail": "936.2 total points",
+          "status": "provisional",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2026,
+          "label": "Single-Week Explosion",
+          "detail": "172.9 points in Week 5",
+          "status": "provisional",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ]
+    },
+    "Schermerhorn": {
+      "manager": "Schermerhorn",
+      "championships": [],
+      "espnFinals": [
+        {
+          "year": 2017,
+          "result": "Runner-up",
+          "points": 212,
+          "opponent": "Thommy"
+        }
+      ],
+      "teamAwards": [],
+      "playerAwards": [],
+      "pending": []
+    },
+    "Scott": {
+      "manager": "Scott",
+      "championships": [
+        2025
+      ],
+      "espnFinals": [],
+      "teamAwards": [
+        {
+          "year": 2025,
+          "label": "Biggest Blowout",
+          "detail": "101.38 point margin in Week 11",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ],
+      "playerAwards": [],
+      "pending": [
+        {
+          "year": 2026,
+          "label": "The Basement",
+          "detail": "46.38 points in Week 2",
+          "status": "provisional",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ]
+    },
+    "Stew": {
+      "manager": "Stew",
+      "championships": [],
+      "espnFinals": [
+        {
+          "year": 2019,
+          "result": "Runner-up",
+          "points": 109.42,
+          "opponent": "Birch"
+        }
+      ],
+      "teamAwards": [
+        {
+          "year": 2019,
+          "label": "Biggest Blowout",
+          "detail": "83 point margin in Week 10",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2021,
+          "label": "The Basement",
+          "detail": "62.2 points in Week 10",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "label": "Regular-Season King",
+          "detail": "11-3 · 1727.34 PF",
+          "status": "reconstructed",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "label": "Regular-Season Crown",
+          "detail": "11–3 record",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "label": "Scoring Champion",
+          "detail": "1727.34 total points",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ],
+      "playerAwards": [],
+      "pending": []
+    },
+    "Stilly": {
+      "manager": "Stilly",
+      "championships": [
+        2023
+      ],
+      "espnFinals": [],
+      "teamAwards": [
+        {
+          "year": 2017,
+          "label": "Single-Week Explosion",
+          "detail": "149 points in Week 1",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2018,
+          "label": "The Basement",
+          "detail": "56.14 points in Week 11",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2023,
+          "label": "Scoring Explosion",
+          "detail": "173.86 points · Week 12 (Regular)",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "label": "Single-Week Explosion",
+          "detail": "173.86 points in Week 12",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "label": "Biggest Blowout",
+          "detail": "74.28 point margin in Week 12",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "label": "The Basement",
+          "detail": "52.94 points in Week 7",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ],
+      "playerAwards": [],
+      "pending": [
+        {
+          "year": 2026,
+          "label": "Biggest Blowout",
+          "detail": "100.34 point margin in Week 2",
+          "status": "provisional",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ]
+    },
+    "Stover": {
+      "manager": "Stover",
+      "championships": [
+        2022
+      ],
+      "espnFinals": [],
+      "teamAwards": [
+        {
+          "year": 2016,
+          "label": "The Basement",
+          "detail": "51 points in Week 6",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2021,
+          "label": "Scoring Explosion",
+          "detail": "178.82 points · Week 5 (Regular)",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "label": "Scoring Champion",
+          "detail": "1770.9 total points",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "label": "Single-Week Explosion",
+          "detail": "178.82 points in Week 5",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "label": "Regular-Season Crown",
+          "detail": "10–4 record",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ],
+      "playerAwards": [
+        {
+          "year": 2026,
+          "label": "Waiver Wire Gem",
+          "player": "Carolina Panthers",
+          "status": "experimental",
+          "detail": "Stover · +3.75 above starter benchmark after add acquisition · 1 credited starts",
+          "coverage": "Sleeper player and transaction sample"
+        }
+      ],
+      "pending": []
+    },
+    "Thommy": {
+      "manager": "Thommy",
+      "championships": [
+        2016,
+        2017,
+        2018,
+        2024
+      ],
+      "espnFinals": [
+        {
+          "year": 2016,
+          "result": "Champion",
+          "points": 223,
+          "opponent": "Devon Halderman"
+        },
+        {
+          "year": 2017,
+          "result": "Champion",
+          "points": 241,
+          "opponent": "Schermerhorn"
+        },
+        {
+          "year": 2018,
+          "result": "Champion",
+          "points": 111.58,
+          "opponent": "Birch"
+        }
+      ],
+      "teamAwards": [
+        {
+          "year": 2017,
+          "label": "Regular-Season Crown",
+          "detail": "8–4 record",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2017,
+          "label": "Scoring Champion",
+          "detail": "1241 total points",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2017,
+          "label": "Biggest Blowout",
+          "detail": "85 point margin in Week 9",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2024,
+          "label": "Regular-Season King",
+          "detail": "9-5 · 1550.42 PF",
+          "status": "reconstructed",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "label": "Scoring Explosion",
+          "detail": "205.30 points · Week 17 (Postseason)",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ],
+      "playerAwards": [
+        {
+          "year": 2022,
+          "label": "Starter Value MVP",
+          "player": "Josh Jacobs",
+          "status": "experimental",
+          "detail": "Tom · +196.24 points above starter benchmark · 13 starts",
+          "coverage": "Sleeper player and transaction sample"
+        }
+      ],
+      "pending": []
+    },
+    "Tony": {
+      "manager": "Tony",
+      "championships": [
+        2021
+      ],
+      "espnFinals": [],
+      "teamAwards": [
+        {
+          "year": 2017,
+          "label": "The Basement",
+          "detail": "44 points in Week 1",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2018,
+          "label": "Regular-Season Crown",
+          "detail": "8–5 record",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2018,
+          "label": "Scoring Champion",
+          "detail": "1476.58 total points",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2018,
+          "label": "Single-Week Explosion",
+          "detail": "159.58 points in Week 2",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2018,
+          "label": "Biggest Blowout",
+          "detail": "87.24 point margin in Week 2",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "ESPN"
+        },
+        {
+          "year": 2020,
+          "label": "Biggest Blowout",
+          "detail": "70.72 point margin in Week 10",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "label": "Scoring Explosion",
+          "detail": "177.14 points · Week 8 (Regular)",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "label": "Single-Week Explosion",
+          "detail": "177.14 points in Week 8",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "label": "The Basement",
+          "detail": "60.66 points in Week 14",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "label": "Regular-Season King",
+          "detail": "10-4 · 1640.12 PF",
+          "status": "reconstructed",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "label": "Regular-Season Crown",
+          "detail": "10–4 record",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ],
+      "playerAwards": [
+        {
+          "year": 2020,
+          "label": "Waiver Wire Gem",
+          "player": "James Robinson",
+          "status": "experimental",
+          "detail": "Tony · +141.68 above starter benchmark after add acquisition · 12 credited starts",
+          "coverage": "Sleeper player and transaction sample"
+        },
+        {
+          "year": 2021,
+          "label": "Waiver Wire Gem",
+          "player": "Cordarrelle Patterson",
+          "status": "experimental",
+          "detail": "Tony · +97.68 above starter benchmark after add acquisition · 9 credited starts",
+          "coverage": "Sleeper player and transaction sample"
+        }
+      ],
+      "pending": []
+    },
+    "Trent Koble": {
+      "manager": "Trent Koble",
+      "championships": [],
+      "espnFinals": [],
+      "teamAwards": [
+        {
+          "year": 2020,
+          "label": "The Basement",
+          "detail": "50.58 points in Week 10",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper"
+        }
+      ],
+      "playerAwards": [],
+      "pending": []
+    }
+  },
+  "audit": {
+    "experimentalPlayerAwards": [
+      {
+        "year": 2020,
+        "label": "Starter Value MVP",
+        "manager": "Mitch",
+        "player": "Dalvin Cook",
+        "status": "experimental"
+      },
+      {
+        "year": 2020,
+        "label": "Waiver Wire Gem",
+        "manager": "Tony",
+        "player": "James Robinson",
+        "status": "experimental"
+      },
+      {
+        "year": 2021,
+        "label": "Starter Value MVP",
+        "manager": "Mitch",
+        "player": "Cooper Kupp",
+        "status": "experimental"
+      },
+      {
+        "year": 2021,
+        "label": "Waiver Wire Gem",
+        "manager": "Tony",
+        "player": "Cordarrelle Patterson",
+        "status": "experimental"
+      },
+      {
+        "year": 2022,
+        "label": "Starter Value MVP",
+        "manager": "Thommy",
+        "player": "Josh Jacobs",
+        "status": "experimental"
+      },
+      {
+        "year": 2022,
+        "label": "Waiver Wire Gem",
+        "manager": "Mitch",
+        "player": "Tyler Lockett",
+        "status": "experimental"
+      },
+      {
+        "year": 2023,
+        "label": "Starter Value MVP",
+        "manager": "Mitch",
+        "player": "Tyreek Hill",
+        "status": "experimental"
+      },
+      {
+        "year": 2023,
+        "label": "Waiver Wire Gem",
+        "manager": "Kuhl",
+        "player": "Kyren Williams",
+        "status": "experimental"
+      },
+      {
+        "year": 2024,
+        "label": "Starter Value MVP",
+        "manager": "JMid",
+        "player": "Ja'Marr Chase",
+        "status": "experimental"
+      },
+      {
+        "year": 2024,
+        "label": "Waiver Wire Gem",
+        "manager": "Mitch",
+        "player": "Chuba Hubbard",
+        "status": "experimental"
+      },
+      {
+        "year": 2025,
+        "label": "Starter Value MVP",
+        "manager": "Mitch",
+        "player": "Jonathan Taylor",
+        "status": "experimental"
+      },
+      {
+        "year": 2025,
+        "label": "Waiver Wire Gem",
+        "manager": "Mitch",
+        "player": "Dak Prescott",
+        "status": "experimental"
+      },
+      {
+        "year": 2026,
+        "label": "Starter Value MVP",
+        "manager": "Mitch",
+        "player": "Jaxon Smith-Njigba",
+        "status": "experimental"
+      },
+      {
+        "year": 2026,
+        "label": "Waiver Wire Gem",
+        "manager": "Stover",
+        "player": "Carolina Panthers",
+        "status": "experimental"
+      }
+    ],
+    "allSeasonAwards": 105
+  }
+}
