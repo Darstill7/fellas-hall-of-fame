@@ -1,1 +1,680 @@
-{"methodology":"Champions from existing title archive, top scoring game from recorded 2020–2026 matchups including playoffs, player positional-value using low-third starter proxy, waiver from verified add records with later credited starts. Earlier seasons may have only champion. WAR awards are experimental.","seasons":{"2016":{"year":2016,"complete":true,"awards":[{"label":"League Champion","recipient":"Tom","detail":"Documented championship","status":"documented"}]},"2017":{"year":2017,"complete":true,"awards":[{"label":"League Champion","recipient":"Tom","detail":"Documented championship","status":"documented"}]},"2018":{"year":2018,"complete":true,"awards":[{"label":"League Champion","recipient":"Tom","detail":"Documented championship","status":"documented"}]},"2019":{"year":2019,"complete":true,"awards":[{"label":"League Champion","recipient":"Birch","detail":"Documented championship","status":"documented"}]},"2020":{"year":2020,"complete":true,"awards":[{"label":"League Champion","recipient":"Koble","detail":"Documented championship","status":"documented"},{"label":"Scoring Explosion","recipient":"Mitch","detail":"166.52 points · Week 8 (Regular)","status":"documented"},{"label":"Most Productive Starter Above Benchmark","recipient":"Dalvin Cook","detail":"Mitch · 216.28 above positional starter benchmark · 12 starts","status":"experimental"},{"label":"Waiver Wire Gem","recipient":"James Robinson","detail":"Tony · 141.68 above starter benchmark following acquisition","status":"experimental"}]},"2021":{"year":2021,"complete":true,"awards":[{"label":"League Champion","recipient":"Tony","detail":"Documented championship","status":"documented"},{"label":"Scoring Explosion","recipient":"Historical roster 8","detail":"178.82 points · Week 5 (Regular)","status":"documented"},{"label":"Most Productive Starter Above Benchmark","recipient":"Cooper Kupp","detail":"Mitch · 229.75 above positional starter benchmark · 13 starts","status":"experimental"},{"label":"Waiver Wire Gem","recipient":"Cordarrelle Patterson","detail":"Tony · 97.68 above starter benchmark following acquisition","status":"experimental"}]},"2022":{"year":2022,"complete":true,"awards":[{"label":"League Champion","recipient":"Stover","detail":"Documented championship","status":"documented"},{"label":"Scoring Explosion","recipient":"Tony","detail":"177.14 points · Week 8 (Regular)","status":"documented"},{"label":"Most Productive Starter Above Benchmark","recipient":"Josh Jacobs","detail":"Tom · 196.24 above positional starter benchmark · 13 starts","status":"experimental"},{"label":"Waiver Wire Gem","recipient":"Tyler Lockett","detail":"Mitch · 96.22 above starter benchmark following acquisition","status":"experimental"}]},"2023":{"year":2023,"complete":true,"awards":[{"label":"League Champion","recipient":"Stilly","detail":"Documented championship","status":"documented"},{"label":"Scoring Explosion","recipient":"Stilly","detail":"173.86 points · Week 12 (Regular)","status":"documented"},{"label":"Most Productive Starter Above Benchmark","recipient":"Tyreek Hill","detail":"Mitch · 226.17 above positional starter benchmark · 13 starts","status":"experimental"},{"label":"Waiver Wire Gem","recipient":"Kyren Williams","detail":"Kuhl · 72.25 above starter benchmark following acquisition","status":"experimental"}]},"2024":{"year":2024,"complete":true,"awards":[{"label":"League Champion","recipient":"Tom","detail":"Documented championship","status":"documented"},{"label":"Scoring Explosion","recipient":"Tom","detail":"205.30 points · Week 17 (Postseason)","status":"documented"},{"label":"Most Productive Starter Above Benchmark","recipient":"Ja'Marr Chase","detail":"JMid · 223.47 above positional starter benchmark · 13 starts","status":"experimental"},{"label":"Waiver Wire Gem","recipient":"Chuba Hubbard","detail":"Mitch · 82.24 above starter benchmark following acquisition","status":"experimental"}]},"2025":{"year":2025,"complete":true,"awards":[{"label":"League Champion","recipient":"Scott","detail":"Documented championship","status":"documented"},{"label":"Scoring Explosion","recipient":"Mitch","detail":"180.86 points · Week 7 (Regular)","status":"documented"},{"label":"Most Productive Starter Above Benchmark","recipient":"Jonathan Taylor","detail":"Mitch · 217.46 above positional starter benchmark · 13 starts","status":"experimental"},{"label":"Waiver Wire Gem","recipient":"Dak Prescott","detail":"Mitch · 81.44 above starter benchmark following acquisition","status":"experimental"}]},"2026":{"year":2026,"complete":false,"awards":[{"label":"League Champion","recipient":"Not yet decided","detail":"2026 season ongoing","status":"pending"},{"label":"Scoring Explosion","recipient":"Mitch","detail":"172.90 points · Week 5 (Regular)","status":"documented"},{"label":"Most Productive Starter Above Benchmark","recipient":"Jaxon Smith-Njigba","detail":"Mitch · 117.87 above positional starter benchmark · 6 starts","status":"experimental"},{"label":"Waiver Wire Gem","recipient":"Carolina Panthers","detail":"Stover · 3.75 above starter benchmark following acquisition","status":"experimental"}]}}}
+{
+  "version": "v2.0",
+  "updated": "2026-10-27",
+  "methodology": "Documented championships and scoring results are separated from reconstructed or experimental statistical honors. Starter Value MVP uses points above a low-third same-position starter benchmark; it is not True Fellas WAR. Waiver awards use verified completed Sleeper adds/waivers and credited subsequent starts. 2026 team results are through Week 7; 2026 player/waiver value inputs remain through Week 6.",
+  "seasons": {
+    "2016": {
+      "year": 2016,
+      "complete": true,
+      "awards": [
+        {
+          "label": "League Champion",
+          "recipient": "Tom",
+          "detail": "Documented championship",
+          "status": "documented",
+          "manager": "Tom",
+          "runnerUp": null,
+          "evidenceHref": "../seasons/2016.html",
+          "evidenceLabel": "Open 2016 season"
+        }
+      ]
+    },
+    "2017": {
+      "year": 2017,
+      "complete": true,
+      "awards": [
+        {
+          "label": "League Champion",
+          "recipient": "Tom",
+          "detail": "Documented championship",
+          "status": "documented",
+          "manager": "Tom",
+          "runnerUp": null,
+          "evidenceHref": "../seasons/2017.html",
+          "evidenceLabel": "Open 2017 season"
+        }
+      ]
+    },
+    "2018": {
+      "year": 2018,
+      "complete": true,
+      "awards": [
+        {
+          "label": "League Champion",
+          "recipient": "Tom",
+          "detail": "Documented championship",
+          "status": "documented",
+          "manager": "Tom",
+          "runnerUp": null,
+          "evidenceHref": "../seasons/2018.html",
+          "evidenceLabel": "Open 2018 season"
+        }
+      ]
+    },
+    "2019": {
+      "year": 2019,
+      "complete": true,
+      "awards": [
+        {
+          "label": "League Champion",
+          "recipient": "Birch",
+          "detail": "Documented championship",
+          "status": "documented",
+          "manager": "Birch",
+          "runnerUp": null,
+          "evidenceHref": "../seasons/2019.html",
+          "evidenceLabel": "Open 2019 season"
+        }
+      ]
+    },
+    "2020": {
+      "year": 2020,
+      "complete": true,
+      "awards": [
+        {
+          "label": "League Champion",
+          "recipient": "Koble",
+          "detail": "Documented championship",
+          "status": "documented",
+          "manager": "Koble",
+          "runnerUp": null,
+          "evidenceHref": "../seasons/2020.html",
+          "evidenceLabel": "Open 2020 season"
+        },
+        {
+          "label": "Regular-Season King",
+          "recipient": "Mitch",
+          "manager": "Mitch",
+          "detail": "9-4 · 1650.42 PF",
+          "status": "reconstructed",
+          "runnerUp": {
+            "recipient": "Birch",
+            "detail": "9-4 · 1593.54 PF",
+            "status": "reconstructed"
+          },
+          "evidenceHref": "../seasons/2020.html",
+          "evidenceLabel": "Season standings"
+        },
+        {
+          "label": "Scoring Explosion",
+          "recipient": "Mitch",
+          "detail": "166.52 points · Week 8 (Regular)",
+          "status": "documented",
+          "manager": "Mitch",
+          "evidenceHref": "../seasons/2020.html",
+          "evidenceLabel": "Score receipt"
+        },
+        {
+          "label": "Starter Value MVP",
+          "recipient": "Dalvin Cook",
+          "manager": "Mitch",
+          "detail": "Mitch · +216.28 points above starter benchmark · 12 starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Tyreek Hill",
+            "detail": "Birch · +207.59 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../analytics/fellas-war.html",
+          "evidenceLabel": "WAR Research",
+          "cutoff": "Weeks 1–14"
+        },
+        {
+          "label": "Waiver Wire Gem",
+          "recipient": "James Robinson",
+          "manager": "Tony",
+          "detail": "Tony · +141.68 above starter benchmark after add acquisition · 12 credited starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Mike Davis",
+            "detail": "Tony · +90.32 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../labs/faab.html",
+          "evidenceLabel": "Waiver / FAAB lab",
+          "cutoff": "Regular season"
+        }
+      ]
+    },
+    "2021": {
+      "year": 2021,
+      "complete": true,
+      "awards": [
+        {
+          "label": "League Champion",
+          "recipient": "Tony",
+          "detail": "Documented championship",
+          "status": "documented",
+          "manager": "Tony",
+          "runnerUp": null,
+          "evidenceHref": "../seasons/2021.html",
+          "evidenceLabel": "Open 2021 season"
+        },
+        {
+          "label": "Regular-Season King",
+          "recipient": "Birch",
+          "manager": "Birch",
+          "detail": "11-2 · 1513.84 PF",
+          "status": "reconstructed",
+          "runnerUp": {
+            "recipient": "Tony",
+            "detail": "10-3 · 1708.60 PF",
+            "status": "reconstructed"
+          },
+          "evidenceHref": "../seasons/2021.html",
+          "evidenceLabel": "Season standings"
+        },
+        {
+          "label": "Scoring Explosion",
+          "recipient": "Historical roster 8",
+          "detail": "178.82 points · Week 5 (Regular)",
+          "status": "documented",
+          "manager": "Historical roster 8",
+          "evidenceHref": "../seasons/2021.html",
+          "evidenceLabel": "Score receipt"
+        },
+        {
+          "label": "Starter Value MVP",
+          "recipient": "Cooper Kupp",
+          "manager": "Mitch",
+          "detail": "Mitch · +229.75 points above starter benchmark · 13 starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Jonathan Taylor",
+            "detail": "Tony · +216.68 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../analytics/fellas-war.html",
+          "evidenceLabel": "WAR Research",
+          "cutoff": "Weeks 1–14"
+        },
+        {
+          "label": "Waiver Wire Gem",
+          "recipient": "Cordarrelle Patterson",
+          "manager": "Tony",
+          "detail": "Tony · +97.68 above starter benchmark after add acquisition · 9 credited starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Elijah Mitchell",
+            "detail": "Tom · +64.49 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../labs/faab.html",
+          "evidenceLabel": "Waiver / FAAB lab",
+          "cutoff": "Regular season"
+        }
+      ]
+    },
+    "2022": {
+      "year": 2022,
+      "complete": true,
+      "awards": [
+        {
+          "label": "League Champion",
+          "recipient": "Stover",
+          "detail": "Documented championship",
+          "status": "documented",
+          "manager": "Stover",
+          "runnerUp": {
+            "recipient": "Stew",
+            "detail": "Lost championship to Roster 8 (prior owner) 48.16–99.22",
+            "status": "documented"
+          },
+          "evidenceHref": "../seasons/2022.html",
+          "evidenceLabel": "Open 2022 season"
+        },
+        {
+          "label": "Regular-Season King",
+          "recipient": "Stew",
+          "manager": "Stew",
+          "detail": "11-3 · 1727.34 PF",
+          "status": "reconstructed",
+          "runnerUp": {
+            "recipient": "Kuhl",
+            "detail": "8-6 · 1603.76 PF",
+            "status": "reconstructed"
+          },
+          "evidenceHref": "../seasons/2022.html",
+          "evidenceLabel": "Season standings"
+        },
+        {
+          "label": "Scoring Explosion",
+          "recipient": "Tony",
+          "detail": "177.14 points · Week 8 (Regular)",
+          "status": "documented",
+          "manager": "Tony",
+          "evidenceHref": "../seasons/2022.html",
+          "evidenceLabel": "Score receipt"
+        },
+        {
+          "label": "Starter Value MVP",
+          "recipient": "Josh Jacobs",
+          "manager": "Tom",
+          "detail": "Tom · +196.24 points above starter benchmark · 13 starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Tyreek Hill",
+            "detail": "Historical roster 8 · +188.14 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../analytics/fellas-war.html",
+          "evidenceLabel": "WAR Research",
+          "cutoff": "Weeks 1–14"
+        },
+        {
+          "label": "Waiver Wire Gem",
+          "recipient": "Tyler Lockett",
+          "manager": "Mitch",
+          "detail": "Mitch · +96.22 above starter benchmark after waiver acquisition · 10 credited starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Kenneth Walker III",
+            "detail": "Tony · +79.26 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../labs/faab.html",
+          "evidenceLabel": "Waiver / FAAB lab",
+          "cutoff": "Regular season"
+        }
+      ]
+    },
+    "2023": {
+      "year": 2023,
+      "complete": true,
+      "awards": [
+        {
+          "label": "League Champion",
+          "recipient": "Stilly",
+          "detail": "Documented championship",
+          "status": "documented",
+          "manager": "Stilly",
+          "runnerUp": {
+            "recipient": "Mitch",
+            "detail": "Lost championship to Stilly 90.18–104.96",
+            "status": "documented"
+          },
+          "evidenceHref": "../seasons/2023.html",
+          "evidenceLabel": "Open 2023 season"
+        },
+        {
+          "label": "Regular-Season King",
+          "recipient": "Tony",
+          "manager": "Tony",
+          "detail": "10-4 · 1640.12 PF",
+          "status": "reconstructed",
+          "runnerUp": {
+            "recipient": "JMid",
+            "detail": "9-5 · 1698.96 PF",
+            "status": "reconstructed"
+          },
+          "evidenceHref": "../seasons/2023.html",
+          "evidenceLabel": "Season standings"
+        },
+        {
+          "label": "Scoring Explosion",
+          "recipient": "Stilly",
+          "detail": "173.86 points · Week 12 (Regular)",
+          "status": "documented",
+          "manager": "Stilly",
+          "evidenceHref": "../seasons/2023.html",
+          "evidenceLabel": "Score receipt"
+        },
+        {
+          "label": "Starter Value MVP",
+          "recipient": "Tyreek Hill",
+          "manager": "Mitch",
+          "detail": "Mitch · +226.17 points above starter benchmark · 13 starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Christian McCaffrey",
+            "detail": "Tom · +219.77 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../analytics/fellas-war.html",
+          "evidenceLabel": "WAR Research",
+          "cutoff": "Weeks 1–14"
+        },
+        {
+          "label": "Waiver Wire Gem",
+          "recipient": "Kyren Williams",
+          "manager": "Kuhl",
+          "detail": "Kuhl · +72.25 above starter benchmark after waiver acquisition · 6 credited starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Zack Moss",
+            "detail": "Mitch · +61.11 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../labs/faab.html",
+          "evidenceLabel": "Waiver / FAAB lab",
+          "cutoff": "Regular season"
+        }
+      ]
+    },
+    "2024": {
+      "year": 2024,
+      "complete": true,
+      "awards": [
+        {
+          "label": "League Champion",
+          "recipient": "Tom",
+          "detail": "Documented championship",
+          "status": "documented",
+          "manager": "Tom",
+          "runnerUp": {
+            "recipient": "Stilly",
+            "detail": "Lost championship to Tom 114.88–205.30",
+            "status": "documented"
+          },
+          "evidenceHref": "../seasons/2024.html",
+          "evidenceLabel": "Open 2024 season"
+        },
+        {
+          "label": "Regular-Season King",
+          "recipient": "Tom",
+          "manager": "Tom",
+          "detail": "9-5 · 1550.42 PF",
+          "status": "reconstructed",
+          "runnerUp": {
+            "recipient": "JMid",
+            "detail": "8-6 · 1730.22 PF",
+            "status": "reconstructed"
+          },
+          "evidenceHref": "../seasons/2024.html",
+          "evidenceLabel": "Season standings"
+        },
+        {
+          "label": "Scoring Explosion",
+          "recipient": "Tom",
+          "detail": "205.30 points · Week 17 (Postseason)",
+          "status": "documented",
+          "manager": "Tom",
+          "evidenceHref": "../seasons/2024.html",
+          "evidenceLabel": "Score receipt"
+        },
+        {
+          "label": "Starter Value MVP",
+          "recipient": "Ja'Marr Chase",
+          "manager": "JMid",
+          "detail": "JMid · +223.47 points above starter benchmark · 13 starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Saquon Barkley",
+            "detail": "Historical roster 8 · +210.74 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../analytics/fellas-war.html",
+          "evidenceLabel": "WAR Research",
+          "cutoff": "Weeks 1–14"
+        },
+        {
+          "label": "Waiver Wire Gem",
+          "recipient": "Chuba Hubbard",
+          "manager": "Mitch",
+          "detail": "Mitch · +82.24 above starter benchmark after waiver acquisition · 10 credited starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "David Njoku",
+            "detail": "Kuhl · +49.22 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../labs/faab.html",
+          "evidenceLabel": "Waiver / FAAB lab",
+          "cutoff": "Regular season"
+        }
+      ]
+    },
+    "2025": {
+      "year": 2025,
+      "complete": true,
+      "awards": [
+        {
+          "label": "League Champion",
+          "recipient": "Scott",
+          "detail": "Documented championship",
+          "status": "documented",
+          "manager": "Scott",
+          "runnerUp": {
+            "recipient": "Tom",
+            "detail": "Lost championship to Scott 86.00–156.32",
+            "status": "documented"
+          },
+          "evidenceHref": "../seasons/2025.html",
+          "evidenceLabel": "Open 2025 season"
+        },
+        {
+          "label": "Regular-Season King",
+          "recipient": "Mitch",
+          "manager": "Mitch",
+          "detail": "13-1 · 1894.88 PF",
+          "status": "reconstructed",
+          "runnerUp": {
+            "recipient": "Scott",
+            "detail": "8-6 · 1653.36 PF",
+            "status": "reconstructed"
+          },
+          "evidenceHref": "../seasons/2025.html",
+          "evidenceLabel": "Season standings"
+        },
+        {
+          "label": "Scoring Explosion",
+          "recipient": "Mitch",
+          "detail": "180.86 points · Week 7 (Regular)",
+          "status": "documented",
+          "manager": "Mitch",
+          "evidenceHref": "../seasons/2025.html",
+          "evidenceLabel": "Score receipt"
+        },
+        {
+          "label": "Starter Value MVP",
+          "recipient": "Jonathan Taylor",
+          "manager": "Mitch",
+          "detail": "Mitch · +217.46 points above starter benchmark · 13 starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Christian McCaffrey",
+            "detail": "Mitch · +207.25 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../analytics/fellas-war.html",
+          "evidenceLabel": "WAR Research",
+          "cutoff": "Weeks 1–14"
+        },
+        {
+          "label": "Waiver Wire Gem",
+          "recipient": "Dak Prescott",
+          "manager": "Mitch",
+          "detail": "Mitch · +81.44 above starter benchmark after waiver acquisition · 8 credited starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Justin Herbert",
+            "detail": "Stew · +56.44 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../labs/faab.html",
+          "evidenceLabel": "Waiver / FAAB lab",
+          "cutoff": "Regular season"
+        }
+      ]
+    },
+    "2026": {
+      "year": 2026,
+      "complete": false,
+      "awards": [
+        {
+          "label": "League Champion",
+          "recipient": "Not yet decided",
+          "detail": "2026 season ongoing",
+          "status": "pending",
+          "manager": null,
+          "runnerUp": null,
+          "evidenceHref": "../seasons/2026.html",
+          "evidenceLabel": "Open 2026 season"
+        },
+        {
+          "label": "Current Regular-Season Leader",
+          "recipient": "Mitch",
+          "manager": "Mitch",
+          "detail": "7-0 · 936.20 PF through Week 7",
+          "status": "in_progress",
+          "runnerUp": {
+            "recipient": "Birch",
+            "detail": "5-2 · 813.94 PF",
+            "status": "reconstructed"
+          },
+          "evidenceHref": "../seasons/2026.html",
+          "evidenceLabel": "Season standings"
+        },
+        {
+          "label": "Scoring Explosion",
+          "recipient": "Mitch",
+          "detail": "172.90 points · Week 5 (Regular)",
+          "status": "documented",
+          "manager": "Mitch",
+          "evidenceHref": "../weeks/week-5.html",
+          "evidenceLabel": "Score receipt"
+        },
+        {
+          "label": "Starter Value MVP",
+          "recipient": "Jaxon Smith-Njigba",
+          "manager": "Mitch",
+          "detail": "Mitch · +117.87 points above starter benchmark · 6 starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Jahmyr Gibbs",
+            "detail": "Stew · +112.73 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../analytics/fellas-war.html",
+          "evidenceLabel": "WAR Research",
+          "cutoff": "Weeks 1–6"
+        },
+        {
+          "label": "Waiver Wire Gem",
+          "recipient": "Carolina Panthers",
+          "manager": "Stover",
+          "detail": "Stover · +3.75 above starter benchmark after add acquisition · 1 credited starts",
+          "status": "experimental",
+          "runnerUp": {
+            "recipient": "Rome Odunze",
+            "detail": "Stover · +0.47 above benchmark",
+            "status": "experimental"
+          },
+          "evidenceHref": "../labs/faab.html",
+          "evidenceLabel": "Waiver / FAAB lab",
+          "cutoff": "Weeks 1–6"
+        }
+      ]
+    }
+  },
+  "careerTally": [
+    {
+      "manager": "Mitch",
+      "total": 14,
+      "championships": 0,
+      "regularSeason": 3,
+      "scoring": 3,
+      "starterValue": 5,
+      "waiver": 3
+    },
+    {
+      "manager": "Tom",
+      "total": 7,
+      "championships": 4,
+      "regularSeason": 1,
+      "scoring": 1,
+      "starterValue": 1,
+      "waiver": 0
+    },
+    {
+      "manager": "Tony",
+      "total": 5,
+      "championships": 1,
+      "regularSeason": 1,
+      "scoring": 1,
+      "starterValue": 0,
+      "waiver": 2
+    },
+    {
+      "manager": "Birch",
+      "total": 2,
+      "championships": 1,
+      "regularSeason": 1,
+      "scoring": 0,
+      "starterValue": 0,
+      "waiver": 0
+    },
+    {
+      "manager": "Stilly",
+      "total": 2,
+      "championships": 1,
+      "regularSeason": 0,
+      "scoring": 1,
+      "starterValue": 0,
+      "waiver": 0
+    },
+    {
+      "manager": "Stover",
+      "total": 2,
+      "championships": 1,
+      "regularSeason": 0,
+      "scoring": 0,
+      "starterValue": 0,
+      "waiver": 1
+    },
+    {
+      "manager": "Koble",
+      "total": 1,
+      "championships": 1,
+      "regularSeason": 0,
+      "scoring": 0,
+      "starterValue": 0,
+      "waiver": 0
+    },
+    {
+      "manager": "Scott",
+      "total": 1,
+      "championships": 1,
+      "regularSeason": 0,
+      "scoring": 0,
+      "starterValue": 0,
+      "waiver": 0
+    },
+    {
+      "manager": "Historical roster 8",
+      "total": 1,
+      "championships": 0,
+      "regularSeason": 0,
+      "scoring": 1,
+      "starterValue": 0,
+      "waiver": 0
+    },
+    {
+      "manager": "JMid",
+      "total": 1,
+      "championships": 0,
+      "regularSeason": 0,
+      "scoring": 0,
+      "starterValue": 1,
+      "waiver": 0
+    },
+    {
+      "manager": "Kuhl",
+      "total": 1,
+      "championships": 0,
+      "regularSeason": 0,
+      "scoring": 0,
+      "starterValue": 0,
+      "waiver": 1
+    },
+    {
+      "manager": "Stew",
+      "total": 1,
+      "championships": 0,
+      "regularSeason": 1,
+      "scoring": 0,
+      "starterValue": 0,
+      "waiver": 0
+    }
+  ]
+}
