@@ -76,6 +76,16 @@ try{
     if(errorText.includes('Historical records are temporarily unavailable.'))errors.push(width+' '+route+' historical profile module unavailable');
     if(errorText.includes('Canonical manager missing'))errors.push(width+' '+route+' canonical identity missing');
    }
+   if(route.startsWith('managers/')&&route.endsWith('/')&&slugs.includes(route.split('/')[1])){
+    const slug=route.split('/')[1];
+    const dossierLink=page.locator('a[href="../'+slug+'.html"]').first();
+    if(await dossierLink.count()!==1)errors.push(width+' '+route+' full franchise dossier link missing');
+    else{
+     const destination=new URL(await dossierLink.getAttribute('href'),baseUrl+route);
+     const result=await page.request.get(destination.toString());
+     if(result.status()!==200)errors.push(width+' '+route+' full franchise dossier link HTTP '+result.status());
+    }
+   }
    if(route==='analytics/awards-show.html'){
     const buttons=page.locator('#years button');
     if(await buttons.count()<2)errors.push(width+' Awards Show year buttons failed to render');
