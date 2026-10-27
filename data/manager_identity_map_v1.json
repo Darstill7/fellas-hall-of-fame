@@ -22,6 +22,13 @@
           "2023": "YogurtSlinger",
           "2024": "Gurt",
           "2025": "Gurt"
+        },
+        "espnOwnerHandle": "lstover1535",
+        "espnSeasons": {
+          "2016": "PurpleHeaded YogurtSlingers",
+          "2017": "Garropolo By The Percy'",
+          "2018": "Washington Foreskins",
+          "2019": "Yogurt Slingers II"
         }
       },
       "ruling": "All Sleeper-era records tied to owner handle yogurtslinger15 are Stover records. Historical roster 8 is a superseded placeholder for this owner and should not be treated as a separate manager.",
@@ -109,5 +116,62 @@
       "name": "Trent Koble",
       "ownerId": "{D25AA4C4-A575-4F68-9AA4-C4A575DF68F7}"
     }
-  ]
+  ],
+  "espnLeagueId": 1313090,
+  "earliestVerifiedSeason": 2016,
+  "originalContinuingManagers": [
+    {
+      "canonical": "Stilly",
+      "realName": "Darren Stillson",
+      "espnHandles": [
+        "DarrenStillson"
+      ],
+      "currentTeam": "Harry Woody",
+      "sleeperHandles": [
+        "Darstill"
+      ]
+    },
+    {
+      "canonical": "Stew",
+      "realName": "Drew Sylvester",
+      "espnHandles": [
+        "DrewSyl",
+        "ajsylv0709452"
+      ],
+      "currentTeam": "Worst Team on Paper",
+      "sleeperHandles": [
+        "Dsylvester9"
+      ]
+    },
+    {
+      "canonical": "Tom",
+      "displayAlias": "Thommy",
+      "realName": "Zach Prescott",
+      "espnHandles": [
+        "zachawyyy"
+      ],
+      "currentTeam": "Green Bowl Packers",
+      "sleeperHandles": [
+        "thommy"
+      ]
+    },
+    {
+      "canonical": "Stover",
+      "realName": "Landon Stover",
+      "espnHandles": [
+        "lstover1535"
+      ],
+      "currentTeam": "Gurt",
+      "sleeperHandles": [
+        "yogurtslinger15"
+      ]
+    }
+  ],
+  "formerOriginalManagers": [
+    "Devon Halderman",
+    "Brandon Evans",
+    "Tom Schermerhorn",
+    "Trent Koble"
+  ],
+  "identityCaution": "Tom Schermerhorn is a former manager, NOT Thommy. Thommy is Zach Prescott. Keep historical former manager records separate."
 }
