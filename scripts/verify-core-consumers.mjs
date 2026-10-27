@@ -13,6 +13,11 @@ assert(recordRenderer.includes('data/career_core_generated.json'),'Manager headl
 assert(h2hRenderer.includes('data/unified_record_book_2016_2026.json'),'Manager H2H must read canonical ledger');
 assert(!h2hRenderer.includes('2026 Weeks 1–6'),'Outdated rivalry coverage claim');
 assert(h2hRenderer.includes("==='Tom'?'Thommy'"),'Thommy H2H identity normalization missing');
+const legacyResumeRenderer=read('assets/legacy-resume.js');
+assert(legacyResumeRenderer.includes('data/career_core_generated.json'),'Legacy resume must use generated career WLT');
+assert(!legacyResumeRenderer.includes('esc(d.record)'),'Legacy resume still displays stale stored WLT');
+const weeklyRenderer=read('assets/manager-weekly-game-log.js');
+assert(!weeklyRenderer.includes("&quot;':'&quot;"),'Weekly log contains invalid quote escaping syntax');
 const resumeRenderer=read('assets/manager-rivalry-resume.js');
 assert(resumeRenderer.includes('data/unified_record_book_2016_2026.json'),'Manager rivalry resumes must load canonical ledger');
 assert(!resumeRenderer.includes('manager_rivalry_resumes_v1.json'),'Manager rivalry resumes still load legacy snapshots');
