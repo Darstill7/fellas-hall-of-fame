@@ -90,10 +90,10 @@
     },
     "JMid": {
       "toughest": {
-        "name": "Stilly",
-        "meetings": 5,
+        "name": "Mitch",
+        "meetings": 4,
         "wins": 1,
-        "losses": 4
+        "losses": 3
       },
       "retrospectiveUpset": {
         "year": 2026,
@@ -147,10 +147,10 @@
     },
     "Tom": {
       "toughest": {
-        "name": "Stilly",
-        "meetings": 10,
-        "wins": 3,
-        "losses": 7
+        "name": "Stover",
+        "meetings": 8,
+        "wins": 2,
+        "losses": 6
       },
       "retrospectiveUpset": {
         "year": 2024,
@@ -228,10 +228,10 @@
     },
     "Stew": {
       "toughest": {
-        "name": "Tony",
-        "meetings": 9,
-        "wins": 3,
-        "losses": 6
+        "name": "Stover",
+        "meetings": 6,
+        "wins": 1,
+        "losses": 5
       },
       "retrospectiveUpset": {
         "year": 2026,
@@ -505,7 +505,12 @@
       ]
     },
     "Stover": {
-      "toughest": null,
+      "toughest": {
+        "name": "Birch",
+        "meetings": 5,
+        "wins": 1,
+        "losses": 4
+      },
       "retrospectiveUpset": null,
       "trends": [
         {
@@ -602,9 +607,9 @@
     "Birch": {
       "toughest": {
         "name": "JMid",
-        "meetings": 5,
+        "meetings": 4,
         "wins": 1,
-        "losses": 4
+        "losses": 3
       },
       "retrospectiveUpset": {
         "year": 2023,
