@@ -20,7 +20,7 @@ await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
 const port=server.address().port,baseUrl='http://127.0.0.1:'+port+base;
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.map(s=>'managers/'+s+'/')];
+const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const errors=[];
 try{
  for(const width of [390,1280]){
@@ -78,6 +78,12 @@ try{
      const chosen=await buttons.last().getAttribute('data-year');
      if(!(await page.locator('#heading').innerText()).includes(chosen))errors.push(width+' Awards Show year selection not reflected');
     }
+   }
+   if(/^managers\\/[a-z]+\\.html$/.test(route)){
+    const slug=route.slice('managers/'.length,-'.html'.length);
+    const body=await page.locator('body').innerText();
+    if(!body.includes('Franchise'))errors.push(width+' '+route+' missing legacy dossier content');
+    if(!await page.locator('[data-canonical-manager-record]').count())errors.push(width+' '+route+' missing canonical career binding');
    }
    if(route==='managers/record-books.html'){
     await page.locator('#manager').selectOption('Stilly');
