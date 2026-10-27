@@ -3,11 +3,11 @@
 This package turns the historical museum into a multi-page league operating system.
 
 ## What is live in this build
-- 2026 dashboard through Week 6
+- 2026 dashboard through Week 7
 - 10 manager franchise pages
 - current roster snapshots
 - full current-manager Sleeper rivalry matrix
-- weekly archive for Weeks 1–6
+- weekly archive for Weeks 1–7
 - Trade ROI lab
 - Draft Value lab
 - schedule-adjusted advanced metrics
