@@ -51,7 +51,7 @@ for(let i=0;i<rivalrySlugs.length;i++)for(let j=i+1;j<rivalrySlugs.length;j++){
 }
 assert(rivalryRoutes===45,'Expected 45 unique manager rivalries');
 const legacyPage=read('analytics/legacy.html');
-const legacyBlock=legacyPage.match(/<script[^>]*id="legacyData"[^>]*>([\\s\\S]*?)<\\/script>/);
+const legacyBlock=legacyPage.match(/<script[^>]*id="legacyData"[^>]*>([\s\S]*?)<\/script>/);
 assert(!!legacyBlock,'All-Time Legacy embedded fallback model missing');
 const legacyModel=JSON.parse(legacyBlock[1]);
 for(const entry of legacyModel.managers){
