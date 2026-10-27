@@ -27,6 +27,11 @@ assert(weeklyArchivePage.includes('const rows=new Map()'),'Weekly season standin
 const legacyResumeRenderer=read('assets/legacy-resume.js');
 assert(legacyResumeRenderer.includes('data/career_core_generated.json'),'Legacy resume must use generated career WLT');
 assert(!legacyResumeRenderer.includes('esc(d.record)'),'Legacy resume still displays stale stored WLT');
+const archiveBrowser=read('managers/record-books.html');
+assert(archiveBrowser.includes("fetch('../data/career_core_generated.json')"),'Archive manager browser must fetch canonical career records');
+assert(archiveBrowser.includes('Object.entries(c.h2h)'),'Archive manager browser head-to-head must be canonical');
+assert(archiveBrowser.includes('Object.entries(c.annual)'),'Archive manager browser annual records must be canonical');
+assert(!archiveBrowser.includes('m.regular.w+')&&!archiveBrowser.includes('m.headToHead.map(')&&!archiveBrowser.includes('m.annual.map('),'Archive manager browser still renders duplicate WLT');
 const historicalRenderer=read('assets/manager-historical-records.js');
 assert(historicalRenderer.includes('data/career_core_generated.json'),'Historical manager panel must fetch canonical career core');
 assert(historicalRenderer.includes('Object.entries(canonical.annual)'),'Historical manager annual table must use canonical seasons');
