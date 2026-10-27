@@ -66,6 +66,14 @@ const legacyPage=read('analytics/legacy.html');
 const legacyBlock=legacyPage.match(/<script[^>]*id="legacyData"[^>]*>([\s\S]*?)<\/script>/);
 assert(!!legacyBlock,'All-Time Legacy embedded fallback model missing');
 const legacyModel=JSON.parse(legacyBlock[1]);
+assert(Object.values(legacyModel.weights).reduce((sum,n)=>sum+n,0)===100,'Legacy weights must total 100');
+assert(legacyModel.status.includes('No 100-point scores'),'Legacy must disclose withheld full rankings');
+for(const entry of legacyModel.managers){
+ const expected=30*Math.sqrt(entry.titles/4);
+ assert(Math.abs(entry.championship_component-expected)<0.00001,'Legacy championship weighting differs: '+entry.manager);
+ const games=entry.career_wins+entry.career_losses+(entry.career_ties||0);
+ assert(games>0&&Math.abs(entry.career_win_pct-((entry.career_wins+(entry.career_ties||0)/2)/games))<0.00001,'Legacy win percentage inconsistent: '+entry.manager);
+}
 for(const entry of legacyModel.managers){
  const id=entry.manager==='Tom'?'Thommy':entry.manager;
  const m=careers.managers[id];
