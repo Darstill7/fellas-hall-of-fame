@@ -33,6 +33,16 @@
       "aboveBenchmarkPerStart": 7.473
     },
     {
+      "manager": "Stover",
+      "playerSeasons": 167,
+      "starts": 809,
+      "starterPoints": 10184.22,
+      "aboveBenchmark": 5913.85,
+      "matchupSwing": 78,
+      "matchedWeeks": 809,
+      "aboveBenchmarkPerStart": 7.31
+    },
+    {
       "manager": "Birch",
       "playerSeasons": 157,
       "starts": 810,
@@ -101,16 +111,6 @@
       "matchupSwing": 35,
       "matchedWeeks": 306,
       "aboveBenchmarkPerStart": 6.649
-    },
-    {
-      "manager": "Stover",
-      "playerSeasons": 16,
-      "starts": 54,
-      "starterPoints": 651.94,
-      "aboveBenchmark": 392.06,
-      "matchupSwing": 5,
-      "matchedWeeks": 54,
-      "aboveBenchmarkPerStart": 7.26
     }
   ],
   "byYear": {
@@ -156,6 +156,16 @@
         "aboveBenchmarkPerStart": 7.054
       },
       {
+        "manager": "Stover",
+        "playerSeasons": 27,
+        "starts": 126,
+        "starterPoints": 1550,
+        "aboveBenchmark": 881.66,
+        "matchupSwing": 22,
+        "matchedWeeks": 126,
+        "aboveBenchmarkPerStart": 6.997
+      },
+      {
         "manager": "Kuhl",
         "playerSeasons": 28,
         "starts": 126,
@@ -196,6 +206,16 @@
         "matchupSwing": 7,
         "matchedWeeks": 117,
         "aboveBenchmarkPerStart": 9.046
+      },
+      {
+        "manager": "Stover",
+        "playerSeasons": 32,
+        "starts": 126,
+        "starterPoints": 1770.9,
+        "aboveBenchmark": 1105.34,
+        "matchupSwing": 12,
+        "matchedWeeks": 126,
+        "aboveBenchmarkPerStart": 8.773
       },
       {
         "manager": "Mitch",
@@ -268,6 +288,16 @@
         "matchupSwing": 20,
         "matchedWeeks": 126,
         "aboveBenchmarkPerStart": 8.459
+      },
+      {
+        "manager": "Stover",
+        "playerSeasons": 20,
+        "starts": 126,
+        "starterPoints": 1663.3,
+        "aboveBenchmark": 999.34,
+        "matchupSwing": 15,
+        "matchedWeeks": 126,
+        "aboveBenchmarkPerStart": 7.931
       },
       {
         "manager": "Mitch",
@@ -402,6 +432,16 @@
         "aboveBenchmarkPerStart": 6.731
       },
       {
+        "manager": "Stover",
+        "playerSeasons": 26,
+        "starts": 126,
+        "starterPoints": 1386.64,
+        "aboveBenchmark": 732.32,
+        "matchupSwing": 13,
+        "matchedWeeks": 126,
+        "aboveBenchmarkPerStart": 5.812
+      },
+      {
         "manager": "Stew",
         "playerSeasons": 35,
         "starts": 126,
@@ -422,6 +462,16 @@
         "matchupSwing": 9,
         "matchedWeeks": 126,
         "aboveBenchmarkPerStart": 8.258
+      },
+      {
+        "manager": "Stover",
+        "playerSeasons": 25,
+        "starts": 125,
+        "starterPoints": 1726.24,
+        "aboveBenchmark": 1025.6,
+        "matchupSwing": 4,
+        "matchedWeeks": 125,
+        "aboveBenchmarkPerStart": 8.205
       },
       {
         "manager": "Tom",
@@ -576,6 +626,16 @@
         "aboveBenchmarkPerStart": 6.368
       },
       {
+        "manager": "Stover",
+        "playerSeasons": 21,
+        "starts": 126,
+        "starterPoints": 1435.2,
+        "aboveBenchmark": 777.53,
+        "matchupSwing": 7,
+        "matchedWeeks": 126,
+        "aboveBenchmarkPerStart": 6.171
+      },
+      {
         "manager": "JMid",
         "playerSeasons": 36,
         "starts": 126,
@@ -699,5 +759,5 @@
       }
     ]
   },
-  "comparabilityNote": "All-time totals are tenure-sensitive. Stover's current-manager attributed player archive is much narrower than other long-tenured managers, so use per-start rates and season filters rather than raw career totals for cross-tenure comparisons."
+  "comparabilityNote": "All-time totals are tenure-sensitive. Stover is now fully reconciled across Sleeper owner handle yogurtslinger15 for 2020–2025 plus current 2026 records; pre-2020 player-level data remains unavailable."
 }
