@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 const read=p=>fs.readFileSync(p,'utf8'),json=p=>JSON.parse(read(p));
 const canonical=json('data/manager_record_books_2016_2026.json').managers;
+const generated=json('data/career_core_generated.json').managers;
 const seasons=json('data/season_weekly_matchups_2016_2026_v1.json');
 const league=json('data/league.json');
 const ids={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
@@ -14,7 +15,9 @@ for(const [slug,id] of Object.entries(ids)){
  const expected=[m.regular.w,m.regular.l,...(m.regular.t?[m.regular.t]:[])].join('–');
  const page=read('managers/'+slug+'/index.html');
  const detailed=read('managers/'+slug+'.html');
- check(page.includes('data-canonical-manager-record="'+id+'"')&&page.includes('>'+expected+'</strong><small>All-time regular-season W–L'),id+' directory page canonical record missing or fallback differs from '+expected);
+ const derived=generated[id];
+ check(!!derived&&[derived.w,derived.l,...(derived.t?[derived.t]:[])].join('–')===expected,id+' generated career totals differ from archived records');
+ check(page.includes('data-canonical-manager-record="'+id+'"')&&page.includes('canonical-manager-record.js'),id+' primary page missing canonical record renderer');
  check(page.includes('data-manager-weekly-log="'+id+'"'),id+' directory page lacks unified weekly log');
  check(detailed.includes('data-manager-weekly-log="'+id+'"'),id+' detailed profile lacks unified weekly log');
  check(detailed.includes('data-canonical-manager-record="'+id+'"'),id+' detailed profile lacks canonical career data binding');
