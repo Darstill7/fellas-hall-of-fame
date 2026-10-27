@@ -1,6 +1,20 @@
 import fs from 'node:fs';
 const read=p=>fs.readFileSync(p,'utf8');
-const weekly=JSON.parse(read('data/season_weekly_matchups_2016_2026_v1.json'));
+const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
+const seasonYears=[...new Set(ledger.games.map(g=>g.year))].sort((a,b)=>a-b);
+function seasonFromLedger(year){
+ const games=ledger.games.filter(g=>g.year===year&&g.stage==='regular');
+ const rows=new Map();
+ for(const g of games)for(const [manager,points,against] of [[g.home,g.homeScore,g.awayScore],[g.away,g.awayScore,g.homeScore]]){
+  const r=rows.get(manager)||{manager,w:0,l:0,t:0,pf:0,pa:0,games:0};
+  r.games++;r.pf+=points;r.pa+=against;
+  if(points>against)r.w++;else if(points<against)r.l++;else r.t++;
+  rows.set(manager,r);
+ }
+ const standings=[...rows.values()].map(r=>({...r,pf:Math.round(r.pf*100)/100,pa:Math.round(r.pa*100)/100}))
+  .sort((a,b)=>(b.w+b.t/2)/b.games-(a.w+a.t/2)/a.games||b.pf-a.pf);
+ return {year,regularGames:games.length,standings,games};
+}
 const champions={
   "2016": "Thommy",
   "2017": "Thommy",
@@ -18,8 +32,8 @@ const champions={
 // Update this mapping only when historical championship provenance has been checked.
 function generate(){
  const result={};
- for(const year of weekly.seasonYears){
-  const season=weekly.bySeason[year],champ=champions[year]??null;
+ for(const year of seasonYears){
+  const season=seasonFromLedger(year),champ=champions[year]??null;
   const regular=season.games.filter(g=>g.stage==='regular');
   if(regular.length!==season.regularGames)throw Error('Regular game mismatch '+year);
   const standings=season.standings.map(r=>({name:r.manager,w:r.w,l:r.l,t:r.t,pf:r.pf,pa:r.pa,games:r.games}));
