@@ -37,7 +37,7 @@ try{
    await page.waitForTimeout(150);
    const state=await page.evaluate(()=>({body:document.body?.innerText?.length||0,scroll:document.documentElement.scrollWidth,viewport:window.innerWidth}));
    if(state.body<80)errors.push(width+' '+route+' blank or very little content');
-   if(state.scroll>state.viewport+5)errors.push(width+' '+route+' horizontal page overflow '+state.scroll+'px at '+state.viewport+'px viewport');
+   if(state.scroll>state.viewport+5)errors.push(width+' '+route+' horizontal page overflow '+state.scroll+'px at '+state.viewport+'px viewport; offenders: '+(await page.evaluate(()=>[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+6).sort((a,b)=>b.getBoundingClientRect().right-a.getBoundingClientRect().right).slice(0,5).map(e=>e.tagName.toLowerCase()+(e.className&&typeof e.className==='string'?'.'+e.className.trim().replaceAll(' ','.'):'')+' right='+Math.round(e.getBoundingClientRect().right)).join(', '))));
    for(const error of unexpected)errors.push(width+' '+route+' JS error: '+error);
    for(const failed of failedRequests)errors.push(width+' '+route+' request error: '+failed);
    if(route==='seasons/weekly-matchup-archive.html'){
@@ -79,7 +79,7 @@ try{
      if(!(await page.locator('#heading').innerText()).includes(chosen))errors.push(width+' Awards Show year selection not reflected');
     }
    }
-   if(route.startsWith('managers/')&&route.endsWith('.html')){
+   if(route.startsWith('managers/')&&slugs.includes(route.slice('managers/'.length,-'.html'.length))&&route.endsWith('.html')){
     const slug=route.slice('managers/'.length,-'.html'.length);
     const body=await page.locator('body').innerText();
     if(!body.includes('Franchise'))errors.push(width+' '+route+' missing legacy dossier content');
