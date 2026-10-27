@@ -30,6 +30,10 @@ for(const [slug,id] of Object.entries(managers)){
   const html=read(path);
   assert(html.includes('data-canonical-manager-record="'+id+'"'),'Missing canonical career binding: '+path);
   assert(html.includes('canonical-manager-record.js'),'Missing career renderer: '+path);
+  if(path.endsWith('/index.html')){
+   assert(html.includes('id="full-franchise-dossier"'),'Canonical profile lacks detailed archive access: '+path);
+   assert(html.includes('href="../'+slug+'.html"'),'Wrong full-dossier link: '+path);
+  }
  }
 }
 const count=ledger.games.filter(g=>g.stage==='regular').length;
