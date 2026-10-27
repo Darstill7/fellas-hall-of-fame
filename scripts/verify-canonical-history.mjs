@@ -14,9 +14,10 @@ for(const [slug,id] of Object.entries(ids)){
  const expected=[m.regular.w,m.regular.l,...(m.regular.t?[m.regular.t]:[])].join('–');
  const page=read('managers/'+slug+'/index.html');
  const detailed=read('managers/'+slug+'.html');
- check(page.includes('<strong>'+expected+'</strong><small>All-time regular-season W–L'),id+' directory page record differs from '+expected);
+ check(page.includes('data-canonical-manager-record="'+id+'"')&&page.includes('>'+expected+'</strong><small>All-time regular-season W–L'),id+' directory page canonical record missing or fallback differs from '+expected);
  check(page.includes('data-manager-weekly-log="'+id+'"'),id+' directory page lacks unified weekly log');
  check(detailed.includes('data-manager-weekly-log="'+id+'"'),id+' detailed profile lacks unified weekly log');
+ check(detailed.includes('data-canonical-manager-record="'+id+'"'),id+' detailed profile lacks canonical career data binding');
  const lm=league.managers[name(id)];
  check(lm?.record===expected,id+' shared league.json differs from '+expected+'; got '+lm?.record);
  const annual=seasons.managerAnnual[id]||[];
