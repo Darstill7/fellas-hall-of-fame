@@ -33,8 +33,8 @@ These use recovered weekly games rather than alternative legacy summaries. ESPN 
 
 ## Known unresolved issues
 
-1. **2020 Week 14 — Birch vs Mitch matchup missing** from the imported regular-season scoreboard. No official winner or point totals should be assigned until the original Sleeper matchup is recovered.
-2. **2021 Week 14 — Birch vs Tony matchup missing** from the imported regular-season scoreboard. The same restriction applies.
+1. **2020 Week 14 — Birch and Mitch had playoff byes**, confirmed by league manager. No head-to-head matchup or missing score.
+2. **2021 Week 14 — Birch and Tony had playoff byes**, confirmed by league manager. No head-to-head matchup or missing score.
 3. Some existing overview/legacy/season/WAR datasets were developed using Sleeper-only records. **The full historical rivalry engine is corrected, but all derived ratings, narratives, trophies, and graphics are not yet individually recertified.** Do not treat remaining historical texts or isolated Sleeper-only statistics as complete career totals.
 4. **Postseason:** Sleeper playoff archive cannot consistently distinguish championship-bracket and consolation games. Those must be treated as postseason matches of uncertain bracket category, while championship years rely on the existing separate champion ledger. Verified ESPN finals: Zach Prescott 2016–2018 and Alex Birch 2019.
 5. **Cross-era scoring:** Original ESPN rules and Sleeper scoring may differ. A raw 2016 score should not be called equivalent to a 2026 score without scoring-format context.
@@ -45,7 +45,7 @@ These use recovered weekly games rather than alternative legacy summaries. ESPN 
 - Official regular-season games form the authoritative head-to-head schedule, with ties retained.
 - Postseason records are separate and include byes only when an opponent is actually present.
 - Each former owner's score remains with that owner, even if a replacement assumed a league slot.
-- Recalculate derived season luck and what-if matrices from **all 695 recovered regular-season games**, and document incompleteness for the two missing Sleeper matchups.
+- Recalculate derived season luck and what-if matrices from **all 695 recovered regular-season games**, and document incompleteness for the two legitimate playoff-bye weeks.
 - Audit each static narrative/profile bio against this updated dataset; do not mechanically replace text claims without evidence.
 
 ## Committed canonical sources
@@ -56,3 +56,7 @@ These use recovered weekly games rather than alternative legacy summaries. ESPN 
 - `data/league.json` (updated current-manager matrix)
 - `data/manager_record_books_2016_2026.json`
 - `data/manager_identity_map_v1.json`
+
+## Audit correction: playoff byes confirmed
+
+The manager confirmed 2020 Week 14 byes for Birch and Mitch, and 2021 Week 14 byes for Birch and Tony. The 69-matchup counts in those seasons reflect **byes, not missing regular-season games**. Do not create fictitious matchups or change career W–L records. This supersedes earlier missing-game language.
