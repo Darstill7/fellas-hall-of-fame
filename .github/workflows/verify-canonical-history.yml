@@ -21,6 +21,19 @@ jobs:
           done
       - name: Inventory internal link issues (advisory)
         run: node scripts/audit-internal-links.mjs
+      - name: Publish link-audit summary
+        if: always()
+        run: |
+          if [ -f data-integrity/internal-link-audit.json ]; then
+            node -e "const d=require('./data-integrity/internal-link-audit.json'); require('fs').appendFileSync(process.env.GITHUB_STEP_SUMMARY, '### Internal link audit\\n\\nScanned '+d.pagesScanned+' HTML pages; '+d.unresolvedLocalLinks+' unresolved local references.\\n')"
+          fi
+      - name: Upload link-audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: internal-link-audit
+          path: data-integrity/internal-link-audit.json
+          if-no-files-found: ignore
       - name: Verify generated career and H2H data
         run: node scripts/generate-career-core.mjs --check
       - name: Verify historical season guide output
