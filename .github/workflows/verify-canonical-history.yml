@@ -22,8 +22,8 @@ jobs:
           done
       - name: Inventory all site data dependencies (advisory)
         run: node scripts/audit-site-dependencies.mjs
-      - name: Inventory internal link issues (advisory)
-        run: node scripts/audit-internal-links.mjs
+      - name: Enforce valid internal links
+        run: node scripts/audit-internal-links.mjs --strict
       - name: Publish link-audit summary
         if: always()
         run: |
