@@ -25,7 +25,11 @@ for(const game of ledger.games){
   names.set(manager,x);
  }
 }
-for(const [year,counts] of Object.entries(ledger.counts||{})){\n const games=byYear.get(Number(year))||[];\n assert(games.filter(x=>x.stage==='regular').length===counts.regular,year+' ledger count metadata differs');\n assert(games.filter(x=>x.stage!=='regular').length===counts.postseason,year+' postseason count metadata differs');\n}
+for(const [year,counts] of Object.entries(ledger.counts||{})){
+ const games=byYear.get(Number(year))||[];
+ assert(games.filter(x=>x.stage==='regular').length===counts.regular,year+' ledger count metadata differs');
+ assert(games.filter(x=>x.stage!=='regular').length===counts.postseason,year+' postseason count metadata differs');
+}
 assert(careers.managers.length===names.size,'Manager count differs from ledger identities');
 for(const manager of careers.managers){
  const actual=names.get(manager.manager);
