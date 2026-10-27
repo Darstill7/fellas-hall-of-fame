@@ -34,6 +34,7 @@ for(const [slug,id] of Object.entries(managers)){
    assert(html.includes('id="full-franchise-dossier"'),'Canonical profile lacks detailed archive access: '+path);
    assert(html.includes('href="../'+slug+'.html"'),'Wrong full-dossier link: '+path);
    assert(html.includes('id="verified-history-panel"'),'Canonical profile missing historical modules: '+path);
+   assert(html.includes('id="franchise-story"'),'Canonical profile missing franchise biography: '+path);
    for(const module of ['manager-historical-records.js','manager-verified-season-endings.js','manager-trophy-cases.js','espn-franchise-lineage.js']){
     assert(html.includes(module),'Historical profile script missing '+module+': '+path);
    }
