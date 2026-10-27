@@ -1,0 +1,240 @@
+{
+  "version": 2,
+  "asOf": "2026 Week 7",
+  "source": [
+    "data/manager_record_books_2016_2026.json",
+    "data/league.json championship ledger",
+    "data/espn_history_2016_2019.json verified final scores"
+  ],
+  "caveats": [
+    "Combined regular season totals based on archived games; some Sleeper archive may be incomplete.",
+    "2026 in progress.",
+    "Championship ledger 2020 onward retained as previously classified, not newly independently reverified."
+  ],
+  "managers": {
+    "Birch": {
+      "record": {
+        "games": 127,
+        "w": 72,
+        "l": 55,
+        "t": 0
+      },
+      "years": [
+        2017,
+        2026
+      ],
+      "titles": [
+        {
+          "year": 2019,
+          "source": "ESPN championship matchup"
+        }
+      ]
+    },
+    "Brandon Evans": {
+      "record": {
+        "games": 93,
+        "w": 43,
+        "l": 50,
+        "t": 0
+      },
+      "years": [
+        2016,
+        2022
+      ],
+      "titles": []
+    },
+    "Devon Halderman": {
+      "record": {
+        "games": 25,
+        "w": 12,
+        "l": 12,
+        "t": 1
+      },
+      "years": [
+        2016,
+        2017
+      ],
+      "titles": []
+    },
+    "JMid": {
+      "record": {
+        "games": 49,
+        "w": 24,
+        "l": 25,
+        "t": 0
+      },
+      "years": [
+        2023,
+        2026
+      ],
+      "titles": []
+    },
+    "Kuhl": {
+      "record": {
+        "games": 117,
+        "w": 51,
+        "l": 66,
+        "t": 0
+      },
+      "years": [
+        2018,
+        2026
+      ],
+      "titles": []
+    },
+    "Mitch": {
+      "record": {
+        "games": 116,
+        "w": 70,
+        "l": 46,
+        "t": 0
+      },
+      "years": [
+        2018,
+        2026
+      ],
+      "titles": []
+    },
+    "Schermerhorn": {
+      "record": {
+        "games": 25,
+        "w": 12,
+        "l": 13,
+        "t": 0
+      },
+      "years": [
+        2016,
+        2017
+      ],
+      "titles": []
+    },
+    "Scott": {
+      "record": {
+        "games": 35,
+        "w": 16,
+        "l": 19,
+        "t": 0
+      },
+      "years": [
+        2024,
+        2026
+      ],
+      "titles": [
+        {
+          "year": 2025,
+          "source": "existing Hall of Fame champion ledger"
+        }
+      ]
+    },
+    "Stew": {
+      "record": {
+        "games": 142,
+        "w": 66,
+        "l": 76,
+        "t": 0
+      },
+      "years": [
+        2016,
+        2026
+      ],
+      "titles": []
+    },
+    "Stilly": {
+      "record": {
+        "games": 142,
+        "w": 65,
+        "l": 77,
+        "t": 0
+      },
+      "years": [
+        2016,
+        2026
+      ],
+      "titles": [
+        {
+          "year": 2023,
+          "source": "existing Hall of Fame champion ledger"
+        }
+      ]
+    },
+    "Stover": {
+      "record": {
+        "games": 142,
+        "w": 75,
+        "l": 67,
+        "t": 0
+      },
+      "years": [
+        2016,
+        2026
+      ],
+      "titles": [
+        {
+          "year": 2022,
+          "source": "existing Hall of Fame champion ledger"
+        }
+      ]
+    },
+    "Thommy": {
+      "record": {
+        "games": 142,
+        "w": 67,
+        "l": 74,
+        "t": 1
+      },
+      "years": [
+        2016,
+        2026
+      ],
+      "titles": [
+        {
+          "year": 2016,
+          "source": "ESPN championship matchup"
+        },
+        {
+          "year": 2017,
+          "source": "ESPN championship matchup"
+        },
+        {
+          "year": 2018,
+          "source": "ESPN championship matchup"
+        },
+        {
+          "year": 2024,
+          "source": "existing Hall of Fame champion ledger"
+        }
+      ]
+    },
+    "Tony": {
+      "record": {
+        "games": 128,
+        "w": 72,
+        "l": 56,
+        "t": 0
+      },
+      "years": [
+        2017,
+        2026
+      ],
+      "titles": [
+        {
+          "year": 2021,
+          "source": "existing Hall of Fame champion ledger"
+        }
+      ]
+    },
+    "Trent Koble": {
+      "record": {
+        "games": 107,
+        "w": 49,
+        "l": 58,
+        "t": 0
+      },
+      "years": [
+        2016,
+        2023
+      ],
+      "titles": []
+    }
+  }
+}
