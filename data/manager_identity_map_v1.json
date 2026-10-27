@@ -1,5 +1,5 @@
 {
-  "version": "v1.1",
+  "version": "v1.2",
   "updated": "2026-10-27",
   "managers": {
     "Stover": {
@@ -173,5 +173,73 @@
     "Tom Schermerhorn",
     "Trent Koble"
   ],
-  "identityCaution": "Tom Schermerhorn is a former manager, NOT Thommy. Thommy is Zach Prescott. Keep historical former manager records separate."
+  "identityCaution": "Tom Schermerhorn is a former manager, NOT Thommy. Thommy is Zach Prescott. Keep historical former manager records separate. Alex Birch (Birch), Tony Steglich (Tony), and Mitch Huppert (Mitch) remain independent from every original owner.",
+  "additionalVerifiedManagers": [
+    {
+      "canonical": "Birch",
+      "realName": "Alex Birch",
+      "firstVerifiedSeason": 2017,
+      "espnHandles": [
+        "jaabir7182310"
+      ],
+      "sleeperHandles": [
+        "birchhh"
+      ],
+      "espnTeams": {
+        "2017": "Hogan's Heroes",
+        "2018": "HEY DARNOLD!",
+        "2019": "AP’s Daycare"
+      },
+      "status": "current"
+    },
+    {
+      "canonical": "Tony",
+      "realName": "Tony Steglich",
+      "firstVerifiedSeason": 2017,
+      "espnHandles": [
+        "TSteg8008"
+      ],
+      "sleeperHandles": [
+        "tsteg"
+      ],
+      "espnTeams": {
+        "2017": "Tittsburgh Feelers",
+        "2018": "Tittsburgh Feelers",
+        "2019": "Tittsburgh Feelers"
+      },
+      "currentTeam": "Bowers Castle",
+      "status": "current"
+    },
+    {
+      "canonical": "Mitch",
+      "realName": "Mitch Huppert",
+      "firstVerifiedSeason": 2018,
+      "espnHandles": [
+        "Mitch4480"
+      ],
+      "sleeperHandles": [
+        "huppdawg80"
+      ],
+      "espnTeams": {
+        "2018": "Mitchell The Bitchell",
+        "2019": "New England’s QB Room"
+      },
+      "status": "current"
+    },
+    {
+      "canonical": "Schermerhorn",
+      "realName": "Tom Schermerhorn",
+      "firstVerifiedSeason": 2016,
+      "lastVerifiedSeason": 2017,
+      "espnHandles": [
+        "wnchargers"
+      ],
+      "espnTeams": {
+        "2016": "Team Schermerhorn",
+        "2017": "Team Schermerhorn"
+      },
+      "status": "former",
+      "replacementNote": "Mitch Huppert joined in 2018 following Schermerhorn's final season. Separate owner accounts and franchise identities."
+    }
+  ]
 }
