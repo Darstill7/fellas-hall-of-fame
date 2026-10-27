@@ -177,69 +177,34 @@
   "additionalVerifiedManagers": [
     {
       "canonical": "Birch",
-      "realName": "Alex Birch",
-      "firstVerifiedSeason": 2017,
-      "espnHandles": [
-        "jaabir7182310"
-      ],
-      "sleeperHandles": [
-        "birchhh"
-      ],
-      "espnTeams": {
-        "2017": "Hogan's Heroes",
-        "2018": "HEY DARNOLD!",
-        "2019": "AP’s Daycare"
-      },
-      "status": "current"
+      "name": "Alex Birch",
+      "firstSeason": 2017,
+      "espn": "jaabir7182310",
+      "sleeper": "birchhh"
     },
     {
       "canonical": "Tony",
-      "realName": "Tony Steglich",
-      "firstVerifiedSeason": 2017,
-      "espnHandles": [
-        "TSteg8008"
-      ],
-      "sleeperHandles": [
-        "tsteg"
-      ],
-      "espnTeams": {
-        "2017": "Tittsburgh Feelers",
-        "2018": "Tittsburgh Feelers",
-        "2019": "Tittsburgh Feelers"
-      },
-      "currentTeam": "Bowers Castle",
-      "status": "current"
+      "name": "Tony Steglich",
+      "firstSeason": 2017,
+      "espn": "TSteg8008",
+      "sleeper": "tsteg",
+      "currentTeam": "Bowers Castle"
     },
     {
       "canonical": "Mitch",
-      "realName": "Mitch Huppert",
-      "firstVerifiedSeason": 2018,
-      "espnHandles": [
-        "Mitch4480"
-      ],
-      "sleeperHandles": [
-        "huppdawg80"
-      ],
-      "espnTeams": {
-        "2018": "Mitchell The Bitchell",
-        "2019": "New England’s QB Room"
-      },
-      "status": "current"
+      "name": "Mitch Huppert",
+      "firstSeason": 2018,
+      "espn": "Mitch4480",
+      "sleeper": "huppdawg80"
     },
     {
       "canonical": "Schermerhorn",
-      "realName": "Tom Schermerhorn",
-      "firstVerifiedSeason": 2016,
-      "lastVerifiedSeason": 2017,
-      "espnHandles": [
-        "wnchargers"
-      ],
-      "espnTeams": {
-        "2016": "Team Schermerhorn",
-        "2017": "Team Schermerhorn"
-      },
+      "name": "Tom Schermerhorn",
+      "firstSeason": 2016,
+      "lastSeason": 2017,
+      "espn": "wnchargers",
       "status": "former",
-      "replacementNote": "Mitch Huppert joined in 2018 following Schermerhorn's final season. Separate owner accounts and franchise identities."
+      "note": "Mitch started in 2018 as Schermerhorn departed; separate historical identities."
     }
   ]
 }
