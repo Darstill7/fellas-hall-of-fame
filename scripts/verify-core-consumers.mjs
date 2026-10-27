@@ -20,6 +20,10 @@ const legacyResumeRenderer=read('assets/legacy-resume.js');
 assert(legacyResumeRenderer.includes('data/career_core_generated.json'),'Legacy resume must use generated career WLT');
 assert(!legacyResumeRenderer.includes('esc(d.record)'),'Legacy resume still displays stale stored WLT');
 const weeklyRenderer=read('assets/manager-weekly-game-log.js');
+assert(weeklyRenderer.includes('data/unified_record_book_2016_2026.json'),'Weekly log must use unified ledger');
+assert(weeklyRenderer.includes('data/career_core_generated.json'),'Weekly log must use generated annual WLT');
+assert(!weeklyRenderer.includes('season_weekly_matchups_2016_2026_v1.json'),'Weekly log still reads duplicate season snapshot');
+
 assert(!weeklyRenderer.includes("&quot;':'&quot;"),'Weekly log contains invalid quote escaping syntax');
 const resumeRenderer=read('assets/manager-rivalry-resume.js');
 assert(resumeRenderer.includes('data/unified_record_book_2016_2026.json'),'Manager rivalry resumes must load canonical ledger');
