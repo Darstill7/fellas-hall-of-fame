@@ -78,6 +78,12 @@ try{
    }
    if(route.startsWith('managers/')&&route.endsWith('/')&&slugs.includes(route.split('/')[1])){
     const slug=route.split('/')[1];
+    const historyLink=page.locator('a[href="../'+slug+'.html#franchise-history-v915"]');
+    if(await historyLink.count()!==1)errors.push(width+' '+route+' missing deep link to historical player/waiver/trade dossier');
+    else{
+     const target=await page.request.get(new URL('../'+slug+'.html',baseUrl+route).toString());
+     if(target.ok()&&!(await target.text()).includes('id="franchise-history-v915"'))errors.push(width+' '+route+' historical dossier target anchor missing');
+    }
     const dossierLink=page.locator('a[href="../'+slug+'.html"]').first();
     if(await dossierLink.count()!==1)errors.push(width+' '+route+' full franchise dossier link missing');
     else{
