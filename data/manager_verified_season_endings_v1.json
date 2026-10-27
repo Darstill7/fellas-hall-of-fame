@@ -1,0 +1,653 @@
+{
+  "version": 1,
+  "method": "Finalist outcomes validated from ESPN championship games, Sleeper finalist outcomes from preexisting archived manager-season results. Other finishes not inferred from consolation or seeds.",
+  "source": [
+    "data/espn_history_2016_2019.json",
+    "data/manager_season_results_v1.json"
+  ],
+  "managers": {
+    "Stilly": [
+      {
+        "year": 2016,
+        "regular": "6-7",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2017,
+        "regular": "6-6",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2018,
+        "regular": "6-7",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2019,
+        "regular": "6-7",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2020,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2021,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2022,
+        "regular": "7-7",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2023,
+        "regular": "8-6",
+        "ending": "Champion",
+        "note": "Verified championship season",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2024,
+        "regular": "7-7",
+        "ending": "Runner-up",
+        "note": "Lost championship to Tom 114.88–205.30",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2025,
+        "regular": "6-8",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2026,
+        "regular": "3-4",
+        "ending": "Season in progress",
+        "note": "Record reflects archived 2026 snapshot through Week 7",
+        "source": "Sleeper reconstruction / championship ledger"
+      }
+    ],
+    "Stew": [
+      {
+        "year": 2016,
+        "regular": "6-7",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2017,
+        "regular": "5-7",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2018,
+        "regular": "7-6",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2019,
+        "regular": "9-4",
+        "ending": "Runner-up",
+        "note": "ESPN championship final: 114.14–109.42, opponent team ID 9",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2020,
+        "regular": "6-8",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2021,
+        "regular": "3-11",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2022,
+        "regular": "11-3",
+        "ending": "Runner-up",
+        "note": "Lost championship to Stover 48.16–99.22",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2023,
+        "regular": "3-11",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2024,
+        "regular": "6-8",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2025,
+        "regular": "6-8",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2026,
+        "regular": "4-3",
+        "ending": "Season in progress",
+        "note": "Record reflects archived 2026 snapshot through Week 7",
+        "source": "Sleeper reconstruction / championship ledger"
+      }
+    ],
+    "Thommy": [
+      {
+        "year": 2016,
+        "regular": "7-5-1",
+        "ending": "Champion",
+        "note": "ESPN championship final: 175–223, opponent team ID 2",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2017,
+        "regular": "8-4",
+        "ending": "Champion",
+        "note": "ESPN championship final: 241–212, opponent team ID 8",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2018,
+        "regular": "7-6",
+        "ending": "Champion",
+        "note": "ESPN championship final: 111.58–106.62, opponent team ID 9",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2019,
+        "regular": "2-11",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2020,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2021,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2022,
+        "regular": "7-7",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2023,
+        "regular": "6-8",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2024,
+        "regular": "9-5",
+        "ending": "Champion",
+        "note": "Verified championship season",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2025,
+        "regular": "8-6",
+        "ending": "Runner-up",
+        "note": "Lost championship to Scott 86.00–156.32",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2026,
+        "regular": "3-4",
+        "ending": "Season in progress",
+        "note": "Record reflects archived 2026 snapshot through Week 7",
+        "source": "Sleeper reconstruction / championship ledger"
+      }
+    ],
+    "Stover": [
+      {
+        "year": 2016,
+        "regular": "5-8",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2017,
+        "regular": "6-6",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2018,
+        "regular": "8-5",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2019,
+        "regular": "4-9",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2020,
+        "regular": "8-6",
+        "ending": "Postseason ending not verified",
+        "note": "Identity reconciled to Sleeper owner handle yogurtslinger15",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2021,
+        "regular": "11-3",
+        "ending": "Postseason ending not verified",
+        "note": "Identity reconciled to Sleeper owner handle yogurtslinger15",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2022,
+        "regular": "9-5",
+        "ending": "Champion",
+        "note": "Verified 2022 championship season; identity reconciled to Sleeper owner handle yogurtslinger15",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2023,
+        "regular": "6-8",
+        "ending": "Postseason ending not verified",
+        "note": "Identity reconciled to Sleeper owner handle yogurtslinger15",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2024,
+        "regular": "10-4",
+        "ending": "Postseason ending not verified",
+        "note": "Identity reconciled to Sleeper owner handle yogurtslinger15",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2025,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "Identity reconciled to Sleeper owner handle yogurtslinger15",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2026,
+        "regular": "3-4",
+        "ending": "Season in progress",
+        "note": "Record reflects archived 2026 snapshot through Week 7",
+        "source": "Sleeper reconstruction / championship ledger"
+      }
+    ],
+    "Birch": [
+      {
+        "year": 2017,
+        "regular": "5-7",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2018,
+        "regular": "6-7",
+        "ending": "Runner-up",
+        "note": "ESPN championship final: 111.58–106.62, opponent team ID 7",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2019,
+        "regular": "11-2",
+        "ending": "Champion",
+        "note": "ESPN championship final: 114.14–109.42, opponent team ID 3",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2020,
+        "regular": "9-4",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2021,
+        "regular": "11-2",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2022,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2023,
+        "regular": "7-7",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2024,
+        "regular": "7-7",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2025,
+        "regular": "6-8",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2026,
+        "regular": "5-2",
+        "ending": "Season in progress",
+        "note": "Record reflects archived 2026 snapshot through Week 7",
+        "source": "Sleeper reconstruction / championship ledger"
+      }
+    ],
+    "Tony": [
+      {
+        "year": 2017,
+        "regular": "6-6",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2018,
+        "regular": "8-5",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2019,
+        "regular": "8-5",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2020,
+        "regular": "4-10",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2021,
+        "regular": "10-3",
+        "ending": "Champion",
+        "note": "Verified championship season",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2022,
+        "regular": "6-8",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2023,
+        "regular": "10-4",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2024,
+        "regular": "7-7",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2025,
+        "regular": "8-6",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2026,
+        "regular": "5-2",
+        "ending": "Season in progress",
+        "note": "Record reflects archived 2026 snapshot through Week 7",
+        "source": "Sleeper reconstruction / championship ledger"
+      }
+    ],
+    "Mitch": [
+      {
+        "year": 2018,
+        "regular": "5-8",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2019,
+        "regular": "9-4",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2020,
+        "regular": "9-4",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2021,
+        "regular": "8-6",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2022,
+        "regular": "7-7",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2023,
+        "regular": "6-8",
+        "ending": "Runner-up",
+        "note": "Lost championship to Stilly 90.18–104.96",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2024,
+        "regular": "6-8",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2025,
+        "regular": "13-1",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2026,
+        "regular": "7-0",
+        "ending": "Season in progress",
+        "note": "Record reflects archived 2026 snapshot through Week 7",
+        "source": "Sleeper reconstruction / championship ledger"
+      }
+    ],
+    "Kuhl": [
+      {
+        "year": 2018,
+        "regular": "7-6",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2019,
+        "regular": "7-6",
+        "ending": "Finish not certified",
+        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
+        "source": "ESPN original"
+      },
+      {
+        "year": 2020,
+        "regular": "9-5",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2021,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2022,
+        "regular": "8-6",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2023,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2024,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2025,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction / championship ledger"
+      },
+      {
+        "year": 2026,
+        "regular": "0-7",
+        "ending": "Season in progress",
+        "note": "Record reflects archived 2026 snapshot through Week 7",
+        "source": "Sleeper reconstruction / championship ledger"
+      }
+    ],
+    "JMid": [
+      {
+        "year": 2023,
+        "regular": "9-5",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction"
+      },
+      {
+        "year": 2024,
+        "regular": "8-6",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction"
+      },
+      {
+        "year": 2025,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction"
+      },
+      {
+        "year": 2026,
+        "regular": "2-5",
+        "ending": "Season in progress",
+        "note": "Record reflects archived 2026 snapshot through Week 7",
+        "source": "Sleeper reconstruction"
+      }
+    ],
+    "Scott": [
+      {
+        "year": 2024,
+        "regular": "5-9",
+        "ending": "Postseason ending not verified",
+        "note": "",
+        "source": "Sleeper reconstruction"
+      },
+      {
+        "year": 2025,
+        "regular": "8-6",
+        "ending": "Champion",
+        "note": "Verified championship season",
+        "source": "Sleeper reconstruction"
+      },
+      {
+        "year": 2026,
+        "regular": "3-4",
+        "ending": "Season in progress",
+        "note": "Record reflects archived 2026 snapshot through Week 7",
+        "source": "Sleeper reconstruction"
+      }
+    ]
+  }
+}
