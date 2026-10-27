@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "through": 2025,
-  "method": "2016-2019 ESPN official records + 2020-2025 existing manager_season_results_v1 Sleeper reconstructed records. Excludes unfinished 2026. Not a certified complete all-manager career leaderboard.",
+  "method": "2016-2019 ESPN confirmed results plus 2020-2025 Sleeper reconstructed manager-season records (2026 excluded); Alex Birch and Tony start in 2017, Mitch in 2018.",
   "sourceEspn": "data/espn_history_2016_2019.json",
   "sourceSleeper": "data/manager_season_results_v1.json",
   "founders": [
@@ -415,6 +415,279 @@
         "losses": 63,
         "ties": 0,
         "pointsFor": 14476.16
+      }
+    },
+    {
+      "manager": "Birch",
+      "canonicalSleeper": "Birch",
+      "fullName": "Alex Birch",
+      "years": [
+        {
+          "year": 2017,
+          "era": "ESPN",
+          "wins": 5,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1022,
+          "coverage": "ESPN official"
+        },
+        {
+          "year": 2018,
+          "era": "ESPN",
+          "wins": 6,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1464.32,
+          "coverage": "ESPN official"
+        },
+        {
+          "year": 2019,
+          "era": "ESPN",
+          "wins": 11,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1624.5399999999997,
+          "coverage": "ESPN official"
+        },
+        {
+          "year": 2020,
+          "era": "Sleeper",
+          "wins": 9,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1593.54,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2021,
+          "era": "Sleeper",
+          "wins": 11,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1513.84,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2022,
+          "era": "Sleeper",
+          "wins": 5,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1352.88,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2023,
+          "era": "Sleeper",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1546.36,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2024,
+          "era": "Sleeper",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1528.8,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2025,
+          "era": "Sleeper",
+          "wins": 6,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1524.2,
+          "coverage": "reconstructed_regular_season"
+        }
+      ],
+      "total": {
+        "wins": 67,
+        "losses": 53,
+        "ties": 0,
+        "pointsFor": 13170.48
+      }
+    },
+    {
+      "manager": "Tony",
+      "canonicalSleeper": "Tony",
+      "fullName": "Tony Steglich",
+      "years": [
+        {
+          "year": 2017,
+          "era": "ESPN",
+          "wins": 6,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1052,
+          "coverage": "ESPN official"
+        },
+        {
+          "year": 2018,
+          "era": "ESPN",
+          "wins": 8,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1476.58,
+          "coverage": "ESPN official"
+        },
+        {
+          "year": 2019,
+          "era": "ESPN",
+          "wins": 8,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1435.8,
+          "coverage": "ESPN official"
+        },
+        {
+          "year": 2020,
+          "era": "Sleeper",
+          "wins": 4,
+          "losses": 10,
+          "ties": 0,
+          "pointsFor": 1551.68,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2021,
+          "era": "Sleeper",
+          "wins": 10,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1708.6,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2022,
+          "era": "Sleeper",
+          "wins": 6,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1551.82,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2023,
+          "era": "Sleeper",
+          "wins": 10,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1640.12,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2024,
+          "era": "Sleeper",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1520.22,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2025,
+          "era": "Sleeper",
+          "wins": 8,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1604.2,
+          "coverage": "reconstructed_regular_season"
+        }
+      ],
+      "total": {
+        "wins": 67,
+        "losses": 54,
+        "ties": 0,
+        "pointsFor": 13541.02
+      }
+    },
+    {
+      "manager": "Mitch",
+      "canonicalSleeper": "Mitch",
+      "fullName": "Mitch Huppert",
+      "years": [
+        {
+          "year": 2018,
+          "era": "ESPN",
+          "wins": 5,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1437.86,
+          "coverage": "ESPN official"
+        },
+        {
+          "year": 2019,
+          "era": "ESPN",
+          "wins": 9,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1548,
+          "coverage": "ESPN official"
+        },
+        {
+          "year": 2020,
+          "era": "Sleeper",
+          "wins": 9,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1650.42,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2021,
+          "era": "Sleeper",
+          "wins": 8,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1716,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2022,
+          "era": "Sleeper",
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1608.18,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2023,
+          "era": "Sleeper",
+          "wins": 6,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1575.92,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2024,
+          "era": "Sleeper",
+          "wins": 6,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1544.88,
+          "coverage": "reconstructed_regular_season"
+        },
+        {
+          "year": 2025,
+          "era": "Sleeper",
+          "wins": 13,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 1894.88,
+          "coverage": "reconstructed_regular_season"
+        }
+      ],
+      "total": {
+        "wins": 63,
+        "losses": 46,
+        "ties": 0,
+        "pointsFor": 12976.14
       }
     }
   ]
