@@ -11,5 +11,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify generated career and H2H data
+        run: node scripts/generate-career-core.mjs --check
+      - name: Verify historical season guide output
+        run: node scripts/generate-season-guide.mjs --check
+      - name: Reconcile source ledger to projections
+        run: node scripts/verify-ledger-projections.mjs
       - name: Verify records across published pages
         run: node scripts/verify-canonical-history.mjs
