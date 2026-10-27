@@ -14,6 +14,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Syntax-check audit and generation scripts
+        run: |
+          for file in scripts/generate-season-guide.mjs scripts/generate-career-core.mjs scripts/verify-ledger-projections.mjs scripts/verify-core-consumers.mjs scripts/verify-canonical-history.mjs scripts/audit-internal-links.mjs; do
+            node --check "$file"
+          done
+      - name: Inventory internal link issues (advisory)
+        run: node scripts/audit-internal-links.mjs
       - name: Verify generated career and H2H data
         run: node scripts/generate-career-core.mjs --check
       - name: Verify historical season guide output
