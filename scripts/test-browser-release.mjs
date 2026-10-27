@@ -79,7 +79,7 @@ try{
      if(!(await page.locator('#heading').innerText()).includes(chosen))errors.push(width+' Awards Show year selection not reflected');
     }
    }
-   if(/^managers\\/[a-z]+\\.html$/.test(route)){
+   if(route.startsWith('managers/')&&route.endsWith('.html')){
     const slug=route.slice('managers/'.length,-'.html'.length);
     const body=await page.locator('body').innerText();
     if(!body.includes('Franchise'))errors.push(width+' '+route+' missing legacy dossier content');
