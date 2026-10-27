@@ -82,7 +82,11 @@ try{
     if(await historyLink.count()!==1)errors.push(width+' '+route+' missing deep link to historical player/waiver/trade dossier');
     else{
      const target=await page.request.get(new URL('../'+slug+'.html',baseUrl+route).toString());
-     if(target.ok()&&!(await target.text()).includes('id="franchise-history-v915"'))errors.push(width+' '+route+' historical dossier target anchor missing');
+     if(!target.ok()||!(await target.text()).includes('id="franchise-history-v915"'))errors.push(width+' '+route+' historical dossier target unavailable');
+     await historyLink.click();
+     await page.waitForURL('**/managers/'+slug+'.html#franchise-history-v915',{timeout:5000});
+     if(!(await page.locator('#franchise-history-v915').isVisible()))errors.push(width+' '+route+' historical dossier fragment failed after click');
+     await page.goBack({waitUntil:'networkidle'});
     }
     const dossierLink=page.locator('a[href="../'+slug+'.html"]').first();
     if(await dossierLink.count()!==1)errors.push(width+' '+route+' full franchise dossier link missing');
