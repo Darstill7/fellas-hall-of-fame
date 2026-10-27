@@ -11,6 +11,12 @@ const h2hRenderer=read('assets/manager-h2h-explorer.js');
 assert(recordRenderer.includes('data/career_core_generated.json'),'Manager headlines must read generated career core');
 assert(h2hRenderer.includes('data/unified_record_book_2016_2026.json'),'Manager H2H must read canonical ledger');
 assert(!h2hRenderer.includes('2026 Weeks 1–6'),'Outdated rivalry coverage claim');
+const recordsPage=read('analytics/records.html');
+const warRoom=read('analytics/rivalry-war-room.html');
+assert(recordsPage.includes("fetch('../data/career_core_generated.json')"),'Primary career board must use generated records');
+assert(warRoom.includes("fetch('../data/unified_record_book_2016_2026.json')"),'Rivalry war room must use canonical game ledger');
+assert(!warRoom.includes("fetch('../data/all_rivalry_matchups_v3.json')"),'Rivalry war room still fetches legacy archive');
+
 for(const [slug,id] of Object.entries(managers)){
  assert(!!careers.managers[id],'Missing generated manager '+id);
  for(const path of ['managers/'+slug+'/index.html','managers/'+slug+'.html']){
