@@ -33,6 +33,10 @@ for(const [slug,id] of Object.entries(managers)){
   if(path.endsWith('/index.html')){
    assert(html.includes('id="full-franchise-dossier"'),'Canonical profile lacks detailed archive access: '+path);
    assert(html.includes('href="../'+slug+'.html"'),'Wrong full-dossier link: '+path);
+   assert(html.includes('id="verified-history-panel"'),'Canonical profile missing historical modules: '+path);
+   for(const module of ['manager-historical-records.js','manager-verified-season-endings.js','manager-trophy-cases.js','espn-franchise-lineage.js']){
+    assert(html.includes(module),'Historical profile script missing '+module+': '+path);
+   }
   }
  }
 }
@@ -44,5 +48,9 @@ for(const [id,m] of Object.entries(careers.managers)){
   const reverse=careers.managers[opponent]?.h2h?.[id];
   assert(!!reverse&&h.w===reverse.l&&h.l===reverse.w&&h.t===reverse.t&&h.games===reverse.games,'Asymmetric H2H: '+id+' / '+opponent);
  }
+}
+for(const path of ['assets/manager-historical-records.js','assets/manager-verified-season-endings.js','assets/manager-trophy-cases.js','assets/espn-franchise-lineage.js']){
+ const script=read(path);
+ assert(script.includes("location.pathname.endsWith('/index.html')"),'Historical module missing profile depth support: '+path);
 }
 console.log('Public core consumers verified for '+Object.keys(managers).length+' active managers and '+count+' regular-season games');
