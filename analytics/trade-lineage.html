@@ -1,0 +1,510 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trade Lineage — Fellas OS</title><meta name="theme-color" content="#071019">
+<style>
+:root{--bg:#071019;--panel:#10202e;--panel2:#152838;--line:#324b60;--text:#f6f1e4;--muted:#aebfca;--gold:#f0c976;--green:#9bd48f}
+*{box-sizing:border-box}html{overflow-x:hidden}body{margin:0;background:radial-gradient(circle at 15% 0,#1b3449,#071019 42%,#04080c);color:var(--text);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--gold)}nav{position:sticky;top:0;z-index:20;background:#071019ee;border-bottom:1px solid var(--line);padding:14px 20px;backdrop-filter:blur(14px)}nav a{margin-right:22px;text-decoration:none;font-weight:750}
+main{max-width:1180px;margin:auto;padding:36px 20px 90px}.eyebrow,.label{color:var(--gold);font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+h1{font-size:clamp(42px,7vw,78px);line-height:.94;letter-spacing:-.055em;margin:8px 0 14px}h2{font-size:30px;letter-spacing:-.03em;margin-top:44px}h3{font-size:22px;margin:7px 0}
+.lead{max-width:850px;color:#c5d2da;font-size:17px}.notice{margin:22px 0;padding:16px 18px;border:1px solid #806a3b;background:#211c10;border-radius:14px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:15px;padding:15px}.card p{color:#c0ced7}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:26px 0}.stats div{background:#0c1822;padding:18px}.stats b{display:block;font-size:30px}.stats small{color:var(--muted)}
+input{width:100%;padding:14px 15px;background:#0a151f;color:var(--text);border:1px solid var(--line);border-radius:12px;font:inherit;margin:8px 0 18px}
+.chain{border:1px solid var(--line);border-radius:14px;background:#0c1822;margin:10px 0;overflow:hidden}.chain summary{cursor:pointer;padding:15px 17px;display:flex;justify-content:space-between;gap:12px;align-items:center}.chain summary small{display:block;color:var(--muted);font-weight:500}.count{font-size:22px;color:var(--gold);font-weight:900}.route{padding:0 17px 15px;color:#c4d0d8}.scroll{overflow:auto;border-top:1px solid var(--line)}table{border-collapse:collapse;width:100%;min-width:800px}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #263b4c;font-size:12px}th{color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.tag{display:inline-block;border:1px solid #53697a;border-radius:999px;padding:3px 7px;color:#c9d5dc;font-size:10px}
+footer{margin-top:48px;color:#8499a8;border-top:1px solid var(--line);padding-top:18px}
+@media(max-width:850px){.grid{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr}.chain summary{align-items:flex-start}nav{overflow:auto;white-space:nowrap}}
+@media(max-width:520px){main{padding:25px 12px 70px}.grid{grid-template-columns:1fr}h1{font-size:48px}}
+</style></head><body>
+<nav><a href="../index.html">Fellas OS</a><a href="trades.html">Trade Engine</a><a href="trade-museum.html">Trade Museum</a><a href="../managers/stover.html">Manager Hall</a></nav>
+<main><div class="eyebrow">Fellas OS · Front Office Intelligence</div><h1>Trade Lineage</h1>
+<p class="lead">Follow the league's most-traveled assets across multiple trades. This is the first transaction-tree layer: who sent an asset, who received it, when it moved again, and which trade-side outcome followed each stop.</p>
+<div class="notice"><b>Read this correctly:</b> “Side edge,” starter points and starts belong to the entire receiving side of that trade—not automatically to the named player. Two-team senders are inferred from the reconstructed event; multi-team origins are deliberately left ambiguous. Keeper, waiver and draft afterlife are the next lineage layers.</div>
+<div class="stats"><div><b>40</b><small>assets traded at least twice</small></div><div><b>5</b><small>most trade appearances for one asset</small></div><div><b>36</b><small>clean two-team chains</small></div></div>
+<h2>Most-Traveled Assets</h2><div class="grid"><div class="card"><div class="label">5 trade appearances</div><h3>Ja'Marr Chase</h3><p>Stew → EvansBrandon → Stilly → JMid → Stilly</p><small>2022-11-10 to 2026-10-07</small></div><div class="card"><div class="label">4 trade appearances</div><h3>CeeDee Lamb</h3><p>Tony → Tom → Stew → Birch</p><small>2021-10-13 to 2023-10-12</small></div><div class="card"><div class="label">3 trade appearances</div><h3>J.K. Dobbins</h3><p>Stilly → Kuhl → JMid</p><small>2020-10-15 to 2026-09-30</small></div><div class="card"><div class="label">3 trade appearances</div><h3>Jordan Addison</h3><p>Stew → Tom → Stilly</p><small>2023-11-08 to 2025-11-12</small></div><div class="card"><div class="label">3 trade appearances</div><h3>Josh Jacobs</h3><p>Tom → Birch → Mitch</p><small>2021-08-30 to 2023-11-17</small></div><div class="card"><div class="label">3 trade appearances</div><h3>Leonard Fournette</h3><p>Kuhl → Stover → Tom</p><small>2021-09-27 to 2022-09-30</small></div><div class="card"><div class="label">3 trade appearances</div><h3>Derrick Henry</h3><p>Stilly → Stew → Kuhl</p><small>2023-10-26 to 2025-11-13</small></div><div class="card"><div class="label">3 trade appearances</div><h3>George Kittle</h3><p>Stilly → Kuhl → JMid</p><small>2020-11-03 to 2026-10-07</small></div></div>
+<h2>All Transaction Trees</h2><input id="q" aria-label="Search transaction trees" placeholder="Search player or manager…">
+<div id="chains"><details class="chain" data-search="ja'marr chase birch stew kuhl evansbrandon stilly jmid" open>
+<summary><span><b>Ja'Marr Chase</b><small>5 trades · 6 managers</small></span><span class="count">5×</span></summary>
+<div class="route">Birch → <b>Stew</b> · Kuhl → <b>EvansBrandon</b> · Stew → <b>Stilly</b> · ? → <b>JMid</b> · JMid → <b>Stilly</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2022 W10</td><td>Birch</td><td><b>Stew</b></td>
+<td>Ja'Marr Chase</td><td>10.4</td>
+<td><span class="tag">verified-recordbook</span></td></tr><tr>
+<td>2023 W14</td><td>Kuhl</td><td><b>EvansBrandon</b></td>
+<td>Ja'Marr Chase</td><td>-1.7</td>
+<td><span class="tag">verified-tenure</span></td></tr><tr>
+<td>2025 W3</td><td>Stew</td><td><b>Stilly</b></td>
+<td>Ja'Marr Chase, Chase Brown</td><td>-80.0</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2025 W11</td><td>Multi-team / unknown</td><td><b>JMid</b></td>
+<td>Ja'Marr Chase</td><td>—</td>
+<td><span class="tag">verified-recordbook</span></td></tr><tr>
+<td>2026 W5</td><td>JMid</td><td><b>Stilly</b></td>
+<td>Ja'Marr Chase, Devaughn Vele</td><td>-15.1</td>
+<td><span class="tag">verified-recordbook · provisional</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="ceedee lamb stilly tony tom kuhl stew birch" open>
+<summary><span><b>CeeDee Lamb</b><small>4 trades · 6 managers</small></span><span class="count">4×</span></summary>
+<div class="route">Stilly → <b>Tony</b> · Stilly → <b>Tom</b> · Kuhl → <b>Stew</b> · Stew → <b>Birch</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W6</td><td>Stilly</td><td><b>Tony</b></td>
+<td>CeeDee Lamb</td><td>86.4</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2022 W6</td><td>Stilly</td><td><b>Tom</b></td>
+<td>DK Metcalf, CeeDee Lamb, DeVonta Smith</td><td>55.0</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2023 W3</td><td>Kuhl</td><td><b>Stew</b></td>
+<td>CeeDee Lamb, Travis Etienne Jr.</td><td>-279.3</td>
+<td><span class="tag">verified-recordbook</span></td></tr><tr>
+<td>2023 W6</td><td>Stew</td><td><b>Birch</b></td>
+<td>CeeDee Lamb, Kenny Gainwell</td><td>158.6</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="j.k. dobbins tony stilly tom kuhl stew jmid" open>
+<summary><span><b>J.K. Dobbins</b><small>3 trades · 6 managers</small></span><span class="count">3×</span></summary>
+<div class="route">Tony → <b>Stilly</b> · Tom → <b>Kuhl</b> · Stew → <b>JMid</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2020 W6</td><td>Tony</td><td><b>Stilly</b></td>
+<td>Lamar Jackson, J.K. Dobbins</td><td>68.2</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2024 W1</td><td>Tom</td><td><b>Kuhl</b></td>
+<td>J.K. Dobbins</td><td>83.3</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2026 W4</td><td>Stew</td><td><b>JMid</b></td>
+<td>J.K. Dobbins, Christian Watson</td><td>37.0</td>
+<td><span class="tag">verified · provisional</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="jordan addison evansbrandon stew stover tom stilly" open>
+<summary><span><b>Jordan Addison</b><small>3 trades · 5 managers</small></span><span class="count">3×</span></summary>
+<div class="route">EvansBrandon → <b>Stew</b> · Stover → <b>Tom</b> · ? → <b>Stilly</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2023 W10</td><td>EvansBrandon</td><td><b>Stew</b></td>
+<td>Jordan Addison</td><td>-63.9</td>
+<td><span class="tag">verified-tenure</span></td></tr><tr>
+<td>2025 W3</td><td>Stover</td><td><b>Tom</b></td>
+<td>Jordan Addison</td><td>39.8</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2025 W11</td><td>Multi-team / unknown</td><td><b>Stilly</b></td>
+<td>Amon-Ra St. Brown, Jordan Addison, Jared Goff</td><td>—</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="josh jacobs tony tom birch stew mitch" >
+<summary><span><b>Josh Jacobs</b><small>3 trades · 5 managers</small></span><span class="count">3×</span></summary>
+<div class="route">Tony → <b>Tom</b> · Tom → <b>Birch</b> · Stew → <b>Mitch</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W1</td><td>Tony</td><td><b>Tom</b></td>
+<td>Tyreek Hill, Josh Jacobs, Javonte Williams</td><td>-81.4</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2021 W1</td><td>Tom</td><td><b>Birch</b></td>
+<td>Lamar Jackson, Mark Andrews, Josh Jacobs</td><td>213.0</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2023 W11</td><td>Stew</td><td><b>Mitch</b></td>
+<td>Justin Jefferson, Josh Jacobs</td><td>49.5</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="leonard fournette evansbrandon kuhl stover tony tom" >
+<summary><span><b>Leonard Fournette</b><small>3 trades · 5 managers</small></span><span class="count">3×</span></summary>
+<div class="route">EvansBrandon → <b>Kuhl</b> · Kuhl → <b>Stover</b> · Tony → <b>Tom</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W3</td><td>EvansBrandon</td><td><b>Kuhl</b></td>
+<td>Leonard Fournette, Patrick Mahomes, Brandon Aiyuk</td><td>-160.1</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2021 W5</td><td>Kuhl</td><td><b>Stover</b></td>
+<td>Leonard Fournette</td><td>95.7</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2022 W4</td><td>Tony</td><td><b>Tom</b></td>
+<td>Leonard Fournette</td><td>64.3</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="derrick henry tony stilly kuhl stew" >
+<summary><span><b>Derrick Henry</b><small>3 trades · 4 managers</small></span><span class="count">3×</span></summary>
+<div class="route">Tony → <b>Stilly</b> · Kuhl → <b>Stew</b> · Stew → <b>Kuhl</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2023 W8</td><td>Tony</td><td><b>Stilly</b></td>
+<td>Mike Evans, Derrick Henry</td><td>175.7</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2025 W2</td><td>Kuhl</td><td><b>Stew</b></td>
+<td>Derrick Henry</td><td>-97.6</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2025 W11</td><td>Stew</td><td><b>Kuhl</b></td>
+<td>Zach Ertz, Derrick Henry</td><td>14.0</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="george kittle stilly tony kuhl jmid" >
+<summary><span><b>George Kittle</b><small>3 trades · 4 managers</small></span><span class="count">3×</span></summary>
+<div class="route">? → <b>Stilly</b> · Tony → <b>Kuhl</b> · Stilly → <b>JMid</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2020 W8</td><td>Multi-team / unknown</td><td><b>Stilly</b></td>
+<td>George Kittle</td><td>—</td>
+<td><span class="tag">partial</span></td></tr><tr>
+<td>2021 W8</td><td>Tony</td><td><b>Kuhl</b></td>
+<td>Jarvis Landry, George Kittle</td><td>55.4</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2026 W5</td><td>Stilly</td><td><b>JMid</b></td>
+<td>Davante Adams, George Kittle, Breece Hall</td><td>15.1</td>
+<td><span class="tag">verified-recordbook · provisional</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="james robinson tony koble stew evansbrandon" >
+<summary><span><b>James Robinson</b><small>3 trades · 4 managers</small></span><span class="count">3×</span></summary>
+<div class="route">Tony → <b>Koble</b> · Stew → <b>EvansBrandon</b> · EvansBrandon → <b>Tony</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W4</td><td>Tony</td><td><b>Koble</b></td>
+<td>Zack Moss, James Robinson</td><td>-55.5</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2022 W3</td><td>Stew</td><td><b>EvansBrandon</b></td>
+<td>Mike Williams, James Conner, James Robinson</td><td>-1.9</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2022 W6</td><td>EvansBrandon</td><td><b>Tony</b></td>
+<td>A.J. Brown, James Robinson</td><td>-8.5</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="a.j. brown tom tony evansbrandon" >
+<summary><span><b>A.J. Brown</b><small>3 trades · 3 managers</small></span><span class="count">3×</span></summary>
+<div class="route">Tom → <b>Tony</b> · EvansBrandon → <b>Tony</b> · ? → <b>Tom</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W1</td><td>Tom</td><td><b>Tony</b></td>
+<td>Corey Davis, A.J. Brown, Jonathan Taylor</td><td>81.4</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2022 W6</td><td>EvansBrandon</td><td><b>Tony</b></td>
+<td>A.J. Brown, James Robinson</td><td>-8.5</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2025 W11</td><td>Multi-team / unknown</td><td><b>Tom</b></td>
+<td>A.J. Brown</td><td>—</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="amari cooper stew tom tony" >
+<summary><span><b>Amari Cooper</b><small>3 trades · 3 managers</small></span><span class="count">3×</span></summary>
+<div class="route">Stew → <b>Tom</b> · Stew → <b>Tony</b> · Tom → <b>Stew</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W6</td><td>Stew</td><td><b>Tom</b></td>
+<td>Amari Cooper</td><td>-5.8</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2023 W11</td><td>Stew</td><td><b>Tony</b></td>
+<td>Amari Cooper, Travis Etienne Jr.</td><td>-13.5</td>
+<td><span class="tag">verified-recordbook</span></td></tr><tr>
+<td>2024 W4</td><td>Tom</td><td><b>Stew</b></td>
+<td>Amari Cooper</td><td>31.8</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="brandon aiyuk evansbrandon kuhl tony tom" >
+<summary><span><b>Brandon Aiyuk</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">EvansBrandon → <b>Kuhl</b> · Tony → <b>Tom</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W3</td><td>EvansBrandon</td><td><b>Kuhl</b></td>
+<td>Leonard Fournette, Patrick Mahomes, Brandon Aiyuk</td><td>-160.1</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2024 W7</td><td>Tony</td><td><b>Tom</b></td>
+<td>Travis Kelce, Brandon Aiyuk</td><td>-109.6</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="breece hall tony stew stilly jmid" >
+<summary><span><b>Breece Hall</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Tony → <b>Stew</b> · Stilly → <b>JMid</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2023 W11</td><td>Tony</td><td><b>Stew</b></td>
+<td>Breece Hall</td><td>13.5</td>
+<td><span class="tag">verified-recordbook</span></td></tr><tr>
+<td>2026 W5</td><td>Stilly</td><td><b>JMid</b></td>
+<td>Davante Adams, George Kittle, Breece Hall</td><td>15.1</td>
+<td><span class="tag">verified-recordbook · provisional</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="davante adams stew stover stilly jmid" >
+<summary><span><b>Davante Adams</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Stew → <b>Stover</b> · Stilly → <b>JMid</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2024 W2</td><td>Stew</td><td><b>Stover</b></td>
+<td>Davante Adams</td><td>-32.4</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2026 W5</td><td>Stilly</td><td><b>JMid</b></td>
+<td>Davante Adams, George Kittle, Breece Hall</td><td>15.1</td>
+<td><span class="tag">verified-recordbook · provisional</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="de'von achane stew kuhl tom stilly" >
+<summary><span><b>De'Von Achane</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Stew → <b>Kuhl</b> · Tom → <b>Stilly</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2023 W3</td><td>Stew</td><td><b>Kuhl</b></td>
+<td>James Conner, De'Von Achane, Puka Nacua</td><td>279.3</td>
+<td><span class="tag">verified-recordbook</span></td></tr><tr>
+<td>2024 W3</td><td>Tom</td><td><b>Stilly</b></td>
+<td>Terry McLaurin, De'Von Achane, Tank Dell</td><td>198.0</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="devonta smith stover kuhl stilly tom" >
+<summary><span><b>DeVonta Smith</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Stover → <b>Kuhl</b> · Stilly → <b>Tom</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W5</td><td>Stover</td><td><b>Kuhl</b></td>
+<td>DeVonta Smith</td><td>-95.7</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2022 W6</td><td>Stilly</td><td><b>Tom</b></td>
+<td>DK Metcalf, CeeDee Lamb, DeVonta Smith</td><td>55.0</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="gabe davis tony evansbrandon mitch stew" >
+<summary><span><b>Gabe Davis</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Tony → <b>EvansBrandon</b> · Mitch → <b>Stew</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2022 W6</td><td>Tony</td><td><b>EvansBrandon</b></td>
+<td>Alvin Kamara, Gabe Davis</td><td>8.5</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2023 W11</td><td>Mitch</td><td><b>Stew</b></td>
+<td>Gabe Davis</td><td>-49.5</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="joe mixon koble tony stew evansbrandon" >
+<summary><span><b>Joe Mixon</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Koble → <b>Tony</b> · Stew → <b>EvansBrandon</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W4</td><td>Koble</td><td><b>Tony</b></td>
+<td>Joe Mixon</td><td>55.5</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2023 W10</td><td>Stew</td><td><b>EvansBrandon</b></td>
+<td>Joe Mixon</td><td>63.9</td>
+<td><span class="tag">verified-tenure</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="jonathan taylor tom tony mitch stilly" >
+<summary><span><b>Jonathan Taylor</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Tom → <b>Tony</b> · Mitch → <b>Stilly</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W1</td><td>Tom</td><td><b>Tony</b></td>
+<td>Corey Davis, A.J. Brown, Jonathan Taylor</td><td>81.4</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2022 W2</td><td>Mitch</td><td><b>Stilly</b></td>
+<td>Jonathan Taylor</td><td>-202.8</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="keenan allen kuhl evansbrandon tom stilly" >
+<summary><span><b>Keenan Allen</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Kuhl → <b>EvansBrandon</b> · Tom → <b>Stilly</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W3</td><td>Kuhl</td><td><b>EvansBrandon</b></td>
+<td>Aaron Rodgers, Keenan Allen</td><td>160.1</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2022 W6</td><td>Tom</td><td><b>Stilly</b></td>
+<td>Keenan Allen, Tee Higgins, Najee Harris</td><td>-55.0</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="lamar jackson tony stilly tom birch" >
+<summary><span><b>Lamar Jackson</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Tony → <b>Stilly</b> · Tom → <b>Birch</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2020 W6</td><td>Tony</td><td><b>Stilly</b></td>
+<td>Lamar Jackson, J.K. Dobbins</td><td>68.2</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2021 W1</td><td>Tom</td><td><b>Birch</b></td>
+<td>Lamar Jackson, Mark Andrews, Josh Jacobs</td><td>213.0</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="mike evans tony stilly tom stover" >
+<summary><span><b>Mike Evans</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Tony → <b>Stilly</b> · Tom → <b>Stover</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2023 W8</td><td>Tony</td><td><b>Stilly</b></td>
+<td>Mike Evans, Derrick Henry</td><td>175.7</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2025 W3</td><td>Tom</td><td><b>Stover</b></td>
+<td>Mike Evans</td><td>-39.8</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="saquon barkley kuhl stew stilly mitch" >
+<summary><span><b>Saquon Barkley</b><small>2 trades · 4 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Kuhl → <b>Stew</b> · Stilly → <b>Mitch</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W2</td><td>Kuhl</td><td><b>Stew</b></td>
+<td>Kenyan Drake, Saquon Barkley</td><td>16.0</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2022 W2</td><td>Stilly</td><td><b>Mitch</b></td>
+<td>Adam Thielen, Saquon Barkley</td><td>202.8</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="alvin kamara tom tony evansbrandon" >
+<summary><span><b>Alvin Kamara</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Tom → <b>Tony</b> · Tony → <b>EvansBrandon</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2022 W4</td><td>Tom</td><td><b>Tony</b></td>
+<td>Alvin Kamara</td><td>-64.3</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2022 W6</td><td>Tony</td><td><b>EvansBrandon</b></td>
+<td>Alvin Kamara, Gabe Davis</td><td>8.5</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="antonio gibson birch tom stew" >
+<summary><span><b>Antonio Gibson</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Birch → <b>Tom</b> · Tom → <b>Stew</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W1</td><td>Birch</td><td><b>Tom</b></td>
+<td>Dak Prescott, Noah Fant, Antonio Gibson</td><td>-213.0</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2021 W6</td><td>Tom</td><td><b>Stew</b></td>
+<td>Antonio Gibson</td><td>5.8</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="chase brown tom stilly stew" >
+<summary><span><b>Chase Brown</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Tom → <b>Stilly</b> · Stew → <b>Stilly</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2024 W4</td><td>Tom</td><td><b>Stilly</b></td>
+<td>Chase Brown</td><td>-20.2</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2025 W3</td><td>Stew</td><td><b>Stilly</b></td>
+<td>Ja'Marr Chase, Chase Brown</td><td>-80.0</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="christian watson kuhl stew jmid" >
+<summary><span><b>Christian Watson</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Kuhl → <b>Stew</b> · Stew → <b>JMid</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2026 W4</td><td>Kuhl</td><td><b>Stew</b></td>
+<td>Christian Watson, Drake Maye</td><td>28.5</td>
+<td><span class="tag">verified · provisional</span></td></tr><tr>
+<td>2026 W4</td><td>Stew</td><td><b>JMid</b></td>
+<td>J.K. Dobbins, Christian Watson</td><td>37.0</td>
+<td><span class="tag">verified · provisional</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="clyde edwards-helaire stew stover kuhl" >
+<summary><span><b>Clyde Edwards-Helaire</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Stew → <b>Stover</b> · Stew → <b>Kuhl</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2020 W9</td><td>Stew</td><td><b>Stover</b></td>
+<td>D.J. Moore, Clyde Edwards-Helaire</td><td>-8.1</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2021 W2</td><td>Stew</td><td><b>Kuhl</b></td>
+<td>Nyheim Miller-Hines, Clyde Edwards-Helaire, Ty'Son Williams</td><td>-16.0</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="cooper kupp stilly tony tom" >
+<summary><span><b>Cooper Kupp</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Stilly → <b>Tony</b> · Tom → <b>Tony</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2023 W8</td><td>Stilly</td><td><b>Tony</b></td>
+<td>Cooper Kupp</td><td>-175.7</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2024 W7</td><td>Tom</td><td><b>Tony</b></td>
+<td>Cooper Kupp, Kareem Hunt, Rico Dowdle</td><td>109.6</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="cordarrelle patterson evansbrandon stew birch" >
+<summary><span><b>Cordarrelle Patterson</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">EvansBrandon → <b>Stew</b> · Stew → <b>Birch</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2022 W3</td><td>EvansBrandon</td><td><b>Stew</b></td>
+<td>Cordarrelle Patterson, Justin Jefferson</td><td>1.9</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2022 W10</td><td>Stew</td><td><b>Birch</b></td>
+<td>Cordarrelle Patterson, Jeff Wilson, Chase Claypool</td><td>-10.4</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="james conner stew evansbrandon kuhl" >
+<summary><span><b>James Conner</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Stew → <b>EvansBrandon</b> · Stew → <b>Kuhl</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2022 W3</td><td>Stew</td><td><b>EvansBrandon</b></td>
+<td>Mike Williams, James Conner, James Robinson</td><td>-1.9</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2023 W3</td><td>Stew</td><td><b>Kuhl</b></td>
+<td>James Conner, De'Von Achane, Puka Nacua</td><td>279.3</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="justin jefferson evansbrandon stew mitch" >
+<summary><span><b>Justin Jefferson</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">EvansBrandon → <b>Stew</b> · Stew → <b>Mitch</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2022 W3</td><td>EvansBrandon</td><td><b>Stew</b></td>
+<td>Cordarrelle Patterson, Justin Jefferson</td><td>1.9</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2023 W11</td><td>Stew</td><td><b>Mitch</b></td>
+<td>Justin Jefferson, Josh Jacobs</td><td>49.5</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="kareem hunt tony stilly tom" >
+<summary><span><b>Kareem Hunt</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Tony → <b>Stilly</b> · Tom → <b>Tony</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W6</td><td>Tony</td><td><b>Stilly</b></td>
+<td>Kareem Hunt</td><td>-86.4</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2024 W7</td><td>Tom</td><td><b>Tony</b></td>
+<td>Cooper Kupp, Kareem Hunt, Rico Dowdle</td><td>109.6</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="ladd mcconkey scott stew kuhl" >
+<summary><span><b>Ladd McConkey</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Scott → <b>Stew</b> · Stew → <b>Kuhl</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2026 W1</td><td>Scott</td><td><b>Stew</b></td>
+<td>Ladd McConkey</td><td>-34.7</td>
+<td><span class="tag">verified · provisional</span></td></tr><tr>
+<td>2026 W4</td><td>Stew</td><td><b>Kuhl</b></td>
+<td>Jalen Hurts, Ladd McConkey</td><td>-28.5</td>
+<td><span class="tag">verified · provisional</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="mark andrews tom birch stew" >
+<summary><span><b>Mark Andrews</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Tom → <b>Birch</b> · Stew → <b>Tom</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2021 W1</td><td>Tom</td><td><b>Birch</b></td>
+<td>Lamar Jackson, Mark Andrews, Josh Jacobs</td><td>213.0</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2024 W4</td><td>Stew</td><td><b>Tom</b></td>
+<td>Mark Andrews, Rico Dowdle</td><td>-31.8</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="rico dowdle stew tom tony" >
+<summary><span><b>Rico Dowdle</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Stew → <b>Tom</b> · Tom → <b>Tony</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2024 W4</td><td>Stew</td><td><b>Tom</b></td>
+<td>Mark Andrews, Rico Dowdle</td><td>-31.8</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2024 W7</td><td>Tom</td><td><b>Tony</b></td>
+<td>Cooper Kupp, Kareem Hunt, Rico Dowdle</td><td>109.6</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="tank dell kuhl tom stilly" >
+<summary><span><b>Tank Dell</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Kuhl → <b>Tom</b> · Tom → <b>Stilly</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2024 W1</td><td>Kuhl</td><td><b>Tom</b></td>
+<td>Tank Dell</td><td>-83.3</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2024 W3</td><td>Tom</td><td><b>Stilly</b></td>
+<td>Terry McLaurin, De'Von Achane, Tank Dell</td><td>198.0</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="travis etienne jr. kuhl stew tony" >
+<summary><span><b>Travis Etienne Jr.</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Kuhl → <b>Stew</b> · Stew → <b>Tony</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2023 W3</td><td>Kuhl</td><td><b>Stew</b></td>
+<td>CeeDee Lamb, Travis Etienne Jr.</td><td>-279.3</td>
+<td><span class="tag">verified-recordbook</span></td></tr><tr>
+<td>2023 W11</td><td>Stew</td><td><b>Tony</b></td>
+<td>Amari Cooper, Travis Etienne Jr.</td><td>-13.5</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="travis kelce tom stilly tony" >
+<summary><span><b>Travis Kelce</b><small>2 trades · 3 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Tom → <b>Stilly</b> · Tony → <b>Tom</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2020 W3</td><td>Tom</td><td><b>Stilly</b></td>
+<td>DeSean Jackson, Travis Kelce, Marquise Brown</td><td>23.8</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2024 W7</td><td>Tony</td><td><b>Tom</b></td>
+<td>Travis Kelce, Brandon Aiyuk</td><td>-109.6</td>
+<td><span class="tag">verified-recordbook</span></td></tr></tbody></table></div>
+</details>
+<details class="chain" data-search="tee higgins tom stilly" >
+<summary><span><b>Tee Higgins</b><small>2 trades · 2 managers</small></span><span class="count">2×</span></summary>
+<div class="route">Tom → <b>Stilly</b> · Stilly → <b>Tom</b></div>
+<div class="scroll"><table><thead><tr><th>When</th><th>From*</th><th>To</th><th>Receiving side</th><th>Side edge</th><th>Source</th></tr></thead><tbody><tr>
+<td>2022 W6</td><td>Tom</td><td><b>Stilly</b></td>
+<td>Keenan Allen, Tee Higgins, Najee Harris</td><td>-55.0</td>
+<td><span class="tag">verified</span></td></tr><tr>
+<td>2024 W3</td><td>Stilly</td><td><b>Tom</b></td>
+<td>Christian McCaffrey, Diontae Johnson, Tee Higgins</td><td>-198.0</td>
+<td><span class="tag">verified</span></td></tr></tbody></table></div>
+</details></div>
+<footer>Trade Lineage v1 · source: reconstructed v9 Trade Engine · updated October 27, 2026. Trade-to-trade provenance only; no unsupported keeper or waiver inference.</footer>
+</main><script>
+const q=document.getElementById('q');const chains=[...document.querySelectorAll('.chain')];
+q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();for(const c of chains)c.hidden=v&&!c.dataset.search.includes(v)});
+</script></body></html>
