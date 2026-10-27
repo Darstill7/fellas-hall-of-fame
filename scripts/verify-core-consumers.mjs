@@ -11,6 +11,13 @@ const h2hRenderer=read('assets/manager-h2h-explorer.js');
 assert(recordRenderer.includes('data/career_core_generated.json'),'Manager headlines must read generated career core');
 assert(h2hRenderer.includes('data/unified_record_book_2016_2026.json'),'Manager H2H must read canonical ledger');
 assert(!h2hRenderer.includes('2026 Weeks 1–6'),'Outdated rivalry coverage claim');
+const rivalryRenderer=read('assets/rivalry-archive-v3.js');
+assert(rivalryRenderer.includes("data/unified_record_book_2016_2026.json"),'Rivalry cards and pair pages must load game ledger');
+assert(!rivalryRenderer.includes("data/all_rivalry_matchups_v3.json"),'Rivalry renderer still uses legacy archive');
+assert(!rivalryRenderer.includes('2026 Weeks 1–6'),'Rivalry renderer uses outdated Week 6 coverage');
+for(const path of ['rivalries/stilly-vs-tony.html','rivalries/stilly-vs-tony/index.html','analytics/rivalries.html']){
+ assert(read(path).includes('rivalry-archive-v3.js'),'Shared rivalry renderer missing from '+path);
+}
 const recordsPage=read('analytics/records.html');
 const warRoom=read('analytics/rivalry-war-room.html');
 assert(recordsPage.includes("fetch('../data/career_core_generated.json')"),'Primary career board must use generated records');
