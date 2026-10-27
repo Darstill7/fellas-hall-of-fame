@@ -34,7 +34,9 @@ for(const p of ['analytics/records.html','analytics/records-archive.html']){
   check(!!x&&x.w===m.regular.w&&x.l===m.regular.l,p+' has stale career record for '+id);
  }
 }
+const matchups=json('data/unified_record_book_2016_2026.json').games;
 const games=seasons.seasonYears.reduce((sum,y)=>sum+seasons.bySeason[y].games.length,0);
-check(games===799,'Unexpected archived game count: '+games);
+check(games===matchups.length,'Archived game count differs from the unified matchup source: '+games+' vs '+matchups.length);
+for(const year of seasons.seasonYears){const expected=matchups.filter(g=>g.year===year&&g.stage==='regular').length;check(seasons.bySeason[year].regularGames===expected,'Mismatch in regular season game count for '+year)}
 if(problems.length){console.error('Canonical Fellas data audit FAILED:');problems.forEach(p=>console.error(' - '+p));process.exit(1)}
 console.log('Canonical Fellas data audit PASS: 10 manager profiles (both URLs), 10 shared careers, annual totals and primary records boards consistent through 2026 Week 7.');
