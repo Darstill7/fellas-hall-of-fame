@@ -1,0 +1,73 @@
+{
+  "season": 2026,
+  "week": 7,
+  "status": "final",
+  "as_of": "2026-10-27",
+  "matchups": [
+    {
+      "winner": "Mitch",
+      "winner_points": 119.98,
+      "loser": "Stilly",
+      "loser_points": 115.12,
+      "margin": 4.86
+    },
+    {
+      "winner": "JMid",
+      "winner_points": 127.28,
+      "loser": "Birch",
+      "loser_points": 73.3,
+      "margin": 53.98
+    },
+    {
+      "winner": "Tom",
+      "winner_points": 133.12,
+      "loser": "Kuhl",
+      "loser_points": 100.3,
+      "margin": 32.82
+    },
+    {
+      "winner": "Stew",
+      "winner_points": 110.14,
+      "loser": "Scott",
+      "loser_points": 106.22,
+      "margin": 3.92
+    },
+    {
+      "winner": "Tony",
+      "winner_points": 112.12,
+      "loser": "Stover",
+      "loser_points": 111.2,
+      "margin": 0.92
+    }
+  ],
+  "weekly_high": {
+    "manager": "Tom",
+    "points": 133.12
+  },
+  "weekly_low": {
+    "manager": "Birch",
+    "points": 73.3
+  },
+  "closest_game": {
+    "winner": "Tony",
+    "loser": "Stover",
+    "margin": 0.92
+  },
+  "all_play": {
+    "Tom": "9-0",
+    "JMid": "8-1",
+    "Mitch": "7-2",
+    "Stilly": "6-3",
+    "Tony": "5-4",
+    "Stover": "4-5",
+    "Stew": "3-6",
+    "Scott": "2-7",
+    "Kuhl": "1-8",
+    "Birch": "0-9"
+  },
+  "notes": [
+    "Mitch improved to 7-0.",
+    "Kuhl fell to 0-7.",
+    "Tony-Stover was the closest 2026 game through Week 7."
+  ]
+}
