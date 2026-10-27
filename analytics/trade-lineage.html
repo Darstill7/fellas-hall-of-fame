@@ -503,8 +503,27 @@ footer{margin-top:48px;color:#8499a8;border-top:1px solid var(--line);padding-to
 <td>Christian McCaffrey, Diontae Johnson, Tee Higgins</td><td>-198.0</td>
 <td><span class="tag">verified</span></td></tr></tbody></table></div>
 </details></div>
-<footer>Trade Lineage v1 · source: reconstructed v9 Trade Engine · updated October 27, 2026. Trade-to-trade provenance only; no unsupported keeper or waiver inference.</footer>
-</main><script>
+<footer>Trade Lineage v2 · source: reconstructed v9 Trade Engine · updated October 27, 2026. Includes separate draft, keeper, add/waiver, and starter-lineup evidence trails; continuity not presumed.</footer>
+<section class="notice" id="afterlife"><div class="label">Phase 2 · The Asset Afterlife</div><h2 style="margin:8px 0">Drafts, Keepers, Waivers &amp; Starter Production</h2><p>Select a player to see corroborating draft and keeper records, waiver/add receipts, and credited starting-lineup production by manager and season. These are <strong>linked evidence trails</strong> rather than a claim that every event descended from the preceding trade.</p><select id="afterlife-player" aria-label="Select a player" style="width:100%;padding:12px;background:#0a151f;border:1px solid #53697a;border-radius:10px;color:#f6f1e4"></select><div id="afterlife-details" aria-live="polite"></div><small>Waiver/add records preserve original team IDs where historical manager assignment is not independently certified. Regular-season starter production is not equivalent to player-specific trade ROI.</small></section>
+<script>
+fetch('../data/trade_lineage_v2.json').then(r=>{if(!r.ok)throw Error('Archive unavailable');return r.json()}).then(db=>{
+ const sel=document.getElementById('afterlife-player'),out=document.getElementById('afterlife-details');
+ const q=new URLSearchParams(location.search).get('player');
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ for(const c of db.chains){let o=document.createElement('option');o.value=c.asset;o.textContent=c.asset;sel.append(o)}
+ if(q&&db.chains.some(c=>c.asset.toLowerCase()===q.toLowerCase()))sel.value=db.chains.find(c=>c.asset.toLowerCase()===q.toLowerCase()).asset;
+ function render(){
+ const c=db.chains.find(x=>x.asset===sel.value);if(!c)return;
+ const table=(rows,heads,fn)=>rows.length?'<div class="scroll"><table><thead><tr>'+heads.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+fn(r).map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>':'<p class="lead" style="font-size:13px">No matching receipts in this archived source.</p>';
+ out.innerHTML='<h3>'+esc(c.asset)+' · documented afterlife</h3>'+
+ '<h3>Draft &amp; keeper evidence ('+c.draft_history.length+')</h3>'+table(c.draft_history,['Year','Manager','Round / pick','Keeper'],r=>[r.year,r.manager,r.round+' / '+r.overall,r.keeper?'Yes':'No'])+
+ '<h3>Waiver &amp; free-agent adds ('+c.add_waiver_receipts.length+')</h3>'+table(c.add_waiver_receipts,['Date','Type','Week','Roster ID'],r=>[r.date,r.type,r.week,r.teamIds.join(', ')])+
+ '<h3>Credited starting-lineup seasons ('+c.credited_starter_seasons.length+')</h3>'+table(c.credited_starter_seasons,['Year','Manager','Starts','Points'],r=>[r.year,r.manager,r.starts,Number(r.points).toFixed(2)])+
+ '<p style="color:#c8d5dc;font-size:12px">Trade events: '+c.trade_count+'. These sources do not independently prove continuous ownership, trade-derived championships, or attributable downstream WAR.</p>';
+ }
+ sel.addEventListener('change',render);render();
+}).catch(()=>{document.getElementById('afterlife-details').textContent='Unable to load asset-afterlife archive.'});
+</script></main><script>
 const q=document.getElementById('q');const chains=[...document.querySelectorAll('.chain')];
 q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();for(const c of chains)c.hidden=v&&!c.dataset.search.includes(v)});
 </script></body></html>
