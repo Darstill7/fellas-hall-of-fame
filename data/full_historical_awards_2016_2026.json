@@ -1,0 +1,881 @@
+{
+  "version": 3,
+  "through": "2026 Week 7",
+  "source": "data/unified_record_book_2016_2026.json and data/league.json champion ledger",
+  "method": "Recover regular-season scores and standings. Champion credit existing ledger; original ESPN winners verified separately. 2026 is provisional, not a finished award.",
+  "caveats": [
+    "ESPN and Sleeper raw points are not scoring-normalized.",
+    "2020/2021 Week14 playoff byes are verified.",
+    "Draft, trade, waiver, and player awards require separate transaction-level evidence.",
+    "Points against total is not adjusted for number of games."
+  ],
+  "seasons": [
+    {
+      "year": 2016,
+      "status": "complete",
+      "regularGames": 52,
+      "teams": 8,
+      "champion": "Thommy",
+      "awards": {
+        "pointsKing": {
+          "manager": "Devon Halderman",
+          "played": 13,
+          "w": 8,
+          "l": 4,
+          "t": 1,
+          "pf": 1472,
+          "pa": 1216
+        },
+        "bestRecord": {
+          "manager": "Devon Halderman",
+          "played": 13,
+          "w": 8,
+          "l": 4,
+          "t": 1,
+          "pf": 1472,
+          "pa": 1216
+        },
+        "pointsAgainstLeader": {
+          "manager": "Stover",
+          "played": 13,
+          "w": 5,
+          "l": 8,
+          "t": 0,
+          "pf": 1144,
+          "pa": 1366
+        },
+        "highestWeek": {
+          "manager": "Devon Halderman",
+          "points": 170,
+          "opponent": "Trent Koble",
+          "week": 5
+        },
+        "lowestWeek": {
+          "manager": "Stover",
+          "points": 51,
+          "opponent": "Trent Koble",
+          "week": 6
+        },
+        "biggestBlowout": {
+          "year": 2016,
+          "week": 5,
+          "home": "Trent Koble",
+          "away": "Devon Halderman",
+          "homeScore": 70,
+          "awayScore": 170,
+          "winner": "Devon Halderman",
+          "margin": 100,
+          "stage": "regular",
+          "era": "ESPN",
+          "source": "espn_history_2016_2019",
+          "loser": "Trent Koble"
+        },
+        "closestFinish": {
+          "year": 2016,
+          "week": 13,
+          "home": "Devon Halderman",
+          "away": "Thommy",
+          "homeScore": 121,
+          "awayScore": 121,
+          "winner": "TIE",
+          "margin": 0,
+          "stage": "regular",
+          "era": "ESPN",
+          "source": "espn_history_2016_2019"
+        }
+      }
+    },
+    {
+      "year": 2017,
+      "status": "complete",
+      "regularGames": 60,
+      "teams": 10,
+      "champion": "Thommy",
+      "awards": {
+        "pointsKing": {
+          "manager": "Thommy",
+          "played": 12,
+          "w": 8,
+          "l": 4,
+          "t": 0,
+          "pf": 1241,
+          "pa": 1092
+        },
+        "bestRecord": {
+          "manager": "Thommy",
+          "played": 12,
+          "w": 8,
+          "l": 4,
+          "t": 0,
+          "pf": 1241,
+          "pa": 1092
+        },
+        "pointsAgainstLeader": {
+          "manager": "Stew",
+          "played": 12,
+          "w": 5,
+          "l": 7,
+          "t": 0,
+          "pf": 984,
+          "pa": 1151
+        },
+        "highestWeek": {
+          "manager": "Stilly",
+          "points": 149,
+          "opponent": "Stew",
+          "week": 1
+        },
+        "lowestWeek": {
+          "manager": "Tony",
+          "points": 44,
+          "opponent": "Thommy",
+          "week": 1
+        },
+        "biggestBlowout": {
+          "year": 2017,
+          "week": 9,
+          "home": "Thommy",
+          "away": "Birch",
+          "homeScore": 148,
+          "awayScore": 63,
+          "winner": "Thommy",
+          "margin": 85,
+          "stage": "regular",
+          "era": "ESPN",
+          "source": "espn_history_2016_2019",
+          "loser": "Birch"
+        },
+        "closestFinish": {
+          "year": 2017,
+          "week": 9,
+          "home": "Tony",
+          "away": "Stilly",
+          "homeScore": 63,
+          "awayScore": 64,
+          "winner": "AWAY",
+          "margin": 1,
+          "stage": "regular",
+          "era": "ESPN",
+          "source": "espn_history_2016_2019"
+        }
+      }
+    },
+    {
+      "year": 2018,
+      "status": "complete",
+      "regularGames": 65,
+      "teams": 10,
+      "champion": "Thommy",
+      "awards": {
+        "pointsKing": {
+          "manager": "Tony",
+          "played": 13,
+          "w": 8,
+          "l": 5,
+          "t": 0,
+          "pf": 1476.58,
+          "pa": 1253.58
+        },
+        "bestRecord": {
+          "manager": "Tony",
+          "played": 13,
+          "w": 8,
+          "l": 5,
+          "t": 0,
+          "pf": 1476.58,
+          "pa": 1253.58
+        },
+        "pointsAgainstLeader": {
+          "manager": "Stilly",
+          "played": 13,
+          "w": 6,
+          "l": 7,
+          "t": 0,
+          "pf": 1273.36,
+          "pa": 1482.12
+        },
+        "highestWeek": {
+          "manager": "Tony",
+          "points": 159.58,
+          "opponent": "Stilly",
+          "week": 2
+        },
+        "lowestWeek": {
+          "manager": "Stilly",
+          "points": 56.14,
+          "opponent": "Tony",
+          "week": 11
+        },
+        "biggestBlowout": {
+          "year": 2018,
+          "week": 2,
+          "home": "Stilly",
+          "away": "Tony",
+          "homeScore": 72.34,
+          "awayScore": 159.58,
+          "winner": "Tony",
+          "margin": 87.24,
+          "stage": "regular",
+          "era": "ESPN",
+          "source": "espn_history_2016_2019",
+          "loser": "Stilly"
+        },
+        "closestFinish": {
+          "year": 2018,
+          "week": 7,
+          "home": "Stew",
+          "away": "Thommy",
+          "homeScore": 142.76,
+          "awayScore": 142.92,
+          "winner": "AWAY",
+          "margin": 0.16,
+          "stage": "regular",
+          "era": "ESPN",
+          "source": "espn_history_2016_2019"
+        }
+      }
+    },
+    {
+      "year": 2019,
+      "status": "complete",
+      "regularGames": 65,
+      "teams": 10,
+      "champion": "Birch",
+      "awards": {
+        "pointsKing": {
+          "manager": "Birch",
+          "played": 13,
+          "w": 11,
+          "l": 2,
+          "t": 0,
+          "pf": 1624.54,
+          "pa": 1279.42
+        },
+        "bestRecord": {
+          "manager": "Birch",
+          "played": 13,
+          "w": 11,
+          "l": 2,
+          "t": 0,
+          "pf": 1624.54,
+          "pa": 1279.42
+        },
+        "pointsAgainstLeader": {
+          "manager": "Stover",
+          "played": 13,
+          "w": 4,
+          "l": 9,
+          "t": 0,
+          "pf": 1354.6,
+          "pa": 1617.6
+        },
+        "highestWeek": {
+          "manager": "Birch",
+          "points": 169.32,
+          "opponent": "Tony",
+          "week": 1
+        },
+        "lowestWeek": {
+          "manager": "Brandon Evans",
+          "points": 48.24,
+          "opponent": "Tony",
+          "week": 12
+        },
+        "biggestBlowout": {
+          "year": 2019,
+          "week": 10,
+          "home": "Thommy",
+          "away": "Stew",
+          "homeScore": 49.72,
+          "awayScore": 132.72,
+          "winner": "Stew",
+          "margin": 83,
+          "stage": "regular",
+          "era": "ESPN",
+          "source": "espn_history_2016_2019",
+          "loser": "Thommy"
+        },
+        "closestFinish": {
+          "year": 2019,
+          "week": 5,
+          "home": "Trent Koble",
+          "away": "Stover",
+          "homeScore": 124.52,
+          "awayScore": 124.24,
+          "winner": "HOME",
+          "margin": 0.28,
+          "stage": "regular",
+          "era": "ESPN",
+          "source": "espn_history_2016_2019"
+        }
+      }
+    },
+    {
+      "year": 2020,
+      "status": "complete",
+      "regularGames": 69,
+      "teams": 10,
+      "champion": "Koble",
+      "awards": {
+        "pointsKing": {
+          "manager": "Brandon Evans",
+          "played": 14,
+          "w": 7,
+          "l": 7,
+          "t": 0,
+          "pf": 1658.26,
+          "pa": 1549.6
+        },
+        "bestRecord": {
+          "manager": "Mitch",
+          "played": 13,
+          "w": 9,
+          "l": 4,
+          "t": 0,
+          "pf": 1650.42,
+          "pa": 1510.82
+        },
+        "pointsAgainstLeader": {
+          "manager": "Thommy",
+          "played": 14,
+          "w": 5,
+          "l": 9,
+          "t": 0,
+          "pf": 1627.14,
+          "pa": 1724.4
+        },
+        "highestWeek": {
+          "manager": "Mitch",
+          "points": 166.52,
+          "opponent": "Stilly",
+          "week": 8
+        },
+        "lowestWeek": {
+          "manager": "Trent Koble",
+          "points": 50.58,
+          "opponent": "Tony",
+          "week": 10
+        },
+        "biggestBlowout": {
+          "year": 2020,
+          "week": 10,
+          "home": "Trent Koble",
+          "away": "Tony",
+          "homeScore": 50.58,
+          "awayScore": 121.3,
+          "winner": "Tony",
+          "margin": 70.72,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2020",
+          "loser": "Trent Koble"
+        },
+        "closestFinish": {
+          "year": 2020,
+          "week": 1,
+          "home": "Thommy",
+          "away": "Kuhl",
+          "homeScore": 128.88,
+          "awayScore": 129.16,
+          "winner": "AWAY",
+          "margin": 0.28,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2020"
+        }
+      }
+    },
+    {
+      "year": 2021,
+      "status": "complete",
+      "regularGames": 69,
+      "teams": 10,
+      "champion": "Tony",
+      "awards": {
+        "pointsKing": {
+          "manager": "Stover",
+          "played": 14,
+          "w": 11,
+          "l": 3,
+          "t": 0,
+          "pf": 1770.9,
+          "pa": 1445.32
+        },
+        "bestRecord": {
+          "manager": "Birch",
+          "played": 13,
+          "w": 11,
+          "l": 2,
+          "t": 0,
+          "pf": 1513.84,
+          "pa": 1332.62
+        },
+        "pointsAgainstLeader": {
+          "manager": "Thommy",
+          "played": 14,
+          "w": 5,
+          "l": 9,
+          "t": 0,
+          "pf": 1561.34,
+          "pa": 1766
+        },
+        "highestWeek": {
+          "manager": "Stover",
+          "points": 178.82,
+          "opponent": "Thommy",
+          "week": 5
+        },
+        "lowestWeek": {
+          "manager": "Stew",
+          "points": 62.2,
+          "opponent": "Thommy",
+          "week": 10
+        },
+        "biggestBlowout": {
+          "year": 2021,
+          "week": 5,
+          "home": "Stilly",
+          "away": "Birch",
+          "homeScore": 85.58,
+          "awayScore": 167.28,
+          "winner": "Birch",
+          "margin": 81.7,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2021",
+          "loser": "Stilly"
+        },
+        "closestFinish": {
+          "year": 2021,
+          "week": 4,
+          "home": "Mitch",
+          "away": "Birch",
+          "homeScore": 108.52,
+          "awayScore": 109.84,
+          "winner": "AWAY",
+          "margin": 1.32,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2021"
+        }
+      }
+    },
+    {
+      "year": 2022,
+      "status": "complete",
+      "regularGames": 70,
+      "teams": 10,
+      "champion": "Stover",
+      "awards": {
+        "pointsKing": {
+          "manager": "Stew",
+          "played": 14,
+          "w": 11,
+          "l": 3,
+          "t": 0,
+          "pf": 1727.34,
+          "pa": 1507.4
+        },
+        "bestRecord": {
+          "manager": "Stew",
+          "played": 14,
+          "w": 11,
+          "l": 3,
+          "t": 0,
+          "pf": 1727.34,
+          "pa": 1507.4
+        },
+        "pointsAgainstLeader": {
+          "manager": "Trent Koble",
+          "played": 14,
+          "w": 6,
+          "l": 8,
+          "t": 0,
+          "pf": 1493.9,
+          "pa": 1617.68
+        },
+        "highestWeek": {
+          "manager": "Tony",
+          "points": 177.14,
+          "opponent": "Stilly",
+          "week": 8
+        },
+        "lowestWeek": {
+          "manager": "Tony",
+          "points": 60.66,
+          "opponent": "Stover",
+          "week": 14
+        },
+        "biggestBlowout": {
+          "year": 2022,
+          "week": 13,
+          "home": "Thommy",
+          "away": "Mitch",
+          "homeScore": 102.84,
+          "awayScore": 161.64,
+          "winner": "Mitch",
+          "margin": 58.8,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2022",
+          "loser": "Thommy"
+        },
+        "closestFinish": {
+          "year": 2022,
+          "week": 9,
+          "home": "Stilly",
+          "away": "Birch",
+          "homeScore": 92.6,
+          "awayScore": 94.8,
+          "winner": "AWAY",
+          "margin": 2.2,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2022"
+        }
+      }
+    },
+    {
+      "year": 2023,
+      "status": "complete",
+      "regularGames": 70,
+      "teams": 10,
+      "champion": "Stilly",
+      "awards": {
+        "pointsKing": {
+          "manager": "JMid",
+          "played": 14,
+          "w": 9,
+          "l": 5,
+          "t": 0,
+          "pf": 1698.96,
+          "pa": 1588.18
+        },
+        "bestRecord": {
+          "manager": "Tony",
+          "played": 14,
+          "w": 10,
+          "l": 4,
+          "t": 0,
+          "pf": 1640.12,
+          "pa": 1533.52
+        },
+        "pointsAgainstLeader": {
+          "manager": "Kuhl",
+          "played": 14,
+          "w": 5,
+          "l": 9,
+          "t": 0,
+          "pf": 1505.86,
+          "pa": 1688.56
+        },
+        "highestWeek": {
+          "manager": "Stilly",
+          "points": 173.86,
+          "opponent": "Tony",
+          "week": 12
+        },
+        "lowestWeek": {
+          "manager": "Mitch",
+          "points": 50.04,
+          "opponent": "Trent Koble",
+          "week": 9
+        },
+        "biggestBlowout": {
+          "year": 2023,
+          "week": 12,
+          "home": "Stilly",
+          "away": "Tony",
+          "homeScore": 173.86,
+          "awayScore": 99.58,
+          "winner": "Stilly",
+          "margin": 74.28,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2023",
+          "loser": "Tony"
+        },
+        "closestFinish": {
+          "year": 2023,
+          "week": 1,
+          "home": "Stew",
+          "away": "Tony",
+          "homeScore": 99.44,
+          "awayScore": 100.86,
+          "winner": "AWAY",
+          "margin": 1.42,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2023"
+        }
+      }
+    },
+    {
+      "year": 2024,
+      "status": "complete",
+      "regularGames": 70,
+      "teams": 10,
+      "champion": "Thommy",
+      "awards": {
+        "pointsKing": {
+          "manager": "JMid",
+          "played": 14,
+          "w": 8,
+          "l": 6,
+          "t": 0,
+          "pf": 1730.22,
+          "pa": 1568.9
+        },
+        "bestRecord": {
+          "manager": "Stover",
+          "played": 14,
+          "w": 10,
+          "l": 4,
+          "t": 0,
+          "pf": 1726.24,
+          "pa": 1500.58
+        },
+        "pointsAgainstLeader": {
+          "manager": "Scott",
+          "played": 14,
+          "w": 5,
+          "l": 9,
+          "t": 0,
+          "pf": 1424.5,
+          "pa": 1705.98
+        },
+        "highestWeek": {
+          "manager": "JMid",
+          "points": 165.02,
+          "opponent": "Stover",
+          "week": 10
+        },
+        "lowestWeek": {
+          "manager": "Stilly",
+          "points": 52.94,
+          "opponent": "Tony",
+          "week": 7
+        },
+        "biggestBlowout": {
+          "year": 2024,
+          "week": 10,
+          "home": "JMid",
+          "away": "Stover",
+          "homeScore": 165.02,
+          "awayScore": 90.08,
+          "winner": "JMid",
+          "margin": 74.94,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2024",
+          "loser": "Stover"
+        },
+        "closestFinish": {
+          "year": 2024,
+          "week": 11,
+          "home": "Tony",
+          "away": "Stover",
+          "homeScore": 131.68,
+          "awayScore": 131.44,
+          "winner": "HOME",
+          "margin": 0.24,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2024"
+        }
+      }
+    },
+    {
+      "year": 2025,
+      "status": "complete",
+      "regularGames": 70,
+      "teams": 10,
+      "champion": "Scott",
+      "awards": {
+        "pointsKing": {
+          "manager": "Mitch",
+          "played": 14,
+          "w": 13,
+          "l": 1,
+          "t": 0,
+          "pf": 1894.88,
+          "pa": 1565.36
+        },
+        "bestRecord": {
+          "manager": "Mitch",
+          "played": 14,
+          "w": 13,
+          "l": 1,
+          "t": 0,
+          "pf": 1894.88,
+          "pa": 1565.36
+        },
+        "pointsAgainstLeader": {
+          "manager": "Tony",
+          "played": 14,
+          "w": 8,
+          "l": 6,
+          "t": 0,
+          "pf": 1604.2,
+          "pa": 1673.82
+        },
+        "highestWeek": {
+          "manager": "Mitch",
+          "points": 180.86,
+          "opponent": "Scott",
+          "week": 7
+        },
+        "lowestWeek": {
+          "manager": "JMid",
+          "points": 53.72,
+          "opponent": "Scott",
+          "week": 11
+        },
+        "biggestBlowout": {
+          "year": 2025,
+          "week": 11,
+          "home": "JMid",
+          "away": "Scott",
+          "homeScore": 53.72,
+          "awayScore": 155.1,
+          "winner": "Scott",
+          "margin": 101.38,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2025",
+          "loser": "JMid"
+        },
+        "closestFinish": {
+          "year": 2025,
+          "week": 3,
+          "home": "Scott",
+          "away": "Stover",
+          "homeScore": 113.52,
+          "awayScore": 112.54,
+          "winner": "HOME",
+          "margin": 0.98,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "sleeper_matchups_2025"
+        }
+      }
+    },
+    {
+      "year": 2026,
+      "status": "in_progress",
+      "regularGames": 35,
+      "teams": 10,
+      "champion": null,
+      "awards": {
+        "pointsKing": {
+          "manager": "Mitch",
+          "played": 7,
+          "w": 7,
+          "l": 0,
+          "t": 0,
+          "pf": 936.2,
+          "pa": 754.14
+        },
+        "bestRecord": {
+          "manager": "Mitch",
+          "played": 7,
+          "w": 7,
+          "l": 0,
+          "t": 0,
+          "pf": 936.2,
+          "pa": 754.14
+        },
+        "pointsAgainstLeader": {
+          "manager": "Kuhl",
+          "played": 7,
+          "w": 0,
+          "l": 7,
+          "t": 0,
+          "pf": 606.94,
+          "pa": 873.26
+        },
+        "highestWeek": {
+          "manager": "Mitch",
+          "points": 172.9,
+          "opponent": "Thommy",
+          "week": 5
+        },
+        "lowestWeek": {
+          "manager": "Scott",
+          "points": 46.38,
+          "opponent": "Tony",
+          "week": 2
+        },
+        "biggestBlowout": {
+          "year": 2026,
+          "week": 2,
+          "home": "Stilly",
+          "away": "Thommy",
+          "homeScore": 163.34,
+          "awayScore": 63,
+          "winner": "Stilly",
+          "margin": 100.34,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "league_2026_w1_7",
+          "loser": "Thommy"
+        },
+        "closestFinish": {
+          "year": 2026,
+          "week": 7,
+          "home": "Tony",
+          "away": "Stover",
+          "homeScore": 112.12,
+          "awayScore": 111.2,
+          "winner": "HOME",
+          "margin": 0.92,
+          "stage": "regular",
+          "era": "Sleeper",
+          "source": "league_2026_w1_7"
+        }
+      }
+    }
+  ],
+  "allTime": {
+    "highestWeek": {
+      "manager": "Mitch",
+      "points": 180.86,
+      "year": 2025,
+      "week": 7,
+      "opponent": "Scott"
+    },
+    "lowestWeek": {
+      "manager": "Tony",
+      "points": 44,
+      "year": 2017,
+      "week": 1,
+      "opponent": "Thommy"
+    },
+    "biggestWin": {
+      "year": 2025,
+      "week": 11,
+      "home": "JMid",
+      "away": "Scott",
+      "homeScore": 53.72,
+      "awayScore": 155.1,
+      "winner": "AWAY",
+      "margin": 101.38,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_matchups_2025"
+    },
+    "closestGame": {
+      "year": 2016,
+      "week": 13,
+      "home": "Devon Halderman",
+      "away": "Thommy",
+      "homeScore": 121,
+      "awayScore": 121,
+      "winner": "TIE",
+      "margin": 0,
+      "stage": "regular",
+      "era": "ESPN",
+      "source": "espn_history_2016_2019"
+    }
+  }
+}
