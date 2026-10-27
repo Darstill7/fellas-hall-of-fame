@@ -19,6 +19,16 @@ assert(!rivalryRenderer.includes('2026 Weeks 1–6'),'Rivalry renderer uses outd
 for(const path of ['rivalries/stilly-vs-tony.html','rivalries/stilly-vs-tony/index.html','analytics/rivalries.html']){
  assert(read(path).includes('rivalry-archive-v3.js'),'Shared rivalry renderer missing from '+path);
 }
+// The public rivalry grid links to each unique current-manager pair.
+const rivalrySlugs=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
+let rivalryRoutes=0;
+for(let i=0;i<rivalrySlugs.length;i++)for(let j=i+1;j<rivalrySlugs.length;j++){
+ const a=rivalrySlugs[i],b=rivalrySlugs[j];
+ const page='rivalries/'+a+'-vs-'+b+'.html';
+ assert(fs.existsSync(page),'Missing public rivalry destination: '+page);
+ rivalryRoutes++;
+}
+assert(rivalryRoutes===45,'Expected 45 unique manager rivalries');
 const recordsPage=read('analytics/records.html');
 const warRoom=read('analytics/rivalry-war-room.html');
 assert(recordsPage.includes("fetch('../data/career_core_generated.json')"),'Primary career board must use generated records');
