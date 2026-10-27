@@ -13,6 +13,9 @@ assert(recordRenderer.includes('data/career_core_generated.json'),'Manager headl
 assert(h2hRenderer.includes('data/unified_record_book_2016_2026.json'),'Manager H2H must read canonical ledger');
 assert(!h2hRenderer.includes('2026 Weeks 1–6'),'Outdated rivalry coverage claim');
 assert(h2hRenderer.includes("==='Tom'?'Thommy'"),'Thommy H2H identity normalization missing');
+const seasonHistoryRenderer=read('assets/manager-season-history.js');
+assert(seasonHistoryRenderer.includes('data/career_core_generated.json'),'Manager annual history must source regular-season records from generated career core');
+assert(!seasonHistoryRenderer.includes('record:x.regular'),'Manager annual history still uses duplicate archival record');
 const legacyResumeRenderer=read('assets/legacy-resume.js');
 assert(legacyResumeRenderer.includes('data/career_core_generated.json'),'Legacy resume must use generated career WLT');
 assert(!legacyResumeRenderer.includes('esc(d.record)'),'Legacy resume still displays stale stored WLT');
