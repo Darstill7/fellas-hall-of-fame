@@ -5,6 +5,7 @@ const read=p=>fs.readFileSync(p,'utf8');
 const assert=(test,msg)=>{if(!test)throw Error(msg)};
 const careers=JSON.parse(read('data/career_core_generated.json'));
 const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
+const league=JSON.parse(read('data/league.json'));
 const managers={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
 const recordRenderer=read('assets/canonical-manager-record.js');
 const h2hRenderer=read('assets/manager-h2h-explorer.js');
@@ -26,6 +27,10 @@ assert(!warRoom.includes("fetch('../data/all_rivalry_matchups_v3.json')"),'Rival
 
 for(const [slug,id] of Object.entries(managers)){
  assert(!!careers.managers[id],'Missing generated manager '+id);
+ const derived=careers.managers[id];
+ const legacyName=id==='Thommy'?'Tom':id;
+ const displayed=derived.w+'–'+derived.l+(derived.t?'–'+derived.t:'');
+ assert(league.managers[legacyName]?.record===displayed,'Shared league manager record diverges from generated career core: '+id);
  for(const path of ['managers/'+slug+'/index.html','managers/'+slug+'.html']){
   const html=read(path);
   assert(html.includes('data-canonical-manager-record="'+id+'"'),'Missing canonical career binding: '+path);
