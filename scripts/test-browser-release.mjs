@@ -28,6 +28,9 @@ try{
   for(const route of routes){
    const page=await context.newPage();
    const unexpected=[];
+   const failedRequests=[];
+   page.on('requestfailed',req=>failedRequests.push(req.url()+' '+req.failure()?.errorText));
+   page.on('response',res=>{if(res.status()>=400)failedRequests.push(res.status()+' '+res.url())});
    page.on('pageerror',e=>unexpected.push(e.message));
    const response=await page.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
    if(!response?.ok())errors.push(width+' '+route+' HTTP '+response?.status());
@@ -36,13 +39,16 @@ try{
    if(state.body<80)errors.push(width+' '+route+' blank or very little content');
    if(state.scroll>state.viewport+5)errors.push(width+' '+route+' horizontal page overflow '+state.scroll+'px at '+state.viewport+'px viewport');
    for(const error of unexpected)errors.push(width+' '+route+' JS error: '+error);
+   for(const failed of failedRequests)errors.push(width+' '+route+' request error: '+failed);
    if(route==='seasons/weekly-matchup-archive.html'){
     const years=await page.locator('#year option').count();
     if(years!==11)errors.push(width+' weekly archive year selector has '+years+' options, expected 11');
     const year=await page.locator('#year').inputValue();
     if(year!=='2026')errors.push(width+' weekly archive did not default to 2026');
-    await page.locator('#year').selectOption('2016');
-    if(!(await page.locator('#summary').innerText()).includes('2016'))errors.push(width+' season selector did not update');
+    if(years===11){
+     await page.locator('#year').selectOption('2016',{timeout:3000});
+     if(!(await page.locator('#summary').innerText()).includes('2016'))errors.push(width+' season selector did not update');
+    }else errors.push(width+' weekly archive initialization: '+(await page.locator('#summary').innerText()));
    }
    if(route==='managers/record-books.html'){
     await page.locator('#manager').selectOption('Stilly');
