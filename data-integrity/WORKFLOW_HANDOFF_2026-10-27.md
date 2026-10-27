@@ -66,3 +66,10 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Commit `3ab05bb` adds a core-consumer assertion preventing the guide generator from regressing to the duplicate snapshot source.
 - Inspected the embedded `analytics/legacy.html` composite model. The displayed six category weights total 100 (30/20/20/15/10/5); title component formula `30*sqrt(titles/4)` and regular-season win percentage including half credit for a tie are consistent with current displayed records. **No definitive 100-point Legacy ranking is published** while playoff/all-play/peak/season evidence is incomplete. Commit `e576f94` adds executable invariants for weights, championship points, win percentage and withholding the incomplete full rankings.
 - Still outstanding: remaining specialty-data references, proper editorial source classification and ranking evidence; live browser/mobile QA, navigation and deployment confirmation on latest head. Release gate is still closed.
+
+### Continuation — manager archive browser canonicalization
+- GitHub Actions canonical verification completed successfully at prior head `38dde5e`. Its Pages deployment was still in progress when inspected; do not infer browser validation from it.
+- Commit `7fdd3d2`: `managers/record-books.html` now fetches `career_core_generated.json` alongside the historical record-book specialty archive. Visible regular-season WLT/game count, opponent breakdown, and annual results are sourced from the canonical core. Specialty scoring extremes, postseason notes and the retired-manager archive are retained.
+- Commit `0ebc266`: added automated source-binding and duplicate-WLT regression checks to `scripts/verify-core-consumers.mjs`.
+- The old `manager_record_books_2016_2026.json` reference remains intentional for specialty scoring and postseason fields. Replacing that file entirely requires matching those historical calculations against the ledger before removal.
+- Outstanding release gates: latest CI and deploy, live browser tests, actual iPhone-size overflow/touch checks, and evidence audit for composite Legacy categories. The project remains NOT READY TO SHARE.
