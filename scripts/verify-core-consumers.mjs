@@ -17,6 +17,9 @@ assert(h2hRenderer.includes("==='Tom'?'Thommy'"),'Thommy H2H identity normalizat
 const seasonHistoryRenderer=read('assets/manager-season-history.js');
 assert(seasonHistoryRenderer.includes('data/career_core_generated.json'),'Manager annual history must source regular-season records from generated career core');
 assert(!seasonHistoryRenderer.includes('record:x.regular'),'Manager annual history still uses duplicate archival record');
+const seasonGenerator=read('scripts/generate-season-guide.mjs');
+assert(seasonGenerator.includes('data/unified_record_book_2016_2026.json'),'Season guide must be generated from canonical game ledger');
+assert(!seasonGenerator.includes('season_weekly_matchups_2016_2026_v1.json'),'Season guide still depends on duplicate weekly snapshot');
 const weeklyArchivePage=read('seasons/weekly-matchup-archive.html');
 assert(weeklyArchivePage.includes("fetch('../data/unified_record_book_2016_2026.json')"),'Weekly season archive must load canonical ledger');
 assert(!weeklyArchivePage.includes('season_weekly_matchups_2016_2026_v1.json'),'Weekly season archive still loads duplicate matchup snapshot');
