@@ -1,5 +1,9 @@
 # The Fellas OS v4
 
+## Project handoff and current launch blockers
+
+Continue development from [the 2026-10-27 workflow handoff](data-integrity/WORKFLOW_HANDOFF_2026-10-27.md). It records the canonical sources, completed changes, manager identities, release gates and outstanding work. **Do not consider the site release-ready until GitHub Actions, desktop/mobile browser checks, and data/content audits have actually passed.**
+
 This package turns the historical museum into a multi-page league operating system.
 
 ## What is live in this build
