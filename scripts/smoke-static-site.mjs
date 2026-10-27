@@ -24,14 +24,16 @@ const files=['','managers/','seasons/','analytics/records.html','analytics/rival
  ...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html']),
  'assets/canonical-manager-record.js','assets/manager-h2h-explorer.js','assets/rivalry-archive-v3.js',
  'assets/manager-historical-records.js','assets/manager-trophy-cases.js','assets/manager-verified-season-endings.js','assets/espn-franchise-lineage.js'];
+const rivalry=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
+for(let i=0;i<rivalry.length;i++)for(let j=i+1;j<rivalry.length;j++)files.push('rivalries/'+rivalry[i]+'-vs-'+rivalry[j]+'.html');
 let failures=[];
 try{
  for(const relative of files){
   const response=await fetch(route(relative));if(!response.ok){failures.push(relative+' HTTP '+response.status);continue}
   if(relative.endsWith('.json'))try{await response.json()}catch{failures.push(relative+' invalid JSON')}
-  if(relative.startsWith('managers/')&&relative.endsWith('/')){
+  if(relative.endsWith('.html')||relative===''||relative.endsWith('/')){
    const html=await response.text();
-   const scripts=[...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map(m=>m[1]);
+   const scripts=[...html.matchAll(/<(?:script|link)\b[^>]*(?:src|href)="([^"]+)"/g)].map(m=>m[1]).filter(src=>!/^https?:|^\/\//.test(src));
    for(const src of scripts){
     const url=new URL(src,route(relative));const r=await fetch(url);
     if(!r.ok)failures.push(relative+' asset '+src+' HTTP '+r.status);
@@ -40,4 +42,4 @@ try{
  }
 }finally{server.close()}
 if(failures.length){console.error(failures.join('\n'));process.exitCode=1}
-else console.log('HTTP static-site smoke PASS: '+files.length+' routes, all ten primary profile script assets and canonical JSON files');
+else console.log('HTTP static-site smoke PASS: '+files.length+' routes, all manager and rivalry pages, referenced static assets, and canonical JSON files');
