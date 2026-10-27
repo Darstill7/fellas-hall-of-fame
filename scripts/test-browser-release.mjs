@@ -50,6 +50,26 @@ try{
      if(!(await page.locator('#summary').innerText()).includes('2016'))errors.push(width+' season selector did not update');
     }else errors.push(width+' weekly archive initialization: '+(await page.locator('#summary').innerText()));
    }
+   if(route==='seasons/all-time-schedule-swap.html'){
+    const managers=await page.locator('#manager option').count();
+    const scheduleOwners=await page.locator('#owner option').count();
+    if(managers<10||scheduleOwners<10)errors.push(width+' Schedule Swap controls failed to load managers');
+    else{
+     const initial=await page.locator('#cards').innerText();
+     if(!initial.includes('Weeks compared'))errors.push(width+' Schedule Swap output missing');
+     await page.locator('#owner').selectOption('Stover');
+     const updated=await page.locator('#cards').innerText();
+     if(!updated.includes('Stover'))errors.push(width+' Schedule Swap owner change did not update results');
+     await page.locator('#season').selectOption('2025');
+     const filtered=await page.locator('#rows tr').count();
+     if(filtered>1)errors.push(width+' Schedule Swap season filter failed to narrow result rows');
+    }
+   }
+   if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
+    const errorText=await page.locator('body').innerText();
+    if(errorText.includes('Historical records are temporarily unavailable.'))errors.push(width+' '+route+' historical profile module unavailable');
+    if(errorText.includes('Canonical manager missing'))errors.push(width+' '+route+' canonical identity missing');
+   }
    if(route==='analytics/awards-show.html'){
     const buttons=page.locator('#years button');
     if(await buttons.count()<2)errors.push(width+' Awards Show year buttons failed to render');
