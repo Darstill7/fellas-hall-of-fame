@@ -1,7 +1,7 @@
 {
   "version": "v2.0",
   "updated": "2026-10-27",
-  "methodology": "Documented championships and scoring results are separated from reconstructed or experimental statistical honors. Starter Value MVP uses points above a low-third same-position starter benchmark; it is not True Fellas WAR. Waiver awards use verified completed Sleeper adds/waivers and credited subsequent starts. 2026 team results are through Week 7; 2026 player/waiver value inputs remain through Week 6.",
+  "methodology": "Documented championships and scoring results are separated from reconstructed or experimental statistical honors. Starter Value MVP uses points above a low-third same-position starter benchmark; it is not True Fellas WAR. Waiver awards use verified completed Sleeper adds/waivers and credited subsequent starts. Stover identity reconciled to Sleeper owner handle yogurtslinger15. 2026 team results are through Week 7; 2026 player/waiver value inputs remain through Week 6.",
   "seasons": {
     "2016": {
       "year": 2016,
@@ -166,10 +166,10 @@
         },
         {
           "label": "Scoring Explosion",
-          "recipient": "Historical roster 8",
+          "recipient": "Stover",
           "detail": "178.82 points · Week 5 (Regular)",
           "status": "documented",
-          "manager": "Historical roster 8",
+          "manager": "Stover",
           "evidenceHref": "../seasons/2021.html",
           "evidenceLabel": "Score receipt"
         },
@@ -217,7 +217,7 @@
           "manager": "Stover",
           "runnerUp": {
             "recipient": "Stew",
-            "detail": "Lost championship to Roster 8 (prior owner) 48.16–99.22",
+            "detail": "Lost championship to Stover 48.16–99.22",
             "status": "documented"
           },
           "evidenceHref": "../seasons/2022.html",
@@ -254,7 +254,7 @@
           "status": "experimental",
           "runnerUp": {
             "recipient": "Tyreek Hill",
-            "detail": "Historical roster 8 · +188.14 above benchmark",
+            "detail": "Stover · +188.14 above benchmark",
             "status": "experimental"
           },
           "evidenceHref": "../analytics/fellas-war.html",
@@ -400,7 +400,7 @@
           "status": "experimental",
           "runnerUp": {
             "recipient": "Saquon Barkley",
-            "detail": "Historical roster 8 · +210.74 above benchmark",
+            "detail": "Stover · +210.74 above benchmark",
             "status": "experimental"
           },
           "evidenceHref": "../analytics/fellas-war.html",
@@ -596,6 +596,15 @@
       "waiver": 2
     },
     {
+      "manager": "Stover",
+      "total": 3,
+      "championships": 1,
+      "regularSeason": 0,
+      "scoring": 1,
+      "starterValue": 0,
+      "waiver": 1
+    },
+    {
       "manager": "Birch",
       "total": 2,
       "championships": 1,
@@ -614,15 +623,6 @@
       "waiver": 0
     },
     {
-      "manager": "Stover",
-      "total": 2,
-      "championships": 1,
-      "regularSeason": 0,
-      "scoring": 0,
-      "starterValue": 0,
-      "waiver": 1
-    },
-    {
       "manager": "Koble",
       "total": 1,
       "championships": 1,
@@ -637,15 +637,6 @@
       "championships": 1,
       "regularSeason": 0,
       "scoring": 0,
-      "starterValue": 0,
-      "waiver": 0
-    },
-    {
-      "manager": "Historical roster 8",
-      "total": 1,
-      "championships": 0,
-      "regularSeason": 0,
-      "scoring": 1,
       "starterValue": 0,
       "waiver": 0
     },
