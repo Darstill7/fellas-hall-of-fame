@@ -87,6 +87,8 @@ for(const entry of legacyModel.managers){
 const recordsPage=read('analytics/records.html');
 const recordsArchive=read('analytics/records-archive.html');
 assert(recordsArchive.includes("fetch('../data/career_core_generated.json')"),'Archived Records career table must read generated core');
+assert(recordsArchive.includes('R.career_records=[];'),'Archived Records must withhold stale career fallbacks until canonical fetch succeeds');
+assert(!recordsArchive.includes('showing saved fallback values'),'Archived Records must not misrepresent stale fallback data');
 assert(!recordsArchive.includes("fetch('../data/manager_record_books_2016_2026.json')"),'Archived Records still fetches duplicated career source');
 const warRoom=read('analytics/rivalry-war-room.html');
 assert(recordsPage.includes("fetch('../data/career_core_generated.json')"),'Primary career board must use generated records');
