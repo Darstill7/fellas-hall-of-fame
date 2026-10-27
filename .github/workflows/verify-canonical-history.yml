@@ -17,7 +17,7 @@ jobs:
           node-version: '22'
       - name: Syntax-check audit and generation scripts
         run: |
-          for file in scripts/generate-season-guide.mjs scripts/generate-career-core.mjs scripts/verify-ledger-projections.mjs scripts/verify-core-consumers.mjs scripts/verify-canonical-history.mjs scripts/audit-internal-links.mjs scripts/smoke-static-site.mjs scripts/audit-site-dependencies.mjs scripts/verify-specialty-records.mjs scripts/test-browser-release.mjs scripts/audit-inline-js.mjs; do
+          for file in scripts/generate-season-guide.mjs scripts/generate-career-core.mjs scripts/verify-ledger-projections.mjs scripts/verify-core-consumers.mjs scripts/verify-canonical-history.mjs scripts/audit-internal-links.mjs scripts/smoke-static-site.mjs scripts/audit-site-dependencies.mjs scripts/verify-specialty-records.mjs scripts/test-browser-release.mjs scripts/audit-inline-js.mjs scripts/audit-dossier-preservation.mjs; do
             node --check "$file"
           done
       - name: Syntax-check all shipped JavaScript assets
@@ -54,6 +54,8 @@ jobs:
         run: node scripts/verify-ledger-projections.mjs
       - name: Verify canonical website consumers
         run: node scripts/verify-core-consumers.mjs
+      - name: Preserve historical manager dossier coverage
+        run: node scripts/audit-dossier-preservation.mjs
       - name: Reconcile specialty record-book statistics to canonical ledger
         run: node scripts/verify-specialty-records.mjs
       - name: Verify records across published pages
