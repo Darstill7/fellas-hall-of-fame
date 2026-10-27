@@ -1,4 +1,490 @@
 {
+  "2016": {
+    "year": 2016,
+    "champion": "Thommy",
+    "standings": [
+      {
+        "name": "Devon Halderman",
+        "w": 8,
+        "l": 4,
+        "t": 1,
+        "pf": 1472,
+        "pa": 1216,
+        "games": 13
+      },
+      {
+        "name": "Brandon Evans",
+        "w": 8,
+        "l": 5,
+        "t": 0,
+        "pf": 1386,
+        "pa": 1276,
+        "games": 13
+      },
+      {
+        "name": "Thommy",
+        "w": 7,
+        "l": 5,
+        "t": 1,
+        "pf": 1229,
+        "pa": 1291,
+        "games": 13
+      },
+      {
+        "name": "Trent Koble",
+        "w": 7,
+        "l": 6,
+        "t": 0,
+        "pf": 1308,
+        "pa": 1239,
+        "games": 13
+      },
+      {
+        "name": "Stilly",
+        "w": 6,
+        "l": 7,
+        "t": 0,
+        "pf": 1273,
+        "pa": 1245,
+        "games": 13
+      },
+      {
+        "name": "Stew",
+        "w": 6,
+        "l": 7,
+        "t": 0,
+        "pf": 1177,
+        "pa": 1275,
+        "games": 13
+      },
+      {
+        "name": "Stover",
+        "w": 5,
+        "l": 8,
+        "t": 0,
+        "pf": 1144,
+        "pa": 1366,
+        "games": 13
+      },
+      {
+        "name": "Schermerhorn",
+        "w": 4,
+        "l": 9,
+        "t": 0,
+        "pf": 1260,
+        "pa": 1341,
+        "games": 13
+      }
+    ],
+    "coverage": "2016 archived regular-season results; 52 games. Reconstructed standings, not official tiebreaker seed order.",
+    "games": 52,
+    "summary": "2016 reconstructed regular-season leader: Devon Halderman (8–4–1). Thommy won the championship. Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.",
+    "seasonHigh": {
+      "year": 2016,
+      "week": 5,
+      "team": "Devon Halderman",
+      "points": 170,
+      "opponent": "Trent Koble",
+      "margin": 100,
+      "phase": "Regular"
+    },
+    "biggestWin": {
+      "year": 2016,
+      "week": 5,
+      "team": "Devon Halderman",
+      "points": 170,
+      "opponent": "Trent Koble",
+      "margin": 100,
+      "phase": "Regular"
+    },
+    "closestWin": {
+      "year": 2016,
+      "week": 5,
+      "team": "Stilly",
+      "points": 97,
+      "opponent": "Schermerhorn",
+      "margin": 2,
+      "phase": "Regular"
+    }
+  },
+  "2017": {
+    "year": 2017,
+    "champion": "Thommy",
+    "standings": [
+      {
+        "name": "Thommy",
+        "w": 8,
+        "l": 4,
+        "t": 0,
+        "pf": 1241,
+        "pa": 1092,
+        "games": 12
+      },
+      {
+        "name": "Schermerhorn",
+        "w": 8,
+        "l": 4,
+        "t": 0,
+        "pf": 1169,
+        "pa": 1094,
+        "games": 12
+      },
+      {
+        "name": "Stilly",
+        "w": 6,
+        "l": 6,
+        "t": 0,
+        "pf": 1129,
+        "pa": 1105,
+        "games": 12
+      },
+      {
+        "name": "Brandon Evans",
+        "w": 6,
+        "l": 6,
+        "t": 0,
+        "pf": 1125,
+        "pa": 1068,
+        "games": 12
+      },
+      {
+        "name": "Stover",
+        "w": 6,
+        "l": 6,
+        "t": 0,
+        "pf": 1096,
+        "pa": 1077,
+        "games": 12
+      },
+      {
+        "name": "Trent Koble",
+        "w": 6,
+        "l": 6,
+        "t": 0,
+        "pf": 1092,
+        "pa": 1063,
+        "games": 12
+      },
+      {
+        "name": "Tony",
+        "w": 6,
+        "l": 6,
+        "t": 0,
+        "pf": 1052,
+        "pa": 1052,
+        "games": 12
+      },
+      {
+        "name": "Birch",
+        "w": 5,
+        "l": 7,
+        "t": 0,
+        "pf": 1022,
+        "pa": 1113,
+        "games": 12
+      },
+      {
+        "name": "Stew",
+        "w": 5,
+        "l": 7,
+        "t": 0,
+        "pf": 984,
+        "pa": 1151,
+        "games": 12
+      },
+      {
+        "name": "Devon Halderman",
+        "w": 4,
+        "l": 8,
+        "t": 0,
+        "pf": 916,
+        "pa": 1011,
+        "games": 12
+      }
+    ],
+    "coverage": "2017 archived regular-season results; 60 games. Reconstructed standings, not official tiebreaker seed order.",
+    "games": 60,
+    "summary": "2017 reconstructed regular-season leader: Thommy (8–4). Thommy won the championship. Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.",
+    "seasonHigh": {
+      "year": 2017,
+      "week": 1,
+      "team": "Stilly",
+      "points": 149,
+      "opponent": "Stew",
+      "margin": 69,
+      "phase": "Regular"
+    },
+    "biggestWin": {
+      "year": 2017,
+      "week": 9,
+      "team": "Thommy",
+      "points": 148,
+      "opponent": "Birch",
+      "margin": 85,
+      "phase": "Regular"
+    },
+    "closestWin": {
+      "year": 2017,
+      "week": 9,
+      "team": "Stilly",
+      "points": 64,
+      "opponent": "Tony",
+      "margin": 1,
+      "phase": "Regular"
+    }
+  },
+  "2018": {
+    "year": 2018,
+    "champion": "Thommy",
+    "standings": [
+      {
+        "name": "Tony",
+        "w": 8,
+        "l": 5,
+        "t": 0,
+        "pf": 1476.58,
+        "pa": 1253.58,
+        "games": 13
+      },
+      {
+        "name": "Stover",
+        "w": 8,
+        "l": 5,
+        "t": 0,
+        "pf": 1349.28,
+        "pa": 1346.78,
+        "games": 13
+      },
+      {
+        "name": "Stew",
+        "w": 7,
+        "l": 6,
+        "t": 0,
+        "pf": 1422.72,
+        "pa": 1383.14,
+        "games": 13
+      },
+      {
+        "name": "Thommy",
+        "w": 7,
+        "l": 6,
+        "t": 0,
+        "pf": 1373.12,
+        "pa": 1447.48,
+        "games": 13
+      },
+      {
+        "name": "Kuhl",
+        "w": 7,
+        "l": 6,
+        "t": 0,
+        "pf": 1370.56,
+        "pa": 1288.58,
+        "games": 13
+      },
+      {
+        "name": "Birch",
+        "w": 6,
+        "l": 7,
+        "t": 0,
+        "pf": 1464.32,
+        "pa": 1408.36,
+        "games": 13
+      },
+      {
+        "name": "Brandon Evans",
+        "w": 6,
+        "l": 7,
+        "t": 0,
+        "pf": 1378.04,
+        "pa": 1450.32,
+        "games": 13
+      },
+      {
+        "name": "Stilly",
+        "w": 6,
+        "l": 7,
+        "t": 0,
+        "pf": 1273.36,
+        "pa": 1482.12,
+        "games": 13
+      },
+      {
+        "name": "Mitch",
+        "w": 5,
+        "l": 8,
+        "t": 0,
+        "pf": 1437.86,
+        "pa": 1367.34,
+        "games": 13
+      },
+      {
+        "name": "Trent Koble",
+        "w": 5,
+        "l": 8,
+        "t": 0,
+        "pf": 1305.96,
+        "pa": 1424.1,
+        "games": 13
+      }
+    ],
+    "coverage": "2018 archived regular-season results; 65 games. Reconstructed standings, not official tiebreaker seed order.",
+    "games": 65,
+    "summary": "2018 reconstructed regular-season leader: Tony (8–5). Thommy won the championship. Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.",
+    "seasonHigh": {
+      "year": 2018,
+      "week": 2,
+      "team": "Tony",
+      "points": 159.58,
+      "opponent": "Stilly",
+      "margin": 87.24,
+      "phase": "Regular"
+    },
+    "biggestWin": {
+      "year": 2018,
+      "week": 2,
+      "team": "Tony",
+      "points": 159.58,
+      "opponent": "Stilly",
+      "margin": 87.24,
+      "phase": "Regular"
+    },
+    "closestWin": {
+      "year": 2018,
+      "week": 7,
+      "team": "Thommy",
+      "points": 142.92,
+      "opponent": "Stew",
+      "margin": 0.16,
+      "phase": "Regular"
+    }
+  },
+  "2019": {
+    "year": 2019,
+    "champion": "Birch",
+    "standings": [
+      {
+        "name": "Birch",
+        "w": 11,
+        "l": 2,
+        "t": 0,
+        "pf": 1624.54,
+        "pa": 1279.42,
+        "games": 13
+      },
+      {
+        "name": "Stew",
+        "w": 9,
+        "l": 4,
+        "t": 0,
+        "pf": 1618.32,
+        "pa": 1338.98,
+        "games": 13
+      },
+      {
+        "name": "Mitch",
+        "w": 9,
+        "l": 4,
+        "t": 0,
+        "pf": 1548,
+        "pa": 1351.66,
+        "games": 13
+      },
+      {
+        "name": "Tony",
+        "w": 8,
+        "l": 5,
+        "t": 0,
+        "pf": 1435.8,
+        "pa": 1406.62,
+        "games": 13
+      },
+      {
+        "name": "Kuhl",
+        "w": 7,
+        "l": 6,
+        "t": 0,
+        "pf": 1518.92,
+        "pa": 1500.36,
+        "games": 13
+      },
+      {
+        "name": "Stilly",
+        "w": 6,
+        "l": 7,
+        "t": 0,
+        "pf": 1464.36,
+        "pa": 1537.92,
+        "games": 13
+      },
+      {
+        "name": "Brandon Evans",
+        "w": 5,
+        "l": 8,
+        "t": 0,
+        "pf": 1188.32,
+        "pa": 1332.92,
+        "games": 13
+      },
+      {
+        "name": "Trent Koble",
+        "w": 4,
+        "l": 9,
+        "t": 0,
+        "pf": 1418.3,
+        "pa": 1603.2,
+        "games": 13
+      },
+      {
+        "name": "Stover",
+        "w": 4,
+        "l": 9,
+        "t": 0,
+        "pf": 1354.6,
+        "pa": 1617.6,
+        "games": 13
+      },
+      {
+        "name": "Thommy",
+        "w": 2,
+        "l": 11,
+        "t": 0,
+        "pf": 1175.38,
+        "pa": 1377.86,
+        "games": 13
+      }
+    ],
+    "coverage": "2019 archived regular-season results; 65 games. Reconstructed standings, not official tiebreaker seed order.",
+    "games": 65,
+    "summary": "2019 reconstructed regular-season leader: Birch (11–2). Birch won the championship. Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.",
+    "seasonHigh": {
+      "year": 2019,
+      "week": 1,
+      "team": "Birch",
+      "points": 169.32,
+      "opponent": "Tony",
+      "margin": 54.4,
+      "phase": "Regular"
+    },
+    "biggestWin": {
+      "year": 2019,
+      "week": 10,
+      "team": "Stew",
+      "points": 132.72,
+      "opponent": "Thommy",
+      "margin": 83,
+      "phase": "Regular"
+    },
+    "closestWin": {
+      "year": 2019,
+      "week": 5,
+      "team": "Trent Koble",
+      "points": 124.52,
+      "opponent": "Stover",
+      "margin": 0.28,
+      "phase": "Regular"
+    }
+  },
   "2020": {
     "year": 2020,
     "champion": "Koble",
@@ -40,7 +526,7 @@
         "games": 14
       },
       {
-        "name": "Roster 2 (prior owner)",
+        "name": "Brandon Evans",
         "w": 7,
         "l": 7,
         "t": 0,
@@ -49,7 +535,7 @@
         "games": 14
       },
       {
-        "name": "Koble",
+        "name": "Trent Koble",
         "w": 7,
         "l": 7,
         "t": 0,
@@ -67,7 +553,7 @@
         "games": 14
       },
       {
-        "name": "Tom",
+        "name": "Thommy",
         "w": 5,
         "l": 9,
         "t": 0,
@@ -94,22 +580,41 @@
         "games": 14
       }
     ],
-    "coverage": "Regular-season matchup Weeks 1–14 as archived; standings reconstructed from recorded head-to-head scores, not official tiebreaker or final playoff seed order",
-    "games": 69
+    "coverage": "2020 archived regular-season results; 69 games. Reconstructed standings, not official tiebreaker seed order.",
+    "games": 69,
+    "summary": "2020 reconstructed regular-season leader: Mitch (9–4). Koble won the championship. Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.",
+    "seasonHigh": {
+      "year": 2020,
+      "week": 8,
+      "team": "Mitch",
+      "points": 166.52,
+      "opponent": "Stilly",
+      "margin": 45.1,
+      "phase": "Regular"
+    },
+    "biggestWin": {
+      "year": 2020,
+      "week": 10,
+      "team": "Tony",
+      "points": 121.3,
+      "opponent": "Trent Koble",
+      "margin": 70.72,
+      "phase": "Regular"
+    },
+    "closestWin": {
+      "year": 2020,
+      "week": 1,
+      "team": "Kuhl",
+      "points": 129.16,
+      "opponent": "Thommy",
+      "margin": 0.28,
+      "phase": "Regular"
+    }
   },
   "2021": {
     "year": 2021,
     "champion": "Tony",
     "standings": [
-      {
-        "name": "Stover",
-        "w": 11,
-        "l": 3,
-        "t": 0,
-        "pf": 1770.9,
-        "pa": 1445.32,
-        "games": 14
-      },
       {
         "name": "Birch",
         "w": 11,
@@ -118,6 +623,15 @@
         "pf": 1513.84,
         "pa": 1332.62,
         "games": 13
+      },
+      {
+        "name": "Stover",
+        "w": 11,
+        "l": 3,
+        "t": 0,
+        "pf": 1770.9,
+        "pa": 1445.32,
+        "games": 14
       },
       {
         "name": "Tony",
@@ -138,7 +652,7 @@
         "games": 14
       },
       {
-        "name": "Roster 2 (prior owner)",
+        "name": "Brandon Evans",
         "w": 7,
         "l": 7,
         "t": 0,
@@ -147,7 +661,7 @@
         "games": 14
       },
       {
-        "name": "Tom",
+        "name": "Thommy",
         "w": 5,
         "l": 9,
         "t": 0,
@@ -174,7 +688,7 @@
         "games": 14
       },
       {
-        "name": "Koble",
+        "name": "Trent Koble",
         "w": 4,
         "l": 10,
         "t": 0,
@@ -192,8 +706,36 @@
         "games": 14
       }
     ],
-    "coverage": "Regular-season matchup Weeks 1–14 as archived; standings reconstructed from recorded head-to-head scores, not official tiebreaker or final playoff seed order",
-    "games": 69
+    "coverage": "2021 archived regular-season results; 69 games. Reconstructed standings, not official tiebreaker seed order.",
+    "games": 69,
+    "summary": "2021 reconstructed regular-season leader: Birch (11–2). Tony won the championship. Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.",
+    "seasonHigh": {
+      "year": 2021,
+      "week": 5,
+      "team": "Stover",
+      "points": 178.82,
+      "opponent": "Thommy",
+      "margin": 73.54,
+      "phase": "Regular"
+    },
+    "biggestWin": {
+      "year": 2021,
+      "week": 5,
+      "team": "Birch",
+      "points": 167.28,
+      "opponent": "Stilly",
+      "margin": 81.7,
+      "phase": "Regular"
+    },
+    "closestWin": {
+      "year": 2021,
+      "week": 4,
+      "team": "Birch",
+      "points": 109.84,
+      "opponent": "Mitch",
+      "margin": 1.32,
+      "phase": "Regular"
+    }
   },
   "2022": {
     "year": 2022,
@@ -245,7 +787,7 @@
         "games": 14
       },
       {
-        "name": "Tom",
+        "name": "Thommy",
         "w": 7,
         "l": 7,
         "t": 0,
@@ -263,7 +805,7 @@
         "games": 14
       },
       {
-        "name": "Koble",
+        "name": "Trent Koble",
         "w": 6,
         "l": 8,
         "t": 0,
@@ -281,7 +823,7 @@
         "games": 14
       },
       {
-        "name": "Roster 2 (prior owner)",
+        "name": "Brandon Evans",
         "w": 4,
         "l": 10,
         "t": 0,
@@ -290,8 +832,36 @@
         "games": 14
       }
     ],
-    "coverage": "Regular-season matchup Weeks 1–14 as archived; standings reconstructed from recorded head-to-head scores, not official tiebreaker or final playoff seed order",
-    "games": 70
+    "coverage": "2022 archived regular-season results; 70 games. Reconstructed standings, not official tiebreaker seed order.",
+    "games": 70,
+    "summary": "2022 reconstructed regular-season leader: Stew (11–3). Stover won the championship. Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.",
+    "seasonHigh": {
+      "year": 2022,
+      "week": 8,
+      "team": "Tony",
+      "points": 177.14,
+      "opponent": "Stilly",
+      "margin": 45.14,
+      "phase": "Regular"
+    },
+    "biggestWin": {
+      "year": 2022,
+      "week": 13,
+      "team": "Mitch",
+      "points": 161.64,
+      "opponent": "Thommy",
+      "margin": 58.8,
+      "phase": "Regular"
+    },
+    "closestWin": {
+      "year": 2022,
+      "week": 9,
+      "team": "Birch",
+      "points": 94.8,
+      "opponent": "Stilly",
+      "margin": 2.2,
+      "phase": "Regular"
+    }
   },
   "2023": {
     "year": 2023,
@@ -307,7 +877,7 @@
         "games": 14
       },
       {
-        "name": "Koble",
+        "name": "Trent Koble",
         "w": 10,
         "l": 4,
         "t": 0,
@@ -352,7 +922,7 @@
         "games": 14
       },
       {
-        "name": "Tom",
+        "name": "Thommy",
         "w": 6,
         "l": 8,
         "t": 0,
@@ -388,12 +958,40 @@
         "games": 14
       }
     ],
-    "coverage": "Regular-season matchup Weeks 1–14 as archived; standings reconstructed from recorded head-to-head scores, not official tiebreaker or final playoff seed order",
-    "games": 70
+    "coverage": "2023 archived regular-season results; 70 games. Reconstructed standings, not official tiebreaker seed order.",
+    "games": 70,
+    "summary": "2023 reconstructed regular-season leader: Tony (10–4). Stilly won the championship. Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.",
+    "seasonHigh": {
+      "year": 2023,
+      "week": 12,
+      "team": "Stilly",
+      "points": 173.86,
+      "opponent": "Tony",
+      "margin": 74.28,
+      "phase": "Regular"
+    },
+    "biggestWin": {
+      "year": 2023,
+      "week": 12,
+      "team": "Stilly",
+      "points": 173.86,
+      "opponent": "Tony",
+      "margin": 74.28,
+      "phase": "Regular"
+    },
+    "closestWin": {
+      "year": 2023,
+      "week": 1,
+      "team": "Tony",
+      "points": 100.86,
+      "opponent": "Stew",
+      "margin": 1.42,
+      "phase": "Regular"
+    }
   },
   "2024": {
     "year": 2024,
-    "champion": "Tom",
+    "champion": "Thommy",
     "standings": [
       {
         "name": "Stover",
@@ -405,7 +1003,7 @@
         "games": 14
       },
       {
-        "name": "Tom",
+        "name": "Thommy",
         "w": 9,
         "l": 5,
         "t": 0,
@@ -486,8 +1084,36 @@
         "games": 14
       }
     ],
-    "coverage": "Regular-season matchup Weeks 1–14 as archived; standings reconstructed from recorded head-to-head scores, not official tiebreaker or final playoff seed order",
-    "games": 70
+    "coverage": "2024 archived regular-season results; 70 games. Reconstructed standings, not official tiebreaker seed order.",
+    "games": 70,
+    "summary": "2024 reconstructed regular-season leader: Stover (10–4). Thommy won the championship. Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.",
+    "seasonHigh": {
+      "year": 2024,
+      "week": 10,
+      "team": "JMid",
+      "points": 165.02,
+      "opponent": "Stover",
+      "margin": 74.94,
+      "phase": "Regular"
+    },
+    "biggestWin": {
+      "year": 2024,
+      "week": 10,
+      "team": "JMid",
+      "points": 165.02,
+      "opponent": "Stover",
+      "margin": 74.94,
+      "phase": "Regular"
+    },
+    "closestWin": {
+      "year": 2024,
+      "week": 11,
+      "team": "Tony",
+      "points": 131.68,
+      "opponent": "Stover",
+      "margin": 0.24,
+      "phase": "Regular"
+    }
   },
   "2025": {
     "year": 2025,
@@ -521,7 +1147,7 @@
         "games": 14
       },
       {
-        "name": "Tom",
+        "name": "Thommy",
         "w": 8,
         "l": 6,
         "t": 0,
@@ -584,8 +1210,36 @@
         "games": 14
       }
     ],
-    "coverage": "Regular-season matchup Weeks 1–14 as archived; standings reconstructed from recorded head-to-head scores, not official tiebreaker or final playoff seed order",
-    "games": 70
+    "coverage": "2025 archived regular-season results; 70 games. Reconstructed standings, not official tiebreaker seed order.",
+    "games": 70,
+    "summary": "2025 reconstructed regular-season leader: Mitch (13–1). Scott won the championship. Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.",
+    "seasonHigh": {
+      "year": 2025,
+      "week": 7,
+      "team": "Mitch",
+      "points": 180.86,
+      "opponent": "Scott",
+      "margin": 44.8,
+      "phase": "Regular"
+    },
+    "biggestWin": {
+      "year": 2025,
+      "week": 11,
+      "team": "Scott",
+      "points": 155.1,
+      "opponent": "JMid",
+      "margin": 101.38,
+      "phase": "Regular"
+    },
+    "closestWin": {
+      "year": 2025,
+      "week": 3,
+      "team": "Scott",
+      "points": 113.52,
+      "opponent": "Stover",
+      "margin": 0.98,
+      "phase": "Regular"
+    }
   },
   "2026": {
     "year": 2026,
@@ -593,96 +1247,124 @@
     "standings": [
       {
         "name": "Mitch",
-        "w": 6,
+        "w": 7,
         "l": 0,
         "t": 0,
-        "pf": 816.22,
-        "pa": 639.02,
-        "games": 6
+        "pf": 936.2,
+        "pa": 754.14,
+        "games": 7
       },
       {
         "name": "Birch",
         "w": 5,
-        "l": 1,
+        "l": 2,
         "t": 0,
-        "pf": 740.64,
-        "pa": 591.98,
-        "games": 6
+        "pf": 813.94,
+        "pa": 719.26,
+        "games": 7
       },
       {
         "name": "Tony",
-        "w": 4,
+        "w": 5,
         "l": 2,
         "t": 0,
-        "pf": 675.58,
-        "pa": 585.88,
-        "games": 6
+        "pf": 787.7,
+        "pa": 697.08,
+        "games": 7
       },
       {
         "name": "Stew",
-        "w": 3,
+        "w": 4,
         "l": 3,
         "t": 0,
-        "pf": 758.68,
-        "pa": 679.02,
-        "games": 6
+        "pf": 868.82,
+        "pa": 785.24,
+        "games": 7
       },
       {
         "name": "Stilly",
         "w": 3,
-        "l": 3,
+        "l": 4,
         "t": 0,
-        "pf": 698.54,
-        "pa": 693.64,
-        "games": 6
+        "pf": 813.66,
+        "pa": 813.62,
+        "games": 7
       },
       {
         "name": "Stover",
         "w": 3,
-        "l": 3,
+        "l": 4,
         "t": 0,
-        "pf": 651.94,
-        "pa": 657.06,
-        "games": 6
+        "pf": 763.14,
+        "pa": 769.18,
+        "games": 7
+      },
+      {
+        "name": "Thommy",
+        "w": 3,
+        "l": 4,
+        "t": 0,
+        "pf": 731.7,
+        "pa": 811.9,
+        "games": 7
       },
       {
         "name": "Scott",
         "w": 3,
-        "l": 3,
-        "t": 0,
-        "pf": 573.26,
-        "pa": 636.96,
-        "games": 6
-      },
-      {
-        "name": "Tom",
-        "w": 2,
         "l": 4,
         "t": 0,
-        "pf": 598.58,
-        "pa": 711.6,
-        "games": 6
+        "pf": 679.48,
+        "pa": 747.1,
+        "games": 7
       },
       {
         "name": "JMid",
-        "w": 1,
+        "w": 2,
         "l": 5,
         "t": 0,
-        "pf": 621.1,
-        "pa": 705.88,
-        "games": 6
+        "pf": 748.38,
+        "pa": 779.18,
+        "games": 7
       },
       {
         "name": "Kuhl",
         "w": 0,
-        "l": 6,
+        "l": 7,
         "t": 0,
-        "pf": 506.64,
-        "pa": 740.14,
-        "games": 6
+        "pf": 606.94,
+        "pa": 873.26,
+        "games": 7
       }
     ],
-    "coverage": "2026 current-season archive through Week 6, not a live feed",
-    "games": 30
+    "coverage": "2026 archived regular-season results; 35 games. Reconstructed standings, not official tiebreaker seed order. 2026 currently through Week 7.",
+    "games": 35,
+    "summary": "2026 season results are archived through Week 7. Mitch leads the reconstructed standings at 7–0; the championship is not yet decided.",
+    "seasonHigh": {
+      "year": 2026,
+      "week": 5,
+      "team": "Mitch",
+      "points": 172.9,
+      "opponent": "Thommy",
+      "margin": 47.96,
+      "phase": "Regular"
+    },
+    "biggestWin": {
+      "year": 2026,
+      "week": 2,
+      "team": "Stilly",
+      "points": 163.34,
+      "opponent": "Thommy",
+      "margin": 100.34,
+      "phase": "Regular"
+    },
+    "closestWin": {
+      "year": 2026,
+      "week": 7,
+      "team": "Tony",
+      "points": 112.12,
+      "opponent": "Stover",
+      "margin": 0.92,
+      "phase": "Regular"
+    }
   }
 }
