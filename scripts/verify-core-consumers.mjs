@@ -20,6 +20,11 @@ assert(!seasonHistoryRenderer.includes('record:x.regular'),'Manager annual histo
 const legacyResumeRenderer=read('assets/legacy-resume.js');
 assert(legacyResumeRenderer.includes('data/career_core_generated.json'),'Legacy resume must use generated career WLT');
 assert(!legacyResumeRenderer.includes('esc(d.record)'),'Legacy resume still displays stale stored WLT');
+const historicalRenderer=read('assets/manager-historical-records.js');
+assert(historicalRenderer.includes('data/career_core_generated.json'),'Historical manager panel must fetch canonical career core');
+assert(historicalRenderer.includes('Object.entries(canonical.annual)'),'Historical manager annual table must use canonical seasons');
+assert(historicalRenderer.includes('Object.entries(canonical.h2h)'),'Historical manager rivalries must use canonical head-to-head');
+assert(!historicalRenderer.includes('m.regular.w+')&&!historicalRenderer.includes('m.annual.map(')&&!historicalRenderer.includes('m.headToHead.map('),'Historical manager panel still renders duplicate WLT');
 const weeklyRenderer=read('assets/manager-weekly-game-log.js');
 assert(weeklyRenderer.includes('data/unified_record_book_2016_2026.json'),'Weekly log must use unified ledger');
 assert(weeklyRenderer.includes('data/career_core_generated.json'),'Weekly log must use generated annual WLT');
