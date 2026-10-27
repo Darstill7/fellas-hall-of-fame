@@ -1,7 +1,7 @@
 {
-  "version": "v2.0",
+  "version": "v3.0-full-history-2016-2026",
   "updated": "2026-10-27",
-  "methodology": "Documented championships and scoring results are separated from reconstructed or experimental statistical honors. Starter Value MVP uses points above a low-third same-position starter benchmark; it is not True Fellas WAR. Waiver awards use verified completed Sleeper adds/waivers and credited subsequent starts. Stover identity reconciled to Sleeper owner handle yogurtslinger15. 2026 team results are through Week 7; 2026 player/waiver value inputs remain through Week 6.",
+  "methodology": "Documented championships and scoring results are separated from reconstructed or experimental statistical honors. Starter Value MVP uses points above a low-third same-position starter benchmark; it is not True Fellas WAR. Waiver awards use verified completed Sleeper adds/waivers and credited subsequent starts. Stover identity reconciled to Sleeper owner handle yogurtslinger15. 2026 team results are through Week 7; 2026 player/waiver value inputs remain through Week 6. Historical matchup-driven awards added for every season beginning 2016; 2026 provisional. Transactions and player award claims retain separate previous evidence constraints.",
   "seasons": {
     "2016": {
       "year": 2016,
@@ -9,13 +9,68 @@
       "awards": [
         {
           "label": "League Champion",
-          "recipient": "Tom",
+          "recipient": "Thommy",
           "detail": "Documented championship",
           "status": "documented",
-          "manager": "Tom",
+          "manager": "Thommy",
           "runnerUp": null,
           "evidenceHref": "../seasons/2016.html",
-          "evidenceLabel": "Open 2016 season"
+          "evidenceLabel": "Open 2016 season",
+          "source": "verified ESPN original championship"
+        },
+        {
+          "label": "Regular-Season Crown",
+          "recipient": "Devon Halderman",
+          "detail": "8–4–1 record",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Scoring Champion",
+          "recipient": "Devon Halderman",
+          "detail": "1472 total points",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Single-Week Explosion",
+          "recipient": "Devon Halderman",
+          "detail": "170 points in Week 5",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "The Basement",
+          "recipient": "Stover",
+          "detail": "51 points in Week 6",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Biggest Blowout",
+          "recipient": "Devon Halderman",
+          "detail": "100 point margin in Week 5",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Closest Finish",
+          "recipient": "Devon Halderman / Thommy",
+          "detail": "0 point margin in Week 13",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
         }
       ]
     },
@@ -25,13 +80,68 @@
       "awards": [
         {
           "label": "League Champion",
-          "recipient": "Tom",
+          "recipient": "Thommy",
           "detail": "Documented championship",
           "status": "documented",
-          "manager": "Tom",
+          "manager": "Thommy",
           "runnerUp": null,
           "evidenceHref": "../seasons/2017.html",
-          "evidenceLabel": "Open 2017 season"
+          "evidenceLabel": "Open 2017 season",
+          "source": "verified ESPN original championship"
+        },
+        {
+          "label": "Regular-Season Crown",
+          "recipient": "Thommy",
+          "detail": "8–4 record",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Scoring Champion",
+          "recipient": "Thommy",
+          "detail": "1241 total points",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Single-Week Explosion",
+          "recipient": "Stilly",
+          "detail": "149 points in Week 1",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "The Basement",
+          "recipient": "Tony",
+          "detail": "44 points in Week 1",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Biggest Blowout",
+          "recipient": "Thommy",
+          "detail": "85 point margin in Week 9",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Closest Finish",
+          "recipient": "Tony / Stilly",
+          "detail": "1 point margin in Week 9",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
         }
       ]
     },
@@ -41,13 +151,68 @@
       "awards": [
         {
           "label": "League Champion",
-          "recipient": "Tom",
+          "recipient": "Thommy",
           "detail": "Documented championship",
           "status": "documented",
-          "manager": "Tom",
+          "manager": "Thommy",
           "runnerUp": null,
           "evidenceHref": "../seasons/2018.html",
-          "evidenceLabel": "Open 2018 season"
+          "evidenceLabel": "Open 2018 season",
+          "source": "verified ESPN original championship"
+        },
+        {
+          "label": "Regular-Season Crown",
+          "recipient": "Tony",
+          "detail": "8–5 record",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Scoring Champion",
+          "recipient": "Tony",
+          "detail": "1476.58 total points",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Single-Week Explosion",
+          "recipient": "Tony",
+          "detail": "159.58 points in Week 2",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "The Basement",
+          "recipient": "Stilly",
+          "detail": "56.14 points in Week 11",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Biggest Blowout",
+          "recipient": "Tony",
+          "detail": "87.24 point margin in Week 2",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Closest Finish",
+          "recipient": "Stew / Thommy",
+          "detail": "0.16 point margin in Week 7",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
         }
       ]
     },
@@ -63,7 +228,62 @@
           "manager": "Birch",
           "runnerUp": null,
           "evidenceHref": "../seasons/2019.html",
-          "evidenceLabel": "Open 2019 season"
+          "evidenceLabel": "Open 2019 season",
+          "source": "verified ESPN original championship"
+        },
+        {
+          "label": "Regular-Season Crown",
+          "recipient": "Birch",
+          "detail": "11–2 record",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Scoring Champion",
+          "recipient": "Birch",
+          "detail": "1624.54 total points",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Single-Week Explosion",
+          "recipient": "Birch",
+          "detail": "169.32 points in Week 1",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "The Basement",
+          "recipient": "Brandon Evans",
+          "detail": "48.24 points in Week 12",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Biggest Blowout",
+          "recipient": "Stew",
+          "detail": "83 point margin in Week 10",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Closest Finish",
+          "recipient": "Trent Koble / Stover",
+          "detail": "0.28 point margin in Week 5",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
         }
       ]
     },
@@ -133,6 +353,60 @@
           "evidenceHref": "../labs/faab.html",
           "evidenceLabel": "Waiver / FAAB lab",
           "cutoff": "Regular season"
+        },
+        {
+          "label": "Regular-Season Crown",
+          "recipient": "Mitch",
+          "detail": "9–4 record",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Scoring Champion",
+          "recipient": "Brandon Evans",
+          "detail": "1658.26 total points",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Single-Week Explosion",
+          "recipient": "Mitch",
+          "detail": "166.52 points in Week 8",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "The Basement",
+          "recipient": "Trent Koble",
+          "detail": "50.58 points in Week 10",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Biggest Blowout",
+          "recipient": "Tony",
+          "detail": "70.72 point margin in Week 10",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Closest Finish",
+          "recipient": "Thommy / Kuhl",
+          "detail": "0.28 point margin in Week 1",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
         }
       ]
     },
@@ -202,6 +476,60 @@
           "evidenceHref": "../labs/faab.html",
           "evidenceLabel": "Waiver / FAAB lab",
           "cutoff": "Regular season"
+        },
+        {
+          "label": "Regular-Season Crown",
+          "recipient": "Birch",
+          "detail": "11–2 record",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Scoring Champion",
+          "recipient": "Stover",
+          "detail": "1770.9 total points",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Single-Week Explosion",
+          "recipient": "Stover",
+          "detail": "178.82 points in Week 5",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "The Basement",
+          "recipient": "Stew",
+          "detail": "62.2 points in Week 10",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Biggest Blowout",
+          "recipient": "Birch",
+          "detail": "81.7 point margin in Week 5",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Closest Finish",
+          "recipient": "Mitch / Birch",
+          "detail": "1.32 point margin in Week 4",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
         }
       ]
     },
@@ -275,6 +603,60 @@
           "evidenceHref": "../labs/faab.html",
           "evidenceLabel": "Waiver / FAAB lab",
           "cutoff": "Regular season"
+        },
+        {
+          "label": "Regular-Season Crown",
+          "recipient": "Stew",
+          "detail": "11–3 record",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Scoring Champion",
+          "recipient": "Stew",
+          "detail": "1727.34 total points",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Single-Week Explosion",
+          "recipient": "Tony",
+          "detail": "177.14 points in Week 8",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "The Basement",
+          "recipient": "Tony",
+          "detail": "60.66 points in Week 14",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Biggest Blowout",
+          "recipient": "Mitch",
+          "detail": "58.8 point margin in Week 13",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Closest Finish",
+          "recipient": "Stilly / Birch",
+          "detail": "2.2 point margin in Week 9",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
         }
       ]
     },
@@ -348,6 +730,60 @@
           "evidenceHref": "../labs/faab.html",
           "evidenceLabel": "Waiver / FAAB lab",
           "cutoff": "Regular season"
+        },
+        {
+          "label": "Regular-Season Crown",
+          "recipient": "Tony",
+          "detail": "10–4 record",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Scoring Champion",
+          "recipient": "JMid",
+          "detail": "1698.96 total points",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Single-Week Explosion",
+          "recipient": "Stilly",
+          "detail": "173.86 points in Week 12",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "The Basement",
+          "recipient": "Mitch",
+          "detail": "50.04 points in Week 9",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Biggest Blowout",
+          "recipient": "Stilly",
+          "detail": "74.28 point margin in Week 12",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Closest Finish",
+          "recipient": "Stew / Tony",
+          "detail": "1.42 point margin in Week 1",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
         }
       ]
     },
@@ -421,6 +857,60 @@
           "evidenceHref": "../labs/faab.html",
           "evidenceLabel": "Waiver / FAAB lab",
           "cutoff": "Regular season"
+        },
+        {
+          "label": "Regular-Season Crown",
+          "recipient": "Stover",
+          "detail": "10–4 record",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Scoring Champion",
+          "recipient": "JMid",
+          "detail": "1730.22 total points",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Single-Week Explosion",
+          "recipient": "JMid",
+          "detail": "165.02 points in Week 10",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "The Basement",
+          "recipient": "Stilly",
+          "detail": "52.94 points in Week 7",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Biggest Blowout",
+          "recipient": "JMid",
+          "detail": "74.94 point margin in Week 10",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Closest Finish",
+          "recipient": "Tony / Stover",
+          "detail": "0.24 point margin in Week 11",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
         }
       ]
     },
@@ -494,6 +984,60 @@
           "evidenceHref": "../labs/faab.html",
           "evidenceLabel": "Waiver / FAAB lab",
           "cutoff": "Regular season"
+        },
+        {
+          "label": "Regular-Season Crown",
+          "recipient": "Mitch",
+          "detail": "13–1 record",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Scoring Champion",
+          "recipient": "Mitch",
+          "detail": "1894.88 total points",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Single-Week Explosion",
+          "recipient": "Mitch",
+          "detail": "180.86 points in Week 7",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "The Basement",
+          "recipient": "JMid",
+          "detail": "53.72 points in Week 11",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Biggest Blowout",
+          "recipient": "Scott",
+          "detail": "101.38 point margin in Week 11",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Closest Finish",
+          "recipient": "Scott / Stover",
+          "detail": "0.98 point margin in Week 3",
+          "status": "documented",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
         }
       ]
     },
@@ -563,6 +1107,60 @@
           "evidenceHref": "../labs/faab.html",
           "evidenceLabel": "Waiver / FAAB lab",
           "cutoff": "Weeks 1–6"
+        },
+        {
+          "label": "Regular-Season Crown",
+          "recipient": "Mitch",
+          "detail": "7–0 record",
+          "status": "provisional",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Scoring Champion",
+          "recipient": "Mitch",
+          "detail": "936.2 total points",
+          "status": "provisional",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Single-Week Explosion",
+          "recipient": "Mitch",
+          "detail": "172.9 points in Week 5",
+          "status": "provisional",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "The Basement",
+          "recipient": "Scott",
+          "detail": "46.38 points in Week 2",
+          "status": "provisional",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Biggest Blowout",
+          "recipient": "Stilly",
+          "detail": "100.34 point margin in Week 2",
+          "status": "provisional",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
+        },
+        {
+          "label": "Closest Finish",
+          "recipient": "Tony / Stover",
+          "detail": "0.92 point margin in Week 7",
+          "status": "provisional",
+          "evidenceHref": "../seasons/historical-awards.html",
+          "evidenceLabel": "Explore full historical results",
+          "source": "unified_regular_season_2016_2026"
         }
       ]
     }
