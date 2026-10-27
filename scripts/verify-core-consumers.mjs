@@ -16,6 +16,10 @@ assert(h2hRenderer.includes("==='Tom'?'Thommy'"),'Thommy H2H identity normalizat
 const resumeRenderer=read('assets/manager-rivalry-resume.js');
 assert(resumeRenderer.includes('data/unified_record_book_2016_2026.json'),'Manager rivalry resumes must load canonical ledger');
 assert(!resumeRenderer.includes('manager_rivalry_resumes_v1.json'),'Manager rivalry resumes still load legacy snapshots');
+const analyticsRenderer=read('assets/manager-rivalry-analytics.js');
+assert(analyticsRenderer.includes('data/unified_record_book_2016_2026.json'),'Manager rivalry analytics must load canonical ledger');
+assert(!analyticsRenderer.includes('manager_rivalry_analytics_v1.json'),'Manager rivalry analytics still load legacy snapshot');
+assert(!analyticsRenderer.includes('Week 6'),'Manager rivalry analytics retains stale coverage');
 const rivalryRenderer=read('assets/rivalry-archive-v3.js');
 assert(rivalryRenderer.includes("data/unified_record_book_2016_2026.json"),'Rivalry cards and pair pages must load game ledger');
 assert(!rivalryRenderer.includes("data/all_rivalry_matchups_v3.json"),'Rivalry renderer still uses legacy archive');
