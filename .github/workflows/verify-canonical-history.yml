@@ -17,5 +17,7 @@ jobs:
         run: node scripts/generate-season-guide.mjs --check
       - name: Reconcile source ledger to projections
         run: node scripts/verify-ledger-projections.mjs
+      - name: Verify canonical website consumers
+        run: node scripts/verify-core-consumers.mjs
       - name: Verify records across published pages
         run: node scripts/verify-canonical-history.mjs
