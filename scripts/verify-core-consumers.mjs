@@ -16,7 +16,7 @@ const managers={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'
 const encyclopediaRenderer=read('assets/manager-encyclopedia.js');
 assert(encyclopediaRenderer.includes('waiver_award_candidates.json')&&encyclopediaRenderer.includes('v9_trade_engine.json'),'Manager encyclopedia must use source evidence');
 assert(encyclopediaRenderer.includes("encyclopediaUpdated='unavailable'"),'Failed encyclopedia fetch must expose unavailable status');
-assert(encyclopediaRenderer.includes("encyclopediaUpdated='loading'")&&encyclopediaRenderer.includes('Loading verified highlights'),'Manager encyclopedia must clear stale award figures while fetching source evidence');
+assert(encyclopediaRenderer.includes("encyclopediaUpdated='loading'")&&encyclopediaRenderer.includes('Loading source-backed highlights'),'Manager encyclopedia must clear stale award figures while fetching source evidence');
 assert(encyclopediaRenderer.includes('Waiver evidence unavailable')&&encyclopediaRenderer.includes('Trade evidence unavailable'),'Failed encyclopedia fetch must suppress static stale award figures');
 const recordRenderer=read('assets/canonical-manager-record.js');
 const h2hRenderer=read('assets/manager-h2h-explorer.js');
