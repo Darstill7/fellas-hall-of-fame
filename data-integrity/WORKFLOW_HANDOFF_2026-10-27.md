@@ -342,3 +342,8 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Inspected the recently added browser report completion count and found a mismatch: the JSON `passed` flag checked completed coverage, but the process exit code still only depended on the `errors` list. This could permit a green process for incomplete coverage if no other error was recorded.
 - Commit `600f2a0` adds an explicit incomplete-coverage error before writing the JSON report and before setting the process exit code. Thus both the report and GitHub Actions result fail when fewer than the scheduled Chromium/WebKit page visits complete.
 - No completed latest-head Actions or Pages verification was obtained. Keep the project release hold active pending full execution, historical editorial source validation and device usability acceptance.
+
+### Continuation — atomic mount validation for encyclopedia cards (October 28)
+- Inspected the shared renderer and found that it verified the waiver and trade card containers existed, but not that both cards contained the expected `h3` and `p` targets before writing. An incomplete markup change could update one card and then throw while updating the other, leaving inconsistent partial evidence.
+- Commit `427bf6e` validates the headings and paragraphs of **both** cards before writing either. Missing markup now takes the existing fail-closed path, preventing a partially rendered result. This is an implementation fix; no source statistics or historical outcomes changed.
+- Latest full Chromium/WebKit and Pages results remain unverified. Avoid public release until a completed successful CI, public site and device QA, and historical editorial/source acceptance.
