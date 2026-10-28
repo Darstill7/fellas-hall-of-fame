@@ -254,3 +254,5 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Inspection of the latest canonical workflow found that `Classify dossier topical overlap` ran **after** `Upload link-audit report`, even though the upload listed `data-integrity/dossier-topic-overlap.json`. This would omit the freshly generated topic review report from the downloadable artifact unless the file happened to be present beforehand.
 - Commit `1c8fc8c` moves the topic report generation step before the artifact upload. Both dossier inventory files are now generated before upload; the full artifact contents and CI outcome must be confirmed on a completed run.
 - Existing Chromium/WebKit negative-path tests and the main release hold remain active. GitHub Actions run outcomes for latest head are not independently confirmed in this continuation.
+
+- Commit `5d95938` adds a blocking `verify-core-consumers.mjs` ordering assertion: dossier heading inventory must precede topic overlap classification, and both must precede report upload. This prevents the same artifact packaging regression. CI execution for this additional guard is pending independent confirmation.
