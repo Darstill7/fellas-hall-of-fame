@@ -13,6 +13,7 @@
   // Validate evidence before replacing any card; malformed or partial feeds must fail closed.
   const numeric=(v)=>typeof v==='number'&&Number.isFinite(v);
   if(typeof w.player!=='string'||!w.player.trim()||
+     typeof w.acquisitionType!=='string'||!w.acquisitionType.trim()||
      ![w.year,w.acquisitionWeek,w.starts,w.points,w.par].every(numeric)||
      typeof t.year!=='number'||!numeric(t.week)||!numeric(t.starts)||
      !numeric(t.starter_points)||!numeric(t.direct_edge)||
