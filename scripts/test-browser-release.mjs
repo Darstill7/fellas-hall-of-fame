@@ -95,6 +95,18 @@ try{
        errors.push(width+' '+route+' biography values disagree with canonical career record');
      }
     }
+    if(slug==='stilly'){
+     const encyclopedia=page.locator('#franchise-encyclopedia');
+     if(await encyclopedia.count()!==1)errors.push(width+' Stilly profile missing integrated franchise encyclopedia');
+     else{
+      const links=encyclopedia.locator('a[href*="../stilly.html#"]');
+      if(await links.count()!==3)errors.push(width+' Stilly encyclopedia missing three sourced chapters');
+      for(const fragment of ['franchise-dossier','franchise-history-v915','v9-front-office']){
+       const target=await page.request.get(new URL('../stilly.html',baseUrl+route).toString());
+       if(!(await target.text()).includes('id="'+fragment+'"'))errors.push(width+' Stilly archive chapter target missing: '+fragment);
+      }
+     }
+    }
     const historyLink=page.locator('a[href="../'+slug+'.html#franchise-history-v915"]');
     if(await historyLink.count()!==1)errors.push(width+' '+route+' missing deep link to historical player/waiver/trade dossier');
     else{
