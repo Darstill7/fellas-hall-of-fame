@@ -126,6 +126,8 @@ for(const [slug,id] of Object.entries(managers)){
    for(const section of ['waiver','trade']){
     const start=html.indexOf('data-encyclopedia-'+section+'>');
     assert(start>=0,'Missing encyclopedia '+section+' card: '+path);
+    const hStart=html.indexOf('<h3>',start),hEnd=html.indexOf('</h3>',hStart);
+    assert(hStart>=0&&hEnd>hStart&&html.slice(hStart+4,hEnd)==='Source-backed highlight','Manager encyclopedia contains stale embedded award title: '+path+' '+section);
     const pStart=html.indexOf('<p>',start),pEnd=html.indexOf('</p>',pStart);
     const paragraph=pStart>=0&&pEnd>pStart?html.slice(pStart+3,pEnd):'';
     assert(paragraph.includes('Source-backed historical evidence loads when this page opens.'),'Manager encyclopedia contains stale embedded numeric evidence: '+path+' '+section);
