@@ -10,10 +10,12 @@ const publicFiles=(dir)=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{
  if(e.isDirectory())return e.name==='.git'||e.name==='node_modules'?[]:publicFiles(pathname);
  return e.isFile()&&e.name.endsWith('.html')?[pathname]:[];
 });
+const privacyViolations=[];
 for(const file of publicFiles('.')){
  const html=read(file);
- for(const fullName of privateNames)assert(!html.includes(fullName),'Public HTML uses a full manager name: '+file+' ('+fullName+')');
+ for(const fullName of privateNames)if(html.includes(fullName))privacyViolations.push(file+' ('+fullName+')');
 }
+assert(!privacyViolations.length,'Public HTML full-name violations:\n'+privacyViolations.join('\n'));
 const careers=JSON.parse(read('data/career_core_generated.json'));
 const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
 const league=JSON.parse(read('data/league.json'));
