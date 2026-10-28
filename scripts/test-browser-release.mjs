@@ -191,6 +191,20 @@ try{
     if(corruptText.includes('NaN')||corruptText.includes('125.20'))
      errors.push(width+' '+route+' malformed encyclopedia source exposed invalid or stale numbers');
     await corrupt.close();
+    // Metadata can be malformed even when the measured points are valid.
+    const missingType=await context.newPage();
+    await missingType.route('**/data/waiver_award_candidates.json',async intercepted=>{
+     const original=await intercepted.fetch();
+     const json=await original.json();
+     json.managers.Stilly[0].acquisitionType=null;
+     await intercepted.fulfill({response:original,json});
+    });
+    await missingType.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
+    const missingTypeStatus=await missingType.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
+    const missingTypeText=await missingType.locator('#franchise-encyclopedia').innerText();
+    if(missingTypeStatus!=='unavailable'||!missingTypeText.includes('Waiver evidence unavailable'))
+     errors.push(width+' '+route+' waiver with missing acquisition evidence did not fail closed');
+    await missingType.close();
     // Verify that malformed trade-side evidence also fails closed, not just waiver data.
     const corruptTrade=await context.newPage();
     await corruptTrade.route('**/data/v9_trade_engine.json',async intercepted=>{
