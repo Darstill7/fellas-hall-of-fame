@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Final extended static asset privacy acceptance.
 on:
   push:
     branches: [main]
