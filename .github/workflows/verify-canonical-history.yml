@@ -83,6 +83,19 @@ jobs:
       - name: Exercise Safari-engine WebKit mobile pages
         if: success() || failure()
         run: FELLAS_BROWSER=webkit node scripts/test-browser-release.mjs
+      - name: Verify both browser reports completed
+        run: |
+          node --input-type=module -e '
+            import fs from "node:fs";
+            for (const [engine,visits] of [["chromium",156],["webkit",78]]) {
+              const file="data-integrity/browser-release-"+engine+".json";
+              if(!fs.existsSync(file)) throw Error("Missing browser report: "+file);
+              const report=JSON.parse(fs.readFileSync(file,"utf8"));
+              if(report.engine.toLowerCase()!==engine || report.plannedPageVisits!==visits || report.completedPages!==visits || report.attemptedPages!==visits || report.passed!==true || report.errors.length)
+                throw Error("Incomplete or failed browser report: "+file+" "+JSON.stringify(report));
+              console.log(engine+": "+visits+" visits verified");
+            }
+          '
       - name: Upload browser release verification reports
         if: always()
         uses: actions/upload-artifact@v4
