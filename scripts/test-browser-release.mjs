@@ -163,6 +163,24 @@ try{
     if(!(await page.locator('#profile').innerText()).includes(expected))errors.push(width+' historical archive did not render canonical Stilly WLT '+expected);
    }
    if(route==='managers/stilly/'){
+    // Keep a source request unresolved and ensure static archive numbers are hidden while loading.
+    const slow=await context.newPage();
+    let releaseSource;
+    const held=new Promise(resolve=>{releaseSource=resolve});
+    await slow.route('**/data/waiver_award_candidates.json',async intercepted=>{
+     await held;
+     try{await intercepted.continue()}catch{}
+    });
+    try{
+     await slow.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:30000});
+     await slow.locator('#franchise-encyclopedia[data-encyclopedia-updated="loading"]').waitFor({timeout:5000});
+     const loadingCards=await slow.locator('[data-encyclopedia-waiver], [data-encyclopedia-trade]').allInnerTexts();
+     if(loadingCards.length!==2||loadingCards.some(t=>!t.includes('Loading source-backed highlights')))
+      errors.push(width+' '+route+' source loading exposes stale highlight text');
+    }finally{
+     releaseSource();
+     await slow.close();
+    }
     // Fault injection: source failure must not leak stale hardcoded award numbers.
     const failure=await context.newPage();
     await failure.route('**/data/waiver_award_candidates.json',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":"injected"}'}));
