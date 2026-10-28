@@ -85,7 +85,15 @@ try{
      const wlt=story.locator('[data-canonical-manager-record]');
      const games=story.locator('[data-canonical-manager-games]');
      if(await wlt.count()!==1||await games.count()!==1)errors.push(width+' '+route+' biography career bindings absent');
-     else if(await wlt.getAttribute('data-canonical-updated')!=='yes'||await games.getAttribute('data-canonical-updated')!=='yes')errors.push(width+' '+route+' biography career bindings failed to load canonical data');
+     else {
+      if(await wlt.getAttribute('data-canonical-updated')!=='yes'||await games.getAttribute('data-canonical-updated')!=='yes')errors.push(width+' '+route+' biography career bindings failed to load canonical data');
+      const canonicalId=slug==='tom'?'Thommy':slug[0].toUpperCase()+slug.slice(1);
+      const careerResponse=await page.request.get(baseUrl+'data/career_core_generated.json');
+      const career=(await careerResponse.json()).managers[canonicalId];
+      const expected=career.w+'–'+career.l+(career.t?'–'+career.t:'');
+      if((await wlt.innerText()).trim()!==expected||(await games.innerText()).trim()!==String(career.games))
+       errors.push(width+' '+route+' biography values disagree with canonical career record');
+     }
     }
     const historyLink=page.locator('a[href="../'+slug+'.html#franchise-history-v915"]');
     if(await historyLink.count()!==1)errors.push(width+' '+route+' missing deep link to historical player/waiver/trade dossier');
