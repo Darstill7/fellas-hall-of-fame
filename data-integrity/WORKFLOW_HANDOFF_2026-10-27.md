@@ -337,3 +337,8 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Rechecked latest repo and attempted direct GitHub Actions/API inspection and `git ls-remote`; in this environment the workflow URL returned DisabledError, the API inaccessible, and the clone failed DNS resolution. **No latest CI pass/failure evidence was obtained.**
 - Found that `browser-release-*.json` always displayed the number of configured routes even if the browser exited before testing them. Commit `c76baf3` adds `plannedRoutes`, `plannedPageVisits`, `attemptedPages`, and `completedPages`; its report `passed` now also requires all scheduled page/viewport visits to complete. Chromium expects 78×2; mobile WebKit expects 78×1. The original suite failure behavior stays enabled.
 - This is a reporting correctness fix, **not an executed green browser result**. Retain release hold pending full CI, Pages and editorial/device acceptance.
+
+### Continuation — enforce coverage failure in CI exit code (October 28)
+- Inspected the recently added browser report completion count and found a mismatch: the JSON `passed` flag checked completed coverage, but the process exit code still only depended on the `errors` list. This could permit a green process for incomplete coverage if no other error was recorded.
+- Commit `600f2a0` adds an explicit incomplete-coverage error before writing the JSON report and before setting the process exit code. Thus both the report and GitHub Actions result fail when fewer than the scheduled Chromium/WebKit page visits complete.
+- No completed latest-head Actions or Pages verification was obtained. Keep the project release hold active pending full execution, historical editorial source validation and device usability acceptance.
