@@ -2,6 +2,8 @@ name: Validate canonical Fellas records
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'data-integrity/WORKFLOW_HANDOFF_2026-10-27.md'
   pull_request:
   workflow_dispatch:
 concurrency:
