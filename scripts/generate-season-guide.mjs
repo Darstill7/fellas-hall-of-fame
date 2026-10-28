@@ -49,7 +49,9 @@ function generate(){
   const current=year===2026;
   result[year]={year,champion:champ,standings,coverage:`${year} archived regular-season results; ${season.regularGames} games. Reconstructed standings, not official tiebreaker seed order.${current?' 2026 currently through Week 7.':''}`,games:season.regularGames,summary:current?`${year} season results are archived through Week 7. ${leader.name} leads the reconstructed standings at ${leader.w}–${leader.l}; the championship is not yet decided.`:`${year} reconstructed regular-season leader: ${leader.name} (${leader.w}–${leader.l}${leader.t?'–'+leader.t:''}). ${champ??'Champion not yet verified'} ${champ?'won the championship.':''} Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.`,seasonHigh:high,biggestWin:big,closestWin:close};
  }
- return result;
+ // Public-facing season labels must not expose historical legal names.
+ const aliases={'Devon Halderman':'Halderman','Trent Koble':'Koble','Brandon Evans':'Evans','Darren Stillson':'Stilly','Drew Sylvester':'Stew','Zach Prescott':'Thommy','Landon Stover':'Stover','Tom Schermerhorn':'Schermerhorn'};
+ return JSON.parse(JSON.stringify(result).replace(/Devon Halderman|Trent Koble|Brandon Evans|Darren Stillson|Drew Sylvester|Zach Prescott|Landon Stover|Tom Schermerhorn/g,name=>aliases[name]));
 }
 const expected=generate();
 const serialized=JSON.stringify(expected,null,2)+'\n';
