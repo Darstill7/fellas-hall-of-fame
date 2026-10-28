@@ -16,6 +16,18 @@ for(const file of publicFiles('.')){
  for(const fullName of privateNames)if(html.includes(fullName))privacyViolations.push(file+' ('+fullName+')');
 }
 assert(!privacyViolations.length,'Public HTML full-name violations:\n'+privacyViolations.join('\n'));
+// JSON under data/ is served directly by GitHub Pages, not just consumed internally.
+const publicJsonFiles=(dir)=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{
+ const pathname=dir+'/'+e.name;
+ return e.isDirectory()?publicJsonFiles(pathname):e.isFile()&&e.name.endsWith('.json')?[pathname]:[];
+});
+const jsonNameViolations=[];
+for(const file of publicJsonFiles('data')){
+ const raw=read(file);
+ for(const fullName of privateNames)if(raw.includes(fullName))jsonNameViolations.push(file+' ('+fullName+')');
+}
+assert(!jsonNameViolations.length,'Public JSON full-name violations:\n'+jsonNameViolations.join('\n'));
+
 const careers=JSON.parse(read('data/career_core_generated.json'));
 const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
 const league=JSON.parse(read('data/league.json'));
