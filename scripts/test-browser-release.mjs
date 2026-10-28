@@ -278,5 +278,9 @@ try{
   await context.close();
  }
 }finally{await browser.close();server.close()}
+// Preserve machine-readable browser outcomes for failed and successful CI attempts.
+await fs.mkdir(path.join(root,'data-integrity'),{recursive:true});
+await fs.writeFile(path.join(root,'data-integrity','browser-release-'+engine.toLowerCase()+'.json'),
+ JSON.stringify({engine,viewports:useWebkit?[390]:[390,1280],routes:routes.length,passed:errors.length===0,errors},null,2)+'\n');
 if(errors.length){console.error(engine+' browser release test FAILED:\n'+errors.map(x=>' - '+x).join('\n'));process.exitCode=1}
 else console.log(engine+' browser release test PASS with JS and interactive archive checks');
