@@ -191,6 +191,25 @@ try{
     if(corruptText.includes('NaN')||corruptText.includes('125.20'))
      errors.push(width+' '+route+' malformed encyclopedia source exposed invalid or stale numbers');
     await corrupt.close();
+    // Verify that malformed trade-side evidence also fails closed, not just waiver data.
+    const corruptTrade=await context.newPage();
+    await corruptTrade.route('**/data/v9_trade_engine.json',async intercepted=>{
+     const original=await intercepted.fetch();
+     const json=await original.json();
+     const side=json.sides.filter(x=>x.manager==='Stilly'&&x.direct_edge>0)
+      .sort((a,b)=>b.direct_edge-a.direct_edge)[0];
+     if(!side)throw Error('No qualifying Stilly trade-side evidence for fault injection');
+     side.starter_points=null;
+     await intercepted.fulfill({response:original,json});
+    });
+    await corruptTrade.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
+    const badTradeStatus=await corruptTrade.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
+    const badTradeText=await corruptTrade.locator('#franchise-encyclopedia').innerText();
+    if(badTradeStatus!=='unavailable'||!badTradeText.includes('Trade evidence unavailable')||!badTradeText.includes('Waiver evidence unavailable'))
+     errors.push(width+' '+route+' malformed trade evidence did not fail closed');
+    if(badTradeText.includes('NaN')||badTradeText.includes('453.4'))
+     errors.push(width+' '+route+' malformed trade source exposed invalid or stale numbers');
+    await corruptTrade.close();
    }
    await page.close();
   }
