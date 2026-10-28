@@ -102,6 +102,15 @@ try{
       if(await page.locator(href).count()!==1)errors.push(width+' '+slug+' chapter target absent: '+href);
      }
     }
+    const managerId=slug==='tom'?'Tom':slug==='jmid'?'JMid':slug[0].toUpperCase()+slug.slice(1);
+    const awardData=(await (await page.request.get(baseUrl+'data/waiver_award_candidates.json')).json()).managers[managerId]?.[0];
+    const tradeSides=(await (await page.request.get(baseUrl+'data/v9_trade_engine.json')).json()).sides;
+    const tradeData=tradeSides.filter(x=>x.manager===managerId&&x.direct_edge>0).sort((a,b)=>b.direct_edge-a.direct_edge)[0];
+    const encyclopediaText=await page.locator('#franchise-encyclopedia').innerText();
+    if(!awardData||!encyclopediaText.includes(awardData.player)||!encyclopediaText.includes(awardData.points.toFixed(2))||!encyclopediaText.includes('+'+awardData.par.toFixed(2)))
+     errors.push(width+' '+slug+' encyclopedia waiver award differs from source');
+    if(!tradeData||!tradeData.assets.every(asset=>encyclopediaText.includes(asset))||!encyclopediaText.includes('+'+tradeData.direct_edge.toFixed(1)))
+     errors.push(width+' '+slug+' encyclopedia trade highlight differs from source');
     const encyclopedia=page.locator('#franchise-encyclopedia');
     if(await encyclopedia.count()!==1)errors.push(width+' '+slug+' missing franchise encyclopedia');
     else{
