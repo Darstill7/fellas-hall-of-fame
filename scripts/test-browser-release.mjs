@@ -29,7 +29,7 @@ const errors=[];
 try{
  for(const width of (useWebkit?[390]:[390,1280])){
   const context=await browser.newContext({viewport:{width,height:844},isMobile:width===390,hasTouch:width===390});
-  for(const route of (useWebkit?routes.filter(r=>!r.startsWith('rivalries/')||r==='rivalries/stilly-vs-jmid.html'):routes)){
+  for(const route of routes){
    const page=await context.newPage();
    const unexpected=[];
    const failedRequests=[];
