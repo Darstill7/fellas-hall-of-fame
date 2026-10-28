@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Editorial source parity validation PR.
 on:
   push:
     branches: [main]
