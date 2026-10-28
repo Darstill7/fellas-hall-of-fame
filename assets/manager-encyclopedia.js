@@ -14,9 +14,16 @@
  }
  root.dataset.encyclopediaUpdated='loading';
  try{
-  const [wr,tr]=await Promise.all(['waiver_award_candidates.json','v9_trade_engine.json'].map(async name=>{
-   const r=await fetch('../../data/'+name,{cache:'no-cache'});if(!r.ok)throw Error(name+' HTTP '+r.status);return r.json();
-  }));
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),10000);
+  let wr,tr;
+  try{
+   [wr,tr]=await Promise.all(['waiver_award_candidates.json','v9_trade_engine.json'].map(async name=>{
+    const r=await fetch('../../data/'+name,{cache:'no-cache',signal:controller.signal});
+    if(!r.ok)throw Error(name+' HTTP '+r.status);
+    return r.json();
+   }));
+  }finally{clearTimeout(timeout)}
   const w=wr.managers?.[manager]?.[0];
   const t=tr.sides?.filter(x=>x.manager===manager&&x.direct_edge>0).sort((a,b)=>b.direct_edge-a.direct_edge)[0];
   if(!w||!t)throw Error('No qualifying source row');
