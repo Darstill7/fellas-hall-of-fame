@@ -105,6 +105,20 @@ jobs:
           name: browser-release-reports
           path: data-integrity/browser-release-*.json
           if-no-files-found: ignore
+      - name: Verify public GitHub Pages against repository baseline
+        run: |
+          set -euo pipefail
+          for file in index.html managers/stilly/index.html data/career_core_generated.json assets/manager-encyclopedia.js; do
+            url="https://darstill7.github.io/fellas-hall-of-fame/$file"
+            echo "Checking $url"
+            curl --fail --location --retry 3 --retry-delay 2 --connect-timeout 15 --max-time 45 --silent --show-error "$url" -o /tmp/fellas-deployed-file
+            if ! cmp -s "$file" /tmp/fellas-deployed-file; then
+              echo "::error::Deployed Pages file differs from verified repository: $file"
+              sha256sum "$file" /tmp/fellas-deployed-file
+              exit 1
+            fi
+            echo "Verified exact deployed bytes: $file"
+          done
       - name: Release-readiness summary
         if: always()
         run: |
