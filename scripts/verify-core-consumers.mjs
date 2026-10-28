@@ -4,7 +4,7 @@ import fs from 'node:fs';
 const read=p=>fs.readFileSync(p,'utf8');
 const assert=(test,msg)=>{if(!test)throw Error(msg)};
 // Enforce public display names independently of internal ESPN/Sleeper identity joins.
-const privateNames=['Darren Stillson','Drew Sylvester','Zach Prescott','Landon Stover','Tom Schermerhorn','Devon Halderman','Trent Koble','Brandon Evans','Alex Birch','Tony Steglich','Mitch Huppert'];
+const privateNames=['Darren Stillson','Drew Sylvester','Zach Prescott','Landon Stover','Tom Schermerhorn','Devon Halderman','Trent Koble','Brandon Evans','Alex Birch','Tony Steglich','Mitch Huppert','Cory Kuhl'];
 const publicFiles=(dir)=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{
  const pathname=dir+'/'+e.name;
  if(e.isDirectory())return e.name==='.git'||e.name==='node_modules'?[]:publicFiles(pathname);
