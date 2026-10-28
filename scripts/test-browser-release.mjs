@@ -29,11 +29,13 @@ const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/reco
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
+let attemptedPages=0,completedPages=0;
 try{
  if(startupError)throw startupError;
  for(const width of (useWebkit?[390]:[390,1280])){
   const context=await browser.newContext({viewport:{width,height:844},isMobile:width===390,hasTouch:width===390});
   for(const route of routes){
+   attemptedPages++;
    const page=await context.newPage();
    const unexpected=[];
    const failedRequests=[];
@@ -278,6 +280,7 @@ try{
     await corruptTrade.close();
    }
    await page.close();
+   completedPages++;
   }
   await context.close();
  }
@@ -285,6 +288,6 @@ try{
 // Preserve machine-readable browser outcomes for failed and successful CI attempts.
 await fs.mkdir(path.join(root,'data-integrity'),{recursive:true});
 await fs.writeFile(path.join(root,'data-integrity','browser-release-'+engine.toLowerCase()+'.json'),
- JSON.stringify({engine,viewports:useWebkit?[390]:[390,1280],routes:routes.length,passed:errors.length===0,errors},null,2)+'\n');
+ JSON.stringify({engine,viewports:useWebkit?[390]:[390,1280],plannedRoutes:routes.length,plannedPageVisits:routes.length*(useWebkit?1:2),attemptedPages,completedPages,passed:errors.length===0&&completedPages===routes.length*(useWebkit?1:2),errors},null,2)+'\n');
 if(errors.length){console.error(engine+' browser release test FAILED:\n'+errors.map(x=>' - '+x).join('\n'));process.exitCode=1}
 else console.log(engine+' browser release test PASS with JS and interactive archive checks');
