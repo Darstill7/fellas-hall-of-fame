@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Validate public nickname-only HTML across all pages.
 on:
   push:
     branches: [main]
