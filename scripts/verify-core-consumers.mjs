@@ -123,6 +123,12 @@ for(const [slug,id] of Object.entries(managers)){
    assert(html.includes('id="full-franchise-dossier"'),'Canonical profile lacks detailed archive access: '+path);
    assert(html.includes('href="../'+slug+'.html"'),'Wrong full-dossier link: '+path);
    assert(html.includes('id="verified-history-panel"'),'Canonical profile missing historical modules: '+path);
+   for(const section of ['waiver','trade']){
+    const start=html.indexOf('data-encyclopedia-'+section+'>');
+    assert(start>=0,'Missing encyclopedia '+section+' card: '+path);
+    const paragraph=html.slice(start).match(/<p>([\\s\\S]*?)<\\/p>/)?.[1]||'';
+    assert(paragraph.includes('Source-backed historical evidence loads when this page opens.'),'Manager encyclopedia contains stale embedded numeric evidence: '+path+' '+section);
+   }
    assert(html.includes('id="franchise-story"'),'Canonical profile missing franchise biography: '+path);
    assert(html.includes('id="front-office-archive"'),'Canonical profile missing draft and trade archive: '+path);
    for(const module of ['manager-historical-records.js','manager-verified-season-endings.js','manager-trophy-cases.js','espn-franchise-lineage.js']){
