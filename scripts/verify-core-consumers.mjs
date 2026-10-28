@@ -27,6 +27,19 @@ for(const file of publicJsonFiles('data')){
  for(const fullName of privateNames)if(raw.includes(fullName))jsonNameViolations.push(file+' ('+fullName+')');
 }
 assert(!jsonNameViolations.length,'Public JSON full-name violations:\n'+jsonNameViolations.join('\n'));
+// GitHub Pages can also serve JavaScript, CSS and CSV; cover every publishable text asset.
+const servedTextFiles=(dir)=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{
+ const pathname=dir+'/'+e.name;
+ if(e.isDirectory())return ['.git','node_modules','scripts','data-integrity','.github'].includes(e.name)?[]:servedTextFiles(pathname);
+ return e.isFile()&&/\.(?:js|css|csv)$/i.test(e.name)?[pathname]:[];
+});
+const servedNameViolations=[];
+for(const file of servedTextFiles('.')){
+ const raw=read(file);
+ for(const fullName of privateNames)if(raw.includes(fullName))servedNameViolations.push(file+' ('+fullName+')');
+}
+assert(!servedNameViolations.length,'Public asset full-name violations:\n'+servedNameViolations.join('\n'));
+
 
 const careers=JSON.parse(read('data/career_core_generated.json'));
 const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
