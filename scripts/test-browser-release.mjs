@@ -106,6 +106,7 @@ try{
     const awardData=(await (await page.request.get(baseUrl+'data/waiver_award_candidates.json')).json()).managers[managerId]?.[0];
     const tradeSides=(await (await page.request.get(baseUrl+'data/v9_trade_engine.json')).json()).sides;
     const tradeData=tradeSides.filter(x=>x.manager===managerId&&x.direct_edge>0).sort((a,b)=>b.direct_edge-a.direct_edge)[0];
+    if(await page.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated')!=='yes')errors.push(width+' '+slug+' shared encyclopedia renderer did not update');
     const encyclopediaText=await page.locator('#franchise-encyclopedia').innerText();
     if(!awardData||!encyclopediaText.includes(awardData.player)||!encyclopediaText.includes(awardData.points.toFixed(2))||!encyclopediaText.includes('+'+awardData.par.toFixed(2)))
      errors.push(width+' '+slug+' encyclopedia waiver award differs from source');
