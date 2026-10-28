@@ -81,6 +81,7 @@ jobs:
       - name: Exercise desktop and mobile Chromium pages
         run: node scripts/test-browser-release.mjs
       - name: Exercise Safari-engine WebKit mobile pages
+        if: success() || failure()
         run: FELLAS_BROWSER=webkit node scripts/test-browser-release.mjs
       - name: Upload browser release verification reports
         if: always()
