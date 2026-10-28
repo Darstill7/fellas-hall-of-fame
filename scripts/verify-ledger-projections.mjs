@@ -8,6 +8,7 @@ const seasons=load('data/season_weekly_matchups_2016_2026_v1.json');
 const guide=load('data/season_guide.json');
 const errors=[];
 const assert=(condition,message)=>{if(!condition)errors.push(message)};
+const publicAlias=n=>({'Devon Halderman':'Halderman','Trent Koble':'Koble','Brandon Evans':'Evans','Darren Stillson':'Stilly','Drew Sylvester':'Stew','Zach Prescott':'Thommy','Landon Stover':'Stover','Tom Schermerhorn':'Schermerhorn'})[n]||n;
 const names=new Map();
 const byYear=new Map();
 const score=(a,b)=>a>b?'w':a<b?'l':'t';
@@ -56,7 +57,7 @@ for(const year of seasons.seasonYears){
  const historicalStandings=guide[year]?.standings||[];
  assert(historicalStandings.length===grouped.standings.length,year+' guide standings incomplete');
  for(const s of grouped.standings){
-  const g=historicalStandings.find(x=>x.name===s.manager);
+  const g=historicalStandings.find(x=>x.name===publicAlias(s.manager));
   assert(!!g,year+' missing guide franchise '+s.manager);
   if(g)for(const prop of ['w','l','t','games','pf','pa'])assert(g[prop]===s[prop],year+' '+s.manager+' '+prop+' guide mismatch');
  }
