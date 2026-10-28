@@ -23,6 +23,10 @@ fetch(prefix+'data/career_core_generated.json',{cache:'no-cache'})
    }
   }
   node.title=range+' regular season, '+m.games+' archived games · ESPN + Sleeper';
+  for(const countNode of document.querySelectorAll('[data-canonical-manager-games="'+node.dataset.canonicalManagerRecord+'"]')){
+   countNode.textContent=String(m.games);
+   countNode.dataset.canonicalUpdated='yes';
+  }
  }
 }).catch(()=>{for(const node of targets)node.dataset.canonicalUpdated='fallback'});
 })();
