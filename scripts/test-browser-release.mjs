@@ -20,13 +20,17 @@ await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
 const port=server.address().port,baseUrl='http://127.0.0.1:'+port+base;
 const useWebkit=process.env.FELLAS_BROWSER==='webkit';
 const engine=useWebkit?'WebKit':'Chromium';
-const browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})});
+let browser;
+let startupError=null;
+try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
+catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
 try{
+ if(startupError)throw startupError;
  for(const width of (useWebkit?[390]:[390,1280])){
   const context=await browser.newContext({viewport:{width,height:844},isMobile:width===390,hasTouch:width===390});
   for(const route of routes){
@@ -277,7 +281,7 @@ try{
   }
   await context.close();
  }
-}catch(e){errors.push('Fatal browser suite error: '+(e?.stack||String(e)))}finally{await browser.close();server.close()}
+}catch(e){errors.push('Fatal browser suite error: '+(e?.stack||String(e)))}finally{if(browser)try{await browser.close()}catch(e){errors.push('Browser cleanup error: '+String(e))}server.close()}
 // Preserve machine-readable browser outcomes for failed and successful CI attempts.
 await fs.mkdir(path.join(root,'data-integrity'),{recursive:true});
 await fs.writeFile(path.join(root,'data-integrity','browser-release-'+engine.toLowerCase()+'.json'),
