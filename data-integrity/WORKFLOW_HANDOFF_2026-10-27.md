@@ -256,3 +256,8 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Existing Chromium/WebKit negative-path tests and the main release hold remain active. GitHub Actions run outcomes for latest head are not independently confirmed in this continuation.
 
 - Commit `5d95938` adds a blocking `verify-core-consumers.mjs` ordering assertion: dossier heading inventory must precede topic overlap classification, and both must precede report upload. This prevents the same artifact packaging regression. CI execution for this additional guard is pending independent confirmation.
+
+### Continuation — validate malformed manager highlight feeds
+- Commit `383a905` adds evidence-shape and finite-number checks in `assets/manager-encyclopedia.js` before rendering a waiver or trade highlight. It rejects missing player names/assets and missing, non-number or non-finite numeric measurements; any invalid feed uses the existing explicit unavailable display instead of printing misleading values or leaving baked-in archive figures.
+- Commit `1c8aadd` extends the Chromium and WebKit manager-profile failure-path test to intercept a successful HTTP 200 waiver JSON feed and replace Stilly's points value with `null`. The browser must fail closed with unavailable labels instead of surfacing bad or stale values. The previous HTTP 503 simulation remains active.
+- This code is committed, but **neither full CI/browser nor Pages deployment has been independently verified** for the latest head. Verify both, then continue source evidence validation and final release QA. Do not share yet.
