@@ -1,6 +1,6 @@
 // Headless Chromium release checks: real JS, routed HTTP, responsive overflow and controls.
 // CI installs playwright and Chromium before running this script.
-import { chromium } from 'playwright';
+import { chromium, webkit } from 'playwright';
 import http from 'node:http';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -18,16 +18,18 @@ const server=http.createServer(async(req,res)=>{
 });
 await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
 const port=server.address().port,baseUrl='http://127.0.0.1:'+port+base;
-const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+const useWebkit=process.env.FELLAS_BROWSER==='webkit';
+const engine=useWebkit?'WebKit':'Chromium';
+const browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})});
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
 try{
- for(const width of [390,1280]){
+ for(const width of (useWebkit?[390]:[390,1280])){
   const context=await browser.newContext({viewport:{width,height:844},isMobile:width===390,hasTouch:width===390});
-  for(const route of routes){
+  for(const route of (useWebkit?routes.filter(r=>!r.startsWith('rivalries/')||r==='rivalries/stilly-vs-jmid.html'):routes)){
    const page=await context.newPage();
    const unexpected=[];
    const failedRequests=[];
@@ -120,5 +122,5 @@ try{
   await context.close();
  }
 }finally{await browser.close();server.close()}
-if(errors.length){console.error('Chromium browser release test FAILED:\n'+errors.map(x=>' - '+x).join('\n'));process.exitCode=1}
-else console.log('Chromium browser release test PASS: '+routes.length+' routes x 2 viewport sizes with JS and interactive archive checks');
+if(errors.length){console.error(engine+' browser release test FAILED:\n'+errors.map(x=>' - '+x).join('\n'));process.exitCode=1}
+else console.log(engine+' browser release test PASS with JS and interactive archive checks');
