@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Validate public alias map and historical ledger reconciliation.
 on:
   push:
     branches: [main]
