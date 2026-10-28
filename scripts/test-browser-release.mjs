@@ -175,6 +175,22 @@ try{
     if(waiver.includes('125.20')||trade.includes('453.4')||trade.includes('198.0'))
      errors.push(width+' '+route+' failed-source encyclopedia leaked hardcoded historic evidence');
     await failure.close();
+    // A 200 response with corrupt evidence is just as dangerous as an HTTP outage.
+    const corrupt=await context.newPage();
+    await corrupt.route('**/data/waiver_award_candidates.json',async intercepted=>{
+     const original=await intercepted.fetch();
+     const json=await original.json();
+     json.managers.Stilly[0].points=null;
+     await intercepted.fulfill({response:original,json});
+    });
+    await corrupt.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
+    const corruptStatus=await corrupt.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
+    const corruptText=await corrupt.locator('#franchise-encyclopedia').innerText();
+    if(corruptStatus!=='unavailable'||!corruptText.includes('Waiver evidence unavailable')||!corruptText.includes('Trade evidence unavailable'))
+     errors.push(width+' '+route+' malformed encyclopedia evidence did not fail closed');
+    if(corruptText.includes('NaN')||corruptText.includes('125.20'))
+     errors.push(width+' '+route+' malformed encyclopedia source exposed invalid or stale numbers');
+    await corrupt.close();
    }
    await page.close();
   }
