@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Historical name migration verification.
 on:
   push:
     branches: [main]
