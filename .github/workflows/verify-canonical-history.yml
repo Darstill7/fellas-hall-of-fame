@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Validation PR: exercise the complete canonical history and browser release gate.
 on:
   push:
     branches: [main]
