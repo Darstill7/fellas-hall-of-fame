@@ -126,7 +126,8 @@ for(const [slug,id] of Object.entries(managers)){
    for(const section of ['waiver','trade']){
     const start=html.indexOf('data-encyclopedia-'+section+'>');
     assert(start>=0,'Missing encyclopedia '+section+' card: '+path);
-    const paragraph=html.slice(start).match(/<p>([\\s\\S]*?)<\\/p>/)?.[1]||'';
+    const pStart=html.indexOf('<p>',start),pEnd=html.indexOf('</p>',pStart);
+    const paragraph=pStart>=0&&pEnd>pStart?html.slice(pStart+3,pEnd):'';
     assert(paragraph.includes('Source-backed historical evidence loads when this page opens.'),'Manager encyclopedia contains stale embedded numeric evidence: '+path+' '+section);
    }
    assert(html.includes('id="franchise-story"'),'Canonical profile missing franchise biography: '+path);
