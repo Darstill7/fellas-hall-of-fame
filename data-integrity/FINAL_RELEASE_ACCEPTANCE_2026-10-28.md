@@ -18,3 +18,7 @@
 
 ## Release decision
 NOT APPROVED FOR SHARING pending actual device QA, claim-level editorial provenance, and verification of the latest intended deployed version.
+
+## Verified after report creation
+- GitHub Actions run **#453**, run ID `40728784195`, PR #14 head `892628ae63d3fd862bc1b50aeae96d2d03e19f25`: **completed / success**, canonical-history job completed / success. The release matrix includes 158 Chromium and 79 WebKit page visits, with final independent report gate. Source-code privacy guard now covers known manager names in HTML, all `data/` JSON, and served JS/CSS/CSV. The only code difference between draft PR and main is the workflow comment. https://github.com/Darstill7/fellas-hall-of-fame/actions/runs/40728784195
+- This does **not** change the physical-device signoff, biography claim-level provenance, public Git history exposure, or latest deployment confirmation statuses.
