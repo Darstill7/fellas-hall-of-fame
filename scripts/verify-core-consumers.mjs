@@ -3,6 +3,17 @@
 import fs from 'node:fs';
 const read=p=>fs.readFileSync(p,'utf8');
 const assert=(test,msg)=>{if(!test)throw Error(msg)};
+// Enforce public display names independently of internal ESPN/Sleeper identity joins.
+const privateNames=['Darren Stillson','Drew Sylvester','Zach Prescott','Landon Stover','Tom Schermerhorn','Devon Halderman','Trent Koble','Brandon Evans'];
+const publicFiles=(dir)=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{
+ const pathname=dir+'/'+e.name;
+ if(e.isDirectory())return e.name==='.git'||e.name==='node_modules'?[]:publicFiles(pathname);
+ return e.isFile()&&e.name.endsWith('.html')?[pathname]:[];
+});
+for(const file of publicFiles('.')){
+ const html=read(file);
+ for(const fullName of privateNames)assert(!html.includes(fullName),'Public HTML uses a full manager name: '+file+' ('+fullName+')');
+}
 const careers=JSON.parse(read('data/career_core_generated.json'));
 const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
 const league=JSON.parse(read('data/league.json'));
