@@ -3,7 +3,6 @@
  const root=document.querySelector('#franchise-encyclopedia[data-manager-encyclopedia]');
  if(!root)return;
  const manager=root.dataset.managerEncyclopedia;
- const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  try{
   const [wr,tr]=await Promise.all(['waiver_award_candidates.json','v9_trade_engine.json'].map(async name=>{
    const r=await fetch('../../data/'+name,{cache:'no-cache'});if(!r.ok)throw Error(name+' HTTP '+r.status);return r.json();
@@ -11,6 +10,14 @@
   const w=wr.managers?.[manager]?.[0];
   const t=tr.sides?.filter(x=>x.manager===manager&&x.direct_edge>0).sort((a,b)=>b.direct_edge-a.direct_edge)[0];
   if(!w||!t)throw Error('No qualifying source row');
+  // Validate evidence before replacing any card; malformed or partial feeds must fail closed.
+  const numeric=(v)=>typeof v==='number'&&Number.isFinite(v);
+  if(typeof w.player!=='string'||!w.player.trim()||
+     ![w.year,w.acquisitionWeek,w.starts,w.points,w.par].every(numeric)||
+     typeof t.year!=='number'||!numeric(t.week)||!numeric(t.starts)||
+     !numeric(t.starter_points)||!numeric(t.direct_edge)||
+     !Array.isArray(t.assets)||!t.assets.length||!t.assets.every(a=>typeof a==='string'&&a.trim()))
+   throw Error('Invalid encyclopedia evidence');
   const waiver=root.querySelector('[data-encyclopedia-waiver]');
   const trade=root.querySelector('[data-encyclopedia-trade]');
   if(!waiver||!trade)throw Error('Missing encyclopedia mount');
