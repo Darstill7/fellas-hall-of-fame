@@ -22,3 +22,9 @@ NOT APPROVED FOR SHARING pending actual device QA, claim-level editorial provena
 ## Verified after report creation
 - GitHub Actions run **#453**, run ID `40728784195`, PR #14 head `892628ae63d3fd862bc1b50aeae96d2d03e19f25`: **completed / success**, canonical-history job completed / success. The release matrix includes 158 Chromium and 79 WebKit page visits, with final independent report gate. Source-code privacy guard now covers known manager names in HTML, all `data/` JSON, and served JS/CSS/CSV. The only code difference between draft PR and main is the workflow comment. https://github.com/Darstill7/fellas-hall-of-fame/actions/runs/40728784195
 - This does **not** change the physical-device signoff, biography claim-level provenance, public Git history exposure, or latest deployment confirmation statuses.
+
+## Biography qualification pass — October 28
+- Reviewed all ten active manager-page franchise story introductions and committed one substantive editorial qualification per manager. Specifically distinguished editorial labels, nickname origins, interpretations of roster construction, process quality, and inferred motives from verifiable archived results.
+- No record totals, matchup identities, title years, or measured trade/waiver figures were changed. The original evidence gap for all biographies still requires claim-by-claim source signoff, particularly claims about specific historical acquisitions and seasonal performance.
+- Validation-only draft PR #15: https://github.com/Darstill7/fellas-hall-of-fame/pull/15; CI run #466 https://github.com/Darstill7/fellas-hall-of-fame/actions/runs/40731584224. At the last observed state it was installing the browser test runtime; do not claim green until GitHub reports completed/success. The PR has only a workflow-comment difference from the profile code on main; do not merge.
+- Actual iPhone Safari signoff remains unperformed and launch hold remains in force.
