@@ -47,6 +47,12 @@ try{
    await page.waitForTimeout(150);
    const state=await page.evaluate(()=>({body:document.body?.innerText?.length||0,scroll:document.documentElement.scrollWidth,viewport:window.innerWidth}));
    if(state.body<80)errors.push(width+' '+route+' blank or very little content');
+   const exposedNames=await page.evaluate(()=>{
+    const text=document.body?.innerText||'';
+    return ['Darren Stillson','Drew Sylvester','Zach Prescott','Landon Stover','Tom Schermerhorn','Devon Halderman','Trent Koble','Brandon Evans'].filter(name=>text.includes(name));
+   });
+   if(exposedNames.length)errors.push(width+' '+route+' rendered page exposes full manager names: '+exposedNames.join(', '));
+
    if(state.scroll>state.viewport+5)errors.push(width+' '+route+' horizontal page overflow '+state.scroll+'px at '+state.viewport+'px viewport; offenders: '+(await page.evaluate(()=>[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+6).sort((a,b)=>b.getBoundingClientRect().right-a.getBoundingClientRect().right).slice(0,5).map(e=>e.tagName.toLowerCase()+(e.className&&typeof e.className==='string'?'.'+e.className.trim().replaceAll(' ','.'):'')+' right='+Math.round(e.getBoundingClientRect().right)).join(', ')+'; outside-panel offenders='+[...document.querySelectorAll('body *')].filter(e=>!e.closest('#historical-record-profile')&&e.getBoundingClientRect().right>innerWidth+3).sort((a,b)=>b.getBoundingClientRect().right-a.getBoundingClientRect().right).slice(0,12).map(e=>e.tagName.toLowerCase()+'.'+(typeof e.className==='string'?e.className.trim().replaceAll(' ','.'):'')+' right='+Math.round(e.getBoundingClientRect().right)).join(', ')+'; panel ancestry='+(()=>{let e=document.querySelector('#historical-record-profile');let xs=[];for(let i=0;e&&i<6;i++,e=e.parentElement){let b=e.getBoundingClientRect(),v=getComputedStyle(e);xs.push(e.tagName.toLowerCase()+'.'+e.className+' left='+Math.round(b.left)+' right='+Math.round(b.right)+' width='+Math.round(b.width)+' overflow='+v.overflowX)}return xs.join(' | ')})())));
    for(const error of unexpected)errors.push(width+' '+route+' JS error: '+error);
    for(const failed of failedRequests)errors.push(width+' '+route+' request error: '+failed);
