@@ -80,6 +80,13 @@ try{
    }
    if(route.startsWith('managers/')&&route.endsWith('/')&&slugs.includes(route.split('/')[1])){
     const slug=route.split('/')[1];
+    if(['stilly','stew','tom','stover','birch'].includes(slug)){
+     const story=page.locator('#franchise-story');
+     const wlt=story.locator('[data-canonical-manager-record]');
+     const games=story.locator('[data-canonical-manager-games]');
+     if(await wlt.count()!==1||await games.count()!==1)errors.push(width+' '+route+' biography career bindings absent');
+     else if(await wlt.getAttribute('data-canonical-updated')!=='yes'||await games.getAttribute('data-canonical-updated')!=='yes')errors.push(width+' '+route+' biography career bindings failed to load canonical data');
+    }
     const historyLink=page.locator('a[href="../'+slug+'.html#franchise-history-v915"]');
     if(await historyLink.count()!==1)errors.push(width+' '+route+' missing deep link to historical player/waiver/trade dossier');
     else{
