@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Validate nickname-only generated season content and displayed H2H labels.
 on:
   push:
     branches: [main]
