@@ -33,7 +33,7 @@
       },
       "ruling": "All Sleeper-era records tied to owner handle yogurtslinger15 are Stover records. Historical roster 8 is a superseded placeholder for this owner and should not be treated as a separate manager.",
       "legacyAliasNote": "DillonPanthers15 and Yogurt Slinger are user-confirmed Stover aliases. Pre-2020 player-level data remains unavailable unless separately recovered.",
-      "realName": "Landon Stover",
+      "realName": "Stover",
       "espnAccounts": [
         "lstover1535"
       ],
@@ -43,7 +43,7 @@
     },
     "Stilly": {
       "canonical": "Stilly",
-      "realName": "Darren Stillson",
+      "realName": "Stilly",
       "currentTeam": "Harry Woody",
       "espnAccounts": [
         "DarrenStillson"
@@ -54,7 +54,7 @@
     },
     "Stew": {
       "canonical": "Stew",
-      "realName": "Drew Sylvester",
+      "realName": "Stew",
       "currentTeam": "Worst Team on Paper!",
       "espnAccounts": [
         "DrewSyl",
@@ -70,7 +70,7 @@
     "Tom": {
       "canonical": "Tom",
       "currentAlias": "Thommy",
-      "realName": "Zach Prescott",
+      "realName": "Thommy",
       "currentTeam": "Green Bowl Packers",
       "espnAccounts": [
         "zachawyyy"
@@ -78,7 +78,7 @@
       "espnOwnerId": "{B3A4D4E9-2FE2-4A09-A4D4-E92FE23A0975}",
       "original2016": true,
       "currentlyActive": true,
-      "warning": "Current site manager Tom/Thommy is Zach Prescott, NOT retired 2016-17 owner Tom Schermerhorn."
+      "warning": "Current site manager Tom/Thommy is Thommy, NOT retired 2016-17 owner Schermerhorn."
     }
   },
   "espnEra": {
@@ -92,28 +92,28 @@
       "Stover"
     ],
     "historicalOnly2016Managers": [
-      "Devon Halderman",
-      "Brandon Evans",
-      "Tom Schermerhorn",
-      "Trent Koble"
+      "Halderman",
+      "Evans",
+      "Schermerhorn",
+      "Koble"
     ],
-    "note": "2016 had eight teams. Four original managers still active: Darren Stillson (Stilly), Drew Sylvester (Stew), Zach Prescott (Thommy/Tom canonical site key), Landon Stover (Stover). Historical-only owners retain their own records. Do not conflate Tom Schermerhorn with site manager Tom/Thommy (Zach Prescott)."
+    "note": "2016 had eight teams. Four original managers still active: Stilly (Stilly), Stew (Stew), Thommy (Thommy/Tom canonical site key), Stover (Stover). Historical-only owners retain their own records. Do not conflate Schermerhorn with site manager Tom/Thommy (Thommy)."
   },
   "espnHistoricalOnlyOwners": [
     {
-      "name": "Devon Halderman",
+      "name": "Halderman",
       "ownerId": "{3F8C79CB-A605-4041-8C79-CBA605704196}"
     },
     {
-      "name": "Brandon Evans",
+      "name": "Evans",
       "ownerId": "{367E411E-1520-47F0-A831-CAC3A8B24D91}"
     },
     {
-      "name": "Tom Schermerhorn",
+      "name": "Schermerhorn",
       "ownerId": "{0C5E895B-70A0-476A-8785-3DAA324417BC}"
     },
     {
-      "name": "Trent Koble",
+      "name": "Koble",
       "ownerId": "{D25AA4C4-A575-4F68-9AA4-C4A575DF68F7}"
     }
   ],
@@ -122,7 +122,7 @@
   "originalContinuingManagers": [
     {
       "canonical": "Stilly",
-      "realName": "Darren Stillson",
+      "realName": "Stilly",
       "espnHandles": [
         "DarrenStillson"
       ],
@@ -133,7 +133,7 @@
     },
     {
       "canonical": "Stew",
-      "realName": "Drew Sylvester",
+      "realName": "Stew",
       "espnHandles": [
         "DrewSyl",
         "ajsylv0709452"
@@ -146,7 +146,7 @@
     {
       "canonical": "Tom",
       "displayAlias": "Thommy",
-      "realName": "Zach Prescott",
+      "realName": "Thommy",
       "espnHandles": [
         "zachawyyy"
       ],
@@ -157,7 +157,7 @@
     },
     {
       "canonical": "Stover",
-      "realName": "Landon Stover",
+      "realName": "Stover",
       "espnHandles": [
         "lstover1535"
       ],
@@ -168,23 +168,23 @@
     }
   ],
   "formerOriginalManagers": [
-    "Devon Halderman",
-    "Brandon Evans",
-    "Tom Schermerhorn",
-    "Trent Koble"
+    "Halderman",
+    "Evans",
+    "Schermerhorn",
+    "Koble"
   ],
-  "identityCaution": "Tom Schermerhorn is a former manager, NOT Thommy. Thommy is Zach Prescott. Keep historical former manager records separate. Alex Birch (Birch), Tony Steglich (Tony), and Mitch Huppert (Mitch) remain independent from every original owner.",
+  "identityCaution": "Schermerhorn is a former manager, NOT Thommy. Thommy is Thommy. Keep historical former manager records separate. Birch (Birch), Tony (Tony), and Mitch (Mitch) remain independent from every original owner.",
   "additionalVerifiedManagers": [
     {
       "canonical": "Birch",
-      "name": "Alex Birch",
+      "name": "Birch",
       "firstSeason": 2017,
       "espn": "jaabir7182310",
       "sleeper": "birchhh"
     },
     {
       "canonical": "Tony",
-      "name": "Tony Steglich",
+      "name": "Tony",
       "firstSeason": 2017,
       "espn": "TSteg8008",
       "sleeper": "tsteg",
@@ -192,14 +192,14 @@
     },
     {
       "canonical": "Mitch",
-      "name": "Mitch Huppert",
+      "name": "Mitch",
       "firstSeason": 2018,
       "espn": "Mitch4480",
       "sleeper": "huppdawg80"
     },
     {
       "canonical": "Schermerhorn",
-      "name": "Tom Schermerhorn",
+      "name": "Schermerhorn",
       "firstSeason": 2016,
       "lastSeason": 2017,
       "espn": "wnchargers",
