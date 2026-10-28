@@ -357,3 +357,7 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Found that the new `Verify both browser reports completed` step used GitHub Actions' implicit `success()` condition, so it would be skipped after a Chromium or WebKit failure—the very scenario when report diagnostics are most useful.
 - Commit `9d30a2a` adds `if: success() || failure()` to that step. It now independently validates report presence and route counts after failed upstream browser steps, while the existing `if: always()` artifact upload retains any produced JSON. Failures are not downgraded.
 - This change is committed, but execution of the latest workflow and Pages deployment remains unverified. Keep the release hold pending actual CI, editorial provenance and mobile acceptance.
+
+### Continuation — no-JavaScript test coverage expanded to all current managers (October 28)
+- The existing disabled-JavaScript browser test only exercised Stilly despite the neutral-card HTML cleanup changing all ten modern profiles. Commit `aa02def` removes that limitation and checks both waiver/trade fallback cards and archive destinations on all ten profiles, at each browser-engine viewport already in the route suite.
+- The code preserves regular JavaScript-enabled source render checks and existing failure-path tests. The public site and GitHub Actions page were unavailable through web retrieval in this turn, so no live-site, CI, or deployment success is claimed. Keep the release hold until executed browser results and final editorial/mobile acceptance are obtained.
