@@ -47,6 +47,8 @@ jobs:
         run: node scripts/verify-core-consumers.mjs
       - name: Inventory unmatched historical dossier editorial headings
         run: node scripts/audit-dossier-editorial-inventory.mjs > data-integrity/dossier-editorial-inventory.json
+      - name: Classify dossier topical overlap
+        run: node scripts/audit-dossier-topic-overlap.mjs > data-integrity/dossier-topic-overlap.json
       - name: Upload link-audit report
         if: always()
         uses: actions/upload-artifact@v4
@@ -58,8 +60,6 @@ jobs:
             data-integrity/dossier-editorial-inventory.json
             data-integrity/dossier-topic-overlap.json
           if-no-files-found: ignore
-      - name: Classify dossier topical overlap
-        run: node scripts/audit-dossier-topic-overlap.mjs > data-integrity/dossier-topic-overlap.json
       - name: Reconcile scored trade sides to archived source manifest
         run: node scripts/verify-trade-source-manifest.mjs
       - name: Protect unresolved trade classifications
