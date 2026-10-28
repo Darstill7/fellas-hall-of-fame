@@ -8,6 +8,7 @@ const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
 const league=JSON.parse(read('data/league.json'));
 const legacyResumes=JSON.parse(read('data/manager_legacy_resumes.json'));
 const workflow=read('.github/workflows/verify-canonical-history.yml');
+assert(workflow.includes("      - 'data-integrity/WORKFLOW_HANDOFF_2026-10-27.md'"),'Documentation-only handoff updates must not cancel browser CI runs');
 const topicAudit=workflow.indexOf('      - name: Classify dossier topical overlap');
 const dossierInventory=workflow.indexOf('      - name: Inventory unmatched historical dossier editorial headings');
 const artifactUpload=workflow.indexOf('      - name: Upload link-audit report');
