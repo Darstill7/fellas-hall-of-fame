@@ -107,11 +107,25 @@ try{
     const tradeSides=(await (await page.request.get(baseUrl+'data/v9_trade_engine.json')).json()).sides;
     const tradeData=tradeSides.filter(x=>x.manager===managerId&&x.direct_edge>0).sort((a,b)=>b.direct_edge-a.direct_edge)[0];
     if(await page.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated')!=='yes')errors.push(width+' '+slug+' shared encyclopedia renderer did not update');
-    const encyclopediaText=await page.locator('#franchise-encyclopedia').innerText();
-    if(!awardData||!encyclopediaText.includes(awardData.player)||!encyclopediaText.includes(awardData.points.toFixed(2))||!encyclopediaText.includes('+'+awardData.par.toFixed(2)))
-     errors.push(width+' '+slug+' encyclopedia waiver award differs from source');
-    if(!tradeData||!tradeData.assets.every(asset=>encyclopediaText.includes(asset))||!encyclopediaText.includes('+'+tradeData.direct_edge.toFixed(1)))
-     errors.push(width+' '+slug+' encyclopedia trade highlight differs from source');
+    const waiverCard=page.locator('#franchise-encyclopedia [data-encyclopedia-waiver]');
+    const tradeCard=page.locator('#franchise-encyclopedia [data-encyclopedia-trade]');
+    if(await waiverCard.count()!==1||!awardData)errors.push(width+' '+slug+' waiver card or source missing');
+    else{
+     const heading=await waiverCard.locator('h3').innerText();
+     const detail=await waiverCard.locator('p').innerText();
+     if(heading.trim()!==awardData.player||!detail.includes(awardData.points.toFixed(2))||
+        !detail.includes('+'+awardData.par.toFixed(2))||!detail.includes(String(awardData.acquisitionType)))
+      errors.push(width+' '+slug+' waiver card does not match its source');
+    }
+    if(await tradeCard.count()!==1||!tradeData)errors.push(width+' '+slug+' trade card or source missing');
+    else{
+     const heading=await tradeCard.locator('h3').innerText();
+     const detail=await tradeCard.locator('p').innerText();
+     if(heading.trim()!==tradeData.assets.join(' + ')||
+        !detail.includes('+'+tradeData.direct_edge.toFixed(1))||
+        !detail.includes(Number(tradeData.starter_points).toFixed(2)))
+      errors.push(width+' '+slug+' trade card does not match its source');
+    }
     const encyclopedia=page.locator('#franchise-encyclopedia');
     if(await encyclopedia.count()!==1)errors.push(width+' '+slug+' missing franchise encyclopedia');
     else{
