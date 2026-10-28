@@ -3,6 +3,16 @@
  const root=document.querySelector('#franchise-encyclopedia[data-manager-encyclopedia]');
  if(!root)return;
  const manager=root.dataset.managerEncyclopedia;
+ // Suppress the archived numeric HTML immediately, before awaiting network requests.
+ // Otherwise a slow connection can briefly advertise old figures as current.
+ for(const selector of ['[data-encyclopedia-waiver]','[data-encyclopedia-trade]']){
+  const card=root.querySelector(selector);
+  if(!card)continue;
+  const heading=card.querySelector('h3'),detail=card.querySelector('p');
+  if(heading)heading.textContent='Loading verified highlights…';
+  if(detail)detail.textContent='Checking archived source evidence.';
+ }
+ root.dataset.encyclopediaUpdated='loading';
  try{
   const [wr,tr]=await Promise.all(['waiver_award_candidates.json','v9_trade_engine.json'].map(async name=>{
    const r=await fetch('../../data/'+name,{cache:'no-cache'});if(!r.ok)throw Error(name+' HTTP '+r.status);return r.json();
