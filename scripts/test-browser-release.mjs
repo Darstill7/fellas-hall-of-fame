@@ -95,16 +95,15 @@ try{
        errors.push(width+' '+route+' biography values disagree with canonical career record');
      }
     }
-    if(slug==='stilly'){
-     const encyclopedia=page.locator('#franchise-encyclopedia');
-     if(await encyclopedia.count()!==1)errors.push(width+' Stilly profile missing integrated franchise encyclopedia');
-     else{
-      const links=encyclopedia.locator('a[href*="../stilly.html#"]');
-      if(await links.count()!==3)errors.push(width+' Stilly encyclopedia missing three sourced chapters');
-      for(const fragment of ['franchise-dossier','franchise-history-v915','v9-front-office']){
-       const target=await page.request.get(new URL('../stilly.html',baseUrl+route).toString());
-       if(!(await target.text()).includes('id="'+fragment+'"'))errors.push(width+' Stilly archive chapter target missing: '+fragment);
-      }
+    const encyclopedia=page.locator('#franchise-encyclopedia');
+    if(await encyclopedia.count()!==1)errors.push(width+' '+slug+' missing franchise encyclopedia');
+    else{
+     const chapterLinks=encyclopedia.locator('a[href*="../'+slug+'.html#"]');
+     if(await chapterLinks.count()!==3)errors.push(width+' '+slug+' encyclopedia missing three archive chapter links');
+     const archiveResponse=await page.request.get(new URL('../'+slug+'.html',baseUrl+route).toString());
+     const archiveBody=await archiveResponse.text();
+     for(const fragment of ['franchise-dossier','franchise-history-v915','v9-front-office']){
+      if(!archiveBody.includes('id="'+fragment+'"'))errors.push(width+' '+slug+' archive chapter target missing: '+fragment);
      }
     }
     const historyLink=page.locator('a[href="../'+slug+'.html#franchise-history-v915"]');
