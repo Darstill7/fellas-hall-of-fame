@@ -285,6 +285,7 @@ try{
   await context.close();
  }
 }catch(e){errors.push('Fatal browser suite error: '+(e?.stack||String(e)))}finally{if(browser)try{await browser.close()}catch(e){errors.push('Browser cleanup error: '+String(e))}server.close()}
+if(completedPages!==routes.length*(useWebkit?1:2))errors.push('Incomplete browser coverage: completed '+completedPages+' of '+routes.length*(useWebkit?1:2)+' planned page visits');
 // Preserve machine-readable browser outcomes for failed and successful CI attempts.
 await fs.mkdir(path.join(root,'data-integrity'),{recursive:true});
 await fs.writeFile(path.join(root,'data-integrity','browser-release-'+engine.toLowerCase()+'.json'),
