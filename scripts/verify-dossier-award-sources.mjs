@@ -26,6 +26,9 @@ for(const slug of slugs){
   if(!m){failures.push(manager+' '+heading+' card missing');return}
   const [,displayYear,displayAssets,edge]=m;
   if(+displayYear!==eligible.year||Math.abs(+edge-eligible.direct_edge)>0.11)failures.push(manager+' '+heading+' year or edge not model-backed');
+  const cardCopy=html.slice(m.index,m.index+450);
+  if(!cardCopy.includes('Confidence: '+eligible.confidence+'.'))failures.push(manager+' '+heading+' confidence does not match source');
+  if(eligible.provisional&&!cardCopy.includes('Provisional 2026 in-season snapshot'))failures.push(manager+' '+heading+' omits provisional in-season warning');
   if(displayAssets){
    const displayed=clean(displayAssets).split(' + ').map(x=>x.trim()).sort();
    const expected=[...eligible.assets].sort();
