@@ -82,6 +82,13 @@ jobs:
         run: node scripts/test-browser-release.mjs
       - name: Exercise Safari-engine WebKit mobile pages
         run: FELLAS_BROWSER=webkit node scripts/test-browser-release.mjs
+      - name: Upload browser release verification reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-release-reports
+          path: data-integrity/browser-release-*.json
+          if-no-files-found: ignore
       - name: Release-readiness summary
         if: always()
         run: |
