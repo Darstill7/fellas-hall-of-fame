@@ -379,3 +379,8 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Commits `6b4c2a2` and `6e331a7` add an explicit **Provisional 2026 in-season snapshot** qualifier to the JMid and Scott award cards, without altering points or rankings.
 - Commit `ded0364` expands `scripts/verify-dossier-award-sources.mjs` to assert that published trade-card confidence matches `eligible.confidence` and that provisional model outcomes carry the in-season caveat. Other nonprovisional cards are unchanged.
 - These editorial changes are newly committed on main and **not yet covered by a fresh executed green CI run**. Previous verified #370 was before them. Keep release hold pending current-head verification, comprehensive editorial-source and physical iPhone review.
+
+### Editorial audit verification PR #2 (October 28)
+- Created draft non-merge validation PR https://github.com/Darstill7/fellas-hall-of-fame/pull/2 on branch `ci/editorial-audit-check-2026-10-28`, base main commit `616ccec2b4cc41f8c5b0313a162028b7aae18025`; only PR diff is a comment in the workflow. PR head `aae9daa771e128f531b4f46847a0a81fb5e47040`.
+- GitHub Actions run **#374 / 40718018823**: `Verify dossier trade and waiver awards against archived source models` passed, including new confidence/provisional checks. Browser installation and Chromium/WebKit tests were still in progress at this handoff observation, so **full run success is not yet verified**. Inspect run conclusion before release.
+- PR #2 should remain unmerged. League-sharing release gate remains closed pending complete editorial provenance and device testing.
