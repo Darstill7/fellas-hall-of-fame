@@ -352,3 +352,8 @@ Discover connected GitHub tools using `ALL_TOOLS` inside `functions.exec`, for e
 - Found that the workflow uploaded browser diagnostic JSON but had no separate blocking assertion requiring **both** Chromium and WebKit reports to exist and agree with their planned route-matrix coverage.
 - Commit `dedd6f9` adds a post-browser, pre-upload verification step checking both JSON files, the exact engine identities, 156 Chromium and 78 WebKit attempted/completed page visits, `passed=true`, and zero errors. Missing, incomplete, malformed, or failed reports now make canonical CI fail instead of allowing a misleading green result.
 - This is a committed release-gate change, not proof of its execution. Latest GitHub Actions page is inaccessible through available web access; do not certify final HEAD, Pages deployment, physical iPhone Safari, or editorial provenance until actual independent evidence exists. Do not share yet.
+
+### Continuation — always evaluate dual-browser report gate (October 28)
+- Found that the new `Verify both browser reports completed` step used GitHub Actions' implicit `success()` condition, so it would be skipped after a Chromium or WebKit failure—the very scenario when report diagnostics are most useful.
+- Commit `9d30a2a` adds `if: success() || failure()` to that step. It now independently validates report presence and route counts after failed upstream browser steps, while the existing `if: always()` artifact upload retains any produced JSON. Failures are not downgraded.
+- This change is committed, but execution of the latest workflow and Pages deployment remains unverified. Keep the release hold pending actual CI, editorial provenance and mobile acceptance.
