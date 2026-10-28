@@ -84,6 +84,7 @@ jobs:
         if: success() || failure()
         run: FELLAS_BROWSER=webkit node scripts/test-browser-release.mjs
       - name: Verify both browser reports completed
+        if: success() || failure()
         run: |
           node --input-type=module -e '
             import fs from "node:fs";
