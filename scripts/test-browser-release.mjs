@@ -158,7 +158,23 @@ try{
    }
    if(route==='managers/record-books.html'){
     await page.locator('#manager').selectOption('Stilly');
-    if(!(await page.locator('#profile').innerText()).includes('65–77'))errors.push(width+' historical archive did not render canonical Stilly WLT');
+    const career=(await (await page.request.get(baseUrl+'data/career_core_generated.json')).json()).managers.Stilly;
+    const expected=career.w+'–'+career.l+(career.t?'–'+career.t:'');
+    if(!(await page.locator('#profile').innerText()).includes(expected))errors.push(width+' historical archive did not render canonical Stilly WLT '+expected);
+   }
+   if(route==='managers/stilly/'){
+    // Fault injection: source failure must not leak stale hardcoded award numbers.
+    const failure=await context.newPage();
+    await failure.route('**/data/waiver_award_candidates.json',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":"injected"}'}));
+    await failure.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
+    const status=await failure.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
+    const waiver=await failure.locator('[data-encyclopedia-waiver]').innerText();
+    const trade=await failure.locator('[data-encyclopedia-trade]').innerText();
+    if(status!=='unavailable'||!waiver.includes('Waiver evidence unavailable')||!trade.includes('Trade evidence unavailable'))
+     errors.push(width+' '+route+' failed-source encyclopedia did not fail closed');
+    if(waiver.includes('125.20')||trade.includes('453.4')||trade.includes('198.0'))
+     errors.push(width+' '+route+' failed-source encyclopedia leaked hardcoded historic evidence');
+    await failure.close();
    }
    await page.close();
   }
