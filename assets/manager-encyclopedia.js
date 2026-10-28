@@ -38,7 +38,7 @@
    throw Error('Invalid encyclopedia evidence');
   const waiver=root.querySelector('[data-encyclopedia-waiver]');
   const trade=root.querySelector('[data-encyclopedia-trade]');
-  if(!waiver||!trade)throw Error('Missing encyclopedia mount');
+  if(!waiver||!trade||!waiver.querySelector('h3')||!waiver.querySelector('p')||!trade.querySelector('h3')||!trade.querySelector('p'))throw Error('Missing encyclopedia mount');
   waiver.querySelector('h3').textContent=w.player;
   waiver.querySelector('p').textContent=w.year+' Week '+w.acquisitionWeek+' '+w.acquisitionType+' · '+w.starts+' subsequent credited starts · '+Number(w.points).toFixed(2)+' starter points · +'+Number(w.par).toFixed(2)+' above positional starter benchmark. Archived candidate, not comprehensive waiver ROI.';
   trade.querySelector('h3').textContent=t.assets.join(' + ');
