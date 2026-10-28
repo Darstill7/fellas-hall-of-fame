@@ -49,7 +49,7 @@ try{
    if(state.body<80)errors.push(width+' '+route+' blank or very little content');
    const exposedNames=await page.evaluate(()=>{
     const text=document.body?.innerText||'';
-    return ['Darren Stillson','Drew Sylvester','Zach Prescott','Landon Stover','Tom Schermerhorn','Devon Halderman','Trent Koble','Brandon Evans'].filter(name=>text.includes(name));
+    return ['Darren Stillson','Drew Sylvester','Zach Prescott','Landon Stover','Tom Schermerhorn','Devon Halderman','Trent Koble','Brandon Evans','Alex Birch','Tony Steglich','Mitch Huppert'].filter(name=>text.includes(name));
    });
    if(exposedNames.length)errors.push(width+' '+route+' rendered page exposes full manager names: '+exposedNames.join(', '));
 
