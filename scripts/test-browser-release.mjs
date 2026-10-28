@@ -95,6 +95,13 @@ try{
        errors.push(width+' '+route+' biography values disagree with canonical career record');
      }
     }
+    const chapters=page.locator('nav.profile-chapters a[href^="#"]');
+    if(await chapters.count()!==7)errors.push(width+' '+slug+' missing chapter navigation');
+    else{
+     for(const href of await chapters.evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')))){
+      if(await page.locator(href).count()!==1)errors.push(width+' '+slug+' chapter target absent: '+href);
+     }
+    }
     const encyclopedia=page.locator('#franchise-encyclopedia');
     if(await encyclopedia.count()!==1)errors.push(width+' '+slug+' missing franchise encyclopedia');
     else{
