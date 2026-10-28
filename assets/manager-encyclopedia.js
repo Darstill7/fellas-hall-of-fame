@@ -9,7 +9,7 @@
   const card=root.querySelector(selector);
   if(!card)continue;
   const heading=card.querySelector('h3'),detail=card.querySelector('p');
-  if(heading)heading.textContent='Loading verified highlights…';
+  if(heading)heading.textContent='Loading source-backed highlights…';
   if(detail)detail.textContent='Checking archived source evidence.';
  }
  root.dataset.encyclopediaUpdated='loading';
