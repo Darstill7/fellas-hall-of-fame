@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Final publishable assets and editorial acceptance audit.
 on:
   push:
     branches: [main]
