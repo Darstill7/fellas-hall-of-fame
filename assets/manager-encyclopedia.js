@@ -19,5 +19,15 @@
   trade.querySelector('h3').textContent=t.assets.join(' + ');
   trade.querySelector('p').textContent=t.year+' Week '+t.week+' · '+t.starts+' credited starts · '+Number(t.starter_points).toFixed(2)+' subsequent starter points · +'+Number(t.direct_edge).toFixed(1)+' direct starter-point edge. '+(t.year===2026?'2026 in-season snapshot. ':'')+'Not positional WAR or decision-quality scoring.';
   root.dataset.encyclopediaUpdated='yes';
- }catch(e){root.dataset.encyclopediaUpdated='fallback';}
+ }catch(e){
+  // Never present baked-in historical figures as current when canonical source loading fails.
+  for(const [selector,title] of [['[data-encyclopedia-waiver]','Waiver evidence unavailable'],['[data-encyclopedia-trade]','Trade evidence unavailable']]){
+   const card=root.querySelector(selector);
+   if(!card)continue;
+   const heading=card.querySelector('h3'),detail=card.querySelector('p');
+   if(heading)heading.textContent=title;
+   if(detail)detail.textContent='Source-backed figures could not be loaded. The historical dossier remains available below, but its archived figures are not a verified current snapshot.';
+  }
+  root.dataset.encyclopediaUpdated='unavailable';
+ }
 })();
