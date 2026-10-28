@@ -133,7 +133,7 @@ try{
       errors.push(width+' '+slug+' trade card does not match its source');
     }
     // JavaScript-disabled visitors must see neutral archive navigation, never stale model claims.
-    if(slug==='stilly'){
+    {
      const noScript=await browser.newContext({viewport:{width,height:844},javaScriptEnabled:false});
      try{
       const staticPage=await noScript.newPage();
@@ -143,7 +143,7 @@ try{
        if(await card.locator('h3').innerText()!=='Source-backed highlight'||
           !(await card.locator('p').innerText()).includes('Source-backed historical evidence loads'))
         errors.push(width+' '+route+' no-JS source card exposes outdated '+type+' content');
-       if(await card.locator('a[href*="../stilly.html#"]').count()!==1)
+       if(await card.locator('a[href*="../'+slug+'.html#"]').count()!==1)
         errors.push(width+' '+route+' no-JS archival '+type+' link missing');
       }
      }finally{await noScript.close()}
