@@ -277,7 +277,7 @@ try{
   }
   await context.close();
  }
-}finally{await browser.close();server.close()}
+}catch(e){errors.push('Fatal browser suite error: '+(e?.stack||String(e)))}finally{await browser.close();server.close()}
 // Preserve machine-readable browser outcomes for failed and successful CI attempts.
 await fs.mkdir(path.join(root,'data-integrity'),{recursive:true});
 await fs.writeFile(path.join(root,'data-integrity','browser-release-'+engine.toLowerCase()+'.json'),
