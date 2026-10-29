@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Validate trade evidence in manager biographies.
 on:
   push:
     branches: [main]
