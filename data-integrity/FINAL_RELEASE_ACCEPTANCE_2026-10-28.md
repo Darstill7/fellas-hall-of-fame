@@ -44,3 +44,9 @@ NOT APPROVED FOR SHARING pending actual device QA, claim-level editorial provena
 - Pinned `.github/workflows/verify-canonical-history.yml` from `ubuntu-latest` to `ubuntu-24.04` (commit `62d75f8`) to restore supported Playwright dependencies.
 - Draft verification PR #18 https://github.com/Darstill7/fellas-hall-of-fame/pull/18; run #481 https://github.com/Darstill7/fellas-hall-of-fame/actions/runs/40920062387. Biography trade claim step passed; browser installation was still running at last observation. Do not report new full green run until verified completed success.
 - Physical iPhone acceptance and unverified editorial acquisition modes remain open; release hold continues.
+
+## Biography copy single-source parity — October 29
+- Run #481 / 40920062387 completed SUCCESS after pinning Playwright CI to ubuntu-24.04. This clears previous browser-environment failure.
+- Found that `data/manager_biographies_awards.json` retained old narrative text even after the current 10 manager profile introductions had been editorially corrected. Updated all ten `biography` strings to mirror the exact published franchise-story introductory copy (excluding dynamic record/game summary); trade and waiver award fields unchanged. Commit `fe1baf4`.
+- Added `scripts/verify-biography-editorial-parity.mjs`, wired as a blocking CI step (commits `b7f7ff7` and `0f5f721`). Draft test PR #19 https://github.com/Darstill7/fellas-hall-of-fame/pull/19, Actions #486 https://github.com/Darstill7/fellas-hall-of-fame/actions/runs/40929842700. Confirmed editorial parity, factual season/title checks and trade-asset source checks all passed. At last observation, browser installation/expanded Chromium + WebKit still pending; do not infer full green result until completed.
+- No device-side physical iPhone acceptance has occurred. Documented history and source parity do not prove every discretionary narrative claim; sharing remains withheld.
