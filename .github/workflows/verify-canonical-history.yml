@@ -108,6 +108,8 @@ jobs:
         run: node scripts/verify-recovered-2020-rosters.mjs
       - name: Audit all six Sleeper seasons for weekly roster completeness
         run: node scripts/audit-six-season-roster-coverage.mjs
+      - name: Audit original and recovered ESPN/Sleeper data provenance
+        run: node scripts/audit-evidence-coverage.mjs
       - name: Research-only six-season hindsight lineup analysis
         run: node scripts/analyze-six-season-lineups.mjs
       - name: Run recovered 2025 research-only lineup analysis
