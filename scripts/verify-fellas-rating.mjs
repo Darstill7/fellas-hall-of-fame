@@ -29,3 +29,8 @@ if(!page.includes('Eight bounded components')||!page.includes('Verified playoff 
 if(!ui.includes("playoffs:'Playoffs'")||!ui.includes('verified_espn_playoff_brackets_2016_2019.json')||!ui.includes('verified_sleeper_playoff_brackets_2020_2025.json'))fail('Rating UI not sourcing verified playoff brackets');
 if(!page.includes('id="ranking"')||!page.includes('fellas-rating-page.mjs')||!ui.includes('makeRatings')||!ui.includes('fellas-rating-model.mjs'))fail('Rating page not connected to canonical model');
 console.log('Fellas ratings PASS: '+rows.map(r=>r.name+' '+r.score.toFixed(1)).join(' | '));
+
+const stover=rows.find(x=>x.name==='Stover');
+if(!stover||!stover.titleYears.includes(2022)||stover.breakdown.finals<=0)fail('Stover championship must count toward championship-game appearances');
+for(const rating of rows)if(rating.titleYears.length&&rating.breakdown.finals<=0)fail('Champion has zero finals-appearance score: '+rating.name);
+console.log('Finals-appearance rating credits championship winners PASS');
