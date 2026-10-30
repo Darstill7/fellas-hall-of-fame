@@ -74,3 +74,12 @@ for(const slug of ['stilly','stew','tom','stover','birch','tony','mitch','kuhl',
 }
 for(const needle of ['managerCardTier(manager)','earnedArchetypes(manager)','weeklyOvrHistory({ledger,guide,careers,luck,endings,playoffBrackets})','../../data/','segments.at(-2)'])if(!profileModule.includes(needle))throw Error('Manager profile Madden panel missing '+needle);
 console.log('MADDEN PROFILE PANELS PASS: ten canonical manager pages share ratings and profiles');
+
+const lastSnapshot=weekly.at(-1);
+if(!lastSnapshot)throw Error('No verified weekly OVR snapshot');
+for(const r of ratings.filter(r=>!r.historical)){
+ const snapshot=lastSnapshot.rows.find(row=>row.name===r.name);
+ if(!snapshot||Math.abs(snapshot.ovr-r.score)>0.11||snapshot.career!==r.career)throw Error('Homepage/profile/current-week rating discrepancy: '+r.name);
+}
+if(!homeModule.includes("makeRatings({guide,careers,luck,endings,playoffBrackets:")||!profileModule.includes("rankings=makeRatings({guide,careers,luck,endings,playoffBrackets})"))throw Error('Shared rating calculation absent from cards');
+console.log('MADDEN SOURCE PARITY PASS: homepage, profiles and latest weekly OVR use identical canonical ratings for ten managers');
