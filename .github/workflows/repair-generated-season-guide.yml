@@ -1,0 +1,30 @@
+name: Repair generated season-guide projections
+on:
+  push:
+    paths:
+      - '.github/workflows/repair-generated-season-guide.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: |
+          node scripts/generate-season-guide.mjs
+          node scripts/generate-season-guide.mjs --check
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: repair/season-guide-artifacts
+          delete-branch: true
+          title: 'Regenerate verified season guide and embedded page data'
+          commit-message: 'Regenerate season guide after dynamic verified-week descriptions'
+          body: 'Automatically regenerated artifacts from canonical ledger using the existing generator; required to resolve stale projection CI.'
+          add-paths: |
+            data/season_guide.json
+            seasons/index.html
