@@ -94,6 +94,8 @@ jobs:
         run: node scripts/verify-fellas-rating.mjs
       - name: Syntax-check Madden manager browser modules
         run: |
+          node --check scripts/stage-sleeper-week.mjs
+          node --check scripts/apply-reviewed-sleeper-week.mjs
           node --check assets/manager-madden-cards.mjs
           node --check assets/manager-madden-archetypes.mjs
           node --check assets/manager-weekly-ovr.mjs
