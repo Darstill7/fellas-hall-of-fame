@@ -1,4 +1,4 @@
-import {managerArchetype} from './manager-madden-archetypes.mjs';
+import {earnedArchetypes} from './manager-madden-archetypes.mjs';
 import {seasonResume} from './manager-season-resume.mjs';
 import {weeklyOvrHistory} from './manager-weekly-ovr.mjs';
 import {makeRatings} from './fellas-rating-model.mjs';
@@ -36,7 +36,9 @@ try {
   const now=weekly.find(x=>x.week===Math.max(1,selectedWeek-1));
   $('cards').innerHTML=selected.map(r=>{
    const s=byName.get(r.name)?.scores||{};
-   const archetype=managerArchetype(r,byName.get(r.name));
+   const archetypes=earnedArchetypes(r,byName.get(r.name));
+   const archetype=archetypes[0];
+   const specialtyHtml=archetypes.slice(1).map(a=>'<span class="specialty" title="'+esc(a.reason)+'">'+esc(a.name)+(a.provisional?' · Provisional':'')+'</span>').join('');
    const historical=snapshot.rows.find(x=>x.name===r.name);
    const preceding=now?.rows.find(x=>x.name===r.name);
    const ovr=historical?.ovr??r.score;
@@ -52,7 +54,7 @@ try {
    const resume=seasonResume(r.name,careers,playoffBrackets,guide);
    const seasonsHtml=resume.map(x=>'<div class="attr"><span>'+x.year+' · '+esc(x.record)+'</span><strong>'+esc(x.badge)+'</strong></div>').join('');
    const props=[['regular',s.regular],['allPlay',s.allPlay],['playoffs',r.breakdown.playoffs/10*100],['championships',r.breakdown.titles/30*100],['finals',r.breakdown.finals/5*100],['drafting',s.drafting],['trading',s.trading],['waivers',null],['lineups',null]];
-   return '<article class="card"><div class="top"><div><div class="rank">ALL-TIME RANK #'+r.rank+(r.historical?' · FORMER MANAGER':'')+'</div><h2>'+esc(r.name)+'</h2><div class="archetype">'+esc(archetype.name)+(archetype.provisional?' · Provisional':'')+'</div><div class="tag">'+esc(archetype.reason)+'</div><div class="tag">'+esc(r.career)+' · '+r.titleYears.length+' titles · '+r.qualifiedYears.length+' verified playoff berths</div></div><div class="ovr">'+ovr.toFixed(1)+'<small>OVR'+(delta===null?'':' · '+(delta>0?'+':'')+delta.toFixed(1))+'</small></div></div><div class="attributes">'+props.map(([k,v])=>'<div class="attr" title="'+esc(labelHelp[k])+'"><span>'+esc(labelName[k])+'</span><strong>'+(Number.isFinite(v)?Math.round(v):'N/A')+'</strong></div>').join('')+'</div><div class="tag">'+(delta===null?'Week 1 baseline':'OVR movement: '+esc(explanation))+'</div><div class="tag">2026 peak through W'+selectedWeek+': '+peak.toFixed(1)+' OVR · Biggest rise: '+(biggest?(biggest.delta>0?'+':'')+biggest.delta.toFixed(1)+' (W'+biggest.week+')':'N/A')+'</div><svg role="img" aria-label="'+esc(r.name)+' OVR trend through week '+selectedWeek+'" viewBox="0 0 100 100" preserveAspectRatio="none" style="width:100%;height:64px;margin-top:10px;overflow:visible"><polyline fill="none" stroke="#e3bc75" stroke-width="2" vector-effect="non-scaling-stroke" points="'+line+'"/></svg><details><summary>Season-by-season résumé ('+resume.length+')</summary><div class="attributes">'+seasonsHtml+'</div></details><div class="tag">Drafting and trading scores are provisional · Waiver and start/sit scores are unavailable</div></article>';
+   return '<article class="card"><div class="top"><div><div class="rank">ALL-TIME RANK #'+r.rank+(r.historical?' · FORMER MANAGER':'')+'</div><h2>'+esc(r.name)+'</h2><div class="archetype">'+esc(archetype.name)+(archetype.provisional?' · Provisional':'')+'</div><div class="tag">'+esc(archetype.reason)+'</div>'+(specialtyHtml?'<div class="specialties"><span>Also earned:</span> '+specialtyHtml+'</div>':'')<div class="tag">'+esc(r.career)+' · '+r.titleYears.length+' titles · '+r.qualifiedYears.length+' verified playoff berths</div></div><div class="ovr">'+ovr.toFixed(1)+'<small>OVR'+(delta===null?'':' · '+(delta>0?'+':'')+delta.toFixed(1))+'</small></div></div><div class="attributes">'+props.map(([k,v])=>'<div class="attr" title="'+esc(labelHelp[k])+'"><span>'+esc(labelName[k])+'</span><strong>'+(Number.isFinite(v)?Math.round(v):'N/A')+'</strong></div>').join('')+'</div><div class="tag">'+(delta===null?'Week 1 baseline':'OVR movement: '+esc(explanation))+'</div><div class="tag">2026 peak through W'+selectedWeek+': '+peak.toFixed(1)+' OVR · Biggest rise: '+(biggest?(biggest.delta>0?'+':'')+biggest.delta.toFixed(1)+' (W'+biggest.week+')':'N/A')+'</div><svg role="img" aria-label="'+esc(r.name)+' OVR trend through week '+selectedWeek+'" viewBox="0 0 100 100" preserveAspectRatio="none" style="width:100%;height:64px;margin-top:10px;overflow:visible"><polyline fill="none" stroke="#e3bc75" stroke-width="2" vector-effect="non-scaling-stroke" points="'+line+'"/></svg><details><summary>Season-by-season résumé ('+resume.length+')</summary><div class="attributes">'+seasonsHtml+'</div></details><div class="tag">Drafting and trading scores are provisional · Waiver and start/sit scores are unavailable</div></article>';
   }).join('');
   compare();
   $('status').textContent=selected.length+' manager cards · Week '+selectedWeek+' source-backed OVR (0.0–100.0) · '+Object.values(guide).filter(x=>x.champion).length+' completed championship seasons';
