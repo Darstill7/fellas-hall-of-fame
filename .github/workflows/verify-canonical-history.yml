@@ -92,6 +92,8 @@ jobs:
           done
       - name: Verify living Fellas power rating formula
         run: node scripts/verify-fellas-rating.mjs
+      - name: Verify Madden-style manager OVR and evidence-gated attributes
+        run: node scripts/verify-manager-madden-cards.mjs
       - name: Verify manager report card evidence
         run: node scripts/verify-manager-report-cards.mjs
       - name: Reconcile recovered 2025 historical player-level rosters
