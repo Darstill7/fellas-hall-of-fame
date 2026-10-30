@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Reconcile ESPN and Sleeper recovered postseason brackets.
 on:
   push:
     branches: [main]
