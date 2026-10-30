@@ -106,6 +106,8 @@ jobs:
         run: node scripts/verify-recovered-2021-rosters.mjs
       - name: Reconcile recovered 2020 historical player-level rosters
         run: node scripts/verify-recovered-2020-rosters.mjs
+      - name: Audit all six Sleeper seasons for weekly roster completeness
+        run: node scripts/audit-six-season-roster-coverage.mjs
       - name: Run recovered 2025 research-only lineup analysis
         run: node scripts/analyze-recovered-2025-lineups.mjs
       - name: Install browser test runtime
