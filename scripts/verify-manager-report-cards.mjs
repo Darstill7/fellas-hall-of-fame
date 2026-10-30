@@ -65,3 +65,10 @@ for(const [slug,name] of Object.entries(managerRoutes)){
  if(!profile.includes('../../analytics/manager-report-cards.html?manager='+name))throw Error('Missing report card profile link for '+name);
 }
 console.log('All 10 manager profiles link to corresponding report cards');
+
+const auditHTML=fs.readFileSync('analytics/manager-decision-audit.html','utf8');
+const auditJS=fs.readFileSync('assets/manager-decision-audit.mjs','utf8');
+if(!auditHTML.includes('manager-decision-audit.mjs')||!fs.readFileSync('analytics/manager-report-cards.html','utf8').includes('manager-decision-audit.html'))throw Error('Decision audit not wired');
+for(const source of ['v9_draft_engine.json','v9_trade_engine.json','waiver_award_candidates.json'])if(!auditJS.includes(source))throw Error('Decision audit source missing: '+source);
+for(const rule of ["!x.keeper","x.year<=2025","String(x.confidence).startsWith('verified')","x.provisional===false","No qualifying evidence","no fallback values shown"])if(!auditJS.includes(rule))throw Error('Decision audit evidence guard missing: '+rule);
+console.log('Decision audit source and certification guard PASS');
