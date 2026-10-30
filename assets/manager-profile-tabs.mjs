@@ -8,6 +8,19 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  nav.innerHTML='<div class="eyebrow">Pick what you want to see</div><div class="profile-tab-row" role="tablist" aria-label="Profile sections">'+
  [['overview','Career'],['seasons','Each Year'],['rivalries','Head-to-Head'],['advanced','Deep Stats']].map(([id,label])=>'<button type="button" role="tab" data-profile-tab="'+id+'" aria-selected="'+(id==='overview')+'">'+label+'</button>').join('')+
  '</div><p class="muted" data-profile-tab-description>Start here: the story, championships and career record.</p>';
+ const story=document.querySelector('#franchise-story');
+ const lead=story?.querySelector('p.lead');
+ if(lead){
+  const longCopy=lead.cloneNode(true);
+  const brief=lead.textContent.trim().split(/(?<=[.!?])\\s+/)[0];
+  lead.textContent=brief.length<175?brief:brief.slice(0,172)+'…';
+  const details=document.createElement('details');
+  details.className='story-detail';
+  const summary=document.createElement('summary');
+  summary.textContent='Read the full story';
+  details.append(summary,longCopy);
+  lead.after(details);
+ }
  legacyNav.replaceWith(nav);
  const hero=document.querySelector('main .hero');
  const actions=hero?.querySelector('.buttons');
