@@ -3,6 +3,11 @@ import {historicalOvrHistory,singleSeasonOvrHistory,SEASON_WEIGHTS} from '../ass
 const read=n=>JSON.parse(fs.readFileSync('data/'+n+'.json','utf8'));
 const guide=read('season_guide'),careers=read('career_core_generated'),luck=read('all_time_luck_ratings_v1'),endings=read('manager_verified_season_endings_v1');
 const playoffBrackets=[...read('verified_espn_playoff_brackets_2016_2019').seasons,...read('verified_sleeper_playoff_brackets_2020_2025').seasons];
+const seasonScore=({wins,allPlay,playoff=false,semifinal=false,finalist=false,champion=false})=>SEASON_WEIGHTS.regular*wins+SEASON_WEIGHTS.allPlay*allPlay+SEASON_WEIGHTS.playoffs*Number(playoff)+SEASON_WEIGHTS.semifinal*Number(semifinal)+SEASON_WEIGHTS.finals*Number(finalist)+SEASON_WEIGHTS.championship*Number(champion);
+const greatChampion=seasonScore({wins:12/14,allPlay:.85,playoff:true,semifinal:true,finalist:true,champion:true});
+const weakChampion=seasonScore({wins:8/14,allPlay:.45,playoff:true,semifinal:true,finalist:true,champion:true});
+const dominantFinalist=seasonScore({wins:13/14,allPlay:.94,playoff:true,semifinal:true,finalist:true});
+if(!(greatChampion>weakChampion&&dominantFinalist>weakChampion&&weakChampion<68))throw Error('Single-season OVR must reward total-season dominance, not grant automatic elite ratings for titles');
 const seasonOnly=singleSeasonOvrHistory({guide,careers,luck,playoffBrackets});
 if(seasonOnly.length!==10||Object.values(SEASON_WEIGHTS).reduce((a,b)=>a+b,0)!==100)throw Error('Season OVR coverage/weights invalid');
 for(const season of seasonOnly){
