@@ -1,0 +1,80 @@
+{
+  "version": "acquisition-distinct-player-season-v1",
+  "status": "observational_only_not_skill_grade",
+  "scope": "Sleeper 2020–2026, partial 2026, recorded transactions only",
+  "warning": "Deduplicated on year, manager and player ID for distinct acquisition coverage. Later starts are observational, not causal, and do not prove continuous ownership. Repeated transactions are separately reported.",
+  "byManager": [
+    {
+      "manager": "Birch",
+      "distinctSeasonPlayerAcquisitions": 86,
+      "withRecordedLaterStart": 35,
+      "reacquisitions": 2
+    },
+    {
+      "manager": "Evans",
+      "distinctSeasonPlayerAcquisitions": 86,
+      "withRecordedLaterStart": 38,
+      "reacquisitions": 3
+    },
+    {
+      "manager": "JMid",
+      "distinctSeasonPlayerAcquisitions": 85,
+      "withRecordedLaterStart": 43,
+      "reacquisitions": 10
+    },
+    {
+      "manager": "Koble",
+      "distinctSeasonPlayerAcquisitions": 123,
+      "withRecordedLaterStart": 58,
+      "reacquisitions": 38
+    },
+    {
+      "manager": "Kuhl",
+      "distinctSeasonPlayerAcquisitions": 105,
+      "withRecordedLaterStart": 54,
+      "reacquisitions": 3
+    },
+    {
+      "manager": "Mitch",
+      "distinctSeasonPlayerAcquisitions": 148,
+      "withRecordedLaterStart": 67,
+      "reacquisitions": 7
+    },
+    {
+      "manager": "Scott",
+      "distinctSeasonPlayerAcquisitions": 50,
+      "withRecordedLaterStart": 23,
+      "reacquisitions": 3
+    },
+    {
+      "manager": "Stew",
+      "distinctSeasonPlayerAcquisitions": 172,
+      "withRecordedLaterStart": 83,
+      "reacquisitions": 24
+    },
+    {
+      "manager": "Stilly",
+      "distinctSeasonPlayerAcquisitions": 172,
+      "withRecordedLaterStart": 68,
+      "reacquisitions": 17
+    },
+    {
+      "manager": "Stover",
+      "distinctSeasonPlayerAcquisitions": 120,
+      "withRecordedLaterStart": 45,
+      "reacquisitions": 15
+    },
+    {
+      "manager": "Thommy",
+      "distinctSeasonPlayerAcquisitions": 161,
+      "withRecordedLaterStart": 81,
+      "reacquisitions": 26
+    },
+    {
+      "manager": "Tony",
+      "distinctSeasonPlayerAcquisitions": 164,
+      "withRecordedLaterStart": 51,
+      "reacquisitions": 10
+    }
+  ]
+}
