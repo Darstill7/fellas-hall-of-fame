@@ -31,7 +31,7 @@ for(const l of futureLuck.ranked)if(l.bySeason['2025']){l.bySeason['2025'].expec
 const mutated=historicalOvrHistory({guide,careers:futureCareers,luck:futureLuck,endings,playoffBrackets});
 for(let i=0;i<original.length-1;i++)if(JSON.stringify(mutated[i])!==JSON.stringify(original[i]))throw Error('Future results leaked into '+original[i].year+' ratings');
 const module=fs.readFileSync('assets/manager-profile-madden.mjs','utf8');
-if(!module.includes('historicalOvrHistory({guide,careers,luck,endings,playoffBrackets})')||!module.includes('Historical OVR journey'))throw Error('Manager profile historical OVR rendering missing');
+if(!module.includes('historicalOvrHistory({guide,careers,luck,endings,playoffBrackets})')||!module.includes('Legacy OVR through the years'))throw Error('Manager profile historical OVR rendering missing');
 const cards=fs.readFileSync('assets/manager-madden-cards.mjs','utf8');
 if(!cards.includes('historicalSeasons=historicalOvrHistory')||!cards.includes("historicalDetails")||!cards.includes("yearEndRatings.length"))throw Error('Historical OVR not available for all former and current managers');
 console.log('HISTORICAL OVR PASS: 2016–2025 verified cutoffs, all managers, no future-season leakage');
