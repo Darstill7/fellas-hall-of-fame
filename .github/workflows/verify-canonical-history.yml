@@ -123,6 +123,13 @@ jobs:
         run: node scripts/verify-manager-madden-cards.mjs
       - name: Verify manager report card evidence
         run: node scripts/verify-manager-report-cards.mjs
+      - name: Upload manager lineup source exclusion audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lineup-source-exclusion-audit
+          path: data-integrity/lineup-source-exclusion-audit-2020-2025.json
+          if-no-files-found: warn
       - name: Reconcile recovered 2025 historical player-level rosters
         run: node scripts/verify-recovered-2025-rosters.mjs
       - name: Reconcile recovered 2024 historical player-level rosters
