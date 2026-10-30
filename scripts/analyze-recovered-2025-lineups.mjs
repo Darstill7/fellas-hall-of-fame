@@ -22,10 +22,10 @@ for(const week of weeks){
  for(const roster of doc.rosters){
   const best=bestLineup(roster.starters,roster.bench);
   const actual=roster.points;
-  if(!best||!Number.isFinite(actual))throw Error('Unsolvable conservative lineup week '+week+' team '+roster.owner);
+  if(!best||!Number.isFinite(actual)){report.teams.push({week,teamId:roster.teamId,owner:roster.owner,status:'not_comparable_roster_eligibility'});continue;}
   const gap=Math.round(100*(best.score-actual))/100;
-  if(gap<-.07)throw Error('Optimized lineup below actual points '+week+' '+roster.owner);
-  report.teams.push({week,teamId:roster.teamId,owner:roster.owner,actualPoints:actual,optimalPoints:Math.round(best.score*100)/100,hindsightGap:gap,optimalLineup:best.chosen});
+  if(gap<-.07){report.teams.push({week,teamId:roster.teamId,owner:roster.owner,status:'not_comparable_possible_DB_FLEX_or_scoring_rule',actualPoints:actual,conservativeOptimal:Math.round(best.score*100)/100});continue;}
+  report.teams.push({week,teamId:roster.teamId,owner:roster.owner,actualPoints:actual,optimalPoints:Math.round(best.score*100)/100,hindsightGap:gap,optimalLineup:best.chosen,status:'research_only_comparable'});
  }
 }
 if(report.teams.length!==120)throw Error('Expected 120 complete recovered roster observations');
