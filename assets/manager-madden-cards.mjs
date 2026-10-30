@@ -35,12 +35,21 @@ try {
  $('history-year').addEventListener('change',renderHistorical);
  renderHistorical();
  const seasonRecords=seasonOnly.flatMap(s=>s.rows).slice();
+ const priorByManager=new Map();
+ const changes=[];
+ for(const row of seasonRecords.slice().sort((a,b)=>a.year-b.year)){
+  const previous=priorByManager.get(row.name);
+  if(previous&&previous.year===row.year-1)changes.push({...row,delta:+(maddenOvr(row.score)-maddenOvr(previous.score)).toFixed(1),priorYear:previous.year});
+  priorByManager.set(row.name,row);
+ }
  const seasonManagers=[...new Set(seasonRecords.map(r=>r.name))].sort((a,b)=>a.localeCompare(b));
  $('season-record-manager').innerHTML='<option value="all">All managers</option>'+seasonManagers.map(name=>'<option value="'+esc(name)+'">'+esc(name)+'</option>').join('');
  const renderSeasonRecords=()=>{
-  const worst=$('season-extreme').value==='worst',selected=$('season-record-manager').value;
-  const sorted=seasonRecords.filter(r=>selected==='all'||r.name===selected).sort((a,b)=>worst?a.score-b.score||a.year-b.year||a.name.localeCompare(b.name):b.score-a.score||a.year-b.year||a.name.localeCompare(b.name));
-  $('season-records').querySelector('tbody').innerHTML=sorted.slice(0,20).map((r,i)=>'<tr><td>#'+(i+1)+'</td><th scope="row">'+esc(r.name)+'</th><td>'+r.year+'</td><td><strong>'+maddenOvr(r.score).toFixed(1)+'</strong></td><td>'+esc(r.record)+'</td><td>'+(r.champion?'Champion':r.finalist?'Finalist':r.playoff?'Playoffs':'—')+'</td></tr>').join('');
+  const category=$('season-extreme').value,selected=$('season-record-manager').value;
+  const movement=category==='improvements'||category==='declines';
+  const source=movement?changes:seasonRecords;
+  const sorted=source.filter(r=>(selected==='all'||r.name===selected)&&(category!=='champions'||r.champion)&&(category!=='nonchampions'||!r.champion)).sort((a,b)=>movement?(category==='declines'?a.delta-b.delta:b.delta-a.delta)||a.year-b.year||a.name.localeCompare(b.name):(category==='worst'?a.score-b.score:b.score-a.score)||a.year-b.year||a.name.localeCompare(b.name));
+  $('season-records').querySelector('tbody').innerHTML=sorted.slice(0,20).map((r,i)=>'<tr><td>#'+(i+1)+'</td><th scope="row">'+esc(r.name)+'</th><td>'+r.year+'</td><td><strong>'+maddenOvr(r.score).toFixed(1)+(movement?' ('+(r.delta>0?'+':'')+r.delta.toFixed(1)+' vs '+r.priorYear+')':'')+'</strong></td><td>'+esc(r.record)+'</td><td>'+(r.champion?'Champion':r.finalist?'Finalist':r.playoff?'Playoffs':'—')+'</td></tr>').join('');
  };
  $('season-extreme').addEventListener('change',renderSeasonRecords);
  $('season-record-manager').addEventListener('change',renderSeasonRecords);
