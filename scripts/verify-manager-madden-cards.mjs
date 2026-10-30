@@ -115,3 +115,11 @@ const scoutingTemplate=fs.readFileSync('assets/manager-profile-madden.mjs','utf8
 if(!scoutingTemplate.includes('Championship Games')||!scoutingTemplate.includes('manager.titleYears.length+manager.runnerYears.length'))throw Error('Profile finals count must include wins and runner-up finishes');
 if(!scoutingTemplate.includes('Career W–L')||!scoutingTemplate.includes('Playoff Berths'))throw Error('KISS manager scouting facts missing');
 console.log('All manager profiles distinguish title wins and championship-game appearances PASS');
+
+const profileNavigation=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+if(!profileNavigation.includes("duplicateHeadings")||!profileNavigation.includes("section.remove()"))throw Error('Duplicate historical profile teaser cleanup missing');
+for(const slug of ['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott']){
+ const profile=fs.readFileSync('managers/'+slug+'/index.html','utf8');
+ if(!profile.includes('manager-profile-tabs.mjs')||!profile.includes('id="verified-history-panel"')||!profile.includes('id="franchise-encyclopedia"'))throw Error('Profile archive must remain accessible after teaser cleanup: '+slug);
+}
+console.log('KISS profile cleanup retains all manager history and research sections PASS');
