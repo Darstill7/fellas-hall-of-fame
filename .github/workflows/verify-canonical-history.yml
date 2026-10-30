@@ -97,6 +97,7 @@ jobs:
           node --check scripts/stage-sleeper-week.mjs
           node --check scripts/apply-reviewed-sleeper-week.mjs
           node --check scripts/test-weekly-import-rehearsal.mjs
+          node --check assets/home-manager-cards.mjs
           node --check assets/manager-profile-madden.mjs
           node --check assets/manager-madden-cards.mjs
           node --check assets/manager-madden-archetypes.mjs
