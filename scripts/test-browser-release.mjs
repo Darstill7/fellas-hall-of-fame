@@ -91,6 +91,12 @@ try{
     const selectedNames=await page.locator('#season-records tbody th[scope="row"]').allTextContents();
     if(!selectedNames.length||selectedNames.some(n=>n!=='Thommy'))errors.push(width+' season records manager filter displayed wrong manager');
     await page.locator('#season-record-manager').selectOption('all');
+    for(const category of ['champions','nonchampions','improvements','declines']){
+     await page.locator('#season-extreme').selectOption(category);
+     const count=await page.locator('#season-records tbody tr').count();
+     if(count<1||count>20)errors.push(width+' '+category+' season record book returned '+count+' rows');
+    }
+    await page.locator('#season-extreme').selectOption('best');
     const historicalYears=page.locator('#history-year option');
     if(await historicalYears.count()!==10)errors.push(width+' historical leaderboard must offer ten completed seasons');
     const historicalRows=page.locator('#history-leaderboard tbody tr');
