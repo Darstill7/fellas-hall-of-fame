@@ -137,3 +137,7 @@ console.log('Mobile manager directory uses canonical ratings and expandable tier
 for(const token of ['id="home-manager-search"','id="home-manager-clear"','id="home-manager-empty"','Find Your Manager','manager-mobile-first'])if(!mobileHome.includes(token))throw Error('Mobile manager-first finder missing '+token);
 for(const token of ['data-manager-name','finder.addEventListener(\'input\',filter)','row.hidden=!match','row.open=false'])if(!mobileRenderer.includes(token))throw Error('Mobile manager search behavior missing '+token);
 console.log('Mobile manager finder search and no-results state wired PASS');
+
+if(!mobileRenderer.includes('mobile-manager-metrics')||!mobileRenderer.includes('Legacy overall rating'))throw Error('Mobile manager summary must have accessible OVR and three-stat preview');
+if(!mobileHome.includes('mobile-manager-metric-polish'))throw Error('Mobile expanded stats missing responsive styling');
+console.log('Accessible mobile manager OVR and expandable career metrics PASS');
