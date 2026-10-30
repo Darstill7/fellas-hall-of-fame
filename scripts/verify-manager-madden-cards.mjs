@@ -11,6 +11,7 @@ if(ratings.length!==14||report.length!==10)throw Error('Incorrect manager popula
 for(const r of report){const o=ratings.find(x=>x.name===r.name);if(!o||!Number.isFinite(o.score)||!o.qualifiedYears)throw Error('Madden OVR source missing '+r.name);if(r.scores.waivers!==null||r.scores.lineups!==null)throw Error('Decision skills must remain ungraded');}
 const page=fs.readFileSync('analytics/manager-madden-cards.html','utf8'),ui=fs.readFileSync('assets/manager-madden-cards.mjs','utf8'),hub=fs.readFileSync('analytics/power-ratings.html','utf8');
 if(!page.includes('manager-madden-cards.mjs')||!hub.includes('manager-madden-cards.html')||!ui.includes('makeRatings({guide,careers,luck,endings,playoffBrackets})')||!ui.includes("makeReportCards({drafts,trades,careers,luck,waivers,endings,brackets,guide,espn})"))throw Error('Madden card source/links disconnected');
+if(!ui.includes('trajectory=weekly.filter')||!ui.includes('Biggest rise:')||!ui.includes('<polyline')||!ui.includes('2026 peak through W'))throw Error('OVR trend visualization or summary missing');
 if(!ui.includes('weeklyOvrHistory')||!page.includes('id="week"'))throw Error('Madden weekly OVR selector missing');
 if(!ui.includes("'N/A'")||!page.includes('not an average'))throw Error('Madden card provenance qualification missing');
 console.log('MADDEN MANAGER CARDS PASS: '+ratings.length+' all-time OVR, '+report.length+' active evidence-backed reports');
