@@ -52,6 +52,8 @@ try {
   $('season-records').querySelector('tbody').innerHTML=sorted.slice(0,20).map((r,i)=>'<tr><td>#'+(i+1)+'</td><th scope="row">'+esc(r.name)+'</th><td>'+r.year+'</td><td title="Win percentage: '+r.regularWinPct.toFixed(1)+'%; all-play percentage: '+r.allPlayPct.toFixed(1)+'%"><strong>'+seasonMaddenOvr(r.score).toFixed(1)+(movement?' ('+(r.delta>0?'+':'')+r.delta.toFixed(1)+' vs '+r.priorYear+')':'')+'</strong></td><td>'+esc(r.record)+'</td><td>'+(r.champion?'Champion':r.finalist?'Finalist':r.playoff?'Playoffs':'—')+'</td></tr>').join('');
  };
  $('season-extreme').addEventListener('change',renderSeasonRecords);
+ const requestedManager=new URLSearchParams(location.search).get('manager');
+ if(requestedManager&&seasonManagers.includes(requestedManager))$('season-record-manager').value=requestedManager;
  $('season-record-manager').addEventListener('change',renderSeasonRecords);
  renderSeasonRecords();
  if(!weekly.length)throw Error('No complete canonical weekly ratings available');
