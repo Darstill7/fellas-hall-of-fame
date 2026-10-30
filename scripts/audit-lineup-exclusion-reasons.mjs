@@ -7,6 +7,8 @@ for(const year of years){
   const path=year===2025&&(week===1||week===7)?'data/war_rosters_2025_week'+week+'.json':'data/sleeper_roster_snapshots_'+year+'_week'+week+'.json';
   const data=JSON.parse(fs.readFileSync(path,'utf8')),rosters=Array.isArray(data)?data:data.rosters;
   if(rosters.length!==10)throw Error('Expected 10 rosters at '+path);
+  const ownersInWeek=rosters.map(r=>String(r.owner||'').toLowerCase());
+  if(ownersInWeek.some(x=>!x)||new Set(ownersInWeek).size!==10)throw Error('Missing or duplicated owner in '+path);
   for(const r of rosters){
    season.teamWeeks++;const ownerKey=year+'|'+r.owner;const ownerRow=byOwner[ownerKey]??={year,owner:r.owner,teamWeeks:0,flaggedWeeks:0,reasons:{}};ownerRow.teamWeeks++;const pool=[...r.starters,...r.bench],reasons=[];
    if(!Number.isFinite(r.points))reasons.push('missing_team_points');
