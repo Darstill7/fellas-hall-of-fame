@@ -77,3 +77,10 @@ if(!auditHTML.includes('id="season"'))throw Error('Decision audit year selector 
 for(const expected of ["const matchesYear=x=>","x.year<=2025&&matchesYear(x)","matchesYear(x)&&x.provisional===false",".filter(matchesYear)","for(const id of ['manager','type','season'])"])if(!auditJS.includes(expected))throw Error('Decision audit season filter not applied consistently: '+expected);
 for(const file of ['v9_draft_engine.json','v9_trade_engine.json','waiver_award_candidates.json'])if(!auditHTML.includes('../data/'+file))throw Error('Decision audit provenance link missing: '+file);
 console.log('Decision audit season filtering and source links PASS');
+
+const annualHTML=fs.readFileSync('analytics/manager-annual-report-cards.html','utf8');
+const annualJS=fs.readFileSync('assets/manager-annual-report-cards.mjs','utf8');
+if(!annualHTML.includes('manager-annual-report-cards.mjs')||!fs.readFileSync('analytics/manager-report-cards.html','utf8').includes('manager-annual-report-cards.html'))throw Error('Annual report cards not integrated');
+for(const source of ['season_guide.json','manager_verified_season_endings_v1.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json','v9_draft_engine.json','v9_trade_engine.json','waiver_award_candidates.json'])if(!annualJS.includes(source))throw Error('Annual report source missing '+source);
+for(const rule of ["standing=guide[year].standings.find","year===2026?'Season ongoing'","['Champion','Runner-up'].includes","x.provisional===false","!x.keeper","No scores are shown when source loading fails"])if(!annualJS.includes(rule))throw Error('Annual evidence rule missing '+rule);
+console.log('Annual report card source and incomplete-season protections PASS');
