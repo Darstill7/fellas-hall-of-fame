@@ -127,3 +127,9 @@ console.log('KISS profile cleanup retains all manager history and research secti
 const sharedScouting=fs.readFileSync('assets/manager-profile-madden.mjs','utf8');
 for(const token of ['grid-template-columns:repeat(4,minmax(0,1fr))','@media(max-width:700px)','min-height:112px','font-variant-numeric:tabular-nums'])if(!sharedScouting.includes(token))throw Error('Manager scouting card responsive layout regression: '+token);
 console.log('Shared scouting card responsive typography and stat grid PASS');
+
+const mobileHome=fs.readFileSync('index.html','utf8');
+const mobileRenderer=fs.readFileSync('assets/home-manager-cards.mjs','utf8');
+if(!mobileHome.includes('id="home-manager-mobile"')||!mobileHome.includes('home-manager-grid{display:none!important}')||!mobileHome.includes('.mobile-tier-champion'))throw Error('Compact mobile manager list and tier colors missing');
+if(!mobileRenderer.includes('<details class="mobile-manager-row')||!mobileRenderer.includes('managerCardTier(r)')||!mobileRenderer.includes('maddenOvr(r.score)')||!mobileRenderer.includes('Open '+"'+escape(r.name)+"))throw Error('Mobile list lost canonical OVR, expandable rows, or profile links');
+console.log('Mobile manager directory uses canonical ratings and expandable tier-color rows PASS');
