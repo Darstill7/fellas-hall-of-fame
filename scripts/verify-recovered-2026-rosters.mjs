@@ -26,5 +26,6 @@ for(let week=1;week<=7;week++){
 if(checked!==70||ownership.size!==10||[...ownership.values()].some(s=>s.size!==1))throw Error('2026 source-to-manager mapping is ambiguous');
 const mapping=Object.fromEntries([...ownership].map(([key,names])=>[key,[...names][0]]));
 if(new Set(Object.values(mapping)).size!==10)throw Error('Nonunique canonical manager assignments');
-if(discrepancies.length!==1)throw Error('Expected known 2026 discrepancy not found');
+const documented=JSON.parse(fs.readFileSync('data-integrity/2026-week7-scott-score-discrepancy.json','utf8'));
+if(discrepancies.length!==1||documented.status!=='unresolved'||documented.rosterPoints!==discrepancies[0].rosterPoints||documented.canonicalMatchupPoints!==discrepancies[0].matchupPoints)throw Error('2026 score discrepancy unresolved or documentation inconsistent');
 console.log('2026 roster and matchup reconciliation PASS WITH FLAGGED SOURCE DISCREPANCY',JSON.stringify({checked,mapping,discrepancies}));
