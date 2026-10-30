@@ -1,4 +1,4 @@
-import {historicalOvrHistory} from './manager-historical-ovr.mjs';
+import {historicalOvrHistory,singleSeasonOvrHistory} from './manager-historical-ovr.mjs';
 import {maddenOvr} from './manager-madden-scale.mjs';
 import {managerCardTier} from './manager-card-tiers.mjs';
 import {earnedArchetypes} from './manager-madden-archetypes.mjs';
@@ -20,6 +20,7 @@ try {
  const byName=new Map(reports.map(r=>[r.name,r]));
  const weekly=weeklyOvrHistory({ledger,guide,careers,luck,endings,playoffBrackets});
  const historicalSeasons=historicalOvrHistory({guide,careers,luck,endings,playoffBrackets});
+ const seasonOnly=singleSeasonOvrHistory({guide,careers,luck,playoffBrackets});
  const years=historicalSeasons.map(s=>s.year);
  $('history-year').innerHTML=years.slice().reverse().map(y=>'<option value="'+y+'">'+y+'</option>').join('');
  const renderHistorical=()=>{
@@ -27,6 +28,8 @@ try {
   if(!season)throw Error('Unverified historical year selected');
   const rows=season.rows.slice().sort((a,b)=>a.rank-b.rank);
   $('history-leaderboard').querySelector('tbody').innerHTML=rows.map(r=>'<tr><td>#'+r.rank+'</td><th scope="row">'+esc(r.name)+'</th><td><strong>'+maddenOvr(r.ovr).toFixed(1)+'</strong></td><td>'+r.titles+'</td><td>'+r.playoffs+'</td></tr>').join('');
+  const single=seasonOnly.find(s=>s.year===year);
+  $('season-ovr-leaderboard').querySelector('tbody').innerHTML=single.rows.map(r=>'<tr><td>#'+r.rank+'</td><th scope="row">'+esc(r.name)+'</th><td><strong>'+maddenOvr(r.score).toFixed(1)+'</strong></td><td>'+esc(r.record)+'</td><td>'+(r.champion?'Champion':r.finalist?'Finalist':r.playoff?'Playoffs':'—')+'</td></tr>').join('');
   $('history-status').textContent=year+' complete · '+rows.length+' verified managers ranked · historical OVR uses a stable 65–99 Madden presentation scale';
  };
  $('history-year').addEventListener('change',renderHistorical);
