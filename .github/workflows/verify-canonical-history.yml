@@ -98,6 +98,8 @@ jobs:
           node --check scripts/apply-reviewed-sleeper-week.mjs
           node --check scripts/test-weekly-import-rehearsal.mjs
           node --check assets/home-manager-cards.mjs
+          node --check assets/manager-madden-scale.mjs
+          node --check scripts/verify-manager-madden-scale.mjs
           node --check assets/manager-historical-ovr.mjs
           node --check scripts/verify-historical-ovr.mjs
           node --check assets/manager-profile-madden.mjs
@@ -106,6 +108,8 @@ jobs:
           node --check assets/manager-weekly-ovr.mjs
       - name: Rehearse synthetic weekly import without canonical mutations
         run: node scripts/test-weekly-import-rehearsal.mjs
+      - name: Verify Madden OVR calibration across cards and profiles
+        run: node scripts/verify-manager-madden-scale.mjs
       - name: Verify historical OVR without future-season leakage
         run: node scripts/verify-historical-ovr.mjs
       - name: Verify weekly import cannot run without review approval
