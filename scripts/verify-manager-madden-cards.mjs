@@ -83,3 +83,10 @@ for(const r of ratings.filter(r=>!r.historical)){
 }
 if(!homeModule.includes("makeRatings({guide,careers,luck,endings,playoffBrackets:")||!profileModule.includes("rankings=makeRatings({guide,careers,luck,endings,playoffBrackets})"))throw Error('Shared rating calculation absent from cards');
 console.log('MADDEN SOURCE PARITY PASS: homepage, profiles and latest weekly OVR use identical canonical ratings for ten managers');
+
+for(const path of ['assets/manager-season-resume.mjs','assets/manager-madden-cards.mjs','assets/manager-profile-madden.mjs']){
+ const source=fs.readFileSync(path,'utf8');
+ if(source.includes("'Finalist'")||source.includes("'FINALIST'"))throw Error('Ambiguous season result label: '+path);
+ if(!source.includes('Runner-Up')&&!source.includes('RUNNER-UP'))throw Error('Missing runner-up season result: '+path);
+}
+console.log('Runner-up results distinguished from champion finishes PASS');
