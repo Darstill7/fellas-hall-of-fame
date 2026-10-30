@@ -4,7 +4,7 @@ export const WEIGHTS=Object.freeze({titles:30,finals:5,regular:20,allPlay:15,rec
 const round=n=>Math.round((n+Number.EPSILON)*10)/10;
 const clamp=n=>Math.max(0,Math.min(1,n));
 const pct=(wins,ties,games,prior=14)=>clamp((wins+ties*.5+prior*.5)/(games+prior));
-export function makeRatings({guide,careers,luck,endings},names=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott']){
+export function makeRatings({guide,careers,luck,endings},names=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott','Koble','Halderman','Evans','Schermerhorn']){
  const asOf=Math.max(...Object.keys(guide).map(Number));
  const latestFinished=Math.max(...Object.entries(guide).filter(([,season])=>season.champion).map(([year])=>Number(year)));
  const luckBy=new Map(luck.ranked.map(x=>[x.manager,x]));
@@ -32,7 +32,9 @@ export function makeRatings({guide,careers,luck,endings},names=['Stilly','Stew',
   });
   const totalWeight=seasonRows.reduce((s,v)=>s+v.weight,0);
   const form=totalWeight?seasonRows.reduce((s,v)=>s+v.mix*v.weight,0)/totalWeight:.5;
-  const recentPoints=WEIGHTS.recent*form;
+  const latestActive=Math.max(...years);
+  const inactiveYears=Math.max(0,asOf-latestActive-1);
+  const recentPoints=WEIGHTS.recent*form*Math.pow(.5,inactiveYears/2.3);
   const completed=seasonRows.filter(x=>x.year<=latestFinished&&x.games>=10);
   const best=completed.length?Math.max(...completed.map(v=>(v.w+2.5)/(v.games+5))):.5;
   const peakPoints=WEIGHTS.peak*clamp(best);
@@ -40,7 +42,7 @@ export function makeRatings({guide,careers,luck,endings},names=['Stilly','Stew',
   const tenurePoints=WEIGHTS.tenure*(1-Math.exp(-seasons/5));
   const breakdown={titles:round(titlePoints),finals:round(finalsPoints),regular:round(regPoints),allPlay:round(allPoints),recent:round(recentPoints),peak:round(peakPoints),tenure:round(tenurePoints)};
   const score=round(titlePoints+finalsPoints+regPoints+allPoints+recentPoints+peakPoints+tenurePoints);
-  return {name,score,rank:0,breakdown,career:`${c.w}–${c.l}${c.t?'–'+c.t:''}`,titleYears,runnerYears,tenure:seasons,form:round(form*100),effectiveTitles:round(titleEquivalent),provisional2026:true};
+  return {name,score,rank:0,breakdown,career:`${c.w}–${c.l}${c.t?'–'+c.t:''}`,titleYears,runnerYears,tenure:seasons,form:round(form*100),effectiveTitles:round(titleEquivalent),historical:!['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'].includes(name),provisional2026:true};
  });
  rows.sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
  rows.forEach((x,i)=>{x.rank=i+1});
