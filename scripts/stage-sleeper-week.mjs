@@ -10,7 +10,7 @@ const api=async(path)=>{const resp=await fetch('https://api.sleeper.app/v1/'+pat
 const season=2026;
 const [state,rosters,users]=await Promise.all([api('state/nfl'),api('league/'+league+'/rosters'),api('league/'+league+'/users')]);
 if(String(state.season)!==String(season))throw Error('Not the 2026 NFL season; manual rollover review required');
-const userById=new Map(users.map(u=>[u.user_id,String(u.display_name||u.username||'').toLowerCase()]));
+const userById=new Map(users.map(u=>[u.user_id,String(u.username||u.display_name||'').toLowerCase()]));
 for(const roster of rosters){
  const expected=rosterNames.get(roster.roster_id),actual=handleNames.get(userById.get(roster.owner_id));
  if(!expected||!actual||actual!==expected)throw Error('Sleeper roster owner identity changed: '+roster.roster_id+'; manual review required');
