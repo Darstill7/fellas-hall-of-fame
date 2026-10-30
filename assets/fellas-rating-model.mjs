@@ -21,7 +21,8 @@ export function makeRatings({guide,careers,luck,endings,playoffBrackets,asOfYear
   const titleEquivalent=titleYears.reduce((s,y)=>s+decay(y),0);
   const runnerEquivalent=runnerYears.reduce((s,y)=>s+decay(y),0);
   const titlePoints=WEIGHTS.titles*(1-Math.exp(-titleEquivalent/1.7));
-  const finalsPoints=WEIGHTS.finals*(1-Math.exp(-runnerEquivalent/1.2));
+  // Championship-game appearances include both title victories and runner-up finishes.
+  const finalsPoints=WEIGHTS.finals*(1-Math.exp(-(titleEquivalent+runnerEquivalent)/1.2));
   const observed=years.reduce((x,year)=>{const v=c.annual[year];x.w+=v.w;x.l+=v.l;x.t+=v.t;x.games+=v.games;return x},{w:0,l:0,t:0,games:0});
   const regPoints=WEIGHTS.regular*pct(observed.w,observed.t,observed.games);
   const allPoints=WEIGHTS.allPlay*clamp((lk.expectedWins+7)/(lk.games+14));
