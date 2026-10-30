@@ -91,3 +91,9 @@ for(const expected of ['manager-performance-timeline.mjs','id="seasons"','not a 
 for(const source of ['season_guide.json','manager_verified_season_endings_v1.json'])if(!timelineJS.includes(source))throw Error('Timeline missing source '+source);
 if(!timelineJS.includes('record.w+.5*record.t')||!timelineJS.includes("year===2026?'Ongoing")||!timelineJS.includes('No substitute scores displayed.'))throw Error('Timeline scoring and provisional-year guard missing');
 console.log('Timeline and evidence coverage integrity PASS');
+
+import {scoutingProfile} from '../assets/manager-scouting-profile.mjs';
+for(const row of rows){const d=scoutingProfile(row);if(!d.headline||!d.limitations.includes('comprehensive waiver and legal start/sit evidence unavailable')||!d.evidence.includes('not an independent fantasy-expert certification'))throw Error('Unqualified scouting claims for '+row.name);}
+const reportPage=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
+if(!reportPage.includes("import {scoutingProfile}")||!reportPage.includes('Career scouting dossier'))throw Error('Scouting dossier integration missing');
+console.log('Evidence-limited manager scouting dossiers PASS');
