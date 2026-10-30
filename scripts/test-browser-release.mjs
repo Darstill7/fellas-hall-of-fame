@@ -132,6 +132,31 @@ try{
     const text=await page.locator('body').innerText();
     if(text.includes('Rivalry archive could not be loaded')||text.includes('Rivalry data unavailable'))errors.push(width+' '+route+' rivalry module did not load');
    }
+   if(route===''){
+    const search=page.locator('#home-manager-search');
+    if(width===390){
+     if(!await search.isVisible())errors.push(width+' mobile manager finder missing');
+     else{
+      await search.fill('Stov');
+      const shown=page.locator('#home-manager-mobile .mobile-manager-row:visible');
+      if(await shown.count()!==1||!await shown.first().locator('.mobile-manager-name').textContent().then(x=>x.trim()==='Stover'))
+       errors.push(width+' manager finder failed to filter Stover');
+      const stover=page.locator('#home-manager-mobile .mobile-manager-row:visible');
+      await stover.locator('summary').click();
+      if(!await stover.locator('.mobile-manager-expanded').isVisible())errors.push(width+' manager expandable details not visible');
+      const href=await stover.locator('.mobile-manager-link').getAttribute('href');
+      if(href!=='managers/stover/')errors.push(width+' manager detail link incorrect');
+      await search.fill('not-a-manager');
+      if(!await page.locator('#home-manager-empty').isVisible())errors.push(width+' search empty result missing');
+      await page.locator('#home-manager-clear').click();
+      if(await page.locator('#home-manager-mobile .mobile-manager-row:visible').count()!==10)errors.push(width+' clearing manager finder did not restore ten names');
+     }
+     if(await page.locator('#home-manager-cards').isVisible())errors.push(width+' desktop cards should be hidden on mobile');
+    }else{
+     if(!await page.locator('#home-manager-cards').isVisible())errors.push(width+' desktop manager cards missing');
+     if(await search.isVisible())errors.push(width+' mobile-only search showing on desktop');
+    }
+   }
    if(route==='seasons/weekly-matchup-archive.html'){
     const years=await page.locator('#year option').count();
     if(years!==11)errors.push(width+' weekly archive year selector has '+years+' options, expected 11');
