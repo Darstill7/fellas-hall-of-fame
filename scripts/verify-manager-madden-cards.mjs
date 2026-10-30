@@ -45,3 +45,7 @@ if(new Set(multi.map(a=>a.name)).size!==multi.length)throw Error('Duplicate Madd
 if(multi.find(a=>a.name==='Trade Specialist')?.provisional!==true)throw Error('Trade specialty must show provisional qualification');
 if(!ui.includes('specialtyHtml')||!page.includes('additional specialties independently'))throw Error('Multiple archetypes not rendered or explained');
 console.log('MULTIPLE MADDEN ARCHETYPES PASS: independent evidence-based specialties');
+
+if(!ui.includes("accomplishmentHtml")||!ui.includes("r.titleYears.join(', ')")||!ui.includes("r.qualifiedYears.join(', ')")||!page.includes('.accomplishments'))throw Error('Verified achievement panel missing');
+if(ui.includes("+'</div>':'')<div"))throw Error('Madden archetype HTML concatenation broken');
+console.log('MADDEN ACHIEVEMENTS PASS: verified titles, playoff seasons, career tenure');
