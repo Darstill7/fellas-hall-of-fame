@@ -6,7 +6,7 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const inputs={guide:read('data/season_guide.json'),careers:read('data/career_core_generated.json'),luck:read('data/all_time_luck_ratings_v1.json'),endings:read('data/manager_verified_season_endings_v1.json')};
 const rows=makeRatings(inputs);
 const fail=msg=>{throw Error(msg)};
-if(rows.length!==10||new Set(rows.map(x=>x.name)).size!==10)fail('Current franchises must be unique and total 10');
+if(rows.length!==14||new Set(rows.map(x=>x.name)).size!==14)fail('Current franchises must be unique and total 10');
 if(Object.values(WEIGHTS).reduce((a,b)=>a+b,0)!==100)fail('Rating component maximum is not 100');
 for(const [i,r] of rows.entries()){
  if(r.rank!==i+1||!Number.isFinite(r.score)||r.score<0||r.score>100)fail('Invalid rank or range for '+r.name);
