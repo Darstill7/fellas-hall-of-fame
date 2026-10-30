@@ -17,7 +17,7 @@ if(!ui.includes('trajectory=weekly.filter')||!ui.includes('Biggest rise:')||!ui.
 if(!ui.includes('weeklyOvrHistory')||!page.includes('id="week"'))throw Error('Madden weekly OVR selector missing');
 if(!ui.includes("'N/A'")||!page.includes('not an average'))throw Error('Madden card provenance qualification missing');
 console.log('MADDEN MANAGER CARDS PASS: '+ratings.length+' all-time OVR, '+report.length+' active evidence-backed reports');
-for(const r of ratings){const history=seasonResume(r.name,careers,[...espn.seasons,...brackets.seasons],guide);if(!history.length||history.some(x=>!/^\\d+-\\d+/.test(x.record)))throw Error('Invalid season résumé '+r.name);if(history.filter(x=>x.badge==='CHAMPION').length!==r.titleYears.length)throw Error('Title résumé mismatch '+r.name)}
+for(const r of ratings){const history=seasonResume(r.name,careers,[...espn.seasons,...brackets.seasons],guide);if(!history.length||history.some(x=>!/^\d+-\d+/.test(x.record)))throw Error('Invalid season résumé '+r.name);if(history.filter(x=>x.badge==='CHAMPION').length!==r.titleYears.length)throw Error('Title résumé mismatch '+r.name)}
 const maddenJS=fs.readFileSync('assets/manager-madden-cards.mjs','utf8');if(!maddenJS.includes('seasonsHtml')||!maddenJS.includes('Season-by-season résumé'))throw Error('Madden résumé not connected to cards');
 console.log('MADDEN HISTORICAL RESUMES PASS');
 
