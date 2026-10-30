@@ -110,3 +110,8 @@ const kissStover=fs.readFileSync('managers/stover/index.html','utf8');
 if(!kissStover.includes('class="story-facts"')||!kissStover.includes('<summary>Read the full story</summary>'))throw Error('Stover KISS summary/full-story progressive disclosure missing');
 if(!kissStover.includes('data-canonical-manager-games="Stover"')||!kissStover.includes('data-canonical-manager-record="Stover"'))throw Error('Stover KISS career facts disconnected from canonical history');
 console.log('Stover simplified career story and canonical record bindings PASS');
+
+const scoutingTemplate=fs.readFileSync('assets/manager-profile-madden.mjs','utf8');
+if(!scoutingTemplate.includes('Championship Games')||!scoutingTemplate.includes('manager.titleYears.length+manager.runnerYears.length'))throw Error('Profile finals count must include wins and runner-up finishes');
+if(!scoutingTemplate.includes('Career W–L')||!scoutingTemplate.includes('Playoff Berths'))throw Error('KISS manager scouting facts missing');
+console.log('All manager profiles distinguish title wins and championship-game appearances PASS');
