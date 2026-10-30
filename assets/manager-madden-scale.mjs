@@ -6,3 +6,10 @@ export function maddenOvr(raw){
  if(!Number.isFinite(raw))throw Error('Unverified raw success index');
  return Math.round(Math.max(MADDEN_SCALE.floor,Math.min(MADDEN_SCALE.ceiling,MADDEN_SCALE.floor+raw*MADDEN_SCALE.multiplier))*10)/10;
 }
+
+// A separate fixed scale for one-season dominance. Do not use the Legacy scale:
+// its 99 cap collapses many different championship seasons into a false tie.
+export function seasonMaddenOvr(raw){
+ if(!Number.isFinite(raw))throw Error('Unverified season-only performance index');
+ return Math.round(Math.max(55,Math.min(99,55+raw*0.5))*10)/10;
+}
