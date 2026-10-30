@@ -10,6 +10,8 @@ const write=(p,x)=>fs.writeFileSync(p,JSON.stringify(x,null,2)+'\n');
 const path='data/unified_record_book_2016_2026.json',mirrorPath='data/season_weekly_matchups_2016_2026_v1.json',luckPath='data/all_time_luck_ratings_v1.json';
 const candidate=read(candidatePath),ledger=read(path),mirror=read(mirrorPath),luck=read(luckPath);
 if(candidate.status!=='REVIEW_REQUIRED'||candidate.year!==2026||candidate.matchupCount!==5||candidate.games?.length!==5||candidate.league!=='1340027406009761792')throw Error('Unverified candidate format');
+// Never process a weekly candidate that has not been explicitly approved for canonical import.
+if(process.env.FELLAS_APPROVE_WEEKLY_IMPORT!=='YES')throw Error('Human approval required: set FELLAS_APPROVE_WEEKLY_IMPORT=YES only after reviewing final Sleeper scores');
 const prior=ledger.games.filter(g=>g.year===2026&&g.stage==='regular');
 const last=Math.max(0,...prior.map(g=>g.week));
 if(candidate.week!==last+1||candidate.week>14)throw Error('Noncontiguous or postseason week');
