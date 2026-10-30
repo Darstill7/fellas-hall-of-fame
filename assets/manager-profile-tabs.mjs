@@ -22,6 +22,16 @@ if(main&&tabs){
   if(focus)buttons.find(b=>b.dataset.profileTab===key)?.focus();
   history.replaceState(null,'','#'+key);
  }
+ main.addEventListener('click',event=>{
+  const jump=event.target.closest('a[data-profile-jump]');
+  if(!jump)return;
+  const section=document.getElementById(jump.getAttribute('href').slice(1));
+  if(!section)return;
+  event.preventDefault();
+  activate(jump.dataset.profileJump);
+  history.replaceState(null,'',jump.getAttribute('href'));
+  requestAnimationFrame(()=>section.scrollIntoView({block:'start',behavior:'smooth'}));
+ });
  tabs.addEventListener('click',event=>{const button=event.target.closest('button[data-profile-tab]');if(button)activate(button.dataset.profileTab)});
  tabs.addEventListener('keydown',event=>{const index=buttons.indexOf(document.activeElement);if(index<0)return;const direction=event.key==='ArrowRight'?1:event.key==='ArrowLeft'?-1:0;if(direction){event.preventDefault();activate(buttons[(index+direction+buttons.length)%buttons.length].dataset.profileTab,{focus:true})}});
  const initial=location.hash.slice(1).toLowerCase();
