@@ -1,0 +1,119 @@
+{
+  "version": "recorded-acquisitions-to-subsequent-starts-research-v1",
+  "status": "observed_outcomes_not_skill_grades",
+  "coverage": "Recorded 2020–2026 Sleeper acquisition events; 2026 partial; ESPN 2016–2019 not in source",
+  "explanation": "Counts are observed transaction-player rows and rows with any later start for the same seasonal roster. Repeated adds and re-acquisitions may count again; no acquisition skill or causal value is inferred.",
+  "annual": [
+    {
+      "year": 2020,
+      "events": 269,
+      "unmapped": 0,
+      "recordedPlayerAdds": 269,
+      "withLaterStart": 126
+    },
+    {
+      "year": 2021,
+      "events": 306,
+      "unmapped": 0,
+      "recordedPlayerAdds": 306,
+      "withLaterStart": 116
+    },
+    {
+      "year": 2022,
+      "events": 279,
+      "unmapped": 0,
+      "recordedPlayerAdds": 279,
+      "withLaterStart": 123
+    },
+    {
+      "year": 2023,
+      "events": 228,
+      "unmapped": 0,
+      "recordedPlayerAdds": 228,
+      "withLaterStart": 99
+    },
+    {
+      "year": 2024,
+      "events": 226,
+      "unmapped": 0,
+      "recordedPlayerAdds": 226,
+      "withLaterStart": 104
+    },
+    {
+      "year": 2025,
+      "events": 210,
+      "unmapped": 0,
+      "recordedPlayerAdds": 210,
+      "withLaterStart": 105
+    },
+    {
+      "year": 2026,
+      "events": 112,
+      "unmapped": 0,
+      "recordedPlayerAdds": 112,
+      "withLaterStart": 40
+    }
+  ],
+  "byManager": [
+    {
+      "manager": "Birch",
+      "recordedAcquiredPlayers": 88,
+      "withLaterStarts": 37
+    },
+    {
+      "manager": "Evans",
+      "recordedAcquiredPlayers": 89,
+      "withLaterStarts": 39
+    },
+    {
+      "manager": "JMid",
+      "recordedAcquiredPlayers": 95,
+      "withLaterStarts": 43
+    },
+    {
+      "manager": "Koble",
+      "recordedAcquiredPlayers": 161,
+      "withLaterStarts": 79
+    },
+    {
+      "manager": "Kuhl",
+      "recordedAcquiredPlayers": 108,
+      "withLaterStarts": 57
+    },
+    {
+      "manager": "Mitch",
+      "recordedAcquiredPlayers": 155,
+      "withLaterStarts": 69
+    },
+    {
+      "manager": "Scott",
+      "recordedAcquiredPlayers": 53,
+      "withLaterStarts": 25
+    },
+    {
+      "manager": "Stew",
+      "recordedAcquiredPlayers": 196,
+      "withLaterStarts": 97
+    },
+    {
+      "manager": "Stilly",
+      "recordedAcquiredPlayers": 189,
+      "withLaterStarts": 73
+    },
+    {
+      "manager": "Stover",
+      "recordedAcquiredPlayers": 135,
+      "withLaterStarts": 50
+    },
+    {
+      "manager": "Thommy",
+      "recordedAcquiredPlayers": 187,
+      "withLaterStarts": 89
+    },
+    {
+      "manager": "Tony",
+      "recordedAcquiredPlayers": 174,
+      "withLaterStarts": 55
+    }
+  ]
+}
