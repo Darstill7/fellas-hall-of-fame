@@ -33,3 +33,31 @@ export function historicalOvrHistory({guide,careers,luck,endings,playoffBrackets
  }
  return results;
 }
+
+// Season OVR measures only one completed season; it never imports prior career success.
+// The 0–100 index is independently scored and displayed using the stable Madden scale.
+export function singleSeasonOvrHistory({guide,careers,luck,playoffBrackets}){
+ const bracketByYear=new Map(playoffBrackets.map(s=>[s.year,s]));
+ const luckBy=new Map(luck.ranked.map(x=>[x.manager,x]));
+ const years=Object.keys(guide).map(Number).filter(y=>y>=2016&&y<=2025&&guide[y]?.champion).sort((a,b)=>a-b);
+ return years.map(year=>{
+  const bracket=bracketByYear.get(year);
+  if(!bracket)throw Error('Missing certified playoff bracket for '+year);
+  const rows=Object.entries(careers.managers).flatMap(([name,career])=>{
+   const record=career.annual[String(year)];
+   if(!record||!record.games)return [];
+   const all=luckBy.get(name)?.bySeason?.[String(year)];
+   if(!all||!all.games)throw Error('Missing season all-play evidence '+name+' '+year);
+   const regular=(record.w+record.t*.5)/record.games;
+   const allPlay=Math.max(0,Math.min(1,all.expectedWins/all.games));
+   const playoff=(bracket.seeds??bracket.participants??[]).includes(name);
+   const finalist=(bracket.finalists??[]).includes(name);
+   const champion=bracket.champion===name;
+   const score=Math.round((20*regular+20*allPlay+15*(playoff?1:0)+10*(finalist?1:0)+35*(champion?1:0))*10)/10;
+   return [{name,year,score,rank:0,record:record.w+'–'+record.l+(record.t?'–'+record.t:''),playoff,finalist,champion}];
+  });
+  rows.sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
+  rows.forEach((r,i)=>{r.rank=i+1});
+  return {year,season:'completed',rows};
+ });
+}
