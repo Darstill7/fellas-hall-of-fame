@@ -5,7 +5,7 @@ for(let week=1;week<=14;week++){
  if(doc.year!==2021||doc.week!==week||doc.rosters?.length!==10)throw Error('2021 invalid roster week '+week);
  const m=matches.find(x=>x.week===week);if(!m)throw Error('2021 missing matchup '+week);
  const scores=new Map(m.games.flatMap(g=>[g.home,g.away].map(s=>[s[0],s[2]])));
- if(scores.size<8||scores.size>10)throw Error('2021 unexpected matchup coverage week '+week+' teams '+scores.size);
+ if(scores.size!==(week===14?8:10))throw Error('2021 unexpected documented H2H pairing coverage week '+week+' teams '+scores.size);
  const owners=new Set(),ids=new Set();
  for(const r of doc.rosters){
   if(!r.success||!r.owner||r.starters?.length!==9||!Array.isArray(r.bench)||owners.has(r.owner)||ids.has(r.teamId))throw Error('2021 ownership or shape mismatch '+week+' '+r.teamId);
@@ -14,6 +14,7 @@ for(let week=1;week<=14;week++){
   if(Math.abs(r.starters.reduce((sum,p)=>sum+Number(p.points||0),0)-r.points)>.07)throw Error('2021 starter points mismatch '+week+' '+r.owner);
   count++;
  }
+ if(owners.size!==10||ids.size!==10||[...scores.keys()].some(owner=>!owners.has(owner)))throw Error('2021 documented matchup roster identities not represented week '+week);
 }
 if(count!==140)throw Error('Missing historical 2021 team-week rosters');
 console.log('2021 recovered weekly roster reconciliation PASS: '+count+' team-weeks (unpaired teams are checked by starter sum, not invented matchups)');
