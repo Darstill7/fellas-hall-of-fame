@@ -16,6 +16,8 @@ try {
  const reports=makeReportCards({drafts,trades,careers,luck,waivers,endings,brackets,guide,espn});
  const byName=new Map(reports.map(r=>[r.name,r]));
  const weekly=weeklyOvrHistory({ledger,guide,careers,luck,endings,playoffBrackets});
+ if(!weekly.length)throw Error('No complete canonical weekly ratings available');
+ $('week').innerHTML=weekly.slice().reverse().map((w,i)=>'<option value="'+w.week+'">Week '+w.week+(i===0?' (latest verified)':'')+'</option>').join('');
  const managerOptions=ratings.filter(r=>active.has(r.name));
  for(const id of ['compare-a','compare-b'])$(''+id).innerHTML=managerOptions.map(r=>'<option value="'+esc(r.name)+'">'+esc(r.name)+'</option>').join('');
  $('compare-a').value='Stilly';$('compare-b').value='Thommy';
