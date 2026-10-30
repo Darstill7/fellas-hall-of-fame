@@ -112,3 +112,10 @@ for(const name of ['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuh
 const contextPage=fs.readFileSync('assets/manager-decision-audit.mjs','utf8');
 if(!contextPage.includes("from './manager-decision-context.mjs'")||!contextPage.includes('stats.avgPeerAdjusted'))throw Error('Matched draft/trade context not displayed');
 console.log('Within-cohort draft and verified trade context PASS');
+
+const benchmarkHTML=fs.readFileSync('analytics/manager-league-benchmarks.html','utf8');
+const benchmarkJS=fs.readFileSync('assets/manager-league-benchmarks.mjs','utf8');
+if(!benchmarkHTML.includes('manager-league-benchmarks.mjs')||!fs.readFileSync('analytics/manager-report-cards.html','utf8').includes('manager-league-benchmarks.html'))throw Error('League benchmark routes disconnected');
+if(!benchmarkJS.includes('managerDecisionSummary')||!benchmarkJS.includes('draftContext(drafts)')||!benchmarkJS.includes('tradeContext(trades)'))throw Error('League benchmarks not derived from shared source models');
+if(!benchmarkHTML.includes('not counting independent trade events')||!benchmarkHTML.includes('at least two other eligible picks'))throw Error('League comparison missing critical evidence caveat');
+console.log('League manager benchmark source and methodology checks PASS');
