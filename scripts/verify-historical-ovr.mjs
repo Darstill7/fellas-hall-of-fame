@@ -8,6 +8,13 @@ if(original.length!==10||original[0].year!==2016||original.at(-1).year!==2025)th
 for(const season of original){
  if(!season.rows.length||season.rows.some(r=>!Number.isFinite(r.ovr)||r.ovr<0||r.ovr>100||!Number.isInteger(r.rank)))throw Error('Invalid historical OVR '+season.year);
  if(new Set(season.rows.map(r=>r.name)).size!==season.rows.length)throw Error('Repeated manager '+season.year);
+ const ranks=season.rows.map(r=>r.rank).sort((a,b)=>a-b);
+ if(ranks.some((rank,i)=>rank!==i+1))throw Error('Historical ranks must be consecutive '+season.year);
+ for(const row of season.rows){
+  const manager=careers.managers[row.name];
+  if(!manager||!Object.keys(manager.annual).some(y=>Number(y)<=season.year))
+   throw Error('Manager rated before joining the league: '+row.name+' '+season.year);
+ }
 }
 const clone=x=>JSON.parse(JSON.stringify(x)),futureCareers=clone(careers),futureLuck=clone(luck);
 for(const r of Object.values(futureCareers.managers))if(r.annual['2025']){r.annual['2025'].w+=30;r.w+=30}
