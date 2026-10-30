@@ -25,6 +25,15 @@ try {
  const managerOptions=ratings.filter(r=>active.has(r.name));
  for(const id of ['compare-a','compare-b'])$(''+id).innerHTML=managerOptions.map(r=>'<option value="'+esc(r.name)+'">'+esc(r.name)+'</option>').join('');
  $('compare-a').value='Stilly';$('compare-b').value='Thommy';
+ const historicalComparison=(nameA,nameB)=>{
+  const rows=historicalSeasons.map(season=>{
+   const a=season.rows.find(r=>r.name===nameA),b=season.rows.find(r=>r.name===nameB);
+   if(!a&&!b)return '';
+   const cell=r=>r?maddenOvr(r.ovr).toFixed(1)+' · #'+r.rank:'—';
+   return '<tr><th scope="row">'+season.year+'</th><td>'+cell(a)+'</td><td>'+cell(b)+'</td></tr>';
+  }).filter(Boolean);
+  return '<details class="duel-history"><summary>Compare historical year-end OVR ('+rows.length+' seasons)</summary><p class="note">Retrospective Madden-scale scores and rankings, using only verified results available at each season end. A dash means the manager was not ranked in that season.</p><div class="duel-scroll"><table class="duel-table"><caption>Year-end OVR · league rank</caption><thead><tr><th scope="col">Season</th><th scope="col">'+esc(nameA)+'</th><th scope="col">'+esc(nameB)+'</th></tr></thead><tbody>'+rows.join('')+'</tbody></table></div></details>';
+ };
  const compare=()=>{
   const a=ratings.find(r=>r.name===$('compare-a').value),b=ratings.find(r=>r.name===$('compare-b').value),week=Number($('week').value);
   const result=$('duel-results');
@@ -33,7 +42,7 @@ try {
   const aOvr=maddenOvr(score(a)),bOvr=maddenOvr(score(b));
   if(!Number.isFinite(aOvr)||!Number.isFinite(bOvr)){result.textContent='A rating is unavailable for this comparison.';return}
   const attributes=[['Overall Rating',aOvr,bOvr],['Regular-season winning',byName.get(a.name)?.scores.regular,byName.get(b.name)?.scores.regular],['All-play performance',byName.get(a.name)?.scores.allPlay,byName.get(b.name)?.scores.allPlay],['Playoff success',a.breakdown.playoffs/10*100,b.breakdown.playoffs/10*100],['Championships',a.breakdown.titles/30*100,b.breakdown.titles/30*100],['Championship game appearances',a.breakdown.finals/5*100,b.breakdown.finals/5*100],['Drafting',byName.get(a.name)?.scores.drafting,byName.get(b.name)?.scores.drafting],['Trading',byName.get(a.name)?.scores.trading,byName.get(b.name)?.scores.trading],['Waiver pickups',null,null],['Start/sit decisions',null,null]];
-  result.innerHTML='<table class="duel-table"><caption>Week '+week+' overall rating; other attributes use the current archive</caption><thead><tr><th scope="col">Attribute</th><th scope="col">'+esc(a.name)+'</th><th scope="col">'+esc(b.name)+'</th></tr></thead><tbody>'+attributes.map(([label,x,y])=>{const valid=Number.isFinite(x)&&Number.isFinite(y),win=valid?(x>y?1:x<y?2:0):0,format=v=>Number.isFinite(v)?v.toFixed(1):'N/A';return '<tr><th scope="row">'+esc(label)+'</th><td'+(win===1?' class="advantage"':'')+'>'+format(x)+'</td><td'+(win===2?' class="advantage"':'')+'>'+format(y)+'</td></tr>'}).join('')+'</tbody></table><p class="note">Gold highlights the higher available score; equal scores and N/A are not treated as wins.</p>';
+  result.innerHTML='<table class="duel-table"><caption>Week '+week+' overall rating; other attributes use the current archive</caption><thead><tr><th scope="col">Attribute</th><th scope="col">'+esc(a.name)+'</th><th scope="col">'+esc(b.name)+'</th></tr></thead><tbody>'+attributes.map(([label,x,y])=>{const valid=Number.isFinite(x)&&Number.isFinite(y),win=valid?(x>y?1:x<y?2:0):0,format=v=>Number.isFinite(v)?v.toFixed(1):'N/A';return '<tr><th scope="row">'+esc(label)+'</th><td'+(win===1?' class="advantage"':'')+'>'+format(x)+'</td><td'+(win===2?' class="advantage"':'')+'>'+format(y)+'</td></tr>'}).join('')+'</tbody></table><p class="note">Gold highlights the higher available score; equal scores and N/A are not treated as wins.</p>'+historicalComparison(a.name,b.name);
  };
  $('compare-a').addEventListener('change',compare);$('compare-b').addEventListener('change',compare);
  const render=()=>{
