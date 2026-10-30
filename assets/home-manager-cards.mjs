@@ -1,3 +1,4 @@
+import {maddenOvr} from './manager-madden-scale.mjs';
 import {makeRatings} from './fellas-rating-model.mjs';
 import {managerCardTier} from './manager-card-tiers.mjs';
 import {earnedArchetypes} from './manager-madden-archetypes.mjs';
@@ -11,7 +12,7 @@ try{
  const cards=document.getElementById('home-manager-cards');
  cards.innerHTML=current.map(r=>{
   const tier=managerCardTier(r),archetypes=earnedArchetypes(r),specialties=archetypes.slice(1).map(a=>a.name);
-  return '<a class="home-manager-card home-tier-'+tier.id+'" href="managers/'+slug[r.name]+'/" aria-label="Open '+escape(r.name)+' manager profile, overall rating '+r.score.toFixed(1)+'"><span class="home-card-edition">'+escape(tier.name)+'</span><span class="home-card-rank">ALL-TIME #'+r.rank+'</span><span class="home-card-name">'+escape(r.name)+'</span><span class="home-card-ovr">'+r.score.toFixed(1)+'<small>OVR</small></span><span class="home-card-archetype">'+escape(archetypes[0].name)+'</span><span class="home-card-resume">'+r.titleYears.length+' titles · '+r.qualifiedYears.length+' playoffs · '+escape(r.career)+'</span>'+(specialties.length?'<span class="home-card-specialties">'+escape(specialties.slice(0,2).join(' · '))+'</span>':'')+'<span class="home-card-open">View manager profile →</span></a>';
+  return '<a class="home-manager-card home-tier-'+tier.id+'" href="managers/'+slug[r.name]+'/" aria-label="Open '+escape(r.name)+' manager profile, overall rating '+maddenOvr(r.score).toFixed(1)+'"><span class="home-card-edition">'+escape(tier.name)+'</span><span class="home-card-rank">ALL-TIME #'+r.rank+'</span><span class="home-card-name">'+escape(r.name)+'</span><span class="home-card-ovr">'+maddenOvr(r.score).toFixed(1)+'<small>OVR</small></span><span class="home-card-archetype">'+escape(archetypes[0].name)+'</span><span class="home-card-resume">'+r.titleYears.length+' titles · '+r.qualifiedYears.length+' playoffs · '+escape(r.career)+'</span>'+(specialties.length?'<span class="home-card-specialties">'+escape(specialties.slice(0,2).join(' · '))+'</span>':'')+'<span class="home-card-open">View manager profile →</span></a>';
  }).join('');
  document.getElementById('home-manager-status').textContent=current.length+' active manager profiles · Ratings from verified league history · 2026 ongoing';
 }catch(error){document.getElementById('home-manager-status').textContent='Manager ratings are temporarily unavailable; explore the complete cards or manager directory.';console.error(error)}
