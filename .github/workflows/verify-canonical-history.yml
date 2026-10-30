@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Verify living all-time power ratings and mobile display.
 on:
   push:
     branches: [main]
