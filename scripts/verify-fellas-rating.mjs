@@ -25,5 +25,7 @@ if(!(old<recency&&old>.25))fail('Aging championship curve broken');
 if(!rows.find(x=>x.name==='Scott').titleYears.includes(2025))fail('2025 champion missing');
 const page=fs.readFileSync('analytics/power-ratings.html','utf8');
 const ui=fs.readFileSync('assets/fellas-rating-page.mjs','utf8');
+if(!page.includes('Eight bounded components')||!page.includes('Verified playoff appearances <strong>10</strong>')||!page.includes('Recent competitive form <strong>5</strong>')||!page.includes('Scoring dimensions</small>'))fail('Public rating method text is stale');
+if(!ui.includes("playoffs:'Playoffs'")||!ui.includes('verified_espn_playoff_brackets_2016_2019.json')||!ui.includes('verified_sleeper_playoff_brackets_2020_2025.json'))fail('Rating UI not sourcing verified playoff brackets');
 if(!page.includes('id="ranking"')||!page.includes('fellas-rating-page.mjs')||!ui.includes('makeRatings')||!ui.includes('fellas-rating-model.mjs'))fail('Rating page not connected to canonical model');
 console.log('Fellas ratings PASS: '+rows.map(r=>r.name+' '+r.score.toFixed(1)).join(' | '));
