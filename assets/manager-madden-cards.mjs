@@ -1,3 +1,4 @@
+import {seasonResume} from './manager-season-resume.mjs';
 import {weeklyOvrHistory} from './manager-weekly-ovr.mjs';
 import {makeRatings} from './fellas-rating-model.mjs';
 import {makeReportCards} from './manager-report-card.mjs';
@@ -32,6 +33,8 @@ try {
    const peak=Math.max(...trajectory.map(x=>x.ovr));
    const biggest=previousChanges.slice().sort((a,b)=>b.delta-a.delta)[0];
    const line=trajectory.map((x,i)=>{const min=0,max=100;return (i?i/(trajectory.length-1)*100:0)+','+(100-(x.ovr-min)/(max-min)*100)}).join(' ');
+   const resume=seasonResume(r.name,careers,playoffBrackets,guide);
+   const seasonsHtml=resume.map(x=>'<div class="attr"><span>'+x.year+' · '+esc(x.record)+'</span><strong>'+esc(x.badge)+'</strong></div>').join('');
    const props=[['regular',s.regular],['allPlay',s.allPlay],['playoffs',r.breakdown.playoffs/10*100],['championships',r.breakdown.titles/30*100],['finals',r.breakdown.finals/5*100],['drafting',s.drafting],['trading',s.trading],['waivers',null],['lineups',null]];
    return '<article class="card"><div class="top"><div><div class="rank">ALL-TIME RANK #'+r.rank+(r.historical?' · FORMER MANAGER':'')+'</div><h2>'+esc(r.name)+'</h2><div class="tag">'+esc(r.career)+' · '+r.titleYears.length+' titles · '+r.qualifiedYears.length+' verified playoff berths</div></div><div class="ovr">'+ovr.toFixed(1)+'<small>OVR'+(delta===null?'':' · '+(delta>0?'+':'')+delta.toFixed(1))+'</small></div></div><div class="attributes">'+props.map(([k,v])=>'<div class="attr"><span title="'+labelName[k]+'">'+label[k]+'</span><strong>'+(Number.isFinite(v)?Math.round(v):'N/A')+'</strong></div>').join('')+'</div><div class="tag">'+(delta===null?'Week 1 baseline':'OVR movement: '+esc(explanation))+'</div><div class="tag">2026 peak through W'+selectedWeek+': '+peak.toFixed(1)+' OVR · Biggest rise: '+(biggest?(biggest.delta>0?'+':'')+biggest.delta.toFixed(1)+' (W'+biggest.week+')':'N/A')+'</div><svg role="img" aria-label="'+esc(r.name)+' OVR trend through week '+selectedWeek+'" viewBox="0 0 100 100" preserveAspectRatio="none" style="width:100%;height:64px;margin-top:10px;overflow:visible"><polyline fill="none" stroke="#e3bc75" stroke-width="2" vector-effect="non-scaling-stroke" points="'+line+'"/></svg><div class="tag">DRF / TRD are provisional evidence-limited grades · WVR / LUP unavailable</div></article>';
   }).join('');
