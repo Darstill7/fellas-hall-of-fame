@@ -79,6 +79,13 @@ try{
       }
      }
     }
+    const seasonRows=page.locator('#season-ovr-leaderboard tbody tr');
+    if(await seasonRows.count()<1)errors.push(width+' single-season OVR leaderboard did not render');
+    const bestRows=page.locator('#season-records tbody tr');
+    if(await bestRows.count()!==20)errors.push(width+' best-season record book did not render 20 rows');
+    await page.locator('#season-extreme').selectOption('worst');
+    if(await bestRows.count()!==20)errors.push(width+' worst-season record book did not render 20 rows');
+    await page.locator('#season-extreme').selectOption('best');
     const historicalYears=page.locator('#history-year option');
     if(await historicalYears.count()!==10)errors.push(width+' historical leaderboard must offer ten completed seasons');
     const historicalRows=page.locator('#history-leaderboard tbody tr');
