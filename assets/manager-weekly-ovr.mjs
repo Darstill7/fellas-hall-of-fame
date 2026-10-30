@@ -3,10 +3,11 @@ const clone=x=>JSON.parse(JSON.stringify(x));
 const zero=()=>({games:0,w:0,l:0,t:0});
 function result(a,b){return a>b?'w':a<b?'l':'t'}
 export function weeklyOvrHistory({ledger,guide,careers,luck,endings,playoffBrackets}){
- const complete=ledger.games.filter(g=>g.year===2026&&g.stage==='regular'&&g.week<=7);
+ const complete=ledger.games.filter(g=>g.year===2026&&g.stage==='regular');
+ const latestWeek=Math.max(0,...complete.map(g=>g.week));
  const names=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
  const output=[];
- for(let week=1;week<=7;week++){
+ for(let week=1;week<=latestWeek;week++){
   const games=complete.filter(g=>g.week<=week),latest=games.filter(g=>g.week===week);
   if(latest.length!==5)throw Error('Unverified 2026 matchup coverage at week '+week);
   const careerData=clone(careers),luckData=clone(luck);
