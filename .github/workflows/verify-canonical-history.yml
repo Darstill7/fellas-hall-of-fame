@@ -114,6 +114,8 @@ jobs:
         run: node scripts/verify-recovered-2026-rosters.mjs
       - name: Verify 2026 Scott score parity across canonical projections
         run: node scripts/verify-scott-2026-week7-parity.mjs
+      - name: Verify every weekly matchup mirror against canonical ledger
+        run: node scripts/verify-weekly-ledger-parity.mjs
       - name: Research-only six-season hindsight lineup analysis
         run: node scripts/analyze-six-season-lineups.mjs
       - name: Run recovered 2025 research-only lineup analysis
