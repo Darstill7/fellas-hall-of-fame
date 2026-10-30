@@ -5,7 +5,8 @@ const round=n=>Math.round(n*10)/10,clamp=n=>Math.max(0,Math.min(100,n));
 const mean=a=>a.reduce((s,v)=>s+v,0)/a.length;
 const percentile=(x,xs)=>xs.length?100*(xs.filter(y=>y<x).length+.5*xs.filter(y=>y===x).length)/xs.length:50;
 import {postseasonReport} from './manager-postseason-success.mjs';
-export function makeReportCards({drafts,trades,careers,luck,waivers,endings}){
+import {playoffRecord} from './manager-playoff-history.mjs';
+export function makeReportCards({drafts,trades,careers,luck,waivers,endings,brackets,guide}){
  const names=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
  const alias=n=>n==='Tom'?'Thommy':n;
  const qualifyingDrafts=drafts.filter(d=>!d.keeper&&Number.isFinite(d.surplus)&&d.year<=2025);
@@ -27,10 +28,11 @@ export function makeReportCards({drafts,trades,careers,luck,waivers,endings}){
   const regular=round(clamp(100*(c.w+.5*c.t+7)/(c.games+14)));
   const allPlay=round(clamp(100*(a.expectedWins+7)/(a.games+14)));
   const post=postseasonReport(name,endings);
-  const scores={championships:post.scores.championships,finals:post.scores.finals,playoffs:null,drafting:draft,trading:trade,regular,allPlay,waivers:null,lineups:null};
+  const playoff=playoffRecord(name,brackets,guide);
+  const scores={championships:post.scores.championships,finals:post.scores.finals,playoffs:playoff.score,drafting:draft,trading:trade,regular,allPlay,waivers:null,lineups:null};
   const supported=Object.entries(scores).filter(([,score])=>score!==null);
   const availableWeight=supported.reduce((s,[k])=>s+WEIGHTS[k],0);
   const provisional=round(supported.reduce((s,[k,v])=>s+WEIGHTS[k]*v,0)/availableWeight);
-  return {name,provisional,scores,availableWeight,coverage:{verifiedChampionships:post.titles,verifiedRunnersUp:post.runners,minimumPlayoffs:post.minimumPlayoffs,draftPicks:dr.length,verifiedTradeSides:tr.length,waiverHighlights:(waivers.managers[name==='Thommy'?'Tom':name]||[]).length,careerGames:c.games},ungraded:['playoffs','waivers','lineups'],scope:'Provisional score from graded categories only; not a complete manager-skill grade.'};
+  return {name,provisional,scores,availableWeight,coverage:{verifiedChampionships:post.titles,verifiedRunnersUp:post.runners,minimumPlayoffs:post.minimumPlayoffs,playoffVerified:playoff.qualified,playoffEligible:playoff.eligible,playoffByes:playoff.byes,playoffRecencyScore:playoff.score,draftPicks:dr.length,verifiedTradeSides:tr.length,waiverHighlights:(waivers.managers[name==='Thommy'?'Tom':name]||[]).length,careerGames:c.games},ungraded:['waivers','lineups'],scope:'Provisional score from graded categories only; not a complete manager-skill grade.'};
  }).sort((a,b)=>b.provisional-a.provisional||a.name.localeCompare(b.name)).map((x,i)=>({...x,rank:i+1}));
 }
