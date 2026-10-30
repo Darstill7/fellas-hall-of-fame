@@ -131,3 +131,11 @@ if(tradeManagerSummary(syntheticTrades,'Thommy').certifiedEvents!==2)throw Error
 if(!fs.readFileSync('analytics/manager-report-cards.html','utf8').includes('manager-trade-intelligence.html'))throw Error('Trade intelligence link missing');
 if(!fs.readFileSync('analytics/manager-trade-intelligence.html','utf8').includes('manager-trade-intelligence-page.mjs'))throw Error('Trade explorer source disconnected');
 console.log('Certified trade event grouping and provenance PASS');
+
+const lineagePage=fs.readFileSync('assets/manager-trade-intelligence-page.mjs','utf8');
+const lineageHTML=fs.readFileSync('analytics/manager-trade-intelligence.html','utf8');
+const lineageSource=read('trade_lineage_v2.json');
+if(!Array.isArray(lineageSource.chains)||!lineageSource.chains.length)throw Error('Trade-lineage archive missing');
+if(!lineagePage.includes("fetch('../data/trade_lineage_v2.json'")||!lineagePage.includes("e.transfer_confidence")||!lineagePage.includes('not proof of uninterrupted ownership'))throw Error('Trade lineage provenance and caution disconnected');
+if(!lineageHTML.includes('id="asset-query"')||!lineageHTML.includes('id="lineage"'))throw Error('Trade lineage search UI missing');
+console.log('Trade lineage archive and source confidence presentation PASS');
