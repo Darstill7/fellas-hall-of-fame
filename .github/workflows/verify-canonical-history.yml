@@ -94,6 +94,8 @@ jobs:
         run: node scripts/verify-fellas-rating.mjs
       - name: Verify manager report card evidence
         run: node scripts/verify-manager-report-cards.mjs
+      - name: Reconcile recovered 2025 historical player-level rosters
+        run: node scripts/verify-recovered-2025-rosters.mjs
       - name: Install browser test runtime
         run: |
           npm install --no-save playwright@1.56.1
