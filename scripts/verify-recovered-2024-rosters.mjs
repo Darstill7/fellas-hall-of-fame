@@ -2,7 +2,7 @@ import fs from 'node:fs';
 const archive=JSON.parse(fs.readFileSync('data/sleeper_matchups_2024.json','utf8'));
 const owners=['Darstill','JMidd','thommy','Dsylvester9','Sheffla','huppdawg80','tsteg','yogurtslinger15','ckuhl5','birchhh'];
 let checks=0;
-for(const week of [1,2,3]){
+for(const week of Array.from({length:14},(_,i)=>i+1)){
  const doc=JSON.parse(fs.readFileSync('data/sleeper_roster_snapshots_2024_week'+week+'.json','utf8'));
  if(doc.year!==2024||doc.week!==week||doc.rosters?.length!==10)throw Error('2024 roster snapshot structure failed week '+week);
  const matchup=archive.find(x=>x.week===week);
@@ -16,4 +16,4 @@ for(const week of [1,2,3]){
   checks++;
  }
 }
-console.log('2024 HISTORICAL ROSTER RECONCILIATION PASS: '+checks+' roster-weeks, Weeks 1-3');
+console.log('2024 HISTORICAL ROSTER RECONCILIATION PASS: '+checks+' roster-weeks, Weeks 1-14');
