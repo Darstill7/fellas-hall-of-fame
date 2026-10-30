@@ -98,6 +98,12 @@ try{
     const selectedNames=await page.locator('#season-records tbody th[scope="row"]').allTextContents();
     if(!selectedNames.length||selectedNames.some(n=>n!=='Thommy'))errors.push(width+' season records manager filter displayed wrong manager');
     await page.locator('#season-record-manager').selectOption('all');
+    await page.goto(baseUrl+'analytics/manager-madden-cards.html?manager=Thommy#records-heading',{waitUntil:'networkidle'});
+    const deepLinked=await page.locator('#season-record-manager').inputValue();
+    if(deepLinked!=='Thommy')errors.push(width+' Madden season records did not honor manager deep link');
+    const linkedRows=await page.locator('#season-records tbody th[scope="row"]').allTextContents();
+    if(!linkedRows.length||linkedRows.some(n=>n!=='Thommy'))errors.push(width+' manager deep link included other managers');
+
     for(const category of ['champions','nonchampions','improvements','declines']){
      await page.locator('#season-extreme').selectOption(category);
      const count=await page.locator('#season-records tbody tr').count();
