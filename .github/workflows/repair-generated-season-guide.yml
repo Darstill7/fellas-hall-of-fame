@@ -18,13 +18,12 @@ jobs:
       - run: |
           node scripts/generate-season-guide.mjs
           node scripts/generate-season-guide.mjs --check
-      - uses: peter-evans/create-pull-request@v7
-        with:
-          branch: repair/season-guide-artifacts
-          delete-branch: true
-          title: 'Regenerate verified season guide and embedded page data'
-          commit-message: 'Regenerate season guide after dynamic verified-week descriptions'
-          body: 'Automatically regenerated artifacts from canonical ledger using the existing generator; required to resolve stale projection CI.'
-          add-paths: |
-            data/season_guide.json
-            seasons/index.html
+      - name: Commit deterministic regenerated artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/season_guide.json seasons/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Regenerate season guide and embedded season page from canonical records"
+            git push origin HEAD:main
+          fi
