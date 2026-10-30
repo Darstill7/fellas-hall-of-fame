@@ -112,6 +112,8 @@ jobs:
         run: node scripts/audit-evidence-coverage.mjs
       - name: Reconcile current 2026 weekly roster evidence
         run: node scripts/verify-recovered-2026-rosters.mjs
+      - name: Verify 2026 Scott score parity across canonical projections
+        run: node scripts/verify-scott-2026-week7-parity.mjs
       - name: Research-only six-season hindsight lineup analysis
         run: node scripts/analyze-six-season-lineups.mjs
       - name: Run recovered 2025 research-only lineup analysis
