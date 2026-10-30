@@ -92,6 +92,11 @@ jobs:
           done
       - name: Verify living Fellas power rating formula
         run: node scripts/verify-fellas-rating.mjs
+      - name: Syntax-check Madden manager browser modules
+        run: |
+          node --check assets/manager-madden-cards.mjs
+          node --check assets/manager-madden-archetypes.mjs
+          node --check assets/manager-weekly-ovr.mjs
       - name: Verify Madden-style manager OVR and evidence-gated attributes
         run: node scripts/verify-manager-madden-cards.mjs
       - name: Verify manager report card evidence
@@ -123,10 +128,12 @@ jobs:
       - name: Run recovered 2025 research-only lineup analysis
         run: node scripts/analyze-recovered-2025-lineups.mjs
       - name: Install browser test runtime
+        if: success() || failure()
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium webkit
       - name: Exercise desktop and mobile Chromium pages
+        if: success() || failure()
         run: node scripts/test-browser-release.mjs
       - name: Exercise Safari-engine WebKit mobile pages
         if: success() || failure()
