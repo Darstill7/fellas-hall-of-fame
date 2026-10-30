@@ -58,3 +58,10 @@ const comparisonScript=fs.readFileSync('assets/manager-report-card-page.mjs','ut
 for(const id of ['compare-a','compare-b','compare-go','comparison'])if(!comparisonMarkup.includes('id="'+id+'"'))throw Error('Missing report-card comparison control: '+id);
 for(const guard of ["a.name===b.name","v===null?'N/A'","searchParams.set('a'","searchParams.set('b'","drawComparison()"])if(!comparisonScript.includes(guard))throw Error('Missing comparison invariant: '+guard);
 console.log('Report card manager comparisons PASS');
+
+const managerRoutes={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
+for(const [slug,name] of Object.entries(managerRoutes)){
+ const profile=fs.readFileSync('managers/'+slug+'/index.html','utf8');
+ if(!profile.includes('../../analytics/manager-report-cards.html?manager='+name))throw Error('Missing report card profile link for '+name);
+}
+console.log('All 10 manager profiles link to corresponding report cards');
