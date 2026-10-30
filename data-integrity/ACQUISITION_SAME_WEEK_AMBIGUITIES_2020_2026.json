@@ -1,0 +1,86 @@
+{
+  "status": "source_ambiguity_review",
+  "sameWeekRepeatGroups": 7,
+  "additionalSameWeekEventRows": 8,
+  "cases": [
+    {
+      "year": 2021,
+      "manager": "Stover",
+      "player": "Kansas City Chiefs",
+      "week": 9,
+      "recordedEvents": 2,
+      "types": [
+        "add"
+      ],
+      "reason": "More than one recorded add/waiver event for the same manager, player and week; ordering/continuity must not be inferred from weekly period alone."
+    },
+    {
+      "year": 2021,
+      "manager": "Koble",
+      "player": "A.J. Green",
+      "week": 10,
+      "recordedEvents": 2,
+      "types": [
+        "waiver"
+      ],
+      "reason": "More than one recorded add/waiver event for the same manager, player and week; ordering/continuity must not be inferred from weekly period alone."
+    },
+    {
+      "year": 2021,
+      "manager": "Mitch",
+      "player": "Van Jefferson",
+      "week": 10,
+      "recordedEvents": 2,
+      "types": [
+        "add"
+      ],
+      "reason": "More than one recorded add/waiver event for the same manager, player and week; ordering/continuity must not be inferred from weekly period alone."
+    },
+    {
+      "year": 2021,
+      "manager": "Stew",
+      "player": "Christian McCaffrey",
+      "week": 14,
+      "recordedEvents": 3,
+      "types": [
+        "add"
+      ],
+      "reason": "More than one recorded add/waiver event for the same manager, player and week; ordering/continuity must not be inferred from weekly period alone."
+    },
+    {
+      "year": 2022,
+      "manager": "Stilly",
+      "player": "Jared Goff",
+      "week": 4,
+      "recordedEvents": 2,
+      "types": [
+        "waiver"
+      ],
+      "reason": "More than one recorded add/waiver event for the same manager, player and week; ordering/continuity must not be inferred from weekly period alone."
+    },
+    {
+      "year": 2022,
+      "manager": "Koble",
+      "player": "Greg Dulcich",
+      "week": 13,
+      "recordedEvents": 2,
+      "types": [
+        "waiver",
+        "add"
+      ],
+      "reason": "More than one recorded add/waiver event for the same manager, player and week; ordering/continuity must not be inferred from weekly period alone."
+    },
+    {
+      "year": 2022,
+      "manager": "Koble",
+      "player": "Evan Engram",
+      "week": 14,
+      "recordedEvents": 2,
+      "types": [
+        "waiver"
+      ],
+      "reason": "More than one recorded add/waiver event for the same manager, player and week; ordering/continuity must not be inferred from weekly period alone."
+    }
+  ],
+  "policy": "Distinct season-player counts remain unchanged; do not assign transaction-level outcome or FAAB price from same-week duplicates."
+}
