@@ -142,6 +142,13 @@ try{
     const madden=page.locator('.profile-madden');
     if(await madden.count()!==1)errors.push(width+' '+route+' missing Madden scouting report');
     else{
+     const seasonal=madden.locator('.profile-season-ovr');
+     if(await seasonal.count()!==1)errors.push(width+' '+route+' missing single-season OVR progression');
+     else{
+      if(await seasonal.locator('.profile-historical-table tbody tr').count()<1)errors.push(width+' '+route+' missing verified season performance rows');
+      const summary=await seasonal.innerText();
+      if(!summary.includes('Peak:')||!summary.includes('Lowest:')||!summary.includes('Average:'))errors.push(width+' '+route+' missing seasonal peak/low/average');
+     }
      const historical= madden.locator('details.profile-madden-history');
      if(await historical.count()!==1)errors.push(width+' '+route+' missing historical OVR journey');
      else if(await historical.locator('.profile-historical-table tbody tr').count()<1)errors.push(width+' '+route+' historical OVR journey is empty');
