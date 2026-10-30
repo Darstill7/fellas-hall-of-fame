@@ -98,12 +98,16 @@ jobs:
           node --check scripts/apply-reviewed-sleeper-week.mjs
           node --check scripts/test-weekly-import-rehearsal.mjs
           node --check assets/home-manager-cards.mjs
+          node --check assets/manager-historical-ovr.mjs
+          node --check scripts/verify-historical-ovr.mjs
           node --check assets/manager-profile-madden.mjs
           node --check assets/manager-madden-cards.mjs
           node --check assets/manager-madden-archetypes.mjs
           node --check assets/manager-weekly-ovr.mjs
       - name: Rehearse synthetic weekly import without canonical mutations
         run: node scripts/test-weekly-import-rehearsal.mjs
+      - name: Verify historical OVR without future-season leakage
+        run: node scripts/verify-historical-ovr.mjs
       - name: Verify weekly import cannot run without review approval
         run: |
           if node scripts/apply-reviewed-sleeper-week.mjs data-integrity/sleeper-sync-candidates/2026-week8.json > /tmp/unapproved-weekly-import.log 2>&1; then
