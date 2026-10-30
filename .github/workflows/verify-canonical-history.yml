@@ -102,6 +102,8 @@ jobs:
         run: node scripts/verify-recovered-2023-rosters.mjs
       - name: Reconcile recovered 2022 historical player-level rosters
         run: node scripts/verify-recovered-2022-rosters.mjs
+      - name: Reconcile recovered 2021 historical player-level rosters
+        run: node scripts/verify-recovered-2021-rosters.mjs
       - name: Run recovered 2025 research-only lineup analysis
         run: node scripts/analyze-recovered-2025-lineups.mjs
       - name: Install browser test runtime
