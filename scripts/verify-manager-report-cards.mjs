@@ -210,3 +210,8 @@ const lineupSource=fs.readFileSync('assets/manager-lineup-research-page.mjs','ut
 if(!lineupPage.includes('value="all"')||!lineupPage.includes('830 archived team-weeks')||!lineupSource.includes("years=selected==='all'?[2020,2021,2022,2023,2024,2025]")||!lineupSource.includes("dillionpanthers15:'Stover'"))throw Error('Six-season canonical manager lineup coverage missing');
 if(!lineupSource.includes("if(!name)throw Error('Unmapped historical owner"))throw Error('Historical manager mapping must fail closed');
 console.log('Six-season canonical manager lineup coverage UI PASS');
+
+const lineupExclusions=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
+for(const reason of ['Duplicate player IDs','Nonstandard starter position','Starter-score mismatch','No feasible lineup under assumed slots','Optimizer below observed score'])if(!lineupExclusions.includes(reason))throw Error('Lineup exclusion reason missing '+reason);
+if(!lineupExclusions.includes('exclusionReasons.set'))throw Error('Lineup research exclusions must be aggregated');
+console.log('Lineup research exclusion reason disclosures PASS');
