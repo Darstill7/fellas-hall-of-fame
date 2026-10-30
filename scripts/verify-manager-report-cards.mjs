@@ -186,3 +186,9 @@ if(annualAcquisitions.rows.length!==70||annualAcquisitions.rows.reduce((s,x)=>s+
 const annualUI=fs.readFileSync('assets/manager-annual-report-cards.mjs','utf8');
 if(!annualUI.includes('manager_acquisition_by_season_v1.json')||!annualUI.includes('Distinct recorded pickups'))throw Error('Annual report cards missing deduplicated acquisition evidence');
 console.log('Annual acquisition evidence and manager views PASS');
+
+// Recovered benches and certified, legal lineup alternatives are distinct evidence tiers.
+const rosterAudit=JSON.parse(fs.readFileSync('data-integrity/ROSTER_COVERAGE_RECONCILIATION_2025.json','utf8'));
+if(rosterAudit.coverage.weeks!==14||rosterAudit.coverage.teamWeeksWithBench!==140||rosterAudit.coverage.benchPlayerRows!==923||rosterAudit.coverage.verifiedReserveTaxiClassifierRows!==0)throw Error('2025 observational roster coverage drift');
+for(const page of ['labs/faab.html','labs/faab/index.html'])if(!fs.readFileSync(page,'utf8').includes('ARCHIVAL CLAIMS NOT VERIFIED'))throw Error('FAAB archive is missing unsourced-cost warning: '+page);
+console.log('FAAB archive provenance and 2025 roster observation-vs-certification guard PASS');
