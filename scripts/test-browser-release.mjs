@@ -60,6 +60,11 @@ try{
     const count=await page.locator('[data-report-manager]').count();
     if(count!==10)errors.push(width+' report card preview rendered '+count+' of 10 managers');
    }
+   if(route===''){
+    const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
+    if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
+    if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
+   }
    if(route==='analytics/power-ratings.html'){
     const cards=await page.locator('[data-rating-manager]').count();
     if(cards!==14)errors.push(width+' power ratings failed to render 14 managers: '+cards);
