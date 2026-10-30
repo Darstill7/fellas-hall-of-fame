@@ -58,7 +58,7 @@ export function singleSeasonOvrHistory({guide,careers,luck,playoffBrackets}){
    const finalist=(bracket.finalists??[]).includes(name);
    const champion=bracket.champion===name;
    const score=Math.round((SEASON_WEIGHTS.regular*regular+SEASON_WEIGHTS.allPlay*allPlay+SEASON_WEIGHTS.playoffs*Number(playoff)+SEASON_WEIGHTS.semifinal*Number(semifinal)+SEASON_WEIGHTS.finals*Number(finalist)+SEASON_WEIGHTS.championship*Number(champion))*10)/10;
-   return [{name,year,score,rank:0,record:record.w+'–'+record.l+(record.t?'–'+record.t:''),playoff,semifinal,finalist,champion}];
+   return [{name,year,score,rank:0,record:record.w+'–'+record.l+(record.t?'–'+record.t:''),regularWinPct:Math.round(regular*1000)/10,allPlayPct:Math.round(allPlay*1000)/10,playoff,semifinal,finalist,champion}];
   });
   rows.sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
   rows.forEach((r,i)=>{r.rank=i+1});
