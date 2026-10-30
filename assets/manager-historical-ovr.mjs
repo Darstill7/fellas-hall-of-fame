@@ -36,7 +36,9 @@ export function historicalOvrHistory({guide,careers,luck,endings,playoffBrackets
 
 // Season OVR measures only one completed season; it never imports prior career success.
 // The 0–100 index is independently scored and displayed using the stable Madden scale.
-export const SEASON_WEIGHTS=Object.freeze({regular:25,allPlay:25,playoffs:10,semifinal:5,finals:10,championship:25});
+// 70% reflects year-long strength; 30% rewards verified playoff advancement.
+// A title is not an automatic 99 OVR, and a historically dominant finalist can outscore a weaker champion.
+export const SEASON_WEIGHTS=Object.freeze({regular:35,allPlay:35,playoffs:8,semifinal:5,finals:7,championship:10});
 export function singleSeasonOvrHistory({guide,careers,luck,playoffBrackets}){
  const bracketByYear=new Map(playoffBrackets.map(s=>[s.year,s]));
  const luckBy=new Map(luck.ranked.map(x=>[x.manager,x]));
