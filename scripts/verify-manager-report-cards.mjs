@@ -72,3 +72,8 @@ if(!auditHTML.includes('manager-decision-audit.mjs')||!fs.readFileSync('analytic
 for(const source of ['v9_draft_engine.json','v9_trade_engine.json','waiver_award_candidates.json'])if(!auditJS.includes(source))throw Error('Decision audit source missing: '+source);
 for(const rule of ["!x.keeper","x.year<=2025","String(x.confidence).startsWith('verified')","x.provisional===false","No qualifying evidence","no fallback values shown"])if(!auditJS.includes(rule))throw Error('Decision audit evidence guard missing: '+rule);
 console.log('Decision audit source and certification guard PASS');
+
+if(!auditHTML.includes('id="season"'))throw Error('Decision audit year selector unavailable');
+for(const expected of ["const matchesYear=x=>","x.year<=2025&&matchesYear(x)","matchesYear(x)&&x.provisional===false",".filter(matchesYear)","for(const id of ['manager','type','season'])"])if(!auditJS.includes(expected))throw Error('Decision audit season filter not applied consistently: '+expected);
+for(const file of ['v9_draft_engine.json','v9_trade_engine.json','waiver_award_candidates.json'])if(!auditHTML.includes('../data/'+file))throw Error('Decision audit provenance link missing: '+file);
+console.log('Decision audit season filtering and source links PASS');
