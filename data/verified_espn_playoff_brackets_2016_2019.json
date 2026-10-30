@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "source": "data/espn_history_2016_2019.json (original ESPN API matchup stages)",
+  "method": "Only WINNERS_BRACKET stage; excludes LOSERS_CONSOLATION_LADDER and WINNERS_CONSOLATION_LADDER. Null opponent is playoff bye.",
+  "seasons": [
+    {
+      "year": 2016,
+      "participants": [
+        "Halderman",
+        "Koble",
+        "Evans",
+        "Thommy"
+      ],
+      "byes": [],
+      "semifinalists": [
+        "Halderman",
+        "Koble",
+        "Evans",
+        "Thommy"
+      ],
+      "finalists": [
+        "Halderman",
+        "Thommy"
+      ],
+      "champion": "Thommy",
+      "seedByManager": {
+        "Halderman": 1,
+        "Evans": 2,
+        "Koble": 4,
+        "Thommy": 3
+      },
+      "winnerBracketGameIds": [
+        52,
+        53,
+        56
+      ],
+      "qualifiedCount": 4
+    },
+    {
+      "year": 2017,
+      "participants": [
+        "Thommy",
+        "Evans",
+        "Schermerhorn",
+        "Stilly"
+      ],
+      "byes": [],
+      "semifinalists": [
+        "Thommy",
+        "Evans",
+        "Schermerhorn",
+        "Stilly"
+      ],
+      "finalists": [
+        "Thommy",
+        "Schermerhorn"
+      ],
+      "champion": "Thommy",
+      "seedByManager": {
+        "Stilly": 3,
+        "Evans": 4,
+        "Thommy": 1,
+        "Schermerhorn": 2
+      },
+      "winnerBracketGameIds": [
+        60,
+        61,
+        65
+      ],
+      "qualifiedCount": 4
+    },
+    {
+      "year": 2018,
+      "participants": [
+        "Tony",
+        "Thommy",
+        "Kuhl",
+        "Stew",
+        "Birch",
+        "Stover"
+      ],
+      "byes": [
+        "Tony",
+        "Stover"
+      ],
+      "semifinalists": [
+        "Tony",
+        "Thommy",
+        "Stover",
+        "Birch"
+      ],
+      "finalists": [
+        "Thommy",
+        "Birch"
+      ],
+      "champion": "Thommy",
+      "seedByManager": {
+        "Stew": 3,
+        "Stover": 2,
+        "Thommy": 4,
+        "Birch": 6,
+        "Tony": 1,
+        "Kuhl": 5
+      },
+      "winnerBracketGameIds": [
+        65,
+        66,
+        67,
+        68,
+        71,
+        72,
+        76
+      ],
+      "qualifiedCount": 6
+    },
+    {
+      "year": 2019,
+      "participants": [
+        "Birch",
+        "Tony",
+        "Kuhl",
+        "Mitch",
+        "Stilly",
+        "Stew"
+      ],
+      "byes": [
+        "Birch",
+        "Stew"
+      ],
+      "semifinalists": [
+        "Birch",
+        "Tony",
+        "Stew",
+        "Mitch"
+      ],
+      "finalists": [
+        "Birch",
+        "Stew"
+      ],
+      "champion": "Birch",
+      "seedByManager": {
+        "Stilly": 6,
+        "Stew": 2,
+        "Birch": 1,
+        "Tony": 4,
+        "Mitch": 3,
+        "Kuhl": 5
+      },
+      "winnerBracketGameIds": [
+        66,
+        67,
+        68,
+        69,
+        72,
+        73,
+        77
+      ],
+      "qualifiedCount": 6
+    }
+  ]
+}
