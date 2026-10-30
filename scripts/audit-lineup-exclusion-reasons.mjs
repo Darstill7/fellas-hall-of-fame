@@ -28,6 +28,9 @@ for(const year of years){
 }
 const total=bySeason.reduce((s,r)=>s+r.teamWeeks,0);
 if(total!==830)throw Error('Incomplete archived team-week coverage '+total);
+const owners=Object.values(byOwner);
+if(owners.length!==60||owners.some(x=>x.teamWeeks!==(x.year===2020?13:14)||x.flaggedWeeks>x.teamWeeks))throw Error('Unexpected manager-season lineup coverage');
+for(const season of bySeason)if(season.rowsWithAnySourceFlag>season.teamWeeks||season.teamWeeks!==(season.year===2020?130:140))throw Error('Unexpected season lineup coverage '+season.year);
 const output={version:'historical-lineup-source-exclusion-audit-v1',status:'source_integrity_observations_only',totalTeamWeeks:total,counts,examples,bySeason,byOwner:Object.values(byOwner).sort((a,b)=>a.year-b.year||a.owner.localeCompare(b.owner)),limitations:['These source flags do not include mathematical optimizer infeasibility, lock-time eligibility, IR/taxi or historical FLEX rules.','Multiple flags can occur on one team-week. A zero flag count would not certify start/sit skill.']};
 fs.writeFileSync('data-integrity/lineup-source-exclusion-audit-2020-2025.json',JSON.stringify(output,null,2)+'\n');
 console.log('LINEUP SOURCE EXCLUSION AUDIT',JSON.stringify({totalTeamWeeks:total,counts,bySeason}));
