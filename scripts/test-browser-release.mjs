@@ -191,7 +191,7 @@ try{
       const careerResponse=await page.request.get(baseUrl+'data/career_core_generated.json');
       const career=(await careerResponse.json()).managers[canonicalId];
       const expected=career.w+'–'+career.l+(career.t?'–'+career.t:'');
-      if((await wlt.innerText()).trim()!==expected||(await games.innerText()).trim()!==String(career.games))
+      if((await wlt.textContent()).trim()!==expected||(await games.textContent()).trim()!==String(career.games))
        errors.push(width+' '+route+' biography values disagree with canonical career record');
      }
     }
