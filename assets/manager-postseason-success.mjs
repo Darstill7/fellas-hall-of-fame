@@ -13,7 +13,7 @@ export function postseasonReport(name,endings){
  const effectiveRunners=finalists.reduce((sum,x)=>sum+ageWeight(x.year),0);
  const f=n=>Math.round(1000*(1-Math.exp(-n)))/10;
  return {
-  titles:champions.length,runners:finalists.length,minimumPlayoffs:champions.length+finalists.length,
+  titles:champions.length,runners:finalists.length,finalsAppearances:champions.length+finalists.length,minimumPlayoffs:champions.length+finalists.length,
   effectiveTitles:Math.round(effectiveTitles*1000)/1000,
   effectiveRunners:Math.round(effectiveRunners*1000)/1000,
   titleYears:champions.map(x=>x.year),runnerYears:finalists.map(x=>x.year),
