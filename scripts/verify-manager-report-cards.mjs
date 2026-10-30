@@ -139,3 +139,16 @@ if(!Array.isArray(lineageSource.chains)||!lineageSource.chains.length)throw Erro
 if(!lineagePage.includes("fetch('../data/trade_lineage_v2.json'")||!lineagePage.includes("e.transfer_confidence")||!lineagePage.includes('not proof of uninterrupted ownership'))throw Error('Trade lineage provenance and caution disconnected');
 if(!lineageHTML.includes('id="asset-query"')||!lineageHTML.includes('id="lineage"'))throw Error('Trade lineage search UI missing');
 console.log('Trade lineage archive and source confidence presentation PASS');
+
+import {tradeImpactReadiness,aggregateTradeImpactReadiness} from '../assets/manager-trade-impact-readiness.mjs';
+const tradeGate=read('war_2025_coverage_gates.json');
+if(tradeGate.summary.starterCoveredWeeks!==14||tradeGate.summary.benchCoveredWeeks!==2||tradeGate.summary.replacementReadyWeeks!==0)throw Error('Roster source readiness changed; re-audit');
+const gateTest=tradeImpactReadiness({year:2025,week:1,sides:[{direct_edge:25}]},tradeGate);
+if(!gateTest.weeklyStartersVerified||!gateTest.benchSnapshotAvailable||gateTest.causalTradeWarReady||gateTest.decisionQualityReady)throw Error('Week 1 roster gate incorrectly certifies causal outcome');
+const missingWeek=tradeImpactReadiness({year:2025,week:2,sides:[]},tradeGate);
+if(missingWeek.benchSnapshotAvailable||missingWeek.causalTradeWarReady)throw Error('Week 2 non-snapshot incorrectly certified');
+const aggregateGate=aggregateTradeImpactReadiness(eventGroups,tradeGate);
+if(aggregateGate.certifiedCausalWar!==0||aggregateGate.certifiedExAnteDecisionGrades!==0)throw Error('Trade WAR published without ownership/availability evidence');
+const impactPage=fs.readFileSync('assets/manager-trade-intelligence-page.mjs','utf8');
+if(!impactPage.includes("war_2025_coverage_gates.json")||!impactPage.includes('certifiedCausalWar'))throw Error('Trade impact readiness not connected');
+console.log('Historical trade impact eligibility gate PASS');
