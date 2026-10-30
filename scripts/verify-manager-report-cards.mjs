@@ -215,3 +215,10 @@ const lineupExclusions=fs.readFileSync('assets/manager-lineup-research-page.mjs'
 for(const reason of ['Duplicate player IDs','Nonstandard starter position','Starter-score mismatch','No feasible lineup under assumed slots','Optimizer below observed score'])if(!lineupExclusions.includes(reason))throw Error('Lineup exclusion reason missing '+reason);
 if(!lineupExclusions.includes('exclusionReasons.set'))throw Error('Lineup research exclusions must be aggregated');
 console.log('Lineup research exclusion reason disclosures PASS');
+
+// Execute the deterministic complete-archive diagnostic during canonical validation.
+const {execFileSync}=await import('node:child_process');
+execFileSync(process.execPath,['scripts/audit-lineup-exclusion-reasons.mjs'],{stdio:'pipe'});
+const audit=JSON.parse(fs.readFileSync('data-integrity/lineup-source-exclusion-audit-2020-2025.json','utf8'));
+if(audit.totalTeamWeeks!==830||audit.bySeason.length!==6||audit.bySeason.reduce((s,x)=>s+x.teamWeeks,0)!==830)throw Error('Incomplete lineup-source diagnostic');
+console.log('Complete six-season lineup source exclusions audit PASS',JSON.stringify(audit.counts));
