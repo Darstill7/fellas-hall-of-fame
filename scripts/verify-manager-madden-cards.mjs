@@ -61,3 +61,8 @@ console.log('MADDEN HISTORICAL WEEKLY COVERAGE PASS: no invented 2026 progressio
 
 if(!ui.includes("weekly.slice().reverse().map(")||!fs.readFileSync('assets/manager-weekly-ovr.mjs','utf8').includes('latestWeek'))throw Error('Weekly Madden timeline must follow verified ledger weeks');
 console.log('MADDEN LIVING TIMELINE PASS: derived week dropdown from canonical ledger');
+
+const homepage=fs.readFileSync('index.html','utf8'),homeModule=fs.readFileSync('assets/home-manager-cards.mjs','utf8');
+if(!homepage.includes('id="home-manager-cards"')||!homepage.includes('assets/home-manager-cards.mjs')||!homeModule.includes('makeRatings({guide,careers,luck,endings')||!homeModule.includes('href="managers/')||!ui.includes('profileSlug[r.name]'))throw Error('Homepage Madden manager profile navigation disconnected');
+const expectedSlugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];for(const s of expectedSlugs)if(!fs.existsSync('managers/'+s+'/index.html'))throw Error('Homepage manager target missing '+s);
+console.log('MADDEN HOMEPAGE PASS: ten verified manager profile targets');
