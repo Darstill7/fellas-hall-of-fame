@@ -1,0 +1,19 @@
+{
+  "version": "2025-weekly-roster-observational-coverage-v1",
+  "status": "bench_observed_not_legal_lineup_certified",
+  "source": "2025 weekly roster files (week 1/7 WAR snapshots; other weeks Sleeper snapshots)",
+  "coverage": {
+    "weeks": 14,
+    "teamWeeks": 140,
+    "teamWeeksWithStarters": 140,
+    "teamWeeksWithBench": 140,
+    "benchPlayerRows": 923,
+    "verifiedReserveTaxiClassifierRows": 0
+  },
+  "clarification": "Older WAR 2025 pilot gate tracks two independently certified WAR-targeted snapshots, not the total availability of historical weekly roster files. All 14 weeks contain observed bench arrays in the repository; they cannot yet establish legal pre-lock alternatives, IR/taxi classification or free agent availability.",
+  "consequences": [
+    "Can report observed bench/starts coverage and descriptive hindsight optimizer",
+    "Cannot describe all 14 weeks as certified for ex-ante decision skill or causal WAR",
+    "Do not promote historical hindsight gaps to a start/sit skill score"
+  ]
+}
