@@ -35,3 +35,20 @@ console.log('Weekly report-card response PASS: Stilly '+original.provisional+' -
 
 const es=read('verified_espn_playoff_brackets_2016_2019.json');
 if(es.seasons.length!==4||es.seasons.some(x=>![4,6].includes(x.participants.length)||x.finalists.length!==2))throw Error('ESPN bracket reconstruction invalid');
+
+import {postseasonReport,LAST_COMPLETED_SEASON,HALF_LIFE} from '../assets/manager-postseason-success.mjs';
+const endings=read('manager_verified_season_endings_v1.json');
+const oldRing=postseasonReport('Thommy',endings);
+const newRing=postseasonReport('Scott',endings);
+if(oldRing.titles!==4||newRing.titles!==1)throw Error('Historical title counts changed');
+if(!(newRing.effectiveTitles>.9&&newRing.effectiveTitles<=1))throw Error('Current title was not fully credited');
+if(!(oldRing.effectiveTitles<4&&oldRing.effectiveTitles>1))throw Error('Older title decay/floor invalid');
+const test={managers:{Test:[{year:2016,ending:'Champion'},{year:2025,ending:'Champion'},{year:2026,ending:'Champion'},{year:2017,ending:'Runner-up'}]}};
+const weighted=postseasonReport('Test',test);
+if(weighted.titles!==2||weighted.runners!==1||weighted.titleYears.includes(2026))throw Error('Incomplete season was included in historic results');
+const expected=1+(.25+.75*Math.pow(.5,(2025-2016)/3.5));
+if(Math.abs(weighted.effectiveTitles-expected)>.002)throw Error('Title half-life changed unexpectedly');
+if(LAST_COMPLETED_SEASON!==2025||HALF_LIFE!==3.5)throw Error('Scoring vintage changed without methodology revision');
+const page=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
+if(!page.includes("const shown=managerQuery?rows.filter")||!page.includes('Scouting read:'))throw Error('Scouting summary or deep-link filtering missing');
+console.log('Championship aging and evidence-gated scouting PASS');
