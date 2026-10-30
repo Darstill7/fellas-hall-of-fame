@@ -20,5 +20,6 @@ const recency=.25+.75*Math.pow(.5,0/3.5),old=.25+.75*Math.pow(.5,9/3.5);
 if(!(old<recency&&old>.25))fail('Aging championship curve broken');
 if(!rows.find(x=>x.name==='Scott').titleYears.includes(2025))fail('2025 champion missing');
 const page=fs.readFileSync('analytics/power-ratings.html','utf8');
-if(!page.includes('makeRatings')||!page.includes('id="ranking"')||!page.includes('fellas-rating-model.mjs'))fail('Rating page not connected to canonical model');
+const ui=fs.readFileSync('assets/fellas-rating-page.mjs','utf8');
+if(!page.includes('id="ranking"')||!page.includes('fellas-rating-page.mjs')||!ui.includes('makeRatings')||!ui.includes('fellas-rating-model.mjs'))fail('Rating page not connected to canonical model');
 console.log('Fellas ratings PASS: '+rows.map(r=>r.name+' '+r.score.toFixed(1)).join(' | '));
