@@ -29,7 +29,7 @@ try {
   const rows=season.rows.slice().sort((a,b)=>a.rank-b.rank);
   $('history-leaderboard').querySelector('tbody').innerHTML=rows.map(r=>'<tr><td>#'+r.rank+'</td><th scope="row">'+esc(r.name)+'</th><td><strong>'+maddenOvr(r.ovr).toFixed(1)+'</strong></td><td>'+r.titles+'</td><td>'+r.playoffs+'</td></tr>').join('');
   const single=seasonOnly.find(s=>s.year===year);
-  $('season-ovr-leaderboard').querySelector('tbody').innerHTML=single.rows.map(r=>'<tr><td>#'+r.rank+'</td><th scope="row">'+esc(r.name)+'</th><td><strong>'+seasonMaddenOvr(r.score).toFixed(1)+'</strong></td><td>'+esc(r.record)+'</td><td>'+r.allPlayPct.toFixed(1)+'%</td><td>'+(r.champion?'Champion':r.finalist?'Finalist':r.playoff?'Playoffs':'—')+'</td></tr>').join('');
+  $('season-ovr-leaderboard').querySelector('tbody').innerHTML=single.rows.map(r=>'<tr><td>#'+r.rank+'</td><th scope="row">'+esc(r.name)+'</th><td><strong>'+seasonMaddenOvr(r.score).toFixed(1)+'</strong></td><td>'+esc(r.record)+'</td><td>'+r.allPlayPct.toFixed(1)+'%</td><td>'+(r.champion?'Champion':r.finalist?'Runner-Up':r.playoff?'Playoffs':'—')+'</td></tr>').join('');
   $('history-status').textContent=year+' complete · '+rows.length+' verified managers ranked · historical OVR uses a stable 65–99 Madden presentation scale';
  };
  $('history-year').addEventListener('change',renderHistorical);
@@ -49,7 +49,7 @@ try {
   const movement=category==='improvements'||category==='declines';
   const source=movement?changes:seasonRecords;
   const sorted=source.filter(r=>(selected==='all'||r.name===selected)&&(category!=='champions'||r.champion)&&(category!=='nonchampions'||!r.champion)).sort((a,b)=>movement?(category==='declines'?a.delta-b.delta:b.delta-a.delta)||a.year-b.year||a.name.localeCompare(b.name):(category==='worst'?a.score-b.score:b.score-a.score)||a.year-b.year||a.name.localeCompare(b.name));
-  $('season-records').querySelector('tbody').innerHTML=sorted.slice(0,20).map((r,i)=>'<tr><td>#'+(i+1)+'</td><th scope="row">'+esc(r.name)+'</th><td>'+r.year+'</td><td title="Win percentage: '+r.regularWinPct.toFixed(1)+'%; all-play percentage: '+r.allPlayPct.toFixed(1)+'%"><strong>'+seasonMaddenOvr(r.score).toFixed(1)+(movement?' ('+(r.delta>0?'+':'')+r.delta.toFixed(1)+' vs '+r.priorYear+')':'')+'</strong></td><td>'+esc(r.record)+'</td><td>'+(r.champion?'Champion':r.finalist?'Finalist':r.playoff?'Playoffs':'—')+'</td></tr>').join('');
+  $('season-records').querySelector('tbody').innerHTML=sorted.slice(0,20).map((r,i)=>'<tr><td>#'+(i+1)+'</td><th scope="row">'+esc(r.name)+'</th><td>'+r.year+'</td><td title="Win percentage: '+r.regularWinPct.toFixed(1)+'%; all-play percentage: '+r.allPlayPct.toFixed(1)+'%"><strong>'+seasonMaddenOvr(r.score).toFixed(1)+(movement?' ('+(r.delta>0?'+':'')+r.delta.toFixed(1)+' vs '+r.priorYear+')':'')+'</strong></td><td>'+esc(r.record)+'</td><td>'+(r.champion?'Champion':r.finalist?'Runner-Up':r.playoff?'Playoffs':'—')+'</td></tr>').join('');
  };
  $('season-extreme').addEventListener('change',renderSeasonRecords);
  const requestedManager=new URLSearchParams(location.search).get('manager');
