@@ -313,7 +313,7 @@ try{
     });
     try{
      await slow.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:30000});
-     await slow.locator('#franchise-encyclopedia[data-encyclopedia-updated="loading"]').waitFor({timeout:5000});
+     await slow.locator('#franchise-encyclopedia[data-encyclopedia-updated="loading"]').waitFor({state:'attached',timeout:5000});
      const loadingCards=await slow.locator('[data-encyclopedia-waiver], [data-encyclopedia-trade]').allInnerTexts();
      if(loadingCards.length!==2||loadingCards.some(t=>!t.includes('Loading source-backed highlights')))
       errors.push(width+' '+route+' source loading exposes stale highlight text');
