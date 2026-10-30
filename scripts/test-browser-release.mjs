@@ -79,6 +79,14 @@ try{
       }
      }
     }
+    const historicalYears=page.locator('#history-year option');
+    if(await historicalYears.count()!==10)errors.push(width+' historical leaderboard must offer ten completed seasons');
+    const historicalRows=page.locator('#history-leaderboard tbody tr');
+    if(await historicalRows.count()<1)errors.push(width+' historical leaderboard has no initial ranked managers');
+    await page.locator('#history-year').selectOption('2016');
+    if(await historicalRows.count()<1)errors.push(width+' 2016 historical leaderboard has no ranked managers');
+    await page.locator('#history-year').selectOption('2025');
+    if(await historicalRows.count()<1)errors.push(width+' 2025 historical leaderboard has no ranked managers');
     const duel=page.locator('#duel-results details.duel-history');
     if(await duel.count()!==1)errors.push(width+' Madden duel missing year-end comparison');
     else{
