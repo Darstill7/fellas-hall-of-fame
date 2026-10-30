@@ -123,3 +123,7 @@ for(const slug of ['stilly','stew','tom','stover','birch','tony','mitch','kuhl',
  if(!profile.includes('manager-profile-tabs.mjs')||!profile.includes('id="verified-history-panel"')||!profile.includes('id="franchise-encyclopedia"'))throw Error('Profile archive must remain accessible after teaser cleanup: '+slug);
 }
 console.log('KISS profile cleanup retains all manager history and research sections PASS');
+
+const sharedScouting=fs.readFileSync('assets/manager-profile-madden.mjs','utf8');
+for(const token of ['grid-template-columns:repeat(4,minmax(0,1fr))','@media(max-width:700px)','min-height:112px','font-variant-numeric:tabular-nums'])if(!sharedScouting.includes(token))throw Error('Manager scouting card responsive layout regression: '+token);
+console.log('Shared scouting card responsive typography and stat grid PASS');
