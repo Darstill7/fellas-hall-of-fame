@@ -5,7 +5,8 @@ const round=n=>Math.round((n+Number.EPSILON)*10)/10;
 const clamp=n=>Math.max(0,Math.min(1,n));
 const pct=(wins,ties,games,prior=14)=>clamp((wins+ties*.5+prior*.5)/(games+prior));
 export function makeRatings({guide,careers,luck,endings},names=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott']){
- const asOf=2026,latestFinished=2025;
+ const asOf=Math.max(...Object.keys(guide).map(Number));
+ const latestFinished=Math.max(...Object.entries(guide).filter(([,season])=>season.champion).map(([year])=>Number(year)));
  const luckBy=new Map(luck.ranked.map(x=>[x.manager,x]));
  const rows=names.map(name=>{
   const c=careers.managers[name],lk=luckBy.get(name);
