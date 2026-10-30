@@ -2,6 +2,7 @@ import fs from 'node:fs';
 const read=p=>fs.readFileSync(p,'utf8');
 const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
 const seasonYears=[...new Set(ledger.games.map(g=>g.year))].sort((a,b)=>a-b);
+const latest2026Week=Math.max(0,...ledger.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week));
 function seasonFromLedger(year){
  const games=ledger.games.filter(g=>g.year===year&&g.stage==='regular');
  const rows=new Map();
@@ -47,7 +48,7 @@ function generate(){
   const close=wins.slice().sort((a,b)=>a.margin-b.margin)[0]??null;
   const leader=standings[0];
   const current=year===2026;
-  result[year]={year,champion:champ,standings,coverage:`${year} archived regular-season results; ${season.regularGames} games. Reconstructed standings, not official tiebreaker seed order.${current?' 2026 currently through Week 7.':''}`,games:season.regularGames,summary:current?`${year} season results are archived through Week 7. ${leader.name} leads the reconstructed standings at ${leader.w}–${leader.l}; the championship is not yet decided.`:`${year} reconstructed regular-season leader: ${leader.name} (${leader.w}–${leader.l}${leader.t?'–'+leader.t:''}). ${champ??'Champion not yet verified'} ${champ?'won the championship.':''} Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.`,seasonHigh:high,biggestWin:big,closestWin:close};
+  result[year]={year,champion:champ,standings,coverage:`${year} archived regular-season results; ${season.regularGames} games. Reconstructed standings, not official tiebreaker seed order.${current?' 2026 currently through Week ${latest2026Week}.':''}`,games:season.regularGames,summary:current?`${year} season results are archived through Week ${latest2026Week}. ${leader.name} leads the reconstructed standings at ${leader.w}–${leader.l}; the championship is not yet decided.`:`${year} reconstructed regular-season leader: ${leader.name} (${leader.w}–${leader.l}${leader.t?'–'+leader.t:''}). ${champ??'Champion not yet verified'} ${champ?'won the championship.':''} Scores and regular-season records come from archived ESPN/Sleeper matchups; postseason outcomes are separate.`,seasonHigh:high,biggestWin:big,closestWin:close};
  }
  // Public-facing season labels must not expose historical legal names.
  const aliases={'Devon Halderman':'Halderman','Trent Koble':'Koble','Brandon Evans':'Evans','Darren Stillson':'Stilly','Drew Sylvester':'Stew','Zach Prescott':'Thommy','Landon Stover':'Stover','Tom Schermerhorn':'Schermerhorn'};
@@ -69,5 +70,5 @@ if(process.argv.includes('--check')){
 }else{
  fs.writeFileSync(guidePath,serialized);
  fs.writeFileSync(pagePath,html);
- console.log('Regenerated season guide and seasons page through 2026 Week 7');
+ console.log('Regenerated season guide and seasons page through 2026 Week '+latest2026Week);
 }
