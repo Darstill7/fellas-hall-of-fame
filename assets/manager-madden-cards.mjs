@@ -20,6 +20,17 @@ try {
  const byName=new Map(reports.map(r=>[r.name,r]));
  const weekly=weeklyOvrHistory({ledger,guide,careers,luck,endings,playoffBrackets});
  const historicalSeasons=historicalOvrHistory({guide,careers,luck,endings,playoffBrackets});
+ const years=historicalSeasons.map(s=>s.year);
+ $('history-year').innerHTML=years.slice().reverse().map(y=>'<option value="'+y+'">'+y+'</option>').join('');
+ const renderHistorical=()=>{
+  const year=Number($('history-year').value),season=historicalSeasons.find(s=>s.year===year);
+  if(!season)throw Error('Unverified historical year selected');
+  const rows=season.rows.slice().sort((a,b)=>a.rank-b.rank);
+  $('history-leaderboard').querySelector('tbody').innerHTML=rows.map(r=>'<tr><td>#'+r.rank+'</td><th scope="row">'+esc(r.name)+'</th><td><strong>'+maddenOvr(r.ovr).toFixed(1)+'</strong></td><td>'+r.titles+'</td><td>'+r.playoffs+'</td></tr>').join('');
+  $('history-status').textContent=year+' complete · '+rows.length+' verified managers ranked · historical OVR uses a stable 65–99 Madden presentation scale';
+ };
+ $('history-year').addEventListener('change',renderHistorical);
+ renderHistorical();
  if(!weekly.length)throw Error('No complete canonical weekly ratings available');
  $('week').innerHTML=weekly.slice().reverse().map((w,i)=>'<option value="'+w.week+'">Week '+w.week+(i===0?' (latest verified)':'')+'</option>').join('');
  const managerOptions=ratings.filter(r=>active.has(r.name));
