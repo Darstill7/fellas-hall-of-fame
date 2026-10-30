@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Verify ESPN matchup API historical playoff data and weekly updates.
 on:
   push:
     branches: [main]
