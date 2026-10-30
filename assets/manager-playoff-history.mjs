@@ -8,7 +8,7 @@ export function playoffRecord(name,brackets,guide,espn){
  let wExposure=0,wQualified=0;
  for(const s of years){
   const w=age(s.year);exposure++;wExposure+=w;
-  if(s.seeds.includes(name)){qualified++;wQualified+=w}
+  if((s.seeds||s.participants).includes(name)){qualified++;wQualified+=w}
   if(s.byes.includes(name))byes++;
   if(s.semifinalists.includes(name))semis++;
   if(s.finalists.includes(name))finals++;
