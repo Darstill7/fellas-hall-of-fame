@@ -35,6 +35,13 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  document.head.append(css);
 }
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
+// The old overview tiles and archive teaser repeat destinations available in the tabs.
+// Remove only these two identified promotional sections; preserve all data-backed sections.
+const duplicateHeadings=new Set(['More from the archive']);
+for(const section of document.querySelectorAll('main > section.section:not([id])')){
+ const heading=section.querySelector('h2')?.textContent?.trim()||'';
+ if(duplicateHeadings.has(heading)||/^Explore .+('s|’s) franchise$/.test(heading))section.remove();
+}
 const main=document.querySelector('main');
 const tabs=document.querySelector('[data-manager-profile-tabs]');
 if(main&&tabs){
