@@ -9,7 +9,7 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const write=(p,x)=>fs.writeFileSync(p,JSON.stringify(x,null,2)+'\n');
 const path='data/unified_record_book_2016_2026.json',mirrorPath='data/season_weekly_matchups_2016_2026_v1.json',luckPath='data/all_time_luck_ratings_v1.json';
 const candidate=read(candidatePath),ledger=read(path),mirror=read(mirrorPath),luck=read(luckPath);
-if(candidate.status!=='REVIEW_REQUIRED'||candidate.year!==2026||candidate.matchupCount!==5||candidate.games?.length!==5)throw Error('Unverified candidate format');
+if(candidate.status!=='REVIEW_REQUIRED'||candidate.year!==2026||candidate.matchupCount!==5||candidate.games?.length!==5||candidate.league!=='1340027406009761792')throw Error('Unverified candidate format');
 const prior=ledger.games.filter(g=>g.year===2026&&g.stage==='regular');
 const last=Math.max(0,...prior.map(g=>g.week));
 if(candidate.week!==last+1||candidate.week>14)throw Error('Noncontiguous or postseason week');
@@ -19,7 +19,9 @@ for(const g of candidate.games){
  for(const name of [g.home,g.away]){if(participants.has(name))throw Error('Duplicate staged owner '+name);participants.add(name)}
  if(!Number.isFinite(g.homeScore)||!Number.isFinite(g.awayScore)||g.homeScore<0||g.awayScore<0||g.winner!==(g.homeScore>g.awayScore?'HOME':g.homeScore<g.awayScore?'AWAY':'TIE')||Math.abs(g.margin-Math.abs(g.homeScore-g.awayScore))>0.001)throw Error('Staged score or result mismatch');
 }
-if(participants.size!==10)throw Error('Expected 10 participating teams');
+const expectedOwners=new Set(['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott']);
+if(participants.size!==10||[...participants].some(name=>!expectedOwners.has(name)))throw Error('Expected the 10 current verified managers');
+// Refuse to rewrite any records until the candidate has passed structural checks.
 const updated=[...ledger.games,...candidate.games];
 ledger.games=updated;ledger.updated=new Date().toISOString().slice(0,10);
 ledger.counts['2026'].regular+=5;
@@ -58,6 +60,7 @@ for(const r of standings){
  l.luckPer14=round((l.actualWins-l.expectedWins)*14/l.games);
 }
 luck.scope=luck.scope.replace(/2026 Week\d+/, '2026 Week'+candidate.week);
+// Inputs are validated before the core datasets are modified. Review the resulting diff before merge.
 write(path,ledger);write(mirrorPath,mirror);write(luckPath,luck);
 execFileSync(process.execPath,['scripts/generate-career-core.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/generate-season-guide.mjs'],{stdio:'inherit'});
