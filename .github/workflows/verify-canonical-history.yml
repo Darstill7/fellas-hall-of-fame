@@ -100,6 +100,13 @@ jobs:
           node --check assets/manager-madden-cards.mjs
           node --check assets/manager-madden-archetypes.mjs
           node --check assets/manager-weekly-ovr.mjs
+      - name: Verify weekly import cannot run without review approval
+        run: |
+          if node scripts/apply-reviewed-sleeper-week.mjs data-integrity/sleeper-sync-candidates/2026-week8.json > /tmp/unapproved-weekly-import.log 2>&1; then
+            echo "Unapproved weekly import unexpectedly succeeded"
+            exit 1
+          fi
+          grep -q "Human approval required" /tmp/unapproved-weekly-import.log
       - name: Verify Madden-style manager OVR and evidence-gated attributes
         run: node scripts/verify-manager-madden-cards.mjs
       - name: Verify manager report card evidence
