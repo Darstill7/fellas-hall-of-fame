@@ -1,0 +1,19 @@
+{
+  "version": "2026-week7-scott-provider-verification-v1",
+  "season": 2026,
+  "week": 7,
+  "leagueId": "1340027406009761792",
+  "source": "Sleeper historical league matchups retrieved through connected Flaim Fantasy provider",
+  "matchupIdDescription": "roster 4 vs roster 5",
+  "owner": "Sheffla",
+  "canonicalManager": "Scott",
+  "rosterId": 5,
+  "opponentRosterId": 4,
+  "providerReportedScore": 105.22,
+  "providerOpponentScore": 110.14,
+  "archivedRosterScore": 105.22,
+  "archivedCanonicalScoreBeforeCorrection": 106.22,
+  "verification": "Provider matchup total and recorded starting player point sum agree at 105.22. Legacy unified ledger 106.22 is inconsistent.",
+  "action": "Reconcile canonical score through source-controlled rebuild; do not alter historical outcomes without downstream validation.",
+  "retrievedOn": "2026-10-30"
+}
