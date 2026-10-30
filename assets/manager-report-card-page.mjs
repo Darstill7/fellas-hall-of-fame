@@ -1,14 +1,15 @@
 import {makeReportCards} from './manager-report-card.mjs';
 import {scoutingProfile} from './manager-scouting-profile.mjs';
-const targets=['manager_acquisition_coverage_v1.json','v9_draft_engine.json','v9_trade_engine.json','career_core_generated.json','all_time_luck_ratings_v1.json','waiver_award_candidates.json','manager_verified_season_endings_v1.json','verified_sleeper_playoff_brackets_2020_2025.json','season_guide.json','verified_espn_playoff_brackets_2016_2019.json'];
+const targets=['manager_acquisition_distinct_v1.json','manager_acquisition_coverage_v1.json','v9_draft_engine.json','v9_trade_engine.json','career_core_generated.json','all_time_luck_ratings_v1.json','waiver_award_candidates.json','manager_verified_season_endings_v1.json','verified_sleeper_playoff_brackets_2020_2025.json','season_guide.json','verified_espn_playoff_brackets_2016_2019.json'];
 const esc=v=>String(v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[ch]));
 const categoryEvidence=k=>['drafting','trading'].includes(k)?'Provisional outcome': ['waivers','lineups'].includes(k)?'Not yet rated':'Verified results';
 const labels={drafting:'Drafting',trading:'Trading',championships:'Championships',finals:'Runner-up finishes',playoffs:'Playoff qualification',regular:'Winning',allPlay:'All-play',waivers:'Free agency / waivers',lineups:'Start / sit'};
 try {
- const [acquisitionCoverage,drafts,trades,careers,luck,waivers,endings,brackets,guide,espn]=await Promise.all(targets.map(async p=>{const r=await fetch('../data/'+p);if(!r.ok)throw Error('Could not load '+p);return r.json()}));
+ const [distinctCoverage,acquisitionCoverage,drafts,trades,careers,luck,waivers,endings,brackets,guide,espn]=await Promise.all(targets.map(async p=>{const r=await fetch('../data/'+p);if(!r.ok)throw Error('Could not load '+p);return r.json()}));
  const rows=makeReportCards({drafts,trades,careers,luck,waivers,endings,brackets,guide,espn});
  const acquisitionByManager=new Map(acquisitionCoverage.byManager.map(x=>[x.manager,x]));
- const acquisitionNote=name=>{const x=acquisitionByManager.get(name);return x?'<p class="fine"><strong>Recorded waiver/free-agent activity (2020–2026):</strong> '+x.recordedAcquiredPlayers+' acquired-player rows; '+x.withLaterStarts+' had at least one subsequent recorded start. Reacquisitions can repeat, and 2026 is incomplete. These counts describe evidence, not waiver skill or unique attributable production.</p>':'';};
+ const distinctByManager=new Map(distinctCoverage.byManager.map(x=>[x.manager,x]));
+ const acquisitionNote=name=>{const x=distinctByManager.get(name);return x?'<p class="fine"><strong>Recorded waiver/free-agent activity (2020–2026):</strong> '+x.distinctSeasonPlayerAcquisitions+' distinct manager-season-player pickups; '+x.withRecordedLaterStart+' with an observed later start; '+x.reacquisitions+' repeated acquisitions separately identified. 2026 is incomplete. These observations do not establish decision skill, uninterrupted ownership, or uniquely attributable production.</p>':'';};
  const slugs={Stilly:'stilly',Stew:'stew',Thommy:'tom',Stover:'stover',Birch:'birch',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',JMid:'jmid',Scott:'scott'};
  const compareA=document.getElementById('compare-a'),compareB=document.getElementById('compare-b');
  const params=new URLSearchParams(location.search);
