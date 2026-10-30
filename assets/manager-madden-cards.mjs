@@ -35,12 +35,15 @@ try {
  $('history-year').addEventListener('change',renderHistorical);
  renderHistorical();
  const seasonRecords=seasonOnly.flatMap(s=>s.rows).slice();
+ const seasonManagers=[...new Set(seasonRecords.map(r=>r.name))].sort((a,b)=>a.localeCompare(b));
+ $('season-record-manager').innerHTML='<option value="all">All managers</option>'+seasonManagers.map(name=>'<option value="'+esc(name)+'">'+esc(name)+'</option>').join('');
  const renderSeasonRecords=()=>{
-  const worst=$('season-extreme').value==='worst';
-  const sorted=seasonRecords.slice().sort((a,b)=>worst?a.score-b.score||a.year-b.year||a.name.localeCompare(b.name):b.score-a.score||a.year-b.year||a.name.localeCompare(b.name));
+  const worst=$('season-extreme').value==='worst',selected=$('season-record-manager').value;
+  const sorted=seasonRecords.filter(r=>selected==='all'||r.name===selected).sort((a,b)=>worst?a.score-b.score||a.year-b.year||a.name.localeCompare(b.name):b.score-a.score||a.year-b.year||a.name.localeCompare(b.name));
   $('season-records').querySelector('tbody').innerHTML=sorted.slice(0,20).map((r,i)=>'<tr><td>#'+(i+1)+'</td><th scope="row">'+esc(r.name)+'</th><td>'+r.year+'</td><td><strong>'+maddenOvr(r.score).toFixed(1)+'</strong></td><td>'+esc(r.record)+'</td><td>'+(r.champion?'Champion':r.finalist?'Finalist':r.playoff?'Playoffs':'—')+'</td></tr>').join('');
  };
  $('season-extreme').addEventListener('change',renderSeasonRecords);
+ $('season-record-manager').addEventListener('change',renderSeasonRecords);
  renderSeasonRecords();
  if(!weekly.length)throw Error('No complete canonical weekly ratings available');
  $('week').innerHTML=weekly.slice().reverse().map((w,i)=>'<option value="'+w.week+'">Week '+w.week+(i===0?' (latest verified)':'')+'</option>').join('');
