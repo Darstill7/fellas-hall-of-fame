@@ -19,7 +19,7 @@ jobs:
           node-version: '22'
       - name: Syntax-check audit and generation scripts
         run: |
-          for file in scripts/generate-season-guide.mjs scripts/generate-career-core.mjs scripts/verify-ledger-projections.mjs scripts/verify-core-consumers.mjs scripts/verify-canonical-history.mjs scripts/audit-internal-links.mjs scripts/smoke-static-site.mjs scripts/audit-site-dependencies.mjs scripts/verify-specialty-records.mjs scripts/test-browser-release.mjs scripts/audit-inline-js.mjs scripts/audit-dossier-preservation.mjs scripts/audit-dossier-editorial-inventory.mjs scripts/audit-dossier-topic-overlap.mjs scripts/verify-dossier-award-sources.mjs scripts/verify-biography-season-claims.mjs scripts/verify-biography-trade-claims.mjs scripts/verify-biography-editorial-parity.mjs scripts/verify-fellas-rating.mjs scripts/verify-unresolved-trade-evidence.mjs scripts/verify-trade-source-manifest.mjs; do
+          for file in scripts/generate-season-guide.mjs scripts/generate-career-core.mjs scripts/verify-ledger-projections.mjs scripts/verify-core-consumers.mjs scripts/verify-canonical-history.mjs scripts/audit-internal-links.mjs scripts/smoke-static-site.mjs scripts/audit-site-dependencies.mjs scripts/verify-specialty-records.mjs scripts/test-browser-release.mjs scripts/audit-inline-js.mjs scripts/audit-dossier-preservation.mjs scripts/audit-dossier-editorial-inventory.mjs scripts/audit-dossier-topic-overlap.mjs scripts/verify-dossier-award-sources.mjs scripts/verify-biography-season-claims.mjs scripts/verify-biography-trade-claims.mjs scripts/verify-biography-editorial-parity.mjs scripts/verify-fellas-rating.mjs scripts/verify-manager-report-cards.mjs scripts/verify-unresolved-trade-evidence.mjs scripts/verify-trade-source-manifest.mjs; do
             node --check "$file"
           done
       - name: Syntax-check all shipped JavaScript assets
@@ -91,6 +91,8 @@ jobs:
           done
       - name: Verify living Fellas power rating formula
         run: node scripts/verify-fellas-rating.mjs
+      - name: Verify manager report card evidence
+        run: node scripts/verify-manager-report-cards.mjs
       - name: Install browser test runtime
         run: |
           npm install --no-save playwright@1.56.1
@@ -105,7 +107,7 @@ jobs:
         run: |
           node --input-type=module -e '
             import fs from "node:fs";
-            for (const [engine,visits] of [["chromium",160],["webkit",80]]) {
+            for (const [engine,visits] of [["chromium",162],["webkit",81]]) {
               const file="data-integrity/browser-release-"+engine+".json";
               if(!fs.existsSync(file)) throw Error("Missing browser report: "+file);
               const report=JSON.parse(fs.readFileSync(file,"utf8"));
