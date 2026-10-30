@@ -119,3 +119,15 @@ if(!benchmarkHTML.includes('manager-league-benchmarks.mjs')||!fs.readFileSync('a
 if(!benchmarkJS.includes('managerDecisionSummary')||!benchmarkJS.includes('draftContext(drafts)')||!benchmarkJS.includes('tradeContext(trades)'))throw Error('League benchmarks not derived from shared source models');
 if(!benchmarkHTML.includes('not counting independent trade events')||!benchmarkHTML.includes('at least two other eligible picks'))throw Error('League comparison missing critical evidence caveat');
 console.log('League manager benchmark source and methodology checks PASS');
+
+import {tradeEvents,tradeManagerSummary} from '../assets/manager-trade-intelligence.mjs';
+const eventGroups=tradeEvents(read('v9_trade_engine.json'));
+const eventKeys=new Set(eventGroups.map(x=>x.key));
+if(eventKeys.size!==eventGroups.length)throw Error('Trade event groups duplicated');
+if(eventGroups.some(x=>!x.sides.length||x.sides.some(s=>s.provisional||!String(s.confidence).startsWith('verified'))))throw Error('Uncertified trade fragments included');
+const syntheticTrades=tradeEvents({sides:[{year:2024,week:3,trade_id:'A',manager:'Tom',confidence:'verified',provisional:false,direct_edge:10,assets:['X']},{year:2024,week:3,trade_id:'A',manager:'Stew',confidence:'verified',provisional:false,direct_edge:-10,assets:['Y']},{year:2024,week:5,trade_id:'B',manager:'Tom',confidence:'verified',provisional:false,direct_edge:4},{year:2024,week:5,trade_id:'B',manager:'Stilly',confidence:'partial',provisional:false,direct_edge:-4}]});
+if(syntheticTrades.length!==2||!syntheticTrades.find(x=>x.tradeId==='A').complete||syntheticTrades.find(x=>x.tradeId==='B').complete)throw Error('Trade grouping/completeness test failed');
+if(tradeManagerSummary(syntheticTrades,'Thommy').certifiedEvents!==2)throw Error('Tom identity reconciliation failed');
+if(!fs.readFileSync('analytics/manager-report-cards.html','utf8').includes('manager-trade-intelligence.html'))throw Error('Trade intelligence link missing');
+if(!fs.readFileSync('analytics/manager-trade-intelligence.html','utf8').includes('manager-trade-intelligence-page.mjs'))throw Error('Trade explorer source disconnected');
+console.log('Certified trade event grouping and provenance PASS');
