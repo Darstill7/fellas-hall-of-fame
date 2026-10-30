@@ -29,7 +29,7 @@ try {
   const rows=season.rows.slice().sort((a,b)=>a.rank-b.rank);
   $('history-leaderboard').querySelector('tbody').innerHTML=rows.map(r=>'<tr><td>#'+r.rank+'</td><th scope="row">'+esc(r.name)+'</th><td><strong>'+maddenOvr(r.ovr).toFixed(1)+'</strong></td><td>'+r.titles+'</td><td>'+r.playoffs+'</td></tr>').join('');
   const single=seasonOnly.find(s=>s.year===year);
-  $('season-ovr-leaderboard').querySelector('tbody').innerHTML=single.rows.map(r=>'<tr><td>#'+r.rank+'</td><th scope="row">'+esc(r.name)+'</th><td><strong>'+seasonMaddenOvr(r.score).toFixed(1)+'</strong></td><td>'+esc(r.record)+'</td><td>'+(r.champion?'Champion':r.finalist?'Finalist':r.playoff?'Playoffs':'—')+'</td></tr>').join('');
+  $('season-ovr-leaderboard').querySelector('tbody').innerHTML=single.rows.map(r=>'<tr><td>#'+r.rank+'</td><th scope="row">'+esc(r.name)+'</th><td><strong>'+seasonMaddenOvr(r.score).toFixed(1)+'</strong></td><td>'+esc(r.record)+'</td><td>'+r.allPlayPct.toFixed(1)+'%</td><td>'+(r.champion?'Champion':r.finalist?'Finalist':r.playoff?'Playoffs':'—')+'</td></tr>').join('');
   $('history-status').textContent=year+' complete · '+rows.length+' verified managers ranked · historical OVR uses a stable 65–99 Madden presentation scale';
  };
  $('history-year').addEventListener('change',renderHistorical);
