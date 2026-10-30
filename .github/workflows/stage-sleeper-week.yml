@@ -1,0 +1,42 @@
+name: Stage completed Sleeper week for review
+on:
+  schedule:
+    - cron: '30 14 * * 2'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  stage-sleeper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check staging script syntax
+        run: node --check scripts/stage-sleeper-week.mjs
+      - name: Stage complete next week (skip expected not-yet-final cases)
+        id: stage
+        run: |
+          if node scripts/stage-sleeper-week.mjs > /tmp/sleeper-stage.log 2>&1; then
+            cat /tmp/sleeper-stage.log
+          else
+            cat /tmp/sleeper-stage.log
+            if grep -q 'has not been superseded by the next NFL week' /tmp/sleeper-stage.log; then
+              echo 'NFL week not finished; no update' >> "$GITHUB_STEP_SUMMARY"
+            else
+              exit 1
+            fi
+          fi
+      - name: Create review pull request, never update canonical history automatically
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'Stage verified-coverage Sleeper weekly matchups for human review'
+          branch: 'automation/sleeper-weekly-stage'
+          delete-branch: true
+          title: 'Review next Sleeper week before canonical ratings refresh'
+          body: |
+            Candidate data only. **Do not merge directly.** Validate team owners, final scores/stat corrections, and all five matchups. Then update the canonical game ledger and all generated season, career, luck, and Madden rating projections together. Run complete history, rating, and browser CI before release.
+          add-paths: data-integrity/sleeper-sync-candidates/*.json
