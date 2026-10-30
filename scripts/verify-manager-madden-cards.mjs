@@ -36,7 +36,7 @@ console.log('MADDEN HEAD-TO-HEAD PASS: manager picker and evidence-safe grade co
 for(const r of ratings){const a=managerArchetype(r,report.find(x=>x.name===r.name));if(!a.name||!a.reason||!a.category)throw Error('Unsubstantiated archetype '+r.name);if(a.category==='trading'&&(!a.provisional||report.find(x=>x.name===r.name)?.coverage.verifiedTradeSides<8))throw Error('Ungrounded trade specialist '+r.name);}
 if(managerArchetype({titleYears:[2016,2017,2018],qualifiedYears:[],tenure:3},null).name!=='Dynasty Builder')throw Error('Championship dynasty priority regressed');
 if(managerArchetype({titleYears:[],qualifiedYears:[],tenure:1},{scores:{trading:99},coverage:{verifiedTradeSides:1}}).name==='Trade Specialist')throw Error('Trade label assigned from inadequate evidence');
-if(!ui.includes('earnedArchetypes(r,byName.get(r.name))')||!page.includes('scouting archetype'))throw Error('Archetype presentation disconnected');
+if(!ui.includes('earnedArchetypes(r,byName.get(r.name))')||!page.includes('primary archetype'))throw Error('Archetype presentation disconnected');
 console.log('MADDEN ARCHETYPES PASS: '+ratings.length+' documented manager archetypes');
 
 const multi=earnedArchetypes({titleYears:[2016,2017,2018],qualifiedYears:[2016,2017,2018,2020,2021,2022],tenure:10},{scores:{drafting:80,trading:81},coverage:{draftPicks:25,verifiedTradeSides:10}});
