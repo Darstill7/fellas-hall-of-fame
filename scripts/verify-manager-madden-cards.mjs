@@ -20,3 +20,9 @@ console.log('MADDEN MANAGER CARDS PASS: '+ratings.length+' all-time OVR, '+repor
 for(const r of ratings){const history=seasonResume(r.name,careers,[...espn.seasons,...brackets.seasons],guide);if(!history.length||history.some(x=>!/^\\d+-\\d+/.test(x.record)))throw Error('Invalid season résumé '+r.name);if(history.filter(x=>x.badge==='CHAMPION').length!==r.titleYears.length)throw Error('Title résumé mismatch '+r.name)}
 const maddenJS=fs.readFileSync('assets/manager-madden-cards.mjs','utf8');if(!maddenJS.includes('seasonsHtml')||!maddenJS.includes('Season-by-season résumé'))throw Error('Madden résumé not connected to cards');
 console.log('MADDEN HISTORICAL RESUMES PASS');
+
+const readable=['Regular-season winning','All-play performance','Playoff success','Championships','Championship game appearances','Drafting','Trading','Waiver pickups','Start/sit decisions'];
+for(const name of readable){if(!ui.includes(name)||!page.includes(name))throw Error('Missing accessible Madden attribute explanation: '+name)}
+if(!page.includes('What do the manager ratings mean?')||!page.includes('N/A — Not Available')||!ui.includes('labelHelp[k]'))throw Error('Accessible Madden rating guide or tooltips missing');
+if(ui.includes("const label={regular:'WIN'"))throw Error('Abbreviated attributes returned to Madden cards');
+console.log('MADDEN LABEL ACCESSIBILITY PASS: all nine attributes readable with mobile glossary');
