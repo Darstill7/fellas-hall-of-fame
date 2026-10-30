@@ -1,19 +1,20 @@
 {
   "version": "2026-week7-score-discrepancy-v1",
-  "status": "provider_confirmed_canonical_reconciliation_pending",
+  "status": "resolved_provider_confirmed_canonical_corrected",
   "year": 2026,
   "week": 7,
   "owner": "Sheffla",
   "manager": "Scott",
   "rosterPoints": 105.22,
-  "canonicalMatchupPoints": 106.22,
-  "difference": 1,
-  "policy": "Sleeper historical matchup and player-level roster both report 105.22; canonical unified ledger currently says 106.22. Preserve existing published score pending source-controlled correction with downstream tests; exclude from verified lineup comparisons.",
+  "canonicalMatchupPoints": 105.22,
+  "difference": 0,
+  "policy": "Sleeper historical matchup and roster score agree at 105.22; 2026 unified game and standings were corrected. Verify all downstream pages before certifying complete publication.",
   "sources": [
     "data/sleeper_roster_snapshots_2026_week7.json",
     "data/season_weekly_matchups_2016_2026_v1.json",
     "data-integrity/2026-week7-scott-provider-verification.json"
   ],
   "providerMatchupPoints": 105.22,
-  "providerVerifiedOn": "2026-10-30"
+  "providerVerifiedOn": "2026-10-30",
+  "previousCanonicalMatchupPoints": 106.22
 }
