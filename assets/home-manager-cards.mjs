@@ -17,7 +17,27 @@ try{
  const compact=document.getElementById('home-manager-mobile');
  if(compact)compact.innerHTML=current.map(r=>{
   const tier=managerCardTier(r),rating=maddenOvr(r.score).toFixed(1);
-  return '<details class="mobile-manager-row mobile-tier-'+tier.id+'"><summary aria-label="Expand '+escape(r.name)+' manager rating"><span class="mobile-manager-badge">'+escape(tier.name.replace(' Edition',''))+'</span><strong class="mobile-manager-name">'+escape(r.name)+'</strong><span class="mobile-manager-ovr">'+rating+'</span><span class="mobile-manager-chevron" aria-hidden="true">⌄</span></summary><div class="mobile-manager-expanded"><p><strong>All-time #'+r.rank+'</strong> · '+r.titleYears.length+' titles · '+r.qualifiedYears.length+' playoff berths</p><p>Career: '+escape(r.career)+'</p><a class="mobile-manager-link" href="managers/'+slug[r.name]+'/">View full profile →</a></div></details>';
+  return '<details data-manager-name="'+escape(r.name.toLowerCase())+'" class="mobile-manager-row mobile-tier-'+tier.id+'"><summary aria-label="Expand '+escape(r.name)+' manager rating"><span class="mobile-manager-badge">'+escape(tier.name.replace(' Edition',''))+'</span><strong class="mobile-manager-name">'+escape(r.name)+'</strong><span class="mobile-manager-ovr">'+rating+'</span><span class="mobile-manager-chevron" aria-hidden="true">⌄</span></summary><div class="mobile-manager-expanded"><p><strong>All-time #'+r.rank+'</strong> · '+r.titleYears.length+' titles · '+r.qualifiedYears.length+' playoff berths</p><p>Career: '+escape(r.career)+'</p><a class="mobile-manager-link" href="managers/'+slug[r.name]+'/">View full profile →</a></div></details>';
  }).join('');
+ const finder=document.getElementById('home-manager-search');
+ const clear=document.getElementById('home-manager-clear');
+ const empty=document.getElementById('home-manager-empty');
+ if(finder&&compact){
+  const rows=[...compact.querySelectorAll('.mobile-manager-row')];
+  function filter(){
+   const query=finder.value.trim().toLocaleLowerCase();
+   let visible=0;
+   for(const row of rows){
+    const match=row.dataset.managerName.includes(query);
+    row.hidden=!match;
+    if(!match)row.open=false;
+    if(match)visible++;
+   }
+   if(clear)clear.hidden=!query;
+   if(empty)empty.hidden=visible!==0;
+  }
+  finder.addEventListener('input',filter);
+  clear?.addEventListener('click',()=>{finder.value='';filter();finder.focus()});
+ }
  document.getElementById('home-manager-status').textContent=current.length+' active manager profiles · Career Legacy OVR from verified league history · 2026 ongoing';
 }catch(error){document.getElementById('home-manager-status').textContent='Manager ratings are temporarily unavailable; explore the complete cards or manager directory.';console.error(error)}
