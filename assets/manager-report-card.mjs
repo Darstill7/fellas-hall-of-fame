@@ -6,7 +6,7 @@ const mean=a=>a.reduce((s,v)=>s+v,0)/a.length;
 const percentile=(x,xs)=>xs.length?100*(xs.filter(y=>y<x).length+.5*xs.filter(y=>y===x).length)/xs.length:50;
 import {postseasonReport} from './manager-postseason-success.mjs';
 import {playoffRecord} from './manager-playoff-history.mjs';
-export function makeReportCards({drafts,trades,careers,luck,waivers,endings,brackets,guide}){
+export function makeReportCards({drafts,trades,careers,luck,waivers,endings,brackets,guide,espn}){
  const names=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
  const alias=n=>n==='Tom'?'Thommy':n;
  const qualifyingDrafts=drafts.filter(d=>!d.keeper&&Number.isFinite(d.surplus)&&d.year<=2025);
@@ -28,7 +28,7 @@ export function makeReportCards({drafts,trades,careers,luck,waivers,endings,brac
   const regular=round(clamp(100*(c.w+.5*c.t+7)/(c.games+14)));
   const allPlay=round(clamp(100*(a.expectedWins+7)/(a.games+14)));
   const post=postseasonReport(name,endings);
-  const playoff=playoffRecord(name,brackets,guide);
+  const playoff=playoffRecord(name,brackets,guide,espn);
   const scores={championships:post.scores.championships,finals:post.scores.finals,playoffs:playoff.score,drafting:draft,trading:trade,regular,allPlay,waivers:null,lineups:null};
   const supported=Object.entries(scores).filter(([,score])=>score!==null);
   const availableWeight=supported.reduce((s,[k])=>s+WEIGHTS[k],0);
