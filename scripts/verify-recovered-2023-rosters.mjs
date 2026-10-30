@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 const matchups=JSON.parse(fs.readFileSync('data/sleeper_matchups_2023.json','utf8'));
 let checked=0;
-for(const week of [1,2,3]){
+for(const week of Array.from({length:14},(_,i)=>i+1)){
  const d=JSON.parse(fs.readFileSync('data/sleeper_roster_snapshots_2023_week'+week+'.json','utf8'));
  if(d.year!==2023||d.week!==week||d.rosters.length!==10)throw Error('Missing 2023 roster week '+week);
  const m=matchups.find(x=>x.week===week);if(!m)throw Error('No canonical 2023 matchups week '+week);
