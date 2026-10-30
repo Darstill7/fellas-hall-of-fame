@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "source": "User-supplied Sleeper championship-bracket screenshots, October 29 2026",
+  "scope": "2020–2025 six-team championship brackets, two first-round byes",
+  "limitations": [
+    "Do not interpret consolation bracket games as playoff berths",
+    "2026 remains in progress",
+    "2016–2019 ESPN brackets pending"
+  ],
+  "seasons": [
+    {
+      "year": 2020,
+      "seeds": [
+        "Mitch",
+        "Birch",
+        "Kuhl",
+        "Evans",
+        "Stover",
+        "Koble"
+      ],
+      "semifinalists": [
+        "Mitch",
+        "Evans",
+        "Birch",
+        "Koble"
+      ],
+      "finalists": [
+        "Mitch",
+        "Koble"
+      ],
+      "champion": "Koble",
+      "byes": [
+        "Mitch",
+        "Birch"
+      ],
+      "runnerUp": "Mitch",
+      "seedByManager": {
+        "Mitch": 1,
+        "Birch": 2,
+        "Kuhl": 3,
+        "Evans": 4,
+        "Stover": 5,
+        "Koble": 6
+      }
+    },
+    {
+      "year": 2021,
+      "seeds": [
+        "Birch",
+        "Tony",
+        "Stover",
+        "Mitch",
+        "Evans",
+        "Thommy"
+      ],
+      "semifinalists": [
+        "Birch",
+        "Evans",
+        "Tony",
+        "Stover"
+      ],
+      "finalists": [
+        "Tony",
+        "Evans"
+      ],
+      "champion": "Tony",
+      "byes": [
+        "Birch",
+        "Tony"
+      ],
+      "runnerUp": "Evans",
+      "seedByManager": {
+        "Birch": 1,
+        "Tony": 2,
+        "Stover": 3,
+        "Mitch": 4,
+        "Evans": 5,
+        "Thommy": 6
+      }
+    },
+    {
+      "year": 2022,
+      "seeds": [
+        "Stew",
+        "Stover",
+        "Kuhl",
+        "Mitch",
+        "Stilly",
+        "Thommy"
+      ],
+      "semifinalists": [
+        "Stew",
+        "Mitch",
+        "Stover",
+        "Kuhl"
+      ],
+      "finalists": [
+        "Stew",
+        "Stover"
+      ],
+      "champion": "Stover",
+      "byes": [
+        "Stew",
+        "Stover"
+      ],
+      "runnerUp": "Stew",
+      "seedByManager": {
+        "Stew": 1,
+        "Stover": 2,
+        "Kuhl": 3,
+        "Mitch": 4,
+        "Stilly": 5,
+        "Thommy": 6
+      }
+    },
+    {
+      "year": 2023,
+      "seeds": [
+        "Tony",
+        "Koble",
+        "JMid",
+        "Stilly",
+        "Birch",
+        "Mitch"
+      ],
+      "semifinalists": [
+        "Tony",
+        "Stilly",
+        "Koble",
+        "Mitch"
+      ],
+      "finalists": [
+        "Stilly",
+        "Mitch"
+      ],
+      "champion": "Stilly",
+      "byes": [
+        "Tony",
+        "Koble"
+      ],
+      "runnerUp": "Mitch",
+      "seedByManager": {
+        "Tony": 1,
+        "Koble": 2,
+        "JMid": 3,
+        "Stilly": 4,
+        "Birch": 5,
+        "Mitch": 6
+      }
+    },
+    {
+      "year": 2024,
+      "seeds": [
+        "Stover",
+        "Thommy",
+        "JMid",
+        "Stilly",
+        "Birch",
+        "Tony"
+      ],
+      "semifinalists": [
+        "Stover",
+        "Stilly",
+        "Thommy",
+        "JMid"
+      ],
+      "finalists": [
+        "Stilly",
+        "Thommy"
+      ],
+      "champion": "Thommy",
+      "byes": [
+        "Stover",
+        "Thommy"
+      ],
+      "runnerUp": "Stilly",
+      "seedByManager": {
+        "Stover": 1,
+        "Thommy": 2,
+        "JMid": 3,
+        "Stilly": 4,
+        "Birch": 5,
+        "Tony": 6
+      }
+    },
+    {
+      "year": 2025,
+      "seeds": [
+        "Mitch",
+        "Scott",
+        "Tony",
+        "Thommy",
+        "Stew",
+        "Birch"
+      ],
+      "semifinalists": [
+        "Mitch",
+        "Thommy",
+        "Scott",
+        "Birch"
+      ],
+      "finalists": [
+        "Thommy",
+        "Scott"
+      ],
+      "champion": "Scott",
+      "byes": [
+        "Mitch",
+        "Scott"
+      ],
+      "runnerUp": "Thommy",
+      "seedByManager": {
+        "Mitch": 1,
+        "Scott": 2,
+        "Tony": 3,
+        "Thommy": 4,
+        "Stew": 5,
+        "Birch": 6
+      }
+    }
+  ]
+}
