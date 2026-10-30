@@ -30,6 +30,13 @@ jobs:
               exit 1
             fi
           fi
+      - name: Regenerate canonical projections on the review branch
+        run: |
+          for file in data-integrity/sleeper-sync-candidates/2026-week*.json; do
+            if [ -f "$file" ]; then
+              node scripts/apply-reviewed-sleeper-week.mjs "$file"
+            fi
+          done
       - name: Create review pull request, never update canonical history automatically
         uses: peter-evans/create-pull-request@v7
         with:
@@ -38,5 +45,12 @@ jobs:
           delete-branch: true
           title: 'Review next Sleeper week before canonical ratings refresh'
           body: |
-            Candidate data only. **Do not merge directly.** Validate team owners, final scores/stat corrections, and all five matchups. Then update the canonical game ledger and all generated season, career, luck, and Madden rating projections together. Run complete history, rating, and browser CI before release.
-          add-paths: data-integrity/sleeper-sync-candidates/*.json
+            Automated candidate and regenerated core projections. **Do not merge until review and full CI pass.** Verify all team identities and five finalized score pairs against Sleeper. Check all generated data and site-wide stale projections; repair additional consumers if CI flags them. The public Madden card recalculates upon approved deployment.
+          add-paths: |
+            data-integrity/sleeper-sync-candidates/*.json
+            data/unified_record_book_2016_2026.json
+            data/season_weekly_matchups_2016_2026_v1.json
+            data/all_time_luck_ratings_v1.json
+            data/career_core_generated.json
+            data/season_guide.json
+            seasons/index.html
