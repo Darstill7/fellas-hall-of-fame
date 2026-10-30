@@ -6,6 +6,20 @@ try {
  const [drafts,trades,careers,luck,waivers,endings,brackets,guide,espn]=await Promise.all(targets.map(async p=>{const r=await fetch('../data/'+p);if(!r.ok)throw Error('Could not load '+p);return r.json()}));
  const rows=makeReportCards({drafts,trades,careers,luck,waivers,endings,brackets,guide,espn});
  const slugs={Stilly:'stilly',Stew:'stew',Thommy:'tom',Stover:'stover',Birch:'birch',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',JMid:'jmid',Scott:'scott'};
+ const compareA=document.getElementById('compare-a'),compareB=document.getElementById('compare-b');
+ const params=new URLSearchParams(location.search);
+ for(const select of [compareA,compareB])for(const row of rows){const option=document.createElement('option');option.value=row.name;option.textContent=row.name;select.append(option)}
+ const defaultA=params.get('a'),defaultB=params.get('b');
+ compareA.value=rows.some(x=>x.name===defaultA)?defaultA:rows[0].name;
+ compareB.value=rows.some(x=>x.name===defaultB)?defaultB:(rows.find(x=>x.name!==compareA.value)||rows[0]).name;
+ function drawComparison(){
+  const a=rows.find(x=>x.name===compareA.value),b=rows.find(x=>x.name===compareB.value);
+  if(!a||!b||a.name===b.name){document.getElementById('comparison').textContent='Select two different managers to compare.';return}
+  document.getElementById('comparison').innerHTML=[a,b].map(x=>'<article class="card"><h3>'+esc(x.name)+'</h3><div class="score">'+x.provisional.toFixed(1)+'<small>provisional / 100 · '+x.availableWeight+'% evidence weight</small></div><div class="grid">'+Object.entries(x.scores).map(([key,v])=>'<div class="grade"><span>'+labels[key]+'</span><strong>'+(v===null?'N/A':v.toFixed(1))+'</strong></div>').join('')+'</div><p>Verified: '+x.coverage.verifiedChampionships+' championships; '+x.coverage.playoffVerified+'/'+x.coverage.playoffEligible+' playoff seasons; '+x.coverage.careerGames+' regular-season games.</p></article>').join('');
+  const next=new URL(location.href);next.searchParams.set('a',a.name);next.searchParams.set('b',b.name);history.replaceState(null,'',next);
+ }
+ document.getElementById('compare-go').addEventListener('click',drawComparison);
+ drawComparison();
  const insights=rows.map(x=>{
   const wins=x.scores.regular,all=x.scores.allPlay,play=x.scores.playoffs;
   const strengths=[];
