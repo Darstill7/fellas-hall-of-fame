@@ -1,4 +1,4 @@
-import {managerArchetype} from '../assets/manager-madden-archetypes.mjs';
+import {managerArchetype,earnedArchetypes} from '../assets/manager-madden-archetypes.mjs';
 import {seasonResume} from '../assets/manager-season-resume.mjs';
 import {weeklyOvrHistory} from '../assets/manager-weekly-ovr.mjs';
 import fs from 'node:fs';import {makeRatings} from '../assets/fellas-rating-model.mjs';import {makeReportCards} from '../assets/manager-report-card.mjs';
@@ -38,3 +38,10 @@ if(managerArchetype({titleYears:[2016,2017,2018],qualifiedYears:[],tenure:3},nul
 if(managerArchetype({titleYears:[],qualifiedYears:[],tenure:1},{scores:{trading:99},coverage:{verifiedTradeSides:1}}).name==='Trade Specialist')throw Error('Trade label assigned from inadequate evidence');
 if(!ui.includes('managerArchetype(r,byName.get(r.name))')||!page.includes('scouting archetype'))throw Error('Archetype presentation disconnected');
 console.log('MADDEN ARCHETYPES PASS: '+ratings.length+' documented manager archetypes');
+
+const multi=earnedArchetypes({titleYears:[2016,2017,2018],qualifiedYears:[2016,2017,2018,2020,2021,2022],tenure:10},{scores:{drafting:80,trading:81},coverage:{draftPicks:25,verifiedTradeSides:10}});
+for(const title of ['Dynasty Builder','Perennial Contender','Trade Specialist','Draft Architect','Playoff Regular','League Veteran'])if(!multi.some(a=>a.name===title))throw Error('Independent Madden specialty missing '+title);
+if(new Set(multi.map(a=>a.name)).size!==multi.length)throw Error('Duplicate Madden specialties');
+if(multi.find(a=>a.name==='Trade Specialist')?.provisional!==true)throw Error('Trade specialty must show provisional qualification');
+if(!ui.includes('specialtyHtml')||!page.includes('additional specialties independently'))throw Error('Multiple archetypes not rendered or explained');
+console.log('MULTIPLE MADDEN ARCHETYPES PASS: independent evidence-based specialties');
