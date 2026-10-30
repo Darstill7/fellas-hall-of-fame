@@ -1,3 +1,26 @@
+// Upgrade the older seven-link chapter navigator without discarding existing archive sections.
+const legacyNav=document.querySelector('nav.profile-chapters');
+if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
+ const manager=document.querySelector('main .hero h1')?.textContent?.trim()||'Manager';
+ const nav=document.createElement('nav');
+ nav.id='profile-navigation';nav.className='profile-tabs';
+ nav.dataset.managerProfileTabs='';nav.setAttribute('aria-label','Manager profile sections');
+ nav.innerHTML='<div class="eyebrow">Pick what you want to see</div><div class="profile-tab-row" role="tablist" aria-label="Profile sections">'+
+ [['overview','Career'],['seasons','Each Year'],['rivalries','Head-to-Head'],['advanced','Deep Stats']].map(([id,label])=>'<button type="button" role="tab" data-profile-tab="'+id+'" aria-selected="'+(id==='overview')+'">'+label+'</button>').join('')+
+ '</div><p class="muted" data-profile-tab-description>Start here: the story, championships and career record.</p>';
+ legacyNav.replaceWith(nav);
+ const hero=document.querySelector('main .hero');
+ const actions=hero?.querySelector('.buttons');
+ if(actions)actions.innerHTML='<a class="btn" href="#profile-navigation">Explore '+manager+'’s career ↓</a><a class="btn secondary" href="../../index.html#home-manager-title">All manager cards</a>';
+ const quick=document.createElement('section');
+ quick.className='profile-quickstart';quick.setAttribute('aria-label',manager+' career at a glance');
+ quick.innerHTML='<h2>'+manager+' at a glance</h2><p class="muted">Choose what to explore.</p><div class="profile-quick-grid">'+
+ [['overview','#verified-history-panel','Championships','Titles and finishes'],['seasons','#season-history','Every Season','Annual results'],['rivalries','#head-to-head','Head-to-Head','Who owns whom?'],['advanced','#franchise-encyclopedia','Trades & Pickups','The deeper research']].map(([tab,target,label,description])=>'<a data-profile-jump="'+tab+'" href="'+target+'"><strong>'+label+'</strong><span>'+description+' →</span></a>').join('')+'</div>';
+ nav.after(quick);
+ const css=document.createElement('style');
+ css.textContent='.profile-tabs{background:#0d1923f5;border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin:12px 0 24px}.profile-tab-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.profile-tab-row button{cursor:pointer;border:1px solid #607483;border-radius:9px;background:#182c3b;color:#d9e3e9;font:inherit;font-size:13px;font-weight:800;padding:11px 16px;min-height:44px}.profile-tab-row button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#10212d}.profile-tab-row button:focus-visible{outline:3px solid white;outline-offset:3px}.section[hidden]{display:none!important}.profile-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}.profile-quick-grid a{display:flex;flex-direction:column;gap:6px;background:#172b3a;border:1px solid #486174;border-radius:12px;padding:17px;min-height:94px}.profile-quick-grid span{font-size:13px;color:#d0dce4}@media(max-width:600px){.profile-tab-row{display:grid;grid-template-columns:1fr 1fr}.profile-quick-grid{grid-template-columns:1fr}}';
+ document.head.append(css);
+}
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
 const main=document.querySelector('main');
 const tabs=document.querySelector('[data-manager-profile-tabs]');
