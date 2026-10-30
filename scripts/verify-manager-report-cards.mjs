@@ -222,3 +222,13 @@ execFileSync(process.execPath,['scripts/audit-lineup-exclusion-reasons.mjs'],{st
 const audit=JSON.parse(fs.readFileSync('data-integrity/lineup-source-exclusion-audit-2020-2025.json','utf8'));
 if(audit.totalTeamWeeks!==830||audit.bySeason.length!==6||audit.bySeason.reduce((s,x)=>s+x.teamWeeks,0)!==830)throw Error('Incomplete lineup-source diagnostic');
 console.log('Complete six-season lineup source exclusions audit PASS',JSON.stringify(audit.counts));
+
+// Every title is also a championship-game appearance; runner-up is not synonymous with finals.
+for(const row of rows){
+ if(row.coverage.championshipGameAppearances!==row.coverage.verifiedChampionships+row.coverage.verifiedRunnersUp)throw Error('Finalist count excludes a title for '+row.name);
+}
+const stover=rows.find(x=>x.name==='Stover');
+if(!stover||stover.coverage.verifiedChampionships!==1||stover.coverage.championshipGameAppearances<1)throw Error('Stover 2022 title missing from finals appearances');
+const bracket2022=read('verified_sleeper_playoff_brackets_2020_2025.json').seasons.find(s=>s.year===2022);
+if(bracket2022.champion!=='Stover'||!bracket2022.finalists.includes('Stover'))throw Error('Stover 2022 championship bracket evidence changed');
+console.log('Championship-game appearances include wins and runner-up finishes PASS');
