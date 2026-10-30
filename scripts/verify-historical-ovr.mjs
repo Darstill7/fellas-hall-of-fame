@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {seasonMaddenOvr,maddenOvr} from '../assets/manager-madden-scale.mjs';
 import {historicalOvrHistory,singleSeasonOvrHistory,SEASON_WEIGHTS} from '../assets/manager-historical-ovr.mjs';
 const read=n=>JSON.parse(fs.readFileSync('data/'+n+'.json','utf8'));
 const guide=read('season_guide'),careers=read('career_core_generated'),luck=read('all_time_luck_ratings_v1'),endings=read('manager_verified_season_endings_v1');
@@ -17,6 +18,12 @@ for(const season of seasonOnly){
  const champion=season.rows.filter(r=>r.champion);
  if(champion.length!==1||champion[0].name!==guide[season.year].champion)throw Error('Season OVR champion inconsistent '+season.year);
 }
+const scott=seasonOnly.find(s=>s.year===2025)?.rows.find(r=>r.name==='Scott');
+const thommy=seasonOnly.find(s=>s.year===2017)?.rows.find(r=>r.name==='Thommy');
+if(!scott?.champion||!thommy?.champion)throw Error('Verified Scott and Thommy championship comparison missing');
+if(!(thommy.score>scott.score&&seasonMaddenOvr(thommy.score)>seasonMaddenOvr(scott.score)))
+ throw Error('Season Madden display must distinguish Scott 2025 from Thommy 2017');
+if(maddenOvr(90)!==99)throw Error('Legacy Madden scale was inadvertently changed');
 const original=historicalOvrHistory({guide,careers,luck,endings,playoffBrackets});
 if(original.length!==10||original[0].year!==2016||original.at(-1).year!==2025)throw Error('Historical rating year coverage incorrect');
 for(const season of original){
