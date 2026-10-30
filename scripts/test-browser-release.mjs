@@ -79,6 +79,15 @@ try{
       }
      }
     }
+    const duel=page.locator('#duel-results details.duel-history');
+    if(await duel.count()!==1)errors.push(width+' Madden duel missing year-end comparison');
+    else{
+     const years=await duel.locator('tbody tr').count();
+     if(years<1||years>10)errors.push(width+' Madden duel year-end comparison has invalid season count: '+years);
+    }
+    await page.locator('#filter').selectOption('all');
+    const allCards=await page.locator('#cards article.card').count();
+    if(allCards!==14)errors.push(width+' Madden all-manager filter rendered '+allCards+' instead of 14');
    }
    if(route.startsWith('rivalries/')){
     const text=await page.locator('body').innerText();
