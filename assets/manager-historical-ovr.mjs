@@ -36,6 +36,7 @@ export function historicalOvrHistory({guide,careers,luck,endings,playoffBrackets
 
 // Season OVR measures only one completed season; it never imports prior career success.
 // The 0–100 index is independently scored and displayed using the stable Madden scale.
+export const SEASON_WEIGHTS=Object.freeze({regular:25,allPlay:25,playoffs:10,semifinal:5,finals:10,championship:25});
 export function singleSeasonOvrHistory({guide,careers,luck,playoffBrackets}){
  const bracketByYear=new Map(playoffBrackets.map(s=>[s.year,s]));
  const luckBy=new Map(luck.ranked.map(x=>[x.manager,x]));
@@ -51,10 +52,11 @@ export function singleSeasonOvrHistory({guide,careers,luck,playoffBrackets}){
    const regular=(record.w+record.t*.5)/record.games;
    const allPlay=Math.max(0,Math.min(1,all.expectedWins/all.games));
    const playoff=(bracket.seeds??bracket.participants??[]).includes(name);
+   const semifinal=(bracket.semifinalists??[]).includes(name);
    const finalist=(bracket.finalists??[]).includes(name);
    const champion=bracket.champion===name;
-   const score=Math.round((20*regular+20*allPlay+15*(playoff?1:0)+10*(finalist?1:0)+35*(champion?1:0))*10)/10;
-   return [{name,year,score,rank:0,record:record.w+'–'+record.l+(record.t?'–'+record.t:''),playoff,finalist,champion}];
+   const score=Math.round((SEASON_WEIGHTS.regular*regular+SEASON_WEIGHTS.allPlay*allPlay+SEASON_WEIGHTS.playoffs*Number(playoff)+SEASON_WEIGHTS.semifinal*Number(semifinal)+SEASON_WEIGHTS.finals*Number(finalist)+SEASON_WEIGHTS.championship*Number(champion))*10)/10;
+   return [{name,year,score,rank:0,record:record.w+'–'+record.l+(record.t?'–'+record.t:''),playoff,semifinal,finalist,champion}];
   });
   rows.sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
   rows.forEach((r,i)=>{r.rank=i+1});
