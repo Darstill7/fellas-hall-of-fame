@@ -3,7 +3,8 @@ import {earnedArchetypes} from './manager-madden-archetypes.mjs';
 import {managerCardTier} from './manager-card-tiers.mjs';
 import {weeklyOvrHistory} from './manager-weekly-ovr.mjs';
 const slugName={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
-const slug=location.pathname.split('/').filter(Boolean).at(-1);
+const segments=location.pathname.split('/').filter(Boolean);
+const slug=segments.at(-1)==='index.html'?segments.at(-2):segments.at(-1);
 const name=slugName[slug];
 if(name){
  const host=document.createElement('section');
