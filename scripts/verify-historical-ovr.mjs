@@ -1,8 +1,17 @@
 import fs from 'node:fs';
-import {historicalOvrHistory} from '../assets/manager-historical-ovr.mjs';
+import {historicalOvrHistory,singleSeasonOvrHistory,SEASON_WEIGHTS} from '../assets/manager-historical-ovr.mjs';
 const read=n=>JSON.parse(fs.readFileSync('data/'+n+'.json','utf8'));
 const guide=read('season_guide'),careers=read('career_core_generated'),luck=read('all_time_luck_ratings_v1'),endings=read('manager_verified_season_endings_v1');
 const playoffBrackets=[...read('verified_espn_playoff_brackets_2016_2019').seasons,...read('verified_sleeper_playoff_brackets_2020_2025').seasons];
+const seasonOnly=singleSeasonOvrHistory({guide,careers,luck,playoffBrackets});
+if(seasonOnly.length!==10||Object.values(SEASON_WEIGHTS).reduce((a,b)=>a+b,0)!==100)throw Error('Season OVR coverage/weights invalid');
+for(const season of seasonOnly){
+ const expected=Object.entries(careers.managers).filter(([,c])=>c.annual[String(season.year)]?.games).map(([name])=>name);
+ if(season.rows.length!==expected.length||season.rows.some(r=>!expected.includes(r.name)))throw Error('Season OVR manager coverage invalid '+season.year);
+ if(season.rows.some((r,i)=>r.rank!==i+1||!Number.isFinite(r.score)||r.score<0||r.score>100))throw Error('Season OVR rank or score invalid '+season.year);
+ const champion=season.rows.filter(r=>r.champion);
+ if(champion.length!==1||champion[0].name!==guide[season.year].champion)throw Error('Season OVR champion inconsistent '+season.year);
+}
 const original=historicalOvrHistory({guide,careers,luck,endings,playoffBrackets});
 if(original.length!==10||original[0].year!==2016||original.at(-1).year!==2025)throw Error('Historical rating year coverage incorrect');
 for(const season of original){
