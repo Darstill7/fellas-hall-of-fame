@@ -55,3 +55,6 @@ for(const r of ratings){const tier=managerCardTier(r);if(!['dynasty','champion',
 if(managerCardTier({titleYears:[2016,2017,2018],qualifiedYears:[]}).id!=='dynasty'||managerCardTier({titleYears:[],qualifiedYears:[2020,2021,2022,2023,2024]}).id!=='contender')throw Error('Madden card tier priority mismatch');
 if(!ui.includes('managerCardTier(r)')||!page.includes('.tier-dynasty')||!page.includes('.tier-champion')||!page.includes('.tier-contender')||!page.includes('Card editions:'))throw Error('Madden card tiers missing from page');
 console.log('MADDEN CARD EDITIONS PASS: source-backed tiers and responsive visual treatments');
+
+if(!ui.includes("const trajectory=historical?")||!ui.includes('No 2026 weekly rating available')||!ui.includes("trajectory.length?'<svg"))throw Error('Former manager weekly OVR suppression missing');
+console.log('MADDEN HISTORICAL WEEKLY COVERAGE PASS: no invented 2026 progression for alumni');
