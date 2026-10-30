@@ -22,5 +22,5 @@ const mapping=Object.fromEntries([...ownership].map(([key,names])=>[key,[...name
 if(new Set(Object.values(mapping)).size!==10)throw Error('Nonunique canonical manager assignments');
 const documented=JSON.parse(fs.readFileSync('data-integrity/2026-week7-scott-score-discrepancy.json','utf8'));
 const game=allGames.find(g=>g.week===7&&g.home==='Stew'&&g.away==='Scott');
-if(!game||game.awayScore!==105.22||game.margin!==4.92||documented.providerMatchupPoints!==105.22)throw Error('Provider verified Scott reconciliation regression');
+if(!game||game.awayScore!==105.22||game.margin!==4.92||documented.providerMatchupPoints!==105.22||documented.status!=='resolved_provider_confirmed_canonical_corrected')throw Error('Provider verified Scott reconciliation regression');
 console.log('2026 roster and matchup reconciliation PASS',JSON.stringify({checked,mapping}));
