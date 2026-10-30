@@ -86,6 +86,11 @@ try{
     await page.locator('#season-extreme').selectOption('worst');
     if(await bestRows.count()!==20)errors.push(width+' worst-season record book did not render 20 rows');
     await page.locator('#season-extreme').selectOption('best');
+    if(await page.locator('#season-record-manager option').count()!==15)errors.push(width+' all-season manager filter must include all 14 managers');
+    await page.locator('#season-record-manager').selectOption('Thommy');
+    const selectedNames=await page.locator('#season-records tbody th[scope="row"]').allTextContents();
+    if(!selectedNames.length||selectedNames.some(n=>n!=='Thommy'))errors.push(width+' season records manager filter displayed wrong manager');
+    await page.locator('#season-record-manager').selectOption('all');
     const historicalYears=page.locator('#history-year option');
     if(await historicalYears.count()!==10)errors.push(width+' historical leaderboard must offer ten completed seasons');
     const historicalRows=page.locator('#history-leaderboard tbody tr');
