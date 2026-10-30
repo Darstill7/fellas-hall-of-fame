@@ -1,0 +1,1067 @@
+{
+  "source": "Flaim Fantasy historical Sleeper roster API",
+  "leagueId": "668633299786244096",
+  "year": 2021,
+  "week": 1,
+  "snapshotType": "week",
+  "rosters": [
+    {
+      "teamId": 1,
+      "success": true,
+      "owner": "Darstill",
+      "points": 107.56,
+      "starters": [
+        {
+          "id": "1234",
+          "name": "Russell Wilson",
+          "position": "QB",
+          "points": 27.06
+        },
+        {
+          "id": "4199",
+          "name": "Aaron Jones Sr.",
+          "position": "RB",
+          "points": 3.2
+        },
+        {
+          "id": "4273",
+          "name": "Chris Carson",
+          "position": "RB",
+          "points": 11.2
+        },
+        {
+          "id": "2449",
+          "name": "Stefon Diggs",
+          "position": "WR",
+          "points": 11.4
+        },
+        {
+          "id": "6786",
+          "name": "CeeDee Lamb",
+          "position": "WR",
+          "points": 19.9
+        },
+        {
+          "id": "3271",
+          "name": "Tyler Higbee",
+          "position": "TE",
+          "points": 9.3
+        },
+        {
+          "id": "4983",
+          "name": "DJ Moore",
+          "position": "WR",
+          "points": 12.4
+        },
+        {
+          "id": "5937",
+          "name": "Diontae Johnson",
+          "position": "WR",
+          "points": 12.1
+        },
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "position": "DEF",
+          "points": 1
+        }
+      ],
+      "bench": [
+        {
+          "id": "1476",
+          "name": "Latavius Murray",
+          "position": "RB",
+          "points": 8.8
+        },
+        {
+          "id": "2320",
+          "name": "Melvin Gordon",
+          "position": "RB",
+          "points": 20.3
+        },
+        {
+          "id": "2378",
+          "name": "Tevin Coleman",
+          "position": "RB",
+          "points": 2.4
+        },
+        {
+          "id": "3225",
+          "name": "Tyler Boyd",
+          "position": "WR",
+          "points": 4.7
+        },
+        {
+          "id": "5022",
+          "name": "Dallas Goedert",
+          "position": "TE",
+          "points": 12.2
+        },
+        {
+          "id": "7591",
+          "name": "Justin Fields",
+          "position": "QB",
+          "points": 6.7
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "teamId": 2,
+      "success": true,
+      "owner": "Evansbrandonm",
+      "points": 92.48,
+      "starters": [
+        {
+          "id": "4046",
+          "name": "Patrick Mahomes",
+          "position": "QB",
+          "points": 33.28
+        },
+        {
+          "id": "4029",
+          "name": "Dalvin Cook",
+          "position": "RB",
+          "points": 17.4
+        },
+        {
+          "id": "7528",
+          "name": "Najee Harris",
+          "position": "RB",
+          "points": 5.4
+        },
+        {
+          "id": "4037",
+          "name": "Chris Godwin Jr.",
+          "position": "WR",
+          "points": 19
+        },
+        {
+          "id": "6814",
+          "name": "Laviska Shenault",
+          "position": "WR",
+          "points": 9.4
+        },
+        {
+          "id": "4993",
+          "name": "Mike Gesicki",
+          "position": "TE",
+          "points": 0
+        },
+        {
+          "id": "6803",
+          "name": "Brandon Aiyuk",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "2749",
+          "name": "Raheem Mostert",
+          "position": "RB",
+          "points": 2
+        },
+        {
+          "id": "WAS",
+          "name": "Washington Commanders",
+          "position": "DEF",
+          "points": 6
+        }
+      ],
+      "bench": [
+        {
+          "id": "1110",
+          "name": "T.Y. Hilton",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "2078",
+          "name": "Odell Beckham Jr.",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "3969",
+          "name": "Leonard Fournette",
+          "position": "RB",
+          "points": 8.4
+        },
+        {
+          "id": "4040",
+          "name": "JuJu Smith-Schuster",
+          "position": "WR",
+          "points": 7.2
+        },
+        {
+          "id": "4962",
+          "name": "Sony Michel",
+          "position": "RB",
+          "points": 0.2
+        },
+        {
+          "id": "5110",
+          "name": "Russell Gage",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "points": 21.4
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "teamId": 3,
+      "success": true,
+      "owner": "thommy",
+      "points": 141.12,
+      "starters": [
+        {
+          "id": "3294",
+          "name": "Dak Prescott",
+          "position": "QB",
+          "points": 26.42
+        },
+        {
+          "id": "4663",
+          "name": "Austin Ekeler",
+          "position": "RB",
+          "points": 11.7
+        },
+        {
+          "id": "6945",
+          "name": "Antonio Gibson",
+          "position": "RB",
+          "points": 9.3
+        },
+        {
+          "id": "3321",
+          "name": "Tyreek Hill",
+          "position": "WR",
+          "points": 32.6
+        },
+        {
+          "id": "1992",
+          "name": "Allen Robinson",
+          "position": "WR",
+          "points": 6.5
+        },
+        {
+          "id": "5857",
+          "name": "Noah Fant",
+          "position": "TE",
+          "points": 9.2
+        },
+        {
+          "id": "1067",
+          "name": "Marvin Jones",
+          "position": "WR",
+          "points": 16.2
+        },
+        {
+          "id": "536",
+          "name": "Antonio Brown",
+          "position": "WR",
+          "points": 22.2
+        },
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF",
+          "points": 7
+        }
+      ],
+      "bench": [
+        {
+          "id": "4131",
+          "name": "Kenny Golladay",
+          "position": "WR",
+          "points": 8.4
+        },
+        {
+          "id": "5947",
+          "name": "Jakobi Meyers",
+          "position": "WR",
+          "points": 7.4
+        },
+        {
+          "id": "6130",
+          "name": "Devin Singletary",
+          "position": "RB",
+          "points": 7.5
+        },
+        {
+          "id": "6789",
+          "name": "Henry Ruggs",
+          "position": "WR",
+          "points": 5.6
+        },
+        {
+          "id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "points": 4.6
+        },
+        {
+          "id": "7593",
+          "name": "Trey Sermon",
+          "position": "RB",
+          "points": 0
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "teamId": 4,
+      "success": true,
+      "owner": "Dsylvester9",
+      "points": 167.36,
+      "starters": [
+        {
+          "id": "167",
+          "name": "Tom Brady",
+          "position": "QB",
+          "points": 27.16
+        },
+        {
+          "id": "4034",
+          "name": "Christian McCaffrey",
+          "position": "RB",
+          "points": 23.2
+        },
+        {
+          "id": "6820",
+          "name": "Clyde Edwards-Helaire",
+          "position": "RB",
+          "points": 8.7
+        },
+        {
+          "id": "4981",
+          "name": "Calvin Ridley",
+          "position": "WR",
+          "points": 7.6
+        },
+        {
+          "id": "2374",
+          "name": "Tyler Lockett",
+          "position": "WR",
+          "points": 25
+        },
+        {
+          "id": "5844",
+          "name": "T.J. Hockenson",
+          "position": "TE",
+          "points": 21.7
+        },
+        {
+          "id": "2309",
+          "name": "Amari Cooper",
+          "position": "WR",
+          "points": 32.4
+        },
+        {
+          "id": "5000",
+          "name": "Chase Edmonds",
+          "position": "RB",
+          "points": 12.6
+        },
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF",
+          "points": 9
+        }
+      ],
+      "bench": [
+        {
+          "id": "5347",
+          "name": "Nyheim Miller-Hines",
+          "position": "RB",
+          "points": 11.2
+        },
+        {
+          "id": "6886",
+          "name": "Chase Claypool",
+          "position": "WR",
+          "points": 8.5
+        },
+        {
+          "id": "6984",
+          "name": "Tony Jones",
+          "position": "RB",
+          "points": 5.8
+        },
+        {
+          "id": "7090",
+          "name": "Darnell Mooney",
+          "position": "WR",
+          "points": 5.1
+        },
+        {
+          "id": "7098",
+          "name": "Ty'Son Williams",
+          "position": "RB",
+          "points": 16.9
+        },
+        {
+          "id": "7610",
+          "name": "Trey Lance",
+          "position": "QB",
+          "points": 4.4
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "teamId": 5,
+      "success": true,
+      "owner": "Koble2323",
+      "points": 125.46,
+      "starters": [
+        {
+          "id": "5849",
+          "name": "Kyler Murray",
+          "position": "QB",
+          "points": 33.56
+        },
+        {
+          "id": "4035",
+          "name": "Alvin Kamara",
+          "position": "RB",
+          "points": 16.6
+        },
+        {
+          "id": "4018",
+          "name": "Joe Mixon",
+          "position": "RB",
+          "points": 23
+        },
+        {
+          "id": "3423",
+          "name": "Robbie Chosen",
+          "position": "WR",
+          "points": 13.2
+        },
+        {
+          "id": "947",
+          "name": "Julio Jones",
+          "position": "WR",
+          "points": 4.4
+        },
+        {
+          "id": "2251",
+          "name": "Logan Thomas",
+          "position": "TE",
+          "points": 10.5
+        },
+        {
+          "id": "5892",
+          "name": "David Montgomery",
+          "position": "RB",
+          "points": 19.3
+        },
+        {
+          "id": "5045",
+          "name": "Courtland Sutton",
+          "position": "WR",
+          "points": 1.9
+        },
+        {
+          "id": "NYG",
+          "name": "New York Giants",
+          "position": "DEF",
+          "points": 3
+        }
+      ],
+      "bench": [
+        {
+          "id": "1144",
+          "name": "Cole Beasley",
+          "position": "WR",
+          "points": 10
+        },
+        {
+          "id": "2391",
+          "name": "David Johnson",
+          "position": "RB",
+          "points": 10.3
+        },
+        {
+          "id": "3199",
+          "name": "Michael Thomas",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "4082",
+          "name": "Curtis Samuel",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "6904",
+          "name": "Jalen Hurts",
+          "position": "QB",
+          "points": 27.76
+        },
+        {
+          "id": "7601",
+          "name": "Rondale Moore",
+          "position": "WR",
+          "points": 8.8
+        },
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF",
+          "points": 3
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "teamId": 6,
+      "success": true,
+      "owner": "huppdawg80",
+      "points": 162.3,
+      "starters": [
+        {
+          "id": "4984",
+          "name": "Josh Allen",
+          "position": "QB",
+          "points": 16.2
+        },
+        {
+          "id": "4988",
+          "name": "Nick Chubb",
+          "position": "RB",
+          "points": 21.1
+        },
+        {
+          "id": "2431",
+          "name": "Mike Davis",
+          "position": "RB",
+          "points": 8.7
+        },
+        {
+          "id": "1426",
+          "name": "DeAndre Hopkins",
+          "position": "WR",
+          "points": 23.3
+        },
+        {
+          "id": "4039",
+          "name": "Cooper Kupp",
+          "position": "WR",
+          "points": 21.3
+        },
+        {
+          "id": "2505",
+          "name": "Darren Waller",
+          "position": "TE",
+          "points": 21.5
+        },
+        {
+          "id": "5872",
+          "name": "Deebo Samuel Sr.",
+          "position": "WR",
+          "points": 28.4
+        },
+        {
+          "id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "points": 13.8
+        },
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF",
+          "points": 8
+        }
+      ],
+      "bench": [
+        {
+          "id": "1049",
+          "name": "Ryan Tannehill",
+          "position": "QB",
+          "points": 14.18
+        },
+        {
+          "id": "4068",
+          "name": "Mike Williams",
+          "position": "WR",
+          "points": 18.2
+        },
+        {
+          "id": "4149",
+          "name": "Jamaal Williams",
+          "position": "RB",
+          "points": 21
+        },
+        {
+          "id": "5052",
+          "name": "Ronald Jones",
+          "position": "RB",
+          "points": -0.6
+        },
+        {
+          "id": "5880",
+          "name": "Parris Campbell",
+          "position": "WR",
+          "points": 2.9
+        },
+        {
+          "id": "6828",
+          "name": "AJ Dillon",
+          "position": "RB",
+          "points": 3.1
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "teamId": 7,
+      "success": true,
+      "owner": "tsteg",
+      "points": 105.14,
+      "starters": [
+        {
+          "id": "421",
+          "name": "Matthew Stafford",
+          "position": "QB",
+          "points": 24.34
+        },
+        {
+          "id": "6813",
+          "name": "Jonathan Taylor",
+          "position": "RB",
+          "points": 14.6
+        },
+        {
+          "id": "6955",
+          "name": "James Robinson",
+          "position": "RB",
+          "points": 5.9
+        },
+        {
+          "id": "2133",
+          "name": "Davante Adams",
+          "position": "WR",
+          "points": 8.1
+        },
+        {
+          "id": "5859",
+          "name": "A.J. Brown",
+          "position": "WR",
+          "points": 12.9
+        },
+        {
+          "id": "4217",
+          "name": "George Kittle",
+          "position": "TE",
+          "points": 9.8
+        },
+        {
+          "id": "4098",
+          "name": "Kareem Hunt",
+          "position": "RB",
+          "points": 15.6
+        },
+        {
+          "id": "6989",
+          "name": "Marquez Callaway",
+          "position": "WR",
+          "points": 1.9
+        },
+        {
+          "id": "CAR",
+          "name": "Carolina Panthers",
+          "position": "DEF",
+          "points": 12
+        }
+      ],
+      "bench": [
+        {
+          "id": "1825",
+          "name": "Jarvis Landry",
+          "position": "WR",
+          "points": 16.9
+        },
+        {
+          "id": "2583",
+          "name": "Tyrell Williams",
+          "position": "WR",
+          "points": 2.4
+        },
+        {
+          "id": "4036",
+          "name": "Corey Davis",
+          "position": "WR",
+          "points": 24.2
+        },
+        {
+          "id": "6845",
+          "name": "Zack Moss",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "points": 14.1
+        },
+        {
+          "id": "TB",
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF",
+          "points": -1
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "teamId": 8,
+      "success": true,
+      "owner": "yogurtslinger15",
+      "points": 101.92,
+      "starters": [
+        {
+          "id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "points": 13.38
+        },
+        {
+          "id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 9.2
+        },
+        {
+          "id": "6151",
+          "name": "Miles Sanders",
+          "position": "RB",
+          "points": 15.3
+        },
+        {
+          "id": "5846",
+          "name": "DK Metcalf",
+          "position": "WR",
+          "points": 14
+        },
+        {
+          "id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "points": 10.04
+        },
+        {
+          "id": "4602",
+          "name": "Robert Tonyan",
+          "position": "TE",
+          "points": 1.8
+        },
+        {
+          "id": "7525",
+          "name": "DeVonta Smith",
+          "position": "WR",
+          "points": 16.1
+        },
+        {
+          "id": "4951",
+          "name": "DJ Chark",
+          "position": "WR",
+          "points": 17.1
+        },
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF",
+          "points": 5
+        }
+      ],
+      "bench": [
+        {
+          "id": "2319",
+          "name": "DeVante Parker",
+          "position": "WR",
+          "points": 10.1
+        },
+        {
+          "id": "4892",
+          "name": "Baker Mayfield",
+          "position": "QB",
+          "points": 12.64
+        },
+        {
+          "id": "5131",
+          "name": "Justin Jackson",
+          "position": "RB",
+          "points": 1.2
+        },
+        {
+          "id": "515",
+          "name": "Rob Gronkowski",
+          "position": "TE",
+          "points": 25
+        },
+        {
+          "id": "5917",
+          "name": "Mecole Hardman Jr.",
+          "position": "WR",
+          "points": 3.4
+        },
+        {
+          "id": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "points": 19.4
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "teamId": 9,
+      "success": true,
+      "owner": "ckuhl5",
+      "points": 101.32,
+      "starters": [
+        {
+          "id": "96",
+          "name": "Aaron Rodgers",
+          "position": "QB",
+          "points": 1.32
+        },
+        {
+          "id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "points": 3.2
+        },
+        {
+          "id": "5916",
+          "name": "Darrell Henderson",
+          "position": "RB",
+          "points": 15.2
+        },
+        {
+          "id": "1689",
+          "name": "Adam Thielen",
+          "position": "WR",
+          "points": 25.7
+        },
+        {
+          "id": "1479",
+          "name": "Keenan Allen",
+          "position": "WR",
+          "points": 13.5
+        },
+        {
+          "id": "1466",
+          "name": "Travis Kelce",
+          "position": "TE",
+          "points": 22.6
+        },
+        {
+          "id": "7553",
+          "name": "Kyle Pitts Sr.",
+          "position": "TE",
+          "points": 5.1
+        },
+        {
+          "id": "5890",
+          "name": "Damien Harris",
+          "position": "RB",
+          "points": 10.7
+        },
+        {
+          "id": "BUF",
+          "name": "Buffalo Bills",
+          "position": "DEF",
+          "points": 4
+        }
+      ],
+      "bench": [
+        {
+          "id": "3157",
+          "name": "William Fuller",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "3209",
+          "name": "Devontae Booker",
+          "position": "RB",
+          "points": 1.8
+        },
+        {
+          "id": "3242",
+          "name": "Kenyan Drake",
+          "position": "RB",
+          "points": 9.5
+        },
+        {
+          "id": "5848",
+          "name": "Marquise Brown",
+          "position": "WR",
+          "points": 16.4
+        },
+        {
+          "id": "6819",
+          "name": "Michael Pittman Jr.",
+          "position": "WR",
+          "points": 4.4
+        },
+        {
+          "id": "7607",
+          "name": "Michael Carter",
+          "position": "RB",
+          "points": 2.5
+        },
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF",
+          "points": 0
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "teamId": 10,
+      "success": true,
+      "owner": "birchhh",
+      "points": 91.6,
+      "starters": [
+        {
+          "id": "4881",
+          "name": "Lamar Jackson",
+          "position": "QB",
+          "points": 17
+        },
+        {
+          "id": "3164",
+          "name": "Ezekiel Elliott",
+          "position": "RB",
+          "points": 4.9
+        },
+        {
+          "id": "5850",
+          "name": "Josh Jacobs",
+          "position": "RB",
+          "points": 16.5
+        },
+        {
+          "id": "2216",
+          "name": "Mike Evans",
+          "position": "WR",
+          "points": 3.9
+        },
+        {
+          "id": "5927",
+          "name": "Terry McLaurin",
+          "position": "WR",
+          "points": 8.2
+        },
+        {
+          "id": "5012",
+          "name": "Mark Andrews",
+          "position": "TE",
+          "points": 3.5
+        },
+        {
+          "id": "1352",
+          "name": "Robert Woods",
+          "position": "WR",
+          "points": 10.9
+        },
+        {
+          "id": "2197",
+          "name": "Brandin Cooks",
+          "position": "WR",
+          "points": 17.7
+        },
+        {
+          "id": "DEN",
+          "name": "Denver Broncos",
+          "position": "DEF",
+          "points": 9
+        }
+      ],
+      "bench": [
+        {
+          "id": "2168",
+          "name": "Devonta Freeman",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "4137",
+          "name": "James Conner",
+          "position": "RB",
+          "points": 5.3
+        },
+        {
+          "id": "5967",
+          "name": "Tony Pollard",
+          "position": "RB",
+          "points": 6.3
+        },
+        {
+          "id": "5980",
+          "name": "Myles Gaskin",
+          "position": "RB",
+          "points": 10.1
+        },
+        {
+          "id": "6770",
+          "name": "Joe Burrow",
+          "position": "QB",
+          "points": 18.64
+        },
+        {
+          "id": "6783",
+          "name": "Jerry Jeudy",
+          "position": "WR",
+          "points": 10.2
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    }
+  ]
+}
