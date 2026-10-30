@@ -1,0 +1,28 @@
+{
+  "version": "data-readiness-checkpoint-2026-10-30",
+  "categories": {
+    "waivers": {
+      "status": "observed_distinct_acquisitions_not_skill",
+      "distinct": 1472,
+      "repeats": 158,
+      "faabAmountsInYearlyAcquisitionFiles": false
+    },
+    "trades": {
+      "status": "provisional_observed_outcomes_only",
+      "sideRows": 101,
+      "verifiedNonprovisionalRows": 79,
+      "incompleteEvents": 4,
+      "limitation": "No certified pre-trade roster continuity/available replacements/keeper-adjusted causal WAR"
+    },
+    "lineups": {
+      "status": "research_only",
+      "year": 2025,
+      "starterWeeks": 14,
+      "benchWeeks": 2,
+      "missingBenchWeeks": 12,
+      "replacementReadyWeeks": 0,
+      "limitation": "Hindsight optimizer does not demonstrate kickoff-time legal choices or decision skill"
+    }
+  },
+  "policy": "Keep waiver and lineups N/A; trade outcomes provisional; preserve independent Legacy/Season OVR."
+}
