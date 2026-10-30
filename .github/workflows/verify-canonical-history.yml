@@ -165,7 +165,7 @@ jobs:
         run: |
           node --input-type=module -e '
             import fs from "node:fs";
-            for (const [engine,visits] of [["chromium",162],["webkit",81]]) {
+            for (const [engine,visits] of [["chromium",164],["webkit",82]]) {
               const file="data-integrity/browser-release-"+engine+".json";
               if(!fs.existsSync(file)) throw Error("Missing browser report: "+file);
               const report=JSON.parse(fs.readFileSync(file,"utf8"));
