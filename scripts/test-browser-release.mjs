@@ -195,29 +195,21 @@ try{
        errors.push(width+' '+route+' biography values disagree with canonical career record');
      }
     }
-    if(slug==='stover'){
+    const tabs=page.locator('[data-manager-profile-tabs] button[data-profile-tab]');
+    if(await tabs.count()!==4)errors.push(width+' '+slug+' missing simple four-tab navigation');
+    else{
      const quickLinks=page.locator('.profile-quick-grid a[data-profile-jump]');
-     if(await quickLinks.count()!==4)errors.push(width+' stover quick-start shortcuts missing');
+     if(await quickLinks.count()!==4)errors.push(width+' '+slug+' missing quick-start links');
      else{
       await quickLinks.nth(2).click();
-      if(await page.locator('[data-profile-tab="rivalries"]').getAttribute('aria-selected')!=='true'||!await page.locator('#head-to-head').isVisible())errors.push(width+' stover head-to-head shortcut failed');
+      if(await page.locator('[data-profile-tab="rivalries"]').getAttribute('aria-selected')!=='true'||!await page.locator('#head-to-head').isVisible())errors.push(width+' '+slug+' head-to-head quick-link failed');
      }
-     const tabs=page.locator('[data-manager-profile-tabs] button[data-profile-tab]');
-     if(await tabs.count()!==4)errors.push(width+' stover missing redesigned profile tabs');
-     else{
-      for(const category of ['overview','seasons','rivalries','advanced']){
-       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
-       await button.click();
-       if(await button.getAttribute('aria-selected')!=='true')errors.push(width+' stover '+category+' tab selection broken');
-       const sectionId={overview:'franchise-story',seasons:'season-history',rivalries:'head-to-head',advanced:'franchise-encyclopedia'}[category];
-       if(!await page.locator('#'+sectionId).isVisible())errors.push(width+' stover '+category+' tab content hidden');
-      }
-     }
-    }else{
-     const chapters=page.locator('nav.profile-chapters a[href^="#"]');
-     if(await chapters.count()!==7)errors.push(width+' '+slug+' missing chapter navigation');
-     else for(const href of await chapters.evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')))){
-      if(await page.locator(href).count()!==1)errors.push(width+' '+slug+' chapter target absent: '+href);
+     for(const category of ['overview','seasons','rivalries','advanced']){
+      const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
+      await button.click();
+      if(await button.getAttribute('aria-selected')!=='true')errors.push(width+' '+slug+' '+category+' tab did not activate');
+      const sectionId={overview:'franchise-story',seasons:'season-history',rivalries:'head-to-head',advanced:'franchise-encyclopedia'}[category];
+      if(!await page.locator('#'+sectionId).isVisible())errors.push(width+' '+slug+' '+category+' content hidden');
      }
     }
     const managerId=slug==='tom'?'Tom':slug==='jmid'?'JMid':slug[0].toUpperCase()+slug.slice(1);
