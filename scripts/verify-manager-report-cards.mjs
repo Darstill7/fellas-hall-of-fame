@@ -97,3 +97,18 @@ for(const row of rows){const d=scoutingProfile(row);if(!d.headline||!d.limitatio
 const reportPage=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
 if(!reportPage.includes("import {scoutingProfile}")||!reportPage.includes('Career scouting dossier'))throw Error('Scouting dossier integration missing');
 console.log('Evidence-limited manager scouting dossiers PASS');
+
+import {draftContext,tradeContext,managerDecisionSummary} from '../assets/manager-decision-context.mjs';
+const matchedDrafts=draftContext(read('v9_draft_engine.json'));
+const verifiedSides=tradeContext(read('v9_trade_engine.json'));
+if(matchedDrafts.some(x=>x.keeper||x.year>2025)||verifiedSides.some(x=>x.provisional||!String(x.confidence).startsWith('verified')))throw Error('Decision context leaked uncertified records');
+const synthetic=draftContext([{year:2023,round:3,position:'RB',manager:'Tom',surplus:20,keeper:false},{year:2023,round:3,position:'RB',manager:'Stew',surplus:10,keeper:false},{year:2023,round:3,position:'RB',manager:'Stilly',surplus:0,keeper:false}]);
+if(synthetic[0].peerAdjusted!==15||synthetic[0].canonicalManager!=='Thommy')throw Error('Draft peer comparisons or canonical alias failed');
+if(managerDecisionSummary('Thommy',synthetic,[]).avgPeerAdjusted!==15)throw Error('Manager cohort summary failed');
+for(const name of ['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott']){
+ const s=managerDecisionSummary(name,matchedDrafts,verifiedSides);
+ if(s.comparablePicks>s.picks||s.tradesWithStarts>s.verifiedTradeSides)throw Error('Decision context coverage invalid '+name);
+}
+const contextPage=fs.readFileSync('assets/manager-decision-audit.mjs','utf8');
+if(!contextPage.includes("from './manager-decision-context.mjs'")||!contextPage.includes('stats.avgPeerAdjusted'))throw Error('Matched draft/trade context not displayed');
+console.log('Within-cohort draft and verified trade context PASS');
