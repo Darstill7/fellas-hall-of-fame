@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Validate championship-first manager report cards.
 on:
   push:
     branches: [main]
