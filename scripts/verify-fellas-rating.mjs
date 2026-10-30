@@ -16,6 +16,7 @@ for(const [i,r] of rows.entries()){
 }
 const tom=rows.find(x=>x.name==='Thommy');
 if(tom.titleYears.join(',')!=='2016,2017,2018,2024')fail('Thommy championship evidence changed');
+if(tom.sevenYearTitles!==1)fail('Thommy must have exactly one championship in 2019–2025');
 const recency=.25+.75*Math.pow(.5,0/3.5),old=.25+.75*Math.pow(.5,9/3.5);
 if(!(old<recency&&old>.25))fail('Aging championship curve broken');
 if(!rows.find(x=>x.name==='Scott').titleYears.includes(2025))fail('2025 champion missing');
