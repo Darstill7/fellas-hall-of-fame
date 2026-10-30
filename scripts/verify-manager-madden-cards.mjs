@@ -26,3 +26,8 @@ for(const name of readable){if(!ui.includes(name)||!page.includes(name))throw Er
 if(!page.includes('What do the manager ratings mean?')||!page.includes('N/A — Not Available')||!ui.includes('labelHelp[k]'))throw Error('Accessible Madden rating guide or tooltips missing');
 if(ui.includes("const label={regular:'WIN'"))throw Error('Abbreviated attributes returned to Madden cards');
 console.log('MADDEN LABEL ACCESSIBILITY PASS: all nine attributes readable with mobile glossary');
+
+for(const id of ['compare-a','compare-b','duel-results'])if(!page.includes('id="'+id+'"'))throw Error('Missing head-to-head UI '+id);
+for(const phrase of ['Manager head-to-head','A missing grade never counts as a loss'])if(!page.includes(phrase))throw Error('Manager comparison disclosure missing: '+phrase);
+for(const needle of ["const compare=()=>","Number.isFinite(x)&&Number.isFinite(y)","$('compare-a').addEventListener('change',compare)","$('compare-b').addEventListener('change',compare)","compare();"])if(!ui.includes(needle))throw Error('Madden comparison interaction missing '+needle);
+console.log('MADDEN HEAD-TO-HEAD PASS: manager picker and evidence-safe grade comparisons');
