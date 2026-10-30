@@ -204,3 +204,9 @@ for(let year=2020;year<=2026;year++){
 const historicalLineupScript=fs.readFileSync('scripts/analyze-six-season-lineups.mjs','utf8');
 if(!historicalLineupScript.includes("rows.length!==830")||!historicalLineupScript.includes('Not ex-ante skill'))throw Error('Six-season lineup research must retain coverage and non-skill disclosure');
 console.log('Annual acquisition FAAB schema and historical lineup evidence guard PASS');
+
+const lineupPage=fs.readFileSync('analytics/manager-lineup-research.html','utf8');
+const lineupSource=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
+if(!lineupPage.includes('value="all"')||!lineupPage.includes('830 archived team-weeks')||!lineupSource.includes("years=selected==='all'?[2020,2021,2022,2023,2024,2025]")||!lineupSource.includes("dillionpanthers15:'Stover'"))throw Error('Six-season canonical manager lineup coverage missing');
+if(!lineupSource.includes("if(!name)throw Error('Unmapped historical owner"))throw Error('Historical manager mapping must fail closed');
+console.log('Six-season canonical manager lineup coverage UI PASS');
