@@ -58,7 +58,7 @@ try{
    for(const failed of failedRequests)errors.push(width+' '+route+' request error: '+failed);
    if(route==='analytics/power-ratings.html'){
     const cards=await page.locator('[data-rating-manager]').count();
-    if(cards!==10)errors.push(width+' power ratings failed to render 10 franchises: '+cards);
+    if(cards!==14)errors.push(width+' power ratings failed to render 14 managers: '+cards);
    }
    if(route.startsWith('rivalries/')){
     const text=await page.locator('body').innerText();
