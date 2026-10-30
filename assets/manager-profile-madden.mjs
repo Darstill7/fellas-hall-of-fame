@@ -1,4 +1,4 @@
-import {maddenOvr} from './manager-madden-scale.mjs';
+import {maddenOvr,seasonMaddenOvr} from './manager-madden-scale.mjs';
 import {historicalOvrHistory,singleSeasonOvrHistory} from './manager-historical-ovr.mjs';
 import {makeRatings} from './fellas-rating-model.mjs';
 import {earnedArchetypes} from './manager-madden-archetypes.mjs';
@@ -31,7 +31,7 @@ if(name){
   const seasonTable=seasons.map(s=>'<tr><th scope="row">'+s.year+'</th><td>'+maddenOvr(s.row.ovr).toFixed(1)+'</td><td>#'+s.row.rank+'</td><td>'+s.row.career+'</td></tr>').join('');
   const historicalPanel=seasons.length?'<details class="profile-madden-history"><summary>Legacy OVR through the years · '+seasons.length+' completed seasons</summary><p class="disclaimer">Retrospective career-to-date Legacy OVR uses only results verified through each season. These are reconstructed ratings, not ratings published at the time.</p><svg class="profile-madden-trend" role="img" aria-label="'+name+' historical year-end Madden OVR progression" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline fill="none" stroke="var(--accent)" stroke-width="3" vector-effect="non-scaling-stroke" points="'+historicTrace+'"/></svg><div style="overflow-x:auto"><table class="profile-historical-table"><thead><tr><th scope="col">Season</th><th scope="col">OVR</th><th scope="col">Rank</th><th scope="col">Career record through season</th></tr></thead><tbody>'+seasonTable+'</tbody></table></div></details>':'';
   const seasonal=singleSeasonOvrHistory({guide,careers,luck,playoffBrackets}).flatMap(s=>s.rows.filter(r=>r.name===name));
-  const rated=seasonal.map(s=>({...s,display:maddenOvr(s.score)}));
+  const rated=seasonal.map(s=>({...s,display:seasonMaddenOvr(s.score)}));
   const peakSeason=rated.slice().sort((a,b)=>b.score-a.score||a.year-b.year)[0];
   const lowSeason=rated.slice().sort((a,b)=>a.score-b.score||a.year-b.year)[0];
   const averageSeason=rated.length?(rated.reduce((sum,r)=>sum+r.display,0)/rated.length).toFixed(1):'N/A';
