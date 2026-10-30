@@ -86,6 +86,8 @@ try{
     }
     const seasonRows=page.locator('#season-ovr-leaderboard tbody tr');
     if(await seasonRows.count()<1)errors.push(width+' single-season OVR leaderboard did not render');
+    const allPlayHeader=await page.locator('#season-records thead').innerText();
+    if(!allPlayHeader.includes('All-play'))errors.push(width+' Season OVR records lack all-play evidence column');
     const bestRows=page.locator('#season-records tbody tr');
     if(await bestRows.count()!==20)errors.push(width+' best-season record book did not render 20 rows');
     await page.locator('#season-extreme').selectOption('worst');
