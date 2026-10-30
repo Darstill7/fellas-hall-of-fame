@@ -180,3 +180,9 @@ const sameWeek=JSON.parse(fs.readFileSync('data-integrity/ACQUISITION_SAME_WEEK_
 if(sameWeek.sameWeekRepeatGroups!==7||sameWeek.additionalSameWeekEventRows!==8||sameWeek.cases.some(x=>x.recordedEvents<2))throw Error('Same-week duplicate acquisition event coverage unexpected');
 console.log('Recorded pickup evidence deduplicated and not misrepresented as skill PASS');
 console.log('Same-week duplicate-acquisition event caveats PASS');
+
+const annualAcquisitions=JSON.parse(fs.readFileSync('data/manager_acquisition_by_season_v1.json','utf8'));
+if(annualAcquisitions.rows.length!==70||annualAcquisitions.rows.reduce((s,x)=>s+x.distinctPlayerAdds,0)!==1472||annualAcquisitions.rows.some(x=>x.withLaterRecordedStarts>x.distinctPlayerAdds))throw Error('Annual acquisition evidence coverage inconsistent');
+const annualUI=fs.readFileSync('assets/manager-annual-report-cards.mjs','utf8');
+if(!annualUI.includes('manager_acquisition_by_season_v1.json')||!annualUI.includes('Distinct recorded pickups'))throw Error('Annual report cards missing deduplicated acquisition evidence');
+console.log('Annual acquisition evidence and manager views PASS');
