@@ -4,14 +4,14 @@ export const WEIGHTS=Object.freeze({titles:30,finals:5,playoffs:10,regular:20,al
 const round=n=>Math.round((n+Number.EPSILON)*10)/10;
 const clamp=n=>Math.max(0,Math.min(1,n));
 const pct=(wins,ties,games,prior=14)=>clamp((wins+ties*.5+prior*.5)/(games+prior));
-export function makeRatings({guide,careers,luck,endings,playoffBrackets},names=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott','Koble','Halderman','Evans','Schermerhorn']){
- const asOf=Math.max(...Object.keys(guide).map(Number));
- const latestFinished=Math.max(...Object.entries(guide).filter(([,season])=>season.champion).map(([year])=>Number(year)));
+export function makeRatings({guide,careers,luck,endings,playoffBrackets,asOfYear=null},names=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott','Koble','Halderman','Evans','Schermerhorn']){
+ const asOf=asOfYear??Math.max(...Object.keys(guide).map(Number));
+ const latestFinished=Math.max(...Object.entries(guide).filter(([year,season])=>Number(year)<=asOf&&season.champion).map(([year])=>Number(year)));
  const luckBy=new Map(luck.ranked.map(x=>[x.manager,x]));
  const rows=names.map(name=>{
   const c=careers.managers[name],lk=luckBy.get(name);
   if(!c||!lk)throw Error('Missing canonical rating input: '+name);
-  const years=Object.keys(c.annual).map(Number).sort((a,b)=>a-b);
+  const years=Object.keys(c.annual).map(Number).filter(y=>y<=asOf).sort((a,b)=>a-b);
   const titleYears=Object.entries(guide).filter(([year,g])=>Number(year)<=latestFinished&&g.champion===name).map(([year])=>Number(year));
   const runnerYears=(endings.managers[name]||[]).filter(x=>x.year<=latestFinished&&/runner.up/i.test(x.ending)).map(x=>x.year);
   const decay=year=>.25+.75*Math.pow(.5,(latestFinished-year)/3.5);
@@ -22,7 +22,8 @@ export function makeRatings({guide,careers,luck,endings,playoffBrackets},names=[
   const runnerEquivalent=runnerYears.reduce((s,y)=>s+decay(y),0);
   const titlePoints=WEIGHTS.titles*(1-Math.exp(-titleEquivalent/1.7));
   const finalsPoints=WEIGHTS.finals*(1-Math.exp(-runnerEquivalent/1.2));
-  const regPoints=WEIGHTS.regular*pct(c.w,c.t,c.games);
+  const observed=years.reduce((x,year)=>{const v=c.annual[year];x.w+=v.w;x.l+=v.l;x.t+=v.t;x.games+=v.games;return x},{w:0,l:0,t:0,games:0});
+  const regPoints=WEIGHTS.regular*pct(observed.w,observed.t,observed.games);
   const allPoints=WEIGHTS.allPlay*clamp((lk.expectedWins+7)/(lk.games+14));
   const seasonRows=years.map(year=>{
    const v=c.annual[year], completeness=year===asOf?.5:1;
@@ -45,7 +46,7 @@ export function makeRatings({guide,careers,luck,endings,playoffBrackets},names=[
   const tenurePoints=WEIGHTS.tenure*(1-Math.exp(-seasons/5));
   const breakdown={titles:round(titlePoints),finals:round(finalsPoints),playoffs:round(playoffPoints),regular:round(regPoints),allPlay:round(allPoints),recent:round(recentPoints),peak:round(peakPoints),tenure:round(tenurePoints)};
   const score=round(titlePoints+finalsPoints+playoffPoints+regPoints+allPoints+recentPoints+peakPoints+tenurePoints);
-  return {name,score,rank:0,breakdown,career:`${c.w}–${c.l}${c.t?'–'+c.t:''}`,titleYears,sevenYearTitles:titleYears.filter(y=>y>=latestFinished-6).length,runnerYears,qualifiedYears,tenure:seasons,form:round(form*100),effectiveTitles:round(titleEquivalent),historical:!['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'].includes(name),provisional2026:true};
+  return {name,score,rank:0,breakdown,career:`${observed.w}–${observed.l}${observed.t?'–'+observed.t:''}`,titleYears,sevenYearTitles:titleYears.filter(y=>y>=latestFinished-6).length,runnerYears,qualifiedYears,tenure:seasons,form:round(form*100),effectiveTitles:round(titleEquivalent),historical:!['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'].includes(name),provisional2026:true};
  });
  rows.sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
  rows.forEach((x,i)=>{x.rank=i+1});
