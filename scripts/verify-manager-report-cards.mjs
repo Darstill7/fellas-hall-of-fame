@@ -52,3 +52,9 @@ if(LAST_COMPLETED_SEASON!==2025||HALF_LIFE!==3.5)throw Error('Scoring vintage ch
 const page=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
 if(!page.includes("const shown=managerQuery?rows.filter")||!page.includes('Scouting read:'))throw Error('Scouting summary or deep-link filtering missing');
 console.log('Championship aging and evidence-gated scouting PASS');
+
+const comparisonMarkup=fs.readFileSync('analytics/manager-report-cards.html','utf8');
+const comparisonScript=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
+for(const id of ['compare-a','compare-b','compare-go','comparison'])if(!comparisonMarkup.includes('id="'+id+'"'))throw Error('Missing report-card comparison control: '+id);
+for(const guard of ["a.name===b.name","v===null?'N/A'","searchParams.set('a'","searchParams.set('b'","drawComparison()"])if(!comparisonScript.includes(guard))throw Error('Missing comparison invariant: '+guard);
+console.log('Report card manager comparisons PASS');
