@@ -12,7 +12,7 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const lead=story?.querySelector('p.lead');
  if(lead){
   const longCopy=lead.cloneNode(true);
-  const brief=lead.textContent.trim().split(/(?<=[.!?])\\s+/)[0];
+  const brief=lead.textContent.trim().split(/(?<=[.!?])\s+/)[0];
   lead.textContent=brief.length<175?brief:brief.slice(0,172)+'…';
   const details=document.createElement('details');
   details.className='story-detail';
