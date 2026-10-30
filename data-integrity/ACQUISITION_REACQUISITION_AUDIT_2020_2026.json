@@ -1,0 +1,8841 @@
+{
+  "sourceRows": 1630,
+  "uniqueSeasonManagerPlayerKeys": 1472,
+  "reacquisitionRows": 158,
+  "rowsWithPossibleOverlappingStarts": 114,
+  "warning": "Original subsequent-start totals overlap after reacquisitions. Do not use summed starter points as credited pickup value. Exclusive attribution needs week-level starter joins and ownership continuity.",
+  "uniquePlayerSeasonManagerRecords": [
+    {
+      "key": "2020|Koble|3423",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Stew|232",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Stew|5347",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Mitch|5100",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Stilly|2588",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Stilly|7045",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Stew|ARI",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Kuhl|5022",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Thommy|6156",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Thommy|5880",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Stilly|4454",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Stew|PHI",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Tony|6955",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Thommy|147",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Tony|2168",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Thommy|6870",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Stilly|1502",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Stover|IND",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Stilly|PHI",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2020|Koble|2168",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Thommy|6819",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Stew|1049",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Mitch|5916",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Mitch|6011",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Tony|2431",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Koble|LAC",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Mitch|NE",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Mitch|6290",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Tony|5980",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Birch|LAR",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Koble|1817",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Tony|3594",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Stew|5844",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Evans|5110",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2020|Tony|5284",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Evans|6794",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Thommy|DEN",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Thommy|4187",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Thommy|2257",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Stew|333",
+      "additions": 2,
+      "firstWeek": 3,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Mitch|DAL",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Stilly|5086",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Stilly|5170",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Stew|LAR",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Stover|4993",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Stew|1500",
+      "additions": 3,
+      "firstWeek": 3,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Stew|4993",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Tony|5001",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Evans|4622",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Birch|CLE",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Stilly|788",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2020|Stover|6803",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Stover|ARI",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Koble|4602",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 13
+    },
+    {
+      "key": "2020|Tony|5170",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Stew|1166",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Mitch|KC",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Kuhl|NE",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Evans|4054",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Birch|5878",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Evans|5026",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Stew|5110",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Stilly|6789",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Birch|IND",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Birch|TEN",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Kuhl|ARI",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Evans|928",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Thommy|642",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Kuhl|4319",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Thommy|616",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Mitch|6744",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Koble|6803",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Koble|5844",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Evans|NO",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Evans|ARI",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Stilly|5955",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Koble|184",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Tony|6801",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Stover|1387",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Stover|SEA",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Koble|1144",
+      "additions": 4,
+      "firstWeek": 4,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Koble|5955",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Mitch|3163",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Kuhl|1817",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Stew|6290",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Stew|1817",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2020|Kuhl|232",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Mitch|6797",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Kuhl|829",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Evans|MIA",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Evans|616",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Stew|4068",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Stew|6886",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Stilly|6059",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Koble|1049",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Koble|3634",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Evans|5131",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Koble|367",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Tony|6271",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Kuhl|DAL",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Birch|6814",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Thommy|1166",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Thommy|HOU",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Thommy|NO",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Thommy|5844",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Stew|2152",
+      "additions": 3,
+      "firstWeek": 5,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Kuhl|6694",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2020|Tony|4973",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Stew|830",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Stover|BUF",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Birch|5122",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Mitch|4149",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Stilly|6770",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Evans|515",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Birch|2118",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Stew|24",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Koble|5857",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Stilly|1144",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Birch|5917",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Tony|CLE",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Tony|6908",
+      "additions": 2,
+      "firstWeek": 6,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Thommy|WAS",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Stover|NYG",
+      "additions": 3,
+      "firstWeek": 6,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Stover|3664",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Koble|2118",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Birch|6011",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Evans|167",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2020|Thommy|TEN",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Evans|6803",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Birch|96",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Stilly|6996",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Mitch|2378",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Evans|IND",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Kuhl|3969",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Stover|5026",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Kuhl|367",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Kuhl|538",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Stilly|5131",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Stew|1386",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Evans|4036",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Birch|DAL",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Stilly|NO",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Koble|LAR",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Kuhl|3202",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Koble|NO",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Evans|5086",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Stew|536",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Stilly|SEA",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Kuhl|289",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Evans|LAC",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2020|Tony|5100",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Thommy|4455",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Stew|HOU",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Mitch|6783",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Stew|367",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Mitch|2238",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Birch|LAC",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Stover|4150",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Koble|6845",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Stilly|4036",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Mitch|4144",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Evans|2588",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Tony|6290",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Tony|3161",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Kuhl|1825",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Kuhl|5248",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Kuhl|2257",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2020|Koble|4082",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Evans|2382",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Mitch|NO",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Kuhl|3664",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Stilly|GB",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Stilly|2118",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Tony|6311",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Birch|1817",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Kuhl|3306",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Evans|5967",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Evans|1817",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Stew|3280",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Tony|7045",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Stilly|ATL",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Koble|6770",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2020|Mitch|CLE",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Thommy|954",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Stew|4994",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Stover|MIN",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Kuhl|5347",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Birch|956",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Stilly|6931",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Koble|4351",
+      "additions": 3,
+      "firstWeek": 10,
+      "lastWeek": 13
+    },
+    {
+      "key": "2020|Koble|4150",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Tony|3934",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Kuhl|2238",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Stover|538",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Stilly|5947",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Koble|616",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Stew|MIA",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Tony|3202",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Stew|3163",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2020|Koble|2028",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Stover|5248",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Mitch|6819",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Kuhl|NO",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Koble|6768",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Stew|2118",
+      "additions": 2,
+      "firstWeek": 11,
+      "lastWeek": 13
+    },
+    {
+      "key": "2020|Stilly|1848",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Evans|6789",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Stover|4381",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Stilly|6908",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Koble|1387",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Stilly|184",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Stover|6819",
+      "additions": 2,
+      "firstWeek": 11,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Koble|2331",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Koble|5001",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Tony|6918",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Tony|KC",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2020|Mitch|BUF",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Mitch|1110",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Kuhl|167",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Birch|5007",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Stew|6798",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Stew|6845",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Stilly|7210",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Birch|6039",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Evans|5100",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Stilly|6156",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Stilly|5870",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Koble|1386",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Koble|289",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Evans|4187",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Tony|4147",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Tony|5967",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Stilly|2257",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Stilly|232",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2020|Thommy|LV",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2020|Evans|1386",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2020|Tony|6783",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2020|Stilly|421",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2020|Tony|6938",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2020|Tony|3209",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2020|Koble|1166",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2020|Tony|2251",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2020|Mitch|6845",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2020|Thommy|NE",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2020|Koble|6904",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2020|Stover|SF",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2020|Stew|4381",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Thommy|7561",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Tony|956",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stilly|PIT",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Evans|7002",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Mitch|4319",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Koble|1144",
+      "additions": 4,
+      "firstWeek": 1,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Koble|2391",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Koble|NYG",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Evans|5110",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stew|6984",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Birch|2168",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stover|5131",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stilly|1476",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stew|7098",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stilly|2378",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Koble|1408",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Tony|CAR",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Evans|4054",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stover|4892",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stover|138",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Koble|PIT",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Tony|2583",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Tony|5122",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Tony|3214",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stover|MIN",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Kuhl|CLE",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Evans|4962",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Koble|1476",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Koble|5170",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stilly|NO",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stilly|CAR",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Tony|6989",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Stilly|2325",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Koble|3200",
+      "additions": 3,
+      "firstWeek": 1,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Tony|2410",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2021|Kuhl|4962",
+      "additions": 2,
+      "firstWeek": 2,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Stew|538",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Koble|7607",
+      "additions": 2,
+      "firstWeek": 2,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Tony|6845",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Mitch|1848",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Tony|5987",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Evans|CAR",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Birch|6984",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Stover|CHI",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Tony|GB",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Tony|7574",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Tony|367",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Stew|ARI",
+      "additions": 2,
+      "firstWeek": 2,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Mitch|4950",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Koble|NO",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Evans|2325",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2021|Mitch|TEN",
+      "additions": 2,
+      "firstWeek": 3,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Birch|7594",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2021|Evans|3423",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2021|Evans|5906",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2021|Koble|3157",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2021|Thommy|5086",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2021|Evans|6895",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2021|Tony|1535",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2021|Stover|LV",
+      "additions": 2,
+      "firstWeek": 3,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Evans|1706",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2021|Tony|7608",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Koble|1833",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Evans|NE",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Stover|6814",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Birch|WAS",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Evans|7496",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Mitch|3664",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Stover|7567",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Thommy|MIA",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Koble|4950",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Tony|1166",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Evans|DAL",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Stew|GB",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Stover|CIN",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Evans|5046",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2021|Kuhl|5549",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Stew|3209",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Thommy|7606",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Evans|5955",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Evans|GB",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Stilly|4943",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Koble|6789",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Thommy|DAL",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Koble|2410",
+      "additions": 4,
+      "firstWeek": 5,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Stew|3327",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Tony|4147",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Kuhl|LAC",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Mitch|LV",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Koble|5001",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2021|Kuhl|BAL",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Thommy|1049",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Thommy|NYG",
+      "additions": 2,
+      "firstWeek": 6,
+      "lastWeek": 12
+    },
+    {
+      "key": "2021|Evans|4985",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Stilly|6694",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Mitch|24",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Stilly|830",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Stew|3200",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Mitch|2161",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Stover|4066",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Evans|6803",
+      "additions": 2,
+      "firstWeek": 6,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Stilly|NE",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Evans|7593",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Stew|1339",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Mitch|1386",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Mitch|JAX",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Tony|5024",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Kuhl|7601",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Koble|3214",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2021|Stilly|956",
+      "additions": 2,
+      "firstWeek": 6,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Koble|LAC",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Stilly|1166",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Mitch|5133",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Mitch|6130",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Evans|5122",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 12
+    },
+    {
+      "key": "2021|Evans|5185",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Evans|CIN",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Evans|6931",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Evans|4950",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Mitch|5985",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Stew|6989",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Stilly|7090",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Stover|GB",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Evans|6149",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Koble|2168",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Thommy|3423",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Evans|IND",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Stover|5955",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Stover|ATL",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Mitch|4152",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Koble|7547",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Stover|CLE",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Stover|2028",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Tony|3242",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Tony|4531",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Mitch|7609",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2021|Thommy|7600",
+      "additions": 2,
+      "firstWeek": 8,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Stover|1408",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Stover|4219",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Stilly|2319",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Evans|1144",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Koble|184",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Stover|3214",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Birch|4531",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Thommy|PHI",
+      "additions": 2,
+      "firstWeek": 8,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Kuhl|830",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Koble|956",
+      "additions": 2,
+      "firstWeek": 8,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Stilly|928",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Tony|7606",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Stover|SEA",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Evans|3161",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2021|Koble|830",
+      "additions": 5,
+      "firstWeek": 8,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Koble|4351",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Stover|2168",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Mitch|1034",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Thommy|5038",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Thommy|CLE",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Birch|MIA",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Kuhl|6989",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Stover|3306",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Tony|5284",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Koble|1234",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Thommy|LAC",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Stew|5870",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Stew|6768",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Stover|7601",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Stew|7571",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Tony|6804",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Birch|CAR",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Stover|KC",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Stover|5110",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Stover|7571",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Koble|6853",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Stew|1476",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Koble|7090",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Koble|5038",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Koble|2257",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Mitch|6753",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Mitch|BAL",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Koble|MIN",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Koble|6870",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Tony|DAL",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2021|Thommy|3202",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Kuhl|7611",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Birch|7596",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Evans|PHI",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Stew|4111",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Mitch|6853",
+      "additions": 2,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Mitch|3327",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Koble|TEN",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Stover|DAL",
+      "additions": 2,
+      "firstWeek": 10,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Mitch|6870",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Birch|DEN",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Mitch|7596",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Stew|1408",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Tony|6824",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Tony|6951",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Stilly|4036",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Koble|3242",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2021|Koble|CHI",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Kuhl|7527",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Stover|5113",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Evans|954",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Mitch|1110",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Mitch|2391",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Mitch|5347",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Stilly|6931",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Koble|2319",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Stilly|6984",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Thommy|6039",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Stilly|3327",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Evans|1992",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Kuhl|7591",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Stover|LAC",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Stilly|3242",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Tony|6904",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Mitch|5917",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2021|Tony|4149",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2021|Evans|4455",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2021|Stilly|7606",
+      "additions": 2,
+      "firstWeek": 12,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Stilly|4454",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2021|Tony|7594",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2021|Koble|5536",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2021|Tony|6853",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2021|Thommy|CIN",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2021|Stilly|5170",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2021|Tony|HOU",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2021|Kuhl|7496",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Evans|5086",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Stover|DEN",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Evans|SEA",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Stilly|KC",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Stilly|184",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Evans|1387",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Thommy|3242",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Stilly|6814",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Stew|6951",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Stew|7601",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Stew|3664",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Tony|3225",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Mitch|2251",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2021|Stover|4985",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Evans|1837",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Birch|3200",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Birch|4171",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Stilly|6081",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Thommy|6824",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Evans|7599",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Kuhl|NO",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Stew|560",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Stew|4034",
+      "additions": 3,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Evans|3327",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Mitch|367",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Mitch|5284",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Evans|6421",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Mitch|5026",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Mitch|6996",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2021|Koble|GB",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Koble|PIT",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Koble|4082",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Stew|5284",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Stilly|421",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Tony|6847",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Evans|4089",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Evans|4149",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Kuhl|5185",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Tony|1817",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Mitch|830",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Evans|6843",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Thommy|4602",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Evans|3202",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Tony|8228",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Stover|8126",
+      "additions": 3,
+      "firstWeek": 1,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Koble|WAS",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Thommy|7610",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Tony|TEN",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Stilly|DAL",
+      "additions": 3,
+      "firstWeek": 1,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Stilly|8148",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Stilly|NE",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Mitch|CIN",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Birch|4080",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Stilly|TEN",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Mitch|1387",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Koble|2431",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2022|Stilly|7525",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Evans|3163",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Stew|6126",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Stew|8146",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Stover|PHI",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Mitch|2374",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Mitch|1837",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Thommy|8135",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Koble|1166",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Birch|956",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Mitch|5880",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Stilly|7600",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Stilly|IND",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Stilly|8205",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Tony|4381",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Tony|3423",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Koble|3271",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Stew|8136",
+      "additions": 2,
+      "firstWeek": 2,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Stover|5536",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Stover|CLE",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Mitch|7670",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Stilly|2028",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2022|Stew|ARI",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Tony|4080",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Stew|4149",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Evans|8121",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Evans|7523",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Tony|2325",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Mitch|2028",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Stilly|5970",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Birch|6768",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Tony|8139",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Thommy|NYG",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Kuhl|7045",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Thommy|5906",
+      "additions": 3,
+      "firstWeek": 3,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Stilly|5549",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Tony|CHI",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2022|Koble|1476",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Koble|5209",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Koble|8132",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Stew|4197",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Kuhl|JAX",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Stilly|7741",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Stew|4602",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Stew|DEN",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Thommy|4089",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Stilly|3163",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Thommy|MIA",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Thommy|6847",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Stilly|2307",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Koble|7670",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Tony|5955",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Tony|7594",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Tony|3161",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Evans|MIN",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2022|Kuhl|4033",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Tony|8151",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Stew|6931",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Mitch|8142",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Stilly|1373",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Evans|1166",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Evans|4381",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Thommy|CLE",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Tony|4171",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Tony|5133",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Tony|4033",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Mitch|5170",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Tony|5038",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2022|Kuhl|2028",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Evans|24",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Thommy|DEN",
+      "additions": 2,
+      "firstWeek": 6,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Stew|6886",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Stew|2307",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Stover|7551",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Stover|5086",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Stilly|4602",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Thommy|5916",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Thommy|8228",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Stover|MIN",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Birch|CHI",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Koble|3294",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Stilly|7670",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Evans|NE",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Thommy|6126",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Stew|6951",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Tony|4973",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Tony|5947",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2022|Koble|7608",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Tony|SEA",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Stew|8132",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Stover|7600",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Stover|5870",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Evans|5880",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Evans|7583",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Birch|5248",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Kuhl|IND",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Kuhl|4973",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Stover|8205",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Koble|NYJ",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Stilly|5086",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Stilly|2078",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Stilly|4033",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Mitch|8131",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Stew|4111",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Tony|2078",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Tony|MIA",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Stover|LV",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Stew|7523",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Tony|NYJ",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2022|Koble|8150",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Kuhl|3286",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Thommy|MIN",
+      "additions": 2,
+      "firstWeek": 8,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Mitch|7551",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Birch|4602",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Mitch|3242",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Stover|8121",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Stover|6847",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Evans|7591",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Stilly|4993",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Evans|5955",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Stilly|4089",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Stilly|KC",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Thommy|7606",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Tony|8146",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Kuhl|MIA",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Mitch|ATL",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Mitch|MIN",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Mitch|4171",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Stilly|6126",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2022|Stew|TEN",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Koble|4033",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Kuhl|DAL",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Mitch|5870",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Mitch|NYG",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Mitch|8172",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Stover|8142",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Stilly|5917",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Birch|3634",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Birch|NE",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Tony|6938",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Birch|4171",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Birch|2750",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Tony|2307",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Stilly|4080",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Evans|7670",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Tony|8195",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Thommy|167",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Stilly|6845",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Tony|4066",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Evans|5086",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2022|Kuhl|5987",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Stew|7757",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Stew|5880",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Thommy|8167",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Mitch|3271",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Evans|6853",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Stilly|6826",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Stilly|1837",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Koble|4017",
+      "additions": 2,
+      "firstWeek": 10,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Stilly|8119",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Stew|5248",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Kuhl|NE",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Tony|7523",
+      "additions": 2,
+      "firstWeek": 10,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Thommy|5985",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Stover|5038",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Birch|7594",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Tony|ARI",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Tony|5916",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Tony|ATL",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Thommy|NO",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Stilly|DEN",
+      "additions": 2,
+      "firstWeek": 10,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Stilly|8137",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2022|Stilly|8150",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Tony|7002",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Mitch|TB",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Mitch|1476",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Evans|MIA",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Stover|8135",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Koble|MIN",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Stew|5906",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Koble|8172",
+      "additions": 3,
+      "firstWeek": 11,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Koble|7002",
+      "additions": 2,
+      "firstWeek": 11,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Koble|6828",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Kuhl|8189",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Tony|1234",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Koble|8205",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Tony|CIN",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Stew|4066",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Stew|8205",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2022|Koble|6996",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Stew|6824",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Tony|WAS",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Stew|2320",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Stilly|MIN",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Evans|2307",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Thommy|4973",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Thommy|6828",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Kuhl|2161",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Koble|SEA",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Tony|CAR",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Tony|IND",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Koble|4147",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2022|Koble|SF",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Stew|8138",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Stew|8119",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Stew|4033",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Koble|4381",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Koble|8122",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Stilly|8228",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Birch|6149",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Birch|PIT",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Stew|6156",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Mitch|CLE",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Tony|5985",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Stilly|GB",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2022|Koble|4066",
+      "additions": 2,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Mitch|4951",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Mitch|1110",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Tony|6012",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Stover|4080",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Mitch|4455",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Thommy|LV",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Tony|3271",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2022|Tony|6931",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Mitch|6845",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Koble|5849",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 7
+    },
+    {
+      "key": "2023|Kuhl|CLE",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Kuhl|8676",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Kuhl|8150",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Stew|9493",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Stew|7045",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|JMid|5995",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Stilly|5248",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Stilly|4973",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Thommy|NYG",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Thommy|8131",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 11
+    },
+    {
+      "key": "2023|Stew|4089",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Stew|9226",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Koble|3271",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Mitch|9220",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Tony|ATL",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|JMid|8172",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Stew|4098",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Kuhl|6130",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Stilly|7551",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2023|Koble|10859",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Stew|KC",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Stew|1166",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Thommy|NE",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Thommy|8143",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Stover|4098",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|JMid|4171",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Stover|7569",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Koble|7594",
+      "additions": 3,
+      "firstWeek": 2,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|Thommy|6824",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Thommy|7606",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Kuhl|9225",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|JMid|1535",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Stover|8135",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Stover|DEN",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Stover|TB",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Tony|IND",
+      "additions": 2,
+      "firstWeek": 2,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Thommy|10235",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Koble|5947",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Stew|9506",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2023|Koble|6826",
+      "additions": 2,
+      "firstWeek": 2,
+      "lastWeek": 5
+    },
+    {
+      "key": "2023|Thommy|7045",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Kuhl|5284",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Koble|7561",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Koble|3164",
+      "additions": 2,
+      "firstWeek": 3,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Kuhl|1689",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Thommy|9502",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Thommy|DEN",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Mitch|9500",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Mitch|7670",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Thommy|9757",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|JMid|2161",
+      "additions": 2,
+      "firstWeek": 3,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Birch|4080",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|JMid|6984",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Stover|4455",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Stover|6984",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Tony|BAL",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Mitch|JAX",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Koble|7562",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Stover|SEA",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2023|Koble|DET",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Thommy|11439",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Thommy|3163",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Mitch|9758",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Kuhl|BAL",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Stilly|8110",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Kuhl|2197",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|JMid|7608",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Thommy|1373",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|JMid|9494",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Koble|IND",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Tony|CIN",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Stew|3214",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Stew|WAS",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Stover|PIT",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2023|Koble|10235",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2023|Mitch|11199",
+      "additions": 2,
+      "firstWeek": 5,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Thommy|7066",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2023|Thommy|ATL",
+      "additions": 2,
+      "firstWeek": 5,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Tony|3225",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2023|Stover|NYJ",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2023|Koble|4147",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2023|Stover|CIN",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2023|Tony|MIA",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2023|JMid|NE",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2023|Stew|8126",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|Stew|7561",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|Mitch|5046",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|Birch|8183",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|JMid|6828",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|Kuhl|9222",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|Koble|JAX",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|JMid|8132",
+      "additions": 2,
+      "firstWeek": 6,
+      "lastWeek": 7
+    },
+    {
+      "key": "2023|Stew|5995",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|JMid|6918",
+      "additions": 2,
+      "firstWeek": 6,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Stover|LV",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|Stew|2251",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|Stilly|8221",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|Tony|4082",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|JMid|1339",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|Thommy|421",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|JMid|4111",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|JMid|1373",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2023|Stilly|MIA",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2023|JMid|5916",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2023|Thommy|8408",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2023|Koble|4144",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2023|Stilly|4033",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2023|Thommy|TB",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Thommy|1476",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Tony|CLE",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2023|Koble|2251",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Koble|10222",
+      "additions": 2,
+      "firstWeek": 8,
+      "lastWeek": 11
+    },
+    {
+      "key": "2023|Thommy|9999",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Thommy|8132",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Thommy|LAC",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|JMid|IND",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Koble|4171",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Koble|CLE",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Thommy|DET",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Stover|ATL",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|JMid|NYJ",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Tony|4454",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Stew|4381",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Tony|SEA",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2023|Mitch|4144",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Mitch|2197",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Stover|8126",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Birch|8221",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Koble|6130",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Thommy|4017",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Tony|NYG",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Stew|NE",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Stew|9501",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Stew|4892",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Thommy|8676",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Thommy|5870",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|JMid|6826",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Tony|8110",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Kuhl|8162",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 11
+    },
+    {
+      "key": "2023|Kuhl|8130",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Mitch|PIT",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2023|Koble|2197",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Koble|4234",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|JMid|9511",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Thommy|WAS",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Kuhl|DET",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Mitch|2251",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Kuhl|6598",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Mitch|4082",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Mitch|10444",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Mitch|6598",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Mitch|6130",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|JMid|4179",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Tony|6151",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Thommy|7601",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Koble|8119",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Stew|9758",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2023|Thommy|CIN",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2023|Stew|4111",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2023|Birch|5046",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2023|Stew|8119",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2023|Stew|6826",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2023|Stew|7021",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2023|Birch|1476",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2023|Stover|LAC",
+      "additions": 2,
+      "firstWeek": 11,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Tony|JAX",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2023|Koble|NO",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Kuhl|TB",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|JMid|4082",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|JMid|6945",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Stover|4147",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Stilly|6804",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Thommy|5022",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Thommy|1234",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Stover|1352",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Stover|7523",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Stover|TEN",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Tony|NE",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Koble|8230",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|JMid|9753",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2023|Stilly|9502",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Koble|HOU",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Stover|7608",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Birch|3271",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Thommy|8130",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Thommy|8111",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Birch|LAR",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Stilly|1373",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Tony|4892",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2023|Mitch|CLE",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Mitch|8210",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Mitch|421",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Mitch|8162",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Thommy|4098",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Stilly|BUF",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Stilly|DEN",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Stilly|7045",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|JMid|6820",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Stover|NO",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Stover|6783",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Kuhl|10235",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Kuhl|2505",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Thommy|GB",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Tony|5947",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Mitch|4089",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2023|Kuhl|6804",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Kuhl|5185",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Thommy|2197",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Thommy|PIT",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Stew|8676",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Mitch|3286",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|JMid|5987",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Thommy|8131",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Stilly|11650",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Tony|SEA",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Stew|11439",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Stew|8408",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Thommy|NO",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Mitch|11435",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Mitch|11582",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2024|Stew|10226",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|Stew|11576",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|Thommy|TB",
+      "additions": 2,
+      "firstWeek": 2,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Thommy|4098",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|Stilly|11582",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|Scott|7049",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|Scott|8119",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|Tony|3163",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|Stilly|5995",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|Mitch|HOU",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|Birch|6943",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|JMid|6865",
+      "additions": 2,
+      "firstWeek": 2,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Stover|JAX",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|JMid|LAC",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2024|Birch|KC",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Birch|7090",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Stew|8110",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Stilly|5857",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Thommy|DAL",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Mitch|MIA",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Mitch|7594",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Birch|CIN",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Scott|6938",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Stover|LV",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Mitch|BUF",
+      "additions": 2,
+      "firstWeek": 3,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Mitch|4147",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|JMid|3214",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Tony|2028",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Kuhl|6960",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2024|Kuhl|7593",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Thommy|8126",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Thommy|DEN",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Stover|1373",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Stover|4950",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Stover|5995",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Mitch|7591",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Stover|5032",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Stew|11626",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|JMid|6826",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|JMid|TEN",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Tony|CHI",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Tony|PIT",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Thommy|11643",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Stew|10235",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Mitch|8167",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Kuhl|9754",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|JMid|11584",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2024|Kuhl|3163",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|JMid|9500",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|JMid|9225",
+      "additions": 2,
+      "firstWeek": 5,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Mitch|PIT",
+      "additions": 2,
+      "firstWeek": 5,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Stilly|LAC",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|Stover|11655",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|Tony|4663",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|JMid|7049",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|Mitch|5947",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|Tony|6945",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|JMid|MIN",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|Stilly|9484",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|Stilly|WAS",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|Stew|SEA",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|Scott|9486",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|Tony|7588",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2024|Kuhl|9506",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Stew|4040",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Stew|5096",
+      "additions": 2,
+      "firstWeek": 6,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Mitch|4892",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Thommy|CIN",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Thommy|4033",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Scott|8167",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Birch|6149",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Birch|6945",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Stilly|11584",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Scott|11635",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Stover|TB",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|JMid|BUF",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Mitch|8142",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Birch|ATL",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Kuhl|HOU",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Stew|8117",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2024|Stew|PHI",
+      "additions": 2,
+      "firstWeek": 6,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Stew|9508",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Thommy|KC",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Thommy|8121",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Stover|7049",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|JMid|DEN",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Stilly|3163",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Kuhl|4033",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Mitch|8207",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Thommy|6820",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Thommy|8129",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Tony|JAX",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Tony|8230",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Scott|LAR",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Stilly|11651",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Mitch|6694",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|JMid|9501",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Kuhl|MIN",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Stover|NO",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2024|Scott|421",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|Mitch|NO",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|Thommy|11637",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|Scott|10444",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|Thommy|11638",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|Thommy|8132",
+      "additions": 2,
+      "firstWeek": 8,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Birch|NYJ",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|Stover|HOU",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|Stew|5987",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|Tony|GB",
+      "additions": 2,
+      "firstWeek": 8,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Mitch|3200",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|JMid|11618",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|JMid|8111",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|Stew|DET",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2024|Kuhl|4144",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2024|Scott|4993",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2024|JMid|7608",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2024|Scott|4943",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2024|Thommy|96",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2024|JMid|1479",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2024|JMid|CIN",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2024|Mitch|9508",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2024|Scott|PHI",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2024|Stew|WAS",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Tony|TEN",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2024|Tony|4981",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2024|Mitch|DET",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Thommy|HOU",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Birch|5086",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Stew|GB",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Stilly|MIA",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Stew|4234",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Stover|ATL",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Stew|3286",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Mitch|4663",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Scott|9754",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Mitch|6797",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Tony|6768",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Tony|NYG",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Tony|3214",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Stew|CHI",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Thommy|9501",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Mitch|11638",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2024|Scott|1339",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Thommy|1689",
+      "additions": 2,
+      "firstWeek": 11,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Stover|9501",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Stover|KC",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Scott|11563",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|JMid|7496",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|JMid|4892",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Mitch|5010",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Scott|5906",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Stover|CLE",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Stilly|8167",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Tony|LAR",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Stew|8228",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|JMid|8143",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|JMid|11579",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2024|Stew|4943",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Stew|11575",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Stilly|DAL",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Stew|7571",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Stew|10871",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Tony|2359",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Thommy|9754",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Birch|CHI",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Birch|1234",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Stew|4381",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2024|Scott|NO",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Scott|8110",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Stew|ARI",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Thommy|2749",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Stew|7828",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Stew|11637",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Mitch|11626",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Thommy|11834",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Mitch|11625",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Stilly|ATL",
+      "additions": 2,
+      "firstWeek": 13,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Birch|BUF",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Scott|IND",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Scott|5086",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Stilly|5248",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2024|Thommy|10444",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Mitch|9229",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Stilly|IND",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Stilly|BAL",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Thommy|6039",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Stew|7596",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Stew|10444",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Tony|LAC",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Birch|MIA",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Birch|10219",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Tony|11651",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Stilly|2306",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Kuhl|5987",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2024|Birch|9508",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2025|Mitch|DAL",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2025|Scott|7591",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2025|Birch|9754",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2025|Stew|12506",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Stew|9504",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Stew|6797",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2025|Thommy|5848",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2025|Stew|7523",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2025|Tony|NE",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Stew|6804",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Mitch|1689",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2025|Stew|12535",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2025|Thommy|4098",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2025|Stilly|BUF",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Stover|LAR",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2025|Stew|8126",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|Thommy|ATL",
+      "additions": 2,
+      "firstWeek": 2,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Stilly|5870",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|Kuhl|8110",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|Stew|GB",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|Stover|SEA",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|JMid|1339",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|Kuhl|8210",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|JMid|3214",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|JMid|8698",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|Stover|7002",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|JMid|DET",
+      "additions": 2,
+      "firstWeek": 2,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Stew|12490",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|Mitch|1479",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2025|Stew|12495",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Stew|12497",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Thommy|12474",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Kuhl|3214",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Birch|4098",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|JMid|11560",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Stover|LAC",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Thommy|DET",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Scott|10213",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|JMid|5870",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Birch|HOU",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Thommy|5022",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Thommy|8121",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|JMid|12499",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|JMid|KC",
+      "additions": 2,
+      "firstWeek": 3,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Stilly|6804",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Tony|MIN",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Mitch|IND",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Mitch|8136",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Mitch|3294",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|Scott|11627",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2025|JMid|2505",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 14
+    },
+    {
+      "key": "2025|Kuhl|ARI",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2025|Kuhl|7567",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2025|JMid|10236",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2025|Stilly|8126",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2025|JMid|SF",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2025|Scott|CLE",
+      "additions": 3,
+      "firstWeek": 4,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Scott|8183",
+      "additions": 2,
+      "firstWeek": 4,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Scott|11783",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Scott|NE",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Thommy|8676",
+      "additions": 2,
+      "firstWeek": 5,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Thommy|LV",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Tony|3163",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|JMid|7021",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Tony|10236",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Birch|NO",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Birch|6149",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Stilly|7607",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Stilly|7021",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Stilly|2449",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Stew|LAR",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Stew|1339",
+      "additions": 2,
+      "firstWeek": 5,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Stilly|12469",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Kuhl|11199",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Stew|11627",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Stew|9757",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Scott|9506",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Scott|11610",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2025|Thommy|12457",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2025|Kuhl|4454",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2025|Thommy|KC",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2025|Birch|8183",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2025|JMid|8126",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2025|JMid|11647",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2025|Stilly|12495",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2025|Tony|JAX",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2025|Stew|8123",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2025|Scott|12493",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Stilly|12485",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|JMid|IND",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|JMid|4066",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Stilly|19",
+      "additions": 2,
+      "firstWeek": 7,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Mitch|8142",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|JMid|CHI",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Birch|5870",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Stilly|12499",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Stilly|1339",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Birch|LAR",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Tony|12506",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Scott|9508",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Tony|CLE",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Kuhl|8132",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Stew|9500",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Stew|11994",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Mitch|CAR",
+      "additions": 1,
+      "firstWeek": 7,
+      "lastWeek": 7
+    },
+    {
+      "key": "2025|Thommy|7553",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|Thommy|3163",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|Scott|8167",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|Stilly|DET",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|Scott|9494",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|JMid|5001",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|Tony|12508",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|Stover|12499",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|Birch|ATL",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|Tony|11571",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|Stover|CIN",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|Tony|BUF",
+      "additions": 1,
+      "firstWeek": 8,
+      "lastWeek": 8
+    },
+    {
+      "key": "2025|Thommy|CAR",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Kuhl|4037",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Kuhl|6149",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|JMid|12517",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Stover|11603",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Stover|12497",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Stover|9487",
+      "additions": 2,
+      "firstWeek": 9,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Stilly|10213",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Stilly|12534",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Birch|SF",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Thommy|JAX",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Mitch|BAL",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Tony|HOU",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Kuhl|LAR",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Birch|11655",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Stover|8122",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Stover|421",
+      "additions": 1,
+      "firstWeek": 9,
+      "lastWeek": 9
+    },
+    {
+      "key": "2025|Kuhl|12485",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2025|Stover|NE",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2025|Birch|11199",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2025|Stilly|4943",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2025|Birch|SEA",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2025|Birch|7002",
+      "additions": 1,
+      "firstWeek": 10,
+      "lastWeek": 10
+    },
+    {
+      "key": "2025|JMid|11435",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Scott|DAL",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Stilly|11597",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Mitch|10213",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Stover|4098",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Birch|TEN",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Tony|4177",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Tony|10219",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Thommy|11586",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Mitch|10232",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Stover|8132",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Stilly|CHI",
+      "additions": 1,
+      "firstWeek": 11,
+      "lastWeek": 11
+    },
+    {
+      "key": "2025|Mitch|6130",
+      "additions": 2,
+      "firstWeek": 11,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|JMid|5970",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Stilly|JAX",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Birch|9504",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Thommy|11627",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Kuhl|11597",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Stilly|12490",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Birch|LV",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|JMid|3257",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Kuhl|7090",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Tony|8205",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Stew|8122",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Stew|8142",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Stilly|3214",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Tony|SEA",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Scott|11377",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|JMid|9506",
+      "additions": 1,
+      "firstWeek": 12,
+      "lastWeek": 12
+    },
+    {
+      "key": "2025|Stilly|11834",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|JMid|11625",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Mitch|10219",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Stilly|12506",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Stilly|CLE",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Mitch|TB",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Birch|PHI",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Stew|NO",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Tony|5967",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Kuhl|9480",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|JMid|MIA",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Scott|SF",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Scott|8147",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Thommy|12476",
+      "additions": 1,
+      "firstWeek": 13,
+      "lastWeek": 13
+    },
+    {
+      "key": "2025|Mitch|SF",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2025|Kuhl|3257",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2025|Stover|GB",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2025|Birch|4943",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2025|Scott|12535",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2025|Stover|KC",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2025|Tony|10213",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2025|Scott|MIN",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2025|Thommy|WAS",
+      "additions": 1,
+      "firstWeek": 14,
+      "lastWeek": 14
+    },
+    {
+      "key": "2026|JMid|11834",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2026|Thommy|13337",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2026|Kuhl|3214",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2026|Stilly|TB",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2026|Thommy|13285",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Stilly|4892",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2026|Stew|13311",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Stew|13345",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2026|Stew|9486",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2026|Birch|KC",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2026|Stilly|8800",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2026|Stew|11610",
+      "additions": 2,
+      "firstWeek": 1,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Stilly|PIT",
+      "additions": 1,
+      "firstWeek": 1,
+      "lastWeek": 1
+    },
+    {
+      "key": "2026|Kuhl|5001",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Thommy|MIN",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Thommy|3163",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Kuhl|7571",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Stew|CIN",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Stilly|13337",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Stilly|NYG",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Stew|NE",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Stilly|13296",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Thommy|12492",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Thommy|5012",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Stover|CAR",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Tony|SF",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Stew|6804",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Scott|12545",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Scott|13301",
+      "additions": 1,
+      "firstWeek": 2,
+      "lastWeek": 2
+    },
+    {
+      "key": "2026|Birch|CHI",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Thommy|9511",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Thommy|11563",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Kuhl|4035",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Stilly|4943",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Stilly|12495",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Thommy|BAL",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|JMid|DET",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Stew|PIT",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Thommy|11435",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Thommy|11576",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Thommy|4892",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Stilly|9758",
+      "additions": 2,
+      "firstWeek": 3,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Stew|8110",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Stilly|5854",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Tony|10213",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Mitch|NO",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Scott|9228",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Scott|13346",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|JMid|11625",
+      "additions": 1,
+      "firstWeek": 3,
+      "lastWeek": 3
+    },
+    {
+      "key": "2026|Stew|8121",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Kuhl|11577",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Birch|3257",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Stew|8132",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Stover|11620",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Stilly|DAL",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|JMid|8154",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|JMid|11630",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Mitch|JAX",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Mitch|10219",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Stover|KC",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Tony|4663",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Stilly|11435",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Tony|3321",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Mitch|LAR",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Scott|CLE",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Scott|13330",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Stew|3634",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|JMid|8136",
+      "additions": 1,
+      "firstWeek": 4,
+      "lastWeek": 4
+    },
+    {
+      "key": "2026|Kuhl|10213",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Stilly|9480",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|JMid|4454",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|JMid|11647",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Birch|NE",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Stilly|KC",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Stew|10235",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Scott|13305",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Kuhl|5022",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Kuhl|11637",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Scott|3321",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Thommy|ATL",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Stilly|2505",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Tony|11610",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Stilly|NYJ",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Tony|9508",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Tony|7528",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Scott|4993",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Stilly|11581",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Stilly|11637",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Thommy|11559",
+      "additions": 1,
+      "firstWeek": 5,
+      "lastWeek": 5
+    },
+    {
+      "key": "2026|Thommy|9757",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Scott|NYJ",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Stew|9501",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|JMid|11655",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|JMid|13276",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Thommy|CLE",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Mitch|13424",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Kuhl|5849",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Tony|8136",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|JMid|3271",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Thommy|13294",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Stilly|CAR",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Stew|13274",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Kuhl|1166",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|JMid|IND",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Thommy|8126",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Scott|SF",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Mitch|8129",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    },
+    {
+      "key": "2026|Mitch|4943",
+      "additions": 1,
+      "firstWeek": 6,
+      "lastWeek": 6
+    }
+  ]
+}
