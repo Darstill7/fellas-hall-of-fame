@@ -66,3 +66,11 @@ const homepage=fs.readFileSync('index.html','utf8'),homeModule=fs.readFileSync('
 if(!homepage.includes('id="home-manager-cards"')||!homepage.includes('assets/home-manager-cards.mjs')||!homeModule.includes('makeRatings({guide,careers,luck,endings')||!homeModule.includes('href="managers/')||!ui.includes('profileSlug[r.name]'))throw Error('Homepage Madden manager profile navigation disconnected');
 const expectedSlugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];for(const s of expectedSlugs)if(!fs.existsSync('managers/'+s+'/index.html'))throw Error('Homepage manager target missing '+s);
 console.log('MADDEN HOMEPAGE PASS: ten verified manager profile targets');
+
+const profileModule=fs.readFileSync('assets/manager-profile-madden.mjs','utf8');
+for(const slug of ['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott']){
+ const html=fs.readFileSync('managers/'+slug+'/index.html','utf8');
+ if(!html.includes('manager-profile-madden.mjs'))throw Error('Missing profile Madden scouting panel: '+slug);
+}
+for(const needle of ['managerCardTier(manager)','earnedArchetypes(manager)','weeklyOvrHistory({ledger,guide,careers,luck,endings,playoffBrackets})','../../data/','segments.at(-2)'])if(!profileModule.includes(needle))throw Error('Manager profile Madden panel missing '+needle);
+console.log('MADDEN PROFILE PANELS PASS: ten canonical manager pages share ratings and profiles');
