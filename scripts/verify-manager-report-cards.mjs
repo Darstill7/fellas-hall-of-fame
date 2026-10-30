@@ -84,3 +84,10 @@ if(!annualHTML.includes('manager-annual-report-cards.mjs')||!fs.readFileSync('an
 for(const source of ['season_guide.json','manager_verified_season_endings_v1.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json','v9_draft_engine.json','v9_trade_engine.json','waiver_award_candidates.json'])if(!annualJS.includes(source))throw Error('Annual report source missing '+source);
 for(const rule of ["standing=guide[year].standings.find","year===2026?'Season ongoing'","['Champion','Runner-up'].includes","x.provisional===false","!x.keeper","No scores are shown when source loading fails"])if(!annualJS.includes(rule))throw Error('Annual evidence rule missing '+rule);
 console.log('Annual report card source and incomplete-season protections PASS');
+
+for(const row of rows){if(row.evidence.gradedWeight!==row.availableWeight||row.evidence.ungradedWeight!==100-row.availableWeight||row.evidence.notAStatisticalConfidenceInterval!==true)throw Error('Report-card evidence coverage inconsistent '+row.name)}
+const timelineHTML=fs.readFileSync('analytics/manager-performance-timeline.html','utf8'),timelineJS=fs.readFileSync('assets/manager-performance-timeline.mjs','utf8');
+for(const expected of ['manager-performance-timeline.mjs','id="seasons"','not a reconstructed historical manager-skill rating'])if(!timelineHTML.toLowerCase().includes(expected.toLowerCase()))throw Error('Missing historical timeline guard '+expected);
+for(const source of ['season_guide.json','manager_verified_season_endings_v1.json'])if(!timelineJS.includes(source))throw Error('Timeline missing source '+source);
+if(!timelineJS.includes('record.w+.5*record.t')||!timelineJS.includes("year===2026?'Ongoing")||!timelineJS.includes('No substitute scores displayed.'))throw Error('Timeline scoring and provisional-year guard missing');
+console.log('Timeline and evidence coverage integrity PASS');
