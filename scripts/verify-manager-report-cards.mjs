@@ -166,3 +166,14 @@ if(!lineup2026.includes("year===2026?7:14")||!lineup2026Html.includes('2026 Week
 const scott2026=JSON.parse(fs.readFileSync('data-integrity/2026-week7-scott-score-discrepancy.json','utf8'));
 if(scott2026.status!=='resolved_provider_confirmed_canonical_corrected'||scott2026.rosterPoints!==scott2026.canonicalMatchupPoints)throw Error('Unexpected Scott source reconciliation status');
 console.log('2026 Start/Sit research disclosure and reconciled score PASS');
+
+// Deduplicated pickup coverage is descriptive, never scored as waiver skill.
+const acquisitionCoverage=JSON.parse(fs.readFileSync('data/manager_acquisition_distinct_v1.json','utf8'));
+const acquisitionRaw=JSON.parse(fs.readFileSync('data/manager_acquisition_coverage_v1.json','utf8'));
+const distinctTotal=acquisitionCoverage.byManager.reduce((s,r)=>s+r.distinctSeasonPlayerAcquisitions,0);
+const repeatedTotal=acquisitionCoverage.byManager.reduce((s,r)=>s+r.reacquisitions,0);
+const observedTotal=acquisitionRaw.byManager.reduce((s,r)=>s+r.recordedAcquiredPlayers,0);
+if(distinctTotal!==1472||repeatedTotal!==158||observedTotal!==1630||distinctTotal+repeatedTotal!==observedTotal)throw Error('Acquisition deduplication coverage mismatch');
+const ui=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
+if(!ui.includes('manager_acquisition_distinct_v1.json')||!ui.includes('distinctSeasonPlayerAcquisitions')||!ui.includes('do not establish decision skill'))throw Error('Unverified acquisition outcome disclosure missing');
+console.log('Recorded pickup evidence deduplicated and not misrepresented as skill PASS');
