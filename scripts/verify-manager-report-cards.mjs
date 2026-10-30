@@ -164,5 +164,5 @@ const lineup2026=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8
 const lineup2026Html=fs.readFileSync('analytics/manager-lineup-research.html','utf8');
 if(!lineup2026.includes("year===2026?7:14")||!lineup2026.includes("r.owner==='Sheffla'")||!lineup2026Html.includes('2026 Week 7'))throw Error('2026 research must exclude known source disagreement');
 const scott2026=JSON.parse(fs.readFileSync('data-integrity/2026-week7-scott-score-discrepancy.json','utf8'));
-if(scott2026.status!=='unresolved'||scott2026.rosterPoints===scott2026.canonicalMatchupPoints)throw Error('Unexpected Scott source reconciliation status');
+if(scott2026.status!=='provider_confirmed_canonical_reconciliation_pending'||scott2026.rosterPoints===scott2026.canonicalMatchupPoints)throw Error('Unexpected Scott source reconciliation status');
 console.log('2026 Start/Sit research disclosure and score exclusion PASS');
