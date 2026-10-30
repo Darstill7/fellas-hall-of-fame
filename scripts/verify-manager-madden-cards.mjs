@@ -90,3 +90,10 @@ for(const path of ['assets/manager-season-resume.mjs','assets/manager-madden-car
  if(!source.includes('Runner-Up')&&!source.includes('RUNNER-UP'))throw Error('Missing runner-up season result: '+path);
 }
 console.log('Runner-up results distinguished from champion finishes PASS');
+
+const homePage=fs.readFileSync('index.html','utf8');
+const primaryManagerSection=homePage.indexOf('<section class="manager-showcase shell"');
+const seasonRecordsSection=homePage.indexOf('<section class="section shell" aria-labelledby="season-records-home"');
+if(primaryManagerSection<0||seasonRecordsSection<0||primaryManagerSection>=seasonRecordsSection)throw Error('Manager cards must precede season records on homepage');
+if(!homePage.includes('The Fellas Manager Cards')||!homePage.includes('id="home-manager-cards"'))throw Error('Manager-first homepage missing accessible primary cards');
+console.log('Homepage manager-first hierarchy PASS');
