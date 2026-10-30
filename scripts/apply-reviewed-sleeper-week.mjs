@@ -63,9 +63,14 @@ for(const r of standings){
 }
 luck.scope=luck.scope.replace(/2026 Week\d+/, '2026 Week'+candidate.week);
 // Inputs are validated before the core datasets are modified. Review the resulting diff before merge.
-write(path,ledger);write(mirrorPath,mirror);write(luckPath,luck);
+if(process.argv.includes('--dry-run')) {
+ console.log('DRY RUN PASS: staged Week '+candidate.week+', five games, '+standings.length+' manager standings, all-play recomputed; canonical files unchanged.');
+} else {
+ write(path,ledger);write(mirrorPath,mirror);write(luckPath,luck);
 execFileSync(process.execPath,['scripts/generate-career-core.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/generate-season-guide.mjs'],{stdio:'inherit'});
 for(const script of ['verify-weekly-ledger-parity.mjs','verify-manager-madden-cards.mjs','verify-fellas-rating.mjs'])
  execFileSync(process.execPath,['scripts/'+script],{stdio:'inherit'});
 console.log('Review regenerated files and full CI before merging. Other legacy projections may need regeneration.');
+}
+
