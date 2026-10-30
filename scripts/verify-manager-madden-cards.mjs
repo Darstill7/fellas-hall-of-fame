@@ -1,3 +1,4 @@
+import {managerArchetype} from '../assets/manager-madden-archetypes.mjs';
 import {seasonResume} from '../assets/manager-season-resume.mjs';
 import {weeklyOvrHistory} from '../assets/manager-weekly-ovr.mjs';
 import fs from 'node:fs';import {makeRatings} from '../assets/fellas-rating-model.mjs';import {makeReportCards} from '../assets/manager-report-card.mjs';
@@ -31,3 +32,9 @@ for(const id of ['compare-a','compare-b','duel-results'])if(!page.includes('id="
 for(const phrase of ['Manager head-to-head','A missing grade never counts as a loss'])if(!page.includes(phrase))throw Error('Manager comparison disclosure missing: '+phrase);
 for(const needle of ["const compare=()=>","Number.isFinite(x)&&Number.isFinite(y)","$('compare-a').addEventListener('change',compare)","$('compare-b').addEventListener('change',compare)","compare();"])if(!ui.includes(needle))throw Error('Madden comparison interaction missing '+needle);
 console.log('MADDEN HEAD-TO-HEAD PASS: manager picker and evidence-safe grade comparisons');
+
+for(const r of ratings){const a=managerArchetype(r,report.find(x=>x.name===r.name));if(!a.name||!a.reason||!a.category)throw Error('Unsubstantiated archetype '+r.name);if(a.category==='trading'&&(!a.provisional||report.find(x=>x.name===r.name)?.coverage.verifiedTradeSides<8))throw Error('Ungrounded trade specialist '+r.name);}
+if(managerArchetype({titleYears:[2016,2017,2018],qualifiedYears:[],tenure:3},null).name!=='Dynasty Builder')throw Error('Championship dynasty priority regressed');
+if(managerArchetype({titleYears:[],qualifiedYears:[],tenure:1},{scores:{trading:99},coverage:{verifiedTradeSides:1}}).name==='Trade Specialist')throw Error('Trade label assigned from inadequate evidence');
+if(!ui.includes('managerArchetype(r,byName.get(r.name))')||!page.includes('scouting archetype'))throw Error('Archetype presentation disconnected');
+console.log('MADDEN ARCHETYPES PASS: '+ratings.length+' documented manager archetypes');
