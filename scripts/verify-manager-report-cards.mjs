@@ -28,7 +28,8 @@ input.careers.managers.Stilly={...input.careers.managers.Stilly};
 input.careers.managers.Stilly.w+=1;input.careers.managers.Stilly.games+=1;
 input.luck.ranked=input.luck.ranked.map(x=>x.manager==='Stilly'?{...x,expectedWins:x.expectedWins+1,games:x.games+1}:x);
 const revised=makeReportCards(input).find(x=>x.name==='Stilly');
-if(revised.provisional<=original.provisional)throw Error('Weekly performance did not improve report-card rating');
+if(revised.scores.regular<=original.scores.regular||revised.scores.allPlay<=original.scores.allPlay)throw Error('Weekly performance did not improve component grades');
+if(revised.provisional<original.provisional)throw Error('Weekly win reduced overall report-card rating');
 if(revised.coverage.playoffVerified!==original.coverage.playoffVerified)throw Error('Regular season update fabricated postseason qualification');
 console.log('Weekly report-card response PASS: Stilly '+original.provisional+' -> '+revised.provisional);
 
