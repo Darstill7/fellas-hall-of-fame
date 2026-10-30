@@ -105,3 +105,8 @@ if(!stoverProfile.includes('manager-profile-tabs.mjs')||!stoverProfile.includes(
 if(stoverProfile.includes('verified title season is 2023')||!stoverProfile.includes('verified title season is 2022'))throw Error('Stover title narrative regressed');
 for(const anchor of ['franchise-story','season-history','head-to-head','franchise-encyclopedia','verified-history-panel','weekly-game-log'])if(!stoverProfile.includes('id="'+anchor+'"'))throw Error('Stover archival profile section missing '+anchor);
 console.log('Stover four-tab profile structure and title historical correction PASS');
+
+const kissStover=fs.readFileSync('managers/stover/index.html','utf8');
+if(!kissStover.includes('class="story-facts"')||!kissStover.includes('<summary>Read the full story</summary>'))throw Error('Stover KISS summary/full-story progressive disclosure missing');
+if(!kissStover.includes('data-canonical-manager-games="Stover"')||!kissStover.includes('data-canonical-manager-record="Stover"'))throw Error('Stover KISS career facts disconnected from canonical history');
+console.log('Stover simplified career story and canonical record bindings PASS');
