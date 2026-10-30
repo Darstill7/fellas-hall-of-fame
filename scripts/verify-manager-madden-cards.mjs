@@ -133,3 +133,7 @@ const mobileRenderer=fs.readFileSync('assets/home-manager-cards.mjs','utf8');
 if(!mobileHome.includes('id="home-manager-mobile"')||!mobileHome.includes('home-manager-grid{display:none!important}')||!mobileHome.includes('.mobile-tier-champion'))throw Error('Compact mobile manager list and tier colors missing');
 if(!mobileRenderer.includes('<details class="mobile-manager-row')||!mobileRenderer.includes('managerCardTier(r)')||!mobileRenderer.includes('maddenOvr(r.score)')||!mobileRenderer.includes('mobile-manager-link'))throw Error('Mobile list lost canonical OVR, expandable rows, or profile links');
 console.log('Mobile manager directory uses canonical ratings and expandable tier-color rows PASS');
+
+for(const token of ['id="home-manager-search"','id="home-manager-clear"','id="home-manager-empty"','Find Your Manager','manager-mobile-first'])if(!mobileHome.includes(token))throw Error('Mobile manager-first finder missing '+token);
+for(const token of ['data-manager-name','finder.addEventListener(\'input\',filter)','row.hidden=!match','row.open=false'])if(!mobileRenderer.includes(token))throw Error('Mobile manager search behavior missing '+token);
+console.log('Mobile manager finder search and no-results state wired PASS');
