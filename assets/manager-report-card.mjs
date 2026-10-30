@@ -1,6 +1,6 @@
 // Manager Report Card v1 — category scores from documented archived evidence.
 // Waiver and start/sit remain unrated until full decision-level source coverage exists.
-export const WEIGHTS={drafting:25,trading:25,regular:20,allPlay:15,waivers:10,lineups:5};
+export const WEIGHTS={drafting:15,trading:15,regular:10,allPlay:10,championships:20,finals:8,playoffs:12,waivers:5,lineups:5};
 const round=n=>Math.round(n*10)/10,clamp=n=>Math.max(0,Math.min(100,n));
 const mean=a=>a.reduce((s,v)=>s+v,0)/a.length;
 const percentile=(x,xs)=>xs.length?100*(xs.filter(y=>y<x).length+.5*xs.filter(y=>y===x).length)/xs.length:50;
