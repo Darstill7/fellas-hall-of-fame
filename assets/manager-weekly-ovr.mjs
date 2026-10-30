@@ -31,7 +31,7 @@ export function weeklyOvrHistory({ledger,guide,careers,luck,endings,playoffBrack
    l.bySeason['2026']={games:annual.games,actualWins:annual.w,expectedWins:expected};
   }
   const rows=makeRatings({guide,careers:careerData,luck:luckData,endings,playoffBrackets});
-  output.push({week,rows:rows.filter(r=>names.includes(r.name)).map(r=>({name:r.name,ovr:r.score,rank:r.rank,career:r.career}))});
+  output.push({week,rows:rows.filter(r=>names.includes(r.name)).map(r=>({name:r.name,ovr:r.score,rank:r.rank,career:r.career,breakdown:r.breakdown}))});
  }
  return output;
 }
