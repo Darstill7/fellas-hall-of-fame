@@ -1,3 +1,4 @@
+import {maddenOvr} from './manager-madden-scale.mjs';
 import {managerCardTier} from './manager-card-tiers.mjs';
 import {earnedArchetypes} from './manager-madden-archetypes.mjs';
 import {seasonResume} from './manager-season-resume.mjs';
@@ -27,7 +28,7 @@ try {
   const result=$('duel-results');
   if(!a||!b||a.name===b.name){result.textContent='Choose two different managers.';return}
   const snapshot=weekly.find(x=>x.week===week),score=r=>snapshot.rows.find(x=>x.name===r.name)?.ovr;
-  const aOvr=score(a),bOvr=score(b);
+  const aOvr=maddenOvr(score(a)),bOvr=maddenOvr(score(b));
   if(!Number.isFinite(aOvr)||!Number.isFinite(bOvr)){result.textContent='A rating is unavailable for this comparison.';return}
   const attributes=[['Overall Rating',aOvr,bOvr],['Regular-season winning',byName.get(a.name)?.scores.regular,byName.get(b.name)?.scores.regular],['All-play performance',byName.get(a.name)?.scores.allPlay,byName.get(b.name)?.scores.allPlay],['Playoff success',a.breakdown.playoffs/10*100,b.breakdown.playoffs/10*100],['Championships',a.breakdown.titles/30*100,b.breakdown.titles/30*100],['Championship game appearances',a.breakdown.finals/5*100,b.breakdown.finals/5*100],['Drafting',byName.get(a.name)?.scores.drafting,byName.get(b.name)?.scores.drafting],['Trading',byName.get(a.name)?.scores.trading,byName.get(b.name)?.scores.trading],['Waiver pickups',null,null],['Start/sit decisions',null,null]];
   result.innerHTML='<table class="duel-table"><caption>Week '+week+' overall rating; other attributes use the current archive</caption><thead><tr><th scope="col">Attribute</th><th scope="col">'+esc(a.name)+'</th><th scope="col">'+esc(b.name)+'</th></tr></thead><tbody>'+attributes.map(([label,x,y])=>{const valid=Number.isFinite(x)&&Number.isFinite(y),win=valid?(x>y?1:x<y?2:0):0,format=v=>Number.isFinite(v)?v.toFixed(1):'N/A';return '<tr><th scope="row">'+esc(label)+'</th><td'+(win===1?' class="advantage"':'')+'>'+format(x)+'</td><td'+(win===2?' class="advantage"':'')+'>'+format(y)+'</td></tr>'}).join('')+'</tbody></table><p class="note">Gold highlights the higher available score; equal scores and N/A are not treated as wins.</p>';
@@ -46,12 +47,12 @@ try {
    const specialtyHtml=archetypes.slice(1).map(a=>'<span class="specialty" title="'+esc(a.reason)+'">'+esc(a.name)+(a.provisional?' · Provisional':'')+'</span>').join('');
    const historical=snapshot.rows.find(x=>x.name===r.name);
    const preceding=now?.rows.find(x=>x.name===r.name);
-   const ovr=historical?.ovr??r.score;
+   const ovr=maddenOvr(historical?.ovr??r.score);
    const componentLabels={titles:'Rings',finals:'Finals',playoffs:'Playoffs',regular:'W–L',allPlay:'All-play',recent:'Recent form',peak:'Peak',tenure:'Tenure'};
    const movements=historical&&preceding?Object.keys(historical.breakdown).map(k=>({label:componentLabels[k]||k,change:+(historical.breakdown[k]-preceding.breakdown[k]).toFixed(1)})).filter(x=>x.change!==0).sort((a,b)=>Math.abs(b.change)-Math.abs(a.change)):[];
    const explanation=movements.length?movements.slice(0,3).map(x=>x.label+' '+(x.change>0?'+':'')+x.change.toFixed(1)).join(' · '):'No component movement recorded';
-   const delta=historical&&preceding?+(historical.ovr-preceding.ovr).toFixed(1):null;
-   const trajectory=historical?weekly.filter(x=>x.week<=selectedWeek).map(x=>({week:x.week,ovr:x.rows.find(y=>y.name===r.name)?.ovr})):[];
+   const delta=historical&&preceding?+(maddenOvr(historical.ovr)-maddenOvr(preceding.ovr)).toFixed(1):null;
+   const trajectory=historical?weekly.filter(x=>x.week<=selectedWeek).map(x=>({week:x.week,ovr:maddenOvr(x.rows.find(y=>y.name===r.name)?.ovr)})):[];
    const previousChanges=trajectory.slice(1).map((x,i)=>({week:x.week,delta:+(x.ovr-trajectory[i].ovr).toFixed(1)}));
    const peak=trajectory.length?Math.max(...trajectory.map(x=>x.ovr)):null;
    const biggest=previousChanges.slice().sort((a,b)=>b.delta-a.delta)[0];
