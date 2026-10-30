@@ -23,7 +23,7 @@ if(stilly.coverage.playoffVerified!==5)throw Error('Stilly verified 2022–2025 
 // A new canonical weekly win and all-play improvement must move the report-card score;
 // playoff qualification is fixed until a newly verified postseason bracket is added.
 const original=rows.find(x=>x.name==='Stilly');
-const input={drafts:read('v9_draft_engine.json'),trades:read('v9_trade_engine.json'),careers:read('career_core_generated.json'),luck:read('all_time_luck_ratings_v1.json'),waivers:read('waiver_award_candidates.json'),endings:read('manager_verified_season_endings_v1.json'),brackets:read('verified_sleeper_playoff_brackets_2020_2025.json'),guide:read('season_guide.json')};
+const input={drafts:read('v9_draft_engine.json'),trades:read('v9_trade_engine.json'),careers:read('career_core_generated.json'),luck:read('all_time_luck_ratings_v1.json'),waivers:read('waiver_award_candidates.json'),endings:read('manager_verified_season_endings_v1.json'),brackets:read('verified_sleeper_playoff_brackets_2020_2025.json'),guide:read('season_guide.json'),espn:read('verified_espn_playoff_brackets_2016_2019.json')};
 input.careers.managers.Stilly={...input.careers.managers.Stilly};
 input.careers.managers.Stilly.w+=1;input.careers.managers.Stilly.games+=1;
 input.luck.ranked=input.luck.ranked.map(x=>x.manager==='Stilly'?{...x,expectedWins:x.expectedWins+1,games:x.games+1}:x);
