@@ -1,0 +1,507 @@
+{
+  "version": "seasonal-acquisition-coverage-v1",
+  "status": "observational_not_skill_rating",
+  "method": "Distinct manager/year/player-ID pickups from archived recorded add and waiver events; later starting appearances counted only after recorded transaction week. Reacquisitions are not distinct pickups.",
+  "years": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "incompleteYear": 2026,
+  "rows": [
+    {
+      "year": 2020,
+      "manager": "Birch",
+      "distinctPlayerAdds": 17,
+      "withLaterRecordedStarts": 7,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2020,
+      "manager": "Evans",
+      "distinctPlayerAdds": 26,
+      "withLaterRecordedStarts": 10,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2020,
+      "manager": "Koble",
+      "distinctPlayerAdds": 32,
+      "withLaterRecordedStarts": 13,
+      "repeatedEventRows": 6
+    },
+    {
+      "year": 2020,
+      "manager": "Kuhl",
+      "distinctPlayerAdds": 23,
+      "withLaterRecordedStarts": 11,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2020,
+      "manager": "Mitch",
+      "distinctPlayerAdds": 21,
+      "withLaterRecordedStarts": 15,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2020,
+      "manager": "Stew",
+      "distinctPlayerAdds": 31,
+      "withLaterRecordedStarts": 18,
+      "repeatedEventRows": 9
+    },
+    {
+      "year": 2020,
+      "manager": "Stilly",
+      "distinctPlayerAdds": 32,
+      "withLaterRecordedStarts": 16,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2020,
+      "manager": "Stover",
+      "distinctPlayerAdds": 17,
+      "withLaterRecordedStarts": 8,
+      "repeatedEventRows": 3
+    },
+    {
+      "year": 2020,
+      "manager": "Thommy",
+      "distinctPlayerAdds": 20,
+      "withLaterRecordedStarts": 5,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2020,
+      "manager": "Tony",
+      "distinctPlayerAdds": 28,
+      "withLaterRecordedStarts": 10,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2021,
+      "manager": "Birch",
+      "distinctPlayerAdds": 11,
+      "withLaterRecordedStarts": 3,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2021,
+      "manager": "Evans",
+      "distinctPlayerAdds": 39,
+      "withLaterRecordedStarts": 16,
+      "repeatedEventRows": 3
+    },
+    {
+      "year": 2021,
+      "manager": "Koble",
+      "distinctPlayerAdds": 37,
+      "withLaterRecordedStarts": 18,
+      "repeatedEventRows": 19
+    },
+    {
+      "year": 2021,
+      "manager": "Kuhl",
+      "distinctPlayerAdds": 13,
+      "withLaterRecordedStarts": 6,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2021,
+      "manager": "Mitch",
+      "distinctPlayerAdds": 31,
+      "withLaterRecordedStarts": 10,
+      "repeatedEventRows": 2
+    },
+    {
+      "year": 2021,
+      "manager": "Stew",
+      "distinctPlayerAdds": 21,
+      "withLaterRecordedStarts": 7,
+      "repeatedEventRows": 3
+    },
+    {
+      "year": 2021,
+      "manager": "Stilly",
+      "distinctPlayerAdds": 27,
+      "withLaterRecordedStarts": 9,
+      "repeatedEventRows": 6
+    },
+    {
+      "year": 2021,
+      "manager": "Stover",
+      "distinctPlayerAdds": 30,
+      "withLaterRecordedStarts": 10,
+      "repeatedEventRows": 8
+    },
+    {
+      "year": 2021,
+      "manager": "Thommy",
+      "distinctPlayerAdds": 18,
+      "withLaterRecordedStarts": 10,
+      "repeatedEventRows": 5
+    },
+    {
+      "year": 2021,
+      "manager": "Tony",
+      "distinctPlayerAdds": 31,
+      "withLaterRecordedStarts": 9,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2022,
+      "manager": "Birch",
+      "distinctPlayerAdds": 13,
+      "withLaterRecordedStarts": 7,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2022,
+      "manager": "Evans",
+      "distinctPlayerAdds": 21,
+      "withLaterRecordedStarts": 12,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2022,
+      "manager": "Koble",
+      "distinctPlayerAdds": 28,
+      "withLaterRecordedStarts": 13,
+      "repeatedEventRows": 7
+    },
+    {
+      "year": 2022,
+      "manager": "Kuhl",
+      "distinctPlayerAdds": 14,
+      "withLaterRecordedStarts": 9,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2022,
+      "manager": "Mitch",
+      "distinctPlayerAdds": 26,
+      "withLaterRecordedStarts": 11,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2022,
+      "manager": "Stew",
+      "distinctPlayerAdds": 29,
+      "withLaterRecordedStarts": 15,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2022,
+      "manager": "Stilly",
+      "distinctPlayerAdds": 37,
+      "withLaterRecordedStarts": 12,
+      "repeatedEventRows": 6
+    },
+    {
+      "year": 2022,
+      "manager": "Stover",
+      "distinctPlayerAdds": 17,
+      "withLaterRecordedStarts": 6,
+      "repeatedEventRows": 2
+    },
+    {
+      "year": 2022,
+      "manager": "Thommy",
+      "distinctPlayerAdds": 22,
+      "withLaterRecordedStarts": 15,
+      "repeatedEventRows": 6
+    },
+    {
+      "year": 2022,
+      "manager": "Tony",
+      "distinctPlayerAdds": 43,
+      "withLaterRecordedStarts": 10,
+      "repeatedEventRows": 6
+    },
+    {
+      "year": 2023,
+      "manager": "Birch",
+      "distinctPlayerAdds": 7,
+      "withLaterRecordedStarts": 3,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2023,
+      "manager": "JMid",
+      "distinctPlayerAdds": 25,
+      "withLaterRecordedStarts": 9,
+      "repeatedEventRows": 3
+    },
+    {
+      "year": 2023,
+      "manager": "Koble",
+      "distinctPlayerAdds": 26,
+      "withLaterRecordedStarts": 14,
+      "repeatedEventRows": 6
+    },
+    {
+      "year": 2023,
+      "manager": "Kuhl",
+      "distinctPlayerAdds": 18,
+      "withLaterRecordedStarts": 8,
+      "repeatedEventRows": 2
+    },
+    {
+      "year": 2023,
+      "manager": "Mitch",
+      "distinctPlayerAdds": 21,
+      "withLaterRecordedStarts": 8,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2023,
+      "manager": "Stew",
+      "distinctPlayerAdds": 23,
+      "withLaterRecordedStarts": 13,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2023,
+      "manager": "Stilly",
+      "distinctPlayerAdds": 13,
+      "withLaterRecordedStarts": 4,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2023,
+      "manager": "Stover",
+      "distinctPlayerAdds": 22,
+      "withLaterRecordedStarts": 6,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2023,
+      "manager": "Thommy",
+      "distinctPlayerAdds": 36,
+      "withLaterRecordedStarts": 19,
+      "repeatedEventRows": 6
+    },
+    {
+      "year": 2023,
+      "manager": "Tony",
+      "distinctPlayerAdds": 17,
+      "withLaterRecordedStarts": 6,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2024,
+      "manager": "Birch",
+      "distinctPlayerAdds": 15,
+      "withLaterRecordedStarts": 4,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2024,
+      "manager": "JMid",
+      "distinctPlayerAdds": 23,
+      "withLaterRecordedStarts": 13,
+      "repeatedEventRows": 3
+    },
+    {
+      "year": 2024,
+      "manager": "Kuhl",
+      "distinctPlayerAdds": 11,
+      "withLaterRecordedStarts": 6,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2024,
+      "manager": "Mitch",
+      "distinctPlayerAdds": 27,
+      "withLaterRecordedStarts": 12,
+      "repeatedEventRows": 2
+    },
+    {
+      "year": 2024,
+      "manager": "Scott",
+      "distinctPlayerAdds": 20,
+      "withLaterRecordedStarts": 13,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2024,
+      "manager": "Stew",
+      "distinctPlayerAdds": 32,
+      "withLaterRecordedStarts": 16,
+      "repeatedEventRows": 5
+    },
+    {
+      "year": 2024,
+      "manager": "Stilly",
+      "distinctPlayerAdds": 18,
+      "withLaterRecordedStarts": 6,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2024,
+      "manager": "Stover",
+      "distinctPlayerAdds": 15,
+      "withLaterRecordedStarts": 7,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2024,
+      "manager": "Thommy",
+      "distinctPlayerAdds": 28,
+      "withLaterRecordedStarts": 14,
+      "repeatedEventRows": 5
+    },
+    {
+      "year": 2024,
+      "manager": "Tony",
+      "distinctPlayerAdds": 20,
+      "withLaterRecordedStarts": 7,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2025,
+      "manager": "Birch",
+      "distinctPlayerAdds": 19,
+      "withLaterRecordedStarts": 7,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2025,
+      "manager": "JMid",
+      "distinctPlayerAdds": 25,
+      "withLaterRecordedStarts": 18,
+      "repeatedEventRows": 4
+    },
+    {
+      "year": 2025,
+      "manager": "Kuhl",
+      "distinctPlayerAdds": 16,
+      "withLaterRecordedStarts": 9,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2025,
+      "manager": "Mitch",
+      "distinctPlayerAdds": 15,
+      "withLaterRecordedStarts": 9,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2025,
+      "manager": "Scott",
+      "distinctPlayerAdds": 19,
+      "withLaterRecordedStarts": 8,
+      "repeatedEventRows": 3
+    },
+    {
+      "year": 2025,
+      "manager": "Stew",
+      "distinctPlayerAdds": 21,
+      "withLaterRecordedStarts": 8,
+      "repeatedEventRows": 4
+    },
+    {
+      "year": 2025,
+      "manager": "Stilly",
+      "distinctPlayerAdds": 25,
+      "withLaterRecordedStarts": 14,
+      "repeatedEventRows": 2
+    },
+    {
+      "year": 2025,
+      "manager": "Stover",
+      "distinctPlayerAdds": 16,
+      "withLaterRecordedStarts": 6,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2025,
+      "manager": "Thommy",
+      "distinctPlayerAdds": 19,
+      "withLaterRecordedStarts": 11,
+      "repeatedEventRows": 2
+    },
+    {
+      "year": 2025,
+      "manager": "Tony",
+      "distinctPlayerAdds": 17,
+      "withLaterRecordedStarts": 7,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2026,
+      "manager": "Birch",
+      "distinctPlayerAdds": 4,
+      "withLaterRecordedStarts": 4,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2026,
+      "manager": "JMid",
+      "distinctPlayerAdds": 12,
+      "withLaterRecordedStarts": 3,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2026,
+      "manager": "Kuhl",
+      "distinctPlayerAdds": 10,
+      "withLaterRecordedStarts": 5,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2026,
+      "manager": "Mitch",
+      "distinctPlayerAdds": 7,
+      "withLaterRecordedStarts": 2,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2026,
+      "manager": "Scott",
+      "distinctPlayerAdds": 11,
+      "withLaterRecordedStarts": 2,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2026,
+      "manager": "Stew",
+      "distinctPlayerAdds": 15,
+      "withLaterRecordedStarts": 6,
+      "repeatedEventRows": 2
+    },
+    {
+      "year": 2026,
+      "manager": "Stilly",
+      "distinctPlayerAdds": 20,
+      "withLaterRecordedStarts": 7,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2026,
+      "manager": "Stover",
+      "distinctPlayerAdds": 3,
+      "withLaterRecordedStarts": 2,
+      "repeatedEventRows": 0
+    },
+    {
+      "year": 2026,
+      "manager": "Thommy",
+      "distinctPlayerAdds": 18,
+      "withLaterRecordedStarts": 7,
+      "repeatedEventRows": 1
+    },
+    {
+      "year": 2026,
+      "manager": "Tony",
+      "distinctPlayerAdds": 8,
+      "withLaterRecordedStarts": 2,
+      "repeatedEventRows": 0
+    }
+  ]
+}
