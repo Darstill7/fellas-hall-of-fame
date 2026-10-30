@@ -39,7 +39,7 @@ try {
  const changes=[];
  for(const row of seasonRecords.slice().sort((a,b)=>a.year-b.year)){
   const previous=priorByManager.get(row.name);
-  if(previous&&previous.year===row.year-1)changes.push({...row,delta:+(maddenOvr(row.score)-seasonMaddenOvr(previous.score)).toFixed(1),priorYear:previous.year});
+  if(previous&&previous.year===row.year-1)changes.push({...row,delta:+(seasonMaddenOvr(row.score)-seasonMaddenOvr(previous.score)).toFixed(1),priorYear:previous.year});
   priorByManager.set(row.name,row);
  }
  const seasonManagers=[...new Set(seasonRecords.map(r=>r.name))].sort((a,b)=>a.localeCompare(b));
