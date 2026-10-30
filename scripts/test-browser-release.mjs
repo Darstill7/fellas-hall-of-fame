@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/manager-report-cards.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/manager-report-cards.html','analytics/manager-madden-cards.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -64,6 +64,22 @@ try{
     const cards=await page.locator('[data-rating-manager]').count();
     if(cards!==14)errors.push(width+' power ratings failed to render 14 managers: '+cards);
    }
+   if(route==='analytics/manager-madden-cards.html'){
+    const cards=page.locator('#cards article.card');
+    const count=await cards.count();
+    if(count!==10)errors.push(width+' Madden manager cards rendered '+count+' of 10 active managers');
+    else{
+     for(let i=0;i<count;i++){
+      const card=cards.nth(i);
+      const history=card.locator('details.historical-ovr');
+      if(await history.count()!==1)errors.push(width+' Madden manager card '+i+' missing historical OVR details');
+      else{
+       const seasons=history.locator('.historical-ovr-grid > div');
+       if(await seasons.count()<1)errors.push(width+' Madden manager card '+i+' historical OVR has no completed seasons');
+      }
+     }
+    }
+   }
    if(route.startsWith('rivalries/')){
     const text=await page.locator('body').innerText();
     if(text.includes('Rivalry archive could not be loaded')||text.includes('Rivalry data unavailable'))errors.push(width+' '+route+' rivalry module did not load');
@@ -97,6 +113,15 @@ try{
     const errorText=await page.locator('body').innerText();
     if(errorText.includes('Historical records are temporarily unavailable.'))errors.push(width+' '+route+' historical profile module unavailable');
     if(errorText.includes('Canonical manager missing'))errors.push(width+' '+route+' canonical identity missing');
+   }
+   if(route.startsWith('managers/')&&route.endsWith('/')&&slugs.includes(route.split('/')[1])){
+    const madden=page.locator('.profile-madden');
+    if(await madden.count()!==1)errors.push(width+' '+route+' missing Madden scouting report');
+    else{
+     const historical= madden.locator('details.profile-madden-history');
+     if(await historical.count()!==1)errors.push(width+' '+route+' missing historical OVR journey');
+     else if(await historical.locator('.profile-historical-table tbody tr').count()<1)errors.push(width+' '+route+' historical OVR journey is empty');
+    }
    }
    if(route.startsWith('managers/')&&route.endsWith('/')&&slugs.includes(route.split('/')[1])){
     const slug=route.split('/')[1];
