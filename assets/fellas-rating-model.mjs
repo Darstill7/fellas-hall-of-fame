@@ -42,7 +42,7 @@ export function makeRatings({guide,careers,luck,endings},names=['Stilly','Stew',
   const tenurePoints=WEIGHTS.tenure*(1-Math.exp(-seasons/5));
   const breakdown={titles:round(titlePoints),finals:round(finalsPoints),regular:round(regPoints),allPlay:round(allPoints),recent:round(recentPoints),peak:round(peakPoints),tenure:round(tenurePoints)};
   const score=round(titlePoints+finalsPoints+regPoints+allPoints+recentPoints+peakPoints+tenurePoints);
-  return {name,score,rank:0,breakdown,career:`${c.w}–${c.l}${c.t?'–'+c.t:''}`,titleYears,runnerYears,tenure:seasons,form:round(form*100),effectiveTitles:round(titleEquivalent),historical:!['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'].includes(name),provisional2026:true};
+  return {name,score,rank:0,breakdown,career:`${c.w}–${c.l}${c.t?'–'+c.t:''}`,titleYears,sevenYearTitles:titleYears.filter(y=>y>=latestFinished-6).length,runnerYears,tenure:seasons,form:round(form*100),effectiveTitles:round(titleEquivalent),historical:!['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'].includes(name),provisional2026:true};
  });
  rows.sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
  rows.forEach((x,i)=>{x.rank=i+1});
