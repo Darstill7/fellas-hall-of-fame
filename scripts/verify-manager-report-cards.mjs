@@ -192,3 +192,15 @@ const rosterAudit=JSON.parse(fs.readFileSync('data-integrity/ROSTER_COVERAGE_REC
 if(rosterAudit.coverage.weeks!==14||rosterAudit.coverage.teamWeeksWithBench!==140||rosterAudit.coverage.benchPlayerRows!==923||rosterAudit.coverage.verifiedReserveTaxiClassifierRows!==0)throw Error('2025 observational roster coverage drift');
 for(const page of ['labs/faab.html','labs/faab/index.html'])if(!fs.readFileSync(page,'utf8').includes('ARCHIVAL CLAIMS NOT VERIFIED'))throw Error('FAAB archive is missing unsourced-cost warning: '+page);
 console.log('FAAB archive provenance and 2025 roster observation-vs-certification guard PASS');
+
+// Verify all yearly acquisition schemas expose no bid price fields; never certify FAAB without receipts.
+for(let year=2020;year<=2026;year++){
+ const data=JSON.parse(fs.readFileSync('data/acquisitions_'+year+'.json','utf8'));
+ const events=data.weeks.flatMap(week=>week.tx||[]);
+ if(events.some(event=>!event.id||!Array.isArray(event.teamIds)||!Array.isArray(event.players)))throw Error('Missing acquisition event provenance '+year);
+ const bidEvents=events.filter(event=>Object.keys(event).some(key=>/^(faab|bid|waiver_bid|waiverBid|amount|cost|price)$/i.test(key)));
+ if(bidEvents.length)throw Error('New FAAB pricing evidence detected for '+year+'; reconcile against archival claims and update audit');
+}
+const historicalLineupScript=fs.readFileSync('scripts/analyze-six-season-lineups.mjs','utf8');
+if(!historicalLineupScript.includes("rows.length!==830")||!historicalLineupScript.includes('Not ex-ante skill'))throw Error('Six-season lineup research must retain coverage and non-skill disclosure');
+console.log('Annual acquisition FAAB schema and historical lineup evidence guard PASS');
