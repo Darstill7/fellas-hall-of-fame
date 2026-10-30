@@ -8,7 +8,7 @@ const guide=read('season_guide'),careers=read('career_core_generated'),luck=read
 const ratings=makeRatings({guide,careers,luck,endings,playoffBrackets:[...espn.seasons,...brackets.seasons]});
 const report=makeReportCards({drafts:read('v9_draft_engine'),trades:read('v9_trade_engine'),careers,luck,waivers:read('waiver_award_candidates'),endings,brackets,guide,espn});
 const weekly=weeklyOvrHistory({ledger:read('unified_record_book_2016_2026'),guide,careers,luck,endings,playoffBrackets:[...espn.seasons,...brackets.seasons]});
-if(weekly.length!==7||weekly.some(w=>w.rows.length!==10))throw Error('Madden weekly roster coverage incomplete');
+if(weekly.length!==Math.max(...read('unified_record_book_2016_2026').games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week))||weekly.some(w=>w.rows.length!==10))throw Error('Madden weekly roster coverage incomplete');
 for(const week of weekly)for(const r of week.rows){if(!Number.isFinite(r.ovr)||r.ovr<0||r.ovr>100)throw Error('Invalid weekly OVR '+week.week+' '+r.name);if(!r.breakdown||Object.keys(r.breakdown).length!==8||Object.values(r.breakdown).some(v=>!Number.isFinite(v)))throw Error('Weekly rating explanation evidence missing '+week.week+' '+r.name);}
 if(!fs.readFileSync('assets/manager-madden-cards.mjs','utf8').includes('OVR movement:'))throw Error('Madden OVR driver explanation missing');
 if(ratings.length!==14||report.length!==10)throw Error('Incorrect manager population');
@@ -58,3 +58,6 @@ console.log('MADDEN CARD EDITIONS PASS: source-backed tiers and responsive visua
 
 if(!ui.includes("const trajectory=historical?")||!ui.includes('No 2026 weekly rating available')||!ui.includes("trajectory.length?'<svg"))throw Error('Former manager weekly OVR suppression missing');
 console.log('MADDEN HISTORICAL WEEKLY COVERAGE PASS: no invented 2026 progression for alumni');
+
+if(!ui.includes("weekly.slice().reverse().map(")||!fs.readFileSync('assets/manager-weekly-ovr.mjs','utf8').includes('latestWeek'))throw Error('Weekly Madden timeline must follow verified ledger weeks');
+console.log('MADDEN LIVING TIMELINE PASS: derived week dropdown from canonical ledger');
