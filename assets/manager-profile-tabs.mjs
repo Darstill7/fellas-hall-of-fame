@@ -1,4 +1,18 @@
+import {managerPersonas} from './manager-personas.mjs';
 // Upgrade the older seven-link chapter navigator without discarding existing archive sections.
+const profileName=document.querySelector('main .hero h1')?.textContent?.trim();
+const persona=managerPersonas[profileName]||managerPersonas[profileName==='Tom'?'Thommy':profileName];
+const profileHero=document.querySelector('main .hero');
+if(persona&&profileHero&&!profileHero.querySelector('.manager-nickname-origin')){
+ const panel=document.createElement('details');
+ panel.className='manager-nickname-origin';
+ panel.innerHTML='<summary><strong>'+persona.name+'</strong> <span>· Why the nickname?</span></summary><p>'+persona.origin+'</p><p class="muted">Editorial nickname based on archived Fellas history, not an official league award.</p>';
+ const heading=profileHero.querySelector('h1');
+ heading?.after(panel);
+ const style=document.createElement('style');
+ style.textContent='.manager-nickname-origin{margin:12px 0 18px;border-left:4px solid #d6b976;padding:9px 14px;background:#122735;border-radius:0 9px 9px 0}.manager-nickname-origin summary{cursor:pointer;font-size:15px;min-height:44px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}.manager-nickname-origin summary span{font-weight:500;font-size:12px;color:#cfdee7}.manager-nickname-origin p{font-size:13px;margin:8px 0}';
+ document.head.append(style);
+}
 const legacyNav=document.querySelector('nav.profile-chapters');
 if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const manager=document.querySelector('main .hero h1')?.textContent?.trim()||'Manager';
