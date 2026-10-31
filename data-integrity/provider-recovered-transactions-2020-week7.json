@@ -1,0 +1,916 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "561248176597610496",
+  "year": 2020,
+  "week": 7,
+  "reportedRows": 40,
+  "normalizedRows": 40,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "626998012266225664",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "TEN",
+          "name": "Tennessee Titans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1166",
+          "name": "Kirk Cousins",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "626996843024293888",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "3969",
+          "name": "Leonard Fournette",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "626984051525353472",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "96",
+          "name": "Aaron Rodgers",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "626946030730031104",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "3969",
+          "name": "Leonard Fournette",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 13
+    },
+    {
+      "transactionId": "626872340457791488",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "3969",
+          "name": "Leonard Fournette",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 9
+    },
+    {
+      "transactionId": "626872237986750464",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "6803",
+          "name": "Brandon Aiyuk",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4036",
+          "name": "Corey Davis",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 12
+    },
+    {
+      "transactionId": "626840138944729088",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "96",
+          "name": "Aaron Rodgers",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 14
+    },
+    {
+      "transactionId": "626790377302630400",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "96",
+          "name": "Aaron Rodgers",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6011",
+          "name": "Gardner Minshew II",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 41
+    },
+    {
+      "transactionId": "626787598295187456",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "6996",
+          "name": "JaMycal Hasty",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6770",
+          "name": "Joe Burrow",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 9
+    },
+    {
+      "transactionId": "626787501910106112",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "2257",
+          "name": "Carlos Hyde",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "626786275575271424",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "2378",
+          "name": "Tevin Coleman",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4144",
+          "name": "Jonnu Smith",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "626774011602382848",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "626119859184590848",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "96",
+          "name": "Aaron Rodgers",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 20
+    },
+    {
+      "transactionId": "625825862884872192",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1603868749367,
+      "date": "2020-10-28",
+      "week": 7,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "3969",
+          "name": "Leonard Fournette",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "538",
+          "name": "Emmanuel Sanders",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 14
+    },
+    {
+      "transactionId": "626838904284233728",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1603812550186,
+      "date": "2020-10-27",
+      "week": 7,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "5038",
+          "name": "Michael Gallup",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "626115266291654656",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603640021444,
+      "date": "2020-10-25",
+      "week": 7,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "5026",
+          "name": "Tre'Quan Smith",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "96",
+          "name": "Aaron Rodgers",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625903284296683520",
+      "type": "trade",
+      "status": "complete",
+      "timestamp": 1603589501519,
+      "date": "2020-10-25",
+      "week": 7,
+      "teamIds": [
+        "1",
+        "4"
+      ],
+      "added": [],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625902992721264640",
+      "type": "trade",
+      "status": "complete",
+      "timestamp": 1603589460550,
+      "date": "2020-10-25",
+      "week": 7,
+      "teamIds": [
+        "1",
+        "4"
+      ],
+      "added": [],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625574923653435392",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603511193720,
+      "date": "2020-10-24",
+      "week": 7,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "7045",
+          "name": "Joshua Kelley",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3969",
+          "name": "Leonard Fournette",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625516332233875456",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603497224437,
+      "date": "2020-10-23",
+      "week": 7,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "367",
+          "name": "Jared Cook",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3202",
+          "name": "Austin Hooper",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625514452120313856",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1603496776183,
+      "date": "2020-10-23",
+      "week": 7,
+      "teamIds": [
+        "8"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "6803",
+          "name": "Brandon Aiyuk",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625404512961650688",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603470564645,
+      "date": "2020-10-23",
+      "week": 7,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "538",
+          "name": "Emmanuel Sanders",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "344",
+          "name": "Julian Edelman",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625398275788316672",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603469077587,
+      "date": "2020-10-23",
+      "week": 7,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "5131",
+          "name": "Justin Jackson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1144",
+          "name": "Cole Beasley",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625107658000654336",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603399788907,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "1386",
+          "name": "Giovani Bernard",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625097525426192384",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603397373113,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "4036",
+          "name": "Corey Davis",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5086",
+          "name": "Marquez Valdes-Scantling",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625088214637588480",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603395153248,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "DAL",
+          "name": "Dallas Cowboys",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625087613094658048",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603395009829,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625087576532955136",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1603395001112,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "1"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "6148",
+          "name": "Preston Williams",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625035325395230720",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1603392335815,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 13
+    },
+    {
+      "transactionId": "624735577811582976",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1603392335815,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "624634490681114624",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1603392335815,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "624632219855560704",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1603392335815,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "625038986452205568",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603383416334,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "3202",
+          "name": "Austin Hooper",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625034988705882112",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603382463197,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1825",
+          "name": "Jarvis Landry",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "625029603005652992",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603381179146,
+      "date": "2020-10-22",
+      "week": 7,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5086",
+          "name": "Marquez Valdes-Scantling",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "624734904474755072",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603310917541,
+      "date": "2020-10-21",
+      "week": 7,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "536",
+          "name": "Antonio Brown",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "624734849143533568",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1603310904350,
+      "date": "2020-10-21",
+      "week": 7,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "2152",
+          "name": "Teddy Bridgewater",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "624632549402034176",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603286514190,
+      "date": "2020-10-21",
+      "week": 7,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "SEA",
+          "name": "Seattle Seahawks",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "624594782848638976",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603277509942,
+      "date": "2020-10-21",
+      "week": 7,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "289",
+          "name": "Drew Brees",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "829",
+          "name": "Andy Dalton",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "624592014767366144",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1603276849980,
+      "date": "2020-10-21",
+      "week": 7,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
