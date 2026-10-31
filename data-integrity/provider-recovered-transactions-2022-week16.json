@@ -1,0 +1,188 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "857125408712310784",
+  "year": 2022,
+  "week": 16,
+  "reportedRows": 7,
+  "normalizedRows": 7,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "913510248907051008",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1672214826904,
+      "date": "2022-12-28",
+      "week": 16,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "4983",
+          "name": "DJ Moore",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8135",
+          "name": "Treylon Burks",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "912011910638567424",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1671896804481,
+      "date": "2022-12-24",
+      "week": 16,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4197",
+          "name": "Isaiah McKenzie",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "911694222019878912",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671727350290,
+      "date": "2022-12-22",
+      "week": 16,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "7551",
+          "name": "Deon Jackson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "911681171984048128",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671724238919,
+      "date": "2022-12-22",
+      "week": 16,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "7002",
+          "name": "Juwan Johnson",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5133",
+          "name": "Tyler Conklin",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "911298306364497920",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671632956642,
+      "date": "2022-12-21",
+      "week": 16,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "TB",
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "DET",
+          "name": "Detroit Lions",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "911297984795598848",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671632879974,
+      "date": "2022-12-21",
+      "week": 16,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "DET",
+          "name": "Detroit Lions",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8142",
+          "name": "Alec Pierce",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "911269090814156800",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1671625991112,
+      "date": "2022-12-21",
+      "week": 16,
+      "teamIds": [
+        "1"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "2325",
+          "name": "Nelson Agholor",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
