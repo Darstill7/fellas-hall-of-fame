@@ -145,8 +145,22 @@ if(main&&tabs){
   details.append(summary,content);
   section.append(details);
  }
+ const advancedSections=[...main.querySelectorAll('#franchise-legends .profile-deep-disclosure,#front-office-archive .profile-deep-disclosure,#full-franchise-dossier .profile-deep-disclosure')];
+ if(advancedSections.length){
+  const controls=document.createElement('div');
+  controls.className='profile-deep-controls';
+  controls.innerHTML='<span>More research</span><button type="button" data-expand-all>Expand all</button><button type="button" data-collapse-all>Collapse all</button>';
+  document.getElementById('franchise-legends')?.before(controls);
+  controls.addEventListener('click',event=>{
+   const button=event.target.closest('button');
+   if(!button)return;
+   const open=button.hasAttribute('data-expand-all');
+   for(const details of advancedSections)details.open=open;
+  });
+ }
  const inlineCss=document.createElement('style');
  inlineCss.textContent='.profile-inline-disclosure{border:1px solid #537186;border-radius:12px;background:#152b3a;margin:14px 0;overflow:hidden}.profile-inline-disclosure>summary{cursor:pointer;list-style:none;display:flex;align-items:center;min-height:56px;padding:14px 16px;font-size:15px;font-weight:850}.profile-inline-disclosure>summary:after{content:"+";margin-left:auto;font-size:22px}.profile-inline-disclosure[open]>summary:after{content:"−"}.profile-inline-detail{padding:3px 15px 18px;border-top:1px solid #456174}.profile-inline-disclosure>summary:focus-visible{outline:3px solid #fff;outline-offset:-3px}';
+ inlineCss.textContent+='.profile-deep-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0}.profile-deep-controls span{font-weight:800;margin-right:auto}.profile-deep-controls button{background:#213d4e;color:white;border:1px solid #71899a;border-radius:8px;padding:10px 12px;min-height:44px;font:inherit;font-size:12px;cursor:pointer}';
  document.head.append(inlineCss);
  // Mobile tabs stay within thumb reach without covering page content.
  const stickyStyle=document.createElement('style');
