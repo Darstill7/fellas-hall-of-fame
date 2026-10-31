@@ -131,6 +131,20 @@ if(main&&tabs){
   details.append(summary,content);
   section.append(details);
  }
+ // Advanced research opens locally, with a clear heading instead of a giant initial scroll.
+ for(const [id,label] of [['franchise-legends','Player history'],['front-office-archive','Trades and roster research'],['full-franchise-dossier','Complete historical dossier']]){
+  const section=document.getElementById(id);
+  if(!section||section.querySelector(':scope > .profile-deep-disclosure'))continue;
+  const details=document.createElement('details');
+  details.className='profile-inline-disclosure profile-deep-disclosure';
+  const summary=document.createElement('summary');
+  summary.textContent=label;
+  const content=document.createElement('div');
+  content.className='profile-inline-detail';
+  while(section.firstChild)content.append(section.firstChild);
+  details.append(summary,content);
+  section.append(details);
+ }
  const inlineCss=document.createElement('style');
  inlineCss.textContent='.profile-inline-disclosure{border:1px solid #537186;border-radius:12px;background:#152b3a;margin:14px 0;overflow:hidden}.profile-inline-disclosure>summary{cursor:pointer;list-style:none;display:flex;align-items:center;min-height:56px;padding:14px 16px;font-size:15px;font-weight:850}.profile-inline-disclosure>summary:after{content:"+";margin-left:auto;font-size:22px}.profile-inline-disclosure[open]>summary:after{content:"−"}.profile-inline-detail{padding:3px 15px 18px;border-top:1px solid #456174}.profile-inline-disclosure>summary:focus-visible{outline:3px solid #fff;outline-offset:-3px}';
  document.head.append(inlineCss);
