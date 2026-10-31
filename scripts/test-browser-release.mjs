@@ -243,7 +243,10 @@ try{
      const quickLinks=page.locator('.profile-quick-grid a[data-profile-jump]');
      if(await quickLinks.count()!==4)errors.push(width+' '+slug+' missing quick-start links');
      else{
+      const beforeJump=await page.evaluate(()=>window.scrollY);
       await quickLinks.nth(2).click();
+      const afterJump=await page.evaluate(()=>window.scrollY);
+      if(Math.abs(afterJump-beforeJump)>100)errors.push(width+' '+slug+' quick shortcut unexpectedly jumped down the page');
       if(await page.locator('[data-profile-tab="rivalries"]').getAttribute('aria-selected')!=='true'||!await page.locator('#head-to-head').isVisible())errors.push(width+' '+slug+' head-to-head quick-link failed');
      }
      for(const category of ['overview','seasons','rivalries','advanced']){
