@@ -1,0 +1,156 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "946275261279055872",
+  "year": 2023,
+  "week": 17,
+  "reportedRows": 6,
+  "normalizedRows": 6,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1046593453376753664",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1703889833352,
+      "date": "2023-12-29",
+      "week": 17,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "8137",
+          "name": "George Pickens",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1046593415569297408",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1703889824338,
+      "date": "2023-12-29",
+      "week": 17,
+      "teamIds": [
+        "1"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "7600",
+          "name": "Pat Freiermuth",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1046559005885157376",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1703881620430,
+      "date": "2023-12-29",
+      "week": 17,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "8676",
+          "name": "Rashid Shaheed",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7670",
+          "name": "Joshua Palmer",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1045872431442776064",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1703717928327,
+      "date": "2023-12-27",
+      "week": 17,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "167",
+          "name": "Tom Brady",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1045799336874954752",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1703700501224,
+      "date": "2023-12-27",
+      "week": 17,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "8139",
+          "name": "Zamir White",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6845",
+          "name": "Zack Moss",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1045762366203342848",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1703700432026,
+      "date": "2023-12-27",
+      "week": 17,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    }
+  ]
+}
