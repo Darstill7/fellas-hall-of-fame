@@ -1,0 +1,338 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1134248931308802048",
+  "year": 2024,
+  "week": 15,
+  "reportedRows": 13,
+  "normalizedRows": 13,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1174909008435613696",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1734545388197,
+      "date": "2024-12-18",
+      "week": 15,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "8121",
+          "name": "Romeo Doubs",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8126",
+          "name": "Wan'Dale Robinson",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 18
+    },
+    {
+      "transactionId": "1174908878247944192",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1734545388197,
+      "date": "2024-12-18",
+      "week": 15,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "8143",
+          "name": "Jerome Ford",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 18
+    },
+    {
+      "transactionId": "1174879194197479424",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1734545388197,
+      "date": "2024-12-18",
+      "week": 15,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "BUF",
+          "name": "Buffalo Bills",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "KC",
+          "name": "Kansas City Chiefs",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1174825403864420352",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1734545388197,
+      "date": "2024-12-18",
+      "week": 15,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "8143",
+          "name": "Jerome Ford",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 39
+    },
+    {
+      "transactionId": "1174818223933407232",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1734545388197,
+      "date": "2024-12-18",
+      "week": 15,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "8143",
+          "name": "Jerome Ford",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5892",
+          "name": "David Montgomery",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 43
+    },
+    {
+      "transactionId": "1173477730793394176",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1734141402484,
+      "date": "2024-12-14",
+      "week": 15,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "3214",
+          "name": "Hunter Henry",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4066",
+          "name": "Evan Engram",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1173079644527128576",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1734046491322,
+      "date": "2024-12-12",
+      "week": 15,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "NYJ",
+          "name": "New York Jets",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1173000683411324928",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1734027665525,
+      "date": "2024-12-12",
+      "week": 15,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "WAS",
+          "name": "Washington Commanders",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11626",
+          "name": "Xavier Legette",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1172682774730358784",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1733951870189,
+      "date": "2024-12-11",
+      "week": 15,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5022",
+          "name": "Dallas Goedert",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1172682672133488640",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1733951845728,
+      "date": "2024-12-11",
+      "week": 15,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "3163",
+          "name": "Jared Goff",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11583",
+          "name": "Jonathon Brooks",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1172652436616495104",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1733944637019,
+      "date": "2024-12-11",
+      "week": 15,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "8220",
+          "name": "Sincere McCormick",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4098",
+          "name": "Kareem Hunt",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1172649761132888064",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1733943999134,
+      "date": "2024-12-11",
+      "week": 15,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "6963",
+          "name": "Patrick Taylor",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1172635921276059648",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1733940699455,
+      "date": "2024-12-11",
+      "week": 15,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "9757",
+          "name": "Kendre Miller",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7596",
+          "name": "Elijah Moore",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
