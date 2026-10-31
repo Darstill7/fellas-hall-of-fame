@@ -1,0 +1,210 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "561248176597610496",
+  "year": 2020,
+  "week": 16,
+  "reportedRows": 9,
+  "normalizedRows": 9,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "648634130501898240",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1609008937052,
+      "date": "2020-12-26",
+      "week": 16,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "6826",
+          "name": "Cole Kmet",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "648214006754033664",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1608908771745,
+      "date": "2020-12-25",
+      "week": 16,
+      "teamIds": [
+        "1"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "6059",
+          "name": "Travis Fulgham",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "648213931164278784",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608908753723,
+      "date": "2020-12-25",
+      "week": 16,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "647602297983049728",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1608762929009,
+      "date": "2020-12-23",
+      "week": 16,
+      "teamIds": [
+        "1"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "2325",
+          "name": "Nelson Agholor",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "647601582975836160",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608762758538,
+      "date": "2020-12-23",
+      "week": 16,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "5284",
+          "name": "Jeff Wilson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4351",
+          "name": "Tim Patrick",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "647499851378008064",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608738503835,
+      "date": "2020-12-23",
+      "week": 16,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "5857",
+          "name": "Noah Fant",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4068",
+          "name": "Mike Williams",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "647499728610754560",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608738474565,
+      "date": "2020-12-23",
+      "week": 16,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "5004",
+          "name": "Ito Smith",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "647499676039331840",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608738462031,
+      "date": "2020-12-23",
+      "week": 16,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "4892",
+          "name": "Baker Mayfield",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "647499539695112192",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1608738429524,
+      "date": "2020-12-23",
+      "week": 16,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "4381",
+          "name": "Taysom Hill",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
