@@ -250,6 +250,15 @@ try{
       if(Math.abs(afterJump-beforeJump)>100)errors.push(width+' '+slug+' quick shortcut unexpectedly jumped down the page');
       if(await page.locator('[data-profile-tab="rivalries"]').getAttribute('aria-selected')!=='true'||!await page.locator('#head-to-head').isVisible())errors.push(width+' '+slug+' head-to-head quick-link failed');
      }
+     if(width===390){
+      await page.locator('[data-profile-tab="seasons"]').click();
+      const seasons=page.locator('#season-history .season-accordion .season-entry');
+      if(await seasons.count()<1)errors.push(width+' '+slug+' mobile season accordion missing');
+      else{
+       await seasons.first().locator('summary').click();
+       if(!await seasons.first().locator('.season-entry-detail').isVisible())errors.push(width+' '+slug+' season details did not expand in place');
+      }
+     }
      for(const category of ['overview','seasons','rivalries','advanced']){
       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
       await button.click();
