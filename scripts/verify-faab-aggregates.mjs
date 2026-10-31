@@ -36,7 +36,7 @@ for(const bid of data.largestCompletedBids??[]){
  const id=bid.year+'|'+bid.manager;
  assert.ok(Number.isSafeInteger(bid.bid)&&bid.bid>=0,'Invalid large bid amount');
  assert.ok(ids.has(id),'Large bid has no manager-season');
- assert.ok(typeof bid.transactionId==='string'&&/^\\d+$/.test(bid.transactionId),'Large bid lacks numeric transaction provenance');
+ assert.ok(typeof bid.transactionId==='string'&&/^\d+$/.test(bid.transactionId),'Large bid lacks numeric transaction provenance');
  assert.ok(Number.isSafeInteger(bid.week)&&bid.week>=1&&bid.week<=18,'Large bid week outside coverage');
  const key=bid.year+'|'+bid.transactionId;
  assert.ok(!bidKeys.has(key),'Repeated winning transaction '+key);
