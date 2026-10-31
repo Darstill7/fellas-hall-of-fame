@@ -238,6 +238,7 @@ try{
      if(!await nickname.locator('p').first().isVisible())errors.push(width+' '+slug+' nickname explanation failed to expand');
     }
     const tabs=page.locator('[data-manager-profile-tabs] button[data-profile-tab]');
+    if(width===390&&await page.locator('.profile-location-label').count()!==1)errors.push(width+' '+slug+' missing sticky manager location label');
     if(await tabs.count()!==4)errors.push(width+' '+slug+' missing simple four-tab navigation');
     else{
      const quickLinks=page.locator('.profile-quick-grid [data-profile-jump]');
