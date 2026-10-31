@@ -267,6 +267,14 @@ try{
       if(!await rivalryDisclosure.locator('.profile-inline-detail').isVisible())errors.push(width+' '+slug+' rivalry details did not expand');
      }
      await page.locator('[data-profile-tab="advanced"]').click();
+     const deepControls=page.locator('#franchise-legends .profile-deep-controls');
+     if(await deepControls.count()!==1)errors.push(width+' '+slug+' Deep Stats expansion controls missing');
+     else{
+      await deepControls.locator('[data-expand-all]').click();
+      if(!await page.locator('#front-office-archive .profile-deep-disclosure').evaluate(el=>el.open))errors.push(width+' '+slug+' Expand all did not open research');
+      await deepControls.locator('[data-collapse-all]').click();
+      if(await page.locator('#front-office-archive .profile-deep-disclosure').evaluate(el=>el.open))errors.push(width+' '+slug+' Collapse all did not close research');
+     }
      const deepDisclosure=page.locator('#franchise-legends .profile-deep-disclosure');
      if(await deepDisclosure.count()!==1)errors.push(width+' '+slug+' deep research accordion missing');
      else{
