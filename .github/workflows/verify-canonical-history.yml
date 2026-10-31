@@ -125,6 +125,15 @@ jobs:
         run: node scripts/verify-manager-report-cards.mjs
       - name: Reconcile FAAB manager-season aggregates (research-only)
         run: node scripts/verify-faab-aggregates.mjs
+      - name: Generate research-only FAAB observed acquisition outcomes
+        run: node scripts/analyze-faab-acquisition-value.mjs
+      - name: Upload FAAB acquisition outcome research
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: faab-observed-acquisition-outcomes
+          path: data-integrity/faab-observed-acquisition-outcomes-v1.json
+          if-no-files-found: warn
       - name: Upload manager lineup source exclusion audit
         if: always()
         uses: actions/upload-artifact@v4
