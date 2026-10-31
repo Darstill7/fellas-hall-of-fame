@@ -143,14 +143,14 @@ jobs:
         run: node scripts/reconstruct-faab-availability.mjs
       - name: Validate waiver availability provenance and uncertainty
         run: node scripts/verify-faab-availability.mjs
-      - name: Compute research-only cost-normalized FAAB metrics
-        run: node scripts/analyze-faab-cost-normalized.mjs
-      - name: Enforce FAAB cost-evidence grade gate
-        run: node scripts/verify-faab-cost-normalized.mjs
       - name: Research opposing-bench positional FAAB baseline
         run: node scripts/analyze-faab-opposing-bench-baseline.mjs
       - name: Validate opposing-bench baseline against acquired starters
         run: node scripts/verify-faab-positional-baseline.mjs
+      - name: Compute research-only cost-normalized FAAB metrics
+        run: node scripts/analyze-faab-cost-normalized.mjs
+      - name: Enforce FAAB cost-evidence grade gate
+        run: node scripts/verify-faab-cost-normalized.mjs
       - name: Upload FAAB acquisition outcome research
         if: always()
         uses: actions/upload-artifact@v4
