@@ -132,7 +132,7 @@ if(main&&tabs){
   section.append(details);
  }
  // Advanced research opens locally, with a clear heading instead of a giant initial scroll.
- for(const [id,label] of [['franchise-legends','Player history'],['front-office-archive','Trades and roster research'],['full-franchise-dossier','Complete historical dossier'],['franchise-encyclopedia','Waivers, trades and franchise records']]){
+ for(const [id,label] of [['franchise-legends','Player history'],['front-office-archive','Trades and roster research'],['full-franchise-dossier','Complete historical dossier']]){
   const section=document.getElementById(id);
   if(!section||section.querySelector(':scope > .profile-deep-disclosure'))continue;
   const details=document.createElement('details');
