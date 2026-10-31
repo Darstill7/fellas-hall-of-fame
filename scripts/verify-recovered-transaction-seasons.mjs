@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-const ranges=[[2024,17],[2025,18],[2026,8]];
+const ranges=[[2020,18],[2021,18],[2022,18],[2023,18],[2024,17],[2025,18],[2026,8]];
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const summary=[];
 for(const [year,end] of ranges){
@@ -27,6 +27,6 @@ for(const [year,end] of ranges){
  }
  summary.push({year,availableWeeks:end-missing.length,expectedWeeks:end,missingWeeks:missing,transactions:count,transactionsWithDrops:drops,failedClaims:failed});
 }
-assert.equal(summary.find(x=>x.year===2025).missingWeeks.length,0,'2025 archive incomplete');
+for(const year of [2020,2021,2022,2023,2025])assert.equal(summary.find(x=>x.year===year).missingWeeks.length,0,year+' archive incomplete');
 assert.equal(summary.find(x=>x.year===2026).missingWeeks.length,0,'2026 through week eight incomplete');
 console.log('Historical provider transaction audit',JSON.stringify(summary));
