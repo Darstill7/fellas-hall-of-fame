@@ -243,6 +243,7 @@ try{
      const quickLinks=page.locator('.profile-quick-grid a[data-profile-jump]');
      if(await quickLinks.count()!==4)errors.push(width+' '+slug+' missing quick-start links');
      else{
+      await quickLinks.nth(2).scrollIntoViewIfNeeded();
       const beforeJump=await page.evaluate(()=>window.scrollY);
       await quickLinks.nth(2).click();
       const afterJump=await page.evaluate(()=>window.scrollY);
