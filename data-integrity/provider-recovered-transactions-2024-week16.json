@@ -1,0 +1,214 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1134248931308802048",
+  "year": 2024,
+  "week": 16,
+  "reportedRows": 8,
+  "normalizedRows": 8,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1177276210139099136",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1735150174611,
+      "date": "2024-12-25",
+      "week": 16,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1177062859547164672",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1735150174611,
+      "date": "2024-12-25",
+      "week": 16,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "11618",
+          "name": "Jalen McMillan",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1177062518686519296",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1735150174611,
+      "date": "2024-12-25",
+      "week": 16,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "LV",
+          "name": "Las Vegas Raiders",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9484",
+          "name": "Tucker Kraft",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1177061039250345984",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1735150174611,
+      "date": "2024-12-25",
+      "week": 16,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9502",
+          "name": "Tank Dell",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1177060994882064384",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1735150174611,
+      "date": "2024-12-25",
+      "week": 16,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1175663679392530432",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1734662573243,
+      "date": "2024-12-20",
+      "week": 16,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "7600",
+          "name": "Pat Freiermuth",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "TEN",
+          "name": "Tennessee Titans",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1175589005522456576",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1734644769605,
+      "date": "2024-12-19",
+      "week": 16,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "4098",
+          "name": "Kareem Hunt",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "WAS",
+          "name": "Washington Commanders",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1175173296208297984",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1734545656781,
+      "date": "2024-12-18",
+      "week": 16,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "11637",
+          "name": "Keon Coleman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4988",
+          "name": "Nick Chubb",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
