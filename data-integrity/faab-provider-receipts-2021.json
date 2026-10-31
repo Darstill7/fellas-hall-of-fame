@@ -73,6 +73,26 @@
       "week": 14,
       "count": 8,
       "ok": true
+    },
+    {
+      "week": 15,
+      "count": 7,
+      "ok": true
+    },
+    {
+      "week": 16,
+      "count": 1,
+      "ok": true
+    },
+    {
+      "week": 17,
+      "count": 0,
+      "ok": true
+    },
+    {
+      "week": 18,
+      "count": 0,
+      "ok": true
     }
   ],
   "archiveRecords": 306,
@@ -3054,13 +3074,150 @@
       "archiveType": "waiver",
       "rosterMatch": true,
       "playerMatch": true
+    },
+    {
+      "id": "779215902037168128",
+      "week": 15,
+      "bid": 7,
+      "type": "waiver",
+      "status": "failed",
+      "rosterIds": [
+        "9"
+      ],
+      "playerIds": [
+        "6853"
+      ],
+      "archived": false,
+      "archiveType": null,
+      "rosterMatch": false,
+      "playerMatch": false
+    },
+    {
+      "id": "779231016115118080",
+      "week": 15,
+      "bid": 0,
+      "type": "waiver",
+      "status": "complete",
+      "rosterIds": [
+        "1"
+      ],
+      "playerIds": [
+        "SEA"
+      ],
+      "archived": false,
+      "archiveType": null,
+      "rosterMatch": false,
+      "playerMatch": false
+    },
+    {
+      "id": "779216010246160384",
+      "week": 15,
+      "bid": 1,
+      "type": "waiver",
+      "status": "complete",
+      "rosterIds": [
+        "9"
+      ],
+      "playerIds": [
+        "7066"
+      ],
+      "archived": false,
+      "archiveType": null,
+      "rosterMatch": false,
+      "playerMatch": false
+    },
+    {
+      "id": "779139596985466880",
+      "week": 15,
+      "bid": 1,
+      "type": "waiver",
+      "status": "complete",
+      "rosterIds": [
+        "2"
+      ],
+      "playerIds": [
+        "5131"
+      ],
+      "archived": false,
+      "archiveType": null,
+      "rosterMatch": false,
+      "playerMatch": false
+    },
+    {
+      "id": "779138198864580608",
+      "week": 15,
+      "bid": 1,
+      "type": "waiver",
+      "status": "complete",
+      "rosterIds": [
+        "2"
+      ],
+      "playerIds": [
+        "4147"
+      ],
+      "archived": false,
+      "archiveType": null,
+      "rosterMatch": false,
+      "playerMatch": false
+    },
+    {
+      "id": "779138070451781632",
+      "week": 15,
+      "bid": 1,
+      "type": "waiver",
+      "status": "complete",
+      "rosterIds": [
+        "2"
+      ],
+      "playerIds": [
+        "5052"
+      ],
+      "archived": false,
+      "archiveType": null,
+      "rosterMatch": false,
+      "playerMatch": false
+    },
+    {
+      "id": "777269464965177344",
+      "week": 15,
+      "bid": 0,
+      "type": "waiver",
+      "status": "complete",
+      "rosterIds": [
+        "8"
+      ],
+      "playerIds": [
+        "CLE"
+      ],
+      "archived": false,
+      "archiveType": null,
+      "rosterMatch": false,
+      "playerMatch": false
+    },
+    {
+      "id": "779798096002564096",
+      "week": 16,
+      "bid": 0,
+      "type": "waiver",
+      "status": "complete",
+      "rosterIds": [
+        "1"
+      ],
+      "playerIds": [
+        "1234"
+      ],
+      "archived": false,
+      "archiveType": null,
+      "rosterMatch": false,
+      "playerMatch": false
     }
   ],
   "outcomeSummary": {
-    "completedClaims": 108,
-    "failedClaims": 67,
-    "completedSpend": 859,
-    "failedAttemptedBidTotal": 645,
+    "completedClaims": 115,
+    "failedClaims": 68,
+    "completedSpend": 863,
+    "failedAttemptedBidTotal": 652,
     "completedWithArchiveMatch": 108
-  }
+  },
+  "scope": "Explicit Sleeper weeks 1-18; does not include other periods outside these numbered rounds"
 }
