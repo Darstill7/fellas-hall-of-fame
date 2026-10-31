@@ -28,9 +28,15 @@ for(const acquisition of outcomes.observations){
   const candidates=rosters.filter(r=>String(rosterId(r))!==acquisition.teamId)
    .flatMap(r=>r.bench??[])
    .filter(p=>p.position===acquisition.position&&String(p.id)!==acquisition.playerId&&Number.isFinite(p.points));
-  // One distinct player per sample; duplicated player IDs across rosters indicate unreliable evidence.
+  // Fail closed on duplicated player IDs; silently deduplicating would hide roster corruption.
   const distinct=new Map();
-  for(const p of candidates){if(!distinct.has(String(p.id)))distinct.set(String(p.id),p.points);}
+  let conflictingDuplicate=false;
+  for(const p of candidates){
+   const id=String(p.id);
+   if(distinct.has(id)){conflictingDuplicate=true;break;}
+   distinct.set(id,p.points);
+  }
+  if(conflictingDuplicate){missing++;continue;}
   const scores=[...distinct.values()].sort((a,b)=>a-b);
   if(scores.length<3){missing++;continue;}
   const mid=Math.floor(scores.length/2);
