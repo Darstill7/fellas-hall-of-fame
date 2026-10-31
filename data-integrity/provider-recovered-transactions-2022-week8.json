@@ -1,0 +1,638 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "857125408712310784",
+  "year": 2022,
+  "week": 8,
+  "reportedRows": 25,
+  "normalizedRows": 25,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "893408338732326912",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "8150",
+          "name": "Kyren Williams",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NYJ",
+          "name": "New York Jets",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "893379085378719744",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "3286",
+          "name": "Demarcus Robinson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "893378804268101632",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "6847",
+          "name": "Devin Duvernay",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "893342440663412736",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "DEN",
+          "name": "Denver Broncos",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "893262888930918400",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "7551",
+          "name": "Deon Jackson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8142",
+          "name": "Alec Pierce",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "893228303128068096",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "4602",
+          "name": "Robert Tonyan",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "956",
+          "name": "Mark Ingram",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "893195438910685184",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "893195280777048064",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "3242",
+          "name": "Kenyan Drake",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 13
+    },
+    {
+      "transactionId": "893176184039567360",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "7591",
+          "name": "Justin Fields",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "893139308725411840",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "8121",
+          "name": "Romeo Doubs",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5870",
+          "name": "Daniel Jones",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 11
+    },
+    {
+      "transactionId": "893139167461195776",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "6847",
+          "name": "Devin Duvernay",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8137",
+          "name": "George Pickens",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "893103182773956608",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "8121",
+          "name": "Romeo Doubs",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "893102856423727104",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "7591",
+          "name": "Justin Fields",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5955",
+          "name": "Hunter Renfrow",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "891540689165660160",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1667372830254,
+      "date": "2022-11-02",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "8131",
+          "name": "Isaiah Likely",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4171",
+          "name": "Josh Reynolds",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 11
+    },
+    {
+      "transactionId": "892471192475623424",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1667144222900,
+      "date": "2022-10-30",
+      "week": 8,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "4993",
+          "name": "Mike Gesicki",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6126",
+          "name": "Irv Smith",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "891795890468311040",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1666983218355,
+      "date": "2022-10-28",
+      "week": 8,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5955",
+          "name": "Hunter Renfrow",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7583",
+          "name": "Sam Ehlinger",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "891702441433964544",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1666960938369,
+      "date": "2022-10-28",
+      "week": 8,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "4089",
+          "name": "Gerald Everett",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5086",
+          "name": "Marquez Valdes-Scantling",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "891518702376460288",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1666917131564,
+      "date": "2022-10-28",
+      "week": 8,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "KC",
+          "name": "Kansas City Chiefs",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "TEN",
+          "name": "Tennessee Titans",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "891398762424111104",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1666888535651,
+      "date": "2022-10-27",
+      "week": 8,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "7606",
+          "name": "Kadarius Toney",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6847",
+          "name": "Devin Duvernay",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "891358768401670144",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1666879000333,
+      "date": "2022-10-27",
+      "week": 8,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "8146",
+          "name": "Garrett Wilson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5038",
+          "name": "Michael Gallup",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "891000859780153344",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1666873015498,
+      "date": "2022-10-27",
+      "week": 8,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "891046869449699328",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1666804637828,
+      "date": "2022-10-26",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "890992559428653056",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1666791689310,
+      "date": "2022-10-26",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8131",
+          "name": "Isaiah Likely",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "890992476054372352",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1666791669432,
+      "date": "2022-10-26",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "4171",
+          "name": "Josh Reynolds",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "890955977980227584",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1666782967613,
+      "date": "2022-10-26",
+      "week": 8,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "6126",
+          "name": "Irv Smith",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4033",
+          "name": "David Njoku",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
