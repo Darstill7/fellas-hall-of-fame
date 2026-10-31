@@ -266,6 +266,13 @@ try{
       await rivalryDisclosure.locator('summary').click();
       if(!await rivalryDisclosure.locator('.profile-inline-detail').isVisible())errors.push(width+' '+slug+' rivalry details did not expand');
      }
+     await page.locator('[data-profile-tab="advanced"]').click();
+     const deepDisclosure=page.locator('#franchise-legends .profile-deep-disclosure');
+     if(await deepDisclosure.count()!==1)errors.push(width+' '+slug+' deep research accordion missing');
+     else{
+      await deepDisclosure.locator('summary').click();
+      if(!await deepDisclosure.locator('.profile-inline-detail').isVisible())errors.push(width+' '+slug+' player history not expanded in place');
+     }
      for(const category of ['overview','seasons','rivalries','advanced']){
       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
       await button.click();
