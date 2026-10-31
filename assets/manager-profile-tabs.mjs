@@ -45,10 +45,10 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const quick=document.createElement('section');
  quick.className='profile-quickstart';quick.setAttribute('aria-label',manager+' career at a glance');
  quick.innerHTML='<h2>'+manager+' at a glance</h2><p class="muted">Choose what to explore.</p><div class="profile-quick-grid">'+
- [['overview','#verified-history-panel','Championships','Titles and finishes'],['seasons','#season-history','Every Season','Annual results'],['rivalries','#head-to-head','Head-to-Head','Who owns whom?'],['advanced','#franchise-encyclopedia','Trades & Pickups','The deeper research']].map(([tab,target,label,description])=>'<a data-profile-jump="'+tab+'" href="'+target+'"><strong>'+label+'</strong><span>'+description+' →</span></a>').join('')+'</div>';
+ [['overview','#verified-history-panel','Championships','Titles and finishes'],['seasons','#season-history','Every Season','Annual results'],['rivalries','#head-to-head','Head-to-Head','Who owns whom?'],['advanced','#franchise-encyclopedia','Trades & Pickups','The deeper research']].map(([tab,target,label,description])=>'<button type="button" data-profile-jump="'+tab+'"><strong>'+label+'</strong><span>'+description+' ↓</span></button>').join('')+'</div>';
  nav.after(quick);
  const css=document.createElement('style');
- css.textContent='.profile-tabs{background:#0d1923f5;border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin:12px 0 24px}.profile-tab-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.profile-tab-row button{cursor:pointer;border:1px solid #607483;border-radius:9px;background:#182c3b;color:#d9e3e9;font:inherit;font-size:13px;font-weight:800;padding:11px 16px;min-height:44px}.profile-tab-row button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#10212d}.profile-tab-row button:focus-visible{outline:3px solid white;outline-offset:3px}.section[hidden]{display:none!important}.profile-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}.profile-quick-grid a{display:flex;flex-direction:column;gap:6px;background:#172b3a;border:1px solid #486174;border-radius:12px;padding:17px;min-height:94px}.profile-quick-grid span{font-size:13px;color:#d0dce4}@media(max-width:600px){.profile-tab-row{display:grid;grid-template-columns:1fr 1fr}.profile-quick-grid{grid-template-columns:1fr}}';
+ css.textContent='.profile-tabs{background:#0d1923f5;border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin:12px 0 24px}.profile-tab-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.profile-tab-row button{cursor:pointer;border:1px solid #607483;border-radius:9px;background:#182c3b;color:#d9e3e9;font:inherit;font-size:13px;font-weight:800;padding:11px 16px;min-height:44px}.profile-tab-row button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#10212d}.profile-tab-row button:focus-visible{outline:3px solid white;outline-offset:3px}.section[hidden]{display:none!important}.profile-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}.profile-quick-grid button{display:flex;cursor:pointer;text-align:left;color:#fff;font:inherit;flex-direction:column;gap:6px;background:#172b3a;border:1px solid #486174;border-radius:12px;padding:17px;min-height:94px}.profile-quick-grid button[aria-pressed="true"]{border-color:var(--gold);box-shadow:inset 4px 0 0 var(--gold)}.profile-quick-grid span{font-size:13px;color:#d0dce4}@media(max-width:600px){.profile-tab-row{display:grid;grid-template-columns:1fr 1fr}.profile-quick-grid{grid-template-columns:1fr}}';
  document.head.append(css);
 }
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
@@ -82,15 +82,15 @@ if(main&&tabs){
   if(focus)buttons.find(b=>b.dataset.profileTab===key)?.focus();
   history.replaceState(null,'','#'+key);
  }
+ // Quick actions switch the panel in place. Never jump visitors down the long archive.
  main.addEventListener('click',event=>{
-  const jump=event.target.closest('a[data-profile-jump]');
+  const jump=event.target.closest('button[data-profile-jump],a[data-profile-jump]');
   if(!jump)return;
-  const section=document.getElementById(jump.getAttribute('href').slice(1));
-  if(!section)return;
   event.preventDefault();
-  activate(jump.dataset.profileJump);
-  history.replaceState(null,'',jump.getAttribute('href'));
-  requestAnimationFrame(()=>section.scrollIntoView({block:'start',behavior:'smooth'}));
+  const key=jump.dataset.profileJump;
+  activate(key);
+  for(const item of main.querySelectorAll('[data-profile-jump]'))
+   item.setAttribute('aria-pressed',String(item===jump));
  });
  tabs.addEventListener('click',event=>{const button=event.target.closest('button[data-profile-tab]');if(button)activate(button.dataset.profileTab)});
  tabs.addEventListener('keydown',event=>{const index=buttons.indexOf(document.activeElement);if(index<0)return;const direction=event.key==='ArrowRight'?1:event.key==='ArrowLeft'?-1:0;if(direction){event.preventDefault();activate(buttons[(index+direction+buttons.length)%buttons.length].dataset.profileTab,{focus:true})}});
