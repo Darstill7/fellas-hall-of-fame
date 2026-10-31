@@ -1,0 +1,480 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "668633299786244096",
+  "year": 2021,
+  "week": 12,
+  "reportedRows": 21,
+  "normalizedRows": 21,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "771611916505305088",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "4149",
+          "name": "Jamaal Williams",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 45
+    },
+    {
+      "transactionId": "771607892095856640",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4454",
+          "name": "Kendrick Bourne",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "771523253247266816",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "4149",
+          "name": "Jamaal Williams",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 40
+    },
+    {
+      "transactionId": "771459922088013824",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "4149",
+          "name": "Jamaal Williams",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 36
+    },
+    {
+      "transactionId": "771444538236739584",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "4455",
+          "name": "Matt Breida",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 12
+    },
+    {
+      "transactionId": "771444164670918656",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5122",
+          "name": "Boston Scott",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "954",
+          "name": "Cam Newton",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "771398298325106688",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "7606",
+          "name": "Kadarius Toney",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CAR",
+          "name": "Carolina Panthers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "771397966186532864",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "4454",
+          "name": "Kendrick Bourne",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6931",
+          "name": "DeeJay Dallas",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "771397792643035136",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "4149",
+          "name": "Jamaal Williams",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 11
+    },
+    {
+      "transactionId": "771397657821360128",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "7594",
+          "name": "Chuba Hubbard",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 11
+    },
+    {
+      "transactionId": "771382146748289024",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "7594",
+          "name": "Chuba Hubbard",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 45
+    },
+    {
+      "transactionId": "771101361457725440",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "NYG",
+          "name": "New York Giants",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CIN",
+          "name": "Cincinnati Bengals",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "771077051028508672",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1638345991743,
+      "date": "2021-12-01",
+      "week": 12,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "7594",
+          "name": "Chuba Hubbard",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 40
+    },
+    {
+      "transactionId": "771468679148847104",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1638294975605,
+      "date": "2021-11-30",
+      "week": 12,
+      "teamIds": [
+        "7"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "770732406960480256",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1638119434636,
+      "date": "2021-11-28",
+      "week": 12,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "5536",
+          "name": "Dontrell Hilliard",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4351",
+          "name": "Tim Patrick",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "770729909839646720",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1638118839276,
+      "date": "2021-11-28",
+      "week": 12,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "6853",
+          "name": "Van Jefferson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7606",
+          "name": "Kadarius Toney",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "770714492953849856",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1638115163604,
+      "date": "2021-11-28",
+      "week": 12,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "CIN",
+          "name": "Cincinnati Bengals",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "770508818173038592",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1638066126915,
+      "date": "2021-11-28",
+      "week": 12,
+      "teamIds": [
+        "1"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "5170",
+          "name": "Phillip Lindsay",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "769347356322852864",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1637789212831,
+      "date": "2021-11-24",
+      "week": 12,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "5170",
+          "name": "Phillip Lindsay",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "769347302388285440",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1637789199972,
+      "date": "2021-11-24",
+      "week": 12,
+      "teamIds": [
+        "1"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "6694",
+          "name": "D'Ernest Johnson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "769202679921643520",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1637754719289,
+      "date": "2021-11-24",
+      "week": 12,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    }
+  ]
+}
