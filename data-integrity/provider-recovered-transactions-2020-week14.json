@@ -1,0 +1,262 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "561248176597610496",
+  "year": 2020,
+  "week": 14,
+  "reportedRows": 11,
+  "normalizedRows": 11,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "644569004366737408",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1608105958993,
+      "date": "2020-12-16",
+      "week": 14,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "2251",
+          "name": "Logan Thomas",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3209",
+          "name": "Devontae Booker",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "644074043083108352",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1608105958993,
+      "date": "2020-12-16",
+      "week": 14,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "6845",
+          "name": "Zack Moss",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5987",
+          "name": "Alexander Mattison",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "644559957936680960",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1608037578618,
+      "date": "2020-12-15",
+      "week": 14,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "5872",
+          "name": "Deebo Samuel Sr.",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "643891294133129216",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1607878156745,
+      "date": "2020-12-13",
+      "week": 14,
+      "teamIds": [
+        "9"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "3969",
+          "name": "Leonard Fournette",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "643888774983688192",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1607877556132,
+      "date": "2020-12-13",
+      "week": 14,
+      "teamIds": [
+        "10"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "6039",
+          "name": "Ty Johnson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "642580253893550080",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1607565580393,
+      "date": "2020-12-10",
+      "week": 14,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "LV",
+          "name": "Las Vegas Raiders",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "642534549133303808",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1607554683529,
+      "date": "2020-12-09",
+      "week": 14,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "6904",
+          "name": "Jalen Hurts",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "642475320846401536",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1607540562405,
+      "date": "2020-12-09",
+      "week": 14,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NYG",
+          "name": "New York Giants",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "642419021601378304",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1607527139619,
+      "date": "2020-12-09",
+      "week": 14,
+      "teamIds": [
+        "10"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "956",
+          "name": "Mark Ingram",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "642417498385375232",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1607526776456,
+      "date": "2020-12-09",
+      "week": 14,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "4381",
+          "name": "Taysom Hill",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "24",
+          "name": "Matt Ryan",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "642410967682060288",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1607525219415,
+      "date": "2020-12-09",
+      "week": 14,
+      "teamIds": [
+        "10"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "3157",
+          "name": "William Fuller",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
