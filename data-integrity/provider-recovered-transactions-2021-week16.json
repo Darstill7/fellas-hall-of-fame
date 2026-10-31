@@ -1,0 +1,360 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "668633299786244096",
+  "year": 2021,
+  "week": 16,
+  "reportedRows": 15,
+  "normalizedRows": 15,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "781666148512055296",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1640726241761,
+      "date": "2021-12-28",
+      "week": 16,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "6955",
+          "name": "James Robinson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "780887927046975488",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1640540699305,
+      "date": "2021-12-26",
+      "week": 16,
+      "teamIds": [
+        "7"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "7594",
+          "name": "Chuba Hubbard",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "780568310130679808",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1640464496694,
+      "date": "2021-12-25",
+      "week": 16,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "3225",
+          "name": "Tyler Boyd",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7611",
+          "name": "Rhamondre Stevenson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "780328752956702720",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1640407381813,
+      "date": "2021-12-25",
+      "week": 16,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "6853",
+          "name": "Van Jefferson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "780151114904555520",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1640365029601,
+      "date": "2021-12-24",
+      "week": 16,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "6938",
+          "name": "Cam Akers",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "780151071979995136",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1640365019367,
+      "date": "2021-12-24",
+      "week": 16,
+      "teamIds": [
+        "2"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "6943",
+          "name": "Gabe Davis",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "779798096002564096",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1640358998252,
+      "date": "2021-12-24",
+      "week": 16,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "1234",
+          "name": "Russell Wilson",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "184",
+          "name": "Adrian Peterson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "779916486381977600",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1640309089802,
+      "date": "2021-12-24",
+      "week": 16,
+      "teamIds": [
+        "1"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "7606",
+          "name": "Kadarius Toney",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "779874530318708736",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1640299086697,
+      "date": "2021-12-23",
+      "week": 16,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "6943",
+          "name": "Gabe Davis",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "779431097128882176",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1640193363986,
+      "date": "2021-12-22",
+      "week": 16,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "NYJ",
+          "name": "New York Jets",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "779413742432702464",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1640189226304,
+      "date": "2021-12-22",
+      "week": 16,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "779413689869737984",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1640189213772,
+      "date": "2021-12-22",
+      "week": 16,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4381",
+          "name": "Taysom Hill",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1234",
+          "name": "Russell Wilson",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "779413561784057856",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1640189183234,
+      "date": "2021-12-22",
+      "week": 16,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1144",
+          "name": "Cole Beasley",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "779374885699993600",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1640179962137,
+      "date": "2021-12-22",
+      "week": 16,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "2382",
+          "name": "Duke Johnson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "LV",
+          "name": "Las Vegas Raiders",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "779361557187538944",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1640176784372,
+      "date": "2021-12-22",
+      "week": 16,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
