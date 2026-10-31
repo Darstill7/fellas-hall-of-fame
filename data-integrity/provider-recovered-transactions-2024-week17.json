@@ -1,0 +1,112 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1134248931308802048",
+  "year": 2024,
+  "week": 17,
+  "reportedRows": 5,
+  "normalizedRows": 5,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1178794612022910976",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1735409045752,
+      "date": "2024-12-28",
+      "week": 17,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "8255",
+          "name": "Raheem Blackshear",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1178794536420581376",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1735409027727,
+      "date": "2024-12-28",
+      "week": 17,
+      "teamIds": [
+        "6"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "4663",
+          "name": "Austin Ekeler",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1178093492661198848",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1735241885870,
+      "date": "2024-12-26",
+      "week": 17,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "11647",
+          "name": "Kimani Vidal",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1178093394493513728",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1735241862465,
+      "date": "2024-12-26",
+      "week": 17,
+      "teamIds": [
+        "1"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "5248",
+          "name": "Gus Edwards",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1177692533424926720",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1735150174611,
+      "date": "2024-12-25",
+      "week": 17,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    }
+  ]
+}
