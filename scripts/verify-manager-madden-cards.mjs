@@ -141,3 +141,9 @@ console.log('Mobile manager finder search and no-results state wired PASS');
 if(!mobileRenderer.includes('mobile-manager-metrics')||!mobileRenderer.includes('Legacy overall rating'))throw Error('Mobile manager summary must have accessible OVR and three-stat preview');
 if(!mobileHome.includes('mobile-manager-metric-polish'))throw Error('Mobile expanded stats missing responsive styling');
 console.log('Accessible mobile manager OVR and expandable career metrics PASS');
+
+const personas=fs.readFileSync('assets/manager-personas.mjs','utf8');
+const profilePersonas=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+for(const nickname of ['The Trade Addict','The Deal Factory','The Four-Ring King','The Yogurt King',"Hogan's Hero",'The Quiet Closer','The Regular-Season Reaper','The Process Paradox','The Chaos Merchant','The Fast-Track Champion'])if(!personas.includes(nickname))throw Error('Missing approved editorial manager nickname: '+nickname);
+if(!mobileRenderer.includes('managerPersonas[r.name]')||!mobileRenderer.includes('mobile-nickname-origin')||!profilePersonas.includes('manager-nickname-origin'))throw Error('Nickname and origin must appear on mobile cards and profiles');
+console.log('Ten editorial manager identities and history explanations PASS');
