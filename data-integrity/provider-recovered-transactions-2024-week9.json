@@ -1,0 +1,418 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1134248931308802048",
+  "year": 2024,
+  "week": 9,
+  "reportedRows": 17,
+  "normalizedRows": 17,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1159758834236465152",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1730916579249,
+      "date": "2024-11-06",
+      "week": 9,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "1339",
+          "name": "Zach Ertz",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1159758629457788928",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1730916579249,
+      "date": "2024-11-06",
+      "week": 9,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "4144",
+          "name": "Jonnu Smith",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9506",
+          "name": "Sean Tucker",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1159739267313278976",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1730916579249,
+      "date": "2024-11-06",
+      "week": 9,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4993",
+          "name": "Mike Gesicki",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1159736773812240384",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1730916579249,
+      "date": "2024-11-06",
+      "week": 9,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "11638",
+          "name": "Ricky Pearsall",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1159682455113297920",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1730916579249,
+      "date": "2024-11-06",
+      "week": 9,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "7608",
+          "name": "Khalil Herbert",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CIN",
+          "name": "Cincinnati Bengals",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1159581511956619264",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1730916579249,
+      "date": "2024-11-06",
+      "week": 9,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4943",
+          "name": "Sam Darnold",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "421",
+          "name": "Matthew Stafford",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1159549104780009472",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1730916579249,
+      "date": "2024-11-06",
+      "week": 9,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "6768",
+          "name": "Tua Tagovailoa",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1159549061847105536",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1730916579249,
+      "date": "2024-11-06",
+      "week": 9,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "1166",
+          "name": "Kirk Cousins",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1159548820611686400",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1730916579249,
+      "date": "2024-11-06",
+      "week": 9,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "96",
+          "name": "Aaron Rodgers",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3294",
+          "name": "Dak Prescott",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1159604955817299968",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1730833875186,
+      "date": "2024-11-05",
+      "week": 9,
+      "teamIds": [
+        "7"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "6845",
+          "name": "Zack Moss",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1158831487798595584",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1730649466040,
+      "date": "2024-11-03",
+      "week": 9,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "1479",
+          "name": "Keenan Allen",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9501",
+          "name": "DeMario Douglas",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1157854105130504192",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1730416439853,
+      "date": "2024-10-31",
+      "week": 9,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "CIN",
+          "name": "Cincinnati Bengals",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1157842152425263104",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1730413590106,
+      "date": "2024-10-31",
+      "week": 9,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "9508",
+          "name": "Tyjae Spears",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6694",
+          "name": "D'Ernest Johnson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1157470228889059328",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1730324916625,
+      "date": "2024-10-30",
+      "week": 9,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6130",
+          "name": "Devin Singletary",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1157429878900244480",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1730315296438,
+      "date": "2024-10-30",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "WAS",
+          "name": "Washington Commanders",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "DET",
+          "name": "Detroit Lions",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1157413457789042688",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1730311381340,
+      "date": "2024-10-30",
+      "week": 9,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "TEN",
+          "name": "Tennessee Titans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1157413267321503744",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1730311335929,
+      "date": "2024-10-30",
+      "week": 9,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "4981",
+          "name": "Calvin Ridley",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1479",
+          "name": "Keenan Allen",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
