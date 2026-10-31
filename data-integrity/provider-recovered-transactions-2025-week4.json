@@ -1,0 +1,294 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1181421235163095040",
+  "year": 2025,
+  "week": 4,
+  "reportedRows": 12,
+  "normalizedRows": 12,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1278828696186146816",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1759338434836,
+      "date": "2025-10-01",
+      "week": 4,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "ARI",
+          "name": "Arizona Cardinals",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1278828616624390144",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1759338434836,
+      "date": "2025-10-01",
+      "week": 4,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "2505",
+          "name": "Darren Waller",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "10236",
+          "name": "Dalton Kincaid",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1278782095354757120",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1759338434836,
+      "date": "2025-10-01",
+      "week": 4,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "ARI",
+          "name": "Arizona Cardinals",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1278720074449977344",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1759338434836,
+      "date": "2025-10-01",
+      "week": 4,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "ARI",
+          "name": "Arizona Cardinals",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3163",
+          "name": "Jared Goff",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "1278947643774500864",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1759287389275,
+      "date": "2025-10-01",
+      "week": 4,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "8183",
+          "name": "Brock Purdy",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1278001477268291584",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1759061805601,
+      "date": "2025-09-28",
+      "week": 4,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "7567",
+          "name": "Kenny Gainwell",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7090",
+          "name": "Darnell Mooney",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1277207687083343893",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1758872551274,
+      "date": "2025-09-26",
+      "week": 4,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "10236",
+          "name": "Dalton Kincaid",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1339",
+          "name": "Zach Ertz",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1276625524252225536",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1758846995125,
+      "date": "2025-09-26",
+      "week": 4,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "8126",
+          "name": "Wan'Dale Robinson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "12469",
+          "name": "Dylan Sampson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1276663157678428160",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1758742725346,
+      "date": "2025-09-24",
+      "week": 4,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "KC",
+          "name": "Kansas City Chiefs",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1276651610591723520",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1758739972306,
+      "date": "2025-09-24",
+      "week": 4,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "WAS",
+          "name": "Washington Commanders",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1276651277534650368",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1758739892899,
+      "date": "2025-09-24",
+      "week": 4,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "8183",
+          "name": "Brock Purdy",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1276536313973047296",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1758712483450,
+      "date": "2025-09-24",
+      "week": 4,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "7528",
+          "name": "Najee Harris",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
