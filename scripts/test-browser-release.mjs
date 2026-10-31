@@ -137,6 +137,14 @@ try{
     if(width===390){
      if(!await search.isVisible())errors.push(width+' mobile manager finder missing');
      else{
+      const order=page.locator('#home-manager-sort');
+      if(await order.inputValue()!=='name')errors.push(width+' mobile directory default sort is not alphabetical');
+      const names=await page.locator('#home-manager-mobile .mobile-manager-name').allTextContents();
+      if(names.join('|')!==[...names].sort((a,b)=>a.localeCompare(b)).join('|'))errors.push(width+' mobile directory names not A–Z');
+      await order.selectOption('ovr-desc');
+      const ovrs=(await page.locator('#home-manager-mobile .mobile-manager-row').evaluateAll(els=>els.map(e=>Number(e.dataset.managerOvr))));
+      if(ovrs.some((v,i)=>i>0&&v>ovrs[i-1]))errors.push(width+' highest OVR sorting incorrect');
+      await order.selectOption('name');
       await search.fill('Stov');
       const shown=page.locator('#home-manager-mobile .mobile-manager-row:visible');
       if(await shown.count()!==1||!await shown.first().locator('.mobile-manager-name').textContent().then(x=>x.trim()==='Stover'))
