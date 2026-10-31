@@ -115,6 +115,25 @@ if(main&&tabs){
  const backStyle=document.createElement('style');
  backStyle.textContent='.profile-back-to-sections{position:fixed;bottom:max(18px,env(safe-area-inset-bottom));right:16px;z-index:100;padding:13px 17px;border-radius:999px;border:2px solid #f3d69d;background:#142736;color:#fff;font:inherit;font-weight:850;font-size:13px;box-shadow:0 6px 24px #000b;cursor:pointer}.profile-back-to-sections[hidden]{display:none!important}.profile-back-to-sections:focus-visible{outline:3px solid white;outline-offset:3px}.profile-tabs{scroll-margin-top:16px}@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}}';
  document.head.append(backStyle);
+ // Keep the opponent explorer first; detailed rivalry research expands only on request.
+ const rivalry=document.querySelector('#rivalry-analytics');
+ const rivalryResume=document.querySelector('#rivalry-resume');
+ for(const [section,label] of [[rivalry,'Scoring trends and toughest opponents'],[rivalryResume,'Signature matchups and rivalry history']]){
+  if(!section||section.dataset.inlineDisclosure)return;
+  section.dataset.inlineDisclosure='yes';
+  const details=document.createElement('details');
+  details.className='profile-inline-disclosure';
+  const summary=document.createElement('summary');
+  summary.textContent=label;
+  const content=document.createElement('div');
+  content.className='profile-inline-detail';
+  while(section.firstChild)content.append(section.firstChild);
+  details.append(summary,content);
+  section.append(details);
+ }
+ const inlineCss=document.createElement('style');
+ inlineCss.textContent='.profile-inline-disclosure{border:1px solid #537186;border-radius:12px;background:#152b3a;margin:14px 0;overflow:hidden}.profile-inline-disclosure>summary{cursor:pointer;list-style:none;display:flex;align-items:center;min-height:56px;padding:14px 16px;font-size:15px;font-weight:850}.profile-inline-disclosure>summary:after{content:"+";margin-left:auto;font-size:22px}.profile-inline-disclosure[open]>summary:after{content:"−"}.profile-inline-detail{padding:3px 15px 18px;border-top:1px solid #456174}.profile-inline-disclosure>summary:focus-visible{outline:3px solid #fff;outline-offset:-3px}';
+ document.head.append(inlineCss);
  const initial=location.hash.slice(1).toLowerCase();
  const target=document.getElementById(location.hash.slice(1));
  const chosen=categories[initial]?initial:target&&sectionTab.has(target)?sectionTab.get(target):'overview';
