@@ -1,0 +1,780 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "561248176597610496",
+  "year": 2020,
+  "week": 1,
+  "reportedRows": 33,
+  "normalizedRows": 33,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "611818425962020864",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "3423",
+          "name": "Robbie Chosen",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2331",
+          "name": "Breshad Perriman",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 10
+    },
+    {
+      "transactionId": "611748119281000448",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5880",
+          "name": "Parris Campbell",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "611699091671502848",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "232",
+          "name": "Frank Gore",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3161",
+          "name": "Carson Wentz",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "611669280236376064",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "611665585784336384",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "5880",
+          "name": "Parris Campbell",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 10
+    },
+    {
+      "transactionId": "611657352701165568",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "5347",
+          "name": "Nyheim Miller-Hines",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "642",
+          "name": "Golden Tate",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 22
+    },
+    {
+      "transactionId": "611653567111081984",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "3423",
+          "name": "Robbie Chosen",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "611653543073533952",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "1817",
+          "name": "Sammy Watkins",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "611652539099774976",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "2588",
+          "name": "Malcolm Brown",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 7
+    },
+    {
+      "transactionId": "611652234211610624",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "5880",
+          "name": "Parris Campbell",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "611620664566181888",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "5100",
+          "name": "Jordan Wilkins",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5917",
+          "name": "Mecole Hardman Jr.",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "611620555250061312",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "5347",
+          "name": "Nyheim Miller-Hines",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 14
+    },
+    {
+      "transactionId": "611616091109675008",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "6156",
+          "name": "Benny Snell",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "611589069276815360",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "2588",
+          "name": "Malcolm Brown",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 17
+    },
+    {
+      "transactionId": "611587018526388224",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "2588",
+          "name": "Malcolm Brown",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1502",
+          "name": "Chris Thompson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "611585477543305216",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "7045",
+          "name": "Joshua Kelley",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4454",
+          "name": "Kendrick Bourne",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "611585366377439232",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "5347",
+          "name": "Nyheim Miller-Hines",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "611580086839234560",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "ARI",
+          "name": "Arizona Cardinals",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "611579513171697664",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "6156",
+          "name": "Benny Snell",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "611579444905209856",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "7045",
+          "name": "Joshua Kelley",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "611547752970670080",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "5022",
+          "name": "Dallas Goedert",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3306",
+          "name": "Jordan Howard",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "611418191591301120",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "3423",
+          "name": "Robbie Chosen",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 18
+    },
+    {
+      "transactionId": "611415817929801728",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "6156",
+          "name": "Benny Snell",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6870",
+          "name": "Bryan Edwards",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 18
+    },
+    {
+      "transactionId": "611326672456753152",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1600239933095,
+      "date": "2020-09-16",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "5880",
+          "name": "Parris Campbell",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6819",
+          "name": "Michael Pittman Jr.",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 21
+    },
+    {
+      "transactionId": "610606589103132672",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1599942464665,
+      "date": "2020-09-12",
+      "week": 1,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "4454",
+          "name": "Kendrick Bourne",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4068",
+          "name": "Mike Williams",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "609246465977565184",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1599618186042,
+      "date": "2020-09-09",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "608867432567746560",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1599527817435,
+      "date": "2020-09-08",
+      "week": 1,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "6955",
+          "name": "James Robinson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2168",
+          "name": "Devonta Freeman",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "608821932212690944",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1599516969306,
+      "date": "2020-09-07",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "147",
+          "name": "DeSean Jackson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "608381864058630144",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1599412048881,
+      "date": "2020-09-06",
+      "week": 1,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "2168",
+          "name": "Devonta Freeman",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6826",
+          "name": "Cole Kmet",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "607089311820623872",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1599103880413,
+      "date": "2020-09-03",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "6870",
+          "name": "Bryan Edwards",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6885",
+          "name": "Ke'Shawn Vaughn",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "606135557399072768",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1598876487639,
+      "date": "2020-08-31",
+      "week": 1,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "1502",
+          "name": "Chris Thompson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "605843858147856384",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1598806941118,
+      "date": "2020-08-30",
+      "week": 1,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "SEA",
+          "name": "Seattle Seahawks",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "605558349177630720",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1598738870475,
+      "date": "2020-08-29",
+      "week": 1,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5162",
+          "name": "Reggie Bonnafon",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
