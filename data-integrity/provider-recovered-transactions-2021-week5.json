@@ -1,0 +1,533 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "668633299786244096",
+  "year": 2021,
+  "week": 5,
+  "reportedRows": 21,
+  "normalizedRows": 21,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "753857852334051328",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1634108747071,
+      "date": "2021-10-13",
+      "week": 5,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "5549",
+          "name": "Darrel Williams",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 62
+    },
+    {
+      "transactionId": "753850299436883968",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1634108747071,
+      "date": "2021-10-13",
+      "week": 5,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "3209",
+          "name": "Devontae Booker",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7610",
+          "name": "Trey Lance",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 37
+    },
+    {
+      "transactionId": "753698792917839872",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1634108747071,
+      "date": "2021-10-13",
+      "week": 5,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "7606",
+          "name": "Kadarius Toney",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7593",
+          "name": "Trey Sermon",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 26
+    },
+    {
+      "transactionId": "753685274973835264",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1634108747071,
+      "date": "2021-10-13",
+      "week": 5,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "5955",
+          "name": "Hunter Renfrow",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 11
+    },
+    {
+      "transactionId": "753654734530953216",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1634108747071,
+      "date": "2021-10-13",
+      "week": 5,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5955",
+          "name": "Hunter Renfrow",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4040",
+          "name": "JuJu Smith-Schuster",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "753654332506968064",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1634108747071,
+      "date": "2021-10-13",
+      "week": 5,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "753645585382395904",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1634108747071,
+      "date": "2021-10-13",
+      "week": 5,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "5549",
+          "name": "Darrel Williams",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "753643439563911168",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1634108747071,
+      "date": "2021-10-13",
+      "week": 5,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "753630430443474944",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1634108747071,
+      "date": "2021-10-13",
+      "week": 5,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "4943",
+          "name": "Sam Darnold",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "753612430470418432",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1634108747071,
+      "date": "2021-10-13",
+      "week": 5,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5549",
+          "name": "Darrel Williams",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 26
+    },
+    {
+      "transactionId": "753612310253326336",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1634108747071,
+      "date": "2021-10-13",
+      "week": 5,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "3209",
+          "name": "Devontae Booker",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 17
+    },
+    {
+      "transactionId": "752919710684921856",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1633872556900,
+      "date": "2021-10-10",
+      "week": 5,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "6789",
+          "name": "Henry Ruggs",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7607",
+          "name": "Michael Carter",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "751442829615755264",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1633673184587,
+      "date": "2021-10-08",
+      "week": 5,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "DAL",
+          "name": "Dallas Cowboys",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "751690069311672320",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1633579387551,
+      "date": "2021-10-07",
+      "week": 5,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "2410",
+          "name": "Jamison Crowder",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2251",
+          "name": "Logan Thomas",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "751504917667168256",
+      "type": "trade",
+      "status": "complete",
+      "timestamp": 1633571058087,
+      "date": "2021-10-07",
+      "week": 5,
+      "teamIds": [
+        "8",
+        "9"
+      ],
+      "added": [
+        {
+          "id": "3969",
+          "name": "Leonard Fournette",
+          "position": "RB"
+        },
+        {
+          "id": "7525",
+          "name": "DeVonta Smith",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3969",
+          "name": "Leonard Fournette",
+          "position": "RB"
+        },
+        {
+          "id": "7525",
+          "name": "DeVonta Smith",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "751585745763987456",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1633554514879,
+      "date": "2021-10-06",
+      "week": 5,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "3327",
+          "name": "Alex Collins",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3242",
+          "name": "Kenyan Drake",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "751450530479521792",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1633522277043,
+      "date": "2021-10-06",
+      "week": 5,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "4147",
+          "name": "Samaje Perine",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1166",
+          "name": "Kirk Cousins",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "751450400925839360",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1633522246155,
+      "date": "2021-10-06",
+      "week": 5,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7098",
+          "name": "Ty'Son Williams",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "751449328069001216",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1633521990366,
+      "date": "2021-10-06",
+      "week": 5,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "ARI",
+          "name": "Arizona Cardinals",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "751448567410970624",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1633521809011,
+      "date": "2021-10-06",
+      "week": 5,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "LV",
+          "name": "Las Vegas Raiders",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "TEN",
+          "name": "Tennessee Titans",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "751442746404917248",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1633520421175,
+      "date": "2021-10-06",
+      "week": 5,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "5001",
+          "name": "Dalton Schultz",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4950",
+          "name": "Christian Kirk",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
