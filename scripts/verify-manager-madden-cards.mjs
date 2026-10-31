@@ -151,3 +151,7 @@ console.log('Ten editorial manager identities and history explanations PASS');
 const seasonAccordion=fs.readFileSync('assets/manager-season-history.js','utf8');
 for(const token of ['season-accordion','season-entry','<details class="season-entry"','@media(max-width:650px)'])if(!seasonAccordion.includes(token))throw Error('Missing expandable mobile season history '+token);
 console.log('Verified season data supports in-place mobile expansion PASS');
+
+const stickyTabs=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+for(const token of ['position:sticky','grid-template-columns:repeat(4,minmax(0,1fr))','sessionStorage.setItem(scrollKey','window.addEventListener(\'pagehide\',savePosition)'])if(!stickyTabs.includes(token))throw Error('Mobile sticky navigation or reading position restore missing: '+token);
+console.log('Mobile sticky manager navigation and reading position restoration PASS');
