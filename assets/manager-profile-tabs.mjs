@@ -148,6 +148,15 @@ if(main&&tabs){
  const inlineCss=document.createElement('style');
  inlineCss.textContent='.profile-inline-disclosure{border:1px solid #537186;border-radius:12px;background:#152b3a;margin:14px 0;overflow:hidden}.profile-inline-disclosure>summary{cursor:pointer;list-style:none;display:flex;align-items:center;min-height:56px;padding:14px 16px;font-size:15px;font-weight:850}.profile-inline-disclosure>summary:after{content:"+";margin-left:auto;font-size:22px}.profile-inline-disclosure[open]>summary:after{content:"−"}.profile-inline-detail{padding:3px 15px 18px;border-top:1px solid #456174}.profile-inline-disclosure>summary:focus-visible{outline:3px solid #fff;outline-offset:-3px}';
  document.head.append(inlineCss);
+ // Mobile tabs stay within thumb reach without covering page content.
+ const stickyStyle=document.createElement('style');
+ stickyStyle.textContent='@media(max-width:650px){.profile-tabs{position:sticky;top:0;z-index:70;margin:8px 0 12px;padding:8px;background:#0d1923f5;box-shadow:0 5px 14px #0007;backdrop-filter:blur(10px)}.profile-tabs>.eyebrow,.profile-tabs>[data-profile-tab-description]{display:none}.profile-tab-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:0}.profile-tab-row button{padding:9px 3px;min-height:45px;font-size:clamp(10px,2.7vw,12px);white-space:normal}.profile-back-to-sections{display:none!important}}';
+ document.head.append(stickyStyle);
+ // Browser back/forward restores the selected panel without jumping into a hidden section.
+ window.addEventListener('popstate',()=>{
+  const key=location.hash.slice(1);
+  if(categories[key])activate(key);
+ });
  const initial=location.hash.slice(1).toLowerCase();
  const target=document.getElementById(location.hash.slice(1));
  const chosen=categories[initial]?initial:target&&sectionTab.has(target)?sectionTab.get(target):'overview';
