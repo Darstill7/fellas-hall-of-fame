@@ -1,0 +1,800 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1181421235163095040",
+  "year": 2025,
+  "week": 9,
+  "reportedRows": 34,
+  "normalizedRows": 34,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1291680867944497152",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1291680098746904576",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "11597",
+          "name": "Theo Johnson",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1291680084750512128",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "1339",
+          "name": "Zach Ertz",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1291680071341309952",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "7002",
+          "name": "Juwan Johnson",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1291516430524641280",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "CAR",
+          "name": "Carolina Panthers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1291499224797560832",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "11586",
+          "name": "Blake Corum",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1291442430456897536",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "4037",
+          "name": "Chris Godwin Jr.",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4454",
+          "name": "Kendrick Bourne",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 7
+    },
+    {
+      "transactionId": "1291442338014445568",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "6149",
+          "name": "Darius Slayton",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4981",
+          "name": "Calvin Ridley",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "1291442223358935040",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "8676",
+          "name": "Rashid Shaheed",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "1291441263433777152",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "8676",
+          "name": "Rashid Shaheed",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "12457",
+          "name": "Jaydon Blue",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "1291436257351565312",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1291436234085785600",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "SEA",
+          "name": "Seattle Seahawks",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1291419530517565440",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1291419428574986240",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4066",
+          "name": "Evan Engram",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "1291039823896809472",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 9,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "19",
+          "name": "Joe Flacco",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1291491395206397952",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1762278052669,
+      "date": "2025-11-04",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "11994",
+          "name": "Kameron Johnson",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1290870426183925760",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1762130002117,
+      "date": "2025-11-03",
+      "week": 9,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "11603",
+          "name": "AJ Barner",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "12497",
+          "name": "Tory Horton",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1290809950024511489",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1762115583477,
+      "date": "2025-11-02",
+      "week": 9,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "BUF",
+          "name": "Buffalo Bills",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "12485",
+          "name": "Tez Johnson",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1290793330157842432",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1762111620991,
+      "date": "2025-11-02",
+      "week": 9,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "12497",
+          "name": "Tory Horton",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9487",
+          "name": "Parker Washington",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1290793172917571584",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1762111583502,
+      "date": "2025-11-02",
+      "week": 9,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "9487",
+          "name": "Parker Washington",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7002",
+          "name": "Juwan Johnson",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1290685064455155712",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1762085808437,
+      "date": "2025-11-02",
+      "week": 9,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "4066",
+          "name": "Evan Engram",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1290685031886372864",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1762085800672,
+      "date": "2025-11-02",
+      "week": 9,
+      "teamIds": [
+        "2"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "5001",
+          "name": "Dalton Schultz",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1290058456027377664",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1761936413345,
+      "date": "2025-10-31",
+      "week": 9,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "10213",
+          "name": "Tre Tucker",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1339",
+          "name": "Zach Ertz",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1290058264670666752",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1761936367722,
+      "date": "2025-10-31",
+      "week": 9,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "12534",
+          "name": "Kyle Monangai",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "19",
+          "name": "Joe Flacco",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1289821321978470400",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1761879876182,
+      "date": "2025-10-31",
+      "week": 9,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1289335117742891008",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1761763956059,
+      "date": "2025-10-29",
+      "week": 9,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1289334737072058368",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1761763865300,
+      "date": "2025-10-29",
+      "week": 9,
+      "teamIds": [
+        "3"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "5844",
+          "name": "T.J. Hockenson",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1289308818257215488",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1761757685774,
+      "date": "2025-10-29",
+      "week": 9,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8142",
+          "name": "Alec Pierce",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1289308740025069568",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1761757667121,
+      "date": "2025-10-29",
+      "week": 9,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "BUF",
+          "name": "Buffalo Bills",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1289306333320839168",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1761757599293,
+      "date": "2025-10-29",
+      "week": 9,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8132",
+          "name": "Tyler Allgeier",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "1289298170685186048",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1761757599293,
+      "date": "2025-10-29",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "11655",
+          "name": "Tyrone Tracy Jr.",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 20
+    },
+    {
+      "transactionId": "1289280079498600448",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1761757599293,
+      "date": "2025-10-29",
+      "week": 9,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "11655",
+          "name": "Tyrone Tracy Jr.",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 40
+    },
+    {
+      "transactionId": "1289260074325245952",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1761757599293,
+      "date": "2025-10-29",
+      "week": 9,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "8122",
+          "name": "Zonovan Knight",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4950",
+          "name": "Christian Kirk",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1289259920159428608",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1761757599293,
+      "date": "2025-10-29",
+      "week": 9,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "421",
+          "name": "Matthew Stafford",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CIN",
+          "name": "Cincinnati Bengals",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 21
+    }
+  ]
+}
