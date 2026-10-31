@@ -26,6 +26,13 @@ const observations=source.observations.map(row=>{
   observedOwnerHandle:row.observedOwnerHandle,manager:manager??null,
   identityStatus:manager?'canonical_handle_verified':'unresolved_handle_or_roster_evidence'};
 });
+const tuple=x=>[x.year,x.transactionId,x.teamId,x.playerId].join('|');
+assert.equal(observations.length,source.observations.length,'Acquisition rows changed in attribution');
+assert.equal(new Set(observations.map(tuple)).size,observations.length,'Duplicate acquisition keys in attribution');
+for(const row of observations){
+ if(row.manager)assert.equal(row.identityStatus,'canonical_handle_verified');
+ else assert.equal(row.identityStatus,'unresolved_handle_or_roster_evidence');
+}
 const unresolved=[...new Set(observations.filter(x=>!x.manager&&x.observedOwnerHandle).map(x=>x.observedOwnerHandle))].sort();
 const report={schema:'fellas-faab-identity-attribution-v1',status:'research_only_no_skill_grades',
  policy:'Only exact documented Sleeper owner handles are mapped. Other team IDs/handles remain unresolved. Never infer manager from a roster ID.',
