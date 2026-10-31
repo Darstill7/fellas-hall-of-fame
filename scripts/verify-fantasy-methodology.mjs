@@ -25,4 +25,8 @@ for(const r of cards){
 }
 const methodology=fs.readFileSync('data-integrity/FAAB_RATING_EVIDENCE_GATE_2026-10-30.md','utf8');
 for(const concept of ['replacement','postseason','zero-dollar','N/A'])assert.ok(methodology.toLowerCase().includes(concept.toLowerCase()),'Missing methodological guard '+concept);
+const fairness=fs.readFileSync('data-integrity/FANTASY_FOOTBALL_FAIRNESS_CONTRACT_2026-10-30.md','utf8');
+for(const term of ['half-PPR','two FLEX','keeper','replacement value','2026','Schermerhorn','Chromium','WebKit']){
+ assert.ok(fairness.toLowerCase().includes(term.toLowerCase()),'League-specific fairness rule absent: '+term);
+}
 console.log('Fantasy methodology contract PASS: 10 managers; postseason 40%; missing waiver/lineup evidence withheld.');
