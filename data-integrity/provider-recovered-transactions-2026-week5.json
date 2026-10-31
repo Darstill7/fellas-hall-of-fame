@@ -1,0 +1,836 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1340027406009761792",
+  "year": 2026,
+  "week": 5,
+  "reportedRows": 32,
+  "normalizedRows": 32,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1415965998300790784",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1791997510706,
+      "date": "2026-10-14",
+      "week": 5,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "10213",
+          "name": "Tre Tucker",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11577",
+          "name": "Will Shipley",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1415899367654608896",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1791997510706,
+      "date": "2026-10-14",
+      "week": 5,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "9480",
+          "name": "Brenton Strange",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2505",
+          "name": "Darren Waller",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1415896742041325568",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1791997510706,
+      "date": "2026-10-14",
+      "week": 5,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "4454",
+          "name": "Kendrick Bourne",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11630",
+          "name": "Roman Wilson",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1415896540194623488",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1791997510706,
+      "date": "2026-10-14",
+      "week": 5,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "11647",
+          "name": "Kimani Vidal",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8154",
+          "name": "Brian Robinson Jr.",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1415896323827224576",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1791997510706,
+      "date": "2026-10-14",
+      "week": 5,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1415885590846533632",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1791997510706,
+      "date": "2026-10-14",
+      "week": 5,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "13150",
+          "name": "Darius Cooper",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1415737351526780928",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1791997510706,
+      "date": "2026-10-14",
+      "week": 5,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3257",
+          "name": "Jacoby Brissett",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1415722161657626624",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1791997510706,
+      "date": "2026-10-14",
+      "week": 5,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "KC",
+          "name": "Kansas City Chiefs",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NYJ",
+          "name": "New York Jets",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1414878701279084544",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791695878861,
+      "date": "2026-10-11",
+      "week": 5,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "10235",
+          "name": "Roschon Johnson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "13311",
+          "name": "Chris Bell",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1414670396111761408",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791646215039,
+      "date": "2026-10-10",
+      "week": 5,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "13305",
+          "name": "Mike Washington Jr.",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3321",
+          "name": "Tyreek Hill",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1414412681879838720",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791584771179,
+      "date": "2026-10-09",
+      "week": 5,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "5022",
+          "name": "Dallas Goedert",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5001",
+          "name": "Dalton Schultz",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1414412123030790144",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791584637939,
+      "date": "2026-10-09",
+      "week": 5,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "11637",
+          "name": "Keon Coleman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7571",
+          "name": "Rashod Bateman",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1413639203186655232",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1791568516137,
+      "date": "2026-10-09",
+      "week": 5,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "3321",
+          "name": "Tyreek Hill",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8126",
+          "name": "Wan'Dale Robinson",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1414341650259443712",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791567835920,
+      "date": "2026-10-09",
+      "week": 5,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9511",
+          "name": "Keaton Mitchell",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1414340723225976832",
+      "type": "trade",
+      "status": "complete",
+      "timestamp": 1791567805762,
+      "date": "2026-10-09",
+      "week": 5,
+      "teamIds": [
+        "3",
+        "10"
+      ],
+      "added": [
+        {
+          "id": "5872",
+          "name": "Deebo Samuel Sr.",
+          "position": "WR"
+        },
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5872",
+          "name": "Deebo Samuel Sr.",
+          "position": "WR"
+        },
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1414116499920109568",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791514155896,
+      "date": "2026-10-09",
+      "week": 5,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "2505",
+          "name": "Darren Waller",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4943",
+          "name": "Sam Darnold",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1414035294239424512",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791494794953,
+      "date": "2026-10-08",
+      "week": 5,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "11610",
+          "name": "Malik Washington",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1413663582763200512",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791406172031,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "NYJ",
+          "name": "New York Jets",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "DAL",
+          "name": "Dallas Cowboys",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1413634707811266560",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791399287706,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "9508",
+          "name": "Tyjae Spears",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3321",
+          "name": "Tyreek Hill",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1413634355980447744",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791399203823,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "7528",
+          "name": "Najee Harris",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4663",
+          "name": "Austin Ekeler",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1413614381119365120",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791394441445,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4993",
+          "name": "Mike Gesicki",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "13330",
+          "name": "Kenyon Sadiq",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1413607491866005504",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791392798919,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "11581",
+          "name": "MarShawn Lloyd",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11637",
+          "name": "Keon Coleman",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1413607203553755136",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1791392730181,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "11637",
+          "name": "Keon Coleman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1413605040492470272",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1791392669009,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "11577",
+          "name": "Will Shipley",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1413602104378916864",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1791392669009,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "11559",
+          "name": "Michael Penix Jr.",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11563",
+          "name": "Bo Nix",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1413600122289332224",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1791392669009,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1413568563251331072",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1791392669009,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "DAL",
+          "name": "Dallas Cowboys",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1413474199611170816",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1791392669009,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "5947",
+          "name": "Jakobi Meyers",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1413474066840530944",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1791392669009,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "11637",
+          "name": "Keon Coleman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1413474050923139072",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1791392669009,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "8121",
+          "name": "Romeo Doubs",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1413599956245217280",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1791391002287,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "2"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "9756",
+          "name": "Jordan Addison",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1413584172332654592",
+      "type": "trade",
+      "status": "complete",
+      "timestamp": 1791390897874,
+      "date": "2026-10-07",
+      "week": 5,
+      "teamIds": [
+        "1",
+        "2"
+      ],
+      "added": [
+        {
+          "id": "2133",
+          "name": "Davante Adams",
+          "position": "WR"
+        },
+        {
+          "id": "4217",
+          "name": "George Kittle",
+          "position": "TE"
+        },
+        {
+          "id": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR"
+        },
+        {
+          "id": "8155",
+          "name": "Breece Hall",
+          "position": "RB"
+        },
+        {
+          "id": "11834",
+          "name": "Devaughn Vele",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2133",
+          "name": "Davante Adams",
+          "position": "WR"
+        },
+        {
+          "id": "4217",
+          "name": "George Kittle",
+          "position": "TE"
+        },
+        {
+          "id": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR"
+        },
+        {
+          "id": "8155",
+          "name": "Breece Hall",
+          "position": "RB"
+        },
+        {
+          "id": "11834",
+          "name": "Devaughn Vele",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
