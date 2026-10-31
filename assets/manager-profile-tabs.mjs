@@ -94,6 +94,27 @@ if(main&&tabs){
  });
  tabs.addEventListener('click',event=>{const button=event.target.closest('button[data-profile-tab]');if(button)activate(button.dataset.profileTab)});
  tabs.addEventListener('keydown',event=>{const index=buttons.indexOf(document.activeElement);if(index<0)return;const direction=event.key==='ArrowRight'?1:event.key==='ArrowLeft'?-1:0;if(direction){event.preventDefault();activate(buttons[(index+direction+buttons.length)%buttons.length].dataset.profileTab,{focus:true})}});
+ // A persistent escape hatch for long historical sections; only appears after scrolling.
+ const back=document.createElement('button');
+ back.type='button';back.className='profile-back-to-sections';
+ back.textContent='↑ Profile sections';
+ back.setAttribute('aria-label','Return to manager profile section choices');
+ back.hidden=true;
+ document.body.append(back);
+ back.addEventListener('click',()=>tabs.scrollIntoView({behavior:'smooth',block:'start'}));
+ let framePending=false;
+ const updateBack=()=>{
+  framePending=false;
+  const bounds=tabs.getBoundingClientRect();
+  back.hidden=bounds.bottom>=0||window.scrollY<400;
+ };
+ window.addEventListener('scroll',()=>{
+  if(!framePending){framePending=true;requestAnimationFrame(updateBack)}
+ },{passive:true});
+ updateBack();
+ const backStyle=document.createElement('style');
+ backStyle.textContent='.profile-back-to-sections{position:fixed;bottom:max(18px,env(safe-area-inset-bottom));right:16px;z-index:100;padding:13px 17px;border-radius:999px;border:2px solid #f3d69d;background:#142736;color:#fff;font:inherit;font-weight:850;font-size:13px;box-shadow:0 6px 24px #000b;cursor:pointer}.profile-back-to-sections[hidden]{display:none!important}.profile-back-to-sections:focus-visible{outline:3px solid white;outline-offset:3px}.profile-tabs{scroll-margin-top:16px}@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}}';
+ document.head.append(backStyle);
  const initial=location.hash.slice(1).toLowerCase();
  const target=document.getElementById(location.hash.slice(1));
  const chosen=categories[initial]?initial:target&&sectionTab.has(target)?sectionTab.get(target):'overview';
