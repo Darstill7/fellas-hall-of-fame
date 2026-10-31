@@ -1,0 +1,366 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "561248176597610496",
+  "year": 2020,
+  "week": 15,
+  "reportedRows": 15,
+  "normalizedRows": 15,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "647315526191837184",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1608710751692,
+      "date": "2020-12-23",
+      "week": 15,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "538",
+          "name": "Emmanuel Sanders",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4150",
+          "name": "Wayne Gallman",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 20
+    },
+    {
+      "transactionId": "646927591344857088",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1608710751692,
+      "date": "2020-12-23",
+      "week": 15,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "5967",
+          "name": "Tony Pollard",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6845",
+          "name": "Zack Moss",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "646555302304653312",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1608710751692,
+      "date": "2020-12-23",
+      "week": 15,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "1408",
+          "name": "Le'Veon Bell",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4149",
+          "name": "Jamaal Williams",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 21
+    },
+    {
+      "transactionId": "646152270915989504",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608417215616,
+      "date": "2020-12-19",
+      "week": 15,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "DAL",
+          "name": "Dallas Cowboys",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "645799963124666368",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1608333218893,
+      "date": "2020-12-18",
+      "week": 15,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "5284",
+          "name": "Jeff Wilson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "645435403045892096",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608246300997,
+      "date": "2020-12-17",
+      "week": 15,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "1144",
+          "name": "Cole Beasley",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2410",
+          "name": "Jamison Crowder",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "645409590950834176",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608240146914,
+      "date": "2020-12-17",
+      "week": 15,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4351",
+          "name": "Tim Patrick",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5857",
+          "name": "Noah Fant",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "645285841425477632",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608210642728,
+      "date": "2020-12-17",
+      "week": 15,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "2325",
+          "name": "Nelson Agholor",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "645285703554543616",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608210609857,
+      "date": "2020-12-17",
+      "week": 15,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "6918",
+          "name": "Salvon Ahmed",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "184",
+          "name": "Adrian Peterson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "645098376819453952",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608165947683,
+      "date": "2020-12-17",
+      "week": 15,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "TEN",
+          "name": "Tennessee Titans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "645072399284375552",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1608159754156,
+      "date": "2020-12-16",
+      "week": 15,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "1166",
+          "name": "Kirk Cousins",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "645042418193862656",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608152606107,
+      "date": "2020-12-16",
+      "week": 15,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "3969",
+          "name": "Leonard Fournette",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6156",
+          "name": "Benny Snell",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "644935311670988800",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608127069922,
+      "date": "2020-12-16",
+      "week": 15,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "5284",
+          "name": "Jeff Wilson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "644921566005665792",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1608123792700,
+      "date": "2020-12-16",
+      "week": 15,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "644921538801393664",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1608123786214,
+      "date": "2020-12-16",
+      "week": 15,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "ARI",
+          "name": "Arizona Cardinals",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
