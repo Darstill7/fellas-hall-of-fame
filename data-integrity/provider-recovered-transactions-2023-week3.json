@@ -1,0 +1,781 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "946275261279055872",
+  "year": 2023,
+  "week": 3,
+  "reportedRows": 31,
+  "normalizedRows": 31,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1012573037872418816",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1695947857621,
+      "date": "2023-09-29",
+      "week": 3,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "7045",
+          "name": "Joshua Kelley",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2078",
+          "name": "Odell Beckham Jr.",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1012572995870732288",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1695947857621,
+      "date": "2023-09-29",
+      "week": 3,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "7045",
+          "name": "Joshua Kelley",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1012609472512069632",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "5284",
+          "name": "Jeff Wilson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4147",
+          "name": "Samaje Perine",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1012608928305303552",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "5284",
+          "name": "Jeff Wilson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1012590272359899136",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "7561",
+          "name": "Elijah Mitchell",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7594",
+          "name": "Chuba Hubbard",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1012588999413714944",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "3164",
+          "name": "Ezekiel Elliott",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5849",
+          "name": "Kyler Murray",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 15
+    },
+    {
+      "transactionId": "1012577597399642112",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "7670",
+          "name": "Joshua Palmer",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 9
+    },
+    {
+      "transactionId": "1012574618617487360",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "1689",
+          "name": "Adam Thielen",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9225",
+          "name": "Tank Bigsby",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 9
+    },
+    {
+      "transactionId": "1012572603669696512",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "1689",
+          "name": "Adam Thielen",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1012572582673063936",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "9502",
+          "name": "Tank Dell",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1012569868396269568",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "9500",
+          "name": "Josh Downs",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1012556829299183616",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "9502",
+          "name": "Tank Dell",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7608",
+          "name": "Khalil Herbert",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1012556785103773696",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "7670",
+          "name": "Joshua Palmer",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1012510857374367744",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "DEN",
+          "name": "Denver Broncos",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1012444759459315712",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "1689",
+          "name": "Adam Thielen",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1012423279832887296",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "9500",
+          "name": "Josh Downs",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3225",
+          "name": "Tyler Boyd",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1012265701391880192",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1695798446662,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "7670",
+          "name": "Joshua Palmer",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 7
+    },
+    {
+      "transactionId": "1012572761467740160",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1695778668327,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "9"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "4068",
+          "name": "Mike Williams",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1012572538464985088",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1695778615159,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "7045",
+          "name": "Joshua Kelley",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1012571602774532096",
+      "type": "trade",
+      "status": "complete",
+      "timestamp": 1695778528592,
+      "date": "2023-09-27",
+      "week": 3,
+      "teamIds": [
+        "4",
+        "9"
+      ],
+      "added": [
+        {
+          "id": "4137",
+          "name": "James Conner",
+          "position": "RB"
+        },
+        {
+          "id": "6786",
+          "name": "CeeDee Lamb",
+          "position": "WR"
+        },
+        {
+          "id": "7543",
+          "name": "Travis Etienne Jr.",
+          "position": "RB"
+        },
+        {
+          "id": "9226",
+          "name": "De'Von Achane",
+          "position": "RB"
+        },
+        {
+          "id": "9493",
+          "name": "Puka Nacua",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4137",
+          "name": "James Conner",
+          "position": "RB"
+        },
+        {
+          "id": "6786",
+          "name": "CeeDee Lamb",
+          "position": "WR"
+        },
+        {
+          "id": "7543",
+          "name": "Travis Etienne Jr.",
+          "position": "RB"
+        },
+        {
+          "id": "9226",
+          "name": "De'Von Achane",
+          "position": "RB"
+        },
+        {
+          "id": "9493",
+          "name": "Puka Nacua",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1012401128685780992",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1695737747883,
+      "date": "2023-09-26",
+      "week": 3,
+      "teamIds": [
+        "7"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1011698303676940288",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1695570181343,
+      "date": "2023-09-24",
+      "week": 3,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "9757",
+          "name": "Kendre Miller",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7606",
+          "name": "Kadarius Toney",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1010396242779750400",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1695379639582,
+      "date": "2023-09-22",
+      "week": 3,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "2161",
+          "name": "Jerick McKinnon",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1535",
+          "name": "Cordarrelle Patterson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1010598860047073280",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1695308053555,
+      "date": "2023-09-21",
+      "week": 3,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "4080",
+          "name": "Zay Jones",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1010396435432423424",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1695259791766,
+      "date": "2023-09-21",
+      "week": 3,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "6984",
+          "name": "Tony Jones",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3164",
+          "name": "Ezekiel Elliott",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1010395759805546496",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1695259630684,
+      "date": "2023-09-21",
+      "week": 3,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "4455",
+          "name": "Matt Breida",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6984",
+          "name": "Tony Jones",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1010395425557266432",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1695259550993,
+      "date": "2023-09-21",
+      "week": 3,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "6984",
+          "name": "Tony Jones",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1010191857000726528",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1695211016467,
+      "date": "2023-09-20",
+      "week": 3,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1010189073069195264",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1695210352726,
+      "date": "2023-09-20",
+      "week": 3,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2161",
+          "name": "Jerick McKinnon",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1010188120806998016",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1695210125689,
+      "date": "2023-09-20",
+      "week": 3,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "7562",
+          "name": "Tutu Atwell",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7090",
+          "name": "Darnell Mooney",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1010185436406300672",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1695209485678,
+      "date": "2023-09-20",
+      "week": 3,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "SEA",
+          "name": "Seattle Seahawks",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "DEN",
+          "name": "Denver Broncos",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
