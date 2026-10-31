@@ -1,0 +1,581 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1134248931308802048",
+  "year": 2024,
+  "week": 1,
+  "reportedRows": 24,
+  "normalizedRows": 24,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1139344603745878016",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "5185",
+          "name": "Allen Lazard",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 13
+    },
+    {
+      "transactionId": "1139339395741384704",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "9225",
+          "name": "Tank Bigsby",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1139339273225904128",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "11626",
+          "name": "Xavier Legette",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1139338726490013696",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "2197",
+          "name": "Brandin Cooks",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8167",
+          "name": "Christian Watson",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1139336895047053312",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1139336683800895488",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "PIT",
+          "name": "Pittsburgh Steelers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1139275509772419072",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "4381",
+          "name": "Taysom Hill",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1139275370139701248",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "4089",
+          "name": "Gerald Everett",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1139274936591396864",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1139225161284243456",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "8676",
+          "name": "Rashid Shaheed",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11586",
+          "name": "Blake Corum",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1139204505813270528",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "3286",
+          "name": "Demarcus Robinson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11582",
+          "name": "Carson Steele",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "1139006336068784128",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "8131",
+          "name": "Isaiah Likely",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1138835778664067072",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5987",
+          "name": "Alexander Mattison",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7594",
+          "name": "Chuba Hubbard",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1138678049820811264",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "8131",
+          "name": "Isaiah Likely",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9481",
+          "name": "Luke Musgrave",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 27
+    },
+    {
+      "transactionId": "1137622149399175168",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1726074590179,
+      "date": "2024-09-11",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "8131",
+          "name": "Isaiah Likely",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 15
+    },
+    {
+      "transactionId": "1139340571111256064",
+      "type": "trade",
+      "status": "complete",
+      "timestamp": 1726003333548,
+      "date": "2024-09-10",
+      "week": 1,
+      "teamIds": [
+        "3",
+        "9"
+      ],
+      "added": [
+        {
+          "id": "6806",
+          "name": "J.K. Dobbins",
+          "position": "RB"
+        },
+        {
+          "id": "9502",
+          "name": "Tank Dell",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6806",
+          "name": "J.K. Dobbins",
+          "position": "RB"
+        },
+        {
+          "id": "9502",
+          "name": "Tank Dell",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1137952123729207296",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1725671437726,
+      "date": "2024-09-07",
+      "week": 1,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "11650",
+          "name": "Luke McCaffrey",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4029",
+          "name": "Dalvin Cook",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1137490010476744704",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1725561261341,
+      "date": "2024-09-05",
+      "week": 1,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "SEA",
+          "name": "Seattle Seahawks",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1134943529173876736",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1725040639173,
+      "date": "2024-08-30",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "11439",
+          "name": "Jaleel McLaughlin",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8676",
+          "name": "Rashid Shaheed",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1134595850711191552",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1724871239882,
+      "date": "2024-08-28",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "8408",
+          "name": "Jordan Mason",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11439",
+          "name": "Jaleel McLaughlin",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1134287045234450432",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1724864869537,
+      "date": "2024-08-28",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1134261134305079296",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1724864869537,
+      "date": "2024-08-28",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11625",
+          "name": "Adonai Mitchell",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1134260451459817472",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1724864869537,
+      "date": "2024-08-28",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "11435",
+          "name": "Emanuel Wilson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11626",
+          "name": "Xavier Legette",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1134257374153428992",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1724864869537,
+      "date": "2024-08-28",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "11582",
+          "name": "Carson Steele",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    }
+  ]
+}
