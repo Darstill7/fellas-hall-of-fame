@@ -95,7 +95,7 @@ const homePage=fs.readFileSync('index.html','utf8');
 const primaryManagerSection=homePage.indexOf('<section class="manager-showcase shell"');
 const seasonRecordsSection=homePage.indexOf('<section class="section shell" aria-labelledby="season-records-home"');
 if(primaryManagerSection<0||seasonRecordsSection<0||primaryManagerSection>=seasonRecordsSection)throw Error('Manager cards must precede season records on homepage');
-if(!homePage.includes('The Fellas Manager Cards')||!homePage.includes('id="home-manager-cards"'))throw Error('Manager-first homepage missing accessible primary cards');
+if(!homePage.includes('id="home-manager-title">Find Your Manager')||!homePage.includes('id="home-manager-cards"'))throw Error('Manager-first homepage missing accessible primary cards');
 console.log('Homepage manager-first hierarchy PASS');
 
 const stoverProfile=fs.readFileSync('managers/stover/index.html','utf8');
