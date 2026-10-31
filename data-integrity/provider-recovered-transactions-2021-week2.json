@@ -1,0 +1,777 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "668633299786244096",
+  "year": 2021,
+  "week": 2,
+  "reportedRows": 32,
+  "normalizedRows": 32,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "746243224997376000",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1632448542233,
+      "date": "2021-09-24",
+      "week": 2,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "3157",
+          "name": "William Fuller",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "746244299687141376",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "CAR",
+          "name": "Carolina Panthers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "746243268425134080",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "538",
+          "name": "Emmanuel Sanders",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "746242618928816128",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "6789",
+          "name": "Henry Ruggs",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "746242514570297344",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "5987",
+          "name": "Alexander Mattison",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "746242189289467904",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "1848",
+          "name": "James White",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "746242125737402368",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "4962",
+          "name": "Sony Michel",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "746242023190851584",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "1848",
+          "name": "James White",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "746235180238368768",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "538",
+          "name": "Emmanuel Sanders",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 19
+    },
+    {
+      "transactionId": "746235100353658880",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "1535",
+          "name": "Cordarrelle Patterson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 7
+    },
+    {
+      "transactionId": "746233997092376576",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "7607",
+          "name": "Michael Carter",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3423",
+          "name": "Robbie Chosen",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "746217255708299264",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "6845",
+          "name": "Zack Moss",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "746050626810667008",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "4962",
+          "name": "Sony Michel",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "746050568459538432",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "1848",
+          "name": "James White",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4950",
+          "name": "Christian Kirk",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "746050416160215040",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "CAR",
+          "name": "Carolina Panthers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "746048704498270208",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "5987",
+          "name": "Alexander Mattison",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "745996563389792256",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "4962",
+          "name": "Sony Michel",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "745995611345637376",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1632294395782,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "CAR",
+          "name": "Carolina Panthers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "WAS",
+          "name": "Washington Commanders",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "746241708945219584",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1632280397214,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "9"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "3209",
+          "name": "Devontae Booker",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "746235201671282688",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1632278845759,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "9"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "3157",
+          "name": "William Fuller",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "746234454665732096",
+      "type": "trade",
+      "status": "complete",
+      "timestamp": 1632278741445,
+      "date": "2021-09-22",
+      "week": 2,
+      "teamIds": [
+        "4",
+        "9"
+      ],
+      "added": [
+        {
+          "id": "3242",
+          "name": "Kenyan Drake",
+          "position": "RB"
+        },
+        {
+          "id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB"
+        },
+        {
+          "id": "5347",
+          "name": "Nyheim Miller-Hines",
+          "position": "RB"
+        },
+        {
+          "id": "6820",
+          "name": "Clyde Edwards-Helaire",
+          "position": "RB"
+        },
+        {
+          "id": "7098",
+          "name": "Ty'Son Williams",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3242",
+          "name": "Kenyan Drake",
+          "position": "RB"
+        },
+        {
+          "id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB"
+        },
+        {
+          "id": "5347",
+          "name": "Nyheim Miller-Hines",
+          "position": "RB"
+        },
+        {
+          "id": "6820",
+          "name": "Clyde Edwards-Helaire",
+          "position": "RB"
+        },
+        {
+          "id": "7098",
+          "name": "Ty'Son Williams",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "744710682431332352",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1631915372048,
+      "date": "2021-09-17",
+      "week": 2,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "6984",
+          "name": "Tony Jones",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "744660947456647168",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1631903514306,
+      "date": "2021-09-17",
+      "week": 2,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "CHI",
+          "name": "Chicago Bears",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "744615139701022720",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1631892592886,
+      "date": "2021-09-17",
+      "week": 2,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7574",
+          "name": "Larry Rountree",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "744610915135188992",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1631891585671,
+      "date": "2021-09-17",
+      "week": 2,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "7574",
+          "name": "Larry Rountree",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2583",
+          "name": "Tyrell Williams",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "743976903576252416",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1631740425536,
+      "date": "2021-09-15",
+      "week": 2,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "367",
+          "name": "Jared Cook",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6845",
+          "name": "Zack Moss",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "743962953136582656",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1631737099492,
+      "date": "2021-09-15",
+      "week": 2,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "ARI",
+          "name": "Arizona Cardinals",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6984",
+          "name": "Tony Jones",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "743843490819084288",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1631708617456,
+      "date": "2021-09-15",
+      "week": 2,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "4950",
+          "name": "Christian Kirk",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4319",
+          "name": "Zach Pascal",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "743835815041429504",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1631706787408,
+      "date": "2021-09-15",
+      "week": 2,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NYG",
+          "name": "New York Giants",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "743835403139817472",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1631706689203,
+      "date": "2021-09-15",
+      "week": 2,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "3200",
+          "name": "Sterling Shepard",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2391",
+          "name": "David Johnson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "743817761544912896",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1631702483119,
+      "date": "2021-09-15",
+      "week": 2,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "2325",
+          "name": "Nelson Agholor",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2749",
+          "name": "Raheem Mostert",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "743811329382584320",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1631700949572,
+      "date": "2021-09-15",
+      "week": 2,
+      "teamIds": [
+        "9"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "7607",
+          "name": "Michael Carter",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
