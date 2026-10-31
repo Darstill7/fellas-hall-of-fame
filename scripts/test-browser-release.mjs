@@ -279,7 +279,7 @@ try{
      const deepDisclosure=page.locator('#franchise-legends .profile-deep-disclosure');
      if(await deepDisclosure.count()!==1)errors.push(width+' '+slug+' deep research accordion missing');
      else{
-      await deepDisclosure.locator('summary').click();
+      await deepDisclosure.locator(':scope > summary').click();
       if(!await deepDisclosure.locator('.profile-inline-detail').isVisible())errors.push(width+' '+slug+' player history not expanded in place');
      }
      if(width===390&&slug==='stover'){
