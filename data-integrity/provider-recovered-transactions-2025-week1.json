@@ -1,0 +1,732 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1181421235163095040",
+  "year": 2025,
+  "week": 1,
+  "reportedRows": 33,
+  "normalizedRows": 33,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1271356962491084800",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "1479",
+          "name": "Keenan Allen",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1271356908132929536",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "5848",
+          "name": "Marquise Brown",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1271356810464346112",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "DAL",
+          "name": "Dallas Cowboys",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1271287195726008320",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "DAL",
+          "name": "Dallas Cowboys",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1271286953534308353",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "7591",
+          "name": "Justin Fields",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7571",
+          "name": "Rashod Bateman",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 12
+    },
+    {
+      "transactionId": "1271268370271965184",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "9754",
+          "name": "Quentin Johnston",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 15
+    },
+    {
+      "transactionId": "1271234233620238336",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "12506",
+          "name": "Harold Fannin Jr.",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1271213713122148352",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "9504",
+          "name": "Kayshon Boutte",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1271213561426771968",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "10444",
+          "name": "Cedric Tillman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1271213050090770432",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "9754",
+          "name": "Quentin Johnston",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1271213014044934144",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "1479",
+          "name": "Keenan Allen",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1271212994063237120",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "5848",
+          "name": "Marquise Brown",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1271212973255327744",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "10222",
+          "name": "Jayden Reed",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1271212896726048768",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "12471",
+          "name": "DJ Giddens",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1271212828933496832",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "12490",
+          "name": "Bhayshul Tuten",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1271211932283568128",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7523",
+          "name": "Trevor Lawrence",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 12
+    },
+    {
+      "transactionId": "1271211886481780736",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "7591",
+          "name": "Justin Fields",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "1271187130692943872",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "9754",
+          "name": "Quentin Johnston",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1271173074821079040",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "10444",
+          "name": "Cedric Tillman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1271171301632937984",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "9504",
+          "name": "Kayshon Boutte",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1271171239674667008",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "5848",
+          "name": "Marquise Brown",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4098",
+          "name": "Kareem Hunt",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "1271151244815118336",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "5848",
+          "name": "Marquise Brown",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "1271150387696537600",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1757524007638,
+      "date": "2025-09-10",
+      "week": 1,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "9754",
+          "name": "Quentin Johnston",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 11
+    },
+    {
+      "transactionId": "1271212731524997120",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1757443242488,
+      "date": "2025-09-09",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "8110",
+          "name": "Jake Ferguson",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1271212698775871488",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1757443234679,
+      "date": "2025-09-09",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "8143",
+          "name": "Jerome Ford",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1269112354080030720",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1756942473481,
+      "date": "2025-09-03",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "7523",
+          "name": "Trevor Lawrence",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6804",
+          "name": "Jordan Love",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1269081334152695808",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1756935077755,
+      "date": "2025-09-03",
+      "week": 1,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1269020348909633536",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1756920537740,
+      "date": "2025-09-03",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "6804",
+          "name": "Jordan Love",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "12535",
+          "name": "Isaac TeSlaa",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1268761738967265281",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1756919215924,
+      "date": "2025-09-03",
+      "week": 1,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "1689",
+          "name": "Adam Thielen",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "10222",
+          "name": "Jayden Reed",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1268611641289752576",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1756832810507,
+      "date": "2025-09-02",
+      "week": 1,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "12535",
+          "name": "Isaac TeSlaa",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8136",
+          "name": "Rachaad White",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1268446515177738240",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1756783725116,
+      "date": "2025-09-02",
+      "week": 1,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "4098",
+          "name": "Kareem Hunt",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1268428621966483456",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1756779459042,
+      "date": "2025-09-02",
+      "week": 1,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "BUF",
+          "name": "Buffalo Bills",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8183",
+          "name": "Brock Purdy",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1268404057668587520",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1756773602458,
+      "date": "2025-09-02",
+      "week": 1,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "12474",
+          "name": "Woody Marks",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
