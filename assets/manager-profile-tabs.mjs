@@ -150,7 +150,7 @@ if(main&&tabs){
   const controls=document.createElement('div');
   controls.className='profile-deep-controls';
   controls.innerHTML='<span>More research</span><button type="button" data-expand-all>Expand all</button><button type="button" data-collapse-all>Collapse all</button>';
-  document.getElementById('franchise-legends')?.before(controls);
+  document.getElementById('franchise-legends')?.prepend(controls);
   controls.addEventListener('click',event=>{
    const button=event.target.closest('button');
    if(!button)return;
