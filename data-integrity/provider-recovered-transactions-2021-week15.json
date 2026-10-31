@@ -1,0 +1,476 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "668633299786244096",
+  "year": 2021,
+  "week": 15,
+  "reportedRows": 19,
+  "normalizedRows": 19,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "779215902037168128",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1640183173154,
+      "date": "2021-12-22",
+      "week": 15,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "6853",
+          "name": "Van Jefferson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 7
+    },
+    {
+      "transactionId": "779231016115118080",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1640160374452,
+      "date": "2021-12-22",
+      "week": 15,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "SEA",
+          "name": "Seattle Seahawks",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "779216010246160384",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1640160374452,
+      "date": "2021-12-22",
+      "week": 15,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "7066",
+          "name": "K.J. Osborn",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7496",
+          "name": "Nick Westbrook-Ikhine",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "779139596985466880",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1640160374452,
+      "date": "2021-12-22",
+      "week": 15,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5131",
+          "name": "Justin Jackson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1837",
+          "name": "Jimmy Garoppolo",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "779138198864580608",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1640160374452,
+      "date": "2021-12-22",
+      "week": 15,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "4147",
+          "name": "Samaje Perine",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4037",
+          "name": "Chris Godwin Jr.",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "779138070451781632",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1640160374452,
+      "date": "2021-12-22",
+      "week": 15,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5052",
+          "name": "Ronald Jones",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6421",
+          "name": "Jalen Guyton",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "778676810014683136",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1640013527924,
+      "date": "2021-12-20",
+      "week": 15,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "LV",
+          "name": "Las Vegas Raiders",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6853",
+          "name": "Van Jefferson",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "778323904631595008",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1639929388724,
+      "date": "2021-12-19",
+      "week": 15,
+      "teamIds": [
+        "2"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "5052",
+          "name": "Ronald Jones",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "777269464965177344",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1639829749709,
+      "date": "2021-12-18",
+      "week": 15,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "777793638850801664",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1639802963510,
+      "date": "2021-12-18",
+      "week": 15,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "5536",
+          "name": "Dontrell Hilliard",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "777585919640395776",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1639753439391,
+      "date": "2021-12-17",
+      "week": 15,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5052",
+          "name": "Ronald Jones",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5086",
+          "name": "Marquez Valdes-Scantling",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "777194492594917376",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1639660115911,
+      "date": "2021-12-16",
+      "week": 15,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "776891407951618048",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1639587854901,
+      "date": "2021-12-15",
+      "week": 15,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "6659",
+          "name": "Craig Reynolds",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3225",
+          "name": "Tyler Boyd",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "776879975818203136",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1639585129268,
+      "date": "2021-12-15",
+      "week": 15,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6081",
+          "name": "Kendall Blanton",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "776869640302350336",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1639582665089,
+      "date": "2021-12-15",
+      "week": 15,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "7611",
+          "name": "Rhamondre Stevenson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5045",
+          "name": "Courtland Sutton",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "776857915146518528",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1639579869594,
+      "date": "2021-12-15",
+      "week": 15,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "6130",
+          "name": "Devin Singletary",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "776850669758963712",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1639578142159,
+      "date": "2021-12-15",
+      "week": 15,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "6279",
+          "name": "Brandon Dillon",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "367",
+          "name": "Jared Cook",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "776850388321243136",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1639578075059,
+      "date": "2021-12-15",
+      "week": 15,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "5347",
+          "name": "Nyheim Miller-Hines",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6996",
+          "name": "JaMycal Hasty",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "776836425822937088",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1639574746140,
+      "date": "2021-12-15",
+      "week": 15,
+      "teamIds": [
+        "2"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "7599",
+          "name": "Jermar Jefferson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
