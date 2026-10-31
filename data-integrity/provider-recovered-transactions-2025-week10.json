@@ -1,0 +1,274 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1181421235163095040",
+  "year": 2025,
+  "week": 10,
+  "reportedRows": 11,
+  "normalizedRows": 11,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1294127177561808896",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762970808958,
+      "date": "2025-11-12",
+      "week": 10,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "1294036697339682816",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762970808958,
+      "date": "2025-11-12",
+      "week": 10,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1294018731881562112",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762970808958,
+      "date": "2025-11-12",
+      "week": 10,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "12485",
+          "name": "Tez Johnson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3214",
+          "name": "Hunter Henry",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "1293989915742175232",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762970808958,
+      "date": "2025-11-12",
+      "week": 10,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1293930943781818368",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762970808958,
+      "date": "2025-11-12",
+      "week": 10,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11603",
+          "name": "AJ Barner",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "1293284125402218496",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1762705472855,
+      "date": "2025-11-09",
+      "week": 10,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "11199",
+          "name": "Emari Demercado",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4098",
+          "name": "Kareem Hunt",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1291870486946385920",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1762368435183,
+      "date": "2025-11-05",
+      "week": 10,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "4943",
+          "name": "Sam Darnold",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "19",
+          "name": "Joe Flacco",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1291807982555783168",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 10,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "SEA",
+          "name": "Seattle Seahawks",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "1291807890776010752",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 10,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "7002",
+          "name": "Juwan Johnson",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6783",
+          "name": "Jerry Jeudy",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "1291775546262298624",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 10,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1291775296416002048",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1762365995023,
+      "date": "2025-11-05",
+      "week": 10,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 4
+    }
+  ]
+}
