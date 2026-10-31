@@ -1,0 +1,156 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "946275261279055872",
+  "year": 2023,
+  "week": 16,
+  "reportedRows": 6,
+  "normalizedRows": 6,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1045428098436587520",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1703700432026,
+      "date": "2023-12-27",
+      "week": 16,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1045427573297315840",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1703700432026,
+      "date": "2023-12-27",
+      "week": 16,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "8210",
+          "name": "Chig Okonkwo",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6011",
+          "name": "Gardner Minshew II",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "1044131544463392768",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1703302868527,
+      "date": "2023-12-23",
+      "week": 16,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "CHI",
+          "name": "Chicago Bears",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CIN",
+          "name": "Cincinnati Bengals",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1044066500388147200",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1703287360811,
+      "date": "2023-12-22",
+      "week": 16,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "9484",
+          "name": "Tucker Kraft",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8210",
+          "name": "Chig Okonkwo",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1043406073106874368",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1703129902677,
+      "date": "2023-12-21",
+      "week": 16,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "9753",
+          "name": "Zach Charbonnet",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2197",
+          "name": "Brandin Cooks",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1043262618099597312",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1703095700338,
+      "date": "2023-12-20",
+      "week": 16,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "6011",
+          "name": "Gardner Minshew II",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    }
+  ]
+}
