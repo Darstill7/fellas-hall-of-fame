@@ -259,6 +259,13 @@ try{
        if(!await seasons.first().locator('.season-entry-detail').isVisible())errors.push(width+' '+slug+' season details did not expand in place');
       }
      }
+     await page.locator('[data-profile-tab="rivalries"]').click();
+     const rivalryDisclosure=page.locator('#rivalry-analytics .profile-inline-disclosure');
+     if(await rivalryDisclosure.count()!==1)errors.push(width+' '+slug+' expandable rivalry analysis missing');
+     else{
+      await rivalryDisclosure.locator('summary').click();
+      if(!await rivalryDisclosure.locator('.profile-inline-detail').isVisible())errors.push(width+' '+slug+' rivalry details did not expand');
+     }
      for(const category of ['overview','seasons','rivalries','advanced']){
       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
       await button.click();
