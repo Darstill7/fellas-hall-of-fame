@@ -1,0 +1,394 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1181421235163095040",
+  "year": 2025,
+  "week": 6,
+  "reportedRows": 17,
+  "normalizedRows": 17,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1284014769082220544",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1760547996183,
+      "date": "2025-10-15",
+      "week": 6,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4454",
+          "name": "Kendrick Bourne",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 10
+    },
+    {
+      "transactionId": "1284012244107022336",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1760547996183,
+      "date": "2025-10-15",
+      "week": 6,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "11647",
+          "name": "Kimani Vidal",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 17
+    },
+    {
+      "transactionId": "1283931453981212672",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1760547996183,
+      "date": "2025-10-15",
+      "week": 6,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "12457",
+          "name": "Jaydon Blue",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11586",
+          "name": "Blake Corum",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1283922176897982464",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1760547996183,
+      "date": "2025-10-15",
+      "week": 6,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "4454",
+          "name": "Kendrick Bourne",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11199",
+          "name": "Emari Demercado",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 20
+    },
+    {
+      "transactionId": "1283895489724448768",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1760547996183,
+      "date": "2025-10-15",
+      "week": 6,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "KC",
+          "name": "Kansas City Chiefs",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "LV",
+          "name": "Las Vegas Raiders",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "1283866719198150656",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1760547996183,
+      "date": "2025-10-15",
+      "week": 6,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "11647",
+          "name": "Kimani Vidal",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "1283857764552040448",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1760547996183,
+      "date": "2025-10-15",
+      "week": 6,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "11647",
+          "name": "Kimani Vidal",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "1283857127743434752",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1760547996183,
+      "date": "2025-10-15",
+      "week": 6,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "8183",
+          "name": "Brock Purdy",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6149",
+          "name": "Darius Slayton",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1283794831306412032",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1760547996183,
+      "date": "2025-10-15",
+      "week": 6,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "KC",
+          "name": "Kansas City Chiefs",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1283794754454192128",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1760547996183,
+      "date": "2025-10-15",
+      "week": 6,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "8126",
+          "name": "Wan'Dale Robinson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5870",
+          "name": "Daniel Jones",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "1283793660894285824",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1760547996183,
+      "date": "2025-10-15",
+      "week": 6,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "11647",
+          "name": "Kimani Vidal",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "12499",
+          "name": "Elic Ayomanor",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 23
+    },
+    {
+      "transactionId": "1282091034741858304",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1760036832083,
+      "date": "2025-10-09",
+      "week": 6,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "12495",
+          "name": "Ollie Gordon II",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8126",
+          "name": "Wan'Dale Robinson",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1281706708229447680",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1759945201503,
+      "date": "2025-10-08",
+      "week": 6,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1281699522061271040",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1759943488186,
+      "date": "2025-10-08",
+      "week": 6,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "8123",
+          "name": "Hassan Haskins",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1281699467145277440",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1759943475093,
+      "date": "2025-10-08",
+      "week": 6,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "1339",
+          "name": "Zach Ertz",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1281695666837405696",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1759943214368,
+      "date": "2025-10-08",
+      "week": 6,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1281695570636849152",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1759942546094,
+      "date": "2025-10-08",
+      "week": 6,
+      "teamIds": [
+        "7"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "4018",
+          "name": "Joe Mixon",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
