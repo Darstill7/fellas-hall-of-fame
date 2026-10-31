@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
-const ranges=[[2020,18],[2021,18],[2022,18],[2023,18],[2024,17],[2025,18],[2026,8]];
+const ranges=[[2020,18],[2021,18],[2022,18],[2023,18],[2024,18],[2025,18],[2026,8]];
 const rows=[],coverage=[];
 for(const [year,lastWeek] of ranges){
  const tx=[];
