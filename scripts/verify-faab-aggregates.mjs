@@ -31,6 +31,7 @@ for(const row of data.managerTotals){
  assert.equal(row.seasons,expected.seasons,row.manager+' season count mismatch');
  for(const metric of metrics)assert.equal(row[metric],expected[metric],row.manager+' '+metric+' mismatches manager-seasons');
 }
+const notableBidSpendBySeason=new Map();
 const bidKeys=new Set();
 for(const bid of data.largestCompletedBids??[]){
  const id=bid.year+'|'+bid.manager;
@@ -42,8 +43,14 @@ for(const bid of data.largestCompletedBids??[]){
  assert.ok(!bidKeys.has(key),'Repeated winning transaction '+key);
  bidKeys.add(key);
  const season=data.managerSeasons.find(row=>row.year===bid.year&&row.manager===bid.manager);
+ notableBidSpendBySeason.set(id,(notableBidSpendBySeason.get(id)??0)+bid.bid);
  assert.ok(bid.bid<=season.completedBidSpend,'Winning bid exceeds reported season spend: '+id);
  assert.ok(Array.isArray(bid.playerIds)&&bid.playerIds.length>0,'Winning bid lacks player reference: '+id);
  assert.equal(typeof bid.archiveMatch,'boolean','Missing archive provenance flag: '+id);
+}
+for(const [id,notableSpend] of notableBidSpendBySeason){
+ const [year,manager]=id.split('|');
+ const season=data.managerSeasons.find(row=>String(row.year)===year&&row.manager===manager);
+ assert.ok(notableSpend<=season.completedBidSpend,'Combined notable bids exceed season spend: '+id);
 }
 console.log('FAAB aggregate arithmetic OK: '+ids.size+' manager-seasons, '+totals.size+' managers. Skill rating remains N/A pending receipt-level and value analysis.');
