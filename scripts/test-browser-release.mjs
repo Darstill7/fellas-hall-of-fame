@@ -304,13 +304,13 @@ try{
     if(width===390){
      await page.evaluate(()=>window.scrollTo(0,document.body.scrollHeight));
      await page.waitForTimeout(120);
-     const back=page.locator('.profile-back-to-sections');
-     if(!await back.isVisible())errors.push(width+' '+slug+' return-to-sections control missing on long profile');
-     else {
-      await back.click();
-      await page.waitForTimeout(450);
-      if(await page.locator('#profile-navigation').isVisible()===false)errors.push(width+' '+slug+' return-to-sections did not reach navigation');
-     }
+     const nav=page.locator('#profile-navigation');
+     if(!await nav.isVisible())errors.push(width+' '+slug+' sticky profile navigation missing while reading');
+     const positioning=await nav.evaluate(el=>getComputedStyle(el).position);
+     if(positioning!=='sticky')errors.push(width+' '+slug+' profile navigation not sticky on mobile');
+     const locationLabel=nav.locator('.profile-location-label');
+     if(!await locationLabel.isVisible())errors.push(width+' '+slug+' manager and section context not visible');
+     if(await page.locator('.profile-back-to-sections').isVisible())errors.push(width+' '+slug+' obsolete floating navigation overlaps sticky tabs');
     }
     const managerId=slug==='tom'?'Tom':slug==='jmid'?'JMid':slug[0].toUpperCase()+slug.slice(1);
     const awardData=(await (await page.request.get(baseUrl+'data/waiver_award_candidates.json')).json()).managers[managerId]?.[0];
