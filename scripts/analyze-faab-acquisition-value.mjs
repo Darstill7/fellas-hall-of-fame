@@ -45,6 +45,7 @@ for(const year of years){
    const startWeek=claim.week+1; // avoids counting points from acquisition's processing week
    // Distinguish observed performance from season-long ownership.
    const rows=[];
+   const observedOwnerHandles=new Set();
    for(let week=startWeek;week<=maxWeek;week++){
     const roster=weeks.get(week)?.find(x=>String(rosterId(x))===teamId);
     if(!roster)continue;
@@ -54,6 +55,7 @@ for(const year of years){
     const matchBench=bench.find(x=>String(x.id)===playerId);
     const match=matchStart??matchBench;
     if(!match||!Number.isFinite(match.points))continue;
+    if(typeof roster.owner==='string'&&roster.owner.trim())observedOwnerHandles.add(roster.owner.trim());
     const rowKey=year+'|'+claim.id+'|'+teamId+'|'+playerId+'|'+week;
     assert.ok(!observedKeys.has(rowKey),'Duplicate acquisition observation '+rowKey);
     observedKeys.add(rowKey);
@@ -66,6 +68,8 @@ for(const year of years){
     year,transactionId:String(claim.id),claimWeek:claim.week,teamId,
     playerId,playerName:player.name??null,position:player.position??null,
     bid:claim.bid,scope:'post_claim_week_conservative',
+    observedOwnerHandle:observedOwnerHandles.size===1?[...observedOwnerHandles][0]:null,
+    ownerIdentityStatus:observedOwnerHandles.size===1?'single_observed_roster_owner_handle':observedOwnerHandles.size>1?'conflicting_owner_handles':'unobserved',
     outcomeStatus:rows.length?'observed_rostered_production':'unobserved_or_not_held',
     observedWeeks:rows.length,startedWeeks:startRows.length,
     rosteredPoints:+rows.reduce((n,x)=>n+x.points,0).toFixed(2),
