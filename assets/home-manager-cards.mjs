@@ -4,6 +4,7 @@ import {managerCardTier} from './manager-card-tiers.mjs';
 import {earnedArchetypes} from './manager-madden-archetypes.mjs';
 const files=['season_guide.json','career_core_generated.json','all_time_luck_ratings_v1.json','manager_verified_season_endings_v1.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json'];
 const slug={Stilly:'stilly',Stew:'stew',Thommy:'tom',Stover:'stover',Birch:'birch',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',JMid:'jmid',Scott:'scott'};
+const profileIdentity={Stilly:'Portfolio Manager',Stew:'Trade Machine',Thommy:'Dynasty Architect',Stover:'Yogurt Slinger',Birch:'Hogan’s Hero',Tony:'Quiet Poker Player',Mitch:'Math Problem',Kuhl:'Process Paradox',JMid:'Blockbuster Rebuilder',Scott:'The Converter'}; // Editorial profile shorthand, not an award or verified skill grade.
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 try{
  const [guide,careers,luck,endings,espn,sleeper]=await Promise.all(files.map(async file=>{const response=await fetch('data/'+file,{cache:'no-store'});if(!response.ok)throw Error('Missing canonical source '+file);return response.json()}));
@@ -16,7 +17,7 @@ try{
  }).join('');
  const compact=document.getElementById('home-manager-mobile');
  if(compact)compact.innerHTML=current.map(r=>{
-  const tier=managerCardTier(r),rating=maddenOvr(r.score).toFixed(1),identity=earnedArchetypes(r)[0].name;
+  const tier=managerCardTier(r),rating=maddenOvr(r.score).toFixed(1),identity=profileIdentity[r.name]||earnedArchetypes(r)[0].name;
   return '<details data-manager-name="'+escape(r.name.toLowerCase())+'" data-manager-ovr="'+rating+'" class="mobile-manager-row mobile-tier-'+tier.id+'"><summary aria-label="Expand '+escape(r.name)+' manager rating"><span class="mobile-manager-badge">'+escape(identity)+'</span><strong class="mobile-manager-name">'+escape(r.name)+'</strong><span class="mobile-manager-ovr" aria-label="Legacy overall rating '+rating+'">'+rating+'</span><span class="mobile-manager-chevron" aria-hidden="true">⌄</span></summary><div class="mobile-manager-expanded"><div class="mobile-manager-metrics"><span><strong>#'+r.rank+'</strong> All-time</span><span><strong>'+r.titleYears.length+'</strong> Titles</span><span><strong>'+r.qualifiedYears.length+'</strong> Playoffs</span></div><p>Career record: <strong>'+escape(r.career)+'</strong></p><a class="mobile-manager-link" href="managers/'+slug[r.name]+'/">View '+escape(r.name)+'’s profile →</a></div></details>';
  }).join('');
  const finder=document.getElementById('home-manager-search');
