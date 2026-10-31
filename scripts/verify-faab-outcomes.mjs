@@ -10,7 +10,7 @@ assert.equal(s.status,'descriptive_only_not_manager_grade');
 assert.equal(b.status,'research_only_not_replacement_value_or_skill');
 assert.deepEqual(d.coverage.map(x=>x.year),[2020,2021,2022,2023,2024,2025,2026]);
 const round=x=>Math.round((x+Number.EPSILON)*100)/100;
-const ids=new Set();const group=new Map();
+const ids=new Set(),creditedPlayerWeeks=new Set();const group=new Map();
 for(const x of d.observations){
  const id=[x.year,x.transactionId,x.teamId,x.playerId].join('|');
  assert.ok(!ids.has(id),'Duplicate claim/player observation '+id);ids.add(id);
@@ -26,6 +26,11 @@ for(const x of d.observations){
  else assert.equal(x.observedOwnerHandle,null,'Uncertified owner handle must remain null '+id);
 
  assert.ok(x.weeks.every(w=>Number.isFinite(w.points)&&typeof w.started==='boolean'),'Bad observed week '+id);
+ for(const w of x.weeks){
+  const key=[x.year,x.teamId,x.playerId,w.week].join('|');
+  assert.ok(!creditedPlayerWeeks.has(key),'Duplicate FAAB credit from reacquisition '+key);
+  creditedPlayerWeeks.add(key);
+ }
  assert.equal(x.observedWeeks,x.weeks.length);
  assert.equal(x.startedWeeks,x.weeks.filter(w=>w.started).length);
  assert.ok(Math.abs(x.rosteredPoints-round(x.weeks.reduce((n,w)=>n+w.points,0)))<.011,'Roster point mismatch '+id);
