@@ -1,0 +1,116 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "857125408712310784",
+  "year": 2022,
+  "week": 17,
+  "reportedRows": 4,
+  "normalizedRows": 4,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "915032152826269696",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1672523175010,
+      "date": "2022-12-31",
+      "week": 17,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "8183",
+          "name": "Brock Purdy",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8122",
+          "name": "Zonovan Knight",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "914040846343819264",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1672286829127,
+      "date": "2022-12-29",
+      "week": 17,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "8123",
+          "name": "Hassan Haskins",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7600",
+          "name": "Pat Freiermuth",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "913868107846864896",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1672245645060,
+      "date": "2022-12-28",
+      "week": 17,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "NYG",
+          "name": "New York Giants",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "TB",
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "913826442524315648",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1672235711273,
+      "date": "2022-12-28",
+      "week": 17,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4147",
+          "name": "Samaje Perine",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
