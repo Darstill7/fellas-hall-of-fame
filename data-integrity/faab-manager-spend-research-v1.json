@@ -1,10 +1,10 @@
 {
-  "schema": "fellas-faab-manager-spend-research-v1",
+  "schema": "fellas-faab-manager-spend-research-v2",
   "generatedFor": "2026-10-30 historical recovery",
-  "source": "Provider-reported completed and failed Sleeper claims, validated against archival transaction records",
+  "source": "Provider-reported complete and failed Sleeper claims, validated against archived transaction IDs",
   "status": "provider_observed_no_skill_grade",
-  "scope": "2020 weeks 1-13, 2021-2025 weeks 1-14, 2026 weeks 1-7; postseason and later rounds excluded",
-  "policy": "Only status=complete claims contribute to spend. Failed bids are attempted and may fail for reasons other than being outbid. Historical bankroll budgets, true complete-season spending, waiver alternatives and skill are NOT established.",
+  "scope": "2020-2025 weeks 1-18; 2026 weeks 1-7 (partial)",
+  "policy": "Only status=complete claims contribute to reported winning spend. Failed bids are attempted; causes not established. Historical starting budgets, waiver alternatives and decision skill are NOT established.",
   "managerSeasons": [
     {
       "year": 2020,
@@ -31,13 +31,13 @@
     {
       "year": 2020,
       "manager": "Koble",
-      "completedClaims": 7,
+      "completedClaims": 8,
       "failedClaims": 3,
-      "paidWins": 7,
+      "paidWins": 8,
       "zeroDollarWins": 0,
-      "completedBidSpend": 80,
+      "completedBidSpend": 100,
       "failedAttemptedBidTotal": 41,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2020,
@@ -53,13 +53,13 @@
     {
       "year": 2020,
       "manager": "Mitch",
-      "completedClaims": 17,
+      "completedClaims": 20,
       "failedClaims": 7,
-      "paidWins": 16,
-      "zeroDollarWins": 1,
-      "completedBidSpend": 69,
+      "paidWins": 17,
+      "zeroDollarWins": 3,
+      "completedBidSpend": 90,
       "failedAttemptedBidTotal": 44,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 2
     },
     {
       "year": 2020,
@@ -108,11 +108,11 @@
     {
       "year": 2020,
       "manager": "Tony",
-      "completedClaims": 5,
+      "completedClaims": 6,
       "failedClaims": 4,
-      "paidWins": 5,
+      "paidWins": 6,
       "zeroDollarWins": 0,
-      "completedBidSpend": 33,
+      "completedBidSpend": 38,
       "failedAttemptedBidTotal": 15,
       "completedNotInOldArchive": 0
     },
@@ -130,13 +130,13 @@
     {
       "year": 2021,
       "manager": "Evans",
-      "completedClaims": 25,
+      "completedClaims": 28,
       "failedClaims": 9,
-      "paidWins": 15,
+      "paidWins": 18,
       "zeroDollarWins": 10,
-      "completedBidSpend": 97,
+      "completedBidSpend": 100,
       "failedAttemptedBidTotal": 160,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 3
     },
     {
       "year": 2021,
@@ -152,13 +152,13 @@
     {
       "year": 2021,
       "manager": "Kuhl",
-      "completedClaims": 7,
-      "failedClaims": 9,
-      "paidWins": 5,
+      "completedClaims": 8,
+      "failedClaims": 10,
+      "paidWins": 6,
       "zeroDollarWins": 2,
-      "completedBidSpend": 79,
-      "failedAttemptedBidTotal": 30,
-      "completedNotInOldArchive": 0
+      "completedBidSpend": 80,
+      "failedAttemptedBidTotal": 37,
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2021,
@@ -185,24 +185,24 @@
     {
       "year": 2021,
       "manager": "Stilly",
-      "completedClaims": 13,
+      "completedClaims": 15,
       "failedClaims": 7,
       "paidWins": 11,
-      "zeroDollarWins": 2,
+      "zeroDollarWins": 4,
       "completedBidSpend": 95,
       "failedAttemptedBidTotal": 39,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 2
     },
     {
       "year": 2021,
       "manager": "Stover",
-      "completedClaims": 12,
+      "completedClaims": 13,
       "failedClaims": 7,
       "paidWins": 11,
-      "zeroDollarWins": 1,
+      "zeroDollarWins": 2,
       "completedBidSpend": 97,
       "failedAttemptedBidTotal": 37,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2021,
@@ -240,24 +240,24 @@
     {
       "year": 2022,
       "manager": "Evans",
-      "completedClaims": 13,
+      "completedClaims": 14,
       "failedClaims": 8,
       "paidWins": 8,
-      "zeroDollarWins": 5,
+      "zeroDollarWins": 6,
       "completedBidSpend": 78,
       "failedAttemptedBidTotal": 97,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2022,
       "manager": "Koble",
-      "completedClaims": 16,
+      "completedClaims": 17,
       "failedClaims": 4,
       "paidWins": 8,
-      "zeroDollarWins": 8,
+      "zeroDollarWins": 9,
       "completedBidSpend": 100,
       "failedAttemptedBidTotal": 96,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2022,
@@ -273,24 +273,24 @@
     {
       "year": 2022,
       "manager": "Mitch",
-      "completedClaims": 14,
+      "completedClaims": 15,
       "failedClaims": 6,
       "paidWins": 10,
-      "zeroDollarWins": 4,
+      "zeroDollarWins": 5,
       "completedBidSpend": 81,
       "failedAttemptedBidTotal": 16,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2022,
       "manager": "Stew",
-      "completedClaims": 21,
+      "completedClaims": 22,
       "failedClaims": 17,
-      "paidWins": 10,
+      "paidWins": 11,
       "zeroDollarWins": 11,
-      "completedBidSpend": 97,
+      "completedBidSpend": 100,
       "failedAttemptedBidTotal": 87,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2022,
@@ -306,13 +306,13 @@
     {
       "year": 2022,
       "manager": "Stover",
-      "completedClaims": 10,
+      "completedClaims": 11,
       "failedClaims": 6,
       "paidWins": 8,
-      "zeroDollarWins": 2,
+      "zeroDollarWins": 3,
       "completedBidSpend": 50,
       "failedAttemptedBidTotal": 79,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2022,
@@ -339,13 +339,13 @@
     {
       "year": 2023,
       "manager": "Birch",
-      "completedClaims": 1,
+      "completedClaims": 3,
       "failedClaims": 0,
-      "paidWins": 1,
-      "zeroDollarWins": 0,
-      "completedBidSpend": 5,
+      "paidWins": 2,
+      "zeroDollarWins": 1,
+      "completedBidSpend": 100,
       "failedAttemptedBidTotal": 0,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 2
     },
     {
       "year": 2023,
@@ -361,13 +361,13 @@
     {
       "year": 2023,
       "manager": "Koble",
-      "completedClaims": 15,
+      "completedClaims": 17,
       "failedClaims": 2,
       "paidWins": 8,
-      "zeroDollarWins": 7,
+      "zeroDollarWins": 9,
       "completedBidSpend": 100,
       "failedAttemptedBidTotal": 37,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 2
     },
     {
       "year": 2023,
@@ -383,13 +383,13 @@
     {
       "year": 2023,
       "manager": "Mitch",
-      "completedClaims": 16,
-      "failedClaims": 3,
-      "paidWins": 11,
+      "completedClaims": 19,
+      "failedClaims": 4,
+      "paidWins": 14,
       "zeroDollarWins": 5,
-      "completedBidSpend": 68,
+      "completedBidSpend": 78,
       "failedAttemptedBidTotal": 10,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 3
     },
     {
       "year": 2023,
@@ -416,13 +416,13 @@
     {
       "year": 2023,
       "manager": "Stover",
-      "completedClaims": 7,
+      "completedClaims": 8,
       "failedClaims": 2,
       "paidWins": 3,
-      "zeroDollarWins": 4,
+      "zeroDollarWins": 5,
       "completedBidSpend": 75,
       "failedAttemptedBidTotal": 1,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2023,
@@ -461,11 +461,11 @@
       "year": 2024,
       "manager": "JMid",
       "completedClaims": 17,
-      "failedClaims": 8,
+      "failedClaims": 10,
       "paidWins": 13,
       "zeroDollarWins": 4,
       "completedBidSpend": 61,
-      "failedAttemptedBidTotal": 25,
+      "failedAttemptedBidTotal": 64,
       "completedNotInOldArchive": 0
     },
     {
@@ -483,7 +483,7 @@
       "year": 2024,
       "manager": "Mitch",
       "completedClaims": 17,
-      "failedClaims": 15,
+      "failedClaims": 16,
       "paidWins": 12,
       "zeroDollarWins": 5,
       "completedBidSpend": 59,
@@ -515,35 +515,35 @@
     {
       "year": 2024,
       "manager": "Stilly",
-      "completedClaims": 10,
+      "completedClaims": 15,
       "failedClaims": 7,
-      "paidWins": 6,
+      "paidWins": 11,
       "zeroDollarWins": 4,
-      "completedBidSpend": 33,
+      "completedBidSpend": 80,
       "failedAttemptedBidTotal": 102,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 5
     },
     {
       "year": 2024,
       "manager": "Stover",
-      "completedClaims": 7,
+      "completedClaims": 8,
       "failedClaims": 5,
       "paidWins": 5,
-      "zeroDollarWins": 2,
+      "zeroDollarWins": 3,
       "completedBidSpend": 64,
       "failedAttemptedBidTotal": 29,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2024,
       "manager": "Thommy",
-      "completedClaims": 23,
-      "failedClaims": 25,
-      "paidWins": 14,
+      "completedClaims": 24,
+      "failedClaims": 26,
+      "paidWins": 15,
       "zeroDollarWins": 9,
-      "completedBidSpend": 82,
-      "failedAttemptedBidTotal": 77,
-      "completedNotInOldArchive": 0
+      "completedBidSpend": 100,
+      "failedAttemptedBidTotal": 95,
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2024,
@@ -559,35 +559,35 @@
     {
       "year": 2025,
       "manager": "Birch",
-      "completedClaims": 9,
+      "completedClaims": 11,
       "failedClaims": 5,
-      "paidWins": 6,
+      "paidWins": 8,
       "zeroDollarWins": 3,
-      "completedBidSpend": 67,
+      "completedBidSpend": 100,
       "failedAttemptedBidTotal": 34,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 2
     },
     {
       "year": 2025,
       "manager": "JMid",
-      "completedClaims": 14,
-      "failedClaims": 16,
+      "completedClaims": 15,
+      "failedClaims": 17,
       "paidWins": 10,
-      "zeroDollarWins": 4,
+      "zeroDollarWins": 5,
       "completedBidSpend": 84,
       "failedAttemptedBidTotal": 46,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2025,
       "manager": "Kuhl",
-      "completedClaims": 10,
+      "completedClaims": 11,
       "failedClaims": 3,
       "paidWins": 9,
-      "zeroDollarWins": 1,
+      "zeroDollarWins": 2,
       "completedBidSpend": 70,
       "failedAttemptedBidTotal": 15,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2025,
@@ -603,13 +603,13 @@
     {
       "year": 2025,
       "manager": "Scott",
-      "completedClaims": 13,
-      "failedClaims": 13,
+      "completedClaims": 14,
+      "failedClaims": 14,
       "paidWins": 10,
-      "zeroDollarWins": 3,
+      "zeroDollarWins": 4,
       "completedBidSpend": 84,
-      "failedAttemptedBidTotal": 62,
-      "completedNotInOldArchive": 0
+      "failedAttemptedBidTotal": 66,
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2025,
@@ -647,24 +647,24 @@
     {
       "year": 2025,
       "manager": "Thommy",
-      "completedClaims": 15,
-      "failedClaims": 15,
-      "paidWins": 10,
-      "zeroDollarWins": 5,
-      "completedBidSpend": 79,
-      "failedAttemptedBidTotal": 50,
-      "completedNotInOldArchive": 0
+      "completedClaims": 19,
+      "failedClaims": 22,
+      "paidWins": 12,
+      "zeroDollarWins": 7,
+      "completedBidSpend": 100,
+      "failedAttemptedBidTotal": 65,
+      "completedNotInOldArchive": 4
     },
     {
       "year": 2025,
       "manager": "Tony",
-      "completedClaims": 3,
+      "completedClaims": 4,
       "failedClaims": 1,
-      "paidWins": 2,
+      "paidWins": 3,
       "zeroDollarWins": 1,
-      "completedBidSpend": 9,
+      "completedBidSpend": 30,
       "failedAttemptedBidTotal": 1,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "year": 2026,
@@ -781,137 +781,148 @@
     {
       "manager": "Thommy",
       "seasons": 7,
-      "completedClaims": 109,
-      "failedClaims": 100,
-      "paidWins": 65,
-      "zeroDollarWins": 44,
-      "completedBidSpend": 526,
-      "failedAttemptedBidTotal": 398,
-      "completedNotInOldArchive": 3
-    },
-    {
-      "manager": "Kuhl",
-      "seasons": 7,
-      "completedClaims": 66,
-      "failedClaims": 35,
-      "paidWins": 50,
-      "zeroDollarWins": 16,
-      "completedBidSpend": 465,
-      "failedAttemptedBidTotal": 182,
-      "completedNotInOldArchive": 0
-    },
-    {
-      "manager": "Stew",
-      "seasons": 7,
-      "completedClaims": 102,
-      "failedClaims": 133,
-      "paidWins": 42,
-      "zeroDollarWins": 60,
-      "completedBidSpend": 420,
-      "failedAttemptedBidTotal": 438,
-      "completedNotInOldArchive": 0
-    },
-    {
-      "manager": "Mitch",
-      "seasons": 7,
-      "completedClaims": 92,
-      "failedClaims": 48,
-      "paidWins": 67,
-      "zeroDollarWins": 25,
-      "completedBidSpend": 419,
-      "failedAttemptedBidTotal": 158,
-      "completedNotInOldArchive": 1
-    },
-    {
-      "manager": "Stilly",
-      "seasons": 7,
-      "completedClaims": 74,
-      "failedClaims": 50,
-      "paidWins": 48,
-      "zeroDollarWins": 26,
-      "completedBidSpend": 413,
-      "failedAttemptedBidTotal": 370,
-      "completedNotInOldArchive": 0
-    },
-    {
-      "manager": "Stover",
-      "seasons": 7,
-      "completedClaims": 51,
-      "failedClaims": 28,
-      "paidWins": 39,
-      "zeroDollarWins": 12,
-      "completedBidSpend": 409,
-      "failedAttemptedBidTotal": 185,
-      "completedNotInOldArchive": 1
-    },
-    {
-      "manager": "Koble",
-      "seasons": 4,
-      "completedClaims": 50,
-      "failedClaims": 15,
-      "paidWins": 30,
-      "zeroDollarWins": 20,
-      "completedBidSpend": 378,
-      "failedAttemptedBidTotal": 240,
-      "completedNotInOldArchive": 0
+      "completedClaims": 114,
+      "failedClaims": 108,
+      "paidWins": 68,
+      "zeroDollarWins": 46,
+      "completedBidSpend": 565,
+      "failedAttemptedBidTotal": 431,
+      "completedNotInOldArchive": 8
     },
     {
       "manager": "Birch",
       "seasons": 7,
-      "completedClaims": 33,
+      "completedClaims": 37,
       "failedClaims": 20,
-      "paidWins": 25,
-      "zeroDollarWins": 8,
-      "completedBidSpend": 355,
+      "paidWins": 28,
+      "zeroDollarWins": 9,
+      "completedBidSpend": 483,
       "failedAttemptedBidTotal": 241,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 4
+    },
+    {
+      "manager": "Kuhl",
+      "seasons": 7,
+      "completedClaims": 68,
+      "failedClaims": 36,
+      "paidWins": 51,
+      "zeroDollarWins": 17,
+      "completedBidSpend": 466,
+      "failedAttemptedBidTotal": 189,
+      "completedNotInOldArchive": 2
+    },
+    {
+      "manager": "Stilly",
+      "seasons": 7,
+      "completedClaims": 81,
+      "failedClaims": 50,
+      "paidWins": 53,
+      "zeroDollarWins": 28,
+      "completedBidSpend": 460,
+      "failedAttemptedBidTotal": 370,
+      "completedNotInOldArchive": 7
+    },
+    {
+      "manager": "Mitch",
+      "seasons": 7,
+      "completedClaims": 99,
+      "failedClaims": 50,
+      "paidWins": 71,
+      "zeroDollarWins": 28,
+      "completedBidSpend": 450,
+      "failedAttemptedBidTotal": 158,
+      "completedNotInOldArchive": 7
+    },
+    {
+      "manager": "Stew",
+      "seasons": 7,
+      "completedClaims": 103,
+      "failedClaims": 133,
+      "paidWins": 43,
+      "zeroDollarWins": 60,
+      "completedBidSpend": 423,
+      "failedAttemptedBidTotal": 438,
+      "completedNotInOldArchive": 1
+    },
+    {
+      "manager": "Stover",
+      "seasons": 7,
+      "completedClaims": 55,
+      "failedClaims": 28,
+      "paidWins": 39,
+      "zeroDollarWins": 16,
+      "completedBidSpend": 409,
+      "failedAttemptedBidTotal": 185,
+      "completedNotInOldArchive": 5
+    },
+    {
+      "manager": "Koble",
+      "seasons": 4,
+      "completedClaims": 54,
+      "failedClaims": 15,
+      "paidWins": 31,
+      "zeroDollarWins": 23,
+      "completedBidSpend": 398,
+      "failedAttemptedBidTotal": 240,
+      "completedNotInOldArchive": 4
     },
     {
       "manager": "Tony",
       "seasons": 7,
-      "completedClaims": 26,
+      "completedClaims": 28,
       "failedClaims": 12,
-      "paidWins": 19,
+      "paidWins": 21,
       "zeroDollarWins": 7,
-      "completedBidSpend": 334,
+      "completedBidSpend": 360,
       "failedAttemptedBidTotal": 57,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 1
     },
     {
       "manager": "JMid",
       "seasons": 4,
-      "completedClaims": 54,
-      "failedClaims": 44,
+      "completedClaims": 55,
+      "failedClaims": 47,
       "paidWins": 39,
-      "zeroDollarWins": 15,
+      "zeroDollarWins": 16,
       "completedBidSpend": 253,
-      "failedAttemptedBidTotal": 151,
-      "completedNotInOldArchive": 1
+      "failedAttemptedBidTotal": 190,
+      "completedNotInOldArchive": 2
     },
     {
       "manager": "Evans",
       "seasons": 3,
-      "completedClaims": 46,
+      "completedClaims": 50,
       "failedClaims": 26,
-      "paidWins": 31,
-      "zeroDollarWins": 15,
-      "completedBidSpend": 222,
+      "paidWins": 34,
+      "zeroDollarWins": 16,
+      "completedBidSpend": 225,
       "failedAttemptedBidTotal": 313,
-      "completedNotInOldArchive": 0
+      "completedNotInOldArchive": 4
     },
     {
       "manager": "Scott",
       "seasons": 3,
-      "completedClaims": 32,
-      "failedClaims": 26,
+      "completedClaims": 33,
+      "failedClaims": 27,
       "paidWins": 19,
-      "zeroDollarWins": 13,
+      "zeroDollarWins": 14,
       "completedBidSpend": 140,
-      "failedAttemptedBidTotal": 122,
-      "completedNotInOldArchive": 0
+      "failedAttemptedBidTotal": 126,
+      "completedNotInOldArchive": 1
     }
   ],
   "largestCompletedBids": [
+    {
+      "year": 2023,
+      "manager": "Birch",
+      "week": 15,
+      "transactionId": "1040721060058099712",
+      "bid": 95,
+      "playerIds": [
+        "LV"
+      ],
+      "archiveMatch": false
+    },
     {
       "year": 2022,
       "manager": "Tony",
@@ -1056,6 +1067,17 @@
       "archiveMatch": true
     },
     {
+      "year": 2024,
+      "manager": "Stilly",
+      "week": 15,
+      "transactionId": "1174818223933407232",
+      "bid": 43,
+      "playerIds": [
+        "8143"
+      ],
+      "archiveMatch": false
+    },
+    {
       "year": 2020,
       "manager": "Birch",
       "week": 7,
@@ -1162,28 +1184,6 @@
       "bid": 31,
       "playerIds": [
         "4149"
-      ],
-      "archiveMatch": true
-    },
-    {
-      "year": 2022,
-      "manager": "Stilly",
-      "week": 10,
-      "transactionId": "898009551050268672",
-      "bid": 31,
-      "playerIds": [
-        "6826"
-      ],
-      "archiveMatch": true
-    },
-    {
-      "year": 2022,
-      "manager": "Stilly",
-      "week": 11,
-      "transactionId": "900914448506822656",
-      "bid": 30,
-      "playerIds": [
-        "8150"
       ],
       "archiveMatch": true
     }
