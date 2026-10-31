@@ -258,6 +258,17 @@ try{
       if(!await page.locator('#'+sectionId).isVisible())errors.push(width+' '+slug+' '+category+' content hidden');
      }
     }
+    if(width===390){
+     await page.evaluate(()=>window.scrollTo(0,document.body.scrollHeight));
+     await page.waitForTimeout(120);
+     const back=page.locator('.profile-back-to-sections');
+     if(!await back.isVisible())errors.push(width+' '+slug+' return-to-sections control missing on long profile');
+     else {
+      await back.click();
+      await page.waitForTimeout(450);
+      if(await page.locator('#profile-navigation').isVisible()===false)errors.push(width+' '+slug+' return-to-sections did not reach navigation');
+     }
+    }
     const managerId=slug==='tom'?'Tom':slug==='jmid'?'JMid':slug[0].toUpperCase()+slug.slice(1);
     const awardData=(await (await page.request.get(baseUrl+'data/waiver_award_candidates.json')).json()).managers[managerId]?.[0];
     const tradeSides=(await (await page.request.get(baseUrl+'data/v9_trade_engine.json')).json()).sides;
