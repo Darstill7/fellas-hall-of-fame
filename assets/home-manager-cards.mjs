@@ -17,7 +17,7 @@ try{
  const compact=document.getElementById('home-manager-mobile');
  if(compact)compact.innerHTML=current.map(r=>{
   const tier=managerCardTier(r),rating=maddenOvr(r.score).toFixed(1);
-  return '<details data-manager-name="'+escape(r.name.toLowerCase())+'" class="mobile-manager-row mobile-tier-'+tier.id+'"><summary aria-label="Expand '+escape(r.name)+' manager rating"><span class="mobile-manager-badge">'+escape(tier.name.replace(' Edition',''))+'</span><strong class="mobile-manager-name">'+escape(r.name)+'</strong><span class="mobile-manager-ovr" aria-label="Legacy overall rating '+rating+'">'+rating+'</span><span class="mobile-manager-chevron" aria-hidden="true">⌄</span></summary><div class="mobile-manager-expanded"><div class="mobile-manager-metrics"><span><strong>#'+r.rank+'</strong> All-time</span><span><strong>'+r.titleYears.length+'</strong> Titles</span><span><strong>'+r.qualifiedYears.length+'</strong> Playoffs</span></div><p>Career record: <strong>'+escape(r.career)+'</strong></p><a class="mobile-manager-link" href="managers/'+slug[r.name]+'/">View '+escape(r.name)+'’s profile →</a></div></details>';
+  return '<details data-manager-name="'+escape(r.name.toLowerCase())+'" data-manager-ovr="'+rating+'" class="mobile-manager-row mobile-tier-'+tier.id+'"><summary aria-label="Expand '+escape(r.name)+' manager rating"><span class="mobile-manager-badge">'+escape(tier.name.replace(' Edition',''))+'</span><strong class="mobile-manager-name">'+escape(r.name)+'</strong><span class="mobile-manager-ovr" aria-label="Legacy overall rating '+rating+'">'+rating+'</span><span class="mobile-manager-chevron" aria-hidden="true">⌄</span></summary><div class="mobile-manager-expanded"><div class="mobile-manager-metrics"><span><strong>#'+r.rank+'</strong> All-time</span><span><strong>'+r.titleYears.length+'</strong> Titles</span><span><strong>'+r.qualifiedYears.length+'</strong> Playoffs</span></div><p>Career record: <strong>'+escape(r.career)+'</strong></p><a class="mobile-manager-link" href="managers/'+slug[r.name]+'/">View '+escape(r.name)+'’s profile →</a></div></details>';
  }).join('');
  const finder=document.getElementById('home-manager-search');
  const clear=document.getElementById('home-manager-clear');
@@ -36,6 +36,18 @@ try{
    if(clear)clear.hidden=!query;
    if(empty)empty.hidden=visible!==0;
   }
+  const sorter=document.getElementById('home-manager-sort');
+  function sortRows(){
+   const mode=sorter?.value||'name';
+   const sorted=[...rows].sort((a,b)=>{
+    if(mode==='ovr-desc')return Number(b.dataset.managerOvr)-Number(a.dataset.managerOvr)||a.dataset.managerName.localeCompare(b.dataset.managerName);
+    if(mode==='ovr-asc')return Number(a.dataset.managerOvr)-Number(b.dataset.managerOvr)||a.dataset.managerName.localeCompare(b.dataset.managerName);
+    return a.dataset.managerName.localeCompare(b.dataset.managerName);
+   });
+   for(const row of sorted)compact.append(row);
+  }
+  sorter?.addEventListener('change',sortRows);
+  sortRows();
   finder.addEventListener('input',filter);
   clear?.addEventListener('click',()=>{finder.value='';filter();finder.focus()});
  }
