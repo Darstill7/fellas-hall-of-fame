@@ -13,6 +13,24 @@ for(const year of years){
  const archive=read('data/acquisitions_'+year+'.json');
  const archivedById=new Map(archive.weeks.flatMap(x=>x.tx).map(tx=>[String(tx.id),tx]));
  const maxWeek=year===2026?7:(year===2020?13:14);
+ // Original provider receipts bound ownership; a subsequent drop, trade or
+ // reacquisition terminates the *earlier* claim's attribution conservatively.
+ const subsequent=new Map();
+ for(let eventWeek=1;eventWeek<=18;eventWeek++){
+  const file='data-integrity/provider-recovered-transactions-'+year+'-week'+eventWeek+'.json';
+  if(!has(file))continue;
+  const items=read(file).transactions??[];
+  for(const event of items){
+   if(event.status!=='complete')continue;
+   const affected=[...(event.added??[]),...(event.dropped??[])];
+   for(const p of affected){
+    const id=String(p.id);
+    if(!subsequent.has(id))subsequent.set(id,[]);
+    subsequent.get(id).push({week:event.week,transactionId:String(event.transactionId),type:event.type,
+     action:(event.dropped??[]).some(v=>String(v.id)===id)?'drop':'add'});
+   }
+  }
+ }
  const weeks=new Map();
  for(let week=1;week<=maxWeek;week++){
   const fallback='data/sleeper_roster_snapshots_'+year+'_week'+week+'.json';
@@ -43,10 +61,12 @@ for(const year of years){
   for(const player of archived.players??[]){
    const playerId=String(player.id);
    const startWeek=claim.week+1; // avoids counting points from acquisition's processing week
+   const events=(subsequent.get(playerId)??[]).filter(e=>e.transactionId!==String(claim.id)&&e.week>claim.week);
+   const cutoffWeek=events.length?Math.min(...events.map(e=>e.week)):null;
    // Distinguish observed performance from season-long ownership.
    const rows=[];
    const observedOwnerHandles=new Set();
-   for(let week=startWeek;week<=maxWeek;week++){
+   for(let week=startWeek;week<=maxWeek&&(cutoffWeek===null||week<cutoffWeek);week++){
     const roster=weeks.get(week)?.find(x=>String(rosterId(x))===teamId);
     if(!roster)continue;
     const starters=Array.isArray(roster.starters)?roster.starters:[];
@@ -68,6 +88,8 @@ for(const year of years){
     year,transactionId:String(claim.id),claimWeek:claim.week,teamId,
     playerId,playerName:player.name??null,position:player.position??null,
     bid:claim.bid,scope:'post_claim_week_conservative',
+    firstSubsequentOwnershipEventWeek:cutoffWeek,
+    attributionCensored:cutoffWeek!==null,
     observedOwnerHandle:observedOwnerHandles.size===1?[...observedOwnerHandles][0]:null,
     ownerIdentityStatus:observedOwnerHandles.size===1?'single_observed_roster_owner_handle':observedOwnerHandles.size>1?'conflicting_owner_handles':'unobserved',
     outcomeStatus:rows.length?'observed_rostered_production':'unobserved_or_not_held',
