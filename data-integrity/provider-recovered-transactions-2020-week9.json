@@ -1,0 +1,665 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "561248176597610496",
+  "year": 2020,
+  "week": 9,
+  "reportedRows": 28,
+  "normalizedRows": 28,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "632154609506418688",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1605081897711,
+      "date": "2020-11-11",
+      "week": 9,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4082",
+          "name": "Curtis Samuel",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4602",
+          "name": "Robert Tonyan",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 21
+    },
+    {
+      "transactionId": "632110898185580544",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1605081897711,
+      "date": "2020-11-11",
+      "week": 9,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "4082",
+          "name": "Curtis Samuel",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "632102953880190976",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1605081897711,
+      "date": "2020-11-11",
+      "week": 9,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "631937251869306880",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1605081897711,
+      "date": "2020-11-11",
+      "week": 9,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "2382",
+          "name": "Duke Johnson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5967",
+          "name": "Tony Pollard",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 16
+    },
+    {
+      "transactionId": "631920771970719744",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1605081897711,
+      "date": "2020-11-11",
+      "week": 9,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2238",
+          "name": "John Brown",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "631891641417965568",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1605081897711,
+      "date": "2020-11-11",
+      "week": 9,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "2382",
+          "name": "Duke Johnson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 9
+    },
+    {
+      "transactionId": "631756239654707200",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1605081897711,
+      "date": "2020-11-11",
+      "week": 9,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "3664",
+          "name": "J.D. McKissic",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1848",
+          "name": "James White",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 17
+    },
+    {
+      "transactionId": "631604473445310464",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1605081897711,
+      "date": "2020-11-11",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "4082",
+          "name": "Curtis Samuel",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "631541389749989376",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1605081897711,
+      "date": "2020-11-11",
+      "week": 9,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "631541320007127040",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1605081897711,
+      "date": "2020-11-11",
+      "week": 9,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "2118",
+          "name": "Eric Ebron",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6996",
+          "name": "JaMycal Hasty",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "631936752965230592",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1605027972025,
+      "date": "2020-11-10",
+      "week": 9,
+      "teamIds": [
+        "7"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "6311",
+          "name": "Patrick Laird",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "631755317780234240",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1604984714506,
+      "date": "2020-11-10",
+      "week": 9,
+      "teamIds": [
+        "9"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "3306",
+          "name": "Jordan Howard",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "630292673504366592",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1604635992936,
+      "date": "2020-11-06",
+      "week": 9,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "6311",
+          "name": "Patrick Laird",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "630288667298168832",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1604635037782,
+      "date": "2020-11-06",
+      "week": 9,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "1817",
+          "name": "Sammy Watkins",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "630239434859761664",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1604623299854,
+      "date": "2020-11-06",
+      "week": 9,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "3306",
+          "name": "Jordan Howard",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5248",
+          "name": "Gus Edwards",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "630231517540569088",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1604621412218,
+      "date": "2020-11-06",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "3280",
+          "name": "Tyler Ervin",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "630097801430265856",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1604589531813,
+      "date": "2020-11-05",
+      "week": 9,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5967",
+          "name": "Tony Pollard",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1817",
+          "name": "Sammy Watkins",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "629893373121097728",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1604540792306,
+      "date": "2020-11-05",
+      "week": 9,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "1817",
+          "name": "Sammy Watkins",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "629892882823749632",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1604540675410,
+      "date": "2020-11-05",
+      "week": 9,
+      "teamIds": [
+        "8"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "4150",
+          "name": "Wayne Gallman",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "629851568962863104",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1604530825418,
+      "date": "2020-11-04",
+      "week": 9,
+      "teamIds": [
+        "7"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "6290",
+          "name": "Scotty Miller",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "629847974293352448",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1604529968382,
+      "date": "2020-11-04",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "3280",
+          "name": "Tyler Ervin",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "629846160223330304",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1604529535874,
+      "date": "2020-11-04",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "1500",
+          "name": "Jordan Reed",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "629818920752209920",
+      "type": "trade",
+      "status": "complete",
+      "timestamp": 1604529388114,
+      "date": "2020-11-04",
+      "week": 9,
+      "teamIds": [
+        "4",
+        "8"
+      ],
+      "added": [
+        {
+          "id": "3199",
+          "name": "Michael Thomas",
+          "position": "WR"
+        },
+        {
+          "id": "4983",
+          "name": "DJ Moore",
+          "position": "WR"
+        },
+        {
+          "id": "6820",
+          "name": "Clyde Edwards-Helaire",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3199",
+          "name": "Michael Thomas",
+          "position": "WR"
+        },
+        {
+          "id": "4983",
+          "name": "DJ Moore",
+          "position": "WR"
+        },
+        {
+          "id": "6820",
+          "name": "Clyde Edwards-Helaire",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "629762957965852672",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1604509698910,
+      "date": "2020-11-04",
+      "week": 9,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "7045",
+          "name": "Joshua Kelley",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "629724993172901888",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1604500647398,
+      "date": "2020-11-04",
+      "week": 9,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "NYG",
+          "name": "New York Giants",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "BUF",
+          "name": "Buffalo Bills",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "629717364501463040",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1604498828581,
+      "date": "2020-11-04",
+      "week": 9,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "629696486346670080",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1604493850841,
+      "date": "2020-11-04",
+      "week": 9,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "830",
+          "name": "A.J. Green",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "629643020735713280",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1604481103646,
+      "date": "2020-11-04",
+      "week": 9,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "6770",
+          "name": "Joe Burrow",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "954",
+          "name": "Cam Newton",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
