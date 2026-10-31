@@ -1,0 +1,599 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "946275261279055872",
+  "year": 2023,
+  "week": 14,
+  "reportedRows": 24,
+  "normalizedRows": 24,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1040541193714761728",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1702490861453,
+      "date": "2023-12-13",
+      "week": 14,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "PIT",
+          "name": "Pittsburgh Steelers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "1040540549754802176",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1702490861453,
+      "date": "2023-12-13",
+      "week": 14,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "8210",
+          "name": "Chig Okonkwo",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4089",
+          "name": "Gerald Everett",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1040358221833211904",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1702490861453,
+      "date": "2023-12-13",
+      "week": 14,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "421",
+          "name": "Matthew Stafford",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 10
+    },
+    {
+      "transactionId": "1040185748345200640",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1702490861453,
+      "date": "2023-12-13",
+      "week": 14,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "8162",
+          "name": "Sam Howell",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6130",
+          "name": "Devin Singletary",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 8
+    },
+    {
+      "transactionId": "1040357980765507584",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1702403180832,
+      "date": "2023-12-12",
+      "week": 14,
+      "teamIds": [
+        "6"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "7670",
+          "name": "Joshua Palmer",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1039510205739913216",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1702201055515,
+      "date": "2023-12-10",
+      "week": 14,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "4098",
+          "name": "Kareem Hunt",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7601",
+          "name": "Rondale Moore",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038937489966190592",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1702064509434,
+      "date": "2023-12-08",
+      "week": 14,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "BUF",
+          "name": "Buffalo Bills",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4950",
+          "name": "Christian Kirk",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038937385687404544",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1702064484572,
+      "date": "2023-12-08",
+      "week": 14,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "DEN",
+          "name": "Denver Broncos",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7045",
+          "name": "Joshua Kelley",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038937148101054464",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1702064427927,
+      "date": "2023-12-08",
+      "week": 14,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "7045",
+          "name": "Joshua Kelley",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038935250652450816",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1702063975540,
+      "date": "2023-12-08",
+      "week": 14,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "6820",
+          "name": "Clyde Edwards-Helaire",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9753",
+          "name": "Zach Charbonnet",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038935044057812992",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1702063926284,
+      "date": "2023-12-08",
+      "week": 14,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "2161",
+          "name": "Jerick McKinnon",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4082",
+          "name": "Curtis Samuel",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038795037108236288",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1702055257664,
+      "date": "2023-12-08",
+      "week": 14,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1038502968804413440",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1702055257664,
+      "date": "2023-12-08",
+      "week": 14,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1038795182394658816",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1702030580665,
+      "date": "2023-12-08",
+      "week": 14,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "6783",
+          "name": "Jerry Jeudy",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4098",
+          "name": "Kareem Hunt",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038189674549903360",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1701959247171,
+      "date": "2023-12-07",
+      "week": 14,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "9502",
+          "name": "Tank Dell",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1038189846012981248",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701886257225,
+      "date": "2023-12-06",
+      "week": 14,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "10235",
+          "name": "Roschon Johnson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038189704555880448",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701886223499,
+      "date": "2023-12-06",
+      "week": 14,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "2505",
+          "name": "Darren Waller",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "TB",
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038189304272478208",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701886128064,
+      "date": "2023-12-06",
+      "week": 14,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038189173280169984",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701886096833,
+      "date": "2023-12-06",
+      "week": 14,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "5947",
+          "name": "Jakobi Meyers",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3225",
+          "name": "Tyler Boyd",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038189120641654784",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701886084283,
+      "date": "2023-12-06",
+      "week": 14,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4892",
+          "name": "Baker Mayfield",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1038125768733229056",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1701886041761,
+      "date": "2023-12-06",
+      "week": 14,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1038117700331044864",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1701886041761,
+      "date": "2023-12-06",
+      "week": 14,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "4089",
+          "name": "Gerald Everett",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2251",
+          "name": "Logan Thomas",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "1038097655345307648",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1701886041761,
+      "date": "2023-12-06",
+      "week": 14,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "6804",
+          "name": "Jordan Love",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8162",
+          "name": "Sam Howell",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 11
+    },
+    {
+      "transactionId": "1038099277249245184",
+      "type": "trade",
+      "status": "complete",
+      "timestamp": 1701871720442,
+      "date": "2023-12-06",
+      "week": 14,
+      "teamIds": [
+        "2",
+        "9"
+      ],
+      "added": [
+        {
+          "id": "2374",
+          "name": "Tyler Lockett",
+          "position": "WR"
+        },
+        {
+          "id": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2374",
+          "name": "Tyler Lockett",
+          "position": "WR"
+        },
+        {
+          "id": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
