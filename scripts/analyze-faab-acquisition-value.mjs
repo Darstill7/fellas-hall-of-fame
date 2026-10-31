@@ -15,19 +15,20 @@ for(const year of years){
  const maxWeek=year===2026?7:(year===2020?13:14);
  // Original provider receipts bound ownership; a subsequent drop, trade or
  // reacquisition terminates the *earlier* claim's attribution conservatively.
- const subsequent=new Map();
+ const subsequent=new Map(),transactionTimes=new Map();
  for(let eventWeek=1;eventWeek<=18;eventWeek++){
   const file='data-integrity/provider-recovered-transactions-'+year+'-week'+eventWeek+'.json';
   if(!has(file))continue;
   const items=read(file).transactions??[];
   for(const event of items){
    if(event.status!=='complete')continue;
+   transactionTimes.set(String(event.transactionId),event.timestamp);
    const affected=[...(event.added??[]),...(event.dropped??[])];
    for(const p of affected){
     const id=String(p.id);
     if(!subsequent.has(id))subsequent.set(id,[]);
     subsequent.get(id).push({week:event.week,transactionId:String(event.transactionId),type:event.type,
-     action:(event.dropped??[]).some(v=>String(v.id)===id)?'drop':'add'});
+     timestamp:event.timestamp,action:(event.dropped??[]).some(v=>String(v.id)===id)?'drop':'add'});
    }
   }
  }
@@ -61,8 +62,11 @@ for(const year of years){
   for(const player of archived.players??[]){
    const playerId=String(player.id);
    const startWeek=claim.week+1; // avoids counting points from acquisition's processing week
-   const events=(subsequent.get(playerId)??[]).filter(e=>e.transactionId!==String(claim.id)&&e.week>claim.week);
-   const cutoffWeek=events.length?Math.min(...events.map(e=>e.week)):null;
+   const claimTimestamp=transactionTimes.get(String(claim.id));
+   const events=(subsequent.get(playerId)??[]).filter(e=>e.transactionId!==String(claim.id)&&(
+    e.week>claim.week||(e.week===claim.week&&(!Number.isFinite(claimTimestamp)||!Number.isFinite(e.timestamp)||e.timestamp>=claimTimestamp))));
+   // Same-week transfers censor the NEXT observed week. Equal timestamps are ambiguous.
+   const cutoffWeek=events.length?Math.min(...events.map(e=>e.week===claim.week?claim.week+1:e.week)):null;
    // Distinguish observed performance from season-long ownership.
    const rows=[];
    const observedOwnerHandles=new Set();
