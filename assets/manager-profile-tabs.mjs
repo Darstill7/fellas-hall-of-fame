@@ -157,9 +157,20 @@ if(main&&tabs){
   const key=location.hash.slice(1);
   if(categories[key])activate(key);
  });
+ // Restore scroll after a visitor opens another report and returns.
+ // Keep it per-tab so each manager section remembers its own reading position.
+ const scrollKey='fellas-profile-position:'+location.pathname;
+ const savePosition=()=>{
+  try{sessionStorage.setItem(scrollKey,JSON.stringify({tab:buttons.find(b=>b.getAttribute('aria-selected')==='true')?.dataset.profileTab||'overview',y:window.scrollY,at:Date.now()}))}catch{}
+ };
+ window.addEventListener('pagehide',savePosition);
+ window.addEventListener('pageshow',event=>{
+  if(event.persisted)requestAnimationFrame(updateBack);
+ });
  const initial=location.hash.slice(1).toLowerCase();
  const target=document.getElementById(location.hash.slice(1));
  const chosen=categories[initial]?initial:target&&sectionTab.has(target)?sectionTab.get(target):'overview';
  activate(chosen);
+ if(!target&&!location.hash){try{const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]){activate(saved.tab);requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo({top:saved.y,behavior:'instant'})))}}catch{}}
  if(target&&!categories[initial])requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));
 }
