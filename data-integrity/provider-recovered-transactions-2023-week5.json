@@ -1,0 +1,398 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "946275261279055872",
+  "year": 2023,
+  "week": 5,
+  "reportedRows": 16,
+  "normalizedRows": 16,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1017648012950106112",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1697044033119,
+      "date": "2023-10-11",
+      "week": 5,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "6826",
+          "name": "Cole Kmet",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7562",
+          "name": "Tutu Atwell",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "1017647908621074432",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1697044033119,
+      "date": "2023-10-11",
+      "week": 5,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "10235",
+          "name": "Roschon Johnson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4147",
+          "name": "Samaje Perine",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 30
+    },
+    {
+      "transactionId": "1017613619648999424",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1697044033119,
+      "date": "2023-10-11",
+      "week": 5,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "LV",
+          "name": "Las Vegas Raiders",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1017483464465104896",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1697044033119,
+      "date": "2023-10-11",
+      "week": 5,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "11199",
+          "name": "Emari Demercado",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8132",
+          "name": "Tyler Allgeier",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 13
+    },
+    {
+      "transactionId": "1017482878931857408",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1697044033119,
+      "date": "2023-10-11",
+      "week": 5,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "11199",
+          "name": "Emari Demercado",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1017473234100432896",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1697044033119,
+      "date": "2023-10-11",
+      "week": 5,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "10235",
+          "name": "Roschon Johnson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1017472250196373504",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1697044033119,
+      "date": "2023-10-11",
+      "week": 5,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "7066",
+          "name": "K.J. Osborn",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7045",
+          "name": "Joshua Kelley",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "1017471801498222592",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1697044033119,
+      "date": "2023-10-11",
+      "week": 5,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "DEN",
+          "name": "Denver Broncos",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1016761585777475584",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1696777361867,
+      "date": "2023-10-08",
+      "week": 5,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "3225",
+          "name": "Tyler Boyd",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9754",
+          "name": "Quentin Johnston",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1016715696925016064",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1696766421112,
+      "date": "2023-10-08",
+      "week": 5,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "NYJ",
+          "name": "New York Jets",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CIN",
+          "name": "Cincinnati Bengals",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1016514009341706240",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1696718335045,
+      "date": "2023-10-07",
+      "week": 5,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4147",
+          "name": "Samaje Perine",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7594",
+          "name": "Chuba Hubbard",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1015760796086898688",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1696695454149,
+      "date": "2023-10-07",
+      "week": 5,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "CIN",
+          "name": "Cincinnati Bengals",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "PIT",
+          "name": "Pittsburgh Steelers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1015707981251428352",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1696526162973,
+      "date": "2023-10-05",
+      "week": 5,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CIN",
+          "name": "Cincinnati Bengals",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1015489908154122240",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1696474170295,
+      "date": "2023-10-05",
+      "week": 5,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9494",
+          "name": "Marvin Mims Jr.",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1015343578450575360",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1696439282575,
+      "date": "2023-10-04",
+      "week": 5,
+      "teamIds": [
+        "1"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "4040",
+          "name": "JuJu Smith-Schuster",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1015313749856657408",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1696439245336,
+      "date": "2023-10-04",
+      "week": 5,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    }
+  ]
+}
