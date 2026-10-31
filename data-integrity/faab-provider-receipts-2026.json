@@ -1,6 +1,6 @@
 {
   "schema": "fellas-faab-provider-season-v1",
-  "source": "Connected Sleeper provider transactions, completed waiver claims",
+  "source": "Connected Sleeper provider transactions: successful AND failed waiver claims (explicit weekly windows)",
   "year": 2026,
   "leagueId": "1340027406009761792",
   "weeks": [
@@ -42,7 +42,7 @@
   ],
   "archiveRecords": 112,
   "archiveWaivers": 59,
-  "policy": "FAAB bid is a provider receipt, not an efficiency grade. Archive reconciliation requires matching transaction ID, roster IDs, and added player IDs. No editorial figures used.",
+  "policy": "Only status=complete bids are actual winning expenditures. status=failed bids are attempted claims; do not count them as spend. Never infer a failed reason or manager skill. Archive reconciliation requires transaction ID, roster IDs and player IDs. Do not substitute editorial numbers.",
   "issues": [],
   "receipts": [
     {
@@ -2170,5 +2170,12 @@
       "rosterMatch": false,
       "playerMatch": false
     }
-  ]
+  ],
+  "outcomeSummary": {
+    "completedClaims": 65,
+    "failedClaims": 60,
+    "completedSpend": 235,
+    "failedAttemptedBidTotal": 113,
+    "completedWithArchiveMatch": 59
+  }
 }
