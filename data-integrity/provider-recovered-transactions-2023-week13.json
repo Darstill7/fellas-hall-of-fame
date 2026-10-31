@@ -1,0 +1,344 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "946275261279055872",
+  "year": 2023,
+  "week": 13,
+  "reportedRows": 13,
+  "normalizedRows": 13,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1037823727402135552",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1701959247171,
+      "date": "2023-12-07",
+      "week": 13,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "9502",
+          "name": "Tank Dell",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1373",
+          "name": "Geno Smith",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 65
+    },
+    {
+      "transactionId": "1037946615308419072",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1701886041761,
+      "date": "2023-12-06",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "3164",
+          "name": "Ezekiel Elliott",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1037946256343117824",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1701886041761,
+      "date": "2023-12-06",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 11
+    },
+    {
+      "transactionId": "1037818857580269568",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1701886041761,
+      "date": "2023-12-06",
+      "week": 13,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "7608",
+          "name": "Khalil Herbert",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4147",
+          "name": "Samaje Perine",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 10
+    },
+    {
+      "transactionId": "1037784306116026368",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1701789568979,
+      "date": "2023-12-05",
+      "week": 13,
+      "teamIds": [
+        "3"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "9502",
+          "name": "Tank Dell",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1037087769438429184",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701623501694,
+      "date": "2023-12-03",
+      "week": 13,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "3271",
+          "name": "Tyler Higbee",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5046",
+          "name": "Royce Freeman",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1037084132142194688",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701622634496,
+      "date": "2023-12-03",
+      "week": 13,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "8130",
+          "name": "Trey McBride",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8111",
+          "name": "Cade Otton",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1036014650426474496",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701367650184,
+      "date": "2023-11-30",
+      "week": 13,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "8111",
+          "name": "Cade Otton",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8676",
+          "name": "Rashid Shaheed",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1035982983133478912",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701360100113,
+      "date": "2023-11-30",
+      "week": 13,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "BUF",
+          "name": "Buffalo Bills",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1035792949126184960",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701314792475,
+      "date": "2023-11-30",
+      "week": 13,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "1373",
+          "name": "Geno Smith",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6804",
+          "name": "Jordan Love",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1035699030791118848",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701292400599,
+      "date": "2023-11-29",
+      "week": 13,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NYG",
+          "name": "New York Giants",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1035655476605706240",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701282016472,
+      "date": "2023-11-29",
+      "week": 13,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "TEN",
+          "name": "Tennessee Titans",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1035653551705382912",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1701281557540,
+      "date": "2023-11-29",
+      "week": 13,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "4892",
+          "name": "Baker Mayfield",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
