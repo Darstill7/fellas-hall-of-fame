@@ -145,6 +145,9 @@ try{
       const ovrs=(await page.locator('#home-manager-mobile .mobile-manager-row').evaluateAll(els=>els.map(e=>Number(e.dataset.managerOvr))));
       if(ovrs.some((v,i)=>i>0&&v>ovrs[i-1]))errors.push(width+' highest OVR sorting incorrect');
       await order.selectOption('name');
+      const identities=page.locator('#home-manager-mobile .mobile-manager-nickname');
+      if(await identities.count()!==10)errors.push(width+' mobile manager personalities missing');
+      if(await identities.filter({hasText:'The Yogurt King'}).count()!==1)errors.push(width+' Stover nickname missing from mobile list');
       await search.fill('Stov');
       const shown=page.locator('#home-manager-mobile .mobile-manager-row:visible');
       if(await shown.count()!==1||!await shown.first().locator('.mobile-manager-name').textContent().then(x=>x.trim()==='Stover'))
@@ -227,6 +230,12 @@ try{
       if((await wlt.textContent()).trim()!==expected||(await games.textContent()).trim()!==String(career.games))
        errors.push(width+' '+route+' biography values disagree with canonical career record');
      }
+    }
+    const nickname=page.locator('main .hero .manager-nickname-origin');
+    if(await nickname.count()!==1)errors.push(width+' '+slug+' nickname origin panel missing');
+    else{
+     await nickname.locator('summary').click();
+     if(!await nickname.locator('p').first().isVisible())errors.push(width+' '+slug+' nickname explanation failed to expand');
     }
     const tabs=page.locator('[data-manager-profile-tabs] button[data-profile-tab]');
     if(await tabs.count()!==4)errors.push(width+' '+slug+' missing simple four-tab navigation');
