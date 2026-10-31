@@ -1,0 +1,618 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1134248931308802048",
+  "year": 2024,
+  "week": 8,
+  "reportedRows": 27,
+  "normalizedRows": 27,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1157179397649309696",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1730308162107,
+      "date": "2024-10-30",
+      "week": 8,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "421",
+          "name": "Matthew Stafford",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "1157176573657767936",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1730308162107,
+      "date": "2024-10-30",
+      "week": 8,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1157176451414757376",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1730308162107,
+      "date": "2024-10-30",
+      "week": 8,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "10444",
+          "name": "Cedric Tillman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "1157123258530136064",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1730308162107,
+      "date": "2024-10-30",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3200",
+          "name": "Sterling Shepard",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 5
+    },
+    {
+      "transactionId": "1157123152724672512",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1730308162107,
+      "date": "2024-10-30",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "TEN",
+          "name": "Tennessee Titans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1157123026375344128",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1730308162107,
+      "date": "2024-10-30",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "10444",
+          "name": "Cedric Tillman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1157082873099431936",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1730308162107,
+      "date": "2024-10-30",
+      "week": 8,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "11637",
+          "name": "Keon Coleman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11638",
+          "name": "Ricky Pearsall",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 7
+    },
+    {
+      "transactionId": "1157082832485978112",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1730308162107,
+      "date": "2024-10-30",
+      "week": 8,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "10444",
+          "name": "Cedric Tillman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 13
+    },
+    {
+      "transactionId": "1157033899982311424",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1730308162107,
+      "date": "2024-10-30",
+      "week": 8,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "10444",
+          "name": "Cedric Tillman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 15
+    },
+    {
+      "transactionId": "1157044380063084544",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1730223386353,
+      "date": "2024-10-29",
+      "week": 8,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "9229",
+          "name": "Anthony Richardson Sr.",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1157030033689518080",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1730219965911,
+      "date": "2024-10-29",
+      "week": 8,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1156285312621084672",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1730042410572,
+      "date": "2024-10-27",
+      "week": 8,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "11638",
+          "name": "Ricky Pearsall",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6820",
+          "name": "Clyde Edwards-Helaire",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1155336062463795200",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1729872566498,
+      "date": "2024-10-25",
+      "week": 8,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "8132",
+          "name": "Tyler Allgeier",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6803",
+          "name": "Brandon Aiyuk",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1154926570088501248",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1729872566498,
+      "date": "2024-10-25",
+      "week": 8,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "NYJ",
+          "name": "New York Jets",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1155327986711920640",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1729814166289,
+      "date": "2024-10-24",
+      "week": 8,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1155323166173167616",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1729813016983,
+      "date": "2024-10-24",
+      "week": 8,
+      "teamIds": [
+        "10"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "6149",
+          "name": "Darius Slayton",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1154916538105839616",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1729716069297,
+      "date": "2024-10-23",
+      "week": 8,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "5987",
+          "name": "Alexander Mattison",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9508",
+          "name": "Tyjae Spears",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1154863780803764224",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1729703490976,
+      "date": "2024-10-23",
+      "week": 8,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1154856444970348544",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1729702806374,
+      "date": "2024-10-23",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "8111",
+          "name": "Cade Otton",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1154856291341369344",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1729702806374,
+      "date": "2024-10-23",
+      "week": 8,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "3200",
+          "name": "Sterling Shepard",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8207",
+          "name": "Tyler Goodson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 7
+    },
+    {
+      "transactionId": "1154853324840275968",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1729702806374,
+      "date": "2024-10-23",
+      "week": 8,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "11618",
+          "name": "Jalen McMillan",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 6
+    },
+    {
+      "transactionId": "1154844364779323392",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1729702806374,
+      "date": "2024-10-23",
+      "week": 8,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "8111",
+          "name": "Cade Otton",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6865",
+          "name": "Colby Parkinson",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1154785514600546304",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1729702806374,
+      "date": "2024-10-23",
+      "week": 8,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "8111",
+          "name": "Cade Otton",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1154773219770028032",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1729702806374,
+      "date": "2024-10-23",
+      "week": 8,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "DEN",
+          "name": "Denver Broncos",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1154773162979303424",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1729702806374,
+      "date": "2024-10-23",
+      "week": 8,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "DET",
+          "name": "Detroit Lions",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NYJ",
+          "name": "New York Jets",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1154773053143040000",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1729702806374,
+      "date": "2024-10-23",
+      "week": 8,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "KC",
+          "name": "Kansas City Chiefs",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1154852638702292992",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1729700834492,
+      "date": "2024-10-23",
+      "week": 8,
+      "teamIds": [
+        "2"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "4037",
+          "name": "Chris Godwin Jr.",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
