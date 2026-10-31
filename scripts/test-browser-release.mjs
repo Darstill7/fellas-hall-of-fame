@@ -240,7 +240,7 @@ try{
     const tabs=page.locator('[data-manager-profile-tabs] button[data-profile-tab]');
     if(await tabs.count()!==4)errors.push(width+' '+slug+' missing simple four-tab navigation');
     else{
-     const quickLinks=page.locator('.profile-quick-grid a[data-profile-jump]');
+     const quickLinks=page.locator('.profile-quick-grid [data-profile-jump]');
      if(await quickLinks.count()!==4)errors.push(width+' '+slug+' missing quick-start links');
      else{
       await quickLinks.nth(2).scrollIntoViewIfNeeded();
@@ -272,6 +272,17 @@ try{
      else{
       await deepDisclosure.locator('summary').click();
       if(!await deepDisclosure.locator('.profile-inline-detail').isVisible())errors.push(width+' '+slug+' player history not expanded in place');
+     }
+     if(width===390&&slug==='stover'){
+      await page.locator('[data-profile-tab="seasons"]').click();
+      await page.locator('#season-history').scrollIntoViewIfNeeded();
+      const originalY=await page.evaluate(()=>window.scrollY);
+      await page.goto(baseUrl+'analytics/manager-report-cards.html?manager=Stover',{waitUntil:'domcontentloaded'});
+      await page.goBack({waitUntil:'networkidle'});
+      await page.waitForTimeout(300);
+      const restored=await page.evaluate(()=>({y:window.scrollY,tab:document.querySelector('[data-profile-tab="seasons"]')?.getAttribute('aria-selected')}));
+      if(restored.tab!=='true')errors.push(width+' '+slug+' returning from report lost selected season tab');
+      if(Math.abs(restored.y-originalY)>250)errors.push(width+' '+slug+' returning from report lost reading position');
      }
      for(const category of ['overview','seasons','rivalries','advanced']){
       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
