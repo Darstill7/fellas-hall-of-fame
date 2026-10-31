@@ -1,0 +1,776 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "668633299786244096",
+  "year": 2021,
+  "week": 10,
+  "reportedRows": 31,
+  "normalizedRows": 31,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "766538370791952384",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1637136373793,
+      "date": "2021-11-17",
+      "week": 10,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "3202",
+          "name": "Austin Hooper",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1992",
+          "name": "Allen Robinson",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "766529533569515520",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1637136373793,
+      "date": "2021-11-17",
+      "week": 10,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "7611",
+          "name": "Rhamondre Stevenson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6989",
+          "name": "Marquez Callaway",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "766373979538731008",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1637136373793,
+      "date": "2021-11-17",
+      "week": 10,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "7611",
+          "name": "Rhamondre Stevenson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "766349005184733184",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1637136373793,
+      "date": "2021-11-17",
+      "week": 10,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "7596",
+          "name": "Elijah Moore",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7594",
+          "name": "Chuba Hubbard",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "766344624498421760",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1637136373793,
+      "date": "2021-11-17",
+      "week": 10,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1110",
+          "name": "T.Y. Hilton",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "766327529425498112",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1637136373793,
+      "date": "2021-11-17",
+      "week": 10,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "CAR",
+          "name": "Carolina Panthers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "766205440932569088",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1637136373793,
+      "date": "2021-11-17",
+      "week": 10,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "4111",
+          "name": "D'Onta Foreman",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1408",
+          "name": "Le'Veon Bell",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "765796494891966464",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1637136373793,
+      "date": "2021-11-17",
+      "week": 10,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "CAR",
+          "name": "Carolina Panthers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "PIT",
+          "name": "Pittsburgh Steelers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "765344897422249984",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1636907784636,
+      "date": "2021-11-14",
+      "week": 10,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "830",
+          "name": "A.J. Green",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "184",
+          "name": "Adrian Peterson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "765644144990527488",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1636906298447,
+      "date": "2021-11-14",
+      "week": 10,
+      "teamIds": [
+        "3"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "7600",
+          "name": "Pat Freiermuth",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "765585813189836800",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636892391062,
+      "date": "2021-11-14",
+      "week": 10,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "6853",
+          "name": "Van Jefferson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6870",
+          "name": "Bryan Edwards",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "765581489890013184",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636891360307,
+      "date": "2021-11-14",
+      "week": 10,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "3327",
+          "name": "Alex Collins",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7596",
+          "name": "Elijah Moore",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "765400181096169472",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636848132922,
+      "date": "2021-11-14",
+      "week": 10,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "TEN",
+          "name": "Tennessee Titans",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "765381981793050624",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1636843793871,
+      "date": "2021-11-13",
+      "week": 10,
+      "teamIds": [
+        "2"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "5122",
+          "name": "Boston Scott",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "765038380324102144",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636761872896,
+      "date": "2021-11-13",
+      "week": 10,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "DAL",
+          "name": "Dallas Cowboys",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764942264307990528",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636738957052,
+      "date": "2021-11-12",
+      "week": 10,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "2410",
+          "name": "Jamison Crowder",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6904",
+          "name": "Jalen Hurts",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764940240216522752",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636738474471,
+      "date": "2021-11-12",
+      "week": 10,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "956",
+          "name": "Mark Ingram",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "830",
+          "name": "A.J. Green",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764872850250268672",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636722407451,
+      "date": "2021-11-12",
+      "week": 10,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "6870",
+          "name": "Bryan Edwards",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6853",
+          "name": "Van Jefferson",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764230979211653120",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1636716398735,
+      "date": "2021-11-12",
+      "week": 10,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "7090",
+          "name": "Darnell Mooney",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3242",
+          "name": "Kenyan Drake",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "764599256391794688",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1636700798274,
+      "date": "2021-11-12",
+      "week": 10,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "830",
+          "name": "A.J. Green",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4351",
+          "name": "Tim Patrick",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "764138543026204672",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1636700798274,
+      "date": "2021-11-12",
+      "week": 10,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "5110",
+          "name": "Russell Gage",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7601",
+          "name": "Rondale Moore",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "764655746355933184",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636670645849,
+      "date": "2021-11-11",
+      "week": 10,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "DEN",
+          "name": "Denver Broncos",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764640576606998528",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1636667029099,
+      "date": "2021-11-11",
+      "week": 10,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764598235397472256",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636656934168,
+      "date": "2021-11-11",
+      "week": 10,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "7596",
+          "name": "Elijah Moore",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764505625614004224",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636634854275,
+      "date": "2021-11-11",
+      "week": 10,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "1408",
+          "name": "Le'Veon Bell",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5870",
+          "name": "Daniel Jones",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764191566276452352",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636559976694,
+      "date": "2021-11-10",
+      "week": 10,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "6824",
+          "name": "Donovan Peoples-Jones",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "DAL",
+          "name": "Dallas Cowboys",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764191127158042624",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636559872000,
+      "date": "2021-11-10",
+      "week": 10,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "6951",
+          "name": "Eno Benjamin",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7608",
+          "name": "Khalil Herbert",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764147065692561408",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636549366928,
+      "date": "2021-11-10",
+      "week": 10,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "6853",
+          "name": "Van Jefferson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5133",
+          "name": "Tyler Conklin",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764137804371517440",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636547158857,
+      "date": "2021-11-10",
+      "week": 10,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "4036",
+          "name": "Corey Davis",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7090",
+          "name": "Darnell Mooney",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764137299855433728",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636547038571,
+      "date": "2021-11-10",
+      "week": 10,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "3242",
+          "name": "Kenyan Drake",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2257",
+          "name": "Carlos Hyde",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "764133992931901440",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1636546250139,
+      "date": "2021-11-10",
+      "week": 10,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "KC",
+          "name": "Kansas City Chiefs",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
