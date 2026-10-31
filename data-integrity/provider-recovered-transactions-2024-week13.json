@@ -1,0 +1,652 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1134248931308802048",
+  "year": 2024,
+  "week": 13,
+  "reportedRows": 29,
+  "normalizedRows": 29,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1169879655227412480",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 4
+    },
+    {
+      "transactionId": "1169879408128196608",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "8110",
+          "name": "Jake Ferguson",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "10444",
+          "name": "Cedric Tillman",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1169874200471998464",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "11651",
+          "name": "Isaac Guerendo",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 88
+    },
+    {
+      "transactionId": "1169753038538571776",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "ARI",
+          "name": "Arizona Cardinals",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 20
+    },
+    {
+      "transactionId": "1169752443924869120",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "6039",
+          "name": "Ty Johnson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1169752369916264448",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "2749",
+          "name": "Raheem Mostert",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11834",
+          "name": "Devaughn Vele",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1169751979934130176",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "11651",
+          "name": "Isaac Guerendo",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 29
+    },
+    {
+      "transactionId": "1169751903270801408",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "8121",
+          "name": "Romeo Doubs",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4034",
+          "name": "Christian McCaffrey",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1169749761172541440",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "11651",
+          "name": "Isaac Guerendo",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 64
+    },
+    {
+      "transactionId": "1169749378052190208",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "7828",
+          "name": "Noah Gray",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 15
+    },
+    {
+      "transactionId": "1169749261710544896",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "11637",
+          "name": "Keon Coleman",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 20
+    },
+    {
+      "transactionId": "1169663950791962624",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "11651",
+          "name": "Isaac Guerendo",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 72
+    },
+    {
+      "transactionId": "1169481782728515584",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "11651",
+          "name": "Isaac Guerendo",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 25
+    },
+    {
+      "transactionId": "1169429276781871104",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1733335771640,
+      "date": "2024-12-04",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "11651",
+          "name": "Isaac Guerendo",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 30
+    },
+    {
+      "transactionId": "1169749693413314560",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1733252569109,
+      "date": "2024-12-03",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "8408",
+          "name": "Jordan Mason",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1169749315762376704",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1733252479070,
+      "date": "2024-12-03",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "4381",
+          "name": "Taysom Hill",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1169749197281677312",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1733252450822,
+      "date": "2024-12-03",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "WAS",
+          "name": "Washington Commanders",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1169005109284704256",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1733075046419,
+      "date": "2024-12-01",
+      "week": 13,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "11626",
+          "name": "Xavier Legette",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "11625",
+          "name": "Adonai Mitchell",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1168960544313823232",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1733064421302,
+      "date": "2024-12-01",
+      "week": 13,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "11834",
+          "name": "Devaughn Vele",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1168702300701970433",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1733002851227,
+      "date": "2024-11-30",
+      "week": 13,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "11625",
+          "name": "Adonai Mitchell",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1167731935150481408",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1732918209482,
+      "date": "2024-11-29",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "1167993767287328768",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1732833923697,
+      "date": "2024-11-28",
+      "week": 13,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1167896034392150016",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1732810622359,
+      "date": "2024-11-28",
+      "week": 13,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "BUF",
+          "name": "Buffalo Bills",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "CHI",
+          "name": "Chicago Bears",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1167882687365894144",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1732807440180,
+      "date": "2024-11-28",
+      "week": 13,
+      "teamIds": [
+        "6"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "2749",
+          "name": "Raheem Mostert",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1167731867429228544",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1732771481905,
+      "date": "2024-11-28",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "10235",
+          "name": "Roschon Johnson",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1167636538524553216",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1732748753723,
+      "date": "2024-11-27",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1167636462897057792",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1732748735692,
+      "date": "2024-11-27",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1167636284009992192",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1732748693042,
+      "date": "2024-11-27",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "5086",
+          "name": "Marquez Valdes-Scantling",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5906",
+          "name": "Dawson Knox",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1167530382871506944",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1732730411864,
+      "date": "2024-11-27",
+      "week": 13,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "5248",
+          "name": "Gus Edwards",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3163",
+          "name": "Jared Goff",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 6
+    }
+  ]
+}
