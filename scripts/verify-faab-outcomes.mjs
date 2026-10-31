@@ -15,6 +15,12 @@ for(const x of d.observations){
  const id=[x.year,x.transactionId,x.teamId,x.playerId].join('|');
  assert.ok(!ids.has(id),'Duplicate claim/player observation '+id);ids.add(id);
  assert.ok(x.weeks.every(w=>w.week>x.claimWeek),'Acquisition-week leakage '+id);
+ assert.equal(x.attributionCensored,x.firstSubsequentOwnershipEventWeek!==null,'Inconsistent source-event censoring '+id);
+ if(x.firstSubsequentOwnershipEventWeek!==null){
+  assert.ok(x.firstSubsequentOwnershipEventWeek>x.claimWeek,'Censor event before claim '+id);
+  assert.ok(x.weeks.every(w=>w.week<x.firstSubsequentOwnershipEventWeek),'Points credited after known ownership change '+id);
+ }
+
  assert.ok(['single_observed_roster_owner_handle','conflicting_owner_handles','unobserved'].includes(x.ownerIdentityStatus),'Invalid owner identity status '+id);
  if(x.ownerIdentityStatus==='single_observed_roster_owner_handle')assert.ok(typeof x.observedOwnerHandle==='string'&&x.observedOwnerHandle.trim(),'Missing observed handle '+id);
  else assert.equal(x.observedOwnerHandle,null,'Uncertified owner handle must remain null '+id);
