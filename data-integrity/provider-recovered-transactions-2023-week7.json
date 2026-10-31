@@ -1,0 +1,354 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "946275261279055872",
+  "year": 2023,
+  "week": 7,
+  "reportedRows": 15,
+  "normalizedRows": 15,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1022705127507152896",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1698253671690,
+      "date": "2023-10-25",
+      "week": 7,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1022705051338604544",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1698253671690,
+      "date": "2023-10-25",
+      "week": 7,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "8132",
+          "name": "Tyler Allgeier",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2161",
+          "name": "Jerick McKinnon",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1022545623431651328",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1698253671690,
+      "date": "2023-10-25",
+      "week": 7,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "1021910238175399936",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1698004896256,
+      "date": "2023-10-22",
+      "week": 7,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5916",
+          "name": "Darrell Henderson",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6918",
+          "name": "Salvon Ahmed",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1021798150387879936",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1697978172446,
+      "date": "2023-10-22",
+      "week": 7,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "8408",
+          "name": "Jordan Mason",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1476",
+          "name": "Latavius Murray",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1021210575361101824",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1697838083642,
+      "date": "2023-10-20",
+      "week": 7,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4144",
+          "name": "Jonnu Smith",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1021210447816511488",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1697838053233,
+      "date": "2023-10-20",
+      "week": 7,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "5849",
+          "name": "Kyler Murray",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6826",
+          "name": "Cole Kmet",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1020760565200785408",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1697730792859,
+      "date": "2023-10-19",
+      "week": 7,
+      "teamIds": [
+        "5"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "4149",
+          "name": "Jamaal Williams",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1020418795308924928",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1697649308567,
+      "date": "2023-10-18",
+      "week": 7,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "4033",
+          "name": "David Njoku",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8110",
+          "name": "Jake Ferguson",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1020382217593315328",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1697648844037,
+      "date": "2023-10-18",
+      "week": 7,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "7561",
+          "name": "Elijah Mitchell",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1020382064371216384",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1697648844037,
+      "date": "2023-10-18",
+      "week": 7,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "TB",
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1020382021887062016",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1697648844037,
+      "date": "2023-10-18",
+      "week": 7,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1020381979776294912",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1697648844037,
+      "date": "2023-10-18",
+      "week": 7,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "1476",
+          "name": "Latavius Murray",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "421",
+          "name": "Matthew Stafford",
+          "position": "QB"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1020376504988983296",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1697648844037,
+      "date": "2023-10-18",
+      "week": 7,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "1020339811254640640",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1697648844037,
+      "date": "2023-10-18",
+      "week": 7,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "7561",
+          "name": "Elijah Mitchell",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 9
+    }
+  ]
+}
