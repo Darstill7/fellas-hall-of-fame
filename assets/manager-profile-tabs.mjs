@@ -126,7 +126,7 @@ if(main&&tabs){
  const rivalry=document.querySelector('#rivalry-analytics');
  const rivalryResume=document.querySelector('#rivalry-resume');
  for(const [section,label] of [[rivalry,'Scoring trends and toughest opponents'],[rivalryResume,'Signature matchups and rivalry history']]){
-  if(!section||section.dataset.inlineDisclosure)return;
+  if(!section||section.dataset.inlineDisclosure)continue;
   section.dataset.inlineDisclosure='yes';
   const details=document.createElement('details');
   details.className='profile-inline-disclosure';
