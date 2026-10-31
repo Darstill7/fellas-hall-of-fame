@@ -1,0 +1,312 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "857125408712310784",
+  "year": 2022,
+  "week": 15,
+  "reportedRows": 12,
+  "normalizedRows": 12,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "911124135915560960",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1671610043515,
+      "date": "2022-12-21",
+      "week": 15,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "8132",
+          "name": "Tyler Allgeier",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8172",
+          "name": "Greg Dulcich",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "911107803194974208",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1671610043515,
+      "date": "2022-12-21",
+      "week": 15,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "6845",
+          "name": "Zack Moss",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "1110",
+          "name": "T.Y. Hilton",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "911088404643983360",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1671610043515,
+      "date": "2022-12-21",
+      "week": 15,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "96",
+          "name": "Aaron Rodgers",
+          "position": "QB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 3
+    },
+    {
+      "transactionId": "911088351875260416",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1671582899591,
+      "date": "2022-12-21",
+      "week": 15,
+      "teamIds": [
+        "4"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "5880",
+          "name": "Parris Campbell",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "909686665466175488",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671248711509,
+      "date": "2022-12-17",
+      "week": 15,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "2325",
+          "name": "Nelson Agholor",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8150",
+          "name": "Kyren Williams",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "908852052271177728",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671049724217,
+      "date": "2022-12-14",
+      "week": 15,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "5086",
+          "name": "Marquez Valdes-Scantling",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6853",
+          "name": "Van Jefferson",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "908852024907538432",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671049717693,
+      "date": "2022-12-14",
+      "week": 15,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "4197",
+          "name": "Isaiah McKenzie",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIA",
+          "name": "Miami Dolphins",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "908851737669017600",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671049649210,
+      "date": "2022-12-14",
+      "week": 15,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2307",
+          "name": "Marcus Mariota",
+          "position": "QB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "908823389332971520",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671042890440,
+      "date": "2022-12-14",
+      "week": 15,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "3163",
+          "name": "Jared Goff",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5985",
+          "name": "Foster Moreau",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "908760910762483712",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671027994388,
+      "date": "2022-12-14",
+      "week": 15,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "CAR",
+          "name": "Carolina Panthers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "LV",
+          "name": "Las Vegas Raiders",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "908760006034333696",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671027778684,
+      "date": "2022-12-14",
+      "week": 15,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "5133",
+          "name": "Tyler Conklin",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3271",
+          "name": "Tyler Higbee",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "908744214249086976",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1671024013630,
+      "date": "2022-12-14",
+      "week": 15,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "TB",
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
