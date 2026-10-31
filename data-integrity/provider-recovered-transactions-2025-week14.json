@@ -1,0 +1,306 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1181421235163095040",
+  "year": 2025,
+  "week": 14,
+  "reportedRows": 12,
+  "normalizedRows": 12,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1304315181785964544",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1765390033610,
+      "date": "2025-12-10",
+      "week": 14,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "1304095486172483584",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1765390033610,
+      "date": "2025-12-10",
+      "week": 14,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 13
+    },
+    {
+      "transactionId": "1304256634159124480",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1765321522802,
+      "date": "2025-12-09",
+      "week": 14,
+      "teamIds": [
+        "7"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "8205",
+          "name": "Isiah Pacheco",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1303365643021586432",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1765109093961,
+      "date": "2025-12-07",
+      "week": 14,
+      "teamIds": [
+        "9"
+      ],
+      "added": [
+        {
+          "id": "3257",
+          "name": "Jacoby Brissett",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7090",
+          "name": "Darnell Mooney",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1303062688741478400",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1765036864031,
+      "date": "2025-12-06",
+      "week": 14,
+      "teamIds": [
+        "2"
+      ],
+      "added": [
+        {
+          "id": "2505",
+          "name": "Darren Waller",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1302671520060956672",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1764943602150,
+      "date": "2025-12-05",
+      "week": 14,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "KC",
+          "name": "Kansas City Chiefs",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1302502107596722177",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1764903211072,
+      "date": "2025-12-05",
+      "week": 14,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "4943",
+          "name": "Sam Darnold",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "9504",
+          "name": "Kayshon Boutte",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1302465701511962624",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1764894531184,
+      "date": "2025-12-05",
+      "week": 14,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "12535",
+          "name": "Isaac TeSlaa",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1302463197743173632",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1764893934240,
+      "date": "2025-12-05",
+      "week": 14,
+      "teamIds": [
+        "8"
+      ],
+      "added": [
+        {
+          "id": "KC",
+          "name": "Kansas City Chiefs",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1302140794261495808",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1764817067259,
+      "date": "2025-12-04",
+      "week": 14,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "10213",
+          "name": "Tre Tucker",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4177",
+          "name": "Mack Hollins",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1302116816897720320",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1764811350610,
+      "date": "2025-12-04",
+      "week": 14,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1302007789928869888",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1764785356555,
+      "date": "2025-12-03",
+      "week": 14,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "WAS",
+          "name": "Washington Commanders",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "ATL",
+          "name": "Atlanta Falcons",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
