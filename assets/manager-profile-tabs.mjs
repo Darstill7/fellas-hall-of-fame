@@ -171,6 +171,6 @@ if(main&&tabs){
  const target=document.getElementById(location.hash.slice(1));
  const chosen=categories[initial]?initial:target&&sectionTab.has(target)?sectionTab.get(target):'overview';
  activate(chosen);
- if(!target&&!location.hash){try{const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]){activate(saved.tab);requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo({top:saved.y,behavior:'instant'})))}}catch{}}
+ if(!target||categories[initial]){try{const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]&&(!target||initial===saved.tab)){activate(saved.tab);requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo(0,saved.y)))}}catch{}}
  if(target&&!categories[initial])requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));
 }
