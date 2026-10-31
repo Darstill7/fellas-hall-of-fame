@@ -12,7 +12,7 @@ for(const year of years){
  for(const week of a.weeks){
   for(const tx of week.tx){
    if(!['add','waiver'].includes(tx.type))continue;
-   const date=typeof tx.date==='string'&&/^\\d{4}-\\d{2}-\\d{2}$/.test(tx.date)?tx.date:null;
+   const date=typeof tx.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(tx.date)?tx.date:null;
    if(!date)missingDates++;
    const rosterIds=(tx.teamIds??[]).map(String);
    const players=(tx.players??[]).map(p=>({id:p.id==null?null:String(p.id),name:p.name??null,position:p.position??null}));
@@ -41,5 +41,5 @@ const output={schema:'fellas-archived-acquisition-chronology-v1',status:'date_le
  'Do not infer a complete ownership ledger or replacement pool from these events.'],coverage,events};
 const path='data-integrity/faab-acquisition-chronology-v1.json';
 if(process.argv.includes('--check'))assert.deepEqual(read(path),output,'Chronology stale');
-else fs.writeFileSync(path,JSON.stringify(output,null,2)+'\\n');
+else fs.writeFileSync(path,JSON.stringify(output,null,2)+'\n');
 console.log('Acquisition chronology:',events.length,'archived events; day-level only');
