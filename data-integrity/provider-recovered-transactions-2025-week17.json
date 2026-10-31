@@ -1,0 +1,78 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "1181421235163095040",
+  "year": 2025,
+  "week": 17,
+  "reportedRows": 3,
+  "normalizedRows": 3,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "1310715245282492416",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1766861375689,
+      "date": "2025-12-27",
+      "week": 17,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "12519",
+          "name": "Luther Burden III",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8147",
+          "name": "John Metchie III",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1309648027119554560",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1766606931050,
+      "date": "2025-12-24",
+      "week": 17,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "9500",
+          "name": "Josh Downs",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "1309647927555149824",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1766606907313,
+      "date": "2025-12-24",
+      "week": 17,
+      "teamIds": [
+        "6"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "8408",
+          "name": "Jordan Mason",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
