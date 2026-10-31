@@ -72,6 +72,12 @@ if(main&&tabs){
  // Ancillary link collections and preserved dossier material live in Advanced, rather than disappearing.
  const sectionTab=new Map(sections.map(node=>[node,Object.entries(categories).find(([,ids])=>ids.has(node.id))?.[0]||'advanced']));
  const buttons=[...tabs.querySelectorAll('button[data-profile-tab]')];
+ const locationLabel=document.createElement('div');
+ locationLabel.className='profile-location-label';
+ locationLabel.setAttribute('aria-live','polite');
+ locationLabel.textContent=manager+' · Career';
+ tabs.prepend(locationLabel);
+
  function activate(key,{focus=false}={}){
   if(!categories[key])key='overview';
   for(const [section,group] of sectionTab)section.hidden=group!==key;
@@ -79,6 +85,7 @@ if(main&&tabs){
   const heading=tabs.querySelector('[data-profile-tab-description]');
   const descriptions={overview:'Career story, verified accomplishments, and the all-time résumé.',seasons:'Season results, postseason finishes, and weekly matchup archive.',rivalries:'Head-to-head results and the matchups that define this franchise.',advanced:'Player history, transactions, research coverage, and the preserved detailed dossier.'};
   if(heading)heading.textContent=descriptions[key];
+  locationLabel.textContent=manager+' · '+({overview:'Career',seasons:'Each Year',rivalries:'Head-to-Head',advanced:'Deep Stats'}[key]);
   if(focus)buttons.find(b=>b.dataset.profileTab===key)?.focus();
   history.replaceState(null,'','#'+key);
  }
@@ -164,7 +171,7 @@ if(main&&tabs){
  document.head.append(inlineCss);
  // Mobile tabs stay within thumb reach without covering page content.
  const stickyStyle=document.createElement('style');
- stickyStyle.textContent='@media(max-width:650px){.profile-tabs{position:sticky;top:0;z-index:70;margin:8px 0 12px;padding:8px;background:#0d1923f5;box-shadow:0 5px 14px #0007;backdrop-filter:blur(10px)}.profile-tabs>.eyebrow,.profile-tabs>[data-profile-tab-description]{display:none}.profile-tab-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:0}.profile-tab-row button{padding:9px 3px;min-height:45px;font-size:clamp(10px,2.7vw,12px);white-space:normal}.profile-back-to-sections{display:none!important}}';
+ stickyStyle.textContent='.profile-location-label{display:none}@media(max-width:650px){.profile-location-label{display:block;font-size:11px;font-weight:850;color:#f2d18f;letter-spacing:.04em;margin:0 0 6px;padding-left:3px}.profile-tabs{position:sticky;top:0;z-index:70;margin:8px 0 12px;padding:8px;background:#0d1923f5;box-shadow:0 5px 14px #0007;backdrop-filter:blur(10px)}.profile-tabs>.eyebrow,.profile-tabs>[data-profile-tab-description]{display:none}.profile-tab-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:0}.profile-tab-row button{padding:9px 3px;min-height:45px;font-size:clamp(10px,2.7vw,12px);white-space:normal}.profile-back-to-sections{display:none!important}}';
  document.head.append(stickyStyle);
  // Browser back/forward restores the selected panel without jumping into a hidden section.
  window.addEventListener('popstate',()=>{
