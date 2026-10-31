@@ -1,0 +1,522 @@
+{
+  "schema": "fellas-provider-transaction-recovery-v1",
+  "source": "Flaim Fantasy connected Sleeper historical transactions",
+  "leagueId": "857125408712310784",
+  "year": 2022,
+  "week": 13,
+  "reportedRows": 21,
+  "normalizedRows": 21,
+  "coverageStatus": "provider_week_sample_not_crosschecked_for_completeness",
+  "transactions": [
+    {
+      "transactionId": "906011560961609728",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1670400443128,
+      "date": "2022-12-07",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "8172",
+          "name": "Greg Dulcich",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4381",
+          "name": "Taysom Hill",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "906011476006129664",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1670400443128,
+      "date": "2022-12-07",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "NYJ",
+          "name": "New York Jets",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 19
+    },
+    {
+      "transactionId": "905998599316701184",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1670400443128,
+      "date": "2022-12-07",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "8138",
+          "name": "James Cook III",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "6156",
+          "name": "Benny Snell",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 24
+    },
+    {
+      "transactionId": "905997189107621888",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1670400443128,
+      "date": "2022-12-07",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "8119",
+          "name": "Jahan Dotson",
+          "position": "WR"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2320",
+          "name": "Melvin Gordon",
+          "position": "RB"
+        }
+      ],
+      "faabBid": 2
+    },
+    {
+      "transactionId": "905996856436359168",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1670400443128,
+      "date": "2022-12-07",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "4033",
+          "name": "David Njoku",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5906",
+          "name": "Dawson Knox",
+          "position": "TE"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "905830398523744256",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1670329305824,
+      "date": "2022-12-06",
+      "week": 13,
+      "teamIds": [
+        "9"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "8189",
+          "name": "Trestan Ebner",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "905178172155469824",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1670173802940,
+      "date": "2022-12-04",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4381",
+          "name": "Taysom Hill",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "8172",
+          "name": "Greg Dulcich",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "904611352981676032",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1670038662718,
+      "date": "2022-12-03",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "8122",
+          "name": "Zonovan Knight",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "7608",
+          "name": "Khalil Herbert",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "904550409069273088",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1670024132557,
+      "date": "2022-12-02",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "8172",
+          "name": "Greg Dulcich",
+          "position": "TE"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4033",
+          "name": "David Njoku",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "903670314532372480",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1669981001945,
+      "date": "2022-12-02",
+      "week": 13,
+      "teamIds": [
+        "3"
+      ],
+      "added": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "DEN",
+          "name": "Denver Broncos",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "904160727852703744",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1669965400646,
+      "date": "2022-12-02",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "8228",
+          "name": "Jaylen Warren",
+          "position": "RB"
+        }
+      ],
+      "dropped": [],
+      "faabBid": 0
+    },
+    {
+      "transactionId": "904154678185586688",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1669965400646,
+      "date": "2022-12-02",
+      "week": 13,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "8228",
+          "name": "Jaylen Warren",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "2197",
+          "name": "Brandin Cooks",
+          "position": "WR"
+        }
+      ],
+      "faabBid": 1
+    },
+    {
+      "transactionId": "904197473982193664",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1669939986275,
+      "date": "2022-12-02",
+      "week": 13,
+      "teamIds": [
+        "7"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "7553",
+          "name": "Kyle Pitts Sr.",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "904109096976924672",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1669918915555,
+      "date": "2022-12-01",
+      "week": 13,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "6149",
+          "name": "Darius Slayton",
+          "position": "WR"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "904108830470852608",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1669918852015,
+      "date": "2022-12-01",
+      "week": 13,
+      "teamIds": [
+        "10"
+      ],
+      "added": [
+        {
+          "id": "PIT",
+          "name": "Pittsburgh Steelers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "903668449463648256",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1669813857001,
+      "date": "2022-11-30",
+      "week": 13,
+      "teamIds": [
+        "4"
+      ],
+      "added": [
+        {
+          "id": "6156",
+          "name": "Benny Snell",
+          "position": "RB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "5890",
+          "name": "Damien Harris",
+          "position": "RB"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "903666239044452352",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1669813329996,
+      "date": "2022-11-30",
+      "week": 13,
+      "teamIds": [
+        "6"
+      ],
+      "added": [
+        {
+          "id": "CLE",
+          "name": "Cleveland Browns",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "3271",
+          "name": "Tyler Higbee",
+          "position": "TE"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "903665764551245824",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1669813216868,
+      "date": "2022-11-30",
+      "week": 13,
+      "teamIds": [
+        "7"
+      ],
+      "added": [
+        {
+          "id": "5985",
+          "name": "Foster Moreau",
+          "position": "TE"
+        }
+      ],
+      "dropped": [],
+      "faabBid": null
+    },
+    {
+      "transactionId": "903665687661264896",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1669813198536,
+      "date": "2022-11-30",
+      "week": 13,
+      "teamIds": [
+        "7"
+      ],
+      "added": [],
+      "dropped": [
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "903662070044704768",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1669812336029,
+      "date": "2022-11-30",
+      "week": 13,
+      "teamIds": [
+        "5"
+      ],
+      "added": [
+        {
+          "id": "4017",
+          "name": "Deshaun Watson",
+          "position": "QB"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "4082",
+          "name": "Curtis Samuel",
+          "position": "WR"
+        }
+      ],
+      "faabBid": null
+    },
+    {
+      "transactionId": "903657442100002816",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1669811232641,
+      "date": "2022-11-30",
+      "week": 13,
+      "teamIds": [
+        "1"
+      ],
+      "added": [
+        {
+          "id": "GB",
+          "name": "Green Bay Packers",
+          "position": "DEF"
+        }
+      ],
+      "dropped": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF"
+        }
+      ],
+      "faabBid": null
+    }
+  ]
+}
