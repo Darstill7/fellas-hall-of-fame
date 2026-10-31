@@ -147,3 +147,7 @@ const profilePersonas=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
 for(const nickname of ['The Trade Addict','The Deal Factory','The Four-Ring King','The Yogurt King',"Hogan's Hero",'The Quiet Closer','The Regular-Season Reaper','The Process Paradox','The Chaos Merchant','The Fast-Track Champion'])if(!personas.includes(nickname))throw Error('Missing approved editorial manager nickname: '+nickname);
 if(!mobileRenderer.includes('managerPersonas[r.name]')||!mobileRenderer.includes('mobile-nickname-origin')||!profilePersonas.includes('manager-nickname-origin'))throw Error('Nickname and origin must appear on mobile cards and profiles');
 console.log('Ten editorial manager identities and history explanations PASS');
+
+const seasonAccordion=fs.readFileSync('assets/manager-season-history.js','utf8');
+for(const token of ['season-accordion','season-entry','<details class="season-entry"','@media(max-width:650px)'])if(!seasonAccordion.includes(token))throw Error('Missing expandable mobile season history '+token);
+console.log('Verified season data supports in-place mobile expansion PASS');
