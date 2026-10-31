@@ -6,6 +6,8 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const has=p=>fs.existsSync(p);
 const years=[2020,2021,2022,2023,2024,2025,2026];
 const observations=[],coverage=[];
+const rosterId=r=>r.teamId??r.id;
+const observedKeys=new Set();
 for(const year of years){
  const provider=read('data-integrity/faab-provider-receipts-'+year+'.json');
  const archive=read('data/acquisitions_'+year+'.json');
@@ -19,6 +21,13 @@ for(const year of years){
   if(!has(path))continue;
   const j=read(path);const rosters=Array.isArray(j)?j:j.rosters;
   if(!Array.isArray(rosters))continue;
+  const teams=new Set();
+  for(const roster of rosters){
+   const id=rosterId(roster);
+   assert.ok(id!==undefined&&id!==null,'Roster missing season-local identifier '+year+' week '+week);
+   assert.ok(!teams.has(String(id)),'Duplicate roster team '+year+' week '+week+' '+id);
+   teams.add(String(id));
+  }
   weeks.set(week,rosters);
  }
  let completed=0,eligible=0,withAnyObservation=0;
@@ -37,7 +46,7 @@ for(const year of years){
    // Distinguish observed performance from season-long ownership.
    const rows=[];
    for(let week=startWeek;week<=maxWeek;week++){
-    const roster=weeks.get(week)?.find(x=>String(x.teamId)===teamId);
+    const roster=weeks.get(week)?.find(x=>String(rosterId(x))===teamId);
     if(!roster)continue;
     const starters=Array.isArray(roster.starters)?roster.starters:[];
     const bench=Array.isArray(roster.bench)?roster.bench:[];
@@ -45,6 +54,9 @@ for(const year of years){
     const matchBench=bench.find(x=>String(x.id)===playerId);
     const match=matchStart??matchBench;
     if(!match||!Number.isFinite(match.points))continue;
+    const rowKey=year+'|'+claim.id+'|'+teamId+'|'+playerId+'|'+week;
+    assert.ok(!observedKeys.has(rowKey),'Duplicate acquisition observation '+rowKey);
+    observedKeys.add(rowKey);
     rows.push({week,points:+match.points.toFixed(2),started:!!matchStart});
    }
    eligible++;
