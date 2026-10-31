@@ -75,7 +75,7 @@ if(main&&tabs){
  const locationLabel=document.createElement('div');
  locationLabel.className='profile-location-label';
  locationLabel.setAttribute('aria-live','polite');
- locationLabel.textContent=manager+' · Career';
+ locationLabel.textContent=(profileName||'Manager')+' · Career';
  tabs.prepend(locationLabel);
 
  function activate(key,{focus=false}={}){
@@ -85,7 +85,7 @@ if(main&&tabs){
   const heading=tabs.querySelector('[data-profile-tab-description]');
   const descriptions={overview:'Career story, verified accomplishments, and the all-time résumé.',seasons:'Season results, postseason finishes, and weekly matchup archive.',rivalries:'Head-to-head results and the matchups that define this franchise.',advanced:'Player history, transactions, research coverage, and the preserved detailed dossier.'};
   if(heading)heading.textContent=descriptions[key];
-  locationLabel.textContent=manager+' · '+({overview:'Career',seasons:'Each Year',rivalries:'Head-to-Head',advanced:'Deep Stats'}[key]);
+  locationLabel.textContent=(profileName||'Manager')+' · '+({overview:'Career',seasons:'Each Year',rivalries:'Head-to-Head',advanced:'Deep Stats'}[key]);
   if(focus)buttons.find(b=>b.dataset.profileTab===key)?.focus();
   history.replaceState(null,'','#'+key);
  }
