@@ -155,3 +155,6 @@ console.log('Verified season data supports in-place mobile expansion PASS');
 const stickyTabs=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
 for(const token of ['position:sticky','grid-template-columns:repeat(4,minmax(0,1fr))','sessionStorage.setItem(scrollKey','window.addEventListener(\'pagehide\',savePosition)'])if(!stickyTabs.includes(token))throw Error('Mobile sticky navigation or reading position restore missing: '+token);
 console.log('Mobile sticky manager navigation and reading position restoration PASS');
+
+if(!mobileRenderer.includes('mobile-manager-rank')||!mobileRenderer.includes('<small>LEGACY OVR</small>')||!mobileHome.includes('mobile-manager-leaderboard'))throw Error('Mobile leaderboard must explain all-time rank and rating');
+console.log('Mobile leaderboard all-time rank and Legacy OVR labeling PASS');
