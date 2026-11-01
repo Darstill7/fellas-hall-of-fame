@@ -77,6 +77,19 @@ assert(weeklyArchivePage.includes('const rows=new Map()'),'Weekly season standin
 const legacyResumeRenderer=read('assets/legacy-resume.js');
 assert(legacyResumeRenderer.includes('data/career_core_generated.json'),'Legacy resume must use generated career WLT');
 assert(!legacyResumeRenderer.includes('esc(d.record)'),'Legacy resume still displays stale stored WLT');
+assert(legacyResumeRenderer.includes("fetch('../../data/season_guide.json')"),'Legacy résumé best season must read canonical season guide');
+assert(legacyResumeRenderer.includes('s.year<=2025'),'Legacy résumé must exclude ongoing season from best-season selection');
+assert(legacyResumeRenderer.includes("manager==='Tom'?'Thommy':manager"),'Legacy résumé must normalize Thommy identity');
+assert(!legacyResumeRenderer.includes('d.bestRecordedRegularSeason'),'Legacy résumé must not display hardcoded best-season snapshot');
+const resumeSeasonGuide=JSON.parse(read('data/season_guide.json'));
+for(const legacyName of Object.keys(legacyResumes)){
+ const canonicalName=legacyName==='Tom'?'Thommy':legacyName;
+ const completed=Object.values(resumeSeasonGuide).filter(s=>s.year<=2025).flatMap(s=>s.standings.filter(x=>x.name===canonicalName&&x.games>0).map(x=>({...x,year:s.year})));
+ assert(completed.length>0,'Missing completed canonical seasons: '+canonicalName);
+ assert(completed.every(x=>x.games===x.w+x.l+x.t),'Invalid canonical season game totals: '+canonicalName);
+ assert(completed.every(x=>Number.isFinite(x.pf)),'Invalid canonical season scoring: '+canonicalName);
+}
+
 const archiveBrowser=read('managers/record-books.html');
 assert(archiveBrowser.includes("fetch('../data/career_core_generated.json')"),'Archive manager browser must fetch canonical career records');
 assert(archiveBrowser.includes('Object.entries(c.h2h)'),'Archive manager browser head-to-head must be canonical');
