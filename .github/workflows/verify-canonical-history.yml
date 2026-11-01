@@ -121,6 +121,8 @@ jobs:
           grep -q "Human approval required" /tmp/unapproved-weekly-import.log
       - name: Verify Madden-style manager OVR and evidence-gated attributes
         run: node scripts/verify-manager-madden-cards.mjs
+      - name: Verify recovered provider FAAB bids and editorial source receipts
+        run: node scripts/verify-faab-provider-receipts.mjs
       - name: Verify manager report card evidence
         run: node scripts/verify-manager-report-cards.mjs
       - name: Enforce fantasy-football rating methodology and evidence safeguards

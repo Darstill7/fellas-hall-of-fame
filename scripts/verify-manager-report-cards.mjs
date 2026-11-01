@@ -190,7 +190,14 @@ console.log('Annual acquisition evidence and manager views PASS');
 // Recovered benches and certified, legal lineup alternatives are distinct evidence tiers.
 const rosterAudit=JSON.parse(fs.readFileSync('data-integrity/ROSTER_COVERAGE_RECONCILIATION_2025.json','utf8'));
 if(rosterAudit.coverage.weeks!==14||rosterAudit.coverage.teamWeeksWithBench!==140||rosterAudit.coverage.benchPlayerRows!==923||rosterAudit.coverage.verifiedReserveTaxiClassifierRows!==0)throw Error('2025 observational roster coverage drift');
-for(const page of ['labs/faab.html','labs/faab/index.html'])if(!fs.readFileSync(page,'utf8').includes('ARCHIVAL CLAIMS NOT VERIFIED'))throw Error('FAAB archive is missing unsourced-cost warning: '+page);
+const faabLegacy=JSON.parse(fs.readFileSync('data-integrity/faab-legacy-claim-verification-v1.json','utf8'));
+if(faabLegacy.cases.length!==16||faabLegacy.cases.some(x=>x.bidVerified!==true||x.outcomeGradeVerified!==false))throw Error('FAAB source evidence qualification drift');
+for(const page of ['labs/faab.html','labs/faab/index.html']){
+ const html=fs.readFileSync(page,'utf8');
+ if(!html.includes('BID PRICES VERIFIED · OUTCOME RATINGS EDITORIAL')||!html.includes('All 16 displayed FAAB prices')||!html.includes('editorial opinions')||html.includes('ARCHIVAL CLAIMS NOT VERIFIED'))throw Error('FAAB archive bid/grade provenance disclosure mismatch: '+page);
+ const sourceLink=(page.endsWith('/index.html')?'../../':'../')+'data-integrity/faab-legacy-claim-verification-v1.json';
+ if(!html.includes('href="'+sourceLink+'"'))throw Error('FAAB archive missing source evidence link: '+page);
+}
 console.log('FAAB archive provenance and 2025 roster observation-vs-certification guard PASS');
 
 // Verify all yearly acquisition schemas expose no bid price fields; never certify FAAB without receipts.
