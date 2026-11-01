@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Historical Point Spreads · The Fellas</title><link rel="stylesheet" href="../assets/styles.css"><style>
+main{max-width:960px;margin:auto;padding:30px 18px 80px}.sub{color:#b0c1cf;line-height:1.6}.pickers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:25px 0}.cardx{border:1px solid #405263;border-radius:16px;background:#142532;padding:20px}.cardx select{width:100%;max-width:100%;background:#0b1924;border:1px solid #71808f;color:white;padding:12px;border-radius:9px;font:inherit}.cardx label{display:block;margin:10px 0}.line{text-align:center;border:1px solid #ab864e;border-radius:18px;background:#202c39;padding:24px}.headline{font-weight:900;font-size:clamp(25px,6vw,48px);color:#e8c47c}.facts{color:#c4d0da;font-size:14px;line-height:1.7}.caution{border-left:3px solid #d5a65a;padding:13px;background:#282821;margin-top:16px}.swap{background:#304c60;border:1px solid #7993a6;border-radius:9px;color:white;padding:10px 16px;cursor:pointer}a{color:#e5c47d}@media(max-width:610px){.pickers{grid-template-columns:1fr}}
+</style></head><body><main><p><a href="../index.html">← Hall of Fame</a></p><p class="sub">THE FELLAS · HISTORICAL MATCHUP LAB</p><h1>Point Spread Time Machine</h1><p class="sub">Compare any two manager-seasons across league history. Lines are hypothetical neutral-site fantasy-point estimates, not sportsbook odds or verified betting markets.</p>
+<div class="pickers"><section class="cardx"><h2>Team A</h2><label for="team-a">Manager · season</label><select id="team-a"></select><p class="facts" id="stats-a"></p></section><section class="cardx"><h2>Team B</h2><label for="team-b">Manager · season</label><select id="team-b"></select><p class="facts" id="stats-b"></p></section></div>
+<section class="line" aria-live="polite"><p class="sub">PROJECTED NEUTRAL-SITE SPREAD</p><div class="headline" id="line">Loading…</div><p class="facts" id="difference"></p><button class="swap" id="swap" type="button">Swap sides</button></section>
+<section class="cardx" style="margin-top:18px"><h2>Method and limitations</h2><p class="facts">Each team-season's points per game is compared with that season's league average and standard deviation of weekly team scores. The model then scales both teams' standardized scoring to the average of their two seasons' scoring deviations, takes the difference, and rounds to the nearest half-point. It does not use win–loss records to price the matchup. Postseason games are excluded.</p><p class="caution" id="caution">Scoring settings and available games can differ by era. 2026 is ongoing. These exploratory numbers are not predictive probabilities or skill ratings.</p><p class="facts">Data: <a href="../data/unified_record_book_2016_2026.json">verified weekly matchup ledger</a>.</p></section>
+</main><script>
+(async function(){
+const first=document.getElementById('team-a'),second=document.getElementById('team-b'),line=document.getElementById('line'),difference=document.getElementById('difference');
+try{
+const response=await fetch('../data/unified_record_book_2016_2026.json');if(!response.ok)throw Error('Unavailable');
+const games=(await response.json()).games.filter(g=>g.stage==='regular'&&Number.isFinite(g.homeScore)&&Number.isFinite(g.awayScore));
+const seasons=new Map(),teams=new Map();
+for(const g of games){const scores=seasons.get(g.year)||[];scores.push(g.homeScore,g.awayScore);seasons.set(g.year,scores);
+for(const pair of [[g.home,g.homeScore],[g.away,g.awayScore]]){const key=g.year+'|'+pair[0],row=teams.get(key)||{year:g.year,name:pair[0],scores:[]};row.scores.push(pair[1]);teams.set(key,row);}}
+const env=new Map();for(const [year,scores] of seasons){const mean=scores.reduce((a,b)=>a+b,0)/scores.length;const sd=Math.sqrt(scores.reduce((a,x)=>a+(x-mean)**2,0)/(scores.length-1));env.set(year,{mean,sd});}
+const options=[...teams.entries()].filter(([k,v])=>v.scores.length>=5&&env.get(v.year).sd>0).sort((a,b)=>b[1].year-a[1].year||a[1].name.localeCompare(b[1].name));
+for(const [key,t] of options){const o=document.createElement('option');o.value=key;o.textContent=t.name+' · '+t.year+' ('+t.scores.length+' games)';first.add(o);second.add(o.cloneNode(true));}
+function compute(t){const e=env.get(t.year),pf=t.scores.reduce((a,b)=>a+b,0)/t.scores.length;return{pf,mean:e.mean,sd:e.sd,z:(pf-e.mean)/e.sd,n:t.scores.length};}
+function show(){const a=teams.get(first.value),b=teams.get(second.value);if(!a||!b)return;const x=compute(a),y=compute(b);
+for(const pair of [['stats-a',x],['stats-b',y]])document.getElementById(pair[0]).textContent=pair[1].pf.toFixed(2)+' PPG · league '+pair[1].mean.toFixed(2)+' PPG · scoring z '+pair[1].z.toFixed(2);
+const delta=(x.z-y.z)*(x.sd+y.sd)/2,rounded=Math.round(Math.abs(delta)*2)/2;
+line.textContent=first.value===second.value?'Same team-season':rounded<0.5?"Pick'em":(delta>0?a.name+' '+a.year:b.name+' '+b.year)+' −'+rounded.toFixed(1);
+difference.textContent='Model differential: '+a.name+' '+a.year+' '+(delta>=0?'+':'')+delta.toFixed(2)+' points vs. '+b.name+' '+b.year+'.';
+document.getElementById('caution').textContent=(a.year===2026||b.year===2026?'2026 is ongoing. ':'')+(Math.min(x.n,y.n)<10?'Small sample warning. ':'')+'Historical scoring and roster rules may differ; these are exploratory hypothetical lines, not odds or manager skill grades.';
+}
+const params=new URLSearchParams(location.search);first.value=teams.has(params.get('a'))?params.get('a'):'2026|Kuhl';second.value=teams.has(params.get('b'))?params.get('b'):'2019|Thommy';if(!first.value)first.selectedIndex=0;if(!second.value)second.selectedIndex=1;
+first.addEventListener('change',show);second.addEventListener('change',show);document.getElementById('swap').addEventListener('click',()=>{const t=first.value;first.value=second.value;second.value=t;show();});show();
+}catch(error){line.textContent='Historical scores unavailable';}
+})();
+</script></body></html>
