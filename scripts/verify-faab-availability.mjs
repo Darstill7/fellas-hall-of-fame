@@ -4,6 +4,7 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const d=read('data-integrity/faab-waiver-availability-evidence-v1.json');
 assert.equal(d.status,'historical_snapshot_context_only_no_verified_alternative_free_agents');
 assert.deepEqual(d.coverage.map(x=>x.year),[2020,2021,2022,2023,2024,2025,2026]);
+for(const x of d.coverage)assert.ok(Number.isInteger(x.ignoredEmptySlots)&&x.ignoredEmptySlots>=0,'Invalid empty-slot exclusion count '+x.year);
 const seen=new Set();
 for(const x of d.rows){
  const id=x.year+'|'+x.transactionId+'|'+x.playerId;
@@ -17,4 +18,4 @@ for(const x of d.rows){
  assert.ok(x.precedingRosterObservation==='observed_on_roster_previous_week'?x.precedingTeamId!==null:x.precedingTeamId===null);
 }
 assert.equal(d.coverage.reduce((n,x)=>n+x.priorRostered+x.priorUnseen,0),d.rows.filter(x=>x.precedingSnapshotWeek!==null).length);
-console.log('FAAB availability evidence PASS:',d.rows.length,'claims examined; no invented free-agent availability');
+console.log('FAAB availability evidence PASS:',d.rows.length,'claims examined; no invented free-agent availability; ignored empty roster slots:',d.coverage.reduce((s,x)=>s+x.ignoredEmptySlots,0));

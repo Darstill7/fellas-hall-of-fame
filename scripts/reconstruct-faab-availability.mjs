@@ -13,6 +13,7 @@ for(const year of seasons){
  const txById=new Map(archive.weeks.flatMap(w=>w.tx).map(t=>[String(t.id),t]));
  const regularEnd=year===2026?7:year===2020?13:14;
  const snapshots=new Map();
+ let ignoredEmptySlots=0;
  for(let week=1;week<=regularEnd;week++){
   const alt='data/war_rosters_'+year+'_week'+week+'.json';
   const primary='data/sleeper_roster_snapshots_'+year+'_week'+week+'.json';
@@ -26,9 +27,11 @@ for(const year of seasons){
    assert.ok(!owners.has(String(team)),'Duplicate team '+year+'/'+week+'/'+team);
    owners.set(String(team),r);
    for(const p of [...(r.starters??[]),...(r.bench??[])]){
+    if(p.empty===true&&String(p.id)==='0'){ignoredEmptySlots++;continue;}
     if(p.id==null)continue;
     const id=String(p.id);
-    // A player on two teams in one snapshot makes ownership ambiguous.
+    assert.notEqual(id,'0','Nonempty roster player has placeholder ID '+year+'/'+week);
+    // A real player on two teams in one snapshot makes ownership ambiguous.
     if(seen.has(id))throw Error('Duplicate cross-roster player '+year+'/'+week+'/'+id);
     seen.add(id);
    }
@@ -68,7 +71,7 @@ for(const year of seasons){
  }
  coverage.push({year,successfulClaimTransactions:total,transactionsWithArchivePlayerEvidence:matched,
   transactionsWithoutArchivePlayerEvidence:unknown,priorRostered,priorUnseen,
-  snapshotsAvailable:snapshots.size,expectedRegularWeeks:regularEnd});
+  snapshotsAvailable:snapshots.size,expectedRegularWeeks:regularEnd,ignoredEmptySlots});
 }
 const report={schema:'fellas-faab-waiver-availability-evidence-v1',
  status:'historical_snapshot_context_only_no_verified_alternative_free_agents',
