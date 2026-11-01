@@ -6,7 +6,7 @@ const evidence=read('data-integrity/faab-observed-ownership-events-v1.json');
 assert.equal(evidence.status,'partial_event_ledger_not_certified_availability');
 const results=[],coverage=[];
 for(const year of [2020,2021,2022,2023,2024,2025,2026]){
- let found=0,missing=0,conflicts=0,notObserved=0;
+ let found=0,missing=0,conflicts=0,notObserved=0,ignoredEmptySlots=0;
  const end=year===2026?8:year===2020?13:14;
  for(let week=1;week<=end;week++){
   const alt='data/war_rosters_'+year+'_week'+week+'.json';
@@ -20,6 +20,10 @@ for(const year of [2020,2021,2022,2023,2024,2025,2026]){
    const id=String(r.teamId??r.id);
    for(const p of [...(r.starters??[]),...(r.bench??[])]){
     const pid=String(p.id);
+    // Sleeper scored-roster snapshots sometimes include multiple empty slots with id "0".
+    // These are not players and must not enter the ownership crosscheck.
+    if(p.empty===true&&pid==='0'){ignoredEmptySlots++;continue;}
+    assert.ok(pid!=='0'&&pid!=='undefined'&&pid!=='null','Invalid nonempty roster player ID '+year+'/'+week+'/'+pid);
     assert.ok(!rosterOwners.has(pid),'Duplicate roster ownership '+year+'/'+week+'/'+pid);
     rosterOwners.set(pid,id);
    }
@@ -37,7 +41,7 @@ for(const year of [2020,2021,2022,2023,2024,2025,2026]){
    results.push({year,week,playerId:e.playerId,lastAddTransactionId:e.transactionId,claimedTeamId:e.teamId,rosterTeamId:observed,observation:state,ownershipCertified:false});
   }
  }
- coverage.push({year,availableScoredWeeks:end-missing,missingScoredWeeks:missing,matchingObservations:found,differentTeamObservations:conflicts,notObserved});
+ coverage.push({year,availableScoredWeeks:end-missing,missingScoredWeeks:missing,matchingObservations:found,differentTeamObservations:conflicts,notObserved,ignoredEmptySlots});
 }
 const out={schema:'fellas-ownership-weekly-corroboration-v1',status:'research_only_no_transaction_time_certification',
  caveat:'Latest prior add is NOT necessarily current owner: drops, trades, keeper carryover, snapshot time and same-timestamp events can intervene. Mismatches are investigation flags, not source errors.',coverage,observations:results};

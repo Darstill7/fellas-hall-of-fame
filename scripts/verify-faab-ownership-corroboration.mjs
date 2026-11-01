@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 const d=JSON.parse(fs.readFileSync('data-integrity/faab-ownership-weekly-corroboration-v1.json','utf8'));
 assert.equal(d.status,'research_only_no_transaction_time_certification');
 assert.deepEqual(d.coverage.map(x=>x.year),[2020,2021,2022,2023,2024,2025,2026]);
+for(const x of d.coverage)assert.ok(Number.isInteger(x.ignoredEmptySlots)&&x.ignoredEmptySlots>=0,'Invalid empty-slot exclusion count '+x.year);
 let n=0;const keys=new Set();
 for(const x of d.observations){
  assert.equal(x.ownershipCertified,false);
@@ -12,4 +13,4 @@ for(const x of d.observations){
  assert.ok(!keys.has(key),'Duplicate weekly ownership observation '+key);keys.add(key);n++;
 }
 assert.equal(d.coverage.reduce((s,x)=>s+x.matchingObservations+x.differentTeamObservations+x.notObserved,0),n);
-console.log('Weekly ownership research corroboration PASS:',n,'observations, no certified availability');
+console.log('Weekly ownership research corroboration PASS:',n,'observations, no certified availability; ignored empty roster slots:',d.coverage.reduce((s,x)=>s+x.ignoredEmptySlots,0));
