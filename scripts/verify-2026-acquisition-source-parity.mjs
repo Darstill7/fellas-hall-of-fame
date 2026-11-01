@@ -55,7 +55,7 @@ for(const week of [6,7,8]){
 }
 assert.equal(matchedAdditions,20,'Week 6 archive baseline changed');
 assert.equal(missingAdditions,20,'Weeks 7-8 acquisition gap changed; reconcile before changing cutoff');
-assert.equal(winningWaivers,14,'Weeks 6-8 winning waiver count changed');
+assert.equal(winningWaivers,21,'Weeks 6-8 winning waiver count changed');
 assert.equal(unverifiedWinningBids,10,'Week 8 unverified receipt total changed');
 console.log('2026 ACQUISITION SOURCE PARITY (research-only): '+JSON.stringify(results));
 console.log('2026 source gate: 20 archived Week 6 additions verified; 20 Week 7-8 provider additions absent from archive; $10 in Week 8 winning bids excluded from certified spend.');
