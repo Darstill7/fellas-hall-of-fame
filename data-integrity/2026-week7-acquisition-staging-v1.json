@@ -1,0 +1,284 @@
+{
+  "schema": "fellas-2026-week7-acquisition-staging-v1",
+  "status": "original_provider_receipts_reconciled_projection_not_published",
+  "providerCompleteness": "not_independently_certified",
+  "scope": "2026 source-provider transaction week 7; not necessarily NFL match week 7",
+  "publicAcquisitionArchiveUpdated": false,
+  "skillRatingsAffected": false,
+  "events": [
+    {
+      "transactionId": "1421004389388226560",
+      "providerWeek": 7,
+      "date": "2026-10-28",
+      "timestamp": 1793207100904,
+      "eventType": "waiver",
+      "teamIds": [
+        "3"
+      ],
+      "players": [
+        {
+          "id": "CIN",
+          "name": "Cincinnati Bengals",
+          "position": "DEF"
+        }
+      ],
+      "dropEvidence": [
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "position": "DEF"
+        }
+      ],
+      "certifiedWinningBid": 4,
+      "source": "provider-recovered-transactions-2026-week7.json"
+    },
+    {
+      "transactionId": "1421004250237935616",
+      "providerWeek": 7,
+      "date": "2026-10-28",
+      "timestamp": 1793207100904,
+      "eventType": "waiver",
+      "teamIds": [
+        "3"
+      ],
+      "players": [
+        {
+          "id": "12469",
+          "name": "Dylan Sampson",
+          "position": "RB"
+        }
+      ],
+      "dropEvidence": [
+        {
+          "id": "7002",
+          "name": "Juwan Johnson",
+          "position": "TE"
+        }
+      ],
+      "certifiedWinningBid": 0,
+      "source": "provider-recovered-transactions-2026-week7.json"
+    },
+    {
+      "transactionId": "1421003873425887232",
+      "providerWeek": 7,
+      "date": "2026-10-28",
+      "timestamp": 1793207100904,
+      "eventType": "waiver",
+      "teamIds": [
+        "3"
+      ],
+      "players": [
+        {
+          "id": "13298",
+          "name": "KC Concepcion Jr.",
+          "position": "WR"
+        }
+      ],
+      "dropEvidence": [
+        {
+          "id": "9757",
+          "name": "Kendre Miller",
+          "position": "RB"
+        }
+      ],
+      "certifiedWinningBid": 11,
+      "source": "provider-recovered-transactions-2026-week7.json"
+    },
+    {
+      "transactionId": "1420797468458680320",
+      "providerWeek": 7,
+      "date": "2026-10-28",
+      "timestamp": 1793207100904,
+      "eventType": "waiver",
+      "teamIds": [
+        "6"
+      ],
+      "players": [
+        {
+          "id": "5844",
+          "name": "T.J. Hockenson",
+          "position": "TE"
+        }
+      ],
+      "dropEvidence": [
+        {
+          "id": "4943",
+          "name": "Sam Darnold",
+          "position": "QB"
+        }
+      ],
+      "certifiedWinningBid": 0,
+      "source": "provider-recovered-transactions-2026-week7.json"
+    },
+    {
+      "transactionId": "1420243473671401472",
+      "providerWeek": 7,
+      "date": "2026-10-26",
+      "timestamp": 1792974940273,
+      "eventType": "add",
+      "teamIds": [
+        "6"
+      ],
+      "players": [
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF"
+        }
+      ],
+      "dropEvidence": [
+        {
+          "id": "8129",
+          "name": "Dameon Pierce",
+          "position": "RB"
+        }
+      ],
+      "certifiedWinningBid": null,
+      "source": "provider-recovered-transactions-2026-week7.json"
+    },
+    {
+      "transactionId": "1419117319308779520",
+      "providerWeek": 7,
+      "date": "2026-10-22",
+      "timestamp": 1792706444150,
+      "eventType": "add",
+      "teamIds": [
+        "10"
+      ],
+      "players": [
+        {
+          "id": "11610",
+          "name": "Malik Washington",
+          "position": "WR"
+        }
+      ],
+      "dropEvidence": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF"
+        }
+      ],
+      "certifiedWinningBid": null,
+      "source": "provider-recovered-transactions-2026-week7.json"
+    },
+    {
+      "transactionId": "1418715854580817920",
+      "providerWeek": 7,
+      "date": "2026-10-21",
+      "timestamp": 1792610727500,
+      "eventType": "add",
+      "teamIds": [
+        "7"
+      ],
+      "players": [
+        {
+          "id": "4147",
+          "name": "Samaje Perine",
+          "position": "RB"
+        }
+      ],
+      "dropEvidence": [],
+      "certifiedWinningBid": null,
+      "source": "provider-recovered-transactions-2026-week7.json"
+    },
+    {
+      "transactionId": "1418701793310838784",
+      "providerWeek": 7,
+      "date": "2026-10-21",
+      "timestamp": 1792607375032,
+      "eventType": "add",
+      "teamIds": [
+        "2"
+      ],
+      "players": [
+        {
+          "id": "DAL",
+          "name": "Dallas Cowboys",
+          "position": "DEF"
+        }
+      ],
+      "dropEvidence": [
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF"
+        }
+      ],
+      "certifiedWinningBid": null,
+      "source": "provider-recovered-transactions-2026-week7.json"
+    },
+    {
+      "transactionId": "1418683550827376640",
+      "providerWeek": 7,
+      "date": "2026-10-21",
+      "timestamp": 1792603025685,
+      "eventType": "add",
+      "teamIds": [
+        "4"
+      ],
+      "players": [
+        {
+          "id": "13293",
+          "name": "Ja'Kobi Lane",
+          "position": "WR"
+        }
+      ],
+      "dropEvidence": [
+        {
+          "id": "10235",
+          "name": "Roschon Johnson",
+          "position": "RB"
+        }
+      ],
+      "certifiedWinningBid": null,
+      "source": "provider-recovered-transactions-2026-week7.json"
+    },
+    {
+      "transactionId": "1418608163728461824",
+      "providerWeek": 7,
+      "date": "2026-10-21",
+      "timestamp": 1792602322080,
+      "eventType": "waiver",
+      "teamIds": [
+        "2"
+      ],
+      "players": [
+        {
+          "id": "9502",
+          "name": "Tank Dell",
+          "position": "WR"
+        }
+      ],
+      "dropEvidence": [],
+      "certifiedWinningBid": 1,
+      "source": "provider-recovered-transactions-2026-week7.json"
+    },
+    {
+      "transactionId": "1418571160865566720",
+      "providerWeek": 7,
+      "date": "2026-10-21",
+      "timestamp": 1792602322080,
+      "eventType": "waiver",
+      "teamIds": [
+        "8"
+      ],
+      "players": [
+        {
+          "id": "3214",
+          "name": "Hunter Henry",
+          "position": "TE"
+        }
+      ],
+      "dropEvidence": [
+        {
+          "id": "13414",
+          "name": "Kaelon Black",
+          "position": "RB"
+        }
+      ],
+      "certifiedWinningBid": 2,
+      "source": "provider-recovered-transactions-2026-week7.json"
+    }
+  ]
+}

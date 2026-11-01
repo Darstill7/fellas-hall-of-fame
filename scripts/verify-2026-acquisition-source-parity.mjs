@@ -63,5 +63,27 @@ assert.equal(visitedReceipts.size,certifiedBids.size,'Certified 2026 waiver rece
 assert.equal(allMatched,112,'Verified 2026 acquisition baseline changed; review source coverage');
 assert.equal(allMissing,20,'Week 7-8 missing acquisition count changed; reconcile before import');
 assert.equal(uncertifiedSpend,10,'Week 8 winning bid sample changed; do not silently certify');
+// Staged Week 7 event identities are immutable source observations, not public acquisition grades.
+const staging=read('data-integrity/2026-week7-acquisition-staging-v1.json');
+assert.equal(staging.status,'original_provider_receipts_reconciled_projection_not_published');
+assert.equal(staging.publicAcquisitionArchiveUpdated,false);
+assert.equal(staging.providerCompleteness,'not_independently_certified');
+const provider7=read('data-integrity/provider-recovered-transactions-2026-week7.json');
+const expected7=provider7.transactions.filter(t=>t.status==='complete'&&['add','waiver'].includes(t.type));
+assert.equal(staging.events.length,expected7.length,'Staged Week 7 event count mismatch');
+assert.equal(staging.events.length,11,'Week 7 source baseline changed');
+const source7=new Map(expected7.map(t=>[String(t.transactionId),t]));
+const staged7=new Set();
+for(const e of staging.events){
+ const id=String(e.transactionId);assert.ok(!staged7.has(id),'Duplicate staged Week 7 transaction '+id);staged7.add(id);
+ const t=source7.get(id);assert.ok(t,'Staged Week 7 event has no provider receipt '+id);
+ assert.equal(e.providerWeek,7);assert.equal(e.date,t.date);assert.equal(e.timestamp,t.timestamp);
+ assert.equal(e.eventType,t.type);assert.deepEqual(e.teamIds,t.teamIds);
+ assert.deepEqual(e.players,t.added);assert.deepEqual(e.dropEvidence,t.dropped);
+ assert.equal(e.certifiedWinningBid,t.type==='waiver'?certifiedBids.get(id)?.bid:null,'Staged bid mismatch '+id);
+ assert.ok(!archived.has(id),'Staged Week 7 event unexpectedly changed public acquisition archive '+id);
+}
+assert.equal(staging.events.filter(e=>e.eventType==='waiver').length,6,'Six certified winning claims expected');
+assert.equal(staging.events.filter(e=>e.eventType==='waiver').reduce((n,e)=>n+e.certifiedWinningBid,0),18,'Staged Week 7 certified winning spend mismatch');
 console.log('2026 ACQUISITION SOURCE PARITY (research-only): '+JSON.stringify(rows));
 console.log('Source coverage gate: '+allMatched+' archived acquisitions reconciled; '+allMissing+' Week 7-8 acquisitions not yet imported; $'+uncertifiedSpend+' Week 8 winning bids excluded from certified FAAB totals.');
