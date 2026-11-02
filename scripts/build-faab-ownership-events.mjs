@@ -16,7 +16,7 @@ for(const [year,lastWeek] of ranges){
  tx.sort((a,b)=>a.timestamp-b.timestamp||a.transactionId.localeCompare(b.transactionId));
  let unsupportedTrades=0,ambiguousTies=0;
  const timestampCounts=new Map();
- for(const x of tx)timestampCounts.set(x.timestamp,(timestampCounts.get(x.timestamp)??0)+1);
+ for(const x of tx.filter(x=>x.status==='complete'))timestampCounts.set(x.timestamp,(timestampCounts.get(x.timestamp)??0)+1);
  const owner=new Map(),tainted=new Set();
  for(const t of tx){
   if(t.status!=='complete')continue;
