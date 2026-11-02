@@ -4,9 +4,11 @@ const read=p=>JSON.parse(fs.readFileSync('data/'+p,'utf8'));
 const rows=makeReportCards({drafts:read('v9_draft_engine.json'),trades:read('v9_trade_engine.json'),careers:read('career_core_generated.json'),luck:read('all_time_luck_ratings_v1.json'),waivers:read('waiver_award_candidates.json'),endings:read('manager_verified_season_endings_v1.json'),brackets:read('verified_sleeper_playoff_brackets_2020_2025.json'),guide:read('season_guide.json'),espn:read('verified_espn_playoff_brackets_2016_2019.json')});
 if(rows.length!==10||new Set(rows.map(r=>r.name)).size!==10)throw Error('Expected all ten current Fellas managers');
 if(Object.values(WEIGHTS).reduce((a,b)=>a+b,0)!==100)throw Error('Report-card category weights must total 100');
+if(WEIGHTS.keepers!==5)throw Error('Keeper Decision must have five percent category weight');
+if(!fs.readFileSync('assets/manager-report-card-page.mjs','utf8').includes("keepers:'Keeper decision'"))throw Error('Keeper category lacks report-card UI label');
 for(const [i,r] of rows.entries()){
  if(r.rank!==i+1||!Number.isFinite(r.provisional)||r.provisional<0||r.provisional>100)throw Error('Invalid report card score '+r.name);
- if(r.scores.waivers!==null||r.scores.lineups!==null)throw Error('Uncertified waiver/lineup grades must remain N/A');
+ if(r.scores.waivers!==null||r.scores.lineups!==null||r.scores.keepers!==null)throw Error('Uncertified waiver/lineup grades must remain N/A');
  if(r.coverage.playoffVerified>r.coverage.playoffEligible||r.coverage.playoffByes>r.coverage.playoffVerified)throw Error('Invalid bracket qualification count '+r.name);
  if(r.coverage.verifiedChampionships<0||r.coverage.minimumPlayoffs<r.coverage.verifiedChampionships)throw Error('Invalid playoff coverage '+r.name);
  if(r.coverage.verifiedTradeSides<4&&r.scores.trading!==null)throw Error('Unqualified trade score '+r.name);
