@@ -186,7 +186,17 @@ if(main&&tabs){
  };
  window.addEventListener('pagehide',savePosition);
  window.addEventListener('pageshow',event=>{
-  if(event.persisted)requestAnimationFrame(updateBack);
+  if(!event.persisted)return;
+  requestAnimationFrame(updateBack);
+  // BFCache can restore scroll before dynamic tab visibility has settled.
+  // Reapply the last saved tab and position after the restored layout paints.
+  try{
+   const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');
+   if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]){
+    activate(saved.tab);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo(0,saved.y)));
+   }
+  }catch{}
  });
  const initial=location.hash.slice(1).toLowerCase();
  const target=document.getElementById(location.hash.slice(1));
