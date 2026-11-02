@@ -6,8 +6,10 @@ const src=fs.readFileSync('scripts/build-faab-ownership-events.mjs','utf8');
 for(const term of [
  'const owner=new Map(),tainted=new Set()',
  "tx.filter(x=>x.status==='complete')",
+ "timestampCounts.get(t.timestamp+'|'+id)>1",
  'owner.delete(String(p.id));tainted.add(String(p.id))',
  "status='simultaneous_processing_uncertain';owner.delete(pid);tainted.add(pid)",
+ "ambiguousIds.has(pid)",
  "status='prior_ownership_invalidated'",
  '!tainted.has(pid)'
 ])assert.ok(src.includes(term),'Missing historical ownership quarantine guard: '+term);
