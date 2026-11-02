@@ -230,6 +230,9 @@ jobs:
       - name: Aggregate 2025 keeper weekly comparisons, cost research, and playoff evidence gaps
         run: node scripts/audit-2025-keeper-composite.mjs
 
+      - name: Verify Stover-to-Stilly Brian Thomas keeper trade attribution
+        run: node scripts/verify-2025-brian-thomas-keeper-trade.mjs
+
       - name: Reconcile 2025 keeper selections with scored weekly lineups
         run: node scripts/reconcile-2025-keeper-weekly-lineups.mjs
 
