@@ -33,7 +33,9 @@
       "waiverProcessingTime": null,
       "waiverTieBreaker": null,
       "startingFaabBudget": null,
-      "freeAgentClaimEligibility": null
+      "freeAgentClaimEligibility": null,
+      "keepersEnabled": false,
+      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
     },
     {
       "year": 2021,
@@ -66,7 +68,9 @@
       "waiverProcessingTime": null,
       "waiverTieBreaker": null,
       "startingFaabBudget": null,
-      "freeAgentClaimEligibility": null
+      "freeAgentClaimEligibility": null,
+      "keepersEnabled": false,
+      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
     },
     {
       "year": 2022,
@@ -99,7 +103,9 @@
       "waiverProcessingTime": null,
       "waiverTieBreaker": null,
       "startingFaabBudget": null,
-      "freeAgentClaimEligibility": null
+      "freeAgentClaimEligibility": null,
+      "keepersEnabled": false,
+      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
     },
     {
       "year": 2023,
@@ -132,7 +138,9 @@
       "waiverProcessingTime": null,
       "waiverTieBreaker": null,
       "startingFaabBudget": null,
-      "freeAgentClaimEligibility": null
+      "freeAgentClaimEligibility": null,
+      "keepersEnabled": true,
+      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
     },
     {
       "year": 2024,
@@ -165,7 +173,9 @@
       "waiverProcessingTime": null,
       "waiverTieBreaker": null,
       "startingFaabBudget": null,
-      "freeAgentClaimEligibility": null
+      "freeAgentClaimEligibility": null,
+      "keepersEnabled": true,
+      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
     },
     {
       "year": 2025,
@@ -198,7 +208,9 @@
       "waiverProcessingTime": null,
       "waiverTieBreaker": null,
       "startingFaabBudget": null,
-      "freeAgentClaimEligibility": null
+      "freeAgentClaimEligibility": null,
+      "keepersEnabled": true,
+      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
     },
     {
       "year": 2026,
@@ -231,13 +243,16 @@
       "waiverProcessingTime": null,
       "waiverTieBreaker": null,
       "startingFaabBudget": null,
-      "freeAgentClaimEligibility": null
+      "freeAgentClaimEligibility": null,
+      "keepersEnabled": true,
+      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
     }
   ],
   "notes": [
     "Keeper limit is the reported configuration, not proof that a keeper was actually selected in every season.",
     "Season-specific starting lineups are verified; FLEX eligible underlying positions and historical reserve move eligibility are not explicitly provided.",
     "Historical waiver processing and FAAB settings remain unverified; unknown is represented by null.",
-    "A trade-deadline week number does not establish its exact local timestamp."
+    "A trade-deadline week number does not establish its exact local timestamp.",
+    "League owner explicitly confirms 2020-2022 had no keepers; provider maxKeepers=1 was a configuration limit, not active keeper participation. First keeper season is 2023."
   ]
 }
