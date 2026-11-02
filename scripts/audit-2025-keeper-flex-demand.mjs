@@ -17,7 +17,7 @@ for(let week=1;week<=14;week++){
   for(const p of starters){
    assert.ok(p.id!=null&&Number.isFinite(p.points));
    assert.ok(!used.has(String(p.id)),'Duplicate league starter '+p.id+' week '+week);
-   used.add(String(p.id));assert.ok(p.position in counts,'Unknown starting position '+p.position);
+   used.add(String(p.id));
    const position=slotPosition(p);
    assert.ok(position in counts,'Unmapped starting position '+p.position+' for '+p.id);
    counts[position]++;weekly[position]++;
