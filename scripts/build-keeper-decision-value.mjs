@@ -33,6 +33,5 @@ const result={schema:'fellas-keeper-decision-value-research-v1',
  coverage,managers,rows};
 const path='data-integrity/keeper-decision-value-research-v1.json';
 if(process.argv.includes('--check'))assert.deepEqual(read(path),result,'Keeper decision report stale');
-else fs.writeFileSync(path,JSON.stringify(result,null,2)+'
-');
+else fs.writeFileSync(path,JSON.stringify(result,null,2)+'\n');
 console.log('Keeper decision research:',rows.length,'keeper selections, zero unverified grades');
