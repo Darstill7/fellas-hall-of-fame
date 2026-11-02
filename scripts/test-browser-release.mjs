@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/manager-report-cards.html','analytics/manager-madden-cards.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/manager-report-cards.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -64,6 +64,29 @@ try{
     const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
     if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
     if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
+   }
+   if(route==='analytics/historical-spreads.html'){
+    const teamA=page.locator('#team-a'),teamB=page.locator('#team-b'),projected=page.locator('#line');
+    if(await teamA.locator('option').count()<30||await teamB.locator('option').count()<30)
+     errors.push(width+' historical spread selectors did not load enough manager-seasons');
+    if(await teamA.inputValue()!=='2026|Kuhl'||await teamB.inputValue()!=='2019|Thommy')
+     errors.push(width+' historical spread did not load the Kuhl 2026 / Thommy 2019 default');
+    if((await projected.innerText()).trim()!=='Thommy 2019 −1.0')
+     errors.push(width+' historical spread default line differs from verified Thommy 2019 -1.0');
+    const originalDifference=await page.locator('#difference').innerText();
+    if(!originalDifference.includes('Kuhl 2026')||!originalDifference.includes('Thommy 2019'))
+     errors.push(width+' historical spread missing model differential and team labels');
+    await page.locator('#swap').click();
+    if(await teamA.inputValue()!=='2019|Thommy'||await teamB.inputValue()!=='2026|Kuhl')
+     errors.push(width+' historical spread swap did not exchange both teams');
+    if((await projected.innerText()).trim()!=='Thommy 2019 −1.0')
+     errors.push(width+' historical spread changed favorite after swapping teams');
+    await teamA.selectOption('2018|Kuhl');
+    if(!(await page.locator('#difference').innerText()).includes('Kuhl 2018'))
+     errors.push(width+' historical spread selector failed to recalculate comparison');
+    await page.goto(baseUrl+'analytics/historical-spreads.html?a=2018%7CKuhl&b=2019%7CThommy',{waitUntil:'networkidle'});
+    if(await page.locator('#team-a').inputValue()!=='2018|Kuhl'||await page.locator('#team-b').inputValue()!=='2019|Thommy')
+     errors.push(width+' historical spread deep-link parameters not honored');
    }
    if(route==='analytics/power-ratings.html'){
     const cards=await page.locator('[data-rating-manager]').count();
