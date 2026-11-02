@@ -224,6 +224,9 @@ jobs:
       - name: Compare certified 2025 keeper starts to same-week positional starter medians
         run: node scripts/analyze-keeper-started-week-context.mjs
 
+      - name: Verify 2025 keeper postseason player-level starting receipts
+        run: node scripts/verify-2025-keeper-postseason.mjs
+
       - name: Aggregate 2025 keeper weekly comparisons, cost research, and playoff evidence gaps
         run: node scripts/audit-2025-keeper-composite.mjs
 
@@ -301,6 +304,8 @@ jobs:
             data-integrity/keeper-opportunity-cost-context-v1.json
             data-integrity/keeper-draft-order-context-v1.json
             data-integrity/keeper-2025-realized-contribution-v1.json
+            data-integrity/keeper-2025-postseason-verification-v1.json
+            data-integrity/keeper-2025-playoff-started-receipts-v1.json
             data-integrity/keeper-2025-composite-evidence-v1.json
             data-integrity/keeper-2025-started-week-positional-context-v1.json
             data-integrity/keeper-2025-weekly-starter-context-v1.json
