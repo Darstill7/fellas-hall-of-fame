@@ -3,7 +3,7 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const draft=read('data/v9_draft_engine.json');
-const norm=s=>String(s??'').toLowerCase().replace(/\\b(jr|sr|ii|iii|iv)\\b/g,'').replace(/[^a-z0-9]/g,'');
+const norm=s=>String(s??'').toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b/g,'').replace(/[^a-z0-9]/g,'');
 const sources=Array.from({length:14},(_,i)=>{const w=i+1;return {week:w,path:w===1||w===7?`data/war_rosters_2025_week${w}.json`:`data/sleeper_roster_snapshots_2025_week${w}.json`}});
 const weekly=sources.map(s=>{const v=read(s.path);const rosters=Array.isArray(v)?v:v.rosters;assert.ok(Array.isArray(rosters));return {...s,rosters}});
 const picks=draft.filter(p=>p.year===2025&&p.keeper);
@@ -44,5 +44,5 @@ const result={schema:'fellas-2025-keeper-verified-starts-v1',status:'20_of_20_re
  '2026 season data is partial and is not compared as a completed season.'],managers,rows};
 const target='data-integrity/keeper-2025-verified-starts-v1.json';
 if(process.argv.includes('--check'))assert.deepEqual(read(target),result);
-else fs.writeFileSync(target,JSON.stringify(result,null,2)+'\\n');
+else fs.writeFileSync(target,JSON.stringify(result,null,2)+'\n');
 console.log('2025 keeper verification PASS: 20 selections; 10 managers; all regular starts and points match');
