@@ -139,8 +139,8 @@
       "waiverTieBreaker": null,
       "startingFaabBudget": null,
       "freeAgentClaimEligibility": null,
-      "keepersEnabled": true,
-      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
+      "keepersEnabled": null,
+      "keeperParticipationSource": "Unresolved: league owner uncertain; 150 provider draft picks lack keeper-status fields"
     },
     {
       "year": 2024,
@@ -174,8 +174,8 @@
       "waiverTieBreaker": null,
       "startingFaabBudget": null,
       "freeAgentClaimEligibility": null,
-      "keepersEnabled": true,
-      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
+      "keepersEnabled": null,
+      "keeperParticipationSource": "Unresolved: league owner uncertain; 150 provider draft picks lack keeper-status fields"
     },
     {
       "year": 2025,
@@ -210,7 +210,7 @@
       "startingFaabBudget": null,
       "freeAgentClaimEligibility": null,
       "keepersEnabled": true,
-      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
+      "keeperParticipationSource": "2025–2026 archived draft engine has keeper-flagged picks"
     },
     {
       "year": 2026,
@@ -245,7 +245,7 @@
       "startingFaabBudget": null,
       "freeAgentClaimEligibility": null,
       "keepersEnabled": true,
-      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
+      "keeperParticipationSource": "2025–2026 archived draft engine has keeper-flagged picks"
     }
   ],
   "notes": [
@@ -253,6 +253,6 @@
     "Season-specific starting lineups are verified; FLEX eligible underlying positions and historical reserve move eligibility are not explicitly provided.",
     "Historical waiver processing and FAAB settings remain unverified; unknown is represented by null.",
     "A trade-deadline week number does not establish its exact local timestamp.",
-    "League owner explicitly confirms 2020-2022 had no keepers; provider maxKeepers=1 was a configuration limit, not active keeper participation. First keeper season is 2023."
+    "2023–2024 keeper participation is UNKNOWN, despite configured maxKeepers=2; provider draft response omitted isKeeper on all 150 picks for each season."
   ]
 }
