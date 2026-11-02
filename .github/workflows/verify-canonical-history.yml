@@ -189,9 +189,6 @@ jobs:
         run: node scripts/analyze-faab-opposing-bench-baseline.mjs
       - name: Validate opposing-bench baseline against acquired starters
         run: node scripts/verify-faab-positional-baseline.mjs
-      - name: Screen waiver claim timestamps against prior observed ownership intervals
-        run: node scripts/screen-faab-transaction-time-ownership.mjs
-
       - name: Reconcile keeper receipts with historical draft slots
         run: |
           node scripts/build-keeper-decision-value.mjs
@@ -238,6 +235,9 @@ jobs:
           node scripts/test-faab-observed-intervals.mjs
           node scripts/build-faab-observed-interval-report.mjs
           node scripts/corroborate-faab-interval-rosters.mjs
+
+      - name: Screen waiver claim timestamps against prior observed ownership intervals
+        run: node scripts/screen-faab-transaction-time-ownership.mjs
 
       - name: Audit FAAB scoring against independent ownership evidence
         run: node scripts/audit-faab-outcome-ownership.mjs
