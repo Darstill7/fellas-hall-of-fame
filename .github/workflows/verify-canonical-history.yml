@@ -215,11 +215,6 @@ jobs:
       - name: Validate all historical Sleeper season roster and keeper rules
         run: node scripts/verify-sleeper-season-rules.mjs
 
-      - name: Resolve completed acquisition ownership boundaries and verify league eligibility
-        run: |
-          node scripts/resolve-faab-overlap-boundaries.mjs
-          node scripts/verify-faab-league-eligibility.mjs
-
       - name: Check ex ante replacement eligibility and comparison evidence
         run: node scripts/audit-faab-replacement-readiness.mjs
 
@@ -235,6 +230,11 @@ jobs:
           node scripts/test-faab-observed-intervals.mjs
           node scripts/build-faab-observed-interval-report.mjs
           node scripts/corroborate-faab-interval-rosters.mjs
+
+      - name: Resolve completed acquisition ownership boundaries and verify league eligibility
+        run: |
+          node scripts/resolve-faab-overlap-boundaries.mjs
+          node scripts/verify-faab-league-eligibility.mjs
 
       - name: Screen waiver claim timestamps against prior observed ownership intervals
         run: node scripts/screen-faab-transaction-time-ownership.mjs
