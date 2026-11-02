@@ -8,7 +8,7 @@ for(const s of x.seasons){
  assert.equal(s.rosterPositions.filter(p=>p==='FLEX').length,2);
  assert.equal(s.receptionPoints,.5);
  assert.equal(s.maxKeepers,s.year<=2022?1:2);
- assert.equal(s.keepersEnabled,s.year<2023?false:s.year<=2024?null:true,'Incorrect keeper participation certainty');
+ assert.equal(s.keepersEnabled,s.year>=2025,'Incorrect keeper participation certainty');
  assert.ok(s.keeperParticipationSource.length>15);
  assert.equal(s.tradeDeadlineWeek,s.year<=2022?10:11);
  assert.equal(s.reserveSlots,s.year===2020?4:1);
