@@ -16,12 +16,18 @@ for(const [year,lastWeek] of ranges){
  tx.sort((a,b)=>a.timestamp-b.timestamp||a.transactionId.localeCompare(b.transactionId));
  let unsupportedTrades=0,ambiguousTies=0;
  const timestampCounts=new Map();
- for(const x of tx.filter(x=>x.status==='complete'))timestampCounts.set(x.timestamp,(timestampCounts.get(x.timestamp)??0)+1);
+ // Only overlapping player actions can create an ownership-sequencing conflict.
+ // Unrelated completed claims processed in one batch do not taint each other.
+ for(const x of tx.filter(x=>x.status==='complete')){
+  const ids=new Set([...(x.added??[]),...(x.dropped??[])].map(p=>String(p.id)));
+  for(const id of ids){const key=x.timestamp+'|'+id;timestampCounts.set(key,(timestampCounts.get(key)??0)+1);}
+ }
  const owner=new Map(),tainted=new Set();
  for(const t of tx){
   if(t.status!=='complete')continue;
-  const ambiguous=timestampCounts.get(t.timestamp)>1;
-  if(ambiguous)ambiguousTies++;
+  const affectedIds=new Set([...(t.added??[]),...(t.dropped??[])].map(p=>String(p.id)));
+  const ambiguousIds=new Set([...affectedIds].filter(id=>timestampCounts.get(t.timestamp+'|'+id)>1));
+  if(ambiguousIds.size)ambiguousTies++;
   if(t.type==='trade'){
    unsupportedTrades++;
    for(const p of [...(t.added??[]),...(t.dropped??[])]){owner.delete(String(p.id));tainted.add(String(p.id));}
@@ -32,7 +38,7 @@ for(const [year,lastWeek] of ranges){
   for(const p of t.dropped??[]){
    const pid=String(p.id),prior=owner.get(pid);
    let status='unknown_previous_owner';
-   if(ambiguous){status='simultaneous_processing_uncertain';owner.delete(pid);tainted.add(pid);}
+   if(ambiguousIds.has(pid)){status='simultaneous_processing_uncertain';owner.delete(pid);tainted.add(pid);}
    else if(tainted.has(pid))status='prior_ownership_invalidated';
    else if(!team)status='ambiguous_team';
    else if(prior&&prior===team){owner.delete(pid);status='released_from_observed_owner';}
@@ -43,13 +49,13 @@ for(const [year,lastWeek] of ranges){
   for(const p of t.added??[]){
    const pid=String(p.id),prior=owner.get(pid);
    let status='ownership_unknown';
-   if(ambiguous)status='simultaneous_processing_uncertain';
+   if(ambiguousIds.has(pid))status='simultaneous_processing_uncertain';
    else if(!team)status='ambiguous_team';
    else if(prior&&prior!==team)status='conflict_with_observed_owner';
    else if(prior===team)status='already_owned_in_observed_events';
    else status='acquired_after_no_recorded_owner';
    rows.push({year,week:t.week,transactionId:t.transactionId,timestamp:t.timestamp,playerId:pid,action:'add',teamId:team,status});
-   if(!ambiguous&&team&&(!prior||prior===team)&&!tainted.has(pid))owner.set(pid,team);
+   if(!ambiguousIds.has(pid)&&team&&(!prior||prior===team)&&!tainted.has(pid))owner.set(pid,team);
   }
  }
  coverage.push({year,recoveredTransactions:tx.length,completedTradeTransactionsUnapplied:unsupportedTrades,completedTransactionsInTimestampTies:ambiguousTies});
