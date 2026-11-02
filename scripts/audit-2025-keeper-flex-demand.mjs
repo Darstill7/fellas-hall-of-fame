@@ -2,7 +2,10 @@
 // Hindsight observed starting lineups are NOT waiver availability, and rankings are not keeper grades.
 import fs from 'node:fs';import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
-const rows=[],limits={QB:1,RB:2,WR:2,TE:1,DEF:1};
+const rows=[];
+// Sleeper's recovered position label for dual-role Travis Hunter is DB in weeks 1–2.
+// Normalize only this exact player ID for offensive FLEX-count accounting.
+const slotPosition=p=>String(p.id)==='12530'&&p.position==='DB'?'WR':p.position;
 for(let week=1;week<=14;week++){
  const path=week===1||week===7?'data/war_rosters_2025_week'+week+'.json':'data/sleeper_roster_snapshots_2025_week'+week+'.json';
  const raw=read(path),rosters=Array.isArray(raw)?raw:raw.rosters;
@@ -15,7 +18,9 @@ for(let week=1;week<=14;week++){
    assert.ok(p.id!=null&&Number.isFinite(p.points));
    assert.ok(!used.has(String(p.id)),'Duplicate league starter '+p.id+' week '+week);
    used.add(String(p.id));assert.ok(p.position in counts,'Unknown starting position '+p.position);
-   counts[p.position]++;weekly[p.position]++;
+   const position=slotPosition(p);
+   assert.ok(position in counts,'Unmapped starting position '+p.position+' for '+p.id);
+   counts[position]++;weekly[position]++;
   }
   assert.equal(counts.QB,1);assert.equal(counts.DEF,1);
   assert.ok(counts.RB>=2&&counts.WR>=2&&counts.TE>=1);
@@ -29,6 +34,7 @@ for(let week=1;week<=14;week++){
 }
 const output={schema:'fellas-2025-flex-starter-demand-v1',status:'observed_starter_slot_supply_not_replacement_value',
  lineupAssumption:'1 QB, 2 RB, 2 WR, 1 TE, 2 RB/WR/TE FLEX, 1 DEF; 10 teams',
+ knownPositionNormalization:{playerId:'12530',sourcePosition:'DB',countedOffensivePosition:'WR',rationale:'Dual-role Travis Hunter recovered with defensive position label despite occupied offensive FLEX slot'},
  warnings:['Derived from archived weekly starting lineups, not original league-setting API configuration.',
  'Observing who started does not establish the best available free agents or rational replacement options.',
  'A retrospective starter cutoff is not an ex ante positional replacement baseline.',
