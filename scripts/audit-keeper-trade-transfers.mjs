@@ -15,9 +15,10 @@ for(const year of [2025,2026]){
   const trades=[...unique.values()].filter(t=>(t.added??[]).some(p=>norm(p.name)===norm(k.player)))
    .sort((a,b)=>a.timestamp-b.timestamp);
   if(k.traded_same_season)assert.ok(trades.length,'Keeper marked traded lacks completed provider trade: '+year+'/'+k.player);
-  else assert.equal(trades.length,0,'Unflagged keeper appears in a trade: '+year+'/'+k.player);
+  // A previously unflagged completed trade is a discovered archive discrepancy, not a reason to discard the audit.
+  // Preserve it in the research output for reconciliation rather than assuming the draft flag is infallible.
   rows.push({year,manager:k.manager==='Tom'?'Thommy':k.manager,player:k.player,originalTeamId:String(k.team_id),
-   markedTraded:k.traded_same_season,observedCompletedTrades:trades.map(t=>({
+   markedTraded:k.traded_same_season,flagConsistentWithReceipts:k.traded_same_season===(trades.length>0),observedCompletedTrades:trades.map(t=>({
     transactionId:String(t.transactionId),week:t.sourceWeek,date:t.date,
     teamIds:t.teamIds.map(String),playerId:String(t.added.find(p=>norm(p.name)===norm(k.player)).id)
    })),postTradeKeeperPointsCertified:false});
@@ -26,6 +27,7 @@ for(const year of [2025,2026]){
 assert.equal(rows.length,40);
 const report={schema:'fellas-keeper-trade-transfer-inventory-v1',
  status:'completed_provider_trade_inventory_not_ownership_continuity_certification',
+ discrepancies:rows.filter(x=>!x.flagConsistentWithReceipts).map(x=>({year:x.year,manager:x.manager,player:x.player,markedTraded:x.markedTraded,observedTradeCount:x.observedCompletedTrades.length})),
  warnings:['A trade receipt verifies a transfer involving the keeper but does not by itself identify the receiving team from the flat added/dropped list.',
  'Multiple trades are preserved; do not impose a single permanent cutoff if a keeper returns.',
  'Draft-engine original-team starter points may be used as original manager contribution only after per-week team-roster identity validation.',
