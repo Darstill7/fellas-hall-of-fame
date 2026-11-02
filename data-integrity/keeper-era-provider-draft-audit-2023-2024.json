@@ -1,0 +1,29 @@
+{
+  "schema": "fellas-keeper-provider-draft-audit-v1",
+  "retrieved": "2026-11-02",
+  "source": "Connected Sleeper original historical draft via Flaim Fantasy get_draft",
+  "seasons": [
+    {
+      "year": 2023,
+      "leagueId": "946275261279055872",
+      "draftStatus": "complete",
+      "picks": 150,
+      "providerPicksWithKeeperTrue": 0,
+      "providerPicksWithKeeperFalse": 0,
+      "providerPicksWithKeeperFieldAbsent": 150,
+      "keeperParticipation": "unknown"
+    },
+    {
+      "year": 2024,
+      "leagueId": "1134248931308802048",
+      "draftStatus": "complete",
+      "picks": 150,
+      "providerPicksWithKeeperTrue": 0,
+      "providerPicksWithKeeperFalse": 0,
+      "providerPicksWithKeeperFieldAbsent": 150,
+      "keeperParticipation": "unknown"
+    }
+  ],
+  "interpretation": "No keeper-status fields were supplied in either returned draft. The reconstructed draft engine's keeper:false entries for these seasons must not be treated as source-confirmed non-keepers.",
+  "status": "research_only_uncertain_keeper_participation"
+}
