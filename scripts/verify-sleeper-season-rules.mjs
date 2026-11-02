@@ -8,6 +8,8 @@ for(const s of x.seasons){
  assert.equal(s.rosterPositions.filter(p=>p==='FLEX').length,2);
  assert.equal(s.receptionPoints,.5);
  assert.equal(s.maxKeepers,s.year<=2022?1:2);
+ assert.equal(s.keepersEnabled,s.year>=2023,'Keeper participation must begin in 2023');
+ assert.ok(s.keeperParticipationSource.includes('no keepers before 2023'));
  assert.equal(s.tradeDeadlineWeek,s.year<=2022?10:11);
  assert.equal(s.reserveSlots,s.year===2020?4:1);
  for(const name of ['waiverProcessingTime','waiverTieBreaker','startingFaabBudget','freeAgentClaimEligibility'])
