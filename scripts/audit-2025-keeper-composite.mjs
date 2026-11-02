@@ -14,7 +14,9 @@ const rows=weekly.rows.map(k=>{
  const match=arr=>{const x=arr.filter(y=>y.manager===k.manager&&y.player===k.player);assert.equal(x.length,1);return x[0]};
  const draft=drafted.filter(y=>(y.manager==='Tom'?'Thommy':y.manager)===k.manager&&y.player===k.player);
  assert.equal(draft.length,1);
- const a=match(roundPeer.rows),b=match(positionPeer.rows);
+ const a=match(roundPeer.rows),b=match(positionPeer.rows),proof=match(postseason.rows);
+ assert.ok(Math.abs(proof.verifiedPoints-draft[0].playoff_starter_points)<.011);
+ assert.equal(proof.verifiedStarts,draft[0].playoff_starts);
  assert.equal(draft[0].round,a.draftRound);
  assert.equal(draft[0].position,b.position);
  const comparison=k.weeklyEvidence.reduce((s,x)=>s+x.observedLeagueStarterMedian,0);
@@ -28,7 +30,7 @@ const rows=weekly.rows.map(k=>{
   sameRoundObservedDifference:a.retrospectivePointDifference,
   samePositionNonkeeperMedian:b.observedNonkeeperPositionMedianStartedPoints,
   samePositionObservedDifference:b.descriptiveDifferenceFromPositionMedian,
-  verifiedPlayoffStartedPoints:draft[0].playoff_starter_points,
+  verifiedPlayoffStartedPoints:proof.verifiedPoints,
   playoffIndividualScoringVerified:true,
   rosterEligibleAlternativesVerified:false,
   exAnteDraftCostOpportunityValue:null,
@@ -42,7 +44,7 @@ const managers=[...new Set(rows.map(x=>x.manager))].sort().map(manager=>{
   verifiedRegularStarterPoints:round(picks.reduce((s,x)=>s+x.verifiedRegularStarterPoints,0)),
   expectedPointsAtObservedLeagueStarterMedians:round(picks.reduce((s,x)=>s+x.correspondingObservedStarterMedianPoints,0)),
   descriptiveDifferenceFromLeagueStarterMedians:round(picks.reduce((s,x)=>s+x.differenceFromObservedStarterMedians,0)),
-  verifiedPlayoffStarterPoints:round(picks.reduce((s,x)=>s+x.archivedPlayoffStartedPoints,0)),
+  verifiedPlayoffStarterPoints:round(picks.reduce((s,x)=>s+x.verifiedPlayoffStartedPoints,0)),
   opportunityCostCertified:false,postseasonPlayerProductionCertified:true,
   keeperValue:null,keeperDecisionGrade:null};
 }).sort((a,b)=>b.descriptiveDifferenceFromLeagueStarterMedians-a.descriptiveDifferenceFromLeagueStarterMedians);
@@ -65,4 +67,4 @@ const result={schema:'fellas-2025-keeper-composite-evidence-v1',
 const target='data-integrity/keeper-2025-composite-evidence-v1.json';
 if(process.argv.includes('--check'))assert.deepEqual(read(target),result);
 else fs.writeFileSync(target,JSON.stringify(result,null,2)+'\n');
-console.log('Composite keeper audit PASS: '+managers.length+' managers, '+rows.length+' selections, playoff source coverage explicitly unverified');
+console.log('Composite keeper audit PASS: '+managers.length+' managers, '+rows.length+' selections, postseason receipts verified');
