@@ -230,6 +230,9 @@ jobs:
       - name: Aggregate 2025 keeper weekly comparisons, cost research, and playoff evidence gaps
         run: node scripts/audit-2025-keeper-composite.mjs
 
+      - name: Audit post-drop keeper usage by other managers without hindsight grading
+        run: node scripts/audit-2025-keeper-abandonment-downstream.mjs
+
       - name: Verify completed 2025 keeper releases and abandonment evidence
         run: node scripts/verify-2025-keeper-abandonment.mjs
 
@@ -321,6 +324,7 @@ jobs:
             data-integrity/keeper-2025-realized-contribution-v1.json
             data-integrity/keeper-transaction-ownership-boundaries-v1.json
             data-integrity/keeper-weekly-ownership-ledger-v1.json
+            data-integrity/keeper-2025-abandonment-downstream-evidence-v1.json
             data-integrity/keeper-2025-abandonment-receipts-v1.json
             data-integrity/keeper-trade-transfer-inventory-v1.json
             data-integrity/keeper-2025-postseason-verification-v1.json
