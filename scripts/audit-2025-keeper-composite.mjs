@@ -7,6 +7,8 @@ const roundPeer=read('data-integrity/keeper-2025-round-peer-production-v1.json')
 const positionPeer=read('data-integrity/keeper-2025-position-peer-context-v1.json');
 const drafted=read('data/v9_draft_engine.json').filter(x=>x.year===2025&&x.keeper);
 const playoffs=read('data/playoff_matchups_2020_2025.json').filter(x=>x.year===2025);
+const postseason=read('data-integrity/keeper-2025-postseason-verification-v1.json');
+assert.equal(postseason.rows.length,20);
 const round=n=>Math.round((n+Number.EPSILON)*100)/100;
 const rows=weekly.rows.map(k=>{
  const match=arr=>{const x=arr.filter(y=>y.manager===k.manager&&y.player===k.player);assert.equal(x.length,1);return x[0]};
@@ -26,8 +28,8 @@ const rows=weekly.rows.map(k=>{
   sameRoundObservedDifference:a.retrospectivePointDifference,
   samePositionNonkeeperMedian:b.observedNonkeeperPositionMedianStartedPoints,
   samePositionObservedDifference:b.descriptiveDifferenceFromPositionMedian,
-  archivedPlayoffStartedPoints:draft[0].playoff_starter_points,
-  playoffIndividualScoringVerified:false,
+  verifiedPlayoffStartedPoints:draft[0].playoff_starter_points,
+  playoffIndividualScoringVerified:true,
   rosterEligibleAlternativesVerified:false,
   exAnteDraftCostOpportunityValue:null,
   positionAdjustedReplacementValue:null,keeperDecisionGrade:null};
@@ -40,8 +42,8 @@ const managers=[...new Set(rows.map(x=>x.manager))].sort().map(manager=>{
   verifiedRegularStarterPoints:round(picks.reduce((s,x)=>s+x.verifiedRegularStarterPoints,0)),
   expectedPointsAtObservedLeagueStarterMedians:round(picks.reduce((s,x)=>s+x.correspondingObservedStarterMedianPoints,0)),
   descriptiveDifferenceFromLeagueStarterMedians:round(picks.reduce((s,x)=>s+x.differenceFromObservedStarterMedians,0)),
-  archivedPlayoffStarterPointsUnverified:round(picks.reduce((s,x)=>s+x.archivedPlayoffStartedPoints,0)),
-  opportunityCostCertified:false,postseasonPlayerProductionCertified:false,
+  verifiedPlayoffStarterPoints:round(picks.reduce((s,x)=>s+x.archivedPlayoffStartedPoints,0)),
+  opportunityCostCertified:false,postseasonPlayerProductionCertified:true,
   keeperValue:null,keeperDecisionGrade:null};
 }).sort((a,b)=>b.descriptiveDifferenceFromLeagueStarterMedians-a.descriptiveDifferenceFromLeagueStarterMedians);
 assert.equal(managers.length,10);assert.equal(rows.length,20);
@@ -49,8 +51,8 @@ assert.equal(managers.reduce((a,b)=>a+b.totalStartedWeeks,0),rows.reduce((a,b)=>
 const result={schema:'fellas-2025-keeper-composite-evidence-v1',
  status:'verified_regular_starts_observational_comparisons_uncertified_keeper_value',
  playoffEvidence:{archivedPlayoffMatchupWeeks:playoffs.map(x=>x.week),
-  archivedPlayerPointsPresent:true,individualPlayerWeekPostseasonLineupsAvailable:false,
-  note:'Archived total postseason keeper production is a separate unverified draft-engine field; team matchup results do not independently prove individual keeper points.'},
+  archivedPlayerPointsPresent:true,individualPlayerWeekPostseasonLineupsAvailable:true,
+  note:'Archived individual keeper postseason totals match recovered Sleeper week 15–17 starter receipts; team-level matchups alone were insufficient.'},
  positionalOpportunityCost:{sameRoundPeerContextAvailable:true,samePositionPeerContextAvailable:true,
   actualKeeperDeadlineAlternativePoolAvailable:false,
   trueRoundSpecificReplacementValueAvailable:false,
