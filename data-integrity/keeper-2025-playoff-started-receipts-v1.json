@@ -1,0 +1,276 @@
+{
+  "schema": "fellas-2025-keeper-playoff-started-player-receipts-v1",
+  "source": "Connected Sleeper historical weekly rosters, league 1181421235163095040, 2025 weeks 15-17, roster IDs 1-10",
+  "captureDate": "2026-11-02",
+  "limitations": [
+    "These are compact extracts of observed starting slots; preserve exact underlying Sleeper roster reports separately for full independent re-verification.",
+    "An empty list means no keeper start was observed in all three retrieved team-week starting lineups.",
+    "Verified 2025 postseason production does not establish draft opportunity cost, waiver replacement value, or ex ante keeper decision skill."
+  ],
+  "rows": [
+    {
+      "manager": "Stover",
+      "player": "Saquon Barkley",
+      "playerId": "4866",
+      "starts": [
+        {
+          "week": 15,
+          "points": 16.2
+        },
+        {
+          "week": 16,
+          "points": 22.2
+        },
+        {
+          "week": 17,
+          "points": 6.8
+        }
+      ]
+    },
+    {
+      "manager": "Stew",
+      "player": "Nico Collins",
+      "playerId": null,
+      "starts": []
+    },
+    {
+      "manager": "Stew",
+      "player": "Malik Nabers",
+      "playerId": null,
+      "starts": []
+    },
+    {
+      "manager": "Thommy",
+      "player": "Tee Higgins",
+      "playerId": "6801",
+      "starts": [
+        {
+          "week": 16,
+          "points": 12.8
+        },
+        {
+          "week": 17,
+          "points": 7.9
+        }
+      ]
+    },
+    {
+      "manager": "JMid",
+      "player": "Joe Burrow",
+      "playerId": "6770",
+      "starts": [
+        {
+          "week": 15,
+          "points": 5.5
+        },
+        {
+          "week": 16,
+          "points": 28.96
+        },
+        {
+          "week": 17,
+          "points": 20.4
+        }
+      ]
+    },
+    {
+      "manager": "Mitch",
+      "player": "George Kittle",
+      "playerId": "4217",
+      "starts": [
+        {
+          "week": 15,
+          "points": 18.8
+        },
+        {
+          "week": 16,
+          "points": 21
+        }
+      ]
+    },
+    {
+      "manager": "Tony",
+      "player": "Zay Flowers",
+      "playerId": "9997",
+      "starts": [
+        {
+          "week": 15,
+          "points": 14.3
+        },
+        {
+          "week": 16,
+          "points": 17.7
+        },
+        {
+          "week": 17,
+          "points": 11
+        }
+      ]
+    },
+    {
+      "manager": "Kuhl",
+      "player": "Xavier Worthy",
+      "playerId": null,
+      "starts": []
+    },
+    {
+      "manager": "Mitch",
+      "player": "Jaxon Smith-Njigba",
+      "playerId": "9488",
+      "starts": [
+        {
+          "week": 15,
+          "points": 14.8
+        },
+        {
+          "week": 16,
+          "points": 19.6
+        },
+        {
+          "week": 17,
+          "points": 11.7
+        }
+      ]
+    },
+    {
+      "manager": "Birch",
+      "player": "Brian Robinson",
+      "playerId": null,
+      "starts": []
+    },
+    {
+      "manager": "Tony",
+      "player": "Brock Bowers",
+      "playerId": "11604",
+      "starts": [
+        {
+          "week": 15,
+          "points": 5.8
+        },
+        {
+          "week": 16,
+          "points": 11.8
+        },
+        {
+          "week": 17,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "manager": "Scott",
+      "player": "Ladd McConkey",
+      "playerId": "11635",
+      "starts": [
+        {
+          "week": 15,
+          "points": 3
+        },
+        {
+          "week": 16,
+          "points": 12.3
+        },
+        {
+          "week": 17,
+          "points": 3.6
+        }
+      ]
+    },
+    {
+      "manager": "Stilly",
+      "player": "Bucky Irving",
+      "playerId": "11584",
+      "starts": [
+        {
+          "week": 15,
+          "points": 7.6
+        },
+        {
+          "week": 16,
+          "points": 7.1
+        },
+        {
+          "week": 17,
+          "points": 5.8
+        }
+      ]
+    },
+    {
+      "manager": "Kuhl",
+      "player": "Jared Goff",
+      "playerId": null,
+      "starts": []
+    },
+    {
+      "manager": "Stover",
+      "player": "Brian Thomas",
+      "playerId": null,
+      "starts": []
+    },
+    {
+      "manager": "Thommy",
+      "player": "Jameson Williams",
+      "playerId": "8148",
+      "starts": [
+        {
+          "week": 15,
+          "points": 22.9
+        },
+        {
+          "week": 16,
+          "points": 9.5
+        },
+        {
+          "week": 17,
+          "points": 4.7
+        }
+      ]
+    },
+    {
+      "manager": "JMid",
+      "player": "Courtland Sutton",
+      "playerId": "5045",
+      "starts": [
+        {
+          "week": 15,
+          "points": 21.8
+        },
+        {
+          "week": 16,
+          "points": 17.6
+        },
+        {
+          "week": 17,
+          "points": 6
+        }
+      ]
+    },
+    {
+      "manager": "Scott",
+      "player": "Bo Nix",
+      "playerId": "11563",
+      "starts": [
+        {
+          "week": 15,
+          "points": 29.08
+        },
+        {
+          "week": 16,
+          "points": 15.18
+        }
+      ]
+    },
+    {
+      "manager": "Stilly",
+      "player": "Jayden Daniels",
+      "playerId": null,
+      "starts": []
+    },
+    {
+      "manager": "Birch",
+      "player": "Jerry Jeudy",
+      "playerId": null,
+      "starts": []
+    }
+  ]
+}
