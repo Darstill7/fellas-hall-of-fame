@@ -13,7 +13,15 @@ for(let year=2020;year<=2026;year++){
  const original=[];
  for(let week=1;week<=(year===2026?8:18);week++)
   original.push(...read('data-integrity/provider-recovered-transactions-'+year+'-week'+week+'.json').transactions);
- const txById=new Map(original.map(t=>[String(t.transactionId),t]));
+ const txById=new Map();
+ for(const t of original){
+  const id=String(t.transactionId);
+  const previous=txById.get(id);
+  if(previous&&previous.status==='complete'&&t.status!=='complete')continue;
+  if(previous&&previous.status==='complete'&&t.status==='complete')
+   assert.equal(previous.timestamp,t.timestamp,'Conflicting completed transaction timestamps '+year+'/'+id);
+  txById.set(id,t);
+ }
  let ambiguous=0,priorObserved=0,withoutBound=0;
  for(const claim of outcomes.observations.filter(x=>x.year===year)){
   const tx=txById.get(String(claim.transactionId));
