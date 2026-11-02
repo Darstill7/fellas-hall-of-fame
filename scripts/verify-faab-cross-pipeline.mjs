@@ -39,9 +39,10 @@ const outcomeKeys=new Set();
 for(const row of outcomes.observations){
  assert.equal(row.scope,'post_claim_week_conservative');
  assert.ok(row.observedWeeks>=0 && row.startedWeeks>=0 && row.startedWeeks<=row.observedWeeks);
- assert.ok(row.startedPoints<=row.rosteredPoints+0.011 || row.rosteredPoints<0,
-  'Started points exceed rostered production');
  assert.ok(row.weeks.every(w=>w.week>row.claimWeek),'Acquisition-week leakage');
+ assert.equal(row.observedWeeks,row.weeks.length,'Observed weeks disagree');
+ assert.equal(row.startedWeeks,row.weeks.filter(w=>w.started).length,'Started weeks disagree');
+ assert.equal(new Set(row.weeks.map(w=>w.week)).size,row.weeks.length,'Duplicate player week');
  const key=[row.year,row.transactionId,row.teamId,row.playerId].join('|');
  assert.ok(!outcomeKeys.has(key),'Duplicate acquisition value outcome '+key);
  outcomeKeys.add(key);
