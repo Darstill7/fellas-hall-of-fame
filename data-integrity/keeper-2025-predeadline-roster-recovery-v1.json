@@ -1,0 +1,41 @@
+{
+  "schema": "fellas-2025-keeper-predeadline-roster-recovery-v1",
+  "status": "historical_roster_evidence_only_not_keeper_deadline_eligibility",
+  "priorLeague": {
+    "platform": "Sleeper",
+    "season": 2024,
+    "leagueId": "1134248931308802048"
+  },
+  "keeperDraft": {
+    "season": 2025,
+    "leagueId": "1181421235163095040",
+    "keeperSelections": 20
+  },
+  "checks": [
+    {
+      "week": 14,
+      "teamRostersChecked": 10,
+      "keepersFoundOnOriginalManagerRoster": 19,
+      "notPresent": [
+        "Jared Goff (Kuhl)"
+      ],
+      "nameNormalization": "Brian Robinson Jr. and Brian Thomas Jr. were present; exact-name matching falsely excluded them"
+    },
+    {
+      "week": 17,
+      "teamRostersChecked": 10,
+      "keepersFoundOnOriginalManagerRoster": 20,
+      "notPresent": [],
+      "matching": "Provider player ID matched against 2025 confirmed keeper draft player ID"
+    }
+  ],
+  "limitations": [
+    "The 2024 Week 17 roster is a historical observation, not necessarily the roster at the 2025 keeper deadline.",
+    "Evidence does not establish keeper eligibility, retention deadlines, keeper round penalties, or the entire eligible alternative pool.",
+    "Preliminary source checks were performed through connected Sleeper historical roster reads; full raw provider responses are not committed.",
+    "No manager's Keeper Decision grade or Overall Keeper Value is authorized by these checks."
+  ],
+  "keeperDeadlineRosterVerified": false,
+  "eligibleAlternativePoolVerified": false,
+  "keeperDecisionGradesCertified": 0
+}
