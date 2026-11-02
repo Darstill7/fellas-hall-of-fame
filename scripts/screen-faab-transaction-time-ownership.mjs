@@ -26,6 +26,7 @@ for(let year=2020;year<=2026;year++){
  for(const claim of outcomes.observations.filter(x=>x.year===year)){
   const tx=txById.get(String(claim.transactionId));
   assert.ok(tx&&tx.status==='complete','Missing completed acquisition receipt: season='+year+' week='+claim.week+' transactionId='+claim.transactionId+' playerId='+claim.playerId+' teamId='+claim.teamId+' receiptFound='+Boolean(tx)+' receiptStatus='+(tx?.status??'missing'));
+  assert.ok(Number.isFinite(tx.timestamp),'Completed transaction missing timestamp '+year+'/'+claim.transactionId);
   const prior=(byYear.get(year)??[]).filter(i=>i.playerId===claim.playerId&&
    i.startTimestamp<tx.timestamp&&(i.endTimestamp===null||i.endTimestamp>=tx.timestamp));
   const other=prior.filter(i=>i.teamId!==claim.teamId);
