@@ -5,6 +5,14 @@ import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const seasons=read('data-integrity/sleeper-season-rule-matrix-2020-2026.json').seasons;
 const draft=read('data/v9_draft_engine.json');
+const providerAudit=read('data-integrity/keeper-era-provider-draft-audit-2023-2024.json');
+for(const s of providerAudit.seasons){
+ assert.ok([2023,2024].includes(s.year));
+ assert.equal(s.picks,150);
+ assert.equal(s.providerPicksWithKeeperFieldAbsent,150);
+ assert.equal(s.providerPicksWithKeeperTrue+s.providerPicksWithKeeperFalse,0);
+ assert.equal(s.keeperParticipation,'unknown');
+}
 const coverage=[];
 for(const rule of seasons){
  const rows=draft.filter(x=>x.year===rule.year);
@@ -12,13 +20,13 @@ for(const rule of seasons){
  assert.ok(rows.every(x=>typeof x.keeper==='boolean'),'Unknown keeper flag in '+rule.year);
  const flagged=rows.filter(x=>x.keeper);
  if(rule.year<2023)assert.equal(flagged.length,0,'Pre-2023 keeper falsely attributed: '+rule.year);
- if(!rule.keepersEnabled)assert.equal(flagged.length,0,'Keeper on season with no active keepers');
+ if(rule.keepersEnabled===false)assert.equal(flagged.length,0,'Keeper on season with confirmed no keepers');
  if(flagged.length)assert.ok(rule.keepersEnabled,'Keeper flag without keeper era');
  coverage.push({year:rule.year,keeperRulesActive:rule.keepersEnabled,
   providerConfiguredKeeperMaximum:rule.maxKeepers,
   archivedDraftPicks:rows.length,archivedKeeperFlaggedPicks:flagged.length,
   keeperUseObservedInDraftArchive:flagged.length>0,
-  keeperUseStatus:rule.year<2023?'confirmed_not_used':
+  keeperUseStatus:rule.year<2023?'confirmed_not_used':rule.year<=2024?'unknown_original_provider_flag_absent':
     flagged.length?'observed_in_draft_archive':'not_established_by_draft_flags',
   keeperEffectOnDraftGrade:'keeper_rows_excluded_from_draft_performance',
   archivedFlagCoverageNotProofOfNoKeepers:true});
