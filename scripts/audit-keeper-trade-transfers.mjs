@@ -1,7 +1,7 @@
 // Verify flagged keeper transfers against completed provider trades, without assigning post-transfer production.
 import fs from 'node:fs';import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
-const norm=s=>String(s).toLowerCase().replace(/\\b(jr|sr|ii|iii|iv)\\b/g,'').replace(/[^a-z0-9]/g,'');
+const norm=s=>String(s).toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b/g,'').replace(/[^a-z0-9]/g,'');
 const keeper=read('data/v9_draft_engine.json').filter(p=>[2025,2026].includes(p.year)&&p.keeper);
 const rows=[];
 for(const year of [2025,2026]){
@@ -32,5 +32,5 @@ const report={schema:'fellas-keeper-trade-transfer-inventory-v1',
  '2026 is a partial season with only archived weeks 1–8 here.'],rows};
 const path='data-integrity/keeper-trade-transfer-inventory-v1.json';
 if(process.argv.includes('--check'))assert.deepEqual(read(path),report);
-else fs.writeFileSync(path,JSON.stringify(report,null,2)+'\\n');
+else fs.writeFileSync(path,JSON.stringify(report,null,2)+'\n');
 console.log('Keeper transfers PASS: '+rows.length+' picks, '+rows.filter(r=>r.markedTraded).length+' traded keeper picks');
