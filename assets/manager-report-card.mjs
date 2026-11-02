@@ -1,6 +1,6 @@
 // Manager Report Card v1 — category scores from documented archived evidence.
 // Waiver and start/sit remain unrated until full decision-level source coverage exists.
-export const WEIGHTS={drafting:15,trading:15,regular:10,allPlay:10,championships:20,finals:8,playoffs:12,waivers:5,lineups:5};
+export const WEIGHTS={drafting:12,trading:13,keepers:5,regular:10,allPlay:10,championships:20,finals:8,playoffs:12,waivers:5,lineups:5};
 const round=n=>Math.round(n*10)/10,clamp=n=>Math.max(0,Math.min(100,n));
 const mean=a=>a.reduce((s,v)=>s+v,0)/a.length;
 const percentile=(x,xs)=>xs.length?100*(xs.filter(y=>y<x).length+.5*xs.filter(y=>y===x).length)/xs.length:50;
@@ -29,12 +29,12 @@ export function makeReportCards({drafts,trades,careers,luck,waivers,endings,brac
   const allPlay=round(clamp(100*(a.expectedWins+7)/(a.games+14)));
   const post=postseasonReport(name,endings);
   const playoff=playoffRecord(name,brackets,guide,espn);
-  const scores={championships:post.scores.championships,finals:post.scores.finals,playoffs:playoff.score,drafting:draft,trading:trade,regular,allPlay,waivers:null,lineups:null};
+  const scores={championships:post.scores.championships,finals:post.scores.finals,playoffs:playoff.score,drafting:draft,trading:trade,regular,allPlay,waivers:null,lineups:null,keepers:null};
   const supported=Object.entries(scores).filter(([,score])=>score!==null);
   const availableWeight=supported.reduce((s,[k])=>s+WEIGHTS[k],0);
   const provisional=round(supported.reduce((s,[k,v])=>s+WEIGHTS[k]*v,0)/availableWeight);
   const dataCoverage=round(100*availableWeight/100);
   const evidenceStatus=dataCoverage>=90?'Substantial':dataCoverage>=65?'Partial':'Limited';
-  return {name,provisional,scores,availableWeight,evidence:{gradedWeight:dataCoverage,ungradedWeight:round(100-dataCoverage),status:evidenceStatus,notAStatisticalConfidenceInterval:true},coverage:{verifiedChampionships:post.titles,verifiedRunnersUp:post.runners,championshipGameAppearances:post.finalsAppearances,minimumPlayoffs:post.minimumPlayoffs,playoffVerified:playoff.qualified,playoffEligible:playoff.eligible,playoffByes:playoff.byes,playoffRecencyScore:playoff.score,draftPicks:dr.length,verifiedTradeSides:tr.length,waiverHighlights:(waivers.managers[name==='Thommy'?'Tom':name]||[]).length,careerGames:c.games},ungraded:['waivers','lineups'],scope:'Provisional score from graded categories only; not a complete manager-skill grade.'};
+  return {name,provisional,scores,availableWeight,evidence:{gradedWeight:dataCoverage,ungradedWeight:round(100-dataCoverage),status:evidenceStatus,notAStatisticalConfidenceInterval:true},coverage:{verifiedChampionships:post.titles,verifiedRunnersUp:post.runners,championshipGameAppearances:post.finalsAppearances,minimumPlayoffs:post.minimumPlayoffs,playoffVerified:playoff.qualified,playoffEligible:playoff.eligible,playoffByes:playoff.byes,playoffRecencyScore:playoff.score,draftPicks:dr.length,verifiedTradeSides:tr.length,keeperDecisionGradeStatus:'ungraded_pending_verified_cost_and_opportunity_set',keeperCategoryEligibleSeasons:[2025,2026],waiverHighlights:(waivers.managers[name==='Thommy'?'Tom':name]||[]).length,careerGames:c.games},ungraded:['waivers','lineups','keepers'],scope:'Provisional score from graded categories only; not a complete manager-skill grade.'};
  }).sort((a,b)=>b.provisional-a.provisional||a.name.localeCompare(b.name)).map((x,i)=>({...x,rank:i+1}));
 }
