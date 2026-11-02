@@ -1,0 +1,101 @@
+{
+  "schema": "fellas-league-eligibility-evidence-v1",
+  "source": "Connected Sleeper league settings via Flaim Fantasy get_league_info, season 2026",
+  "leagueId": "1340027406009761792",
+  "season": 2026,
+  "rosterPositions": [
+    "QB",
+    "RB",
+    "RB",
+    "WR",
+    "WR",
+    "TE",
+    "FLEX",
+    "FLEX",
+    "DEF",
+    "BN",
+    "BN",
+    "BN",
+    "BN",
+    "BN",
+    "BN"
+  ],
+  "scoring": {
+    "receptionPoints": 0.5,
+    "passingTouchdownPoints": 4,
+    "passingYardsPoints": 0.04,
+    "rushingYardsPoints": 0.1,
+    "receivingYardsPoints": 0.1
+  },
+  "observedConfiguration": {
+    "totalRosters": 10,
+    "maxKeepers": 2,
+    "tradeDeadlineWeek": 11,
+    "tradesDisabled": false,
+    "pickTrading": false,
+    "taxiSlots": 0,
+    "reserveSlots": 1
+  },
+  "eligibility": {
+    "flexPermittedPlayerPositions": null,
+    "benchReserveAvailabilityRules": null,
+    "waiverProcessingPriority": null,
+    "waiverClearTime": null,
+    "waiverHoldDays": null,
+    "faabStartingBudget": null,
+    "faabTieBreaker": null,
+    "weeklyLockPolicy": null,
+    "playerClaimableAtTransactionTimestamp": null
+  },
+  "historicalSeasons": [
+    {
+      "year": 2020,
+      "sourceVerifiedSeasonRules": false,
+      "rosterPositions": null,
+      "waiverRules": null,
+      "faabBudget": null
+    },
+    {
+      "year": 2021,
+      "sourceVerifiedSeasonRules": false,
+      "rosterPositions": null,
+      "waiverRules": null,
+      "faabBudget": null
+    },
+    {
+      "year": 2022,
+      "sourceVerifiedSeasonRules": false,
+      "rosterPositions": null,
+      "waiverRules": null,
+      "faabBudget": null
+    },
+    {
+      "year": 2023,
+      "sourceVerifiedSeasonRules": false,
+      "rosterPositions": null,
+      "waiverRules": null,
+      "faabBudget": null
+    },
+    {
+      "year": 2024,
+      "sourceVerifiedSeasonRules": false,
+      "rosterPositions": null,
+      "waiverRules": null,
+      "faabBudget": null
+    },
+    {
+      "year": 2025,
+      "sourceVerifiedSeasonRules": false,
+      "rosterPositions": null,
+      "waiverRules": null,
+      "faabBudget": null
+    }
+  ],
+  "notes": [
+    "Exact 2026 roster position slots and scoring settings were returned by provider connector; FLEX position eligibility is not expressly enumerated by this record.",
+    "Week 11 trade deadline is a configuration value, not a verified effective timestamp.",
+    "Observed accepted waivers and bids cannot determine waiver tie-break rules, a historical starting FAAB budget or whether other players were claimable.",
+    "Historical season rules must be obtained separately and must not inherit current league settings.",
+    "Unknown rules use null rather than zero, false, or default assumptions."
+  ]
+}
