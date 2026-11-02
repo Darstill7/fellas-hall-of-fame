@@ -68,4 +68,4 @@ const report={schema:'fellas-interval-roster-corroboration-v1',
 const dest='data-integrity/faab-interval-roster-corroboration-v1.json';
 if(process.argv.includes('--check'))assert.deepEqual(read(dest),report,'Interval corroboration stale');
 else fs.writeFileSync(dest,JSON.stringify(report,null,2)+'\n');
-console.log('Ownership interval roster crosscheck',rows.length,'intervals;',supported,'supported player-weeks,',contradicted,'conflicting player-weeks');
+console.log('Ownership interval roster crosscheck',rows.length,'intervals;',coverage.reduce((n,r)=>n+r.observedAcquiringTeamPlayerWeeks,0),'supported player-weeks,',coverage.reduce((n,r)=>n+r.observedOtherTeamPlayerWeeks,0),'conflicting player-weeks');
