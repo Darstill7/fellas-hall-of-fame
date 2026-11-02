@@ -233,6 +233,9 @@ jobs:
       - name: Verify completed 2025 keeper releases and abandonment evidence
         run: node scripts/verify-2025-keeper-abandonment.mjs
 
+      - name: Verify archived 2025–26 keeper weekly ownership and original-team starting credit
+        run: node scripts/build-keeper-weekly-ownership-ledger.mjs
+
       - name: Audit all completed 2025 and 2026 keeper transfer receipts
         run: node scripts/audit-keeper-trade-transfers.mjs
 
@@ -313,6 +316,7 @@ jobs:
             data-integrity/keeper-opportunity-cost-context-v1.json
             data-integrity/keeper-draft-order-context-v1.json
             data-integrity/keeper-2025-realized-contribution-v1.json
+            data-integrity/keeper-weekly-ownership-ledger-v1.json
             data-integrity/keeper-2025-abandonment-receipts-v1.json
             data-integrity/keeper-trade-transfer-inventory-v1.json
             data-integrity/keeper-2025-postseason-verification-v1.json
