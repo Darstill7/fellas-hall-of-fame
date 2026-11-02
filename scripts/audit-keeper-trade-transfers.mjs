@@ -14,11 +14,13 @@ for(const year of [2025,2026]){
  for(const k of keeper.filter(p=>p.year===year)){
   const trades=[...unique.values()].filter(t=>(t.added??[]).some(p=>norm(p.name)===norm(k.player)))
    .sort((a,b)=>a.timestamp-b.timestamp);
-  if(k.traded_same_season)assert.ok(trades.length,'Keeper marked traded lacks completed provider trade: '+year+'/'+k.player);
+  const originalManagerParticipated=trades.some(t=>t.teamIds.map(String).includes(String(k.team_id)));
+  if(k.traded_same_season)assert.ok(originalManagerParticipated,'Keeper marked traded lacks original-manager completed trade: '+year+'/'+k.player);
   // A previously unflagged completed trade is a discovered archive discrepancy, not a reason to discard the audit.
   // Preserve it in the research output for reconciliation rather than assuming the draft flag is infallible.
   rows.push({year,manager:k.manager==='Tom'?'Thommy':k.manager,player:k.player,originalTeamId:String(k.team_id),
-   markedTraded:k.traded_same_season,flagConsistentWithReceipts:k.traded_same_season===(trades.length>0),observedCompletedTrades:trades.map(t=>({
+   markedTraded:k.traded_same_season,flagConsistentWithReceipts:k.traded_same_season===originalManagerParticipated,
+   originalManagerParticipatedInTrade:originalManagerParticipated,observedCompletedTrades:trades.map(t=>({
     transactionId:String(t.transactionId),week:t.sourceWeek,date:t.date,
     teamIds:t.teamIds.map(String),playerId:String(t.added.find(p=>norm(p.name)===norm(k.player)).id)
    })),postTradeKeeperPointsCertified:false});
@@ -30,6 +32,7 @@ const report={schema:'fellas-keeper-trade-transfer-inventory-v1',
  discrepancies:rows.filter(x=>!x.flagConsistentWithReceipts).map(x=>({year:x.year,manager:x.manager,player:x.player,markedTraded:x.markedTraded,observedTradeCount:x.observedCompletedTrades.length})),
  warnings:['A trade receipt verifies a transfer involving the keeper but does not by itself identify the receiving team from the flat added/dropped list.',
  'Multiple trades are preserved; do not impose a single permanent cutoff if a keeper returns.',
+ 'A keeper traded by a later owner does not imply the original keeper manager traded that player.',
  'Draft-engine original-team starter points may be used as original manager contribution only after per-week team-roster identity validation.',
  '2026 is a partial season with only archived weeks 1–8 here.'],rows};
 const path='data-integrity/keeper-trade-transfer-inventory-v1.json';
