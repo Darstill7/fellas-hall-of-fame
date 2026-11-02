@@ -206,6 +206,9 @@ jobs:
       - name: Summarize completed 2025 keeper production by manager
         run: node scripts/summarize-2025-keeper-contribution.mjs
 
+      - name: Validate 2025 keeper FLEX roster demand from archived weekly starters
+        run: node scripts/audit-2025-keeper-flex-demand.mjs
+
       - name: Analyze keeper position peers without declaring replacement value
         run: node scripts/analyze-keeper-2025-position-peers.mjs
 
@@ -289,6 +292,7 @@ jobs:
             data-integrity/keeper-opportunity-cost-context-v1.json
             data-integrity/keeper-draft-order-context-v1.json
             data-integrity/keeper-2025-realized-contribution-v1.json
+            data-integrity/keeper-2025-flex-starter-demand-v1.json
             data-integrity/keeper-2025-position-peer-context-v1.json
             data-integrity/keeper-2025-round-peer-production-v1.json
             data-integrity/keeper-2025-verified-starts-v1.json
