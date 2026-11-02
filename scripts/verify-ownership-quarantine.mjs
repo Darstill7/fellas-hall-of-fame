@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 const src=fs.readFileSync('scripts/build-faab-ownership-events.mjs','utf8');
 for(const term of [
  'const owner=new Map(),tainted=new Set()',
+ "tx.filter(x=>x.status==='complete')",
  'owner.delete(String(p.id));tainted.add(String(p.id))',
  "status='simultaneous_processing_uncertain';owner.delete(pid);tainted.add(pid)",
  "status='prior_ownership_invalidated'",
