@@ -25,7 +25,9 @@ for(const k of keepers){
   if(matches.length!==1){missingTeam++;ambiguities.push({week:w.week,issue:'team_roster_missing_or_duplicated'});continue;}
   const roster=matches[0];
   const entries=[...(roster.starters??[]).map(p=>({...p,slot:'starter'})),...(roster.bench??[]).map(p=>({...p,slot:'bench'}))];
-  const found=entries.filter(p=>norm(p.name)===norm(k.player));
+  // Favor exact full-name matches; normalized names are a fallback only.
+  const exact=entries.filter(p=>p.name===k.player);
+  const found=exact.length?exact:entries.filter(p=>norm(p.name)===norm(k.player));
   if(found.length>1){ambiguities.push({week:w.week,issue:'duplicate_player_name_on_roster'});continue;}
   if(!found.length){absent++;continue;}
   const p=found[0];
