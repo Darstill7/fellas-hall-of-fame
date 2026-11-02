@@ -12,9 +12,9 @@ for(const year of [2025,2026]){
  for(const p of picks){
   assert.ok(p.player&&p.manager&&p.overall>0&&p.round>0,'Keeper draft receipt incomplete');
   rows.push({year,manager:p.manager==='Tom'?'Thommy':p.manager,player:p.player,position:p.position,
-   draftCostRound:p.round,draftSlot:p.overall,startedRegularPoints:p.reg_starter_points,
+   draftCostRound:p.round,draftSlot:p.overall,seasonComplete:year===2025,startedRegularPoints:p.reg_starter_points,
    regularStarts:p.reg_starts,playoffStarterPoints:p.playoff_starter_points,
-   tradeOccurred:p.traded_same_season,reportedSeasonContribution:p.reg_starter_points+p.playoff_starter_points,
+   tradeOccurred:p.traded_same_season,observedToDateContribution:p.reg_starter_points+p.playoff_starter_points,contributionStatus:year===2025?'archived_completed_season':'in_progress_partial_observation',
    opportunityCostAtSelection:null,exAnteAlternativeValue:null,keeperDecisionValue:null,overallKeeperValue:null,
    grade:null,gradeStatus:'not_certified_pending_ex_ante_alternative_and_slot_cost'});
  }
@@ -22,11 +22,17 @@ for(const year of [2025,2026]){
   costAdjustedKeeperValuesCertified:0,managerGradesCertified:0});
 }
 assert.equal(rows.length,40,'Keeper selection archive size changed');
+const managers=[...new Set(rows.map(r=>r.manager))].sort().map(manager=>({manager,
+  keeperSelections:rows.filter(r=>r.manager===manager).length,
+  completedSeasonKeeperSelections:rows.filter(r=>r.manager===manager&&r.seasonComplete).length,
+  decisionGrade:null,overallKeeperValue:null,
+  status:'not_certified_cost_and_alternatives_missing'}));
 const result={schema:'fellas-keeper-decision-value-research-v1',
  status:'research_only_not_keeper_grade',
  interpretation:'Overall Keeper Value should combine actual benefit, cost of forfeited draft position, and contemporaneous alternative choices. Raw started points are only observed contribution and are not keeper decision value.',
- coverage,rows};
+ coverage,managers,rows};
 const path='data-integrity/keeper-decision-value-research-v1.json';
 if(process.argv.includes('--check'))assert.deepEqual(read(path),result,'Keeper decision report stale');
-else fs.writeFileSync(path,JSON.stringify(result,null,2)+'\n');
+else fs.writeFileSync(path,JSON.stringify(result,null,2)+'
+');
 console.log('Keeper decision research:',rows.length,'keeper selections, zero unverified grades');
