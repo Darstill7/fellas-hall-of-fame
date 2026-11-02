@@ -215,9 +215,6 @@ jobs:
       - name: Validate all historical Sleeper season roster and keeper rules
         run: node scripts/verify-sleeper-season-rules.mjs
 
-      - name: Check ex ante replacement eligibility and comparison evidence
-        run: node scripts/audit-faab-replacement-readiness.mjs
-
       - name: Compute research-only cost-normalized FAAB metrics
         run: node scripts/analyze-faab-cost-normalized.mjs
       - name: Enforce FAAB cost-evidence grade gate
@@ -241,6 +238,9 @@ jobs:
 
       - name: Audit FAAB scoring against independent ownership evidence
         run: node scripts/audit-faab-outcome-ownership.mjs
+
+      - name: Check ex ante replacement eligibility and comparison evidence
+        run: node scripts/audit-faab-replacement-readiness.mjs
 
       - name: Summarize season and manager FAAB evidence coverage
         run: node scripts/summarize-faab-evidence-coverage.mjs
