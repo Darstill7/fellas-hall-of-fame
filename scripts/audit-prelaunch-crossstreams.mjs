@@ -42,9 +42,16 @@ for(const season of keeper.seasons)if(season.keepersEnabled!==(season.year>=2025
 const records=read('v9_draft_engine');
 for(const entry of records)if(entry.year<2025&&entry.keeper===true)
  issues.push({type:'keeper_before_2025',year:entry.year});
+const trade=read('v9_trade_engine');
+const verifiedTradeSides=trade.sides.filter(x=>!x.provisional&&typeof x.confidence==='string'&&x.confidence.startsWith('verified')&&Number.isFinite(x.direct_edge)).length;
+if(verifiedTradeSides===0)issues.push({type:'no_verified_trade_sides'});
+for(const year of [2025,2026]){
+ const count=records.filter(x=>x.year===year&&x.keeper).length;
+ if(count!==20)issues.push({type:'keeper_season_count_changed',year,count,expected:20});
+}
 const report={schema:'fellas-prelaunch-crossstream-audit-v1',status:issues.length?'requires_review':'structural_checks_passed',
  limitations:['Structural checks cannot prove visual quality on actual devices.','OVR and report-card preview are separate measures and must not be silently equated.','Keeper value and waiver skill are not scored until evidence certification.'],
- coverage:{currentManagerProfiles:rows.length,keeperEraFirstYear:2025,verifiedKeeperSelections:records.filter(x=>x.keeper).length,issues:issues.length},
+ coverage:{currentManagerProfiles:rows.length,keeperEraFirstYear:2025,verifiedKeeperSelections:records.filter(x=>x.keeper).length,verifiedTradeSides,issues:issues.length},
  rows,issues};
 const dest='data-integrity/prelaunch-crossstream-audit-v1.json';
 fs.writeFileSync(dest,JSON.stringify(report,null,2)+'\n');
