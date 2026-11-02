@@ -3,6 +3,7 @@
 // sequencing may be missing. Never certify the unowned free-agent pool from this.
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
+import {ownershipTimestampConflicts,ambiguousPlayerIds} from './faab-timestamp-conflicts.mjs';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const ranges=[[2020,18],[2021,18],[2022,18],[2023,18],[2024,18],[2025,18],[2026,8]];
 const rows=[],coverage=[];
@@ -15,18 +16,11 @@ for(const [year,lastWeek] of ranges){
  }
  tx.sort((a,b)=>a.timestamp-b.timestamp||a.transactionId.localeCompare(b.transactionId));
  let unsupportedTrades=0,ambiguousTies=0;
- const timestampCounts=new Map();
- // Only overlapping player actions can create an ownership-sequencing conflict.
- // Unrelated completed claims processed in one batch do not taint each other.
- for(const x of tx.filter(x=>x.status==='complete')){
-  const ids=new Set([...(x.added??[]),...(x.dropped??[])].map(p=>String(p.id)));
-  for(const id of ids){const key=x.timestamp+'|'+id;timestampCounts.set(key,(timestampCounts.get(key)??0)+1);}
- }
+ const timestampCounts=ownershipTimestampConflicts(tx);
  const owner=new Map(),tainted=new Set();
  for(const t of tx){
   if(t.status!=='complete')continue;
-  const affectedIds=new Set([...(t.added??[]),...(t.dropped??[])].map(p=>String(p.id)));
-  const ambiguousIds=new Set([...affectedIds].filter(id=>timestampCounts.get(t.timestamp+'|'+id)>1));
+  const ambiguousIds=ambiguousPlayerIds(t,timestampCounts);
   if(ambiguousIds.size)ambiguousTies++;
   if(t.type==='trade'){
    unsupportedTrades++;
