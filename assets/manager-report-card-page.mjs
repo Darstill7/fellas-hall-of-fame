@@ -2,8 +2,8 @@ import {makeReportCards} from './manager-report-card.mjs';
 import {scoutingProfile} from './manager-scouting-profile.mjs';
 const targets=['manager_acquisition_distinct_v1.json','manager_acquisition_coverage_v1.json','v9_draft_engine.json','v9_trade_engine.json','career_core_generated.json','all_time_luck_ratings_v1.json','waiver_award_candidates.json','manager_verified_season_endings_v1.json','verified_sleeper_playoff_brackets_2020_2025.json','season_guide.json','verified_espn_playoff_brackets_2016_2019.json'];
 const esc=v=>String(v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[ch]));
-const categoryEvidence=k=>['drafting','trading'].includes(k)?'Provisional outcome': ['waivers','lineups'].includes(k)?'Not yet rated':'Verified results';
-const labels={drafting:'Drafting',trading:'Trading',championships:'Championships',finals:'Runner-up finishes',playoffs:'Playoff qualification',regular:'Winning',allPlay:'All-play',waivers:'Free agency / waivers',lineups:'Start / sit'};
+const categoryEvidence=k=>['drafting','trading'].includes(k)?'Provisional outcome': ['waivers','lineups','keepers'].includes(k)?'Not yet rated':'Verified results';
+const labels={drafting:'Drafting',trading:'Trading',championships:'Championships',finals:'Runner-up finishes',playoffs:'Playoff qualification',regular:'Winning',allPlay:'All-play',waivers:'Free agency / waivers',lineups:'Start / sit',keepers:'Keeper decision'};
 try {
  const [distinctCoverage,acquisitionCoverage,drafts,trades,careers,luck,waivers,endings,brackets,guide,espn]=await Promise.all(targets.map(async p=>{const r=await fetch('../data/'+p);if(!r.ok)throw Error('Could not load '+p);return r.json()}));
  const rows=makeReportCards({drafts,trades,careers,luck,waivers,endings,brackets,guide,espn});
