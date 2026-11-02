@@ -31,6 +31,7 @@ const rows=weekly.rows.map(k=>{
   samePositionNonkeeperMedian:b.observedNonkeeperPositionMedianStartedPoints,
   samePositionObservedDifference:b.descriptiveDifferenceFromPositionMedian,
   verifiedPlayoffStartedPoints:proof.verifiedPoints,
+  verifiedCombinedStartedPoints:round(k.verifiedStartedPoints+proof.verifiedPoints),
   playoffIndividualScoringVerified:true,
   rosterEligibleAlternativesVerified:false,
   exAnteDraftCostOpportunityValue:null,
@@ -45,10 +46,14 @@ const managers=[...new Set(rows.map(x=>x.manager))].sort().map(manager=>{
   expectedPointsAtObservedLeagueStarterMedians:round(picks.reduce((s,x)=>s+x.correspondingObservedStarterMedianPoints,0)),
   descriptiveDifferenceFromLeagueStarterMedians:round(picks.reduce((s,x)=>s+x.differenceFromObservedStarterMedians,0)),
   verifiedPlayoffStarterPoints:round(picks.reduce((s,x)=>s+x.verifiedPlayoffStartedPoints,0)),
+  verifiedCombinedStartedPoints:round(picks.reduce((s,x)=>s+x.verifiedCombinedStartedPoints,0)),
   opportunityCostCertified:false,postseasonPlayerProductionCertified:true,
   keeperValue:null,keeperDecisionGrade:null};
 }).sort((a,b)=>b.descriptiveDifferenceFromLeagueStarterMedians-a.descriptiveDifferenceFromLeagueStarterMedians);
 assert.equal(managers.length,10);assert.equal(rows.length,20);
+for(const manager of managers){
+ assert.ok(Math.abs(manager.verifiedCombinedStartedPoints-round(manager.verifiedRegularStarterPoints+manager.verifiedPlayoffStarterPoints))<.011);
+}
 assert.equal(managers.reduce((a,b)=>a+b.totalStartedWeeks,0),rows.reduce((a,b)=>a+b.starts,0));
 const result={schema:'fellas-2025-keeper-composite-evidence-v1',
  status:'verified_regular_starts_observational_comparisons_uncertified_keeper_value',
