@@ -4,12 +4,16 @@ import fs from 'node:fs';import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const certified=read('data-integrity/keeper-2025-verified-starts-v1.json');
 const context=read('data-integrity/keeper-2025-weekly-starter-context-v1.json');
+const draft=read('data/v9_draft_engine.json').filter(p=>p.year===2025&&p.keeper);
 assert.equal(certified.rows.length,20);
 const medianByWeek=new Map(context.weeks.map(w=>[w.week,w.positions]));
 const round=n=>Math.round(n*100)/100;
 const rows=certified.rows.map(k=>{
+ const matches=draft.filter(p=>(p.manager==='Tom'?'Thommy':p.manager)===k.manager&&p.player===k.player);
+ assert.equal(matches.length,1,'Missing keeper draft position '+k.manager+'/'+k.player);
+ const position=matches[0].position;
  const weeks=k.receipts.map(r=>{
-  const p=medianByWeek.get(r.week)?.[k.position];
+  const p=medianByWeek.get(r.week)?.[position];
   assert.ok(p&&Number.isFinite(p.medianStarterPoints),'Missing positional benchmark '+k.player+'/'+r.week);
   assert.ok(Number.isFinite(r.points));
   return {week:r.week,actualStartedPoints:r.points,observedLeagueStarterMedian:p.medianStarterPoints,
@@ -18,7 +22,7 @@ const rows=certified.rows.map(k=>{
  });
  assert.equal(weeks.length,k.regularStarts);
  assert.ok(Math.abs(round(weeks.reduce((s,w)=>s+w.actualStartedPoints,0))-k.verifiedRegularStartedPoints)<.011);
- return {manager:k.manager,player:k.player,round:k.round,position:k.position,
+ return {manager:k.manager,player:k.player,round:k.round,position,
   verifiedStarts:weeks.length,verifiedStartedPoints:k.verifiedRegularStartedPoints,
   observedMedianDifferenceTotal:round(weeks.reduce((s,w)=>s+w.differenceFromObservedStarterMedian,0)),
   weeklyEvidence:weeks,actualWaiverReplacementValue:null,keeperDecisionGrade:null};
