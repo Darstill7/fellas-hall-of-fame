@@ -35,7 +35,7 @@
       "startingFaabBudget": null,
       "freeAgentClaimEligibility": null,
       "keepersEnabled": false,
-      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
+      "keeperParticipationSource": "League owner confirmation: no keepers through 2024"
     },
     {
       "year": 2021,
@@ -70,7 +70,7 @@
       "startingFaabBudget": null,
       "freeAgentClaimEligibility": null,
       "keepersEnabled": false,
-      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
+      "keeperParticipationSource": "League owner confirmation: no keepers through 2024"
     },
     {
       "year": 2022,
@@ -105,7 +105,7 @@
       "startingFaabBudget": null,
       "freeAgentClaimEligibility": null,
       "keepersEnabled": false,
-      "keeperParticipationSource": "League owner confirmation: no keepers before 2023"
+      "keeperParticipationSource": "League owner confirmation: no keepers through 2024"
     },
     {
       "year": 2023,
@@ -139,8 +139,8 @@
       "waiverTieBreaker": null,
       "startingFaabBudget": null,
       "freeAgentClaimEligibility": null,
-      "keepersEnabled": null,
-      "keeperParticipationSource": "Unresolved: league owner uncertain; 150 provider draft picks lack keeper-status fields"
+      "keepersEnabled": false,
+      "keeperParticipationSource": "League owner confirmation: no keepers through 2024"
     },
     {
       "year": 2024,
@@ -174,8 +174,8 @@
       "waiverTieBreaker": null,
       "startingFaabBudget": null,
       "freeAgentClaimEligibility": null,
-      "keepersEnabled": null,
-      "keeperParticipationSource": "Unresolved: league owner uncertain; 150 provider draft picks lack keeper-status fields"
+      "keepersEnabled": false,
+      "keeperParticipationSource": "League owner confirmation: no keepers through 2024"
     },
     {
       "year": 2025,
@@ -253,6 +253,6 @@
     "Season-specific starting lineups are verified; FLEX eligible underlying positions and historical reserve move eligibility are not explicitly provided.",
     "Historical waiver processing and FAAB settings remain unverified; unknown is represented by null.",
     "A trade-deadline week number does not establish its exact local timestamp.",
-    "2023–2024 keeper participation is UNKNOWN, despite configured maxKeepers=2; provider draft response omitted isKeeper on all 150 picks for each season."
+    "League owner confirms keeper participation did not begin until 2025, despite configured maxKeepers=2 in 2023–2024. The provider draft keeper field was absent in those seasons; preserve that raw-source limitation."
   ]
 }
