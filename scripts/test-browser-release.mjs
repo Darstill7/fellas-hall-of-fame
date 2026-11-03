@@ -518,7 +518,7 @@ try{
       const summary=await seasonal.innerText();
       if(!summary.includes('Peak:')||!summary.includes('Lowest:')||!summary.includes('Average:'))errors.push(width+' '+route+' missing seasonal peak/low/average');
      }
-     const historical= madden.locator('details.profile-madden-history');
+     const historical= madden.locator('details.profile-madden-history:not(.profile-season-ovr)');
      if(await historical.count()!==1)errors.push(width+' '+route+' missing historical OVR journey');
      else if(await historical.locator('.profile-historical-table tbody tr').count()<1)errors.push(width+' '+route+' historical OVR journey is empty');
     }
