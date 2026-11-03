@@ -75,9 +75,13 @@ for(const week of weeks){
    'Recorded Week '+week+' starters do not fit QB/2RB/2WR/TE/2FLEX/DEF: '+manager);
   const best=optimize(pool);
   assert.ok(best!==null&&best+.07>=actual,'Infeasible optimal lineup Week '+week+'/'+manager);
+  // Sleeper matchup UI uses the arithmetic mean of weekly lineup efficiency.
+  // Preserve unrounded weekly ratios when computing the season average.
+  const weeklyAccuracyPercent=best>0?actual/best*100:null;
   rows.push({season:2026,week,teamId,manager,actualPoints:actual,recordedRosterOptimalPoints:round(best),
-   hindsightGap:round(Math.max(0,best-actual)),source:path,
-   status:'research_only_eligible_position_hindsight',officialStartSitGrade:null});
+   hindsightGap:round(Math.max(0,best-actual)),
+   weeklyStartSitAccuracyPercent:weeklyAccuracyPercent===null?null:round(weeklyAccuracyPercent),
+   source:path,status:'research_only_eligible_position_hindsight',officialStartSitGrade:null});
  }
 }
 const summaries=[...managers.values()].sort().map(manager=>{
@@ -88,11 +92,26 @@ const summaries=[...managers.values()].sort().map(manager=>{
  return {manager,observedWeeks:observations.length,recordedActualPoints:totalActual,
   recordedRosterOptimalPoints:totalOptimal,hindsightGap:round(totalOptimal-totalActual),
   averageGapPerWeek:round((totalOptimal-totalActual)/observations.length),
+  averageWeeklyStartSitAccuracyPercent:observations.every(r=>r.weeklyStartSitAccuracyPercent!==null)?
+   round(observations.reduce((n,r)=>n+r.weeklyStartSitAccuracyPercent,0)/observations.length):null,
+  aggregatePointsEfficiencyPercent:totalOptimal>0?round(totalActual/totalOptimal*100):null,
   officialStartSitGrade:null};
 });
 assert.equal(rows.length,10*weeks.length);
+// On 2026-11-03 the Sleeper matchup screen showed Stilly 92.4% and Kuhl 83.1%.
+// Validate the Week 1-8 reconstruction against these independent UI witnesses.
+// After Week 9, these exact snapshot percentages must no longer be treated as current.
+if(weeks.at(-1)===8){
+ assert.ok(Math.abs(summaries.find(r=>r.manager==='Stilly').averageWeeklyStartSitAccuracyPercent-92.4)<.051,
+  'Stilly Week 8 Sleeper start/sit benchmark changed');
+ assert.ok(Math.abs(summaries.find(r=>r.manager==='Kuhl').averageWeeklyStartSitAccuracyPercent-83.1)<.051,
+  'Kuhl Week 8 Sleeper start/sit benchmark changed');
+}
+
 const output={schema:'fellas-start-sit-2026-hindsight-v1',throughWeek:weeks.at(-1),
  status:'retrospective_scored_roster_comparison_not_decision_skill',
+ sleeperAccuracyMethod:'Unweighted arithmetic mean of weekly (actual lineup points / optimal scored roster lineup points × 100), rounded to one decimal for display; independent 2026 Week 8 UI witnesses Stilly 92.4 and Kuhl 83.1',
+
  limitations:['Full recorded starters and bench do not prove each benched player was startable before kickoff',
  'Injury or inactive status and lineup lock timestamps are not certified',
  'An optimal after-the-fact lineup is not a prospective fantasy decision or WAR',
