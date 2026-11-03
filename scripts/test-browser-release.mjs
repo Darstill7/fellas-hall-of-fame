@@ -106,8 +106,8 @@ try{
      const expected='../../analytics/manager-lineup-research.html?season=career&manager='+name;
      const links=page.locator('a[href*="manager-lineup-research.html?season=career"]');
      const count=await links.count();
-     if(count!==1||await links.first().getAttribute('href')!==expected.replace('&manager=','&manager=')
-        &&await links.first().getAttribute('href')!==expected.replace('&manager=','&amp;manager='))
+     const actual=count===1?(await links.first().getAttribute('href'))?.replaceAll('&amp;','&'):null;
+     if(count!==1||actual!==expected)
       errors.push(width+' '+route+' missing, duplicate, or misrouted Start/Sit career profile link');
     }
    }
