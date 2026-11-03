@@ -4,10 +4,13 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const exists=p=>fs.existsSync(p);
 const norm=s=>String(s??'').toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b/g,'').replace(/[^a-z0-9]/g,'');
 const picks=read('data/v9_draft_engine.json').filter(x=>x.keeper&&[2025,2026].includes(x.year));
+const archived2026Weeks=fs.readdirSync('data').map(name=>/^sleeper_roster_snapshots_2026_week([0-9]+)[.]json$/.exec(name)?.[1]).filter(Boolean).map(Number).sort((a,b)=>a-b);
+assert.ok(archived2026Weeks.length>=8&&archived2026Weeks.length<=14,'2026 regular season roster coverage outside supported range');
+for(let i=0;i<archived2026Weeks.length;i++)assert.equal(archived2026Weeks[i],i+1,'Noncontiguous 2026 keeper roster coverage');
 const rows=[],coverage=[];
 for(const year of [2025,2026]){
  const weeks=[];
- for(let week=1;week<=(year===2025?14:8);week++){
+ for(let week=1;week<=(year===2025?14:archived2026Weeks.at(-1));week++){
   const p=year===2025&&(week===1||week===7)?'data/war_rosters_2025_week'+week+'.json':'data/sleeper_roster_snapshots_'+year+'_week'+week+'.json';
   assert.ok(exists(p),'Missing weekly roster source '+p);
   const v=read(p);const rosters=Array.isArray(v)?v:v.rosters;
