@@ -113,21 +113,29 @@ try{
    }
    if(route==='analytics/manager-lineup-research.html'){
     // Run full DOM, fetch, event and responsive checks in both browser engines.
+    const completedWeek=await page.evaluate(async()=>{
+     const response=await fetch(new URL('../data/keeper_2026_website_research_v1.json',location.href));
+     if(!response.ok)throw Error('Missing completed-week metadata');
+     return (await response.json()).throughWeek;
+    });
+    if(!Number.isInteger(completedWeek)||completedWeek<8||completedWeek>14)
+     errors.push(width+' Start/Sit completed-week metadata invalid');
+
     const managerRows=page.locator('#results tr');
     if(await managerRows.count()!==10)
      errors.push(width+' Start/Sit page did not render ten 2026 managers');
     if(await page.locator('#season').inputValue()!=='2026')
      errors.push(width+' Start/Sit page did not default to 2026');
     const firstManager=await managerRows.first().innerText();
-    if(!firstManager.includes('Stilly')||!firstManager.includes('92.4%'))
-     errors.push(width+' Start/Sit 2026 ranking/benchmark mismatch');
+    if(completedWeek===8&&(!firstManager.includes('Stilly')||!firstManager.includes('92.4%')))
+     errors.push(width+' Start/Sit Week 8 ranking/benchmark mismatch');
     const stillyDetail=await page.locator('#detail-summary').innerText();
-    if(!stillyDetail.includes('92.4%'))
-     errors.push(width+' Start/Sit Stilly weekly summary mismatch');
-    if(await page.locator('#weekly-results tr').count()!==8)
-     errors.push(width+' Start/Sit should render eight completed Stilly weeks');
+    if(completedWeek===8&&!stillyDetail.includes('92.4%'))
+     errors.push(width+' Start/Sit Week 8 Stilly weekly summary mismatch');
+    if(await page.locator('#weekly-results tr').count()!==completedWeek)
+     errors.push(width+' Start/Sit weekly detail does not match completed-week count');
     await page.locator('#detail-manager').selectOption('2026|Kuhl');
-    if(!((await page.locator('#detail-summary').innerText()).includes('83.1%'))||
+    if((completedWeek===8&&!((await page.locator('#detail-summary').innerText()).includes('83.1%')))||
        !((await page.locator('#career-summary').innerText()).includes('Kuhl')))
      errors.push(width+' Start/Sit manager change failed to update weekly and career views');
     await page.goto(baseUrl+'analytics/manager-lineup-research.html?season=career&manager=Stilly',
