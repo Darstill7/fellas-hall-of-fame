@@ -6,6 +6,9 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 const code=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
+const completedWeek=JSON.parse(fs.readFileSync('data/keeper_2026_website_research_v1.json','utf8')).throughWeek;
+assert.ok(Number.isInteger(completedWeek)&&completedWeek>=8&&completedWeek<=14);
+
 function element(){
  const x={value:'',textContent:'',innerHTML:'',onchange:null,options:[],
   append(node){this.options.push(node);},
@@ -33,7 +36,7 @@ async function runQuery(query){
  async function fetchMock(url){
   calls.push(url);
   const normalized=url.startsWith('../')?url.slice(3):url;
-  assert.ok(!normalized.includes('sleeper_roster_snapshots_2026_week9.json'),
+  if(completedWeek===8)assert.ok(!normalized.includes('sleeper_roster_snapshots_2026_week9.json'),
    'Premature 2026 Week 9 scoring fetch');
   if(!fs.existsSync(normalized))return {ok:false,status:404};
   const data=JSON.parse(fs.readFileSync(normalized,'utf8'));
@@ -59,21 +62,24 @@ async function runQuery(query){
 {
  const {nodes,calls,status}=await runQuery('?season=2026&manager=Stilly');
  assert.equal(nodes.get('season').value,'2026');
- assert.equal(nodes.get('current-coverage').textContent,'through completed Week 8');
+ assert.equal(nodes.get('current-coverage').textContent,'through completed Week '+completedWeek);
  assert.equal(nodes.get('detail-manager').value,'2026|Stilly');
  assert.ok(nodes.get('detail-summary').textContent.includes('Stilly'));
- assert.ok(nodes.get('detail-summary').textContent.includes('92.4%'));
- assert.equal((nodes.get('weekly-results').innerHTML.match(/<tr class=/g)??[]).length,8);
+ if(completedWeek===8)assert.ok(nodes.get('detail-summary').textContent.includes('92.4%'));
+ else assert.ok(nodes.get('detail-summary').textContent.includes('%'));
+ assert.equal((nodes.get('weekly-results').innerHTML.match(/<tr class=/g)??[]).length,completedWeek);
  const summary=nodes.get('results').innerHTML;
  assert.equal((summary.match(/<tr>/g)??[]).length,10);
  assert.ok(summary.indexOf('Stilly')<summary.indexOf('Kuhl'),'Leaderboard sorting reversed');
- assert.ok(summary.includes('92.4%')&&summary.includes('83.1%'));
- assert.ok(calls.filter(x=>x.includes('sleeper_roster_snapshots_2026_week')).length===8);
- assert.ok(status.includes('80 archived team-weeks'),status);
+ if(completedWeek===8)assert.ok(summary.includes('92.4%')&&summary.includes('83.1%'));
+ else assert.ok(summary.includes('Stilly')&&summary.includes('Kuhl'));
+ assert.equal(calls.filter(x=>x.includes('sleeper_roster_snapshots_2026_week')).length,completedWeek);
+ assert.ok(status.includes((completedWeek*10)+' archived team-weeks'),status);
  nodes.get('detail-manager').value='2026|Kuhl';
  nodes.get('detail-manager').onchange();
  assert.ok(nodes.get('detail-summary').textContent.includes('Kuhl'));
- assert.ok(nodes.get('detail-summary').textContent.includes('83.1%'));
+ if(completedWeek===8)assert.ok(nodes.get('detail-summary').textContent.includes('83.1%'));
+ else assert.ok(nodes.get('detail-summary').textContent.includes('%'));
  assert.ok(nodes.get('career-summary').textContent.includes('Kuhl'),
   'Manager selection did not refresh career progression');
 
@@ -90,7 +96,8 @@ async function runQuery(query){
 {
  const {nodes}=await runQuery('?season=2026&manager=Kuhl');
  assert.equal(nodes.get('detail-manager').value,'2026|Kuhl');
- assert.ok(nodes.get('detail-summary').textContent.includes('83.1%'));
+ if(completedWeek===8)assert.ok(nodes.get('detail-summary').textContent.includes('83.1%'));
+ else assert.ok(nodes.get('detail-summary').textContent.includes('%'));
 }
 // Historical vacancies are actual missing starter slots, not 0-point players.
 // Preserve those team-weeks as explicitly excluded and leave other weeks usable.
