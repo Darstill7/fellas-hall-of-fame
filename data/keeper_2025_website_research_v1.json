@@ -13,7 +13,7 @@
     "The research index is not certified decision-time skill and does not affect public manager OVR.",
     "Regular season context uses original manager keeper starts only; positional starter medians are not waiver replacements.",
     "Championship starter points exclude consolation or placement games and do not infer points for byes.",
-    "Keeper abandonment incidents are evidence flags only; penalties are not assigned.",
+    "Keeper abandonment incidents now include verified transaction and replacement-usage context; numeric penalties are still withheld until the capped de-duplication rule is finalized.",
     "A final Keeper Decision grade requires keeper deadline eligibility, contemporaneous alternatives and de-duplicated abandonment evidence."
   ],
   "rows": [
@@ -185,7 +185,19 @@
       "verifiedDrops": [
         "Brian Robinson"
       ],
-      "officialKeeperDecisionGrade": null
+      "officialKeeperDecisionGrade": null,
+      "verifiedDropContext": [
+        {
+          "keeper": "Brian Robinson",
+          "receiptDate": "2025-09-24",
+          "week": 3,
+          "transactionId": "1276366260652736512",
+          "transaction": "$2 waiver: added Kareem Hunt, dropped Brian Robinson Jr.",
+          "replacementUsage": "Kareem Hunt remained on Birch's bench in Weeks 4–6 and 8, then started Week 9 for 12.0 points before being dropped in Week 10.",
+          "laterKeeperUsage": "No later 2025 roster/start evidence for Brian Robinson was found in the archived Week 4–14 snapshots.",
+          "penaltyStatus": "verified_context_no_numeric_penalty_yet"
+        }
+      ]
     },
     {
       "manager": "JMid",
@@ -243,7 +255,19 @@
       "verifiedDrops": [
         "Jared Goff"
       ],
-      "officialKeeperDecisionGrade": null
+      "officialKeeperDecisionGrade": null,
+      "verifiedDropContext": [
+        {
+          "keeper": "Jared Goff",
+          "receiptDate": "2025-10-01",
+          "week": 4,
+          "transactionId": "1278720074449977344",
+          "transaction": "$5 waiver: added Arizona Cardinals D/ST, dropped Jared Goff.",
+          "replacementUsage": "Arizona D/ST started Week 5 for 6.0 points, was benched Week 6, and was dropped in Week 7.",
+          "laterKeeperUsage": "Goff was added for $0 in Week 5 by another manager, started Weeks 5–6 there, was reacquired in Week 8, and later started for multiple teams before appearing in a Week 11 trade.",
+          "penaltyStatus": "verified_context_no_numeric_penalty_yet"
+        }
+      ]
     },
     {
       "manager": "Stew",
