@@ -80,7 +80,7 @@ export async function mountDraftTradeCareer(host,manager){
    const others=trade.managers.filter(n=>n!==manager);
    const item=elt('article','career-resume-trade');
    item.append(elt('strong',null,trade.year+' · Week '+trade.week+' · With '+others.join(', ')));
-   item.append(elt('p',null,'Recorded incoming assets: '+
+   item.append(elt('p',null,'Assets on this manager\'s recorded trade side: '+
     (mySide.assets?.join(', ')||'Not identified in archive')));
    item.append(deepLink(trade.year,manager));
    tradeSection.append(item);
