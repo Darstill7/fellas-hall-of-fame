@@ -1,0 +1,3259 @@
+{
+  "schema": "fellas-manager-draft-and-trade-evidence-v1",
+  "status": "research_only_no_draft_or_trade_skill_grades",
+  "sources": [
+    "data/v9_draft_engine.json",
+    "data/v9_trade_engine.json",
+    "data/espn_2016_draft_recovered_v1.json",
+    "data/espn_2017_draft_recovered_v1.json",
+    "data/espn_2018_draft_recovered_v1.json",
+    "data/espn_2019_draft_recovered_v1.json"
+  ],
+  "methodology": "Early draft names: first three non-keeper selections by original overall pick, preserving unresolved ESPN names as null. Trade counts: qualifying complete nonprovisional source sides with confidence beginning verified and numeric direct edge; count unique year/transaction IDs per manager; full represented means two or more qualifying distinct managers, not complete traded assets. No trade winners, causality, or ex-ante grades.",
+  "seasonCutoff": {
+    "year": 2026,
+    "throughWeek": 8
+  },
+  "rows": [
+    {
+      "manager": "Evans",
+      "year": 2016,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 6,
+          "player": "Adrian Peterson"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "player": "A.J. Green"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "player": null
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Halderman",
+      "year": 2016,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 5,
+          "player": "Ezekiel Elliott"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "player": "Dez Bryant"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "player": "LeSean McCoy"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Koble",
+      "year": 2016,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 4,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 4,
+          "player": "Julio Jones"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "player": null
+        },
+        {
+          "round": 3,
+          "overall": 20,
+          "player": "Thomas Rawls"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Schermerhorn",
+      "year": 2016,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 3,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 3,
+          "player": "Todd Gurley"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "player": "Le'Veon Bell"
+        },
+        {
+          "round": 3,
+          "overall": 19,
+          "player": null
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stew",
+      "year": 2016,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 4,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 1,
+          "player": "Antonio Brown"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "player": "Allen Robinson"
+        },
+        {
+          "round": 3,
+          "overall": 17,
+          "player": "Jordy Nelson"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stilly",
+      "year": 2016,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 3,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 2,
+          "player": "Odell Beckham Jr."
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "player": "Doug Martin"
+        },
+        {
+          "round": 3,
+          "overall": 18,
+          "player": "Lamar Miller"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stover",
+      "year": 2016,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 4,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 7,
+          "player": "DeAndre Hopkins"
+        },
+        {
+          "round": 2,
+          "overall": 10,
+          "player": "Rob Gronkowski"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "player": "Jonathan Stewart"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Thommy",
+      "year": 2016,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 3,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 8,
+          "player": "David Johnson"
+        },
+        {
+          "round": 2,
+          "overall": 9,
+          "player": "Devonta Freeman"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "player": "Mark Ingram"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Birch",
+      "year": 2017,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 6,
+          "player": "LeSean McCoy"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "player": "Dez Bryant"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "player": "Demaryius Thomas"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Evans",
+      "year": 2017,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 3,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 7,
+          "player": "Mike Evans"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "player": "A.J. Green"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "player": "Leonard Fournette"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Halderman",
+      "year": 2017,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 3,
+          "player": "Odell Beckham Jr."
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "player": "Marshawn Lynch"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "player": "Tom Brady"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Koble",
+      "year": 2017,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 4,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 5,
+          "player": "Julio Jones"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "player": "Ezekiel Elliott"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "player": "Drew Brees"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Schermerhorn",
+      "year": 2017,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 4,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 2,
+          "player": "Le'Veon Bell"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "player": "T.Y. Hilton"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "player": "Doug Baldwin"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stew",
+      "year": 2017,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 4,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 9,
+          "player": "Melvin Gordon"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "player": "Jay Ajayi"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "player": "Aaron Rodgers"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stilly",
+      "year": 2017,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 10,
+          "player": "Jordy Nelson"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "player": "Jordan Howard"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "player": "DeAndre Hopkins"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stover",
+      "year": 2017,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 1,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 4,
+          "player": "Antonio Brown"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "player": "DeMarco Murray"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "player": "Brandin Cooks"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Thommy",
+      "year": 2017,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 1,
+          "player": "David Johnson"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "player": "Todd Gurley II"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "player": "Amari Cooper"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Tony",
+      "year": 2017,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 7,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 8,
+          "player": "Devonta Freeman"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "player": "Michael Thomas"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "player": null
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Birch",
+      "year": 2018,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 1,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 1,
+          "player": "Marcus Mariota"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "player": "Tevin Coleman"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "player": "Joe Mixon"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Evans",
+      "year": 2018,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 1,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 7,
+          "player": "Andrew Luck"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "player": "Alvin Kamara"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "player": "Devonta Freeman"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Koble",
+      "year": 2018,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 6,
+          "player": "Deshaun Watson"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "player": "Saquon Barkley"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "player": "Christian McCaffrey"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "year": 2018,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 9,
+          "player": "Drew Brees"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "player": "Kareem Hunt"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "player": "Dalvin Cook"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Mitch",
+      "year": 2018,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 5,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 2,
+          "player": "Kirk Cousins"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "player": "Todd Gurley II"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "player": "Derrick Henry"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stew",
+      "year": 2018,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 5,
+          "player": "Cam Newton"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "player": "David Johnson"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "player": "James Conner"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stilly",
+      "year": 2018,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 10,
+          "player": "Philip Rivers"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "player": "Jay Ajayi"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "player": "Royce Freeman"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stover",
+      "year": 2018,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 8,
+          "player": "Tom Brady"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "player": "Leonard Fournette"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "player": "Melvin Gordon"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Thommy",
+      "year": 2018,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 4,
+          "player": "Aaron Rodgers"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "player": "Ezekiel Elliott"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "player": "Dion Lewis"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Tony",
+      "year": 2018,
+      "platform": "ESPN",
+      "recordedSelections": 16,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 3,
+          "player": "Ben Roethlisberger"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "player": "Lamar Miller"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "player": "Carlos Hyde"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Birch",
+      "year": 2019,
+      "platform": "ESPN",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 2,
+          "player": "Christian McCaffrey"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "player": "Keenan Allen"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "player": "Travis Kelce"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Evans",
+      "year": 2019,
+      "platform": "ESPN",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 1,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 1,
+          "player": "Saquon Barkley"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "player": "Damien Williams"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "player": "Antonio Brown"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Koble",
+      "year": 2019,
+      "platform": "ESPN",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 1,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 9,
+          "player": "Julio Jones"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "player": "Joe Mixon"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "player": "Josh Jacobs"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "year": 2019,
+      "platform": "ESPN",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 3,
+          "player": "Alvin Kamara"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "player": "Odell Beckham Jr."
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "player": "Kerryon Johnson"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Mitch",
+      "year": 2019,
+      "platform": "ESPN",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 1,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 5,
+          "player": "DeAndre Hopkins"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "player": "Dalvin Cook"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "player": "Adam Thielen"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stew",
+      "year": 2019,
+      "platform": "ESPN",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 4,
+          "player": "Davante Adams"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "player": "Nick Chubb"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "player": "Mike Evans"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stilly",
+      "year": 2019,
+      "platform": "ESPN",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 6,
+          "player": "Ezekiel Elliott"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "player": "JuJu Smith-Schuster"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "player": "Stefon Diggs"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stover",
+      "year": 2019,
+      "platform": "ESPN",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 1,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 10,
+          "player": "James Conner"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "player": "Le'Veon Bell"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "player": "Amari Cooper"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Thommy",
+      "year": 2019,
+      "platform": "ESPN",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 2,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 7,
+          "player": "David Johnson"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "player": "Tyreek Hill"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "player": "Chris Carson"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Tony",
+      "year": 2019,
+      "platform": "ESPN",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 1,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 8,
+          "player": "Michael Thomas"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "player": "Todd Gurley II"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "player": "David Montgomery"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Birch",
+      "year": 2020,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 9,
+          "player": "Davante Adams"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "player": "Tyreek Hill"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "player": "James Conner"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "EvansBrandon",
+      "year": 2020,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 4,
+          "player": "Ezekiel Elliott"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "player": "Patrick Mahomes"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "player": "DeAndre Hopkins"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Koble",
+      "year": 2020,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 6,
+          "player": "Derrick Henry"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "player": "Miles Sanders"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "player": "Austin Ekeler"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "year": 2020,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 5,
+          "player": "Alvin Kamara"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "player": "Nick Chubb"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "player": "Amari Cooper"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Mitch",
+      "year": 2020,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 3,
+          "player": "Dalvin Cook"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "player": "Chris Godwin"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "player": "Kenny Golladay"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stew",
+      "year": 2020,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 7,
+          "player": "Clyde Edwards-Helaire"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "player": "Josh Jacobs"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "player": "George Kittle"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stilly",
+      "year": 2020,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 10,
+          "player": "Joe Mixon"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "player": "Julio Jones"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "player": "Allen Robinson II"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 1
+      }
+    },
+    {
+      "manager": "Stover",
+      "year": 2020,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 8,
+          "player": "Michael Thomas"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "player": "Aaron Jones"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "player": "Chris Carson"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Thommy",
+      "year": 2020,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 2,
+          "player": "Saquon Barkley"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "player": "Kenyan Drake"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "player": "Travis Kelce"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Tony",
+      "year": 2020,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 1,
+          "player": "Christian McCaffrey"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "player": "Mike Evans"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "player": "Lamar Jackson"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Birch",
+      "year": 2021,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 5,
+          "player": "Ezekiel Elliott"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "player": "Antonio Gibson"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "player": "Terry McLaurin"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "EvansBrandon",
+      "year": 2021,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 3,
+          "player": "Dalvin Cook"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "player": "Najee Harris"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "player": "Patrick Mahomes"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Koble",
+      "year": 2021,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 4,
+          "player": "Alvin Kamara"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "player": "Joe Mixon"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "player": "David Montgomery"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "year": 2021,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 7,
+          "player": "Saquon Barkley"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "player": "Travis Kelce"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "player": "Keenan Allen"
+        }
+      ],
+      "trades": {
+        "representedEvents": 4,
+        "fullyRepresentedEvents": 4,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Mitch",
+      "year": 2021,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 6,
+          "player": "Nick Chubb"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "player": "DeAndre Hopkins"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "player": "Darren Waller"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stew",
+      "year": 2021,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 1,
+          "player": "Christian McCaffrey"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "player": "Calvin Ridley"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "player": "Clyde Edwards-Helaire"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stilly",
+      "year": 2021,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 8,
+          "player": "Aaron Jones"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "player": "Stefon Diggs"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "player": "Chris Carson"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stover",
+      "year": 2021,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 2,
+          "player": "Derrick Henry"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "player": "DK Metcalf"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "player": "Justin Jefferson"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Thommy",
+      "year": 2021,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 9,
+          "player": "Austin Ekeler"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "player": "Jonathan Taylor"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "player": "A.J. Brown"
+        }
+      ],
+      "trades": {
+        "representedEvents": 3,
+        "fullyRepresentedEvents": 3,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Tony",
+      "year": 2021,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 10,
+          "player": "Tyreek Hill"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "player": "Davante Adams"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "player": "Josh Jacobs"
+        }
+      ],
+      "trades": {
+        "representedEvents": 4,
+        "fullyRepresentedEvents": 4,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Birch",
+      "year": 2022,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 10,
+          "player": "Ja'Marr Chase"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "player": "D'Andre Swift"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "player": "Breece Hall"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "EvansBrandon",
+      "year": 2022,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 6,
+          "player": "Justin Jefferson"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "player": "Aaron Jones"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "player": "Ezekiel Elliott"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Koble",
+      "year": 2022,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 8,
+          "player": "Joe Mixon"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "player": "Javonte Williams"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "player": "Travis Etienne"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "year": 2022,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 5,
+          "player": "Dalvin Cook"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "player": "Davante Adams"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "player": "Mike Evans"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Mitch",
+      "year": 2022,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 1,
+          "player": "Jonathan Taylor"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "player": "Deebo Samuel"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "player": "Mark Andrews"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stew",
+      "year": 2022,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 7,
+          "player": "Cooper Kupp"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "player": "Stefon Diggs"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "player": "James Conner"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stilly",
+      "year": 2022,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 2,
+          "player": "Christian McCaffrey"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "player": "Saquon Barkley"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "player": "CeeDee Lamb"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stover",
+      "year": 2022,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 4,
+          "player": "Derrick Henry"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "player": "Travis Kelce"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "player": "Tyreek Hill"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Thommy",
+      "year": 2022,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 9,
+          "player": "Najee Harris"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "player": "Alvin Kamara"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "player": "Keenan Allen"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Tony",
+      "year": 2022,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 3,
+          "player": "Austin Ekeler"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "player": "Nick Chubb"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "player": "Leonard Fournette"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Birch",
+      "year": 2023,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 8,
+          "player": "Bijan Robinson"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "player": "Tony Pollard"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "player": "Chris Olave"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "EvansBrandon",
+      "year": 2023,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 5,
+          "player": "Travis Kelce"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "player": "A.J. Brown"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "player": "Jalen Hurts"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Koble",
+      "year": 2023,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 2,
+          "player": "Austin Ekeler"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "player": "Amon-Ra St. Brown"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "player": "Patrick Mahomes"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "year": 2023,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 4,
+          "player": "Ja'Marr Chase"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "player": "CeeDee Lamb"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "player": "Travis Etienne"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Mitch",
+      "year": 2023,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 6,
+          "player": "Tyreek Hill"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "player": "Garrett Wilson"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "player": "Jahmyr Gibbs"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stew",
+      "year": 2023,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 3,
+          "player": "Justin Jefferson"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "player": "Davante Adams"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "player": "Joe Mixon"
+        }
+      ],
+      "trades": {
+        "representedEvents": 5,
+        "fullyRepresentedEvents": 5,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stilly",
+      "year": 2023,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 7,
+          "player": "Cooper Kupp"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "player": "Josh Jacobs"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "player": "Josh Allen"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stover",
+      "year": 2023,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 9,
+          "player": "Nick Chubb"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "player": "Saquon Barkley"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "player": "Calvin Ridley"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Thommy",
+      "year": 2023,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 1,
+          "player": "Christian McCaffrey"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "player": "Jaylen Waddle"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "player": "Mark Andrews"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Tony",
+      "year": 2023,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 10,
+          "player": "Stefon Diggs"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "player": "Derrick Henry"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "player": "Tee Higgins"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Birch",
+      "year": 2024,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 5,
+          "player": "Justin Jefferson"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "player": "Puka Nacua"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "player": "Josh Allen"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "JMid",
+      "year": 2024,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 7,
+          "player": "Ja'Marr Chase"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "player": "Travis Etienne"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "player": "James Cook"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "year": 2024,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 3,
+          "player": "CeeDee Lamb"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "player": "Drake London"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "player": "Deebo Samuel"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Mitch",
+      "year": 2024,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 2,
+          "player": "Tyreek Hill"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "player": "Josh Jacobs"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "player": "Isiah Pacheco"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Scott",
+      "year": 2024,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 9,
+          "player": "A.J. Brown"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "player": "Garrett Wilson"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "player": "Kenneth Walker"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stew",
+      "year": 2024,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 6,
+          "player": "Breece Hall"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "player": "Kyren Williams"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "player": "Davante Adams"
+        }
+      ],
+      "trades": {
+        "representedEvents": 3,
+        "fullyRepresentedEvents": 3,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stilly",
+      "year": 2024,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 1,
+          "player": "Christian McCaffrey"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "player": "Marvin Harrison"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "player": "Chris Olave"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stover",
+      "year": 2024,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 10,
+          "player": "Jahmyr Gibbs"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "player": "Saquon Barkley"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "player": "Mike Evans"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Thommy",
+      "year": 2024,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 4,
+          "player": "Bijan Robinson"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "player": "Derrick Henry"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "player": "De'Von Achane"
+        }
+      ],
+      "trades": {
+        "representedEvents": 5,
+        "fullyRepresentedEvents": 5,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Tony",
+      "year": 2024,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 0,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 8,
+          "player": "Amon-Ra St. Brown"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "player": "Jonathan Taylor"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "player": "Travis Kelce"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Birch",
+      "year": 2025,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 5,
+          "player": "Justin Jefferson"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "player": "Josh Allen"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "player": "Breece Hall"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "JMid",
+      "year": 2025,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 8,
+          "player": "Amon-Ra St. Brown"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "player": "Josh Jacobs"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "player": "Chuba Hubbard"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "year": 2025,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 6,
+          "player": "Derrick Henry"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "player": "Kyren Williams"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "player": "Terry McLaurin"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Mitch",
+      "year": 2025,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 7,
+          "player": "Christian McCaffrey"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "player": "Jonathan Taylor"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "player": "Marvin Harrison"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Scott",
+      "year": 2025,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 1,
+          "player": "Bijan Robinson"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "player": "James Cook"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "player": "Trey McBride"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stew",
+      "year": 2025,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 2,
+          "player": "Ja'Marr Chase"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "player": "Chase Brown"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "player": "Drake London"
+        }
+      ],
+      "trades": {
+        "representedEvents": 5,
+        "fullyRepresentedEvents": 5,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stilly",
+      "year": 2025,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 3,
+          "player": "Jahmyr Gibbs"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "player": "A.J. Brown"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "player": "Tyreek Hill"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stover",
+      "year": 2025,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 2,
+          "overall": 11,
+          "player": "De'Von Achane"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "player": "Jalen Hurts"
+        },
+        {
+          "round": 4,
+          "overall": 31,
+          "player": "DK Metcalf"
+        }
+      ],
+      "trades": {
+        "representedEvents": 2,
+        "fullyRepresentedEvents": 2,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Thommy",
+      "year": 2025,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 9,
+          "player": "Ashton Jeanty"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "player": "Puka Nacua"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "player": "Mike Evans"
+        }
+      ],
+      "trades": {
+        "representedEvents": 1,
+        "fullyRepresentedEvents": 1,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Tony",
+      "year": 2025,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 4,
+          "player": "CeeDee Lamb"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "player": "Lamar Jackson"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "player": "Omarion Hampton"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Birch",
+      "year": 2026,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 5,
+          "player": "James Cook"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "player": "Derrick Henry"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "player": "Trey McBride"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "JMid",
+      "year": 2026,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 2,
+          "overall": 17,
+          "player": "Kenneth Walker"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "player": "Jeremiyah Love"
+        },
+        {
+          "round": 4,
+          "overall": 37,
+          "player": "Terry McLaurin"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "year": 2026,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 3,
+          "player": "Saquon Barkley"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "player": "A.J. Brown"
+        },
+        {
+          "round": 4,
+          "overall": 38,
+          "player": "Travis Etienne"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Mitch",
+      "year": 2026,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 2,
+          "player": "Jonathan Taylor"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "player": "Drake London"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "player": "Josh Allen"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Scott",
+      "year": 2026,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 2,
+          "overall": 12,
+          "player": "Ashton Jeanty"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "player": "David Montgomery"
+        },
+        {
+          "round": 4,
+          "overall": 32,
+          "player": "Colston Loveland"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stew",
+      "year": 2026,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 2,
+          "overall": 11,
+          "player": "Chase Brown"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "player": "Garrett Wilson"
+        },
+        {
+          "round": 4,
+          "overall": 31,
+          "player": "Zay Flowers"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stilly",
+      "year": 2026,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 2,
+          "overall": 13,
+          "player": "CeeDee Lamb"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "player": "Josh Jacobs"
+        },
+        {
+          "round": 4,
+          "overall": 33,
+          "player": "Breece Hall"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Stover",
+      "year": 2026,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 1,
+          "player": "Christian McCaffrey"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "player": "Kyren Williams"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "player": "George Pickens"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Thommy",
+      "year": 2026,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 2,
+          "overall": 14,
+          "player": "De'Von Achane"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "player": "Malik Nabers"
+        },
+        {
+          "round": 4,
+          "overall": 34,
+          "player": "Jaylen Waddle"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    },
+    {
+      "manager": "Tony",
+      "year": 2026,
+      "platform": "Sleeper",
+      "recordedSelections": 15,
+      "recordedKeeperSelections": 2,
+      "unresolvedNames": 0,
+      "earlySelections": [
+        {
+          "round": 1,
+          "overall": 6,
+          "player": "Justin Jefferson"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "player": "Omarion Hampton"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "player": "Chris Olave"
+        }
+      ],
+      "trades": {
+        "representedEvents": 0,
+        "fullyRepresentedEvents": 0,
+        "partialEvents": 0
+      }
+    }
+  ]
+}
