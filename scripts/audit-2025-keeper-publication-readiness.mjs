@@ -25,6 +25,22 @@ const rosterProof=roster.checks.find(x=>x.week===17);
 assert.equal(rosterProof.keepersFoundOnOriginalManagerRoster,20);
 assert.equal(roster.keeperDeadlineRosterVerified,false);
 assert.equal(roster.eligibleAlternativePoolVerified,false);
+// A verified completed outright drop is an event, not automatically a mistake.
+// Guard against duplicates, misclassified trades, and speculative penalty values.
+const seenDropReceipts=new Set();
+for(const drop of keeperDrops.rows){
+ const key=drop.manager+'|'+drop.playerId+'|'+drop.transactionId;
+ assert.ok(!seenDropReceipts.has(key),'Duplicate keeper abandonment receipt '+key);
+ seenDropReceipts.add(key);
+ assert.equal(drop.verifiedDisposition,'completed_drop_not_trade');
+ assert.equal(drop.dropTimingEvidenceVerified,true);
+ assert.equal(drop.injuryOrRosterNecessityVerified,false);
+ assert.equal(drop.netOpportunityCost,null);
+ assert.equal(drop.suggestedPenaltyPoints,null);
+ assert.equal(drop.keeperDecisionGrade,null);
+ assert.ok(!drop.replacementAdded.some(p=>String(p.id)===String(drop.playerId)),
+  'A drop and reacquisition cannot be treated as a simple keeper abandonment');
+}
 const managers=score.rows.map(m=>{
  const baseline=scenarios.scenarios.find(x=>x.id==='baseline').rows.find(x=>x.manager===m.manager);
  const stability=scenarios.stability.find(x=>x.manager===m.manager);
