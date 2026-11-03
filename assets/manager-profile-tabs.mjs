@@ -180,6 +180,9 @@ if(main&&tabs){
  });
  // Restore scroll after a visitor opens another report and returns.
  // Keep it per-tab so each manager section remembers its own reading position.
+ // The profile manages its own tab-specific return position. Avoid a competing native
+ // history scroll restoration that can override our saved position after a BFCache return.
+ if('scrollRestoration' in history)history.scrollRestoration='manual';
  const scrollKey='fellas-profile-position:'+location.pathname;
  // Reapply after both the BFCache restore and late-loading historical panels settle.
  // A single animation frame can be overwritten by Chromium's own history restoration.
@@ -191,8 +194,10 @@ if(main&&tabs){
   };
   requestAnimationFrame(()=>requestAnimationFrame(reapply));
   setTimeout(reapply,80);
-  setTimeout(reapply,200);
+  setTimeout(reapply,160);
+  setTimeout(reapply,260);
   setTimeout(reapply,450);
+  setTimeout(reapply,850);
  };
  const savePosition=()=>{
   try{sessionStorage.setItem(scrollKey,JSON.stringify({tab:buttons.find(b=>b.getAttribute('aria-selected')==='true')?.dataset.profileTab||'overview',y:window.scrollY,at:Date.now()}))}catch{}
