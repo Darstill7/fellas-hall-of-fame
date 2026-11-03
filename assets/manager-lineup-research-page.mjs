@@ -8,6 +8,9 @@ const managerAliases={darstill:'Stilly',dsylvester9:'Stew',thommy:'Thommy',yogur
 const currentTeamManagers={'1':'Stilly','2':'JMid','3':'Thommy','4':'Stew','5':'Scott','6':'Mitch','7':'Tony','8':'Stover','9':'Kuhl','10':'Birch'};
 let current2026Weeks=8;
 function yearWeeks(year){return year===2020?13:year===2026?current2026Weeks:14}
+const pageParams=new URLSearchParams(location.search);
+const requestedSeason=pageParams.get('season');
+if(['career','all','2020','2021','2022','2023','2024','2025','2026'].includes(requestedSeason))$('season').value=requestedSeason;
 async function load(){const selected=$('season').value;const years=selected==='career'?[2020,2021,2022,2023,2024,2025,2026]:selected==='all'?[2020,2021,2022,2023,2024,2025]:[Number(selected)];$('status').textContent='Checking '+(selected==='career'?'2020–2026':selected==='all'?'2020–2025':selected)+' evidence…';$('results').textContent='';try{
  if(years.includes(2026)){
   const response=await fetch('../data/keeper_2026_website_research_v1.json');
@@ -65,6 +68,7 @@ async function load(){const selected=$('season').value;const years=selected==='c
   return selected==='2026'?bv-av||a.name.localeCompare(b.name):a.name.localeCompare(b.name);
  });
  const detailSelect=$('detail-manager');
+ const requestedManager=pageParams.get('manager');
  const prior=detailSelect.value;
  detailSelect.replaceChildren();
  for(const stat of names){
@@ -75,6 +79,8 @@ async function load(){const selected=$('season').value;const years=selected==='c
  }
  const preferred=['all','career'].includes(selected)?'Stilly':years[0]+'|Stilly';
  detailSelect.value=[...detailSelect.options].some(o=>o.value===prior)?prior:
+  [...detailSelect.options].some(o=>o.textContent.toLowerCase()===String(requestedManager??'').toLowerCase())?
+   [...detailSelect.options].find(o=>o.textContent.toLowerCase()===requestedManager.toLowerCase()).value:
   [...detailSelect.options].some(o=>o.value===preferred)?preferred:detailSelect.options[0]?.value??'';
  function drawWeekly(){
   const stat=map.get(detailSelect.value);
