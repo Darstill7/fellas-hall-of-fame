@@ -104,8 +104,17 @@ try{
     else{
      const panel=await heroMadden.innerText();
      if(!panel.includes('OVR')||!panel.includes('Championships')||
-        !panel.includes('Peak season:'))
+        !panel.includes('Best individual season:')||!panel.includes('What this rating means:'))
       errors.push(width+' '+route+' primary career rating or peak season missing');
+     const explainer=heroMadden.locator('details.profile-rating-explainer');
+     if(await explainer.count()!==1)errors.push(width+' '+route+' rating definitions missing');
+     else{
+      await explainer.locator('summary').click();
+      const definitions=await explainer.innerText();
+      if(!definitions.includes('Career W–L')||!definitions.includes('Playoff berths')||
+         !definitions.includes('Best individual season')||!definitions.includes('separate Season OVR model'))
+       errors.push(width+' '+route+' rating metric explanations incomplete');
+     }
      const annual=heroMadden.locator('details.profile-season-ovr');
      if(await annual.count()!==1||await annual.evaluate(el=>el.open))
       errors.push(width+' '+route+' season OVR history not collapsed by default');
@@ -130,7 +139,7 @@ try{
        manager:u.searchParams.get('manager')}}));
      const matches=links.filter(x=>x.path.endsWith('/analytics/manager-lineup-research.html')&&
       x.season==='career'&&x.manager===name);
-     if(matches.length!==1)
+     if(matches.length<1||links.some(x=>x.path.endsWith('/analytics/manager-lineup-research.html')&&x.manager!==name))
       errors.push(width+' '+route+' invalid Start/Sit career link target: '+JSON.stringify(links));
      const pickupLinks=await page.locator('a[href*="manager-report-cards.html?manager="]').evaluateAll(nodes=>
       nodes.map(node=>{const url=new URL(node.href,location.href);
@@ -564,15 +573,36 @@ try{
     if(width===390&&await page.locator('.profile-location-label').count()!==1)errors.push(width+' '+slug+' missing sticky manager location label');
     if(await tabs.count()!==4)errors.push(width+' '+slug+' missing simple four-tab navigation');
     else{
-     const quickLinks=page.locator('.profile-quick-grid [data-profile-jump]');
-     if(await quickLinks.count()!==4)errors.push(width+' '+slug+' missing quick-start links');
+     const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
+     if(await features.count()!==11)
+      errors.push(width+' '+slug+' missing eleven individually labeled feature buttons');
      else{
-      await quickLinks.nth(2).scrollIntoViewIfNeeded();
-      const beforeJump=await page.evaluate(()=>window.scrollY);
-      await quickLinks.nth(2).click();
-      const afterJump=await page.evaluate(()=>window.scrollY);
-      if(Math.abs(afterJump-beforeJump)>100)errors.push(width+' '+slug+' quick shortcut unexpectedly jumped down the page');
-      if(await page.locator('[data-profile-tab="rivalries"]').getAttribute('aria-selected')!=='true'||!await page.locator('#head-to-head').isVisible())errors.push(width+' '+slug+' head-to-head quick-link failed');
+      const labels=await features.locator('strong').allTextContents();
+      for(const label of ['Championships & career record','Season-by-season results',
+       'Head-to-head & rivalries','Legacy OVR progression','Drafting & trading résumé',
+       'Pickup highlights & FAAB','Start/Sit accuracy','Keeper research']){
+       if(!labels.includes(label))errors.push(width+' '+slug+' feature button missing '+label);
+      }
+      const destinations=await features.evaluateAll(nodes=>nodes.map(x=>x.tagName==='A'?
+       {href:x.getAttribute('href'),label:x.querySelector('strong')?.textContent}:
+       {target:x.dataset.featureTarget,tab:x.dataset.featureTab||null}));
+      if(destinations.some(d=>d.href&&!d.href.includes('manager=')||
+        d.target&&!d.target.startsWith('.')&&!d.target.startsWith('#')))
+       errors.push(width+' '+slug+' feature button destination invalid');
+      const rivalry=page.locator('[data-profile-feature][data-feature-target="#head-to-head"]');
+      await rivalry.click();
+      await page.waitForFunction(()=>{
+       const section=document.querySelector('#head-to-head');
+       return section&&section.getBoundingClientRect().top<window.innerHeight&&
+        section.getBoundingClientRect().bottom>0;
+      },null,{timeout:2500}).catch(()=>{});
+      if(await page.locator('[data-profile-tab="rivalries"]').getAttribute('aria-selected')!=='true'||
+         !await page.locator('#head-to-head').isVisible())
+       errors.push(width+' '+slug+' rivalry feature did not activate the visible research');
+      const career=page.locator('[data-profile-feature][data-feature-target=".profile-career-resume"]');
+      await career.click();
+      if(!await page.locator('.profile-career-resume').evaluate(el=>el.open))
+       errors.push(width+' '+slug+' career résumé feature failed to expand');
      }
      if(width===390){
       await page.locator('[data-profile-tab="seasons"]').click();
@@ -625,6 +655,9 @@ try{
       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
       await button.click();
       if(await button.getAttribute('aria-selected')!=='true')errors.push(width+' '+slug+' '+category+' tab did not activate');
+      const activeGuide=await page.locator('.profile-tab-guide').innerText();
+      if(!activeGuide.includes(({overview:'Career overview',seasons:'Each Year',rivalries:'Head-to-Head',advanced:'Deep Stats'})[category]))
+       errors.push(width+' '+slug+' category navigation has no visible active-section explanation');
       const sectionId={overview:'franchise-story',seasons:'season-history',rivalries:'head-to-head',advanced:'franchise-encyclopedia'}[category];
       if(!await page.locator('#'+sectionId).isVisible())errors.push(width+' '+slug+' '+category+' content hidden');
      }
