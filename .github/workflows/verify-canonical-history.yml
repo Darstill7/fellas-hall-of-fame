@@ -419,6 +419,8 @@ jobs:
         run: node scripts/analyze-six-season-lineups.mjs
       - name: Run recovered 2025 research-only lineup analysis
         run: node scripts/analyze-recovered-2025-lineups.mjs
+      - name: Audit Week 8 keeper, FAAB and start-sit decision research readiness
+        run: node scripts/audit-decision-quality-research.mjs
       - name: Install browser test runtime
         if: success() || failure()
         run: |
