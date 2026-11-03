@@ -200,6 +200,14 @@ for(const manager of ['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','
 if(!ui.includes('notablePickups(x.name)')||!ui.includes('Not all pickups')||
  !ui.includes('Not a FAAB skill grade')||!ui.includes('lineup points'))
  throw Error('Report cards missing properly qualified recorded pickup highlights');
+// Public cost claims must be lazy-matched to successful provider receipts.
+// A missing bid is N/A, never silently inferred to be a zero-dollar win.
+if(!ui.includes("t.status==='complete'")||
+ !ui.includes("(t.added??[]).some(p=>p.name===player)")||
+ !ui.includes("Number.isSafeInteger(bid)&&bid>=0")||
+ !ui.includes("Cost: N/A (bid not recorded)")||
+ !ui.includes("details.addEventListener('toggle'"))
+ throw Error('Pickup costs must use exact successful provider receipts and explicit missing-price handling');
 console.log('Recorded pickup evidence deduplicated and not misrepresented as skill PASS');
 console.log('Same-week duplicate-acquisition event caveats PASS');
 
