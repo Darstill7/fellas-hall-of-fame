@@ -160,8 +160,11 @@ try{
           !text.includes('not total trades or wins'))
         errors.push(width+' '+route+' season timeline provenance warning or data missing');
        const draftTrade=timeline.locator('.profile-season-draft-trade');
-       if(await draftTrade.count()!==await entries.count())
-        errors.push(width+' '+route+' missing season-level draft or trade evidence');
+       const expectedDraftSeasons=(await entries.count())-(name==='JMid'?1:0);
+       if(await draftTrade.count()!==expectedDraftSeasons)
+        errors.push(width+' '+route+' missing or misattributed season-level draft or trade evidence');
+       if(name==='JMid'&&!(await timeline.innerText()).includes('Original draft not attributable to this manager'))
+        errors.push(width+' '+route+' 2023 original draft attribution caveat missing');
        const currentYear=entries.first();
        if(!((await currentYear.innerText()).includes('Draft ·'))||
           !((await currentYear.innerText()).includes('Trades ·'))||
