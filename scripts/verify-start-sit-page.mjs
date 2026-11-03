@@ -7,7 +7,8 @@ const client=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
 const generator=fs.readFileSync('scripts/analyze-2026-start-sit-hindsight.mjs','utf8');
 const report=fs.readFileSync('analytics/manager-report-cards.html','utf8');
 for(const s of ['Avg Start/Sit accuracy','2026 (Weeks 1–8)','manager-lineup-research-page.mjs',
- 'id="detail-manager"','id="weekly-results"','id="detail-summary"','id="current-coverage"'])
+ 'id="detail-manager"','id="weekly-results"','id="detail-summary"','id="current-coverage"',
+ 'value="career"','id="career-results"','id="career-summary"'])
  assert.ok(html.includes(s),'Start/Sit research UI missing '+s);
 assert.ok(report.includes('manager-lineup-research.html'),'Start/Sit research navigation missing');
 for(const s of ['function yearWeeks(year){return year===2020?13:year===2026?current2026Weeks:14}',
@@ -20,6 +21,24 @@ for(const field of ['current2026Weeks=count','keeper_2026_website_research_v1.js
  "const best=comparable.length?","const worst=comparable.length?",
  "selected==='2026'?bv-av","class=\"'+cls+'\"","detailSelect.replaceChildren()"])
  assert.ok(client.includes(field),'Start/Sit weekly detail or dynamic coverage missing: '+field);
+for(const statement of ["selected==='career'?[2020,2021,2022,2023,2024,2025,2026]",
+ "detailSelect.onchange=()=>{drawWeekly();drawProgression();}",
+ "const expectedWeeks=year===2026?14:yearWeeks(year)",
+ "const halfLife=3.5,referenceYear=2026",
+ "const recency=Math.pow(.5,(referenceYear-year)/halfLife)",
+ "const weight=fraction*recency",
+ "const career=weightSum>0?",
+ "stat.observations.push"])
+ assert.ok(client.includes(statement),'Career progression missing calculation or coverage gate: '+statement);
+// Synthetic recency and season-completeness sanity checks prevent an 8-week
+// ongoing season from being treated as a finished 14-week season.
+const currentWeight=8/14;
+const lastYearWeight=Math.pow(.5,1/3.5);
+assert.ok(currentWeight<1&&currentWeight>0.5);
+assert.ok(lastYearWeight>currentWeight,
+ 'The 2025 full-season record should weigh more than 2026 Week 8 alone');
+const oldYearWeight=Math.pow(.5,(2026-2020)/3.5);
+assert.ok(oldYearWeight<lastYearWeight,'Older season has too much recency weight');
 assert.ok(client.includes('optimal({starters:r.starters,bench:[]})'),
  'Browser display does not verify actual legal starters');
 for(const s of ['averageWeeklyStartSitAccuracyPercent','weeklyStartSitAccuracyPercent',
