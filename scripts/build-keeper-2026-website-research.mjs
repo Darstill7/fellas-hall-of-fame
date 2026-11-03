@@ -5,11 +5,20 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const draft=read('data/v9_draft_engine.json').filter(p=>p.year===2026&&p.keeper);
 const norm=s=>String(s??'').toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b/g,'').replace(/[^a-z0-9]/g,'');
 const round=n=>Math.round((n+Number.EPSILON)*100)/100;
+const rosterWeeks=fs.readdirSync('data').map(name=>/^sleeper_roster_snapshots_2026_week(\\d+)\\.json$/.exec(name)?.[1]).filter(Boolean).map(Number).sort((a,b)=>a-b);
+assert.ok(rosterWeeks.length>=8,'Expected at least eight archived 2026 roster weeks');
+assert.ok(rosterWeeks.length<=14,'Only regular-season weeks may enter this research view');
+for(let i=0;i<rosterWeeks.length;i++)assert.equal(rosterWeeks[i],i+1,'Incomplete 2026 roster week sequence');
+const latestWeek=rosterWeeks.at(-1);
 const weeks=[];
-for(let week=1;week<=8;week++){
+for(let week=1;week<=latestWeek;week++){
  const path='data/sleeper_roster_snapshots_2026_week'+week+'.json';
  const raw=read(path);assert.equal(raw.rosters.length,10,'Incomplete 2026 team coverage: '+week);
+ assert.deepEqual(raw.rosters.map(t=>Number(t.teamId)).sort((a,b)=>a-b),Array.from({length:10},(_,i)=>i+1),'Duplicate/missing team in Week '+week);
  const starters=raw.rosters.flatMap(team=>team.starters.map(p=>({...p,teamId:String(team.teamId)})));
+ assert.ok(starters.every(p=>Number.isFinite(p.points)),'Missing scored starter point in Week '+week);
+ assert.ok(raw.rosters.every(t=>Math.abs(t.starters.reduce((n,p)=>n+p.points,0)-t.points)<.011),'Unreconciled team score in Week '+week);
+ assert.ok(raw.rosters.every(t=>t.points!==0),'Zero-point or incomplete team in Week '+week);
  assert.equal(starters.length,90,'Incomplete 2026 starters week '+week);
  const positionMedians={};
  for(const pos of ['QB','RB','WR','TE']){
@@ -60,10 +69,10 @@ const rows=names.map(manager=>{
   researchScore:null,verifiedDrops:[],verifiedDropStatus:'not_audited_for_2026',
   officialKeeperDecisionGrade:null};
 }).sort((a,b)=>b.regularStartedPoints-a.regularStartedPoints);
-const data={schema:'fellas-2026-keeper-website-research-v1',status:'in_progress_2026_week1_to_week8_no_completed_season_score',
- season:2026,throughWeek:8,sourcePaths:weeks.map(x=>x.source).concat('data/v9_draft_engine.json'),
- methodology:'Verified original-manager keeper starters through archived 2026 Week 8; positional median at corresponding player-start weeks; no season grade',
- limitations:['Weeks 1–6 are reconciled against the archived draft engine. Weeks 7–8 are sourced from additional weekly roster snapshots.',
+const data={schema:'fellas-2026-keeper-website-research-v1',status:'in_progress_2026_week1_to_week'+latestWeek+'_no_completed_season_score',
+ season:2026,throughWeek:latestWeek,sourcePaths:weeks.map(x=>x.source).concat('data/v9_draft_engine.json'),
+ methodology:'Verified original-manager keeper starters through archived 2026 Week '+latestWeek+'; positional median at corresponding player-start weeks; no season grade',
+ limitations:['Weeks 1–6 are reconciled against the archived draft engine. Weeks 7–'+latestWeek+' are sourced from additional weekly roster snapshots.',
  '2026 is incomplete. The research index, playoffs and abandonment penalty are intentionally unavailable.',
  'Starter medians describe observed league starters, not eligible waivers or replacement value.',
  'Points after an original keeper is traded belong to the new roster owner and are not credited back.',
@@ -72,4 +81,4 @@ const data={schema:'fellas-2026-keeper-website-research-v1',status:'in_progress_
 const target='data/keeper_2026_website_research_v1.json';
 if(process.argv.includes('--check'))assert.deepEqual(read(target),data);
 else fs.writeFileSync(target,JSON.stringify(data,null,2)+'\n');
-console.log('2026 keeper website evidence PASS: '+selections.length+' keeper choices, 10 managers, Weeks 1–8, no incomplete-season rating');
+console.log('2026 keeper website evidence PASS: '+selections.length+' keeper choices, 10 managers, Weeks 1–'+latestWeek+', no incomplete-season rating');
