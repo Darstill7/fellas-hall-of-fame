@@ -20,6 +20,22 @@ function optimize(players){
  }
  return dp.get((1<<slots.length)-1)??null;
 }
+// Regression fixtures: FLEX accepts a third RB/WR/TE, never QB or DEF.
+// Mandatory starter slots remain required even if their points are negative.
+const fixture=[
+ {position:'QB',points:10},{position:'RB',points:10},{position:'RB',points:8},
+ {position:'WR',points:8},{position:'WR',points:6},{position:'TE',points:5},
+ {position:'RB',points:4},{position:'WR',points:3},{position:'DEF',points:-2}
+];
+const fixtureScore=fixture.reduce((n,p)=>n+p.points,0);
+assert.equal(optimize(fixture),fixtureScore,'Every legal slot must be populated, even negative DEF');
+assert.equal(optimize([...fixture,{position:'WR',points:20}]),fixtureScore+17,
+ 'A better third wide receiver must be available for FLEX');
+assert.equal(optimize([...fixture,{position:'TE',points:21}]),fixtureScore+18,
+ 'An extra tight end must be eligible for FLEX');
+assert.equal(optimize(fixture.filter(p=>p.position!=='DEF')),null,
+ 'The optimizer cannot omit a mandatory defense slot');
+
 const drafts=read('data/v9_draft_engine.json').filter(p=>p.year===2026&&p.keeper);
 const managers=new Map();
 for(const p of drafts){
