@@ -19,7 +19,7 @@ const fixture={status:'REVIEW_REQUIRED',league:'1340027406009761792',year:2026,w
 // overwrite or delete a staged real Week 8 candidate from the repository.
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'fellas-weekly-import-'));
 try{
- for(const p of [ledgerPath,'data/season_weekly_matchups_2016_2026_v1.json','data/all_time_luck_ratings_v1.json','scripts/verify-staged-weekly-candidates.mjs']){
+ for(const p of [...sourceFiles,'scripts/verify-staged-weekly-candidates.mjs']){
   fs.mkdirSync(path.join(temp,path.dirname(p)),{recursive:true});
   fs.copyFileSync(p,path.join(temp,p));
  }
@@ -38,7 +38,7 @@ try{
  fixture.providerStandingsSnapshot={seasonThroughWeek:nextWeek,teams:[...simulatedStandings.values()].map(x=>({...x,pointsFor:Math.round(x.pointsFor*100)/100,pointsAgainst:Math.round(x.pointsAgainst*100)/100}))};
  fs.writeFileSync(fixturePath,JSON.stringify(fixture));
  const importer=path.resolve('scripts/apply-reviewed-sleeper-week.mjs');
- const run=approve=>spawnSync(process.execPath,[importer,candidate,'--dry-run'],{cwd:temp,encoding:'utf8',env:{...process.env,FELLAS_APPROVE_WEEKLY_IMPORT:approve}});
+ const run=(approve,dryRun=true)=>spawnSync(process.execPath,[importer,candidate,...(dryRun?['--dry-run']:[])],{cwd:temp,encoding:'utf8',env:{...process.env,FELLAS_APPROVE_WEEKLY_IMPORT:approve}});
  const rejected=run('NO');
  if(rejected.status===0||!rejected.stderr.includes('Human approval required'))throw Error('Approval safeguard failed: '+rejected.stderr);
  const approved=run('YES');
@@ -47,6 +47,14 @@ try{
  const verify=()=>spawnSync(process.execPath,[verifier],{cwd:temp,encoding:'utf8'});
  let verified=verify();
  if(verified.status!==0||!verified.stdout.includes('WEEKLY CANDIDATE PASS'))throw Error('Pending synthetic candidate rejected: '+verified.stderr);
+ // Intentionally omit generator scripts from the isolated workspace.
+ // A real import will fail after beginning writes; the importer must roll back.
+ const rolledBack=run('YES',false);
+ if(rolledBack.status===0||!rolledBack.stderr.includes('WEEKLY IMPORT ROLLED BACK'))
+  throw Error('Synthetic failed import did not report rollback: '+rolledBack.stderr);
+ const restored=sourceFiles.map(p=>createHash('sha256').update(fs.readFileSync(path.join(temp,p))).digest('hex'));
+ if(restored.some((h,i)=>h!==before[i]))throw Error('Failed import left modified canonical or generated files');
+ if(JSON.parse(fs.readFileSync(fixturePath,'utf8')).status!=='REVIEW_REQUIRED')throw Error('Failed import incorrectly advanced candidate status');
  const tempLedger=JSON.parse(fs.readFileSync(path.join(temp,ledgerPath),'utf8'));
  tempLedger.games.push(...fixture.games);
  fs.writeFileSync(path.join(temp,ledgerPath),JSON.stringify(tempLedger));
