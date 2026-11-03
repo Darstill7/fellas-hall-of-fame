@@ -10,6 +10,11 @@ const keeperDrops=read('data-integrity/keeper-2025-abandonment-receipts-v1.json'
 const direct=read('data-integrity/keeper-2025-abandonment-direct-replacements-v1.json');
 const downstream=read('data-integrity/keeper-2025-abandonment-downstream-evidence-v1.json');
 const composite=read('data-integrity/keeper-2025-composite-evidence-v1.json');
+const candidates=read('data-integrity/keeper-2025-retrospective-candidate-inventory-v1.json');
+const bracket=read('data-integrity/keeper-2025-championship-bracket-contribution-v1.json');
+assert.equal(candidates.rows.length,10);
+assert.equal(candidates.coverage.keepersMatched,20);
+assert.equal(bracket.rows.length,10);
 assert.equal(score.rows.length,10);
 assert.equal(scenarios.stability.length,10);
 assert.equal(composite.players.length,20);
@@ -25,6 +30,11 @@ const managers=score.rows.map(m=>{
  const stability=scenarios.stability.find(x=>x.manager===m.manager);
  assert.ok(baseline&&stability);
  assert.equal(m.observedResearchIndex,baseline.score);
+ const bracketProof=bracket.rows.find(x=>x.manager===m.manager);
+ assert.ok(bracketProof);
+ assert.ok(Math.abs(m.verifiedChampionshipBracketStartedPoints-bracketProof.verifiedChampionshipBracketKeeperStartedPoints)<.011);
+ assert.ok(Math.abs(m.otherWeek15To17StartedPoints-bracketProof.otherWeek15To17KeeperStartedPoints)<.011);
+ assert.equal(m.championshipBracketQualifier,bracketProof.qualifiedFor2025ChampionshipBracket);
  const drops=keeperDrops.rows.filter(x=>x.manager===m.manager);
  assert.equal(drops.length,m.verifiedDropCount);
  for(const d of drops){
@@ -42,6 +52,7 @@ const managers=score.rows.map(m=>{
   verifiedAbandonmentEvents:drops.map(d=>({keeper:d.keeper,providerWeek:d.providerWeek,
    transactionId:d.transactionId,penaltyCertified:false})),
   gates:{retrospectiveStartedProductionVerified:true,postseasonStartedProductionVerified:true,
+   championshipBracketOnlyScoringVerified:true,historicalCandidateRosterComparedByPlayerId:true,
    originalManagerDropReceiptsVerified:true,keeperDeadlineEligibilityVerified:false,
    decisionTimeAlternativePoolVerified:false,causalReplacementValueVerified:false,
    abandonmentNecessityVerified:drops.length===0?null:false,
@@ -56,10 +67,12 @@ const report={schema:'fellas-2025-keeper-publication-readiness-v1',
   'Do not add a generic early-drop penalty to an outcome score already reduced by the missing player starts.',
   'Any abandonment adjustment must be justified by evidence of timing, contemporaneous necessity, and replacement choices; cap once per season.',
   'Downstream production by other managers is hindsight, not lost opportunity assigned to the original manager.',
+  'Only championship bracket starts are credited in the research playoff component; non-playoff games must not be counted.',
+  'Cross-team conflicts in prior-year roster snapshots are not certified keeper alternatives.',
   'Verified playoff points are observed contribution, not proven leverage or incremental fantasy wins.',
   'No public OVR mutation or manager report-card rating is permitted by this report.'
  ],
- blockers:['No certified deadline roster/keeper eligibility','No contemporaneous eligible player alternative pool',
+ blockers:['Historical final-week candidate roster has at least one duplicate cross-team identity','No certified deadline roster/keeper eligibility','No contemporaneous eligible player alternative pool',
   'Drop justification and direct replacement utility are not yet causally established',
   'Proposed weighting not prospectively calibrated; overlapping production and abandonment mechanisms need de-duplication'],
  managers,publicKeeperDecisionScoresCertified:0,ovrUpdatesAuthorized:false};
