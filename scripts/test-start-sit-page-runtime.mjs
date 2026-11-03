@@ -63,6 +63,13 @@ async function runQuery(query){
  assert.ok(summary.includes('92.4%')&&summary.includes('83.1%'));
  assert.ok(calls.filter(x=>x.includes('sleeper_roster_snapshots_2026_week')).length===8);
  assert.ok(status.includes('80 archived team-weeks'),status);
+ nodes.get('detail-manager').value='2026|Kuhl';
+ nodes.get('detail-manager').onchange();
+ assert.ok(nodes.get('detail-summary').textContent.includes('Kuhl'));
+ assert.ok(nodes.get('detail-summary').textContent.includes('83.1%'));
+ assert.ok(nodes.get('career-summary').textContent.includes('Kuhl'),
+  'Manager selection did not refresh career progression');
+
 }
 {
  const {nodes,status}=await runQuery('?season=career&manager=Stilly');
