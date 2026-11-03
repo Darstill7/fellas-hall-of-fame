@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 const dir='data-integrity/sleeper-sync-candidates';
 if(!fs.existsSync(dir)){console.log('STAGED WEEKLY CANDIDATE CHECK: none');process.exit(0)}
-const files=fs.readdirSync(dir).filter(p=>/^2026-week\\d+\\.json$/.test(p)).sort();
+const files=fs.readdirSync(dir).filter(p=>/^2026-week[0-9]+[.]json$/.test(p)).sort();
 const ledger=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json','utf8'));
 const round=n=>Math.round((n+Number.EPSILON)*100)/100;
 const managers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
