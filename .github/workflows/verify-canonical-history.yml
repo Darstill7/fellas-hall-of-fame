@@ -248,6 +248,9 @@ jobs:
       - name: Audit post-drop keeper usage by other managers without hindsight grading
         run: node scripts/audit-2025-keeper-abandonment-downstream.mjs
 
+      - name: Enforce evidence and non-double-counting gates on keeper decision publication
+        run: node scripts/audit-2025-keeper-publication-readiness.mjs
+
       - name: Audit keeper transactions and original-manager ownership boundaries
         run: node scripts/audit-keeper-transaction-boundaries.mjs
 
@@ -335,6 +338,7 @@ jobs:
             data-integrity/keeper-weekly-ownership-ledger-v1.json
             data-integrity/keeper-2025-abandonment-direct-replacements-v1.json
             data-integrity/keeper-2025-abandonment-downstream-evidence-v1.json
+            data-integrity/keeper-2025-publication-readiness-v1.json
             data-integrity/keeper-2025-score-sensitivity-v1.json
             data-integrity/keeper-2025-decision-research-index-v1.json
             data-integrity/keeper-2025-abandonment-receipts-v1.json
