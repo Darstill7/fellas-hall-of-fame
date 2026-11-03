@@ -72,6 +72,28 @@ try{
     if(!((await rows.first().innerText()).includes('Thommy')))errors.push(width+' keeper championship sort failed');
     const sourceGrade=await page.evaluate(async()=>{const r=await fetch(new URL('../data/keeper_2025_website_research_v1.json',location.href));const j=await r.json();return j.rows.every(x=>x.officialKeeperDecisionGrade===null)});
     if(!sourceGrade)errors.push(width+' research page leaked official keeper grades');
+    await page.locator('#keeper-year').selectOption('2026');
+    if(await rows.count()!==10)errors.push(width+' 2026 keeper research expected 10 managers');
+    if(!((await page.locator('#keeper-notice').innerText()).includes('2026 is in progress')))
+     errors.push(width+' 2026 in-progress warning missing');
+    if(!((await rows.first().innerText()).includes('starter pts · 7 weeks')))
+     errors.push(width+' 2026 points incorrectly presented as a scored season');
+    if(await page.locator('#keeper-sort option[value="score"]').isEnabled())
+     errors.push(width+' 2026 should disable completed-season research score sorting');
+    await page.locator('#keeper-manager').selectOption('Mitch');
+    if(await rows.count()!==1||!((await rows.first().innerText()).includes('Jaxon Smith-Njigba')))
+     errors.push(width+' 2026 manager filter did not render Mitch keeper evidence');
+    const currentYear=await page.evaluate(()=>new URL(location.href).searchParams.get('year'));
+    if(currentYear!=='2026')errors.push(width+' 2026 keeper year was not preserved in page URL');
+    await page.goto(baseUrl+'analytics/keeper-decision-research.html?year=2026&manager=Stilly',{waitUntil:'networkidle'});
+    if(await page.locator('#keeper-year').inputValue()!=='2026'||await page.locator('#keeper-manager').inputValue()!=='Stilly'||await rows.count()!==1)
+     errors.push(width+' 2026 keeper season and manager deep link failed');
+    const noPartialGrade=await page.evaluate(async()=>{
+     const r=await fetch(new URL('../data/keeper_2026_website_research_v1.json',location.href));
+     const j=await r.json();
+     return j.rows.length===10&&j.rows.every(m=>m.researchScore===null&&m.officialKeeperDecisionGrade===null);
+    });
+    if(!noPartialGrade)errors.push(width+' 2026 partial keeper season leaked completed season grade');
    }
    if(route==='analytics/manager-report-cards.html'){
     const count=await page.locator('[data-report-manager]').count();
