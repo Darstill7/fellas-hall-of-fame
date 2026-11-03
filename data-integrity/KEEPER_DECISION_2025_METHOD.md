@@ -31,7 +31,12 @@ The previous research-index version incorrectly treated *all* Weeks 15–17 star
 
 Completed releases by Birch (Brian Robinson Jr., Week 3) and Kuhl (Jared Goff, Week 4) are verified by original provider transactions. An outright drop is not a trade, and subsequent managers' starts do not accrue to the original keeper manager.
 
-The approved implementation **does not yet assign numeric abandonment penalties**. A future capped penalty must consider:
+The approved implementation **does not yet assign numeric abandonment penalties**. The website research now carries the source-backed transaction/replacement context so the next scoring pass can distinguish the two verified releases:
+
+- **Birch / Brian Robinson Jr. (Week 3):** provider receipt `1276366260652736512` shows a $2 successful waiver adding Kareem Hunt and dropping Robinson. Hunt stayed on Birch's bench through the immediately archived follow-up weeks and first started in Week 9 for 12.0 points before Birch dropped him in Week 10. No later 2025 Robinson roster/start evidence was found in the archived Week 4–14 snapshots.
+- **Kuhl / Jared Goff (Week 4):** provider receipt `1278720074449977344` shows a $5 successful waiver adding Arizona D/ST and dropping Goff. Arizona D/ST started Week 5 for 6.0 points, was benched Week 6, and was cut Week 7. Goff was added for $0 by another manager in Week 5, started immediately in Weeks 5–6, was reacquired in Week 8, and later continued to start / move as a trade asset.
+
+This context strengthens the case for a capped asset-management penalty, especially where the replacement was short-lived, but later player success alone must not become the penalty. A future capped penalty must consider:
 
 1. The early-release timing and draft-round asset forfeited.
 2. Known contemporaneous player availability, injury, and legitimate roster needs.
