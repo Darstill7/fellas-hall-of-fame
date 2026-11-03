@@ -10,12 +10,19 @@ const completedWeek=JSON.parse(fs.readFileSync('data/keeper_2026_website_researc
 assert.ok(Number.isInteger(completedWeek)&&completedWeek>=8&&completedWeek<=14);
 
 function element(){
- const x={value:'',textContent:'',innerHTML:'',onchange:null,options:[],
+ let markup='',textValue='';
+ const x={value:'',onchange:null,options:[],
   append(node){this.options.push(node);},
   replaceChildren(){this.options=[];},
   addEventListener(name,fn){this['on'+name]=fn;},
   querySelector(selector){return selector==='option[value="2026"]'?this.options.find(o=>o.value==='2026'):null;}
  };
+ // In a browser, assigning textContent removes old child markup. Model that
+ // behavior to catch stale-data bugs accurately instead of hiding them.
+ Object.defineProperties(x,{
+  textContent:{get(){return textValue;},set(v){textValue=String(v);markup='';}},
+  innerHTML:{get(){return markup;},set(v){markup=String(v);textValue='';}}
+ });
  return x;
 }
 async function runQuery(query){
