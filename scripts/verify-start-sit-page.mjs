@@ -81,6 +81,44 @@ for(const [slug,name] of Object.entries({
  assert.equal(profile.split(path).length-1,1,
   'Duplicate Start/Sit profile link: '+slug);
 }
+// Audit all 830 historical team-weeks rather than assuming a complete bench
+// means an actually legal/filled lineup. Exactly five known historical
+// observations contain placeholder empty starters and must remain N/A.
+const historicalVacancies=[];
+let historicalTeamWeeks=0;
+for(let year=2020;year<=2025;year++){
+ const lastWeek=year===2020?13:14;
+ for(let week=1;week<=lastWeek;week++){
+  const file=year===2025&&(week===1||week===7)?
+   'data/war_rosters_2025_week'+week+'.json':
+   'data/sleeper_roster_snapshots_'+year+'_week'+week+'.json';
+  const raw=JSON.parse(fs.readFileSync(file,'utf8'));
+  const rosters=Array.isArray(raw)?raw:raw.rosters;
+  assert.equal(rosters.length,10,'Missing historical Start/Sit teams '+year+'/'+week);
+  for(const r of rosters){
+   historicalTeamWeeks++;
+   assert.ok(typeof r.owner==='string'&&r.owner.trim(),
+    'Unattributable manager Start/Sit source '+year+'/'+week);
+   assert.ok(Array.isArray(r.starters)&&Array.isArray(r.bench),
+    'Missing starter/bench arrays '+year+'/'+week);
+   const unknown=[...r.starters,...r.bench].filter(p=>!Number.isFinite(p.points));
+   const vacant=r.starters.filter(p=>p.empty===true&&String(p.id)==='0');
+   assert.equal(unknown.length,vacant.length,
+    'Unexplained historical unscored roster players '+year+'/'+week+'/'+r.owner);
+   if(vacant.length)historicalVacancies.push({year,week,owner:r.owner.toLowerCase(),vacant:vacant.length});
+  }
+ }
+}
+assert.equal(historicalTeamWeeks,830);
+assert.deepEqual(historicalVacancies,[
+ {year:2022,week:3,owner:'thommy',vacant:2},
+ {year:2022,week:13,owner:'evansbrandonm',vacant:1},
+ {year:2023,week:9,owner:'thommy',vacant:1},
+ {year:2024,week:3,owner:'tsteg',vacant:1},
+ {year:2024,week:11,owner:'yogurtslinger15',vacant:1}
+],'Historical vacant-starter classification changed unexpectedly');
+assert.ok(client.includes("reason:'Vacant starting slot'"),
+ 'Website must exclude historical missing starters rather than treating them as zero');
 const roster8=JSON.parse(fs.readFileSync('data/sleeper_roster_snapshots_2026_week8.json','utf8'));
 assert.equal(roster8.week,8);
 assert.equal(roster8.rosters.length,10);
