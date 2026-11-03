@@ -14,7 +14,7 @@ if(['career','all','2020','2021','2022','2023','2024','2025','2026'].includes(re
 let activeLoad=0;
 async function load(){
  const requestId=++activeLoad;
- const retainedManager=$('detail-manager').options.find(o=>o.value===$('detail-manager').value)?.textContent??null;
+ const retainedManager=[...$('detail-manager').options].find(o=>o.value===$('detail-manager').value)?.textContent??null;
  const selected=$('season').value;
  for(const id of ['results','detail-summary','weekly-results','career-summary','career-results'])
   $(id).textContent='';
