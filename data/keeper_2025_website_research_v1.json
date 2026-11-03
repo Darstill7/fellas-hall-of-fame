@@ -1,0 +1,305 @@
+{
+  "schema": "fellas-2025-keeper-website-research-v1",
+  "status": "research_only_no_public_ovr_changes",
+  "season": 2025,
+  "method": "55% weekly starter-median context, 30% nominal draft round, 15% verified championship-bracket starter points",
+  "sourcePaths": [
+    "data/v9_draft_engine.json",
+    "data-integrity/keeper-2025-playoff-started-receipts-v1.json",
+    "data/verified_sleeper_playoff_brackets_2020_2025.json",
+    "scripts/analyze-keeper-started-week-context.mjs"
+  ],
+  "limitations": [
+    "The research index is not certified decision-time skill and does not affect public manager OVR.",
+    "Regular season context uses original manager keeper starts only; positional starter medians are not waiver replacements.",
+    "Championship starter points exclude consolation or placement games and do not infer points for byes.",
+    "Keeper abandonment incidents are evidence flags only; penalties are not assigned.",
+    "A final Keeper Decision grade requires keeper deadline eligibility, contemporaneous alternatives and de-duplicated abandonment evidence."
+  ],
+  "rows": [
+    {
+      "manager": "Mitch",
+      "keepers": [
+        {
+          "name": "George Kittle",
+          "round": 6,
+          "position": "TE"
+        },
+        {
+          "name": "Jaxon Smith-Njigba",
+          "round": 8,
+          "position": "WR"
+        }
+      ],
+      "regularStartedPoints": 336.7,
+      "regularVsStarterMedian": 146.65,
+      "championshipStarterPoints": 40.6,
+      "otherWeek15to17StartedPoints": 45.3,
+      "playoffQualified": true,
+      "components": {
+        "observedProduction": 86.7,
+        "nominalDraftCapital": 42.9,
+        "championshipContribution": 40.6
+      },
+      "researchScore": 66.6,
+      "verifiedDrops": [],
+      "officialKeeperDecisionGrade": null
+    },
+    {
+      "manager": "Thommy",
+      "keepers": [
+        {
+          "name": "Tee Higgins",
+          "round": 6,
+          "position": "WR"
+        },
+        {
+          "name": "Jameson Williams",
+          "round": 10,
+          "position": "WR"
+        }
+      ],
+      "regularStartedPoints": 238.2,
+      "regularVsStarterMedian": 48.5,
+      "championshipStarterPoints": 57.8,
+      "otherWeek15to17StartedPoints": 0,
+      "playoffQualified": true,
+      "components": {
+        "observedProduction": 62.1,
+        "nominalDraftCapital": 50,
+        "championshipContribution": 57.8
+      },
+      "researchScore": 57.8,
+      "verifiedDrops": [],
+      "officialKeeperDecisionGrade": null
+    },
+    {
+      "manager": "Stilly",
+      "keepers": [
+        {
+          "name": "Bucky Irving",
+          "round": 9,
+          "position": "RB"
+        },
+        {
+          "name": "Jayden Daniels",
+          "round": 13,
+          "position": "QB"
+        }
+      ],
+      "regularStartedPoints": 204.26,
+      "regularVsStarterMedian": 2.35,
+      "championshipStarterPoints": 0,
+      "otherWeek15to17StartedPoints": 20.5,
+      "playoffQualified": false,
+      "components": {
+        "observedProduction": 50.6,
+        "nominalDraftCapital": 71.4,
+        "championshipContribution": 0
+      },
+      "researchScore": 49.3,
+      "verifiedDrops": [],
+      "officialKeeperDecisionGrade": null
+    },
+    {
+      "manager": "Tony",
+      "keepers": [
+        {
+          "name": "Zay Flowers",
+          "round": 6,
+          "position": "WR"
+        },
+        {
+          "name": "Brock Bowers",
+          "round": 8,
+          "position": "TE"
+        }
+      ],
+      "regularStartedPoints": 216.5,
+      "regularVsStarterMedian": 33.7,
+      "championshipStarterPoints": 20.1,
+      "otherWeek15to17StartedPoints": 40.5,
+      "playoffQualified": true,
+      "components": {
+        "observedProduction": 58.4,
+        "nominalDraftCapital": 42.9,
+        "championshipContribution": 20.1
+      },
+      "researchScore": 48,
+      "verifiedDrops": [],
+      "officialKeeperDecisionGrade": null
+    },
+    {
+      "manager": "Scott",
+      "keepers": [
+        {
+          "name": "Ladd McConkey",
+          "round": 9,
+          "position": "WR"
+        },
+        {
+          "name": "Bo Nix",
+          "round": 10,
+          "position": "QB"
+        }
+      ],
+      "regularStartedPoints": 295.7,
+      "regularVsStarterMedian": -24.23,
+      "championshipStarterPoints": 31.08,
+      "otherWeek15to17StartedPoints": 32.08,
+      "playoffQualified": true,
+      "components": {
+        "observedProduction": 43.9,
+        "nominalDraftCapital": 60.7,
+        "championshipContribution": 31.1
+      },
+      "researchScore": 47,
+      "verifiedDrops": [],
+      "officialKeeperDecisionGrade": null
+    },
+    {
+      "manager": "Birch",
+      "keepers": [
+        {
+          "name": "Brian Robinson",
+          "round": 8,
+          "position": "RB"
+        },
+        {
+          "name": "Jerry Jeudy",
+          "round": 13,
+          "position": "WR"
+        }
+      ],
+      "regularStartedPoints": 25,
+      "regularVsStarterMedian": -13.4,
+      "championshipStarterPoints": 0,
+      "otherWeek15to17StartedPoints": 0,
+      "playoffQualified": true,
+      "components": {
+        "observedProduction": 46.7,
+        "nominalDraftCapital": 67.9,
+        "championshipContribution": 0
+      },
+      "researchScore": 46.1,
+      "verifiedDrops": [
+        "Brian Robinson"
+      ],
+      "officialKeeperDecisionGrade": null
+    },
+    {
+      "manager": "JMid",
+      "keepers": [
+        {
+          "name": "Joe Burrow",
+          "round": 6,
+          "position": "QB"
+        },
+        {
+          "name": "Courtland Sutton",
+          "round": 10,
+          "position": "WR"
+        }
+      ],
+      "regularStartedPoints": 154.92,
+      "regularVsStarterMedian": -14.46,
+      "championshipStarterPoints": 0,
+      "otherWeek15to17StartedPoints": 100.26,
+      "playoffQualified": false,
+      "components": {
+        "observedProduction": 46.4,
+        "nominalDraftCapital": 50,
+        "championshipContribution": 0
+      },
+      "researchScore": 40.5,
+      "verifiedDrops": [],
+      "officialKeeperDecisionGrade": null
+    },
+    {
+      "manager": "Kuhl",
+      "keepers": [
+        {
+          "name": "Xavier Worthy",
+          "round": 7,
+          "position": "WR"
+        },
+        {
+          "name": "Jared Goff",
+          "round": 9,
+          "position": "QB"
+        }
+      ],
+      "regularStartedPoints": 129.74,
+      "regularVsStarterMedian": -24.81,
+      "championshipStarterPoints": 0,
+      "otherWeek15to17StartedPoints": 0,
+      "playoffQualified": false,
+      "components": {
+        "observedProduction": 43.8,
+        "nominalDraftCapital": 50,
+        "championshipContribution": 0
+      },
+      "researchScore": 39.1,
+      "verifiedDrops": [
+        "Jared Goff"
+      ],
+      "officialKeeperDecisionGrade": null
+    },
+    {
+      "manager": "Stew",
+      "keepers": [
+        {
+          "name": "Nico Collins",
+          "round": 4,
+          "position": "WR"
+        },
+        {
+          "name": "Malik Nabers",
+          "round": 5,
+          "position": "WR"
+        }
+      ],
+      "regularStartedPoints": 65.8,
+      "regularVsStarterMedian": 11.3,
+      "championshipStarterPoints": 0,
+      "otherWeek15to17StartedPoints": 0,
+      "playoffQualified": true,
+      "components": {
+        "observedProduction": 52.8,
+        "nominalDraftCapital": 25,
+        "championshipContribution": 0
+      },
+      "researchScore": 36.5,
+      "verifiedDrops": [],
+      "officialKeeperDecisionGrade": null
+    },
+    {
+      "manager": "Stover",
+      "keepers": [
+        {
+          "name": "Saquon Barkley",
+          "round": 1,
+          "position": "RB"
+        },
+        {
+          "name": "Brian Thomas",
+          "round": 9,
+          "position": "WR"
+        }
+      ],
+      "regularStartedPoints": 245.2,
+      "regularVsStarterMedian": -3.65,
+      "championshipStarterPoints": 0,
+      "otherWeek15to17StartedPoints": 45.2,
+      "playoffQualified": false,
+      "components": {
+        "observedProduction": 49.1,
+        "nominalDraftCapital": 28.6,
+        "championshipContribution": 0
+      },
+      "researchScore": 35.6,
+      "verifiedDrops": [],
+      "officialKeeperDecisionGrade": null
+    }
+  ]
+}
