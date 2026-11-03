@@ -20,6 +20,13 @@ for(const entry of identity.additionalVerifiedManagers??[])
  if(entry.sleeper)register(entry.sleeper,entry.canonical);
 for(const [canonical,entry] of Object.entries(identity.managers??{}))
  if(entry.sourceEvidence?.sleeperOwnerHandle)register(entry.sourceEvidence.sleeperOwnerHandle,canonical==='Tom'?'Thommy':canonical);
+// Historical handle aliases are documented in the shared identity map and
+// independently checked against the existing roster-based Start/Sit map.
+for(const entry of identity.verifiedSleeperHistoricalHandleAliases??[]){
+ assert.ok(entry.handle&&entry.manager&&['current','historical'].includes(entry.status));
+ register(entry.handle,entry.manager);
+}
+
 const observations=source.observations.map(row=>{
  const manager=row.ownerIdentityStatus==='single_observed_roster_owner_handle'?owners.get(key(row.observedOwnerHandle)):undefined;
  return {year:row.year,transactionId:row.transactionId,teamId:row.teamId,playerId:row.playerId,
