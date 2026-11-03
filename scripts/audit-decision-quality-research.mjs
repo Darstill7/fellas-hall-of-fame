@@ -1,0 +1,91 @@
+// Cross-workstream decision-quality research gate.
+// A hindsight optimization is descriptive, not evidence of ex-ante manager skill.
+// Current source cutoff: completed 2026 Week 8 (Nov 3, 2026).
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+
+const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+const completed=read('data/sleeper_roster_snapshots_2026_week8.json');
+const partial=read('data/keeper_2026_website_research_v1.json');
+const faab=read('data-integrity/faab-observed-acquisition-outcomes-v1.json');
+const candidate=read('data-integrity/keeper-2025-retrospective-candidate-inventory-v1.json');
+const keeperDecision=read('data-integrity/keeper-2025-decision-research-index-v1.json');
+
+assert.equal(completed.season,2026);
+assert.equal(completed.week,8);
+assert.equal(completed.rosters.length,10);
+assert.deepEqual(completed.rosters.map(r=>Number(r.teamId)).sort((a,b)=>a-b),
+ Array.from({length:10},(_,i)=>i+1));
+assert.equal(partial.throughWeek,8,'2026 keeper grades cannot advance into Week 9 on Nov 3');
+assert.equal(partial.selections.length,20);
+assert.ok(partial.rows.every(r=>r.researchScore===null&&r.officialKeeperDecisionGrade===null),
+ 'In-progress keepers cannot become official grades');
+assert.equal(candidate.rows.length,10);
+assert.equal(candidate.coverage.keepersMatched,20);
+assert.ok(candidate.rows.every(r=>r.certifiedDeadlineChoiceSet===false),
+ 'Final-week snapshots are not certified keeper deadline choice sets');
+assert.ok(candidate.rows.every(r=>r.candidates.every(p=>
+ p.keeperDeadlineLegalEligibility===null&&p.contemporaneousKeeperAlternativeValue===null)),
+ 'Unproven keeper alternatives must remain unknown');
+assert.ok(keeperDecision.rows.every(r=>
+ r.certifiedKeeperDecisionScore===null&&r.publicReportCardKeeperGrade===null&&r.abandonmentPenalty===null),
+ 'Retrospective keeper production cannot be silently promoted to decision skill');
+
+const faab2026=faab.coverage.find(r=>r.year===2026);
+assert.ok(faab2026,'Missing 2026 FAAB evidence');
+assert.equal(faab.status,'research_only_not_causal_or_skill_grade');
+assert.equal(faab2026.regularSeasonWeekLimit,7,
+ 'FAAB Week 8 outcomes require their own validated refresh; never silently assume parity');
+assert.ok(faab.observations.filter(r=>r.year===2026).every(r=>
+ r.weeks.every(w=>w.week>r.claimWeek&&w.week<=faab2026.regularSeasonWeekLimit)),
+ 'FAAB result leakage into claim week or future week');
+
+// Independently verify Week 8 lineup feasibility using positional slot assignment.
+// This is the maximum retrospectively possible from scored starters + recorded bench;
+// absent injury, pre-kickoff availability and start/sit lock evidence, it is NOT a grade.
+const slots=['QB','RB','RB','WR','WR','TE','FLEX','FLEX','DEF'];
+const eligible=(p,slot)=>slot==='FLEX'?['RB','WR','TE'].includes(p.position):p.position===slot;
+function optimum(players){
+ let states=new Map([[0,0]]);
+ for(const player of players){
+  assert.ok(Number.isFinite(player.points),'Missing recorded player score');
+  const next=new Map(states);
+  for(const [mask,score] of states){
+   for(let i=0;i<slots.length;i++){
+    if((mask&(1<<i))||!eligible(player,slots[i]))continue;
+    const key=mask|(1<<i),value=score+player.points;
+    if(!next.has(key)||next.get(key)<value)next.set(key,value);
+   }
+  }
+  states=next;
+ }
+ return states.get((1<<slots.length)-1)??null;
+}
+assert.equal(optimum([{position:'QB',points:50}]),null,'Incomplete lineup must not be scored');
+let possible=0,totalGap=0;
+for(const team of completed.rosters){
+ const pool=[...team.starters,...team.bench];
+ assert.equal(team.starters.length,9,'Incomplete Week 8 starter roster');
+ assert.equal(new Set(pool.map(p=>String(p.id))).size,pool.length,'Duplicate player in roster');
+ const real=team.starters.reduce((sum,p)=>sum+p.points,0);
+ assert.ok(Number.isFinite(team.points)&&Math.abs(real-team.points)<.07,
+  'Week 8 starter score fails team-score parity: '+team.teamId);
+ const max=optimum(pool);
+ assert.ok(Number.isFinite(max)&&max+.07>=real,
+  'Week 8 positional eligibility/optimal lineup failure: '+team.teamId);
+ possible++;
+ totalGap+=Math.max(0,max-real);
+}
+assert.equal(possible,10);
+assert.ok(totalGap>=0);
+const reportCards=fs.readFileSync('assets/manager-report-card.mjs','utf8');
+assert.ok(reportCards.includes('lineups')&&reportCards.includes('waivers')&&reportCards.includes('keepers'),
+ 'Report card must expose the three decision-quality categories');
+console.log('DECISION RESEARCH GATE PASS:',JSON.stringify({
+ scoringCutoff:'2026 Week 8',week8LineupTeamChecks:possible,
+ week8HindsightGapAllTeamsPoints:Math.round(totalGap*100)/100,
+ keeper2026Choices:partial.selections.length,keeper2025LegalAlternativeSetsCertified:0,
+ faab2026OutcomeThroughWeek:faab2026.regularSeasonWeekLimit,
+ keeperDecisionGradePublished:false,faabSkillGradePublished:false,startSitSkillGradePublished:false,
+ qualification:'Observed outcomes and roster hindsight are not causal decision quality.'
+}));
