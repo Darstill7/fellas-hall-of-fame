@@ -1,0 +1,76 @@
+{
+  "status": "REVIEW_REQUIRED",
+  "league": "1340027406009761792",
+  "year": 2026,
+  "week": 8,
+  "source": "Sleeper 2026 Week 8 completed matchups retrieved through connected fantasy provider on 2026-11-03",
+  "matchupCount": 5,
+  "reason": "Review against final Sleeper results before approving canonical import; no canonical ledger mutated",
+  "games": [
+    {
+      "year": 2026,
+      "week": 8,
+      "home": "Stilly",
+      "away": "Birch",
+      "homeScore": 113.58,
+      "awayScore": 96.9,
+      "winner": "HOME",
+      "margin": 16.68,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_8"
+    },
+    {
+      "year": 2026,
+      "week": 8,
+      "home": "JMid",
+      "away": "Kuhl",
+      "homeScore": 141.68,
+      "awayScore": 82.38,
+      "winner": "HOME",
+      "margin": 59.3,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_8"
+    },
+    {
+      "year": 2026,
+      "week": 8,
+      "home": "Thommy",
+      "away": "Scott",
+      "homeScore": 106.34,
+      "awayScore": 112.56,
+      "winner": "AWAY",
+      "margin": 6.22,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_8"
+    },
+    {
+      "year": 2026,
+      "week": 8,
+      "home": "Stew",
+      "away": "Stover",
+      "homeScore": 134.16,
+      "awayScore": 79.1,
+      "winner": "HOME",
+      "margin": 55.06,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_8"
+    },
+    {
+      "year": 2026,
+      "week": 8,
+      "home": "Mitch",
+      "away": "Tony",
+      "homeScore": 123.16,
+      "awayScore": 99.3,
+      "winner": "HOME",
+      "margin": 23.86,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_8"
+    }
+  ]
+}
