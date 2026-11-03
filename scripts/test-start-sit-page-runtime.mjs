@@ -70,6 +70,19 @@ async function runQuery(query){
  assert.equal((nodes.get('weekly-results').innerHTML.match(/<tr class=/g)??[]).length,completedWeek);
  const summary=nodes.get('results').innerHTML;
  assert.equal((summary.match(/<tr>/g)??[]).length,10);
+ if(completedWeek===8){
+  // Archive-derived reconstruction, one decimal. Sleeper UI independently
+  // corroborates Stilly and Kuhl; the remaining eight are internal parity.
+  const expected=[
+   ['Stilly','92.4%'],['Stew','92.0%'],['Tony','88.9%'],
+   ['Thommy','88.2%'],['JMid','88.1%'],['Stover','87.8%'],
+   ['Mitch','87.2%'],['Birch','85.8%'],['Scott','85.3%'],
+   ['Kuhl','83.1%']
+  ];
+  const rendered=[...summary.matchAll(/<tr><th scope="row">([^<]+)<\\/th>.*?<td class="metric">([0-9.]+%)<\\/td>/g)]
+   .map(m=>[m[1],m[2]]);
+  assert.deepEqual(rendered,expected,'Archived 2026 ten-manager accuracy/order regression');
+ }
  assert.ok(summary.indexOf('Stilly')<summary.indexOf('Kuhl'),'Leaderboard sorting reversed');
  if(completedWeek===8)assert.ok(summary.includes('92.4%')&&summary.includes('83.1%'));
  else assert.ok(summary.includes('Stilly')&&summary.includes('Kuhl'));
