@@ -71,5 +71,27 @@ for(const manager of ['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','
    'Manager profile has no draft/trade evidence for '+manager+' '+season.year);
  }
 assert.equal(seen.size,published.rows.length);
+// Career résumé must reconcile with the same exact season-level records,
+// and no manager can receive a phantom skill grade or uncertified 2026 trade.
+const {buildDraftTradeCareer}=await import('../assets/manager-draft-trade-career.mjs');
+const currentManagers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
+for(const manager of currentManagers){
+ const seasons=published.rows.filter(r=>r.manager===manager);
+ const career=buildDraftTradeCareer(published.rows,manager);
+ assert.equal(career.seasons,seasons.length);
+ assert.equal(career.documentedPicks,seasons.reduce((n,s)=>n+s.recordedSelections,0));
+ assert.equal(career.keeperSlots,seasons.reduce((n,s)=>n+s.recordedKeeperSelections,0));
+ assert.equal(career.unresolvedNames,seasons.reduce((n,s)=>n+s.unresolvedNames,0));
+ assert.equal(career.representedTrades,seasons.reduce((n,s)=>n+s.trades.representedEvents,0));
+ assert.equal(career.representedTrades,career.fullyRepresentedTrades+career.partialTrades);
+ assert.ok(career.latestPicks.length>=1&&career.latestPicks.length<=3);
+ const source2026=seasons.find(x=>x.year===2026);
+ assert.ok(source2026);
+ assert.equal(source2026.trades.representedEvents,0,
+  '2026 provisional trade sides must not be certified');
+ const profileCode=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+ assert.ok(profileCode.includes('mountDraftTradeCareer(quick,keeperManager)'),
+  'Manager profiles do not mount career résumé');
+}
 console.log('Manager draft/trade profile evidence PASS: '+seen.size+
  ' manager-seasons verified without fabricated grades or missing ESPN names');
