@@ -531,7 +531,7 @@ try{
        errors.push(width+' '+route+' career peak or verified title milestones missing');
       if(route==='managers/stover/'&&!milestone.includes('2022'))
        errors.push(width+' Stover 2022 title missing from career history');
-      const firstChange=await historical.locator('tbody tr:first-child td:nth-child(2)').textContent();
+      const firstChange=await historical.locator('tbody tr:first-child td:nth-child(3)').textContent();
       if(firstChange.trim()!=='First year')
        errors.push(width+' '+route+' first career OVR row invented an annual change');
      }
