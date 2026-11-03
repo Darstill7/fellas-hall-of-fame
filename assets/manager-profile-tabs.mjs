@@ -181,6 +181,19 @@ if(main&&tabs){
  // Restore scroll after a visitor opens another report and returns.
  // Keep it per-tab so each manager section remembers its own reading position.
  const scrollKey='fellas-profile-position:'+location.pathname;
+ // Reapply after both the BFCache restore and late-loading historical panels settle.
+ // A single animation frame can be overwritten by Chromium's own history restoration.
+ const restoreReadingPosition=saved=>{
+  const reapply=()=>{
+   if(document.visibilityState==='hidden')return;
+   window.scrollTo({top:saved.y,behavior:'instant'});
+   updateBack();
+  };
+  requestAnimationFrame(()=>requestAnimationFrame(reapply));
+  setTimeout(reapply,80);
+  setTimeout(reapply,200);
+  setTimeout(reapply,450);
+ };
  const savePosition=()=>{
   try{sessionStorage.setItem(scrollKey,JSON.stringify({tab:buttons.find(b=>b.getAttribute('aria-selected')==='true')?.dataset.profileTab||'overview',y:window.scrollY,at:Date.now()}))}catch{}
  };
@@ -194,7 +207,7 @@ if(main&&tabs){
    const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');
    if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]){
     activate(saved.tab);
-    requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo({top:saved.y,behavior:'instant'})));
+    restoreReadingPosition(saved);
    }
   }catch{}
  });
@@ -202,6 +215,6 @@ if(main&&tabs){
  const target=document.getElementById(location.hash.slice(1));
  const chosen=categories[initial]?initial:target&&sectionTab.has(target)?sectionTab.get(target):'overview';
  activate(chosen);
- if(!target||categories[initial]){try{const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]&&(!target||initial===saved.tab)){activate(saved.tab);requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo({top:saved.y,behavior:'instant'})))}}catch{}}
+ if(!target||categories[initial]){try{const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]&&(!target||initial===saved.tab)){activate(saved.tab);restoreReadingPosition(saved)}}catch{}}
  if(target&&!categories[initial])requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));
 }
