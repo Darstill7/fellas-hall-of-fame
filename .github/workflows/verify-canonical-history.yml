@@ -236,6 +236,9 @@ jobs:
       - name: Score provisional 2025 keeper decision research components
         run: node scripts/score-2025-keeper-decision-research.mjs
 
+      - name: Stress-test 2025 keeper score weights and abandonment scenarios
+        run: node scripts/audit-2025-keeper-score-sensitivity.mjs
+
 
       - name: Verify archived 2025–26 keeper weekly ownership and original-team starting credit
         run: node scripts/build-keeper-weekly-ownership-ledger.mjs
@@ -332,6 +335,7 @@ jobs:
             data-integrity/keeper-weekly-ownership-ledger-v1.json
             data-integrity/keeper-2025-abandonment-direct-replacements-v1.json
             data-integrity/keeper-2025-abandonment-downstream-evidence-v1.json
+            data-integrity/keeper-2025-score-sensitivity-v1.json
             data-integrity/keeper-2025-decision-research-index-v1.json
             data-integrity/keeper-2025-abandonment-receipts-v1.json
             data-integrity/keeper-trade-transfer-inventory-v1.json
