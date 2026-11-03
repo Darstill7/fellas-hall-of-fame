@@ -7,7 +7,7 @@ const client=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
 const generator=fs.readFileSync('scripts/analyze-2026-start-sit-hindsight.mjs','utf8');
 const report=fs.readFileSync('analytics/manager-report-cards.html','utf8');
 for(const s of ['Avg Start/Sit accuracy','2026 (Weeks 1–8)','manager-lineup-research-page.mjs',
- 'id="detail-manager"','id="weekly-results"','id="detail-summary"'])
+ 'id="detail-manager"','id="weekly-results"','id="detail-summary"','id="current-coverage"'])
  assert.ok(html.includes(s),'Start/Sit research UI missing '+s);
 assert.ok(report.includes('manager-lineup-research.html'),'Start/Sit research navigation missing');
 for(const s of ['function yearWeeks(year){return year===2020?13:year===2026?current2026Weeks:14}',
@@ -16,6 +16,7 @@ for(const s of ['function yearWeeks(year){return year===2020?13:year===2026?curr
  assert.ok(client.includes(s),'Start/Sit browser computation or UI missing '+s);
 for(const field of ['current2026Weeks=count','keeper_2026_website_research_v1.json',
  'detailSelect.onchange=drawWeekly','stat.observations.push',
+ "$('current-coverage').textContent='through completed Week '+count",
  "const best=comparable.length?","const worst=comparable.length?",
  "selected==='2026'?bv-av","class=\"'+cls+'\"","detailSelect.replaceChildren()"])
  assert.ok(client.includes(field),'Start/Sit weekly detail or dynamic coverage missing: '+field);
