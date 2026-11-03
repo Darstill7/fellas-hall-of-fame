@@ -25,6 +25,17 @@ try{
  }
  const fixturePath=path.join(temp,candidate);
  fs.mkdirSync(path.dirname(fixturePath),{recursive:true});
+ // Build a self-consistent synthetic provider snapshot for lifecycle verification.
+ const simulated=[...season,...fixture.games];
+ const simulatedStandings=new Map();
+ for(const g of simulated)for(const manager of [g.home,g.away])
+  if(!simulatedStandings.has(manager))simulatedStandings.set(manager,{manager,wins:0,losses:0,pointsFor:0,pointsAgainst:0});
+ for(const g of simulated)for(const [manager,points,against] of [[g.home,g.homeScore,g.awayScore],[g.away,g.awayScore,g.homeScore]]){
+  const row=simulatedStandings.get(manager);
+  row.wins+=Number(points>against);row.losses+=Number(points<against);
+  row.pointsFor+=points;row.pointsAgainst+=against;
+ }
+ fixture.providerStandingsSnapshot={seasonThroughWeek:nextWeek,teams:[...simulatedStandings.values()].map(x=>({...x,pointsFor:Math.round(x.pointsFor*100)/100,pointsAgainst:Math.round(x.pointsAgainst*100)/100}))};
  fs.writeFileSync(fixturePath,JSON.stringify(fixture));
  const importer=path.resolve('scripts/apply-reviewed-sleeper-week.mjs');
  const run=approve=>spawnSync(process.execPath,[importer,candidate,'--dry-run'],{cwd:temp,encoding:'utf8',env:{...process.env,FELLAS_APPROVE_WEEKLY_IMPORT:approve}});
@@ -32,6 +43,22 @@ try{
  if(rejected.status===0||!rejected.stderr.includes('Human approval required'))throw Error('Approval safeguard failed: '+rejected.stderr);
  const approved=run('YES');
  if(approved.status!==0||!approved.stdout.includes('DRY RUN PASS'))throw Error('Synthetic dry-run failed: '+approved.stderr+' '+approved.stdout);
+ const verifier=path.resolve('scripts/verify-staged-weekly-candidates.mjs');
+ const verify=()=>spawnSync(process.execPath,[verifier],{cwd:temp,encoding:'utf8'});
+ let verified=verify();
+ if(verified.status!==0||!verified.stdout.includes('WEEKLY CANDIDATE PASS'))throw Error('Pending synthetic candidate rejected: '+verified.stderr);
+ const tempLedger=JSON.parse(fs.readFileSync(path.join(temp,ledgerPath),'utf8'));
+ tempLedger.games.push(...fixture.games);
+ fs.writeFileSync(path.join(temp,ledgerPath),JSON.stringify(tempLedger));
+ fixture.status='IMPORTED';
+ fs.writeFileSync(fixturePath,JSON.stringify(fixture));
+ verified=verify();
+ if(verified.status!==0||!verified.stdout.includes('WEEKLY CANDIDATE PASS'))throw Error('Imported synthetic candidate rejected: '+verified.stderr);
+ const importedGame=tempLedger.games.find(g=>g.year===2026&&g.week===nextWeek);
+ importedGame.homeScore+=1;
+ fs.writeFileSync(path.join(temp,ledgerPath),JSON.stringify(tempLedger));
+ const tampered=verify();
+ if(tampered.status===0)throw Error('Imported matchup score drift was not rejected');
  const after=sourceFiles.map(hash);
  if(after.some((h,i)=>h!==before[i]))throw Error('Dry-run mutated canonical source files');
  if(!fs.existsSync(fixturePath))throw Error('Synthetic fixture unexpectedly missing');

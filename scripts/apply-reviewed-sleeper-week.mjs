@@ -23,6 +23,9 @@ for(const g of candidate.games){
 }
 const expectedOwners=new Set(['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott']);
 if(participants.size!==10||[...participants].some(name=>!expectedOwners.has(name)))throw Error('Expected the 10 current verified managers');
+// Independently reconcile the reviewed score pairs and every manager's
+// season record against the preserved original-provider standings snapshot.
+execFileSync(process.execPath,['scripts/verify-staged-weekly-candidates.mjs'],{stdio:'inherit'});
 // Refuse to rewrite any records until the candidate has passed structural checks.
 const updated=[...ledger.games,...candidate.games];
 ledger.games=updated;ledger.updated=new Date().toISOString().slice(0,10);
@@ -71,6 +74,11 @@ execFileSync(process.execPath,['scripts/generate-career-core.mjs'],{stdio:'inher
 execFileSync(process.execPath,['scripts/generate-season-guide.mjs'],{stdio:'inherit'});
 for(const script of ['verify-weekly-ledger-parity.mjs','verify-manager-madden-cards.mjs','verify-fellas-rating.mjs'])
  execFileSync(process.execPath,['scripts/'+script],{stdio:'inherit'});
+// Preserve an auditable lifecycle receipt only after core generation checks pass.
+// Re-applying this candidate is now rejected, while CI can verify historical parity.
+candidate.status='IMPORTED';
+candidate.importedAt=new Date().toISOString();
+write(candidatePath,candidate);
 console.log('Review regenerated files and full CI before merging. Other legacy projections may need regeneration.');
 }
 
