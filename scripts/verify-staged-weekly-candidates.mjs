@@ -11,10 +11,17 @@ const prior=ledger.games.filter(g=>g.year===2026&&g.stage==='regular');
 const last=Math.max(...prior.map(g=>g.week));
 for(const file of files){
  const c=JSON.parse(fs.readFileSync(dir+'/'+file,'utf8'));
- assert.equal(c.status,'REVIEW_REQUIRED');
+ assert.ok(['REVIEW_REQUIRED','IMPORTED'].includes(c.status),'Unexpected candidate lifecycle status');
  assert.equal(c.league,'1340027406009761792');
  assert.equal(c.year,2026);
- assert.equal(c.week,last+1,'Only the next week may be staged before canonical import');
+ const applied=prior.filter(g=>g.week===c.week);
+ if(c.status==='REVIEW_REQUIRED'){
+  assert.equal(c.week,last+1,'Pending candidate must be the next consecutive week');
+  assert.equal(applied.length,0,'Pending candidate cannot already exist in canonical ledger');
+ }else{
+  assert.ok(c.week<=last,'Imported candidate week must exist in canonical ledger');
+  assert.equal(applied.length,5,'Imported candidate must have five canonical games');
+ }
  assert.equal(file,'2026-week'+c.week+'.json');
  assert.equal(c.matchupCount,5);
  assert.equal(c.games.length,5);
@@ -31,7 +38,16 @@ for(const file of files){
   assert.equal(round(g.margin),round(Math.abs(g.homeScore-g.awayScore)));
  }
  assert.equal(participants.size,10);
- const games=[...prior,...c.games];const record=new Map(managers.map(m=>[m,{manager:m,wins:0,losses:0,pointsFor:0,pointsAgainst:0}]));
+ if(c.status==='IMPORTED'){
+  const gameKey=g=>[g.week,g.home,g.away].join('|');
+  const byKey=new Map(applied.map(g=>[gameKey(g),g]));
+  for(const g of c.games){
+   const found=byKey.get(gameKey(g));
+   assert.ok(found,'Imported matchup missing from canonical ledger: '+gameKey(g));
+   for(const field of ['homeScore','awayScore','winner','margin','stage','era'])assert.equal(found[field],g[field],'Imported matchup drift '+field);
+  }
+ }
+ const games=c.status==='IMPORTED'?prior.filter(g=>g.week<=c.week):[...prior,...c.games];const record=new Map(managers.map(m=>[m,{manager:m,wins:0,losses:0,pointsFor:0,pointsAgainst:0}]));
  const weeks=new Map();
  for(const g of games){
   for(const [m,p,a] of [[g.home,g.homeScore,g.awayScore],[g.away,g.awayScore,g.homeScore]]){
@@ -57,5 +73,5 @@ for(const file of files){
   assert.equal(round(computed.pointsAgainst),team.pointsAgainst,team.manager+' PA');
  }
  assert.equal(seen.size,10);
- console.log('STAGED WEEKLY CANDIDATE PASS: '+file+'; 5 matchups, 10 managers, '+games.length+' games, provider standings reconciled; no canonical changes');
+ console.log('WEEKLY CANDIDATE PASS: '+file+' ('+c.status+'); 5 matchups, 10 managers, '+games.length+' games, provider standings reconciled; no canonical changes');
 }
