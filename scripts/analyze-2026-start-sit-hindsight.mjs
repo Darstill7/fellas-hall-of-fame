@@ -98,19 +98,30 @@ const summaries=[...managers.values()].sort().map(manager=>{
   officialStartSitGrade:null};
 });
 assert.equal(rows.length,10*weeks.length);
-// On 2026-11-03 the Sleeper matchup screen showed Stilly 92.4% and Kuhl 83.1%.
-// Validate the Week 1-8 reconstruction against these independent UI witnesses.
-// After Week 9, these exact snapshot percentages must no longer be treated as current.
-if(weeks.at(-1)===8){
- assert.ok(Math.abs(summaries.find(r=>r.manager==='Stilly').averageWeeklyStartSitAccuracyPercent-92.4)<.051,
-  'Stilly Week 8 Sleeper start/sit benchmark changed');
- assert.ok(Math.abs(summaries.find(r=>r.manager==='Kuhl').averageWeeklyStartSitAccuracyPercent-83.1)<.051,
-  'Kuhl Week 8 Sleeper start/sit benchmark changed');
+// Independent Sleeper mobile UI observations captured after Week 8.
+// These are platform display benchmarks, not ex-ante skill judgments.
+// Validate all ten managers, only at the same completed-week cutoff.
+const uiBenchmark=read('data-integrity/sleeper-start-sit-ui-benchmarks-2026-week8.json');
+assert.equal(uiBenchmark.season,2026);
+assert.equal(uiBenchmark.throughWeek,8);
+assert.equal(uiBenchmark.data.length,10);
+if(weeks.at(-1)===uiBenchmark.throughWeek){
+ const seen=new Set();
+ for(const sample of uiBenchmark.data){
+  assert.ok(!seen.has(sample.manager),'Duplicate Sleeper UI benchmark '+sample.manager);
+  seen.add(sample.manager);
+  const computed=summaries.find(r=>r.manager===sample.manager);
+  assert.ok(computed,'Unmapped Sleeper UI benchmark '+sample.manager);
+  assert.ok(Math.abs(computed.averageWeeklyStartSitAccuracyPercent-sample.accuracyPercent)<.051,
+   'Sleeper UI Start/Sit mismatch: '+sample.manager+' expected '+sample.accuracyPercent+
+   ' got '+computed.averageWeeklyStartSitAccuracyPercent);
+ }
+ assert.equal(seen.size,managers.size,'Not all current managers independently screenshot-verified');
 }
 
 const output={schema:'fellas-start-sit-2026-hindsight-v1',throughWeek:weeks.at(-1),
  status:'retrospective_scored_roster_comparison_not_decision_skill',
- sleeperAccuracyMethod:'Unweighted arithmetic mean of weekly (actual lineup points / optimal scored roster lineup points × 100), rounded to one decimal for display; independent 2026 Week 8 UI witnesses Stilly 92.4 and Kuhl 83.1',
+ sleeperAccuracyMethod:'Unweighted arithmetic mean of weekly (actual lineup points / optimal scored roster lineup points × 100), rounded to one decimal for display; independent Sleeper Week 8 UI screenshots for all ten managers',
 
  limitations:['Full recorded starters and bench do not prove each benched player was startable before kickoff',
  'Injury or inactive status and lineup lock timestamps are not certified',
