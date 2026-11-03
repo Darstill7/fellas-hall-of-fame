@@ -129,8 +129,18 @@ try{
        errors.push(width+' '+route+' insufficient documented manager seasons');
       else {
        const text=await timeline.innerText();
-       if(!text.includes('pickup')||!text.includes('2026')||!text.includes('no decision score'))
+       if(!text.includes('pickups')||!text.includes('2026')||
+          !text.includes('No invented skill grades')||
+          !text.includes('not total trades or wins'))
         errors.push(width+' '+route+' season timeline provenance warning or data missing');
+       const draftTrade=timeline.locator('.profile-season-draft-trade');
+       if(await draftTrade.count()!==await entries.count())
+        errors.push(width+' '+route+' missing season-level draft or trade evidence');
+       const currentYear=entries.first();
+       if(!((await currentYear.innerText()).includes('Draft ·'))||
+          !((await currentYear.innerText()).includes('Trades ·'))||
+          !((await currentYear.innerText()).includes('not trade wins or losses')))
+        errors.push(width+' '+route+' draft or trade event incorrectly scored');
        if(!text.includes('Current W–L not shown; archived record stops before Week 8'))
         errors.push(width+' '+route+' 2026 timeline leaked outdated Week 7 W–L');
        const tradeLinks=await timeline.locator('.profile-season-trade-link').evaluateAll(nodes=>
