@@ -70,6 +70,51 @@ for(const m of partial.rows){
  assert.equal(m.otherWeek15to17StartedPoints,null);
 }
 
+// Re-read the provider roster snapshots, not merely the published research receipts.
+// Match the generator's documented player-name normalization until stable player IDs
+// are available for all draft picks. Fail on duplicate matches or stale attribution.
+const normalizeKeeperName=s=>String(s??'').toLowerCase().replace(/\\b(jr|sr|ii|iii|iv)\\b/g,'').replace(/[^a-z0-9]/g,'');
+for(let week=1;week<=partial.throughWeek;week++){
+ const source='data/sleeper_roster_snapshots_2026_week'+week+'.json';
+ const weekly=read(source);
+ assert.equal(weekly.week,week,'Keeper snapshot week mismatch: '+source);
+ assert.equal(weekly.season,2026,'Keeper snapshot season mismatch: '+source);
+ assert.equal(weekly.rosters.length,10,'Incomplete keeper roster snapshot: '+source);
+ const owners=weekly.rosters.map(t=>Number(t.teamId)).sort((a,b)=>a-b);
+ assert.deepEqual(owners,Array.from({length:10},(_,i)=>i+1),'Keeper snapshot team coverage: '+source);
+ const starters=weekly.rosters.flatMap(t=>t.starters);
+ assert.equal(starters.length,90,'Keeper snapshot starter coverage: '+source);
+ assert.ok(starters.every(p=>Number.isFinite(p.points)),'Invalid keeper cohort points: '+source);
+ const medians={};
+ for(const position of ['QB','RB','WR','TE']){
+  const values=starters.filter(p=>p.position===position).map(p=>p.points).sort((a,b)=>a-b);
+  assert.ok(values.length>=10,'Insufficient '+position+' cohort: '+source);
+  const mid=Math.floor(values.length/2);
+  medians[position]=round2(values.length%2?values[mid]:(values[mid-1]+values[mid])/2);
+ }
+ for(const pick of partial.selections){
+  const hits=weekly.rosters.flatMap(team=>[
+   ...team.starters.map(player=>({...player,isStarter:true})),
+   ...team.bench.map(player=>({...player,isStarter:false}))
+  ].filter(player=>normalizeKeeperName(player.name)===normalizeKeeperName(pick.player))
+    .map(player=>({...player,teamId:String(team.teamId)})));
+  assert.ok(hits.length<=1,'Ambiguous keeper in '+source+': '+pick.player);
+  const hit=hits[0];
+  const original=!!hit&&hit.teamId===pick.originalTeamId;
+  const started=original&&hit.isStarter;
+  const observation=pick.observations[week-1];
+  const key=pick.manager+'/'+pick.player+' Week '+week;
+  assert.equal(observation.rosterTeamId,hit?.teamId??null,'Snapshot ownership: '+key);
+  assert.equal(observation.onOriginalTeam,original,'Snapshot original-team status: '+key);
+  assert.equal(observation.startedForOriginalManager,started,'Snapshot starter status: '+key);
+  const receipt=pick.startingReceipts.find(r=>r.week===week);
+  if(!started){assert.equal(receipt,undefined,'Unowned starter receipt: '+key);continue;}
+  assert.ok(receipt,'Missing source starter receipt: '+key);
+  assert.ok(Math.abs(receipt.points-hit.points)<.011,'Source starter score: '+key);
+  assert.ok(Math.abs(receipt.median-medians[pick.position])<.011,'Source position median: '+key);
+ }
+}
+
 const composite=read('data-integrity/keeper-2025-composite-evidence-v1.json');
 const bracket=read('data-integrity/keeper-2025-championship-bracket-contribution-v1.json');
 const draft=read('data/v9_draft_engine.json').filter(x=>x.year===2025&&x.keeper);
