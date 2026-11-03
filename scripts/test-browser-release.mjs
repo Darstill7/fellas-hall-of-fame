@@ -104,8 +104,17 @@ try{
     else{
      const panel=await heroMadden.innerText();
      if(!panel.includes('OVR')||!panel.includes('Championships')||
-        !panel.includes('Peak season:'))
+        !panel.includes('Best individual season:')||!panel.includes('What this rating means:'))
       errors.push(width+' '+route+' primary career rating or peak season missing');
+     const explainer=heroMadden.locator('details.profile-rating-explainer');
+     if(await explainer.count()!==1)errors.push(width+' '+route+' rating definitions missing');
+     else{
+      await explainer.locator('summary').click();
+      const definitions=await explainer.innerText();
+      if(!definitions.includes('Career W–L')||!definitions.includes('Playoff berths')||
+         !definitions.includes('Best individual season')||!definitions.includes('separate Season OVR model'))
+       errors.push(width+' '+route+' rating metric explanations incomplete');
+     }
      const annual=heroMadden.locator('details.profile-season-ovr');
      if(await annual.count()!==1||await annual.evaluate(el=>el.open))
       errors.push(width+' '+route+' season OVR history not collapsed by default');
@@ -571,8 +580,11 @@ try{
       const beforeJump=await page.evaluate(()=>window.scrollY);
       await quickLinks.nth(2).click();
       const afterJump=await page.evaluate(()=>window.scrollY);
-      if(Math.abs(afterJump-beforeJump)>100)errors.push(width+' '+slug+' quick shortcut unexpectedly jumped down the page');
+      if(afterJump<=beforeJump+40)errors.push(width+' '+slug+' quick shortcut did not move to the chosen section');
       if(await page.locator('[data-profile-tab="rivalries"]').getAttribute('aria-selected')!=='true'||!await page.locator('#head-to-head').isVisible())errors.push(width+' '+slug+' head-to-head quick-link failed');
+      const rivalsPosition=await page.locator('#head-to-head').evaluate(el=>el.getBoundingClientRect().top);
+      if(rivalsPosition<-120||rivalsPosition>400)
+       errors.push(width+' '+slug+' quick shortcut did not reveal head-to-head research');
      }
      if(width===390){
       await page.locator('[data-profile-tab="seasons"]').click();
@@ -625,6 +637,9 @@ try{
       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
       await button.click();
       if(await button.getAttribute('aria-selected')!=='true')errors.push(width+' '+slug+' '+category+' tab did not activate');
+      const activeGuide=await page.locator('.profile-tab-guide').innerText();
+      if(!activeGuide.includes(({overview:'Career overview',seasons:'Each Year',rivalries:'Head-to-Head',advanced:'Deep Stats'})[category]))
+       errors.push(width+' '+slug+' category navigation has no visible active-section explanation');
       const sectionId={overview:'franchise-story',seasons:'season-history',rivalries:'head-to-head',advanced:'franchise-encyclopedia'}[category];
       if(!await page.locator('#'+sectionId).isVisible())errors.push(width+' '+slug+' '+category+' content hidden');
      }
