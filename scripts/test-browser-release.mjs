@@ -113,6 +113,11 @@ try{
       x.season==='career'&&x.manager===name);
      if(matches.length!==1)
       errors.push(width+' '+route+' invalid Start/Sit career link target: '+JSON.stringify(links));
+     const pickupLinks=await page.locator('a[href*="manager-report-cards.html?manager="]').evaluateAll(nodes=>
+      nodes.map(node=>{const url=new URL(node.href,location.href);
+       return {path:url.pathname,manager:url.searchParams.get('manager')};}));
+     if(pickupLinks.filter(x=>x.path.endsWith('/analytics/manager-report-cards.html')&&x.manager===name).length!==1)
+      errors.push(width+' '+route+' missing verified manager pickup history link: '+JSON.stringify(pickupLinks));
     }
    }
    if(route==='analytics/manager-lineup-research.html'){
