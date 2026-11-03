@@ -32,12 +32,12 @@ try {
    typeof x.player==='string'&&x.player.trim());
   const sorted=[...entries].sort((a,b)=>b.points-a.points||b.starts-a.starts||a.year-b.year).slice(0,3);
   if(!sorted.length)return '';
-  const label=sorted.map(x=>'<li><strong>'+esc(x.player)+'</strong> ('+x.year+') · '+
-   x.starts+' recorded starts · '+x.points.toFixed(1)+' lineup points'+
-   ' · <span class="pickup-cost" data-pickup-year="'+x.year+'" data-pickup-week="'+x.acquisitionWeek+
+  const label=sorted.map(x=>'<li><div class="pickup-name"><strong>'+esc(x.player)+'</strong><span>'+x.year+'</span></div>'+
+   '<div class="pickup-facts"><span><b>'+x.starts+'</b> starts</span><span><b>'+x.points.toFixed(1)+'</b> lineup pts</span></div>'+
+   '<span class="pickup-cost" data-pickup-year="'+x.year+'" data-pickup-week="'+x.acquisitionWeek+
    '" data-pickup-transaction="'+esc(x.transactionId)+'" data-pickup-player="'+esc(x.player)+
    '" data-pickup-type="'+esc(x.acquisitionType)+'">Cost: open to verify</span></li>').join('');
-  return '<details class="pickup-highlights"><summary>Notable pickups · selected examples</summary><p class="fine">Verified later-start highlights from the archival research, ranked here only by recorded starter points. Not all pickups; 2026 coverage is partial. Not a FAAB skill grade, bid-cost comparison, or replacement value.</p><ul>'+label+'</ul></details>';
+  return '<details class="pickup-highlights"><summary>Pickup highlights <span class="pickup-summary-meta">3 examples · starts, points & cost</span></summary><p class="fine">Verified later-start highlights from the archival research, ranked here only by recorded starter points. Not all pickups; 2026 coverage is partial. Not a FAAB skill grade, bid-cost comparison, or replacement value.</p><ul>'+label+'</ul></details>';
  };
  const slugs={Stilly:'stilly',Stew:'stew',Thommy:'tom',Stover:'stover',Birch:'birch',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',JMid:'jmid',Scott:'scott'};
  const compareA=document.getElementById('compare-a'),compareB=document.getElementById('compare-b');
@@ -110,5 +110,15 @@ try {
     void verifyPickupCost(node);
    }
   });
+ }
+ // A manager's profile deep-link should land directly on the relevant
+ // pickups, already expanded, without opening all ten archival sections.
+ if(managerQuery&&shown.length===1){
+  const selected=document.querySelector('#cards [data-report-manager] details.pickup-highlights');
+  if(selected){
+   selected.open=true;
+   // The async toggle handler verifies costs without blocking navigation.
+   document.getElementById('cards').scrollIntoView({block:'start'});
+  }
  }
 } catch(e) {document.getElementById('cards').innerHTML='<p role="alert">Report cards could not load from the historical archive. No invented grades are shown.</p>';console.error(e)}
