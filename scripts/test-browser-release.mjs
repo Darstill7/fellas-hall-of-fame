@@ -76,7 +76,7 @@ try{
     if(await rows.count()!==10)errors.push(width+' 2026 keeper research expected 10 managers');
     if(!((await page.locator('#keeper-notice').innerText()).includes('2026 is in progress')))
      errors.push(width+' 2026 in-progress warning missing');
-    if(!((await rows.first().innerText()).includes('starter pts · 7 weeks')))
+    if(!((await rows.first().innerText()).includes('starter pts · 8 weeks')))
      errors.push(width+' 2026 points incorrectly presented as a scored season');
     if(await page.locator('#keeper-sort option[value="score"]').isEnabled())
      errors.push(width+' 2026 should disable completed-season research score sorting');
