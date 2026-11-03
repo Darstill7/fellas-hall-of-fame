@@ -103,12 +103,16 @@ try{
      birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
     const name=profileNames[slug];
     if(name){
-     const expected='../../analytics/manager-lineup-research.html?season=career&manager='+name;
-     const links=page.locator('a[href*="manager-lineup-research.html?season=career"]');
-     const count=await links.count();
-     const actual=count===1?(await links.first().getAttribute('href'))?.replaceAll('&amp;','&'):null;
-     if(count!==1||actual!==expected)
-      errors.push(width+' '+route+' missing, duplicate, or misrouted Start/Sit career profile link');
+     // Validate a real navigable destination rather than comparing raw
+     // href spellings: browsers and profile scripts can normalize attributes.
+     const links=await page.locator('a[href*="manager-lineup-research.html"]').evaluateAll(nodes=>
+      nodes.map(node=>{const u=new URL(node.href,location.href);return {
+       path:u.pathname,season:u.searchParams.get('season'),
+       manager:u.searchParams.get('manager')}}));
+     const matches=links.filter(x=>x.path.endsWith('/analytics/manager-lineup-research.html')&&
+      x.season==='career'&&x.manager===name);
+     if(matches.length!==1)
+      errors.push(width+' '+route+' invalid Start/Sit career link target: '+JSON.stringify(links));
     }
    }
    if(route==='analytics/manager-lineup-research.html'){
