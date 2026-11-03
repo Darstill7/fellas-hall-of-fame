@@ -119,6 +119,32 @@ try{
      if(pickupLinks.filter(x=>x.path.endsWith('/analytics/manager-report-cards.html')&&x.manager===name).length<1)
       errors.push(width+' '+route+' missing verified manager pickup history link: '+JSON.stringify(pickupLinks));
      // All ten manager profiles share one source-backed, partial-season snapshot.
+     const career=page.locator('[data-manager-career-resume]');
+     if(await career.count()!==1||await career.getAttribute('data-manager-career-resume')!==name)
+      errors.push(width+' '+route+' career résumé missing or misattributed');
+     else{
+      await career.locator('summary').click();
+      const metrics=career.locator('.career-resume-metric');
+      if(await metrics.count()!==4)
+       errors.push(width+' '+route+' career draft/trade résumé totals unavailable');
+      else{
+       const text=await career.innerText();
+       if(!text.includes('Recorded draft selections')||
+          !text.includes('Recorded keeper slots')||
+          !text.includes('qualifying trade events')||
+          !text.includes('2026 trade sides are provisional')||
+          !text.includes('not all-time trade totals'))
+        errors.push(width+' '+route+' career résumé evidence/caveat incomplete');
+       const links=await career.locator('.career-resume-link').evaluateAll(nodes=>
+        nodes.map(node=>{const url=new URL(node.href);return {
+         manager:url.searchParams.get('manager'),year:url.searchParams.get('year'),
+         path:url.pathname};}));
+       if(links.some(link=>link.manager!==name||
+          !/^202[0-5]$/.test(link.year)||
+          !link.path.endsWith('/analytics/manager-trade-intelligence.html')))
+        errors.push(width+' '+route+' career trade evidence deep links invalid');
+      }
+     }
      const timeline=page.locator('[data-manager-season-evidence]');
      if(await timeline.count()!==1||await timeline.getAttribute('data-manager-season-evidence')!==name)
       errors.push(width+' '+route+' manager season-evidence module missing');
