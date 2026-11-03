@@ -4,10 +4,23 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const keepers=read('data/v9_draft_engine.json').filter(p=>p.keeper&&[2025,2026].includes(p.year));
 const weekly=read('data-integrity/keeper-weekly-ownership-ledger-v1.json');
 const overrides={'2025:Brian Robinson':'8154','2025:Brian Thomas':'11631'};
+const recovered2026Weeks=fs.readdirSync('data-integrity')
+ .map(name=>/^provider-recovered-transactions-2026-week([0-9]+)[.]json$/.exec(name)?.[1])
+ .filter(Boolean).map(Number).sort((a,b)=>a-b);
+assert.ok(recovered2026Weeks.length>=8&&recovered2026Weeks.length<=18,'Incomplete or unexpected 2026 transaction archive coverage');
+for(let i=0;i<recovered2026Weeks.length;i++)
+ assert.equal(recovered2026Weeks[i],i+1,'Noncontiguous 2026 transaction archive: missing Week '+(i+1));
+const latestRecovered2026Week=recovered2026Weeks.at(-1);
+const roster2026Weeks=fs.readdirSync('data')
+ .map(name=>/^sleeper_roster_snapshots_2026_week([0-9]+)[.]json$/.exec(name)?.[1])
+ .filter(Boolean).map(Number);
+assert.ok(roster2026Weeks.length>0,'Missing 2026 keeper roster archive');
+assert.ok(latestRecovered2026Week>=Math.max(...roster2026Weeks),
+ '2026 keeper transaction archive is behind the latest scored roster; recover missing transaction weeks before auditing ownership');
 const rows=[];
 for(const year of [2025,2026]){
  const transactions=new Map();
- for(let week=1;week<=(year===2025?18:8);week++){
+ for(let week=1;week<=(year===2025?18:latestRecovered2026Week);week++){
   const data=read('data-integrity/provider-recovered-transactions-'+year+'-week'+week+'.json');
   for(const t of data.transactions.filter(x=>x.status==='complete'&&['trade','waiver','add','drop'].includes(x.type))){
    if(!transactions.has(String(t.transactionId)))transactions.set(String(t.transactionId),{...t,archiveWeek:week});
