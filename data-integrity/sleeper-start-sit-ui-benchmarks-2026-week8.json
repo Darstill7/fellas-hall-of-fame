@@ -1,0 +1,60 @@
+{
+  "schema": "fellas-sleeper-start-sit-ui-benchmarks-v1",
+  "season": 2026,
+  "throughWeek": 8,
+  "observedAt": "2026-11-03",
+  "provenance": "User-supplied Sleeper mobile matchup screenshots (five images; first Stilly/Kuhl, then four screenshots covering the other eight managers)",
+  "calculationNote": "Platform-displayed avg start & sit accuracy, one decimal. Screenshots on the pre-Week-9 matchup page; 2026 Weeks 1–8 are complete. Percentage is not an official decision-skill grade.",
+  "data": [
+    {
+      "manager": "Stilly",
+      "sleeperHandle": "darstill",
+      "accuracyPercent": 92.4
+    },
+    {
+      "manager": "Stew",
+      "sleeperHandle": "dsylvester9",
+      "accuracyPercent": 92
+    },
+    {
+      "manager": "Tony",
+      "sleeperHandle": "tsteg",
+      "accuracyPercent": 88.9
+    },
+    {
+      "manager": "Thommy",
+      "sleeperHandle": "thommy",
+      "accuracyPercent": 88.2
+    },
+    {
+      "manager": "JMid",
+      "sleeperHandle": "jmidd",
+      "accuracyPercent": 88.1
+    },
+    {
+      "manager": "Stover",
+      "sleeperHandle": "dillionpanthers15",
+      "accuracyPercent": 87.8
+    },
+    {
+      "manager": "Mitch",
+      "sleeperHandle": "huppdawg80",
+      "accuracyPercent": 87.2
+    },
+    {
+      "manager": "Birch",
+      "sleeperHandle": "birchhh",
+      "accuracyPercent": 85.8
+    },
+    {
+      "manager": "Scott",
+      "sleeperHandle": "sheffla",
+      "accuracyPercent": 85.3
+    },
+    {
+      "manager": "Kuhl",
+      "sleeperHandle": "ckuhl5",
+      "accuracyPercent": 83.1
+    }
+  ]
+}
