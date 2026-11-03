@@ -60,8 +60,56 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
 }
 // Both generated profiles and the hand-curated Stover profile share exactly
 // the same evidence cards, source gates and responsive presentation.
+// Single feature directory used by every manager profile, including Stover.
+function mountProfileFeatureDirectory(quick,manager){
+ if(!quick||quick.querySelector('[data-profile-feature-menu]'))return;
+ const name=manager==='Tom'?'Thommy':manager;
+ const features=[
+  {label:'Championships & career record',detail:'Titles, finals, playoff berths and winning history',tab:'overview',target:'#verified-history-panel',icon:'🏆'},
+  {label:'Season-by-season results',detail:'Every year, standings and postseason outcomes',tab:'seasons',target:'#season-history',icon:'📅'},
+  {label:'Head-to-head & rivalries',detail:'Records against each Fella and memorable matchups',tab:'rivalries',target:'#head-to-head',icon:'⚔️'},
+  {label:'Legacy OVR progression',detail:'Year-end ratings, career peak and championship milestones',target:'.profile-madden-history:not(.profile-season-ovr)',icon:'📈'},
+  {label:'Season OVR ratings',detail:'The best and worst completed individual seasons',target:'.profile-season-ovr',icon:'⭐'},
+  {label:'Drafting & trading résumé',detail:'Documented picks and trades — no invented decision grades',target:'.profile-career-resume',icon:'🔄'},
+  {label:'Season evidence',detail:'Pickups, keepers and draft/trade history by year',target:'.profile-season-evidence',icon:'📋'},
+  {label:'Front Office Snapshot',detail:'Recorded pickup usage and 2026 keeper contributions',target:'.profile-front-office-snapshot',icon:'📊'},
+  {label:'Pickup highlights & FAAB',detail:'Selected acquisitions, starts, points and verified costs',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'💰'},
+  {label:'Start/Sit accuracy',detail:'Weekly lineup efficiency and coverage',href:'../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name),icon:'🎯'},
+  {label:'Keeper research',detail:'2025 and in-progress 2026 keeper evidence',href:'../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(name),icon:'🔒'}
+ ];
+ const shell=document.createElement('section');
+ shell.className='profile-feature-directory';
+ shell.setAttribute('aria-label','Manager features');
+ shell.dataset.profileFeatureMenu='';
+ shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a feature below. Each button opens that section or its full research page.</p>';
+ const list=document.createElement('div');list.className='profile-feature-list';
+ for(const feature of features){
+  const item=document.createElement(feature.href?'a':'button');
+  if(item.tagName==='BUTTON'){item.type='button';item.dataset.profileFeature='';item.dataset.featureTarget=feature.target;if(feature.tab)item.dataset.featureTab=feature.tab;}
+  else item.href=feature.href;
+  item.className='profile-feature-button';
+  const symbol=document.createElement('span');symbol.className='profile-feature-icon';symbol.setAttribute('aria-hidden','true');symbol.textContent=feature.icon;
+  const body=document.createElement('span');body.className='profile-feature-copy';
+  const title=document.createElement('strong');title.textContent=feature.label;
+  const description=document.createElement('small');description.textContent=feature.detail;
+  body.append(title,description);
+  const arrow=document.createElement('span');arrow.className='profile-feature-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent='→';
+  item.append(symbol,body,arrow);list.append(item);
+ }
+ shell.append(list);
+ quick.prepend(shell);
+ // Retire the redundant four-item quick grid; these destinations now have
+ // individually labeled buttons instead of nested and competing menus.
+ quick.querySelector('.profile-quick-grid')?.remove();
+ quick.querySelector(':scope > h2')?.remove();
+ quick.querySelector(':scope > p.muted')?.remove();
+ const css=document.createElement('style');
+ css.textContent='.profile-feature-directory{margin:0 0 18px}.profile-feature-directory h2{margin:0 0 4px;font-size:clamp(22px,3vw,29px)}.profile-feature-directory>.muted{margin:4px 0 15px;font-size:13px}.profile-feature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.profile-feature-button{display:flex;align-items:center;gap:12px;min-width:0;min-height:74px;text-align:left;background:#142d3d;color:#f7f2e8;border:1px solid #557587;border-radius:11px;padding:12px 14px;font:inherit;text-decoration:none;cursor:pointer}.profile-feature-button:hover{background:#1d4053;border-color:#e3bd71;color:#fff}.profile-feature-button:focus-visible{outline:3px solid #ffe3a0;outline-offset:2px}.profile-feature-icon{font-size:23px;flex:none}.profile-feature-copy{display:flex;flex-direction:column;gap:3px;min-width:0}.profile-feature-copy strong{font-size:14px;line-height:1.3;color:#fff}.profile-feature-copy small{font-size:12px;line-height:1.4;color:#c7d7e2}.profile-feature-arrow{margin-left:auto;color:#e3bd71;font-weight:900;font-size:20px;flex:none}@media(max-width:650px){.profile-feature-list{grid-template-columns:1fr}.profile-feature-button{min-height:69px;padding:12px}}';
+ document.head.append(css);
+}
 function populateManagerResearch(quick,manager){
  if(!quick||quick.querySelector('.profile-front-office-snapshot'))return;
+ mountProfileFeatureDirectory(quick,manager);
  const keeperManager=manager==='Tom'?'Thommy':manager;
  const keeperLink=document.createElement('p');
  keeperLink.className='muted';
@@ -219,6 +267,19 @@ if(main&&tabs){
   activate(key,{reveal:true});
   for(const item of main.querySelectorAll('[data-profile-jump]'))
    item.setAttribute('aria-pressed',String(item===jump));
+ });
+ // The feature list routes to the exact named module, not a broad tab.
+ // Open collapsible evidence first, then reveal and scroll into view.
+ main.addEventListener('click',event=>{
+  const button=event.target.closest('button[data-profile-feature]');
+  if(!button)return;
+  const target=button.dataset.featureTarget,category=button.dataset.featureTab;
+  if(category)activate(category);
+  const destination=target&&document.querySelector(target);
+  if(!destination)return;
+  if(destination.tagName==='DETAILS')destination.open=true;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>
+   destination.scrollIntoView({block:'start',behavior:'instant'})));
  });
  tabs.addEventListener('click',event=>{const button=event.target.closest('button[data-profile-tab]');if(button)activate(button.dataset.profileTab,{reveal:true})});
  tabs.addEventListener('keydown',event=>{const index=buttons.indexOf(document.activeElement);if(index<0)return;const direction=event.key==='ArrowRight'?1:event.key==='ArrowLeft'?-1:0;if(direction){event.preventDefault();activate(buttons[(index+direction+buttons.length)%buttons.length].dataset.profileTab,{focus:true,reveal:true})}});
