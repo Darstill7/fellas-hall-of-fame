@@ -14,6 +14,7 @@ if(['career','all','2020','2021','2022','2023','2024','2025','2026'].includes(re
 let activeLoad=0;
 async function load(){
  const requestId=++activeLoad;
+ const retainedManager=$('detail-manager').options.find(o=>o.value===$('detail-manager').value)?.textContent??null;
  const selected=$('season').value;
  for(const id of ['results','detail-summary','weekly-results','career-summary','career-results'])
   $(id).textContent='';
@@ -86,8 +87,8 @@ async function load(){
  }
  const preferred=['all','career'].includes(selected)?'Stilly':years[0]+'|Stilly';
  detailSelect.value=[...detailSelect.options].some(o=>o.value===prior)?prior:
-  [...detailSelect.options].some(o=>o.textContent.toLowerCase()===String(requestedManager??'').toLowerCase())?
-   [...detailSelect.options].find(o=>o.textContent.toLowerCase()===requestedManager.toLowerCase()).value:
+  [...detailSelect.options].some(o=>o.textContent.toLowerCase()===String(retainedManager??requestedManager??'').toLowerCase())?
+   [...detailSelect.options].find(o=>o.textContent.toLowerCase()===String(retainedManager??requestedManager).toLowerCase()).value:
   [...detailSelect.options].some(o=>o.value===preferred)?preferred:detailSelect.options[0]?.value??'';
  function drawWeekly(){
   const stat=map.get(detailSelect.value);
