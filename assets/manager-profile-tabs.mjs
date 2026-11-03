@@ -68,9 +68,65 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  pickupLink.innerHTML='<a href="../../analytics/manager-report-cards.html?manager='+
   encodeURIComponent(keeperManager)+'#cards"><strong>Explore pickup highlights</strong><span>Starts, lineup points and verified $0 / FAAB costs · 3 selected examples</span></a>';
  quick.append(pickupLink);
+ // Profile-first front-office evidence: share source files with the full
+ // research pages instead of creating a disconnected manager scorecard.
+ const snapshot=document.createElement('section');
+ snapshot.className='profile-front-office-snapshot';
+ snapshot.setAttribute('aria-label',keeperManager+' front office snapshot');
+ snapshot.innerHTML='<h3>Front Office Snapshot</h3><p class="muted">Recorded acquisitions and 2026 keeper starts. Descriptive evidence, not management-skill grades.</p><p class="muted" role="status">Loading verified research…</p>';
+ quick.append(snapshot);
+ void Promise.all([
+  fetch('../../data/manager_acquisition_distinct_v1.json').then(res=>{if(!res.ok)throw Error('Pickup source unavailable');return res.json()}),
+  fetch('../../data/keeper_2026_website_research_v1.json').then(res=>{if(!res.ok)throw Error('Keeper source unavailable');return res.json()})
+ ]).then(([pickups,keepers])=>{
+  if(pickups.status!=='observational_only_not_skill_grade'||!Array.isArray(pickups.byManager)||
+     keepers.season!==2026||!Number.isInteger(keepers.throughWeek)||keepers.throughWeek<8||
+     !Array.isArray(keepers.rows))throw Error('Research coverage has changed');
+  if(keepers.throughWeek>=9&&Date.now()<Date.parse('2026-11-10T06:00:00Z'))
+   throw Error('Incomplete Week 9 keeper coverage');
+  const a=pickups.byManager.find(x=>x.manager===keeperManager);
+  const k=keepers.rows.find(x=>x.manager===keeperManager);
+  if(!a||!k||!Number.isInteger(a.distinctSeasonPlayerAcquisitions)||
+     !Number.isInteger(a.withRecordedLaterStart)||a.withRecordedLaterStart<0||
+     a.withRecordedLaterStart>a.distinctSeasonPlayerAcquisitions||
+     !Number.isInteger(k.verifiedOriginalManagerStarts)||!Number.isFinite(k.regularStartedPoints)||
+     k.officialKeeperDecisionGrade!==null)throw Error('Manager research row is invalid');
+  snapshot.replaceChildren();
+  const title=document.createElement('h3');
+  title.textContent='Front Office Snapshot';snapshot.append(title);
+  const grid=document.createElement('div');
+  grid.className='profile-front-office-grid';
+  const tile=(value,label)=>{
+   const item=document.createElement('div');item.className='profile-front-office-tile';
+   const strong=document.createElement('strong');strong.textContent=value;
+   const small=document.createElement('span');small.textContent=label;
+   item.append(strong,small);return item;
+  };
+  grid.append(
+   tile(a.withRecordedLaterStart+' / '+a.distinctSeasonPlayerAcquisitions,'Recorded pickups later started · Sleeper 2020–26'),
+   tile(String(k.verifiedOriginalManagerStarts),'Keeper starts · 2026 Weeks 1–'+keepers.throughWeek),
+   tile(k.regularStartedPoints.toFixed(1),'Keeper lineup points · 2026 to date')
+  );
+  snapshot.append(grid);
+  const caution=document.createElement('p');
+  caution.className='muted profile-front-office-caveat';
+  caution.textContent='2026 is incomplete. Usage is not pickup value; keeper production is not a decision grade. Starts count only for the original keeper manager.';
+  snapshot.append(caution);
+  const actions=document.createElement('p');actions.className='profile-front-office-actions';
+  const link=(title,url)=>{const a=document.createElement('a');a.href=url;a.textContent=title;return a};
+  actions.append(
+   link('Pickup evidence','../../analytics/manager-report-cards.html?manager='+encodeURIComponent(keeperManager)+'#cards'),
+   link('Start/Sit accuracy','../../analytics/manager-lineup-research.html?season=2026&manager='+encodeURIComponent(keeperManager)),
+   link('Keeper research','../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(keeperManager))
+  );
+  snapshot.append(actions);
+ }).catch(()=>{
+  snapshot.innerHTML='<h3>Front Office Snapshot</h3><p class="muted" role="status">Source evidence is temporarily unavailable. No substitute figures are shown.</p>';
+ });
  const css=document.createElement('style');
  css.textContent='.profile-tabs{background:#0d1923f5;border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin:12px 0 24px}.profile-tab-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.profile-tab-row button{cursor:pointer;border:1px solid #607483;border-radius:9px;background:#182c3b;color:#d9e3e9;font:inherit;font-size:13px;font-weight:800;padding:11px 16px;min-height:44px}.profile-tab-row button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#10212d}.profile-tab-row button:focus-visible{outline:3px solid white;outline-offset:3px}.section[hidden]{display:none!important}.profile-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}.profile-quick-grid button{display:flex;cursor:pointer;text-align:left;color:#fff;font:inherit;flex-direction:column;gap:6px;background:#172b3a;border:1px solid #486174;border-radius:12px;padding:17px;min-height:94px}.profile-quick-grid button[aria-pressed="true"]{border-color:var(--gold);box-shadow:inset 4px 0 0 var(--gold)}.profile-quick-grid span{font-size:13px;color:#d0dce4}@media(max-width:600px){.profile-tab-row{display:grid;grid-template-columns:1fr 1fr}.profile-quick-grid{grid-template-columns:1fr}}';
  css.textContent+='.manager-pickup-link a{display:flex;flex-direction:column;gap:5px;max-width:550px;background:#183744;border:1px solid #7b998e;border-radius:12px;padding:14px 16px;color:#f5f2e8;text-decoration:none;min-height:62px}.manager-pickup-link a strong{color:var(--gold);font-size:15px}.manager-pickup-link a span{font-size:12px;line-height:1.5;color:#d0dce4}.manager-pickup-link a:focus-visible{outline:3px solid #fff;outline-offset:2px}.manager-pickup-link a:hover{border-color:var(--gold)}';
+ css.textContent+='.profile-front-office-snapshot{margin:20px 0 8px;padding:17px;border:1px solid #577483;border-radius:13px;background:#102936}.profile-front-office-snapshot h3{margin:0 0 9px;color:var(--gold);font-size:18px}.profile-front-office-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.profile-front-office-tile{padding:14px;background:#182f3e;border:1px solid #466173;border-radius:10px}.profile-front-office-tile strong{display:block;font-size:24px;font-variant-numeric:tabular-nums;color:#f7eed9}.profile-front-office-tile span{display:block;font-size:12px;line-height:1.4;color:#c5d3dc}.profile-front-office-caveat{font-size:12px;line-height:1.5;margin:11px 0}.profile-front-office-actions{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:800;margin:12px 0 0}.profile-front-office-actions a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}.profile-front-office-actions a:focus-visible{outline:3px solid white;outline-offset:2px}@media(max-width:650px){.profile-front-office-grid{grid-template-columns:1fr}.profile-front-office-tile{padding:12px}.profile-front-office-tile strong{font-size:22px}}';
  document.head.append(css);
 }
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
