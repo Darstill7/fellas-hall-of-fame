@@ -164,7 +164,14 @@ console.log('Six-season lineup research page provenance and navigation PASS');
 
 const lineup2026=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
 const lineup2026Html=fs.readFileSync('analytics/manager-lineup-research.html','utf8');
-if(!lineup2026.includes("year===2026?7:14")||!lineup2026Html.includes('2026 Week 7'))throw Error('2026 research must exclude known source disagreement');
+const completed2026=JSON.parse(fs.readFileSync('data/keeper_2026_website_research_v1.json','utf8')).throughWeek;
+if(!Number.isInteger(completed2026)||completed2026<8||completed2026>14||
+ !lineup2026.includes('current2026Weeks=count')||
+ !lineup2026.includes("if(count>=9&&Date.now()<Date.parse('2026-11-10T06:00:00Z'))")||
+ !lineup2026Html.includes('2026 (Weeks 1–8)'))
+ throw Error('2026 Start/Sit must follow validated completed-week archive and preserve Week 9 finality guard');
+if(completed2026===8&&(!lineup2026.includes("'92.4'")||!lineup2026.includes("'83.1'")))
+ throw Error('Frozen Sleeper Week 8 screenshot benchmarks missing');
 const scott2026=JSON.parse(fs.readFileSync('data-integrity/2026-week7-scott-score-discrepancy.json','utf8'));
 if(scott2026.status!=='resolved_provider_confirmed_canonical_corrected'||scott2026.rosterPoints!==scott2026.canonicalMatchupPoints)throw Error('Unexpected Scott source reconciliation status');
 console.log('2026 Start/Sit research disclosure and reconciled score PASS');
@@ -216,7 +223,7 @@ console.log('Annual acquisition FAAB schema and historical lineup evidence guard
 
 const lineupPage=fs.readFileSync('analytics/manager-lineup-research.html','utf8');
 const lineupSource=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
-if(!lineupPage.includes('value="all"')||!lineupPage.includes('830 archived team-weeks')||!lineupSource.includes("years=selected==='all'?[2020,2021,2022,2023,2024,2025]")||!lineupSource.includes("dillionpanthers15:'Stover'"))throw Error('Six-season canonical manager lineup coverage missing');
+if(!lineupPage.includes('value="all"')||!lineupPage.includes('830 archived team-weeks')||!lineupSource.includes("selected==='all'?[2020,2021,2022,2023,2024,2025]")||!lineupSource.includes("dillionpanthers15:'Stover'"))throw Error('Six-season canonical manager lineup coverage missing');
 if(!lineupSource.includes("if(!name)throw Error('Unmapped historical owner"))throw Error('Historical manager mapping must fail closed');
 console.log('Six-season canonical manager lineup coverage UI PASS');
 
