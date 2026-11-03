@@ -1,3 +1,5 @@
+> **Current product direction — November 3, 2026 (KISS).** The league owner does **not** want extensive alternative-player or replacement comparisons. Treat the detailed alternative-reconstruction model below as archived research, **not a prerequisite or an active development priority**. Use a simple FAAB/pickup impact view: verified successful bid spend, paid and $0 claims, distinct pickups, pickups later started, observed starter weeks and started points. Highlight a handful of useful pickups and obvious misses with transaction and lineup evidence, without automatically treating unused depth as a bad pickup. Do not pretend partial observations are complete-season results. Do not convert counts, points or spending alone into an official Waiver Skill or OVR grade. Keep the existing success-first report-card formula unchanged until a clear, intentionally simple rubric is agreed and independently tested.
+
 # FAAB evidence and rating gate — 2026-10-30
 
 ## Purpose
