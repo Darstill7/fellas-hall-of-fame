@@ -1,5 +1,6 @@
 import {makeReportCards} from './manager-report-card.mjs';
 import {scoutingProfile} from './manager-scouting-profile.mjs';
+import {pickupCostLabel} from './pickup-cost-label.mjs';
 const targets=['manager_acquisition_distinct_v1.json','manager_acquisition_coverage_v1.json','v9_draft_engine.json','v9_trade_engine.json','career_core_generated.json','all_time_luck_ratings_v1.json','waiver_award_candidates.json','manager_verified_season_endings_v1.json','verified_sleeper_playoff_brackets_2020_2025.json','season_guide.json','verified_espn_playoff_brackets_2016_2019.json'];
 const esc=v=>String(v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[ch]));
 const categoryEvidence=k=>['drafting','trading'].includes(k)?'Provisional outcome': ['waivers','lineups','keepers'].includes(k)?'Not yet rated':'Verified results';
@@ -97,11 +98,7 @@ try {
     String(t.transactionId)===id&&t.status==='complete'&&t.type===requestedType&&
     (t.added??[]).some(p=>p.name===player));
    if(hits.length!==1){node.textContent='Cost: N/A (player receipt not matched)';return;}
-   const receipt=hits[0],bid=receipt.faabBid;
-   if(receipt.type==='add'&&bid===null){
-    node.textContent='Cost: $0 · Free agent (after waivers)';
-   }else if(receipt.type==='waiver'&&Number.isSafeInteger(bid)&&bid>=0){
-    node.textContent='Cost: 
+   node.textContent=pickupCostLabel(hits[0]);
   }catch(e){node.textContent='Cost: N/A (receipt unavailable)';}
  }
  for(const details of document.querySelectorAll('#cards details.pickup-highlights')){
