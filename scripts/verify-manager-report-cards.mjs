@@ -34,10 +34,10 @@ for(const manager of rows.map(r=>r.name)){
     journey.rows.reduce((n,y)=>n+y.titlesEarned,0)!==seasons.at(-1).row.titles)
   throw Error('Invalid report-card year-end Legacy OVR evidence '+manager);
 }
-const reportPage=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
-if(!reportPage.includes('careerOvrResume(x.name)')||
-   !reportPage.includes('careerOvrMilestones(snapshots,maddenOvr)')||
-   !reportPage.includes('not a Drafting, Trading, FAAB, Start/Sit or Keeper skill grade'))
+const careerPageSource=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
+if(!careerPageSource.includes('careerOvrResume(x.name)')||
+   !careerPageSource.includes('careerOvrMilestones(snapshots,maddenOvr)')||
+   !careerPageSource.includes('not a Drafting, Trading, FAAB, Start/Sit or Keeper skill grade'))
  throw Error('Report card must show distinct non-skill Legacy OVR progression');
 const annualPage=fs.readFileSync('assets/manager-annual-report-cards.mjs','utf8');
 if(!annualPage.includes('2026 standings and W–L are archived through Week 7')||
