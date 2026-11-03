@@ -6,7 +6,7 @@ const html=fs.readFileSync('analytics/manager-lineup-research.html','utf8');
 const client=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
 const generator=fs.readFileSync('scripts/analyze-2026-start-sit-hindsight.mjs','utf8');
 const report=fs.readFileSync('analytics/manager-report-cards.html','utf8');
-for(const s of ['Avg Start/Sit accuracy','2026 (Weeks 1–8)','manager-lineup-research-page.mjs',
+for(const s of ['Start/Sit Accuracy</th>','2026 (Weeks 1–8)','manager-lineup-research-page.mjs',
  'id="detail-manager"','id="weekly-results"','id="detail-summary"','id="current-coverage"',
  'value="career"','id="career-results"','id="career-summary"'])
  assert.ok(html.includes(s),'Start/Sit research UI missing '+s);
