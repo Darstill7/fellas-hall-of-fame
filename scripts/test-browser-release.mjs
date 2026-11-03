@@ -520,7 +520,21 @@ try{
      }
      const historical= madden.locator('details.profile-madden-history:not(.profile-season-ovr)');
      if(await historical.count()!==1)errors.push(width+' '+route+' missing historical OVR journey');
-     else if(await historical.locator('.profile-historical-table tbody tr').count()<1)errors.push(width+' '+route+' historical OVR journey is empty');
+     else{
+      if(await historical.locator('.profile-historical-table tbody tr').count()<1)
+       errors.push(width+' '+route+' historical OVR journey is empty');
+      const headers=await historical.locator('thead th').allTextContents();
+      if(!headers.includes('Legacy OVR')||!headers.includes('Change')||!headers.includes('Titles earned'))
+       errors.push(width+' '+route+' historical OVR milestone columns missing');
+      const milestone=await historical.locator('.profile-career-milestones').textContent();
+      if(!milestone.includes('Career peak:')||!milestone.includes('Title seasons:'))
+       errors.push(width+' '+route+' career peak or verified title milestones missing');
+      if(route==='managers/stover/'&&!milestone.includes('2022'))
+       errors.push(width+' Stover 2022 title missing from career history');
+      const firstChange=await historical.locator('tbody tr:first-child td:nth-child(2)').textContent();
+      if(firstChange.trim()!=='First year')
+       errors.push(width+' '+route+' first career OVR row invented an annual change');
+     }
     }
    }
    if(route.startsWith('managers/')&&route.endsWith('/')&&slugs.includes(route.split('/')[1])){
