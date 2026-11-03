@@ -58,10 +58,14 @@ if(startSit.throughWeek===8){
  for(const sample of ui.data){
   const row=startSit.managers.find(r=>r.manager===sample.manager);
   assert.ok(row,'Sleeper UI sample unmapped: '+sample.manager);
-  // The research retains two decimal places; Sleeper's screenshot shows
-  // one. Compare at the platform's published display precision.
-  assert.equal(Number(row.averageWeeklyStartSitAccuracyPercent.toFixed(1)),sample.accuracyPercent,
-   'Independent Sleeper Week 8 displayed accuracy differs: '+sample.manager);
+  // The research index is already rounded to hundredths before this
+  // audit; its original weekly average (used by the browser) is not.
+  // Allow half of one display tenth plus a hundredth of representation
+  // headroom, consistent with the generator's independent UI check.
+  assert.ok(Math.abs(row.averageWeeklyStartSitAccuracyPercent-sample.accuracyPercent)<.051,
+   'Independent Sleeper Week 8 accuracy differs: '+sample.manager+
+   ' reconstructed '+row.averageWeeklyStartSitAccuracyPercent+
+   ' Sleeper display '+sample.accuracyPercent);
  }
 }
 
