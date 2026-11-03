@@ -65,3 +65,32 @@ export function singleSeasonOvrHistory({guide,careers,luck,playoffBrackets}){
   return {year,season:'completed',rows};
  });
 }
+
+
+// Presentation-only career progression, calculated from each completed
+// year-end snapshot; titles are inferred only from certified cumulative totals.
+// Season OVR remains a separate score and is never mixed into this history.
+export function careerOvrMilestones(seasons,scale){
+ if(!Array.isArray(seasons)||typeof scale!=='function')throw Error('Invalid career timeline');
+ let previous=null;
+ const rows=seasons.map(s=>{
+  if(!Number.isInteger(s.year)||s.year<2016||s.year>2025||
+     !s.row||!Number.isFinite(s.row.ovr)||
+     !Number.isInteger(s.row.titles)||s.row.titles<0||
+     !Number.isInteger(s.row.playoffs)||s.row.playoffs<0||
+     previous&&(s.year<=previous.year||s.row.titles<previous.titles||
+       s.row.playoffs<previous.playoffs))throw Error('Invalid chronological career snapshot');
+  const ovr=scale(s.row.ovr);
+  if(!Number.isFinite(ovr))throw Error('Invalid career OVR');
+  const delta=previous?Math.round((ovr-previous.ovr)*10)/10:null;
+  const titlesEarned=s.row.titles-(previous?.titles||0);
+  const first=previous===null;
+  const item={year:s.year,ovr,rank:s.row.rank,career:s.row.career,
+   delta,titlesEarned,first,playoffBerthsAdded:s.row.playoffs-(previous?.playoffs||0)};
+  previous={year:s.year,ovr,titles:s.row.titles,playoffs:s.row.playoffs};
+  return item;
+ });
+ const peak=rows.slice().sort((a,b)=>b.ovr-a.ovr||a.year-b.year)[0]||null;
+ return {rows,peak,firstYear:rows[0]?.year??null,lastYear:rows.at(-1)?.year??null,
+  titleMilestones:rows.filter(r=>r.titlesEarned>0)};
+}

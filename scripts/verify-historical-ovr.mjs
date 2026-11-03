@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import {seasonMaddenOvr,maddenOvr} from '../assets/manager-madden-scale.mjs';
-import {historicalOvrHistory,singleSeasonOvrHistory,SEASON_WEIGHTS} from '../assets/manager-historical-ovr.mjs';
+import {historicalOvrHistory,singleSeasonOvrHistory,careerOvrMilestones,SEASON_WEIGHTS} from '../assets/manager-historical-ovr.mjs';
 const read=n=>JSON.parse(fs.readFileSync('data/'+n+'.json','utf8'));
 const guide=read('season_guide'),careers=read('career_core_generated'),luck=read('all_time_luck_ratings_v1'),endings=read('manager_verified_season_endings_v1');
 const playoffBrackets=[...read('verified_espn_playoff_brackets_2016_2019').seasons,...read('verified_sleeper_playoff_brackets_2020_2025').seasons];
@@ -37,6 +37,29 @@ for(const season of original){
    throw Error('Manager rated before joining the league: '+row.name+' '+season.year);
  }
 }
+// Career timeline is a display layer over certified year-end snapshots.
+for(const manager of ['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott']){
+ const seasons=original.map(s=>({year:s.year,row:s.rows.find(r=>r.name===manager)})).filter(s=>s.row);
+ const timeline=careerOvrMilestones(seasons,maddenOvr);
+ if(timeline.rows.length!==seasons.length||timeline.lastYear!==2025||
+    timeline.firstYear!==seasons[0].year||!timeline.peak||
+    timeline.rows[0].delta!==null)throw Error('Incomplete career OVR journey '+manager);
+ for(let i=0;i<timeline.rows.length;i++){
+  const point=timeline.rows[i],source=seasons[i].row;
+  if(point.ovr!==maddenOvr(source.ovr)||point.rank!==source.rank||
+     point.career!==source.career||point.year>2025||
+     point.titlesEarned<0||point.playoffBerthsAdded<0)
+   throw Error('Career snapshot was changed or future result leaked '+manager);
+  if(i>0&&point.delta!==Math.round((point.ovr-timeline.rows[i-1].ovr)*10)/10)
+   throw Error('Legacy OVR year-over-year change mismatch '+manager);
+ }
+ const titles=timeline.rows.reduce((n,x)=>n+x.titlesEarned,0);
+ if(titles!==seasons.at(-1).row.titles)
+  throw Error('Career title milestones do not reconcile '+manager);
+}
+const stoverJourney=careerOvrMilestones(original.map(s=>({year:s.year,row:s.rows.find(r=>r.name==='Stover')})).filter(s=>s.row),maddenOvr);
+if(!stoverJourney.titleMilestones.some(r=>r.year===2022))
+ throw Error('Verified Stover title milestone not shown');
 const clone=x=>JSON.parse(JSON.stringify(x)),futureCareers=clone(careers),futureLuck=clone(luck);
 for(const r of Object.values(futureCareers.managers))if(r.annual['2025']){r.annual['2025'].w+=30;r.w+=30}
 for(const l of futureLuck.ranked)if(l.bySeason['2025']){l.bySeason['2025'].expectedWins+=25;l.expectedWins+=25}

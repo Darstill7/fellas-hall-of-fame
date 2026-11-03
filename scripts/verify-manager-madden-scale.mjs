@@ -7,5 +7,5 @@ for(let raw=0;raw<=100;raw+=.1){
  if(raw&&v<maddenOvr(raw-.1))throw Error('Madden ratings must be monotonic');
 }
 const homepage=fs.readFileSync('assets/home-manager-cards.mjs','utf8'),profile=fs.readFileSync('assets/manager-profile-madden.mjs','utf8'),cards=fs.readFileSync('assets/manager-madden-cards.mjs','utf8'),page=fs.readFileSync('analytics/manager-madden-cards.html','utf8');
-if(!homepage.includes('maddenOvr(r.score)')||!profile.includes('maddenOvr(manager.score)')||!profile.includes('maddenOvr(s.row.ovr)')||!cards.includes('maddenOvr(historical?.ovr??r.score)')||!cards.includes('maddenOvr(score(a))')||!page.includes('underlying score'))throw Error('A Madden display surface is still using the raw success index');
+if(!homepage.includes('maddenOvr(r.score)')||!profile.includes('maddenOvr(manager.score)')||!profile.includes('careerOvrMilestones(seasons,maddenOvr)')||!cards.includes('maddenOvr(historical?.ovr??r.score)')||!cards.includes('maddenOvr(score(a))')||!page.includes('underlying score'))throw Error('A Madden display surface is still using the raw success index');
 console.log('MADDEN SCALE PASS: stable 65–99 rating, monotonic and consistent across history and current display');
