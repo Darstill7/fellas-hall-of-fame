@@ -125,6 +125,8 @@ jobs:
         run: node scripts/verify-faab-provider-receipts.mjs
       - name: Audit keeper, OVR, manager profiles, mobile and editorial integrity
         run: node scripts/audit-prelaunch-crossstreams.mjs
+      - name: Verify manager profile draft and trade source receipts
+        run: node scripts/verify-manager-draft-trade-profile-evidence.mjs
       - name: Verify manager report card evidence
         run: node scripts/verify-manager-report-cards.mjs
       - name: Verify distinct $0 waiver versus free-agent acquisition labels
