@@ -62,11 +62,15 @@ for(const m of startSit.managers){
 }
 assert.equal(faabWeek8.status,'research_only_week8_observation_no_skill_grade');
 assert.equal(faabWeek8.week,8);
+assert.equal(faabWeek8.week8TransactionCoverage,'provider_week_sample_not_crosschecked_for_completeness');
+assert.equal(faabWeek8.ownershipContinuityCertified,false);
+assert.equal(faabWeek8.coverage.certifiedAttributableWeek8Points,null);
 const priorClaims=faab.observations.filter(r=>r.year===2026);
 assert.equal(faabWeek8.rows.length,priorClaims.length);
 assert.equal(faabWeek8.coverage.priorClaimRows,priorClaims.length);
 const originalClaims=new Map(priorClaims.map(r=>[[r.transactionId,r.teamId,r.playerId].join('|'),r]));
 assert.equal(originalClaims.size,priorClaims.length);
+const observedFaabPlayerWeeks=new Set();
 for(const r of faabWeek8.rows){
  const key=[r.transactionId,r.teamId,r.playerId].join('|');
  const initial=originalClaims.get(key);
@@ -74,8 +78,15 @@ for(const r of faabWeek8.rows){
  assert.equal(r.claimWeek,initial.claimWeek);
  assert.equal(r.certifiedIncrementalValue,null);
  assert.equal(r.managerSkillGrade,null);
+ assert.equal(r.transactionSourceCoverage,faabWeek8.week8TransactionCoverage);
+ assert.equal(r.continuousOwnershipCertified,false);
  assert.ok(r.observedPoints===null||Number.isFinite(r.observedPoints));
  assert.ok(r.observedPoints===null||r.status==='observed_same_team_week8_without_recorded_intervening_event');
+ if(r.observedPoints!==null){
+  const playerWeek=r.playerId+'|'+r.week;
+  assert.ok(!observedFaabPlayerWeeks.has(playerWeek),'Double-counted Week 8 FAAB player: '+playerWeek);
+  observedFaabPlayerWeeks.add(playerWeek);
+ }
  assert.ok(!(initial.firstSubsequentOwnershipEventWeek!==null&&initial.firstSubsequentOwnershipEventWeek<=8&&r.observedPoints!==null),
   'Previously censored claim was reinstated: '+key);
 }
