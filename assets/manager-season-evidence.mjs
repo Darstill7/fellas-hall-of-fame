@@ -50,8 +50,13 @@ export async function mountManagerSeasonEvidence(host,manager){
   const pickups=new Map(acquisitions.rows.filter(row=>row.manager===manager).map(row=>[row.year,row]));
   const draftAndTrade=new Map(draftTrade.rows.filter(row=>row.manager===manager).map(row=>[row.year,row]));
   if(new Set(years.map(row=>row.year)).size!==years.length||
-     draftAndTrade.size!==years.length||years.some(row=>!draftAndTrade.has(row.year)))
-   throw Error('Missing or duplicated season draft-trade evidence');
+     draftAndTrade.size!==draftTrade.rows.filter(row=>row.manager===manager).length)
+   throw Error('Duplicated season draft-trade evidence');
+  // A manager's season history need not imply ownership of that year's draft.
+  // JMid's 2023 tenure is documented, but the original draft is not his.
+  const missingDraftYears=years.filter(row=>!draftAndTrade.has(row.year)).map(row=>row.year);
+  if(missingDraftYears.some(year=>!(manager==='JMid'&&year===2023)))
+   throw Error('Unexpected missing source draft attribution');
   shell.replaceChildren(summary);
   shell.append(make('p','muted profile-season-evidence-intro',
    'Verified results, source-backed draft selections, qualifying trade records, pickups and keeper production. No invented skill grades or playoff finishes.'));
@@ -92,6 +97,12 @@ export async function mountManagerSeasonEvidence(host,manager){
     }
    }
    const evidence=draftAndTrade.get(year);
+   if(!evidence){
+    card.append(facts,make('p','muted profile-season-source-gap',
+     'Original draft not attributable to this manager in the source archive. No picks or trade totals inferred.'));
+    list.append(card);
+    continue;
+   }
    if(!Number.isInteger(evidence.recordedSelections)||evidence.recordedSelections<1||
       !Array.isArray(evidence.earlySelections)||evidence.earlySelections.length>3||
       !validCount(evidence.recordedKeeperSelections)||!validCount(evidence.unresolvedNames)||
