@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/manager-report-cards.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -96,6 +96,37 @@ try{
      return j.rows.length===10&&j.rows.every(m=>m.researchScore===null&&m.officialKeeperDecisionGrade===null);
     });
     if(!noPartialGrade)errors.push(width+' 2026 partial keeper season leaked completed season grade');
+   }
+   if(route==='analytics/manager-lineup-research.html'){
+    // Run full DOM, fetch, event and responsive checks in both browser engines.
+    const managerRows=page.locator('#results tr');
+    if(await managerRows.count()!==10)
+     errors.push(width+' Start/Sit page did not render ten 2026 managers');
+    if(await page.locator('#season').inputValue()!=='2026')
+     errors.push(width+' Start/Sit page did not default to 2026');
+    const firstManager=await managerRows.first().innerText();
+    if(!firstManager.includes('Stilly')||!firstManager.includes('92.4%'))
+     errors.push(width+' Start/Sit 2026 ranking/benchmark mismatch');
+    const stillyDetail=await page.locator('#detail-summary').innerText();
+    if(!stillyDetail.includes('92.4%'))
+     errors.push(width+' Start/Sit Stilly weekly summary mismatch');
+    if(await page.locator('#weekly-results tr').count()!==8)
+     errors.push(width+' Start/Sit should render eight completed Stilly weeks');
+    await page.locator('#detail-manager').selectOption('2026|Kuhl');
+    if(!((await page.locator('#detail-summary').innerText()).includes('83.1%'))||
+       !((await page.locator('#career-summary').innerText()).includes('Kuhl')))
+     errors.push(width+' Start/Sit manager change failed to update weekly and career views');
+    await page.goto(baseUrl+'analytics/manager-lineup-research.html?season=career&manager=Stilly',
+      {waitUntil:'networkidle',timeout:30000});
+    if(await page.locator('#season').inputValue()!=='career'||
+       await page.locator('#detail-manager').inputValue()!=='Stilly'||
+       !((await page.locator('#career-summary').innerText()).includes('recency-weighted observed efficiency')))
+     errors.push(width+' Start/Sit career manager deep link did not load');
+    if(await page.locator('#career-results tr').count()!==7)
+     errors.push(width+' Start/Sit career view did not render seven seasons');
+    const grade=await page.locator('.notice').innerText();
+    if(!grade.includes('not certified decision-skill grades'))
+     errors.push(width+' Start/Sit research caveat not visible');
    }
    if(route==='analytics/manager-report-cards.html'){
     const count=await page.locator('[data-report-manager]').count();
