@@ -94,7 +94,7 @@ async function runQuery(query){
 }
 // Historical vacancies are actual missing starter slots, not 0-point players.
 // Preserve those team-weeks as explicitly excluded and leave other weeks usable.
-for(const [year,manager,week] of [[2022,'Thommy',3],[2023,'Thommy',9],
+for(const [year,manager,week] of [[2022,'Thommy',3],[2022,'Evans',13],[2023,'Thommy',9],
  [2024,'Tony',3],[2024,'Stover',11]]){
  const {nodes,status}=await runQuery('?season='+year+'&manager='+manager);
  const rows=nodes.get('weekly-results').innerHTML;
