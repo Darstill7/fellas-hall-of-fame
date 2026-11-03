@@ -293,6 +293,28 @@ try{
      errors.push(width+' Start/Sit research caveat not visible');
    }
    if(route==='analytics/manager-report-cards.html'){
+    const historyRows=page.locator('[data-report-manager] details.report-career-ovr');
+    if(await historyRows.count()!==10)
+     errors.push(width+' report cards missing ten career Legacy OVR résumés');
+    else{
+     const panel=historyRows.first();
+     if(await panel.evaluate(el=>el.open))
+      errors.push(width+' report card career OVR histories must start collapsed');
+     await panel.locator('summary').click();
+     const summary=await panel.innerText();
+     if(!summary.includes('Year-end peak:')||
+        !summary.includes('Verified championship years:')||
+        !summary.includes('not a Drafting, Trading, FAAB, Start/Sit or Keeper skill grade')||
+        !summary.includes('through 2025'))
+      errors.push(width+' report-card career OVR résumé is missing coverage or milestones');
+     const headings=await panel.locator('thead th').allTextContents();
+     if(headings.join('|')!=='Year|Legacy OVR|Change|Rank|Titles'||
+        await panel.locator('tbody tr').count()<3)
+      errors.push(width+' report-card career OVR history table incomplete');
+     const firstChange=await panel.locator('tbody tr:first-child td:nth-child(2)').innerText();
+     if(firstChange.trim()!=='First year')
+      errors.push(width+' report-card first year should not invent an OVR movement');
+    }
     const count=await page.locator('[data-report-manager]').count();
     if(count!==10)errors.push(width+' report card preview rendered '+count+' of 10 managers');
     const highlights=page.locator('[data-report-manager] details.pickup-highlights');

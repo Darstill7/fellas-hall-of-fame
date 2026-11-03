@@ -14,6 +14,35 @@ for(const [i,r] of rows.entries()){
  if(r.coverage.verifiedTradeSides<4&&r.scores.trading!==null)throw Error('Unqualified trade score '+r.name);
  if(r.coverage.draftPicks<12&&r.scores.drafting!==null)throw Error('Unqualified draft score '+r.name);
 }
+// The new career Legacy OVR résumé is observational and must match the same
+// retrospective year-end model used by manager profiles, without creating grades.
+const {historicalOvrHistory,careerOvrMilestones}=await import('../assets/manager-historical-ovr.mjs');
+const {maddenOvr}=await import('../assets/manager-madden-scale.mjs');
+const yearEnds=historicalOvrHistory({
+ guide:read('season_guide.json'),
+ careers:read('career_core_generated.json'),
+ luck:read('all_time_luck_ratings_v1.json'),
+ endings:read('manager_verified_season_endings_v1.json'),
+ playoffBrackets:[...read('verified_espn_playoff_brackets_2016_2019.json').seasons,
+ ...read('verified_sleeper_playoff_brackets_2020_2025.json').seasons]
+});
+for(const manager of rows.map(r=>r.name)){
+ const seasons=yearEnds.map(y=>({year:y.year,row:y.rows.find(r=>r.name===manager)})).filter(y=>y.row);
+ const journey=careerOvrMilestones(seasons,maddenOvr);
+ if(!journey.rows.length||journey.rows.some(y=>y.year>2025)||
+    journey.rows.some((y,i)=>y.ovr!==maddenOvr(seasons[i].row.ovr))||
+    journey.rows.reduce((n,y)=>n+y.titlesEarned,0)!==seasons.at(-1).row.titles)
+  throw Error('Invalid report-card year-end Legacy OVR evidence '+manager);
+}
+const careerPageSource=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
+if(!careerPageSource.includes('careerOvrResume(x.name)')||
+   !careerPageSource.includes('careerOvrMilestones(snapshots,maddenOvr)')||
+   !careerPageSource.includes('not a Drafting, Trading, FAAB, Start/Sit or Keeper skill grade'))
+ throw Error('Report card must show distinct non-skill Legacy OVR progression');
+const annualPage=fs.readFileSync('assets/manager-annual-report-cards.mjs','utf8');
+if(!annualPage.includes('2026 standings and W–L are archived through Week 7')||
+   !annualPage.includes('season in progress · W–L archived through W7'))
+ throw Error('Annual report card misstates 2026 Week 7 standings coverage');
 if(!fs.readFileSync('analytics/manager-report-cards.html','utf8').includes('manager-report-card-page.mjs'))throw Error('Report card UI disconnected');
 console.log('Report card preview PASS: '+rows.map(r=>r.name+' '+r.provisional.toFixed(1)).join(' | '));
 
