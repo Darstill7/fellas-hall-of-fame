@@ -170,6 +170,19 @@ try{
    if(route==='analytics/manager-report-cards.html'){
     const count=await page.locator('[data-report-manager]').count();
     if(count!==10)errors.push(width+' report card preview rendered '+count+' of 10 managers');
+    const highlights=page.locator('[data-report-manager] details.pickup-highlights');
+    if(await highlights.count()!==10)
+     errors.push(width+' report cards did not show ten source-backed pickup highlights');
+    else{
+     const entries=await highlights.locator('li').count();
+     if(entries!==30)errors.push(width+' report cards expected three selected pickup examples per manager, got '+entries);
+     const first=highlights.first();
+     await first.locator('summary').click();
+     const content=await first.innerText();
+     if(!content.includes('recorded starts')||!content.includes('lineup points')||
+        !content.includes('Not all pickups')||!content.includes('Not a FAAB skill grade'))
+      errors.push(width+' pickup highlights missing actual starter-point evidence or research caveats');
+    }
    }
    if(route===''){
     const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
