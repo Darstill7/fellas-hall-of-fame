@@ -328,7 +328,12 @@ try{
       const originalY=await page.evaluate(()=>window.scrollY);
       await page.goto(baseUrl+'analytics/manager-report-cards.html?manager=Stover',{waitUntil:'domcontentloaded'});
       await page.goBack({waitUntil:'networkidle'});
-      await page.waitForTimeout(300);
+      // Restoration can follow browser history, BFCache, and late profile layout.
+      // Require the same selected tab and actual scroll position, allowing up to 1.8s.
+      await page.waitForFunction(expected=>{
+       const selected=document.querySelector('[data-profile-tab="seasons"]')?.getAttribute('aria-selected')==='true';
+       return selected&&Math.abs(window.scrollY-expected)<=250;
+      },originalY,{timeout:1800}).catch(()=>{});
       const restored=await page.evaluate(()=>({y:window.scrollY,tab:document.querySelector('[data-profile-tab="seasons"]')?.getAttribute('aria-selected')}));
       if(restored.tab!=='true')errors.push(width+' '+slug+' returning from report lost selected season tab');
       if(Math.abs(restored.y-originalY)>250)errors.push(width+' '+slug+' returning from report lost reading position');
