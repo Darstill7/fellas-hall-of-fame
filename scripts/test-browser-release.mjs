@@ -97,6 +97,20 @@ try{
     });
     if(!noPartialGrade)errors.push(width+' 2026 partial keeper season leaked completed season grade');
    }
+   if(route.startsWith('managers/')&&route.endsWith('/')){
+    const slug=route.split('/')[1];
+    const profileNames={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',
+     birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
+    const name=profileNames[slug];
+    if(name){
+     const expected='../../analytics/manager-lineup-research.html?season=career&manager='+name;
+     const links=page.locator('a[href*="manager-lineup-research.html?season=career"]');
+     const count=await links.count();
+     if(count!==1||await links.first().getAttribute('href')!==expected.replace('&manager=','&manager=')
+        &&await links.first().getAttribute('href')!==expected.replace('&manager=','&amp;manager='))
+      errors.push(width+' '+route+' missing, duplicate, or misrouted Start/Sit career profile link');
+    }
+   }
    if(route==='analytics/manager-lineup-research.html'){
     // Run full DOM, fetch, event and responsive checks in both browser engines.
     const managerRows=page.locator('#results tr');
