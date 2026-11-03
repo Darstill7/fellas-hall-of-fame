@@ -78,7 +78,7 @@ export async function mountManagerSeasonEvidence(host,manager){
      throw Error('Incomplete keeper production for '+year);
     facts.append(make('span',null,keeper.keepers.map(k=>k.name).join(' + ')+
      ' · '+keeper.regularStartedPoints.toFixed(1)+' original-manager starter pts'+
-     (year===2026?' · through Week '+keeper2026.throughWeek:''));
+     (year===2026?' · through Week '+keeper2026.throughWeek:'')));
     if(year===2025&&Array.isArray(keeper.verifiedDrops)&&keeper.verifiedDrops.length){
      facts.append(make('span','profile-season-evidence-flag',
       'Verified keeper release: '+keeper.verifiedDrops.map(x=>x.player??x.keeper??x.name).filter(Boolean).join(', ')));
