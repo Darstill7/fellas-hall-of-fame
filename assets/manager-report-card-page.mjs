@@ -80,7 +80,7 @@ try {
   const id=node.dataset.pickupTransaction,player=node.dataset.pickupPlayer;
   const requestedType=node.dataset.pickupType;
   if(!Number.isInteger(year)||year<2020||year>2026||
-     !Number.isInteger(week)||week<1||week>18||!/^\\d+$/.test(id)){
+     !Number.isInteger(week)||week<1||week>18||!/^\d+$/.test(id)){
    node.textContent='Cost: N/A (invalid receipt reference)';return;
   }
   const file='../data-integrity/provider-recovered-transactions-'+year+'-week'+week+'.json';
@@ -97,8 +97,7 @@ try {
     (t.added??[]).some(p=>p.name===player));
    if(hits.length!==1){node.textContent='Cost: N/A (player receipt not matched)';return;}
    const bid=hits[0].faabBid;
-   node.textContent=Number.isSafeInteger(bid)&&bid>=0?'Cost: 
-+bid+' FAAB':'Cost: N/A (bid not recorded)';
+   node.textContent=Number.isSafeInteger(bid)&&bid>=0?'Cost: '+String.fromCharCode(36)+bid+' FAAB':'Cost: N/A (bid not recorded)';
   }catch(e){node.textContent='Cost: N/A (receipt unavailable)';}
  }
  for(const details of document.querySelectorAll('#cards details.pickup-highlights')){
