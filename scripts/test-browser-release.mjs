@@ -138,6 +138,9 @@ try{
     const firstManager=await managerRows.first().innerText();
     if(completedWeek===8&&(!firstManager.includes('Stilly')||!firstManager.includes('92.4%')))
      errors.push(width+' Start/Sit Week 8 ranking/benchmark mismatch');
+    // The simplified Start/Sit page puts research details behind user-opened panels.
+    await page.locator('details.detail-panel').first().locator('summary').click();
+    await page.locator('#weekly-detail summary').click();
     const stillyDetail=await page.locator('#detail-summary').innerText();
     if(completedWeek===8&&!stillyDetail.includes('92.4%'))
      errors.push(width+' Start/Sit Week 8 Stilly weekly summary mismatch');
@@ -149,6 +152,7 @@ try{
      errors.push(width+' Start/Sit manager change failed to update weekly and career views');
     await page.goto(baseUrl+'analytics/manager-lineup-research.html?season=career&manager=Stilly',
       {waitUntil:'networkidle',timeout:30000});
+    await page.locator('details.detail-panel').first().locator('summary').click();
     if(await page.locator('#season').inputValue()!=='career'||
        await page.locator('#detail-manager').inputValue()!=='Stilly'||
        !((await page.locator('#career-summary').innerText()).includes('recency-weighted observed efficiency')))
@@ -169,7 +173,7 @@ try{
      errors.push(width+' Start/Sit failed archive did not clear provisional display');
     await failure.close();
     const grade=await page.locator('.notice').innerText();
-    if(!grade.includes('not certified decision-skill grades'))
+    if(!grade.includes('rather than a certified manager-skill grade'))
      errors.push(width+' Start/Sit research caveat not visible');
    }
    if(route==='analytics/manager-report-cards.html'){
