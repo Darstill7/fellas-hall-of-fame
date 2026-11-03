@@ -72,5 +72,82 @@
       "era": "Sleeper",
       "source": "sleeper_api_staged_week_8"
     }
-  ]
+  ],
+  "providerStandingsSnapshot": {
+    "asOf": "2026-11-03",
+    "seasonThroughWeek": 8,
+    "source": "Connected Sleeper 2026 league standings",
+    "teams": [
+      {
+        "manager": "Mitch",
+        "wins": 8,
+        "losses": 0,
+        "pointsFor": 1059.36,
+        "pointsAgainst": 853.44
+      },
+      {
+        "manager": "Stew",
+        "wins": 5,
+        "losses": 3,
+        "pointsFor": 1002.98,
+        "pointsAgainst": 863.34
+      },
+      {
+        "manager": "Birch",
+        "wins": 5,
+        "losses": 3,
+        "pointsFor": 910.84,
+        "pointsAgainst": 832.84
+      },
+      {
+        "manager": "Tony",
+        "wins": 5,
+        "losses": 3,
+        "pointsFor": 887,
+        "pointsAgainst": 820.24
+      },
+      {
+        "manager": "Stilly",
+        "wins": 4,
+        "losses": 4,
+        "pointsFor": 927.24,
+        "pointsAgainst": 910.52
+      },
+      {
+        "manager": "Scott",
+        "wins": 4,
+        "losses": 4,
+        "pointsFor": 791.04,
+        "pointsAgainst": 853.44
+      },
+      {
+        "manager": "JMid",
+        "wins": 3,
+        "losses": 5,
+        "pointsFor": 890.06,
+        "pointsAgainst": 861.56
+      },
+      {
+        "manager": "Stover",
+        "wins": 3,
+        "losses": 5,
+        "pointsFor": 842.24,
+        "pointsAgainst": 903.34
+      },
+      {
+        "manager": "Thommy",
+        "wins": 3,
+        "losses": 5,
+        "pointsFor": 838.04,
+        "pointsAgainst": 924.46
+      },
+      {
+        "manager": "Kuhl",
+        "wins": 0,
+        "losses": 8,
+        "pointsFor": 689.32,
+        "pointsAgainst": 1014.94
+      }
+    ]
+  }
 }
