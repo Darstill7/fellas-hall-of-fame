@@ -78,7 +78,7 @@ for(let week=1;week<=partial.throughWeek;week++){
  const source='data/sleeper_roster_snapshots_2026_week'+week+'.json';
  const weekly=read(source);
  assert.equal(weekly.week,week,'Keeper snapshot week mismatch: '+source);
- assert.equal(weekly.season,2026,'Keeper snapshot season mismatch: '+source);
+ assert.equal(weekly.season??weekly.year,2026,'Keeper snapshot season mismatch: '+source);
  assert.equal(weekly.rosters.length,10,'Incomplete keeper roster snapshot: '+source);
  const owners=weekly.rosters.map(t=>Number(t.teamId)).sort((a,b)=>a-b);
  assert.deepEqual(owners,Array.from({length:10},(_,i)=>i+1),'Keeper snapshot team coverage: '+source);
