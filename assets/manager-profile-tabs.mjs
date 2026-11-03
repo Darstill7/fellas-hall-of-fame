@@ -318,6 +318,12 @@ if(main&&tabs){
  const target=document.getElementById(location.hash.slice(1));
  const chosen=categories[initial]?initial:target&&sectionTab.has(target)?sectionTab.get(target):'overview';
  activate(chosen);
- if(!target||categories[initial]){try{const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]&&(!target||initial===saved.tab)){activate(saved.tab);restoreReadingPosition(saved)}}catch{}}
+ let restoredPosition=false;
+ if(!target||categories[initial]){try{const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]&&(!target||initial===saved.tab)){activate(saved.tab);restoreReadingPosition(saved);restoredPosition=true}}catch{}}
  if(target&&!categories[initial])requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));
+ // Homepage directory shortcuts use category hashes, not physical element IDs.
+ // On a fresh deep link, bring the selected profile section navigation into view.
+ // A restored reading position wins when returning to a previously visited profile.
+ if(categories[initial]&&!restoredPosition)
+  requestAnimationFrame(()=>requestAnimationFrame(()=>tabs.scrollIntoView({block:'start'})));
 }

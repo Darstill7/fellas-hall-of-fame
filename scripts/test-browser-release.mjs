@@ -216,6 +216,26 @@ try{
      }
     }
    }
+   // Exercise both the curated Stover layout and a standard manager profile
+   // from the actual homepage-style hash destination (not just an href check).
+   if(width===390&&(route==='managers/stover/'||route==='managers/stilly/')){
+    const direct=await context.newPage();
+    await direct.setViewportSize({width:390,height:844});
+    for(const section of ['seasons','rivalries']){
+     await direct.goto(baseUrl+route+'#'+section,{waitUntil:'networkidle'});
+     const result=await direct.evaluate(section=>{
+      const selected=document.querySelector('[data-profile-tab="'+section+'"]');
+      const nav=document.querySelector('[data-manager-profile-tabs]');
+      const bounds=nav?.getBoundingClientRect();
+      return {selected:selected?.getAttribute('aria-selected'),
+       visible:!!bounds&&bounds.bottom>0&&bounds.top<window.innerHeight,
+       hash:location.hash};
+     },section);
+     if(result.selected!=='true'||!result.visible||result.hash!=='#'+section)
+      errors.push(width+' '+route+' homepage deep link did not reveal '+section+' tab: '+JSON.stringify(result));
+    }
+    await direct.close();
+   }
    if(route==='analytics/manager-lineup-research.html'){
     // Run full DOM, fetch, event and responsive checks in both browser engines.
     const completedWeek=await page.evaluate(async()=>{
@@ -498,7 +518,7 @@ try{
       const summary=await seasonal.innerText();
       if(!summary.includes('Peak:')||!summary.includes('Lowest:')||!summary.includes('Average:'))errors.push(width+' '+route+' missing seasonal peak/low/average');
      }
-     const historical= madden.locator('details.profile-madden-history');
+     const historical= madden.locator('details.profile-madden-history:not(.profile-season-ovr)');
      if(await historical.count()!==1)errors.push(width+' '+route+' missing historical OVR journey');
      else if(await historical.locator('.profile-historical-table tbody tr').count()<1)errors.push(width+' '+route+' historical OVR journey is empty');
     }
