@@ -10,7 +10,17 @@ try {
  const acquisitionByManager=new Map(acquisitionCoverage.byManager.map(x=>[x.manager,x]));
  const distinctByManager=new Map(distinctCoverage.byManager.map(x=>[x.manager,x]));
  const startSitNote=name=>'<p class="fine"><strong>Start/Sit history:</strong> <a href="manager-lineup-research.html?season=career&amp;manager='+encodeURIComponent(name)+'">Explore '+esc(name)+'\'s season-by-season accuracy and coverage</a>. Descriptive Sleeper-style hindsight efficiency only; report-card Start/Sit decision grade stays N/A.</p>';
- const acquisitionNote=name=>{const x=distinctByManager.get(name);return x?'<p class="fine"><strong>Recorded waiver/free-agent activity (2020–2026):</strong> '+x.distinctSeasonPlayerAcquisitions+' distinct manager-season-player pickups; '+x.withRecordedLaterStart+' with an observed later start; '+x.reacquisitions+' repeated acquisitions separately identified. 2026 is incomplete. These observations do not establish decision skill, uninterrupted ownership, or uniquely attributable production.</p>':'';};
+ const acquisitionNote=name=>{
+  const x=distinctByManager.get(name);
+  if(!x)return '';
+  const total=x.distinctSeasonPlayerAcquisitions,started=x.withRecordedLaterStart;
+  if(!Number.isInteger(total)||!Number.isInteger(started)||started<0||started>total)
+   throw Error('Invalid acquisition usage evidence for '+name);
+  const rate=total?(100*started/total).toFixed(1)+'%':'N/A';
+  return '<p class="fine"><strong>Pickup usage (2020–2026):</strong> '+started+' of '+total+
+   ' distinct season-player pickups later started ('+rate+'); '+x.reacquisitions+
+   ' repeat acquisitions shown separately. A pickup that never started is not automatically a bad pickup. 2026 remains incomplete. Descriptive usage only — not a FAAB skill grade or points-above-replacement claim.</p>';
+ };
  const slugs={Stilly:'stilly',Stew:'stew',Thommy:'tom',Stover:'stover',Birch:'birch',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',JMid:'jmid',Scott:'scott'};
  const compareA=document.getElementById('compare-a'),compareB=document.getElementById('compare-b');
  const params=new URLSearchParams(location.search);
