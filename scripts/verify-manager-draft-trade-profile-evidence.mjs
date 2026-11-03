@@ -65,8 +65,16 @@ for(const row of published.rows){
   typeof p.player==='string'&&p.player.length>0));
 }
 const endings=read('data/manager_verified_season_endings_v1.json').managers;
+// JMid appears in the 2023 season ledger, but that year's archived draft
+// identifies different original drafters. Never attribute their picks to him.
+const noOriginalDraft=[{manager:'JMid',year:2023}];
 for(const manager of ['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'])
  for(const season of endings[manager]){
+  if(noOriginalDraft.some(g=>g.manager===manager&&g.year===season.year)){
+   assert.ok(!seen.has(manager+'|'+season.year),
+    '2023 draft ownership was incorrectly assigned to JMid');
+   continue;
+  }
   assert.ok(seen.has(manager+'|'+season.year),
    'Manager profile has no draft/trade evidence for '+manager+' '+season.year);
  }
