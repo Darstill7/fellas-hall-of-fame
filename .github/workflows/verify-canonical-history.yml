@@ -453,13 +453,22 @@ jobs:
         run: |
           node --input-type=module -e '
             import fs from "node:fs";
-            for (const [engine,visits] of [["chromium",168],["webkit",84]]) {
+            let sharedRouteCount=null;
+            for (const [engine,viewports] of [["chromium",[390,1280]],["webkit",[390]]]) {
               const file="data-integrity/browser-release-"+engine+".json";
               if(!fs.existsSync(file)) throw Error("Missing browser report: "+file);
               const report=JSON.parse(fs.readFileSync(file,"utf8"));
-              if(report.engine.toLowerCase()!==engine || report.plannedPageVisits!==visits || report.completedPages!==visits || report.attemptedPages!==visits || report.passed!==true || report.errors.length)
+              const visits=report.plannedRoutes*viewports.length;
+              if(!Number.isInteger(report.plannedRoutes)||report.plannedRoutes<85||
+                 JSON.stringify(report.viewports)!==JSON.stringify(viewports)||
+                 (sharedRouteCount!==null&&sharedRouteCount!==report.plannedRoutes)||
+                 report.engine.toLowerCase()!==engine||
+                 report.plannedPageVisits!==visits||
+                 report.completedPages!==visits||report.attemptedPages!==visits||
+                 report.passed!==true||report.errors.length)
                 throw Error("Incomplete or failed browser report: "+file+" "+JSON.stringify(report));
-              console.log(engine+": "+visits+" visits verified");
+              sharedRouteCount=report.plannedRoutes;
+              console.log(engine+": "+visits+" visits verified across "+report.plannedRoutes+" routes");
             }
           '
       - name: Upload browser release verification reports
