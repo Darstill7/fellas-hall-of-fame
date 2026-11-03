@@ -92,4 +92,15 @@ async function runQuery(query){
  assert.equal(nodes.get('detail-manager').value,'2026|Kuhl');
  assert.ok(nodes.get('detail-summary').textContent.includes('83.1%'));
 }
+// Historical vacancies are actual missing starter slots, not 0-point players.
+// Preserve those team-weeks as explicitly excluded and leave other weeks usable.
+for(const [year,manager,week] of [[2022,'Thommy',3],[2023,'Thommy',9],
+ [2024,'Tony',3],[2024,'Stover',11]]){
+ const {nodes,status}=await runQuery('?season='+year+'&manager='+manager);
+ const rows=nodes.get('weekly-results').innerHTML;
+ assert.ok(rows.includes('Week '+week+'</th>')&&rows.includes('Vacant starting slot'),
+  'Missing historical empty starter exclusion: '+year+'/'+week+'/'+manager);
+ assert.ok(status.includes('Vacant starting slot'),
+  'Missing source-exclusion accounting '+year+'/'+week);
+}
 console.log('Start/Sit runtime integration PASS: 2026 leaderboard, 8-week scoring lock, career view, manager deep links');
