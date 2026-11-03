@@ -65,11 +65,12 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const pickupLink=document.createElement('p');
  pickupLink.className='muted manager-pickup-link';
  pickupLink.style.fontSize='13px';
- pickupLink.innerHTML='Pickup history: <a href="../../analytics/manager-report-cards.html?manager='+
-  encodeURIComponent(keeperManager)+'">View '+keeperManager+'’s recorded pickups, starts, points and verified costs</a> <span>· Research only; no FAAB skill grade</span>';
+ pickupLink.innerHTML='<a href="../../analytics/manager-report-cards.html?manager='+
+  encodeURIComponent(keeperManager)+'#cards"><strong>Explore pickup highlights</strong><span>Starts, lineup points and verified $0 / FAAB costs · 3 selected examples</span></a>';
  quick.append(pickupLink);
  const css=document.createElement('style');
  css.textContent='.profile-tabs{background:#0d1923f5;border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin:12px 0 24px}.profile-tab-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.profile-tab-row button{cursor:pointer;border:1px solid #607483;border-radius:9px;background:#182c3b;color:#d9e3e9;font:inherit;font-size:13px;font-weight:800;padding:11px 16px;min-height:44px}.profile-tab-row button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#10212d}.profile-tab-row button:focus-visible{outline:3px solid white;outline-offset:3px}.section[hidden]{display:none!important}.profile-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}.profile-quick-grid button{display:flex;cursor:pointer;text-align:left;color:#fff;font:inherit;flex-direction:column;gap:6px;background:#172b3a;border:1px solid #486174;border-radius:12px;padding:17px;min-height:94px}.profile-quick-grid button[aria-pressed="true"]{border-color:var(--gold);box-shadow:inset 4px 0 0 var(--gold)}.profile-quick-grid span{font-size:13px;color:#d0dce4}@media(max-width:600px){.profile-tab-row{display:grid;grid-template-columns:1fr 1fr}.profile-quick-grid{grid-template-columns:1fr}}';
+ css.textContent+='.manager-pickup-link a{display:flex;flex-direction:column;gap:5px;max-width:550px;background:#183744;border:1px solid #7b998e;border-radius:12px;padding:14px 16px;color:#f5f2e8;text-decoration:none;min-height:62px}.manager-pickup-link a strong{color:var(--gold);font-size:15px}.manager-pickup-link a span{font-size:12px;line-height:1.5;color:#d0dce4}.manager-pickup-link a:focus-visible{outline:3px solid #fff;outline-offset:2px}.manager-pickup-link a:hover{border-color:var(--gold)}';
  document.head.append(css);
 }
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
