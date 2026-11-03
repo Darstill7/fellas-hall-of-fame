@@ -245,6 +245,9 @@ jobs:
       - name: Stress-test 2025 keeper score weights and abandonment scenarios
         run: node scripts/audit-2025-keeper-score-sensitivity.mjs
 
+      - name: Reconcile archived 2026 keeper research through Week 7 against current website data
+        run: node scripts/build-keeper-2026-website-research.mjs --check
+
       - name: Verify public keeper research page against canonical data and grading safeguards
         run: node scripts/verify-keeper-2025-website-research.mjs
 
