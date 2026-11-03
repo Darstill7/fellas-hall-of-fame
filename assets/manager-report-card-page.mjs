@@ -32,7 +32,10 @@ try {
   const sorted=[...entries].sort((a,b)=>b.points-a.points||b.starts-a.starts||a.year-b.year).slice(0,3);
   if(!sorted.length)return '';
   const label=sorted.map(x=>'<li><strong>'+esc(x.player)+'</strong> ('+x.year+') · '+
-   x.starts+' recorded starts · '+x.points.toFixed(1)+' lineup points</li>').join('');
+   x.starts+' recorded starts · '+x.points.toFixed(1)+' lineup points'+
+   ' · <span class="pickup-cost" data-pickup-year="'+x.year+'" data-pickup-week="'+x.acquisitionWeek+
+   '" data-pickup-transaction="'+esc(x.transactionId)+'" data-pickup-player="'+esc(x.player)+
+   '" data-pickup-type="'+esc(x.acquisitionType)+'">Cost: open to verify</span></li>').join('');
   return '<details class="pickup-highlights"><summary>Notable pickups · selected examples</summary><p class="fine">Verified later-start highlights from the archival research, ranked here only by recorded starter points. Not all pickups; 2026 coverage is partial. Not a FAAB skill grade, bid-cost comparison, or replacement value.</p><ul>'+label+'</ul></details>';
  };
  const slugs={Stilly:'stilly',Stew:'stew',Thommy:'tom',Stover:'stover',Birch:'birch',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',JMid:'jmid',Scott:'scott'};
@@ -69,4 +72,43 @@ try {
  const managerQuery=new URLSearchParams(location.search).get('manager');
  const shown=managerQuery?rows.filter(x=>x.name.toLowerCase()===managerQuery.toLowerCase()||(managerQuery.toLowerCase()==='tom'&&x.name==='Thommy')):rows;
  document.getElementById('cards').innerHTML=shown.map(x=>'<section class="card" data-report-manager="'+esc(x.name)+'"><div class="head"><div><div class="label">#'+x.rank+' · Success-first preview</div><h2><a href="../managers/'+slugs[x.name]+'/">'+esc(x.name)+'</a></h2></div><div class="score">'+x.provisional.toFixed(1)+'<small>of 100 · provisional</small></div></div><div class="grid">'+Object.entries(x.scores).map(([key,score])=>'<div class="grade"><span>'+labels[key]+'</span><strong>'+(score===null?'N/A':score.toFixed(1))+'</strong><small>'+categoryEvidence(key)+'</small></div>').join('')+'</div>'+acquisitionNote(x.name)+notablePickups(x.name)+startSitNote(x.name)+'<p class="fine">Confirmed '+x.coverage.verifiedChampionships+' titles · '+x.coverage.verifiedRunnersUp+' runners-up · '+x.coverage.championshipGameAppearances+' championship-game appearances · minimum '+x.coverage.minimumPlayoffs+' playoff berths · '+x.coverage.playoffVerified+'/'+x.coverage.playoffEligible+' qualified (2016–25) · '+x.coverage.playoffByes+' byes · '+x.coverage.draftPicks+' scored nonkeeper picks · '+x.coverage.verifiedTradeSides+' verified trade sides · '+x.coverage.careerGames+' regular-season games · '+x.coverage.waiverHighlights+' highlighted waiver candidates (not a full denominator). Scored dimensions: '+x.availableWeight+' of 100 possible weight points ('+x.evidence.status+' evidence coverage; not a statistical confidence interval).</p><p class="fine"><strong>Scouting read:</strong> '+esc(byName[x.name].strengths.length?byName[x.name].strengths.join('; '):'No verified standout category yet')+'. <strong>Next competitive objective:</strong> '+esc(byName[x.name].focus.length?byName[x.name].focus.join('; '):'Sustain results and validate management decisions')+'. These are results-based observations, not certified decision-level grades.</p><details><summary>Career scouting dossier</summary><p><strong>'+esc(dossierByName[x.name].headline)+'</strong></p><p><strong>Documented strengths:</strong> '+esc(dossierByName[x.name].strengths.join('; ')||'No qualifying standout yet')+'</p><p><strong>Evidence limitations:</strong> '+esc(dossierByName[x.name].limitations.join('; '))+'</p><p>'+esc(dossierByName[x.name].decisionRead)+'</p><p class="fine">'+esc(dossierByName[x.name].evidence)+'</p></details></section>').join('') || '<p>No matching manager report card.</p>';
+ // Load original provider receipts only when the selected pickup set is opened.
+ // No speculative $0 values: ordinary add receipts without a bid remain N/A.
+ const receiptCache=new Map();
+ async function verifyPickupCost(node){
+  const year=Number(node.dataset.pickupYear),week=Number(node.dataset.pickupWeek);
+  const id=node.dataset.pickupTransaction,player=node.dataset.pickupPlayer;
+  const requestedType=node.dataset.pickupType;
+  if(!Number.isInteger(year)||year<2020||year>2026||
+     !Number.isInteger(week)||week<1||week>18||!/^\\d+$/.test(id)){
+   node.textContent='Cost: N/A (invalid receipt reference)';return;
+  }
+  const file='../data-integrity/provider-recovered-transactions-'+year+'-week'+week+'.json';
+  try{
+   if(!receiptCache.has(file)){
+    receiptCache.set(file,fetch(file).then(r=>{
+     if(!r.ok)throw Error('Source not available');
+     return r.json();
+    }));
+   }
+   const source=await receiptCache.get(file);
+   const hits=(source.transactions??[]).filter(t=>
+    String(t.transactionId)===id&&t.status==='complete'&&t.type===requestedType&&
+    (t.added??[]).some(p=>p.name===player));
+   if(hits.length!==1){node.textContent='Cost: N/A (player receipt not matched)';return;}
+   const bid=hits[0].faabBid;
+   node.textContent=Number.isSafeInteger(bid)&&bid>=0?'Cost: 
++bid+' FAAB':'Cost: N/A (bid not recorded)';
+  }catch(e){node.textContent='Cost: N/A (receipt unavailable)';}
+ }
+ for(const details of document.querySelectorAll('#cards details.pickup-highlights')){
+  details.addEventListener('toggle',()=>{
+   if(!details.open||details.dataset.costsRequested==='yes')return;
+   details.dataset.costsRequested='yes';
+   for(const node of details.querySelectorAll('.pickup-cost')){
+    node.textContent='Cost: checking receipt…';
+    void verifyPickupCost(node);
+   }
+  });
+ }
 } catch(e) {document.getElementById('cards').innerHTML='<p role="alert">Report cards could not load from the historical archive. No invented grades are shown.</p>';console.error(e)}
