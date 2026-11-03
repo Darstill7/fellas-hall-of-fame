@@ -1,8 +1,8 @@
 {
   "schema": "fellas-2026-keeper-website-research-v1",
-  "status": "in_progress_2026_week1_to_week7_no_completed_season_score",
+  "status": "in_progress_2026_week1_to_week8_no_completed_season_score",
   "season": 2026,
-  "throughWeek": 7,
+  "throughWeek": 8,
   "sourcePaths": [
     "data/sleeper_roster_snapshots_2026_week1.json",
     "data/sleeper_roster_snapshots_2026_week2.json",
@@ -11,11 +11,12 @@
     "data/sleeper_roster_snapshots_2026_week5.json",
     "data/sleeper_roster_snapshots_2026_week6.json",
     "data/sleeper_roster_snapshots_2026_week7.json",
+    "data/sleeper_roster_snapshots_2026_week8.json",
     "data/v9_draft_engine.json"
   ],
-  "methodology": "Verified original-manager keeper starters through archived 2026 Week 7; positional median at corresponding player-start weeks; no season grade",
+  "methodology": "Verified original-manager keeper starters through archived 2026 Week 8; positional median at corresponding player-start weeks; no season grade",
   "limitations": [
-    "Weeks 1–6 are reconciled against the archived draft engine. Week 7 is sourced from the additional weekly roster snapshot.",
+    "Weeks 1–6 are reconciled against the archived draft engine. Weeks 7–8 are sourced from additional weekly roster snapshots.",
     "2026 is incomplete. The research index, playoffs and abandonment penalty are intentionally unavailable.",
     "Starter medians describe observed league starters, not eligible waivers or replacement value.",
     "Points after an original keeper is traded belong to the new roster owner and are not credited back.",
@@ -29,59 +30,23 @@
           "name": "Jaxon Smith-Njigba",
           "round": 7,
           "position": "WR",
-          "starts": 7,
-          "startedPoints": 169.16,
+          "starts": 8,
+          "startedPoints": 190.96,
           "transferredDuringSeason": false
         },
         {
           "name": "Tyler Warren",
           "round": 8,
           "position": "TE",
-          "starts": 5,
-          "startedPoints": 54.9,
+          "starts": 6,
+          "startedPoints": 58.7,
           "transferredDuringSeason": false
         }
       ],
-      "regularStartedPoints": 224.06,
-      "regularVsStarterMedian": 116.06,
-      "verifiedOriginalManagerStarts": 12,
+      "regularStartedPoints": 249.66,
+      "regularVsStarterMedian": 122.61,
+      "verifiedOriginalManagerStarts": 14,
       "nominalDraftCapital": 46.43,
-      "championshipStarterPoints": null,
-      "otherWeek15to17StartedPoints": null,
-      "components": {
-        "observedProduction": null,
-        "nominalDraftCapital": null,
-        "championshipContribution": null
-      },
-      "researchScore": null,
-      "verifiedDrops": [],
-      "verifiedDropStatus": "not_audited_for_2026",
-      "officialKeeperDecisionGrade": null
-    },
-    {
-      "manager": "Tony",
-      "keepers": [
-        {
-          "name": "Brock Bowers",
-          "round": 7,
-          "position": "TE",
-          "starts": 5,
-          "startedPoints": 78.5,
-          "transferredDuringSeason": false
-        },
-        {
-          "name": "Javonte Williams",
-          "round": 10,
-          "position": "RB",
-          "starts": 7,
-          "startedPoints": 120,
-          "transferredDuringSeason": false
-        }
-      ],
-      "regularStartedPoints": 198.5,
-      "regularVsStarterMedian": 73.9,
-      "verifiedOriginalManagerStarts": 12,
-      "nominalDraftCapital": 53.57,
       "championshipStarterPoints": null,
       "otherWeek15to17StartedPoints": null,
       "components": {
@@ -101,23 +66,59 @@
           "name": "Puka Nacua",
           "round": 1,
           "position": "WR",
-          "starts": 5,
-          "startedPoints": 93.1,
+          "starts": 6,
+          "startedPoints": 112.6,
           "transferredDuringSeason": false
         },
         {
           "name": "Tee Higgins",
           "round": 5,
           "position": "WR",
-          "starts": 6,
-          "startedPoints": 87.6,
+          "starts": 7,
+          "startedPoints": 120.1,
           "transferredDuringSeason": false
         }
       ],
-      "regularStartedPoints": 180.7,
-      "regularVsStarterMedian": 70.65,
-      "verifiedOriginalManagerStarts": 11,
+      "regularStartedPoints": 232.7,
+      "regularVsStarterMedian": 100.05,
+      "verifiedOriginalManagerStarts": 13,
       "nominalDraftCapital": 14.29,
+      "championshipStarterPoints": null,
+      "otherWeek15to17StartedPoints": null,
+      "components": {
+        "observedProduction": null,
+        "nominalDraftCapital": null,
+        "championshipContribution": null
+      },
+      "researchScore": null,
+      "verifiedDrops": [],
+      "verifiedDropStatus": "not_audited_for_2026",
+      "officialKeeperDecisionGrade": null
+    },
+    {
+      "manager": "Tony",
+      "keepers": [
+        {
+          "name": "Brock Bowers",
+          "round": 7,
+          "position": "TE",
+          "starts": 6,
+          "startedPoints": 103.2,
+          "transferredDuringSeason": false
+        },
+        {
+          "name": "Javonte Williams",
+          "round": 10,
+          "position": "RB",
+          "starts": 8,
+          "startedPoints": 125.2,
+          "transferredDuringSeason": false
+        }
+      ],
+      "regularStartedPoints": 228.4,
+      "regularVsStarterMedian": 84.05,
+      "verifiedOriginalManagerStarts": 14,
+      "nominalDraftCapital": 53.57,
       "championshipStarterPoints": null,
       "otherWeek15to17StartedPoints": null,
       "components": {
@@ -137,22 +138,22 @@
           "name": "Amon-Ra St. Brown",
           "round": 1,
           "position": "WR",
-          "starts": 6,
-          "startedPoints": 104.4,
+          "starts": 7,
+          "startedPoints": 113.5,
           "transferredDuringSeason": false
         },
         {
           "name": "Jayden Daniels",
           "round": 12,
           "position": "QB",
-          "starts": 3,
-          "startedPoints": 67,
+          "starts": 4,
+          "startedPoints": 81.98,
           "transferredDuringSeason": false
         }
       ],
-      "regularStartedPoints": 171.4,
-      "regularVsStarterMedian": 57.27,
-      "verifiedOriginalManagerStarts": 9,
+      "regularStartedPoints": 195.48,
+      "regularVsStarterMedian": 50.45,
+      "verifiedOriginalManagerStarts": 11,
       "nominalDraftCapital": 39.29,
       "championshipStarterPoints": null,
       "otherWeek15to17StartedPoints": null,
@@ -173,8 +174,8 @@
           "name": "Jahmyr Gibbs",
           "round": 1,
           "position": "RB",
-          "starts": 6,
-          "startedPoints": 155,
+          "starts": 7,
+          "startedPoints": 178.8,
           "transferredDuringSeason": false
         },
         {
@@ -186,9 +187,9 @@
           "transferredDuringSeason": true
         }
       ],
-      "regularStartedPoints": 155,
-      "regularVsStarterMedian": 79.8,
-      "verifiedOriginalManagerStarts": 6,
+      "regularStartedPoints": 178.8,
+      "regularVsStarterMedian": 91.6,
+      "verifiedOriginalManagerStarts": 7,
       "nominalDraftCapital": 17.86,
       "championshipStarterPoints": null,
       "otherWeek15to17StartedPoints": null,
@@ -209,8 +210,8 @@
           "name": "Bijan Robinson",
           "round": 1,
           "position": "RB",
-          "starts": 7,
-          "startedPoints": 132.2,
+          "starts": 8,
+          "startedPoints": 139.8,
           "transferredDuringSeason": false
         },
         {
@@ -222,10 +223,46 @@
           "transferredDuringSeason": true
         }
       ],
-      "regularStartedPoints": 132.2,
-      "regularVsStarterMedian": 47.9,
-      "verifiedOriginalManagerStarts": 7,
+      "regularStartedPoints": 139.8,
+      "regularVsStarterMedian": 43.5,
+      "verifiedOriginalManagerStarts": 8,
       "nominalDraftCapital": 25,
+      "championshipStarterPoints": null,
+      "otherWeek15to17StartedPoints": null,
+      "components": {
+        "observedProduction": null,
+        "nominalDraftCapital": null,
+        "championshipContribution": null
+      },
+      "researchScore": null,
+      "verifiedDrops": [],
+      "verifiedDropStatus": "not_audited_for_2026",
+      "officialKeeperDecisionGrade": null
+    },
+    {
+      "manager": "Birch",
+      "keepers": [
+        {
+          "name": "Rashee Rice",
+          "round": 5,
+          "position": "WR",
+          "starts": 5,
+          "startedPoints": 46.3,
+          "transferredDuringSeason": false
+        },
+        {
+          "name": "Cam Skattebo",
+          "round": 10,
+          "position": "RB",
+          "starts": 6,
+          "startedPoints": 43.3,
+          "transferredDuringSeason": false
+        }
+      ],
+      "regularStartedPoints": 89.6,
+      "regularVsStarterMedian": -29.65,
+      "verifiedOriginalManagerStarts": 11,
+      "nominalDraftCapital": 46.43,
       "championshipStarterPoints": null,
       "otherWeek15to17StartedPoints": null,
       "components": {
@@ -298,42 +335,6 @@
       "regularVsStarterMedian": -8.03,
       "verifiedOriginalManagerStarts": 6,
       "nominalDraftCapital": 42.86,
-      "championshipStarterPoints": null,
-      "otherWeek15to17StartedPoints": null,
-      "components": {
-        "observedProduction": null,
-        "nominalDraftCapital": null,
-        "championshipContribution": null
-      },
-      "researchScore": null,
-      "verifiedDrops": [],
-      "verifiedDropStatus": "not_audited_for_2026",
-      "officialKeeperDecisionGrade": null
-    },
-    {
-      "manager": "Birch",
-      "keepers": [
-        {
-          "name": "Rashee Rice",
-          "round": 5,
-          "position": "WR",
-          "starts": 4,
-          "startedPoints": 31.5,
-          "transferredDuringSeason": false
-        },
-        {
-          "name": "Cam Skattebo",
-          "round": 10,
-          "position": "RB",
-          "starts": 6,
-          "startedPoints": 43.3,
-          "transferredDuringSeason": false
-        }
-      ],
-      "regularStartedPoints": 74.8,
-      "regularVsStarterMedian": -33.15,
-      "verifiedOriginalManagerStarts": 10,
-      "nominalDraftCapital": 46.43,
       "championshipStarterPoints": null,
       "otherWeek15to17StartedPoints": null,
       "components": {
@@ -437,6 +438,12 @@
           "rosterTeamId": "1",
           "onOriginalTeam": false,
           "startedForOriginalManager": false
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "1",
+          "onOriginalTeam": false,
+          "startedForOriginalManager": false
         }
       ],
       "startingReceipts": [
@@ -472,10 +479,10 @@
       "position": "WR",
       "round": 1,
       "originalTeamId": "3",
-      "verifiedOriginalManagerStarts": 5,
-      "verifiedOriginalManagerStartedPoints": 93.1,
-      "observedStarterMedianPoints": 49.9,
-      "relativeToStartedPositionMedians": 43.2,
+      "verifiedOriginalManagerStarts": 6,
+      "verifiedOriginalManagerStartedPoints": 112.6,
+      "observedStarterMedianPoints": 61.2,
+      "relativeToStartedPositionMedians": 51.4,
       "tradedSameSeasonArchiveFlag": false,
       "observations": [
         {
@@ -516,6 +523,12 @@
         },
         {
           "week": 7,
+          "rosterTeamId": "3",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": true
+        },
+        {
+          "week": 8,
           "rosterTeamId": "3",
           "onOriginalTeam": true,
           "startedForOriginalManager": true
@@ -551,6 +564,12 @@
           "points": 17.8,
           "median": 8.2,
           "source": "data/sleeper_roster_snapshots_2026_week7.json"
+        },
+        {
+          "week": 8,
+          "points": 19.5,
+          "median": 11.3,
+          "source": "data/sleeper_roster_snapshots_2026_week8.json"
         }
       ]
     },
@@ -560,10 +579,10 @@
       "position": "WR",
       "round": 1,
       "originalTeamId": "1",
-      "verifiedOriginalManagerStarts": 6,
-      "verifiedOriginalManagerStartedPoints": 104.4,
-      "observedStarterMedianPoints": 60.15,
-      "relativeToStartedPositionMedians": 44.25,
+      "verifiedOriginalManagerStarts": 7,
+      "verifiedOriginalManagerStartedPoints": 113.5,
+      "observedStarterMedianPoints": 71.45,
+      "relativeToStartedPositionMedians": 42.05,
       "tradedSameSeasonArchiveFlag": false,
       "observations": [
         {
@@ -604,6 +623,12 @@
         },
         {
           "week": 7,
+          "rosterTeamId": "1",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": true
+        },
+        {
+          "week": 8,
           "rosterTeamId": "1",
           "onOriginalTeam": true,
           "startedForOriginalManager": true
@@ -645,6 +670,12 @@
           "points": 20.7,
           "median": 8.2,
           "source": "data/sleeper_roster_snapshots_2026_week7.json"
+        },
+        {
+          "week": 8,
+          "points": 9.1,
+          "median": 11.3,
+          "source": "data/sleeper_roster_snapshots_2026_week8.json"
         }
       ]
     },
@@ -654,10 +685,10 @@
       "position": "RB",
       "round": 1,
       "originalTeamId": "5",
-      "verifiedOriginalManagerStarts": 7,
-      "verifiedOriginalManagerStartedPoints": 132.2,
-      "observedStarterMedianPoints": 84.3,
-      "relativeToStartedPositionMedians": 47.9,
+      "verifiedOriginalManagerStarts": 8,
+      "verifiedOriginalManagerStartedPoints": 139.8,
+      "observedStarterMedianPoints": 96.3,
+      "relativeToStartedPositionMedians": 43.5,
       "tradedSameSeasonArchiveFlag": false,
       "observations": [
         {
@@ -698,6 +729,12 @@
         },
         {
           "week": 7,
+          "rosterTeamId": "5",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": true
+        },
+        {
+          "week": 8,
           "rosterTeamId": "5",
           "onOriginalTeam": true,
           "startedForOriginalManager": true
@@ -745,6 +782,12 @@
           "points": 13.7,
           "median": 15.9,
           "source": "data/sleeper_roster_snapshots_2026_week7.json"
+        },
+        {
+          "week": 8,
+          "points": 7.6,
+          "median": 12,
+          "source": "data/sleeper_roster_snapshots_2026_week8.json"
         }
       ]
     },
@@ -754,10 +797,10 @@
       "position": "RB",
       "round": 1,
       "originalTeamId": "4",
-      "verifiedOriginalManagerStarts": 6,
-      "verifiedOriginalManagerStartedPoints": 155,
-      "observedStarterMedianPoints": 75.2,
-      "relativeToStartedPositionMedians": 79.8,
+      "verifiedOriginalManagerStarts": 7,
+      "verifiedOriginalManagerStartedPoints": 178.8,
+      "observedStarterMedianPoints": 87.2,
+      "relativeToStartedPositionMedians": 91.6,
       "tradedSameSeasonArchiveFlag": false,
       "observations": [
         {
@@ -801,6 +844,12 @@
           "rosterTeamId": "4",
           "onOriginalTeam": true,
           "startedForOriginalManager": true
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "4",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": true
         }
       ],
       "startingReceipts": [
@@ -839,6 +888,12 @@
           "points": 14.8,
           "median": 15.9,
           "source": "data/sleeper_roster_snapshots_2026_week7.json"
+        },
+        {
+          "week": 8,
+          "points": 23.8,
+          "median": 12,
+          "source": "data/sleeper_roster_snapshots_2026_week8.json"
         }
       ]
     },
@@ -895,6 +950,12 @@
           "rosterTeamId": "9",
           "onOriginalTeam": true,
           "startedForOriginalManager": true
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "9",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": false
         }
       ],
       "startingReceipts": [
@@ -983,6 +1044,12 @@
           "rosterTeamId": "8",
           "onOriginalTeam": true,
           "startedForOriginalManager": false
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "8",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": false
         }
       ],
       "startingReceipts": [
@@ -1012,10 +1079,10 @@
       "position": "WR",
       "round": 5,
       "originalTeamId": "10",
-      "verifiedOriginalManagerStarts": 4,
-      "verifiedOriginalManagerStartedPoints": 31.5,
-      "observedStarterMedianPoints": 39.55,
-      "relativeToStartedPositionMedians": -8.05,
+      "verifiedOriginalManagerStarts": 5,
+      "verifiedOriginalManagerStartedPoints": 46.3,
+      "observedStarterMedianPoints": 50.85,
+      "relativeToStartedPositionMedians": -4.55,
       "tradedSameSeasonArchiveFlag": false,
       "observations": [
         {
@@ -1059,6 +1126,12 @@
           "rosterTeamId": "10",
           "onOriginalTeam": true,
           "startedForOriginalManager": false
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "10",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": true
         }
       ],
       "startingReceipts": [
@@ -1085,6 +1158,12 @@
           "points": 0,
           "median": 10.15,
           "source": "data/sleeper_roster_snapshots_2026_week4.json"
+        },
+        {
+          "week": 8,
+          "points": 14.8,
+          "median": 11.3,
+          "source": "data/sleeper_roster_snapshots_2026_week8.json"
         }
       ]
     },
@@ -1094,10 +1173,10 @@
       "position": "WR",
       "round": 5,
       "originalTeamId": "3",
-      "verifiedOriginalManagerStarts": 6,
-      "verifiedOriginalManagerStartedPoints": 87.6,
-      "observedStarterMedianPoints": 60.15,
-      "relativeToStartedPositionMedians": 27.45,
+      "verifiedOriginalManagerStarts": 7,
+      "verifiedOriginalManagerStartedPoints": 120.1,
+      "observedStarterMedianPoints": 71.45,
+      "relativeToStartedPositionMedians": 48.65,
       "tradedSameSeasonArchiveFlag": false,
       "observations": [
         {
@@ -1138,6 +1217,12 @@
         },
         {
           "week": 7,
+          "rosterTeamId": "3",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": true
+        },
+        {
+          "week": 8,
           "rosterTeamId": "3",
           "onOriginalTeam": true,
           "startedForOriginalManager": true
@@ -1179,6 +1264,12 @@
           "points": 25.8,
           "median": 8.2,
           "source": "data/sleeper_roster_snapshots_2026_week7.json"
+        },
+        {
+          "week": 8,
+          "points": 32.5,
+          "median": 11.3,
+          "source": "data/sleeper_roster_snapshots_2026_week8.json"
         }
       ]
     },
@@ -1232,6 +1323,12 @@
         },
         {
           "week": 7,
+          "rosterTeamId": "5",
+          "onOriginalTeam": false,
+          "startedForOriginalManager": false
+        },
+        {
+          "week": 8,
           "rosterTeamId": "5",
           "onOriginalTeam": false,
           "startedForOriginalManager": false
@@ -1292,6 +1389,12 @@
           "rosterTeamId": "8",
           "onOriginalTeam": false,
           "startedForOriginalManager": false
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "8",
+          "onOriginalTeam": false,
+          "startedForOriginalManager": false
         }
       ],
       "startingReceipts": [
@@ -1309,10 +1412,10 @@
       "position": "WR",
       "round": 7,
       "originalTeamId": "6",
-      "verifiedOriginalManagerStarts": 7,
-      "verifiedOriginalManagerStartedPoints": 169.16,
-      "observedStarterMedianPoints": 70.5,
-      "relativeToStartedPositionMedians": 98.66,
+      "verifiedOriginalManagerStarts": 8,
+      "verifiedOriginalManagerStartedPoints": 190.96,
+      "observedStarterMedianPoints": 81.8,
+      "relativeToStartedPositionMedians": 109.16,
       "tradedSameSeasonArchiveFlag": false,
       "observations": [
         {
@@ -1353,6 +1456,12 @@
         },
         {
           "week": 7,
+          "rosterTeamId": "6",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": true
+        },
+        {
+          "week": 8,
           "rosterTeamId": "6",
           "onOriginalTeam": true,
           "startedForOriginalManager": true
@@ -1400,6 +1509,12 @@
           "points": 26.8,
           "median": 8.2,
           "source": "data/sleeper_roster_snapshots_2026_week7.json"
+        },
+        {
+          "week": 8,
+          "points": 21.8,
+          "median": 11.3,
+          "source": "data/sleeper_roster_snapshots_2026_week8.json"
         }
       ]
     },
@@ -1409,10 +1524,10 @@
       "position": "TE",
       "round": 7,
       "originalTeamId": "7",
-      "verifiedOriginalManagerStarts": 5,
-      "verifiedOriginalManagerStartedPoints": 78.5,
-      "observedStarterMedianPoints": 40.3,
-      "relativeToStartedPositionMedians": 38.2,
+      "verifiedOriginalManagerStarts": 6,
+      "verifiedOriginalManagerStartedPoints": 103.2,
+      "observedStarterMedianPoints": 48.05,
+      "relativeToStartedPositionMedians": 55.15,
       "tradedSameSeasonArchiveFlag": false,
       "observations": [
         {
@@ -1456,6 +1571,12 @@
           "rosterTeamId": "7",
           "onOriginalTeam": true,
           "startedForOriginalManager": true
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "7",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": true
         }
       ],
       "startingReceipts": [
@@ -1488,6 +1609,12 @@
           "points": 10.3,
           "median": 10.3,
           "source": "data/sleeper_roster_snapshots_2026_week7.json"
+        },
+        {
+          "week": 8,
+          "points": 24.7,
+          "median": 7.75,
+          "source": "data/sleeper_roster_snapshots_2026_week8.json"
         }
       ]
     },
@@ -1544,6 +1671,12 @@
           "rosterTeamId": "9",
           "onOriginalTeam": false,
           "startedForOriginalManager": false
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "9",
+          "onOriginalTeam": false,
+          "startedForOriginalManager": false
         }
       ],
       "startingReceipts": []
@@ -1554,10 +1687,10 @@
       "position": "TE",
       "round": 8,
       "originalTeamId": "6",
-      "verifiedOriginalManagerStarts": 5,
-      "verifiedOriginalManagerStartedPoints": 54.9,
-      "observedStarterMedianPoints": 37.5,
-      "relativeToStartedPositionMedians": 17.4,
+      "verifiedOriginalManagerStarts": 6,
+      "verifiedOriginalManagerStartedPoints": 58.7,
+      "observedStarterMedianPoints": 45.25,
+      "relativeToStartedPositionMedians": 13.45,
       "tradedSameSeasonArchiveFlag": false,
       "observations": [
         {
@@ -1601,6 +1734,12 @@
           "rosterTeamId": "6",
           "onOriginalTeam": true,
           "startedForOriginalManager": false
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "6",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": true
         }
       ],
       "startingReceipts": [
@@ -1633,6 +1772,12 @@
           "points": 17.9,
           "median": 6.8,
           "source": "data/sleeper_roster_snapshots_2026_week5.json"
+        },
+        {
+          "week": 8,
+          "points": 3.8,
+          "median": 7.75,
+          "source": "data/sleeper_roster_snapshots_2026_week8.json"
         }
       ]
     },
@@ -1689,6 +1834,12 @@
           "rosterTeamId": "8",
           "onOriginalTeam": true,
           "startedForOriginalManager": true
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "8",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": false
         }
       ],
       "startingReceipts": [
@@ -1718,10 +1869,10 @@
       "position": "RB",
       "round": 10,
       "originalTeamId": "7",
-      "verifiedOriginalManagerStarts": 7,
-      "verifiedOriginalManagerStartedPoints": 120,
-      "observedStarterMedianPoints": 84.3,
-      "relativeToStartedPositionMedians": 35.7,
+      "verifiedOriginalManagerStarts": 8,
+      "verifiedOriginalManagerStartedPoints": 125.2,
+      "observedStarterMedianPoints": 96.3,
+      "relativeToStartedPositionMedians": 28.9,
       "tradedSameSeasonArchiveFlag": false,
       "observations": [
         {
@@ -1762,6 +1913,12 @@
         },
         {
           "week": 7,
+          "rosterTeamId": "7",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": true
+        },
+        {
+          "week": 8,
           "rosterTeamId": "7",
           "onOriginalTeam": true,
           "startedForOriginalManager": true
@@ -1809,6 +1966,12 @@
           "points": 21.5,
           "median": 15.9,
           "source": "data/sleeper_roster_snapshots_2026_week7.json"
+        },
+        {
+          "week": 8,
+          "points": 5.2,
+          "median": 12,
+          "source": "data/sleeper_roster_snapshots_2026_week8.json"
         }
       ]
     },
@@ -1865,6 +2028,12 @@
           "rosterTeamId": "10",
           "onOriginalTeam": true,
           "startedForOriginalManager": false
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "10",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": false
         }
       ],
       "startingReceipts": [
@@ -1912,10 +2081,10 @@
       "position": "QB",
       "round": 12,
       "originalTeamId": "1",
-      "verifiedOriginalManagerStarts": 3,
-      "verifiedOriginalManagerStartedPoints": 67,
-      "observedStarterMedianPoints": 53.98,
-      "relativeToStartedPositionMedians": 13.02,
+      "verifiedOriginalManagerStarts": 4,
+      "verifiedOriginalManagerStartedPoints": 81.98,
+      "observedStarterMedianPoints": 73.58,
+      "relativeToStartedPositionMedians": 8.4,
       "tradedSameSeasonArchiveFlag": false,
       "observations": [
         {
@@ -1959,6 +2128,12 @@
           "rosterTeamId": "1",
           "onOriginalTeam": true,
           "startedForOriginalManager": false
+        },
+        {
+          "week": 8,
+          "rosterTeamId": "1",
+          "onOriginalTeam": true,
+          "startedForOriginalManager": true
         }
       ],
       "startingReceipts": [
@@ -1979,6 +2154,12 @@
           "points": 21,
           "median": 18.41,
           "source": "data/sleeper_roster_snapshots_2026_week6.json"
+        },
+        {
+          "week": 8,
+          "points": 14.98,
+          "median": 19.6,
+          "source": "data/sleeper_roster_snapshots_2026_week8.json"
         }
       ]
     },
@@ -2032,6 +2213,12 @@
         },
         {
           "week": 7,
+          "rosterTeamId": "4",
+          "onOriginalTeam": false,
+          "startedForOriginalManager": false
+        },
+        {
+          "week": 8,
           "rosterTeamId": "4",
           "onOriginalTeam": false,
           "startedForOriginalManager": false
