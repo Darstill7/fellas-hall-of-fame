@@ -6,8 +6,21 @@ function evaluate(r){const pool=[...r.starters,...r.bench];const best=optimal(r)
 const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const managerAliases={darstill:'Stilly',dsylvester9:'Stew',thommy:'Thommy',yogurtslinger15:'Stover',dillionpanthers15:'Stover',birchhh:'Birch',tsteg:'Tony',huppdawg80:'Mitch',ckuhl5:'Kuhl',jmidd:'JMid',sheffla:'Scott',evansbrandonm:'Evans',koble2323:'Koble'};
 const currentTeamManagers={'1':'Stilly','2':'JMid','3':'Thommy','4':'Stew','5':'Scott','6':'Mitch','7':'Tony','8':'Stover','9':'Kuhl','10':'Birch'};
-function yearWeeks(year){return year===2020?13:year===2026?8:14}
+let current2026Weeks=8;
+function yearWeeks(year){return year===2020?13:year===2026?current2026Weeks:14}
 async function load(){const selected=$('season').value;const years=selected==='all'?[2020,2021,2022,2023,2024,2025]:[Number(selected)];$('status').textContent='Checking '+(selected==='all'?'2020–2025':selected)+' evidence…';$('results').textContent='';try{
+ if(years.includes(2026)){
+  const response=await fetch('../data/keeper_2026_website_research_v1.json');
+  if(!response.ok)throw Error('Missing certified 2026 research coverage metadata');
+  const metadata=await response.json();
+  const count=Number(metadata.throughWeek);
+  if(metadata.season!==2026||!Number.isInteger(count)||count<8||count>14)
+   throw Error('Invalid 2026 completed-week coverage');
+  if(count>=9&&Date.now()<Date.parse('2026-11-10T06:00:00Z'))
+   throw Error('Week 9 is not final before November 10');
+  current2026Weeks=count;
+  $('season').querySelector('option[value="2026"]').textContent='2026 (Weeks 1–'+count+')';
+ }
  const fetched=await Promise.all(years.flatMap(year=>Array.from({length:yearWeeks(year)},(_,i)=>{const week=i+1,path=year===2025&&(week===1||week===7)?'war_rosters_2025_week'+week+'.json':'sleeper_roster_snapshots_'+year+'_week'+week+'.json';return fetch('../data/'+path).then(r=>{if(!r.ok)throw Error(path+' HTTP '+r.status);return r.json()}).then(doc=>({year,week,doc}))})));
  const map=new Map(),exclusionReasons=new Map();let observations=0;
  for(const {year,week,doc} of fetched){
@@ -39,10 +52,10 @@ async function load(){const selected=$('season').value;const years=selected==='a
   }
  }
  const expected=years.reduce((n,y)=>n+yearWeeks(y)*10,0);if(observations!==expected)throw Error('Incomplete archived team weeks');
- if(selected==='2026'){
+ if(selected==='2026'&&current2026Weeks===8){
   const stilly=map.get('2026|Stilly'),kuhl=map.get('2026|Kuhl');
-  if(!stilly||!kuhl||stilly.accuracyCount!==8||kuhl.accuracyCount!==8)throw Error('Missing eight completed weeks for Sleeper benchmark managers');
-  if((stilly.accuracySum/8).toFixed(1)!=='92.4'||(kuhl.accuracySum/8).toFixed(1)!=='83.1')
+  if(!stilly||!kuhl||stilly.accuracyCount!==current2026Weeks||kuhl.accuracyCount!==current2026Weeks)throw Error('Missing eight completed weeks for Sleeper benchmark managers');
+  if((stilly.accuracySum/current2026Weeks).toFixed(1)!=='92.4'||(kuhl.accuracySum/current2026Weeks).toFixed(1)!=='83.1')
    throw Error('Sleeper Week 8 benchmark parity mismatch');
  }
  const names=[...map.values()].sort((a,b)=>{
