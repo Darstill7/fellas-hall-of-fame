@@ -11,6 +11,11 @@ for(const s of ['Avg Start/Sit accuracy','2026 (Weeks 1–8)','manager-lineup-re
  'value="career"','id="career-results"','id="career-summary"'])
  assert.ok(html.includes(s),'Start/Sit research UI missing '+s);
 assert.ok(report.includes('manager-lineup-research.html'),'Start/Sit research navigation missing');
+const reportClient=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
+assert.ok(reportClient.includes('startSitNote(x.name)')&&
+ reportClient.includes('manager-lineup-research.html?season=career&amp;manager='),
+ 'Individual manager report cards lack deep links into Start/Sit history');
+
 for(const s of ['function yearWeeks(year){return year===2020?13:year===2026?current2026Weeks:14}',
  'currentTeamManagers','stat.accuracySum+=result.accuracy','map.set(key,stat)',
  'stilly.accuracySum/current2026Weeks','kuhl.accuracySum/current2026Weeks',"toFixed(1)+'%'"])
@@ -21,7 +26,11 @@ for(const field of ['current2026Weeks=count','keeper_2026_website_research_v1.js
  "const best=comparable.length?","const worst=comparable.length?",
  "selected==='2026'?bv-av","class=\"'+cls+'\"","detailSelect.replaceChildren()"])
  assert.ok(client.includes(field),'Start/Sit weekly detail or dynamic coverage missing: '+field);
-for(const statement of ["selected==='career'?[2020,2021,2022,2023,2024,2025,2026]",
+for(const statement of ["const pageParams=new URLSearchParams(location.search)",
+ "const requestedManager=pageParams.get('manager')",
+ "if(['career','all','2020'",
+ "detailSelect.options].some(o=>o.textContent.toLowerCase()",
+ "selected==='career'?[2020,2021,2022,2023,2024,2025,2026]",
  "detailSelect.onchange=()=>{drawWeekly();drawProgression();}",
  "const expectedWeeks=year===2026?14:yearWeeks(year)",
  "const halfLife=3.5,referenceYear=2026",
