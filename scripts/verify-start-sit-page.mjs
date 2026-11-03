@@ -16,7 +16,7 @@ for(const s of ['function yearWeeks(year){return year===2020?13:year===2026?curr
  'stilly.accuracySum/current2026Weeks','kuhl.accuracySum/current2026Weeks',"toFixed(1)+'%'"])
  assert.ok(client.includes(s),'Start/Sit browser computation or UI missing '+s);
 for(const field of ['current2026Weeks=count','keeper_2026_website_research_v1.json',
- 'detailSelect.onchange=drawWeekly','stat.observations.push',
+ 'detailSelect.onchange=()=>{drawWeekly();drawProgression();}','stat.observations.push',
  "$('current-coverage').textContent='through completed Week '+count",
  "const best=comparable.length?","const worst=comparable.length?",
  "selected==='2026'?bv-av","class=\"'+cls+'\"","detailSelect.replaceChildren()"])
