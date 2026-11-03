@@ -182,6 +182,21 @@ try{
      if(!content.includes('recorded starts')||!content.includes('lineup points')||
         !content.includes('Not all pickups')||!content.includes('Not a FAAB skill grade'))
       errors.push(width+' pickup highlights missing actual starter-point evidence or research caveats');
+     // Confirm an actually paid waiver and an unpriced ordinary add against
+     // completed provider receipts, not the absence of a price field.
+     for(const [manager,expected] of [['Stew','Cost: '+String.fromCharCode(36)+'12 FAAB'],
+      ['Tony','Cost: N/A (bid not recorded)']]){
+      const details=page.locator('[data-report-manager="'+manager+'"] details.pickup-highlights');
+      await details.locator('summary').click();
+      await page.waitForFunction(name=>{
+       const el=document.querySelector('[data-report-manager="'+name+'"] .pickup-cost');
+       return !!el&&el.textContent.startsWith('Cost: ')&&
+        !el.textContent.includes('checking')&&!el.textContent.includes('open to verify');
+      },manager,{timeout:10000});
+      const actual=await details.locator('.pickup-cost').first().innerText();
+      if(actual!==expected)
+       errors.push(width+' '+manager+' pickup receipt amount mismatch: '+actual);
+     }
     }
    }
    if(route===''){
