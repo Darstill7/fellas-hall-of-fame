@@ -326,6 +326,8 @@ jobs:
       - name: Cross-validate ownership, acquisition value, and waiver availability evidence
         run: node scripts/verify-faab-cross-pipeline.mjs
 
+      - name: Analyze Week 8 FAAB outcomes for previously verified acquisition cohorts
+        run: node scripts/analyze-2026-faab-week8-supplement.mjs
       - name: Upload FAAB acquisition outcome research
         if: always()
         uses: actions/upload-artifact@v4
@@ -333,6 +335,7 @@ jobs:
           name: faab-observed-acquisition-outcomes
           path: |
             data-integrity/faab-observed-acquisition-outcomes-v1.json
+            data-integrity/faab-2026-week8-supplement-v1.json
             data-integrity/faab-observed-team-season-summary-v1.json
             data-integrity/faab-bench-relative-opportunity-v1.json
             data-integrity/faab-identity-attribution-v1.json
@@ -419,8 +422,17 @@ jobs:
         run: node scripts/analyze-six-season-lineups.mjs
       - name: Run recovered 2025 research-only lineup analysis
         run: node scripts/analyze-recovered-2025-lineups.mjs
+      - name: Reconstruct scored 2026 manager start-sit hindsight without skill grades
+        run: node scripts/analyze-2026-start-sit-hindsight.mjs
       - name: Audit Week 8 keeper, FAAB and start-sit decision research readiness
         run: node scripts/audit-decision-quality-research.mjs
+      - name: Upload Week 8 Start/Sit research
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: start-sit-2026-hindsight-research
+          path: data-integrity/start-sit-2026-hindsight-v1.json
+          if-no-files-found: warn
       - name: Install browser test runtime
         if: success() || failure()
         run: |
