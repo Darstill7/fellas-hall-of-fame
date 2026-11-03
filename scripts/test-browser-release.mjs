@@ -116,8 +116,23 @@ try{
      const pickupLinks=await page.locator('a[href*="manager-report-cards.html?manager="]').evaluateAll(nodes=>
       nodes.map(node=>{const url=new URL(node.href,location.href);
        return {path:url.pathname,manager:url.searchParams.get('manager')};}));
-     if(pickupLinks.filter(x=>x.path.endsWith('/analytics/manager-report-cards.html')&&x.manager===name).length!==1)
+     if(pickupLinks.filter(x=>x.path.endsWith('/analytics/manager-report-cards.html')&&x.manager===name).length<1)
       errors.push(width+' '+route+' missing verified manager pickup history link: '+JSON.stringify(pickupLinks));
+     // All ten manager profiles share one source-backed, partial-season snapshot.
+     const office=page.locator('.profile-front-office-snapshot');
+     if(await office.count()!==1||await office.locator('.profile-front-office-tile').count()!==3)
+      errors.push(width+' '+route+' front-office research snapshot did not render');
+     else {
+      const text=await office.innerText();
+      if(!text.includes('2026 Weeks 1–')||!text.includes('not a decision grade')||
+         !text.includes('2020–26'))
+       errors.push(width+' '+route+' front-office provenance or partial-season disclosure missing');
+      const direct=await office.locator('a').evaluateAll(nodes=>nodes.map(a=>({
+       path:new URL(a.href).pathname,manager:new URL(a.href).searchParams.get('manager')
+      })));
+      if(direct.length!==3||direct.some(x=>x.manager!==name))
+       errors.push(width+' '+route+' front-office manager drill-down routing mismatch');
+     }
     }
    }
    if(route==='analytics/manager-lineup-research.html'){
