@@ -82,6 +82,12 @@ for(const p of draft){
  assert.equal(extracted.get(String(p.team_id)),expected,
   'Browser Start/Sit manager mapping differs from confirmed 2026 draft: '+p.team_id);
 }
+// The progressive profile navigation replaces the original hero buttons.
+// It must retain the research link in the *rendered* page, not just the HTML.
+const tabs=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+assert.ok(tabs.includes('manager-lineup-research.html')&&
+ tabs.includes('cloneNode(true)')&&tabs.includes('actions.append(startSitLink)'),
+ 'Progressive manager tabs silently discard Start/Sit history links');
 // Every current manager profile needs a direct, nickname-safe Start/Sit deep link.
 for(const [slug,name] of Object.entries({
  stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',
