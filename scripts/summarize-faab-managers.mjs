@@ -16,9 +16,10 @@ for(const x of outcomes.observations){
  const manager=identity.manager;
  if(!manager)continue;
  const groupKey=x.year+'|'+manager;
- const g=groups.get(groupKey)??{year:x.year,manager,playerClaims:0,playerClaimsWithObservedProduction:0,observedWeeks:0,startedWeeks:0,observedRosteredPoints:0,observedStartedPoints:0,verifiedMatchedTransactions:0,matchedTransactionSpend:0};
+ const g=groups.get(groupKey)??{year:x.year,manager,playerClaims:0,playerClaimsWithObservedProduction:0,playerClaimsWithLaterStart:0,observedWeeks:0,startedWeeks:0,observedRosteredPoints:0,observedStartedPoints:0,verifiedMatchedTransactions:0,paidMatchedTransactions:0,zeroDollarMatchedTransactions:0,matchedTransactionSpend:0};
  g.playerClaims++;
  if(x.observedWeeks)g.playerClaimsWithObservedProduction++;
+ if(x.startedWeeks>0)g.playerClaimsWithLaterStart++;
  g.observedWeeks+=x.observedWeeks;g.startedWeeks+=x.startedWeeks;
  g.observedRosteredPoints+=x.rosteredPoints;g.observedStartedPoints+=x.startedPoints;
  groups.set(groupKey,g);
@@ -28,24 +29,38 @@ for(const x of outcomes.observations){
  else allTransactions.set(txKey,{groupKey,bid:x.bid});
 }
 for(const tx of allTransactions.values()){
- const g=groups.get(tx.groupKey);g.verifiedMatchedTransactions++;g.matchedTransactionSpend+=tx.bid;
+ const g=groups.get(tx.groupKey);g.verifiedMatchedTransactions++;
+ if(tx.bid>0)g.paidMatchedTransactions++;else g.zeroDollarMatchedTransactions++;
+ g.matchedTransactionSpend+=tx.bid;
 }
 const round=n=>Math.round((n+Number.EPSILON)*100)/100;
 const rows=[...groups.values()].map(x=>({
  ...x,
  observedRosteredPoints:round(x.observedRosteredPoints),
  observedStartedPoints:round(x.observedStartedPoints),
- productionObservationPercent:round(x.playerClaimsWithObservedProduction/x.playerClaims*100)
+ productionObservationPercent:round(x.playerClaimsWithObservedProduction/x.playerClaims*100),
+ observedPickupStartRatePercent:round(x.playerClaimsWithLaterStart/x.playerClaims*100),
+ observedPointsPerStart:x.startedWeeks?round(x.observedStartedPoints/x.startedWeeks):null,
+ scopeStatus:x.year===2026?'partial_2026_through_week7':'archived_postclaim_observations'
 })).sort((a,b)=>a.year-b.year||a.manager.localeCompare(b.manager));
+for(const x of rows){
+ assert.equal(x.verifiedMatchedTransactions,x.paidMatchedTransactions+x.zeroDollarMatchedTransactions,
+  'Paid/free receipt reconciliation '+x.year+'/'+x.manager);
+ assert.ok(x.playerClaimsWithLaterStart<=x.playerClaimsWithObservedProduction,
+  'Started claim must have observed postclaim roster week');
+ assert.ok(x.observedPickupStartRatePercent>=0&&x.observedPickupStartRatePercent<=100);
+ assert.ok(x.observedPointsPerStart===null||Number.isFinite(x.observedPointsPerStart));
+}
 const report={
  schema:'fellas-faab-manager-observed-production-v1',
  status:'descriptive_verified_handle_only_not_skill_grade',
  method:'Owner-handle-verified claim cohorts; production only while present on recovered roster after claim week. Count bid once per unique transaction, even for multi-player additions.',
- caveats:['Not the manager full-season spend or acquisition efficiency','Missing weeks and not-held players are not zeroes','Not waiver-wire replacement value, causal WAR, or a certified manager grade','Only acquisitions with matching archived metadata and observed owner handle are included'],
+ caveats:['A pickup later started is a usage observation, not proof of quality; an unused backup is not automatically a bad pickup',
+ 'Not the manager full-season spend or acquisition efficiency','Missing weeks and not-held players are not zeroes','Not waiver-wire replacement value, causal WAR, or a certified manager grade','Only acquisitions with matching archived metadata and observed owner handle are included'],
  coverage:{attributedPlayerClaims:rows.reduce((n,r)=>n+r.playerClaims,0),unattributedPlayerClaims:attribution.unmapped,attributedTransactions:allTransactions.size},
  rows
 };
 const target='data-integrity/faab-manager-observed-production-v1.json';
 if(process.argv.includes('--check'))assert.deepEqual(read(target),report,'Manager FAAB production research stale');
 else fs.writeFileSync(target,JSON.stringify(report,null,2)+'\n');
-console.log('FAAB manager production evidence',JSON.stringify(report.coverage),'manager seasons',rows.length);
+console.log('Simple FAAB usage evidence',JSON.stringify(report.coverage),'manager seasons',rows.length,'no alternative comparisons or grades');
