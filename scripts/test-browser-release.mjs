@@ -119,6 +119,22 @@ try{
      if(pickupLinks.filter(x=>x.path.endsWith('/analytics/manager-report-cards.html')&&x.manager===name).length<1)
       errors.push(width+' '+route+' missing verified manager pickup history link: '+JSON.stringify(pickupLinks));
      // All ten manager profiles share one source-backed, partial-season snapshot.
+     const timeline=page.locator('[data-manager-season-evidence]');
+     if(await timeline.count()!==1||await timeline.getAttribute('data-manager-season-evidence')!==name)
+      errors.push(width+' '+route+' manager season-evidence module missing');
+     else {
+      await timeline.locator('summary').click();
+      const entries=timeline.locator('.profile-season-evidence-row');
+      if(await entries.count()<3)
+       errors.push(width+' '+route+' insufficient documented manager seasons');
+      else {
+       const text=await timeline.innerText();
+       if(!text.includes('pickup')||!text.includes('2026')||!text.includes('no decision score'))
+        errors.push(width+' '+route+' season timeline provenance warning or data missing');
+       if(!text.includes('Current W–L not shown; archived record stops before Week 8'))
+        errors.push(width+' '+route+' 2026 timeline leaked outdated Week 7 W–L');
+      }
+     }
      const office=page.locator('.profile-front-office-snapshot');
      if(await office.count()!==1||await office.locator('.profile-front-office-tile').count()!==3)
       errors.push(width+' '+route+' front-office research snapshot did not render');
