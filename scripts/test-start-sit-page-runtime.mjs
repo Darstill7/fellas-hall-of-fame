@@ -33,7 +33,8 @@ async function runQuery(query){
  async function fetchMock(url){
   calls.push(url);
   const normalized=url.startsWith('../')?url.slice(3):url;
-  assert.ok(!normalized.includes('week9.json'),'Premature Week 9 fetch');
+  assert.ok(!normalized.includes('sleeper_roster_snapshots_2026_week9.json'),
+   'Premature 2026 Week 9 scoring fetch');
   if(!fs.existsSync(normalized))return {ok:false,status:404};
   const data=JSON.parse(fs.readFileSync(normalized,'utf8'));
   return {ok:true,status:200,json:async()=>data};
