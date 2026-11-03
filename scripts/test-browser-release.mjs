@@ -146,6 +146,19 @@ try{
      errors.push(width+' Start/Sit career manager deep link did not load');
     if(await page.locator('#career-results tr').count()!==7)
      errors.push(width+' Start/Sit career view did not render seven seasons');
+    // Failure injection: a missing scored weekly source must never leave
+    // made-up or stale lineup totals on the page.
+    const failure=await context.newPage();
+    await failure.route('**/data/sleeper_roster_snapshots_2026_week4.json',
+     route=>route.fulfill({status:404,body:'Missing archived week'}));
+    await failure.goto(baseUrl+'analytics/manager-lineup-research.html?season=2026&manager=Stilly',
+     {waitUntil:'networkidle',timeout:30000});
+    if(!((await failure.locator('#status').innerText()).includes('Source or model error'))||
+       await failure.locator('#results tr').count()!==0||
+       await failure.locator('#weekly-results tr').count()!==0||
+       await failure.locator('#career-results tr').count()!==0)
+     errors.push(width+' Start/Sit failed archive did not clear provisional display');
+    await failure.close();
     const grade=await page.locator('.notice').innerText();
     if(!grade.includes('not certified decision-skill grades'))
      errors.push(width+' Start/Sit research caveat not visible');
