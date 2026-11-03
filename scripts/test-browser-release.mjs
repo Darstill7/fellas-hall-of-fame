@@ -98,6 +98,25 @@ try{
     if(!noPartialGrade)errors.push(width+' 2026 partial keeper season leaked completed season grade');
    }
    if(route.startsWith('managers/')&&route.endsWith('/')){
+    const heroMadden=page.locator('.profile-madden');
+    if(await heroMadden.count()!==1)
+     errors.push(width+' '+route+' canonical Madden summary missing');
+    else{
+     const panel=await heroMadden.innerText();
+     if(!panel.includes('OVR')||!panel.includes('Championships')||
+        !panel.includes('Peak season:'))
+      errors.push(width+' '+route+' primary career rating or peak season missing');
+     const annual=heroMadden.locator('details.profile-season-ovr');
+     if(await annual.count()!==1||await annual.evaluate(el=>el.open))
+      errors.push(width+' '+route+' season OVR history not collapsed by default');
+     else{
+      await annual.locator('summary').click();
+      if(!await annual.locator('.profile-historical-table').isVisible())
+       errors.push(width+' '+route+' season OVR details failed to expand');
+     }
+    }
+   }
+   if(route.startsWith('managers/')&&route.endsWith('/')){
     const slug=route.split('/')[1];
     const profileNames={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',
      birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
