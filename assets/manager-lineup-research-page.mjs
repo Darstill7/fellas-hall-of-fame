@@ -113,7 +113,7 @@ async function load(){const selected=$('season').value;const years=selected==='c
   }
   const seasons=[...byYear].sort(([a],[b])=>a-b).map(([year,observations])=>{
    const valid=observations.filter(o=>Number.isFinite(o.accuracy));
-   const expectedWeeks=yearWeeks(year);
+   const expectedWeeks=year===2026?14:yearWeeks(year);
    const fraction=valid.length/expectedWeeks;
    const recency=Math.pow(.5,(referenceYear-year)/halfLife);
    const weight=fraction*recency;
