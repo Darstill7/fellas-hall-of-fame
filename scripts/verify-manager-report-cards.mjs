@@ -187,6 +187,19 @@ const ui=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
 if(!ui.includes('manager_acquisition_distinct_v1.json')||!ui.includes('distinctSeasonPlayerAcquisitions')||!ui.includes('withRecordedLaterStart')||!ui.includes('not a FAAB skill grade')||!ui.includes('never started is not automatically a bad pickup'))throw Error('KISS pickup usage evidence or no-skill-grade disclosure missing');
 const sameWeek=JSON.parse(fs.readFileSync('data-integrity/ACQUISITION_SAME_WEEK_AMBIGUITIES_2020_2026.json','utf8'));
 if(sameWeek.sameWeekRepeatGroups!==7||sameWeek.additionalSameWeekEventRows!==8||sameWeek.cases.some(x=>x.recordedEvents<2))throw Error('Same-week duplicate acquisition event coverage unexpected');
+// Three visible examples per manager are selected from confirmed later starts.
+// They must never be labeled comprehensive or as replacement-value skill.
+const notable=JSON.parse(fs.readFileSync('data/waiver_award_candidates.json','utf8'));
+for(const manager of ['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott']){
+ const key=manager==='Thommy'?'Tom':manager;
+ const samples=notable.managers[key];
+ if(!Array.isArray(samples)||samples.filter(x=>x.manager===key&&
+  Number.isInteger(x.starts)&&x.starts>0&&Number.isFinite(x.points)).length<3)
+  throw Error('Insufficient verified pickup highlights for '+manager);
+}
+if(!ui.includes('notablePickups(x.name)')||!ui.includes('Not all pickups')||
+ !ui.includes('Not a FAAB skill grade')||!ui.includes('lineup points'))
+ throw Error('Report cards missing properly qualified recorded pickup highlights');
 console.log('Recorded pickup evidence deduplicated and not misrepresented as skill PASS');
 console.log('Same-week duplicate-acquisition event caveats PASS');
 
