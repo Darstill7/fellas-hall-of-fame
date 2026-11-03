@@ -72,11 +72,13 @@ try{
     if(!((await rows.first().innerText()).includes('Thommy')))errors.push(width+' keeper championship sort failed');
     const sourceGrade=await page.evaluate(async()=>{const r=await fetch(new URL('../data/keeper_2025_website_research_v1.json',location.href));const j=await r.json();return j.rows.every(x=>x.officialKeeperDecisionGrade===null)});
     if(!sourceGrade)errors.push(width+' research page leaked official keeper grades');
+    const keeperLatestWeek=await page.evaluate(async()=>{const r=await fetch(new URL('../data/keeper_2026_website_research_v1.json',location.href));return (await r.json()).throughWeek});
+    if(!Number.isInteger(keeperLatestWeek)||keeperLatestWeek<8||keeperLatestWeek>14)errors.push(width+' 2026 latest keeper week invalid');
     await page.locator('#keeper-year').selectOption('2026');
     if(await rows.count()!==10)errors.push(width+' 2026 keeper research expected 10 managers');
     if(!((await page.locator('#keeper-notice').innerText()).includes('2026 is in progress')))
      errors.push(width+' 2026 in-progress warning missing');
-    if(!((await rows.first().innerText()).includes('starter pts · 8 weeks')))
+    if(!((await rows.first().innerText()).includes('starter pts · '+keeperLatestWeek+' weeks')))
      errors.push(width+' 2026 points incorrectly presented as a scored season');
     if(!await page.locator('#keeper-sort option[value="score"]').evaluate(el=>el.disabled))
      errors.push(width+' 2026 should disable completed-season research score sorting');
