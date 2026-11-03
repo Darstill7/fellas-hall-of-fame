@@ -139,7 +139,7 @@ try{
        manager:u.searchParams.get('manager')}}));
      const matches=links.filter(x=>x.path.endsWith('/analytics/manager-lineup-research.html')&&
       x.season==='career'&&x.manager===name);
-     if(matches.length!==1)
+     if(matches.length<1||links.some(x=>x.path.endsWith('/analytics/manager-lineup-research.html')&&x.manager!==name))
       errors.push(width+' '+route+' invalid Start/Sit career link target: '+JSON.stringify(links));
      const pickupLinks=await page.locator('a[href*="manager-report-cards.html?manager="]').evaluateAll(nodes=>
       nodes.map(node=>{const url=new URL(node.href,location.href);
