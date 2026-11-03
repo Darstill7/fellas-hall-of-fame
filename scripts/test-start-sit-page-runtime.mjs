@@ -9,11 +9,12 @@ const code=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
 const completedWeek=JSON.parse(fs.readFileSync('data/keeper_2026_website_research_v1.json','utf8')).throughWeek;
 assert.ok(Number.isInteger(completedWeek)&&completedWeek>=8&&completedWeek<=14);
 
+function optionList(){const list=[];list.find=undefined;return list;}
 function element(){
  let markup='',textValue='';
- const x={value:'',onchange:null,options:[],
+ const x={value:'',onchange:null,options:optionList(),
   append(node){this.options.push(node);},
-  replaceChildren(){this.options=[];},
+  replaceChildren(){this.options=optionList();},
   addEventListener(name,fn){this['on'+name]=fn;},
   querySelector(selector){return selector==='option[value="2026"]'?this.options.find(o=>o.value==='2026'):null;}
  };
@@ -62,6 +63,8 @@ async function runQuery(query){
  assert.ok(context.__runtimeDone&&typeof context.__runtimeDone.then==='function',
   'Start/Sit page did not expose an asynchronous load');
  await context.__runtimeDone;
+ assert.equal(typeof nodes.get('detail-manager').options.find,'undefined',
+  'Runtime mock must not expose Array.find on select.options');
  const status=nodes.get('status').textContent;
  assert.ok(status&&!status.includes('Source or model error'),status);
  return {nodes,calls,status,blocked};
