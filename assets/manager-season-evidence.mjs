@@ -85,11 +85,19 @@ export async function mountManagerSeasonEvidence(host,manager){
     }
    }
    card.append(facts);
+   if(year>=2020){
+    const trade=document.createElement('a');
+    trade.className='profile-season-trade-link';
+    trade.href=root+'analytics/manager-trade-intelligence.html?manager='+
+     encodeURIComponent(manager)+'&year='+year;
+    trade.textContent='Review '+year+' trade evidence';
+    card.append(trade);
+   }
    list.append(card);
   }
   shell.append(list);
   const caveat=make('p','muted profile-season-evidence-caveat',
-   'Not all postseason endings are certified. Pickup starts are observational, not value added. 2026 keeper research is partial and has no decision score.');
+   'Not all postseason endings are certified. Pickup starts are observational, not value added. Trade records may be incomplete and do not establish a trade winner. 2026 keeper research is partial and has no decision score.');
   shell.append(caveat);
  }catch(error){
   shell.replaceChildren(summary);
