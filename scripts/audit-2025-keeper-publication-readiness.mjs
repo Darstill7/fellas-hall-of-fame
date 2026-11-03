@@ -31,6 +31,36 @@ assert.match(birchWebsite.verifiedDropContext[0].transaction,/Kareem Hunt/);
 assert.match(kuhlWebsite.verifiedDropContext[0].transaction,/Arizona Cardinals/);
 assert.equal(birchWebsite.verifiedDropContext[0].penaltyStatus,'verified_context_no_numeric_penalty_yet');
 assert.equal(kuhlWebsite.verifiedDropContext[0].penaltyStatus,'verified_context_no_numeric_penalty_yet');
+// Independently reconcile each published drop description to completed
+// original-provider receipts. A failed claim, unrelated player or guessed
+// winning bid must never appear as a verified keeper release.
+const publicDropCases=[
+ {manager:'Birch',week:3,id:'1276366260652736512',team:'10',
+  keeperId:'8154',addedId:'4098',bid:2},
+ {manager:'Kuhl',week:4,id:'1278720074449977344',team:'9',
+  keeperId:'3163',addedId:'ARI',bid:5}
+];
+for(const entry of publicDropCases){
+ const provider=read('data-integrity/provider-recovered-transactions-2025-week'+entry.week+'.json');
+ const hits=provider.transactions.filter(t=>String(t.transactionId)===entry.id);
+ assert.equal(hits.length,1,'Keeper release receipt must match exactly one provider transaction');
+ const receipt=hits[0];
+ assert.equal(receipt.status,'complete');
+ assert.equal(receipt.type,'waiver');
+ assert.equal(receipt.faabBid,entry.bid);
+ assert.equal(receipt.week,entry.week);
+ assert.ok(receipt.teamIds.map(String).includes(entry.team));
+ assert.ok(receipt.dropped.some(p=>String(p.id)===entry.keeperId),
+  'Original keeper was not the player dropped');
+ assert.ok(receipt.added.some(p=>String(p.id)===entry.addedId),
+  'Published replacement was not the acquired player');
+ const publicRow=websiteResearch.rows.find(x=>x.manager===entry.manager);
+ const context=publicRow?.verifiedDropContext?.[0];
+ assert.equal(context?.transactionId,entry.id);
+ assert.equal(context?.week,entry.week);
+ assert.equal(context?.penaltyStatus,'verified_context_no_numeric_penalty_yet');
+ assert.equal(publicRow.officialKeeperDecisionGrade,null);
+}
 const rosterProof=roster.checks.find(x=>x.week===17);
 assert.equal(rosterProof.keepersFoundOnOriginalManagerRoster,20);
 assert.equal(roster.keeperDeadlineRosterVerified,false);
