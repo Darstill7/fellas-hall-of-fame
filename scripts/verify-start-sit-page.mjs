@@ -51,8 +51,20 @@ assert.ok(oldYearWeight<lastYearWeight,'Older season has too much recency weight
 assert.ok(client.includes('optimal({starters:r.starters,bench:[]})'),
  'Browser display does not verify actual legal starters');
 for(const s of ['averageWeeklyStartSitAccuracyPercent','weeklyStartSitAccuracyPercent',
- "manager==='Stilly'","manager==='Kuhl'"])
+ 'sleeper-start-sit-ui-benchmarks-2026-week8.json','sample.accuracyPercent'])
  assert.ok(generator.includes(s),'Research generator missing UI benchmark or metric '+s);
+const uiBenchmark=JSON.parse(fs.readFileSync('data-integrity/sleeper-start-sit-ui-benchmarks-2026-week8.json','utf8'));
+assert.equal(uiBenchmark.season,2026);
+assert.equal(uiBenchmark.throughWeek,8);
+assert.equal(uiBenchmark.data.length,10);
+assert.equal(new Set(uiBenchmark.data.map(x=>x.manager)).size,10);
+const expectedScreenshots={Stilly:92.4,Stew:92.0,Tony:88.9,Thommy:88.2,JMid:88.1,
+ Stover:87.8,Mitch:87.2,Birch:85.8,Scott:85.3,Kuhl:83.1};
+for(const sample of uiBenchmark.data){
+ assert.equal(sample.accuracyPercent,expectedScreenshots[sample.manager],
+  'Independent Sleeper Week 8 screenshot benchmark changed: '+sample.manager);
+}
+
 const teams=generator.match(/const id=String\(p.team_id\)/);
 assert.ok(teams,'Research generator team mapping no longer derived from verified draft selections');
 // The browser's compact team map must exactly match the independently archived
