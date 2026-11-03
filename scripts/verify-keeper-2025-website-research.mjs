@@ -73,7 +73,7 @@ for(const m of partial.rows){
 // Re-read the provider roster snapshots, not merely the published research receipts.
 // Match the generator's documented player-name normalization until stable player IDs
 // are available for all draft picks. Fail on duplicate matches or stale attribution.
-const normalizeKeeperName=s=>String(s??'').toLowerCase().replace(/\\b(jr|sr|ii|iii|iv)\\b/g,'').replace(/[^a-z0-9]/g,'');
+const normalizeKeeperName=s=>String(s??'').toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b/g,'').replace(/[^a-z0-9]/g,'');
 for(let week=1;week<=partial.throughWeek;week++){
  const source='data/sleeper_roster_snapshots_2026_week'+week+'.json';
  const weekly=read(source);
