@@ -41,7 +41,13 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  legacyNav.replaceWith(nav);
  const hero=document.querySelector('main .hero');
  const actions=hero?.querySelector('.buttons');
- if(actions)actions.innerHTML='<a class="btn" href="#profile-navigation">Explore '+manager+'’s career ↓</a><a class="btn secondary" href="../../index.html#home-manager-title">All manager cards</a>';
+ if(actions){
+  // Preserve the source-backed Start/Sit research link when condensing
+  // the legacy hero navigation; otherwise it disappears after page load.
+  const startSitLink=actions.querySelector('a[href*="manager-lineup-research.html"]')?.cloneNode(true);
+  actions.innerHTML='<a class="btn" href="#profile-navigation">Explore '+manager+'’s career ↓</a><a class="btn secondary" href="../../index.html#home-manager-title">All manager cards</a>';
+  if(startSitLink)actions.append(startSitLink);
+ }
  const quick=document.createElement('section');
  quick.className='profile-quickstart';quick.setAttribute('aria-label',manager+' career at a glance');
  quick.innerHTML='<h2>'+manager+' at a glance</h2><p class="muted">Choose what to explore.</p><div class="profile-quick-grid">'+
