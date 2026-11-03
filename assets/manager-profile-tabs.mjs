@@ -170,6 +170,8 @@ if(main&&tabs){
  // Ancillary link collections and preserved dossier material live in Advanced, rather than disappearing.
  const sectionTab=new Map(sections.map(node=>[node,Object.entries(categories).find(([,ids])=>ids.has(node.id))?.[0]||'advanced']));
  const buttons=[...tabs.querySelectorAll('button[data-profile-tab]')];
+ const headingLabel=tabs.querySelector('.eyebrow');
+ if(headingLabel)headingLabel.textContent='Explore this manager';
  // Give tabs an immediate, visible destination. The old implementation
  // changed hidden sections below a large always-visible evidence block,
  // which made the controls look inert to visitors.
