@@ -21,7 +21,7 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const nav=document.createElement('nav');
  nav.id='profile-navigation';nav.className='profile-tabs';
  nav.dataset.managerProfileTabs='';nav.setAttribute('aria-label','Manager profile sections');
- nav.innerHTML='<div class="eyebrow">Pick what you want to see</div><div class="profile-tab-row" role="tablist" aria-label="Profile sections">'+
+ nav.innerHTML='<div class="eyebrow">Explore this manager</div><div class="profile-tab-row" role="tablist" aria-label="Profile sections">'+
  [['overview','Career'],['seasons','Each Year'],['rivalries','Head-to-Head'],['advanced','Deep Stats']].map(([id,label])=>'<button type="button" role="tab" data-profile-tab="'+id+'" aria-selected="'+(id==='overview')+'">'+label+'</button>').join('')+
  '</div><p class="muted" data-profile-tab-description>Start here: the story, championships and career record.</p>';
  const story=document.querySelector('#franchise-story');
@@ -52,7 +52,7 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  }
  const quick=document.createElement('section');
  quick.className='profile-quickstart';quick.setAttribute('aria-label',manager+' career at a glance');
- quick.innerHTML='<h2>'+manager+' at a glance</h2><p class="muted">Choose what to explore.</p><div class="profile-quick-grid">'+
+ quick.innerHTML='<h2>'+manager+' at a glance</h2><p class="muted">Tap a shortcut to jump to the section below.</p><div class="profile-quick-grid">'+
  [['overview','#verified-history-panel','Championships','Titles and finishes'],['seasons','#season-history','Every Season','Annual results'],['rivalries','#head-to-head','Head-to-Head','Who owns whom?'],['advanced','#franchise-encyclopedia','Trades & Pickups','The deeper research']].map(([tab,target,label,description])=>'<button type="button" data-profile-jump="'+tab+'"><strong>'+label+'</strong><span>'+description+' ↓</span></button>').join('')+'</div>';
  nav.after(quick);
  // Keeper research remains a separate preview; it must not be confused with OVR.
