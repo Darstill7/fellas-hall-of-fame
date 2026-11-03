@@ -5,7 +5,7 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const draft=read('data/v9_draft_engine.json').filter(p=>p.year===2026&&p.keeper);
 const norm=s=>String(s??'').toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b/g,'').replace(/[^a-z0-9]/g,'');
 const round=n=>Math.round((n+Number.EPSILON)*100)/100;
-const rosterWeeks=fs.readdirSync('data').map(name=>/^sleeper_roster_snapshots_2026_week(\\d+)\\.json$/.exec(name)?.[1]).filter(Boolean).map(Number).sort((a,b)=>a-b);
+const rosterWeeks=fs.readdirSync('data').map(name=>/^sleeper_roster_snapshots_2026_week([0-9]+)[.]json$/.exec(name)?.[1]).filter(Boolean).map(Number).sort((a,b)=>a-b);
 assert.ok(rosterWeeks.length>=8,'Expected at least eight archived 2026 roster weeks');
 assert.ok(rosterWeeks.length<=14,'Only regular-season weeks may enter this research view');
 for(let i=0;i<rosterWeeks.length;i++)assert.equal(rosterWeeks[i],i+1,'Incomplete 2026 roster week sequence');
