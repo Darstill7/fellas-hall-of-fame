@@ -49,6 +49,15 @@ assert.equal(startSit.status,'retrospective_scored_roster_comparison_not_decisio
 assert.equal(startSit.throughWeek,partial.throughWeek,'Start/sit and keeper scoring cutoffs differ');
 assert.equal(startSit.weeklyRows.length,10*partial.throughWeek);
 assert.equal(startSit.managers.length,10);
+assert.ok(startSit.sleeperAccuracyMethod.includes('Unweighted arithmetic mean'),
+ 'Start/Sit research must state the weekly averaging method');
+if(startSit.throughWeek===8){
+ assert.equal(startSit.managers.find(r=>r.manager==='Stilly').averageWeeklyStartSitAccuracyPercent,92.4,
+  'Sleeper Harry Woody Week 8 screenshot parity');
+ assert.equal(startSit.managers.find(r=>r.manager==='Kuhl').averageWeeklyStartSitAccuracyPercent,83.1,
+  'Sleeper Kirko Chains Week 8 screenshot parity');
+}
+
 assert.equal(new Set(startSit.managers.map(m=>m.manager)).size,10);
 assert.ok(startSit.weeklyRows.every(r=>r.season===2026&&r.week>=1&&r.week<=partial.throughWeek&&r.officialStartSitGrade===null));
 for(const m of startSit.managers){
@@ -56,6 +65,15 @@ for(const m of startSit.managers){
  assert.equal(rows.length,partial.throughWeek,'Incomplete start/sit coverage: '+m.manager);
  assert.equal(new Set(rows.map(r=>r.week)).size,partial.throughWeek,'Duplicate start/sit week: '+m.manager);
  assert.equal(m.officialStartSitGrade,null);
+ assert.ok(rows.every(r=>r.weeklyStartSitAccuracyPercent===null||
+  (Number.isFinite(r.weeklyStartSitAccuracyPercent)&&r.weeklyStartSitAccuracyPercent>=0)),
+  'Invalid weekly Start/Sit accuracy '+m.manager);
+ const measured=rows.every(r=>r.weeklyStartSitAccuracyPercent!==null)?
+  Math.round(rows.reduce((n,r)=>n+r.weeklyStartSitAccuracyPercent,0)/rows.length*100)/100:null;
+ assert.ok(measured===null?m.averageWeeklyStartSitAccuracyPercent===null:
+  Math.abs(m.averageWeeklyStartSitAccuracyPercent-measured)<.011,
+  'Season Start/Sit average differs from mean of weekly efficiencies '+m.manager);
+
  assert.ok(Math.abs(m.recordedActualPoints-rows.reduce((n,r)=>n+r.actualPoints,0))<.071);
  assert.ok(Math.abs(m.recordedRosterOptimalPoints-rows.reduce((n,r)=>n+r.recordedRosterOptimalPoints,0))<.071);
  assert.ok(Math.abs(m.hindsightGap-rows.reduce((n,r)=>n+r.hindsightGap,0))<.071);
