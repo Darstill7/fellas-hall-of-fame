@@ -184,8 +184,8 @@ try{
       errors.push(width+' pickup highlights missing actual starter-point evidence or research caveats');
      // Confirm an actually paid waiver and an unpriced ordinary add against
      // completed provider receipts, not the absence of a price field.
-     for(const [manager,expected] of [['Stew','Cost: '+String.fromCharCode(36)+'12 FAAB'],
-      ['Tony','Cost: N/A (bid not recorded)']]){
+     for(const [manager,expected] of [['Stew','Cost: $12 FAAB · Waiver claim'],
+      ['Tony','Cost: $0 · Free agent (after waivers)']]){
       const details=page.locator('[data-report-manager="'+manager+'"] details.pickup-highlights');
       await details.locator('summary').click();
       await page.waitForFunction(name=>{
