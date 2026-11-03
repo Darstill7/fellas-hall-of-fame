@@ -198,8 +198,9 @@ for(const manager of ['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','
   throw Error('Insufficient verified pickup highlights for '+manager);
 }
 if(!ui.includes('notablePickups(x.name)')||!ui.includes('Not all pickups')||
- !ui.includes('Not a FAAB skill grade')||!ui.includes('lineup points'))
- throw Error('Report cards missing properly qualified recorded pickup highlights');
+ !ui.includes('Not a FAAB skill grade')||!ui.includes('lineup pts')||
+ !ui.includes('pickup-facts')||!ui.includes('pickup-cost'))
+ throw Error('Report cards missing compact source-backed pickup highlights or limitations');
 // Exact completed player receipt matching is required before classification.
 if(!ui.includes("t.status==='complete'")||
  !ui.includes("(t.added??[]).some(p=>p.name===player)")||
