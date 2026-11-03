@@ -82,6 +82,15 @@ assert.equal(seen.size,published.rows.length);
 // Career résumé must reconcile with the same exact season-level records,
 // and no manager can receive a phantom skill grade or uncertified 2026 trade.
 const {buildDraftTradeCareer}=await import('../assets/manager-draft-trade-career.mjs');
+const tabsSource=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+const stoverSource=fs.readFileSync('managers/stover/index.html','utf8');
+assert.ok(tabsSource.includes('function populateManagerResearch(quick,manager)')&&
+ tabsSource.includes('populateManagerResearch(quick,manager);')&&
+ tabsSource.includes('if(existingProfile&&!legacyNav)'),
+ 'Both standard and hand-curated profiles must mount the same research components');
+assert.ok(stoverSource.includes('data-manager-profile-tabs')&&
+ stoverSource.includes('class="profile-quickstart"'),
+ 'Stover custom profile must expose existing navigation and research mount');
 const currentManagers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
 for(const manager of currentManagers){
  const seasons=published.rows.filter(r=>r.manager===manager);
