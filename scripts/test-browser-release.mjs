@@ -78,7 +78,7 @@ try{
      errors.push(width+' 2026 in-progress warning missing');
     if(!((await rows.first().innerText()).includes('starter pts · 8 weeks')))
      errors.push(width+' 2026 points incorrectly presented as a scored season');
-    if(await page.locator('#keeper-sort option[value="score"]').isEnabled())
+    if(!await page.locator('#keeper-sort option[value="score"]').evaluate(el=>el.disabled))
      errors.push(width+' 2026 should disable completed-season research score sorting');
     await page.locator('#keeper-manager').selectOption('Mitch');
     if(await rows.count()!==1||!((await rows.first().innerText()).includes('Jaxon Smith-Njigba')))
