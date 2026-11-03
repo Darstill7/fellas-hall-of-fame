@@ -47,6 +47,13 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  quick.innerHTML='<h2>'+manager+' at a glance</h2><p class="muted">Choose what to explore.</p><div class="profile-quick-grid">'+
  [['overview','#verified-history-panel','Championships','Titles and finishes'],['seasons','#season-history','Every Season','Annual results'],['rivalries','#head-to-head','Head-to-Head','Who owns whom?'],['advanced','#franchise-encyclopedia','Trades & Pickups','The deeper research']].map(([tab,target,label,description])=>'<button type="button" data-profile-jump="'+tab+'"><strong>'+label+'</strong><span>'+description+' ↓</span></button>').join('')+'</div>';
  nav.after(quick);
+ // Keeper research remains a separate preview; it must not be confused with OVR.
+ const keeperManager=manager==='Tom'?'Thommy':manager;
+ const keeperLink=document.createElement('p');
+ keeperLink.className='muted';
+ keeperLink.style.fontSize='13px';
+ keeperLink.innerHTML='<a href="../../analytics/keeper-decision-research.html?manager='+encodeURIComponent(keeperManager)+'">Compare '+keeperManager+'’s 2025 keeper choices</a> <span>· Research only, not an official Keeper Decision grade</span>';
+ quick.append(keeperLink);
  const css=document.createElement('style');
  css.textContent='.profile-tabs{background:#0d1923f5;border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin:12px 0 24px}.profile-tab-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.profile-tab-row button{cursor:pointer;border:1px solid #607483;border-radius:9px;background:#182c3b;color:#d9e3e9;font:inherit;font-size:13px;font-weight:800;padding:11px 16px;min-height:44px}.profile-tab-row button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#10212d}.profile-tab-row button:focus-visible{outline:3px solid white;outline-offset:3px}.section[hidden]{display:none!important}.profile-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}.profile-quick-grid button{display:flex;cursor:pointer;text-align:left;color:#fff;font:inherit;flex-direction:column;gap:6px;background:#172b3a;border:1px solid #486174;border-radius:12px;padding:17px;min-height:94px}.profile-quick-grid button[aria-pressed="true"]{border-color:var(--gold);box-shadow:inset 4px 0 0 var(--gold)}.profile-quick-grid span{font-size:13px;color:#d0dce4}@media(max-width:600px){.profile-tab-row{display:grid;grid-template-columns:1fr 1fr}.profile-quick-grid{grid-template-columns:1fr}}';
  document.head.append(css);
