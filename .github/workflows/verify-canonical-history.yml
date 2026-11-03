@@ -245,6 +245,9 @@ jobs:
       - name: Stress-test 2025 keeper score weights and abandonment scenarios
         run: node scripts/audit-2025-keeper-score-sensitivity.mjs
 
+      - name: Syntax-check Keeper Research client module before browser tests
+        run: node --check assets/keeper-decision-research-page.mjs
+
       - name: Reconcile archived 2026 keeper research through Week 7 against current website data
         run: node scripts/build-keeper-2026-website-research.mjs --check
 
@@ -432,7 +435,7 @@ jobs:
         run: |
           node --input-type=module -e '
             import fs from "node:fs";
-            for (const [engine,visits] of [["chromium",166],["webkit",83]]) {
+            for (const [engine,visits] of [["chromium",168],["webkit",84]]) {
               const file="data-integrity/browser-release-"+engine+".json";
               if(!fs.existsSync(file)) throw Error("Missing browser report: "+file);
               const report=JSON.parse(fs.readFileSync(file,"utf8"));
