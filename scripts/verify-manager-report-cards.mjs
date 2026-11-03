@@ -200,14 +200,17 @@ for(const manager of ['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','
 if(!ui.includes('notablePickups(x.name)')||!ui.includes('Not all pickups')||
  !ui.includes('Not a FAAB skill grade')||!ui.includes('lineup points'))
  throw Error('Report cards missing properly qualified recorded pickup highlights');
-// Public cost claims must be lazy-matched to successful provider receipts.
-// A missing bid is N/A, never silently inferred to be a zero-dollar win.
+// Cost rules: $0 waiver win and post-waiver add are both free but distinct.
+// Only exact completed player-side receipts authorize a public $0 claim.
 if(!ui.includes("t.status==='complete'")||
  !ui.includes("(t.added??[]).some(p=>p.name===player)")||
- !ui.includes("Number.isSafeInteger(bid)&&bid>=0")||
- !ui.includes("Cost: N/A (bid not recorded)")||
+ !ui.includes("receipt.type==='add'&&bid===null")||
+ !ui.includes("receipt.type==='waiver'&&Number.isSafeInteger(bid)&&bid>=0")||
+ !ui.includes("Cost: $0 · Free agent (after waivers)")||
+ !ui.includes("FAAB · Waiver claim")||
+ !ui.includes("Cost: N/A (incomplete bid evidence)")||
  !ui.includes("details.addEventListener('toggle'"))
- throw Error('Pickup costs must use exact successful provider receipts and explicit missing-price handling');
+ throw Error('Pickup costs must distinguish waiver bids from free-agent adds without assuming unknown receipts are free');
 console.log('Recorded pickup evidence deduplicated and not misrepresented as skill PASS');
 console.log('Same-week duplicate-acquisition event caveats PASS');
 
