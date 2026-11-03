@@ -32,13 +32,13 @@ async function runQuery(query){
  ];
  const document={getElementById:id=>{assert.ok(nodes.has(id),'Unknown DOM element: '+id);return nodes.get(id);},
  createElement:tag=>{assert.equal(tag,'option');return element();}};
- const calls=[];
+ const calls=[],blocked=new Set();
  async function fetchMock(url){
   calls.push(url);
   const normalized=url.startsWith('../')?url.slice(3):url;
   if(completedWeek===8)assert.ok(!normalized.includes('sleeper_roster_snapshots_2026_week9.json'),
    'Premature 2026 Week 9 scoring fetch');
-  if(!fs.existsSync(normalized))return {ok:false,status:404};
+  if(blocked.has(normalized)||!fs.existsSync(normalized))return {ok:false,status:404};
   const data=JSON.parse(fs.readFileSync(normalized,'utf8'));
   return {ok:true,status:200,json:async()=>data};
  }
@@ -57,7 +57,7 @@ async function runQuery(query){
  await context.__runtimeDone;
  const status=nodes.get('status').textContent;
  assert.ok(status&&!status.includes('Source or model error'),status);
- return {nodes,calls,status};
+ return {nodes,calls,status,blocked};
 }
 {
  const {nodes,calls,status}=await runQuery('?season=2026&manager=Stilly');
@@ -111,6 +111,27 @@ async function runQuery(query){
  assert.equal(nodes.get('detail-manager').value,'2026|Kuhl');
  if(completedWeek===8)assert.ok(nodes.get('detail-summary').textContent.includes('83.1%'));
  else assert.ok(nodes.get('detail-summary').textContent.includes('%'));
+}
+// A real season change must retain the selected manager by nickname and
+// discard stale results when a new data source is missing.
+{
+ const {nodes,blocked}=await runQuery('?season=2026&manager=Kuhl');
+ nodes.get('season').value='2025';
+ await nodes.get('season').onchange();
+ assert.equal(nodes.get('detail-manager').value,'2025|Kuhl',
+  'Season switch should retain the chosen manager');
+ assert.ok(nodes.get('weekly-results').innerHTML.includes('Week 14</th>'),
+  '2025 must show 14 regular-season weeks');
+ blocked.add('data/sleeper_roster_snapshots_2022_week1.json');
+ nodes.get('season').value='2022';
+ await nodes.get('season').onchange();
+ assert.ok(nodes.get('status').textContent.includes('Source or model error:'),
+  'Missing source should trigger fail-closed message');
+ for(const key of ['results','detail-summary','weekly-results','career-summary','career-results'])
+  assert.equal(nodes.get(key).innerHTML||nodes.get(key).textContent,'',
+   'Stale Start/Sit output remained after a failed season change: '+key);
+ assert.equal(nodes.get('detail-manager').options.length,0,
+  'Manager picker retained stale names after missing evidence');
 }
 // Historical vacancies are actual missing starter slots, not 0-point players.
 // Preserve those team-weeks as explicitly excluded and leave other weeks usable.
