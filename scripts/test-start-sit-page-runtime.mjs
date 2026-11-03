@@ -79,7 +79,7 @@ async function runQuery(query){
    ['Mitch','87.2%'],['Birch','85.8%'],['Scott','85.3%'],
    ['Kuhl','83.1%']
   ];
-  const rendered=[...summary.matchAll(/<tr><th scope="row">([^<]+)<\\/th>.*?<td class="metric">([0-9.]+%)<\\/td>/g)]
+  const rendered=[...summary.matchAll(/<tr><th scope="row">([^<]+)<\/th>.*?<td class="metric">([0-9.]+%)<\\/td>/g)]
    .map(m=>[m[1],m[2]]);
   assert.deepEqual(rendered,expected,'Archived 2026 ten-manager accuracy/order regression');
  }
