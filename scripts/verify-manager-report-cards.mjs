@@ -157,7 +157,7 @@ console.log('Historical trade impact eligibility gate PASS');
 
 const lineupResearchHTML=fs.readFileSync('analytics/manager-lineup-research.html','utf8');
 const lineupResearchJS=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
-if(!lineupResearchHTML.includes('manager-lineup-research-page.mjs')||!lineupResearchHTML.includes('Not a skill leaderboard'))throw Error('Lineup pilot missing provenance warning');
+if(!lineupResearchHTML.includes('manager-lineup-research-page.mjs')||!lineupResearchHTML.includes('rather than a certified manager-skill grade'))throw Error('Lineup pilot missing provenance warning');
 if(!lineupResearchJS.includes('sleeper_roster_snapshots_')||!lineupResearchJS.includes('war_rosters_2025_week')||!lineupResearchJS.includes('evaluate(r)'))throw Error('Lineup research source linkage missing');
 if(!fs.readFileSync('analytics/manager-report-cards.html','utf8').includes('manager-lineup-research.html'))throw Error('Lineup research navigation missing');
 console.log('Six-season lineup research page provenance and navigation PASS');
