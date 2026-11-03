@@ -26,6 +26,21 @@ for(const s of ['averageWeeklyStartSitAccuracyPercent','weeklyStartSitAccuracyPe
  assert.ok(generator.includes(s),'Research generator missing UI benchmark or metric '+s);
 const teams=generator.match(/const id=String\(p.team_id\)/);
 assert.ok(teams,'Research generator team mapping no longer derived from verified draft selections');
+// The browser's compact team map must exactly match the independently archived
+// 2026 draft keeper owners. A roster/team reassignment cannot silently move stats.
+const draft=JSON.parse(fs.readFileSync('data/v9_draft_engine.json','utf8'))
+ .filter(p=>p.year===2026&&p.keeper);
+assert.equal(draft.length,20);
+const browserMapping=client.match(/const currentTeamManagers=\{([^;]+)\};/);
+assert.ok(browserMapping,'2026 report page team map not found');
+const extracted=new Map([...browserMapping[1].matchAll(/'(\d+)':'([^']+)'/g)]
+ .map(m=>[m[1],m[2]]));
+assert.equal(extracted.size,10,'2026 browser manager mapping must cover all ten teams');
+for(const p of draft){
+ const expected=p.manager==='Tom'?'Thommy':p.manager;
+ assert.equal(extracted.get(String(p.team_id)),expected,
+  'Browser Start/Sit manager mapping differs from confirmed 2026 draft: '+p.team_id);
+}
 const roster8=JSON.parse(fs.readFileSync('data/sleeper_roster_snapshots_2026_week8.json','utf8'));
 assert.equal(roster8.week,8);
 assert.equal(roster8.rosters.length,10);
