@@ -6,9 +6,9 @@ const research=read('data-integrity/keeper-2025-decision-research-index-v1.json'
 const partial=read('data/keeper_2026_website_research_v1.json');
 const allKeeperDrafts=read('data/v9_draft_engine.json').filter(p=>p.keeper);
 assert.deepEqual([...new Set(allKeeperDrafts.map(p=>p.year))].sort(),[2025,2026]);
-assert.equal(partial.status,'in_progress_2026_week1_to_week7_no_completed_season_score');
+assert.equal(partial.status,'in_progress_2026_week1_to_week8_no_completed_season_score');
 assert.equal(partial.season,2026);
-assert.equal(partial.throughWeek,7);
+assert.equal(partial.throughWeek,8);
 assert.equal(partial.rows.length,10);
 assert.equal(partial.selections.length,20);
 assert.equal(partial.rows.reduce((n,m)=>n+m.keepers.length,0),20);
