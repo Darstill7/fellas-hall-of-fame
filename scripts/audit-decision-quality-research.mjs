@@ -18,7 +18,9 @@ assert.equal(completed.week,8);
 assert.equal(completed.rosters.length,10);
 assert.deepEqual(completed.rosters.map(r=>Number(r.teamId)).sort((a,b)=>a-b),
  Array.from({length:10},(_,i)=>i+1));
-assert.equal(partial.throughWeek,8,'2026 keeper grades cannot advance into Week 9 on Nov 3');
+assert.ok(partial.throughWeek>=8&&partial.throughWeek<=14,'Keeper research regular-season coverage outside expected range');
+if(partial.throughWeek>=9)assert.ok(Date.now()>=Date.parse('2026-11-10T06:00:00Z'),
+ 'Week 9 research cannot advance before MNF is complete');
 assert.equal(partial.selections.length,20);
 assert.ok(partial.rows.every(r=>r.researchScore===null&&r.officialKeeperDecisionGrade===null),
  'In-progress keepers cannot become official grades');
@@ -44,15 +46,15 @@ assert.ok(faab.observations.filter(r=>r.year===2026).every(r=>
 
 // Cross-check newly generated research reports independently of their writers.
 assert.equal(startSit.status,'retrospective_scored_roster_comparison_not_decision_skill');
-assert.equal(startSit.throughWeek,8,'Start/sit research includes an unfinished week');
-assert.equal(startSit.weeklyRows.length,80);
+assert.equal(startSit.throughWeek,partial.throughWeek,'Start/sit and keeper scoring cutoffs differ');
+assert.equal(startSit.weeklyRows.length,10*partial.throughWeek);
 assert.equal(startSit.managers.length,10);
 assert.equal(new Set(startSit.managers.map(m=>m.manager)).size,10);
-assert.ok(startSit.weeklyRows.every(r=>r.season===2026&&r.week>=1&&r.week<=8&&r.officialStartSitGrade===null));
+assert.ok(startSit.weeklyRows.every(r=>r.season===2026&&r.week>=1&&r.week<=partial.throughWeek&&r.officialStartSitGrade===null));
 for(const m of startSit.managers){
  const rows=startSit.weeklyRows.filter(r=>r.manager===m.manager);
- assert.equal(rows.length,8,'Incomplete start/sit coverage: '+m.manager);
- assert.equal(new Set(rows.map(r=>r.week)).size,8,'Duplicate start/sit week: '+m.manager);
+ assert.equal(rows.length,partial.throughWeek,'Incomplete start/sit coverage: '+m.manager);
+ assert.equal(new Set(rows.map(r=>r.week)).size,partial.throughWeek,'Duplicate start/sit week: '+m.manager);
  assert.equal(m.officialStartSitGrade,null);
  assert.ok(Math.abs(m.recordedActualPoints-rows.reduce((n,r)=>n+r.actualPoints,0))<.071);
  assert.ok(Math.abs(m.recordedRosterOptimalPoints-rows.reduce((n,r)=>n+r.recordedRosterOptimalPoints,0))<.071);
