@@ -133,6 +133,13 @@ try{
         errors.push(width+' '+route+' season timeline provenance warning or data missing');
        if(!text.includes('Current W–L not shown; archived record stops before Week 8'))
         errors.push(width+' '+route+' 2026 timeline leaked outdated Week 7 W–L');
+       const tradeLinks=await timeline.locator('.profile-season-trade-link').evaluateAll(nodes=>
+        nodes.map(node=>{const url=new URL(node.href);return {
+         manager:url.searchParams.get('manager'),year:url.searchParams.get('year'),
+         path:url.pathname};}));
+       if(!tradeLinks.length||tradeLinks.some(x=>x.manager!==name||
+           !/^202[0-6]$/.test(x.year)||!x.path.endsWith('/analytics/manager-trade-intelligence.html')))
+        errors.push(width+' '+route+' season-specific trade research links invalid');
       }
      }
      const office=page.locator('.profile-front-office-snapshot');
