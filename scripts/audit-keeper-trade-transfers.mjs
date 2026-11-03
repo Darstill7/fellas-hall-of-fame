@@ -3,10 +3,23 @@ import fs from 'node:fs';import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const norm=s=>String(s).toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b/g,'').replace(/[^a-z0-9]/g,'');
 const keeper=read('data/v9_draft_engine.json').filter(p=>[2025,2026].includes(p.year)&&p.keeper);
+const recovered2026Weeks=fs.readdirSync('data-integrity')
+ .map(name=>/^provider-recovered-transactions-2026-week([0-9]+)[.]json$/.exec(name)?.[1])
+ .filter(Boolean).map(Number).sort((a,b)=>a-b);
+assert.ok(recovered2026Weeks.length>=8&&recovered2026Weeks.length<=18,'Incomplete or unexpected 2026 transaction archive coverage');
+for(let i=0;i<recovered2026Weeks.length;i++)
+ assert.equal(recovered2026Weeks[i],i+1,'Noncontiguous 2026 transaction archive: missing Week '+(i+1));
+const latestRecovered2026Week=recovered2026Weeks.at(-1);
+const roster2026Weeks=fs.readdirSync('data')
+ .map(name=>/^sleeper_roster_snapshots_2026_week([0-9]+)[.]json$/.exec(name)?.[1])
+ .filter(Boolean).map(Number);
+assert.ok(roster2026Weeks.length>0,'Missing 2026 keeper roster archive');
+assert.ok(latestRecovered2026Week>=Math.max(...roster2026Weeks),
+ '2026 keeper transaction archive is behind the latest scored roster; recover missing transaction weeks before auditing ownership');
 const rows=[];
 for(const year of [2025,2026]){
  const transactions=[];
- for(let week=1;week<=(year===2025?18:8);week++){
+ for(let week=1;week<=(year===2025?18:latestRecovered2026Week);week++){
   const raw=read('data-integrity/provider-recovered-transactions-'+year+'-week'+week+'.json');
   for(const t of raw.transactions)if(t.type==='trade'&&t.status==='complete')transactions.push({...t,sourceWeek:week});
  }
@@ -34,7 +47,7 @@ const report={schema:'fellas-keeper-trade-transfer-inventory-v1',
  'Multiple trades are preserved; do not impose a single permanent cutoff if a keeper returns.',
  'A keeper traded by a later owner does not imply the original keeper manager traded that player.',
  'Draft-engine original-team starter points may be used as original manager contribution only after per-week team-roster identity validation.',
- '2026 is a partial season with only archived weeks 1–8 here.'],rows};
+ '2026 is a partial season; recovered transaction weeks 1–'+latestRecovered2026Week+' are inventoried, not a complete season or a certified transfer direction.'],rows};
 const path='data-integrity/keeper-trade-transfer-inventory-v1.json';
 if(process.argv.includes('--check'))assert.deepEqual(read(path),report);
 else fs.writeFileSync(path,JSON.stringify(report,null,2)+'\n');
