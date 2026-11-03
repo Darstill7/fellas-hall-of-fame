@@ -200,17 +200,17 @@ for(const manager of ['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','
 if(!ui.includes('notablePickups(x.name)')||!ui.includes('Not all pickups')||
  !ui.includes('Not a FAAB skill grade')||!ui.includes('lineup points'))
  throw Error('Report cards missing properly qualified recorded pickup highlights');
-// Cost rules: $0 waiver win and post-waiver add are both free but distinct.
-// Only exact completed player-side receipts authorize a public $0 claim.
+// Exact completed player receipt matching is required before classification.
 if(!ui.includes("t.status==='complete'")||
  !ui.includes("(t.added??[]).some(p=>p.name===player)")||
- !ui.includes("receipt.type==='add'&&bid===null")||
- !ui.includes("receipt.type==='waiver'&&Number.isSafeInteger(bid)&&bid>=0")||
- !ui.includes("Cost: $0 · Free agent (after waivers)")||
- !ui.includes("FAAB · Waiver claim")||
- !ui.includes("Cost: N/A (incomplete bid evidence)")||
+ !ui.includes("pickupCostLabel(hits[0])")||
  !ui.includes("details.addEventListener('toggle'"))
- throw Error('Pickup costs must distinguish waiver bids from free-agent adds without assuming unknown receipts are free');
+ throw Error('Pickup cost must use exact successful provider receipt');
+const costSource=fs.readFileSync('assets/pickup-cost-label.mjs','utf8');
+for(const claim of ["receipt.type==='add'&&receipt.faabBid===null",
+ "receipt.type==='waiver'&&Number.isSafeInteger(receipt.faabBid)&&receipt.faabBid>=0",
+ 'Free agent (after waivers)','FAAB · Waiver claim','N/A (incomplete bid evidence)'])
+ if(!costSource.includes(claim))throw Error('Missing free-agent/waiver distinction: '+claim);
 console.log('Recorded pickup evidence deduplicated and not misrepresented as skill PASS');
 console.log('Same-week duplicate-acquisition event caveats PASS');
 
