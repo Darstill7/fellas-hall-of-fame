@@ -184,7 +184,7 @@ const repeatedTotal=acquisitionCoverage.byManager.reduce((s,r)=>s+r.reacquisitio
 const observedTotal=acquisitionRaw.byManager.reduce((s,r)=>s+r.recordedAcquiredPlayers,0);
 if(distinctTotal!==1472||repeatedTotal!==158||observedTotal!==1630||distinctTotal+repeatedTotal!==observedTotal)throw Error('Acquisition deduplication coverage mismatch');
 const ui=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
-if(!ui.includes('manager_acquisition_distinct_v1.json')||!ui.includes('distinctSeasonPlayerAcquisitions')||!ui.includes('do not establish decision skill'))throw Error('Unverified acquisition outcome disclosure missing');
+if(!ui.includes('manager_acquisition_distinct_v1.json')||!ui.includes('distinctSeasonPlayerAcquisitions')||!ui.includes('withRecordedLaterStart')||!ui.includes('not a FAAB skill grade')||!ui.includes('never started is not automatically a bad pickup'))throw Error('KISS pickup usage evidence or no-skill-grade disclosure missing');
 const sameWeek=JSON.parse(fs.readFileSync('data-integrity/ACQUISITION_SAME_WEEK_AMBIGUITIES_2020_2026.json','utf8'));
 if(sameWeek.sameWeekRepeatGroups!==7||sameWeek.additionalSameWeekEventRows!==8||sameWeek.cases.some(x=>x.recordedEvents<2))throw Error('Same-week duplicate acquisition event coverage unexpected');
 console.log('Recorded pickup evidence deduplicated and not misrepresented as skill PASS');
