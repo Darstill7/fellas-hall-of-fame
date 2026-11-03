@@ -104,8 +104,7 @@ async function load(){
    const cls=key===bestKey?'best':key===worstKey?'worst':'';
    return '<tr class="'+cls+'"><th scope="row">'+(['all','career'].includes(selected)?o.year+' · ':'')+'Week '+o.week+'</th>'+
     '<td class="metric">'+(o.accuracy===null?'N/A':o.accuracy.toFixed(1)+'%')+'</td>'+
-    '<td class="metric">'+fmt(o.actual)+'</td><td class="metric">'+fmt(o.optimal)+'</td>'+
-    '<td class="metric">'+fmt(o.gap)+'</td><td>'+(o.reason?esc(o.reason):'Research comparable')+'</td></tr>';
+    '<td>'+(o.reason?esc(o.reason):'Comparable archived lineup')+'</td></tr>';
   }).join('');
   const label=o=>(['all','career'].includes(selected)?o.year+' ':'')+'Week '+o.week+' ('+o.accuracy.toFixed(1)+'%)';
   $('detail-summary').textContent=stat.name+' · '+stat.comparable+'/'+stat.weeks+
@@ -150,7 +149,7 @@ async function load(){
    ' · half-life '+halfLife+' seasons · coverage-adjusted · no certified skill grade.';
  }
  detailSelect.onchange=()=>{drawWeekly();drawProgression();};
- drawWeekly();drawProgression();$('results').innerHTML=names.map(x=>'<tr><th scope="row">'+esc(x.name)+'</th><td>'+x.weeks+'</td><td>'+x.comparable+'</td><td>'+(x.weeks-x.comparable)+'</td><td class="metric">'+(x.accuracyCount?(x.accuracySum/x.accuracyCount).toFixed(1)+'%':'N/A')+'</td><td class="metric">'+(x.comparable?(x.gap/x.comparable).toFixed(2):'N/A')+'</td><td class="metric">'+(x.comparable?x.gap.toFixed(2):'N/A')+'</td></tr>').join('');
+ drawWeekly();drawProgression();$('results').innerHTML=names.map(x=>'<tr><th scope="row">'+esc(x.name)+'</th><td>'+x.comparable+'/'+x.weeks+'</td><td class="metric">'+(x.accuracyCount?(x.accuracySum/x.accuracyCount).toFixed(1)+'%':'N/A')+'</td></tr>').join('');
  $('status').textContent=(selected==='career'?'2020–2026':selected==='all'?'2020–2025':selected)+' · '+observations+' archived team-weeks · '+names.reduce((n,x)=>n+x.comparable,0)+' research-comparable · '+names.reduce((n,x)=>n+x.weeks-x.comparable,0)+' excluded. Exclusions by cause: '+([ ...exclusionReasons.entries()].map(([reason,n])=>reason+' '+n).join('; ')||'none')+'. These are hindsight observations, not start/sit skill ratings.';
  }catch(e){if(requestId!==activeLoad)return;
   for(const id of ['results','detail-summary','weekly-results','career-summary','career-results'])$(id).textContent='';
