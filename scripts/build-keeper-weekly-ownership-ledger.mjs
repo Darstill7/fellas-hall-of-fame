@@ -7,7 +7,7 @@ const picks=read('data/v9_draft_engine.json').filter(x=>x.keeper&&[2025,2026].in
 const rows=[],coverage=[];
 for(const year of [2025,2026]){
  const weeks=[];
- for(let week=1;week<=(year===2025?14:7);week++){
+ for(let week=1;week<=(year===2025?14:8);week++){
   const p=year===2025&&(week===1||week===7)?'data/war_rosters_2025_week'+week+'.json':'data/sleeper_roster_snapshots_'+year+'_week'+week+'.json';
   assert.ok(exists(p),'Missing weekly roster source '+p);
   const v=read(p);const rosters=Array.isArray(v)?v:v.rosters;
