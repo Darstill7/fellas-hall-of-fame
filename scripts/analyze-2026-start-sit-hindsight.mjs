@@ -52,6 +52,11 @@ for(const week of weeks){
   assert.ok(starters.every(p=>['QB','RB','WR','TE','DEF'].includes(p.position)),'Unexpected starter position Week '+week+'/'+manager);
   const actual=round(starters.reduce((n,p)=>n+p.points,0));
   assert.ok(Math.abs(actual-roster.points)<.07,'Source score mismatch Week '+week+'/'+manager);
+  // A team score can reconcile despite an illegal positional lineup.
+  // Require the nine recorded starters themselves to fit the real league slots.
+  const actualLayout=optimize(starters);
+  assert.ok(actualLayout!==null&&Math.abs(actualLayout-actual)<.07,
+   'Recorded Week '+week+' starters do not fit QB/2RB/2WR/TE/2FLEX/DEF: '+manager);
   const best=optimize(pool);
   assert.ok(best!==null&&best+.07>=actual,'Infeasible optimal lineup Week '+week+'/'+manager);
   rows.push({season:2026,week,teamId,manager,actualPoints:actual,recordedRosterOptimalPoints:round(best),
