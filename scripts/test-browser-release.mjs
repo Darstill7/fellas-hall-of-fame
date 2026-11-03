@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/manager-report-cards.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/manager-report-cards.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -56,6 +56,23 @@ try{
    if(state.scroll>state.viewport+5)errors.push(width+' '+route+' horizontal page overflow '+state.scroll+'px at '+state.viewport+'px viewport; offenders: '+(await page.evaluate(()=>[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+6).sort((a,b)=>b.getBoundingClientRect().right-a.getBoundingClientRect().right).slice(0,5).map(e=>e.tagName.toLowerCase()+(e.className&&typeof e.className==='string'?'.'+e.className.trim().replaceAll(' ','.'):'')+' right='+Math.round(e.getBoundingClientRect().right)).join(', ')+'; outside-panel offenders='+[...document.querySelectorAll('body *')].filter(e=>!e.closest('#historical-record-profile')&&e.getBoundingClientRect().right>innerWidth+3).sort((a,b)=>b.getBoundingClientRect().right-a.getBoundingClientRect().right).slice(0,12).map(e=>e.tagName.toLowerCase()+'.'+(typeof e.className==='string'?e.className.trim().replaceAll(' ','.'):'')+' right='+Math.round(e.getBoundingClientRect().right)).join(', ')+'; panel ancestry='+(()=>{let e=document.querySelector('#historical-record-profile');let xs=[];for(let i=0;e&&i<6;i++,e=e.parentElement){let b=e.getBoundingClientRect(),v=getComputedStyle(e);xs.push(e.tagName.toLowerCase()+'.'+e.className+' left='+Math.round(b.left)+' right='+Math.round(b.right)+' width='+Math.round(b.width)+' overflow='+v.overflowX)}return xs.join(' | ')})())));
    for(const error of unexpected)errors.push(width+' '+route+' JS error: '+error);
    for(const failed of failedRequests)errors.push(width+' '+route+' request error: '+failed);
+   if(route==='analytics/keeper-decision-research.html'){
+    const rows=page.locator('#keeper-results .entry');
+    if(await rows.count()!==10)errors.push(width+' keeper research expected 10 expandable managers');
+    const first=rows.first();
+    await first.locator('summary').click();
+    if(!await first.locator('.detail').isVisible())errors.push(width+' keeper details not expandable');
+    const note=await page.locator('.notice').innerText();
+    if(!note.includes('not an official grade')||!note.includes('not applied'))errors.push(width+' keeper research caveats missing');
+    await page.locator('#keeper-manager').selectOption('Kuhl');
+    if(await rows.count()!==1||!((await rows.first().innerText()).includes('Jared Goff')))
+     errors.push(width+' keeper filter or verified release evidence failed');
+    await page.locator('#keeper-manager').selectOption('');
+    await page.locator('#keeper-sort').selectOption('playoff');
+    if(!((await rows.first().innerText()).includes('Thommy')))errors.push(width+' keeper championship sort failed');
+    const sourceGrade=await page.evaluate(async()=>{const r=await fetch('../data/keeper_2025_website_research_v1.json');const j=await r.json();return j.rows.every(x=>x.officialKeeperDecisionGrade===null)});
+    if(!sourceGrade)errors.push(width+' research page leaked official keeper grades');
+   }
    if(route==='analytics/manager-report-cards.html'){
     const count=await page.locator('[data-report-manager]').count();
     if(count!==10)errors.push(width+' report card preview rendered '+count+' of 10 managers');
