@@ -435,6 +435,17 @@ try{
       if(!await stover.locator('.mobile-manager-expanded').isVisible())errors.push(width+' manager expandable details not visible');
       const href=await stover.locator('.mobile-manager-link').getAttribute('href');
       if(href!=='managers/stover/')errors.push(width+' manager detail link incorrect');
+      const shortcuts=await stover.locator('.mobile-manager-shortcuts a').evaluateAll(links=>
+       links.map(link=>({label:link.textContent.trim(),href:link.getAttribute('href')})));
+      const expectedShortcuts=[
+       {label:'Career',href:'managers/stover/#overview'},
+       {label:'Each Year',href:'managers/stover/#seasons'},
+       {label:'Rivalries',href:'managers/stover/#rivalries'}
+      ];
+      if(JSON.stringify(shortcuts)!==JSON.stringify(expectedShortcuts))
+       errors.push(width+' homepage manager shortcuts missing or misrouted');
+      if(await page.locator('#home-manager-mobile .mobile-manager-shortcuts').count()!==10)
+       errors.push(width+' homepage shortcuts should cover ten managers');
       await search.fill('not-a-manager');
       if(!await page.locator('#home-manager-empty').isVisible())errors.push(width+' search empty result missing');
       await page.locator('#home-manager-clear').click();
