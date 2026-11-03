@@ -112,20 +112,3 @@ try {
   });
  }
 } catch(e) {document.getElementById('cards').innerHTML='<p role="alert">Report cards could not load from the historical archive. No invented grades are shown.</p>';console.error(e)}
-+bid+' FAAB · Waiver claim';
-   }else{
-    node.textContent='Cost: N/A (incomplete bid evidence)';
-   }
-  }catch(e){node.textContent='Cost: N/A (receipt unavailable)';}
- }
- for(const details of document.querySelectorAll('#cards details.pickup-highlights')){
-  details.addEventListener('toggle',()=>{
-   if(!details.open||details.dataset.costsRequested==='yes')return;
-   details.dataset.costsRequested='yes';
-   for(const node of details.querySelectorAll('.pickup-cost')){
-    node.textContent='Cost: checking receipt…';
-    void verifyPickupCost(node);
-   }
-  });
- }
-} catch(e) {document.getElementById('cards').innerHTML='<p role="alert">Report cards could not load from the historical archive. No invented grades are shown.</p>';console.error(e)}
