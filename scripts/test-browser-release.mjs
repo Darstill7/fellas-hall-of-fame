@@ -70,7 +70,7 @@ try{
     await page.locator('#keeper-manager').selectOption('');
     await page.locator('#keeper-sort').selectOption('playoff');
     if(!((await rows.first().innerText()).includes('Thommy')))errors.push(width+' keeper championship sort failed');
-    const sourceGrade=await page.evaluate(async()=>{const r=await fetch('../data/keeper_2025_website_research_v1.json');const j=await r.json();return j.rows.every(x=>x.officialKeeperDecisionGrade===null)});
+    const sourceGrade=await page.evaluate(async()=>{const r=await fetch(new URL('../data/keeper_2025_website_research_v1.json',location.href));const j=await r.json();return j.rows.every(x=>x.officialKeeperDecisionGrade===null)});
     if(!sourceGrade)errors.push(width+' research page leaked official keeper grades');
    }
    if(route==='analytics/manager-report-cards.html'){
