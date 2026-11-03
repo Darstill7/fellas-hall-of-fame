@@ -248,7 +248,7 @@ console.log('Annual acquisition FAAB schema and historical lineup evidence guard
 
 const lineupPage=fs.readFileSync('analytics/manager-lineup-research.html','utf8');
 const lineupSource=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
-if(!lineupPage.includes('value="all"')||!lineupPage.includes('830 archived team-weeks')||!lineupSource.includes("selected==='all'?[2020,2021,2022,2023,2024,2025]")||!lineupSource.includes("dillionpanthers15:'Stover'"))throw Error('Six-season canonical manager lineup coverage missing');
+if(!lineupPage.includes('value="all"')||!lineupPage.includes('Completed seasons (2020–2025)')||!lineupSource.includes("selected==='all'?[2020,2021,2022,2023,2024,2025]")||!lineupSource.includes("dillionpanthers15:'Stover'"))throw Error('Six-season canonical manager lineup coverage missing');
 if(!lineupSource.includes("if(!name)throw Error('Unmapped historical owner"))throw Error('Historical manager mapping must fail closed');
 console.log('Six-season canonical manager lineup coverage UI PASS');
 
