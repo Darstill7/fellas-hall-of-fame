@@ -6,7 +6,7 @@ const draft=read('data/v9_draft_engine.json').filter(p=>p.year===2026&&p.keeper)
 const norm=s=>String(s??'').toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b/g,'').replace(/[^a-z0-9]/g,'');
 const round=n=>Math.round((n+Number.EPSILON)*100)/100;
 const weeks=[];
-for(let week=1;week<=7;week++){
+for(let week=1;week<=8;week++){
  const path='data/sleeper_roster_snapshots_2026_week'+week+'.json';
  const raw=read(path);assert.equal(raw.rosters.length,10,'Incomplete 2026 team coverage: '+week);
  const starters=raw.rosters.flatMap(team=>team.starters.map(p=>({...p,teamId:String(team.teamId)})));
@@ -61,9 +61,9 @@ const rows=names.map(manager=>{
   officialKeeperDecisionGrade:null};
 }).sort((a,b)=>b.regularStartedPoints-a.regularStartedPoints);
 const data={schema:'fellas-2026-keeper-website-research-v1',status:'in_progress_2026_week1_to_week7_no_completed_season_score',
- season:2026,throughWeek:7,sourcePaths:weeks.map(x=>x.source).concat('data/v9_draft_engine.json'),
- methodology:'Verified original-manager keeper starters through archived 2026 Week 7; positional median at corresponding player-start weeks; no season grade',
- limitations:['Weeks 1–6 are reconciled against the archived draft engine. Week 7 is sourced from the additional weekly roster snapshot.',
+ season:2026,throughWeek:8,sourcePaths:weeks.map(x=>x.source).concat('data/v9_draft_engine.json'),
+ methodology:'Verified original-manager keeper starters through archived 2026 Week 8; positional median at corresponding player-start weeks; no season grade',
+ limitations:['Weeks 1–6 are reconciled against the archived draft engine. Weeks 7–8 are sourced from the additional weekly roster snapshots.',
  '2026 is incomplete. The research index, playoffs and abandonment penalty are intentionally unavailable.',
  'Starter medians describe observed league starters, not eligible waivers or replacement value.',
  'Points after an original keeper is traded belong to the new roster owner and are not credited back.',
@@ -72,4 +72,4 @@ const data={schema:'fellas-2026-keeper-website-research-v1',status:'in_progress_
 const target='data/keeper_2026_website_research_v1.json';
 if(process.argv.includes('--check'))assert.deepEqual(read(target),data);
 else fs.writeFileSync(target,JSON.stringify(data,null,2)+'\n');
-console.log('2026 keeper website evidence PASS: '+selections.length+' keeper choices, 10 managers, Weeks 1–7, no incomplete-season rating');
+console.log('2026 keeper website evidence PASS: '+selections.length+' keeper choices, 10 managers, Weeks 1–8, no incomplete-season rating');
