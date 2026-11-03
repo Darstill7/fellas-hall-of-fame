@@ -41,10 +41,16 @@ async function runQuery(query){
  const requested=new URL('https://fellas.invalid/analytics/manager-lineup-research.html'+query);
  const context={document,fetch:fetchMock,location:{search:requested.search},
    URLSearchParams,Date,Number,Map,Set,Array,String,Math,console:{error(e){throw e;}}};
- vm.runInNewContext(code,context,{filename:'manager-lineup-research-page.mjs',timeout:2000});
- // The script calls load() asynchronously. Poll only microtasks / completed
- // filesystem-backed fetch promises, never wait for timers.
- for(let i=0;i<30;i++)await Promise.resolve();
+ // Capture the actual async page-load promise rather than relying on
+ // a fixed count of event-loop turns (which can make CI flaky).
+ const startup="$('season').addEventListener('change',load);load();";
+ assert.ok(code.includes(startup),'Start/Sit page startup hook changed');
+ const testableCode=code.replace(startup,
+  "$('season').addEventListener('change',load);globalThis.__runtimeDone=load();");
+ vm.runInNewContext(testableCode,context,{filename:'manager-lineup-research-page.mjs',timeout:2000});
+ assert.ok(context.__runtimeDone&&typeof context.__runtimeDone.then==='function',
+  'Start/Sit page did not expose an asynchronous load');
+ await context.__runtimeDone;
  const status=nodes.get('status').textContent;
  assert.ok(status&&!status.includes('Source or model error'),status);
  return {nodes,calls,status};
