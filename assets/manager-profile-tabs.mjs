@@ -170,19 +170,40 @@ if(main&&tabs){
  // Ancillary link collections and preserved dossier material live in Advanced, rather than disappearing.
  const sectionTab=new Map(sections.map(node=>[node,Object.entries(categories).find(([,ids])=>ids.has(node.id))?.[0]||'advanced']));
  const buttons=[...tabs.querySelectorAll('button[data-profile-tab]')];
+ // Give tabs an immediate, visible destination. The old implementation
+ // changed hidden sections below a large always-visible evidence block,
+ // which made the controls look inert to visitors.
+ const firstSection={overview:'franchise-story',seasons:'season-history',
+  rivalries:'head-to-head',advanced:'franchise-encyclopedia'};
+ const guide=document.createElement('p');
+ guide.className='profile-tab-guide';
+ guide.setAttribute('role','status');
+ guide.setAttribute('aria-live','polite');
+ tabs.after(guide);
+ const revealSection=key=>{
+  const destination=document.getElementById(firstSection[key]);
+  if(!destination||destination.hidden)return;
+  requestAnimationFrame(()=>destination.scrollIntoView({block:'start',behavior:'instant'}));
+ };
  const locationLabel=document.createElement('div');
  locationLabel.className='profile-location-label';
  locationLabel.setAttribute('aria-live','polite');
  locationLabel.textContent=(profileName||'Manager')+' · Career';
  tabs.prepend(locationLabel);
 
- function activate(key,{focus=false}={}){
+ function activate(key,{focus=false,reveal=false}={}){
   if(!categories[key])key='overview';
   for(const [section,group] of sectionTab)section.hidden=group!==key;
   for(const button of buttons){const selected=button.dataset.profileTab===key;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;}
   const heading=tabs.querySelector('[data-profile-tab-description]');
   const descriptions={overview:'Career story, verified accomplishments, and the all-time résumé.',seasons:'Season results, postseason finishes, and weekly matchup archive.',rivalries:'Head-to-head results and the matchups that define this franchise.',advanced:'Player history, transactions, research coverage, and the preserved detailed dossier.'};
   if(heading)heading.textContent=descriptions[key];
+  guide.textContent=({overview:'Career overview · championships, record and accomplishments',
+   seasons:'Each Year · season results, finishes and matchup history',
+   rivalries:'Head-to-Head · opponents and verified rivalries',
+   advanced:'Deep Stats · archived transactions and player research'})[key]+
+   ' · Select a tab to jump straight to that section.';
+  if(reveal)revealSection(key);
   locationLabel.textContent=(profileName||'Manager')+' · '+({overview:'Career',seasons:'Each Year',rivalries:'Head-to-Head',advanced:'Deep Stats'}[key]);
   if(focus)buttons.find(b=>b.dataset.profileTab===key)?.focus();
   history.replaceState(null,'','#'+key);
@@ -193,12 +214,12 @@ if(main&&tabs){
   if(!jump)return;
   event.preventDefault();
   const key=jump.dataset.profileJump;
-  activate(key);
+  activate(key,{reveal:true});
   for(const item of main.querySelectorAll('[data-profile-jump]'))
    item.setAttribute('aria-pressed',String(item===jump));
  });
- tabs.addEventListener('click',event=>{const button=event.target.closest('button[data-profile-tab]');if(button)activate(button.dataset.profileTab)});
- tabs.addEventListener('keydown',event=>{const index=buttons.indexOf(document.activeElement);if(index<0)return;const direction=event.key==='ArrowRight'?1:event.key==='ArrowLeft'?-1:0;if(direction){event.preventDefault();activate(buttons[(index+direction+buttons.length)%buttons.length].dataset.profileTab,{focus:true})}});
+ tabs.addEventListener('click',event=>{const button=event.target.closest('button[data-profile-tab]');if(button)activate(button.dataset.profileTab,{reveal:true})});
+ tabs.addEventListener('keydown',event=>{const index=buttons.indexOf(document.activeElement);if(index<0)return;const direction=event.key==='ArrowRight'?1:event.key==='ArrowLeft'?-1:0;if(direction){event.preventDefault();activate(buttons[(index+direction+buttons.length)%buttons.length].dataset.profileTab,{focus:true,reveal:true})}});
  // A persistent escape hatch for long historical sections; only appears after scrolling.
  const back=document.createElement('button');
  back.type='button';back.className='profile-back-to-sections';
@@ -218,6 +239,9 @@ if(main&&tabs){
  },{passive:true});
  updateBack();
  const backStyle=document.createElement('style');
+ const guideStyle=document.createElement('style');
+ guideStyle.textContent='.profile-tab-guide{margin:0 0 14px;padding:10px 13px;background:#123144;border-left:3px solid var(--gold);border-radius:7px;color:#e9eef3;font-size:13px;font-weight:650}.profile-tabs+.profile-tab-guide+section{scroll-margin-top:85px}main section.section{scroll-margin-top:85px}@media(min-width:651px){main section.section{scroll-margin-top:20px}}';
+ document.head.append(guideStyle);
  backStyle.textContent='.profile-back-to-sections{position:fixed;bottom:max(18px,env(safe-area-inset-bottom));right:16px;z-index:100;padding:13px 17px;border-radius:999px;border:2px solid #f3d69d;background:#142736;color:#fff;font:inherit;font-weight:850;font-size:13px;box-shadow:0 6px 24px #000b;cursor:pointer}.profile-back-to-sections[hidden]{display:none!important}.profile-back-to-sections:focus-visible{outline:3px solid white;outline-offset:3px}.profile-tabs{scroll-margin-top:16px}@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}}';
  document.head.append(backStyle);
  // Keep the opponent explorer first; detailed rivalry research expands only on request.
