@@ -63,7 +63,7 @@ const rows=names.map(manager=>{
 const data={schema:'fellas-2026-keeper-website-research-v1',status:'in_progress_2026_week1_to_week8_no_completed_season_score',
  season:2026,throughWeek:8,sourcePaths:weeks.map(x=>x.source).concat('data/v9_draft_engine.json'),
  methodology:'Verified original-manager keeper starters through archived 2026 Week 8; positional median at corresponding player-start weeks; no season grade',
- limitations:['Weeks 1–6 are reconciled against the archived draft engine. Weeks 7–8 are sourced from the additional weekly roster snapshots.',
+ limitations:['Weeks 1–6 are reconciled against the archived draft engine. Weeks 7–8 are sourced from additional weekly roster snapshots.',
  '2026 is incomplete. The research index, playoffs and abandonment penalty are intentionally unavailable.',
  'Starter medians describe observed league starters, not eligible waivers or replacement value.',
  'Points after an original keeper is traded belong to the new roster owner and are not credited back.',
