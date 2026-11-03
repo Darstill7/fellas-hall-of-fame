@@ -24,13 +24,17 @@ async function load(){const selected=$('season').value;const years=selected==='a
    const name=year===2026?currentTeamManagers[team]:managerAliases[String(r.owner).toLowerCase()];
    if(!name)throw Error('Unmapped historical owner '+r.owner+' '+year+'/'+week);
    const key=selected==='all'?name:year+'|'+name;
-   const stat=map.get(key)||{name,weeks:0,comparable:0,gap:0,accuracySum:0,accuracyCount:0};
+   const stat=map.get(key)||{name,weeks:0,comparable:0,gap:0,accuracySum:0,accuracyCount:0,observations:[]};
    stat.weeks++;observations++;
    const result=evaluate(r);
    if(result.gap!==null){
     stat.comparable++;stat.gap+=result.gap;
     if(Number.isFinite(result.accuracy)){stat.accuracySum+=result.accuracy;stat.accuracyCount++;}
-   }else exclusionReasons.set(result.reason,(exclusionReasons.get(result.reason)||0)+1);
+    stat.observations.push({year,week,accuracy:result.accuracy,actual:r.points,optimal:r.points+result.gap,gap:result.gap,reason:null});
+   }else{
+    exclusionReasons.set(result.reason,(exclusionReasons.get(result.reason)||0)+1);
+    stat.observations.push({year,week,accuracy:null,actual:null,optimal:null,gap:null,reason:result.reason});
+   }
    map.set(key,stat);
   }
  }
@@ -41,7 +45,48 @@ async function load(){const selected=$('season').value;const years=selected==='a
   if((stilly.accuracySum/8).toFixed(1)!=='92.4'||(kuhl.accuracySum/8).toFixed(1)!=='83.1')
    throw Error('Sleeper Week 8 benchmark parity mismatch');
  }
- const names=[...map.values()].sort((a,b)=>a.name.localeCompare(b.name));$('results').innerHTML=names.map(x=>'<tr><th scope="row">'+esc(x.name)+'</th><td>'+x.weeks+'</td><td>'+x.comparable+'</td><td>'+(x.weeks-x.comparable)+'</td><td class="metric">'+(x.accuracyCount?(x.accuracySum/x.accuracyCount).toFixed(1)+'%':'N/A')+'</td><td class="metric">'+(x.comparable?(x.gap/x.comparable).toFixed(2):'N/A')+'</td><td class="metric">'+(x.comparable?x.gap.toFixed(2):'N/A')+'</td></tr>').join('');
+ const names=[...map.values()].sort((a,b)=>{
+  const av=a.accuracyCount?a.accuracySum/a.accuracyCount:-Infinity;
+  const bv=b.accuracyCount?b.accuracySum/b.accuracyCount:-Infinity;
+  return selected==='2026'?bv-av||a.name.localeCompare(b.name):a.name.localeCompare(b.name);
+ });
+ const detailSelect=$('detail-manager');
+ const prior=detailSelect.value;
+ detailSelect.replaceChildren();
+ for(const stat of names){
+  const option=document.createElement('option');
+  option.value=selected==='all'?stat.name:years[0]+'|'+stat.name;
+  option.textContent=stat.name;
+  detailSelect.append(option);
+ }
+ const preferred=selected==='all'?'Stilly':years[0]+'|Stilly';
+ detailSelect.value=[...detailSelect.options].some(o=>o.value===prior)?prior:
+  [...detailSelect.options].some(o=>o.value===preferred)?preferred:detailSelect.options[0]?.value??'';
+ function drawWeekly(){
+  const stat=map.get(detailSelect.value);
+  if(!stat){$('detail-summary').textContent='No manager data available.';$('weekly-results').textContent='';return;}
+  const entries=[...stat.observations].sort((a,b)=>a.year-b.year||a.week-b.week);
+  const comparable=entries.filter(o=>Number.isFinite(o.accuracy));
+  const best=comparable.length?[...comparable].sort((a,b)=>b.accuracy-a.accuracy||a.year-b.year||a.week-b.week)[0]:null;
+  const worst=comparable.length?[...comparable].sort((a,b)=>a.accuracy-b.accuracy||a.year-b.year||a.week-b.week)[0]:null;
+  const fmt=x=>Number.isFinite(x)?x.toFixed(2):'N/A';
+  $('weekly-results').innerHTML=entries.map(o=>{
+   const key=o.year+'|'+o.week;
+   const bestKey=best?.year+'|'+best?.week,worstKey=worst?.year+'|'+worst?.week;
+   const cls=key===bestKey?'best':key===worstKey?'worst':'';
+   return '<tr class="'+cls+'"><th scope="row">'+(selected==='all'?o.year+' · ':'')+'Week '+o.week+'</th>'+
+    '<td class="metric">'+(o.accuracy===null?'N/A':o.accuracy.toFixed(1)+'%')+'</td>'+
+    '<td class="metric">'+fmt(o.actual)+'</td><td class="metric">'+fmt(o.optimal)+'</td>'+
+    '<td class="metric">'+fmt(o.gap)+'</td><td>'+(o.reason?esc(o.reason):'Research comparable')+'</td></tr>';
+  }).join('');
+  const label=o=>(selected==='all'?o.year+' ':'')+'Week '+o.week+' ('+o.accuracy.toFixed(1)+'%)';
+  $('detail-summary').textContent=stat.name+' · '+stat.comparable+'/'+stat.weeks+
+   ' research-comparable weeks · average '+(stat.accuracyCount?(stat.accuracySum/stat.accuracyCount).toFixed(1)+'%':'N/A')+
+   ' · best '+(best?label(best):'N/A')+' · worst '+(worst?label(worst):'N/A')+
+   '. These are observed hindsight results, not certified start/sit skill.';
+ }
+ detailSelect.onchange=drawWeekly;
+ drawWeekly();$('results').innerHTML=names.map(x=>'<tr><th scope="row">'+esc(x.name)+'</th><td>'+x.weeks+'</td><td>'+x.comparable+'</td><td>'+(x.weeks-x.comparable)+'</td><td class="metric">'+(x.accuracyCount?(x.accuracySum/x.accuracyCount).toFixed(1)+'%':'N/A')+'</td><td class="metric">'+(x.comparable?(x.gap/x.comparable).toFixed(2):'N/A')+'</td><td class="metric">'+(x.comparable?x.gap.toFixed(2):'N/A')+'</td></tr>').join('');
  $('status').textContent=(selected==='all'?'2020–2025':selected)+' · '+observations+' archived team-weeks · '+names.reduce((n,x)=>n+x.comparable,0)+' research-comparable · '+names.reduce((n,x)=>n+x.weeks-x.comparable,0)+' excluded. Exclusions by cause: '+([ ...exclusionReasons.entries()].map(([reason,n])=>reason+' '+n).join('; ')||'none')+'. These are hindsight observations, not start/sit skill ratings.';
  }catch(e){$('status').textContent='Source or model error: '+e.message+' — no substitute scores shown.'}}
 $('season').addEventListener('change',load);load();
