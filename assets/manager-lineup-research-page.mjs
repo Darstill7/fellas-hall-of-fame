@@ -8,7 +8,7 @@ const managerAliases={darstill:'Stilly',dsylvester9:'Stew',thommy:'Thommy',yogur
 const currentTeamManagers={'1':'Stilly','2':'JMid','3':'Thommy','4':'Stew','5':'Scott','6':'Mitch','7':'Tony','8':'Stover','9':'Kuhl','10':'Birch'};
 let current2026Weeks=8;
 function yearWeeks(year){return year===2020?13:year===2026?current2026Weeks:14}
-async function load(){const selected=$('season').value;const years=selected==='all'?[2020,2021,2022,2023,2024,2025]:[Number(selected)];$('status').textContent='Checking '+(selected==='all'?'2020–2025':selected)+' evidence…';$('results').textContent='';try{
+async function load(){const selected=$('season').value;const years=selected==='career'?[2020,2021,2022,2023,2024,2025,2026]:selected==='all'?[2020,2021,2022,2023,2024,2025]:[Number(selected)];$('status').textContent='Checking '+(selected==='career'?'2020–2026':selected==='all'?'2020–2025':selected)+' evidence…';$('results').textContent='';try{
  if(years.includes(2026)){
   const response=await fetch('../data/keeper_2026_website_research_v1.json');
   if(!response.ok)throw Error('Missing certified 2026 research coverage metadata');
@@ -37,7 +37,7 @@ async function load(){const selected=$('season').value;const years=selected==='a
    }else if(!r.owner)throw Error('Missing historical owner '+year+'/'+week);
    const name=year===2026?currentTeamManagers[team]:managerAliases[String(r.owner).toLowerCase()];
    if(!name)throw Error('Unmapped historical owner '+r.owner+' '+year+'/'+week);
-   const key=selected==='all'?name:year+'|'+name;
+   const key=['all','career'].includes(selected)?name:year+'|'+name;
    const stat=map.get(key)||{name,weeks:0,comparable:0,gap:0,accuracySum:0,accuracyCount:0,observations:[]};
    stat.weeks++;observations++;
    const result=evaluate(r);
@@ -69,11 +69,11 @@ async function load(){const selected=$('season').value;const years=selected==='a
  detailSelect.replaceChildren();
  for(const stat of names){
   const option=document.createElement('option');
-  option.value=selected==='all'?stat.name:years[0]+'|'+stat.name;
+  option.value=['all','career'].includes(selected)?stat.name:years[0]+'|'+stat.name;
   option.textContent=stat.name;
   detailSelect.append(option);
  }
- const preferred=selected==='all'?'Stilly':years[0]+'|Stilly';
+ const preferred=['all','career'].includes(selected)?'Stilly':years[0]+'|Stilly';
  detailSelect.value=[...detailSelect.options].some(o=>o.value===prior)?prior:
   [...detailSelect.options].some(o=>o.value===preferred)?preferred:detailSelect.options[0]?.value??'';
  function drawWeekly(){
@@ -88,19 +88,55 @@ async function load(){const selected=$('season').value;const years=selected==='a
    const key=o.year+'|'+o.week;
    const bestKey=best?.year+'|'+best?.week,worstKey=worst?.year+'|'+worst?.week;
    const cls=key===bestKey?'best':key===worstKey?'worst':'';
-   return '<tr class="'+cls+'"><th scope="row">'+(selected==='all'?o.year+' · ':'')+'Week '+o.week+'</th>'+
+   return '<tr class="'+cls+'"><th scope="row">'+(['all','career'].includes(selected)?o.year+' · ':'')+'Week '+o.week+'</th>'+
     '<td class="metric">'+(o.accuracy===null?'N/A':o.accuracy.toFixed(1)+'%')+'</td>'+
     '<td class="metric">'+fmt(o.actual)+'</td><td class="metric">'+fmt(o.optimal)+'</td>'+
     '<td class="metric">'+fmt(o.gap)+'</td><td>'+(o.reason?esc(o.reason):'Research comparable')+'</td></tr>';
   }).join('');
-  const label=o=>(selected==='all'?o.year+' ':'')+'Week '+o.week+' ('+o.accuracy.toFixed(1)+'%)';
+  const label=o=>(['all','career'].includes(selected)?o.year+' ':'')+'Week '+o.week+' ('+o.accuracy.toFixed(1)+'%)';
   $('detail-summary').textContent=stat.name+' · '+stat.comparable+'/'+stat.weeks+
    ' research-comparable weeks · average '+(stat.accuracyCount?(stat.accuracySum/stat.accuracyCount).toFixed(1)+'%':'N/A')+
    ' · best '+(best?label(best):'N/A')+' · worst '+(worst?label(worst):'N/A')+
    '. These are observed hindsight results, not certified start/sit skill.';
  }
- detailSelect.onchange=drawWeekly;
- drawWeekly();$('results').innerHTML=names.map(x=>'<tr><th scope="row">'+esc(x.name)+'</th><td>'+x.weeks+'</td><td>'+x.comparable+'</td><td>'+(x.weeks-x.comparable)+'</td><td class="metric">'+(x.accuracyCount?(x.accuracySum/x.accuracyCount).toFixed(1)+'%':'N/A')+'</td><td class="metric">'+(x.comparable?(x.gap/x.comparable).toFixed(2):'N/A')+'</td><td class="metric">'+(x.comparable?x.gap.toFixed(2):'N/A')+'</td></tr>').join('');
- $('status').textContent=(selected==='all'?'2020–2025':selected)+' · '+observations+' archived team-weeks · '+names.reduce((n,x)=>n+x.comparable,0)+' research-comparable · '+names.reduce((n,x)=>n+x.weeks-x.comparable,0)+' excluded. Exclusions by cause: '+([ ...exclusionReasons.entries()].map(([reason,n])=>reason+' '+n).join('; ')||'none')+'. These are hindsight observations, not start/sit skill ratings.';
+ // Recency-weighted historical context uses per-season means to avoid raw-points
+ // era bias. Partial seasons and excluded team-weeks receive less weight.
+ // This remains retrospective efficiency, never a manager-skill or OVR grade.
+ const halfLife=3.5,referenceYear=2026;
+ function drawProgression(){
+  const stat=map.get(detailSelect.value);
+  if(!stat){$('career-results').textContent='';$('career-summary').textContent='No manager evidence';return;}
+  const byYear=new Map();
+  for(const o of stat.observations){
+   const v=byYear.get(o.year)??[];
+   v.push(o);byYear.set(o.year,v);
+  }
+  const seasons=[...byYear].sort(([a],[b])=>a-b).map(([year,observations])=>{
+   const valid=observations.filter(o=>Number.isFinite(o.accuracy));
+   const expectedWeeks=yearWeeks(year);
+   const fraction=valid.length/expectedWeeks;
+   const recency=Math.pow(.5,(referenceYear-year)/halfLife);
+   const weight=fraction*recency;
+   return {year,total:observations.length,valid:valid.length,
+    mean:valid.length?valid.reduce((n,o)=>n+o.accuracy,0)/valid.length:null,
+    avgGap:valid.length?valid.reduce((n,o)=>n+o.gap,0)/valid.length:null,
+    weight:valid.length?weight:0};
+  });
+  const usable=seasons.filter(x=>x.mean!==null);
+  const weightSum=usable.reduce((n,x)=>n+x.weight,0);
+  const career=weightSum>0?usable.reduce((n,x)=>n+x.mean*x.weight,0)/weightSum:null;
+  $('career-results').innerHTML=seasons.map(x=>'<tr><th scope="row">'+x.year+
+   (x.year===2026?' (ongoing)':'')+'</th><td>'+x.valid+'/'+x.total+
+   '</td><td class="metric">'+(x.mean===null?'N/A':x.mean.toFixed(1)+'%')+
+   '</td><td class="metric">'+(x.avgGap===null?'N/A':x.avgGap.toFixed(2))+
+   '</td><td class="metric">'+(weightSum?((x.weight/weightSum)*100).toFixed(1)+'%':'N/A')+
+   '</td></tr>').join('');
+  $('career-summary').textContent=stat.name+' · '+usable.length+' seasons with comparable weeks'+
+   ' · recency-weighted observed efficiency '+(career===null?'N/A':career.toFixed(1)+'%')+
+   ' · half-life '+halfLife+' seasons · coverage-adjusted · no certified skill grade.';
+ }
+ detailSelect.onchange=()=>{drawWeekly();drawProgression();};
+ drawWeekly();drawProgression();$('results').innerHTML=names.map(x=>'<tr><th scope="row">'+esc(x.name)+'</th><td>'+x.weeks+'</td><td>'+x.comparable+'</td><td>'+(x.weeks-x.comparable)+'</td><td class="metric">'+(x.accuracyCount?(x.accuracySum/x.accuracyCount).toFixed(1)+'%':'N/A')+'</td><td class="metric">'+(x.comparable?(x.gap/x.comparable).toFixed(2):'N/A')+'</td><td class="metric">'+(x.comparable?x.gap.toFixed(2):'N/A')+'</td></tr>').join('');
+ $('status').textContent=(selected==='career'?'2020–2026':selected==='all'?'2020–2025':selected)+' · '+observations+' archived team-weeks · '+names.reduce((n,x)=>n+x.comparable,0)+' research-comparable · '+names.reduce((n,x)=>n+x.weeks-x.comparable,0)+' excluded. Exclusions by cause: '+([ ...exclusionReasons.entries()].map(([reason,n])=>reason+' '+n).join('; ')||'none')+'. These are hindsight observations, not start/sit skill ratings.';
  }catch(e){$('status').textContent='Source or model error: '+e.message+' — no substitute scores shown.'}}
 $('season').addEventListener('change',load);load();
