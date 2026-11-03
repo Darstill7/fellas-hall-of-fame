@@ -19,7 +19,7 @@ const fixture={status:'REVIEW_REQUIRED',league:'1340027406009761792',year:2026,w
 // overwrite or delete a staged real Week 8 candidate from the repository.
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'fellas-weekly-import-'));
 try{
- for(const p of [ledgerPath,'data/season_weekly_matchups_2016_2026_v1.json','data/all_time_luck_ratings_v1.json']){
+ for(const p of [ledgerPath,'data/season_weekly_matchups_2016_2026_v1.json','data/all_time_luck_ratings_v1.json','scripts/verify-staged-weekly-candidates.mjs']){
   fs.mkdirSync(path.join(temp,path.dirname(p)),{recursive:true});
   fs.copyFileSync(p,path.join(temp,p));
  }
