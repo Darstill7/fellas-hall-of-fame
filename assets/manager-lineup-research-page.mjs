@@ -20,6 +20,7 @@ async function load(){const selected=$('season').value;const years=selected==='a
    throw Error('Week 9 is not final before November 10');
   current2026Weeks=count;
   $('season').querySelector('option[value="2026"]').textContent='2026 (Weeks 1–'+count+')';
+  $('current-coverage').textContent='through completed Week '+count;
  }
  const fetched=await Promise.all(years.flatMap(year=>Array.from({length:yearWeeks(year)},(_,i)=>{const week=i+1,path=year===2025&&(week===1||week===7)?'war_rosters_2025_week'+week+'.json':'sleeper_roster_snapshots_'+year+'_week'+week+'.json';return fetch('../data/'+path).then(r=>{if(!r.ok)throw Error(path+' HTTP '+r.status);return r.json()}).then(doc=>({year,week,doc}))})));
  const map=new Map(),exclusionReasons=new Map();let observations=0;
