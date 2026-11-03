@@ -52,10 +52,15 @@ assert.equal(startSit.managers.length,10);
 assert.ok(startSit.sleeperAccuracyMethod.includes('Unweighted arithmetic mean'),
  'Start/Sit research must state the weekly averaging method');
 if(startSit.throughWeek===8){
- assert.equal(startSit.managers.find(r=>r.manager==='Stilly').averageWeeklyStartSitAccuracyPercent,92.4,
-  'Sleeper Harry Woody Week 8 screenshot parity');
- assert.equal(startSit.managers.find(r=>r.manager==='Kuhl').averageWeeklyStartSitAccuracyPercent,83.1,
-  'Sleeper Kirko Chains Week 8 screenshot parity');
+ const ui=read('data-integrity/sleeper-start-sit-ui-benchmarks-2026-week8.json');
+ assert.equal(ui.season,2026);
+ assert.equal(ui.data.length,10);
+ for(const sample of ui.data){
+  const row=startSit.managers.find(r=>r.manager===sample.manager);
+  assert.ok(row,'Sleeper UI sample unmapped: '+sample.manager);
+  assert.equal(row.averageWeeklyStartSitAccuracyPercent,sample.accuracyPercent,
+   'Independent Sleeper Week 8 accuracy differs: '+sample.manager);
+ }
 }
 
 assert.equal(new Set(startSit.managers.map(m=>m.manager)).size,10);
