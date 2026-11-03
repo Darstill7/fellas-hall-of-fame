@@ -248,7 +248,7 @@ jobs:
       - name: Syntax-check Keeper Research client module before browser tests
         run: node --check assets/keeper-decision-research-page.mjs
 
-      - name: Reconcile archived 2026 keeper research through Week 7 against current website data
+      - name: Reconcile archived 2026 keeper research through Week 8 against current website data
         run: node scripts/build-keeper-2026-website-research.mjs --check
 
       - name: Verify public keeper research page against canonical data and grading safeguards
