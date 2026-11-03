@@ -6,9 +6,13 @@ const research=read('data-integrity/keeper-2025-decision-research-index-v1.json'
 const partial=read('data/keeper_2026_website_research_v1.json');
 const allKeeperDrafts=read('data/v9_draft_engine.json').filter(p=>p.keeper);
 assert.deepEqual([...new Set(allKeeperDrafts.map(p=>p.year))].sort(),[2025,2026]);
-assert.equal(partial.status,'in_progress_2026_week1_to_week8_no_completed_season_score');
+assert.ok(Number.isInteger(partial.throughWeek)&&partial.throughWeek>=8&&partial.throughWeek<=14);
+assert.equal(partial.status,'in_progress_2026_week1_to_week'+partial.throughWeek+'_no_completed_season_score');
 assert.equal(partial.season,2026);
-assert.equal(partial.throughWeek,8);
+assert.ok(partial.selections.every(p=>p.observations.length===partial.throughWeek));
+for(let w=1;w<=partial.throughWeek;w++)assert.ok(partial.sourcePaths.includes('data/sleeper_roster_snapshots_2026_week'+w+'.json'));
+assert.ok(!partial.sourcePaths.includes('data/sleeper_roster_snapshots_2026_week'+(partial.throughWeek+1)+'.json'));
+
 assert.equal(partial.rows.length,10);
 assert.equal(partial.selections.length,20);
 assert.equal(partial.rows.reduce((n,m)=>n+m.keepers.length,0),20);
