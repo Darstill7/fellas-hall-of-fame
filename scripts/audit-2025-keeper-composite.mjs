@@ -8,6 +8,8 @@ const positionPeer=read('data-integrity/keeper-2025-position-peer-context-v1.jso
 const drafted=read('data/v9_draft_engine.json').filter(x=>x.year===2025&&x.keeper);
 const playoffs=read('data/playoff_matchups_2020_2025.json').filter(x=>x.year===2025);
 const postseason=read('data-integrity/keeper-2025-postseason-verification-v1.json');
+const bracket=read('data-integrity/keeper-2025-championship-bracket-contribution-v1.json');
+assert.equal(bracket.rows.length,10);
 assert.equal(postseason.rows.length,20);
 const round=n=>Math.round((n+Number.EPSILON)*100)/100;
 const rows=weekly.rows.map(k=>{
@@ -15,6 +17,13 @@ const rows=weekly.rows.map(k=>{
  const draft=drafted.filter(y=>(y.manager==='Tom'?'Thommy':y.manager)===k.manager&&y.player===k.player);
  assert.equal(draft.length,1);
  const a=match(roundPeer.rows),b=match(positionPeer.rows),proof=match(postseason.rows);
+ const championship=bracket.rows.find(x=>x.manager===k.manager);
+ assert.ok(championship);
+ const championshipStarts=championship.observations.filter(x=>x.player===k.player&&x.isChampionshipBracketStart);
+ const otherStarts=championship.observations.filter(x=>x.player===k.player&&!x.isChampionshipBracketStart);
+ const championshipPoints=round(championshipStarts.reduce((n,x)=>n+x.points,0));
+ const otherPoints=round(otherStarts.reduce((n,x)=>n+x.points,0));
+ assert.ok(Math.abs(round(championshipPoints+otherPoints)-proof.verifiedPoints)<.011);
  assert.ok(Math.abs(proof.verifiedPoints-draft[0].playoff_starter_points)<.011);
  assert.equal(proof.verifiedStarts,draft[0].playoff_starts);
  assert.equal(draft[0].round,a.draftRound);
@@ -31,6 +40,8 @@ const rows=weekly.rows.map(k=>{
   samePositionNonkeeperMedian:b.observedNonkeeperPositionMedianStartedPoints,
   samePositionObservedDifference:b.descriptiveDifferenceFromPositionMedian,
   verifiedPlayoffStartedPoints:proof.verifiedPoints,
+  verifiedChampionshipBracketStartedPoints:championshipPoints,
+  verifiedOtherWeek15To17StartedPoints:otherPoints,
   verifiedCombinedStartedPoints:round(k.verifiedStartedPoints+proof.verifiedPoints),
   playoffIndividualScoringVerified:true,
   rosterEligibleAlternativesVerified:false,
@@ -46,12 +57,18 @@ const managers=[...new Set(rows.map(x=>x.manager))].sort().map(manager=>{
   expectedPointsAtObservedLeagueStarterMedians:round(picks.reduce((s,x)=>s+x.correspondingObservedStarterMedianPoints,0)),
   descriptiveDifferenceFromLeagueStarterMedians:round(picks.reduce((s,x)=>s+x.differenceFromObservedStarterMedians,0)),
   verifiedPlayoffStarterPoints:round(picks.reduce((s,x)=>s+x.verifiedPlayoffStartedPoints,0)),
+  verifiedChampionshipBracketStarterPoints:round(picks.reduce((s,x)=>s+x.verifiedChampionshipBracketStartedPoints,0)),
+  verifiedOtherWeek15To17StarterPoints:round(picks.reduce((s,x)=>s+x.verifiedOtherWeek15To17StartedPoints,0)),
   verifiedCombinedStartedPoints:round(picks.reduce((s,x)=>s+x.verifiedCombinedStartedPoints,0)),
   opportunityCostCertified:false,postseasonPlayerProductionCertified:true,
   keeperValue:null,keeperDecisionGrade:null};
 }).sort((a,b)=>b.descriptiveDifferenceFromLeagueStarterMedians-a.descriptiveDifferenceFromLeagueStarterMedians);
 assert.equal(managers.length,10);assert.equal(rows.length,20);
 for(const manager of managers){
+ const b=bracket.rows.find(x=>x.manager===manager.manager);
+ assert.ok(b);
+ assert.ok(Math.abs(manager.verifiedChampionshipBracketStarterPoints-b.verifiedChampionshipBracketKeeperStartedPoints)<.011);
+ assert.ok(Math.abs(manager.verifiedOtherWeek15To17StarterPoints-b.otherWeek15To17KeeperStartedPoints)<.011);
  assert.ok(Math.abs(manager.verifiedCombinedStartedPoints-round(manager.verifiedRegularStarterPoints+manager.verifiedPlayoffStarterPoints))<.011);
 }
 assert.equal(managers.reduce((a,b)=>a+b.totalStartedWeeks,0),rows.reduce((a,b)=>a+b.starts,0));
@@ -59,7 +76,7 @@ const result={schema:'fellas-2025-keeper-composite-evidence-v1',
  status:'verified_regular_starts_observational_comparisons_uncertified_keeper_value',
  playoffEvidence:{archivedPlayoffMatchupWeeks:playoffs.map(x=>x.week),
   archivedPlayerPointsPresent:true,individualPlayerWeekPostseasonLineupsAvailable:true,
-  note:'Archived individual keeper postseason totals match recovered Sleeper week 15–17 starter receipts; team-level matchups alone were insufficient.'},
+  note:'Archived Week 15–17 keeper totals match original Sleeper starter receipts; a separate verified championship bracket splits true playoff games from consolation/placement games.'},
  positionalOpportunityCost:{sameRoundPeerContextAvailable:true,samePositionPeerContextAvailable:true,
   actualKeeperDeadlineAlternativePoolAvailable:false,
   trueRoundSpecificReplacementValueAvailable:false,
@@ -67,6 +84,7 @@ const result={schema:'fellas-2025-keeper-composite-evidence-v1',
  caveats:['Weekly positional median comparison only counts keeper starts for the original drafting team.',
  'No penalty is assigned for missed starts, traded keeper departures, injuries or managerial bench decisions.',
  'Observational positional benchmark includes occupied FLEX starters, not free agents.',
+ 'The legacy verifiedPlayoffStarterPoints field represents ALL Weeks 15–17 keeper starts, not solely championship playoff games; use verifiedChampionshipBracketStarterPoints for playoff analysis.',
  'This table must not be labeled overall Keeper Value or a Manager Report Card grade.'],
  managers,players:rows};
 const target='data-integrity/keeper-2025-composite-evidence-v1.json';
