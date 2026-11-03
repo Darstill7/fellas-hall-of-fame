@@ -19,6 +19,57 @@ assert.equal(partial.rows.reduce((n,m)=>n+m.keepers.length,0),20);
 assert.ok(partial.rows.every(m=>m.researchScore===null&&m.officialKeeperDecisionGrade===null&&m.championshipStarterPoints===null));
 assert.ok(partial.rows.every(m=>m.verifiedDropStatus==='not_audited_for_2026'));
 
+// Independently reconcile all published 2026 rows with their underlying keeper receipts.
+// This catches partial/stale summaries even when a reader bypasses the generator.
+const round2=n=>Math.round((n+Number.EPSILON)*100)/100;
+const picksByManager=new Map();
+const seenKeeperKeys=new Set();
+for(const p of partial.selections){
+ const key=p.manager+'|'+p.player;
+ assert.ok(!seenKeeperKeys.has(key),'Duplicate 2026 keeper: '+key);
+ seenKeeperKeys.add(key);
+ assert.equal(p.observations.length,partial.throughWeek);
+ assert.equal(p.observations.filter(o=>o.startedForOriginalManager).length,p.verifiedOriginalManagerStarts,'2026 original-manager starts: '+key);
+ assert.deepEqual(p.observations.map(o=>o.week),Array.from({length:partial.throughWeek},(_,i)=>i+1),'2026 weekly coverage: '+key);
+ assert.ok(p.observations.every(o=>!o.startedForOriginalManager||o.onOriginalTeam),'2026 keeper credit after transfer: '+key);
+ assert.ok(p.observations.every(o=>!o.onOriginalTeam||o.rosterTeamId===p.originalTeamId),'2026 owner identity mismatch: '+key);
+ assert.equal(p.startingReceipts.length,p.verifiedOriginalManagerStarts,'2026 starter receipts: '+key);
+ assert.deepEqual(p.startingReceipts.map(r=>r.week),p.observations.filter(o=>o.startedForOriginalManager).map(o=>o.week),'2026 receipt weeks: '+key);
+ assert.ok(p.startingReceipts.every(r=>r.source==='data/sleeper_roster_snapshots_2026_week'+r.week+'.json'),'2026 receipt provenance: '+key);
+ assert.ok(p.startingReceipts.every(r=>Number.isFinite(r.points)&&Number.isFinite(r.median)),'2026 finite points: '+key);
+ assert.ok(Math.abs(round2(p.startingReceipts.reduce((n,r)=>n+r.points,0))-p.verifiedOriginalManagerStartedPoints)<.011,'2026 keeper points: '+key);
+ assert.ok(Math.abs(round2(p.startingReceipts.reduce((n,r)=>n+r.median,0))-p.observedStarterMedianPoints)<.011,'2026 keeper median: '+key);
+ assert.ok(Math.abs(round2(p.startingReceipts.reduce((n,r)=>n+r.points-r.median,0))-p.relativeToStartedPositionMedians)<.011,'2026 positional surplus: '+key);
+ if(!picksByManager.has(p.manager))picksByManager.set(p.manager,[]);
+ picksByManager.get(p.manager).push(p);
+}
+assert.equal(picksByManager.size,10);
+const seenManagers=new Set();
+for(const m of partial.rows){
+ assert.ok(!seenManagers.has(m.manager),'Duplicate 2026 manager row: '+m.manager);
+ seenManagers.add(m.manager);
+ const picks=picksByManager.get(m.manager);
+ assert.equal(picks?.length,2,'2026 keeper selection count: '+m.manager);
+ assert.equal(m.keepers.length,2,'2026 published keeper count: '+m.manager);
+ for(const pick of picks){
+  const shown=m.keepers.filter(k=>k.name===pick.player);
+  assert.equal(shown.length,1,'2026 keeper row identity: '+m.manager+'/'+pick.player);
+  assert.equal(shown[0].round,pick.round);
+  assert.equal(shown[0].position,pick.position);
+  assert.equal(shown[0].starts,pick.verifiedOriginalManagerStarts);
+  assert.equal(shown[0].startedPoints,pick.verifiedOriginalManagerStartedPoints);
+  assert.equal(shown[0].transferredDuringSeason,pick.tradedSameSeasonArchiveFlag);
+ }
+ assert.equal(m.verifiedOriginalManagerStarts,picks.reduce((n,p)=>n+p.verifiedOriginalManagerStarts,0),'2026 manager starts: '+m.manager);
+ assert.ok(Math.abs(m.regularStartedPoints-round2(picks.reduce((n,p)=>n+p.verifiedOriginalManagerStartedPoints,0)))<.011,'2026 manager points: '+m.manager);
+ assert.ok(Math.abs(m.regularVsStarterMedian-round2(picks.reduce((n,p)=>n+p.relativeToStartedPositionMedians,0)))<.011,'2026 manager surplus: '+m.manager);
+ assert.ok(Math.abs(m.nominalDraftCapital-round2(picks.reduce((n,p)=>n+Math.min(100,Math.max(0,(p.round-1)/14*100)),0)/2))<.011,'2026 draft capital: '+m.manager);
+ assert.equal(m.components.observedProduction,null);
+ assert.equal(m.components.nominalDraftCapital,null);
+ assert.equal(m.components.championshipContribution,null);
+ assert.equal(m.otherWeek15to17StartedPoints,null);
+}
+
 const composite=read('data-integrity/keeper-2025-composite-evidence-v1.json');
 const bracket=read('data-integrity/keeper-2025-championship-bracket-contribution-v1.json');
 const draft=read('data/v9_draft_engine.json').filter(x=>x.year===2025&&x.keeper);
@@ -67,4 +118,4 @@ assert.ok(js.includes('researchScore!==null'));
 
 assert.ok(fs.readFileSync('analytics/manager-report-cards.html','utf8').includes('keeper-decision-research.html'));
 assert.ok(fs.readFileSync('managers/index.html','utf8').includes('keeper-decision-research.html'));
-console.log('Keeper research website PASS: 2025 completed plus 2026 seven-week evidence; 40 keeper selections; no partial-season rating');
+console.log('Keeper research website PASS: 2025 completed plus 2026 Week 1–'+partial.throughWeek+' verified evidence; 40 keeper selections; no partial-season rating');
