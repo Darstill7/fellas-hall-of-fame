@@ -73,7 +73,8 @@ try {
  const shown=managerQuery?rows.filter(x=>x.name.toLowerCase()===managerQuery.toLowerCase()||(managerQuery.toLowerCase()==='tom'&&x.name==='Thommy')):rows;
  document.getElementById('cards').innerHTML=shown.map(x=>'<section class="card" data-report-manager="'+esc(x.name)+'"><div class="head"><div><div class="label">#'+x.rank+' · Success-first preview</div><h2><a href="../managers/'+slugs[x.name]+'/">'+esc(x.name)+'</a></h2></div><div class="score">'+x.provisional.toFixed(1)+'<small>of 100 · provisional</small></div></div><div class="grid">'+Object.entries(x.scores).map(([key,score])=>'<div class="grade"><span>'+labels[key]+'</span><strong>'+(score===null?'N/A':score.toFixed(1))+'</strong><small>'+categoryEvidence(key)+'</small></div>').join('')+'</div>'+acquisitionNote(x.name)+notablePickups(x.name)+startSitNote(x.name)+'<p class="fine">Confirmed '+x.coverage.verifiedChampionships+' titles · '+x.coverage.verifiedRunnersUp+' runners-up · '+x.coverage.championshipGameAppearances+' championship-game appearances · minimum '+x.coverage.minimumPlayoffs+' playoff berths · '+x.coverage.playoffVerified+'/'+x.coverage.playoffEligible+' qualified (2016–25) · '+x.coverage.playoffByes+' byes · '+x.coverage.draftPicks+' scored nonkeeper picks · '+x.coverage.verifiedTradeSides+' verified trade sides · '+x.coverage.careerGames+' regular-season games · '+x.coverage.waiverHighlights+' highlighted waiver candidates (not a full denominator). Scored dimensions: '+x.availableWeight+' of 100 possible weight points ('+x.evidence.status+' evidence coverage; not a statistical confidence interval).</p><p class="fine"><strong>Scouting read:</strong> '+esc(byName[x.name].strengths.length?byName[x.name].strengths.join('; '):'No verified standout category yet')+'. <strong>Next competitive objective:</strong> '+esc(byName[x.name].focus.length?byName[x.name].focus.join('; '):'Sustain results and validate management decisions')+'. These are results-based observations, not certified decision-level grades.</p><details><summary>Career scouting dossier</summary><p><strong>'+esc(dossierByName[x.name].headline)+'</strong></p><p><strong>Documented strengths:</strong> '+esc(dossierByName[x.name].strengths.join('; ')||'No qualifying standout yet')+'</p><p><strong>Evidence limitations:</strong> '+esc(dossierByName[x.name].limitations.join('; '))+'</p><p>'+esc(dossierByName[x.name].decisionRead)+'</p><p class="fine">'+esc(dossierByName[x.name].evidence)+'</p></details></section>').join('') || '<p>No matching manager report card.</p>';
  // Load original provider receipts only when the selected pickup set is opened.
- // No speculative $0 values: ordinary add receipts without a bid remain N/A.
+ // A completed free-agent add costs $0; a successful $0 waiver is a separate route.
+ // Invalid/missing provider receipts remain N/A rather than being assumed free.
  const receiptCache=new Map();
  async function verifyPickupCost(node){
   const year=Number(node.dataset.pickupYear),week=Number(node.dataset.pickupWeek);
@@ -96,8 +97,28 @@ try {
     String(t.transactionId)===id&&t.status==='complete'&&t.type===requestedType&&
     (t.added??[]).some(p=>p.name===player));
    if(hits.length!==1){node.textContent='Cost: N/A (player receipt not matched)';return;}
-   const bid=hits[0].faabBid;
-   node.textContent=Number.isSafeInteger(bid)&&bid>=0?'Cost: '+String.fromCharCode(36)+bid+' FAAB':'Cost: N/A (bid not recorded)';
+   const receipt=hits[0],bid=receipt.faabBid;
+   if(receipt.type==='add'&&bid===null){
+    node.textContent='Cost: $0 · Free agent (after waivers)';
+   }else if(receipt.type==='waiver'&&Number.isSafeInteger(bid)&&bid>=0){
+    node.textContent='Cost: 
+  }catch(e){node.textContent='Cost: N/A (receipt unavailable)';}
+ }
+ for(const details of document.querySelectorAll('#cards details.pickup-highlights')){
+  details.addEventListener('toggle',()=>{
+   if(!details.open||details.dataset.costsRequested==='yes')return;
+   details.dataset.costsRequested='yes';
+   for(const node of details.querySelectorAll('.pickup-cost')){
+    node.textContent='Cost: checking receipt…';
+    void verifyPickupCost(node);
+   }
+  });
+ }
+} catch(e) {document.getElementById('cards').innerHTML='<p role="alert">Report cards could not load from the historical archive. No invented grades are shown.</p>';console.error(e)}
++bid+' FAAB · Waiver claim';
+   }else{
+    node.textContent='Cost: N/A (incomplete bid evidence)';
+   }
   }catch(e){node.textContent='Cost: N/A (receipt unavailable)';}
  }
  for(const details of document.querySelectorAll('#cards details.pickup-highlights')){
