@@ -70,6 +70,17 @@ for(const p of draft){
  assert.equal(extracted.get(String(p.team_id)),expected,
   'Browser Start/Sit manager mapping differs from confirmed 2026 draft: '+p.team_id);
 }
+// Every current manager profile needs a direct, nickname-safe Start/Sit deep link.
+for(const [slug,name] of Object.entries({
+ stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',
+ tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'
+})){
+ const profile=fs.readFileSync('managers/'+slug+'/index.html','utf8');
+ const path='../../analytics/manager-lineup-research.html?season=career&amp;manager='+name;
+ assert.ok(profile.includes(path),'Missing profile Start/Sit deep link: '+slug);
+ assert.equal(profile.split(path).length-1,1,
+  'Duplicate Start/Sit profile link: '+slug);
+}
 const roster8=JSON.parse(fs.readFileSync('data/sleeper_roster_snapshots_2026_week8.json','utf8'));
 assert.equal(roster8.week,8);
 assert.equal(roster8.rosters.length,10);
