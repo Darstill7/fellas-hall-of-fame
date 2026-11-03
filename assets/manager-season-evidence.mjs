@@ -22,15 +22,19 @@ export async function mountManagerSeasonEvidence(host,manager){
  status.setAttribute('role','status');shell.append(status);
  host.append(shell);
  try{
-  const [endings,acquisitions,keeper2025,keeper2026]=await Promise.all([
+  const [endings,acquisitions,keeper2025,keeper2026,draftTrade]=await Promise.all([
    read('data/manager_verified_season_endings_v1.json'),
    read('data/manager_acquisition_by_season_v1.json'),
    read('data/keeper_2025_website_research_v1.json'),
-   read('data/keeper_2026_website_research_v1.json')
+   read('data/keeper_2026_website_research_v1.json'),
+   read('data/manager_draft_trade_profile_evidence_v1.json')
   ]);
   if(!Array.isArray(endings.managers?.[manager])||
      acquisitions.status!=='observational_not_skill_rating'||
      acquisitions.incompleteYear!==2026||
+     draftTrade.status!=='research_only_no_draft_or_trade_skill_grades'||
+     draftTrade.seasonCutoff?.throughWeek!==keeper2026.throughWeek||
+     !Array.isArray(draftTrade.rows)||
      keeper2025.season!==2025||keeper2026.season!==2026||
      !Number.isInteger(keeper2026.throughWeek)||keeper2026.throughWeek<8||
      keeper2026.throughWeek>14||
@@ -44,10 +48,13 @@ export async function mountManagerSeasonEvidence(host,manager){
    throw Error('Manager keeper evidence absent or unexpectedly scored');
   const byYear=new Map(years.map(row=>[row.year,row]));
   const pickups=new Map(acquisitions.rows.filter(row=>row.manager===manager).map(row=>[row.year,row]));
-  if(new Set(years.map(row=>row.year)).size!==years.length)throw Error('Duplicate season record');
+  const draftAndTrade=new Map(draftTrade.rows.filter(row=>row.manager===manager).map(row=>[row.year,row]));
+  if(new Set(years.map(row=>row.year)).size!==years.length||
+     draftAndTrade.size!==years.length||years.some(row=>!draftAndTrade.has(row.year)))
+   throw Error('Missing or duplicated season draft-trade evidence');
   shell.replaceChildren(summary);
   shell.append(make('p','muted profile-season-evidence-intro',
-   'Verified season endings where known, recorded pickup usage from Sleeper, and keeper starting production. No new grades or inferred finishes.'));
+   'Verified results, source-backed draft selections, qualifying trade records, pickups and keeper production. No invented skill grades or playoff finishes.'));
   const list=make('div','profile-season-evidence-list');
   for(const year of [...byYear.keys()].sort((a,b)=>b-a)){
    const record=byYear.get(year);
@@ -84,7 +91,27 @@ export async function mountManagerSeasonEvidence(host,manager){
       'Verified keeper release: '+keeper.verifiedDrops.map(x=>typeof x==='string'?x:x.player??x.keeper??x.name).filter(Boolean).join(', ')));
     }
    }
-   card.append(facts);
+   const evidence=draftAndTrade.get(year);
+   if(!Number.isInteger(evidence.recordedSelections)||evidence.recordedSelections<1||
+      !Array.isArray(evidence.earlySelections)||evidence.earlySelections.length>3||
+      !validCount(evidence.recordedKeeperSelections)||!validCount(evidence.unresolvedNames)||
+      !validCount(evidence.trades?.representedEvents)||
+      !validCount(evidence.trades?.fullyRepresentedEvents)||
+      !validCount(evidence.trades?.partialEvents)||
+      evidence.trades.fullyRepresentedEvents+evidence.trades.partialEvents!==evidence.trades.representedEvents)
+    throw Error('Invalid draft or trade evidence '+year);
+   const draft=make('div','profile-season-draft-trade');
+   const picked=evidence.earlySelections.map(p=>'R'+p.round+' '+(p.player||'Name unresolved')).join(' · ');
+   draft.append(make('p',null,'Draft · '+evidence.recordedSelections+' documented selections'+
+      (evidence.recordedKeeperSelections?' ('+evidence.recordedKeeperSelections+' recorded keepers)':'')+
+      ' · earliest non-keeper picks: '+(picked||'Not recorded')));
+   if(evidence.unresolvedNames)
+    draft.append(make('p','muted',evidence.unresolvedNames+' ESPN draft player name(s) unresolved'));
+   draft.append(make('p',null,'Trades · '+evidence.trades.representedEvents+
+    ' qualifying source-backed event(s)'+
+    (evidence.trades.partialEvents?' · '+evidence.trades.partialEvents+' partly represented':'')+
+    ' · not trade wins or losses'));
+   card.append(facts,draft);
    if(year>=2020){
     const trade=document.createElement('a');
     trade.className='profile-season-trade-link';
@@ -97,7 +124,7 @@ export async function mountManagerSeasonEvidence(host,manager){
   }
   shell.append(list);
   const caveat=make('p','muted profile-season-evidence-caveat',
-   'Not all postseason endings are certified. Pickup starts are observational, not value added. Trade records may be incomplete and do not establish a trade winner. 2026 keeper research is partial and has no decision score.');
+   'Early draft selections are original pick records, not hindsight grades. Unverified trade sides are excluded; qualifying event counts are a lower bound, not total trades or wins. Playoff finishes, pickups and keeper value remain evidence-gated. 2026 is incomplete.');
   shell.append(caveat);
  }catch(error){
   shell.replaceChildren(summary);
