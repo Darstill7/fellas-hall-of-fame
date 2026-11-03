@@ -11,7 +11,13 @@ function yearWeeks(year){return year===2020?13:year===2026?current2026Weeks:14}
 const pageParams=new URLSearchParams(location.search);
 const requestedSeason=pageParams.get('season');
 if(['career','all','2020','2021','2022','2023','2024','2025','2026'].includes(requestedSeason))$('season').value=requestedSeason;
-async function load(){const selected=$('season').value;const years=selected==='career'?[2020,2021,2022,2023,2024,2025,2026]:selected==='all'?[2020,2021,2022,2023,2024,2025]:[Number(selected)];$('status').textContent='Checking '+(selected==='career'?'2020–2026':selected==='all'?'2020–2025':selected)+' evidence…';$('results').textContent='';try{
+let activeLoad=0;
+async function load(){
+ const requestId=++activeLoad;
+ const selected=$('season').value;
+ for(const id of ['results','detail-summary','weekly-results','career-summary','career-results'])
+  $(id).textContent='';
+ $('detail-manager').replaceChildren();const years=selected==='career'?[2020,2021,2022,2023,2024,2025,2026]:selected==='all'?[2020,2021,2022,2023,2024,2025]:[Number(selected)];$('status').textContent='Checking '+(selected==='career'?'2020–2026':selected==='all'?'2020–2025':selected)+' evidence…';$('results').textContent='';try{
  if(years.includes(2026)){
   const response=await fetch('../data/keeper_2026_website_research_v1.json');
   if(!response.ok)throw Error('Missing certified 2026 research coverage metadata');
@@ -26,6 +32,7 @@ async function load(){const selected=$('season').value;const years=selected==='c
   $('current-coverage').textContent='through completed Week '+count;
  }
  const fetched=await Promise.all(years.flatMap(year=>Array.from({length:yearWeeks(year)},(_,i)=>{const week=i+1,path=year===2025&&(week===1||week===7)?'war_rosters_2025_week'+week+'.json':'sleeper_roster_snapshots_'+year+'_week'+week+'.json';return fetch('../data/'+path).then(r=>{if(!r.ok)throw Error(path+' HTTP '+r.status);return r.json()}).then(doc=>({year,week,doc}))})));
+ if(requestId!==activeLoad)return;
  const map=new Map(),exclusionReasons=new Map();let observations=0;
  for(const {year,week,doc} of fetched){
   const rosters=Array.isArray(doc)?doc:doc.rosters;
@@ -144,5 +151,8 @@ async function load(){const selected=$('season').value;const years=selected==='c
  detailSelect.onchange=()=>{drawWeekly();drawProgression();};
  drawWeekly();drawProgression();$('results').innerHTML=names.map(x=>'<tr><th scope="row">'+esc(x.name)+'</th><td>'+x.weeks+'</td><td>'+x.comparable+'</td><td>'+(x.weeks-x.comparable)+'</td><td class="metric">'+(x.accuracyCount?(x.accuracySum/x.accuracyCount).toFixed(1)+'%':'N/A')+'</td><td class="metric">'+(x.comparable?(x.gap/x.comparable).toFixed(2):'N/A')+'</td><td class="metric">'+(x.comparable?x.gap.toFixed(2):'N/A')+'</td></tr>').join('');
  $('status').textContent=(selected==='career'?'2020–2026':selected==='all'?'2020–2025':selected)+' · '+observations+' archived team-weeks · '+names.reduce((n,x)=>n+x.comparable,0)+' research-comparable · '+names.reduce((n,x)=>n+x.weeks-x.comparable,0)+' excluded. Exclusions by cause: '+([ ...exclusionReasons.entries()].map(([reason,n])=>reason+' '+n).join('; ')||'none')+'. These are hindsight observations, not start/sit skill ratings.';
- }catch(e){$('status').textContent='Source or model error: '+e.message+' — no substitute scores shown.'}}
+ }catch(e){if(requestId!==activeLoad)return;
+  for(const id of ['results','detail-summary','weekly-results','career-summary','career-results'])$(id).textContent='';
+  $('detail-manager').replaceChildren();
+  $('status').textContent='Source or model error: '+e.message+' — no substitute scores shown.'}}
 $('season').addEventListener('change',load);load();
