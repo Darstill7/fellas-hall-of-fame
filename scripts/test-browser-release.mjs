@@ -184,7 +184,7 @@ try{
      const first=highlights.first();
      await first.locator('summary').click();
      const content=await first.innerText();
-     if(!content.includes('recorded starts')||!content.includes('lineup points')||
+     if(!content.includes('starts')||!content.includes('lineup pts')||
         !content.includes('Not all pickups')||!content.includes('Not a FAAB skill grade'))
       errors.push(width+' pickup highlights missing actual starter-point evidence or research caveats');
      // Confirm an actually paid waiver and an unpriced ordinary add against
@@ -202,6 +202,17 @@ try{
       if(actual!==expected)
        errors.push(width+' '+manager+' pickup receipt amount mismatch: '+actual);
      }
+     // The manager-profile deep link should show only that manager and open
+     // the compact pickup details, not leave visitors at the comparison form.
+     await page.goto(baseUrl+'analytics/manager-report-cards.html?manager=Stilly#cards',{waitUntil:'networkidle'});
+     const filtered=page.locator('[data-report-manager]');
+     if(await filtered.count()!==1||await filtered.first().getAttribute('data-report-manager')!=='Stilly')
+      errors.push(width+' filtered pickup deep link did not isolate Stilly');
+     const opened=filtered.locator('details.pickup-highlights');
+     if(await opened.count()!==1||!(await opened.evaluate(el=>el.open)))
+      errors.push(width+' filtered pickup deep link did not auto-open the highlights');
+     if(await opened.locator('li').count()!==3)
+      errors.push(width+' filtered pickup view lacks its three sourced highlights');
     }
    }
    if(route===''){
