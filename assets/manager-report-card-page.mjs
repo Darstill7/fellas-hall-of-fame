@@ -1,4 +1,6 @@
 import {makeReportCards} from './manager-report-card.mjs';
+import {historicalOvrHistory,careerOvrMilestones} from './manager-historical-ovr.mjs';
+import {maddenOvr} from './manager-madden-scale.mjs';
 import {scoutingProfile} from './manager-scouting-profile.mjs';
 import {pickupCostLabel} from './pickup-cost-label.mjs';
 const targets=['manager_acquisition_distinct_v1.json','manager_acquisition_coverage_v1.json','v9_draft_engine.json','v9_trade_engine.json','career_core_generated.json','all_time_luck_ratings_v1.json','waiver_award_candidates.json','manager_verified_season_endings_v1.json','verified_sleeper_playoff_brackets_2020_2025.json','season_guide.json','verified_espn_playoff_brackets_2016_2019.json'];
@@ -8,6 +10,13 @@ const labels={drafting:'Drafting',trading:'Trading',championships:'Championships
 try {
  const [distinctCoverage,acquisitionCoverage,drafts,trades,careers,luck,waivers,endings,brackets,guide,espn]=await Promise.all(targets.map(async p=>{const r=await fetch('../data/'+p);if(!r.ok)throw Error('Could not load '+p);return r.json()}));
  const rows=makeReportCards({drafts,trades,careers,luck,waivers,endings,brackets,guide,espn});
+ // Career reputation is a separate, verified results timeline. It never
+ // substitutes for Drafting, Trading, FAAB, Start/Sit or Keeper skill grades.
+ const yearEndHistory=historicalOvrHistory({guide,careers,luck,endings,playoffBrackets:[...espn.seasons,...brackets.seasons]});
+ const journeys=new Map(rows.map(row=>{
+  const snapshots=yearEndHistory.map(year=>({year:year.year,row:year.rows.find(x=>x.name===row.name)})).filter(x=>x.row);
+  return [row.name,careerOvrMilestones(snapshots,maddenOvr)];
+ }));
  const acquisitionByManager=new Map(acquisitionCoverage.byManager.map(x=>[x.manager,x]));
  const distinctByManager=new Map(distinctCoverage.byManager.map(x=>[x.manager,x]));
  const startSitNote=name=>'<p class="fine"><strong>Start/Sit history:</strong> <a href="manager-lineup-research.html?season=career&amp;manager='+encodeURIComponent(name)+'">Explore '+esc(name)+'\'s season-by-season accuracy and coverage</a>. Descriptive Sleeper-style hindsight efficiency only; report-card Start/Sit decision grade stays N/A.</p>';
@@ -21,6 +30,18 @@ try {
   return '<p class="fine"><strong>Pickup usage (2020–2026):</strong> '+started+' of '+total+
    ' distinct season-player pickups later started ('+rate+'); '+x.reacquisitions+
    ' repeat acquisitions shown separately. A pickup that never started is not automatically a bad pickup. 2026 remains incomplete. Descriptive usage only — not a FAAB skill grade or points-above-replacement claim.</p>';
+ };
+ const careerOvrResume=name=>{
+  const journey=journeys.get(name);
+  if(!journey?.rows.length)return '';
+  const last=journey.rows.at(-1),peak=journey.peak;
+  const years=journey.titleMilestones.map(p=>p.year).join(', ')||'None recorded';
+  const table=journey.rows.map(p=>'<tr><th scope="row">'+p.year+'</th><td>'+p.ovr.toFixed(1)+'</td><td>'+(p.delta===null?'First year':(p.delta>=0?'+':'')+p.delta.toFixed(1))+'</td><td>#'+p.rank+'</td><td>'+(p.titlesEarned?p.titlesEarned+' title'+(p.titlesEarned>1?'s':''):'—')+'</td></tr>').join('');
+  return '<details class="report-career-ovr" data-report-career-ovr="'+esc(name)+'"><summary>Career Legacy OVR journey <span>'+last.ovr.toFixed(1)+' year-end OVR · '+journey.rows.length+' seasons</span></summary>'+
+   '<p class="fine">Verified-results career reputation, not a Drafting, Trading, FAAB, Start/Sit or Keeper skill grade. Retrospective year-end ratings from completed seasons through 2025; no unfinished 2026 season score.</p>'+
+   '<p class="report-career-highlights"><strong>Year-end peak: '+peak.ovr.toFixed(1)+' ('+peak.year+')</strong><span>Verified championship years: '+years+'</span></p>'+
+   '<div class="report-career-scroll"><table><thead><tr><th>Year</th><th>Legacy OVR</th><th>Change</th><th>Rank</th><th>Titles</th></tr></thead><tbody>'+table+'</tbody></table></div>'+
+   '<p class="fine"><a href="../managers/'+slugs[name]+'/#overview">Open '+esc(name)+'\'s full franchise profile</a> for the rating progression and annual résumé.</p></details>';
  };
  const notablePickups=name=>{
   // Source is a selected, retrospectively verified highlight set, not every pickup.
@@ -72,7 +93,7 @@ try {
  const dossierByName=Object.fromEntries(rows.map(x=>[x.name,scoutingProfile(x)]));
  const managerQuery=new URLSearchParams(location.search).get('manager');
  const shown=managerQuery?rows.filter(x=>x.name.toLowerCase()===managerQuery.toLowerCase()||(managerQuery.toLowerCase()==='tom'&&x.name==='Thommy')):rows;
- document.getElementById('cards').innerHTML=shown.map(x=>'<section class="card" data-report-manager="'+esc(x.name)+'"><div class="head"><div><div class="label">#'+x.rank+' · Success-first preview</div><h2><a href="../managers/'+slugs[x.name]+'/">'+esc(x.name)+'</a></h2></div><div class="score">'+x.provisional.toFixed(1)+'<small>of 100 · provisional</small></div></div><div class="grid">'+Object.entries(x.scores).map(([key,score])=>'<div class="grade"><span>'+labels[key]+'</span><strong>'+(score===null?'N/A':score.toFixed(1))+'</strong><small>'+categoryEvidence(key)+'</small></div>').join('')+'</div>'+acquisitionNote(x.name)+notablePickups(x.name)+startSitNote(x.name)+'<p class="fine">Confirmed '+x.coverage.verifiedChampionships+' titles · '+x.coverage.verifiedRunnersUp+' runners-up · '+x.coverage.championshipGameAppearances+' championship-game appearances · minimum '+x.coverage.minimumPlayoffs+' playoff berths · '+x.coverage.playoffVerified+'/'+x.coverage.playoffEligible+' qualified (2016–25) · '+x.coverage.playoffByes+' byes · '+x.coverage.draftPicks+' scored nonkeeper picks · '+x.coverage.verifiedTradeSides+' verified trade sides · '+x.coverage.careerGames+' regular-season games · '+x.coverage.waiverHighlights+' highlighted waiver candidates (not a full denominator). Scored dimensions: '+x.availableWeight+' of 100 possible weight points ('+x.evidence.status+' evidence coverage; not a statistical confidence interval).</p><p class="fine"><strong>Scouting read:</strong> '+esc(byName[x.name].strengths.length?byName[x.name].strengths.join('; '):'No verified standout category yet')+'. <strong>Next competitive objective:</strong> '+esc(byName[x.name].focus.length?byName[x.name].focus.join('; '):'Sustain results and validate management decisions')+'. These are results-based observations, not certified decision-level grades.</p><details><summary>Career scouting dossier</summary><p><strong>'+esc(dossierByName[x.name].headline)+'</strong></p><p><strong>Documented strengths:</strong> '+esc(dossierByName[x.name].strengths.join('; ')||'No qualifying standout yet')+'</p><p><strong>Evidence limitations:</strong> '+esc(dossierByName[x.name].limitations.join('; '))+'</p><p>'+esc(dossierByName[x.name].decisionRead)+'</p><p class="fine">'+esc(dossierByName[x.name].evidence)+'</p></details></section>').join('') || '<p>No matching manager report card.</p>';
+ document.getElementById('cards').innerHTML=shown.map(x=>'<section class="card" data-report-manager="'+esc(x.name)+'"><div class="head"><div><div class="label">#'+x.rank+' · Success-first preview</div><h2><a href="../managers/'+slugs[x.name]+'/">'+esc(x.name)+'</a></h2></div><div class="score">'+x.provisional.toFixed(1)+'<small>of 100 · provisional</small></div></div><div class="grid">'+Object.entries(x.scores).map(([key,score])=>'<div class="grade"><span>'+labels[key]+'</span><strong>'+(score===null?'N/A':score.toFixed(1))+'</strong><small>'+categoryEvidence(key)+'</small></div>').join('')+'</div>'+careerOvrResume(x.name)+acquisitionNote(x.name)+notablePickups(x.name)+startSitNote(x.name)+'<p class="fine">Confirmed '+x.coverage.verifiedChampionships+' titles · '+x.coverage.verifiedRunnersUp+' runners-up · '+x.coverage.championshipGameAppearances+' championship-game appearances · minimum '+x.coverage.minimumPlayoffs+' playoff berths · '+x.coverage.playoffVerified+'/'+x.coverage.playoffEligible+' qualified (2016–25) · '+x.coverage.playoffByes+' byes · '+x.coverage.draftPicks+' scored nonkeeper picks · '+x.coverage.verifiedTradeSides+' verified trade sides · '+x.coverage.careerGames+' regular-season games · '+x.coverage.waiverHighlights+' highlighted waiver candidates (not a full denominator). Scored dimensions: '+x.availableWeight+' of 100 possible weight points ('+x.evidence.status+' evidence coverage; not a statistical confidence interval).</p><p class="fine"><strong>Scouting read:</strong> '+esc(byName[x.name].strengths.length?byName[x.name].strengths.join('; '):'No verified standout category yet')+'. <strong>Next competitive objective:</strong> '+esc(byName[x.name].focus.length?byName[x.name].focus.join('; '):'Sustain results and validate management decisions')+'. These are results-based observations, not certified decision-level grades.</p><details><summary>Career scouting dossier</summary><p><strong>'+esc(dossierByName[x.name].headline)+'</strong></p><p><strong>Documented strengths:</strong> '+esc(dossierByName[x.name].strengths.join('; ')||'No qualifying standout yet')+'</p><p><strong>Evidence limitations:</strong> '+esc(dossierByName[x.name].limitations.join('; '))+'</p><p>'+esc(dossierByName[x.name].decisionRead)+'</p><p class="fine">'+esc(dossierByName[x.name].evidence)+'</p></details></section>').join('') || '<p>No matching manager report card.</p>';
  // Load original provider receipts only when the selected pickup set is opened.
  // A completed free-agent add costs $0; a successful $0 waiver is a separate route.
  // Invalid/missing provider receipts remain N/A rather than being assumed free.
