@@ -10,6 +10,8 @@ const partial=read('data/keeper_2026_website_research_v1.json');
 const faab=read('data-integrity/faab-observed-acquisition-outcomes-v1.json');
 const candidate=read('data-integrity/keeper-2025-retrospective-candidate-inventory-v1.json');
 const keeperDecision=read('data-integrity/keeper-2025-decision-research-index-v1.json');
+const startSit=read('data-integrity/start-sit-2026-hindsight-v1.json');
+const faabWeek8=read('data-integrity/faab-2026-week8-supplement-v1.json');
 
 assert.equal(completed.season,2026);
 assert.equal(completed.week,8);
@@ -39,6 +41,45 @@ assert.equal(faab2026.regularSeasonWeekLimit,7,
 assert.ok(faab.observations.filter(r=>r.year===2026).every(r=>
  r.weeks.every(w=>w.week>r.claimWeek&&w.week<=faab2026.regularSeasonWeekLimit)),
  'FAAB result leakage into claim week or future week');
+
+// Cross-check newly generated research reports independently of their writers.
+assert.equal(startSit.status,'retrospective_scored_roster_comparison_not_decision_skill');
+assert.equal(startSit.throughWeek,8,'Start/sit research includes an unfinished week');
+assert.equal(startSit.weeklyRows.length,80);
+assert.equal(startSit.managers.length,10);
+assert.equal(new Set(startSit.managers.map(m=>m.manager)).size,10);
+assert.ok(startSit.weeklyRows.every(r=>r.season===2026&&r.week>=1&&r.week<=8&&r.officialStartSitGrade===null));
+for(const m of startSit.managers){
+ const rows=startSit.weeklyRows.filter(r=>r.manager===m.manager);
+ assert.equal(rows.length,8,'Incomplete start/sit coverage: '+m.manager);
+ assert.equal(new Set(rows.map(r=>r.week)).size,8,'Duplicate start/sit week: '+m.manager);
+ assert.equal(m.officialStartSitGrade,null);
+ assert.ok(Math.abs(m.recordedActualPoints-rows.reduce((n,r)=>n+r.actualPoints,0))<.071);
+ assert.ok(Math.abs(m.recordedRosterOptimalPoints-rows.reduce((n,r)=>n+r.recordedRosterOptimalPoints,0))<.071);
+ assert.ok(Math.abs(m.hindsightGap-rows.reduce((n,r)=>n+r.hindsightGap,0))<.071);
+}
+assert.equal(faabWeek8.status,'research_only_week8_observation_no_skill_grade');
+assert.equal(faabWeek8.week,8);
+const priorClaims=faab.observations.filter(r=>r.year===2026);
+assert.equal(faabWeek8.rows.length,priorClaims.length);
+assert.equal(faabWeek8.coverage.priorClaimRows,priorClaims.length);
+const originalClaims=new Map(priorClaims.map(r=>[[r.transactionId,r.teamId,r.playerId].join('|'),r]));
+assert.equal(originalClaims.size,priorClaims.length);
+for(const r of faabWeek8.rows){
+ const key=[r.transactionId,r.teamId,r.playerId].join('|');
+ const initial=originalClaims.get(key);
+ assert.ok(initial,'Week 8 FAAB observation without original claim '+key);
+ assert.equal(r.claimWeek,initial.claimWeek);
+ assert.equal(r.certifiedIncrementalValue,null);
+ assert.equal(r.managerSkillGrade,null);
+ assert.ok(r.observedPoints===null||Number.isFinite(r.observedPoints));
+ assert.ok(r.observedPoints===null||r.status==='observed_same_team_week8_without_recorded_intervening_event');
+ assert.ok(!(initial.firstSubsequentOwnershipEventWeek!==null&&initial.firstSubsequentOwnershipEventWeek<=8&&r.observedPoints!==null),
+  'Previously censored claim was reinstated: '+key);
+}
+assert.equal(faabWeek8.coverage.week8ObservedWithoutInterveningTransaction,faabWeek8.rows.filter(r=>r.observedPoints!==null).length);
+assert.equal(faabWeek8.coverage.week8ScoredStartedObservations,faabWeek8.rows.filter(r=>r.started===true).length);
+assert.ok(Math.abs(faabWeek8.coverage.week8ObservedStartedPoints-faabWeek8.rows.filter(r=>r.started).reduce((n,r)=>n+r.observedPoints,0))<.011);
 
 // Independently verify Week 8 lineup feasibility using positional slot assignment.
 // This is the maximum retrospectively possible from scored starters + recorded bench;
