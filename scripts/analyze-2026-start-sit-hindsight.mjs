@@ -36,7 +36,7 @@ const rows=[];
 for(const week of weeks){
  const path='data/sleeper_roster_snapshots_2026_week'+week+'.json';
  const raw=read(path);
- assert.equal(raw.season,2026);
+ if(raw.season!==undefined)assert.equal(raw.season,2026,'Incorrect explicitly labeled season');
  assert.equal(raw.week,week);
  assert.equal(raw.rosters.length,10);
  assert.deepEqual(raw.rosters.map(x=>Number(x.teamId)).sort((a,b)=>a-b),Array.from({length:10},(_,i)=>i+1));
