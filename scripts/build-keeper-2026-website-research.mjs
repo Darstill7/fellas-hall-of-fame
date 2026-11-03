@@ -9,6 +9,12 @@ const rosterWeeks=fs.readdirSync('data').map(name=>/^sleeper_roster_snapshots_20
 assert.ok(rosterWeeks.length>=8,'Expected at least eight archived 2026 roster weeks');
 assert.ok(rosterWeeks.length<=14,'Only regular-season weeks may enter this research view');
 for(let i=0;i<rosterWeeks.length;i++)assert.equal(rosterWeeks[i],i+1,'Incomplete 2026 roster week sequence');
+// Week 9 cannot count as a completed scoring week before MNF ends on Nov 9.
+// The postgame buffer is deliberately conservative; a dated unlock alone never
+// certifies results because full-team scores and starter parity are still required.
+const week9EarliestFinalization=Date.parse('2026-11-10T06:00:00Z');
+if(rosterWeeks.includes(9))assert.ok(Date.now()>=week9EarliestFinalization,
+ '2026 Week 9 is not complete before November 10; do not publish preliminary keeper points');
 const latestWeek=rosterWeeks.at(-1);
 const weeks=[];
 for(let week=1;week<=latestWeek;week++){
