@@ -56,6 +56,12 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  [['overview','#verified-history-panel','Championships','Titles and finishes'],['seasons','#season-history','Every Season','Annual results'],['rivalries','#head-to-head','Head-to-Head','Who owns whom?'],['advanced','#franchise-encyclopedia','Trades & Pickups','The deeper research']].map(([tab,target,label,description])=>'<button type="button" data-profile-jump="'+tab+'"><strong>'+label+'</strong><span>'+description+' ↓</span></button>').join('')+'</div>';
  nav.after(quick);
  // Keeper research remains a separate preview; it must not be confused with OVR.
+ populateManagerResearch(quick,manager);
+}
+// Both generated profiles and the hand-curated Stover profile share exactly
+// the same evidence cards, source gates and responsive presentation.
+function populateManagerResearch(quick,manager){
+ if(!quick||quick.querySelector('.profile-front-office-snapshot'))return;
  const keeperManager=manager==='Tom'?'Thommy':manager;
  const keeperLink=document.createElement('p');
  keeperLink.className='muted';
@@ -136,6 +142,12 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  css.textContent+='.profile-season-evidence{margin:19px 0;border:1px solid #607d8b;border-radius:12px;background:#102734;padding:0;overflow:hidden}.profile-season-evidence>summary{padding:15px 17px;min-height:48px;color:var(--gold);font-weight:850;cursor:pointer}.profile-season-evidence>summary:focus-visible{outline:3px solid #fff;outline-offset:-3px}.profile-season-evidence-intro,.profile-season-evidence-caveat{padding:0 16px;font-size:12px;line-height:1.5}.profile-season-evidence-list{display:grid;gap:8px;padding:9px 15px 15px}.profile-season-evidence-row{background:#1a3443;border:1px solid #466274;border-radius:10px;padding:12px 14px}.profile-season-evidence-header{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.profile-season-evidence-header strong{font-size:17px;color:#fff}.profile-season-evidence-header span{font-size:12px;color:#ebd09b;font-weight:800}.profile-season-evidence-facts{display:flex;flex-wrap:wrap;gap:5px 13px;margin:8px 0 0;font-size:12px;color:#d9e4eb}.profile-season-evidence-facts span{display:inline-block}.profile-season-evidence-facts span+span:before{content:"·";margin-right:13px;color:#8bb1c1}.profile-season-evidence-flag{color:#ffe0a8}@media(max-width:650px){.profile-season-evidence-header{align-items:flex-start;flex-direction:column;gap:3px}.profile-season-evidence-facts{flex-direction:column;gap:6px}.profile-season-evidence-facts span+span:before{content:none}}';
  css.textContent+='.profile-career-resume{margin:16px 0;border:1px solid #768593;border-radius:13px;padding:0;background:#132d3b;overflow:hidden}.profile-career-resume>summary{padding:16px 17px;color:var(--gold);font-size:17px;font-weight:850;min-height:52px;cursor:pointer}.profile-career-resume>summary:focus-visible{outline:3px solid white;outline-offset:-3px}.career-resume-intro,.career-resume-coverage,.career-resume-caveat{padding:0 15px;font-size:12px;line-height:1.5}.career-resume-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:8px 15px}.career-resume-metric{padding:12px 9px;background:#1b3847;border:1px solid #486879;border-radius:10px;min-width:0}.career-resume-metric strong{font-size:22px;display:block;color:#fff;font-variant-numeric:tabular-nums}.career-resume-metric span{font-size:11px;line-height:1.35;color:#c5d6df;display:block}.career-resume-section{padding:10px 16px 0}.career-resume-section h4{font-size:14px;color:var(--gold);margin:6px 0 12px}.career-resume-example{font-size:13px;color:#e0e9ee;margin:8px 0}.career-resume-trade{padding:12px;background:#1c3847;border:1px solid #426477;border-radius:9px;margin:8px 0}.career-resume-trade strong{font-size:12px}.career-resume-trade p{font-size:12px;margin:5px 0}.career-resume-link{font-size:12px;color:var(--gold);font-weight:850;text-decoration:underline;text-underline-offset:3px}.career-resume-link:focus-visible{outline:3px solid white;outline-offset:2px}@media(max-width:650px){.career-resume-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.career-resume-metric strong{font-size:20px}}';
  document.head.append(css);
+}
+const existingProfile=document.querySelector('nav[data-manager-profile-tabs]');
+if(existingProfile&&!legacyNav){
+ const quick=document.querySelector('.profile-quickstart');
+ const manager=document.querySelector('main .hero h1')?.textContent?.trim()||'';
+ populateManagerResearch(quick,manager);
 }
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
 // The old overview tiles and archive teaser repeat destinations available in the tabs.
