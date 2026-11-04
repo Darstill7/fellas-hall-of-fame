@@ -40,7 +40,7 @@ if(profileHero&&!profileHero.querySelector('[data-profile-career-snapshot]')){
    if(!number||!label)continue;
    const rawLabel=label.textContent.trim();
    const labelKey=/regular.season|all.time.*W.L/i.test(rawLabel)?'Regular-season record':
-    /title season|year he won|championship year/i.test(rawLabel)?'Championship season':
+    /title season|year he won|championship year/i.test(rawLabel)?'Championship '+(/years|seasons/i.test(rawLabel)?'seasons':'season'):
     /championship/i.test(rawLabel)?'Championships':null;
    if(labelKey){
     label.textContent=labelKey;
