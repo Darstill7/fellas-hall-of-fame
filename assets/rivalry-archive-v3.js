@@ -33,6 +33,13 @@ const navStyles=document.createElement('style');
 navStyles.dataset.rivalryCoreNavigation='';
 navStyles.textContent='body.rivalry-page,body[data-rivalry-matrix]{padding-bottom:0}.nav a{min-height:44px;display:inline-flex;align-items:center;line-height:1.5;font-size:13px;padding-inline:15px}.mobile-menu>summary{min-height:44px;display:inline-flex;align-items:center;padding:10px 14px;font-size:13px}.mobile-menu .menu-grid a{min-height:44px;display:flex;align-items:center;font-size:13px;line-height:1.5}.nav a:focus-visible,.mobile-menu a:focus-visible,.mobile-menu summary:focus-visible{outline:3px solid #f2d28f;outline-offset:2px}@media(max-width:760px){.mobile-menu{margin:12px 0 18px}.mobile-menu .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}';
 document.head.append(navStyles);
+// Do not leave old static scoreboards visible while the canonical archive loads.
+if(document.body.dataset.rivalryPair){
+ const hero=document.querySelector('.rival-hero');
+ if(hero){hero.textContent='Loading verified head-to-head results…';hero.setAttribute('role','status');}
+}
+const matrix=document.getElementById('verified-rivalry-matrix');
+// Prevent false certainty when source data cannot be fetched.
 // Keep all 45 legacy rivalry files readable without rewriting their historical data.
 if(document.body.dataset.rivalryPair){
  const style=document.createElement('style');
@@ -73,7 +80,12 @@ fetch(depth+'data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw E
   const introduction=document.querySelector('.rivalry-page .top p');
   if(introduction)introduction.textContent='Head-to-head results from verified archived regular-season games. Historical franchise ownership is reconciled; postseason games are excluded.';
   const hero=document.querySelector('.rival-hero');
-  if(hero)hero.innerHTML='<div><div class="label">'+E(a)+'</div><div class="metric">'+w+'</div></div><div class="vs">'+w+'–'+l+(t?'–'+t:'')+'</div><div style="text-align:right"><div class="label">'+E(b)+'</div><div class="metric">'+l+'</div></div>';
+  if(hero){
+   hero.removeAttribute('role');
+   hero.innerHTML=games.length
+    ?'<div><div class="label">'+E(a)+'</div><div class="metric">'+w+'</div></div><div class="vs">'+w+'–'+l+(t?'–'+t:'')+'</div><div style="text-align:right"><div class="label">'+E(b)+'</div><div class="metric">'+l+'</div></div>'
+    :'<p class="muted rivalry-no-results">No verified regular-season meetings found for '+E(a)+' and '+E(b)+'. This is missing evidence, not a 0–0 record.</p>';
+  }
   const section=document.createElement('section');section.className='section';section.dataset.canonicalRivalry='true';
   section.innerHTML='<h2>Regular-season matchup history</h2><p class="muted rivalry-key-facts">'+(games.length?games.length+' documented meetings · '+w+' '+E(a)+' wins · '+l+' '+E(b)+' wins'+(t?' · '+t+' ties':''):'No recovered regular-season meetings for this pair. This is not evidence that the managers never played.')+'</p><details class="rivalry-game-history"><summary>View all '+games.length+' games and biggest wins</summary><div class="rivalry-game-content"><p class="muted">Largest '+E(a)+' victory: '+E(desc(big(games,a)))+'</p><p class="muted">Largest '+E(b)+' victory: '+E(desc(big(games,b)))+'</p><div class="table-wrap"><table><thead><tr><th>Season</th><th>Week</th><th>'+E(a)+'</th><th>'+E(b)+'</th><th>Winner</th><th>Margin</th></tr></thead><tbody>'+games.map(g=>{const pa=g.home===canonical(a)?g.homeScore:g.awayScore,pb=g.home===canonical(b)?g.homeScore:g.awayScore,winner=g.homeScore===g.awayScore?'Tie':display(g.homeScore>g.awayScore?g.home:g.away);return '<tr><td>'+g.year+'</td><td>'+g.week+'</td><td>'+fmt(pa)+'</td><td>'+fmt(pb)+'</td><td>'+E(winner)+'</td><td>'+fmt(margin(g))+'</td></tr>'}).join('')+'</tbody></table></div><p class="muted">ESPN 2016–2019 and Sleeper 2020 onward, through the latest archived week. Regular season only; postseason excluded. Former owners remain separate.</p></div></details>';
 
@@ -111,5 +123,5 @@ fetch(depth+'data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw E
   }
   }
  }
-}).catch(()=>{const root=document.getElementById('verified-rivalry-matrix');if(root)root.textContent='Could not load unified matchup ledger.'});
+}).catch(()=>{const root=document.getElementById('verified-rivalry-matrix');if(root)root.textContent='Could not load unified matchup ledger.';const hero=document.querySelector('body[data-rivalry-pair] .rival-hero');if(hero){hero.textContent='Verified rivalry history is temporarily unavailable. No archived record can be confirmed.';hero.setAttribute('role','alert')}});
 })();
