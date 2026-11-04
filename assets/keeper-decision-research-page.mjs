@@ -9,6 +9,10 @@ const note=document.getElementById('keeper-notice');
 const heading=document.getElementById('heading');
 const seasonNote=document.getElementById('keeper-season-note');
 const methodology=document.getElementById('keeper-methodology');
+const profileContext=document.getElementById('keeper-profile-context');
+const leagueMetrics=document.getElementById('keeper-overall-metrics');
+const sortLabel=sort.closest('label');
+const profileLinks=manager=>'<a href="../managers/'+slugs[manager]+'/">← Back to '+esc(manager)+' profile</a>';
 const query=new URLSearchParams(location.search);
 const requestedYear=query.get('year')==='2026'?'2026':'2025';
 try{
@@ -67,6 +71,22 @@ try{
    seasonNote.textContent='2026 weekly evidence is provisional. Sort by observed starts and points; no complete-season or official score is available.';
    methodology.innerHTML='<p><strong>2026 season-to-date methodology:</strong> We sum actual starting points earned while each retained player remained with the manager who kept him. The comparison uses the median at the same position and week, over only the weeks the keeper started.</p><p>Weeks 1–6 have been reconciled against the draft engine. '+extra+' are taken from newer weekly scored rosters. A transferred keeper points for later owners are not credited to the original manager.</p><p>No 2026 playoff score, official Keeper Decision grade, release penalty or combined 100-point index is available while this season is incomplete. The 2025 research index is not directly comparable to 2026 partial totals.</p>';
   }
+  const focused=Boolean(filter.value);
+  target.classList.toggle('manager-focused',focused);
+  leagueMetrics.hidden=focused;
+  sortLabel.hidden=focused;
+  if(focused){
+   const manager=filter.value;
+   profileContext.hidden=false;
+   profileContext.innerHTML='<strong>'+esc(manager)+' · '+(isComplete?'2025 keeper review':'2026 keeper production')+'</strong>'+
+    '<p>'+(isComplete?'The 2025 research index summarizes observed production, draft-round context and championship-bracket contribution. It is not an official Keeper Decision grade.':
+     'Verified original-manager keeper starter points through Week '+through+'. No completed-season score or official decision grade exists yet.')+'</p>'+
+    profileLinks(manager);
+   heading.textContent=manager+' · '+(isComplete?'2025 completed season':'2026 through Week '+through);
+  }else{
+   profileContext.hidden=true;
+   profileContext.replaceChildren();
+  }
   const list=[...managers].filter(m=>!filter.value||m.manager===filter.value);
   const key={score:'researchScore',regular:'regularStartedPoints',median:'regularVsStarterMedian',playoff:'championshipStarterPoints',capital:isComplete?'nominalDraftCapital':'nominalDraftCapital'}[sort.value];
   list.sort((a,b)=>{const av=key==='nominalDraftCapital'&&isComplete?a.components.nominalDraftCapital:a[key];const bv=key==='nominalDraftCapital'&&isComplete?b.components.nominalDraftCapital:b[key];return key?(bv-av||a.manager.localeCompare(b.manager)):a.manager.localeCompare(b.manager)});
@@ -85,7 +105,7 @@ try{
     '<div class="detail-grid"><div><small>Weeks recorded</small><strong>1–'+through+'</strong><small>2026 season so far</small></div><div><small>Original-team keeper starts</small><strong>'+m.verifiedOriginalManagerStarts+'</strong><small>Both retained players</small></div><div><small>Draft capital context</small><strong>'+pts(m.nominalDraftCapital)+'</strong><small>Informational; not a score</small></div></div>'+
     '<p><strong>2026 verified keeper points:</strong> '+pts(m.regularStartedPoints)+' in original-manager starts, '+signed(m.regularVsStarterMedian)+' relative to same-week positional starter medians.</p>'+
     '<p class="sub">Season in progress: no 100-point score or certified keeper-release deductions. These are observed totals, not full-season predictions.</p>';
-   return '<details class="entry"><summary><span class="rank">#'+(rank.indexOf(m.manager)+1)+'</span><span class="summary-name"><span class="name">'+esc(m.manager)+drops+'</span><span class="sub">'+m.keepers.map(k=>esc(k.name)+' (R'+k.round+')').join(' · ')+'</span></span><span class="value"><strong>'+ (isComplete?pts(m.researchScore):pts(m.regularStartedPoints)) +'</strong><small>'+(isComplete?'research / 100':'starter pts · '+through+' weeks')+'</small></span></summary><div class="detail">'+detail+'<p><strong>Kept:</strong> '+keeperNames+'</p><p class="sub">Official Keeper Decision grade: unavailable.</p><div class="actions"><a href="../managers/'+slugs[m.manager]+'/">View '+esc(m.manager)+' profile</a><a href="manager-report-cards.html?manager='+encodeURIComponent(m.manager)+'">Full report card</a></div></div></details>';
+   return '<details class="entry"'+(focused?' open':'')+'><summary><span class="rank">#'+(rank.indexOf(m.manager)+1)+'</span><span class="summary-name"><span class="name">'+esc(m.manager)+drops+'</span><span class="sub">'+m.keepers.map(k=>esc(k.name)+' (R'+k.round+')').join(' · ')+'</span></span><span class="value"><strong>'+ (isComplete?pts(m.researchScore):pts(m.regularStartedPoints)) +'</strong><small>'+(isComplete?'research / 100':'starter pts · '+through+' weeks')+'</small></span></summary><div class="detail">'+detail+'<p><strong>Kept:</strong> '+keeperNames+'</p><p class="sub">Official Keeper Decision grade: unavailable.</p><div class="actions"><a href="../managers/'+slugs[m.manager]+'/">View '+esc(m.manager)+' profile</a><a href="manager-report-cards.html?manager='+encodeURIComponent(m.manager)+'">Full report card</a></div></div></details>';
   }).join('')||'<p>No managers match this filter.</p>';
  }
  year.addEventListener('change',()=>{draw();updateUrl()});
