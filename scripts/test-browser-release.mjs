@@ -1541,9 +1541,15 @@ try{
      const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth+2);
      if(overflow)errors.push(width+' career record book causes full-page horizontal overflow');
     }
-    await page.locator('#manager').selectOption('Tom');
-    if(!(await page.locator('#profile').innerText()).includes('Recorded postseason matchups'))
-     errors.push(width+' career record book manager selector lost records after change');
+    // The recovered manager record archive uses Thommy, not the legacy Tom alias.
+    const managerOptions=await page.locator('#manager option').evaluateAll(opts=>opts.map(x=>x.value));
+    if(!managerOptions.includes('Thommy'))
+     errors.push(width+' career record book missing canonical Thommy manager option');
+    else{
+     await page.locator('#manager').selectOption('Thommy');
+     if(!(await page.locator('#profile').innerText()).includes('Recorded postseason matchups'))
+      errors.push(width+' career record book manager selector lost records after change');
+    }
    }
    if(route==='managers/stilly/'){
     // Keep a source request unresolved and ensure static archive numbers are hidden while loading.
