@@ -110,12 +110,26 @@ function mountProfileFeatureDirectory(quick,manager){
 function populateManagerResearch(quick,manager){
  if(!quick||quick.querySelector('.profile-front-office-snapshot'))return;
  mountProfileFeatureDirectory(quick,manager);
+ // Source-heavy material sits behind one disclosure. Feature buttons can
+ // reveal the exact module without forcing every visitor through a long wall.
+ const shelf=document.createElement('details');
+ shelf.className='profile-research-shelf';
+ shelf.dataset.profileResearchShelf='';
+ const shelfTitle=document.createElement('summary');
+ shelfTitle.textContent='Research evidence & detailed records';
+ const shelfIntro=document.createElement('p');
+ shelfIntro.className='muted profile-research-shelf-intro';
+ shelfIntro.textContent='Drafts, trades, acquisitions and keeper usage are descriptive archives. Open a feature above to jump straight to its evidence.';
+ const shelfBody=document.createElement('div');
+ shelfBody.className='profile-research-shelf-body';
+ shelf.append(shelfTitle,shelfIntro,shelfBody);
+ quick.append(shelf);
  const keeperManager=manager==='Tom'?'Thommy':manager;
  const keeperLink=document.createElement('p');
  keeperLink.className='muted';
  keeperLink.style.fontSize='13px';
  keeperLink.innerHTML='Keeper research: <a href="../../analytics/keeper-decision-research.html?manager='+encodeURIComponent(keeperManager)+'">2025</a> · <a href="../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(keeperManager)+'">2026 to date</a> <span>· Research only, not an official Keeper Decision grade</span>';
- quick.append(keeperLink);
+ shelfBody.append(keeperLink);
  // A simple manager-specific pickup view reuses the tested report-card page.
  // It avoids copying receipt/scoring logic into ten separate profile pages.
  const pickupLink=document.createElement('p');
@@ -123,16 +137,16 @@ function populateManagerResearch(quick,manager){
  pickupLink.style.fontSize='13px';
  pickupLink.innerHTML='<a href="../../analytics/manager-report-cards.html?manager='+
   encodeURIComponent(keeperManager)+'#cards"><strong>Explore pickup highlights</strong><span>Starts, lineup points and verified $0 / FAAB costs · 3 selected examples</span></a>';
- quick.append(pickupLink);
+ shelfBody.append(pickupLink);
  // Profile-first front-office evidence: share source files with the full
  // research pages instead of creating a disconnected manager scorecard.
  const snapshot=document.createElement('section');
  snapshot.className='profile-front-office-snapshot';
  snapshot.setAttribute('aria-label',keeperManager+' front office snapshot');
  snapshot.innerHTML='<h3>Front Office Snapshot</h3><p class="muted">Recorded acquisitions and 2026 keeper starts. Descriptive evidence, not management-skill grades.</p><p class="muted" role="status">Loading verified research…</p>';
- quick.append(snapshot);
- void mountDraftTradeCareer(quick,keeperManager);
- void mountManagerSeasonEvidence(quick,keeperManager);
+ shelfBody.append(snapshot);
+ void mountDraftTradeCareer(shelfBody,keeperManager);
+ void mountManagerSeasonEvidence(shelfBody,keeperManager);
  void Promise.all([
   fetch('../../data/manager_acquisition_distinct_v1.json').then(res=>{if(!res.ok)throw Error('Pickup source unavailable');return res.json()}),
   fetch('../../data/keeper_2026_website_research_v1.json').then(res=>{if(!res.ok)throw Error('Keeper source unavailable');return res.json()})
@@ -182,6 +196,7 @@ function populateManagerResearch(quick,manager){
   snapshot.innerHTML='<h3>Front Office Snapshot</h3><p class="muted" role="status">Source evidence is temporarily unavailable. No substitute figures are shown.</p>';
  });
  const css=document.createElement('style');
+ css.textContent+='.profile-research-shelf{margin:18px 0 0;background:#0b2331;border:1px solid #557587;border-radius:12px;padding:0}.profile-research-shelf>summary{min-height:50px;padding:14px 17px;color:var(--gold);font-size:15px;font-weight:850;cursor:pointer}.profile-research-shelf>summary:focus-visible{outline:3px solid white;outline-offset:-3px}.profile-research-shelf-intro{font-size:12px;line-height:1.55;margin:0;padding:0 17px 12px}.profile-research-shelf-body{padding:0 16px 15px}.profile-research-shelf-body .profile-front-office-snapshot{margin:14px 0}.profile-research-shelf-body>.muted{margin:10px 0}@media(max-width:650px){.profile-research-shelf-body{padding:0 10px 12px}}';
  css.textContent='.profile-tabs{background:#0d1923f5;border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin:12px 0 24px}.profile-tab-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.profile-tab-row button{cursor:pointer;border:1px solid #607483;border-radius:9px;background:#182c3b;color:#d9e3e9;font:inherit;font-size:13px;font-weight:800;padding:11px 16px;min-height:44px}.profile-tab-row button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#10212d}.profile-tab-row button:focus-visible{outline:3px solid white;outline-offset:3px}.section[hidden]{display:none!important}.profile-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}.profile-quick-grid button{display:flex;cursor:pointer;text-align:left;color:#fff;font:inherit;flex-direction:column;gap:6px;background:#172b3a;border:1px solid #486174;border-radius:12px;padding:17px;min-height:94px}.profile-quick-grid button[aria-pressed="true"]{border-color:var(--gold);box-shadow:inset 4px 0 0 var(--gold)}.profile-quick-grid span{font-size:13px;color:#d0dce4}@media(max-width:600px){.profile-tab-row{display:grid;grid-template-columns:1fr 1fr}.profile-quick-grid{grid-template-columns:1fr}}';
  css.textContent+='.manager-pickup-link a{display:flex;flex-direction:column;gap:5px;max-width:550px;background:#183744;border:1px solid #7b998e;border-radius:12px;padding:14px 16px;color:#f5f2e8;text-decoration:none;min-height:62px}.manager-pickup-link a strong{color:var(--gold);font-size:15px}.manager-pickup-link a span{font-size:12px;line-height:1.5;color:#d0dce4}.manager-pickup-link a:focus-visible{outline:3px solid #fff;outline-offset:2px}.manager-pickup-link a:hover{border-color:var(--gold)}';
  css.textContent+='.profile-front-office-snapshot{margin:20px 0 8px;padding:17px;border:1px solid #577483;border-radius:13px;background:#102936}.profile-front-office-snapshot h3{margin:0 0 9px;color:var(--gold);font-size:18px}.profile-front-office-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.profile-front-office-tile{padding:14px;background:#182f3e;border:1px solid #466173;border-radius:10px}.profile-front-office-tile strong{display:block;font-size:24px;font-variant-numeric:tabular-nums;color:#f7eed9}.profile-front-office-tile span{display:block;font-size:12px;line-height:1.4;color:#c5d3dc}.profile-front-office-caveat{font-size:12px;line-height:1.5;margin:11px 0}.profile-front-office-actions{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:800;margin:12px 0 0}.profile-front-office-actions a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}.profile-front-office-actions a:focus-visible{outline:3px solid white;outline-offset:2px}@media(max-width:650px){.profile-front-office-grid{grid-template-columns:1fr}.profile-front-office-tile{padding:12px}.profile-front-office-tile strong{font-size:22px}}';
@@ -277,6 +292,8 @@ if(main&&tabs){
   if(category)activate(category);
   const destination=target&&document.querySelector(target);
   if(!destination)return;
+  const shelf=destination.closest('details.profile-research-shelf');
+  if(shelf)shelf.open=true;
   if(destination.tagName==='DETAILS')destination.open=true;
   requestAnimationFrame(()=>requestAnimationFrame(()=>
    destination.scrollIntoView({block:'start',behavior:'instant'})));
