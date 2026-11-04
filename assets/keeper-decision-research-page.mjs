@@ -12,7 +12,9 @@ const methodology=document.getElementById('keeper-methodology');
 const profileContext=document.getElementById('keeper-profile-context');
 const leagueMetrics=document.getElementById('keeper-overall-metrics');
 const sortLabel=sort.closest('label');
-const profileLinks=manager=>'<a href="../managers/'+slugs[manager]+'/">← Back to '+esc(manager)+' profile</a>';
+const profileLinks=(manager,season)=>'<div class="keeper-profile-links">'+
+ '<a href="../managers/'+slugs[manager]+'/">← Back to '+esc(manager)+' profile</a>'+
+ '<a href="keeper-decision-research.html?year='+season+'">Compare all managers</a></div>';
 const query=new URLSearchParams(location.search);
 const requestedYear=query.get('year')==='2026'?'2026':'2025';
 try{
@@ -81,7 +83,7 @@ try{
    profileContext.innerHTML='<strong>'+esc(manager)+' · '+(isComplete?'2025 keeper review':'2026 keeper production')+'</strong>'+
     '<p>'+(isComplete?'The 2025 research index summarizes observed production, draft-round context and championship-bracket contribution. It is not an official Keeper Decision grade.':
      'Verified original-manager keeper starter points through Week '+through+'. No completed-season score or official decision grade exists yet.')+'</p>'+
-    profileLinks(manager);
+    profileLinks(manager,year.value);
    heading.textContent=manager+' · '+(isComplete?'2025 completed season':'2026 through Week '+through);
   }else{
    profileContext.hidden=true;
