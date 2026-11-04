@@ -527,8 +527,8 @@ try{
     const more=page.locator('details.report-more-links');
     if(await more.count()!==1||await more.evaluate(el=>el.open))
      errors.push(width+' report cards should tuck secondary research links away');
-    if(await page.locator('.report-top-nav a').count()!==3)
-     errors.push(width+' report cards primary navigation should have three clear destinations');
+    if(await page.locator('.report-top-nav a').count()!==5)
+     errors.push(width+' report cards primary navigation should retain five core destinations');
     const copy=await page.locator('body').innerText();
     if(copy.includes('Manager Development Lab · Preview')||copy.includes('archived matchup API data and supplied screenshots'))
      errors.push(width+' report card landing exposes internal development copy');
@@ -695,15 +695,21 @@ try{
     if(width===390){
      if(!await mobileNav.isVisible()||await desktopNav.isVisible())errors.push(width+' homepage mobile navigation visibility wrong');
      await mobileNav.locator(':scope > summary').click();
-     for(const href of ['managers/','analytics/manager-report-cards.html','hall/','analytics/records.html','analytics/sportscenter.html','analytics/power-ratings.html','analytics/rivalry-war-room.html','seasons/','analytics/search.html'])
-      if(!await mobileNav.locator('a[href="'+href+'"]').isVisible())errors.push(width+' mobile navigation missing '+href);
+     for(const href of ['managers/','analytics/manager-report-cards.html','analytics/records.html','analytics/rivalries.html'])
+      if(!await mobileNav.locator('nav.menu-links > a[href="'+href+'"]').isVisible())errors.push(width+' mobile main navigation missing '+href);
+     const extra=mobileNav.locator('details.home-mobile-explore');
+     if(await extra.count()!==1||await extra.evaluate(el=>el.open))
+      errors.push(width+' mobile advanced navigation must start collapsed');
+     await extra.locator(':scope > summary').click();
+     for(const href of ['hall/','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
+      if(!await extra.locator('a[href="'+href+'"]').isVisible())errors.push(width+' mobile Explore destination missing '+href);
      await mobileNav.locator(':scope > summary').click();
     }else{
-     if(await desktopNav.locator(':scope > a').count()!==5)errors.push(width+' homepage must show five primary desktop destinations');
+     if(await desktopNav.locator(':scope > a').count()!==4)errors.push(width+' homepage must show four primary destinations plus Explore');
      const more=desktopNav.locator('details.home-nav-more');
      if(await more.count()!==1||await more.evaluate(el=>el.open))errors.push(width+' desktop extra navigation should begin collapsed');
      await more.locator(':scope > summary').click();
-     for(const href of ['analytics/power-ratings.html','analytics/rivalry-war-room.html','seasons/','analytics/search.html'])
+     for(const href of ['hall/','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
       if(!await more.locator('a[href="'+href+'"]').isVisible())errors.push(width+' desktop extra navigation missing '+href);
      await more.locator(':scope > summary').click();
     }
