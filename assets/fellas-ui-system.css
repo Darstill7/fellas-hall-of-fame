@@ -64,3 +64,6 @@ body.fellas-polished .fellas-mobile-site-links a:hover{background:#244356;color:
 }
 @media(max-width:380px){body.fellas-polished .profile-career-snapshot .stats{grid-template-columns:1fr}body.fellas-polished .profile-career-snapshot .stat{min-height:0}}
 @media(prefers-reduced-motion:reduce){body.fellas-polished *,body.fellas-polished *::before,body.fellas-polished *::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* The brand is also navigation. Give it a comfortable keyboard/touch target. */
+body.fellas-polished header :is(a.brand,a.manager-nav-brand,.manager-nav-brand){min-height:44px;display:inline-flex;align-items:center;justify-content:center;line-height:1.4}

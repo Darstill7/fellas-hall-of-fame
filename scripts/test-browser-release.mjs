@@ -1322,6 +1322,9 @@ try{
       const snapshotStats=snapshot.locator('.profile-snapshot-stats > .stat');
       if(await snapshotStats.count()<3)
        errors.push(width+' '+slug+' career snapshot lost existing verified stat cards');
+      else if(!await snapshotStats.first().isVisible()||
+        await snapshotStats.first().evaluate(el=>getComputedStyle(el).display==='none'))
+       errors.push(width+' '+slug+' career snapshot stat cards are hidden by legacy CSS');
       const titles=await snapshotStats.locator('small').allTextContents();
       if(!titles.includes('Championships')||
          !titles.includes('Regular-season record')||

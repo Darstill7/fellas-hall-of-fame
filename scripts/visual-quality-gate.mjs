@@ -52,7 +52,7 @@ try{
          const c=getComputedStyle(node),r=node.getBoundingClientRect();
          return c.display!=='none'&&c.visibility!=='hidden'&&r.width>0&&r.height>0;
         };
-        const main=document.querySelector('main'),heading=[...document.querySelectorAll('main h1,.top h1,h1')].find(visible);
+        const main=document.querySelector('main,[role="main"]'),heading=[...document.querySelectorAll('main h1,.top h1,h1')].find(visible);
         const hr=heading?.getBoundingClientRect(),hs=heading?getComputedStyle(heading):null;
         const nav=[...document.querySelectorAll('header nav a,nav.nav a,header a')].filter(visible);
         const tiny=nav.filter(x=>x.getBoundingClientRect().height<38).map(x=>x.textContent.trim()).slice(0,8);
@@ -68,7 +68,8 @@ try{
          skipLink:!!document.querySelector('a.fellas-skip[href="#main-content"]'),
          mainLandmark:!!main,
          primaryStyle:!!document.querySelector('link[href*="assets/fellas-ui-system.css"]'),
-         loading:/(loading verified|loading archived results|loading manager)/i.test(main?.innerText||''),
+         loading:/(loading verified manager rankings)/i.test(document.getElementById('home-manager-status')?.innerText||''),
+         snapshotTiles:[...document.querySelectorAll('.profile-career-snapshot .stat')].filter(visible).length,
          bodyTextLength:(document.body.innerText||'').length};
        });
        const record={engine,width,route:key,...audit,runtimeErrors:runtime};
@@ -85,6 +86,8 @@ try{
         findings.push(engine+' '+width+' '+key+' resource or JS error '+runtime.slice(0,3).join(' | '));
        if(audit.loading)
         findings.push(engine+' '+width+' '+key+' first-screen content remains in a loading state');
+       if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'&&audit.snapshotTiles<3)
+        findings.push(engine+' '+width+' '+key+' career stat tiles not visible above the rating card');
        const dir=path.join(output,'screens',engine,String(width));
        await fs.mkdir(dir,{recursive:true});
        await page.screenshot({path:path.join(dir,name+'.png'),animations:'disabled',fullPage:false});

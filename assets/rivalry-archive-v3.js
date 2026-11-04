@@ -22,6 +22,10 @@ if(rivalrySections.length){
  rivalrySections[0].before(main);
  for(const section of rivalrySections)main.append(section);
 }
+const rivalryWrapper=document.querySelector('.wrap');
+if(rivalryWrapper)rivalryWrapper.setAttribute('role','main');
+const legacyMenuSummary=document.querySelector('.mobile-menu>summary');
+if(legacyMenuSummary)legacyMenuSummary.textContent='Menu';
 const heading=document.querySelector('.top h1');
 if(heading){
  heading.id='main-content';heading.tabIndex=-1;
@@ -74,7 +78,7 @@ if(document.body.dataset.rivalryPair){
   const details=document.createElement('details');details.className='rivalry-source-details';
   details.innerHTML='<summary>Source coverage and verification notes</summary>';
   for(const notice of notices){const p=document.createElement('p');p.append(...[...notice.childNodes]);details.append(p);notice.remove()}
-  document.querySelector('.brandbar')?.after(details);
+  (document.querySelector('.rival-hero')?.closest('section')||document.querySelector('.top')||document.querySelector('.brandbar'))?.after(details);
  }
  const heading=document.querySelector('.top');
  if(heading){
