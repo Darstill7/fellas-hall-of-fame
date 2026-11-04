@@ -56,8 +56,8 @@ const encyclopediaRenderer=read('assets/manager-encyclopedia.js');
 assert(encyclopediaRenderer.includes('waiver_award_candidates.json')&&encyclopediaRenderer.includes('v9_trade_engine.json'),'Manager encyclopedia must use source evidence');
 assert(encyclopediaRenderer.includes("encyclopediaUpdated='unavailable'"),'Failed encyclopedia fetch must expose unavailable status');
 assert(encyclopediaRenderer.includes('new AbortController()')&&encyclopediaRenderer.includes('controller.abort()')&&encyclopediaRenderer.includes('clearTimeout(timeout)'),'Manager encyclopedia network requests must have a bounded loading state');
-assert(encyclopediaRenderer.includes("encyclopediaUpdated='loading'")&&encyclopediaRenderer.includes('Loading source-backed highlights'),'Manager encyclopedia must clear stale award figures while fetching source evidence');
-assert(encyclopediaRenderer.includes('Waiver evidence unavailable')&&encyclopediaRenderer.includes('Trade evidence unavailable'),'Failed encyclopedia fetch must suppress static stale award figures');
+assert(encyclopediaRenderer.includes("encyclopediaUpdated='loading'")&&encyclopediaRenderer.includes('Loading player and trade history'),'Manager encyclopedia must clear stale award figures while fetching source evidence');
+assert(encyclopediaRenderer.includes('Pickup history unavailable')&&encyclopediaRenderer.includes('Trade history unavailable'),'Failed encyclopedia fetch must suppress static stale award figures');
 const recordRenderer=read('assets/canonical-manager-record.js');
 const h2hRenderer=read('assets/manager-h2h-explorer.js');
 assert(recordRenderer.includes('data/career_core_generated.json'),'Manager headlines must read generated career core');
@@ -179,10 +179,10 @@ for(const [slug,id] of Object.entries(managers)){
     const start=html.indexOf('data-encyclopedia-'+section+'>');
     assert(start>=0,'Missing encyclopedia '+section+' card: '+path);
     const hStart=html.indexOf('<h3>',start),hEnd=html.indexOf('</h3>',hStart);
-    assert(hStart>=0&&hEnd>hStart&&html.slice(hStart+4,hEnd)==='Source-backed highlight','Manager encyclopedia contains stale embedded award title: '+path+' '+section);
+    assert(hStart>=0&&hEnd>hStart&&html.slice(hStart+4,hEnd)===(section==='waiver'?'Player history':'Trade history'),'Manager encyclopedia contains stale embedded award title: '+path+' '+section);
     const pStart=html.indexOf('<p>',start),pEnd=html.indexOf('</p>',pStart);
     const paragraph=pStart>=0&&pEnd>pStart?html.slice(pStart+3,pEnd):'';
-    assert(paragraph.includes('Source-backed historical evidence loads when this page opens.'),'Manager encyclopedia contains stale embedded numeric evidence: '+path+' '+section);
+    assert(paragraph.includes(section==='waiver'?'Explore recorded players and pickups in the full profile.':'Explore recorded trades and outcomes in the full profile.'),'Manager encyclopedia contains stale embedded numeric evidence: '+path+' '+section);
    }
    assert(html.includes('id="franchise-story"'),'Canonical profile missing franchise biography: '+path);
    assert(html.includes('id="front-office-archive"'),'Canonical profile missing draft and trade archive: '+path);
