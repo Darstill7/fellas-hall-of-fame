@@ -782,6 +782,13 @@ try{
     }finally{await visitor.close();}
    }
    if(route===''){
+    const leagueSection=page.locator('section.section.shell').filter({has:page.getByRole('heading',{name:'Explore the league'})});
+    const recordsSection=page.locator('section.section.shell[aria-labelledby="season-records-home"]');
+    if(await leagueSection.count()!==1||await recordsSection.count()!==1||
+       !await leagueSection.evaluate(el=>Boolean(el.compareDocumentPosition(document.querySelector('[aria-labelledby="season-records-home"]'))&Node.DOCUMENT_POSITION_FOLLOWING)))
+     errors.push(width+' homepage should introduce league destinations before advanced Season OVR research');
+   }
+   if(route===''){
     const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
     if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
     if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
@@ -842,6 +849,8 @@ try{
      errors.push(width+' manager directory cards still have cramped hierarchy');
     const cards=page.locator('#manager-directory-cards a.manager');
     if(await cards.count()!==10)errors.push(width+' managers directory needs exactly 10 profile links');
+    if(await page.locator('details.manager-nav-more a[href="../analytics/records.html"]').count()!==0)
+     errors.push(width+' manager directory repeats the primary Records link inside More');
     const extra=page.locator('details.manager-nav-more');
     if(await extra.count()!==1||await extra.evaluate(el=>el.open))
      errors.push(width+' managers navigation extras should start collapsed');
