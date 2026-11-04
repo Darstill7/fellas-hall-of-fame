@@ -416,6 +416,25 @@ try{
     }
    }
    if(route===''){
+    const desktopNav=page.locator('.main-nav');
+    const mobileNav=page.locator('details.mobile-menu');
+    if(width===390){
+     if(!await mobileNav.isVisible()||await desktopNav.isVisible())errors.push(width+' homepage mobile navigation visibility wrong');
+     await mobileNav.locator(':scope > summary').click();
+     for(const href of ['managers/','analytics/manager-report-cards.html','hall/','analytics/records.html','analytics/sportscenter.html','analytics/power-ratings.html','analytics/rivalry-war-room.html','seasons/','analytics/search.html'])
+      if(!await mobileNav.locator('a[href="'+href+'"]').isVisible())errors.push(width+' mobile navigation missing '+href);
+     await mobileNav.locator(':scope > summary').click();
+    }else{
+     if(await desktopNav.locator(':scope > a').count()!==5)errors.push(width+' homepage must show five primary desktop destinations');
+     const more=desktopNav.locator('details.home-nav-more');
+     if(await more.count()!==1||await more.evaluate(el=>el.open))errors.push(width+' desktop extra navigation should begin collapsed');
+     await more.locator(':scope > summary').click();
+     for(const href of ['analytics/power-ratings.html','analytics/rivalry-war-room.html','seasons/','analytics/search.html'])
+      if(!await more.locator('a[href="'+href+'"]').isVisible())errors.push(width+' desktop extra navigation missing '+href);
+     await more.locator(':scope > summary').click();
+    }
+   }
+   if(route===''){
     const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
     if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
     if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
