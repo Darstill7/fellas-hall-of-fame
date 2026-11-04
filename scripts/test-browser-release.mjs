@@ -907,7 +907,7 @@ try{
       const labels=await features.locator('strong').allTextContents();
       for(const label of ['Championships & career record','Season-by-season results',
        'Head-to-head & rivalries','Legacy OVR progression','Drafting & trading résumé',
-       'Pickup highlights & FAAB','Start/Sit accuracy','Keeper research']){
+       'Pickup highlights','Start/Sit accuracy','Keeper research']){
        if(!labels.includes(label))errors.push(width+' '+slug+' feature button missing '+label);
       }
       const destinations=await features.evaluateAll(nodes=>nodes.map(x=>x.tagName==='A'?
