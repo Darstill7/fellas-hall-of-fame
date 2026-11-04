@@ -1,13 +1,7 @@
-import {findOwnedRecords} from './manager-record-ownership.mjs';
+import {findOwnedRecords,recordCategoryLabels} from './manager-record-ownership.mjs';
 const active=new Set(['Stilly','JMid','Thommy','Stew','Scott','Mitch','Tony','Stover','Kuhl','Birch']);
-const categories=[
- 'Highest regular-season weekly score',
- 'Largest regular-season victory',
- 'Most career regular-season wins',
- 'Most wins in a completed regular season',
- 'Most championships'
-];
-const toLabel=record=>record.value+(record.unit==='pts'?' pts':' '+record.unit);
+const categories=recordCategoryLabels;
+const toLabel=record=>record.value+(record.unit==='pts'?' pts':record.unit==='%'?'%':' '+record.unit);
 const target=name=>'../managers/record-books.html?manager='+encodeURIComponent(name)+'#owned-records';
 const tag=(name,value,cls)=>{const e=document.createElement(name);if(cls)e.className=cls;if(value!==undefined)e.textContent=value;return e};
 const detail=(name,label)=>{const a=tag('a',label);a.href=target(name);return a};
@@ -28,7 +22,7 @@ async function start(){
    const a=tag('a',undefined,'leader-card');a.href=target(row.name);
    const heading=tag('h3',row.name+(active.has(row.name)?'':' · Former manager'));
    const count=tag('span',row.records.length+' '+(row.records.length===1?'record':'records'),'count');
-   const preview=tag('small',row.records.length?row.records.map(r=>r.label).join(' · '):'No league lead among these five categories');
+   const preview=tag('small',row.records.length?row.records.map(r=>r.label).join(' · '):'No league lead among these '+categories.length+' categories');
    const link=tag('span','View exact records →','cta');
    a.append(heading,count,preview,link);list.append(a);
   }
