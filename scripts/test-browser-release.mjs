@@ -140,6 +140,23 @@ try{
       '../../analytics/records.html','../../analytics/rivalries.html'];
      if(JSON.stringify(destinations)!==JSON.stringify(expected))
       errors.push(width+' '+route+' manager primary navigation must match five key sections');
+     const mobileMenu=page.locator('header.nav details.fellas-mobile-site-menu');
+     if(await mobileMenu.count()!==1)
+      errors.push(width+' '+route+' manager missing site navigation disclosure');
+     else if(width===390){
+      if(!await mobileMenu.isVisible()||
+         await page.locator('header.nav nav.navlinks[aria-label="Main"]').isVisible())
+       errors.push(width+' '+route+' mobile manager navigation is too crowded');
+      await mobileMenu.locator(':scope > summary').click();
+      const mobileHrefs=await mobileMenu.locator('nav a').evaluateAll(nodes=>nodes.map(a=>a.getAttribute('href')));
+      if(JSON.stringify(mobileHrefs)!==JSON.stringify(expected)||
+         !await mobileMenu.locator('nav a').first().isVisible())
+       errors.push(width+' '+route+' mobile manager menu has missing destinations');
+      await mobileMenu.locator(':scope > summary').press('Escape');
+      if(await mobileMenu.evaluate(el=>el.open))
+       errors.push(width+' '+route+' mobile manager menu does not close with Escape');
+     }else if(await mobileMenu.isVisible())
+      errors.push(width+' '+route+' mobile-only manager menu exposed on desktop');
     }
    }
    if(state.body<80)errors.push(width+' '+route+' blank or very little content');
