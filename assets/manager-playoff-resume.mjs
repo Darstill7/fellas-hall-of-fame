@@ -1,5 +1,5 @@
 // Verified championship brackets only. Bye seasons count; consolation does not.
-export function buildPlayoffResume(espn,sleeper,name){
+export function buildPlayoffResume(espn,sleeper,name,placementArchive=null){
  const seasons=[...(espn?.seasons||[]),...(sleeper?.seasons||[])].sort((a,b)=>a.year-b.year);
  if(seasons.length!==10||new Set(seasons.map(s=>s.year)).size!==10||
     seasons.some(s=>s.year<2016||s.year>2025))throw Error('Incomplete verified 2016–2025 brackets');
@@ -10,8 +10,11 @@ export function buildPlayoffResume(espn,sleeper,name){
    throw Error('Incomplete championship bracket for '+s.year);
   const qualified=entrants.includes(manager),finalist=s.finalists.includes(manager);
   if(finalist&&!qualified)throw Error('Finalist absent from playoff bracket '+s.year);
-  const finish=!qualified?'Did not qualify':s.champion===manager?'Champion':finalist?'Runner-up':'Qualified';
-  return {year:s.year,qualified,finalist,champion:s.champion===manager,finish,
+  const finalPlace=placementArchive?.seasons?.find(y=>y.year===s.year)?.finalPlacements?.find(p=>p.manager===manager)?.place;
+  const finish=finalPlace===10?'10th · Shitter of the Year':
+    finalPlace&&finalPlace>=3?finalPlace+(finalPlace===3?'rd':finalPlace===4?'th':finalPlace===5?'th':finalPlace===6?'th':finalPlace===7?'th':finalPlace===8?'th':'th')+' place':
+    !qualified?'Did not qualify':s.champion===manager?'Champion':finalist?'Runner-up':'Qualified';
+  return {year:s.year,qualified,finalist,champion:s.champion===manager,finish,finalPlace,
    bye:qualified&&Array.isArray(s.byes)&&s.byes.includes(manager)};
  });
  return {manager,appearances:timeline.filter(y=>y.qualified).length,
@@ -40,11 +43,12 @@ export async function mountManagerPlayoffResume(){
  try{
   const responses=await Promise.all([
    fetch('../../data/verified_espn_playoff_brackets_2016_2019.json'),
-   fetch('../../data/verified_sleeper_playoff_brackets_2020_2025.json')
+   fetch('../../data/verified_sleeper_playoff_brackets_2020_2025.json'),
+   fetch('../../data/sleeper_postseason_placement_receipts_2020_2025.json')
   ]);
   if(responses.some(r=>!r.ok))throw Error('Verified brackets unavailable');
-  const [espn,sleeper]=await Promise.all(responses.map(r=>r.json()));
-  const resume=buildPlayoffResume(espn,sleeper,heading.textContent.trim());
+  const [espn,sleeper,placementArchive]=await Promise.all(responses.map(r=>r.json()));
+  const resume=buildPlayoffResume(espn,sleeper,heading.textContent.trim(),placementArchive);
   const metrics=node('div','profile-playoff-metrics');
   for(const [label,value] of [
    ['Playoff appearances',resume.appearances],
@@ -65,7 +69,7 @@ export async function mountManagerPlayoffResume(){
    list.append(item);
   }
   const note=node('p','profile-playoff-note',
-   'Only verified championship-bracket qualification and finalist outcomes are shown. Consolation games are excluded. “Qualified” does not imply a verified final placement.');
+   'Playoff qualification and completed 2020–2025 finishing positions are sourced from documented brackets. Consolation results do not count as playoff berths. Unverified finishes remain unassigned.');
   history.append(summary,list,note);
   status.replaceWith(metrics,history);
  }catch(error){
