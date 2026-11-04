@@ -73,7 +73,70 @@
           "week": 16,
           "note": "Uploaded screenshot appears to show Birch 110.14; archived matchup ledger records Birch 110.24 against Stover 78.90. Winner is consistent but exact score requires comparison with official Sleeper history."
         }
-      ]
+      ],
+      "finalPlacements": [
+        {
+          "place": 1,
+          "manager": "Koble",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 2,
+          "manager": "Mitch",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 3,
+          "manager": "Birch",
+          "evidence": "3rd Place",
+          "scoreVerified": false
+        },
+        {
+          "place": 4,
+          "manager": "Stover",
+          "evidence": "3rd Place",
+          "scoreVerified": false
+        },
+        {
+          "place": 5,
+          "manager": "Kuhl",
+          "evidence": "5th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 6,
+          "manager": "Evans",
+          "evidence": "5th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 7,
+          "manager": "Stilly",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 8,
+          "manager": "Thommy",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 9,
+          "manager": "Stew",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        },
+        {
+          "place": 10,
+          "manager": "Tony",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        }
+      ],
+      "placementsComplete": true
     },
     {
       "year": 2021,
@@ -136,7 +199,70 @@
           "loser": "Stilly",
           "loserScore": 88.68
         }
-      ]
+      ],
+      "finalPlacements": [
+        {
+          "place": 1,
+          "manager": "Tony",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 2,
+          "manager": "Evans",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 3,
+          "manager": "Birch",
+          "evidence": "3rd Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 4,
+          "manager": "Stover",
+          "evidence": "3rd Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 5,
+          "manager": "Mitch",
+          "evidence": "5th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 6,
+          "manager": "Thommy",
+          "evidence": "5th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 7,
+          "manager": "Kuhl",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 8,
+          "manager": "Stew",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 9,
+          "manager": "Koble",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        },
+        {
+          "place": 10,
+          "manager": "Stilly",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        }
+      ],
+      "placementsComplete": true
     },
     {
       "year": 2022,
@@ -182,7 +308,46 @@
           "loser": "Birch",
           "loserScore": 74.7
         }
-      ]
+      ],
+      "finalPlacements": [
+        {
+          "place": 1,
+          "manager": "Stover",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 2,
+          "manager": "Stew",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 7,
+          "manager": "Evans",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 8,
+          "manager": "Koble",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 9,
+          "manager": "Tony",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        },
+        {
+          "place": 10,
+          "manager": "Birch",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        }
+      ],
+      "placementsComplete": false
     },
     {
       "year": 2023,
@@ -245,7 +410,70 @@
           "loser": "Stew",
           "loserScore": 125.3
         }
-      ]
+      ],
+      "finalPlacements": [
+        {
+          "place": 1,
+          "manager": "Stilly",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 2,
+          "manager": "Mitch",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 3,
+          "manager": "Koble",
+          "evidence": "3rd Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 4,
+          "manager": "Tony",
+          "evidence": "3rd Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 5,
+          "manager": "Birch",
+          "evidence": "5th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 6,
+          "manager": "JMid",
+          "evidence": "5th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 7,
+          "manager": "Thommy",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 8,
+          "manager": "Stover",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 9,
+          "manager": "Kuhl",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        },
+        {
+          "place": 10,
+          "manager": "Stew",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        }
+      ],
+      "placementsComplete": true
     },
     {
       "year": 2024,
@@ -308,7 +536,70 @@
           "loser": "Kuhl",
           "loserScore": 112.1
         }
-      ]
+      ],
+      "finalPlacements": [
+        {
+          "place": 1,
+          "manager": "Thommy",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 2,
+          "manager": "Stilly",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 3,
+          "manager": "Stover",
+          "evidence": "3rd Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 4,
+          "manager": "JMid",
+          "evidence": "3rd Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 5,
+          "manager": "Tony",
+          "evidence": "5th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 6,
+          "manager": "Birch",
+          "evidence": "5th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 7,
+          "manager": "Scott",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 8,
+          "manager": "Stew",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 9,
+          "manager": "Mitch",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        },
+        {
+          "place": 10,
+          "manager": "Kuhl",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        }
+      ],
+      "placementsComplete": true
     },
     {
       "year": 2025,
@@ -371,7 +662,70 @@
           "loser": "Stover",
           "loserScore": 85.5
         }
-      ]
+      ],
+      "finalPlacements": [
+        {
+          "place": 1,
+          "manager": "Scott",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 2,
+          "manager": "Thommy",
+          "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 3,
+          "manager": "Mitch",
+          "evidence": "3rd Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 4,
+          "manager": "Birch",
+          "evidence": "3rd Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 5,
+          "manager": "Tony",
+          "evidence": "5th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 6,
+          "manager": "Stew",
+          "evidence": "5th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 7,
+          "manager": "Stilly",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 8,
+          "manager": "JMid",
+          "evidence": "8th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 9,
+          "manager": "Kuhl",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        },
+        {
+          "place": 10,
+          "manager": "Stover",
+          "evidence": "King (Last Place)",
+          "scoreVerified": true
+        }
+      ],
+      "placementsComplete": true
     }
   ]
 }

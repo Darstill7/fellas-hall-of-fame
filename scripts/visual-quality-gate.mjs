@@ -129,7 +129,16 @@ try{
             !text.includes('Shitter of the Year'))
           findings.push(engine+' '+width+' '+key+' postseason evidence did not load correctly');
          {
-          const detail=proof.locator('details.placement-more');
+          const ranked=proof.locator('details.placement-final-ranks');
+          if(await ranked.count()!==1)
+           findings.push(engine+' '+width+' '+key+' final finishing positions missing');
+          else{
+           await ranked.locator('summary').click();
+           const expectedPlaces=year===2022?6:10;
+           if(await ranked.locator('li').count()!==expectedPlaces)
+            findings.push(engine+' '+width+' '+key+' expected '+expectedPlaces+' verified final positions');
+          }
+          const detail=proof.locator('details.placement-more:not(.placement-final-ranks)');
           if(await detail.count()!==1)findings.push(engine+' '+width+' '+key+' placement detail missing');
           else{
            await detail.locator('summary').click();

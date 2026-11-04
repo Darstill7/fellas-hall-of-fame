@@ -153,6 +153,19 @@ for(const yearData of bracketReceipts.seasons){
  if(yearData.toiletBowl?.manager!==expectedLast[year])
   throw Error('Toilet Bowl loser mismatch in '+year);
  if(yearData.reviewNeeded?.length&&year!==2020)throw Error('Unexpected ambiguous third-place evidence in '+year);
+ const finished=yearData.finalPlacements||[];
+ if(finished.length!==(year===2022?6:10)||
+    yearData.placementsComplete!==(year!==2022))
+  throw Error('Postseason placements must be complete except uncertified 2022 positions '+year);
+ const uniqueManagers=new Set(finished.map(x=>x.manager)),uniquePlaces=new Set(finished.map(x=>x.place));
+ if(uniqueManagers.size!==finished.length||uniquePlaces.size!==finished.length)
+  throw Error('Season placement manager duplicated or ranks repeated in '+year);
+ if(finished.find(x=>x.place===10)?.manager!==yearData.toiletBowl.manager)
+  throw Error('Final 10th-place manager must be Shitter of the Year in '+year);
+ if(finished.find(x=>x.place===1)?.manager!==yearData.championship.winner)
+  throw Error('Final first-place manager must be season champion '+year);
+ if(year===2020&&finished.filter(x=>!x.scoreVerified).map(x=>x.place).join(',')!=='3,4')
+  throw Error('Unreconciled 2020 third place score must remain flagged');
  for(const game of yearData.placementGames){
   const matches=sourceMatchups.find(x=>x.year===year&&x.week===game.week)?.games||[];
   const found=matches.some(m=>{

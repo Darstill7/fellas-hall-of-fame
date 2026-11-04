@@ -46,7 +46,21 @@ function renderSeason(root,s){
   details.append(summary,list);root.append(details);
  }
  if(s.reviewNeeded?.length)root.append(make('p','A third-place result from '+s.year+' has a small screenshot-versus-archive scoring discrepancy and is awaiting verification.','placement-note'));
- root.append(make('p','Championship and placement games are separate. The 8th-place game does not decide Shitter of the Year. The 2026 season is still underway.','placement-note'));
+ if(s.finalPlacements?.length){
+  const ranks=make('details',null,'placement-more placement-final-ranks');
+  ranks.append(make('summary',s.placementsComplete?'View all 10 final finishing positions':'View verified final finishing positions'));
+  const ordered=make('ol',null,'placement-list placement-rank-list');
+  for(const entry of s.finalPlacements){
+   const li=make('li');
+   li.append(make('strong','#'+entry.place+' '+entry.manager),
+    make('span',entry.scoreVerified?'Bracket placement verified':'Finishing position verified · exact score under review'));
+   ordered.append(li);
+  }
+  ranks.append(ordered);
+  if(!s.placementsComplete)ranks.append(make('p','Some finishing positions remain unverified because those placement games were not shown in the supplied screenshots.','placement-note'));
+  root.append(ranks);
+ }
+ root.append(make('p','These are final postseason placements, not regular-season standings. The 8th-place game does not decide Shitter of the Year. The 2026 season is still underway.','placement-note'));
 }
 function renderHistory(root,data){
  const heading=make('h2','Hall of Shame · Shitter of the Year');
@@ -69,6 +83,7 @@ function addCSS(){
  const style=make('style');
  style.id='fellas-placement-style';
  style.textContent='.placement-results{max-width:1060px;margin:22px auto;padding:20px;border:1px solid #50687a;border-radius:15px;background:#122b3a;color:#f6f2e9;line-height:1.6;scroll-margin-top:84px}.placement-results h2{font-size:clamp(21px,3.4vw,30px);line-height:1.3;margin:0 0 8px;letter-spacing:-.025em}.placement-intro,.placement-note{color:#c7d5de;font-size:13px;line-height:1.65;margin:0 0 15px}.placement-note{margin:14px 0 0}.placement-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.placement-card{padding:16px;background:#0c2231;border:1px solid #4b6577;border-radius:11px;display:flex;flex-direction:column;gap:6px;min-width:0}.placement-card small{font-size:12px;color:#e8c47d;line-height:1.5}.placement-card strong{font-size:clamp(22px,4vw,30px);color:#fff;line-height:1.3}.placement-card span{font-size:13px;color:#d4e1e9;overflow-wrap:anywhere}.placement-toilet{border-color:#6b7488}.placement-more{border:1px solid #4b6577;border-radius:10px;margin-top:13px;padding:0 13px;background:#102432}.placement-more summary{min-height:46px;cursor:pointer;color:#efd397;font-weight:800;font-size:13px;display:flex;align-items:center}.placement-more summary:focus-visible,.placement-shame-row:focus-visible{outline:3px solid #e8c47d;outline-offset:2px}.placement-list{list-style:none;padding:0 0 10px;margin:0}.placement-list li{display:flex;justify-content:space-between;gap:14px;border-top:1px solid #435b6c;padding:11px 2px;font-size:13px;flex-wrap:wrap}.placement-list li span{text-align:right;overflow-wrap:anywhere}.placement-shame-list{display:grid;gap:9px}.placement-shame-row{display:grid;grid-template-columns:60px minmax(100px,1fr) minmax(0,1.5fr);gap:9px;align-items:center;padding:13px 14px;min-height:53px;border:1px solid #4b6577;border-radius:10px;background:#0d2433;text-decoration:none;color:#f6f2e9}.placement-shame-row:hover{border-color:#e8c47d;background:#183649}.placement-year{color:#e8c47d;font-weight:800;font-variant-numeric:tabular-nums}.placement-score{color:#bdceda;font-size:12px;text-align:right;overflow-wrap:anywhere}@media(max-width:650px){.placement-results{padding:15px;margin:16px auto}.placement-grid{grid-template-columns:1fr;gap:9px}.placement-shame-row{grid-template-columns:47px 1fr;gap:3px 10px}.placement-score{grid-column:2;text-align:left}.placement-list li span{text-align:left}}';
+style.textContent += '.placement-rank-list li{align-items:center}.placement-rank-list li strong{font-variant-numeric:tabular-nums}.placement-final-ranks{margin-top:10px}.placement-final-ranks .placement-note{margin:0 0 12px}';
  document.head.append(style);
 }
 async function mount(){
