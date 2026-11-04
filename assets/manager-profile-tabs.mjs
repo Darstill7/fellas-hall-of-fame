@@ -5,6 +5,28 @@ import {managerPersonas} from './manager-personas.mjs';
 const profileName=document.querySelector('main .hero h1')?.textContent?.trim();
 const persona=managerPersonas[profileName]||managerPersonas[profileName==='Tom'?'Thommy':profileName];
 const profileHero=document.querySelector('main .hero');
+// A compact site menu preserves the five primary destinations without
+// crowding manager identities on phones. Desktop keeps its visible links.
+const desktopSiteNav=document.querySelector('header.nav nav.navlinks');
+if(desktopSiteNav&&!document.querySelector('.fellas-mobile-site-menu')){
+ const disclosure=document.createElement('details');
+ disclosure.className='fellas-mobile-site-menu';
+ const summary=document.createElement('summary');
+ summary.textContent='Explore site';
+ const links=desktopSiteNav.cloneNode(true);
+ links.className='fellas-mobile-site-links';
+ links.setAttribute('aria-label','Mobile site navigation');
+ disclosure.append(summary,links);
+ desktopSiteNav.after(disclosure);
+ document.body.classList.add('fellas-mobile-ready');
+ document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&disclosure.open){
+   event.preventDefault();event.stopImmediatePropagation();
+   disclosure.open=false;summary.focus();
+  }
+ });
+}
+
 if(persona&&profileHero&&!profileHero.querySelector('.manager-nickname-origin')){
  const panel=document.createElement('details');
  panel.className='manager-nickname-origin';
