@@ -713,6 +713,12 @@ try{
       if(restored.tab!=='true')errors.push(width+' '+slug+' returning from report lost selected season tab');
       if(Math.abs(restored.y-originalY)>250)errors.push(width+' '+slug+' returning from report lost reading position');
      }
+     // Returning through BFCache may restore the selected category while
+     // leaving the optional archive disclosure closed. Open it before
+     // exercising its secondary controls.
+     const postReturnSwitcher=page.locator('details.profile-section-switcher');
+     if(!await postReturnSwitcher.evaluate(el=>el.open))
+      await postReturnSwitcher.locator(':scope > summary').click();
      for(const category of ['overview','seasons','rivalries','advanced']){
       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
       await button.click();
