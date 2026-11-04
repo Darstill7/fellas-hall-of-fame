@@ -709,6 +709,18 @@ try{
    if(route==='analytics/power-ratings.html'){
     const cards=await page.locator('[data-rating-manager]').count();
     if(cards!==14)errors.push(width+' power ratings failed to render 14 managers: '+cards);
+    const breakdowns=page.locator('[data-rating-manager] details.rating-breakdown');
+    if(await breakdowns.count()!==14)
+     errors.push(width+' power ratings must preserve an expandable breakdown for all 14 managers');
+    else{
+     const initialOpen=await breakdowns.evaluateAll(nodes=>nodes.filter(n=>n.open).length);
+     if(initialOpen!==0)errors.push(width+' power rating detail cards overwhelm first-time visitors');
+     await breakdowns.first().locator(':scope > summary').click();
+     if(await breakdowns.first().locator('.component').count()!==8||
+        !await breakdowns.first().locator('.components').isVisible())
+      errors.push(width+' power rating breakdown not accessible or incomplete');
+     await breakdowns.first().locator(':scope > summary').click();
+    }
    }
    if(route==='analytics/manager-madden-cards.html'){
     const cards=page.locator('#cards article.card');
