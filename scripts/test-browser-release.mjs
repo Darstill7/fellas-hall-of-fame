@@ -762,6 +762,26 @@ try{
     if(await page.locator('#team-a').inputValue()!=='2018|Kuhl'||await page.locator('#team-b').inputValue()!=='2019|Thommy')
      errors.push(width+' historical spread deep-link parameters not honored');
    }
+   if(route==='analytics/records.html'){
+    const coverage=page.locator('main .hero details.records-coverage');
+    if(await coverage.count()!==1||await coverage.evaluate(el=>el.open))
+     errors.push(width+' all-time record book source coverage must start collapsed');
+    else{
+     await coverage.locator(':scope > summary').click();
+     if(!((await coverage.innerText()).includes('ESPN 2016–2019'))||
+        !((await coverage.innerText()).includes('Missing weekly player box scores')))
+      errors.push(width+' all-time record book source limitations hidden or unavailable');
+    }
+    const dataTable=page.locator('.records-table');
+    if(await dataTable.count()!==1||!await dataTable.isVisible())
+     errors.push(width+' all-time record book main table unavailable');
+    const spacing=await page.locator('.records-table th').first().evaluate(el=>({
+     line:parseFloat(getComputedStyle(el).lineHeight),
+     pad:parseFloat(getComputedStyle(el).paddingTop)
+    }));
+    if(spacing.line<17||spacing.pad<11)
+     errors.push(width+' all-time record book table type remains cramped');
+   }
    if(route==='analytics/power-ratings.html'){
     const cards=await page.locator('[data-rating-manager]').count();
     if(cards!==14)errors.push(width+' power ratings failed to render 14 managers: '+cards);
