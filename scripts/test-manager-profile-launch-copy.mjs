@@ -88,6 +88,14 @@ if(placementStats.get('Mitch')?.averageFinish!==4.167||
  throw Error('Season-finishing historical stats changed');
 if(placementAudit.findings.length!==2||placementAudit.findings.some(f=>f.year!==2020))
  throw Error('Score reconciliation issues require re-review');
+const mitchResume=buildPlayoffResume(playoffEspn,playoffSleeper,'Mitch',placementReceipts);
+const scottResume=buildPlayoffResume(playoffEspn,playoffSleeper,'Scott',placementReceipts);
+if(mitchResume.finalPlaceSummary?.seasons!==6||
+   mitchResume.finalPlaceSummary?.averageFinish!==4.17||
+   mitchResume.finalPlaceSummary?.topThree!==3||
+   scottResume.finalPlaceSummary?.seasons!==2||
+   scottResume.finalPlaceSummary?.averageFinish!==4)
+ throw Error('Manager profile finishing summaries do not match six-season placement audit');
 postseason.placements=placementMaster;
 postseason.placementReceipts=placementReceipts;
 const holderMap=new Map(book.managers.map(m=>[m.manager,findOwnedRecords(book,guide,m.manager,postseason)]));

@@ -17,9 +17,16 @@ export function buildPlayoffResume(espn,sleeper,name,placementArchive=null){
   return {year:s.year,qualified,finalist,champion:s.champion===manager,finish,finalPlace,
    bye:qualified&&Array.isArray(s.byes)&&s.byes.includes(manager)};
  });
+ const finalRanks=timeline.filter(y=>Number.isInteger(y.finalPlace)).map(y=>y.finalPlace);
+ const finalPlaceSummary=finalRanks.length?{
+  seasons:finalRanks.length,
+  averageFinish:Number((finalRanks.reduce((total,x)=>total+x,0)/finalRanks.length).toFixed(2)),
+  topThree:finalRanks.filter(x=>x<=3).length,
+  bottomThree:finalRanks.filter(x=>x>=8).length
+ }:null;
  return {manager,appearances:timeline.filter(y=>y.qualified).length,
   championshipGames:timeline.filter(y=>y.finalist).length,
-  championships:timeline.filter(y=>y.champion).length,timeline};
+  championships:timeline.filter(y=>y.champion).length,timeline,finalPlaceSummary};
 }
 function node(tag,cls,value){
  const n=document.createElement(tag);
@@ -70,7 +77,16 @@ export async function mountManagerPlayoffResume(){
   }
   const note=node('p','profile-playoff-note',
    'Playoff qualification and completed 2020–2025 finishing positions are sourced from documented brackets. Consolation results do not count as playoff berths. Unverified finishes remain unassigned.');
-  history.append(summary,list,note);
+  history.append(summary);
+  if(resume.finalPlaceSummary){
+   const f=resume.finalPlaceSummary;
+   const sample=node('p','profile-playoff-note profile-playoff-summary',
+    'Sleeper-era final finishes: '+f.seasons+' completed '+(f.seasons===1?'season':'seasons')+
+    ' · '+f.averageFinish.toFixed(2)+' average place · '+f.topThree+' top-three · '+
+    f.bottomThree+' bottom-three.');
+   history.append(sample);
+  }
+  history.append(list,note);
   status.replaceWith(metrics,history);
  }catch(error){
   status.textContent='Verified playoff résumé is temporarily unavailable. Other career history remains accessible below.';

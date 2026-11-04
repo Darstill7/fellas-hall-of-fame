@@ -260,6 +260,8 @@ try{
      errors.push(width+' '+route+' playoff history disclosure absent');
     else{
      await details.locator('summary').click();
+     if(await details.locator('.profile-playoff-summary').count()!==1)
+      errors.push(width+' '+route+' missing documented finishing-position summary');
      const years=await details.locator('.profile-playoff-timeline li').count();
      if(years!==10)
       errors.push(width+' '+route+' postseason timeline should show ten completed seasons, received '+years);
