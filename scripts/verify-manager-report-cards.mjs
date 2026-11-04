@@ -228,7 +228,10 @@ const faabLegacy=JSON.parse(fs.readFileSync('data-integrity/faab-legacy-claim-ve
 if(faabLegacy.cases.length!==16||faabLegacy.cases.some(x=>x.bidVerified!==true||x.outcomeGradeVerified!==false))throw Error('FAAB source evidence qualification drift');
 for(const page of ['labs/faab.html','labs/faab/index.html']){
  const html=fs.readFileSync(page,'utf8');
- if(!html.includes('BID PRICES VERIFIED · OUTCOME RATINGS EDITORIAL')||!html.includes('All 16 displayed FAAB prices')||!html.includes('editorial opinions')||html.includes('ARCHIVAL CLAIMS NOT VERIFIED'))throw Error('FAAB archive bid/grade provenance disclosure mismatch: '+page);
+ const modern=page.endsWith('/index.html');
+ const bidLabel=modern?'Historical bids, with editorial evaluations':'BID PRICES VERIFIED · OUTCOME RATINGS EDITORIAL';
+ const priceContext=modern?'All 16 displayed bid prices are matched to recorded Sleeper transactions.':'All 16 displayed FAAB prices';
+ if(!html.includes(bidLabel)||!html.includes(priceContext)||!html.includes('editorial opinions')||html.includes('ARCHIVAL CLAIMS NOT VERIFIED'))throw Error('FAAB archive bid/grade provenance disclosure mismatch: '+page);
  const sourceLink=(page.endsWith('/index.html')?'../../':'../')+'data-integrity/faab-legacy-claim-verification-v1.json';
  if(!html.includes('href="'+sourceLink+'"'))throw Error('FAAB archive missing source evidence link: '+page);
 }
