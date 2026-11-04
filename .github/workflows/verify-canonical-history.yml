@@ -131,6 +131,8 @@ jobs:
         run: node scripts/test-manager-profile-launch-copy.mjs
       - name: Verify manager report card evidence
         run: node scripts/verify-manager-report-cards.mjs
+      - name: Guard 2026 SportsCenter against stale live-status claims
+        run: node scripts/test-sportscenter-archive.mjs
       - name: Verify distinct $0 waiver versus free-agent acquisition labels
         run: node scripts/test-pickup-cost-label.mjs
       - name: Enforce fantasy-football rating methodology and evidence safeguards
