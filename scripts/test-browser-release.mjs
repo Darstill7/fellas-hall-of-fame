@@ -486,6 +486,8 @@ try{
     if(text.includes('Rivalry archive could not be loaded')||text.includes('Rivalry data unavailable'))errors.push(width+' '+route+' rivalry module did not load');
    }
    if(route===''){
+    const snapshot=await page.locator('#home-season-snapshot').innerText();
+    if(!snapshot.includes('Canonical results through Week 7')||!snapshot.includes('Mitch'))errors.push(width+' homepage canonical 2026 snapshot inaccurate');
     const search=page.locator('#home-manager-search');
     if(width===390){
      if(!await search.isVisible())errors.push(width+' mobile manager finder missing');
@@ -529,7 +531,14 @@ try{
      if(await page.locator('#home-manager-cards').isVisible())errors.push(width+' desktop cards should be hidden on mobile');
     }else{
      if(!await page.locator('#home-manager-cards').isVisible())errors.push(width+' desktop manager cards missing');
-     if(await search.isVisible())errors.push(width+' mobile-only search showing on desktop');
+     if(!await search.isVisible())errors.push(width+' desktop manager search missing');
+     await page.locator('#home-manager-sort').selectOption('rank');
+     const ranks=await page.locator('#home-manager-cards .home-manager-card').evaluateAll(els=>els.map(e=>Number(e.dataset.managerRank)));
+     if(ranks.some((v,i)=>i>0&&v<ranks[i-1]))errors.push(width+' desktop rank sorting incorrect');
+     await search.fill('Stov');
+     if(await page.locator('#home-manager-cards .home-manager-card:visible').count()!==1)errors.push(width+' desktop manager finder failed');
+     await page.locator('#home-manager-clear').click();
+     if(await page.locator('#home-manager-cards .home-manager-card:visible').count()!==10)errors.push(width+' desktop manager finder clear failed');
     }
    }
    if(route==='seasons/weekly-matchup-archive.html'){
