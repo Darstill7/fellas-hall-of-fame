@@ -499,6 +499,23 @@ try{
    if(route==='analytics/manager-report-cards.html'){
     const count=await page.locator('[data-report-manager]').count();
     if(count!==10)errors.push(width+' report card preview rendered '+count+' of 10 managers');
+    const reportSelect=page.locator('#report-manager-select');
+    if(await reportSelect.count()!==1||await reportSelect.locator('option').count()!==11)
+     errors.push(width+' report card selector must list all ten managers plus all');
+    else{
+     await reportSelect.selectOption('Birch');
+     const selected=page.locator('#cards [data-report-manager]:visible');
+     if(await selected.count()!==1||await selected.first().getAttribute('data-report-manager')!=='Birch'||
+        !(await page.locator('#report-manager-count').innerText()).includes('Birch'))
+      errors.push(width+' report manager selector did not isolate requested manager');
+     await reportSelect.selectOption('');
+     if(await selected.count()!==10||
+        !(await page.locator('#report-manager-count').innerText()).includes('All 10'))
+      errors.push(width+' report manager selector did not restore all report cards');
+    }
+    const scouting=page.locator('[data-report-manager] details.report-evidence-details details.report-scouting-more');
+    if(await scouting.count()!==10||await scouting.evaluateAll(nodes=>nodes.some(node=>node.open)))
+     errors.push(width+' detailed scouting dossier must be nested and initially collapsed');
     const categoryPanels=page.locator('[data-report-manager] details.report-category-details');
     const evidencePanels=page.locator('[data-report-manager] details.report-evidence-details');
     if(await categoryPanels.count()!==10||await evidencePanels.count()!==10)
@@ -600,6 +617,8 @@ try{
       errors.push(width+' focused report card does not begin with a concise manager view');
      if(!await page.locator('a[data-report-all-managers][href="manager-report-cards.html"]').isVisible())
       errors.push(width+' focused report card cannot return to all manager rankings');
+     if(await page.locator('#report-manager-picker').isVisible())
+      errors.push(width+' focused report card should not show an unrelated manager filter');
      // The explicit pickup deep link shows sourced details immediately.
      await page.goto(baseUrl+'analytics/manager-report-cards.html?manager=Stilly#cards',{waitUntil:'networkidle'});
      const filtered=page.locator('[data-report-manager]');
