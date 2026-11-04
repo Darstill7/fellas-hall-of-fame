@@ -759,6 +759,7 @@ try{
       else await card.click();
      }
      await visitor.waitForURL('**/managers/stilly/',{timeout:10000});
+     await visitor.locator('#profile-features').waitFor({state:'visible',timeout:10000});
      if(!(await visitor.locator('main .hero h1').innerText()).includes('Stilly')||
         !await visitor.locator('#profile-features').isVisible())
       errors.push(width+' first-visit homepage manager link failed to reach usable profile');
@@ -775,6 +776,7 @@ try{
       errors.push(width+' first-visit navigation failed to reach manager directory');
      await visitor.locator('#manager-directory-cards a.manager[href="stilly/"]').click();
      await visitor.waitForURL('**/managers/stilly/',{timeout:10000});
+     await visitor.locator('#profile-features').waitFor({state:'visible',timeout:10000});
      if(!await visitor.locator('#profile-features').isVisible())
       errors.push(width+' first-visit directory manager link failed to reveal feature navigation');
     }catch(error){
