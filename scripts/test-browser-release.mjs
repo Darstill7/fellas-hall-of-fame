@@ -462,6 +462,11 @@ try{
       errors.push(width+' filtered pickup deep link did not auto-open the highlights');
      if(await opened.locator('li').count()!==3)
       errors.push(width+' filtered pickup view lacks its three sourced highlights');
+     const returnToProfile=page.locator('a[data-report-return-profile]');
+     if(await returnToProfile.count()!==1||await returnToProfile.getAttribute('href')!=='../managers/stilly/'||
+        !await page.locator('main h1').innerText().then(x=>x.includes("Stilly's Report Card"))||
+        await page.locator('section[aria-label="Compare managers"]').isVisible())
+      errors.push(width+' filtered report card does not return to its manager or hide unrelated comparisons');
     }
    }
    if(route===''){
