@@ -10,7 +10,7 @@ export const recordCategoryLabels=[
  'Closest regular-season victory',
  'Highest career regular-season winning percentage (50+ games)'
 ];
-export function findOwnedRecords(archive,guide,manager){
+export function buildRecordCategories(archive,guide){
  const all=archive.managers||[];
  const categories=[
   {label:'Highest regular-season weekly score',rows:all.filter(m=>Number.isFinite(m.bestWeek?.points)).map(m=>({manager:m.manager,value:m.bestWeek.points,game:m.bestWeek})),direction:'max',unit:'pts'},
@@ -22,6 +22,10 @@ export function findOwnedRecords(archive,guide,manager){
   {label:'Closest regular-season victory',rows:all.filter(m=>Number.isFinite(m.closestWin?.margin)&&m.closestWin.margin>0).map(m=>({manager:m.manager,value:m.closestWin.margin,game:m.closestWin})),direction:'min',unit:'pts'},
   {label:'Highest career regular-season winning percentage (50+ games)',rows:all.filter(m=>m.regular?.games>=50&&Number.isInteger(m.regular.w)&&Number.isInteger(m.regular.t)).map(m=>({manager:m.manager,value:Number((100*(m.regular.w+m.regular.t/2)/m.regular.games).toFixed(2)),games:m.regular.games})),direction:'max',unit:'%'}
  ];
+ return categories;
+}
+export function findOwnedRecords(archive,guide,manager){
+ const categories=buildRecordCategories(archive,guide);
  return categories.flatMap(category=>{
   if(!category.rows.length)return [];
   const recordValue=Math[category.direction](...category.rows.map(x=>x.value));
@@ -40,6 +44,22 @@ export function findOwnedRecords(archive,guide,manager){
     'Recorded 2016–'+archive.asOf
   }));
  });
+}
+// Compare with the next-best different manager, not the holder's second season.
+export function nextRecordChallenger(archive,guide,label){
+ const category=buildRecordCategories(archive,guide).find(c=>c.label===label);
+ if(!category||category.rows.length<2)return null;
+ const ordered=[...category.rows].sort((a,b)=>category.direction==='min'?a.value-b.value:b.value-a.value);
+ const leader=ordered[0].value;
+ const leadingManagers=new Set(ordered.filter(r=>r.value===leader).map(r=>r.manager));
+ const next=ordered.find(r=>!leadingManagers.has(r.manager));
+ if(!next)return null;
+ return {
+  manager:next.manager,value:next.value,unit:category.unit,
+  context:next.game?'Week '+next.game.week+', '+next.game.year+' vs '+next.game.opponent:
+   next.year?'Season '+next.year:next.games?next.games+' archived games':'Archived career',
+  gap:Number(Math.abs(leader-next.value).toFixed(2))
+ };
 }
 export async function mountRecordOwnership(){
  const root=document.getElementById('owned-records');
