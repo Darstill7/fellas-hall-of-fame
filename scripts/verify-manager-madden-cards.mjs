@@ -53,7 +53,7 @@ console.log('MADDEN ACHIEVEMENTS PASS: verified titles, playoff seasons, career 
 
 for(const r of ratings){const tier=managerCardTier(r);if(!['dynasty','champion','contender','standard'].includes(tier.id))throw Error('Unrecognized card tier '+r.name);if(tier.id==='dynasty'&&r.titleYears.length<3||tier.id==='champion'&&r.titleYears.length<1||tier.id==='contender'&&r.qualifiedYears.length<5)throw Error('Unsupported card tier '+r.name)}
 if(managerCardTier({titleYears:[2016,2017,2018],qualifiedYears:[]}).id!=='dynasty'||managerCardTier({titleYears:[],qualifiedYears:[2020,2021,2022,2023,2024]}).id!=='contender')throw Error('Madden card tier priority mismatch');
-if(!ui.includes('managerCardTier(r)')||!page.includes('.tier-dynasty')||!page.includes('.tier-champion')||!page.includes('.tier-contender')||!page.includes('Card editions:'))throw Error('Madden card tiers missing from page');
+if(!ui.includes('managerCardTier(r)')||!page.includes('.tier-dynasty')||!page.includes('.tier-champion')||!page.includes('.tier-contender')||!page.includes('Card styles:'))throw Error('Madden card tiers missing from page');
 console.log('MADDEN CARD EDITIONS PASS: source-backed tiers and responsive visual treatments');
 
 if(!ui.includes("const trajectory=historical?")||!ui.includes('No 2026 weekly rating available')||!ui.includes("trajectory.length?'<svg"))throw Error('Former manager weekly OVR suppression missing');
