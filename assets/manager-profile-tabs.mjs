@@ -30,7 +30,8 @@ if(profileHero&&!profileHero.querySelector('[data-profile-career-snapshot]')){
   heading.textContent='Career snapshot';
   heading.className='profile-snapshot-heading';
   snapshot.append(heading);
-  // Move the rendered stat elements, preserving live canonical bindings.
+  // Read adjacent provenance before moving the stat grid out of the hero.
+  const source=originalStats.nextElementSibling;
   originalStats.classList.add('profile-snapshot-stats');
   snapshot.append(originalStats);
   for(const stat of originalStats.querySelectorAll(':scope > .stat')){
@@ -51,7 +52,6 @@ if(profileHero&&!profileHero.querySelector('[data-profile-career-snapshot]')){
     }
    }
   }
-  const source=originalStats.nextElementSibling;
   if(source?.matches('p.muted')&&/ESPN|Sleeper|verified|records include/i.test(source.textContent||'')){
    source.classList.add('profile-snapshot-source');
    snapshot.append(source);
