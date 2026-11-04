@@ -64,12 +64,19 @@ export async function mountManagerSeasonEvidence(host,manager){
   for(const year of [...byYear.keys()].sort((a,b)=>b-a)){
    const record=byYear.get(year);
    const card=make('article','profile-season-evidence-row');
-   const header=make('div','profile-season-evidence-header');
+   const details=make('details','profile-season-year-details');
+   const header=make('summary','profile-season-evidence-header');
    header.append(make('strong',null,year));
    const ending=record.ending||'Finish not certified';
    // Older 2026 source rows stop at Week 7: do not show a stale W-L as current.
    header.append(make('span',null,year===2026?'Current season · Week '+keeper2026.throughWeek+' research':ending));
-   card.append(header);
+   const recordPreview=year!==2026&&record.regular&&record.regular!=='N/A'
+    ?'Regular season '+record.regular
+    :year===2026?'2026 results still in progress':'Historical result';
+   header.append(make('small','profile-season-record-preview',recordPreview));
+   details.append(header);
+   const body=make('div','profile-season-year-body');
+   card.append(details);
    const facts=make('p','profile-season-evidence-facts');
    if(year!==2026&&record.regular&&record.regular!=='N/A')
     facts.append(make('span',null,'Regular season '+record.regular));
@@ -98,8 +105,9 @@ export async function mountManagerSeasonEvidence(host,manager){
    }
    const evidence=draftAndTrade.get(year);
    if(!evidence){
-    card.append(facts,make('p','muted profile-season-source-gap',
+    body.append(facts,make('p','muted profile-season-source-gap',
      'Original draft not attributable to this manager in the source archive. No picks or trade totals inferred.'));
+    details.append(body);
     list.append(card);
     continue;
    }
@@ -122,15 +130,16 @@ export async function mountManagerSeasonEvidence(host,manager){
     ' qualifying source-backed event(s)'+
     (evidence.trades.partialEvents?' · '+evidence.trades.partialEvents+' partly represented':'')+
     ' · not trade wins or losses'));
-   card.append(facts,draft);
+   body.append(facts,draft);
    if(year>=2020){
     const trade=document.createElement('a');
     trade.className='profile-season-trade-link';
     trade.href=root+'analytics/manager-trade-intelligence.html?manager='+
      encodeURIComponent(manager)+'&year='+year;
     trade.textContent='Review '+year+' trade evidence';
-    card.append(trade);
+    body.append(trade);
    }
+   details.append(body);
    list.append(card);
   }
   shell.append(list);
