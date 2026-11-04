@@ -81,6 +81,12 @@ try{
     await page.locator('#keeper-manager').selectOption('Kuhl');
     if(await rows.count()!==1||!((await rows.first().innerText()).includes('Jared Goff')))
      errors.push(width+' keeper filter or verified release evidence failed');
+    if(!await rows.first().evaluate(el=>el.open)||
+       !await page.locator('#keeper-profile-context').isVisible()||
+       await page.locator('#keeper-overall-metrics').isVisible()||
+       await page.locator('#keeper-sort').isVisible()||
+       !await page.locator('#keeper-profile-context a[href="../managers/kuhl/"]').isVisible())
+     errors.push(width+' keeper manager-focused view fails to prioritize personal evidence and return navigation');
     await page.locator('#keeper-manager').selectOption('');
     await page.locator('#keeper-sort').selectOption('playoff');
     if(!((await rows.first().innerText()).includes('Thommy')))errors.push(width+' keeper championship sort failed');
@@ -104,6 +110,11 @@ try{
     await page.goto(baseUrl+'analytics/keeper-decision-research.html?year=2026&manager=Stilly',{waitUntil:'networkidle'});
     if(await page.locator('#keeper-year').inputValue()!=='2026'||await page.locator('#keeper-manager').inputValue()!=='Stilly'||await rows.count()!==1)
      errors.push(width+' 2026 keeper season and manager deep link failed');
+    if(!await page.locator('#keeper-profile-context').isVisible()||
+       !await rows.first().evaluate(el=>el.open)||
+       !await page.locator('#keeper-profile-context a[href="../managers/stilly/"]').isVisible()||
+       !((await page.locator('#keeper-profile-context').innerText()).includes('No completed-season score')))
+     errors.push(width+' deep-linked keeper manager summary missing return path or provisional status');
     const noPartialGrade=await page.evaluate(async()=>{
      const r=await fetch(new URL('../data/keeper_2026_website_research_v1.json',location.href));
      const j=await r.json();
