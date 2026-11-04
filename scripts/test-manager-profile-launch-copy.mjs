@@ -1,4 +1,4 @@
-import {findOwnedRecords} from '../assets/manager-record-ownership.mjs';
+import {findOwnedRecords,recordCategoryLabels} from '../assets/manager-record-ownership.mjs';
 import fs from 'node:fs';
 const managers=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 const obsolete=/The Fellas OS v5|static-first pre-publish build|Franchise encyclopedia · v9\.15|Players, Waivers & Trade Receipts/;
@@ -28,7 +28,7 @@ const featureMenu=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
 if(!featureMenu.includes("import {findOwnedRecords} from './manager-record-ownership.mjs'")||
    !featureMenu.includes("snapshot.append(link)")||
    !featureMenu.includes("link.href='../record-books.html?manager='")||
-   !featureMenu.includes("No league leads in 5 tracked categories"))
+   !featureMenu.includes("recordCategoryLabels.length+' tracked categories"))
  throw Error('Every manager must expose a source-backed record ownership preview and honest zero state');
 
 const recordBook=fs.readFileSync('managers/record-books.html','utf8');
@@ -46,14 +46,24 @@ const book=JSON.parse(fs.readFileSync('data/manager_record_books_2016_2026.json'
 const holderMap=new Map(book.managers.map(m=>[m.manager,findOwnedRecords(book,guide,m.manager)]));
 const expectedKinds=[
  'Highest regular-season weekly score','Largest regular-season victory',
- 'Most career regular-season wins','Most wins in a completed regular season','Most championships'
+ 'Most career regular-season wins','Most wins in a completed regular season','Most championships',
+ 'Most points in a completed regular season','Closest regular-season victory',
+ 'Highest career regular-season winning percentage (50+ games)'
 ];
+if(expectedKinds.length!==recordCategoryLabels.length||recordCategoryLabels.length!==8)
+ throw Error('Record category definitions and regression test disagree');
 for(const kind of expectedKinds){
  const holders=[...holderMap].filter(([,records])=>records.some(r=>r.label===kind));
  if(!holders.length)throw Error('No verified record holder for '+kind);
  const scores=holders.flatMap(([,records])=>records.filter(r=>r.label===kind).map(r=>r.value));
  if(new Set(scores).size!==1)throw Error('Record holders disagree on league-leading value: '+kind);
 }
+if(holderMap.get('Mitch').find(r=>r.label==='Most points in a completed regular season')?.value!==1894.88)
+ throw Error('Completed-season scoring leader changed');
+if(holderMap.get('Thommy').find(r=>r.label==='Closest regular-season victory')?.value!==0.16)
+ throw Error('Closest victory leader changed');
+if(holderMap.get('Mitch').find(r=>r.label==='Highest career regular-season winning percentage (50+ games)')?.value!==60.68)
+ throw Error('Qualified career winning percentage leader changed');
 if(holderMap.get('Thommy').find(r=>r.label==='Most championships')?.value!==4)
  throw Error('Four verified Thommy titles not recognized as record');
 if(holderMap.get('Mitch').find(r=>r.label==='Highest regular-season weekly score')?.value!==180.86)
