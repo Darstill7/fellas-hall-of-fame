@@ -47,6 +47,8 @@ jobs:
         run: node scripts/verify-ledger-projections.mjs
       - name: Verify canonical website consumers
         run: node scripts/verify-core-consumers.mjs
+      - name: Check historical playoff forecast is labeled as an archive
+        run: node scripts/test-playoff-race-archive.mjs
       - name: Inventory unmatched historical dossier editorial headings
         run: node scripts/audit-dossier-editorial-inventory.mjs > data-integrity/dossier-editorial-inventory.json
       - name: Classify dossier topical overlap
