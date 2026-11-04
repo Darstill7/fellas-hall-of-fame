@@ -1,0 +1,53 @@
+/* Fellas visual foundation — presentation only. Never modify source data or ratings. */
+:root{--fellas-bg:#08131d;--fellas-card:#142838;--fellas-raised:#1a3345;--fellas-gold:#e9c981;--fellas-text:#f7f4ed;--fellas-muted:#c1cfd9;--fellas-border:#496377;--fellas-focus:#ffdfa0;--fellas-radius:14px;color-scheme:dark}
+body.fellas-polished{background:radial-gradient(ellipse 90% 40% at 50% -5%,#244052,transparent 80%),linear-gradient(180deg,#0a1721,#08131d 80%);color:var(--fellas-text);font:16px/1.65 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body.fellas-polished :is(main,.wrap,.shell,.hero,.section,.grid,.card,.tile,.stat,.head){min-width:0}
+body.fellas-polished :is(h1,h2,h3){line-height:1.24;text-wrap:balance;overflow-wrap:break-word}
+body.fellas-polished h1{letter-spacing:-.038em}
+body.fellas-polished :is(p,li,dd){line-height:1.72;overflow-wrap:break-word}
+body.fellas-polished :is(.muted,.lead,.intro,.fine){line-height:1.7}
+body.fellas-polished :is(.card,.tile,.stat){border-radius:var(--fellas-radius);border-color:var(--fellas-border);overflow-wrap:anywhere}
+body.fellas-polished :is(.card,.tile,.stat) :is(strong,.metric){font-variant-numeric:tabular-nums;line-height:1.3}
+body.fellas-polished :is(.stats,.cards,.grid){row-gap:clamp(12px,2vw,18px)}
+body.fellas-polished :is(.label,.eyebrow,.kicker){line-height:1.5;letter-spacing:.1em}
+body.fellas-polished :is(.btn,.button){min-height:44px;display:inline-flex;align-items:center;justify-content:center;text-align:center;gap:7px;font-size:13px;line-height:1.45;padding:10px 15px}
+body.fellas-polished :is(button,select,input){min-height:44px}
+body.fellas-polished :is(a,button,select,input,summary):focus-visible{outline:3px solid var(--fellas-focus);outline-offset:3px}
+body.fellas-polished :is(.navlinks,.main-nav,.records-primary-nav,.report-top-nav,header nav[aria-label="Power Ratings navigation"]) a{min-height:44px;display:inline-flex;align-items:center;font-size:13px;line-height:1.5;padding:9px 7px;border-radius:8px;text-decoration:none;white-space:normal}
+body.fellas-polished .navlinks{gap:6px 12px}
+body.fellas-polished :is(.navlinks,.main-nav,.records-primary-nav,.report-top-nav) a:hover{text-decoration:underline;text-underline-offset:5px}
+body.fellas-polished :is(details){min-width:0}
+body.fellas-polished details>summary{line-height:1.55;overflow-wrap:break-word}
+body.fellas-polished :is(.table-wrap,.scroll,.legends-table,.records-table){max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+body.fellas-polished :is(.table-wrap,.scroll,.legends-table,.records-table) :is(th,td){line-height:1.5}
+body.fellas-polished :is(.table-wrap,.scroll,.legends-table,.records-table) th{font-size:11px;letter-spacing:.045em}
+body.fellas-polished .fellas-skip{position:absolute;top:8px;left:12px;z-index:1000;transform:translateY(-160%);background:#f5d694;color:#13202b;padding:11px 15px;border-radius:9px;font-weight:850;font-size:14px;text-decoration:none}
+body.fellas-polished .fellas-skip:focus{transform:translateY(0)}
+body.fellas-polished main[id="main-content"]{scroll-margin-top:88px}
+body.fellas-polished .hero .lead{max-width:64ch}
+body.fellas-polished .profile-career-snapshot{margin-block:22px}
+body.fellas-polished .profile-career-snapshot h2{font-size:clamp(19px,2.5vw,23px)}
+body.fellas-polished .profile-career-snapshot .stats{gap:12px}
+body.fellas-polished .profile-career-snapshot .stat{min-height:105px;padding:16px 18px}
+body.fellas-polished .profile-career-snapshot .stat strong{font-size:clamp(23px,3vw,30px);display:block;margin-bottom:6px}
+body.fellas-polished .profile-career-snapshot .stat small{display:block;font-size:12px;line-height:1.55}
+body.fellas-polished .profile-feature-button{transition:border-color .15s ease,background-color .15s ease}
+body.fellas-polished .profile-feature-button:hover{border-color:var(--fellas-gold);background-color:#1a3446}
+body.fellas-polished .profile-feature-group>summary{min-height:52px}
+body.fellas-polished .profile-quickstart{margin-top:16px}
+@media(max-width:700px){
+ body.fellas-polished{font-size:15px;line-height:1.66}
+ body.fellas-polished :is(.wrap,.shell){padding-left:16px;padding-right:16px}
+ body.fellas-polished :is(.navlinks,.report-top-nav,.records-primary-nav){gap:3px 7px}
+ body.fellas-polished .navlinks a{padding:7px 5px;font-size:12px}
+ body.fellas-polished main .hero{padding-top:30px;padding-bottom:20px}
+ body.fellas-polished main .hero h1{font-size:clamp(35px,9vw,51px)}
+ body.fellas-polished main .hero .lead{font-size:15px}
+ body.fellas-polished .profile-career-snapshot .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.fellas-polished .profile-career-snapshot .stat{padding:14px;min-height:100px}
+ body.fellas-polished .profile-career-snapshot .stat strong{font-size:clamp(20px,6vw,27px)}
+ body.fellas-polished .profile-feature-button{min-height:72px}
+ body.fellas-polished .hero .buttons{gap:9px}
+}
+@media(max-width:380px){body.fellas-polished .profile-career-snapshot .stats{grid-template-columns:1fr}body.fellas-polished .profile-career-snapshot .stat{min-height:0}}
+@media(prefers-reduced-motion:reduce){body.fellas-polished *,body.fellas-polished *::before,body.fellas-polished *::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
