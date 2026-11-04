@@ -1,0 +1,42 @@
+name: Visual first-screen quality gate
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: fellas-visual-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  visual-first-screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser engines
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Capture desktop, tablet, phone and Safari first screens
+        run: node scripts/visual-quality-gate.mjs
+      - name: Publish visual audit and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fellas-visual-quality-gate
+          path: data-integrity/visual-gate/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Visual audit summary
+        if: always()
+        run: |
+          if [ -f data-integrity/visual-gate/report.json ]; then
+            node --input-type=module -e '
+              import fs from "node:fs";
+              const r=JSON.parse(fs.readFileSync("data-integrity/visual-gate/report.json","utf8"));
+              console.log("Visual check:",r.observed,"/",r.planned,"screens; findings:",r.findings.length);
+              for(const finding of r.findings)console.log("- "+finding);
+            '
+          fi
