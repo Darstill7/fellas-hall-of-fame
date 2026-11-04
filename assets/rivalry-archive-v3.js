@@ -6,6 +6,28 @@ const display=n=>n==='Thommy'?'Tom':n;
 const path=location.pathname;
 const depth=path.includes('/rivalries/')?(path.endsWith('/')||path.endsWith('/index.html')?'../../':'../'):'../';
 const fmt=n=>Number(n).toFixed(2);
+// Keep all 45 legacy rivalry files readable without rewriting their historical data.
+if(document.body.dataset.rivalryPair){
+ const style=document.createElement('style');
+ style.dataset.rivalryReadability='';
+ style.textContent='.rivalry-page .top h1{font-size:clamp(32px,6vw,60px);line-height:1.14;overflow-wrap:anywhere;max-width:24ch}.rivalry-page .top p{font-size:14px;line-height:1.75}.rivalry-page .section{margin:23px 0}.rivalry-page .rival-hero{gap:16px;padding:clamp(16px,3vw,27px);min-width:0}.rivalry-page .rival-hero .metric{font-size:clamp(26px,5vw,40px);line-height:1.25}.rivalry-page .rival-hero .vs{font-size:clamp(21px,4vw,32px);line-height:1.4;white-space:nowrap}.rivalry-page .rivalry-key-facts{font-size:14px;line-height:1.7}.rivalry-page .rivalry-game-history{border:1px solid #526e81;border-radius:12px;background:#112634;padding:0 16px;margin:15px 0}.rivalry-page .rivalry-game-history>summary{display:flex;align-items:center;min-height:54px;cursor:pointer;line-height:1.5;color:#f2d28f;font-weight:850;font-size:15px;padding:12px 0}.rivalry-page .rivalry-game-content{padding:0 0 16px}.rivalry-page .rivalry-game-content p{font-size:13px;line-height:1.7;margin:10px 0}.rivalry-page .rivalry-game-content .table-wrap{max-width:100%;overflow-x:auto}.rivalry-page .rivalry-game-content table{min-width:560px}.rivalry-page .rivalry-game-content th,.rivalry-page .rivalry-game-content td{padding:12px;line-height:1.55;text-align:left;font-size:12px}.rivalry-page .rivalry-game-content th{font-size:11px;letter-spacing:.02em}.rivalry-page .rivalry-back{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;font-size:14px;color:#f2d28f;font-weight:850}.rivalry-page .rivalry-source-details{border:1px solid #4d6375;border-radius:10px;padding:0 12px;margin:13px 0;color:#cbd9e3}.rivalry-page .rivalry-source-details>summary{cursor:pointer;display:flex;align-items:center;min-height:44px;line-height:1.5;font-size:13px;font-weight:800;color:#f1d18f}.rivalry-page .rivalry-source-details p{font-size:12px;line-height:1.7}.rivalry-page .rivalry-game-history summary:focus-visible,.rivalry-page .rivalry-source-details summary:focus-visible,.rivalry-page .rivalry-back:focus-visible{outline:3px solid #f1d18f;outline-offset:3px}.rivalry-page .page-kicker,.rivalry-page .live-chip,.rivalry-page .footer{display:none}@media(max-width:700px){.rivalry-page .rival-hero{display:grid;grid-template-columns:1fr auto 1fr;text-align:center;align-items:center;gap:8px}.rivalry-page .rival-hero>div:last-child{text-align:center!important}.rivalry-page .rivalry-game-history{padding:0 12px}.rivalry-page .top{padding:18px 0 12px}.rivalry-page .section h2{font-size:clamp(21px,6vw,28px);line-height:1.3}}';
+ document.head.append(style);
+ const notices=[...document.querySelectorAll('.fellas-review-notice,#fellas-stage13-audit')];
+ if(notices.length){
+  const details=document.createElement('details');details.className='rivalry-source-details';
+  details.innerHTML='<summary>Source coverage and verification notes</summary>';
+  for(const notice of notices){const p=document.createElement('p');p.append(...[...notice.childNodes]);details.append(p);notice.remove()}
+  document.querySelector('.brandbar')?.after(details);
+ }
+ const heading=document.querySelector('.top');
+ if(heading){
+  const back=document.createElement('a');back.className='rivalry-back';
+  back.href='../analytics/rivalries.html';back.textContent='← All rivalries';
+  heading.before(back);
+ }
+ for(const link of document.querySelectorAll('a[href="../managers/stilly.html"]'))link.href='../managers/';
+}
+
 fetch(depth+'data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw Error('Historical matchups unavailable');return r.json()}).then(d=>{
  const all=d.games.filter(g=>g.stage==='regular');
  const get=(a,b)=>all.filter(g=>(g.home===canonical(a)&&g.away===canonical(b))||(g.away===canonical(a)&&g.home===canonical(b))).sort((x,y)=>y.year-x.year||y.week-x.week);
@@ -16,6 +38,13 @@ fetch(depth+'data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw E
  if(document.body.dataset.rivalryPair){
   const [a,b]=document.body.dataset.rivalryPair.split('|').map(n=>n.toLowerCase()==='jmid'?'JMid':n);
   const games=get(a,b),w=games.filter(g=>win(g,a)).length,l=games.filter(g=>win(g,b)).length,t=games.length-w-l;
+  for(const managerLink of document.querySelectorAll('.rivalry-page a.manager-card[href^="../managers/"]')){
+   const name=managerLink.querySelector('h2')?.textContent?.trim();
+   const slug=name?.toLowerCase()==='tom'?'tom':name?.toLowerCase();
+   if(slug&&M.some(n=>n.toLowerCase()===slug))managerLink.href='../managers/'+slug+'/';
+  }
+  const introduction=document.querySelector('.rivalry-page .top p');
+  if(introduction)introduction.textContent='Head-to-head results from verified archived regular-season games. Historical franchise ownership is reconciled; postseason games are excluded.';
   const hero=document.querySelector('.rival-hero');
   if(hero)hero.innerHTML='<div><div class="label">'+E(a)+'</div><div class="metric">'+w+'</div></div><div class="vs">'+w+'–'+l+(t?'–'+t:'')+'</div><div style="text-align:right"><div class="label">'+E(b)+'</div><div class="metric">'+l+'</div></div>';
   const section=document.createElement('section');section.className='section';section.dataset.canonicalRivalry='true';
