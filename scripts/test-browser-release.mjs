@@ -967,9 +967,12 @@ try{
       if(await originalRecord.count()!==1||
          await originalRecord.getAttribute('data-canonical-updated')!=='yes')
        errors.push(width+' '+slug+' snapshot regular-season record lost canonical live binding');
-      if(!await snapshot.locator('.profile-snapshot-source').count()||
-         !/ESPN|Sleeper/.test(await snapshot.locator('.profile-snapshot-source').innerText()))
-       errors.push(width+' '+slug+' snapshot lost source coverage explanation');
+      const sourceNote=await snapshot.locator('.profile-snapshot-source').allTextContents();
+      if(sourceNote.length!==1||
+         !(slug==='scott'
+           ? /verified game.*tenure.*2026 Week 8/i.test(sourceNote[0])
+           : /ESPN.*Sleeper.*Week 8/i.test(sourceNote[0])))
+       errors.push(width+' '+slug+' snapshot lost source coverage for the manager actual tenure');
       if(width===390){
        const geometry=await snapshotStats.evaluateAll(items=>items.map(el=>({
         right:el.getBoundingClientRect().right,
