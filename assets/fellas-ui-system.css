@@ -35,6 +35,10 @@ body.fellas-polished .profile-feature-button{transition:border-color .15s ease,b
 body.fellas-polished .profile-feature-button:hover{border-color:var(--fellas-gold);background-color:#1a3446}
 body.fellas-polished .profile-feature-group>summary{min-height:52px}
 body.fellas-polished .profile-quickstart{margin-top:16px}
+/* Brand links are actual navigation controls and need comfortable tap targets. */
+body.fellas-polished :is(header a.brand,header a.manager-nav-brand,header a.manager-nav-logo,header .brandmark){
+ display:inline-flex;align-items:center;min-height:44px;line-height:1.5;
+}
 /* Progressive mobile site navigation on manager profiles. */
 body.fellas-polished .fellas-mobile-site-menu{display:none}
 body.fellas-polished .fellas-mobile-site-menu>summary{cursor:pointer;list-style:none;min-height:44px;align-items:center;justify-content:center;padding:10px 14px;color:var(--fellas-gold);font-size:13px;font-weight:850;border:1px solid var(--fellas-border);border-radius:9px;background:var(--fellas-card)}

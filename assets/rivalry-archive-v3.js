@@ -11,6 +11,17 @@ document.body.classList.add('fellas-polished');
 const sharedStyle=document.createElement('link');
 sharedStyle.rel='stylesheet';sharedStyle.href=depth+'assets/fellas-ui-system.css';
 document.head.append(sharedStyle);
+// Give rivalry content a real main landmark while leaving the legacy
+// header, navigation and source data in place.
+const rivalryShell=document.querySelector('body > .wrap');
+const rivalrySections=rivalryShell?[...rivalryShell.children].filter(node=>node.matches('section.section')):[];
+if(rivalrySections.length){
+ const main=document.createElement('main');
+ main.className='rivalry-main';
+ main.setAttribute('aria-label','Rivalry content');
+ rivalrySections[0].before(main);
+ for(const section of rivalrySections)main.append(section);
+}
 const heading=document.querySelector('.top h1');
 if(heading){
  heading.id='main-content';heading.tabIndex=-1;

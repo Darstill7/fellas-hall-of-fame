@@ -75,6 +75,8 @@ try{
    }
   });
   clear?.addEventListener('click',()=>{finder.value='';filter();finder.focus()});
+  // Rendering the cards must also resolve the initial loading status.
+  filter();
  }
  if(!finder||!compact)document.getElementById('home-manager-status').textContent=current.length+' active manager profiles · Career Legacy OVR from verified league history · 2026 ongoing';
 }catch(error){document.getElementById('home-manager-status').textContent='Manager ratings are temporarily unavailable; explore the complete cards or manager directory.';console.error(error)}

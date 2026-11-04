@@ -1032,6 +1032,8 @@ try{
     if(allCards!==14)errors.push(width+' Madden all-manager filter rendered '+allCards+' instead of 14');
    }
    if(route==='analytics/rivalries.html'||route.startsWith('rivalries/')){
+    if(await page.locator('main.rivalry-main[aria-label="Rivalry content"]').count()!==1)
+     errors.push(width+' '+route+' missing semantic main content landmark');
     const primary=page.locator('nav.nav[aria-label="Rivalry navigation"]');
     const expectedLinks=['../index.html','../managers/','../analytics/manager-report-cards.html','../analytics/records.html','../analytics/rivalries.html'];
     if(await primary.count()!==1||await primary.locator('a').count()!==5||
@@ -1125,6 +1127,10 @@ try{
     await empty.close();
    }
    if(route===''){
+    const initialManagerStatus=await page.locator('#home-manager-status').innerText();
+    if(initialManagerStatus.includes('Loading verified manager rankings')||
+       !initialManagerStatus.includes('10 active manager profiles'))
+     errors.push(width+' homepage initial manager search status remains stale');
     const snapshot=await page.locator('#home-season-snapshot').innerText();
     if(!/Canonical results through Week [1-9][0-9]*\b/.test(snapshot)||!snapshot.includes('reconstructed'))errors.push(width+' homepage canonical 2026 snapshot inaccurate');
     const archivedFeature=page.locator('.feature-panel').filter({has:page.locator('a[href="analytics/sportscenter.html"]')});
