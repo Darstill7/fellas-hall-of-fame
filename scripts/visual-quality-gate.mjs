@@ -118,7 +118,7 @@ try{
         if(hierarchy.actionHeight<44)
          findings.push(engine+' '+width+' '+key+' primary profile action too small');
        }
-       if(/^seasons\\/202[2-5]\\.html$/.test(route)){
+       if(/^seasons\/202[2-5]\.html$/.test(route)){
         const proof=page.locator('#verified-placements');
         if(await proof.count()!==1||await proof.locator('.placement-card').count()!==2)
          findings.push(engine+' '+width+' '+key+' verified postseason result cards missing');
