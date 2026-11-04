@@ -622,7 +622,7 @@ try{
      const switcher=page.locator('details.profile-section-switcher');
      if(await switcher.count()!==1||await switcher.evaluate(el=>el.open))
       errors.push(width+' '+slug+' old four-tab controls must start collapsed under feature navigation');
-     if(await page.locator('#profile-features [data-profile-feature-menu]').count()!==1)
+     if(await page.locator('#profile-features[data-profile-feature-menu]').count()!==1)
       errors.push(width+' '+slug+' primary feature directory missing stable deep-link anchor');
      const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
      if(await features.count()!==11)
