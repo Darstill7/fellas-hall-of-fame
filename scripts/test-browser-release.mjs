@@ -132,8 +132,12 @@ try{
         !panel.includes('Best individual season:')||!panel.includes('65–99 career score'))
       errors.push(width+' '+route+' primary career rating or peak season missing');
      const heroStats=page.locator('main .hero .stats');
-     if(await heroStats.count()&&await heroStats.isVisible())
-      errors.push(width+' '+route+' duplicate hero statistics still crowd landing card');
+     const designatedSnapshot=page.locator('main .hero [data-profile-career-snapshot]');
+     if(await heroStats.count()!==1||
+        await designatedSnapshot.count()!==1||
+        await designatedSnapshot.locator(':scope > .stats').count()!==1||
+        await page.locator('main .hero > .stats').count()!==0)
+      errors.push(width+' '+route+' career statistics duplicated or missing from the intended snapshot');
      const facts=heroMadden.locator(':scope > .profile-madden-facts > span');
      if(await facts.count()!==5)
       errors.push(width+' '+route+' primary career card should show five readable metrics');
@@ -950,6 +954,13 @@ try{
       const snapshotStats=snapshot.locator('.profile-snapshot-stats > .stat');
       if(await snapshotStats.count()<3)
        errors.push(width+' '+slug+' career snapshot lost existing verified stat cards');
+      const titles=await snapshotStats.locator('small').allTextContents();
+      if(!titles.includes('Championships')||
+         !titles.includes('Regular-season record')||
+         !titles.some(t=>/^Championship seasons?$/.test(t)))
+       errors.push(width+' '+slug+' championship and record labels remain confusing');
+      if(slug==='tom'&&!titles.includes('Championship seasons'))
+       errors.push(width+' '+slug+' multiple championship years labeled as a count');
       const originalRecord=snapshot.locator('[data-canonical-manager-record]');
       if(await originalRecord.count()!==1||
          await originalRecord.getAttribute('data-canonical-updated')!=='yes')
