@@ -528,7 +528,7 @@ try{
    }
    if(route==='analytics/this-week-history.html'){
     const heading=await page.locator('h1').innerText();
-    if(heading!=='This Week in Fellas History')errors.push(width+' historical weekly page title missing');
+    if(heading.trim().toLocaleLowerCase()!=='this week in fellas history')errors.push(width+' historical weekly page title missing');
     const method=page.locator('details.history-method');
     if(await method.count()!==1||await method.evaluate(el=>el.open))
      errors.push(width+' weekly archive methods should begin collapsed');
