@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','hall/','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','hall/','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -1676,6 +1676,18 @@ try{
     const body=await page.locator('body').innerText();
     if(!body.includes('Franchise'))errors.push(width+' '+route+' missing legacy dossier content');
     if(!await page.locator('[data-canonical-manager-record]').count())errors.push(width+' '+route+' missing canonical career binding');
+   }
+   if(route==='analytics/record-holders.html'){
+    await page.locator('#record-leaders .leader-card').first().waitFor({timeout:10000});
+    const cards=await page.locator('#record-leaders .leader-card').count();
+    const kinds=await page.locator('#record-categories .category-card').count();
+    if(cards!==14||kinds!==5)
+     errors.push(width+' record holders mismatch: '+cards+' managers and '+kinds+' categories');
+    const first=await page.locator('#record-leaders .leader-card').first().innerText();
+    if(!first.includes('record'))
+     errors.push(width+' record holder leaderboard count missing');
+    const links=await page.locator('#record-leaders .leader-card').evaluateAll(nodes=>nodes.every(n=>n.getAttribute('href')?.includes('record-books.html?manager=')));
+    if(!links)errors.push(width+' record holder links broken');
    }
    if(route==='managers/record-books.html'){
     const primary=page.locator('header nav.records-primary-nav');
