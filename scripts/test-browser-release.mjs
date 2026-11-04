@@ -1687,6 +1687,15 @@ try{
     const first=await page.locator('#record-leaders .leader-card').first().innerText();
     if(!first.includes('record'))
      errors.push(width+' record holder leaderboard count missing');
+    const disclosures=page.locator('#record-categories .record-context');
+    if(await disclosures.count()!==8)
+     errors.push(width+' missing next-manager comparisons on record categories');
+    else{
+     await disclosures.first().locator('summary').click();
+     const detail=await disclosures.first().innerText();
+     if(!detail.includes('Next-best different manager:')||!detail.includes('Gap to the record:'))
+      errors.push(width+' record comparison disclosure does not show its evidence');
+    }
     const links=await page.locator('#record-leaders .leader-card').evaluateAll(nodes=>nodes.every(n=>n.getAttribute('href')?.includes('record-books.html?manager=')));
     if(!links)errors.push(width+' record holder links broken');
    }
