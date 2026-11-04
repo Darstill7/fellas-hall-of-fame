@@ -982,8 +982,8 @@ try{
      if(await go.isDisabled())errors.push(width+' rivalries picker blocks a valid matchup');
      await all.locator(':scope > summary').click();
      const matches=page.locator('#verified-rivalry-matrix a[href^="../rivalries/"]');
-     if(await matches.count()<10||!await matches.first().isVisible())
-      errors.push(width+' rivalries full matchup browse is missing or inaccessible');
+     if(await matches.count()!==45||!await matches.first().isVisible())
+      errors.push(width+' rivalries should expose all 45 current-manager pairings, including ones lacking archived games');
      await all.locator(':scope > summary').click();
      await go.click();
      await page.waitForURL('**/rivalries/stilly-vs-jmid.html');
@@ -994,6 +994,10 @@ try{
    if(route.startsWith('rivalries/')){
     const text=await page.locator('body').innerText();
     if(text.includes('Rivalry archive could not be loaded')||text.includes('Rivalry data unavailable'))errors.push(width+' '+route+' rivalry module did not load');
+    const hero=page.locator('.rival-hero');
+    if((await hero.innerText()).includes('Loading verified head-to-head')||
+       (await hero.innerText()).includes('temporarily unavailable'))
+     errors.push(width+' '+route+' verified rivalry scoreboard did not load');
     const history=page.locator('details.rivalry-game-history');
     if(await history.count()!==1||await history.evaluate(el=>el.open))
      errors.push(width+' '+route+' matchup game history should start collapsed');
@@ -1004,6 +1008,17 @@ try{
      if(!await history.locator('table').isVisible()||!await history.locator('thead th').count())
       errors.push(width+' '+route+' matchup receipts do not expand');
     }
+   }
+   if(route==='rivalries/stilly-vs-jmid.html'){
+    const missing=await context.newPage();
+    await missing.route('**/data/unified_record_book_2016_2026.json',
+     intercepted=>intercepted.fulfill({status:404,body:'Unavailable canonical ledger'}));
+    await missing.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
+    const fallback=await missing.locator('.rival-hero').innerText();
+    if(!fallback.includes('Verified rivalry history is temporarily unavailable')||
+       fallback.includes('2–1'))
+     errors.push(width+' rivalry source failure leaves stale or invented head-to-head results visible');
+    await missing.close();
    }
    if(route===''){
     const snapshot=await page.locator('#home-season-snapshot').innerText();
