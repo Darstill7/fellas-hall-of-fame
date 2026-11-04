@@ -1019,6 +1019,16 @@ try{
        fallback.includes('2–1'))
      errors.push(width+' rivalry source failure leaves stale or invented head-to-head results visible');
     await missing.close();
+    const empty=await context.newPage();
+    await empty.route('**/data/unified_record_book_2016_2026.json',
+     intercepted=>intercepted.fulfill({status:200,contentType:'application/json',body:JSON.stringify({games:[]})}));
+    await empty.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
+    const emptyText=await empty.locator('.rival-hero').innerText();
+    if(!emptyText.includes('No verified regular-season meetings')||
+       !emptyText.includes('not a 0–0 record')||
+       !((await empty.locator('.rivalry-key-facts').innerText()).includes('missing evidence')))
+     errors.push(width+' missing rivalry receipts are being misrepresented as a tied series');
+    await empty.close();
    }
    if(route===''){
     const snapshot=await page.locator('#home-season-snapshot').innerText();
