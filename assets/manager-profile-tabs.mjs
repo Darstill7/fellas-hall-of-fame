@@ -47,7 +47,7 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
   // Preserve the source-backed Start/Sit research link when condensing
   // the legacy hero navigation; otherwise it disappears after page load.
   const startSitLink=actions.querySelector('a[href*="manager-lineup-research.html"]')?.cloneNode(true);
-  actions.innerHTML='<a class="btn" href="#profile-navigation">Explore '+manager+'’s career ↓</a><a class="btn secondary" href="../../index.html#home-manager-title">All manager cards</a>';
+  actions.innerHTML='<a class="btn" href="#profile-features">Explore '+manager+'’s features ↓</a><a class="btn secondary" href="../../index.html#home-manager-title">All manager cards</a>';
   if(startSitLink)actions.append(startSitLink);
  }
  const quick=document.createElement('section');
@@ -79,6 +79,7 @@ function mountProfileFeatureDirectory(quick,manager){
  ];
  const shell=document.createElement('section');
  shell.className='profile-feature-directory';
+ shell.id='profile-features';
  shell.setAttribute('aria-label','Manager features');
  shell.dataset.profileFeatureMenu='';
  shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a feature below. Each button opens that section or its full research page.</p>';
@@ -197,6 +198,7 @@ function populateManagerResearch(quick,manager){
  });
  const css=document.createElement('style');
  css.textContent+='.profile-research-shelf{margin:18px 0 0;background:#0b2331;border:1px solid #557587;border-radius:12px;padding:0}.profile-research-shelf>summary{min-height:50px;padding:14px 17px;color:var(--gold);font-size:15px;font-weight:850;cursor:pointer}.profile-research-shelf>summary:focus-visible{outline:3px solid white;outline-offset:-3px}.profile-research-shelf-intro{font-size:12px;line-height:1.55;margin:0;padding:0 17px 12px}.profile-research-shelf-body{padding:0 16px 15px}.profile-research-shelf-body .profile-front-office-snapshot{margin:14px 0}.profile-research-shelf-body>.muted{margin:10px 0}@media(max-width:650px){.profile-research-shelf-body{padding:0 10px 12px}}';
+ css.textContent+='.profile-tabs{padding:8px 12px!important;margin:8px 0 14px!important;background:#0e2230f2!important}.profile-section-switcher>summary{min-height:44px;display:flex;align-items:center;padding:6px 8px;color:var(--gold);font-weight:850;font-size:13px;cursor:pointer}.profile-section-switcher>summary:focus-visible{outline:3px solid white;outline-offset:2px}.profile-section-switcher[open]{max-height:48vh;overflow-y:auto}.profile-section-switcher:not([open]) .profile-tab-row,.profile-section-switcher:not([open]) [data-profile-tab-description]{display:none!important}.profile-tab-guide[hidden]{display:none!important}.profile-location-label{padding:3px 7px!important}.profile-feature-directory{scroll-margin-top:95px}';
  css.textContent='.profile-tabs{background:#0d1923f5;border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin:12px 0 24px}.profile-tab-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.profile-tab-row button{cursor:pointer;border:1px solid #607483;border-radius:9px;background:#182c3b;color:#d9e3e9;font:inherit;font-size:13px;font-weight:800;padding:11px 16px;min-height:44px}.profile-tab-row button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#10212d}.profile-tab-row button:focus-visible{outline:3px solid white;outline-offset:3px}.section[hidden]{display:none!important}.profile-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}.profile-quick-grid button{display:flex;cursor:pointer;text-align:left;color:#fff;font:inherit;flex-direction:column;gap:6px;background:#172b3a;border:1px solid #486174;border-radius:12px;padding:17px;min-height:94px}.profile-quick-grid button[aria-pressed="true"]{border-color:var(--gold);box-shadow:inset 4px 0 0 var(--gold)}.profile-quick-grid span{font-size:13px;color:#d0dce4}@media(max-width:600px){.profile-tab-row{display:grid;grid-template-columns:1fr 1fr}.profile-quick-grid{grid-template-columns:1fr}}';
  css.textContent+='.manager-pickup-link a{display:flex;flex-direction:column;gap:5px;max-width:550px;background:#183744;border:1px solid #7b998e;border-radius:12px;padding:14px 16px;color:#f5f2e8;text-decoration:none;min-height:62px}.manager-pickup-link a strong{color:var(--gold);font-size:15px}.manager-pickup-link a span{font-size:12px;line-height:1.5;color:#d0dce4}.manager-pickup-link a:focus-visible{outline:3px solid #fff;outline-offset:2px}.manager-pickup-link a:hover{border-color:var(--gold)}';
  css.textContent+='.profile-front-office-snapshot{margin:20px 0 8px;padding:17px;border:1px solid #577483;border-radius:13px;background:#102936}.profile-front-office-snapshot h3{margin:0 0 9px;color:var(--gold);font-size:18px}.profile-front-office-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.profile-front-office-tile{padding:14px;background:#182f3e;border:1px solid #466173;border-radius:10px}.profile-front-office-tile strong{display:block;font-size:24px;font-variant-numeric:tabular-nums;color:#f7eed9}.profile-front-office-tile span{display:block;font-size:12px;line-height:1.4;color:#c5d3dc}.profile-front-office-caveat{font-size:12px;line-height:1.5;margin:11px 0}.profile-front-office-actions{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:800;margin:12px 0 0}.profile-front-office-actions a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}.profile-front-office-actions a:focus-visible{outline:3px solid white;outline-offset:2px}@media(max-width:650px){.profile-front-office-grid{grid-template-columns:1fr}.profile-front-office-tile{padding:12px}.profile-front-office-tile strong{font-size:22px}}';
@@ -232,6 +234,18 @@ if(main&&tabs){
  const sections=[...main.children].filter(node=>node.matches?.('section.section'));
  // Ancillary link collections and preserved dossier material live in Advanced, rather than disappearing.
  const sectionTab=new Map(sections.map(node=>[node,Object.entries(categories).find(([,ids])=>ids.has(node.id))?.[0]||'advanced']));
+ // Keep the four historical section controllers for old deep links, but
+ // make the eleven feature buttons the only primary navigation.
+ // The section controller is an optional disclosure rather than a competing menu.
+ const switcher=document.createElement('details');
+ switcher.className='profile-section-switcher';
+ const switchSummary=document.createElement('summary');
+ switchSummary.textContent='More archive sections';
+ switcher.append(switchSummary);
+ for(const child of [...tabs.children])switcher.append(child);
+ tabs.append(switcher);
+ const heroExplore=document.querySelector('main .hero .buttons a[href="#profile-navigation"]');
+ if(heroExplore){heroExplore.href='#profile-features';heroExplore.textContent='Explore features ↓'}
  const buttons=[...tabs.querySelectorAll('button[data-profile-tab]')];
  const headingLabel=tabs.querySelector('.eyebrow');
  if(headingLabel)headingLabel.textContent='Explore this manager';
@@ -244,7 +258,9 @@ if(main&&tabs){
  guide.className='profile-tab-guide';
  guide.setAttribute('role','status');
  guide.setAttribute('aria-live','polite');
+ guide.hidden=true;
  tabs.after(guide);
+ switcher.addEventListener('toggle',()=>{guide.hidden=!switcher.open});
  const revealSection=key=>{
   const destination=document.getElementById(firstSection[key]);
   if(!destination||destination.hidden)return;
@@ -303,11 +319,11 @@ if(main&&tabs){
  // A persistent escape hatch for long historical sections; only appears after scrolling.
  const back=document.createElement('button');
  back.type='button';back.className='profile-back-to-sections';
- back.textContent='↑ Profile sections';
- back.setAttribute('aria-label','Return to manager profile section choices');
+ back.textContent='↑ Explore features';
+ back.setAttribute('aria-label','Return to the manager feature directory');
  back.hidden=true;
  document.body.append(back);
- back.addEventListener('click',()=>tabs.scrollIntoView({behavior:'smooth',block:'start'}));
+ back.addEventListener('click',()=>document.getElementById('profile-features')?.scrollIntoView({behavior:'smooth',block:'start'}));
  let framePending=false;
  const updateBack=()=>{
   framePending=false;
@@ -428,6 +444,8 @@ if(main&&tabs){
  // Homepage directory shortcuts use category hashes, not physical element IDs.
  // On a fresh deep link, bring the selected profile section navigation into view.
  // A restored reading position wins when returning to a previously visited profile.
- if(categories[initial]&&!restoredPosition)
+ if(categories[initial]&&!restoredPosition){
+  switcher.open=true;
   requestAnimationFrame(()=>requestAnimationFrame(()=>tabs.scrollIntoView({block:'start'})));
+ }
 }
