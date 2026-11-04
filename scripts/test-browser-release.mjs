@@ -408,8 +408,12 @@ try{
     if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
     if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
    }
+   if(route===''){
+    if(await page.locator('a[href="analytics/legacy.html"]').count()>0)
+     errors.push(width+' homepage links to obsolete Legacy Score prototype');
+   }
    if(route==='analytics/trade-museum.html'){
-    const links=page.locator('nav.tm-nav a[href="legacy.html"]');
+    const links=page.locator('nav.tm-nav a[href="power-ratings.html"]');
     if(await links.count()!==1)errors.push(width+' trade museum repeats legacy navigation links');
     const explanation=page.locator('details.tm-notice');
     if(await explanation.count()!==1||await explanation.evaluate(el=>el.open))
