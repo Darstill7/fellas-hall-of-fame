@@ -146,7 +146,7 @@ try{
         if(['stilly','tom','stover'].includes(slug)){
          await preview.click();
          await page.waitForURL(url=>url.pathname.endsWith('/managers/record-books.html'),{timeout:10000});
-         await page.locator('#manager option').first().waitFor();
+         await page.waitForFunction(()=>document.querySelector('#manager')?.options.length>0,{timeout:10000});
          await page.waitForFunction(name=>document.getElementById('manager')?.value===name,canonical,{timeout:10000});
          await page.locator('#manager').selectOption('Birch');
          if(new URL(page.url()).searchParams.get('manager')!=='Birch')
