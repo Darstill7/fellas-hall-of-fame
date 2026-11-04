@@ -11,7 +11,7 @@ body.research-readable p{margin-block:11px 18px}
 body.research-readable :is(.muted,.fine,.sub,.lede,.note){line-height:1.7}
 body.research-readable :is(.label,.eyebrow,.tag){line-height:1.55}
 body.research-readable :is(.card,.panel,.metric,.grade,.entry,.side){overflow-wrap:break-word}
-body.research-readable :is(.card,.panel,.metric){padding:clamp(18px,2.5vw,26px)}
+body.research-readable :is(.card,.panel,.metrics>.metric){padding:clamp(18px,2.5vw,26px)}
 body.research-readable :is(.cards,.rows){gap:17px}
 body.research-readable :is(.grid,.metrics,.comparison,.detail-grid){gap:14px}
 body.research-readable .metric strong{line-height:1.25}
@@ -69,7 +69,7 @@ body.research-readable .footer{line-height:1.65;padding-top:20px}
  body.research-readable{font-size:15px}
  body.research-readable :is(main,.wrap){max-width:100%}
  body.research-readable h1{line-height:1.2}
- body.research-readable :is(.card,.panel,.metric){padding:17px}
+ body.research-readable :is(.card,.panel,.metrics>.metric){padding:17px}
  body.research-readable .grid{column-gap:11px}
  body.research-readable .section{margin-block:26px}
  body.research-readable .table-wrap :is(td,th){padding:12px 13px}
@@ -82,7 +82,7 @@ body.research-readable .footer{line-height:1.65;padding-top:20px}
  body.research-readable .warning,body.research-readable .notice{padding:17px}
 }
 @media(max-width:400px){
- body.research-readable :is(.card,.panel,.metric){padding:15px}
+ body.research-readable :is(.card,.panel,.metrics>.metric){padding:15px}
  body.research-readable .entry .value{gap:6px}
  body.research-readable .entry .value strong{font-size:22px}
  body.research-readable .table-wrap{margin-inline:0}
