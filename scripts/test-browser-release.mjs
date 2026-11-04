@@ -810,6 +810,10 @@ try{
       errors.push(width+' '+slug+' old four-tab controls must start collapsed under feature navigation');
      if(await page.locator('#profile-features[data-profile-feature-menu]').count()!==1)
       errors.push(width+' '+slug+' primary feature directory missing stable deep-link anchor');
+     if(!await page.locator('details.profile-feature-group').first().evaluate(el=>el.open))
+      errors.push(width+' '+slug+' career results should expand on first visit');
+     if(await page.locator('#full-franchise-dossier').count())
+      errors.push(width+' '+slug+' competing older franchise-profile promo still visible');
      const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
      if(await features.count()!==11)
       errors.push(width+' '+slug+' missing eleven individually labeled feature buttons');
@@ -830,7 +834,8 @@ try{
        errors.push(width+' '+slug+' profile should open in focused landing mode');
       if(await page.locator('main > section.section:visible').count()!==0)
        errors.push(width+' '+slug+' profile landing exposes archive wall before feature selection');
-      await page.locator('details.profile-feature-group').first().locator(':scope > summary').click();
+      const rivalryGroup=page.locator('details.profile-feature-group').filter({has:page.locator('[data-profile-feature][data-feature-target="#head-to-head"]')});
+      if(!await rivalryGroup.evaluate(el=>el.open))await rivalryGroup.locator(':scope > summary').click();
       const rivalry=page.locator('[data-profile-feature][data-feature-target="#head-to-head"]');
       await rivalry.click();
       await page.waitForFunction(()=>{
@@ -849,7 +854,8 @@ try{
       await researchShelf.evaluate(el=>el.open=false);
       const career=page.locator('[data-profile-feature][data-feature-target=".profile-career-resume"]');
       await page.locator('.profile-focus-toolbar button').click();
-      await page.locator('details.profile-feature-group').filter({has:career}).locator(':scope > summary').click();
+      const careerGroup=page.locator('details.profile-feature-group').filter({has:career});
+      if(!await careerGroup.evaluate(el=>el.open))await careerGroup.locator(':scope > summary').click();
       await career.click();
       if(!await researchShelf.evaluate(el=>el.open)||
          !await page.locator('.profile-career-resume').evaluate(el=>el.open))
