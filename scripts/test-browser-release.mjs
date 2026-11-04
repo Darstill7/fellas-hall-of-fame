@@ -44,6 +44,7 @@ try{
    page.on('requestfailed',req=>failedRequests.push(req.url()+' '+req.failure()?.errorText));
    page.on('response',res=>{if(res.status()>=400)failedRequests.push(res.status()+' '+res.url())});
    page.on('pageerror',e=>unexpected.push(e.message));
+   try{
    const response=await page.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
    if(!response?.ok())errors.push(width+' '+route+' HTTP '+response?.status());
    await page.waitForTimeout(150);
@@ -1625,8 +1626,12 @@ try{
      errors.push(width+' '+route+' malformed trade source exposed invalid or stale numbers');
     await corruptTrade.close();
    }
-   await page.close();
-   completedPages++;
+   }catch(e){
+    errors.push(width+' '+(route||'index.html')+' route audit exception: '+(e?.stack||String(e)));
+   }finally{
+    try{await page.close()}catch(e){errors.push(width+' '+route+' page cleanup error: '+String(e))}
+    completedPages++;
+   }
   }
   await context.close();
  }
