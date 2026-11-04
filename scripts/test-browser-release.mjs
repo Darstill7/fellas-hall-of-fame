@@ -924,6 +924,27 @@ try{
     if(spacing.line<17||spacing.pad<11)
      errors.push(width+' all-time record book table type remains cramped');
    }
+   if(['managers/index.html','hall/','seasons/','analytics/manager-madden-cards.html'].includes(route)){
+    if(!await page.locator('body.fellas-polished').count()||
+       !await page.locator('link[href="../assets/fellas-ui-system.css"]').count()||
+       !await page.locator('a.fellas-skip[href="#main-content"]').count()||
+       !await page.locator('main#main-content').count())
+     errors.push(width+' '+route+' missing shared design and keyboard skip navigation');
+   }
+   if(route==='hall/'){
+    if(!await page.locator('header .navlinks a[href="../managers/"]').count()||
+        await page.locator('header .navlinks a[href="../analytics/franchise-timeline.html"]').count())
+     errors.push(width+' Hall of Fame Managers link must open current directory');
+   }
+   if(route==='seasons/'){
+    if(!await page.locator('header nav[aria-label="Season archive navigation"] a[href="../analytics/rivalries.html"]').count())
+     errors.push(width+' Season Archive missing modern rivalry navigation');
+   }
+   if(route==='analytics/manager-madden-cards.html'){
+    const links=page.locator('nav.madden-core-nav a');
+    if(await links.count()!==5)
+     errors.push(width+' manager rating cards missing simple five-link navigation');
+   }
    if(route==='analytics/power-ratings.html'){
     const primary=page.locator('header nav[aria-label="Power Ratings navigation"]');
     if(await primary.count()!==1)
