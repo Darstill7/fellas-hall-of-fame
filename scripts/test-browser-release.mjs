@@ -196,6 +196,15 @@ try{
       if(await metrics.count()!==4)
        errors.push(width+' '+route+' career draft/trade résumé totals unavailable');
       else{
+       const receipts=career.locator('details.career-resume-receipts');
+       if(await receipts.count()!==1||await receipts.evaluate(el=>el.open))
+        errors.push(width+' '+route+' draft/trade receipts must start collapsed');
+       else{
+        await receipts.locator(':scope > summary').click();
+        if(!await career.locator('.career-resume-trades').isVisible()||
+           !await career.locator('.career-resume-coverage').isVisible())
+         errors.push(width+' '+route+' draft/trade receipts failed to reveal');
+       }
        const text=await career.innerText();
        if(!text.includes('Recorded draft selections')||
           !text.includes('Recorded keeper slots')||
