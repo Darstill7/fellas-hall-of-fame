@@ -73,4 +73,4 @@ export async function mountManagerPlayoffResume(){
   console.error('Manager playoff résumé unavailable',error);
  }
 }
-if(typeof document!=='undefined')mountManagerPlayoffResume();
+
