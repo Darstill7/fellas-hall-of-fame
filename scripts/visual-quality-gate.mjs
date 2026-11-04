@@ -86,6 +86,11 @@ try{
         findings.push(engine+' '+width+' '+key+' resource or JS error '+runtime.slice(0,3).join(' | '));
        if(audit.loading)
         findings.push(engine+' '+width+' '+key+' first-screen content remains in a loading state');
+       if(route===''&&width===390){
+        const headline=await page.locator('.hero h1').textContent();
+        if(!/The history\.\s+The legends\.\s+The Fellas\./.test(headline||''))
+         findings.push(engine+' '+width+' homepage title words run together on mobile');
+       }
        if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'&&audit.snapshotTiles<3)
         findings.push(engine+' '+width+' '+key+' career stat tiles not visible above the rating card');
        const dir=path.join(output,'screens',engine,String(width));
