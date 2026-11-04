@@ -911,6 +911,38 @@ try{
       if(!spacing||spacing.gap<6||spacing.line<18||spacing.wrap!=='wrap')
        errors.push(width+' '+slug+' career facts still have cramped labels');
      }
+     const snapshot=page.locator('main .hero [data-profile-career-snapshot]');
+     if(await snapshot.count()!==1)errors.push(width+' '+slug+' missing unified career snapshot');
+     else{
+      const snapshotStats=snapshot.locator('.profile-snapshot-stats > .stat');
+      if(await snapshotStats.count()<3)
+       errors.push(width+' '+slug+' career snapshot lost existing verified stat cards');
+      const originalRecord=snapshot.locator('[data-canonical-manager-record]');
+      if(await originalRecord.count()!==1||
+         await originalRecord.getAttribute('data-canonical-updated')!=='yes')
+       errors.push(width+' '+slug+' snapshot regular-season record lost canonical live binding');
+      if(!await snapshot.locator('.profile-snapshot-source').count()||
+         !/ESPN|Sleeper/.test(await snapshot.locator('.profile-snapshot-source').innerText()))
+       errors.push(width+' '+slug+' snapshot lost source coverage explanation');
+      if(width===390){
+       const geometry=await snapshotStats.evaluateAll(items=>items.map(el=>({
+        right:el.getBoundingClientRect().right,
+        viewport:document.documentElement.clientWidth
+       })));
+       if(geometry.some(x=>x.right>x.viewport+2))
+        errors.push(width+' '+slug+' career snapshot overflows mobile viewport');
+      }
+     }
+     const ratingGuide=page.locator('#profile-features > details.profile-rating-guide');
+     if(await ratingGuide.count()!==1||await ratingGuide.evaluate(el=>el.open))
+      errors.push(width+' '+slug+' ratings glossary missing or expanded by default');
+     else{
+      await ratingGuide.locator(':scope > summary').click();
+      const copy=await ratingGuide.innerText();
+      if(!copy.includes('Legacy OVR')||!copy.includes('Season OVR')||!copy.includes('Report Card'))
+       errors.push(width+' '+slug+' ratings glossary definitions incomplete');
+      await ratingGuide.locator(':scope > summary').click();
+     }
      const topicGroups=page.locator('#profile-features > .profile-feature-groups > details.profile-feature-group');
      if(await topicGroups.count()!==5)errors.push(width+' '+slug+' profile must have five clear topics');
      else{
