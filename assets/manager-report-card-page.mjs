@@ -117,6 +117,35 @@ try {
   if(comparison)comparison.hidden=true;
  }
  document.getElementById('cards').innerHTML=shown.map(x=>'<section class="card" data-report-manager="'+esc(x.name)+'"><div class="head"><div><div class="label">Report-card rank #'+x.rank+'</div><h2><a href="../managers/'+slugs[x.name]+'/">'+esc(x.name)+'</a></h2></div><div class="score">'+x.provisional.toFixed(1)+'<small>of 100 · provisional</small></div></div>'+scoreSummary(x)+'<p class="report-first-glance">'+x.coverage.verifiedChampionships+' verified championships · '+x.coverage.playoffVerified+' playoff appearances · '+x.coverage.careerGames+' regular-season games</p><details class="report-category-details"><summary>View all 10 category ratings</summary><div class="grid">'+Object.entries(x.scores).map(([key,score])=>'<div class="grade"><span>'+labels[key]+'</span><strong>'+(score===null?'N/A':score.toFixed(1))+'</strong><small>'+categoryEvidence(key)+'</small></div>').join('')+'</div></details>'+categoryScoreGuide()+notablePickups(x.name)+'<details class="report-evidence-details"><summary>Career evidence and scouting notes</summary>'+acquisitionNote(x.name)+startSitNote(x.name)+'<p class="fine">Confirmed '+x.coverage.verifiedChampionships+' titles · '+x.coverage.verifiedRunnersUp+' runners-up · '+x.coverage.championshipGameAppearances+' championship-game appearances · minimum '+x.coverage.minimumPlayoffs+' playoff berths · '+x.coverage.playoffVerified+'/'+x.coverage.playoffEligible+' qualified (2016–25) · '+x.coverage.playoffByes+' byes · '+x.coverage.draftPicks+' scored nonkeeper picks · '+x.coverage.verifiedTradeSides+' verified trade sides · '+x.coverage.careerGames+' regular-season games · '+x.coverage.waiverHighlights+' highlighted waiver candidates (not a full denominator). Scored dimensions: '+x.availableWeight+' of 100 possible weight points ('+x.evidence.status+' evidence coverage; not a statistical confidence interval).</p><p class="fine"><strong>Scouting read:</strong> '+esc(byName[x.name].strengths.length?byName[x.name].strengths.join('; '):'No verified standout category yet')+'. <strong>Next competitive objective:</strong> '+esc(byName[x.name].focus.length?byName[x.name].focus.join('; '):'Sustain results and validate management decisions')+'. These are results-based observations, not certified decision-level grades.</p><details class="report-scouting-more"><summary>Detailed scouting dossier</summary><p><strong>'+esc(dossierByName[x.name].headline)+'</strong></p><p><strong>Documented strengths:</strong> '+esc(dossierByName[x.name].strengths.join('; ')||'No qualifying standout yet')+'</p><p><strong>Evidence limitations:</strong> '+esc(dossierByName[x.name].limitations.join('; '))+'</p><p>'+esc(dossierByName[x.name].decisionRead)+'</p><p class="fine">'+esc(dossierByName[x.name].evidence)+'</p></details></details></section>').join('') || '<p>No matching manager report card.</p>';
+ // Allow league visitors to jump directly to one report card without
+ // changing scores, rerendering data, or hiding any source research permanently.
+ const reportPicker=document.getElementById('report-manager-picker');
+ const reportSelect=document.getElementById('report-manager-select');
+ const reportCount=document.getElementById('report-manager-count');
+ if(managerQuery&&shown.length===1){
+  if(reportPicker)reportPicker.hidden=true;
+ }else if(reportPicker&&reportSelect&&reportCount){
+  for(const row of rows){
+   const option=document.createElement('option');
+   option.value=row.name;option.textContent=row.name;
+   reportSelect.append(option);
+  }
+  const items=[...document.querySelectorAll('#cards [data-report-manager]')];
+  const choose=()=>{
+   const selected=reportSelect.value;
+   let count=0;
+   for(const item of items){
+    const matches=!selected||item.dataset.reportManager===selected;
+    item.hidden=!matches;
+    if(matches)count++;
+   }
+   reportCount.textContent=selected
+    ?'Showing '+selected+' report card'
+    :'All '+count+' report cards';
+  };
+  reportSelect.addEventListener('change',choose);
+  choose();
+ }
  // Load original provider receipts only when the selected pickup set is opened.
  // A completed free-agent add costs $0; a successful $0 waiver is a separate route.
  // Invalid/missing provider receipts remain N/A rather than being assumed free.
