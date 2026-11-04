@@ -141,16 +141,17 @@ function mountProfileFeatureDirectory(quick,manager){
   {label:'Pickup highlights',detail:'Up to three recorded additions, starts and points; costs when available',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'💰'},
   {label:'Start/Sit accuracy',detail:'Weekly lineup efficiency and coverage',href:'../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name),icon:'🎯'},
   {label:'Keeper research',detail:'2025 and in-progress 2026 keeper evidence',href:'../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(name),icon:'🔒'},
-  {label:'Manager report card',detail:'Category ratings, verified achievements and evidence limitations',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'📋'}
+  {label:'Manager report card',detail:'Category ratings, verified achievements and evidence limitations',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'📋'},
+  {label:'Personal record book',detail:'Highest scores, closest games and season-by-season records',href:'../record-books.html?manager='+encodeURIComponent(manager),icon:'📖'}
  ];
  const shell=document.createElement('section');
  shell.className='profile-feature-directory';
  shell.id='profile-features';
  shell.setAttribute('aria-label','Manager features');
  shell.dataset.profileFeatureMenu='';
- shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Five topics. Choose a feature to see its records and what the numbers mean.</p>';
+ shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Five topics. Open a category, then choose a feature to explore the records and what they mean.</p>';
  const groups=[
-  {title:'Career & Results',help:'Championships, records and every season',items:[0,1]},
+  {title:'Career & Results',help:'Championships, records and every season',items:[0,1,12]},
   {title:'Ratings & Report Card',help:'Legacy OVR, individual seasons and how ratings work',items:[3,4,11]},
   {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7,8]},
   {title:'Rivals & Matchups',help:'Head-to-head records and memorable games',items:[2]},
