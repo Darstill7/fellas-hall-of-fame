@@ -1,4 +1,4 @@
-import {findOwnedRecords,recordCategoryLabels} from '../assets/manager-record-ownership.mjs';
+import {findOwnedRecords,recordCategoryLabels,nextRecordChallenger} from '../assets/manager-record-ownership.mjs';
 import fs from 'node:fs';
 const managers=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 const obsolete=/The Fellas OS v5|static-first pre-publish build|Franchise encyclopedia · v9\.15|Players, Waivers & Trade Receipts/;
@@ -79,6 +79,21 @@ if(!leaderboardScript.includes("findOwnedRecords(archive,guide,m.manager)")||
    !leaderboardScript.includes("encodeURIComponent(name)")||
    !leaderboardScript.includes("b.records.length-a.records.length"))
  throw Error('Record holders must be dynamically ranked and linked to exact personal records');
+for(const label of expectedKinds){
+ const challenger=nextRecordChallenger(book,guide,label);
+ if(!challenger||!Number.isFinite(challenger.value)||!Number.isFinite(challenger.gap)||challenger.gap<0)
+  throw Error('Missing valid runner-up evidence for '+label);
+ const leaders=[...holderMap].filter(([,recs])=>recs.some(r=>r.label===label)).map(([name])=>name);
+ if(leaders.includes(challenger.manager))
+  throw Error('Record challenger must be a different manager for '+label);
+}
+const closestChallenger=nextRecordChallenger(book,guide,'Closest regular-season victory');
+if(closestChallenger.manager!=='Tony'||closestChallenger.value!==0.24)
+ throw Error('Closest victory record challenger requires review');
+const categoryPage=fs.readFileSync('assets/record-holders-page.mjs','utf8');
+if(!categoryPage.includes('nextRecordChallenger(archive,guide,label)')||
+   !categoryPage.includes('How close is the next manager?'))
+ throw Error('Record challenger disclosures not mounted on the public leaderboard');
 const countSum=[...holderMap.values()].reduce((sum,recs)=>sum+recs.length,0);
 if(countSum<expectedKinds.length)
  throw Error('Insufficient category leaders; expected at least one leader per record category');
