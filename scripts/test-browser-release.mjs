@@ -1682,7 +1682,7 @@ try{
     const cards=await page.locator('#record-leaders .leader-card').count();
     const remaining=await page.locator('#record-other .leader-card').count();
     const kinds=await page.locator('#record-categories .category-card').count();
-    if(cards<1||cards+remaining!==14||kinds!==8)
+    if(cards<1||cards+remaining!==14||kinds!==9)
      errors.push(width+' record holders mismatch: '+cards+' leaders, '+remaining+' remaining, '+kinds+' categories');
     const first=await page.locator('#record-leaders .leader-card').first().innerText();
     if(!first.includes('record'))
