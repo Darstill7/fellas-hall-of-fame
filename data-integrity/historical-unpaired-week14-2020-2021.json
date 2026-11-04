@@ -1,0 +1,46 @@
+{
+  "scope": "The Fellas Sleeper 2020 and 2021 regular-season Week 14 provider records",
+  "retrievedOn": "2026-11-04",
+  "provenance": "Connected historical Sleeper league matchups; independent of the 2026 current-season provider.",
+  "disclaimer": "Provider returns final unpaired roster score records with null pairing ID and null opponent. They are not head-to-head games or automatically losses, wins, or confirmed byes.",
+  "seasons": [
+    {
+      "year": 2020,
+      "leagueId": "561248176597610496",
+      "week": 14,
+      "pairedGames": 4,
+      "providerShape": "partially_paired",
+      "unpaired": [
+        {
+          "manager": "Mitch",
+          "rosterId": 6,
+          "points": 86.12
+        },
+        {
+          "manager": "Birch",
+          "rosterId": 10,
+          "points": 161.2
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "leagueId": "668633299786244096",
+      "week": 14,
+      "pairedGames": 4,
+      "providerShape": "partially_paired",
+      "unpaired": [
+        {
+          "manager": "Tony",
+          "rosterId": 7,
+          "points": 119.08
+        },
+        {
+          "manager": "Birch",
+          "rosterId": 10,
+          "points": 65.48
+        }
+      ]
+    }
+  ]
+}
