@@ -2,6 +2,7 @@ import {mountDraftTradeCareer} from './manager-draft-trade-career-page.mjs';
 import {mountManagerSeasonEvidence} from './manager-season-evidence.mjs';
 import {managerPersonas} from './manager-personas.mjs';
 import {findOwnedRecords,recordCategoryLabels} from './manager-record-ownership.mjs';
+import './manager-playoff-resume.mjs';
 // Upgrade the older seven-link chapter navigator without discarding existing archive sections.
 const profileName=document.querySelector('main .hero h1')?.textContent?.trim();
 const persona=managerPersonas[profileName]||managerPersonas[profileName==='Tom'?'Thommy':profileName];
@@ -189,7 +190,8 @@ function mountProfileFeatureDirectory(quick,manager){
   {label:'Start/Sit accuracy',detail:'Weekly lineup efficiency and coverage',href:'../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name),icon:'🎯'},
   {label:'Keeper research',detail:'2025 and in-progress 2026 keeper evidence',href:'../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(name),icon:'🔒'},
   {label:'Manager report card',detail:'Category ratings, verified achievements and evidence limitations',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'📋'},
-  {label:'Records you own',detail:'League records, personal bests and season-by-season history',href:'../record-books.html?manager='+encodeURIComponent(manager)+'#owned-records',icon:'📖'}
+  {label:'Records you own',detail:'League records, personal bests and season-by-season history',href:'../record-books.html?manager='+encodeURIComponent(manager)+'#owned-records',icon:'📖'},
+  {label:'Playoff résumé',detail:'Verified playoff berths, championship games and annual results',href:'#profile-playoff-resume',icon:'🏅'}
  ];
  const shell=document.createElement('section');
  shell.className='profile-feature-directory';
@@ -198,7 +200,7 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.dataset.profileFeatureMenu='';
  shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Five topics. Open a category, then choose a feature to explore the records and what they mean.</p>';
  const groups=[
-  {title:'Career & Results',help:'Championships, records and every season',items:[0,1,12]},
+  {title:'Career & Results',help:'Championships, records and every season',items:[0,1,12,13]},
   {title:'Ratings & Report Card',help:'Legacy OVR, individual seasons and how ratings work',items:[3,4,11]},
   {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7,8]},
   {title:'Rivals & Matchups',help:'Head-to-head records and memorable games',items:[2]},
