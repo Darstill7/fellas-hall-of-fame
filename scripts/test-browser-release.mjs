@@ -506,6 +506,15 @@ try{
      errors.push(width+' manager decisions evidence limitation missing');
    }
    if(route==='managers/index.html'){
+    const directoryStyle=page.locator('#manager-directory-readability');
+    if(await directoryStyle.count()!==1)
+     errors.push(width+' managers directory readability styles missing');
+    const cardSpacing=await page.locator('#manager-directory-cards a.manager').first().evaluate(el=>{
+      const card=getComputedStyle(el),title=getComputedStyle(el.querySelector('h2'));
+      return {gap:parseFloat(card.gap),line:parseFloat(title.lineHeight),direction:card.flexDirection}
+    });
+    if(cardSpacing.gap<9||cardSpacing.line<25||cardSpacing.direction!=='column')
+     errors.push(width+' manager directory cards still have cramped hierarchy');
     const cards=page.locator('#manager-directory-cards a.manager');
     if(await cards.count()!==10)errors.push(width+' managers directory needs exactly 10 profile links');
     const extra=page.locator('details.manager-nav-more');
