@@ -499,6 +499,48 @@ try{
    if(route==='analytics/manager-report-cards.html'){
     const count=await page.locator('[data-report-manager]').count();
     if(count!==10)errors.push(width+' report card preview rendered '+count+' of 10 managers');
+    const categoryPanels=page.locator('[data-report-manager] details.report-category-details');
+    const evidencePanels=page.locator('[data-report-manager] details.report-evidence-details');
+    if(await categoryPanels.count()!==10||await evidencePanels.count()!==10)
+     errors.push(width+' report cards missing progressive category or evidence panels');
+    else{
+     if(await categoryPanels.evaluateAll(nodes=>nodes.some(n=>n.open))||
+        await evidencePanels.evaluateAll(nodes=>nodes.some(n=>n.open)))
+      errors.push(width+' report card deep research must start collapsed');
+     const first=categoryPanels.first();
+     await first.locator(':scope > summary').click();
+     if(!await first.locator('.grid').isVisible()||await first.locator('.grade').count()!==10)
+      errors.push(width+' report card category drilldown failed to show ten ratings');
+     await first.locator(':scope > summary').click();
+     const evidence=evidencePanels.first();
+     await evidence.locator(':scope > summary').click();
+     if(!(await evidence.innerText()).includes('Scored dimensions:')||
+        !await evidence.locator('a[href*="manager-lineup-research.html"]').isVisible())
+      errors.push(width+' report card career evidence not available on demand');
+     await evidence.locator(':scope > summary').click();
+    }
+    const comparisonPanel=page.locator('details.report-compare-panel');
+    if(await comparisonPanel.count()!==1||await comparisonPanel.evaluate(el=>el.open))
+     errors.push(width+' report card comparison should start collapsed after ranking cards');
+    else{
+     const ordered=await page.evaluate(()=>{
+      const cards=document.getElementById('cards');
+      const compare=document.querySelector('.report-compare-panel');
+      return !!cards&&!!compare&&Boolean(cards.compareDocumentPosition(compare)&Node.DOCUMENT_POSITION_FOLLOWING);
+     });
+     if(!ordered)errors.push(width+' report card comparison appears before manager results');
+     await comparisonPanel.locator(':scope > summary').click();
+     if(!await page.locator('#compare-a').isVisible()||
+        !await page.locator('#compare-b').isVisible())
+      errors.push(width+' report card comparison controls do not open');
+     await page.locator('#compare-a').selectOption('Stilly');
+     await page.locator('#compare-b').selectOption('Stew');
+     await page.locator('#compare-go').click();
+     if(!(await page.locator('#comparison').innerText()).includes('Stilly')||
+        !(await page.locator('#comparison').innerText()).includes('Stew'))
+      errors.push(width+' report card comparison did not update selected managers');
+     await comparisonPanel.locator(':scope > summary').click();
+    }
     const scoreSummaries=page.locator('[data-report-manager] .report-score-summary');
     const scoreGuides=page.locator('[data-report-manager] details.report-score-guide');
     if(await scoreSummaries.count()!==10||await scoreGuides.count()!==10)
