@@ -323,6 +323,12 @@ try{
        await failure.locator('#career-results tr').count()!==0)
      errors.push(width+' Start/Sit failed archive did not clear provisional display');
     await failure.close();
+    const math=page.locator('details.lineup-method-details');
+    if(await math.count()!==1||await math.evaluate(el=>el.open))
+     errors.push(width+' lineup source explanation should start collapsed');
+    await math.locator(':scope > summary').click();
+    if(!await math.locator('p').isVisible())
+     errors.push(width+' lineup method explanation did not expand');
     const grade=await page.locator('.notice').innerText();
     if(!grade.includes('rather than a certified manager-skill grade'))
      errors.push(width+' Start/Sit research caveat not visible');
