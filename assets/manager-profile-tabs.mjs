@@ -346,8 +346,8 @@ if(main&&tabs){
  }
  focusBack.addEventListener('click',()=>{
   clearFeatureFocus();document.body.classList.add('profile-landing');
-  const firstTopic=featureDirectory?.querySelector('details.profile-feature-group');
-  if(firstTopic)firstTopic.open=true;
+  // Preserve the visitor's open topic; reopening another here races the
+  // accordion toggle and can hide the next feature before it is selected.
   featureDirectory?.scrollIntoView({block:'start',behavior:'instant'});
  });
  function focusFeature(button,destination){
