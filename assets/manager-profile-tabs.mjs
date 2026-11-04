@@ -430,6 +430,9 @@ if(existingProfile&&!legacyNav){
 // Let visitors choose a topic before seeing the complete playoff résumé.
 const profileTopicMenu=document.querySelector('main .profile-quickstart');
 const profilePlayoffSection=document.getElementById('profile-playoff-resume');
+// The topic directory precedes the dense OVR card on every manager page.
+// It is the primary entrance, while ratings remain available lower down.
+if(profileHero&&profileTopicMenu)profileHero.after(profileTopicMenu);
 if(profileTopicMenu&&profilePlayoffSection)profileTopicMenu.after(profilePlayoffSection);
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
 // The old overview tiles and archive teaser repeat destinations available in the tabs.

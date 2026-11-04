@@ -246,7 +246,8 @@ try{
      return !!hero&&!!action&&!!snapshot&&!!topics&&!!playoff&&
       !!(action.compareDocumentPosition(snapshot)&Node.DOCUMENT_POSITION_FOLLOWING)&&
       !hero.contains(playoff)&&
-      !!(topics.compareDocumentPosition(playoff)&Node.DOCUMENT_POSITION_FOLLOWING);
+      !!(topics.compareDocumentPosition(playoff)&Node.DOCUMENT_POSITION_FOLLOWING)&&
+      !!(topics.compareDocumentPosition(document.querySelector('main .profile-madden'))&Node.DOCUMENT_POSITION_FOLLOWING);
     });
     if(!hierarchy)errors.push(width+' '+route+' first-screen navigation and résumé hierarchy broken');
     const panel=page.locator('#profile-playoff-resume');

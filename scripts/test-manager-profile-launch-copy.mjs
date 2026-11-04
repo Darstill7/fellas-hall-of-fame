@@ -27,6 +27,7 @@ for(const [manager,expected] of Object.entries(expectedPlayoffs)){
 }
 const tabsSource=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
 if(!tabsSource.includes('careerSnapshot.before(primaryProfileActions)')||
+   !tabsSource.includes('profileHero.after(profileTopicMenu)')||
    !tabsSource.includes('profileTopicMenu.after(profilePlayoffSection)'))
  throw Error('Manager first-screen hierarchy must remain consistent');
 if(!tabsSource.includes('mountManagerPlayoffResume();')||
