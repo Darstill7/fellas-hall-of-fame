@@ -2,3 +2,6 @@
 .top h1{line-height:1.16!important;letter-spacing:-.04em!important;overflow-wrap:break-word}
 .top p{line-height:1.7}
 @media(max-width:650px){.top h1{font-size:clamp(34px,8vw,52px)!important;line-height:1.2!important}.top{align-items:flex-start;flex-wrap:wrap;gap:14px}}
+
+/* Standalone archive titles need the same readable line-height. */
+main > h1{line-height:1.18!important;letter-spacing:-.035em!important;text-wrap:balance}

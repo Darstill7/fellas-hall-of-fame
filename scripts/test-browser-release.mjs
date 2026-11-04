@@ -523,6 +523,15 @@ try{
      errors.push(width+' comparison grading caveat missing');
    }
    if(route==='analytics/manager-report-cards.html'){
+    const picker=page.locator('#report-manager-picker');
+    const research=page.locator('details.report-more-links');
+    const coverage=page.locator('details.report-coverage-guide');
+    if(await picker.count()!==1||await research.count()!==1||await coverage.count()!==1)
+     errors.push(width+' report cards finder or optional research disclosures missing');
+    else if(!await picker.evaluate(el=>Boolean(el.compareDocumentPosition(document.querySelector('details.report-more-links'))&Node.DOCUMENT_POSITION_FOLLOWING))||
+            !await picker.evaluate(el=>Boolean(el.compareDocumentPosition(document.querySelector('details.report-coverage-guide'))&Node.DOCUMENT_POSITION_FOLLOWING)))
+     errors.push(width+' report card research controls should follow manager finder');
+
     const firstCard=page.locator('[data-report-manager]').first();
     if(!((await firstCard.locator('.label').first().innerText()).toLowerCase().includes('report-card rank #')))
      errors.push(width+' report card rank label missing clear meaning');
@@ -1096,7 +1105,7 @@ try{
     await unavailable.goto(baseUrl+'analytics/rivalries.html',{waitUntil:'networkidle',timeout:30000});
     const blocked=await unavailable.locator('#rivalry-go').isDisabled();
     const notice=await unavailable.locator('#rivalry-picker-status').innerText();
-    const matrixText=await unavailable.locator('#verified-rivalry-matrix').innerText();
+    const matrixText=await unavailable.locator('#verified-rivalry-matrix').textContent();
     if(!blocked||!notice.includes('unavailable')||!matrixText.includes('unavailable'))
      errors.push(width+' rivalry finder fails to report missing archive and disable unverified navigation (disabled='+blocked+', notice='+JSON.stringify(notice)+', matrix='+JSON.stringify(matrixText.slice(0,160))+')');
     await unavailable.close();
