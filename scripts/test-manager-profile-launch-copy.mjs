@@ -22,4 +22,15 @@ for(const slug of managers){
  const headline=html.match(/<div class="stat"><strong>(\d+)<\/strong><small>Verified championships?<\/small><\/div>/);
  if(!headline||Number(headline[1])!==years.length)throw Error('Profile championship headline disagrees with season guide: '+slug);
 }
+// The shared feature menu links each profile to its own filterable record book.
+const featureMenu=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+const recordBook=fs.readFileSync('managers/record-books.html','utf8');
+if(!featureMenu.includes("label:'Personal record book'")||!featureMenu.includes("href:'../record-books.html?manager='+encodeURIComponent(manager)"))
+ throw Error('Manager feature menu lost its personal record book deep link');
+if(!featureMenu.includes("items:[0,1,12]"))
+ throw Error('Record books are no longer in the Career & Results feature group');
+if(!recordBook.includes("new URLSearchParams(location.search).get('manager')"))
+ throw Error('Record book does not restore manager selection from its URL');
+if(!recordBook.includes("history.replaceState(null,'',u)"))
+ throw Error('Record book selection is not shareable');
 console.log('All ten manager profiles have launch-ready copy, consistent championship records, and current rankings links.');
