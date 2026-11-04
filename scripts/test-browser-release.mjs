@@ -85,7 +85,8 @@ try{
        !await page.locator('#keeper-profile-context').isVisible()||
        await page.locator('#keeper-overall-metrics').isVisible()||
        await page.locator('#keeper-sort').isVisible()||
-       !await page.locator('#keeper-profile-context a[href="../managers/kuhl/"]').isVisible())
+       !await page.locator('#keeper-profile-context a[href="../managers/kuhl/"]').isVisible()||
+       !await page.locator('#keeper-profile-context a[href="keeper-decision-research.html?year=2025"]').isVisible())
      errors.push(width+' keeper manager-focused view fails to prioritize personal evidence and return navigation');
     await page.locator('#keeper-manager').selectOption('');
     await page.locator('#keeper-sort').selectOption('playoff');
@@ -113,6 +114,7 @@ try{
     if(!await page.locator('#keeper-profile-context').isVisible()||
        await rows.first().evaluate(el=>el.open)||
        !await page.locator('#keeper-profile-context a[href="../managers/stilly/"]').isVisible()||
+       !await page.locator('#keeper-profile-context a[href="keeper-decision-research.html?year=2026"]').isVisible()||
        !((await page.locator('#keeper-profile-context').innerText()).includes('No completed-season score')))
      errors.push(width+' deep-linked keeper manager summary missing return path or provisional status');
     const noPartialGrade=await page.evaluate(async()=>{
