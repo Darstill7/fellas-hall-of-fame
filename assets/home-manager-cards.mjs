@@ -18,13 +18,25 @@ try{
  const compact=document.getElementById('home-manager-mobile');
  if(compact)compact.innerHTML=current.map(r=>{
   const tier=managerCardTier(r),rating=maddenOvr(r.score).toFixed(1),identity=managerPersonas[r.name]?.name||earnedArchetypes(r)[0].name;
-  return '<details data-manager-name="'+escape((r.name+' '+identity).toLowerCase())+'" data-manager-ovr="'+rating+'" class="mobile-manager-row mobile-tier-'+tier.id+'"><summary aria-label="Expand '+escape(r.name)+' manager rating"><span class="mobile-manager-rank" aria-label="All-time rank '+r.rank+'">#'+r.rank+'</span><span class="mobile-manager-identity"><strong class="mobile-manager-name">'+escape(r.name)+'</strong><span class="mobile-manager-nickname">'+escape(identity)+'</span></span><span class="mobile-manager-ovr" aria-label="Legacy overall rating '+rating+'"><span class="mobile-manager-ovr-value">'+rating+'</span><small>LEGACY OVR</small></span><span class="mobile-manager-chevron" aria-hidden="true">⌄</span></summary><div class="mobile-manager-expanded"><p class="mobile-nickname-origin">'+escape(managerPersonas[r.name]?.origin||'Nickname inspired by archived league history.')+'</p><div class="mobile-manager-metrics"><span><strong>#'+r.rank+'</strong> All-time</span><span><strong>'+r.titleYears.length+'</strong> Titles</span><span><strong>'+r.qualifiedYears.length+'</strong> Playoffs</span></div><p>Career record: <strong>'+escape(r.career)+'</strong></p><a class="mobile-manager-link" href="managers/'+slug[r.name]+'/">View '+escape(r.name)+'’s profile →</a><nav class="mobile-manager-shortcuts" aria-label="'+escape(r.name)+' profile shortcuts"><a href="managers/'+slug[r.name]+'/#overview">Career</a><a href="managers/'+slug[r.name]+'/#seasons">Each Year</a><a href="managers/'+slug[r.name]+'/#rivalries">Rivalries</a></nav></div></details>';
+  return '<details data-manager-name="'+escape((r.name+' '+identity).toLowerCase())+'" data-manager-ovr="'+rating+'" data-manager-rank="'+r.rank+'" class="mobile-manager-row mobile-tier-'+tier.id+'"><summary aria-label="Expand '+escape(r.name)+' manager rating"><span class="mobile-manager-rank" aria-label="All-time rank '+r.rank+'">#'+r.rank+'</span><span class="mobile-manager-identity"><strong class="mobile-manager-name">'+escape(r.name)+'</strong><span class="mobile-manager-nickname">'+escape(identity)+'</span></span><span class="mobile-manager-ovr" aria-label="Legacy overall rating '+rating+'"><span class="mobile-manager-ovr-value">'+rating+'</span><small>LEGACY OVR</small></span><span class="mobile-manager-chevron" aria-hidden="true">⌄</span></summary><div class="mobile-manager-expanded"><p class="mobile-nickname-origin">'+escape(managerPersonas[r.name]?.origin||'Nickname inspired by archived league history.')+'</p><div class="mobile-manager-metrics"><span><strong>#'+r.rank+'</strong> All-time</span><span><strong>'+r.titleYears.length+'</strong> Titles</span><span><strong>'+r.qualifiedYears.length+'</strong> Playoffs</span></div><p>Career record: <strong>'+escape(r.career)+'</strong></p><a class="mobile-manager-link" href="managers/'+slug[r.name]+'/">View '+escape(r.name)+'’s profile →</a><nav class="mobile-manager-shortcuts" aria-label="'+escape(r.name)+' profile shortcuts"><a href="managers/'+slug[r.name]+'/#overview">Career</a><a href="managers/'+slug[r.name]+'/#seasons">Each Year</a><a href="managers/'+slug[r.name]+'/#rivalries">Rivalries</a></nav></div></details>';
  }).join('');
+ const snapshot=document.getElementById('home-season-snapshot');
+ if(snapshot){
+  const season=guide['2026'], table=season?.standings||[];
+  const weeks=[...new Set(table.map(row=>Number(row.games)).filter(Number.isFinite))];
+  const completedWeek=weeks.length===1?weeks[0]:null;
+  const leaders=[...table].sort((a,b)=>(b.w-a.w)||(b.pf-a.pf)).slice(0,3);
+  snapshot.innerHTML=completedWeek&&leaders.length===3
+   ?leaders.map((r,i)=>'<div class="snapshot-stat"><span>'+(i===0?'Current leader':'Standings #'+(i+1))+'</span><strong>'+escape(r.name)+'</strong><span>'+r.w+'–'+r.l+(r.t?'–'+r.t:'')+' · '+Number(r.pf).toFixed(2)+' points for</span></div>').join('')+'<p class="snapshot-status">2026 regular season · Canonical results through Week '+completedWeek+' · Standings are reconstructed, not official tiebreaker seeds. No unverified or incomplete weeks included.</p>'
+   :'<p class="snapshot-status">The verified 2026 standings snapshot is unavailable. Use SportsCenter for sourced weekly results.</p>';
+ }
  const finder=document.getElementById('home-manager-search');
  const clear=document.getElementById('home-manager-clear');
  const empty=document.getElementById('home-manager-empty');
  if(finder&&compact){
   const rows=[...compact.querySelectorAll('.mobile-manager-row')];
+  const desktop=[...cards.querySelectorAll('.home-manager-card')];
+  desktop.forEach((card,i)=>{card.dataset.managerName=rows[i]?.dataset.managerName||'';card.dataset.managerOvr=rows[i]?.dataset.managerOvr||'';card.dataset.managerRank=rows[i]?.dataset.managerRank||''});
   function filter(){
    const query=finder.value.trim().toLocaleLowerCase();
    let visible=0;
@@ -34,18 +46,21 @@ try{
     if(!match)row.open=false;
     if(match)visible++;
    }
+   for(const card of desktop)card.hidden=!card.dataset.managerName.includes(query);
    if(clear)clear.hidden=!query;
    if(empty)empty.hidden=visible!==0;
   }
   const sorter=document.getElementById('home-manager-sort');
   function sortRows(){
    const mode=sorter?.value||'name';
-   const sorted=[...rows].sort((a,b)=>{
+   const compare=(a,b)=>{
+    if(mode==='rank')return Number(a.dataset.managerRank)-Number(b.dataset.managerRank);
     if(mode==='ovr-desc')return Number(b.dataset.managerOvr)-Number(a.dataset.managerOvr)||a.dataset.managerName.localeCompare(b.dataset.managerName);
     if(mode==='ovr-asc')return Number(a.dataset.managerOvr)-Number(b.dataset.managerOvr)||a.dataset.managerName.localeCompare(b.dataset.managerName);
     return a.dataset.managerName.localeCompare(b.dataset.managerName);
-   });
-   for(const row of sorted)compact.append(row);
+   };
+   for(const row of [...rows].sort(compare))compact.append(row);
+   for(const card of [...desktop].sort(compare))cards.append(card);
   }
   sorter?.addEventListener('change',sortRows);
   sortRows();
