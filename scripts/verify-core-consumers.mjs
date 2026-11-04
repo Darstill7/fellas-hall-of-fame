@@ -146,6 +146,7 @@ for(const entry of legacyModel.managers){
  const id=entry.manager==='Tom'?'Thommy':entry.manager;
  const m=careers.managers[id];
  assert(!!m&&entry.career_wins===m.w&&entry.career_losses===m.l&&(entry.career_ties||0)===m.t,'Legacy page has stale career fallback: '+entry.manager);
+ assert(entry.record_scope.includes('2026 Week 8')&&!entry.record_scope.includes('Week 7'),'Legacy page record coverage label is stale: '+entry.manager);
 }
 const recordsPage=read('analytics/records.html');
 const recordsArchive=read('analytics/records-archive.html');
