@@ -58,4 +58,18 @@ if(holderMap.get('Thommy').find(r=>r.label==='Most championships')?.value!==4)
  throw Error('Four verified Thommy titles not recognized as record');
 if(holderMap.get('Mitch').find(r=>r.label==='Highest regular-season weekly score')?.value!==180.86)
  throw Error('Verified single-week scoring leader changed; review records before launch');
+const leaderboard=fs.readFileSync('analytics/record-holders.html','utf8');
+const leaderboardScript=fs.readFileSync('assets/record-holders-page.mjs','utf8');
+const bookHtml=fs.readFileSync('managers/record-books.html','utf8');
+if(!leaderboard.includes('id="record-leaders"')||!leaderboard.includes('id="record-categories"')||
+   !leaderboard.includes('record-holders-page.mjs')||
+   !bookHtml.includes('href="../analytics/record-holders.html"'))
+ throw Error('League record leaderboard or its personal-record navigation is missing');
+if(!leaderboardScript.includes("findOwnedRecords(archive,guide,m.manager)")||
+   !leaderboardScript.includes("encodeURIComponent(name)")||
+   !leaderboardScript.includes("b.records.length-a.records.length"))
+ throw Error('Record holders must be dynamically ranked and linked to exact personal records');
+const countSum=[...holderMap.values()].reduce((sum,recs)=>sum+recs.length,0);
+if(countSum<expectedKinds.length)
+ throw Error('Insufficient category leaders; expected at least one leader per record category');
 console.log('All ten manager profiles have launch-ready copy, consistent championship records, and current rankings links.');
