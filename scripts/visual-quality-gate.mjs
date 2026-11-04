@@ -26,7 +26,7 @@ const server=http.createServer(async(req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const baseUrl='http://127.0.0.1:'+server.address().port+base;
 const output=path.join(root,'data-integrity','visual-gate');
-const findings=[],screens=[];
+const findings=[],screens=[],mobileJourneys=[];
 try{
  for(const [engine,widths] of [['chromium',[390,768,1280]],['webkit',[390]]]){
   const browser=await (engine==='webkit'?webkit:chromium).launch({headless:true,...(engine==='webkit'?{}:{args:['--no-sandbox']})});
@@ -121,6 +121,49 @@ try{
        await page.screenshot({path:path.join(dir,name+'.png'),animations:'disabled',fullPage:false});
        if(engine==='chromium'&&width===390&&['index.html','managers/stilly/','analytics/manager-report-cards.html','analytics/rivalries.html'].includes(key))
         await page.screenshot({path:path.join(dir,name+'_full.png'),animations:'disabled',fullPage:true});
+       // Mobile tap-through: actual controls, navigation and verified destination,
+       // not just screenshot or static link existence. Both Chromium and Safari.
+       if(width===390&&route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
+        const slug=route.split('/')[1];
+        const canonical=slug==='tom'?'Thommy':slug==='jmid'?'JMid':slug[0].toUpperCase()+slug.slice(1);
+        const topics=page.locator('a[href="#profile-features"]').first();
+        if(!await topics.isVisible())throw Error('Browse profile topics action missing');
+        await topics.click();
+        const menu=page.locator('#profile-features');
+        if(!await menu.isVisible())throw Error('Profile topic directory not reachable');
+        if(await menu.locator('details.profile-feature-group').count()!==5)
+         throw Error('Expected five grouped, expandable profile topics');
+        const link=menu.locator('a[href="#profile-playoff-resume"]');
+        if(!await link.count())throw Error('Playoff résumé topic link missing');
+        await link.click();
+        const resume=page.locator('#profile-playoff-resume');
+        if(!await resume.isVisible())throw Error('Playoff résumé not reachable by its topic link');
+        const disclosure=resume.locator('details.profile-playoff-history');
+        await disclosure.locator('summary').click();
+        if(await disclosure.locator('li').count()!==10)throw Error('Playoff timeline not ten completed seasons');
+        const preview=page.locator('a[data-profile-owned-records]');
+        if(!await preview.count())throw Error('Personal record preview missing');
+        if(['stilly','tom','stover'].includes(slug)){
+         await preview.click();
+         await page.waitForURL(url=>url.pathname.endsWith('/managers/record-books.html'),{timeout:10000});
+         await page.locator('#manager option').first().waitFor();
+         await page.waitForFunction(name=>document.getElementById('manager')?.value===name,canonical,{timeout:10000});
+         await page.locator('#manager').selectOption('Birch');
+         if(new URL(page.url()).searchParams.get('manager')!=='Birch')
+          throw Error('Manager record selector not shareable');
+        }
+        mobileJourneys.push({engine,manager:canonical,topics:5,postseasonSeasons:10,recordsDestination:['stilly','tom','stover'].includes(slug)});
+       }
+       if(width===390&&route==='analytics/record-holders.html'){
+        const first=page.locator('#record-leaders a.leader-card').first();
+        if(!await first.isVisible())throw Error('Record-holder cards not rendered');
+        const aboveFold=await first.evaluate(el=>el.getBoundingClientRect().top<innerHeight);
+        if(!aboveFold)throw Error('Record-holder list starts below first mobile viewport');
+        const help=page.locator('details.scope-guide');
+        await help.locator('summary').click();
+        if(!await help.evaluate(el=>el.open))throw Error('Record coverage explanation did not open');
+        mobileJourneys.push({engine,page:'record-holders',firstRecordAboveFold:true,scopeExpandable:true});
+       }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
        findings.push(engine+' '+width+' '+key+' audit error '+(error?.message||String(error)));
@@ -136,7 +179,7 @@ try{
 finally{server.close();}
 await fs.mkdir(output,{recursive:true});
 const planned=routes.length*4;
-const report={generated:new Date().toISOString(),routes:routes.length,planned,observed:screens.length,passed:findings.length===0&&screens.length===planned,findings,screens};
+const report={generated:new Date().toISOString(),routes:routes.length,planned,observed:screens.length,passed:findings.length===0&&screens.length===planned,findings,mobileJourneys,screens};
 await fs.writeFile(path.join(output,'report.json'),JSON.stringify(report,null,2)+'\n');
 console.log('VISUAL GATE '+(report.passed?'PASS':'NEEDS REVIEW')+' '+screens.length+'/'+planned+' screens, '+findings.length+' findings');
 for(const finding of findings)console.error('VISUAL FINDING '+finding);
