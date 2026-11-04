@@ -67,3 +67,10 @@ body.fellas-polished .fellas-mobile-site-links a:hover{background:#244356;color:
 
 /* The brand is also navigation. Give it a comfortable keyboard/touch target. */
 body.fellas-polished header :is(a.brand,a.manager-nav-brand,.manager-nav-brand){min-height:44px;display:inline-flex;align-items:center;justify-content:center;line-height:1.4}
+
+/* Browser-verified readability for records and focused manager research. */
+body.fellas-polished .records-table th{line-height:1.75!important;padding-top:12px!important;padding-bottom:12px!important}
+@media(max-width:650px){
+ body.fellas-polished.profile-feature-focused .profile-feature-group>.profile-feature-list{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
+ body.fellas-polished.profile-feature-focused .profile-feature-group>.profile-feature-list>.profile-feature-button{width:100%!important;min-width:0!important;box-sizing:border-box}
+}

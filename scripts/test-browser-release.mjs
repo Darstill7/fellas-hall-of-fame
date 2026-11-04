@@ -1098,7 +1098,7 @@ try{
     const notice=await unavailable.locator('#rivalry-picker-status').innerText();
     const matrixText=await unavailable.locator('#verified-rivalry-matrix').innerText();
     if(!blocked||!notice.includes('unavailable')||!matrixText.includes('unavailable'))
-     errors.push(width+' rivalry finder fails to report missing archive and disable unverified navigation');
+     errors.push(width+' rivalry finder fails to report missing archive and disable unverified navigation (disabled='+blocked+', notice='+JSON.stringify(notice)+', matrix='+JSON.stringify(matrixText.slice(0,160))+')');
     await unavailable.close();
    }
    if(route.startsWith('rivalries/')){
@@ -1134,10 +1134,11 @@ try{
      intercepted=>intercepted.fulfill({status:200,contentType:'application/json',body:JSON.stringify({games:[]})}));
     await empty.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
     const emptyText=await empty.locator('.rival-hero').innerText();
+    const emptyFacts=await empty.locator('.rivalry-key-facts').innerText();
     if(!emptyText.includes('No verified regular-season meetings')||
        !emptyText.includes('not a 0–0 record')||
-       !((await empty.locator('.rivalry-key-facts').innerText()).includes('missing evidence')))
-     errors.push(width+' missing rivalry receipts are being misrepresented as a tied series');
+       !emptyFacts.includes('missing evidence'))
+     errors.push(width+' missing rivalry receipts are being misrepresented as a tied series (hero='+JSON.stringify(emptyText.slice(0,180))+', facts='+JSON.stringify(emptyFacts.slice(0,180))+')');
     await empty.close();
    }
    if(route===''){
@@ -1438,9 +1439,12 @@ try{
          !await page.locator('.profile-front-office-snapshot').isVisible())
        errors.push(width+' '+slug+' front-office button failed to reveal evidence');
       if(width===390){
-       const mobileButton=await front.evaluate(el=>({columns:getComputedStyle(el.parentElement).gridTemplateColumns,
-        width:el.getBoundingClientRect().width,container:el.parentElement.getBoundingClientRect().width}));
-       if(mobileButton.width<mobileButton.container-3)
+       const mobileButton=await front.evaluate(el=>{
+        const parent=el.parentElement,css=getComputedStyle(parent);
+        return {columns:css.gridTemplateColumns,width:el.getBoundingClientRect().width,
+         available:parent.clientWidth-parseFloat(css.paddingLeft)-parseFloat(css.paddingRight)};
+       });
+       if(mobileButton.width<mobileButton.available-3)
         errors.push(width+' '+slug+' focused feature buttons are still cramped into columns');
       }
       await page.keyboard.press('Escape');
