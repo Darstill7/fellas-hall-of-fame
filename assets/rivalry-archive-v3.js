@@ -5,6 +5,20 @@ const canonical=n=>n==='Tom'?'Thommy':n;
 const display=n=>n==='Thommy'?'Tom':n;
 const path=location.pathname;
 const depth=path.includes('/rivalries/')?(path.endsWith('/')||path.endsWith('/index.html')?'../../':'../'):'../';
+// All rivalry entries share the same accessible visual foundation as the
+// homepage and ten manager profiles, without modifying their archived results.
+document.body.classList.add('fellas-polished');
+const sharedStyle=document.createElement('link');
+sharedStyle.rel='stylesheet';sharedStyle.href=depth+'assets/fellas-ui-system.css';
+document.head.append(sharedStyle);
+const heading=document.querySelector('.top h1');
+if(heading){
+ heading.id='main-content';heading.tabIndex=-1;
+ const skip=document.createElement('a');
+ skip.className='fellas-skip';skip.href='#main-content';skip.textContent='Skip to matchup';
+ document.body.prepend(skip);
+}
+
 const fmt=n=>Number(n).toFixed(2);
 // One consistent visitor-level menu across the rivalry finder and all 45 files.
 // Historic research destinations remain available elsewhere; keep five core links.
@@ -20,7 +34,7 @@ if(nav){
  nav.setAttribute('aria-label','Rivalry navigation');
  nav.replaceChildren(...primaryLinks.map(([label,href])=>{
   const a=document.createElement('a');a.href=href;a.textContent=label;
-  if(label==='Rivalries')a.setAttribute('aria-current',document.body.dataset.rivalryMatrix?'page':'false');
+  if(label==='Rivalries')a.setAttribute('aria-current','page');
   return a;
  }));
 }
