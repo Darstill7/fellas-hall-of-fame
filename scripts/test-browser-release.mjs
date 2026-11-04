@@ -395,6 +395,22 @@ try{
     if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
     if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
    }
+   if(route===''){
+    const more=page.locator('details.home-more-links');
+    if(await more.count()!==1||await more.evaluate(el=>el.open))
+     errors.push(width+' homepage extra features should begin collapsed');
+    const promoted=await page.locator('body').innerText();
+    if(promoted.includes('NEW ·')||promoted.includes('Scores and rankings belong here'))
+     errors.push(width+' homepage contains internal launch/editorial copy');
+    await more.locator(':scope > summary').click();
+    if(!await more.locator('a[href="seasons/weekly-matchup-archive.html"]').isVisible())
+     errors.push(width+' homepage archived links unavailable on expansion');
+   }
+   if(route==='analytics/manager-madden-cards.html'){
+    const copy=await page.locator('body').innerText();
+    if(copy.includes('scheduled Wednesday Sleeper check')||copy.includes('passes validation and is merged'))
+     errors.push(width+' ratings page shows internal deployment workflow');
+   }
    if(route==='analytics/historical-spreads.html'){
     const teamA=page.locator('#team-a'),teamB=page.locator('#team-b'),projected=page.locator('#line');
     if(await teamA.locator('option').count()<30||await teamB.locator('option').count()<30)
