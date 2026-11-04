@@ -839,6 +839,9 @@ try{
      errors.push(width+' historical spread deep-link parameters not honored');
    }
    if(route==='analytics/records.html'){
+    const managersLink=page.locator('header .navlinks a[href="../managers/"]');
+    if(await managersLink.count()!==1||!await managersLink.isVisible())
+     errors.push(width+' record book Managers navigation must point to current directory');
     const coverage=page.locator('main .hero details.records-coverage');
     if(await coverage.count()!==1||await coverage.evaluate(el=>el.open))
      errors.push(width+' all-time record book source coverage must start collapsed');
@@ -859,6 +862,17 @@ try{
      errors.push(width+' all-time record book table type remains cramped');
    }
    if(route==='analytics/power-ratings.html'){
+    const primary=page.locator('header nav[aria-label="Power Ratings navigation"]');
+    if(await primary.count()!==1)
+     errors.push(width+' Power Ratings primary navigation missing');
+    else{
+     for(const href of ['../index.html','../managers/','manager-report-cards.html','records.html','../hall/']){
+      if(await primary.locator('a[href="'+href+'"]').count()!==1)
+       errors.push(width+' Power Ratings missing primary destination '+href);
+     }
+     const tinyTargets=await primary.locator('a').evaluateAll(links=>links.filter(link=>getComputedStyle(link).display!=='none'&&link.getBoundingClientRect().height<40).map(link=>link.textContent.trim()));
+     if(tinyTargets.length)errors.push(width+' Power Ratings links too small to tap: '+tinyTargets.join(', '));
+    }
     const cards=await page.locator('[data-rating-manager]').count();
     if(cards!==14)errors.push(width+' power ratings failed to render 14 managers: '+cards);
     const breakdowns=page.locator('[data-rating-manager] details.rating-breakdown');
@@ -1435,6 +1449,17 @@ try{
     if(!await page.locator('[data-canonical-manager-record]').count())errors.push(width+' '+route+' missing canonical career binding');
    }
    if(route==='managers/record-books.html'){
+    const primary=page.locator('header nav.records-primary-nav');
+    if(await primary.count()!==1)
+     errors.push(width+' Manager Record Books primary navigation missing');
+    else{
+     for(const href of ['../index.html','../managers/','../analytics/records.html','../analytics/manager-report-cards.html']){
+      if(await primary.locator('a[href="'+href+'"]').count()!==1)
+       errors.push(width+' Manager Record Books missing destination '+href);
+     }
+     const tinyTargets=await primary.locator('a').evaluateAll(links=>links.filter(link=>getComputedStyle(link).display!=='none'&&link.getBoundingClientRect().height<40).map(link=>link.textContent.trim()));
+     if(tinyTargets.length)errors.push(width+' Manager Record Books links too small to tap: '+tinyTargets.join(', '));
+    }
     await page.locator('#manager').selectOption('Stilly');
     const career=(await (await page.request.get(baseUrl+'data/career_core_generated.json')).json()).managers.Stilly;
     const expected=career.w+'–'+career.l+(career.t?'–'+career.t:'');
