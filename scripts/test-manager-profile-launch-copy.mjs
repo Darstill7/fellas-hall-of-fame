@@ -1,3 +1,4 @@
+import {findOwnedRecords} from '../assets/manager-record-ownership.mjs';
 import fs from 'node:fs';
 const managers=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 const obsolete=/The Fellas OS v5|static-first pre-publish build|Franchise encyclopedia · v9\.15|Players, Waivers & Trade Receipts/;
@@ -35,4 +36,20 @@ if(!recordBook.includes('id="owned-records"')||!recordBook.includes('manager-rec
  throw Error('Record book has no live league ownership panel');
 if(!recordBook.includes("history.replaceState(null,'',u)"))
  throw Error('Record book selection is not shareable');
+const book=JSON.parse(fs.readFileSync('data/manager_record_books_2016_2026.json','utf8'));
+const holderMap=new Map(book.managers.map(m=>[m.manager,findOwnedRecords(book,guide,m.manager)]));
+const expectedKinds=[
+ 'Highest regular-season weekly score','Largest regular-season victory',
+ 'Most career regular-season wins','Most wins in a completed regular season','Most championships'
+];
+for(const kind of expectedKinds){
+ const holders=[...holderMap].filter(([,records])=>records.some(r=>r.label===kind));
+ if(!holders.length)throw Error('No verified record holder for '+kind);
+ const scores=holders.flatMap(([,records])=>records.filter(r=>r.label===kind).map(r=>r.value));
+ if(new Set(scores).size!==1)throw Error('Record holders disagree on league-leading value: '+kind);
+}
+if(holderMap.get('Thommy').find(r=>r.label==='Most championships')?.value!==4)
+ throw Error('Four verified Thommy titles not recognized as record');
+if(holderMap.get('Mitch').find(r=>r.label==='Highest regular-season weekly score')?.value!==180.86)
+ throw Error('Verified single-week scoring leader changed; review records before launch');
 console.log('All ten manager profiles have launch-ready copy, consistent championship records, and current rankings links.');
