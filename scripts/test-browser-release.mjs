@@ -29,6 +29,8 @@ const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/inde
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
+const pageAudits=[];
+const captureVisuals=process.env.FELLAS_VISUAL_AUDIT==='1';
 let attemptedPages=0,completedPages=0;
 try{
  if(startupError)throw startupError;
@@ -46,6 +48,55 @@ try{
    if(!response?.ok())errors.push(width+' '+route+' HTTP '+response?.status());
    await page.waitForTimeout(150);
    const state=await page.evaluate(()=>({body:document.body?.innerText?.length||0,scroll:document.documentElement.scrollWidth,viewport:window.innerWidth}));
+   // Site-wide visual and interaction inventory. Every public route is
+   // inspected at the same viewports as the functional release checks.
+   const audit=await page.evaluate(()=>{
+    const visible=el=>{
+     const style=getComputedStyle(el),rect=el.getBoundingClientRect();
+     return style.display!=='none'&&style.visibility!=='hidden'&&rect.width>0&&rect.height>0;
+    };
+    const heading=[...document.querySelectorAll('main h1,h1')].find(visible);
+    const style=heading?getComputedStyle(heading):null;
+    const fontPx=style?parseFloat(style.fontSize):0;
+    const linePx=style&&style.lineHeight!=='normal'?parseFloat(style.lineHeight):null;
+    const links=[...document.querySelectorAll('header a,nav a,main .actions a,main .buttons a')]
+     .filter(visible).map(a=>({text:a.textContent.trim().slice(0,80),href:a.href}))
+     .filter(a=>a.href).slice(0,5);
+    const buttons=[...document.querySelectorAll('button,select,input,summary')].filter(visible);
+    return {
+     title:document.title,
+     heading:heading?.textContent?.trim().replace(/\\s+/g,' ').slice(0,120)||null,
+     headingFontPx:fontPx,headingLinePx:linePx,
+     cards:[...document.querySelectorAll('.card,.tile,.manager,.entry')].filter(visible).length,
+     visibleControls:buttons.length,
+     navLinks:links,
+     horizontalOverflowPx:Math.max(0,document.documentElement.scrollWidth-innerWidth)
+    };
+   });
+   const checkedLinks=[];
+   for(const link of audit.navLinks){
+    let url;
+    try{url=new URL(link.href)}catch{continue}
+    if(url.origin!==new URL(baseUrl).origin||!url.pathname.startsWith(base))continue;
+    let rel=decodeURIComponent(url.pathname.slice(base.length));
+    if(!rel||rel.endsWith('/'))rel+='index.html';
+    // Local path resolution prevents false positives from external destinations.
+    const targetPath=path.resolve(root,rel);
+    let exists=false;
+    if(targetPath.startsWith(root+path.sep)){
+     try{exists=(await fs.stat(targetPath)).isFile()}catch{}
+    }
+    checkedLinks.push({label:link.text,path:rel,exists});
+   }
+   pageAudits.push({route:route||'index.html',width,...audit,checkedLinks});
+   if(audit.heading&&audit.headingLinePx!==null&&audit.headingLinePx<audit.headingFontPx)
+    errors.push(width+' '+route+' main title line-height clips text');
+   if(captureVisuals){
+    const slug=(route||'index.html').replace(/[^a-z0-9-]+/gi,'_');
+    const file=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width),slug+'.png');
+    await fs.mkdir(path.dirname(file),{recursive:true});
+    await page.screenshot({path:file,animations:'disabled',fullPage:false});
+   }
    if(state.body<80)errors.push(width+' '+route+' blank or very little content');
    const exposedNames=await page.evaluate(()=>{
     const text=document.body?.innerText||'';
@@ -1360,6 +1411,6 @@ if(completedPages!==routes.length*(useWebkit?1:2))errors.push('Incomplete browse
 // Preserve machine-readable browser outcomes for failed and successful CI attempts.
 await fs.mkdir(path.join(root,'data-integrity'),{recursive:true});
 await fs.writeFile(path.join(root,'data-integrity','browser-release-'+engine.toLowerCase()+'.json'),
- JSON.stringify({engine,viewports:useWebkit?[390]:[390,1280],plannedRoutes:routes.length,plannedPageVisits:routes.length*(useWebkit?1:2),attemptedPages,completedPages,passed:errors.length===0&&completedPages===routes.length*(useWebkit?1:2),errors},null,2)+'\n');
+ JSON.stringify({engine,viewports:useWebkit?[390]:[390,1280],plannedRoutes:routes.length,plannedPageVisits:routes.length*(useWebkit?1:2),attemptedPages,completedPages,passed:errors.length===0&&completedPages===routes.length*(useWebkit?1:2),pageAudits,errors},null,2)+'\n');
 if(errors.length){console.error(engine+' browser release test FAILED:\n'+errors.map(x=>' - '+x).join('\n'));process.exitCode=1}
 else console.log(engine+' browser release test PASS with JS and interactive archive checks');
