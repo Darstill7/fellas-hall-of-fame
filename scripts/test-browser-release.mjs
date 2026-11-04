@@ -617,8 +617,13 @@ try{
     }
     const tabs=page.locator('[data-manager-profile-tabs] button[data-profile-tab]');
     if(width===390&&await page.locator('.profile-location-label').count()!==1)errors.push(width+' '+slug+' missing sticky manager location label');
-    if(await tabs.count()!==4)errors.push(width+' '+slug+' missing simple four-tab navigation');
+    if(await tabs.count()!==4)errors.push(width+' '+slug+' missing legacy deep-link section controls');
     else{
+     const switcher=page.locator('details.profile-section-switcher');
+     if(await switcher.count()!==1||await switcher.evaluate(el=>el.open))
+      errors.push(width+' '+slug+' old four-tab controls must start collapsed under feature navigation');
+     if(await page.locator('#profile-features[data-profile-feature-menu]').count()!==1)
+      errors.push(width+' '+slug+' primary feature directory missing stable deep-link anchor');
      const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
      if(await features.count()!==11)
       errors.push(width+' '+slug+' missing eleven individually labeled feature buttons');
@@ -658,6 +663,9 @@ try{
          !await page.locator('.profile-front-office-snapshot').isVisible())
        errors.push(width+' '+slug+' front-office button failed to reveal evidence');
      }
+     await switcher.locator(':scope > summary').click();
+     if(!await switcher.evaluate(el=>el.open))
+      errors.push(width+' '+slug+' optional archive sections failed to expand');
      if(width===390){
       await page.locator('[data-profile-tab="seasons"]').click();
       const seasons=page.locator('#season-history .season-accordion .season-entry');
@@ -705,6 +713,12 @@ try{
       if(restored.tab!=='true')errors.push(width+' '+slug+' returning from report lost selected season tab');
       if(Math.abs(restored.y-originalY)>250)errors.push(width+' '+slug+' returning from report lost reading position');
      }
+     // Returning through BFCache may restore the selected category while
+     // leaving the optional archive disclosure closed. Open it before
+     // exercising its secondary controls.
+     const postReturnSwitcher=page.locator('details.profile-section-switcher');
+     if(!await postReturnSwitcher.evaluate(el=>el.open))
+      await postReturnSwitcher.locator(':scope > summary').click();
      for(const category of ['overview','seasons','rivalries','advanced']){
       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
       await button.click();
