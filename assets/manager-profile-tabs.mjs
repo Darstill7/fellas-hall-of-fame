@@ -81,7 +81,7 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.id='profile-features';
  shell.setAttribute('aria-label','Manager features');
  shell.dataset.profileFeatureMenu='';
- shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a topic, then pick what you want to see. One feature at a time — with an easy return to all five topics.</p>';
+ shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Five topics. Choose a feature to see its records and what the numbers mean.</p>';
  const groups=[
   {title:'Career & Results',help:'Championships, records and every season',items:[0,1]},
   {title:'Ratings & Report Card',help:'Legacy OVR, individual seasons and how ratings work',items:[3,4,11]},
@@ -334,7 +334,7 @@ if(main&&tabs){
  featureToolbar.setAttribute('role','status');
  const focusName=document.createElement('strong');
  const focusBack=document.createElement('button');
- focusBack.type='button';focusBack.textContent='← All features';
+ focusBack.type='button';focusBack.textContent='← Back to all features';
  featureToolbar.append(focusName,focusBack);
  featureDirectory?.querySelector('.profile-feature-groups')?.before(featureToolbar);
  function clearFeatureFocus(){
@@ -344,11 +344,24 @@ if(main&&tabs){
   for(const el of main.querySelectorAll('.profile-focus-excluded'))el.classList.remove('profile-focus-excluded');
   for(const button of main.querySelectorAll('button[data-profile-feature]'))button.setAttribute('aria-pressed','false');
  }
- focusBack.addEventListener('click',()=>{
-  clearFeatureFocus();document.body.classList.add('profile-landing');
-  // Preserve the visitor's open topic; reopening another here races the
-  // accordion toggle and can hide the next feature before it is selected.
+ function returnToFeatureDirectory(){
+  clearFeatureFocus();
+  document.body.classList.add('profile-landing');
+  // Remove the legacy archive hash so a refresh keeps the short profile landing.
+  history.replaceState(null,'',location.pathname+location.search);
+  // Keep the last open topic, avoiding a toggle race when switching features.
   featureDirectory?.scrollIntoView({block:'start',behavior:'instant'});
+ }
+ focusBack.addEventListener('click',returnToFeatureDirectory);
+ // Escape provides a predictable exit from a focused evidence view.
+ document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&document.body.classList.contains('profile-feature-focused')&&
+     !event.altKey&&!event.ctrlKey&&!event.metaKey){
+   event.preventDefault();
+   returnToFeatureDirectory();
+   focusBack.blur();
+   featureDirectory?.querySelector('details.profile-feature-group[open] > summary')?.focus();
+  }
  });
  function focusFeature(button,destination){
   clearFeatureFocus();
