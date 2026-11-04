@@ -7,7 +7,7 @@
 - **10/10 championship histories** match the season guide and career-summary trophy ledgers. Historical former managers are not merged into current managers.
 - **10/10 published career records** reconcile with the archived unified game ledger **through 2026 Week 7**. These are accurate for their labeled scope, but not the latest completed week.
 - **5/5 Week 8 matchups** are final from the connected 2026 Sleeper league and cover all ten managers. The standalone Week 8 evidence is preserved in `data-integrity/manager-week8-2026-source.json`.
-- **19/19 listed trade candidates** have matching verified or verified-recordbook trade sides with matching assets, trade IDs and direct observed edges. These are *selected retrospective outcome candidates*, not proof of decision skill; Scott's biography lists no worst-trade candidate, which must remain unassigned instead of invented.
+- **19/19 listed trade candidates** match their archived trade-side records and observed edges: **17 nonprovisional** and **2 explicitly provisional** (JMid and Scott in 2026). These are selected descriptive outcomes, not certified management-skill grades. Scott has no supported worst-trade candidate; it remains unassigned.
 - **10/10 selected waiver highlights** match a recorded add/waiver transaction, acquisition week, subsequent starts and earned starter points in `data/waiver_award_candidates.json`.
 
 ## Current profiles and recovered Week 8 results
@@ -53,6 +53,6 @@
 - Confirm public nickname-only privacy checks and responsive Chromium/WebKit tests remain green after changes.
 - Obtain a real-device mobile review and final editorial approval before broad league sharing.
 
-**Primary source files:** `data/season_guide.json`, `data/manager_record_books_2016_2026.json`, `data/manager_profile_career_summary_v2.json`, `data/manager_biographies_awards.json`, `data/v9_trade_engine.json`, `data/waiver_award_candidates.json`, and `data-integrity/manager-week8-2026-source.json`.
+**Provisional 2026 trade note:** JMid and Scott have verifiable trade receipts, but their 2026 direct-edge comparisons are not final and must not be promoted to permanent best-trade grades.\n\n**Primary source files:** `data/season_guide.json`, `data/manager_record_books_2016_2026.json`, `data/manager_profile_career_summary_v2.json`, `data/manager_biographies_awards.json`, `data/v9_trade_engine.json`, `data/waiver_award_candidates.json`, and `data-integrity/manager-week8-2026-source.json`.
 
 **Automated verification:** `node scripts/audit-manager-editorial-accuracy.mjs`.

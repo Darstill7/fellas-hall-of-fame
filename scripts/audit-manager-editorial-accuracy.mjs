@@ -56,7 +56,8 @@ for(const [slug,manager] of Object.entries(managers)){
   const found=tradeSides.find(row=>row.manager===sourceName&&row.year===item.year&&
    row.trade_id===item.tradeId&&item.assets.every(asset=>row.assets.includes(asset)));
   assert.ok(found,manager+' '+field+' has no matching trade-side source');
-  assert.ok(found.confidence.startsWith('verified')&&!found.provisional,manager+' '+field+' unverified source');
+  assert.ok(found.confidence.startsWith('verified'),manager+' '+field+' trade source not verified');
+  assert.equal(Boolean(found.provisional),Boolean(item.provisional),manager+' '+field+' provisional status incorrect');
   assert.ok(Math.abs(found.direct_edge-item.edge)<0.01,manager+' '+field+' outcome differs from source');
   tradeCandidatesVerified++;
  }
