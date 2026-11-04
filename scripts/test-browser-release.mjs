@@ -990,6 +990,16 @@ try{
      if(!await page.locator('body[data-rivalry-pair]').count())
       errors.push(width+' rivalries picker navigation did not open chosen pair');
     }
+    const unavailable=await context.newPage();
+    await unavailable.route('**/data/unified_record_book_2016_2026.json',
+     intercepted=>intercepted.fulfill({status:503,body:'Unavailable matchup archive'}));
+    await unavailable.goto(baseUrl+'analytics/rivalries.html',{waitUntil:'networkidle',timeout:30000});
+    const blocked=await unavailable.locator('#rivalry-go').isDisabled();
+    const notice=await unavailable.locator('#rivalry-picker-status').innerText();
+    const matrixText=await unavailable.locator('#verified-rivalry-matrix').innerText();
+    if(!blocked||!notice.includes('unavailable')||!matrixText.includes('unavailable'))
+     errors.push(width+' rivalry finder fails to report missing archive and disable unverified navigation');
+    await unavailable.close();
    }
    if(route.startsWith('rivalries/')){
     const text=await page.locator('body').innerText();
