@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/metrics.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -394,6 +394,17 @@ try{
     const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
     if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
     if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
+   }
+   if(route==='analytics/trades.html'){
+    const copy=await page.locator('body').innerText();
+    if(copy.includes('AUDIT EDITION')||copy.includes('Review build, not final historical certification')||copy.includes('Original v9 trade page'))
+     errors.push(width+' public trade page leaked development build language');
+    if(!copy.includes('2026 comparisons are provisional'))errors.push(width+' trade data coverage caveat lost');
+   }
+   if(route==='analytics/metrics.html'){
+    const copy=await page.locator('body').innerText();
+    if(copy.includes('REVIEW BUILD')||copy.includes('Fellas OS v8')||copy.includes('Fellas OS v9.1 review'))
+     errors.push(width+' metrics page leaked development build language');
    }
    if(route==='analytics/historical-spreads.html'){
     const teamA=page.locator('#team-a'),teamB=page.locator('#team-b'),projected=page.locator('#line');
