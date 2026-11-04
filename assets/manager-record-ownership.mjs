@@ -8,7 +8,8 @@ export const recordCategoryLabels=[
  'Most championships',
  'Most points in a completed regular season',
  'Closest regular-season victory',
- 'Highest career regular-season winning percentage (50+ games)'
+ 'Highest career regular-season winning percentage (50+ games)',
+ 'Most regular-season wins against a single opponent'
 ];
 export function buildRecordCategories(archive,guide){
  const all=archive.managers||[];
@@ -20,7 +21,8 @@ export function buildRecordCategories(archive,guide){
   {label:'Most championships',rows:all.map(m=>({manager:m.manager,value:Object.values(guide).filter(y=>(y.champion==='Tom'?'Thommy':y.champion)===m.manager).length})),direction:'max',unit:'titles'},
   {label:'Most points in a completed regular season',rows:Object.entries(guide).filter(([year])=>Number(year)<=2025).flatMap(([year,season])=>(season.standings||[]).filter(row=>Number.isFinite(row.pf)).map(row=>({manager:row.name==='Tom'?'Thommy':row.name,value:row.pf,year:Number(year)}))),direction:'max',unit:'pts'},
   {label:'Closest regular-season victory',rows:all.filter(m=>Number.isFinite(m.closestWin?.margin)&&m.closestWin.margin>0).map(m=>({manager:m.manager,value:m.closestWin.margin,game:m.closestWin})),direction:'min',unit:'pts'},
-  {label:'Highest career regular-season winning percentage (50+ games)',rows:all.filter(m=>m.regular?.games>=50&&Number.isInteger(m.regular.w)&&Number.isInteger(m.regular.t)).map(m=>({manager:m.manager,value:Number((100*(m.regular.w+m.regular.t/2)/m.regular.games).toFixed(2)),games:m.regular.games})),direction:'max',unit:'%'}
+  {label:'Highest career regular-season winning percentage (50+ games)',rows:all.filter(m=>m.regular?.games>=50&&Number.isInteger(m.regular.w)&&Number.isInteger(m.regular.t)).map(m=>({manager:m.manager,value:Number((100*(m.regular.w+m.regular.t/2)/m.regular.games).toFixed(2)),games:m.regular.games})),direction:'max',unit:'%'},
+  {label:'Most regular-season wins against a single opponent',rows:all.flatMap(m=>(m.headToHead||[]).filter(h=>Number.isInteger(h.w)&&h.w>=0&&h.opponent&&h.opponent!==m.manager).map(h=>({manager:m.manager,value:h.w,opponent:h.opponent,games:h.games}))),direction:'max',unit:'wins'}
  ];
  return categories;
 }
@@ -36,7 +38,8 @@ export function findOwnedRecords(archive,guide,manager){
   return (selected?[selected]:[]).map(x=>({
    label:category.label,value:x.value,unit:category.unit,
    shared:new Set(winners.map(w=>w.manager)).size>1,
-   context:x.game?'Week '+x.game.week+', '+x.game.year+' vs '+x.game.opponent:
+   context:x.opponent?'Against '+winners.filter(w=>w.manager===manager).map(w=>w.opponent).join(' and '):
+    x.game?'Week '+x.game.week+', '+x.game.year+' vs '+x.game.opponent:
     x.year?'Season '+x.year:x.games?x.games+' regular-season games through '+archive.asOf:'Archived career through '+archive.asOf,
    scope:category.label==='Most championships'?'Verified title seasons through 2025':
     category.label==='Most wins in a completed regular season'||category.label==='Most points in a completed regular season'?'Completed seasons through 2025; raw ESPN/Sleeper scores are not normalized':
@@ -56,7 +59,8 @@ export function nextRecordChallenger(archive,guide,label){
  if(!next)return null;
  return {
   manager:next.manager,value:next.value,unit:category.unit,
-  context:next.game?'Week '+next.game.week+', '+next.game.year+' vs '+next.game.opponent:
+  context:next.opponent?'Against '+next.opponent:
+   next.game?'Week '+next.game.week+', '+next.game.year+' vs '+next.game.opponent:
    next.year?'Season '+next.year:next.games?next.games+' archived games':'Archived career',
   gap:Number(Math.abs(leader-next.value).toFixed(2))
  };
