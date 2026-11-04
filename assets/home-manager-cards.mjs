@@ -33,6 +33,7 @@ try{
  const finder=document.getElementById('home-manager-search');
  const clear=document.getElementById('home-manager-clear');
  const empty=document.getElementById('home-manager-empty');
+ const status=document.getElementById('home-manager-status');
  if(finder&&compact){
   const rows=[...compact.querySelectorAll('.mobile-manager-row')];
   const desktop=[...cards.querySelectorAll('.home-manager-card')];
@@ -49,6 +50,9 @@ try{
    for(const card of desktop)card.hidden=!card.dataset.managerName.includes(query);
    if(clear)clear.hidden=!query;
    if(empty)empty.hidden=visible!==0;
+   if(status)status.textContent=query
+    ?'Showing '+visible+' of '+rows.length+' managers'
+    :rows.length+' active manager profiles · Career Legacy OVR from verified league history · 2026 ongoing';
   }
   const sorter=document.getElementById('home-manager-sort');
   function sortRows(){
@@ -67,5 +71,5 @@ try{
   finder.addEventListener('input',filter);
   clear?.addEventListener('click',()=>{finder.value='';filter();finder.focus()});
  }
- document.getElementById('home-manager-status').textContent=current.length+' active manager profiles · Career Legacy OVR from verified league history · 2026 ongoing';
+ if(!finder||!compact)document.getElementById('home-manager-status').textContent=current.length+' active manager profiles · Career Legacy OVR from verified league history · 2026 ongoing';
 }catch(error){document.getElementById('home-manager-status').textContent='Manager ratings are temporarily unavailable; explore the complete cards or manager directory.';console.error(error)}
