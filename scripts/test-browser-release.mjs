@@ -943,8 +943,8 @@ try{
       await staticPage.goto(baseUrl+route,{waitUntil:'load',timeout:30000});
       for(const type of ['waiver','trade']){
        const card=staticPage.locator('#franchise-encyclopedia [data-encyclopedia-'+type+']');
-       if(await card.locator('h3').innerText()!=='Source-backed highlight'||
-          !(await card.locator('p').innerText()).includes('Source-backed historical evidence loads'))
+       if(await card.locator('h3').innerText()!==(type==='waiver'?'Player history':'Trade history')||
+          !(await card.locator('p').innerText()).includes(type==='waiver'?'Explore recorded players and pickups in the full profile.':'Explore recorded trades and outcomes in the full profile.'))
         errors.push(width+' '+route+' no-JS source card exposes outdated '+type+' content');
        if(await card.locator('a[href*="../'+slug+'.html#"]').count()!==1)
         errors.push(width+' '+route+' no-JS archival '+type+' link missing');
@@ -1014,7 +1014,7 @@ try{
      await slow.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:30000});
      await slow.locator('#franchise-encyclopedia[data-encyclopedia-updated="loading"]').waitFor({state:'attached',timeout:5000});
      const loadingCards=await slow.locator('[data-encyclopedia-waiver], [data-encyclopedia-trade]').allInnerTexts();
-     if(loadingCards.length!==2||loadingCards.some(t=>!t.includes('Loading source-backed highlights')))
+     if(loadingCards.length!==2||loadingCards.some(t=>!t.includes('Loading player and trade history')))
       errors.push(width+' '+route+' source loading exposes stale highlight text');
     }finally{
      releaseSource();
@@ -1027,7 +1027,7 @@ try{
     const status=await failure.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
     const waiver=await failure.locator('[data-encyclopedia-waiver]').innerText();
     const trade=await failure.locator('[data-encyclopedia-trade]').innerText();
-    if(status!=='unavailable'||!waiver.includes('Waiver evidence unavailable')||!trade.includes('Trade evidence unavailable'))
+    if(status!=='unavailable'||!waiver.includes('Pickup history unavailable')||!trade.includes('Trade history unavailable'))
      errors.push(width+' '+route+' failed-source encyclopedia did not fail closed');
     if(waiver.includes('125.20')||trade.includes('453.4')||trade.includes('198.0'))
      errors.push(width+' '+route+' failed-source encyclopedia leaked hardcoded historic evidence');
@@ -1043,7 +1043,7 @@ try{
     await corrupt.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
     const corruptStatus=await corrupt.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
     const corruptText=await corrupt.locator('#franchise-encyclopedia').innerText();
-    if(corruptStatus!=='unavailable'||!corruptText.includes('Waiver evidence unavailable')||!corruptText.includes('Trade evidence unavailable'))
+    if(corruptStatus!=='unavailable'||!corruptText.includes('Pickup history unavailable')||!corruptText.includes('Trade history unavailable'))
      errors.push(width+' '+route+' malformed encyclopedia evidence did not fail closed');
     if(corruptText.includes('NaN')||corruptText.includes('125.20'))
      errors.push(width+' '+route+' malformed encyclopedia source exposed invalid or stale numbers');
@@ -1059,7 +1059,7 @@ try{
     await missingType.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
     const missingTypeStatus=await missingType.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
     const missingTypeText=await missingType.locator('#franchise-encyclopedia').innerText();
-    if(missingTypeStatus!=='unavailable'||!missingTypeText.includes('Waiver evidence unavailable'))
+    if(missingTypeStatus!=='unavailable'||!missingTypeText.includes('Pickup history unavailable'))
      errors.push(width+' '+route+' waiver with missing acquisition evidence did not fail closed');
     await missingType.close();
     // Verify that malformed trade-side evidence also fails closed, not just waiver data.
@@ -1076,7 +1076,7 @@ try{
     await corruptTrade.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
     const badTradeStatus=await corruptTrade.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
     const badTradeText=await corruptTrade.locator('#franchise-encyclopedia').innerText();
-    if(badTradeStatus!=='unavailable'||!badTradeText.includes('Trade evidence unavailable')||!badTradeText.includes('Waiver evidence unavailable'))
+    if(badTradeStatus!=='unavailable'||!badTradeText.includes('Trade history unavailable')||!badTradeText.includes('Pickup history unavailable'))
      errors.push(width+' '+route+' malformed trade evidence did not fail closed');
     if(badTradeText.includes('NaN')||badTradeText.includes('453.4'))
      errors.push(width+' '+route+' malformed trade source exposed invalid or stale numbers');
