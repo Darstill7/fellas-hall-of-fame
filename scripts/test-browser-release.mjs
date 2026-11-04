@@ -922,6 +922,11 @@ try{
      if(await page.locator('#home-manager-cards .home-manager-card:visible').count()!==1)errors.push(width+' desktop manager finder failed');
      if(!((await page.locator('#home-manager-status').innerText()).includes('Showing 1 of 10 managers')))
       errors.push(width+' desktop search status fails to reflect manager result count');
+     await search.press('Escape');
+     if(await search.inputValue()!==''||
+        await page.locator('#home-manager-cards .home-manager-card:visible').count()!==10)
+      errors.push(width+' desktop Escape did not reset manager search');
+     await search.fill('Stov');
      await page.locator('#home-manager-clear').click();
      if(await page.locator('#home-manager-cards .home-manager-card:visible').count()!==10)errors.push(width+' desktop manager finder clear failed');
     }
