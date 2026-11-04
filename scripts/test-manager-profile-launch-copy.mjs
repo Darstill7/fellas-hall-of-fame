@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 const managers=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
-const obsolete=/The Fellas OS v5|static-first pre-publish build|Franchise encyclopedia · v9\\.15|Players, Waivers & Trade Receipts/;
+const obsolete=/The Fellas OS v5|static-first pre-publish build|Franchise encyclopedia · v9\.15|Players, Waivers & Trade Receipts/;
 for(const slug of managers){
  const path='managers/'+slug+'.html';
  const html=fs.readFileSync(path,'utf8');
