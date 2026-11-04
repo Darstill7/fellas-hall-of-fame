@@ -236,6 +236,62 @@ if(main&&tabs){
  const sections=[...main.children].filter(node=>node.matches?.('section.section'));
  // Ancillary link collections and preserved dossier material live in Advanced, rather than disappearing.
  const sectionTab=new Map(sections.map(node=>[node,Object.entries(categories).find(([,ids])=>ids.has(node.id))?.[0]||'advanced']));
+ // Profiles open as a short landing page. Historical chapters remain in the
+ // DOM and become visible when a visitor chooses a feature or archive tab.
+ const focusStyle=document.createElement('style');
+ focusStyle.textContent=`
+ body.profile-landing main>section.section{display:none!important}
+ body.profile-feature-focused main>section.section:not(.profile-selected-section){display:none!important}
+ body.profile-feature-focused main>.profile-madden:not(.profile-selected-madden){display:none!important}
+ body.profile-feature-focused .profile-research-shelf-body>.profile-focus-excluded{display:none!important}
+ .profile-focus-toolbar{display:none;align-items:center;flex-wrap:wrap;gap:12px;margin:12px 0 16px;padding:12px 14px;background:#102736;border:1px solid #678595;border-radius:11px}
+ body.profile-feature-focused .profile-focus-toolbar{display:flex}
+ .profile-focus-toolbar strong{font-size:14px;flex:1;min-width:180px}
+ .profile-focus-toolbar button{min-height:44px;cursor:pointer;background:#e3bd71;color:#10202b;border:0;border-radius:8px;padding:10px 14px;font:inherit;font-size:13px;font-weight:850}
+ body.profile-feature-focused .profile-feature-button[aria-pressed="true"]{border-color:#e3bd71;background:#25475b;box-shadow:inset 4px 0 #e3bd71}
+ body.profile-feature-focused .profile-feature-copy small{display:none}
+ body.profile-feature-focused .profile-feature-button{min-height:52px;padding:9px 11px}
+ body.profile-feature-focused .profile-feature-icon{font-size:18px}
+ body.profile-feature-focused .profile-feature-list{gap:6px}
+ @media(max-width:650px){body.profile-feature-focused .profile-feature-list{grid-template-columns:repeat(2,minmax(0,1fr))}body.profile-feature-focused .profile-feature-copy strong{font-size:11px}body.profile-feature-focused .profile-feature-arrow{display:none}}
+ `;
+ document.head.append(focusStyle);
+ const featureDirectory=document.getElementById('profile-features');
+ const featureToolbar=document.createElement('div');
+ featureToolbar.className='profile-focus-toolbar';
+ featureToolbar.setAttribute('role','status');
+ const focusName=document.createElement('strong');
+ const focusBack=document.createElement('button');
+ focusBack.type='button';focusBack.textContent='← All features';
+ featureToolbar.append(focusName,focusBack);
+ featureDirectory?.querySelector('.profile-feature-list')?.before(featureToolbar);
+ function clearFeatureFocus(){
+  document.body.classList.remove('profile-feature-focused');
+  for(const section of sections)section.classList.remove('profile-selected-section');
+  document.querySelector('.profile-madden')?.classList.remove('profile-selected-madden');
+  for(const el of main.querySelectorAll('.profile-focus-excluded'))el.classList.remove('profile-focus-excluded');
+  for(const button of main.querySelectorAll('button[data-profile-feature]'))button.setAttribute('aria-pressed','false');
+ }
+ focusBack.addEventListener('click',()=>{
+  clearFeatureFocus();document.body.classList.add('profile-landing');
+  featureDirectory?.scrollIntoView({block:'start',behavior:'instant'});
+ });
+ function focusFeature(button,destination){
+  clearFeatureFocus();
+  document.body.classList.remove('profile-landing');
+  document.body.classList.add('profile-feature-focused');
+  button.setAttribute('aria-pressed','true');
+  const section=sections.find(item=>item===destination||item.contains(destination));
+  section?.classList.add('profile-selected-section');
+  if(document.querySelector('.profile-madden')?.contains(destination))
+   document.querySelector('.profile-madden').classList.add('profile-selected-madden');
+  const shelfBody=destination.closest('.profile-research-shelf-body');
+  if(shelfBody){
+   const selected=[...shelfBody.children].find(item=>item===destination||item.contains(destination));
+   for(const child of shelfBody.children)if(child!==selected)child.classList.add('profile-focus-excluded');
+  }
+  focusName.textContent=button.querySelector('strong')?.textContent||'Selected feature';
+ }
  // Keep the four historical section controllers for old deep links, but
  // make the eleven feature buttons the only primary navigation.
  // The section controller is an optional disclosure rather than a competing menu.
@@ -310,14 +366,15 @@ if(main&&tabs){
   if(category)activate(category);
   const destination=target&&document.querySelector(target);
   if(!destination)return;
+  focusFeature(button,destination);
   const shelf=destination.closest('details.profile-research-shelf');
   if(shelf)shelf.open=true;
   if(destination.tagName==='DETAILS')destination.open=true;
   requestAnimationFrame(()=>requestAnimationFrame(()=>
    destination.scrollIntoView({block:'start',behavior:'instant'})));
  });
- tabs.addEventListener('click',event=>{const button=event.target.closest('button[data-profile-tab]');if(button)activate(button.dataset.profileTab,{reveal:true})});
- tabs.addEventListener('keydown',event=>{const index=buttons.indexOf(document.activeElement);if(index<0)return;const direction=event.key==='ArrowRight'?1:event.key==='ArrowLeft'?-1:0;if(direction){event.preventDefault();activate(buttons[(index+direction+buttons.length)%buttons.length].dataset.profileTab,{focus:true,reveal:true})}});
+ tabs.addEventListener('click',event=>{const button=event.target.closest('button[data-profile-tab]');if(button){clearFeatureFocus();document.body.classList.remove('profile-landing');activate(button.dataset.profileTab,{reveal:true})}});
+ tabs.addEventListener('keydown',event=>{const index=buttons.indexOf(document.activeElement);if(index<0)return;const direction=event.key==='ArrowRight'?1:event.key==='ArrowLeft'?-1:0;if(direction){event.preventDefault();clearFeatureFocus();document.body.classList.remove('profile-landing');activate(buttons[(index+direction+buttons.length)%buttons.length].dataset.profileTab,{focus:true,reveal:true})}});
  // A persistent escape hatch for long historical sections; only appears after scrolling.
  const back=document.createElement('button');
  back.type='button';back.className='profile-back-to-sections';
@@ -446,6 +503,7 @@ if(main&&tabs){
  // Homepage directory shortcuts use category hashes, not physical element IDs.
  // On a fresh deep link, bring the selected profile section navigation into view.
  // A restored reading position wins when returning to a previously visited profile.
+ if(!initial&&!restoredPosition)document.body.classList.add('profile-landing');
  if(categories[initial]&&!restoredPosition){
   switcher.open=true;
   requestAnimationFrame(()=>requestAnimationFrame(()=>tabs.scrollIntoView({block:'start'})));
