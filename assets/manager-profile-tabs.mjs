@@ -1,7 +1,7 @@
 import {mountDraftTradeCareer} from './manager-draft-trade-career-page.mjs';
 import {mountManagerSeasonEvidence} from './manager-season-evidence.mjs';
 import {managerPersonas} from './manager-personas.mjs';
-import {findOwnedRecords} from './manager-record-ownership.mjs';
+import {findOwnedRecords,recordCategoryLabels} from './manager-record-ownership.mjs';
 // Upgrade the older seven-link chapter navigator without discarding existing archive sections.
 const profileName=document.querySelector('main .hero h1')?.textContent?.trim();
 const persona=managerPersonas[profileName]||managerPersonas[profileName==='Tom'?'Thommy':profileName];
@@ -116,7 +116,7 @@ async function mountProfileRecordOwnership(){
   const owned=findOwnedRecords(archive,guide,normalized);
   result.textContent=owned.length
    ?owned.length+' league '+(owned.length===1?'record':'records')+' held · '+owned.map(x=>x.label).slice(0,2).join(' / ')
-   :'No league leads in 5 tracked categories · View personal bests';
+   :'No league leads in '+recordCategoryLabels.length+' tracked categories · View personal bests';
  }catch(error){
   result.textContent='View personal bests and archived records';
   console.warn('Profile record ownership preview unavailable',error);
