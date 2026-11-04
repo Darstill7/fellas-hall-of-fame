@@ -131,6 +131,8 @@ jobs:
         run: node scripts/audit-prelaunch-crossstreams.mjs
       - name: Verify manager profile draft and trade source receipts
         run: node scripts/verify-manager-draft-trade-profile-evidence.mjs
+      - name: Audit all ten manager biographies and verified Week 8 coverage
+        run: node scripts/audit-manager-editorial-accuracy.mjs
       - name: Check all ten manager profiles for launch-ready public copy
         run: node scripts/test-manager-profile-launch-copy.mjs
       - name: Verify manager report card evidence

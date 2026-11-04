@@ -1,0 +1,83 @@
+{
+  "season": 2026,
+  "week": 8,
+  "source": "The Fellas 2026 Sleeper final head-to-head matchups, retrieved through connected league provider on 2026-11-04",
+  "leagueSize": 10,
+  "matchups": [
+    {
+      "matchupId": 5,
+      "home": {
+        "manager": "Stilly",
+        "teamId": 1,
+        "points": 113.58
+      },
+      "away": {
+        "manager": "Birch",
+        "teamId": 10,
+        "points": 96.9
+      },
+      "winner": "Stilly"
+    },
+    {
+      "matchupId": 4,
+      "home": {
+        "manager": "JMid",
+        "teamId": 2,
+        "points": 141.68
+      },
+      "away": {
+        "manager": "Kuhl",
+        "teamId": 9,
+        "points": 82.38
+      },
+      "winner": "JMid"
+    },
+    {
+      "matchupId": 2,
+      "home": {
+        "manager": "Thommy",
+        "teamId": 3,
+        "points": 106.34
+      },
+      "away": {
+        "manager": "Scott",
+        "teamId": 5,
+        "points": 112.56
+      },
+      "winner": "Scott"
+    },
+    {
+      "matchupId": 1,
+      "home": {
+        "manager": "Stew",
+        "teamId": 4,
+        "points": 134.16
+      },
+      "away": {
+        "manager": "Stover",
+        "teamId": 8,
+        "points": 79.1
+      },
+      "winner": "Stew"
+    },
+    {
+      "matchupId": 3,
+      "home": {
+        "manager": "Mitch",
+        "teamId": 6,
+        "points": 123.16
+      },
+      "away": {
+        "manager": "Tony",
+        "teamId": 7,
+        "points": 99.3
+      },
+      "winner": "Mitch"
+    }
+  ],
+  "notes": [
+    "These five head-to-head matchups are final and cover every active manager exactly once.",
+    "This is a verified supplemental weekly source, not a substitute for rebuilding the 2016–2026 canonical career ledger.",
+    "Do not overwrite career totals before updating unified record book, manager record books, season guide and all downstream consumers together."
+  ]
+}

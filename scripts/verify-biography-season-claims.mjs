@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 const guide=JSON.parse(fs.readFileSync('data/season_guide.json','utf8'));
 const checks=[
- ['jmid',2024,'JMid',8,6,1730.22,'8–6 record and a documented league-high 1,730.22 points for'],
+ ['jmid',2024,'JMid',8,6,1730.22,'8–6 record and a documented league-high 1,730.22 points scored'],
  ['mitch',2025,'Mitch',13,1,1894.88,'13–1 and scored 1,894.88 points'],
  ['birch',2019,'Birch',11,2,null,'won the championship in 2019 after an 11–2 regular season']
 ];
