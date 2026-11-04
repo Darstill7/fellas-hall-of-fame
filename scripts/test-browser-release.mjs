@@ -671,7 +671,8 @@ try{
       await researchShelf.evaluate(el=>el.open=false);
       await page.locator('.profile-focus-toolbar button').click();
       const front=page.locator('[data-profile-feature][data-feature-target=".profile-front-office-snapshot"]');
-      await page.locator('details.profile-feature-group').filter({has:front}).locator(':scope > summary').click();
+      const frontGroup=page.locator('details.profile-feature-group').filter({has:front});
+      if(!await frontGroup.evaluate(el=>el.open))await frontGroup.locator(':scope > summary').click();
       await front.click();
       if(!await researchShelf.evaluate(el=>el.open)||
          !await page.locator('.profile-front-office-snapshot').isVisible())
