@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -433,6 +433,25 @@ try{
     }
    }
    if(route===''){
+    const desktopNav=page.locator('.main-nav');
+    const mobileNav=page.locator('details.mobile-menu');
+    if(width===390){
+     if(!await mobileNav.isVisible()||await desktopNav.isVisible())errors.push(width+' homepage mobile navigation visibility wrong');
+     await mobileNav.locator(':scope > summary').click();
+     for(const href of ['managers/','analytics/manager-report-cards.html','hall/','analytics/records.html','analytics/sportscenter.html','analytics/power-ratings.html','analytics/rivalry-war-room.html','seasons/','analytics/search.html'])
+      if(!await mobileNav.locator('a[href="'+href+'"]').isVisible())errors.push(width+' mobile navigation missing '+href);
+     await mobileNav.locator(':scope > summary').click();
+    }else{
+     if(await desktopNav.locator(':scope > a').count()!==5)errors.push(width+' homepage must show five primary desktop destinations');
+     const more=desktopNav.locator('details.home-nav-more');
+     if(await more.count()!==1||await more.evaluate(el=>el.open))errors.push(width+' desktop extra navigation should begin collapsed');
+     await more.locator(':scope > summary').click();
+     for(const href of ['analytics/power-ratings.html','analytics/rivalry-war-room.html','seasons/','analytics/search.html'])
+      if(!await more.locator('a[href="'+href+'"]').isVisible())errors.push(width+' desktop extra navigation missing '+href);
+     await more.locator(':scope > summary').click();
+    }
+   }
+   if(route===''){
     const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
     if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
     if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
@@ -471,6 +490,26 @@ try{
     const warning=await page.locator('.notice').innerText();
     if(!warning.includes('not a complete ranking of manager skill'))
      errors.push(width+' manager decisions evidence limitation missing');
+   }
+   if(route==='managers/index.html'){
+    const cards=page.locator('#manager-directory-cards a.manager');
+    if(await cards.count()!==10)errors.push(width+' managers directory needs exactly 10 profile links');
+    const extra=page.locator('details.manager-nav-more');
+    if(await extra.count()!==1||await extra.evaluate(el=>el.open))
+     errors.push(width+' managers navigation extras should start collapsed');
+    await extra.locator(':scope > summary').click();
+    if(!await extra.locator('a[href="../analytics/trade-museum.html"]').isVisible())
+     errors.push(width+' managers extra destinations not reachable');
+    const input=page.locator('#manager-name-search');
+    await input.fill('stover');
+    if(await page.locator('#manager-directory-cards a.manager:visible').count()!==1||!await page.locator('a.manager[href="stover/"]').isVisible())
+     errors.push(width+' manager quick search should reveal only Stover');
+    await input.fill('not-a-manager');
+    if(!await page.locator('#manager-no-results').isVisible()||await page.locator('#manager-directory-cards a.manager:visible').count()!==0)
+     errors.push(width+' manager search empty state incorrect');
+    await input.fill('');
+    if(await page.locator('#manager-directory-cards a.manager:visible').count()!==10||!await page.locator('#manager-no-results').isHidden())
+     errors.push(width+' clearing manager search did not restore all ten');
    }
    if(route==='analytics/trade-museum.html'){
     const links=page.locator('nav.tm-nav a[href="power-ratings.html"]');
