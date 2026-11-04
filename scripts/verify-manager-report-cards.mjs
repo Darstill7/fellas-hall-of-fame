@@ -97,7 +97,7 @@ console.log('Timeline and evidence coverage integrity PASS');
 import {scoutingProfile} from '../assets/manager-scouting-profile.mjs';
 for(const row of rows){const d=scoutingProfile(row);if(!d.headline||!d.limitations.includes('comprehensive waiver and legal start/sit evidence unavailable')||!d.evidence.includes('not an independent fantasy-expert certification'))throw Error('Unqualified scouting claims for '+row.name);}
 const reportPage=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
-if(!reportPage.includes("import {scoutingProfile}")||!reportPage.includes('Career scouting dossier'))throw Error('Scouting dossier integration missing');
+if(!reportPage.includes("import {scoutingProfile}")||!reportPage.includes('Detailed scouting dossier')||!reportPage.includes('report-scouting-more')||!reportPage.includes('report-evidence-details'))throw Error('Nested scouting dossier integration missing');
 console.log('Evidence-limited manager scouting dossiers PASS');
 
 import {draftContext,tradeContext,managerDecisionSummary} from '../assets/manager-decision-context.mjs';
