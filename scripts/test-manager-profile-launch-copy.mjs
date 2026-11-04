@@ -151,9 +151,9 @@ for(const item of bracketReceipts.seasons){
  if(resume.appearances!==expectedPlayoffs[owner][0])
   throw Error('Toilet Bowl result must not change positive playoff qualification counts');
  if(item.year===2022){
-  const partial=buildPlayoffResume(playoffEspn,playoffSleeper,'Mitch',bracketReceipts);
-  if(partial.timeline.find(y=>y.year===2022).finalPlace!==undefined)
-   throw Error('Unseen 2022 middle finishing places must remain unassigned');
+  const complete=buildPlayoffResume(playoffEspn,playoffSleeper,'Mitch',bracketReceipts);
+  if(complete.timeline.find(y=>y.year===2022).finalPlace!==4)
+   throw Error('Verified 2022 fourth-place finish must appear in the manager résumé');
  }
 }
 const sourceMatchups=JSON.parse(fs.readFileSync('data/playoff_matchups_2020_2025.json','utf8'));
@@ -170,7 +170,7 @@ for(const yearData of bracketReceipts.seasons){
  if(yearData.reviewNeeded?.length&&year!==2020)throw Error('Unexpected ambiguous third-place evidence in '+year);
  const finished=yearData.finalPlacements||[];
  if(finished.length!==10||yearData.placementsComplete!==true)
-  throw Error('Postseason placements must be complete except uncertified 2022 positions '+year);
+  throw Error('Postseason placements must be complete for '+year);
  const uniqueManagers=new Set(finished.map(x=>x.manager)),uniquePlaces=new Set(finished.map(x=>x.place));
  if(uniqueManagers.size!==finished.length||uniquePlaces.size!==finished.length)
   throw Error('Season placement manager duplicated or ranks repeated in '+year);
