@@ -85,9 +85,11 @@ for(const p of draft){
 // The progressive profile navigation replaces the original hero buttons.
 // It must retain the research link in the *rendered* page, not just the HTML.
 const tabs=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
-assert.ok(tabs.includes('manager-lineup-research.html')&&
- tabs.includes('cloneNode(true)')&&tabs.includes('actions.append(startSitLink)'),
- 'Progressive manager tabs silently discard Start/Sit history links');
+assert.ok(tabs.includes("{label:'Start/Sit accuracy'")&&
+ tabs.includes("href:'../../analytics/manager-lineup-research.html?season=career&manager='")&&
+ tabs.includes("const item=document.createElement(feature.href?'a':'button')")&&
+ tabs.includes('else item.href=feature.href;'),
+ 'Manager feature menu must retain a clickable career Start/Sit link');
 // Every current manager profile needs a direct, nickname-safe Start/Sit deep link.
 for(const [slug,name] of Object.entries({
  stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',

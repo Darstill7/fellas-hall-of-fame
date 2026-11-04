@@ -117,8 +117,8 @@ try{
      errors.push(width+' '+route+' canonical Madden summary missing');
     else{
      const panel=await heroMadden.innerText();
-     if(!panel.includes('OVR')||!panel.includes('Championships')||
-        !panel.includes('Best individual season:')||!panel.includes('What this rating means:'))
+     if(!panel.includes('LEGACY OVR')||!panel.includes('Championships')||
+        !panel.includes('Best individual season:')||!panel.includes('65–99 career score'))
       errors.push(width+' '+route+' primary career rating or peak season missing');
      const heroStats=page.locator('main .hero .stats');
      if(await heroStats.count()&&await heroStats.isVisible())
@@ -1059,13 +1059,12 @@ try{
      if(!(await page.locator('#franchise-history-v915').isVisible()))errors.push(width+' '+route+' historical dossier fragment failed after click');
      await page.goBack({waitUntil:'networkidle'});
     }
-    const dossierLink=page.locator('a[href="../'+slug+'.html"]').first();
-    if(await dossierLink.count()!==1)errors.push(width+' '+route+' full franchise dossier link missing');
-    else{
-     const destination=new URL(await dossierLink.getAttribute('href'),baseUrl+route);
-     const result=await page.request.get(destination.toString());
-     if(result.status()!==200)errors.push(width+' '+route+' full franchise dossier link HTTP '+result.status());
-    }
+    // The modern profile is the single main experience. Keep the historic
+    // encyclopedia URL and deep chapter links, without a duplicate teaser.
+    const dossierLink=page.locator('a[href="../'+slug+'.html"]');
+    if(await dossierLink.count())errors.push(width+' '+route+' competing full-dossier teaser still visible');
+    const dossierResponse=await page.request.get(new URL('../'+slug+'.html',baseUrl+route).toString());
+    if(dossierResponse.status()!==200)errors.push(width+' '+route+' historical franchise dossier URL unavailable');
    }
    if(route==='analytics/awards-show.html'){
     const buttons=page.locator('#years button');
