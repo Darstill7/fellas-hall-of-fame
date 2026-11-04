@@ -328,6 +328,19 @@ try{
      errors.push(width+' Start/Sit research caveat not visible');
    }
    if(route==='analytics/manager-report-cards.html'){
+    const more=page.locator('details.report-more-links');
+    if(await more.count()!==1||await more.evaluate(el=>el.open))
+     errors.push(width+' report cards should tuck secondary research links away');
+    if(await page.locator('.report-top-nav a').count()!==3)
+     errors.push(width+' report cards primary navigation should have three clear destinations');
+    const copy=await page.locator('body').innerText();
+    if(copy.includes('Manager Development Lab · Preview')||copy.includes('archived matchup API data and supplied screenshots'))
+     errors.push(width+' report card landing exposes internal development copy');
+    await more.locator(':scope > summary').click();
+    if(!await more.locator('a[href="manager-lineup-research.html"]').isVisible())
+     errors.push(width+' report card linked statistics not reachable');
+   }
+   if(route==='analytics/manager-report-cards.html'){
     const count=await page.locator('[data-report-manager]').count();
     if(count!==10)errors.push(width+' report card preview rendered '+count+' of 10 managers');
     const scoreSummaries=page.locator('[data-report-manager] .report-score-summary');
