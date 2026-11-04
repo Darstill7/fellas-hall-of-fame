@@ -131,6 +131,15 @@ try{
      birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
     const name=profileNames[slug];
     if(name){
+     const shelf=page.locator('details.profile-research-shelf');
+     if(await shelf.count()!==1)errors.push(width+' '+route+' research shelf missing');
+     else{
+      if(await shelf.evaluate(el=>el.open))
+       errors.push(width+' '+route+' source-heavy evidence should start collapsed');
+      await shelf.locator(':scope > summary').click();
+      if(!await shelf.evaluate(el=>el.open))
+       errors.push(width+' '+route+' research shelf does not expand');
+     }
      // Validate a real navigable destination rather than comparing raw
      // href spellings: browsers and profile scripts can normalize attributes.
      const links=await page.locator('a[href*="manager-lineup-research.html"]').evaluateAll(nodes=>
@@ -599,10 +608,18 @@ try{
       if(await page.locator('[data-profile-tab="rivalries"]').getAttribute('aria-selected')!=='true'||
          !await page.locator('#head-to-head').isVisible())
        errors.push(width+' '+slug+' rivalry feature did not activate the visible research');
+      const researchShelf=page.locator('details.profile-research-shelf');
+      await researchShelf.evaluate(el=>el.open=false);
       const career=page.locator('[data-profile-feature][data-feature-target=".profile-career-resume"]');
       await career.click();
-      if(!await page.locator('.profile-career-resume').evaluate(el=>el.open))
-       errors.push(width+' '+slug+' career résumé feature failed to expand');
+      if(!await researchShelf.evaluate(el=>el.open)||
+         !await page.locator('.profile-career-resume').evaluate(el=>el.open))
+       errors.push(width+' '+slug+' career résumé feature failed to reveal hidden evidence');
+      await researchShelf.evaluate(el=>el.open=false);
+      await page.locator('[data-profile-feature][data-feature-target=".profile-front-office-snapshot"]').click();
+      if(!await researchShelf.evaluate(el=>el.open)||
+         !await page.locator('.profile-front-office-snapshot').isVisible())
+       errors.push(width+' '+slug+' front-office button failed to reveal evidence');
      }
      if(width===390){
       await page.locator('[data-profile-tab="seasons"]').click();
