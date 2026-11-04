@@ -1232,6 +1232,30 @@ try{
     const career=(await (await page.request.get(baseUrl+'data/career_core_generated.json')).json()).managers.Stilly;
     const expected=career.w+'–'+career.l+(career.t?'–'+career.t:'');
     if(!(await page.locator('#profile').innerText()).includes(expected))errors.push(width+' historical archive did not render canonical Stilly WLT '+expected);
+    const typography=await page.locator('#profile .card').first().evaluate(card=>{
+     const label=card.querySelector('small'),value=card.querySelector('strong');
+     if(!label||!value)return null;
+     const labelBox=label.getBoundingClientRect(),valueBox=value.getBoundingClientRect();
+     const computed=getComputedStyle(value);
+     return {display:computed.display,lineHeight:parseFloat(computed.lineHeight),
+      labelBottom:labelBox.bottom,valueTop:valueBox.top,cardRight:card.getBoundingClientRect().right,
+      viewport:document.documentElement.clientWidth};
+    });
+    if(!typography||typography.display!=='block'||typography.lineHeight<28||
+       typography.valueTop-typography.labelBottom<6||typography.cardRight>typography.viewport+2)
+     errors.push(width+' career record book labels and figures remain cramped or overflow');
+    const rowSpacing=await page.locator('#profile table').first().locator('tbody tr').first().locator('td').first().evaluate(cell=>{
+     const cs=getComputedStyle(cell);return {lineHeight:parseFloat(cs.lineHeight),padding:parseFloat(cs.paddingTop)};
+    });
+    if(rowSpacing.lineHeight<20||rowSpacing.padding<11)
+     errors.push(width+' career record book table typography too tight');
+    if(width===390){
+     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth+2);
+     if(overflow)errors.push(width+' career record book causes full-page horizontal overflow');
+    }
+    await page.locator('#manager').selectOption('Tom');
+    if(!(await page.locator('#profile').innerText()).includes('Recorded postseason matchups'))
+     errors.push(width+' career record book manager selector lost records after change');
    }
    if(route==='managers/stilly/'){
     // Keep a source request unresolved and ensure static archive numbers are hidden while loading.
