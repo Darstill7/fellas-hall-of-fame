@@ -1,3 +1,4 @@
+import {auditPlacementStatistics} from './placement-statistics.mjs';
 // Archived category leaders, computed from verified manager record-book rows.
 // Career-wide comparisons include former managers; 2026 is excluded from season wins.
 export const recordCategoryLabels=[
@@ -11,7 +12,10 @@ export const recordCategoryLabels=[
  'Highest career regular-season winning percentage (50+ games)',
  'Most regular-season wins against a single opponent',
  'Most championship-bracket playoff appearances',
- 'Most championship-game appearances'
+ 'Most championship-game appearances',
+ 'Best average final finish (all six Sleeper seasons)',
+ 'Most top-three final finishes (2020–2025)',
+ 'Most top-five final finishes (2020–2025)'
 ];
 export function buildRecordCategories(archive,guide,postseason){
  const all=archive.managers||[];
@@ -49,6 +53,21 @@ export function buildRecordCategories(archive,guide,postseason){
    categories.push({label,rows:[...byManager].map(([manager,years])=>({manager,value:years.length,years:years.sort((a,b)=>a-b)})),direction:'max',unit});
   }
  }
+ if(postseason?.placements&&postseason?.placementReceipts){
+  const audit=auditPlacementStatistics(postseason.placements,postseason.placementReceipts);
+  const full=audit.stats.filter(s=>s.seasonsPlayed===6);
+  categories.push(
+   {label:'Best average final finish (all six Sleeper seasons)',
+    rows:full.map(s=>({manager:s.manager,value:Number(s.averageFinish.toFixed(2)),years:s.years})),
+    direction:'min',unit:'avg place'},
+   {label:'Most top-three final finishes (2020–2025)',
+    rows:audit.stats.map(s=>({manager:s.manager,value:s.topThree,years:s.years})),
+    direction:'max',unit:'podiums'},
+   {label:'Most top-five final finishes (2020–2025)',
+    rows:audit.stats.map(s=>({manager:s.manager,value:s.topFive,years:s.years})),
+    direction:'max',unit:'top-fives'}
+  );
+ }
  return categories;
 }
 export function findOwnedRecords(archive,guide,manager,postseason){
@@ -67,7 +86,9 @@ export function findOwnedRecords(archive,guide,manager,postseason){
     x.game?'Week '+x.game.week+', '+x.game.year+' vs '+x.game.opponent:
     x.years?'Seasons '+x.years.join(', '):
     x.year?'Season '+x.year:x.games?x.games+' regular-season games through '+archive.asOf:'Archived career through '+archive.asOf,
-   scope:category.label==='Most championship-bracket playoff appearances'||category.label==='Most championship-game appearances'?'Verified ESPN and Sleeper championship brackets, 2016–2025; consolation excluded':
+   scope:category.label==='Best average final finish (all six Sleeper seasons)'?'Only managers present for all six completed Sleeper seasons, 2020–2025; lower is better':
+    category.label==='Most top-three final finishes (2020–2025)'||category.label==='Most top-five final finishes (2020–2025)'?'Verified 2020–2025 final placements across all twelve participating managers':
+    category.label==='Most championship-bracket playoff appearances'||category.label==='Most championship-game appearances'?'Verified ESPN and Sleeper championship brackets, 2016–2025; consolation excluded':
     category.label==='Most championships'?'Verified title seasons through 2025':
     category.label==='Most wins in a completed regular season'||category.label==='Most points in a completed regular season'?'Completed seasons through 2025; raw ESPN/Sleeper scores are not normalized':
     category.unit==='%'?'At least 50 archived regular-season games, ties count as half a win':
@@ -102,11 +123,13 @@ export async function mountRecordOwnership(){
    fetch('../data/manager_record_books_2016_2026.json'),
    fetch('../data/season_guide.json'),
    fetch('../data/verified_espn_playoff_brackets_2016_2019.json'),
-   fetch('../data/verified_sleeper_playoff_brackets_2020_2025.json')
+   fetch('../data/verified_sleeper_playoff_brackets_2020_2025.json'),
+   fetch('../data/fellas_final_placements_2020_2025.json'),
+   fetch('../data/sleeper_postseason_placement_receipts_2020_2025.json')
   ]);
   if(responses.some(r=>!r.ok))throw Error('Data unavailable');
-  const [archive,guide,espn,sleeper]=await Promise.all(responses.map(r=>r.json()));
-  const postseason={espn,sleeper};
+  const [archive,guide,espn,sleeper,placements,placementReceipts]=await Promise.all(responses.map(r=>r.json()));
+  const postseason={espn,sleeper,placements,placementReceipts};
   const draw=()=>{
    const manager=picker.value;
    const owned=findOwnedRecords(archive,guide,manager,postseason);

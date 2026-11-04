@@ -150,6 +150,14 @@ try{
         }
        }
        if(route==='analytics/record-holders.html'){
+        const finishing=page.locator('#placement-statistics');
+        if(await finishing.count()!==1)
+         findings.push(engine+' '+width+' missing final finishing stats');
+        else{
+         await finishing.locator('summary').click();
+         if(await finishing.locator('tbody tr').count()!==12)
+          findings.push(engine+' '+width+' incomplete final-finishing stats');
+        }
         const shame=page.locator('#shitter-year-history');
         if(await shame.locator('a.placement-shame-row').count()!==6)
          findings.push(engine+' '+width+' all-time Toilet Bowl history missing or incomplete');

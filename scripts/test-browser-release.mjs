@@ -1715,19 +1715,28 @@ try{
     const cards=await page.locator('#record-leaders .leader-card').count();
     const remaining=await page.locator('#record-other .leader-card').count();
     const kinds=await page.locator('#record-categories .category-card').count();
-    if(cards<1||cards+remaining!==14||kinds!==11)
+    if(cards<1||cards+remaining!==14||kinds!==14)
      errors.push(width+' record holders mismatch: '+cards+' leaders, '+remaining+' remaining, '+kinds+' categories');
     const first=await page.locator('#record-leaders .leader-card').first().innerText();
     if(!first.includes('record'))
      errors.push(width+' record holder leaderboard count missing');
     const disclosures=page.locator('#record-categories .record-context');
-    if(await disclosures.count()!==11)
+    if(await disclosures.count()!==14)
      errors.push(width+' missing next-manager comparisons on record categories');
     else{
      await disclosures.first().locator('summary').click();
      const detail=await disclosures.first().innerText();
      if(!detail.includes('Next-best different manager:')||!detail.includes('Gap to the record:'))
       errors.push(width+' record comparison disclosure does not show its evidence');
+    }
+    const placement=page.locator('#placement-statistics');
+    if(await placement.count()!==1)
+     errors.push(width+' finishing-statistics comparison missing');
+    else{
+     await placement.locator('summary').click();
+     const tableRows=await placement.locator('tbody tr').count();
+     if(tableRows!==12)
+      errors.push(width+' expected twelve manager finishing summaries, got '+tableRows);
     }
     const links=await page.locator('#record-leaders .leader-card').evaluateAll(nodes=>nodes.every(n=>n.getAttribute('href')?.includes('record-books.html?manager=')));
     if(!links)errors.push(width+' record holder links broken');

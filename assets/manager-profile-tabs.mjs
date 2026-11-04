@@ -111,12 +111,14 @@ async function mountProfileRecordOwnership(){
    fetch('../../data/manager_record_books_2016_2026.json'),
    fetch('../../data/season_guide.json'),
    fetch('../../data/verified_espn_playoff_brackets_2016_2019.json'),
-   fetch('../../data/verified_sleeper_playoff_brackets_2020_2025.json')
+   fetch('../../data/verified_sleeper_playoff_brackets_2020_2025.json'),
+   fetch('../../data/fellas_final_placements_2020_2025.json'),
+   fetch('../../data/sleeper_postseason_placement_receipts_2020_2025.json')
   ]);
   if(responses.some(r=>!r.ok))throw Error('Record sources unavailable');
-  const [archive,guide,espn,sleeper]=await Promise.all(responses.map(r=>r.json()));
+  const [archive,guide,espn,sleeper,placements,placementReceipts]=await Promise.all(responses.map(r=>r.json()));
   if(archive.asOf!=='2026 Week 8')throw Error('Unexpected record archive scope');
-  const owned=findOwnedRecords(archive,guide,normalized,{espn,sleeper});
+  const owned=findOwnedRecords(archive,guide,normalized,{espn,sleeper,placements,placementReceipts});
   result.textContent=owned.length
    ?owned.length+' of '+recordCategoryLabels.length+' league records held'
    :'No category leads yet · Explore personal bests';

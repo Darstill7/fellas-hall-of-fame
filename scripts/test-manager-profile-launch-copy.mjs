@@ -1,6 +1,7 @@
 import {findOwnedRecords,recordCategoryLabels,nextRecordChallenger} from '../assets/manager-record-ownership.mjs';
 import fs from 'node:fs';
 import {buildPlayoffResume} from '../assets/manager-playoff-resume.mjs';
+import {auditPlacementStatistics} from '../assets/placement-statistics.mjs';
 const managers=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 const obsolete=/The Fellas OS v5|static-first pre-publish build|Franchise encyclopedia · v9\.15|Players, Waivers & Trade Receipts/;
 for(const slug of managers){
@@ -72,6 +73,23 @@ const postseason={
  espn:JSON.parse(fs.readFileSync('data/verified_espn_playoff_brackets_2016_2019.json','utf8')),
  sleeper:JSON.parse(fs.readFileSync('data/verified_sleeper_playoff_brackets_2020_2025.json','utf8'))
 };
+const placementMaster=JSON.parse(fs.readFileSync('data/fellas_final_placements_2020_2025.json','utf8'));
+const placementReceipts=JSON.parse(fs.readFileSync('data/sleeper_postseason_placement_receipts_2020_2025.json','utf8'));
+const placementAudit=auditPlacementStatistics(placementMaster,placementReceipts);
+if(placementAudit.verifiedPlaces!==60||placementAudit.completedSeasons!==6||
+   placementAudit.managerCount!==12||placementAudit.sixSeasonEligible!==8)
+ throw Error('Final-placement coverage or eligibility changed');
+const placementStats=new Map(placementAudit.stats.map(m=>[m.manager,m]));
+if(placementStats.get('Mitch')?.averageFinish!==4.167||
+   placementStats.get('Mitch')?.topThree!==3||
+   placementStats.get('Mitch')?.topFive!==5||
+   placementStats.get('Scott')?.seasonsPlayed!==2||
+   placementStats.get('Stew')?.bottomThree!==4)
+ throw Error('Season-finishing historical stats changed');
+if(placementAudit.findings.length!==2||placementAudit.findings.some(f=>f.year!==2020))
+ throw Error('Score reconciliation issues require re-review');
+postseason.placements=placementMaster;
+postseason.placementReceipts=placementReceipts;
 const holderMap=new Map(book.managers.map(m=>[m.manager,findOwnedRecords(book,guide,m.manager,postseason)]));
 const expectedKinds=[
  'Highest regular-season weekly score','Largest regular-season victory',
@@ -79,9 +97,12 @@ const expectedKinds=[
  'Most points in a completed regular season','Closest regular-season victory',
  'Highest career regular-season winning percentage (50+ games)',
  'Most regular-season wins against a single opponent',
- 'Most championship-bracket playoff appearances','Most championship-game appearances'
+ 'Most championship-bracket playoff appearances','Most championship-game appearances',
+ 'Best average final finish (all six Sleeper seasons)',
+ 'Most top-three final finishes (2020–2025)',
+ 'Most top-five final finishes (2020–2025)'
 ];
-if(expectedKinds.length!==recordCategoryLabels.length||recordCategoryLabels.length!==11)
+if(expectedKinds.length!==recordCategoryLabels.length||recordCategoryLabels.length!==14)
  throw Error('Record category definitions and regression test disagree');
 for(const kind of expectedKinds){
  const holders=[...holderMap].filter(([,records])=>records.some(r=>r.label===kind));
@@ -100,6 +121,14 @@ for(const manager of ['Thommy','Birch']){
 }
 if(holderMap.get('Thommy').find(r=>r.label==='Most championship-game appearances')?.value!==5)
  throw Error('Verified championship-game appearance leader changed');
+for(const label of [
+ 'Best average final finish (all six Sleeper seasons)',
+ 'Most top-three final finishes (2020–2025)',
+ 'Most top-five final finishes (2020–2025)'
+]){
+ const holder=holderMap.get('Mitch').find(r=>r.label===label);
+ if(!holder)throw Error('Mitch missing verified placement record: '+label);
+}
 if(holderMap.get('Mitch').find(r=>r.label==='Most points in a completed regular season')?.value!==1894.88)
  throw Error('Completed-season scoring leader changed');
 if(holderMap.get('Thommy').find(r=>r.label==='Closest regular-season victory')?.value!==0.16)
@@ -214,6 +243,10 @@ for(const manager of currentManagers){
 }
 const tabular=fs.readFileSync('data/fellas_final_placements_2020_2025.csv','utf8').trim().split(/\r?\n/);
 if(tabular.length!==61)throw Error('CSV must include 60 ranked finishes plus header');
+const placementUi=fs.readFileSync('analytics/record-holders.html','utf8');
+if(!placementUi.includes('id="placement-stat-results"')||
+ !placementUi.includes('placement-statistics-ui.mjs'))
+ throw Error('Expandable placement comparison is missing from record holders');
 const holdersPage=fs.readFileSync('analytics/record-holders.html','utf8');
 if(!holdersPage.includes('id="shitter-year-history"')||!holdersPage.includes('verified-sleeper-placement-ui.mjs'))
  throw Error('All-time Shitter history is not mounted');
