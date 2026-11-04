@@ -141,6 +141,21 @@ if(countSum<expectedKinds.length)
  throw Error('Insufficient category leaders; expected at least one leader per record category');
 
 const bracketReceipts=JSON.parse(fs.readFileSync('data/sleeper_postseason_placement_receipts_2020_2025.json','utf8'));
+
+for(const item of bracketReceipts.seasons){
+ const owner=item.toiletBowl.manager;
+ const resume=buildPlayoffResume(playoffEspn,playoffSleeper,owner,bracketReceipts);
+ const season=resume.timeline.find(r=>r.year===item.year);
+ if(season?.finalPlace!==10||!season.finish.includes('Shitter of the Year'))
+  throw Error('Manager postseason résumé fails to record Shitter of the Year '+item.year+' '+owner);
+ if(resume.appearances!==expectedPlayoffs[owner][0])
+  throw Error('Toilet Bowl result must not change positive playoff qualification counts');
+ if(item.year===2022){
+  const partial=buildPlayoffResume(playoffEspn,playoffSleeper,'Mitch',bracketReceipts);
+  if(partial.timeline.find(y=>y.year===2022).finalPlace!==undefined)
+   throw Error('Unseen 2022 middle finishing places must remain unassigned');
+ }
+}
 const sourceMatchups=JSON.parse(fs.readFileSync('data/playoff_matchups_2020_2025.json','utf8'));
 const handles={Stover:'yogurtslinger15',Stew:'Dsylvester9',Stilly:'Darstill',Mitch:'huppdawg80',Thommy:'thommy',Kuhle:'ckuhl5',Kuhl:'ckuhl5',Tony:'tsteg',Birch:'birchhh',JMid:'JMidd',Scott:'Sheffla',Koble:'Koble2323',Evans:'Evansbrandonm'};
 const expectedLast={2020:'Tony',2021:'Stilly',2022:'Birch',2023:'Stew',2024:'Kuhl',2025:'Stover'};
