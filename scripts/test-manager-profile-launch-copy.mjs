@@ -43,15 +43,20 @@ if(!recordBook.includes('id="owned-records"')||!recordBook.includes('manager-rec
 if(!recordBook.includes("history.replaceState(null,'',u)"))
  throw Error('Record book selection is not shareable');
 const book=JSON.parse(fs.readFileSync('data/manager_record_books_2016_2026.json','utf8'));
-const holderMap=new Map(book.managers.map(m=>[m.manager,findOwnedRecords(book,guide,m.manager)]));
+const postseason={
+ espn:JSON.parse(fs.readFileSync('data/verified_espn_playoff_brackets_2016_2019.json','utf8')),
+ sleeper:JSON.parse(fs.readFileSync('data/verified_sleeper_playoff_brackets_2020_2025.json','utf8'))
+};
+const holderMap=new Map(book.managers.map(m=>[m.manager,findOwnedRecords(book,guide,m.manager,postseason)]));
 const expectedKinds=[
  'Highest regular-season weekly score','Largest regular-season victory',
  'Most career regular-season wins','Most wins in a completed regular season','Most championships',
  'Most points in a completed regular season','Closest regular-season victory',
  'Highest career regular-season winning percentage (50+ games)',
- 'Most regular-season wins against a single opponent'
+ 'Most regular-season wins against a single opponent',
+ 'Most championship-bracket playoff appearances','Most championship-game appearances'
 ];
-if(expectedKinds.length!==recordCategoryLabels.length||recordCategoryLabels.length!==9)
+if(expectedKinds.length!==recordCategoryLabels.length||recordCategoryLabels.length!==11)
  throw Error('Record category definitions and regression test disagree');
 for(const kind of expectedKinds){
  const holders=[...holderMap].filter(([,records])=>records.some(r=>r.label===kind));
@@ -64,6 +69,12 @@ for(const name of rivalryLeaders){
  if(holderMap.get(name).find(r=>r.label==='Most regular-season wins against a single opponent')?.value!==11)
   throw Error('Verified rivalry record changed for '+name);
 }
+for(const manager of ['Thommy','Birch']){
+ if(holderMap.get(manager).find(r=>r.label==='Most championship-bracket playoff appearances')?.value!==7)
+  throw Error('Verified playoff appearance leader changed: '+manager);
+}
+if(holderMap.get('Thommy').find(r=>r.label==='Most championship-game appearances')?.value!==5)
+ throw Error('Verified championship-game appearance leader changed');
 if(holderMap.get('Mitch').find(r=>r.label==='Most points in a completed regular season')?.value!==1894.88)
  throw Error('Completed-season scoring leader changed');
 if(holderMap.get('Thommy').find(r=>r.label==='Closest regular-season victory')?.value!==0.16)
@@ -81,23 +92,23 @@ if(!leaderboard.includes('id="record-leaders"')||!leaderboard.includes('id="reco
    !leaderboard.includes('record-holders-page.mjs')||
    !bookHtml.includes('href="../analytics/record-holders.html"'))
  throw Error('League record leaderboard or its personal-record navigation is missing');
-if(!leaderboardScript.includes("findOwnedRecords(archive,guide,m.manager)")||
+if(!leaderboardScript.includes("findOwnedRecords(archive,guide,m.manager,postseason)")||
    !leaderboardScript.includes("encodeURIComponent(name)")||
    !leaderboardScript.includes("b.records.length-a.records.length"))
  throw Error('Record holders must be dynamically ranked and linked to exact personal records');
 for(const label of expectedKinds){
- const challenger=nextRecordChallenger(book,guide,label);
+ const challenger=nextRecordChallenger(book,guide,label,postseason);
  if(!challenger||!Number.isFinite(challenger.value)||!Number.isFinite(challenger.gap)||challenger.gap<0)
   throw Error('Missing valid runner-up evidence for '+label);
  const leaders=[...holderMap].filter(([,recs])=>recs.some(r=>r.label===label)).map(([name])=>name);
  if(leaders.includes(challenger.manager))
   throw Error('Record challenger must be a different manager for '+label);
 }
-const closestChallenger=nextRecordChallenger(book,guide,'Closest regular-season victory');
+const closestChallenger=nextRecordChallenger(book,guide,'Closest regular-season victory',postseason);
 if(closestChallenger.manager!=='Tony'||closestChallenger.value!==0.24)
  throw Error('Closest victory record challenger requires review');
 const categoryPage=fs.readFileSync('assets/record-holders-page.mjs','utf8');
-if(!categoryPage.includes('nextRecordChallenger(archive,guide,label)')||
+if(!categoryPage.includes('nextRecordChallenger(archive,guide,label,postseason)')||
    !categoryPage.includes('How close is the next manager?'))
  throw Error('Record challenger disclosures not mounted on the public leaderboard');
 const countSum=[...holderMap.values()].reduce((sum,recs)=>sum+recs.length,0);

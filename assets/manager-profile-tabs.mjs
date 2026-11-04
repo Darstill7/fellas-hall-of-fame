@@ -84,7 +84,7 @@ if(profileHero&&!profileHero.querySelector('[data-profile-career-snapshot]')){
  }
 }
 // A compact source-backed ownership preview sits beneath the career snapshot.
-// Five current categories only; a zero is not a judgment on career accomplishments.
+// Verified categories only; zero does not diminish other accomplishments.
 async function mountProfileRecordOwnership(){
  const snapshot=document.querySelector('main .hero .profile-career-snapshot');
  if(!snapshot||!profileName||snapshot.querySelector('[data-profile-owned-records]'))return;
@@ -108,12 +108,14 @@ async function mountProfileRecordOwnership(){
  try{
   const responses=await Promise.all([
    fetch('../../data/manager_record_books_2016_2026.json'),
-   fetch('../../data/season_guide.json')
+   fetch('../../data/season_guide.json'),
+   fetch('../../data/verified_espn_playoff_brackets_2016_2019.json'),
+   fetch('../../data/verified_sleeper_playoff_brackets_2020_2025.json')
   ]);
   if(responses.some(r=>!r.ok))throw Error('Record sources unavailable');
-  const [archive,guide]=await Promise.all(responses.map(r=>r.json()));
+  const [archive,guide,espn,sleeper]=await Promise.all(responses.map(r=>r.json()));
   if(archive.asOf!=='2026 Week 8')throw Error('Unexpected record archive scope');
-  const owned=findOwnedRecords(archive,guide,normalized);
+  const owned=findOwnedRecords(archive,guide,normalized,{espn,sleeper});
   result.textContent=owned.length
    ?owned.length+' league '+(owned.length===1?'record':'records')+' held · '+owned.map(x=>x.label).slice(0,2).join(' / ')
    :'No league leads in '+recordCategoryLabels.length+' tracked categories · View personal bests';

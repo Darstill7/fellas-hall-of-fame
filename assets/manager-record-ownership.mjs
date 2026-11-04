@@ -9,9 +9,11 @@ export const recordCategoryLabels=[
  'Most points in a completed regular season',
  'Closest regular-season victory',
  'Highest career regular-season winning percentage (50+ games)',
- 'Most regular-season wins against a single opponent'
+ 'Most regular-season wins against a single opponent',
+ 'Most championship-bracket playoff appearances',
+ 'Most championship-game appearances'
 ];
-export function buildRecordCategories(archive,guide){
+export function buildRecordCategories(archive,guide,postseason){
  const all=archive.managers||[];
  const categories=[
   {label:'Highest regular-season weekly score',rows:all.filter(m=>Number.isFinite(m.bestWeek?.points)).map(m=>({manager:m.manager,value:m.bestWeek.points,game:m.bestWeek})),direction:'max',unit:'pts'},
@@ -24,10 +26,33 @@ export function buildRecordCategories(archive,guide){
   {label:'Highest career regular-season winning percentage (50+ games)',rows:all.filter(m=>m.regular?.games>=50&&Number.isInteger(m.regular.w)&&Number.isInteger(m.regular.t)).map(m=>({manager:m.manager,value:Number((100*(m.regular.w+m.regular.t/2)/m.regular.games).toFixed(2)),games:m.regular.games})),direction:'max',unit:'%'},
   {label:'Most regular-season wins against a single opponent',rows:all.flatMap(m=>(m.headToHead||[]).filter(h=>Number.isInteger(h.w)&&h.w>=0&&h.opponent&&h.opponent!==m.manager).map(h=>({manager:m.manager,value:h.w,opponent:h.opponent,games:h.games}))),direction:'max',unit:'wins'}
  ];
+ // Only publish complete 2016–2025 verified championship bracket seasons.
+ // Bracket entrants include first-round byes; consolation games do not count.
+ const seasons=[...(postseason?.espn?.seasons||[]),...(postseason?.sleeper?.seasons||[])];
+ const years=seasons.map(s=>s.year);
+ if(seasons.length===10&&new Set(years).size===10&&years.every(y=>Number.isInteger(y)&&y>=2016&&y<=2025)){
+  for(const [label,property,unit] of [
+   ['Most championship-bracket playoff appearances','entrants','berths'],
+   ['Most championship-game appearances','finalists','finals']
+  ]){
+   const byManager=new Map();
+   for(const season of seasons){
+    const names=property==='entrants'?(season.participants||season.seeds):season.finalists;
+    if(!Array.isArray(names))throw Error('Incomplete verified postseason bracket for '+season.year);
+    for(const original of new Set(names)){
+     const manager=original==='Tom'?'Thommy':original;
+     if(!manager||typeof manager!=='string')throw Error('Invalid playoff entry');
+     const seasonsForManager=byManager.get(manager)||[];
+     seasonsForManager.push(season.year);byManager.set(manager,seasonsForManager);
+    }
+   }
+   categories.push({label,rows:[...byManager].map(([manager,years])=>({manager,value:years.length,years:years.sort((a,b)=>a-b)})),direction:'max',unit});
+  }
+ }
  return categories;
 }
-export function findOwnedRecords(archive,guide,manager){
- const categories=buildRecordCategories(archive,guide);
+export function findOwnedRecords(archive,guide,manager,postseason){
+ const categories=buildRecordCategories(archive,guide,postseason);
  return categories.flatMap(category=>{
   if(!category.rows.length)return [];
   const recordValue=Math[category.direction](...category.rows.map(x=>x.value));
@@ -40,8 +65,10 @@ export function findOwnedRecords(archive,guide,manager){
    shared:new Set(winners.map(w=>w.manager)).size>1,
    context:x.opponent?'Against '+winners.filter(w=>w.manager===manager).map(w=>w.opponent).join(' and '):
     x.game?'Week '+x.game.week+', '+x.game.year+' vs '+x.game.opponent:
+    x.years?'Seasons '+x.years.join(', '):
     x.year?'Season '+x.year:x.games?x.games+' regular-season games through '+archive.asOf:'Archived career through '+archive.asOf,
-   scope:category.label==='Most championships'?'Verified title seasons through 2025':
+   scope:category.label==='Most championship-bracket playoff appearances'||category.label==='Most championship-game appearances'?'Verified ESPN and Sleeper championship brackets, 2016–2025; consolation excluded':
+    category.label==='Most championships'?'Verified title seasons through 2025':
     category.label==='Most wins in a completed regular season'||category.label==='Most points in a completed regular season'?'Completed seasons through 2025; raw ESPN/Sleeper scores are not normalized':
     category.unit==='%'?'At least 50 archived regular-season games, ties count as half a win':
     'Recorded 2016–'+archive.asOf
@@ -49,8 +76,8 @@ export function findOwnedRecords(archive,guide,manager){
  });
 }
 // Compare with the next-best different manager, not the holder's second season.
-export function nextRecordChallenger(archive,guide,label){
- const category=buildRecordCategories(archive,guide).find(c=>c.label===label);
+export function nextRecordChallenger(archive,guide,label,postseason){
+ const category=buildRecordCategories(archive,guide,postseason).find(c=>c.label===label);
  if(!category||category.rows.length<2)return null;
  const ordered=[...category.rows].sort((a,b)=>category.direction==='min'?a.value-b.value:b.value-a.value);
  const leader=ordered[0].value;
@@ -61,6 +88,7 @@ export function nextRecordChallenger(archive,guide,label){
   manager:next.manager,value:next.value,unit:category.unit,
   context:next.opponent?'Against '+next.opponent:
    next.game?'Week '+next.game.week+', '+next.game.year+' vs '+next.game.opponent:
+   next.years?'Seasons '+next.years.join(', '):
    next.year?'Season '+next.year:next.games?next.games+' archived games':'Archived career',
   gap:Number(Math.abs(leader-next.value).toFixed(2))
  };
@@ -70,12 +98,18 @@ export async function mountRecordOwnership(){
  const picker=document.getElementById('manager');
  if(!root||!picker)return;
  try{
-  const [ar,gr]=await Promise.all([fetch('../data/manager_record_books_2016_2026.json'),fetch('../data/season_guide.json')]);
-  if(!ar.ok||!gr.ok)throw Error('Data unavailable');
-  const [archive,guide]=await Promise.all([ar.json(),gr.json()]);
+  const responses=await Promise.all([
+   fetch('../data/manager_record_books_2016_2026.json'),
+   fetch('../data/season_guide.json'),
+   fetch('../data/verified_espn_playoff_brackets_2016_2019.json'),
+   fetch('../data/verified_sleeper_playoff_brackets_2020_2025.json')
+  ]);
+  if(responses.some(r=>!r.ok))throw Error('Data unavailable');
+  const [archive,guide,espn,sleeper]=await Promise.all(responses.map(r=>r.json()));
+  const postseason={espn,sleeper};
   const draw=()=>{
    const manager=picker.value;
-   const owned=findOwnedRecords(archive,guide,manager);
+   const owned=findOwnedRecords(archive,guide,manager,postseason);
    root.replaceChildren();
    const heading=document.createElement('h2');heading.textContent='League records '+manager+' owns';root.append(heading);
    const intro=document.createElement('p');intro.className='muted';intro.textContent='Category leaders across current and former managers. Tied records are marked shared; personal bests appear below.';root.append(intro);

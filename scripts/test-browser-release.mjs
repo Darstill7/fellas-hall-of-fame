@@ -1682,13 +1682,13 @@ try{
     const cards=await page.locator('#record-leaders .leader-card').count();
     const remaining=await page.locator('#record-other .leader-card').count();
     const kinds=await page.locator('#record-categories .category-card').count();
-    if(cards<1||cards+remaining!==14||kinds!==9)
+    if(cards<1||cards+remaining!==14||kinds!==11)
      errors.push(width+' record holders mismatch: '+cards+' leaders, '+remaining+' remaining, '+kinds+' categories');
     const first=await page.locator('#record-leaders .leader-card').first().innerText();
     if(!first.includes('record'))
      errors.push(width+' record holder leaderboard count missing');
     const disclosures=page.locator('#record-categories .record-context');
-    if(await disclosures.count()!==8)
+    if(await disclosures.count()!==11)
      errors.push(width+' missing next-manager comparisons on record categories');
     else{
      await disclosures.first().locator('summary').click();

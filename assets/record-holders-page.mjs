@@ -10,12 +10,15 @@ async function start(){
  try{
   const responses=await Promise.all([
    fetch('../data/manager_record_books_2016_2026.json'),
-   fetch('../data/season_guide.json')
+   fetch('../data/season_guide.json'),
+   fetch('../data/verified_espn_playoff_brackets_2016_2019.json'),
+   fetch('../data/verified_sleeper_playoff_brackets_2020_2025.json')
   ]);
   if(responses.some(r=>!r.ok))throw Error('Record files unavailable');
-  const [archive,guide]=await Promise.all(responses.map(r=>r.json()));
+  const [archive,guide,espn,sleeper]=await Promise.all(responses.map(r=>r.json()));
+  const postseason={espn,sleeper};
   if(archive.asOf!=='2026 Week 8'||!Array.isArray(archive.managers))throw Error('Unexpected record archive');
-  const rows=archive.managers.map(m=>({name:m.manager,records:findOwnedRecords(archive,guide,m.manager)}))
+  const rows=archive.managers.map(m=>({name:m.manager,records:findOwnedRecords(archive,guide,m.manager,postseason)}))
    .sort((a,b)=>b.records.length-a.records.length||a.name.localeCompare(b.name));
   list.replaceChildren();
   other.replaceChildren();
@@ -40,7 +43,7 @@ async function start(){
    for(const holder of categoryHolders)names.append(detail(holder.name,holder.name));
    const context=tag('small',categoryHolders[0].record.context+' · '+categoryHolders[0].record.scope);
    card.append(value,names,context);
-   const challenger=nextRecordChallenger(archive,guide,label);
+   const challenger=nextRecordChallenger(archive,guide,label,postseason);
    if(challenger){
     const disclosure=tag('details',undefined,'record-context');
     const summary=tag('summary','How close is the next manager?');
