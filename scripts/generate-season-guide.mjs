@@ -65,6 +65,14 @@ if(process.argv.includes('--check')){
  const errors=[];
  if(read(guidePath)!==serialized)errors.push('Season guide is not regenerated');
  if(page!==html)errors.push('Seasons page embedded data differs from generated guide');
+ const earlySeasons=[2016,2017,2018,2019].map(year=>expected[year]);
+ const earlyGames=earlySeasons.reduce((total,season)=>total+(season?.games||0),0);
+ if(earlySeasons.some(season=>!Array.isArray(season?.standings)||season.standings.length<8)||earlyGames!==242)
+  errors.push('Recovered 2016–2019 ESPN regular-season evidence count changed; revisit seasons index coverage statement');
+ if(page.includes('Seasons 2016–2019 have champion records only.')||
+    !page.includes('reconstructed standings from 242 recorded games')||
+    !page.includes('archived through completed Week 7'))
+  errors.push('Seasons index coverage note must match recovered ESPN standings and historical 2026 cutoff');
  if(errors.length){console.error(errors.join('\n'));process.exit(1)}
  console.log('Season guide and embedded seasons page PASS; '+Object.keys(expected).length+' years');
 }else{
