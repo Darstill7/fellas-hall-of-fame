@@ -814,6 +814,11 @@ try{
       errors.push(width+' '+slug+' career results should expand on first visit');
      if(await page.locator('#full-franchise-dossier').count())
       errors.push(width+' '+slug+' competing older franchise-profile promo still visible');
+     const heroActions=page.locator('main .hero .buttons a');
+     if(await heroActions.count()!==2||
+        await heroActions.first().getAttribute('href')!=='#profile-features'||
+        await heroActions.nth(1).getAttribute('href')!=='../')
+      errors.push(width+' '+slug+' hero has duplicate or misleading navigation links');
      const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
      if(await features.count()!==11)
       errors.push(width+' '+slug+' missing eleven individually labeled feature buttons');
