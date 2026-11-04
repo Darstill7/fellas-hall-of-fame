@@ -107,7 +107,7 @@ for(const manager of currentManagers){
  assert.equal(source2026.trades.representedEvents,0,
   '2026 provisional trade sides must not be certified');
  const profileCode=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
- assert.ok(profileCode.includes('mountDraftTradeCareer(quick,keeperManager)'),
+ assert.ok(profileCode.includes('mountDraftTradeCareer(shelfBody,keeperManager)'),
   'Manager profiles do not mount career résumé');
 }
 console.log('Manager draft/trade profile evidence PASS: '+seen.size+
