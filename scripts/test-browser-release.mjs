@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/metrics.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/metrics.html','analytics/trade-museum.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -394,6 +394,19 @@ try{
     const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
     if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
     if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
+   }
+   if(route==='analytics/trade-museum.html'){
+    const links=page.locator('nav.tm-nav a[href="legacy.html"]');
+    if(await links.count()!==1)errors.push(width+' trade museum repeats legacy navigation links');
+    const explanation=page.locator('details.tm-notice');
+    if(await explanation.count()!==1||await explanation.evaluate(el=>el.open))
+     errors.push(width+' trade methodology should start collapsed');
+    await explanation.locator(':scope > summary').click();
+    if(!await explanation.locator('a[href="trades.html"]').isVisible())
+     errors.push(width+' trade museum methodology link unavailable');
+    const visible=await page.locator('body').innerText();
+    if(visible.includes('Stage 66 verified-side evidence')||visible.includes('Fellas OS · Trade Museum'))
+     errors.push(width+' trade museum leaked internal build footer');
    }
    if(route==='analytics/trades.html'){
     const copy=await page.locator('body').innerText();
