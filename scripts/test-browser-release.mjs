@@ -1627,7 +1627,12 @@ try{
     await corruptTrade.close();
    }
    }catch(e){
-    errors.push(width+' '+(route||'index.html')+' route audit exception: '+(e?.stack||String(e)));
+    const routeName=route||'index.html';
+    const message='Route audit interrupted: '+(e?.message||String(e));
+    errors.push(width+' '+routeName+' route audit exception: '+(e?.stack||String(e)));
+    // Preserve one audit row per attempted page, even for early navigation failures.
+    if(!pageAudits.some(a=>a.route===routeName&&a.width===width))
+     pageAudits.push({route:routeName,width,failed:true,findings:[message]});
    }finally{
     try{await page.close()}catch(e){errors.push(width+' '+route+' page cleanup error: '+String(e))}
     completedPages++;
