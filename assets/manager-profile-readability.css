@@ -116,3 +116,18 @@ main .hero .profile-career-snapshot + .buttons{margin-top:18px}
  main .hero .profile-snapshot-stats .stat strong{font-size:23px}
  main .hero .profile-snapshot-stats .stat small{font-size:12px}
 }
+
+/* Progressive disclosure keeps the career resume readable without discarding receipts. */
+main .profile-career-resume .career-resume-intro{font-size:13px;line-height:1.65;margin:12px 15px 15px}
+main .profile-career-resume .career-resume-receipts{margin:13px 15px 17px;padding:0;background:#0e2533;border:1px solid #526e7c;border-radius:10px}
+main .profile-career-resume .career-resume-receipts>summary{min-height:48px;padding:12px 14px;font-size:13px;line-height:1.5;color:#f5d395;cursor:pointer}
+main .profile-career-resume .career-resume-receipts>summary:focus-visible{outline:3px solid #f5d395;outline-offset:2px}
+main .profile-career-resume .career-resume-receipts .career-resume-coverage{margin:13px 0;padding:0 14px;font-size:12px;line-height:1.65}
+main .profile-career-resume .career-resume-receipts .career-resume-section{padding:10px 14px 0}
+main .profile-career-resume .career-resume-receipts .career-resume-trade{margin:10px 0;padding:13px;overflow-wrap:anywhere}
+main .profile-career-resume .career-resume-caveat{font-size:12px;line-height:1.65;margin:14px 0;padding:0 15px 12px}
+@media(max-width:650px){
+ main .profile-career-resume .career-resume-receipts{margin-inline:10px}
+ main .profile-career-resume .career-resume-metrics{gap:10px}
+ main .profile-career-resume .career-resume-receipts>summary{padding:14px 12px}
+}
