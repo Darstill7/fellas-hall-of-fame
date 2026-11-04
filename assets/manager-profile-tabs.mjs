@@ -165,7 +165,7 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const actions=hero?.querySelector('.buttons');
  if(actions){
   // Start/Sit is a named feature below; no duplicate hero shortcut.
-  actions.innerHTML='<a class="btn" href="#profile-features">Browse profile topics ↓</a><a class="btn secondary" href="../">All managers</a>';
+  actions.innerHTML='<a class="btn" href="#profile-features">Explore topics</a><a class="btn secondary" href="../">All managers</a>';
  }
  const quick=document.createElement('section');
  quick.className='profile-quickstart';quick.setAttribute('aria-label',manager+' career at a glance');
@@ -421,7 +421,7 @@ const existingProfile=document.querySelector('nav[data-manager-profile-tabs]');
 if(existingProfile&&!legacyNav){
  // Prebuilt profile shells should share the same two clear entry actions.
  const existingHeroActions=document.querySelector('main .hero .buttons');
- if(existingHeroActions)existingHeroActions.innerHTML='<a class="btn" href="#profile-features">Browse profile topics ↓</a><a class="btn secondary" href="../">All managers</a>';
+ if(existingHeroActions)existingHeroActions.innerHTML='<a class="btn" href="#profile-features">Explore topics</a><a class="btn secondary" href="../">All managers</a>';
  const quick=document.querySelector('.profile-quickstart');
  const manager=document.querySelector('main .hero h1')?.textContent?.trim()||'';
  populateManagerResearch(quick,manager);
