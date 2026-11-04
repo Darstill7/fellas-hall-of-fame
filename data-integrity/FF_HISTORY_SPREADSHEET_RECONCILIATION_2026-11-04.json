@@ -1,0 +1,666 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-11-04",
+  "sourceSpreadsheet": {
+    "title": "FF HISTORY",
+    "url": "https://docs.google.com/spreadsheets/d/1KxsiA_udGvgyZYuuolhS-Y_OOoR_8_7-Z4gzc2t6Kl0/edit",
+    "id": "1KxsiA_udGvgyZYuuolhS-Y_OOoR_8_7-Z4gzc2t6Kl0",
+    "readOnly": true,
+    "tabs": [
+      "SLEEPER HISTORY",
+      "2025",
+      "2024",
+      "2023",
+      "2022",
+      "2021",
+      "2020",
+      "Outdated Info"
+    ]
+  },
+  "canonicalInputs": [
+    "data/unified_record_book_2016_2026.json",
+    "data/espn_history_2016_2019.json",
+    "data/sleeper_postseason_placement_receipts_2020_2025.json"
+  ],
+  "scoreComparison": [
+    {
+      "year": 2020,
+      "sourceWeeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "sourceScoredTeamWeeks": 130,
+      "match": 124,
+      "disagreements": [
+        {
+          "week": 2,
+          "manager": "Stover",
+          "oldSheetScore": 155.52,
+          "canonicalScore": 157.52,
+          "differenceOldMinusCanonical": -2
+        },
+        {
+          "week": 2,
+          "manager": "Evans",
+          "oldSheetScore": 112.88,
+          "canonicalScore": 114.88,
+          "differenceOldMinusCanonical": -2
+        },
+        {
+          "week": 3,
+          "manager": "Stover",
+          "oldSheetScore": 137.3,
+          "canonicalScore": 139.3,
+          "differenceOldMinusCanonical": -2
+        },
+        {
+          "week": 3,
+          "manager": "Kuhl",
+          "oldSheetScore": 155.38,
+          "canonicalScore": 157.38,
+          "differenceOldMinusCanonical": -2
+        },
+        {
+          "week": 7,
+          "manager": "Thommy",
+          "oldSheetScore": 116.38,
+          "canonicalScore": 118.38,
+          "differenceOldMinusCanonical": -2
+        },
+        {
+          "week": 8,
+          "manager": "Stew",
+          "oldSheetScore": 97.64,
+          "canonicalScore": 99.64,
+          "differenceOldMinusCanonical": -2
+        }
+      ],
+      "absent": [],
+      "sourceColumnNames": [
+        "Drew",
+        "Darren",
+        "Zach",
+        "Landon",
+        "Tony",
+        "Kuhl",
+        "Trent",
+        "Evans",
+        "Alex",
+        "Mitch"
+      ],
+      "normalizedNames": [
+        "Stew",
+        "Stilly",
+        "Thommy",
+        "Stover",
+        "Tony",
+        "Kuhl",
+        "Koble",
+        "Evans",
+        "Birch",
+        "Mitch"
+      ],
+      "coverageNote": "Old workbook includes Weeks 1–13; canonical ledger additionally includes Week 14."
+    },
+    {
+      "year": 2021,
+      "sourceWeeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "sourceScoredTeamWeeks": 130,
+      "match": 129,
+      "disagreements": [
+        {
+          "week": 8,
+          "manager": "Kuhl",
+          "oldSheetScore": 121.9,
+          "canonicalScore": 122.9,
+          "differenceOldMinusCanonical": -1
+        }
+      ],
+      "absent": [],
+      "sourceColumnNames": [
+        "Drew",
+        "Darren",
+        "Zach",
+        "Landon",
+        "Tony",
+        "Kuhl",
+        "Trent",
+        "Evans",
+        "Alex",
+        "Mitch"
+      ],
+      "normalizedNames": [
+        "Stew",
+        "Stilly",
+        "Thommy",
+        "Stover",
+        "Tony",
+        "Kuhl",
+        "Koble",
+        "Evans",
+        "Birch",
+        "Mitch"
+      ],
+      "coverageNote": "Old workbook includes Weeks 1–13; canonical ledger additionally includes Week 14."
+    },
+    {
+      "year": 2022,
+      "sourceWeeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "sourceScoredTeamWeeks": 140,
+      "match": 139,
+      "disagreements": [
+        {
+          "week": 13,
+          "manager": "Stover",
+          "oldSheetScore": 103.22,
+          "canonicalScore": 102.22,
+          "differenceOldMinusCanonical": 1
+        }
+      ],
+      "absent": [],
+      "sourceColumnNames": [
+        "Drew",
+        "Darren",
+        "Zach",
+        "Landon",
+        "Tony",
+        "Kuhl",
+        "Trent",
+        "Evans",
+        "Alex",
+        "Mitch"
+      ],
+      "normalizedNames": [
+        "Stew",
+        "Stilly",
+        "Thommy",
+        "Stover",
+        "Tony",
+        "Kuhl",
+        "Koble",
+        "Evans",
+        "Birch",
+        "Mitch"
+      ],
+      "coverageNote": ""
+    },
+    {
+      "year": 2023,
+      "sourceWeeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "sourceScoredTeamWeeks": 140,
+      "match": 138,
+      "disagreements": [
+        {
+          "week": 6,
+          "manager": "Tony",
+          "oldSheetScore": 127.42,
+          "canonicalScore": 128.42,
+          "differenceOldMinusCanonical": -1
+        },
+        {
+          "week": 10,
+          "manager": "Stilly",
+          "oldSheetScore": 109.72,
+          "canonicalScore": 107.18,
+          "differenceOldMinusCanonical": 2.54
+        }
+      ],
+      "absent": [],
+      "sourceColumnNames": [
+        "Drew",
+        "Darren",
+        "Zach",
+        "Landon",
+        "Tony",
+        "Kuhl",
+        "Trent",
+        "Evans",
+        "Alex",
+        "Mitch"
+      ],
+      "normalizedNames": [
+        "Stew",
+        "Stilly",
+        "Thommy",
+        "Stover",
+        "Tony",
+        "Kuhl",
+        "Koble",
+        "JMid",
+        "Birch",
+        "Mitch"
+      ],
+      "coverageNote": ""
+    },
+    {
+      "year": 2024,
+      "sourceWeeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "sourceScoredTeamWeeks": 140,
+      "match": 139,
+      "disagreements": [
+        {
+          "week": 13,
+          "manager": "Tony",
+          "oldSheetScore": 109.6,
+          "canonicalScore": 110.6,
+          "differenceOldMinusCanonical": -1
+        }
+      ],
+      "absent": [],
+      "sourceColumnNames": [
+        "Drew",
+        "Darren",
+        "Zach",
+        "Landon",
+        "Tony",
+        "Kuhl",
+        "Justin",
+        "Mason",
+        "Alex",
+        "Mitch"
+      ],
+      "normalizedNames": [
+        "Stew",
+        "Stilly",
+        "Thommy",
+        "Stover",
+        "Tony",
+        "Kuhl",
+        "JMid",
+        "Scott",
+        "Birch",
+        "Mitch"
+      ],
+      "coverageNote": ""
+    },
+    {
+      "year": 2025,
+      "sourceWeeks": [
+        1,
+        2
+      ],
+      "sourceScoredTeamWeeks": 20,
+      "match": 19,
+      "disagreements": [
+        {
+          "week": 1,
+          "manager": "Mitch",
+          "oldSheetScore": 108.45,
+          "canonicalScore": 108.48,
+          "differenceOldMinusCanonical": -0.03
+        }
+      ],
+      "absent": [],
+      "sourceColumnNames": [
+        "Drew",
+        "Darren",
+        "Zach",
+        "Landon",
+        "Tony",
+        "Kuhl",
+        "Justin",
+        "Mason",
+        "Alex",
+        "Mitch"
+      ],
+      "normalizedNames": [
+        "Stew",
+        "Stilly",
+        "Thommy",
+        "Stover",
+        "Tony",
+        "Kuhl",
+        "JMid",
+        "Scott",
+        "Birch",
+        "Mitch"
+      ],
+      "coverageNote": "Old workbook only contains Weeks 1–2; it is not a full 2025 season record."
+    }
+  ],
+  "espnFinishes": [
+    {
+      "year": 2016,
+      "teamCount": 8,
+      "finishers": [
+        {
+          "place": 1,
+          "manager": "Thommy",
+          "regularSeasonSeed": 3
+        },
+        {
+          "place": 2,
+          "manager": "Halderman",
+          "regularSeasonSeed": 1
+        },
+        {
+          "place": 3,
+          "manager": "Evans",
+          "regularSeasonSeed": 2
+        },
+        {
+          "place": 4,
+          "manager": "Koble",
+          "regularSeasonSeed": 4
+        },
+        {
+          "place": 5,
+          "manager": "Stover",
+          "regularSeasonSeed": 7
+        },
+        {
+          "place": 6,
+          "manager": "Stilly",
+          "regularSeasonSeed": 5
+        },
+        {
+          "place": 7,
+          "manager": "Stew",
+          "regularSeasonSeed": 6
+        },
+        {
+          "place": 8,
+          "manager": "Schermerhorn",
+          "regularSeasonSeed": 8
+        }
+      ],
+      "champion": "Thommy",
+      "lastPlace": "Schermerhorn",
+      "officialRanksUnique": true
+    },
+    {
+      "year": 2017,
+      "teamCount": 10,
+      "finishers": [
+        {
+          "place": 1,
+          "manager": "Thommy",
+          "regularSeasonSeed": 1
+        },
+        {
+          "place": 2,
+          "manager": "Schermerhorn",
+          "regularSeasonSeed": 2
+        },
+        {
+          "place": 3,
+          "manager": "Stilly",
+          "regularSeasonSeed": 3
+        },
+        {
+          "place": 4,
+          "manager": "Evans",
+          "regularSeasonSeed": 4
+        },
+        {
+          "place": 5,
+          "manager": "Koble",
+          "regularSeasonSeed": 6
+        },
+        {
+          "place": 6,
+          "manager": "Halderman",
+          "regularSeasonSeed": 10
+        },
+        {
+          "place": 7,
+          "manager": "Stew",
+          "regularSeasonSeed": 9
+        },
+        {
+          "place": 8,
+          "manager": "Stover",
+          "regularSeasonSeed": 5
+        },
+        {
+          "place": 9,
+          "manager": "Tony",
+          "regularSeasonSeed": 7
+        },
+        {
+          "place": 10,
+          "manager": "Birch",
+          "regularSeasonSeed": 8
+        }
+      ],
+      "champion": "Thommy",
+      "lastPlace": "Birch",
+      "officialRanksUnique": true
+    },
+    {
+      "year": 2018,
+      "teamCount": 10,
+      "finishers": [
+        {
+          "place": 1,
+          "manager": "Thommy",
+          "regularSeasonSeed": 4
+        },
+        {
+          "place": 2,
+          "manager": "Birch",
+          "regularSeasonSeed": 6
+        },
+        {
+          "place": 3,
+          "manager": "Tony",
+          "regularSeasonSeed": 1
+        },
+        {
+          "place": 4,
+          "manager": "Stover",
+          "regularSeasonSeed": 2
+        },
+        {
+          "place": 5,
+          "manager": "Stew",
+          "regularSeasonSeed": 3
+        },
+        {
+          "place": 6,
+          "manager": "Kuhl",
+          "regularSeasonSeed": 5
+        },
+        {
+          "place": 7,
+          "manager": "Evans",
+          "regularSeasonSeed": 7
+        },
+        {
+          "place": 8,
+          "manager": "Mitch",
+          "regularSeasonSeed": 9
+        },
+        {
+          "place": 9,
+          "manager": "Koble",
+          "regularSeasonSeed": 10
+        },
+        {
+          "place": 10,
+          "manager": "Stilly",
+          "regularSeasonSeed": 8
+        }
+      ],
+      "champion": "Thommy",
+      "lastPlace": "Stilly",
+      "officialRanksUnique": true
+    },
+    {
+      "year": 2019,
+      "teamCount": 10,
+      "finishers": [
+        {
+          "place": 1,
+          "manager": "Birch",
+          "regularSeasonSeed": 1
+        },
+        {
+          "place": 2,
+          "manager": "Stew",
+          "regularSeasonSeed": 2
+        },
+        {
+          "place": 3,
+          "manager": "Mitch",
+          "regularSeasonSeed": 3
+        },
+        {
+          "place": 4,
+          "manager": "Tony",
+          "regularSeasonSeed": 4
+        },
+        {
+          "place": 5,
+          "manager": "Stilly",
+          "regularSeasonSeed": 6
+        },
+        {
+          "place": 6,
+          "manager": "Kuhl",
+          "regularSeasonSeed": 5
+        },
+        {
+          "place": 7,
+          "manager": "Koble",
+          "regularSeasonSeed": 8
+        },
+        {
+          "place": 8,
+          "manager": "Thommy",
+          "regularSeasonSeed": 10
+        },
+        {
+          "place": 9,
+          "manager": "Stover",
+          "regularSeasonSeed": 9
+        },
+        {
+          "place": 10,
+          "manager": "Evans",
+          "regularSeasonSeed": 7
+        }
+      ],
+      "champion": "Birch",
+      "lastPlace": "Evans",
+      "officialRanksUnique": true
+    }
+  ],
+  "identityCorrection": {
+    "year": 2023,
+    "sheetColumn": "Evans",
+    "actualOwner": "JMid",
+    "evidence": "All 14 weekly scores, and 1698.96 point season total, match JMid in the canonical archive. Evans is a different former owner."
+  },
+  "historicalNotes": {
+    "espnYears": [
+      {
+        "year": 2016,
+        "lastPlace": "Schermerhorn"
+      },
+      {
+        "year": 2017,
+        "lastPlace": "Birch"
+      },
+      {
+        "year": 2018,
+        "lastPlace": "Stilly"
+      },
+      {
+        "year": 2019,
+        "lastPlace": "Evans"
+      }
+    ],
+    "sleeperLegacyClaims": [
+      {
+        "year": 2020,
+        "oldNote": "Drew / Stew",
+        "verified": "Tony",
+        "status": "contradicted by Sleeper final Toilet Bowl"
+      },
+      {
+        "year": 2021,
+        "oldNote": "Drew / Stew",
+        "verified": "Stilly",
+        "status": "contradicted by Sleeper final Toilet Bowl"
+      }
+    ]
+  },
+  "rules": [
+    "The old sheet is a historical secondary source, not the scoring authority when archived provider results conflict.",
+    "ESPN official finalRank is a documented league finish; label bottom finish rather than inventing the modern Sleeper Toilet Bowl format.",
+    "2016 has only 8 teams; 2017–2019 have 10 teams.",
+    "2016–2017 playoff scores are two-week aggregates in the archived source.",
+    "Old-sheet 2025 only covers two completed weeks; season is complete in canonical data through 2025, and 2026 is partial."
+  ]
+}
