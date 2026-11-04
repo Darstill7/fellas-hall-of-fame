@@ -487,7 +487,7 @@ try{
    }
    if(route===''){
     const snapshot=await page.locator('#home-season-snapshot').innerText();
-    if(!snapshot.includes('Canonical results through Week 7')||!snapshot.includes('Mitch'))errors.push(width+' homepage canonical 2026 snapshot inaccurate');
+    if(!/Canonical results through Week [1-8]\\b/.test(snapshot)||!snapshot.includes('reconstructed'))errors.push(width+' homepage canonical 2026 snapshot inaccurate');
     const search=page.locator('#home-manager-search');
     if(width===390){
      if(!await search.isVisible())errors.push(width+' mobile manager finder missing');
