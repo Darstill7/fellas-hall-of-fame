@@ -588,8 +588,19 @@ try{
       if(actual!==expected)
        errors.push(width+' '+manager+' pickup receipt amount mismatch: '+actual);
      }
-     // The manager-profile deep link should show only that manager and open
-     // the compact pickup details, not leave visitors at the comparison form.
+     // A normal manager report card starts simple. Explicit #cards pickup
+     // deep links retain the old expand-and-focus behavior for evidence.
+     await page.goto(baseUrl+'analytics/manager-report-cards.html?manager=Stilly',{waitUntil:'networkidle'});
+     const simpleCard=page.locator('[data-report-manager="Stilly"]');
+     if(await simpleCard.count()!==1||
+        await simpleCard.locator('details.pickup-highlights').evaluate(el=>el.open)||
+        await simpleCard.locator('details.report-category-details').evaluate(el=>el.open)||
+        !await page.locator('a[data-report-all-managers]').count()||
+        !await page.locator('a[data-report-return-profile]').count())
+      errors.push(width+' focused report card does not begin with a concise manager view');
+     if(!await page.locator('a[data-report-all-managers][href="manager-report-cards.html"]').isVisible())
+      errors.push(width+' focused report card cannot return to all manager rankings');
+     // The explicit pickup deep link shows sourced details immediately.
      await page.goto(baseUrl+'analytics/manager-report-cards.html?manager=Stilly#cards',{waitUntil:'networkidle'});
      const filtered=page.locator('[data-report-manager]');
      if(await filtered.count()!==1||await filtered.first().getAttribute('data-report-manager')!=='Stilly')
