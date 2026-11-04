@@ -27,7 +27,7 @@ for(const game of verifiedWeek8.matchups){
  }
 }
 assert.equal(seen.size,10);
-assert.equal(guide['2026'].games,35,'Expected 2026 35 canonical games through Week 7');
+assert.equal(guide['2026'].games,40,'Expected 2026 40 canonical games through Week 8');
 const report=[];
 for(const [slug,manager] of Object.entries(managers)){
  const page=fs.readFileSync('managers/'+slug+'/index.html','utf8');
@@ -37,7 +37,7 @@ for(const [slug,manager] of Object.entries(managers)){
  const {games,w,l,t}=record.regular;
  assert.equal(games,w+l+t,'Career record arithmetic: '+manager);
  const standing=guide['2026'].standings.find(x=>x.name===manager);
- assert.ok(standing&&standing.games===7,'2026 published season record must be 7 games: '+manager);
+ assert.ok(standing&&standing.games===8,'2026 published season record must be 8 games: '+manager);
  assert.ok(page.includes('data-canonical-manager-record="'+(manager==='Thommy'?'Tom':manager)+'"')||page.includes('data-canonical-manager-record="'+manager+'"'),'Missing page career record: '+manager);
  const expectedRecord=w+'–'+l+(t?'–'+t:'');
  assert.ok(page.includes(expectedRecord),'Public page record not aligned with canonical book: '+manager);
@@ -74,10 +74,14 @@ for(const [slug,manager] of Object.entries(managers)){
  assert.deepEqual(documented,titleYears,'Championship ledger mismatch: '+manager);
  const week8=seen.get(manager);
  assert.ok(week8,'Missing Week 8 game: '+manager);
- const candidate={w:w+(week8.result==='W'?1:0),l:l+(week8.result==='L'?1:0),t:t+(week8.result==='T'?1:0)};
- report.push({manager,slug,championshipYears:titleYears,careerThroughWeek7:expectedRecord,week8,week8ReconciledCandidate:candidate,
-  canonicalWeek8Integrated:false,biographySourceMatched:true,tradeCandidatesVerified,waiverHighlightVerified:true});
+ const canonicalGame=read('data/unified_record_book_2016_2026.json').games.find(g=>g.year===2026&&g.week===8&&((g.home===manager&&g.away===week8.opponent)||(g.away===manager&&g.home===week8.opponent))); 
+ assert.ok(canonicalGame,'Week 8 matchup missing from canonical ledger: '+manager); 
+ assert.equal(canonicalGame.home===manager?canonicalGame.homeScore:canonicalGame.awayScore,week8.points,'Week 8 manager score mismatch: '+manager);
+ assert.equal(canonicalGame.home===manager?canonicalGame.awayScore:canonicalGame.homeScore,week8.opponentPoints,'Week 8 opponent score mismatch: '+manager); 
+ const candidate={w,l,t};
+ report.push({manager,slug,championshipYears:titleYears,careerThroughWeek8:expectedRecord,week8,week8ReconciledCandidate:candidate,
+  canonicalWeek8Integrated:true,biographySourceMatched:true,tradeCandidatesVerified,waiverHighlightVerified:true});
 }
 console.log('MANAGER EDITORIAL AUDIT PASS: 10 biographies, title ledgers, career records, selected trade/waiver receipts and 5 final Week 8 matchups accounted for.');
-console.log('PENDING CANONICAL REFRESH: Week 8 results are verified separately, but main career records are still through Week 7.');
+console.log('WEEK 8 CANONICAL: provider-certified game results reconciled in all ten current manager records.');
 console.log(JSON.stringify(report));

@@ -5,13 +5,13 @@
 ## Findings
 - **10/10 profile biographies** match their editorial source copy after fixing JMid's incomplete scoring sentence and expanding Stover's short biography with verified franchise details.
 - **10/10 championship histories** match the season guide and career-summary trophy ledgers. Historical former managers are not merged into current managers.
-- **10/10 published career records** reconcile with the archived unified game ledger **through 2026 Week 7**. These are accurate for their labeled scope, but not the latest completed week.
+- **10/10 published career records** now reconcile with the canonical unified game ledger **through 2026 Week 8**, after matching all five final provider games against the archived source.
 - **5/5 Week 8 matchups** are final from the connected 2026 Sleeper league and cover all ten managers. The standalone Week 8 evidence is preserved in `data-integrity/manager-week8-2026-source.json`.
 - **19/19 listed trade candidates** match their archived trade-side records and observed edges: **17 nonprovisional** and **2 explicitly provisional** (JMid and Scott in 2026). These are selected descriptive outcomes, not certified management-skill grades. Scott has no supported worst-trade candidate; it remains unassigned.
 - **10/10 selected waiver highlights** match a recorded add/waiver transaction, acquisition week, subsequent starts and earned starter points in `data/waiver_award_candidates.json`.
 
 ## Current profiles and recovered Week 8 results
-| Manager | Verified titles | Career W–L–T through W7 | Final Week 8 | Career if W8 is integrated |
+| Manager | Verified titles | Career W–L–T through W7 | Final Week 8 | Updated canonical career W–L–T |
 | --- | --- | --- | --- | --- |
 | Stilly | 2023 | 65–77 | W vs Birch, 113.58–96.90 | 66–77 |
 | Stew | None | 66–76 | W vs Stover, 134.16–79.10 | 67–76 |
@@ -24,7 +24,7 @@
 | JMid | None | 24–25 | W vs Kuhl, 141.68–82.38 | 25–25 |
 | Scott | 2025 | 16–19 | W vs Thommy, 112.56–106.34 | 17–19 |
 
-**Critical:** The final column is a deterministic reconciliation candidate, **not a newly published canonical statistic**. Do not update profile labels alone. Canonical recomputation must keep the unified record book, season guide, weekly matchup mirror, career summaries, rating consumers and source checks consistent. Week 9 has not started as of this audit.
+**Updated after the audit:** The final column is now included in the canonical game ledger, generated career records, season guide and primary manager profiles. Some standalone older snapshots remain explicitly dated. Week 9 had not started as of this audit.
 
 ## Manager-specific editorial notes
 - **Stilly:** 2023 champion; recorded 2023 Mike Evans and Derrick Henry trade references have source checks. Keep roster-building interpretations clearly editorial.
@@ -39,7 +39,7 @@
 - **Scott:** 2025 champion. Selected retrospective trade/waiver evidence exists; no verified worst-trade candidate should be manufactured.
 
 ## Outstanding coverage gaps — do not fill these with zeros
-1. **Week 8 is not in the canonical combined career record:** five final matchups are recovered and checked. Regenerate every downstream record and rating consumer together before showing the new career totals as authoritative.
+1. **Week 8 integrated into canonical career records:** Five completed games are now included in the unified ledger and derived career/season records. Final browser and validation checks must still pass before treating the release as fully green.
 2. **2020 and 2021 Week 14 uncovered roster scores — SOURCE RECOVERED:** the historical Sleeper provider reports four paired games plus two **unpaired scored rosters** in each year. In 2020 these were Mitch (86.12) and Birch (161.20); in 2021 Tony (119.08) and Birch (65.48). Their matchup IDs and opponents are absent in the provider, so **69 actual paired regular-season games is the correct documented count** for each season. Their points are preserved separately in `data-integrity/historical-unpaired-week14-2020-2021.json` and must not become invented wins, losses, or bye outcomes. Only an additional authoritative pairing record could change that classification.
 3. **ESPN-era player and transaction history (2016–2019):** season records and championships are better verified than historical pickups, trade values, and lineup alternatives. Where no usable ESPN transaction or roster evidence exists, clearly mark a coverage limit rather than a zero score.
 4. **Full FAAB decision-quality grades:** the archived award dataset contains selected notable pickups, not every available player or missed opportunity. Individual bid costs require receipt-level provenance and free acquisitions must include both $0 waiver claims and post-waiver free-agent additions.

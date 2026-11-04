@@ -1,5 +1,5 @@
 // Fellas living 0–100 rating v1. Never derive a championship from regular season standings.
-// Last completed championship season is 2025; 2026 Week 7 is provisional.
+// Last completed championship season is 2025; 2026 Week 8 is provisional.
 export const WEIGHTS=Object.freeze({titles:30,finals:5,playoffs:10,regular:20,allPlay:15,recent:5,peak:10,tenure:5});
 const round=n=>Math.round((n+Number.EPSILON)*10)/10;
 const clamp=n=>Math.max(0,Math.min(1,n));
