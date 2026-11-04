@@ -933,9 +933,43 @@ try{
     const allCards=await page.locator('#cards article.card').count();
     if(allCards!==14)errors.push(width+' Madden all-manager filter rendered '+allCards+' instead of 14');
    }
+   if(route==='analytics/rivalries.html'){
+    const all=page.locator('details.rivalry-all-pairs');
+    if(await all.count()!==1||await all.evaluate(el=>el.open))
+     errors.push(width+' rivalries full matrix should start collapsed');
+    const first=page.locator('#rivalry-first'),second=page.locator('#rivalry-second'),go=page.locator('#rivalry-go');
+    if(await first.locator('option').count()!==10||await second.locator('option').count()!==10)
+     errors.push(width+' rivalries picker missing current managers');
+    else{
+     await second.selectOption('Stilly');
+     if(!await go.isDisabled()||!((await page.locator('#rivalry-picker-status').innerText()).includes('different managers')))
+      errors.push(width+' rivalries picker allows same manager twice');
+     await second.selectOption('JMid');
+     if(await go.isDisabled())errors.push(width+' rivalries picker blocks a valid matchup');
+     await all.locator(':scope > summary').click();
+     const matches=page.locator('#verified-rivalry-matrix a[href^="../rivalries/"]');
+     if(await matches.count()<10||!await matches.first().isVisible())
+      errors.push(width+' rivalries full matchup browse is missing or inaccessible');
+     await all.locator(':scope > summary').click();
+     await go.click();
+     await page.waitForURL('**/rivalries/stilly-vs-jmid.html');
+     if(!await page.locator('body[data-rivalry-pair]').count())
+      errors.push(width+' rivalries picker navigation did not open chosen pair');
+    }
+   }
    if(route.startsWith('rivalries/')){
     const text=await page.locator('body').innerText();
     if(text.includes('Rivalry archive could not be loaded')||text.includes('Rivalry data unavailable'))errors.push(width+' '+route+' rivalry module did not load');
+    const history=page.locator('details.rivalry-game-history');
+    if(await history.count()!==1||await history.evaluate(el=>el.open))
+     errors.push(width+' '+route+' matchup game history should start collapsed');
+    else{
+     if(!await page.locator('a.rivalry-back[href="../analytics/rivalries.html"]').isVisible())
+      errors.push(width+' '+route+' missing all-rivalries return navigation');
+     await history.locator(':scope > summary').click();
+     if(!await history.locator('table').isVisible()||!await history.locator('thead th').count())
+      errors.push(width+' '+route+' matchup receipts do not expand');
+    }
    }
    if(route===''){
     const snapshot=await page.locator('#home-season-snapshot').innerText();
