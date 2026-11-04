@@ -38,8 +38,6 @@ if(document.body.dataset.rivalryPair){
  const hero=document.querySelector('.rival-hero');
  if(hero){hero.textContent='Loading verified head-to-head results…';hero.setAttribute('role','status');}
 }
-const matrix=document.getElementById('verified-rivalry-matrix');
-// Prevent false certainty when source data cannot be fetched.
 // Keep all 45 legacy rivalry files readable without rewriting their historical data.
 if(document.body.dataset.rivalryPair){
  const style=document.createElement('style');
@@ -123,5 +121,5 @@ fetch(depth+'data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw E
   }
   }
  }
-}).catch(()=>{const root=document.getElementById('verified-rivalry-matrix');if(root)root.textContent='Could not load unified matchup ledger.';const hero=document.querySelector('body[data-rivalry-pair] .rival-hero');if(hero){hero.textContent='Verified rivalry history is temporarily unavailable. No archived record can be confirmed.';hero.setAttribute('role','alert')}});
+}).catch(()=>{const root=document.getElementById('verified-rivalry-matrix');if(root)root.textContent='Rivalry history is temporarily unavailable. No records can be verified.';const picker=document.getElementById('rivalry-picker');if(picker){const status=picker.querySelector('#rivalry-picker-status');const go=picker.querySelector('#rivalry-go');if(status){status.textContent='Matchup records are unavailable. Please try again later.';status.setAttribute('role','alert')}if(go)go.disabled=true}const hero=document.querySelector('body[data-rivalry-pair] .rival-hero');if(hero){hero.textContent='Verified rivalry history is temporarily unavailable. No archived record can be confirmed.';hero.setAttribute('role','alert')}});
 })();
