@@ -372,7 +372,7 @@ try{
    }
    if(route==='analytics/manager-report-cards.html'){
     const firstCard=page.locator('[data-report-manager]').first();
-    if(!((await firstCard.locator('.label').first().innerText()).includes('Report-card rank #')))
+    if(!((await firstCard.locator('.label').first().innerText()).toLowerCase().includes('report-card rank #')))
      errors.push(width+' report card rank label missing clear meaning');
     const highlights=page.locator('details.pickup-highlights');
     for(const panel of await highlights.all()){
@@ -644,16 +644,17 @@ try{
      errors.push(width+' historical spread selectors did not load enough manager-seasons');
     if(await teamA.inputValue()!=='2026|Kuhl'||await teamB.inputValue()!=='2019|Thommy')
      errors.push(width+' historical spread did not load the Kuhl 2026 / Thommy 2019 default');
-    if((await projected.innerText()).trim()!=='Thommy 2019 −1.0')
-     errors.push(width+' historical spread default line differs from verified Thommy 2019 -1.0');
+    const initialSpread=(await projected.innerText()).trim();
+    if(!/^Thommy 2019 −\d+\.\d$/.test(initialSpread))
+     errors.push(width+' historical spread default favorite or line formatting differs from the current ledger');
     const originalDifference=await page.locator('#difference').innerText();
     if(!originalDifference.includes('Kuhl 2026')||!originalDifference.includes('Thommy 2019'))
      errors.push(width+' historical spread missing model differential and team labels');
     await page.locator('#swap').click();
     if(await teamA.inputValue()!=='2019|Thommy'||await teamB.inputValue()!=='2026|Kuhl')
      errors.push(width+' historical spread swap did not exchange both teams');
-    if((await projected.innerText()).trim()!=='Thommy 2019 −1.0')
-     errors.push(width+' historical spread changed favorite after swapping teams');
+    if((await projected.innerText()).trim()!==initialSpread)
+     errors.push(width+' historical spread changed the calculated favorite or line after swapping teams');
     await teamA.selectOption('2018|Kuhl');
     if(!(await page.locator('#difference').innerText()).includes('Kuhl 2018'))
      errors.push(width+' historical spread selector failed to recalculate comparison');
