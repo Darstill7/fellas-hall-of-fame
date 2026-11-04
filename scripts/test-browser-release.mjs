@@ -231,6 +231,19 @@ try{
       if(await entries.count()<3)
        errors.push(width+' '+route+' insufficient documented manager seasons');
       else {
+       const yearDetails=timeline.locator('details.profile-season-year-details');
+       if(await yearDetails.count()!==await entries.count())
+        errors.push(width+' '+route+' not every season has an expandable year row');
+       const defaultOpen=await yearDetails.evaluateAll(nodes=>nodes.filter(node=>node.open).length);
+       if(defaultOpen!==0)
+        errors.push(width+' '+route+' year details should start collapsed');
+       const heading=await yearDetails.first().locator(':scope > summary').innerText();
+       if(!heading.includes('2026')||!heading.includes('in progress'))
+        errors.push(width+' '+route+' current season lacks clear first-glance status');
+       for(const yearRow of await yearDetails.all())
+        await yearRow.locator(':scope > summary').click();
+       if(!await yearDetails.first().locator('.profile-season-draft-trade').isVisible())
+        errors.push(width+' '+route+' expanded year fails to reveal original evidence');
        const text=await timeline.innerText();
        if(!text.includes('pickups')||!text.includes('2026')||
           !text.includes('No invented skill grades')||
