@@ -106,6 +106,12 @@ try {
    back.href=profileUrl;
    back.textContent='← Back to '+current.name+"'s profile";
    navigation.prepend(back);
+   const all=document.createElement('a');
+   all.className='btn';
+   all.dataset.reportAllManagers='';
+   all.href='manager-report-cards.html';
+   all.textContent='All report cards';
+   navigation.append(all);
   }
   const comparison=document.querySelector('section[aria-label="Compare managers"]');
   if(comparison)comparison.hidden=true;
