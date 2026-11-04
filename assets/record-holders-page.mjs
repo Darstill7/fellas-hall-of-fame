@@ -1,4 +1,4 @@
-import {findOwnedRecords,recordCategoryLabels} from './manager-record-ownership.mjs';
+import {findOwnedRecords,recordCategoryLabels,nextRecordChallenger} from './manager-record-ownership.mjs';
 const active=new Set(['Stilly','JMid','Thommy','Stew','Scott','Mitch','Tony','Stover','Kuhl','Birch']);
 const categories=recordCategoryLabels;
 const toLabel=record=>record.value+(record.unit==='pts'?' pts':record.unit==='%'?'%':' '+record.unit);
@@ -39,7 +39,18 @@ async function start(){
    const names=tag('div',undefined,'category-owners');
    for(const holder of categoryHolders)names.append(detail(holder.name,holder.name));
    const context=tag('small',categoryHolders[0].record.context+' · '+categoryHolders[0].record.scope);
-   card.append(value,names,context);categoryHost.append(card);
+   card.append(value,names,context);
+   const challenger=nextRecordChallenger(archive,guide,label);
+   if(challenger){
+    const disclosure=tag('details',undefined,'record-context');
+    const summary=tag('summary','How close is the next manager?');
+    const explanation=tag('p',
+      'Next-best different manager: '+challenger.manager+' · '+toLabel(challenger)+
+      ' · '+challenger.context+'. Gap to the record: '+challenger.gap+
+      (challenger.unit==='%'?' percentage points':challenger.unit==='pts'?' points':' '+challenger.unit)+'.');
+    disclosure.append(summary,explanation);card.append(disclosure);
+   }
+   categoryHost.append(card);
   }
  }catch(error){
   list.replaceChildren(tag('p','Record holders are temporarily unavailable. Try the personal record books below.','scope'));
