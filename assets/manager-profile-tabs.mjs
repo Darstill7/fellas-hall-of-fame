@@ -2,7 +2,7 @@ import {mountDraftTradeCareer} from './manager-draft-trade-career-page.mjs';
 import {mountManagerSeasonEvidence} from './manager-season-evidence.mjs';
 import {managerPersonas} from './manager-personas.mjs';
 import {findOwnedRecords,recordCategoryLabels} from './manager-record-ownership.mjs';
-import './manager-playoff-resume.mjs';
+import {mountManagerPlayoffResume} from './manager-playoff-resume.mjs';
 // Upgrade the older seven-link chapter navigator without discarding existing archive sections.
 const profileName=document.querySelector('main .hero h1')?.textContent?.trim();
 const persona=managerPersonas[profileName]||managerPersonas[profileName==='Tom'?'Thommy':profileName];
