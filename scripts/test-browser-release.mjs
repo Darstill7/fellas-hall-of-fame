@@ -61,7 +61,7 @@ try{
     const linePx=style&&style.lineHeight!=='normal'?parseFloat(style.lineHeight):null;
     const links=[...document.querySelectorAll('header a,nav a,main .actions a,main .buttons a')]
      .filter(visible).map(a=>({text:a.textContent.trim().slice(0,80),href:a.href}))
-     .filter(a=>a.href).slice(0,5);
+     .filter(a=>a.href).slice(0,40);
     const buttons=[...document.querySelectorAll('button,select,input,summary')].filter(visible);
     return {
      title:document.title,
@@ -906,6 +906,8 @@ try{
        errors.push(width+' homepage shortcuts should cover ten managers');
       await search.fill('not-a-manager');
       if(!await page.locator('#home-manager-empty').isVisible())errors.push(width+' search empty result missing');
+      if(!((await page.locator('#home-manager-status').innerText()).includes('Showing 0 of 10 managers')))
+       errors.push(width+' homepage manager search status fails to reflect zero matches');
       await page.locator('#home-manager-clear').click();
       if(await page.locator('#home-manager-mobile .mobile-manager-row:visible').count()!==10)errors.push(width+' clearing manager finder did not restore ten names');
      }
@@ -918,6 +920,8 @@ try{
      if(ranks.some((v,i)=>i>0&&v<ranks[i-1]))errors.push(width+' desktop rank sorting incorrect');
      await search.fill('Stov');
      if(await page.locator('#home-manager-cards .home-manager-card:visible').count()!==1)errors.push(width+' desktop manager finder failed');
+     if(!((await page.locator('#home-manager-status').innerText()).includes('Showing 1 of 10 managers')))
+      errors.push(width+' desktop search status fails to reflect manager result count');
      await page.locator('#home-manager-clear').click();
      if(await page.locator('#home-manager-cards .home-manager-card:visible').count()!==10)errors.push(width+' desktop manager finder clear failed');
     }
