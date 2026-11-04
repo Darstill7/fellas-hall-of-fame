@@ -55,7 +55,18 @@ export async function mountRecordOwnership(){
    }
    root.append(list);
   };
-  picker.addEventListener('change',draw);draw();
+  picker.addEventListener('change',draw);
+  if(picker.options.length)draw();
+  else{
+   // The historical selector populates from a separate async fetch.
+   // Do not render an empty state before its options and default selection exist.
+   const observer=new MutationObserver(()=>{
+    if(!picker.options.length)return;
+    observer.disconnect();
+    draw();
+   });
+   observer.observe(picker,{childList:true});
+  }
  }catch(e){
   root.textContent='League record ownership is temporarily unavailable; personal records remain below.';
   console.error('Record ownership unavailable',e);
