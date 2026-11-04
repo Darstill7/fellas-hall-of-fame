@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/metrics.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -339,6 +339,23 @@ try{
     if(await page.locator('a[href="power-ratings.html"]').count()===0)
      errors.push(width+' '+route+' missing current all-time ranking navigation');
    }
+   if(route==='analytics/manager-performance-timeline.html'){
+    const notes=page.locator('details.timeline-notes');
+    if(await notes.count()!==1||await notes.evaluate(el=>el.open))
+     errors.push(width+' career timeline methodology should begin collapsed');
+    await notes.locator('summary').click();
+    if(!await notes.locator('a[href="../data/season_guide.json"]').isVisible())
+     errors.push(width+' career timeline archive sources not accessible');
+    if((await page.locator('body').innerText()).includes('Loading canonical season records'))
+     errors.push(width+' career timeline exposes developer-facing load message');
+   }
+   if(route==='analytics/manager-league-benchmarks.html'){
+    const more=page.locator('details').filter({hasText:'How are these comparisons calculated?'});
+    if(await more.count()!==1||await more.evaluate(el=>el.open))
+     errors.push(width+' advanced comparison details not collapsed');
+    if(!await page.locator('.notice').innerText().then(x=>x.includes('Neither measure is a certified decision-skill rating')))
+     errors.push(width+' comparison grading caveat missing');
+   }
    if(route==='analytics/manager-report-cards.html'){
     const more=page.locator('details.report-more-links');
     if(await more.count()!==1||await more.evaluate(el=>el.open))
@@ -416,6 +433,25 @@ try{
     }
    }
    if(route===''){
+    const desktopNav=page.locator('.main-nav');
+    const mobileNav=page.locator('details.mobile-menu');
+    if(width===390){
+     if(!await mobileNav.isVisible()||await desktopNav.isVisible())errors.push(width+' homepage mobile navigation visibility wrong');
+     await mobileNav.locator(':scope > summary').click();
+     for(const href of ['managers/','analytics/manager-report-cards.html','hall/','analytics/records.html','analytics/sportscenter.html','analytics/power-ratings.html','analytics/rivalry-war-room.html','seasons/','analytics/search.html'])
+      if(!await mobileNav.locator('a[href="'+href+'"]').isVisible())errors.push(width+' mobile navigation missing '+href);
+     await mobileNav.locator(':scope > summary').click();
+    }else{
+     if(await desktopNav.locator(':scope > a').count()!==5)errors.push(width+' homepage must show five primary desktop destinations');
+     const more=desktopNav.locator('details.home-nav-more');
+     if(await more.count()!==1||await more.evaluate(el=>el.open))errors.push(width+' desktop extra navigation should begin collapsed');
+     await more.locator(':scope > summary').click();
+     for(const href of ['analytics/power-ratings.html','analytics/rivalry-war-room.html','seasons/','analytics/search.html'])
+      if(!await more.locator('a[href="'+href+'"]').isVisible())errors.push(width+' desktop extra navigation missing '+href);
+     await more.locator(':scope > summary').click();
+    }
+   }
+   if(route===''){
     const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
     if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
     if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
@@ -423,6 +459,57 @@ try{
    if(route===''){
     if(await page.locator('a[href="analytics/legacy.html"]').count()>0)
      errors.push(width+' homepage links to obsolete Legacy Score prototype');
+   }
+   if(route==='analytics/manager-trade-intelligence.html'){
+    const optional=page.locator('details.trade-advanced');
+    if(await optional.count()!==2||await optional.evaluateAll(nodes=>nodes.some(node=>node.open)))
+     errors.push(width+' trade history research panels should begin collapsed');
+    const controls=page.locator('#manager,#season,#coverage');
+    if(await controls.count()!==3)errors.push(width+' trade history filters missing');
+    await optional.first().locator(':scope > summary').click();
+    if(!await optional.first().locator('#impact-summary').isVisible())
+     errors.push(width+' trade history record-coverage details did not expand');
+    await optional.nth(1).locator(':scope > summary').click();
+    if(!await optional.nth(1).locator('#asset-query').isVisible())
+     errors.push(width+' trade history player search did not expand');
+    const warning=await page.locator('.warning').innerText();
+    if(!warning.includes('do not prove who won the deal'))
+     errors.push(width+' trade history limitation missing');
+   }
+   if(route==='analytics/manager-decision-audit.html'){
+    if(!await page.locator('h1').innerText().then(x=>x.includes('Drafts, Trades & Pickups')))
+     errors.push(width+' decisions page lacks visitor-facing heading');
+    if(await page.locator('#manager,#season,#type').count()!==3)
+     errors.push(width+' manager decisions filters missing');
+    const guide=page.locator('details').filter({hasText:'How are these results selected?'});
+    if(await guide.count()!==1||await guide.evaluate(el=>el.open))
+     errors.push(width+' manager decisions methods should begin collapsed');
+    await guide.locator('summary').click();
+    if(!await guide.locator('a[href="../data/v9_trade_engine.json"]').isVisible())
+     errors.push(width+' manager decisions original source link unavailable');
+    const warning=await page.locator('.notice').innerText();
+    if(!warning.includes('not a complete ranking of manager skill'))
+     errors.push(width+' manager decisions evidence limitation missing');
+   }
+   if(route==='managers/index.html'){
+    const cards=page.locator('#manager-directory-cards a.manager');
+    if(await cards.count()!==10)errors.push(width+' managers directory needs exactly 10 profile links');
+    const extra=page.locator('details.manager-nav-more');
+    if(await extra.count()!==1||await extra.evaluate(el=>el.open))
+     errors.push(width+' managers navigation extras should start collapsed');
+    await extra.locator(':scope > summary').click();
+    if(!await extra.locator('a[href="../analytics/trade-museum.html"]').isVisible())
+     errors.push(width+' managers extra destinations not reachable');
+    const input=page.locator('#manager-name-search');
+    await input.fill('stover');
+    if(await page.locator('#manager-directory-cards a.manager:visible').count()!==1||!await page.locator('a.manager[href="stover/"]').isVisible())
+     errors.push(width+' manager quick search should reveal only Stover');
+    await input.fill('not-a-manager');
+    if(!await page.locator('#manager-no-results').isVisible()||await page.locator('#manager-directory-cards a.manager:visible').count()!==0)
+     errors.push(width+' manager search empty state incorrect');
+    await input.fill('');
+    if(await page.locator('#manager-directory-cards a.manager:visible').count()!==10||!await page.locator('#manager-no-results').isHidden())
+     errors.push(width+' clearing manager search did not restore all ten');
    }
    if(route==='analytics/trade-museum.html'){
     const links=page.locator('nav.tm-nav a[href="power-ratings.html"]');
