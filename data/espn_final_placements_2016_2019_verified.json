@@ -104,7 +104,7 @@
         "winnerPoints": 193,
         "loser": "Schermerhorn",
         "loserPoints": 184,
-        "scoringBasis": "ESPN two-week matchup aggregate"
+        "scoringBasis": "ESPN two-week aggregate (source matchup period)"
       },
       "verifiedSource": "data/espn_history_2016_2019.json; ESPN finalRank and LOSERS_CONSOLATION_LADDER stage, cross-confirmed by FF HISTORY spreadsheet"
     },
@@ -222,7 +222,7 @@
         "winnerPoints": 214,
         "loser": "Birch",
         "loserPoints": 196,
-        "scoringBasis": "ESPN two-week matchup aggregate"
+        "scoringBasis": "ESPN two-week aggregate (source matchup period)"
       },
       "verifiedSource": "data/espn_history_2016_2019.json; ESPN finalRank and LOSERS_CONSOLATION_LADDER stage, cross-confirmed by FF HISTORY spreadsheet"
     },
@@ -340,7 +340,7 @@
         "winnerPoints": 125.14,
         "loser": "Stilly",
         "loserPoints": 86.76,
-        "scoringBasis": "ESPN last-place round score"
+        "scoringBasis": "ESPN source matchup total; do not assume one-week score without scoring-period confirmation"
       },
       "verifiedSource": "data/espn_history_2016_2019.json; ESPN finalRank and LOSERS_CONSOLATION_LADDER stage, cross-confirmed by FF HISTORY spreadsheet"
     },
@@ -458,7 +458,7 @@
         "winnerPoints": 328.56,
         "loser": "Evans",
         "loserPoints": 264.76,
-        "scoringBasis": "ESPN last-place round score"
+        "scoringBasis": "ESPN source matchup total; do not assume one-week score without scoring-period confirmation"
       },
       "verifiedSource": "data/espn_history_2016_2019.json; ESPN finalRank and LOSERS_CONSOLATION_LADDER stage, cross-confirmed by FF HISTORY spreadsheet"
     }
