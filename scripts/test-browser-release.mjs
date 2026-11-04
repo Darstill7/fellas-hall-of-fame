@@ -313,6 +313,26 @@ try{
    if(route==='analytics/manager-report-cards.html'){
     const count=await page.locator('[data-report-manager]').count();
     if(count!==10)errors.push(width+' report card preview rendered '+count+' of 10 managers');
+    const scoreSummaries=page.locator('[data-report-manager] .report-score-summary');
+    const scoreGuides=page.locator('[data-report-manager] details.report-score-guide');
+    if(await scoreSummaries.count()!==10||await scoreGuides.count()!==10)
+     errors.push(width+' report cards missing plain-language score explanations');
+    else{
+     const summaryText=await scoreSummaries.first().innerText();
+     if(!summaryText.includes('weighted summary')||!summaryText.includes('not a win percentage')||
+        !summaryText.includes('Legacy OVR'))
+      errors.push(width+' report-card overall score explanation incomplete');
+     const guide=scoreGuides.first();
+     if(await guide.evaluate(el=>el.open))
+      errors.push(width+' report-card category glossary should start collapsed');
+     await guide.locator('summary').click();
+     const explanation=await guide.innerText();
+     if(!explanation.includes('not a percentage of correct decisions')||
+        !explanation.includes('N/A means not rated')||
+        !explanation.includes('Missing skill grades are excluded')||
+        await guide.locator('dt').count()!==10)
+      errors.push(width+' report-card category scoring glossary incomplete');
+    }
     const highlights=page.locator('[data-report-manager] details.pickup-highlights');
     if(await highlights.count()!==10)
      errors.push(width+' report cards did not show ten source-backed pickup highlights');
