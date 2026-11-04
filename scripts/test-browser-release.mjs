@@ -914,8 +914,8 @@ try{
        errors.push(width+' '+slug+' profile topic labels or order incorrect');
      }
      const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
-     if(await features.count()!==11)
-      errors.push(width+' '+slug+' missing eleven individually labeled feature buttons');
+     if(await features.count()!==12)
+      errors.push(width+' '+slug+' missing twelve individually labeled feature destinations');
      else{
       const labels=await features.locator('strong').allTextContents();
       for(const label of ['Championships & career record','Season-by-season results',

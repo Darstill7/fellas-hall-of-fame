@@ -73,7 +73,8 @@ function mountProfileFeatureDirectory(quick,manager){
   {label:'Pickup & keeper totals',detail:'Which acquisitions started and how many points keepers scored',target:'.profile-front-office-snapshot',icon:'📊'},
   {label:'Pickup highlights',detail:'Up to three recorded additions, starts and points; costs when available',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'💰'},
   {label:'Start/Sit accuracy',detail:'Weekly lineup efficiency and coverage',href:'../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name),icon:'🎯'},
-  {label:'Keeper research',detail:'2025 and in-progress 2026 keeper evidence',href:'../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(name),icon:'🔒'}
+  {label:'Keeper research',detail:'2025 and in-progress 2026 keeper evidence',href:'../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(name),icon:'🔒'},
+  {label:'Manager report card',detail:'Category ratings, verified achievements and evidence limitations',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'📋'}
  ];
  const shell=document.createElement('section');
  shell.className='profile-feature-directory';
@@ -83,7 +84,7 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a topic, then pick what you want to see. One feature at a time — with an easy return to all five topics.</p>';
  const groups=[
   {title:'Career & Results',help:'Championships, records and every season',items:[0,1]},
-  {title:'Ratings & Report Card',help:'Legacy OVR, individual seasons and how ratings work',items:[3,4]},
+  {title:'Ratings & Report Card',help:'Legacy OVR, individual seasons and how ratings work',items:[3,4,11]},
   {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7,8]},
   {title:'Rivals & Matchups',help:'Head-to-head records and memorable games',items:[2]},
   {title:'Lineups & Keepers',help:'Start/Sit accuracy and keeper research',items:[9,10]}
