@@ -69,6 +69,11 @@ try{
   sorter?.addEventListener('change',sortRows);
   sortRows();
   finder.addEventListener('input',filter);
+  finder.addEventListener('keydown',event=>{
+   if(event.key==='Escape'&&finder.value){
+    event.preventDefault();finder.value='';filter();
+   }
+  });
   clear?.addEventListener('click',()=>{finder.value='';filter();finder.focus()});
  }
  if(!finder||!compact)document.getElementById('home-manager-status').textContent=current.length+' active manager profiles · Career Legacy OVR from verified league history · 2026 ongoing';
