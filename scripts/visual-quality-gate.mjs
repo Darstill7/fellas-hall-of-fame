@@ -8,6 +8,7 @@ const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid'
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/records.html',
  'analytics/power-ratings.html','analytics/rivalries.html','hall/','seasons/',
  'analytics/manager-madden-cards.html','managers/record-books.html','analytics/record-holders.html',
+ 'seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
@@ -116,6 +117,32 @@ try{
          findings.push(engine+' '+width+' '+key+' incorrect profile landing hierarchy '+JSON.stringify(hierarchy));
         if(hierarchy.actionHeight<44)
          findings.push(engine+' '+width+' '+key+' primary profile action too small');
+       }
+       if(/^seasons\\/202[2-5]\\.html$/.test(route)){
+        const proof=page.locator('#verified-placements');
+        if(await proof.count()!==1||await proof.locator('.placement-card').count()!==2)
+         findings.push(engine+' '+width+' '+key+' verified postseason result cards missing');
+        else{
+         const year=Number(route.match(/202[2-5]/)[0]);
+         const text=await proof.innerText();
+         if(text.includes('Loading postseason placements')||
+            (year===2022?!text.includes('Not yet verified'):!text.includes('Shitter of the Year')))
+          findings.push(engine+' '+width+' '+key+' postseason evidence did not load correctly');
+         if(year>=2023){
+          const detail=proof.locator('details.placement-more');
+          if(await detail.count()!==1)findings.push(engine+' '+width+' '+key+' placement detail missing');
+          else{
+           await detail.locator('summary').click();
+           if(await detail.locator('li').count()!==3)
+            findings.push(engine+' '+width+' '+key+' expected exactly three 3rd/5th/8th placement games');
+          }
+         }
+        }
+       }
+       if(route==='analytics/record-holders.html'){
+        const shame=page.locator('#shitter-year-history');
+        if(await shame.locator('a.placement-shame-row').count()!==4)
+         findings.push(engine+' '+width+' all-time Toilet Bowl history missing or incomplete');
        }
        const dir=path.join(output,'screens',engine,String(width));
        await fs.mkdir(dir,{recursive:true});
