@@ -139,4 +139,38 @@ if(!categoryPage.includes('nextRecordChallenger(archive,guide,label,postseason)'
 const countSum=[...holderMap.values()].reduce((sum,recs)=>sum+recs.length,0);
 if(countSum<expectedKinds.length)
  throw Error('Insufficient category leaders; expected at least one leader per record category');
+
+const bracketReceipts=JSON.parse(fs.readFileSync('data/sleeper_postseason_placement_receipts_2022_2025.json','utf8'));
+const sourceMatchups=JSON.parse(fs.readFileSync('data/playoff_matchups_2020_2025.json','utf8'));
+const handles={Stover:'yogurtslinger15',Stew:'Dsylvester9',Stilly:'Darstill',Mitch:'huppdawg80',Thommy:'thommy',Kuhle:'ckuhl5',Kuhl:'ckuhl5',Tony:'tsteg',Birch:'birchhh',JMid:'JMidd',Scott:'Sheffla',Koble:'Koble2323'};
+const expectedLast={2023:'Stew',2024:'Kuhl',2025:'Stover'};
+if(bracketReceipts.seasons.length!==4)throw Error('Postseason screenshot coverage changed');
+for(const yearData of bracketReceipts.seasons){
+ const year=yearData.year;
+ const verified=postseason.sleeper.seasons.find(s=>s.year===year);
+ if(verified?.champion!==yearData.championship.winner||verified?.runnerUp!==yearData.championship.runnerUp)
+  throw Error('Championship bracket conflict in '+year);
+ if(year===2022&&yearData.toiletBowl!==null)throw Error('Unsupplied 2022 Toilet Bowl must not be fabricated');
+ if(year>=2023&&yearData.toiletBowl?.manager!==expectedLast[year])
+  throw Error('Toilet Bowl loser mismatch in '+year);
+ for(const game of yearData.placementGames){
+  const matches=sourceMatchups.find(x=>x.year===year&&x.week===game.week)?.games||[];
+  const found=matches.some(m=>{
+   const points=new Map([m.home,m.away]);
+   return points.get(handles[game.winner])===game.winnerScore&&
+     points.get(handles[game.loser])===game.loserScore;
+  });
+  if(!found)throw Error('Unreconciled historical placement score '+year+' '+game.label);
+  if(game.label==='King (Last Place)'&&
+     (game.loser!==yearData.toiletBowl?.manager||game.loserScore>=game.winnerScore))
+   throw Error('Shitter must be lower-scoring finalist in '+year);
+ }
+ const page=fs.readFileSync('seasons/'+year+'.html','utf8');
+ if(!page.includes('id="verified-placements"')||!page.includes('verified-sleeper-placement-ui.mjs'))
+  throw Error('Verified placement details are missing from season '+year);
+}
+const holdersPage=fs.readFileSync('analytics/record-holders.html','utf8');
+if(!holdersPage.includes('id="shitter-year-history"')||!holdersPage.includes('verified-sleeper-placement-ui.mjs'))
+ throw Error('All-time Shitter history is not mounted');
+
 console.log('All ten manager profiles have launch-ready copy, consistent championship records, and current rankings links.');
