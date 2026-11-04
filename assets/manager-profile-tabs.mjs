@@ -95,6 +95,7 @@ function mountProfileFeatureDirectory(quick,manager){
  const menu=document.createElement('div');menu.className='profile-feature-groups';
  for(const group of groups){
   const disclosure=document.createElement('details');disclosure.className='profile-feature-group';
+  if(group.title==='Career & results')disclosure.open=true;
   const heading=document.createElement('summary');
   const title=document.createElement('strong');title.textContent=group.title;
   const detail=document.createElement('span');detail.textContent=group.help;
@@ -341,7 +342,14 @@ if(main&&tabs){
   document.body.classList.add('profile-feature-focused');
   button.setAttribute('aria-pressed','true');
   const section=sections.find(item=>item===destination||item.contains(destination));
-  section?.classList.add('profile-selected-section');
+  // A feature may live in a different legacy category from the active one.
+  // Reveal its parent category before focusing the individual feature.
+  if(section){
+   const category=sectionTab.get(section);
+   if(category)activate(category);
+   section.hidden=false;
+   section.classList.add('profile-selected-section');
+  }
   if(document.querySelector('.profile-madden')?.contains(destination))
    document.querySelector('.profile-madden').classList.add('profile-selected-madden');
   const shelfBody=destination.closest('.profile-research-shelf-body');
@@ -422,9 +430,15 @@ if(main&&tabs){
   const button=event.target.closest('button[data-profile-feature]');
   if(!button)return;
   const target=button.dataset.featureTarget,category=button.dataset.featureTab;
-  if(category)activate(category);
   const destination=target&&document.querySelector(target);
-  if(!destination)return;
+  if(!destination){
+   // Never leave a feature button looking inert when optional archive data
+   // has not been mounted for this particular manager.
+   button.setAttribute('aria-disabled','true');
+   button.title='This section is not available for this manager yet';
+   return;
+  }
+  if(category)activate(category);
   focusFeature(button,destination);
   const shelf=destination.closest('details.profile-research-shelf');
   if(shelf)shelf.open=true;
