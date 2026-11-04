@@ -47,6 +47,8 @@ jobs:
         run: node scripts/verify-ledger-projections.mjs
       - name: Verify canonical website consumers
         run: node scripts/verify-core-consumers.mjs
+      - name: Ensure 2026 season encyclopedia is labeled as a Week 7 archive
+        run: node scripts/test-2026-season-archive-copy.mjs
       - name: Check historical playoff forecast is labeled as an archive
         run: node scripts/test-playoff-race-archive.mjs
       - name: Inventory unmatched historical dossier editorial headings
