@@ -135,6 +135,8 @@ jobs:
         run: node scripts/audit-manager-editorial-accuracy.mjs
       - name: Preserve unpaired 2020 and 2021 roster-score evidence
         run: node scripts/verify-historical-unpaired-week14.mjs
+      - name: Guard verified historical spreadsheet findings and ESPN finishing ranks
+        run: node scripts/test-legacy-ff-history-audit.mjs
       - name: Check all ten manager profiles for launch-ready public copy
         run: node scripts/test-manager-profile-launch-copy.mjs
       - name: Verify manager report card evidence
