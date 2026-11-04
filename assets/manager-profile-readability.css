@@ -95,3 +95,24 @@ main>section.section .muted{line-height:1.7}
 @media(prefers-reduced-motion:reduce){
   main .profile-feature-button{transition:none}
 }
+
+/* Phase 1: source-preserving career summary on every manager landing page. */
+main .hero .profile-career-snapshot{margin:25px 0 19px;padding:19px 20px;background:#0e2230;border:1px solid #405d70;border-radius:16px;min-width:0}
+main .hero .profile-snapshot-heading{margin:0 0 15px;font-size:clamp(17px,2.2vw,21px);line-height:1.3;letter-spacing:-.02em;color:#f4f3ed}
+main .hero .profile-snapshot-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0}
+main .hero .profile-snapshot-stats .stat{min-width:0;padding:15px;background:#182f3e;border:1px solid #486578;border-radius:11px}
+main .hero .profile-snapshot-stats .stat strong{font-size:clamp(24px,3vw,32px);line-height:1.25;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+main .hero .profile-snapshot-stats .stat small{display:block;margin-top:7px;font-size:13px;line-height:1.4;color:#edf2f5;font-weight:700}
+main .hero .profile-snapshot-detail{display:block;margin-top:5px;color:#b6cbd7;font-size:11px;line-height:1.5;overflow-wrap:anywhere}
+main .hero .profile-snapshot-source{margin:15px 0 0!important;font-size:12px!important;line-height:1.65;color:#bfd0db}
+main .hero .profile-career-snapshot + .buttons{margin-top:18px}
+@media(max-width:700px){
+ main .hero .profile-career-snapshot{padding:16px;margin-block:19px}
+ main .hero .profile-snapshot-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ main .hero .profile-snapshot-stats .stat:last-child:nth-child(odd){grid-column:1/-1}
+ main .hero .profile-snapshot-stats .stat{padding:13px}
+}
+@media(max-width:390px){
+ main .hero .profile-snapshot-stats .stat strong{font-size:23px}
+ main .hero .profile-snapshot-stats .stat small{font-size:12px}
+}
