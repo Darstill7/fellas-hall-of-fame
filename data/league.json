@@ -3,72 +3,96 @@
     {
       "manager": "Mitch",
       "team": "Suck My Njigba",
-      "w": 7,
+      "w": 8,
       "l": 0,
-      "pf": 936.2,
-      "pa": 754.14,
+      "pf": 1059.36,
+      "pa": 853.44,
+      "apw": 54,
+      "apl": 18,
+      "expected": 6,
+      "luck": 2
+    },
+    {
+      "manager": "Stew",
+      "team": "Worst Team on Paper!",
+      "w": 5,
+      "l": 3,
+      "pf": 1002.98,
+      "pa": 863.34,
       "apw": 47,
-      "apl": 16,
+      "apl": 25,
       "expected": 5.22,
-      "luck": 1.78
+      "luck": -0.22
     },
     {
       "manager": "Birch",
       "team": "Nacua Matata",
       "w": 5,
-      "l": 2,
-      "pf": 813.94,
-      "pa": 719.26,
-      "apw": 38,
-      "apl": 25,
-      "expected": 4.22,
-      "luck": 0.78
+      "l": 3,
+      "pf": 910.84,
+      "pa": 832.84,
+      "apw": 40,
+      "apl": 32,
+      "expected": 4.44,
+      "luck": 0.56
     },
     {
       "manager": "Tony",
       "team": "Bowers Castle",
       "w": 5,
-      "l": 2,
-      "pf": 787.7,
-      "pa": 697.08,
-      "apw": 31,
-      "apl": 32,
-      "expected": 3.44,
-      "luck": 1.56
-    },
-    {
-      "manager": "Stew",
-      "team": "Worst Team on Paper!",
-      "w": 4,
       "l": 3,
-      "pf": 868.82,
-      "pa": 785.24,
-      "apw": 39,
-      "apl": 24,
-      "expected": 4.33,
-      "luck": -0.33
+      "pf": 887,
+      "pa": 820.24,
+      "apw": 34,
+      "apl": 38,
+      "expected": 3.78,
+      "luck": 1.22
     },
     {
       "manager": "Stilly",
       "team": "Harry Woody",
-      "w": 3,
+      "w": 4,
       "l": 4,
-      "pf": 813.66,
-      "pa": 813.62,
-      "apw": 35,
-      "apl": 28,
-      "expected": 3.89,
-      "luck": -0.89
+      "pf": 927.24,
+      "pa": 910.52,
+      "apw": 41,
+      "apl": 31,
+      "expected": 4.56,
+      "luck": -0.56
+    },
+    {
+      "manager": "Scott",
+      "team": "Team Sheffla",
+      "w": 4,
+      "l": 4,
+      "pf": 791.04,
+      "pa": 853.44,
+      "apw": 26,
+      "apl": 46,
+      "expected": 2.89,
+      "luck": 1.11
+    },
+    {
+      "manager": "JMid",
+      "team": "Bengals Fan",
+      "w": 3,
+      "l": 5,
+      "pf": 890.06,
+      "pa": 861.56,
+      "apw": 39,
+      "apl": 33,
+      "expected": 4.33,
+      "luck": -1.33
     },
     {
       "manager": "Stover",
       "team": "Gurt",
       "w": 3,
-      "l": 4,
-      "pf": 763.14,
-      "pa": 769.18,
+      "l": 5,
+      "pf": 842.24,
+      "pa": 903.34,
       "apw": 33,
-      "apl": 30,
+      "apl": 39,
       "expected": 3.67,
       "luck": -0.67
     },
@@ -76,56 +100,32 @@
       "manager": "Tom",
       "team": "Green Bowl Packers",
       "w": 3,
-      "l": 4,
-      "pf": 731.7,
-      "pa": 811.9,
-      "apw": 30,
-      "apl": 33,
-      "expected": 3.33,
-      "luck": -0.33
-    },
-    {
-      "manager": "Scott",
-      "team": "Team Sheffla",
-      "w": 3,
-      "l": 4,
-      "pf": 679.48,
-      "pa": 747.1,
-      "apw": 21,
-      "apl": 42,
-      "expected": 2.33,
-      "luck": 0.67
-    },
-    {
-      "manager": "JMid",
-      "team": "Bengals Fan",
-      "w": 2,
       "l": 5,
-      "pf": 748.38,
-      "pa": 779.18,
-      "apw": 30,
-      "apl": 33,
-      "expected": 3.33,
-      "luck": -1.33
+      "pf": 838.04,
+      "pa": 924.46,
+      "apw": 34,
+      "apl": 38,
+      "expected": 3.78,
+      "luck": -0.78
     },
     {
       "manager": "Kuhl",
       "team": "Kirko Chains",
       "w": 0,
-      "l": 7,
-      "pf": 606.94,
-      "pa": 873.26,
-      "apw": 11,
-      "apl": 52,
-      "expected": 1.22,
-      "luck": -1.22
+      "l": 8,
+      "pf": 689.32,
+      "pa": 1014.94,
+      "apw": 12,
+      "apl": 60,
+      "expected": 1.33,
+      "luck": -1.33
     }
   ],
   "managers": {
     "Stilly": {
       "owner": "Darstill",
       "team": "Harry Woody",
-      "record": "65–77",
+      "record": "66–77",
       "pf": 9720.54,
       "titles": 1,
       "peak": "2023 champion · 2024 runner-up",
@@ -137,16 +137,16 @@
       "rival": "Mitch",
       "rival_record": "4–11",
       "sleeperEraRecordPriorSnapshot": "40–49",
-      "recordCoverage": "2016–2026 Week 7; ESPN+Sleeper archived regular season",
-      "allTimeGames": 142,
-      "allTimeWinPercentage": 45.8,
+      "recordCoverage": "2016–2026 Week 8; ESPN+Sleeper archived regular season",
+      "allTimeGames": 143,
+      "allTimeWinPercentage": 46.2,
       "pfCoverage": "Earlier Sleeper era only; not all-time",
-      "rivalRecordCoverage": "2016–2026 W7 regular-season archive"
+      "rivalRecordCoverage": "2016–2026 W8 regular-season archive"
     },
     "JMid": {
       "owner": "JMidd",
       "team": "Bengals Fan",
-      "record": "24–25",
+      "record": "25–25",
       "pf": 3907.3,
       "titles": 0,
       "peak": "2024 · 8–6 · league-high 1,730.22 PF",
@@ -158,16 +158,16 @@
       "rival": "Stew",
       "rival_record": "4–2",
       "sleeperEraRecordPriorSnapshot": "15–20",
-      "recordCoverage": "2023–2026 Week 7; ESPN+Sleeper archived regular season",
-      "allTimeGames": 49,
-      "allTimeWinPercentage": 49,
+      "recordCoverage": "2023–2026 Week 8; ESPN+Sleeper archived regular season",
+      "allTimeGames": 50,
+      "allTimeWinPercentage": 50,
       "pfCoverage": "Earlier Sleeper era only; not all-time",
-      "rivalRecordCoverage": "2016–2026 W7 regular-season archive"
+      "rivalRecordCoverage": "2016–2026 W8 regular-season archive"
     },
     "Tom": {
       "owner": "thommy",
       "team": "Green Bowl Packers",
-      "record": "67–74–1",
+      "record": "67–75–1",
       "pf": 9832.14,
       "titles": 4,
       "peak": "2016–18 three-peat · 2024 champion",
@@ -179,16 +179,16 @@
       "rival": "Kuhl",
       "rival_record": "10–4",
       "sleeperEraRecordPriorSnapshot": "42–47",
-      "recordCoverage": "2016–2026 Week 7; ESPN+Sleeper archived regular season",
-      "allTimeGames": 142,
-      "allTimeWinPercentage": 47.5,
+      "recordCoverage": "2016–2026 Week 8; ESPN+Sleeper archived regular season",
+      "allTimeGames": 143,
+      "allTimeWinPercentage": 47.2,
       "pfCoverage": "Earlier Sleeper era only; not all-time",
-      "rivalRecordCoverage": "2016–2026 W7 regular-season archive"
+      "rivalRecordCoverage": "2016–2026 W8 regular-season archive"
     },
     "Stew": {
       "owner": "Dsylvester9",
       "team": "Worst Team on Paper!",
-      "record": "66–76",
+      "record": "67–76",
       "pf": 9668.74,
       "titles": 0,
       "peak": "2022 · 11–3 · best record, PF and potential PF",
@@ -200,16 +200,16 @@
       "rival": "Birch",
       "rival_record": "7–5",
       "sleeperEraRecordPriorSnapshot": "38–51",
-      "recordCoverage": "2016–2026 Week 7; ESPN+Sleeper archived regular season",
-      "allTimeGames": 142,
-      "allTimeWinPercentage": 46.5,
+      "recordCoverage": "2016–2026 Week 8; ESPN+Sleeper archived regular season",
+      "allTimeGames": 143,
+      "allTimeWinPercentage": 46.9,
       "pfCoverage": "Earlier Sleeper era only; not all-time",
-      "rivalRecordCoverage": "2016–2026 W7 regular-season archive"
+      "rivalRecordCoverage": "2016–2026 W8 regular-season archive"
     },
     "Scott": {
       "owner": "Sheffla",
       "team": "Team Sheffla",
-      "record": "16–19",
+      "record": "17–19",
       "pf": 3757.34,
       "titles": 1,
       "peak": "2025 champion · 70.32-point title margin",
@@ -221,16 +221,16 @@
       "rival": "Kuhl",
       "rival_record": "3–1",
       "sleeperEraRecordPriorSnapshot": "16–19",
-      "recordCoverage": "2024–2026 Week 7; ESPN+Sleeper archived regular season",
-      "allTimeGames": 35,
-      "allTimeWinPercentage": 45.7,
+      "recordCoverage": "2024–2026 Week 8; ESPN+Sleeper archived regular season",
+      "allTimeGames": 36,
+      "allTimeWinPercentage": 47.2,
       "pfCoverage": "Earlier Sleeper era only; not all-time",
-      "rivalRecordCoverage": "2016–2026 W7 regular-season archive"
+      "rivalRecordCoverage": "2016–2026 W8 regular-season archive"
     },
     "Mitch": {
       "owner": "huppdawg80",
       "team": "Suck My Njigba",
-      "record": "70–46",
+      "record": "71–46",
       "pf": 10791.66,
       "titles": 0,
       "peak": "2025 · 13–1 · 1,894.88 PF",
@@ -242,16 +242,16 @@
       "rival": "Stilly",
       "rival_record": "11–4",
       "sleeperEraRecordPriorSnapshot": "56–33",
-      "recordCoverage": "2018–2026 Week 7; ESPN+Sleeper archived regular season",
-      "allTimeGames": 116,
-      "allTimeWinPercentage": 60.3,
+      "recordCoverage": "2018–2026 Week 8; ESPN+Sleeper archived regular season",
+      "allTimeGames": 117,
+      "allTimeWinPercentage": 60.7,
       "pfCoverage": "Earlier Sleeper era only; not all-time",
-      "rivalRecordCoverage": "2016–2026 W7 regular-season archive"
+      "rivalRecordCoverage": "2016–2026 W8 regular-season archive"
     },
     "Tony": {
       "owner": "tsteg",
       "team": "Bowers Castle",
-      "record": "72–56",
+      "record": "72–57",
       "pf": 10236.78,
       "titles": 1,
       "peak": "2021 champion · 10–3",
@@ -263,16 +263,16 @@
       "rival": "Kuhl",
       "rival_record": "10–2",
       "sleeperEraRecordPriorSnapshot": "50–39",
-      "recordCoverage": "2017–2026 Week 7; ESPN+Sleeper archived regular season",
-      "allTimeGames": 128,
-      "allTimeWinPercentage": 56.3,
+      "recordCoverage": "2017–2026 Week 8; ESPN+Sleeper archived regular season",
+      "allTimeGames": 129,
+      "allTimeWinPercentage": 55.8,
       "pfCoverage": "Earlier Sleeper era only; not all-time",
-      "rivalRecordCoverage": "2016–2026 W7 regular-season archive"
+      "rivalRecordCoverage": "2016–2026 W8 regular-season archive"
     },
     "Stover": {
       "owner": "DillionPanthers15",
       "team": "Gurt",
-      "record": "75–67",
+      "record": "75–68",
       "pf": 10036.78,
       "titles": 1,
       "peak": "2022 champion · 2024 10–4 best record",
@@ -282,18 +282,18 @@
       "scar": "2024 Malik Nabers-for-Davante outcome and the expensive Jauan Jennings claim.",
       "draft": "2024 Brian Thomas Jr. at 10.91 was one of the best value picks of that draft.",
       "rival": "Stew",
-      "rival_record": "9–7",
+      "rival_record": "9–8",
       "sleeperEraRecordPriorSnapshot": "50–39",
-      "recordCoverage": "2016–2026 Week 7; ESPN+Sleeper archived regular season",
-      "allTimeGames": 142,
-      "allTimeWinPercentage": 52.8,
+      "recordCoverage": "2016–2026 Week 8; ESPN+Sleeper archived regular season",
+      "allTimeGames": 143,
+      "allTimeWinPercentage": 52.4,
       "pfCoverage": "Earlier Sleeper era only; not all-time",
-      "rivalRecordCoverage": "2016–2026 W7 regular-season archive"
+      "rivalRecordCoverage": "2016–2026 W8 regular-season archive"
     },
     "Kuhl": {
       "owner": "ckuhl5",
       "team": "Kirko Chains",
-      "record": "51–66",
+      "record": "51–67",
       "pf": 9512.7,
       "titles": 0,
       "peak": "2022 · 8–6 · 3rd",
@@ -305,16 +305,16 @@
       "rival": "Tony",
       "rival_record": "2–10",
       "sleeperEraRecordPriorSnapshot": "36–53",
-      "recordCoverage": "2018–2026 Week 7; ESPN+Sleeper archived regular season",
-      "allTimeGames": 117,
-      "allTimeWinPercentage": 43.6,
+      "recordCoverage": "2018–2026 Week 8; ESPN+Sleeper archived regular season",
+      "allTimeGames": 118,
+      "allTimeWinPercentage": 43.2,
       "pfCoverage": "Earlier Sleeper era only; not all-time",
-      "rivalRecordCoverage": "2016–2026 W7 regular-season archive"
+      "rivalRecordCoverage": "2016–2026 W8 regular-season archive"
     },
     "Birch": {
       "owner": "birchhh",
       "team": "Nacua Matata",
-      "record": "72–55",
+      "record": "72–56",
       "pf": 9873.56,
       "titles": 1,
       "peak": "2019 champion · 2021 11–2",
@@ -326,11 +326,11 @@
       "rival": "Tony",
       "rival_record": "10–5",
       "sleeperEraRecordPriorSnapshot": "50–39",
-      "recordCoverage": "2017–2026 Week 7; ESPN+Sleeper archived regular season",
-      "allTimeGames": 127,
-      "allTimeWinPercentage": 56.7,
+      "recordCoverage": "2017–2026 Week 8; ESPN+Sleeper archived regular season",
+      "allTimeGames": 128,
+      "allTimeWinPercentage": 56.3,
       "pfCoverage": "Earlier Sleeper era only; not all-time",
-      "rivalRecordCoverage": "2016–2026 W7 regular-season archive"
+      "rivalRecordCoverage": "2016–2026 W8 regular-season archive"
     }
   },
   "weeks": {
@@ -549,13 +549,45 @@
         "Stew",
         110.14,
         "Scott",
-        106.22
+        105.22
       ],
       [
         "Tony",
         112.12,
         "Stover",
         111.2
+      ]
+    ],
+    "8": [
+      [
+        "Stilly",
+        113.58,
+        "Birch",
+        96.9
+      ],
+      [
+        "JMid",
+        141.68,
+        "Kuhl",
+        82.38
+      ],
+      [
+        "Tom",
+        106.34,
+        "Scott",
+        112.56
+      ],
+      [
+        "Stew",
+        134.16,
+        "Stover",
+        79.1
+      ],
+      [
+        "Mitch",
+        123.16,
+        "Tony",
+        99.3
       ]
     ]
   },
