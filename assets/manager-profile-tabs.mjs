@@ -80,19 +80,19 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.id='profile-features';
  shell.setAttribute('aria-label','Manager features');
  shell.dataset.profileFeatureMenu='';
- shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose one topic. Only that section opens, with detailed records available when you need them.</p>';
+ shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a topic, then pick what you want to see. One feature at a time — with an easy return to all five topics.</p>';
  const groups=[
-  {title:'Career & results',help:'Start with championships, seasons and opponents',items:[0,1,2]},
-  {title:'Ratings explained',help:'Career OVR versus individual-season ratings',items:[3,4]},
-  {title:'Drafts, trades & pickups',help:'Player decisions and roster history',items:[5,6,7,8]},
-  {title:'Lineup decisions',help:'Start/Sit history and weekly efficiency',items:[9]},
-  {title:'Keepers',help:'Season-specific keeper research',items:[10]}
+  {title:'Career & Results',help:'Championships, records and every season',items:[0,1]},
+  {title:'Ratings & Report Card',help:'Legacy OVR, individual seasons and how ratings work',items:[3,4]},
+  {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7,8]},
+  {title:'Rivals & Matchups',help:'Head-to-head records and memorable games',items:[2]},
+  {title:'Lineups & Keepers',help:'Start/Sit accuracy and keeper research',items:[9,10]}
  ];
  const groupHosts=new Map();
  const menu=document.createElement('div');menu.className='profile-feature-groups';
  for(const group of groups){
   const disclosure=document.createElement('details');disclosure.className='profile-feature-group';
-  if(group.title==='Career & results')disclosure.open=true;
+  if(group.title==='Career & Results')disclosure.open=true;
   const heading=document.createElement('summary');
   const title=document.createElement('strong');title.textContent=group.title;
   const detail=document.createElement('span');detail.textContent=group.help;
@@ -143,11 +143,14 @@ function mountProfileFeatureDirectory(quick,manager){
  .profile-feature-icon{font-size:20px}
  .profile-quickstart{max-width:930px;margin-left:auto;margin-right:auto}
  body.profile-landing .profile-quickstart{padding-bottom:18px}
- body.profile-feature-focused .profile-feature-group:not([open]){display:none}
+ body.profile-feature-focused .profile-feature-group:not([open]){display:block}
  body.profile-feature-focused .profile-feature-group[open]>summary{min-height:60px}
- body.profile-feature-focused .profile-feature-button[aria-pressed]:not([aria-pressed="true"]){display:none}
- body.profile-feature-focused .profile-feature-directory>.muted{display:none}
+ body.profile-feature-focused .profile-feature-button[aria-pressed]:not([aria-pressed="true"]){display:flex}
+ body.profile-feature-focused .profile-feature-directory>.muted{display:block}
  .profile-focus-toolbar{background:#102a39}
+ .profile-feature-group>summary{min-height:68px}
+ .profile-feature-group[open]>summary strong{color:#f7d79b}
+ body.profile-feature-focused .profile-feature-group{opacity:1}
  @media(max-width:650px){
   .profile-feature-group>summary{padding:14px 48px 14px 15px;min-height:72px}
   .profile-feature-group>summary strong{font-size:16px}
@@ -317,8 +320,8 @@ if(main&&tabs){
  .profile-focus-toolbar strong{font-size:14px;flex:1;min-width:180px}
  .profile-focus-toolbar button{min-height:44px;cursor:pointer;background:#e3bd71;color:#10202b;border:0;border-radius:8px;padding:10px 14px;font:inherit;font-size:13px;font-weight:850}
  body.profile-feature-focused .profile-feature-button[aria-pressed="true"]{border-color:#e3bd71;background:#25475b;box-shadow:inset 4px 0 #e3bd71}
- body.profile-feature-focused .profile-feature-copy small{display:none}
- body.profile-feature-focused .profile-feature-button{min-height:52px;padding:9px 11px}
+ body.profile-feature-focused .profile-feature-copy small{display:block}
+ body.profile-feature-focused .profile-feature-button{min-height:58px;padding:10px 12px}
  body.profile-feature-focused .profile-feature-icon{font-size:18px}
  body.profile-feature-focused .profile-feature-list{gap:6px}
  @media(max-width:650px){body.profile-feature-focused .profile-feature-list{grid-template-columns:repeat(2,minmax(0,1fr))}body.profile-feature-focused .profile-feature-copy strong{font-size:11px}body.profile-feature-focused .profile-feature-arrow{display:none}}
@@ -342,6 +345,8 @@ if(main&&tabs){
  }
  focusBack.addEventListener('click',()=>{
   clearFeatureFocus();document.body.classList.add('profile-landing');
+  const firstTopic=featureDirectory?.querySelector('details.profile-feature-group');
+  if(firstTopic)firstTopic.open=true;
   featureDirectory?.scrollIntoView({block:'start',behavior:'instant'});
  });
  function focusFeature(button,destination){

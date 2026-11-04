@@ -906,6 +906,13 @@ try{
       if(!spacing||spacing.gap<6||spacing.line<18||spacing.wrap!=='wrap')
        errors.push(width+' '+slug+' career facts still have cramped labels');
      }
+     const topicGroups=page.locator('#profile-features > .profile-feature-groups > details.profile-feature-group');
+     if(await topicGroups.count()!==5)errors.push(width+' '+slug+' profile must have five clear topics');
+     else{
+      const topicNames=await topicGroups.locator(':scope > summary strong').allTextContents();
+      if(JSON.stringify(topicNames)!==JSON.stringify(['Career & Results','Ratings & Report Card','Drafts, Trades & Pickups','Rivals & Matchups','Lineups & Keepers']))
+       errors.push(width+' '+slug+' profile topic labels or order incorrect');
+     }
      const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
      if(await features.count()!==11)
       errors.push(width+' '+slug+' missing eleven individually labeled feature buttons');
