@@ -97,8 +97,25 @@ try{
         if(await page.locator('main .hero .actions .button:visible').count())
          findings.push(engine+' '+width+' duplicate homepage hero buttons crowd out manager discovery');
        }
-       if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'&&audit.snapshotTiles<3)
-        findings.push(engine+' '+width+' '+key+' career stat tiles not visible above the rating card');
+       if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
+        if(audit.snapshotTiles<3)findings.push(engine+' '+width+' '+key+' career stats missing');
+        const hierarchy=await page.evaluate(()=>{
+         const hero=document.querySelector('main .hero'),action=hero?.querySelector(':scope > .buttons'),
+          snapshot=hero?.querySelector(':scope > .profile-career-snapshot'),
+          topics=document.querySelector('main .profile-quickstart'),
+          playoff=document.getElementById('profile-playoff-resume');
+         const top=node=>node?.getBoundingClientRect().top+window.scrollY;
+         return {actionBeforeSnapshot:!!action&&!!snapshot&&top(action)<top(snapshot),
+          playoffOutsideHero:!!playoff&&!hero?.contains(playoff),
+          topicsBeforePlayoff:!!topics&&!!playoff&&top(topics)<top(playoff),
+          recordPreview:!!snapshot?.querySelector('.profile-owned-records'),
+          actionHeight:action?.querySelector('a')?.getBoundingClientRect().height||0};
+        });
+        if(!hierarchy.actionBeforeSnapshot||!hierarchy.playoffOutsideHero||!hierarchy.topicsBeforePlayoff||!hierarchy.recordPreview)
+         findings.push(engine+' '+width+' '+key+' incorrect profile landing hierarchy '+JSON.stringify(hierarchy));
+        if(hierarchy.actionHeight<44)
+         findings.push(engine+' '+width+' '+key+' primary profile action too small');
+       }
        const dir=path.join(output,'screens',engine,String(width));
        await fs.mkdir(dir,{recursive:true});
        await page.screenshot({path:path.join(dir,name+'.png'),animations:'disabled',fullPage:false});

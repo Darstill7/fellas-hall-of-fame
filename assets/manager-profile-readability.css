@@ -175,3 +175,31 @@ main .profile-season-year-body .profile-season-trade-link{justify-self:start;mar
 .profile-playoff-note{margin:12px 0 16px;font-size:12px;line-height:1.65;color:#bfced8}
 @media(max-width:580px){.profile-playoff-resume{margin:15px 0 23px;padding:16px 13px}.profile-playoff-metrics{gap:6px}.profile-playoff-metric{padding:10px 8px}.profile-playoff-metric span{font-size:11px}.profile-playoff-timeline li{gap:8px}}
 @media(max-width:360px){.profile-playoff-metrics{grid-template-columns:1fr}.profile-playoff-metric{flex-direction:row;align-items:center;gap:15px}}
+
+/* Consistent mobile profile hierarchy: identity, action, snapshot, topic menu, résumé. */
+main .hero>.buttons{margin:15px 0 18px;gap:9px 12px}
+main .hero>.buttons .btn{min-height:46px;padding:11px 16px;line-height:1.45;text-align:center}
+main .hero .profile-career-snapshot{margin:12px 0 16px}
+main .hero .profile-career-snapshot .profile-owned-records{gap:8px 12px;margin-top:12px;padding:11px 14px;min-height:48px}
+main .hero .profile-owned-record-count{font-size:13px;line-height:1.55}
+main .profile-playoff-resume{width:100%;margin:10px auto 26px;scroll-margin-top:96px}
+main .profile-quickstart{margin-bottom:14px}
+@media(max-width:650px){
+ main .hero>.buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:15px 0 17px}
+ main .hero>.buttons .btn{min-width:0;margin:0;padding:11px 9px;font-size:12px;white-space:normal}
+ main .hero .profile-career-snapshot{padding:14px;margin:9px 0 14px}
+ main .hero .profile-snapshot-heading{margin-bottom:10px}
+ main .hero .profile-snapshot-stats{gap:8px}
+ main .hero .profile-snapshot-stats .stat{padding:12px 10px}
+ main .hero .profile-snapshot-stats .stat strong{font-size:clamp(22px,6vw,27px)}
+ main .hero .profile-snapshot-stats .stat small{font-size:12px;line-height:1.45}
+ main .hero .profile-snapshot-detail{font-size:10px;line-height:1.55}
+ main .hero .profile-snapshot-source{font-size:11px!important;line-height:1.6;margin-top:10px!important}
+ main .hero .profile-career-snapshot .profile-owned-records{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:11px 12px}
+ main .hero .profile-owned-records strong{grid-column:1;grid-row:1}
+ main .hero .profile-owned-record-count{grid-column:1;grid-row:2;flex-basis:auto!important;order:0!important;font-size:12px}
+ main .hero .profile-owned-record-arrow{grid-column:2;grid-row:1 / 3;align-self:center}
+ main .profile-quickstart{margin-top:14px;margin-bottom:12px}
+ main .profile-feature-directory{margin-bottom:16px!important}
+}
+@media(max-width:360px){main .hero>.buttons{grid-template-columns:1fr}}

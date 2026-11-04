@@ -238,6 +238,17 @@ try{
     if(!noPartialGrade)errors.push(width+' 2026 partial keeper season leaked completed season grade');
    }
    if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
+    const hierarchy=await page.evaluate(()=>{
+     const hero=document.querySelector('main .hero'),action=hero?.querySelector(':scope > .buttons'),
+      snapshot=hero?.querySelector(':scope > .profile-career-snapshot'),
+      topics=document.querySelector('main .profile-quickstart'),
+      playoff=document.getElementById('profile-playoff-resume');
+     return !!hero&&!!action&&!!snapshot&&!!topics&&!!playoff&&
+      !!(action.compareDocumentPosition(snapshot)&Node.DOCUMENT_POSITION_FOLLOWING)&&
+      !hero.contains(playoff)&&
+      !!(topics.compareDocumentPosition(playoff)&Node.DOCUMENT_POSITION_FOLLOWING);
+    });
+    if(!hierarchy)errors.push(width+' '+route+' first-screen navigation and résumé hierarchy broken');
     const panel=page.locator('#profile-playoff-resume');
     await panel.waitFor({state:'visible',timeout:10000});
     const metrics=panel.locator('.profile-playoff-metric');

@@ -118,8 +118,8 @@ async function mountProfileRecordOwnership(){
   if(archive.asOf!=='2026 Week 8')throw Error('Unexpected record archive scope');
   const owned=findOwnedRecords(archive,guide,normalized,{espn,sleeper});
   result.textContent=owned.length
-   ?owned.length+' league '+(owned.length===1?'record':'records')+' held · '+owned.map(x=>x.label).slice(0,2).join(' / ')
-   :'No league leads in '+recordCategoryLabels.length+' tracked categories · View personal bests';
+   ?owned.length+' of '+recordCategoryLabels.length+' league records held'
+   :'No category leads yet · Explore personal bests';
  }catch(error){
   result.textContent='View personal bests and archived records';
   console.warn('Profile record ownership preview unavailable',error);
@@ -131,6 +131,10 @@ recordPreviewCss.textContent='.profile-owned-records{display:flex;align-items:ce
 document.head.append(recordPreviewCss);
 
 mountManagerPlayoffResume();
+// Make the main action available before the numbers, especially on mobile.
+const primaryProfileActions=profileHero?.querySelector(':scope > .buttons');
+const careerSnapshot=profileHero?.querySelector(':scope > .profile-career-snapshot');
+if(primaryProfileActions&&careerSnapshot)careerSnapshot.before(primaryProfileActions);
 const legacyNav=document.querySelector('nav.profile-chapters');
 if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const manager=document.querySelector('main .hero h1')?.textContent?.trim()||'Manager';
@@ -423,6 +427,10 @@ if(existingProfile&&!legacyNav){
  populateManagerResearch(quick,manager);
  if(quick)quick.after(existingProfile);
 }
+// Let visitors choose a topic before seeing the complete playoff résumé.
+const profileTopicMenu=document.querySelector('main .profile-quickstart');
+const profilePlayoffSection=document.getElementById('profile-playoff-resume');
+if(profileTopicMenu&&profilePlayoffSection)profileTopicMenu.after(profilePlayoffSection);
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
 // The old overview tiles and archive teaser repeat destinations available in the tabs.
 // Remove only these two identified promotional sections; preserve all data-backed sections.

@@ -26,6 +26,9 @@ for(const [manager,expected] of Object.entries(expectedPlayoffs)){
   throw Error('Playoff résumé includes an incomplete season or missing year for '+manager);
 }
 const tabsSource=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+if(!tabsSource.includes('careerSnapshot.before(primaryProfileActions)')||
+   !tabsSource.includes('profileTopicMenu.after(profilePlayoffSection)'))
+ throw Error('Manager first-screen hierarchy must remain consistent');
 if(!tabsSource.includes('mountManagerPlayoffResume();')||
  !tabsSource.includes('items:[0,1,12,13]')||
  !tabsSource.includes("href:'#profile-playoff-resume'"))
@@ -46,16 +49,16 @@ for(const slug of managers){
 }
 // The shared feature menu links each profile to its own filterable record book.
 const featureMenu=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
-if(!featureMenu.includes("import {findOwnedRecords} from './manager-record-ownership.mjs'")||
+if(!featureMenu.includes("import {findOwnedRecords,recordCategoryLabels} from './manager-record-ownership.mjs'")||
    !featureMenu.includes("snapshot.append(link)")||
    !featureMenu.includes("link.href='../record-books.html?manager='")||
-   !featureMenu.includes("recordCategoryLabels.length+' tracked categories"))
+   !featureMenu.includes("No category leads yet · Explore personal bests"))
  throw Error('Every manager must expose a source-backed record ownership preview and honest zero state');
 
 const recordBook=fs.readFileSync('managers/record-books.html','utf8');
 if(!featureMenu.includes("label:'Records you own'")||!featureMenu.includes("href:'../record-books.html?manager='+encodeURIComponent(manager)+'#owned-records'"))
  throw Error('Manager feature menu lost its personal record book deep link');
-if(!featureMenu.includes("items:[0,1,12]"))
+if(!featureMenu.includes("items:[0,1,12,13]"))
  throw Error('Record books are no longer in the Career & Results feature group');
 if(!recordBook.includes("new URLSearchParams(location.search).get('manager')"))
  throw Error('Record book does not restore manager selection from its URL');
