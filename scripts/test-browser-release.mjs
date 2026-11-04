@@ -65,7 +65,7 @@ try{
     const buttons=[...document.querySelectorAll('button,select,input,summary')].filter(visible);
     return {
      title:document.title,
-     heading:heading?.textContent?.trim().replace(/\\s+/g,' ').slice(0,120)||null,
+     heading:heading?.textContent?.trim().replace(/\s+/g,' ').slice(0,120)||null,
      headingFontPx:fontPx,headingLinePx:linePx,
      cards:[...document.querySelectorAll('.card,.tile,.manager,.entry')].filter(visible).length,
      visibleControls:buttons.length,
@@ -88,7 +88,12 @@ try{
     }
     checkedLinks.push({label:link.text,path:rel,exists});
    }
-   pageAudits.push({route:route||'index.html',width,...audit,checkedLinks});
+   const auditFindings=[
+    ...checkedLinks.filter(link=>!link.exists).map(link=>'Broken navigation target: '+link.path),
+    ...(!audit.heading?['No visible primary page heading']:[]),
+    ...(audit.headingLinePx!==null&&audit.headingLinePx<audit.headingFontPx?['Heading line-height smaller than font size']:[])
+   ];
+   pageAudits.push({route:route||'index.html',width,...audit,checkedLinks,findings:auditFindings});
    if(audit.heading&&audit.headingLinePx!==null&&audit.headingLinePx<audit.headingFontPx)
     errors.push(width+' '+route+' main title line-height clips text');
    if(captureVisuals){
