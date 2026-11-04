@@ -83,7 +83,7 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.id='profile-features';
  shell.setAttribute('aria-label','Manager features');
  shell.dataset.profileFeatureMenu='';
- shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a feature below. Each button opens that section or its full research page.</p>';
+ shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a topic to explore. You’ll see only what matters to that topic.</p>';
  const groups=[
   {title:'Career & results',help:'Championships, yearly records, and rivals',items:[0,1,2]},
   {title:'Ratings over time',help:'How this manager has performed across seasons',items:[3,4]},
@@ -126,6 +126,46 @@ function mountProfileFeatureDirectory(quick,manager){
  const css=document.createElement('style');
  css.textContent='.profile-feature-directory{margin:0 0 18px}.profile-feature-directory h2{margin:0 0 4px;font-size:clamp(22px,3vw,29px)}.profile-feature-directory>.muted{margin:4px 0 15px;font-size:13px}.profile-feature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.profile-feature-button{display:flex;align-items:center;gap:12px;min-width:0;min-height:74px;text-align:left;background:#142d3d;color:#f7f2e8;border:1px solid #557587;border-radius:11px;padding:12px 14px;font:inherit;text-decoration:none;cursor:pointer}.profile-feature-button:hover{background:#1d4053;border-color:#e3bd71;color:#fff}.profile-feature-button:focus-visible{outline:3px solid #ffe3a0;outline-offset:2px}.profile-feature-icon{font-size:23px;flex:none}.profile-feature-copy{display:flex;flex-direction:column;gap:3px;min-width:0}.profile-feature-copy strong{font-size:14px;line-height:1.3;color:#fff}.profile-feature-copy small{font-size:12px;line-height:1.4;color:#c7d7e2}.profile-feature-arrow{margin-left:auto;color:#e3bd71;font-weight:900;font-size:20px;flex:none}@media(max-width:650px){.profile-feature-list{grid-template-columns:1fr}.profile-feature-button{min-height:69px;padding:12px}}';
  css.textContent+='.profile-feature-groups{display:grid;gap:9px}.profile-feature-group{margin:0;border:1px solid #557587;border-radius:12px;background:#112b3b;padding:0;overflow:hidden}.profile-feature-group>summary{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 17px;list-style:none;cursor:pointer}.profile-feature-group>summary::-webkit-details-marker{display:none}.profile-feature-group>summary strong{font-size:15px}.profile-feature-group>summary span{font-size:12px;color:#c7d7e2}.profile-feature-group>summary:after{content:"+";font-size:23px;font-weight:700;color:#e3bd71}.profile-feature-group[open]>summary:after{content:"−"}.profile-feature-group>.profile-feature-list{padding:0 10px 10px}.profile-feature-group[open]{border-color:#b08f55}@media(max-width:650px){.profile-feature-group>summary{align-items:flex-start;flex-direction:column;gap:2px;padding:13px 14px;position:relative}.profile-feature-group>summary:after{position:absolute;right:14px;top:12px}.profile-feature-group>summary span{padding-right:15px}}';
+ css.textContent+=`
+ .profile-feature-directory{max-width:900px;margin:0 auto 24px}
+ .profile-feature-directory h2{font-size:clamp(23px,3vw,32px);font-weight:850;letter-spacing:-.045em}
+ .profile-feature-directory>.muted{margin-bottom:18px;color:#bacbd5}
+ .profile-feature-groups{gap:11px}
+ .profile-feature-group{background:linear-gradient(145deg,#183142,#102330);border:1px solid #3d5969;border-radius:14px;box-shadow:0 6px 17px #0002;transition:border-color .15s,background .15s}
+ .profile-feature-group>summary{min-height:77px;padding:17px 22px 17px 19px;position:relative;padding-right:54px}
+ .profile-feature-group>summary strong{display:block;font-size:17px;letter-spacing:-.02em;color:#f8f6ee}
+ .profile-feature-group>summary span{display:block;font-size:12px;color:#b9cbd5;line-height:1.45}
+ .profile-feature-group>summary:after{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:22px}
+ .profile-feature-group[open]{border-color:#d6b976;background:#132c3b}
+ .profile-feature-group>summary:hover{background:#ffffff08}
+ .profile-feature-group>summary:focus-visible{outline:3px solid #f5d594;outline-offset:-3px}
+ .profile-feature-group>.profile-feature-list{padding:0 14px 15px;gap:8px}
+ .profile-feature-button{min-height:62px;background:#0d2331;border-color:#314e60;border-radius:9px;padding:11px 13px}
+ .profile-feature-copy strong{font-size:13px}.profile-feature-copy small{font-size:11px}
+ .profile-feature-icon{font-size:20px}
+ .profile-quickstart{max-width:930px;margin-left:auto;margin-right:auto}
+ body.profile-landing .profile-quickstart{padding-bottom:18px}
+ body.profile-feature-focused .profile-feature-group:not([open]){display:none}
+ body.profile-feature-focused .profile-feature-group[open]>summary{min-height:60px}
+ body.profile-feature-focused .profile-feature-button[aria-pressed]:not([aria-pressed="true"]){display:none}
+ body.profile-feature-focused .profile-feature-directory>.muted{display:none}
+ .profile-focus-toolbar{background:#102a39}
+ @media(max-width:650px){
+  .profile-feature-group>summary{padding:14px 48px 14px 15px;min-height:72px}
+  .profile-feature-group>summary strong{font-size:16px}
+  .profile-feature-group>summary:after{right:17px}
+  .profile-feature-group>.profile-feature-list{padding:0 9px 10px}
+  .profile-feature-button{min-height:57px;padding:10px}
+  .profile-feature-copy strong{font-size:12px}
+  body.profile-feature-focused .profile-feature-list{grid-template-columns:1fr}
+ }
+ @media(prefers-reduced-motion:reduce){.profile-feature-group{transition:none}}
+ `;
+ menu.addEventListener('toggle',event=>{
+  const opened=event.target;
+  if(!opened.matches?.('details.profile-feature-group')||!opened.open)return;
+  for(const other of menu.querySelectorAll('details.profile-feature-group'))if(other!==opened)other.open=false;
+ },true);
  document.head.append(css);
 }
 function populateManagerResearch(quick,manager){
