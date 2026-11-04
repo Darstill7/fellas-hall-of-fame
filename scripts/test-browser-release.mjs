@@ -1680,9 +1680,10 @@ try{
    if(route==='analytics/record-holders.html'){
     await page.locator('#record-leaders .leader-card').first().waitFor({timeout:10000});
     const cards=await page.locator('#record-leaders .leader-card').count();
+    const remaining=await page.locator('#record-other .leader-card').count();
     const kinds=await page.locator('#record-categories .category-card').count();
-    if(cards!==14||kinds!==8)
-     errors.push(width+' record holders mismatch: '+cards+' managers and '+kinds+' categories');
+    if(cards<1||cards+remaining!==14||kinds!==8)
+     errors.push(width+' record holders mismatch: '+cards+' leaders, '+remaining+' remaining, '+kinds+' categories');
     const first=await page.locator('#record-leaders .leader-card').first().innerText();
     if(!first.includes('record'))
      errors.push(width+' record holder leaderboard count missing');
