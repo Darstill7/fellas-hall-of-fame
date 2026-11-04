@@ -169,8 +169,7 @@ for(const yearData of bracketReceipts.seasons){
   throw Error('Toilet Bowl loser mismatch in '+year);
  if(yearData.reviewNeeded?.length&&year!==2020)throw Error('Unexpected ambiguous third-place evidence in '+year);
  const finished=yearData.finalPlacements||[];
- if(finished.length!==(year===2022?6:10)||
-    yearData.placementsComplete!==(year!==2022))
+ if(finished.length!==10||yearData.placementsComplete!==true)
   throw Error('Postseason placements must be complete except uncertified 2022 positions '+year);
  const uniqueManagers=new Set(finished.map(x=>x.manager)),uniquePlaces=new Set(finished.map(x=>x.place));
  if(uniqueManagers.size!==finished.length||uniquePlaces.size!==finished.length)
@@ -197,6 +196,24 @@ for(const yearData of bracketReceipts.seasons){
  if(!page.includes('id="verified-placements"')||!page.includes('verified-sleeper-placement-ui.mjs'))
   throw Error('Verified placement details are missing from season '+year);
 }
+const master=JSON.parse(fs.readFileSync('data/fellas_final_placements_2020_2025.json','utf8'));
+const flatMaster=master.seasons.flatMap(s=>s.finishers.map(x=>({...x,year:s.year})));
+if(master.seasons.length!==6||flatMaster.length!==60||master.managers.length!==12)
+ throw Error('Master placements require six complete ten-manager seasons');
+for(const season of master.seasons){
+ const original=bracketReceipts.seasons.find(y=>y.year===season.year);
+ if(!original||season.finishers.length!==10||new Set(season.finishers.map(x=>x.manager)).size!==10||
+    season.finishers.some((x,i)=>x.rank!==i+1||x.manager!==original.finalPlacements[i].manager))
+  throw Error('Master final standings differ from source bracket for '+season.year);
+}
+const currentManagers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
+for(const manager of currentManagers){
+ const row=master.managers.find(x=>x.manager===manager);
+ if(!row||row.finishes.length!==row.seasons||!row.finishes.every(x=>x.rank>=1&&x.rank<=10))
+  throw Error('Incomplete finishing résumé '+manager);
+}
+const tabular=fs.readFileSync('data/fellas_final_placements_2020_2025.csv','utf8').trim().split(/\r?\n/);
+if(tabular.length!==61)throw Error('CSV must include 60 ranked finishes plus header');
 const holdersPage=fs.readFileSync('analytics/record-holders.html','utf8');
 if(!holdersPage.includes('id="shitter-year-history"')||!holdersPage.includes('verified-sleeper-placement-ui.mjs'))
  throw Error('All-time Shitter history is not mounted');

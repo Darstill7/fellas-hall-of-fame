@@ -281,7 +281,9 @@
       },
       "screenshotFiles": [
         "IMG_4193.png",
-        "IMG_4195.png"
+        "IMG_4195.png",
+        "IMG_4194.png",
+        "IMG_4193(1).png"
       ],
       "placementGames": [
         {
@@ -307,6 +309,22 @@
           "winnerScore": 111.86,
           "loser": "Birch",
           "loserScore": 74.7
+        },
+        {
+          "label": "3rd Place",
+          "week": 17,
+          "winner": "Kuhl",
+          "winnerScore": 138.82,
+          "loser": "Mitch",
+          "loserScore": 85.18
+        },
+        {
+          "label": "5th Place",
+          "week": 16,
+          "winner": "Thommy",
+          "winnerScore": 115.04,
+          "loser": "Stilly",
+          "loserScore": 93.5
         }
       ],
       "finalPlacements": [
@@ -320,6 +338,30 @@
           "place": 2,
           "manager": "Stew",
           "evidence": "Championship",
+          "scoreVerified": true
+        },
+        {
+          "place": 3,
+          "manager": "Kuhl",
+          "evidence": "3rd Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 4,
+          "manager": "Mitch",
+          "evidence": "3rd Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 5,
+          "manager": "Thommy",
+          "evidence": "5th Place",
+          "scoreVerified": true
+        },
+        {
+          "place": 6,
+          "manager": "Stilly",
+          "evidence": "5th Place",
           "scoreVerified": true
         },
         {
@@ -347,7 +389,7 @@
           "scoreVerified": true
         }
       ],
-      "placementsComplete": false
+      "placementsComplete": true
     },
     {
       "year": 2023,

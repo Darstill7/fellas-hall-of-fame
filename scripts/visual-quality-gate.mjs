@@ -134,7 +134,7 @@ try{
            findings.push(engine+' '+width+' '+key+' final finishing positions missing');
           else{
            await ranked.locator('summary').click();
-           const expectedPlaces=year===2022?6:10;
+           const expectedPlaces=10;
            if(await ranked.locator('li').count()!==expectedPlaces)
             findings.push(engine+' '+width+' '+key+' expected '+expectedPlaces+' verified final positions');
           }
@@ -142,7 +142,7 @@ try{
           if(await detail.count()!==1)findings.push(engine+' '+width+' '+key+' placement detail missing');
           else{
            await detail.locator('summary').click();
-           const expected=year===2020?2:year===2022?1:3;
+           const expected=year===2020?2:3;
            if(await detail.locator('li').count()!==expected)
             findings.push(engine+' '+width+' '+key+' expected '+expected+' source-matched non-final placements');
           }
