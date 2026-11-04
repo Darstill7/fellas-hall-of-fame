@@ -1,5 +1,6 @@
 import {findOwnedRecords,recordCategoryLabels,nextRecordChallenger} from '../assets/manager-record-ownership.mjs';
 import fs from 'node:fs';
+import {buildPlayoffResume} from '../assets/manager-playoff-resume.mjs';
 const managers=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 const obsolete=/The Fellas OS v5|static-first pre-publish build|Franchise encyclopedia · v9\.15|Players, Waivers & Trade Receipts/;
 for(const slug of managers){
@@ -9,6 +10,26 @@ for(const slug of managers){
  if(!html.includes('Career records and player histories are drawn from documented league results. Coverage varies by season.'))throw Error('Manager history disclaimer missing on '+path);
  if(!html.includes('href="../managers/index.html"'))throw Error('Manager directory return link missing on '+path);
 }
+const playoffEspn=JSON.parse(fs.readFileSync('data/verified_espn_playoff_brackets_2016_2019.json','utf8'));
+const playoffSleeper=JSON.parse(fs.readFileSync('data/verified_sleeper_playoff_brackets_2020_2025.json','utf8'));
+const expectedPlayoffs={
+ Stilly:[5,2,1],Stew:[4,2,0],Thommy:[7,5,4],
+ Stover:[5,1,1],Birch:[7,2,1],Tony:[6,1,1],
+ Mitch:[6,2,0],Kuhl:[4,0,0],JMid:[2,0,0],Scott:[1,1,1]
+};
+for(const [manager,expected] of Object.entries(expectedPlayoffs)){
+ const resume=buildPlayoffResume(playoffEspn,playoffSleeper,manager);
+ const actual=[resume.appearances,resume.championshipGames,resume.championships];
+ if(actual.join(',')!==expected.join(','))
+  throw Error('Verified playoff résumé mismatch for '+manager+': '+actual.join(','));
+ if(resume.timeline.length!==10||resume.timeline.some(row=>row.year>=2026))
+  throw Error('Playoff résumé includes an incomplete season or missing year for '+manager);
+}
+const tabsSource=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+if(!tabsSource.includes('mountManagerPlayoffResume();')||
+ !tabsSource.includes('items:[0,1,12,13]')||
+ !tabsSource.includes("href:'#profile-playoff-resume'"))
+ throw Error('Playoff résumé is missing from the shared manager profile navigation');
 const guide=JSON.parse(fs.readFileSync('data/season_guide.json','utf8'));
 const names={stilly:'Stilly',jmid:'JMid',tom:'Thommy',stew:'Stew',scott:'Scott',mitch:'Mitch',tony:'Tony',stover:'Stover',kuhl:'Kuhl',birch:'Birch'};
 for(const slug of managers){
