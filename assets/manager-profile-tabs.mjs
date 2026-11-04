@@ -83,9 +83,27 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.id='profile-features';
  shell.setAttribute('aria-label','Manager features');
  shell.dataset.profileFeatureMenu='';
- shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a feature below. Each button opens that section or its full research page.</p>';
- const list=document.createElement('div');list.className='profile-feature-list';
- for(const feature of features){
+ shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a topic to explore. You’ll see only what matters to that topic.</p>';
+ const groups=[
+  {title:'Career & results',help:'Championships, yearly records, and rivals',items:[0,1,2]},
+  {title:'Ratings over time',help:'How this manager has performed across seasons',items:[3,4]},
+  {title:'Drafts, trades & roster moves',help:'Picks, transactions, and supporting evidence',items:[5,6,7,8]},
+  {title:'Lineup decisions',help:'Start/Sit history and weekly efficiency',items:[9]},
+  {title:'Keepers',help:'Season-specific keeper research',items:[10]}
+ ];
+ const groupHosts=new Map();
+ const menu=document.createElement('div');menu.className='profile-feature-groups';
+ for(const group of groups){
+  const disclosure=document.createElement('details');disclosure.className='profile-feature-group';
+  const heading=document.createElement('summary');
+  const title=document.createElement('strong');title.textContent=group.title;
+  const detail=document.createElement('span');detail.textContent=group.help;
+  heading.append(title,detail);
+  const list=document.createElement('div');list.className='profile-feature-list';
+  disclosure.append(heading,list);menu.append(disclosure);
+  for(const index of group.items)groupHosts.set(index,list);
+ }
+ for(const [index,feature] of features.entries()){
   const item=document.createElement(feature.href?'a':'button');
   if(item.tagName==='BUTTON'){item.type='button';item.dataset.profileFeature='';item.dataset.featureTarget=feature.target;if(feature.tab)item.dataset.featureTab=feature.tab;}
   else item.href=feature.href;
@@ -96,9 +114,9 @@ function mountProfileFeatureDirectory(quick,manager){
   const description=document.createElement('small');description.textContent=feature.detail;
   body.append(title,description);
   const arrow=document.createElement('span');arrow.className='profile-feature-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent='→';
-  item.append(symbol,body,arrow);list.append(item);
+  item.append(symbol,body,arrow);groupHosts.get(index).append(item);
  }
- shell.append(list);
+ shell.append(menu);
  quick.prepend(shell);
  // Retire the redundant four-item quick grid; these destinations now have
  // individually labeled buttons instead of nested and competing menus.
@@ -107,6 +125,47 @@ function mountProfileFeatureDirectory(quick,manager){
  quick.querySelector(':scope > p.muted')?.remove();
  const css=document.createElement('style');
  css.textContent='.profile-feature-directory{margin:0 0 18px}.profile-feature-directory h2{margin:0 0 4px;font-size:clamp(22px,3vw,29px)}.profile-feature-directory>.muted{margin:4px 0 15px;font-size:13px}.profile-feature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.profile-feature-button{display:flex;align-items:center;gap:12px;min-width:0;min-height:74px;text-align:left;background:#142d3d;color:#f7f2e8;border:1px solid #557587;border-radius:11px;padding:12px 14px;font:inherit;text-decoration:none;cursor:pointer}.profile-feature-button:hover{background:#1d4053;border-color:#e3bd71;color:#fff}.profile-feature-button:focus-visible{outline:3px solid #ffe3a0;outline-offset:2px}.profile-feature-icon{font-size:23px;flex:none}.profile-feature-copy{display:flex;flex-direction:column;gap:3px;min-width:0}.profile-feature-copy strong{font-size:14px;line-height:1.3;color:#fff}.profile-feature-copy small{font-size:12px;line-height:1.4;color:#c7d7e2}.profile-feature-arrow{margin-left:auto;color:#e3bd71;font-weight:900;font-size:20px;flex:none}@media(max-width:650px){.profile-feature-list{grid-template-columns:1fr}.profile-feature-button{min-height:69px;padding:12px}}';
+ css.textContent+='.profile-feature-groups{display:grid;gap:9px}.profile-feature-group{margin:0;border:1px solid #557587;border-radius:12px;background:#112b3b;padding:0;overflow:hidden}.profile-feature-group>summary{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 17px;list-style:none;cursor:pointer}.profile-feature-group>summary::-webkit-details-marker{display:none}.profile-feature-group>summary strong{font-size:15px}.profile-feature-group>summary span{font-size:12px;color:#c7d7e2}.profile-feature-group>summary:after{content:"+";font-size:23px;font-weight:700;color:#e3bd71}.profile-feature-group[open]>summary:after{content:"−"}.profile-feature-group>.profile-feature-list{padding:0 10px 10px}.profile-feature-group[open]{border-color:#b08f55}@media(max-width:650px){.profile-feature-group>summary{align-items:flex-start;flex-direction:column;gap:2px;padding:13px 14px;position:relative}.profile-feature-group>summary:after{position:absolute;right:14px;top:12px}.profile-feature-group>summary span{padding-right:15px}}';
+ css.textContent+=`
+ .profile-feature-directory{max-width:900px;margin:0 auto 24px}
+ .profile-feature-directory h2{font-size:clamp(23px,3vw,32px);font-weight:850;letter-spacing:-.045em}
+ .profile-feature-directory>.muted{margin-bottom:18px;color:#bacbd5}
+ .profile-feature-groups{gap:11px}
+ .profile-feature-group{background:linear-gradient(145deg,#183142,#102330);border:1px solid #3d5969;border-radius:14px;box-shadow:0 6px 17px #0002;transition:border-color .15s,background .15s}
+ .profile-feature-group>summary{min-height:77px;padding:17px 22px 17px 19px;position:relative;padding-right:54px}
+ .profile-feature-group>summary strong{display:block;font-size:17px;letter-spacing:-.02em;color:#f8f6ee}
+ .profile-feature-group>summary span{display:block;font-size:12px;color:#b9cbd5;line-height:1.45}
+ .profile-feature-group>summary:after{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:22px}
+ .profile-feature-group[open]{border-color:#d6b976;background:#132c3b}
+ .profile-feature-group>summary:hover{background:#ffffff08}
+ .profile-feature-group>summary:focus-visible{outline:3px solid #f5d594;outline-offset:-3px}
+ .profile-feature-group>.profile-feature-list{padding:0 14px 15px;gap:8px}
+ .profile-feature-button{min-height:62px;background:#0d2331;border-color:#314e60;border-radius:9px;padding:11px 13px}
+ .profile-feature-copy strong{font-size:13px}.profile-feature-copy small{font-size:11px}
+ .profile-feature-icon{font-size:20px}
+ .profile-quickstart{max-width:930px;margin-left:auto;margin-right:auto}
+ body.profile-landing .profile-quickstart{padding-bottom:18px}
+ body.profile-feature-focused .profile-feature-group:not([open]){display:none}
+ body.profile-feature-focused .profile-feature-group[open]>summary{min-height:60px}
+ body.profile-feature-focused .profile-feature-button[aria-pressed]:not([aria-pressed="true"]){display:none}
+ body.profile-feature-focused .profile-feature-directory>.muted{display:none}
+ .profile-focus-toolbar{background:#102a39}
+ @media(max-width:650px){
+  .profile-feature-group>summary{padding:14px 48px 14px 15px;min-height:72px}
+  .profile-feature-group>summary strong{font-size:16px}
+  .profile-feature-group>summary:after{right:17px}
+  .profile-feature-group>.profile-feature-list{padding:0 9px 10px}
+  .profile-feature-button{min-height:57px;padding:10px}
+  .profile-feature-copy strong{font-size:12px}
+  body.profile-feature-focused .profile-feature-list{grid-template-columns:1fr}
+ }
+ @media(prefers-reduced-motion:reduce){.profile-feature-group{transition:none}}
+ `;
+ menu.addEventListener('toggle',event=>{
+  const opened=event.target;
+  if(!opened.matches?.('details.profile-feature-group')||!opened.open)return;
+  for(const other of menu.querySelectorAll('details.profile-feature-group'))if(other!==opened)other.open=false;
+ },true);
  document.head.append(css);
 }
 function populateManagerResearch(quick,manager){
@@ -236,6 +295,62 @@ if(main&&tabs){
  const sections=[...main.children].filter(node=>node.matches?.('section.section'));
  // Ancillary link collections and preserved dossier material live in Advanced, rather than disappearing.
  const sectionTab=new Map(sections.map(node=>[node,Object.entries(categories).find(([,ids])=>ids.has(node.id))?.[0]||'advanced']));
+ // Profiles open as a short landing page. Historical chapters remain in the
+ // DOM and become visible when a visitor chooses a feature or archive tab.
+ const focusStyle=document.createElement('style');
+ focusStyle.textContent=`
+ body.profile-landing main>section.section{display:none!important}
+ body.profile-feature-focused main>section.section:not(.profile-selected-section){display:none!important}
+ body.profile-feature-focused main>.profile-madden:not(.profile-selected-madden){display:none!important}
+ body.profile-feature-focused .profile-research-shelf-body>.profile-focus-excluded{display:none!important}
+ .profile-focus-toolbar{display:none;align-items:center;flex-wrap:wrap;gap:12px;margin:12px 0 16px;padding:12px 14px;background:#102736;border:1px solid #678595;border-radius:11px}
+ body.profile-feature-focused .profile-focus-toolbar{display:flex}
+ .profile-focus-toolbar strong{font-size:14px;flex:1;min-width:180px}
+ .profile-focus-toolbar button{min-height:44px;cursor:pointer;background:#e3bd71;color:#10202b;border:0;border-radius:8px;padding:10px 14px;font:inherit;font-size:13px;font-weight:850}
+ body.profile-feature-focused .profile-feature-button[aria-pressed="true"]{border-color:#e3bd71;background:#25475b;box-shadow:inset 4px 0 #e3bd71}
+ body.profile-feature-focused .profile-feature-copy small{display:none}
+ body.profile-feature-focused .profile-feature-button{min-height:52px;padding:9px 11px}
+ body.profile-feature-focused .profile-feature-icon{font-size:18px}
+ body.profile-feature-focused .profile-feature-list{gap:6px}
+ @media(max-width:650px){body.profile-feature-focused .profile-feature-list{grid-template-columns:repeat(2,minmax(0,1fr))}body.profile-feature-focused .profile-feature-copy strong{font-size:11px}body.profile-feature-focused .profile-feature-arrow{display:none}}
+ `;
+ document.head.append(focusStyle);
+ const featureDirectory=document.getElementById('profile-features');
+ const featureToolbar=document.createElement('div');
+ featureToolbar.className='profile-focus-toolbar';
+ featureToolbar.setAttribute('role','status');
+ const focusName=document.createElement('strong');
+ const focusBack=document.createElement('button');
+ focusBack.type='button';focusBack.textContent='← All features';
+ featureToolbar.append(focusName,focusBack);
+ featureDirectory?.querySelector('.profile-feature-groups')?.before(featureToolbar);
+ function clearFeatureFocus(){
+  document.body.classList.remove('profile-feature-focused');
+  for(const section of sections)section.classList.remove('profile-selected-section');
+  document.querySelector('.profile-madden')?.classList.remove('profile-selected-madden');
+  for(const el of main.querySelectorAll('.profile-focus-excluded'))el.classList.remove('profile-focus-excluded');
+  for(const button of main.querySelectorAll('button[data-profile-feature]'))button.setAttribute('aria-pressed','false');
+ }
+ focusBack.addEventListener('click',()=>{
+  clearFeatureFocus();document.body.classList.add('profile-landing');
+  featureDirectory?.scrollIntoView({block:'start',behavior:'instant'});
+ });
+ function focusFeature(button,destination){
+  clearFeatureFocus();
+  document.body.classList.remove('profile-landing');
+  document.body.classList.add('profile-feature-focused');
+  button.setAttribute('aria-pressed','true');
+  const section=sections.find(item=>item===destination||item.contains(destination));
+  section?.classList.add('profile-selected-section');
+  if(document.querySelector('.profile-madden')?.contains(destination))
+   document.querySelector('.profile-madden').classList.add('profile-selected-madden');
+  const shelfBody=destination.closest('.profile-research-shelf-body');
+  if(shelfBody){
+   const selected=[...shelfBody.children].find(item=>item===destination||item.contains(destination));
+   for(const child of shelfBody.children)if(child!==selected)child.classList.add('profile-focus-excluded');
+  }
+  focusName.textContent=button.querySelector('strong')?.textContent||'Selected feature';
+ }
  // Keep the four historical section controllers for old deep links, but
  // make the eleven feature buttons the only primary navigation.
  // The section controller is an optional disclosure rather than a competing menu.
@@ -310,14 +425,15 @@ if(main&&tabs){
   if(category)activate(category);
   const destination=target&&document.querySelector(target);
   if(!destination)return;
+  focusFeature(button,destination);
   const shelf=destination.closest('details.profile-research-shelf');
   if(shelf)shelf.open=true;
   if(destination.tagName==='DETAILS')destination.open=true;
   requestAnimationFrame(()=>requestAnimationFrame(()=>
    destination.scrollIntoView({block:'start',behavior:'instant'})));
  });
- tabs.addEventListener('click',event=>{const button=event.target.closest('button[data-profile-tab]');if(button)activate(button.dataset.profileTab,{reveal:true})});
- tabs.addEventListener('keydown',event=>{const index=buttons.indexOf(document.activeElement);if(index<0)return;const direction=event.key==='ArrowRight'?1:event.key==='ArrowLeft'?-1:0;if(direction){event.preventDefault();activate(buttons[(index+direction+buttons.length)%buttons.length].dataset.profileTab,{focus:true,reveal:true})}});
+ tabs.addEventListener('click',event=>{const button=event.target.closest('button[data-profile-tab]');if(button){clearFeatureFocus();document.body.classList.remove('profile-landing');activate(button.dataset.profileTab,{reveal:true})}});
+ tabs.addEventListener('keydown',event=>{const index=buttons.indexOf(document.activeElement);if(index<0)return;const direction=event.key==='ArrowRight'?1:event.key==='ArrowLeft'?-1:0;if(direction){event.preventDefault();clearFeatureFocus();document.body.classList.remove('profile-landing');activate(buttons[(index+direction+buttons.length)%buttons.length].dataset.profileTab,{focus:true,reveal:true})}});
  // A persistent escape hatch for long historical sections; only appears after scrolling.
  const back=document.createElement('button');
  back.type='button';back.className='profile-back-to-sections';
@@ -446,6 +562,7 @@ if(main&&tabs){
  // Homepage directory shortcuts use category hashes, not physical element IDs.
  // On a fresh deep link, bring the selected profile section navigation into view.
  // A restored reading position wins when returning to a previously visited profile.
+ if(!initial&&!restoredPosition)document.body.classList.add('profile-landing');
  if(categories[initial]&&!restoredPosition){
   switcher.open=true;
   requestAnimationFrame(()=>requestAnimationFrame(()=>tabs.scrollIntoView({block:'start'})));

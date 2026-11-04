@@ -649,6 +649,11 @@ try{
       if(destinations.some(d=>d.href&&!d.href.includes('manager=')||
         d.target&&!d.target.startsWith('.')&&!d.target.startsWith('#')))
        errors.push(width+' '+slug+' feature button destination invalid');
+      if(!await page.locator('body').evaluate(el=>el.classList.contains('profile-landing')))
+       errors.push(width+' '+slug+' profile should open in focused landing mode');
+      if(await page.locator('main > section.section:visible').count()!==0)
+       errors.push(width+' '+slug+' profile landing exposes archive wall before feature selection');
+      await page.locator('details.profile-feature-group').first().locator(':scope > summary').click();
       const rivalry=page.locator('[data-profile-feature][data-feature-target="#head-to-head"]');
       await rivalry.click();
       await page.waitForFunction(()=>{
@@ -656,18 +661,28 @@ try{
        return section&&section.getBoundingClientRect().top<window.innerHeight&&
         section.getBoundingClientRect().bottom>0;
       },null,{timeout:2500}).catch(()=>{});
+      if(!await page.locator('body').evaluate(el=>el.classList.contains('profile-feature-focused'))||
+         await page.locator('#season-history').isVisible()||
+         !await page.locator('.profile-focus-toolbar').isVisible())
+       errors.push(width+' '+slug+' rivalry view did not isolate the chosen feature');
       if(await page.locator('[data-profile-tab="rivalries"]').getAttribute('aria-selected')!=='true'||
          !await page.locator('#head-to-head').isVisible())
        errors.push(width+' '+slug+' rivalry feature did not activate the visible research');
       const researchShelf=page.locator('details.profile-research-shelf');
       await researchShelf.evaluate(el=>el.open=false);
       const career=page.locator('[data-profile-feature][data-feature-target=".profile-career-resume"]');
+      await page.locator('.profile-focus-toolbar button').click();
+      await page.locator('details.profile-feature-group').filter({has:career}).locator(':scope > summary').click();
       await career.click();
       if(!await researchShelf.evaluate(el=>el.open)||
          !await page.locator('.profile-career-resume').evaluate(el=>el.open))
        errors.push(width+' '+slug+' career résumé feature failed to reveal hidden evidence');
       await researchShelf.evaluate(el=>el.open=false);
-      await page.locator('[data-profile-feature][data-feature-target=".profile-front-office-snapshot"]').click();
+      await page.locator('.profile-focus-toolbar button').click();
+      const front=page.locator('[data-profile-feature][data-feature-target=".profile-front-office-snapshot"]');
+      const frontGroup=page.locator('details.profile-feature-group').filter({has:front});
+      if(!await frontGroup.evaluate(el=>el.open))await frontGroup.locator(':scope > summary').click();
+      await front.click();
       if(!await researchShelf.evaluate(el=>el.open)||
          !await page.locator('.profile-front-office-snapshot').isVisible())
        errors.push(width+' '+slug+' front-office button failed to reveal evidence');
