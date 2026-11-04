@@ -35,7 +35,16 @@ body.fellas-polished .profile-feature-button{transition:border-color .15s ease,b
 body.fellas-polished .profile-feature-button:hover{border-color:var(--fellas-gold);background-color:#1a3446}
 body.fellas-polished .profile-feature-group>summary{min-height:52px}
 body.fellas-polished .profile-quickstart{margin-top:16px}
+/* Progressive mobile site navigation on manager profiles. */
+body.fellas-polished .fellas-mobile-site-menu{display:none}
+body.fellas-polished .fellas-mobile-site-menu>summary{cursor:pointer;list-style:none;min-height:44px;align-items:center;justify-content:center;padding:10px 14px;color:var(--fellas-gold);font-size:13px;font-weight:850;border:1px solid var(--fellas-border);border-radius:9px;background:var(--fellas-card)}
+body.fellas-polished .fellas-mobile-site-menu>summary::-webkit-details-marker{display:none}
+body.fellas-polished .fellas-mobile-site-links{position:absolute;right:0;top:calc(100% + 8px);z-index:70;width:min(300px,calc(100vw - 32px));padding:10px;background:#132736;border:1px solid var(--fellas-border);border-radius:12px;box-shadow:0 20px 45px #0009;display:grid;gap:3px}
+body.fellas-polished .fellas-mobile-site-links a{display:flex;align-items:center;min-height:47px;padding:12px;color:#f1f4f6;text-decoration:none;border-radius:8px;font-weight:750;font-size:14px;line-height:1.4}
+body.fellas-polished .fellas-mobile-site-links a:hover{background:#244356;color:var(--fellas-gold)}
 @media(max-width:700px){
+ body.fellas-polished.fellas-mobile-ready header.nav .navlinks{display:none}
+ body.fellas-polished .fellas-mobile-site-menu{display:block;position:relative;margin-left:auto}
  body.fellas-polished{font-size:15px;line-height:1.66}
  body.fellas-polished :is(.wrap,.shell){padding-left:16px;padding-right:16px}
  body.fellas-polished :is(.navlinks,.report-top-nav,.records-primary-nav){gap:3px 7px}
