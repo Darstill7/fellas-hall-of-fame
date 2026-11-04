@@ -1,0 +1,466 @@
+{
+  "version": 1,
+  "asOf": "2026-11-04",
+  "source": "Original ESPN season team finalRank plus loser-consolation final games; independently corroborated by legacy FF HISTORY Outdated Info",
+  "rules": {
+    "season2016": "Eight teams; ranks 1–8, not comparable as raw place to ten-team years without denominator",
+    "season2017_2019": "Ten teams per year",
+    "bottomFinish": "Official last-place rank confirmed by the last loser-bracket game against the next-to-last manager",
+    "playoffScores2016_2017": "ESPN scores shown are matchup aggregates over two weeks, never single-week scoring records",
+    "active2026": "Not included"
+  },
+  "seasons": [
+    {
+      "year": 2016,
+      "teamCount": 8,
+      "seasonChampion": "Thommy",
+      "finalStandings": [
+        {
+          "manager": "Thommy",
+          "place": 1,
+          "seed": 3,
+          "regularSeason": {
+            "w": 7,
+            "l": 5,
+            "t": 1
+          }
+        },
+        {
+          "manager": "Halderman",
+          "place": 2,
+          "seed": 1,
+          "regularSeason": {
+            "w": 8,
+            "l": 4,
+            "t": 1
+          }
+        },
+        {
+          "manager": "Evans",
+          "place": 3,
+          "seed": 2,
+          "regularSeason": {
+            "w": 8,
+            "l": 5,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Koble",
+          "place": 4,
+          "seed": 4,
+          "regularSeason": {
+            "w": 7,
+            "l": 6,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stover",
+          "place": 5,
+          "seed": 7,
+          "regularSeason": {
+            "w": 5,
+            "l": 8,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stilly",
+          "place": 6,
+          "seed": 5,
+          "regularSeason": {
+            "w": 6,
+            "l": 7,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stew",
+          "place": 7,
+          "seed": 6,
+          "regularSeason": {
+            "w": 6,
+            "l": 7,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Schermerhorn",
+          "place": 8,
+          "seed": 8,
+          "regularSeason": {
+            "w": 4,
+            "l": 9,
+            "t": 0
+          }
+        }
+      ],
+      "lastPlaceManager": "Schermerhorn",
+      "lastPlaceFinal": {
+        "stage": "LOSERS_CONSOLATION_LADDER",
+        "period": 15,
+        "winner": "Stew",
+        "winnerPoints": 193,
+        "loser": "Schermerhorn",
+        "loserPoints": 184,
+        "scoringBasis": "ESPN two-week matchup aggregate"
+      },
+      "verifiedSource": "data/espn_history_2016_2019.json; ESPN finalRank and LOSERS_CONSOLATION_LADDER stage, cross-confirmed by FF HISTORY spreadsheet"
+    },
+    {
+      "year": 2017,
+      "teamCount": 10,
+      "seasonChampion": "Thommy",
+      "finalStandings": [
+        {
+          "manager": "Thommy",
+          "place": 1,
+          "seed": 1,
+          "regularSeason": {
+            "w": 8,
+            "l": 4,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Schermerhorn",
+          "place": 2,
+          "seed": 2,
+          "regularSeason": {
+            "w": 8,
+            "l": 4,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stilly",
+          "place": 3,
+          "seed": 3,
+          "regularSeason": {
+            "w": 6,
+            "l": 6,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Evans",
+          "place": 4,
+          "seed": 4,
+          "regularSeason": {
+            "w": 6,
+            "l": 6,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Koble",
+          "place": 5,
+          "seed": 6,
+          "regularSeason": {
+            "w": 6,
+            "l": 6,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Halderman",
+          "place": 6,
+          "seed": 10,
+          "regularSeason": {
+            "w": 4,
+            "l": 8,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stew",
+          "place": 7,
+          "seed": 9,
+          "regularSeason": {
+            "w": 5,
+            "l": 7,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stover",
+          "place": 8,
+          "seed": 5,
+          "regularSeason": {
+            "w": 6,
+            "l": 6,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Tony",
+          "place": 9,
+          "seed": 7,
+          "regularSeason": {
+            "w": 6,
+            "l": 6,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Birch",
+          "place": 10,
+          "seed": 8,
+          "regularSeason": {
+            "w": 5,
+            "l": 7,
+            "t": 0
+          }
+        }
+      ],
+      "lastPlaceManager": "Birch",
+      "lastPlaceFinal": {
+        "stage": "LOSERS_CONSOLATION_LADDER",
+        "period": 14,
+        "winner": "Tony",
+        "winnerPoints": 214,
+        "loser": "Birch",
+        "loserPoints": 196,
+        "scoringBasis": "ESPN two-week matchup aggregate"
+      },
+      "verifiedSource": "data/espn_history_2016_2019.json; ESPN finalRank and LOSERS_CONSOLATION_LADDER stage, cross-confirmed by FF HISTORY spreadsheet"
+    },
+    {
+      "year": 2018,
+      "teamCount": 10,
+      "seasonChampion": "Thommy",
+      "finalStandings": [
+        {
+          "manager": "Thommy",
+          "place": 1,
+          "seed": 4,
+          "regularSeason": {
+            "w": 7,
+            "l": 6,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Birch",
+          "place": 2,
+          "seed": 6,
+          "regularSeason": {
+            "w": 6,
+            "l": 7,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Tony",
+          "place": 3,
+          "seed": 1,
+          "regularSeason": {
+            "w": 8,
+            "l": 5,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stover",
+          "place": 4,
+          "seed": 2,
+          "regularSeason": {
+            "w": 8,
+            "l": 5,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stew",
+          "place": 5,
+          "seed": 3,
+          "regularSeason": {
+            "w": 7,
+            "l": 6,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Kuhl",
+          "place": 6,
+          "seed": 5,
+          "regularSeason": {
+            "w": 7,
+            "l": 6,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Evans",
+          "place": 7,
+          "seed": 7,
+          "regularSeason": {
+            "w": 6,
+            "l": 7,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Mitch",
+          "place": 8,
+          "seed": 9,
+          "regularSeason": {
+            "w": 5,
+            "l": 8,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Koble",
+          "place": 9,
+          "seed": 10,
+          "regularSeason": {
+            "w": 5,
+            "l": 8,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stilly",
+          "place": 10,
+          "seed": 8,
+          "regularSeason": {
+            "w": 6,
+            "l": 7,
+            "t": 0
+          }
+        }
+      ],
+      "lastPlaceManager": "Stilly",
+      "lastPlaceFinal": {
+        "stage": "LOSERS_CONSOLATION_LADDER",
+        "period": 16,
+        "winner": "Koble",
+        "winnerPoints": 125.14,
+        "loser": "Stilly",
+        "loserPoints": 86.76,
+        "scoringBasis": "ESPN last-place round score"
+      },
+      "verifiedSource": "data/espn_history_2016_2019.json; ESPN finalRank and LOSERS_CONSOLATION_LADDER stage, cross-confirmed by FF HISTORY spreadsheet"
+    },
+    {
+      "year": 2019,
+      "teamCount": 10,
+      "seasonChampion": "Birch",
+      "finalStandings": [
+        {
+          "manager": "Birch",
+          "place": 1,
+          "seed": 1,
+          "regularSeason": {
+            "w": 11,
+            "l": 2,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stew",
+          "place": 2,
+          "seed": 2,
+          "regularSeason": {
+            "w": 9,
+            "l": 4,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Mitch",
+          "place": 3,
+          "seed": 3,
+          "regularSeason": {
+            "w": 9,
+            "l": 4,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Tony",
+          "place": 4,
+          "seed": 4,
+          "regularSeason": {
+            "w": 8,
+            "l": 5,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stilly",
+          "place": 5,
+          "seed": 6,
+          "regularSeason": {
+            "w": 6,
+            "l": 7,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Kuhl",
+          "place": 6,
+          "seed": 5,
+          "regularSeason": {
+            "w": 7,
+            "l": 6,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Koble",
+          "place": 7,
+          "seed": 8,
+          "regularSeason": {
+            "w": 4,
+            "l": 9,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Thommy",
+          "place": 8,
+          "seed": 10,
+          "regularSeason": {
+            "w": 2,
+            "l": 11,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Stover",
+          "place": 9,
+          "seed": 9,
+          "regularSeason": {
+            "w": 4,
+            "l": 9,
+            "t": 0
+          }
+        },
+        {
+          "manager": "Evans",
+          "place": 10,
+          "seed": 7,
+          "regularSeason": {
+            "w": 5,
+            "l": 8,
+            "t": 0
+          }
+        }
+      ],
+      "lastPlaceManager": "Evans",
+      "lastPlaceFinal": {
+        "stage": "LOSERS_CONSOLATION_LADDER",
+        "period": 16,
+        "winner": "Stover",
+        "winnerPoints": 328.56,
+        "loser": "Evans",
+        "loserPoints": 264.76,
+        "scoringBasis": "ESPN last-place round score"
+      },
+      "verifiedSource": "data/espn_history_2016_2019.json; ESPN finalRank and LOSERS_CONSOLATION_LADDER stage, cross-confirmed by FF HISTORY spreadsheet"
+    }
+  ]
+}
