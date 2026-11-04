@@ -48,15 +48,21 @@ const expectedKinds=[
  'Highest regular-season weekly score','Largest regular-season victory',
  'Most career regular-season wins','Most wins in a completed regular season','Most championships',
  'Most points in a completed regular season','Closest regular-season victory',
- 'Highest career regular-season winning percentage (50+ games)'
+ 'Highest career regular-season winning percentage (50+ games)',
+ 'Most regular-season wins against a single opponent'
 ];
-if(expectedKinds.length!==recordCategoryLabels.length||recordCategoryLabels.length!==8)
+if(expectedKinds.length!==recordCategoryLabels.length||recordCategoryLabels.length!==9)
  throw Error('Record category definitions and regression test disagree');
 for(const kind of expectedKinds){
  const holders=[...holderMap].filter(([,records])=>records.some(r=>r.label===kind));
  if(!holders.length)throw Error('No verified record holder for '+kind);
  const scores=holders.flatMap(([,records])=>records.filter(r=>r.label===kind).map(r=>r.value));
  if(new Set(scores).size!==1)throw Error('Record holders disagree on league-leading value: '+kind);
+}
+const rivalryLeaders=['Mitch','Stilly','Stover'];
+for(const name of rivalryLeaders){
+ if(holderMap.get(name).find(r=>r.label==='Most regular-season wins against a single opponent')?.value!==11)
+  throw Error('Verified rivalry record changed for '+name);
 }
 if(holderMap.get('Mitch').find(r=>r.label==='Most points in a completed regular season')?.value!==1894.88)
  throw Error('Completed-season scoring leader changed');
