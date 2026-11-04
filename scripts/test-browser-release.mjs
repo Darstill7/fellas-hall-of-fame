@@ -191,7 +191,7 @@ try{
      if(await career.count()!==1||await career.getAttribute('data-manager-career-resume')!==name)
       errors.push(width+' '+route+' career résumé missing or misattributed');
      else{
-      await career.locator('summary').click();
+      await career.locator(':scope > summary').click();
       const metrics=career.locator('.career-resume-metric');
       if(await metrics.count()!==4)
        errors.push(width+' '+route+' career draft/trade résumé totals unavailable');
