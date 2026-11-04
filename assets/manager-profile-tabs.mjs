@@ -69,9 +69,9 @@ function mountProfileFeatureDirectory(quick,manager){
   {label:'Legacy OVR progression',detail:'Year-end ratings, career peak and championship milestones',target:'.profile-madden-history:not(.profile-season-ovr)',icon:'📈'},
   {label:'Season OVR ratings',detail:'The best and worst completed individual seasons',target:'.profile-season-ovr',icon:'⭐'},
   {label:'Drafting & trading résumé',detail:'Documented picks and trades — no invented decision grades',target:'.profile-career-resume',icon:'🔄'},
-  {label:'Season evidence',detail:'Pickups, keepers and draft/trade history by year',target:'.profile-season-evidence',icon:'📋'},
-  {label:'Front Office Snapshot',detail:'Recorded pickup usage and 2026 keeper contributions',target:'.profile-front-office-snapshot',icon:'📊'},
-  {label:'Pickup highlights & FAAB',detail:'Selected acquisitions, starts, points and verified costs',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'💰'},
+  {label:'Roster decisions by season',detail:'Draft picks, trades, pickups and keepers, year by year',target:'.profile-season-evidence',icon:'📋'},
+  {label:'Pickup & keeper totals',detail:'Which acquisitions started and how many points keepers scored',target:'.profile-front-office-snapshot',icon:'📊'},
+  {label:'Pickup highlights & FAAB',detail:'Notable free-agent additions and recorded bid costs',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'💰'},
   {label:'Start/Sit accuracy',detail:'Weekly lineup efficiency and coverage',href:'../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name),icon:'🎯'},
   {label:'Keeper research',detail:'2025 and in-progress 2026 keeper evidence',href:'../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(name),icon:'🔒'}
  ];
@@ -201,8 +201,8 @@ function populateManagerResearch(quick,manager){
  // research pages instead of creating a disconnected manager scorecard.
  const snapshot=document.createElement('section');
  snapshot.className='profile-front-office-snapshot';
- snapshot.setAttribute('aria-label',keeperManager+' front office snapshot');
- snapshot.innerHTML='<h3>Front Office Snapshot</h3><p class="muted">Recorded acquisitions and 2026 keeper starts. Descriptive evidence, not management-skill grades.</p><p class="muted" role="status">Loading verified research…</p>';
+ snapshot.setAttribute('aria-label',keeperManager+' pickup and keeper totals');
+ snapshot.innerHTML='<h3>Pickup & Keeper Totals</h3><p class="muted">How often recorded pickups made the starting lineup, plus points scored by retained keepers in 2026. These totals do not grade decision-making.</p><p class="muted" role="status">Loading verified research…</p>';
  shelfBody.append(snapshot);
  void mountDraftTradeCareer(shelfBody,keeperManager);
  void mountManagerSeasonEvidence(shelfBody,keeperManager);
@@ -224,7 +224,7 @@ function populateManagerResearch(quick,manager){
      k.officialKeeperDecisionGrade!==null)throw Error('Manager research row is invalid');
   snapshot.replaceChildren();
   const title=document.createElement('h3');
-  title.textContent='Front Office Snapshot';snapshot.append(title);
+  title.textContent='Pickup & Keeper Totals';snapshot.append(title);
   const grid=document.createElement('div');
   grid.className='profile-front-office-grid';
   const tile=(value,label)=>{
@@ -256,7 +256,7 @@ function populateManagerResearch(quick,manager){
   );
   snapshot.append(actions);
  }).catch(()=>{
-  snapshot.innerHTML='<h3>Front Office Snapshot</h3><p class="muted" role="status">Source evidence is temporarily unavailable. No substitute figures are shown.</p>';
+  snapshot.innerHTML='<h3>Pickup & Keeper Totals</h3><p class="muted" role="status">Source evidence is temporarily unavailable. No substitute figures are shown.</p>';
  });
  const css=document.createElement('style');
  css.textContent+='.profile-research-shelf{margin:18px 0 0;background:#0b2331;border:1px solid #557587;border-radius:12px;padding:0}.profile-research-shelf>summary{min-height:50px;padding:14px 17px;color:var(--gold);font-size:15px;font-weight:850;cursor:pointer}.profile-research-shelf>summary:focus-visible{outline:3px solid white;outline-offset:-3px}.profile-research-shelf-intro{font-size:12px;line-height:1.55;margin:0;padding:0 17px 12px}.profile-research-shelf-body{padding:0 16px 15px}.profile-research-shelf-body .profile-front-office-snapshot{margin:14px 0}.profile-research-shelf-body>.muted{margin:10px 0}@media(max-width:650px){.profile-research-shelf-body{padding:0 10px 12px}}';

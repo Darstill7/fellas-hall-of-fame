@@ -371,6 +371,14 @@ try{
      errors.push(width+' comparison grading caveat missing');
    }
    if(route==='analytics/manager-report-cards.html'){
+    const coverageGuide=page.locator('details.report-coverage-guide');
+    if(await coverageGuide.count()!==1||await coverageGuide.evaluate(el=>el.open))
+     errors.push(width+' report-card evidence caveats should be concise and initially collapsed');
+    else{
+     await coverageGuide.locator('summary').click();
+     if(!(await coverageGuide.innerText()).includes('N/A is not zero'))
+      errors.push(width+' report-card missing-rating explanation unavailable');
+    }
     const more=page.locator('details.report-more-links');
     if(await more.count()!==1||await more.evaluate(el=>el.open))
      errors.push(width+' report cards should tuck secondary research links away');
@@ -447,6 +455,15 @@ try{
     }
    }
    if(route===''){
+    const ratingGuide=page.locator('details.home-rating-guide');
+    if(await ratingGuide.count()!==1||await ratingGuide.evaluate(el=>el.open))
+     errors.push(width+' home Legacy OVR glossary should begin collapsed');
+    else{
+     await ratingGuide.locator('summary').click();
+     const guideText=await ratingGuide.innerText();
+     if(!guideText.includes('Season OVR')||!guideText.includes('Report-card scores'))
+      errors.push(width+' home ratings glossary missing clear model distinction');
+    }
     const desktopNav=page.locator('.main-nav');
     const mobileNav=page.locator('details.mobile-menu');
     if(width===390){
