@@ -7,7 +7,7 @@ const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/records.html',
  'analytics/power-ratings.html','analytics/rivalries.html','hall/','seasons/',
- 'analytics/manager-madden-cards.html','managers/record-books.html',
+ 'analytics/manager-madden-cards.html','managers/record-books.html','analytics/record-holders.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
