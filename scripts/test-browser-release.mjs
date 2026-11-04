@@ -237,6 +237,27 @@ try{
     });
     if(!noPartialGrade)errors.push(width+' 2026 partial keeper season leaked completed season grade');
    }
+   if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
+    const panel=page.locator('#profile-playoff-resume');
+    await panel.waitFor({state:'visible',timeout:10000});
+    const metrics=panel.locator('.profile-playoff-metric');
+    if(await metrics.count()!==3)
+     errors.push(width+' '+route+' missing three verified playoff résumé metrics');
+    const details=panel.locator('details.profile-playoff-history');
+    if(await details.count()!==1)
+     errors.push(width+' '+route+' playoff history disclosure absent');
+    else{
+     await details.locator('summary').click();
+     const years=await details.locator('.profile-playoff-timeline li').count();
+     if(years!==10)
+      errors.push(width+' '+route+' postseason timeline should show ten completed seasons, received '+years);
+     if((await details.innerText()).includes('2026'))
+      errors.push(width+' '+route+' postseason timeline incorrectly includes incomplete 2026');
+    }
+    const link=page.locator('.profile-feature-button[href="#profile-playoff-resume"]');
+    if(await link.count()!==1)
+     errors.push(width+' '+route+' playoff résumé feature link missing');
+   }
    if(route.startsWith('managers/')&&route.endsWith('/')){
     const heroMadden=page.locator('.profile-madden');
     if(await heroMadden.count()!==1)
