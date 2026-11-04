@@ -84,8 +84,26 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.setAttribute('aria-label','Manager features');
  shell.dataset.profileFeatureMenu='';
  shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a feature below. Each button opens that section or its full research page.</p>';
- const list=document.createElement('div');list.className='profile-feature-list';
- for(const feature of features){
+ const groups=[
+  {title:'Career & results',help:'Championships, yearly records, and rivals',items:[0,1,2]},
+  {title:'Ratings over time',help:'How this manager has performed across seasons',items:[3,4]},
+  {title:'Drafts, trades & roster moves',help:'Picks, transactions, and supporting evidence',items:[5,6,7,8]},
+  {title:'Lineup decisions',help:'Start/Sit history and weekly efficiency',items:[9]},
+  {title:'Keepers',help:'Season-specific keeper research',items:[10]}
+ ];
+ const groupHosts=new Map();
+ const menu=document.createElement('div');menu.className='profile-feature-groups';
+ for(const group of groups){
+  const disclosure=document.createElement('details');disclosure.className='profile-feature-group';
+  const heading=document.createElement('summary');
+  const title=document.createElement('strong');title.textContent=group.title;
+  const detail=document.createElement('span');detail.textContent=group.help;
+  heading.append(title,detail);
+  const list=document.createElement('div');list.className='profile-feature-list';
+  disclosure.append(heading,list);menu.append(disclosure);
+  for(const index of group.items)groupHosts.set(index,list);
+ }
+ for(const [index,feature] of features.entries()){
   const item=document.createElement(feature.href?'a':'button');
   if(item.tagName==='BUTTON'){item.type='button';item.dataset.profileFeature='';item.dataset.featureTarget=feature.target;if(feature.tab)item.dataset.featureTab=feature.tab;}
   else item.href=feature.href;
@@ -96,9 +114,9 @@ function mountProfileFeatureDirectory(quick,manager){
   const description=document.createElement('small');description.textContent=feature.detail;
   body.append(title,description);
   const arrow=document.createElement('span');arrow.className='profile-feature-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent='→';
-  item.append(symbol,body,arrow);list.append(item);
+  item.append(symbol,body,arrow);groupHosts.get(index).append(item);
  }
- shell.append(list);
+ shell.append(menu);
  quick.prepend(shell);
  // Retire the redundant four-item quick grid; these destinations now have
  // individually labeled buttons instead of nested and competing menus.
@@ -107,6 +125,7 @@ function mountProfileFeatureDirectory(quick,manager){
  quick.querySelector(':scope > p.muted')?.remove();
  const css=document.createElement('style');
  css.textContent='.profile-feature-directory{margin:0 0 18px}.profile-feature-directory h2{margin:0 0 4px;font-size:clamp(22px,3vw,29px)}.profile-feature-directory>.muted{margin:4px 0 15px;font-size:13px}.profile-feature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.profile-feature-button{display:flex;align-items:center;gap:12px;min-width:0;min-height:74px;text-align:left;background:#142d3d;color:#f7f2e8;border:1px solid #557587;border-radius:11px;padding:12px 14px;font:inherit;text-decoration:none;cursor:pointer}.profile-feature-button:hover{background:#1d4053;border-color:#e3bd71;color:#fff}.profile-feature-button:focus-visible{outline:3px solid #ffe3a0;outline-offset:2px}.profile-feature-icon{font-size:23px;flex:none}.profile-feature-copy{display:flex;flex-direction:column;gap:3px;min-width:0}.profile-feature-copy strong{font-size:14px;line-height:1.3;color:#fff}.profile-feature-copy small{font-size:12px;line-height:1.4;color:#c7d7e2}.profile-feature-arrow{margin-left:auto;color:#e3bd71;font-weight:900;font-size:20px;flex:none}@media(max-width:650px){.profile-feature-list{grid-template-columns:1fr}.profile-feature-button{min-height:69px;padding:12px}}';
+ css.textContent+='.profile-feature-groups{display:grid;gap:9px}.profile-feature-group{margin:0;border:1px solid #557587;border-radius:12px;background:#112b3b;padding:0;overflow:hidden}.profile-feature-group>summary{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 17px;list-style:none;cursor:pointer}.profile-feature-group>summary::-webkit-details-marker{display:none}.profile-feature-group>summary strong{font-size:15px}.profile-feature-group>summary span{font-size:12px;color:#c7d7e2}.profile-feature-group>summary:after{content:"+";font-size:23px;font-weight:700;color:#e3bd71}.profile-feature-group[open]>summary:after{content:"−"}.profile-feature-group>.profile-feature-list{padding:0 10px 10px}.profile-feature-group[open]{border-color:#b08f55}@media(max-width:650px){.profile-feature-group>summary{align-items:flex-start;flex-direction:column;gap:2px;padding:13px 14px;position:relative}.profile-feature-group>summary:after{position:absolute;right:14px;top:12px}.profile-feature-group>summary span{padding-right:15px}}';
  document.head.append(css);
 }
 function populateManagerResearch(quick,manager){
