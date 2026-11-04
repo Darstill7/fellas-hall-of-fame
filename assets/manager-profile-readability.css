@@ -1,0 +1,97 @@
+/* Manager-profile readability system: shared by all 10 public profiles.
+   Presentation only; scoring and historical records remain untouched. */
+:root{--profile-space:clamp(16px,2.5vw,26px)}
+main.wrap{min-width:0}
+main .hero{max-width:1080px;margin-inline:auto}
+main .hero .lead{max-width:68ch;line-height:1.7}
+main .hero h1{line-height:1.15;overflow-wrap:normal}
+main .hero .buttons{gap:10px 12px;align-items:center}
+main .hero .buttons .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;line-height:1.4}
+main .hero .manager-nickname-origin{margin:16px 0 18px;line-height:1.65}
+main .hero .manager-nickname-origin p{margin:10px 0;line-height:1.65}
+main .hero .manager-nickname-origin>summary{line-height:1.5}
+main .profile-madden{min-width:0}
+main .profile-madden-header>div:first-child{min-width:0;flex:1 1 230px}
+main .profile-madden .profile-scouting-heading{line-height:1.25;overflow-wrap:break-word}
+main .profile-madden .profile-madden-label{line-height:1.6}
+main .profile-madden .profile-archetype{line-height:1.55;margin-top:7px}
+main .profile-madden .profile-rating-plain{line-height:1.7!important;margin-block:17px!important}
+main .profile-madden .profile-madden-facts{gap:12px!important;margin:20px 0!important}
+main .profile-madden .profile-madden-facts span{
+  min-width:0;min-height:73px!important;
+  display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;column-gap:8px;row-gap:4px;
+  padding:14px 13px!important;
+  line-height:1.55!important;overflow-wrap:anywhere;
+  text-wrap:pretty
+}
+main .profile-madden .profile-madden-facts span strong{
+  display:inline-block;flex:0 0 auto;
+  white-space:nowrap;font-size:1.16em;line-height:1.3
+}
+main .profile-madden .profile-madden-facts span:nth-child(n+5){min-height:56px!important}
+main .profile-madden .profile-rating-explainer,
+main .profile-madden .profile-rating-trend,
+main .profile-madden .profile-madden-history,
+main .profile-madden .profile-season-ovr{margin-block:14px!important;min-width:0}
+main .profile-madden details>summary{line-height:1.5;padding-block:10px;overflow-wrap:anywhere}
+main .profile-madden details p,
+main .profile-madden .disclaimer{line-height:1.7!important;margin-block:12px}
+main .profile-madden .profile-historical-table th,
+main .profile-madden .profile-historical-table td{padding:12px 10px!important;line-height:1.5;white-space:normal}
+main .profile-quickstart{max-width:960px;min-width:0;margin:20px auto 32px}
+main .profile-feature-directory{margin:0 auto 26px!important}
+main .profile-feature-directory h2{line-height:1.25;margin-bottom:9px}
+main .profile-feature-directory>.muted{line-height:1.65;margin-bottom:18px}
+main .profile-feature-groups{gap:13px!important}
+main .profile-feature-group>summary{gap:12px;line-height:1.5}
+main .profile-feature-group>summary strong{line-height:1.4}
+main .profile-feature-group>summary span{line-height:1.6!important}
+main .profile-feature-group>.profile-feature-list{gap:11px!important;padding:4px 14px 16px!important}
+main .profile-feature-button{gap:14px;min-height:76px!important;padding:14px 16px!important;align-items:center}
+main .profile-feature-copy{gap:6px!important}
+main .profile-feature-copy strong{font-size:14px;line-height:1.5!important}
+main .profile-feature-copy small{font-size:12px;line-height:1.65!important}
+main .profile-feature-arrow{padding-left:4px}
+main .profile-focus-toolbar{gap:12px;padding:15px 17px}
+main .profile-research-shelf{margin:20px 0!important}
+main .profile-research-shelf>summary{line-height:1.55}
+main .profile-research-shelf-body{line-height:1.65}
+main .profile-research-shelf .profile-front-office-grid{gap:12px}
+main .profile-research-shelf .profile-front-office-tile{min-width:0;padding:15px;line-height:1.5}
+main .profile-stat-explainer p{line-height:1.75!important;margin-block:12px!important}
+main>section.section .wrap{min-width:0}
+main>section.section h2{line-height:1.3;margin-bottom:16px}
+main>section.section p{line-height:1.75;margin-block:10px 17px}
+main>section.section .tile,
+main>section.section .stat{padding:clamp(16px,2.5vw,24px);min-width:0}
+main>section.section .tile h3{line-height:1.35;margin-bottom:10px}
+main>section.section details>summary{line-height:1.6;padding-block:6px}
+main>section.section .grid{gap:17px}
+main>section.section table th,
+main>section.section table td{line-height:1.5;padding-block:12px}
+main>section.section .muted{line-height:1.7}
+@media(max-width:700px){
+  main .hero{padding-top:28px}
+  main .hero .lead{font-size:15px;line-height:1.75}
+  main .profile-madden .profile-madden-facts{gap:10px!important}
+  main .profile-madden .profile-madden-facts span{min-height:88px!important;padding:12px 10px!important;line-height:1.6!important}
+  main .profile-madden .profile-madden-facts span:nth-child(n+5){min-height:70px!important}
+  main .profile-feature-group>summary{min-height:76px;padding:15px 48px 15px 16px}
+  main .profile-feature-group>.profile-feature-list{padding:3px 10px 13px!important;gap:9px!important}
+  main .profile-feature-button{min-height:80px!important;padding:13px!important}
+  main .profile-quickstart{margin-block:22px 30px}
+  main>section.section .grid{gap:12px}
+  main>section.section .wrap{padding-inline:0}
+  main .profile-madden .profile-historical-table{min-width:540px}
+}
+@media(max-width:390px){
+  main .profile-madden-header{align-items:flex-start}
+  main .profile-madden .profile-madden-ovr{min-width:88px}
+  main .profile-madden .profile-madden-facts span{padding:11px 8px!important}
+  main .profile-feature-button{gap:9px}
+  main .profile-feature-icon{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  main .profile-feature-button{transition:none}
+}

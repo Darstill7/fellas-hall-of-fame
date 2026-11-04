@@ -819,6 +819,21 @@ try{
         await heroActions.first().getAttribute('href')!=='#profile-features'||
         await heroActions.nth(1).getAttribute('href')!=='../')
       errors.push(width+' '+slug+' hero has duplicate or misleading navigation links');
+     // The shared readability stylesheet must be loaded on each manager route.
+     const readability=page.locator('link[href="../../assets/manager-profile-readability.css"]');
+     if(await readability.count()!==1)
+      errors.push(width+' '+slug+' missing shared manager readability stylesheet');
+     else{
+      const spacing=await page.evaluate(()=>{
+       const card=document.querySelector('.profile-madden .profile-madden-facts span');
+       const metric=document.querySelector('.profile-madden .profile-madden-facts strong');
+       if(!card||!metric)return null;
+       const cs=getComputedStyle(card);
+       return {gap:parseFloat(cs.columnGap),line:parseFloat(cs.lineHeight),wrap:cs.flexWrap};
+      });
+      if(!spacing||spacing.gap<6||spacing.line<18||spacing.wrap!=='wrap')
+       errors.push(width+' '+slug+' career facts still have cramped labels');
+     }
      const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
      if(await features.count()!==11)
       errors.push(width+' '+slug+' missing eleven individually labeled feature buttons');
