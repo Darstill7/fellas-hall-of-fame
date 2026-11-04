@@ -1,7 +1,7 @@
 // Verified Sleeper postseason placements, sourced from user screenshots and source match receipts.
 // Championship results and Toilet Bowl outcomes are different competitions.
 // "Shitter of the Year" = lower FINAL score in the King (Last Place) game.
-const source='../data/sleeper_postseason_placement_receipts_2022_2025.json';
+const source='../data/sleeper_postseason_placement_receipts_2020_2025.json';
 const make=(type,text,className)=>{
  const el=document.createElement(type);
  if(text!==undefined&&text!==null)el.textContent=text;
@@ -36,7 +36,7 @@ function renderSeason(root,s){
  const others=s.placementGames.filter(x=>x.label!=='Championship'&&x.label!=='King (Last Place)');
  if(others.length){
   const details=make('details',null,'placement-more');
-  const summary=make('summary','See 3rd, 5th and 8th-place games');
+  const summary=make('summary','View verified placement games');
   const list=make('ul',null,'placement-list');
   for(const game of others){
    const item=make('li');
@@ -45,6 +45,7 @@ function renderSeason(root,s){
   }
   details.append(summary,list);root.append(details);
  }
+ if(s.reviewNeeded?.length)root.append(make('p','A third-place result from '+s.year+' has a small screenshot-versus-archive scoring discrepancy and is awaiting verification.','placement-note'));
  root.append(make('p','Championship and placement games are separate. The 8th-place game does not decide Shitter of the Year. The 2026 season is still underway.','placement-note'));
 }
 function renderHistory(root,data){
@@ -61,7 +62,7 @@ function renderHistory(root,data){
   link.append(left,center,right);list.append(link);
  }
  root.append(list);
- root.append(make('p','Only 2023–2025 are certified from these screenshots. Other years need the labeled final Toilet Bowl evidence.','placement-note'));
+ root.append(make('p','All six seasons, 2020–2025, are verified from the labeled final Toilet Bowl screenshots. Six different managers have finished last; no repeat winner so far.','placement-note'));
 }
 function addCSS(){
  if(document.getElementById('fellas-placement-style'))return;
