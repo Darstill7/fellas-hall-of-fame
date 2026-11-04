@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -510,6 +510,21 @@ try{
     await input.fill('');
     if(await page.locator('#manager-directory-cards a.manager:visible').count()!==10||!await page.locator('#manager-no-results').isHidden())
      errors.push(width+' clearing manager search did not restore all ten');
+   }
+   if(route==='analytics/franchise-encyclopedia.html'){
+    const managerLink=page.locator('header .nav a[href="../managers/"]');
+    if(await managerLink.count()!==1)errors.push(width+' player history does not link to manager directory');
+    const coverage=page.locator('details.history-coverage');
+    if(await coverage.count()!==1||await coverage.evaluate(el=>el.open))
+     errors.push(width+' player history evidence notes should begin collapsed');
+    await coverage.locator(':scope > summary').click();
+    if(!await coverage.locator('p').isVisible())errors.push(width+' player history coverage details did not expand');
+    if(await page.locator('h1').innerText()!=='Manager Player Histories')
+     errors.push(width+' player history title exposes old research label');
+    if(await page.locator('#manager option').count()!==10)
+     errors.push(width+' player history manager chooser missing managers');
+    const linkedProfile=await page.locator('#profile').getAttribute('href');
+    if(!linkedProfile||linkedProfile==='#')errors.push(width+' player history profile navigation not initialized');
    }
    if(route==='analytics/trade-museum.html'){
     const links=page.locator('nav.tm-nav a[href="power-ratings.html"]');
