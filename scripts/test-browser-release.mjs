@@ -226,7 +226,7 @@ try{
      if(await timeline.count()!==1||await timeline.getAttribute('data-manager-season-evidence')!==name)
       errors.push(width+' '+route+' manager season-evidence module missing');
      else {
-      await timeline.locator('summary').click();
+      await timeline.locator(':scope > summary').click();
       const entries=timeline.locator('.profile-season-evidence-row');
       if(await entries.count()<3)
        errors.push(width+' '+route+' insufficient documented manager seasons');
