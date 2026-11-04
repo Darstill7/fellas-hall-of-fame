@@ -1,0 +1,89 @@
+/* Public research page readability system, intentionally scoped.
+ * No data, rankings, editorial outcomes, or calculations are changed. */
+body.research-readable{font-size:16px;line-height:1.65}
+body.research-readable :is(main,.wrap,.section,.card,.panel,.entry,.side,.grade,.metric,.detail){min-width:0}
+body.research-readable :is(h1,h2,h3){line-height:1.25;overflow-wrap:break-word;text-wrap:balance}
+body.research-readable h1{letter-spacing:-.035em;margin-block:14px 19px}
+body.research-readable h2{margin-block:8px 17px}
+body.research-readable h3{margin-block:9px 12px}
+body.research-readable :is(p,li,dd){line-height:1.75;overflow-wrap:break-word}
+body.research-readable p{margin-block:11px 18px}
+body.research-readable :is(.muted,.fine,.sub,.lede,.note){line-height:1.7}
+body.research-readable :is(.label,.eyebrow,.tag){line-height:1.55}
+body.research-readable :is(.card,.panel,.metric,.grade,.entry,.side){overflow-wrap:break-word}
+body.research-readable :is(.card,.panel,.metric){padding:clamp(18px,2.5vw,26px)}
+body.research-readable :is(.cards,.rows){gap:17px}
+body.research-readable :is(.grid,.metrics,.comparison,.detail-grid){gap:14px}
+body.research-readable .metric strong{line-height:1.25}
+body.research-readable :is(.metric,.grade,.value) :is(strong,small,span){overflow-wrap:anywhere}
+body.research-readable .grade strong{line-height:1.4}
+body.research-readable .grade small{font-size:12px;line-height:1.6;margin-top:8px}
+body.research-readable .grade span{line-height:1.55;display:block;margin-top:5px}
+body.research-readable .head{gap:17px;flex-wrap:wrap}
+body.research-readable .head > *{min-width:0}
+body.research-readable .score{line-height:1.25}
+body.research-readable .report-score-summary{line-height:1.7;padding:13px 15px;border-left:3px solid var(--gold,#e2bd74);background:#ffffff08;border-radius:6px}
+body.research-readable .report-score-guide dl{display:grid;gap:11px}
+body.research-readable .report-score-guide dl>div{min-width:0;padding:12px 14px;background:#ffffff08;border-radius:9px}
+body.research-readable .report-score-guide dt{font-weight:800;margin-bottom:5px}
+body.research-readable .report-score-guide dd{margin:0}
+body.research-readable .pickup-facts{line-height:1.65}
+body.research-readable .pickup-highlights{margin-block:16px}
+body.research-readable .entry summary{gap:13px;padding:18px 20px}
+body.research-readable .entry summary .summary-name{min-width:0;line-height:1.5}
+body.research-readable .entry summary .name{line-height:1.4}
+body.research-readable .entry .value{gap:9px;flex-wrap:wrap;line-height:1.5}
+body.research-readable .entry .value strong{line-height:1.3}
+body.research-readable .entry .detail{padding:clamp(17px,2.5vw,25px)}
+body.research-readable .entry .detail-grid>div{padding:15px;min-width:0}
+body.research-readable .entry .detail-grid small{display:block;line-height:1.55;margin-top:7px}
+body.research-readable .entry .detail-grid strong{line-height:1.3}
+body.research-readable .actions{gap:12px 18px}
+body.research-readable .warning,
+body.research-readable .notice,
+body.research-readable .callout{padding:18px 22px;line-height:1.7}
+body.research-readable :is(.controls,.compare-controls){gap:14px 18px;margin-block:23px}
+body.research-readable :is(.controls,.compare-controls) label{line-height:1.5}
+body.research-readable :is(.controls,.compare-controls) select{max-width:100%;min-height:44px}
+body.research-readable .side{padding:16px 18px;margin-block:14px;line-height:1.65}
+body.research-readable .side p{margin-block:9px}
+body.research-readable details{min-width:0}
+body.research-readable details>summary{line-height:1.55;overflow-wrap:break-word}
+body.research-readable details[open]>summary{margin-bottom:12px}
+body.research-readable details.method li{margin-block:13px}
+body.research-readable .section{margin-block:34px}
+body.research-readable .section .grid{row-gap:18px}
+body.research-readable .section .card{min-height:0}
+body.research-readable .section .card :is(b,strong){line-height:1.5;display:inline-block}
+body.research-readable .section .card .metric{line-height:1.25;margin:12px 0}
+body.research-readable .top{gap:20px;padding-block:34px 28px}
+body.research-readable .top h1{line-height:1.1}
+body.research-readable .top p{line-height:1.75;max-width:72ch}
+body.research-readable .table-wrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+body.research-readable :is(.table-wrap table,.legends-table table){border-collapse:collapse}
+body.research-readable :is(.table-wrap th,.table-wrap td){padding:13px 15px;line-height:1.55;vertical-align:top}
+body.research-readable :is(.table-wrap td,.table-wrap th){white-space:normal;overflow-wrap:break-word}
+body.research-readable .table-wrap td b{line-height:1.5}
+body.research-readable .footer{line-height:1.65;padding-top:20px}
+@media(max-width:700px){
+ body.research-readable{font-size:15px}
+ body.research-readable :is(main,.wrap){max-width:100%}
+ body.research-readable h1{line-height:1.2}
+ body.research-readable :is(.card,.panel,.metric){padding:17px}
+ body.research-readable .grid{column-gap:11px}
+ body.research-readable .section{margin-block:26px}
+ body.research-readable .table-wrap :is(td,th){padding:12px 13px}
+ body.research-readable .entry summary{padding:16px}
+ body.research-readable .entry .detail-grid{gap:10px}
+ body.research-readable .entry .detail-grid>div{padding:12px}
+ body.research-readable .controls label{min-width:0}
+ body.research-readable .controls select{min-width:0;width:100%}
+ body.research-readable .side{padding:14px}
+ body.research-readable .warning,body.research-readable .notice{padding:17px}
+}
+@media(max-width:400px){
+ body.research-readable :is(.card,.panel,.metric){padding:15px}
+ body.research-readable .entry .value{gap:6px}
+ body.research-readable .entry .value strong{font-size:22px}
+ body.research-readable .table-wrap{margin-inline:0}
+}

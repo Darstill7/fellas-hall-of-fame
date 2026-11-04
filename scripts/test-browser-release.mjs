@@ -56,6 +56,20 @@ try{
    if(state.scroll>state.viewport+5)errors.push(width+' '+route+' horizontal page overflow '+state.scroll+'px at '+state.viewport+'px viewport; offenders: '+(await page.evaluate(()=>[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+6).sort((a,b)=>b.getBoundingClientRect().right-a.getBoundingClientRect().right).slice(0,5).map(e=>e.tagName.toLowerCase()+(e.className&&typeof e.className==='string'?'.'+e.className.trim().replaceAll(' ','.'):'')+' right='+Math.round(e.getBoundingClientRect().right)).join(', ')+'; outside-panel offenders='+[...document.querySelectorAll('body *')].filter(e=>!e.closest('#historical-record-profile')&&e.getBoundingClientRect().right>innerWidth+3).sort((a,b)=>b.getBoundingClientRect().right-a.getBoundingClientRect().right).slice(0,12).map(e=>e.tagName.toLowerCase()+'.'+(typeof e.className==='string'?e.className.trim().replaceAll(' ','.'):'')+' right='+Math.round(e.getBoundingClientRect().right)).join(', ')+'; panel ancestry='+(()=>{let e=document.querySelector('#historical-record-profile');let xs=[];for(let i=0;e&&i<6;i++,e=e.parentElement){let b=e.getBoundingClientRect(),v=getComputedStyle(e);xs.push(e.tagName.toLowerCase()+'.'+e.className+' left='+Math.round(b.left)+' right='+Math.round(b.right)+' width='+Math.round(b.width)+' overflow='+v.overflowX)}return xs.join(' | ')})())));
    for(const error of unexpected)errors.push(width+' '+route+' JS error: '+error);
    for(const failed of failedRequests)errors.push(width+' '+route+' request error: '+failed);
+   if(['analytics/manager-report-cards.html','analytics/keeper-decision-research.html','analytics/manager-trade-intelligence.html','analytics/drafts/index.html','analytics/trades/index.html','labs/faab/index.html'].includes(route)){
+    const shared=page.locator('link[href$="research-readability.css"]');
+    if(await shared.count()!==1||
+       !await page.locator('body').evaluate(el=>el.classList.contains('research-readable')))
+     errors.push(width+' '+route+' research readability stylesheet missing');
+    else{
+     const textSpacing=await page.evaluate(()=>{
+      const p=document.querySelector('p');
+      if(!p)return 0;
+      return parseFloat(getComputedStyle(p).lineHeight);
+     });
+     if(textSpacing<22)errors.push(width+' '+route+' prose line height remains cramped');
+    }
+   }
    if(route==='analytics/keeper-decision-research.html'){
     const rows=page.locator('#keeper-results .entry');
     if(await rows.count()!==10)errors.push(width+' keeper research expected 10 expandable managers');
