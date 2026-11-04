@@ -22,7 +22,7 @@ const deepLink=(year,manager)=>{
 export async function mountDraftTradeCareer(host,manager){
  const box=elt('details','profile-career-resume');
  box.dataset.managerCareerResume=manager;
- const summary=elt('summary',null,'Career Drafting & Trading Résumé');
+ const summary=elt('summary',null,'Drafting & trading · Career overview');
  box.append(summary,elt('p','muted','Loading documented draft and trade history…'));
  host.append(box);
  try{
@@ -40,7 +40,7 @@ export async function mountDraftTradeCareer(host,manager){
    event.complete&&event.managers.includes(manager)&&event.year<=2025).slice(0,3);
   box.replaceChildren(summary);
   box.append(elt('p','muted career-resume-intro',
-   'A documented career résumé, not Drafting or Trading skill grades. ESPN draft names are incomplete; qualifying trades are a conservative archive subset.'));
+   'Recorded draft picks and trades across available seasons. These counts are evidence, not drafting or trading grades.'));
   const metrics=elt('div','career-resume-metrics');
   for(const [value,label] of [
    [career.seasons,'Draft seasons · '+career.firstYear+'–'+career.lastYear],
@@ -53,12 +53,17 @@ export async function mountDraftTradeCareer(host,manager){
    metrics.append(tile);
   }
   box.append(metrics);
+  // Keep the verified count tiles immediately readable. Supporting receipts
+  // are available in one optional disclosure instead of a wall of raw data.
+  const details=elt('details','career-resume-receipts');
+  const detailSummary=elt('summary',null,'View draft picks, trades & source coverage');
+  details.append(detailSummary);
   const coverage=elt('p','muted career-resume-coverage',
    career.espnSeasons+' ESPN seasons · '+career.sleeperSeasons+' Sleeper seasons · '+
    career.unresolvedNames+' unresolved draft player names · '+
    career.fullyRepresentedTrades+' multi-side qualifying trade events · '+
    career.partialTrades+' partial qualifying trade events.');
-  box.append(coverage);
+  details.append(coverage);
   const draftSection=elt('section','career-resume-section');
   draftSection.append(elt('h4',null,'Recent draft snapshots'));
   for(const season of career.latestPicks){
@@ -70,7 +75,7 @@ export async function mountDraftTradeCareer(host,manager){
   }
   if(!career.latestPicks.length)draftSection.append(
    elt('p','muted','No named early draft selections available.'));
-  box.append(draftSection);
+  details.append(draftSection);
   const tradeSection=elt('section','career-resume-section career-resume-trades');
   tradeSection.append(elt('h4',null,'Recent source-verified trade records'));
   if(!related.length)tradeSection.append(elt('p','muted',
@@ -85,7 +90,8 @@ export async function mountDraftTradeCareer(host,manager){
    item.append(deepLink(trade.year,manager));
    tradeSection.append(item);
   }
-  box.append(tradeSection);
+  details.append(tradeSection);
+  box.append(details);
   box.append(elt('p','muted career-resume-caveat',
    'Event counts are not all-time trade totals or wins. The 2026 trade sides are provisional and excluded; incomplete events and missing earlier trade archives are not scored. Draft examples are original selections, not proof of draft value.'));
  }catch(error){
