@@ -741,6 +741,47 @@ try{
     }
    }
    if(route===''){
+    // Real new-visitor journey: homepage -> manager profile -> back ->
+    // manager directory -> manager profile. No internal/test-only shortcuts.
+    const visitor=await context.newPage();
+    try{
+     await visitor.goto(baseUrl,{waitUntil:'networkidle',timeout:30000});
+     if(width===390){
+      const row=visitor.locator('#home-manager-mobile details[data-manager-name^="stilly"]');
+      if(await row.count()!==1)errors.push(width+' first-visit Stilly manager row is missing');
+      else{
+       await row.locator(':scope > summary').click();
+       await row.locator('a.mobile-manager-link').click();
+      }
+     }else{
+      const card=visitor.locator('#home-manager-cards a[href="managers/stilly/"]');
+      if(await card.count()!==1)errors.push(width+' first-visit Stilly manager card is missing');
+      else await card.click();
+     }
+     await visitor.waitForURL('**/managers/stilly/',{timeout:10000});
+     if(!(await visitor.locator('main .hero h1').innerText()).includes('Stilly')||
+        !await visitor.locator('#profile-features').isVisible())
+      errors.push(width+' first-visit homepage manager link failed to reach usable profile');
+     await visitor.goBack({waitUntil:'networkidle'});
+     if(!visitor.url().endsWith('/fellas-hall-of-fame/'))
+      errors.push(width+' first-visit browser back did not restore homepage');
+     if(width===390){
+      const menu=visitor.locator('details.mobile-menu');
+      await menu.locator(':scope > summary').click();
+      await menu.locator('nav.menu-links > a[href="managers/"]').click();
+     }else await visitor.locator('.main-nav > a[href="managers/"]').click();
+     await visitor.waitForURL('**/managers/',{timeout:10000});
+     if(!(await visitor.locator('main h1').innerText()).includes('Meet the Fellas'))
+      errors.push(width+' first-visit navigation failed to reach manager directory');
+     await visitor.locator('#manager-directory-cards a.manager[href="stilly/"]').click();
+     await visitor.waitForURL('**/managers/stilly/',{timeout:10000});
+     if(!await visitor.locator('#profile-features').isVisible())
+      errors.push(width+' first-visit directory manager link failed to reveal feature navigation');
+    }catch(error){
+     errors.push(width+' first-visit end-to-end navigation journey failed: '+String(error));
+    }finally{await visitor.close();}
+   }
+   if(route===''){
     const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
     if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
     if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
