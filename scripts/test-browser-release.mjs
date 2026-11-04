@@ -491,6 +491,15 @@ try{
     if(await page.locator('a[href="analytics/legacy.html"]').count()>0)
      errors.push(width+' homepage links to obsolete Legacy Score prototype');
    }
+   if(['analytics/manager-trade-intelligence.html','analytics/manager-lineup-research.html'].includes(route)){
+    const navLinks=page.locator('nav.research-top-nav a');
+    if(await navLinks.count()!==3)errors.push(width+' '+route+' research return links missing');
+    else{
+     const paths=await navLinks.evaluateAll(nodes=>nodes.map(a=>a.getAttribute('href')));
+     if(JSON.stringify(paths)!==JSON.stringify(['../managers/','manager-report-cards.html','../index.html']))
+      errors.push(width+' '+route+' research return links point to wrong destinations');
+    }
+   }
    if(route==='analytics/manager-trade-intelligence.html'){
     const optional=page.locator('details.trade-advanced');
     if(await optional.count()!==2||await optional.evaluateAll(nodes=>nodes.some(node=>node.open)))
