@@ -102,7 +102,7 @@ const stoverProfile=fs.readFileSync('managers/stover/index.html','utf8');
 const profileTabs=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
 for(const tab of ['overview','seasons','rivalries','advanced'])if(!stoverProfile.includes('data-profile-tab="'+tab+'"')||!profileTabs.includes(tab+':new Set('))throw Error('Stover profile missing navigation tab '+tab);
 if(!stoverProfile.includes('manager-profile-tabs.mjs')||!stoverProfile.includes('.section[hidden]{display:none!important}'))throw Error('Stover profile tab presentation incomplete');
-if(stoverProfile.includes('verified title season is 2023')||!stoverProfile.includes('verified title season is 2022'))throw Error('Stover title narrative regressed');
+if(stoverProfile.includes('verified title season is 2023')||!stoverProfile.includes('Stover won the league championship in 2022'))throw Error('Stover title narrative regressed');
 for(const anchor of ['franchise-story','season-history','head-to-head','franchise-encyclopedia','verified-history-panel','weekly-game-log'])if(!stoverProfile.includes('id="'+anchor+'"'))throw Error('Stover archival profile section missing '+anchor);
 console.log('Stover four-tab profile structure and title historical correction PASS');
 
