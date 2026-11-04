@@ -6,6 +6,33 @@ const display=n=>n==='Thommy'?'Tom':n;
 const path=location.pathname;
 const depth=path.includes('/rivalries/')?(path.endsWith('/')||path.endsWith('/index.html')?'../../':'../'):'../';
 const fmt=n=>Number(n).toFixed(2);
+// One consistent visitor-level menu across the rivalry finder and all 45 files.
+// Historic research destinations remain available elsewhere; keep five core links.
+const primaryLinks=[
+ ['Home','../index.html'],
+ ['Managers','../managers/'],
+ ['Report Cards','../analytics/manager-report-cards.html'],
+ ['Records','../analytics/records.html'],
+ ['Rivalries','../analytics/rivalries.html']
+];
+const nav=document.querySelector('.nav');
+if(nav){
+ nav.setAttribute('aria-label','Rivalry navigation');
+ nav.replaceChildren(...primaryLinks.map(([label,href])=>{
+  const a=document.createElement('a');a.href=href;a.textContent=label;
+  if(label==='Rivalries')a.setAttribute('aria-current',document.body.dataset.rivalryMatrix?'page':'false');
+  return a;
+ }));
+}
+const mobileMenu=document.querySelector('.mobile-menu .menu-grid');
+if(mobileMenu)mobileMenu.replaceChildren(...primaryLinks.map(([label,href])=>{
+ const a=document.createElement('a');a.href=href;a.textContent=label;return a;
+}));
+document.querySelector('.mobile-dock')?.remove();
+const navStyles=document.createElement('style');
+navStyles.dataset.rivalryCoreNavigation='';
+navStyles.textContent='body.rivalry-page,body[data-rivalry-matrix]{padding-bottom:0}.nav a{min-height:44px;display:inline-flex;align-items:center;line-height:1.5;font-size:13px;padding-inline:15px}.mobile-menu>summary{min-height:44px;display:inline-flex;align-items:center;padding:10px 14px;font-size:13px}.mobile-menu .menu-grid a{min-height:44px;display:flex;align-items:center;font-size:13px;line-height:1.5}.nav a:focus-visible,.mobile-menu a:focus-visible,.mobile-menu summary:focus-visible{outline:3px solid #f2d28f;outline-offset:2px}@media(max-width:760px){.mobile-menu{margin:12px 0 18px}.mobile-menu .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}';
+document.head.append(navStyles);
 // Keep all 45 legacy rivalry files readable without rewriting their historical data.
 if(document.body.dataset.rivalryPair){
  const style=document.createElement('style');
