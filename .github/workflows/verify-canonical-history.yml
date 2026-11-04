@@ -47,6 +47,8 @@ jobs:
         run: node scripts/verify-ledger-projections.mjs
       - name: Verify canonical website consumers
         run: node scripts/verify-core-consumers.mjs
+      - name: Guard completed 2020–2025 season archives
+        run: node scripts/test-historical-season-launch-copy.mjs
       - name: Ensure 2026 season encyclopedia is labeled as a Week 7 archive
         run: node scripts/test-2026-season-archive-copy.mjs
       - name: Check historical playoff forecast is labeled as an archive
