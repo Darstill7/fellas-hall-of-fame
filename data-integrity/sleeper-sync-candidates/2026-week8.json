@@ -1,0 +1,153 @@
+{
+  "status": "REVIEW_REQUIRED",
+  "league": "1340027406009761792",
+  "year": 2026,
+  "week": 8,
+  "source": "Sleeper 2026 Week 8 completed matchups retrieved through connected fantasy provider on 2026-11-03",
+  "matchupCount": 5,
+  "reason": "Review against final Sleeper results before approving canonical import; no canonical ledger mutated",
+  "games": [
+    {
+      "year": 2026,
+      "week": 8,
+      "home": "Stilly",
+      "away": "Birch",
+      "homeScore": 113.58,
+      "awayScore": 96.9,
+      "winner": "HOME",
+      "margin": 16.68,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_8"
+    },
+    {
+      "year": 2026,
+      "week": 8,
+      "home": "JMid",
+      "away": "Kuhl",
+      "homeScore": 141.68,
+      "awayScore": 82.38,
+      "winner": "HOME",
+      "margin": 59.3,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_8"
+    },
+    {
+      "year": 2026,
+      "week": 8,
+      "home": "Thommy",
+      "away": "Scott",
+      "homeScore": 106.34,
+      "awayScore": 112.56,
+      "winner": "AWAY",
+      "margin": 6.22,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_8"
+    },
+    {
+      "year": 2026,
+      "week": 8,
+      "home": "Stew",
+      "away": "Stover",
+      "homeScore": 134.16,
+      "awayScore": 79.1,
+      "winner": "HOME",
+      "margin": 55.06,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_8"
+    },
+    {
+      "year": 2026,
+      "week": 8,
+      "home": "Mitch",
+      "away": "Tony",
+      "homeScore": 123.16,
+      "awayScore": 99.3,
+      "winner": "HOME",
+      "margin": 23.86,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_8"
+    }
+  ],
+  "providerStandingsSnapshot": {
+    "asOf": "2026-11-03",
+    "seasonThroughWeek": 8,
+    "source": "Connected Sleeper 2026 league standings",
+    "teams": [
+      {
+        "manager": "Mitch",
+        "wins": 8,
+        "losses": 0,
+        "pointsFor": 1059.36,
+        "pointsAgainst": 853.44
+      },
+      {
+        "manager": "Stew",
+        "wins": 5,
+        "losses": 3,
+        "pointsFor": 1002.98,
+        "pointsAgainst": 863.34
+      },
+      {
+        "manager": "Birch",
+        "wins": 5,
+        "losses": 3,
+        "pointsFor": 910.84,
+        "pointsAgainst": 832.84
+      },
+      {
+        "manager": "Tony",
+        "wins": 5,
+        "losses": 3,
+        "pointsFor": 887,
+        "pointsAgainst": 820.24
+      },
+      {
+        "manager": "Stilly",
+        "wins": 4,
+        "losses": 4,
+        "pointsFor": 927.24,
+        "pointsAgainst": 910.52
+      },
+      {
+        "manager": "Scott",
+        "wins": 4,
+        "losses": 4,
+        "pointsFor": 791.04,
+        "pointsAgainst": 853.44
+      },
+      {
+        "manager": "JMid",
+        "wins": 3,
+        "losses": 5,
+        "pointsFor": 890.06,
+        "pointsAgainst": 861.56
+      },
+      {
+        "manager": "Stover",
+        "wins": 3,
+        "losses": 5,
+        "pointsFor": 842.24,
+        "pointsAgainst": 903.34
+      },
+      {
+        "manager": "Thommy",
+        "wins": 3,
+        "losses": 5,
+        "pointsFor": 838.04,
+        "pointsAgainst": 924.46
+      },
+      {
+        "manager": "Kuhl",
+        "wins": 0,
+        "losses": 8,
+        "pointsFor": 689.32,
+        "pointsAgainst": 1014.94
+      }
+    ]
+  }
+}

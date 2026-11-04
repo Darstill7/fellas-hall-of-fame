@@ -23,6 +23,9 @@ for(const g of candidate.games){
 }
 const expectedOwners=new Set(['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott']);
 if(participants.size!==10||[...participants].some(name=>!expectedOwners.has(name)))throw Error('Expected the 10 current verified managers');
+// Independently reconcile the reviewed score pairs and every manager's
+// season record against the preserved original-provider standings snapshot.
+execFileSync(process.execPath,['scripts/verify-staged-weekly-candidates.mjs'],{stdio:'inherit'});
 // Refuse to rewrite any records until the candidate has passed structural checks.
 const updated=[...ledger.games,...candidate.games];
 ledger.games=updated;ledger.updated=new Date().toISOString().slice(0,10);
@@ -66,11 +69,28 @@ luck.scope=luck.scope.replace(/2026 Week\d+/, '2026 Week'+candidate.week);
 if(process.argv.includes('--dry-run')) {
  console.log('DRY RUN PASS: staged Week '+candidate.week+', five games, '+standings.length+' manager standings, all-play recomputed; canonical files unchanged.');
 } else {
- write(path,ledger);write(mirrorPath,mirror);write(luckPath,luck);
-execFileSync(process.execPath,['scripts/generate-career-core.mjs'],{stdio:'inherit'});
-execFileSync(process.execPath,['scripts/generate-season-guide.mjs'],{stdio:'inherit'});
-for(const script of ['verify-weekly-ledger-parity.mjs','verify-manager-madden-cards.mjs','verify-fellas-rating.mjs'])
- execFileSync(process.execPath,['scripts/'+script],{stdio:'inherit'});
-console.log('Review regenerated files and full CI before merging. Other legacy projections may need regeneration.');
+ // Fail closed: a generator or regression failure must not strand a half-updated
+ // local working tree. Restore exact pre-import bytes, including the candidate.
+ const affected=[path,mirrorPath,luckPath,'data/career_core_generated.json','data/season_guide.json',candidatePath];
+ const originals=new Map(affected.map(p=>[p,fs.existsSync(p)?fs.readFileSync(p):null]));
+ try{
+  write(path,ledger);write(mirrorPath,mirror);write(luckPath,luck);
+  execFileSync(process.execPath,['scripts/generate-career-core.mjs'],{stdio:'inherit'});
+  execFileSync(process.execPath,['scripts/generate-season-guide.mjs'],{stdio:'inherit'});
+  for(const script of ['verify-weekly-ledger-parity.mjs','verify-manager-madden-cards.mjs','verify-fellas-rating.mjs'])
+   execFileSync(process.execPath,['scripts/'+script],{stdio:'inherit'});
+  // Commit the evidence receipt only after the core import checks pass.
+  candidate.status='IMPORTED';
+  candidate.importedAt=new Date().toISOString();
+  write(candidatePath,candidate);
+ }catch(error){
+  for(const [file,bytes] of originals){
+   if(bytes===null)fs.rmSync(file,{force:true});
+   else fs.writeFileSync(file,bytes);
+  }
+  console.error('WEEKLY IMPORT ROLLED BACK: source and generated files restored; review the failure before retrying');
+  throw error;
+ }
+ console.log('Review regenerated files and full CI before merging. Other legacy projections may need regeneration.');
 }
 

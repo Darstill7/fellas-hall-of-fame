@@ -108,6 +108,8 @@ jobs:
           node --check assets/manager-weekly-ovr.mjs
       - name: Rehearse synthetic weekly import without canonical mutations
         run: node scripts/test-weekly-import-rehearsal.mjs
+      - name: Reconcile staged weekly scores to connected provider standings
+        run: node scripts/verify-staged-weekly-candidates.mjs
       - name: Verify Madden OVR calibration across cards and profiles
         run: node scripts/verify-manager-madden-scale.mjs
       - name: Verify historical OVR without future-season leakage
