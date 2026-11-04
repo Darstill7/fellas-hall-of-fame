@@ -429,13 +429,13 @@ try{
      errors.push(width+' managers extra destinations not reachable');
     const input=page.locator('#manager-name-search');
     await input.fill('stover');
-    if(await cards.locator(':visible').count()!==1||!await page.locator('a.manager[href="stover/"]').isVisible())
+    if(await page.locator('#manager-directory-cards a.manager:visible').count()!==1||!await page.locator('a.manager[href="stover/"]').isVisible())
      errors.push(width+' manager quick search should reveal only Stover');
     await input.fill('not-a-manager');
-    if(!await page.locator('#manager-no-results').isVisible()||await cards.locator(':visible').count()!==0)
+    if(!await page.locator('#manager-no-results').isVisible()||await page.locator('#manager-directory-cards a.manager:visible').count()!==0)
      errors.push(width+' manager search empty state incorrect');
     await input.fill('');
-    if(await cards.locator(':visible').count()!==10||!await page.locator('#manager-no-results').isHidden())
+    if(await page.locator('#manager-directory-cards a.manager:visible').count()!==10||!await page.locator('#manager-no-results').isHidden())
      errors.push(width+' clearing manager search did not restore all ten');
    }
    if(route==='analytics/trade-museum.html'){
