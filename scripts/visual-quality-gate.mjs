@@ -91,6 +91,12 @@ try{
         if(!/The history\.\s+The legends\.\s+The Fellas\./.test(headline||''))
          findings.push(engine+' '+width+' mobile homepage headline words run together');
        }
+       if(route===''&&width===390){
+        const firstManager=await page.locator('#home-manager-mobile .mobile-manager-row').first().evaluate(el=>el.getBoundingClientRect().top);
+        if(firstManager>844*.82)findings.push(engine+' '+width+' manager choices start too far below first screen: '+Math.round(firstManager)+'px');
+        if(await page.locator('main .hero .actions .button:visible').count())
+         findings.push(engine+' '+width+' duplicate homepage hero buttons crowd out manager discovery');
+       }
        if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'&&audit.snapshotTiles<3)
         findings.push(engine+' '+width+' '+key+' career stat tiles not visible above the rating card');
        const dir=path.join(output,'screens',engine,String(width));

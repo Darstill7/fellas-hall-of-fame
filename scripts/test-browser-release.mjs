@@ -719,6 +719,8 @@ try{
     const desktopNav=page.locator('.main-nav');
     const mobileNav=page.locator('details.mobile-menu');
     if(width===390){
+     if(await page.locator('main .hero .actions .button:visible').count())
+      errors.push(width+' duplicate hero actions compete with the immediately available manager finder');
      if(!await mobileNav.isVisible()||await desktopNav.isVisible())errors.push(width+' homepage mobile navigation visibility wrong');
      await mobileNav.locator(':scope > summary').click();
      for(const href of ['managers/','analytics/manager-report-cards.html','analytics/records.html','analytics/rivalries.html'])
