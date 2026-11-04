@@ -106,6 +106,23 @@ try{
      if(!panel.includes('OVR')||!panel.includes('Championships')||
         !panel.includes('Best individual season:')||!panel.includes('What this rating means:'))
       errors.push(width+' '+route+' primary career rating or peak season missing');
+     const heroStats=page.locator('main .hero .stats');
+     if(await heroStats.count()&&await heroStats.isVisible())
+      errors.push(width+' '+route+' duplicate hero statistics still crowd landing card');
+     const facts=heroMadden.locator(':scope > .profile-madden-facts > span');
+     if(await facts.count()!==5)
+      errors.push(width+' '+route+' primary career card should show five readable metrics');
+     const trend=heroMadden.locator('details.profile-rating-trend');
+     if(await trend.count()!==1||await trend.evaluate(el=>el.open))
+      errors.push(width+' '+route+' rating trend must start collapsed');
+     else{
+      await trend.locator('summary').click();
+      if(!await trend.locator('svg.profile-madden-trend').isVisible())
+       errors.push(width+' '+route+' rating trend failed to expand');
+     }
+     const more=heroMadden.locator('details.profile-rating-more');
+     if(await more.count()!==1||await more.evaluate(el=>el.open))
+      errors.push(width+' '+route+' extra rating comparisons should begin collapsed');
      const explainer=heroMadden.locator('details.profile-rating-explainer');
      if(await explainer.count()!==1)errors.push(width+' '+route+' rating definitions missing');
      else{
