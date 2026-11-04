@@ -15,6 +15,51 @@ if(persona&&profileHero&&!profileHero.querySelector('.manager-nickname-origin'))
  style.textContent='.manager-nickname-origin{margin:12px 0 18px;border-left:4px solid #d6b976;padding:9px 14px;background:#122735;border-radius:0 9px 9px 0}.manager-nickname-origin summary{cursor:pointer;font-size:15px;min-height:44px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}.manager-nickname-origin summary span{font-weight:500;font-size:12px;color:#cfdee7}.manager-nickname-origin p{font-size:13px;margin:8px 0}';
  document.head.append(style);
 }
+// Give all ten profiles the same first-screen hierarchy without replacing
+// canonical stat values or historical source labels.
+if(profileHero&&!profileHero.querySelector('[data-profile-career-snapshot]')){
+ const eyebrow=profileHero.querySelector(':scope > .eyebrow');
+ if(eyebrow)eyebrow.textContent='The Fellas · Manager profile';
+ const originalStats=profileHero.querySelector(':scope > .stats');
+ if(originalStats){
+  const snapshot=document.createElement('section');
+  snapshot.className='profile-career-snapshot';
+  snapshot.dataset.profileCareerSnapshot='';
+  snapshot.setAttribute('aria-label','Career snapshot');
+  const heading=document.createElement('h2');
+  heading.textContent='Career snapshot';
+  heading.className='profile-snapshot-heading';
+  snapshot.append(heading);
+  // Move the rendered stat elements, preserving live canonical bindings.
+  originalStats.classList.add('profile-snapshot-stats');
+  snapshot.append(originalStats);
+  for(const stat of originalStats.querySelectorAll(':scope > .stat')){
+   const number=stat.querySelector(':scope > strong');
+   const label=stat.querySelector(':scope > small');
+   if(!number||!label)continue;
+   const rawLabel=label.textContent.trim();
+   const labelKey=/regular.season|all.time.*W.L/i.test(rawLabel)?'Regular-season record':
+    /title season|year he won|championship year/i.test(rawLabel)?'Championship season':
+    /championship/i.test(rawLabel)?'Championships':null;
+   if(labelKey){
+    label.textContent=labelKey;
+    if(rawLabel!==labelKey){
+     const explanation=document.createElement('span');
+     explanation.className='profile-snapshot-detail';
+     explanation.textContent=rawLabel;
+     stat.append(explanation);
+    }
+   }
+  }
+  const source=originalStats.nextElementSibling;
+  if(source?.matches('p.muted')&&/ESPN|Sleeper|verified|records include/i.test(source.textContent||'')){
+   source.classList.add('profile-snapshot-source');
+   snapshot.append(source);
+  }
+  const lead=profileHero.querySelector(':scope > .lead');
+  (lead||profileHero.querySelector('h1'))?.after(snapshot);
+ }
+}
 const legacyNav=document.querySelector('nav.profile-chapters');
 if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const manager=document.querySelector('main .hero h1')?.textContent?.trim()||'Manager';
@@ -116,6 +161,25 @@ function mountProfileFeatureDirectory(quick,manager){
   item.append(symbol,body,arrow);groupHosts.get(index).append(item);
  }
  shell.append(menu);
+ const ratingGuide=document.createElement('details');
+ ratingGuide.className='profile-rating-guide';
+ const ratingSummary=document.createElement('summary');
+ ratingSummary.textContent='What do the ratings mean?';
+ const ratingContent=document.createElement('div');
+ ratingContent.className='profile-rating-guide-content';
+ for(const [term,definition] of [
+  ['Legacy OVR','A career-level rating based on historical performance and accomplishments. It is not a player rating or a prediction.'],
+  ['Season OVR','A rating for a specific season; it may differ from the career-level Legacy OVR.'],
+  ['Report Card','Category-by-category evaluation with supporting evidence and stated data limitations.']
+ ]){
+  const paragraph=document.createElement('p');
+  const termLabel=document.createElement('strong');
+  termLabel.textContent=term+': ';
+  paragraph.append(termLabel,document.createTextNode(definition));
+  ratingContent.append(paragraph);
+ }
+ ratingGuide.append(ratingSummary,ratingContent);
+ shell.append(ratingGuide);
  quick.prepend(shell);
  // Retire the redundant four-item quick grid; these destinations now have
  // individually labeled buttons instead of nested and competing menus.
@@ -168,6 +232,7 @@ function mountProfileFeatureDirectory(quick,manager){
   if(!opened.matches?.('details.profile-feature-group')||!opened.open)return;
   for(const other of menu.querySelectorAll('details.profile-feature-group'))if(other!==opened)other.open=false;
  },true);
+ css.textContent+=' .profile-rating-guide{margin:15px 0 0;padding:0;background:#112b3b;border:1px solid #456377;border-radius:12px}.profile-rating-guide>summary{padding:13px 16px;min-height:48px;line-height:1.5;color:#f0d398;font-weight:800;cursor:pointer}.profile-rating-guide>summary:focus-visible{outline:3px solid #f0d398;outline-offset:2px}.profile-rating-guide-content{padding:0 16px 14px}.profile-rating-guide-content p{line-height:1.65;font-size:13px;margin:9px 0;color:#d3e1e9}.profile-rating-guide-content strong{color:#fff}';
  document.head.append(css);
 }
 function populateManagerResearch(quick,manager){
