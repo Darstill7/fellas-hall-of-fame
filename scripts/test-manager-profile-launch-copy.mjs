@@ -234,6 +234,15 @@ for(const yearData of bracketReceipts.seasons){
   throw Error('Verified placement details are missing from season '+year);
 }
 const master=JSON.parse(fs.readFileSync('data/fellas_final_placements_2020_2025.json','utf8'));
+for(const season of master.seasons){
+ const bracket=postseason.sleeper.seasons.find(y=>y.year===season.year);
+ const topSix=new Set(season.finishers.filter(x=>x.rank<=6).map(x=>x.manager));
+ const entrants=new Set(bracket?.seeds||[]);
+ if(topSix.size!==6||entrants.size!==6||
+    [...topSix].some(name=>!entrants.has(name))||
+    [...entrants].some(name=>!topSix.has(name)))
+  throw Error('Postseason final ranks 1–6 do not match championship bracket seeds in '+season.year);
+}
 const flatMaster=master.seasons.flatMap(s=>s.finishers.map(x=>({...x,year:s.year})));
 if(master.seasons.length!==6||flatMaster.length!==60||master.managers.length!==12)
  throw Error('Master placements require six complete ten-manager seasons');

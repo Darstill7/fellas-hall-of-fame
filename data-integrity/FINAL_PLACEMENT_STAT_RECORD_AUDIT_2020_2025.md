@@ -12,6 +12,7 @@
 - `scripts/test-manager-profile-launch-copy.mjs`: regression checks for coverage, records and caveats.
 - Exactly **60 final positions**, **10 unique managers/finishes per season**, **12 distinct participating managers**, **6 championships**, **6 runners-up**, **18 podium finishes**, **30 top-five finishes**, **18 bottom-three finishes**, and **6 last-place/Toilet Bowl losses**.
 - The newly uploaded 2022 evidence establishes 3rd Kuhl, 4th Mitch, 5th Thommy and 6th Stilly; no unknown 2022 rank remains.
+- All six championship-bracket seed lists agree exactly with final positions 1–6. This was checked for each season, preventing consolation participants from being counted as playoff qualifiers.
 
 ## Complete 2020–2025 finishing statistics
 
