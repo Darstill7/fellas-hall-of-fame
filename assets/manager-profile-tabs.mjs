@@ -323,7 +323,7 @@ if(main&&tabs){
  const focusBack=document.createElement('button');
  focusBack.type='button';focusBack.textContent='← All features';
  featureToolbar.append(focusName,focusBack);
- featureDirectory?.querySelector('.profile-feature-list')?.before(featureToolbar);
+ featureDirectory?.querySelector('.profile-feature-groups')?.before(featureToolbar);
  function clearFeatureFocus(){
   document.body.classList.remove('profile-feature-focused');
   for(const section of sections)section.classList.remove('profile-selected-section');
