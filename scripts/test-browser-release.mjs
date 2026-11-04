@@ -97,11 +97,50 @@ try{
    pageAudits.push({route:route||'index.html',width,...audit,checkedLinks,findings:auditFindings});
    if(audit.heading&&audit.headingLinePx!==null&&audit.headingLinePx<audit.headingFontPx)
     errors.push(width+' '+route+' main title line-height clips text');
-   if(captureVisuals){
+   if(captureVisuals&&(
+    route===''||route==='analytics/records.html'||route==='analytics/power-ratings.html'||
+    route==='analytics/manager-report-cards.html'||route==='analytics/rivalries.html'||
+    route==='managers/record-books.html'||route==='rivalries/stilly-vs-jmid.html'||
+    (route.startsWith('managers/')&&route.endsWith('/')&&
+     ['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'].includes(route.split('/')[1])))){
     const slug=(route||'index.html').replace(/[^a-z0-9-]+/gi,'_');
     const file=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width),slug+'.png');
     await fs.mkdir(path.dirname(file),{recursive:true});
     await page.screenshot({path:file,animations:'disabled',fullPage:false});
+   }
+   // Shared first-visit design and keyboard navigation on core public routes.
+   const isCurrentProfile=route.startsWith('managers/')&&route.endsWith('/')&&
+    ['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'].includes(route.split('/')[1]);
+   const designed=route===''||isCurrentProfile||route.startsWith('rivalries/')||
+    ['analytics/records.html','analytics/manager-report-cards.html','analytics/power-ratings.html',
+     'analytics/rivalries.html','managers/record-books.html'].includes(route);
+   if(designed){
+    const design=await page.evaluate(()=>{
+     const skip=document.querySelector('a.fellas-skip');
+     const heading=document.querySelector('main h1,.top h1,h1');
+     const destination=document.getElementById('main-content');
+     const styles=[...document.querySelectorAll('link[rel="stylesheet"]')].map(x=>x.getAttribute('href')||'');
+     const focus=skip?(()=>{skip.focus();return document.activeElement===skip})():false;
+     return {hasScope:document.body.classList.contains('fellas-polished'),
+      hasCss:styles.some(x=>x.includes('assets/fellas-ui-system.css')),
+      skip:!!skip&&skip.getAttribute('href')==='#main-content'&&focus&&!!destination,
+      heading:heading?.textContent?.trim()||'',
+      overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};
+    });
+    if(!design.hasScope||!design.hasCss||!design.skip)
+     errors.push(width+' '+route+' shared design or keyboard skip navigation not mounted');
+    if(!design.heading)
+     errors.push(width+' '+route+' missing clear first-screen page title');
+    if(width===390&&design.overflow>5)
+     errors.push(width+' '+route+' shared layout horizontal overflow '+design.overflow);
+    if(isCurrentProfile){
+     const destinations=await page.locator('header nav.navlinks[aria-label="Main"] a').evaluateAll(nodes=>
+      nodes.map(a=>a.getAttribute('href')));
+     const expected=['../../index.html','../../managers/','../../analytics/manager-report-cards.html',
+      '../../analytics/records.html','../../analytics/rivalries.html'];
+     if(JSON.stringify(destinations)!==JSON.stringify(expected))
+      errors.push(width+' '+route+' manager primary navigation must match five key sections');
+    }
    }
    if(state.body<80)errors.push(width+' '+route+' blank or very little content');
    const exposedNames=await page.evaluate(()=>{
