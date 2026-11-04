@@ -25,6 +25,12 @@ for(const slug of managers){
 }
 // The shared feature menu links each profile to its own filterable record book.
 const featureMenu=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+if(!featureMenu.includes("import {findOwnedRecords} from './manager-record-ownership.mjs'")||
+   !featureMenu.includes("snapshot.append(link)")||
+   !featureMenu.includes("link.href='../record-books.html?manager='")||
+   !featureMenu.includes("No league leads in 5 tracked categories"))
+ throw Error('Every manager must expose a source-backed record ownership preview and honest zero state');
+
 const recordBook=fs.readFileSync('managers/record-books.html','utf8');
 if(!featureMenu.includes("label:'Records you own'")||!featureMenu.includes("href:'../record-books.html?manager='+encodeURIComponent(manager)+'#owned-records'"))
  throw Error('Manager feature menu lost its personal record book deep link');
