@@ -371,6 +371,16 @@ try{
      errors.push(width+' comparison grading caveat missing');
    }
    if(route==='analytics/manager-report-cards.html'){
+    const firstCard=page.locator('[data-report-manager]').first();
+    if(!((await firstCard.locator('.label').first().innerText()).includes('Report-card rank #')))
+     errors.push(width+' report card rank label missing clear meaning');
+    const highlights=page.locator('details.pickup-highlights');
+    for(const panel of await highlights.all()){
+     const shown=await panel.locator('li').count();
+     const summary=await panel.locator(':scope > summary').innerText();
+     if(!summary.includes(shown+' examples'))
+      errors.push(width+' report card pickup count differs from displayed examples');
+    }
     const coverageGuide=page.locator('details.report-coverage-guide');
     if(await coverageGuide.count()!==1||await coverageGuide.evaluate(el=>el.open))
      errors.push(width+' report-card evidence caveats should be concise and initially collapsed');

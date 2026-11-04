@@ -71,7 +71,7 @@ function mountProfileFeatureDirectory(quick,manager){
   {label:'Drafting & trading résumé',detail:'Documented picks and trades — no invented decision grades',target:'.profile-career-resume',icon:'🔄'},
   {label:'Roster decisions by season',detail:'Draft picks, trades, pickups and keepers, year by year',target:'.profile-season-evidence',icon:'📋'},
   {label:'Pickup & keeper totals',detail:'Which acquisitions started and how many points keepers scored',target:'.profile-front-office-snapshot',icon:'📊'},
-  {label:'Pickup highlights & FAAB',detail:'Notable free-agent additions and recorded bid costs',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'💰'},
+  {label:'Pickup highlights',detail:'Up to three recorded additions, starts and points; costs when available',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'💰'},
   {label:'Start/Sit accuracy',detail:'Weekly lineup efficiency and coverage',href:'../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name),icon:'🎯'},
   {label:'Keeper research',detail:'2025 and in-progress 2026 keeper evidence',href:'../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(name),icon:'🔒'}
  ];
@@ -195,7 +195,7 @@ function populateManagerResearch(quick,manager){
  pickupLink.className='muted manager-pickup-link';
  pickupLink.style.fontSize='13px';
  pickupLink.innerHTML='<a href="../../analytics/manager-report-cards.html?manager='+
-  encodeURIComponent(keeperManager)+'#cards"><strong>Explore pickup highlights</strong><span>Starts, lineup points and verified $0 / FAAB costs · 3 selected examples</span></a>';
+  encodeURIComponent(keeperManager)+'#cards"><strong>Explore pickup highlights</strong><span>Up to three examples · starts, points and cost status</span></a>';
  shelfBody.append(pickupLink);
  // Profile-first front-office evidence: share source files with the full
  // research pages instead of creating a disconnected manager scorecard.
