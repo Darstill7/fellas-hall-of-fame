@@ -57,6 +57,7 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  nav.after(quick);
  // Keeper research remains a separate preview; it must not be confused with OVR.
  populateManagerResearch(quick,manager);
+ quick.after(nav); // The feature list comes before optional legacy section tabs.
 }
 // Both generated profiles and the hand-curated Stover profile share exactly
 // the same evidence cards, source gates and responsive presentation.
@@ -213,6 +214,7 @@ if(existingProfile&&!legacyNav){
  const quick=document.querySelector('.profile-quickstart');
  const manager=document.querySelector('main .hero h1')?.textContent?.trim()||'';
  populateManagerResearch(quick,manager);
+ if(quick)quick.after(existingProfile);
 }
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
 // The old overview tiles and archive teaser repeat destinations available in the tabs.
