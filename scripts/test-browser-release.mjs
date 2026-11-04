@@ -570,7 +570,11 @@ try{
      const guide=scoreGuides.first();
      if(await guide.evaluate(el=>el.open))
       errors.push(width+' report-card category glossary should start collapsed');
-     await guide.locator('summary').click();
+     const category=guide.locator('xpath=ancestor::details[contains(concat(" ", normalize-space(@class), " "), " report-category-details ")]');
+     if(await category.count()!==1)
+      errors.push(width+' rating definitions not nested under category ratings');
+     else await category.locator(':scope > summary').click();
+     await guide.locator(':scope > summary').click();
      const explanation=await guide.innerText();
      if(!explanation.includes('not a percentage of correct decisions')||
         !explanation.includes('N/A means not rated')||
