@@ -9,8 +9,8 @@
   const card=root.querySelector(selector);
   if(!card)continue;
   const heading=card.querySelector('h3'),detail=card.querySelector('p');
-  if(heading)heading.textContent='Loading source-backed highlights…';
-  if(detail)detail.textContent='Checking archived source evidence.';
+  if(heading)heading.textContent='Loading player and trade history…';
+  if(detail)detail.textContent='Checking historical records.';
  }
  root.dataset.encyclopediaUpdated='loading';
  try{
@@ -46,12 +46,12 @@
   root.dataset.encyclopediaUpdated='yes';
  }catch(e){
   // Never present baked-in historical figures as current when canonical source loading fails.
-  for(const [selector,title] of [['[data-encyclopedia-waiver]','Waiver evidence unavailable'],['[data-encyclopedia-trade]','Trade evidence unavailable']]){
+  for(const [selector,title] of [['[data-encyclopedia-waiver]','Pickup history unavailable'],['[data-encyclopedia-trade]','Trade history unavailable']]){
    const card=root.querySelector(selector);
    if(!card)continue;
    const heading=card.querySelector('h3'),detail=card.querySelector('p');
    if(heading)heading.textContent=title;
-   if(detail)detail.textContent='Source-backed figures could not be loaded. The historical dossier remains available below, but its archived figures are not a verified current snapshot.';
+   if(detail)detail.textContent='Verified figures could not be loaded. The full profile remains available, but these cards cannot show reliable results right now.';
   }
   root.dataset.encyclopediaUpdated='unavailable';
  }
