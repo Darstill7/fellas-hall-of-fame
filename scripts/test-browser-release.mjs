@@ -973,6 +973,20 @@ try{
     }
    }
    if(route==='analytics/manager-madden-cards.html'){
+    const introDisclosure=page.locator('details.madden-explain');
+    if(await introDisclosure.count()!==1||await introDisclosure.evaluate(el=>el.open))
+     errors.push(width+' Madden rating introduction should be concise with methodology collapsed');
+    else{
+     const intro=await page.locator('.madden-simple-intro').innerText();
+     if(!intro.includes('Legacy OVR')||intro.length>240)
+      errors.push(width+' Madden first-screen introduction is too long or unclear');
+     await introDisclosure.locator(':scope > summary').click();
+     const details=await introDisclosure.innerText();
+     if(!details.includes('Two different measures:')||
+        !details.includes('Card styles:')||!details.includes('underlying score'))
+      errors.push(width+' Madden detailed rating caveats were lost');
+     await introDisclosure.locator(':scope > summary').click();
+    }
     const cards=page.locator('#cards article.card');
     const count=await cards.count();
     if(count!==10)errors.push(width+' Madden manager cards rendered '+count+' of 10 active managers');
