@@ -732,6 +732,8 @@ try{
    if(route===''){
     const snapshot=await page.locator('#home-season-snapshot').innerText();
     if(!/Canonical results through Week [1-9][0-9]*\b/.test(snapshot)||!snapshot.includes('reconstructed'))errors.push(width+' homepage canonical 2026 snapshot inaccurate');
+    const archiveCopy=await page.locator('.feature-panel').first().innerText();
+    if(!archiveCopy.includes('Historical feature · Week 7')||!archiveCopy.includes('Both linked features are archived at Week 7')||!archiveCopy.includes('current verified standings above'))errors.push(width+' homepage does not distinguish current standings from archived Week 7 features');
     const search=page.locator('#home-manager-search');
     if(width===390){
      if(!await search.isVisible())errors.push(width+' mobile manager finder missing');
