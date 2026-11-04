@@ -947,6 +947,26 @@ try{
     const allCards=await page.locator('#cards article.card').count();
     if(allCards!==14)errors.push(width+' Madden all-manager filter rendered '+allCards+' instead of 14');
    }
+   if(route==='analytics/rivalries.html'||route.startsWith('rivalries/')){
+    const primary=page.locator('nav.nav[aria-label="Rivalry navigation"]');
+    const expectedLinks=['../index.html','../managers/','../analytics/manager-report-cards.html','../analytics/records.html','../analytics/rivalries.html'];
+    if(await primary.count()!==1||await primary.locator('a').count()!==5||
+       await page.locator('.mobile-dock').count())
+     errors.push(width+' '+route+' rivalry navigation not simplified to five core destinations');
+    else{
+     const actual=await primary.locator('a').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')));
+     if(JSON.stringify(actual)!==JSON.stringify(expectedLinks))
+      errors.push(width+' '+route+' rivalry navigation destinations inconsistent');
+     if(width===390){
+      const menu=page.locator('details.mobile-menu');
+      await menu.locator(':scope > summary').click();
+      const links=await menu.locator('.menu-grid a').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')));
+      if(JSON.stringify(links)!==JSON.stringify(expectedLinks))
+       errors.push(width+' '+route+' mobile rivalry menu differs from desktop');
+      await menu.locator(':scope > summary').click();
+     }
+    }
+   }
    if(route==='analytics/rivalries.html'){
     const all=page.locator('details.rivalry-all-pairs');
     if(await all.count()!==1||await all.evaluate(el=>el.open))
