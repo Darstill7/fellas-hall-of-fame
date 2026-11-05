@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','hall/','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','hall/','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -1236,6 +1236,37 @@ try{
     if(!await page.locator('header .navlinks a[href="../managers/"]').count()||
         await page.locator('header .navlinks a[href="../analytics/franchise-timeline.html"]').count())
      errors.push(width+' Hall of Fame Managers link must open current directory');
+   }
+   if(route==='seasons/espn-draft-history.html'){
+    const year=page.locator('#year'),manager=page.locator('#manager'),position=page.locator('#position'),playerSearch=page.locator('#search');
+    for(const [season,total] of [['2016',128],['2017',160],['2018',160],['2019',150]]){
+     await year.selectOption(season);
+     await page.waitForFunction(count=>document.querySelectorAll('#picks tr').length===count,total,{timeout:10000}).catch(()=>{});
+     if(await page.locator('#picks tr').count()!==total)
+      errors.push(width+' ESPN draft history '+season+' missing player selections');
+     const first=await page.locator('#picks tr').first().innerText();
+     if(season==='2016'&&!first.includes('Antonio Brown'))
+      errors.push(width+' 2016 draft history missing original verified first selection');
+     if(season==='2018'){
+      if(!await page.locator('#context').innerText().then(t=>t.includes('pick numbers are not verified'))||
+         (await page.locator('#picks tr').first().locator('td').first().innerText())!=='—')
+       errors.push(width+' 2018 position-grouped offline import incorrectly claims original pick order');
+     }
+    }
+    await year.selectOption('2017');
+    await manager.selectOption('Tony');
+    if(await page.locator('#picks tr').count()!==16||
+       !(await page.locator('#picks').innerText()).includes('Name not verified'))
+     errors.push(width+' 2017 Tony draft missing 16 picks or unresolved historical ESPN player ID');
+    await manager.selectOption('');
+    await playerSearch.fill('Antonio Brown');
+    if(await page.locator('#picks tr').count()!==1||
+       !(await page.locator('#picks').innerText()).includes('Antonio Brown'))
+     errors.push(width+' draft search failed verified player name filter');
+    await playerSearch.fill('');
+    await position.selectOption('D/ST');
+    if(!await page.locator('#picks').innerText().then(t=>t.includes('D/ST')))
+     errors.push(width+' ESPN draft D/ST identity filter returned no decoded defenses');
    }
    if(route==='seasons/espn-origins.html'){
     await page.waitForFunction(()=>document.querySelectorAll('#espn-shitter-awards tr').length===4,null,{timeout:8000}).catch(()=>{});
