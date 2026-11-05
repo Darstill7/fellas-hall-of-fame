@@ -1675,7 +1675,7 @@ try{
      if(await topicGroups.count()!==5)errors.push(width+' '+slug+' profile must have five clear topics');
      else{
       const topicNames=await topicGroups.locator(':scope > summary strong').allTextContents();
-      if(JSON.stringify(topicNames)!==JSON.stringify(['Career & Results','Ratings & Report Card','Drafts, Trades & Pickups','Rivals & Matchups','Lineups & Keepers']))
+      if(JSON.stringify(topicNames)!==JSON.stringify(['Career & Results','Ratings & Legacy','Drafts, Trades & Pickups','Rivals & Matchups','Lineups & Keepers']))
        errors.push(width+' '+slug+' profile topic labels or order incorrect');
      }
      const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
