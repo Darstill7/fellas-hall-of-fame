@@ -246,8 +246,6 @@ function mountProfileFeatureDirectory(quick,manager){
   {label:'Pickup & keeper totals',detail:'Which acquisitions started and how many points keepers scored',target:'.profile-front-office-snapshot',icon:'📊'},
   {label:'Start/Sit accuracy',detail:'Weekly lineup efficiency and coverage',href:'../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name),icon:'🎯'},
   {label:'Keeper research',detail:'2025 and in-progress 2026 keeper evidence',href:'../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(name),icon:'🔒'},
-  {label:'Manager report card',detail:'Category ratings, verified achievements and evidence limitations',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'📋'},
-  {label:'Records you own',detail:'League records, personal bests and season-by-season history',href:'../record-books.html?manager='+encodeURIComponent(name)+'#owned-records',icon:'📖'},
   {label:'Playoff résumé',detail:'Verified playoff berths, championship games and annual results',href:'#profile-playoff-resume',icon:'🏅'}
  ];
  const shell=document.createElement('section');
@@ -257,8 +255,8 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.dataset.profileFeatureMenu='';
  shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Five topics. Open a category, then choose a feature to explore the records and what they mean.</p>';
  const groups=[
-  {title:'Career & Results',help:'Championships, records and every season',items:[0,1,11,12]},
-  {title:'Ratings & Report Card',help:'Legacy OVR, individual seasons and how ratings work',items:[3,4,10]},
+  {title:'Career & Results',help:'Championships, playoffs and every season',items:[0,1,10]},
+  {title:'Ratings & Report Card',help:'Legacy OVR, individual seasons and how ratings work',items:[3,4]},
   {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7]},
   {title:'Rivals & Matchups',help:'Head-to-head records and memorable games',items:[2]},
   {title:'Lineups & Keepers',help:'Start/Sit accuracy and keeper research',items:[8,9]}
@@ -289,8 +287,8 @@ function mountProfileFeatureDirectory(quick,manager){
   const arrow=document.createElement('span');arrow.className='profile-feature-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent='→';
   item.append(symbol,body,arrow);groupHosts.get(index).append(item);
  }
- // The two primary destinations: historical records and manager report card.
- // Start/Sit remains available within the deeper Lineups & Keepers category.
+ // Keep Records and Report Card as prominent, unique routes rather than
+ // repeating them in the expandable topic groups. Start/Sit stays deeper.
  const featured=document.createElement('nav');
  featured.className='profile-featured-routes';
  featured.setAttribute('aria-label','Recommended starting points');
