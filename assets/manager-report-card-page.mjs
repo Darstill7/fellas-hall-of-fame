@@ -2,7 +2,7 @@ import {makeReportCards} from './manager-report-card.mjs';
 import {scoutingProfile} from './manager-scouting-profile.mjs';
 import {pickupCostLabel} from './pickup-cost-label.mjs';
 import {buildEvidenceSnapshots} from './manager-evidence-snapshots.mjs';
-const targets=['manager_acquisition_distinct_v1.json','manager_acquisition_coverage_v1.json','v9_draft_engine.json','v9_trade_engine.json','career_core_generated.json','all_time_luck_ratings_v1.json','waiver_award_candidates.json','manager_verified_season_endings_v1.json','verified_sleeper_playoff_brackets_2020_2025.json','season_guide.json','verified_espn_playoff_brackets_2016_2019.json','fellas_final_placements_2016_2025_verified.json','keeper_2025_website_research_v1.json','manager_draft_trade_profile_evidence_v1.json','keeper_2026_website_research_v1.json'];
+const targets=['manager_acquisition_distinct_v1.json','manager_acquisition_coverage_v1.json','v9_draft_engine.json','v9_trade_engine.json','career_core_generated.json','all_time_luck_ratings_v1.json','waiver_award_candidates.json','manager_verified_season_endings_v1.json','verified_sleeper_playoff_brackets_2020_2025.json','season_guide.json','verified_espn_playoff_brackets_2016_2019.json','fellas_final_placements_2016_2025_verified.json','keeper_2025_website_research_v1.json','manager_draft_trade_profile_evidence_v1.json','keeper_2026_website_research_v1.json','manager_acquisition_by_season_v1.json'];
 const esc=v=>String(v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[ch]));
 const categoryEvidence=k=>['drafting','trading'].includes(k)?'Provisional outcome': ['waivers','lineups','keepers'].includes(k)?'Not yet rated':'Verified results';
 const labels={drafting:'Drafting',trading:'Trading',championships:'Championships',finals:'Runner-up finishes',playoffs:'Playoff qualification',regular:'Winning',allPlay:'All-play',waivers:'Free agency / waivers',lineups:'Start / sit',keepers:'Keeper decision'};
@@ -26,14 +26,14 @@ const categoryScoreGuide=()=>'<details class="report-score-guide"><summary>What 
 const scoreSummary=x=>'<p class="report-score-summary"><strong>'+x.provisional.toFixed(1)+' / 100 is a provisional report-card score.</strong> It is a weighted summary of the rated categories only ('+x.availableWeight+' of 100 possible weight points). It is not a win percentage, historical Legacy OVR, or a complete grade of manager decisions.</p>';
 
 try {
- const [distinctCoverage,acquisitionCoverage,drafts,trades,careers,luck,waivers,endings,brackets,guide,espn,placements,keeperResearch,draftTrade,keeper2026]=await Promise.all(targets.map(async p=>{const r=await fetch('../data/'+p);if(!r.ok)throw Error('Could not load '+p);return r.json()}));
+ const [distinctCoverage,acquisitionCoverage,drafts,trades,careers,luck,waivers,endings,brackets,guide,espn,placements,keeperResearch,draftTrade,keeper2026,pickupSeasons]=await Promise.all(targets.map(async p=>{const r=await fetch('../data/'+p);if(!r.ok)throw Error('Could not load '+p);return r.json()}));
  const [startSitResponse,faabResponse]=await Promise.all([
   fetch('../data-integrity/sleeper-start-sit-ui-benchmarks-2026-week8.json'),
   fetch('../data-integrity/faab-manager-spend-research-v1.json')
  ]);
  if(!startSitResponse.ok||!faabResponse.ok)throw Error('Could not load source-backed lineup and FAAB evidence');
  const [startSit,faab]=await Promise.all([startSitResponse.json(),faabResponse.json()]);
- const evidenceByManager=new Map(buildEvidenceSnapshots({placements,acquisitions:distinctCoverage,keeperResearch,keeper2026,startSit,draftTrade,faab}).map(e=>[e.manager,e]));
+ const evidenceByManager=new Map(buildEvidenceSnapshots({placements,acquisitions:distinctCoverage,pickupSeasons,keeperResearch,keeper2026,startSit,draftTrade,faab}).map(e=>[e.manager,e]));
  const unratedEvidence=(name,key)=>{
   const e=evidenceByManager.get(name);
   if(!e)return '';
@@ -70,6 +70,7 @@ try {
    '<p class="fine"><strong>Pickups:</strong> '+e.pickups.started+' of '+e.pickups.distinct+' distinct season-player pickups had a documented later start ('+e.pickups.percent.toFixed(1)+'%). Sleeper records 2020–2026; 2026 partial. Not a waiver skill grade.</p>'+
    '<p class="fine"><strong>FAAB claims:</strong> '+e.faab.completedClaims+' successful waiver claims ('+e.faab.paidWins+' paid, '+e.faab.zeroDollarWins+' won for $0), '+e.faab.failedClaims+' failed claims, $'+e.faab.winningSpend+' provider-observed winning spend. '+e.faab.period+'. Failed attempts are not spending; successful $0 waiver claims are not free-agent adds. '+e.faab.sourceOnlyClaims+' winning provider claims were absent from the earlier archived transaction extract and remain separately identified. Not a waiver-skill grade.</p>'+
    '<details class="report-faab-history"><summary>View provider FAAB by season</summary><ul>'+e.faab.years.map(y=>'<li><strong>'+y.year+(y.year===2026?' (through W7)':'')+'</strong><span>$'+y.winningSpend+' winning spend · '+y.paidWins+' paid · '+y.zeroDollarWins+' $0 wins · '+y.failedClaims+' failed claims</span></li>').join('')+'</ul></details>'+
+   '<details class="report-pickup-history"><summary>View pickup usage by season</summary><ul>'+e.pickups.years.map(y=>'<li><strong>'+y.year+(y.year===2026?' (partial)':'')+'</strong><span>'+y.laterStarted+' of '+y.distinct+' later started · '+y.repeats+' repeat adds</span></li>').join('')+'</ul></details>'+
    '<p class="fine"><strong>Start/sit:</strong> '+e.startSit.accuracyPercent.toFixed(1)+'% Sleeper-displayed average through 2026 Week 8, from user-provided screenshots. Descriptive, not a decision-quality grade.</p>'+
    '<p class="fine"><strong>2025 keepers:</strong> '+e.keepers.recorded+' recorded, '+e.keepers.startedPoints.toFixed(2)+' regular-season points started by the original manager. Not a keeper decision grade.</p>'+
    '<p class="fine"><strong>2026 keepers through Week 8:</strong> '+e.keepers.current.recorded+' recorded, '+e.keepers.current.starts+' verified original-manager starts and '+e.keepers.current.startedPoints.toFixed(2)+' started points. The season is underway; no completed-season or decision-quality grade is claimed.</p>'+
