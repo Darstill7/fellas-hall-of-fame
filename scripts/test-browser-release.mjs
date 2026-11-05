@@ -462,9 +462,13 @@ try{
         errors.push(width+' '+route+' draft/trade receipts must start collapsed');
        else{
         await receipts.locator(':scope > summary').click();
-        if(!await career.locator('.career-resume-trades').isVisible()||
-           !await career.locator('.career-resume-coverage').isVisible())
-         errors.push(width+' '+route+' draft/trade receipts failed to reveal');
+        // The receipts reveal provenance immediately; all six research sections
+        // remain hidden until the visitor explicitly chooses a topic.
+        const coverageVisible=await career.locator('.career-resume-coverage').isVisible();
+        const topicsVisible=await career.locator('.career-research-topics').isVisible();
+        const tradeHidden=await career.locator('.career-resume-trades').evaluate(el=>el.hidden);
+        if(!coverageVisible||!topicsVisible||!tradeHidden)
+         errors.push(width+' '+route+' draft/trade receipts failed to reveal source coverage or preserve topic selection');
        }
        const text=await career.innerText();
        if(!text.includes('Recorded draft selections')||
