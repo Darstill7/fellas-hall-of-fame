@@ -9545,13 +9545,19 @@
       "home": "Stover",
       "away": "Birch",
       "homeScore": 78.9,
-      "awayScore": 110.24,
+      "awayScore": 110.1,
       "winner": "AWAY",
-      "margin": 31.34,
+      "margin": 31.2,
       "stage": "postseason_unclassified",
       "era": "Sleeper",
       "source": "playoff_matchups_2020_2025",
-      "status": "final"
+      "status": "final",
+      "scoreCorrection": {
+        "originalArchivedBirchScore": 110.24,
+        "confirmedBirchScore": 110.1,
+        "confirmedOn": "2026-11-05",
+        "source": "league commissioner"
+      }
     },
     {
       "year": 2021,
