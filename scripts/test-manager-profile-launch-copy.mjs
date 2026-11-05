@@ -101,6 +101,33 @@ postseason.placements=placementMaster;
 postseason.placementReceipts=placementReceipts;
 const allEra=JSON.parse(fs.readFileSync('data/fellas_final_placements_2016_2025_verified.json','utf8'));
 const careerAudit=auditAllEraFinishes(allEra);
+const certifiedEspn=JSON.parse(fs.readFileSync('data/espn_final_placements_2016_2019_verified.json','utf8'));
+for(const year of allEra.seasons){
+ if(year.year<=2019){
+  const s=certifiedEspn.seasons.find(x=>x.year===year.year);
+  if(!s||s.teamCount!==year.teams||
+     year.finishes.some((p,i)=>p.manager!==s.finalStandings[i].manager||p.rank!==s.finalStandings[i].place))
+   throw Error('2016–2019 official ESPN ranks cannot be overridden by old spreadsheet');
+ }else{
+  const s=placementMaster.seasons.find(x=>x.year===year.year);
+  if(!s||year.finishes.some((p,i)=>p.manager!==s.finishers[i].manager||p.rank!==s.finishers[i].rank))
+   throw Error('Verified Sleeper results must overwrite conflicting legacy spreadsheet data '+year.year);
+ }
+}
+const historicalLosers=Object.fromEntries(allEra.seasons.map(x=>[x.year,x.lastPlace]));
+if(historicalLosers[2016]!=='Schermerhorn'||historicalLosers[2017]!=='Birch'||
+   historicalLosers[2018]!=='Stilly'||historicalLosers[2019]!=='Evans'||
+   historicalLosers[2020]!=='Tony'||historicalLosers[2021]!=='Stilly')
+ throw Error('Last place sources or Sleeper overwrite rule violated');
+const eraResume=buildPlayoffResume(playoffEspn,playoffSleeper,'Stilly',placementReceipts,allEra);
+const early=eraResume.timeline.find(x=>x.year===2016);
+if(early?.finalPlace!==6||!early.finish.includes('6th of 8')||
+   eraResume.allEraSummary?.seasons!==10)
+ throw Error('ESPN eight-team season not shown correctly in manager profile');
+const mitchCareer=buildPlayoffResume(playoffEspn,playoffSleeper,'Mitch',placementReceipts,allEra);
+if(mitchCareer.timeline.find(x=>x.year===2016)?.finish!=='Not in league')
+ throw Error('Nonparticipating managers should not be labeled as playoff failures');
+
 if(careerAudit.totalPlaces!==98||careerAudit.managerCount!==14||careerAudit.eligibleCount!==10||
    careerAudit.leaders.normalizedCareerAverage.value!==66.67||
    careerAudit.leaders.normalizedCareerAverage.holders.join(',')!=='Thommy'||

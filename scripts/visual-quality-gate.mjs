@@ -123,7 +123,7 @@ try{
         if(await proof.count()!==1||await proof.locator('.placement-card').count()!==2)
          findings.push(engine+' '+width+' '+key+' verified postseason result cards missing');
         else{
-         const year=Number(route.match(/202[2-5]/)[0]);
+         const year=Number(route.match(/202[0-5]/)[0]);
          const text=await proof.innerText();
          if(text.includes('Loading postseason placements')||
             !text.includes('Shitter of the Year'))
@@ -155,7 +155,7 @@ try{
          findings.push(engine+' '+width+' missing final finishing stats');
         else{
          await finishing.locator('summary').click();
-         if(await finishing.locator('tbody tr').count()!==12)
+         if(await finishing.locator('tbody tr').count()!==26)
           findings.push(engine+' '+width+' incomplete final-finishing stats');
         }
         const shame=page.locator('#shitter-year-history');

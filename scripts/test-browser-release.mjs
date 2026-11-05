@@ -262,6 +262,8 @@ try{
      await details.locator('summary').click();
      if(await details.locator('.profile-playoff-summary').count()!==1)
       errors.push(width+' '+route+' missing documented finishing-position summary');
+     if(await details.locator('.profile-playoff-allera').count()!==1)
+      errors.push(width+' '+route+' all-era final finishing summary missing');
      const years=await details.locator('.profile-playoff-timeline li').count();
      if(years!==10)
       errors.push(width+' '+route+' postseason timeline should show ten completed seasons, received '+years);
@@ -1737,8 +1739,8 @@ try{
     else{
      await placement.locator('summary').click();
      const tableRows=await placement.locator('tbody tr').count();
-     if(tableRows!==12)
-      errors.push(width+' expected twelve manager finishing summaries, got '+tableRows);
+     if(tableRows!==26)
+      errors.push(width+' expected fourteen all-era and twelve Sleeper-era manager summaries, got '+tableRows);
     }
     const links=await page.locator('#record-leaders .leader-card').evaluateAll(nodes=>nodes.every(n=>n.getAttribute('href')?.includes('record-books.html?manager=')));
     if(!links)errors.push(width+' record holder links broken');
