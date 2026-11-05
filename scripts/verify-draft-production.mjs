@@ -30,7 +30,9 @@ const browser=fs.readFileSync('scripts/test-browser-release.mjs','utf8');
 assert(ui.includes("const topics=[")&&ui.includes("['Draft picks',draftSection]")&&
  ui.includes("['Position peers',positionSection]")&&
  ui.includes("['Trades',tradeSection]")&&ui.includes("details.open=true")&&
- ui.includes("heading?.focus({preventScroll:true})"),
+ ui.includes("heading?.focus({preventScroll:true})")&&
+ ui.includes('section.hidden=true')&&ui.includes('other.hidden=other!==section')&&
+ ui.includes("details.open=false")&&ui.includes("aria-expanded"),
  'Research shortcuts must reach their exact section with keyboard focus');
 assert(styles.includes('.career-research-topics-grid')&&
  styles.includes('min-height:52px')&&
@@ -38,6 +40,9 @@ assert(styles.includes('.career-research-topics-grid')&&
  'Draft research needs readable mobile navigation and touch targets');
 assert(browser.includes('draft research lacks six topic shortcuts')&&
  browser.includes("'drafting-trading-'+slug+'-focused.png'")&&
- browser.includes('focused:document.activeElement===heading'),
+ browser.includes('focused:document.activeElement===heading')&&
+ browser.includes('draft topics exposed multiple sections')&&
+ browser.includes('return should collapse the long research content')&&
+ browser.includes("'drafting-trading-'+slug+'-topics.png'"),
  'Browser release suite must actually test draft topic navigation and focus');
 console.log('Draft production evidence PASS: completed Sleeper seasons, no keeper/2026 leakage, source totals and all managers');
