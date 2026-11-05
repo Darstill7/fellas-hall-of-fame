@@ -164,7 +164,11 @@ if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')
    if(sourceValue)new MutationObserver(syncValue).observe(sourceValue,{childList:true,subtree:true,characterData:true});
    metric.append(label,value);highlights.append(metric);
   }
-  if(highlights.children.length===2)profileSnapshot.append(highlights);
+  if(highlights.children.length===2){
+   const recordLink=profileSnapshot.querySelector('.profile-owned-records');
+   if(recordLink)recordLink.before(highlights);
+   else profileSnapshot.append(highlights);
+  }
   evidence.append(summary,originalStats);
   const source=profileSnapshot.querySelector('.profile-snapshot-source');
   if(source)evidence.append(source);
