@@ -410,6 +410,13 @@ try{
      if(await heroActions.count()!==2||
         !((await heroActions.first().getAttribute('href'))==='#profile-features'))
       errors.push(width+' '+route+' hero still shows legacy multi-link navigation');
+     if(['stilly','tom','stover','birch'].includes(slug)){
+      await page.waitForFunction(()=>document.querySelector('#season-history .season-accordion')!==null,null,{timeout:8000}).catch(()=>{});
+      const history=await page.locator('#season-history').textContent()||'';
+      const required={stilly:['2018','10th place (last)','2019','5th place'],tom:['2019','8th place'],stover:['2019','9th place'],birch:['2017','10th place (last)']}[slug];
+      if(required.some(x=>!history.includes(x)))
+       errors.push(width+' '+slug+' recovered ESPN finishing places missing from visible season archive');
+     }
      const shelf=page.locator('details.profile-research-shelf');
      if(await shelf.count()!==1)errors.push(width+' '+route+' research shelf missing');
      else{
@@ -2010,6 +2017,7 @@ try{
      await page.locator('#manager').selectOption('Thommy');
      const thommyProfile=await page.locator('#profile').innerText();
      if(!thommyProfile.includes('Recorded postseason matchups')||!thommyProfile.includes('67–75–1')||
+        !thommyProfile.includes('241.00')||!thommyProfile.includes('NFL Weeks 15–16 combined')||
         !((await page.locator('#manager-destination a').getAttribute('href'))||'').endsWith('tom/'))
       errors.push(width+' Thommy historical record must retain his own career and current profile');
      await page.locator('#manager').selectOption('Schermerhorn');
