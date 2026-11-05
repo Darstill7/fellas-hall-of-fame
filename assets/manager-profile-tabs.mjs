@@ -856,11 +856,19 @@ if(main&&tabs){
  });
  const initial=location.hash.slice(1).toLowerCase();
  const target=document.getElementById(location.hash.slice(1));
+ const directoryDeepLink=initial==='profile-features';
  const chosen=categories[initial]?initial:target&&sectionTab.has(target)?sectionTab.get(target):'overview';
  activate(chosen);
+ // The main Explore CTA is a landing-page destination, not an archive tab.
+ // Avoid turning a direct #profile-features visit into a long data wall.
+ if(directoryDeepLink){
+  document.body.classList.add('profile-landing');
+  history.replaceState(null,'',location.pathname+location.search+'#profile-features');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>featureDirectory?.scrollIntoView({block:'start',behavior:'instant'})));
+ }
  let restoredPosition=false;
  if(!target||categories[initial]){try{const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]&&(!target||initial===saved.tab)){activate(saved.tab);restoreReadingPosition(saved);restoredPosition=true}}catch{}}
- if(target&&!categories[initial])requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));
+ if(target&&!categories[initial]&&!directoryDeepLink)requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));
  // Homepage directory shortcuts use category hashes, not physical element IDs.
  // On a fresh deep link, bring the selected profile section navigation into view.
  // A restored reading position wins when returning to a previously visited profile.
