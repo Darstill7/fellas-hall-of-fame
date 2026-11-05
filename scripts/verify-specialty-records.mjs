@@ -33,6 +33,10 @@ for(const m of archive.managers){
  const all=records.get(m.manager)||[];
  const regular=all.filter(g=>g.stage==='regular');
  const postseason=all.filter(g=>g.stage!=='regular');
+ // 2019 losers-ladder Week 15 and 16 values are running totals of multiple
+ // weeks, not single playoff matchups. Keep them in participation counts,
+ // but never rank them as a manager's highest-scoring postseason matchup.
+ const comparablePostseason=postseason.filter(g=>!(g.cumulativeScoring&&g.weeksCovered?.length>1));
  compare(m.regular,count(regular),m.manager+' regular');
  compare(m.postseason,count(postseason),m.manager+' postseason');
  check(m.firstSeason===Math.min(...all.map(g=>g.year)),m.manager+' first season mismatch');
@@ -44,7 +48,7 @@ for(const m of archive.managers){
   ['closestWin',regular.filter(g=>g.outcome==='w'),'differential','min'],
   ['closestLoss',regular.filter(g=>g.outcome==='l'),'differential','max'],
   ['biggestLoss',regular.filter(g=>g.outcome==='l'),'differential','min'],
-  ['bestScoringMatchup',postseason,'points','max']
+  ['bestScoringMatchup',comparablePostseason,'points','max']
  ];
  for(const [key,games,field,mode] of categories){
   const saved=key==='bestScoringMatchup'?m.postseason?.bestScoringMatchup:m[key];
