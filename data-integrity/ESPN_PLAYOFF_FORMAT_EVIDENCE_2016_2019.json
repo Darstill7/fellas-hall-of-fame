@@ -231,9 +231,9 @@
     }
   },
   "unresolvedQuestions": [
-    "Confirm 2019 I Love Tubing owner Evans (user described the team as Stew); Stew's 2019 source-mapped team Kickers SUCK finished runner-up.",
-    "Whether 2018 consolation ranks above Stilly should be certified from the screenshot's ladder connections despite the forgotten rules.",
-    "Confirm Shitter of the Year uses actual last-place consolation finish rather than simply the lowest raw score across all consolation games, particularly 2016–2017."
+    "2019 owner check: user referred to I Love Tubing as Stew, but the original ESPN team ID / owner mapping records I Love Tubing as Evans and Stew as Kickers SUCK (runner-up). Please confirm.",
+    "What exactly qualified for the annual Shitter of the Year award in 2016–2019: the final last-place franchise from ESPN finalRank, or the lowest individual score in the final consolation week? These rules yield different people in some years.",
+    "2018 consolation advancement/tiebreak mechanics are not fully known, although ESPN final finishing positions for all ten teams are verified."
   ],
   "certification": {
     "aggregate_vs_weekly": "verified_against_ESPN_weekly_components",
@@ -241,7 +241,7 @@
     "consolation_2018_last": "user_confirmed",
     "consolation_2019_bottom_four": "screenshot_verified_with_manager_mapping_question",
     "historical_awards": "pending_specific_rule_confirmation",
-    "finalPlacements2016to2019": "ESPN original team finalRank validated against bracket screenshots, including nonstandard consolation rounds"
+    "finalPlacements2016to2019": "All official ESPN finalRank entries reconciled with original bracket screenshots; 20 previously uncertified active-manager season endings recovered."
   },
   "officialESPNFinalRanks": {
     "2016": [
@@ -480,5 +480,19 @@
         "seed": 7
       }
     ]
+  },
+  "scoreCorrections": {
+    "sourceLedger": "data/unified_record_book_2016_2026.json",
+    "publicSeasonProjection": "data/season_weekly_matchups_2016_2026_v1.json",
+    "recordBook": "data/manager_record_books_2016_2026.json",
+    "ineligibleAsStandaloneMatchups": "2019 consolation Week 15–16 cumulative totals",
+    "recordBookUpdates": [
+      "Evans",
+      "Stover",
+      "Thommy",
+      "Koble"
+    ],
+    "postseasonWinnerScoringUnaffected": true,
+    "regularSeasonRecordsUnaffected": true
   }
 }
