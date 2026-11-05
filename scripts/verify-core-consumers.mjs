@@ -140,6 +140,10 @@ assert(profileNav.includes('featureDirectory?.querySelector(\'.profile-feature-g
 assert(profileNav.includes('profile-feature-unavailable')&&
  !profileNav.includes("button.setAttribute('aria-disabled','true')"),
  'Missing optional research must show retryable status rather than a dead button');
+assert(profileNav.includes("destination.classList.add('profile-biography-focus')")&&
+ profileNav.includes("document.getElementById('legacy-resume')?.classList.remove('profile-biography-focus')")&&
+ profileNav.includes("#legacy-resume.profile-biography-focus>.career-bio~*{display:none!important}"),
+ 'Career Story must isolate biography prose and restore the full résumé on return');
 // Three clear entry routes (Career Story, Records, Report Card) lead the page.
 // The five deeper topic groups must not duplicate Records and Report Card.
 const topicStart=profileNav.indexOf(' const features=[');
