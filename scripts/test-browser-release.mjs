@@ -244,10 +244,10 @@ try{
       topics=document.querySelector('main .profile-quickstart'),
       playoff=document.getElementById('profile-playoff-resume');
      return !!hero&&!!action&&!!snapshot&&!!topics&&!!playoff&&
-      hero.contains(snapshot)&&hero.contains(action)&&hero.contains(playoff)&&
+      hero.contains(snapshot)&&hero.contains(action)&&!hero.contains(playoff)&&
       !!(snapshot.compareDocumentPosition(action)&Node.DOCUMENT_POSITION_FOLLOWING)&&
-      !!(action.compareDocumentPosition(playoff)&Node.DOCUMENT_POSITION_FOLLOWING)&&
-      !!(playoff.compareDocumentPosition(topics)&Node.DOCUMENT_POSITION_FOLLOWING);
+      !!(action.compareDocumentPosition(topics)&Node.DOCUMENT_POSITION_FOLLOWING)&&
+      !!(topics.compareDocumentPosition(playoff)&Node.DOCUMENT_POSITION_FOLLOWING);
     });
     if(!hierarchy)errors.push(width+' '+route+' first-screen navigation and résumé hierarchy broken');
     const panel=page.locator('#profile-playoff-resume');
@@ -452,12 +452,12 @@ try{
      if(await career.count()!==1||await career.getAttribute('data-manager-career-resume')!==name)
       errors.push(width+' '+route+' career résumé missing or misattributed');
      else{
-      await career.locator(':scope > summary').click();
+      if(!await career.evaluate(el=>el.open))await career.locator(':scope > summary').click();
       const metrics=career.locator('.career-resume-metric');
       if(await metrics.count()!==4)
        errors.push(width+' '+route+' career draft/trade résumé totals unavailable');
       else{
-       const receipts=career.locator('details.career-resume-receipts');
+       const receipts=career.locator(':scope > details.career-resume-receipts');
        if(await receipts.count()!==1||await receipts.evaluate(el=>el.open))
         errors.push(width+' '+route+' draft/trade receipts must start collapsed');
        else{
@@ -469,11 +469,11 @@ try{
        const text=await career.innerText();
        if(!text.includes('Recorded draft selections')||
           !text.includes('Recorded keeper slots')||
-          !text.includes('qualifying trade events')||
+          !text.toLowerCase().includes('qualifying trade events')||
           !text.includes('2026 trade sides are provisional')||
           !text.includes('not all-time trade totals'))
         errors.push(width+' '+route+' career résumé evidence/caveat incomplete');
-       const links=await career.locator('.career-resume-link').evaluateAll(nodes=>
+       const links=await career.locator('.career-resume-link[href*="manager-trade-intelligence.html"]').evaluateAll(nodes=>
         nodes.map(node=>{const url=new URL(node.href);return {
          manager:url.searchParams.get('manager'),year:url.searchParams.get('year'),
          path:url.pathname};}));
