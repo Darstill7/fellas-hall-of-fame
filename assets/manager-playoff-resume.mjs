@@ -54,8 +54,8 @@ export async function mountManagerPlayoffResume(){
  const section=node('section','profile-playoff-resume');
  section.id='profile-playoff-resume';
  section.setAttribute('aria-label','Verified playoff résumé');
- const title=node('h2',null,'Playoff résumé');
- const intro=node('p','profile-playoff-intro','Verified championship brackets · 2016–2025. The 2026 season is in progress.');
+ const title=node('h2',null,'Career résumé');
+ const intro=node('p','profile-playoff-intro','Championships, playoff results and final finishes · verified completed seasons, 2016–2025. The 2026 season is still in progress.');
  const status=node('p','profile-playoff-status','Loading postseason history…');
  status.setAttribute('role','status');
  section.append(title,intro,status);
@@ -70,6 +70,21 @@ export async function mountManagerPlayoffResume(){
   if(responses.some(r=>!r.ok))throw Error('Verified brackets unavailable');
   const [espn,sleeper,placementArchive,allEra]=await Promise.all(responses.map(r=>r.json()));
   const resume=buildPlayoffResume(espn,sleeper,heading.textContent.trim(),placementArchive,allEra);
+  // Show the high-level finishing résumé before the deeper season-by-season archive.
+  const completed=resume.timeline.filter(year=>Number.isInteger(year.finalPlace));
+  const mostRecent=completed.at(-1);
+  const bestPlace=completed.length?Math.min(...completed.map(year=>year.finalPlace)):null;
+  const context=node('div','profile-career-finish-summary');
+  context.setAttribute('aria-label','Verified career finishing summary');
+  const heading=node('strong',null,'Completed-season results');
+  const line=node('p',null,
+   (resume.allEraSummary?resume.allEraSummary.seasons:completed.length)+' documented seasons · '+
+   (resume.allEraSummary?resume.allEraSummary.topThree:completed.filter(year=>year.finalPlace<=3).length)+
+   ' top-three finishes · '+(bestPlace===null?'No verified final place':'Best finish: #'+bestPlace));
+  context.append(heading,line);
+  if(mostRecent)context.append(node('p','profile-career-latest',
+   'Most recent completed season: '+mostRecent.year+' · '+mostRecent.finish));
+  section.insertBefore(context,status);
   const metrics=node('div','profile-playoff-metrics');
   for(const [label,value] of [
    ['Playoff appearances',resume.appearances],
@@ -108,7 +123,9 @@ export async function mountManagerPlayoffResume(){
    history.append(sample);
   }
   history.append(list,note);
-  status.replaceWith(metrics,history);
+  const recordsLink=node('a','profile-career-record-link','Explore all career records →');
+  recordsLink.href='../record-books.html?manager='+encodeURIComponent(resume.manager)+'#owned-records';
+  status.replaceWith(metrics,history,recordsLink);
  }catch(error){
   status.textContent='Verified playoff résumé is temporarily unavailable. Other career history remains accessible below.';
   console.error('Manager playoff résumé unavailable',error);
