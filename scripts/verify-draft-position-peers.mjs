@@ -22,6 +22,8 @@ for(const name of managers){
 }
 assert(total===760,'Unexpected active manager draft picks '+total);
 assert(exact+adjacent+unavailable===760,'Incomplete active-manager source population');
+assert(exact===165&&adjacent===436&&unavailable===159,
+ 'Position-aware comparison counts changed without source review');
 const make=(manager,overall,points,{year=2025,round=5,position='RB',keeper=false}={})=>({
  manager,overall,year,round,position,player:'Test '+overall,keeper,reg_starts:1,reg_starter_points:points
 });
