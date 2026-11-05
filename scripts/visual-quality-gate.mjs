@@ -238,6 +238,20 @@ try{
         await factors.locator(':scope > summary').click();
         if(await factors.locator('.profile-rating-factor').count()!==8)
          throw Error('All eight official career rating factors must be available');
+        // Exercise an in-page feature button, not just a destination URL.
+        const rivalryCategory=menu.locator('details.profile-feature-group').nth(3);
+        await rivalryCategory.locator(':scope > summary').click();
+        const rivalryButton=rivalryCategory.locator('button[data-feature-target="#head-to-head"]');
+        if(await rivalryButton.count()!==1)throw Error('Head-to-head feature control missing');
+        await rivalryButton.click();
+        if(!await page.locator('#head-to-head').isVisible()||
+           await rivalryButton.getAttribute('aria-pressed')!=='true')
+         throw Error('Head-to-head feature did not reveal its actual panel');
+        const returnButton=page.locator('.profile-focus-toolbar button').first();
+        if(await returnButton.count()!==1)throw Error('Feature detail return action missing');
+        await returnButton.click();
+        if(await page.locator('body').evaluate(el=>el.classList.contains('profile-feature-focused')))
+         throw Error('Returning to profile topics did not reset focused mode');
         const preview=page.locator('a[data-profile-owned-records]');
         if(!await preview.count())throw Error('Personal record preview missing');
         if(['stilly','tom','stover'].includes(slug)){
