@@ -261,6 +261,10 @@ try{
         }
        }
        if(route==='analytics/manager-report-cards.html'){
+        const firstGlances=page.locator('#cards [data-report-manager] .report-first-glance');
+        if(await firstGlances.count()!==10||
+           (await firstGlances.allTextContents()).some(copy=>!copy.includes('verified championships')||!copy.includes('regular-season W–L')))
+         findings.push(engine+' '+width+' report-card career achievement summaries missing');
         const actions=page.locator('#cards [data-report-manager] .report-primary-actions');
         if(await actions.count()!==10)
          findings.push(engine+' '+width+' report cards missing direct Profile and Records actions');
