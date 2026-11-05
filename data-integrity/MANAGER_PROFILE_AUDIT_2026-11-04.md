@@ -121,3 +121,21 @@ Re-read all ten primary profile HTML files and canonical career, championship an
 2. Confirm Chromium and WebKit end-to-end tests, especially Stover's conversion to the common route, Thommy's manager/slug aliasing, the career biography entry and keyboard focus after return.
 3. Inspect the actual 390px and 1280px layouts to confirm biography spacing, feature focus, and readability without overflow.
 4. Confirm Pages deployment on the last combined commit. The accessible GitHub connector returned **zero combined status entries**, and its commit-workflow-run lookup covers only pull-request runs; neither output proves push CI or Pages deployment succeeded.
+
+## Historical identity disambiguation — Thommy vs. Schermerhorn
+
+**Firm identity rule:** Current manager **Thommy** is the four-time champion associated with the legacy route `managers/tom/` and internal historic data key `Tom`. **Schermerhorn** is a separate former manager who appeared in the 2016 and 2017 ESPN records. Display the former manager **only as Schermerhorn** throughout all public stories, standings, record books, rivalries, and future imports. Never treat the two as aliases or transfer games, championship results, titles, transactions, or profile links between them.
+
+Canonical source evidence:
+- `data/career_core_generated.json`: Thommy 67–75–1 in 143 regular-season games (through 2026 Week 8); Schermerhorn 12–13 in 25 regular-season games across only 2016–2017.
+- `data/unified_record_book_2016_2026.json`: three separate regular-season head-to-head games between the individuals, with Thommy 2–1; the 2017 postseason championship bracket includes another matchup.
+- `data/manager_record_books_2016_2026.json`: manager entries `Thommy` and `Schermerhorn` coexist as distinct records; no ambiguous `Tom` manager entry.
+
+Safeguards committed:
+- Corrected the legacy `Tom`-keyed résumé's **display name** to `Thommy` without changing its compatibility key.
+- Clarified the alias metadata in `data/league.json`: only the current manager is `Tom` internally; the former manager is always `Schermerhorn`.
+- Added canonical-data assertions to `scripts/verify-core-consumers.mjs` guarding separate records, seasons, direct meetings, the current manager alias and the two independent record-book entries.
+- Updated the historical record-book UI: `Schermerhorn` can still be selected and studied, but no longer receives a nonexistent current-manager profile link. `Thommy` continues to link to the established `managers/tom/` page.
+- Expanded `scripts/test-browser-release.mjs` to select both names and verify their separate WLT records, distinct profile navigation, and absence of an ambiguous `Tom` option.
+
+This is a source-level identity audit and code correction. Chromium/WebKit runtime checks and Pages publication remain separately unverified.
