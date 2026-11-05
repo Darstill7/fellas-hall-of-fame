@@ -633,7 +633,7 @@ try{
      if(await factMethods.evaluateAll(nodes=>nodes.some(n=>n.open)))
       errors.push(width+' evidence methodology should remain collapsed by default');
      const firstMethod=factMethods.first();
-     await firstMethod.locator('summary').click();
+     await firstMethod.locator(':scope > summary').click();
      if(!await firstMethod.locator('p.fine').first().isVisible()||
         !(await firstMethod.innerText()).includes('Not rated')||
         !(await firstMethod.innerText()).includes('successful waiver claims'))
