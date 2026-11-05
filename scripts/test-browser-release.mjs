@@ -1256,8 +1256,9 @@ try{
     await year.selectOption('2017');
     await manager.selectOption('Tony');
     if(await page.locator('#picks tr').count()!==16||
-       !(await page.locator('#picks').innerText()).includes('Name not verified'))
-     errors.push(width+' 2017 Tony draft missing 16 picks or unresolved historical ESPN player ID');
+       !(await page.locator('#picks').innerText()).includes('Glenn Gronkowski')||
+       !(await page.locator('#picks').innerText()).includes('replaced after draft with Rob Gronkowski'))
+     errors.push(width+' 2017 Tony draft must show original Glenn and post-draft Rob correction');
     await manager.selectOption('');
     await playerSearch.fill('Antonio Brown');
     if(await page.locator('#picks tr').count()!==1||
