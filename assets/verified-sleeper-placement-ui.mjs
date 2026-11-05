@@ -1,6 +1,6 @@
 // Verified Sleeper postseason placements, sourced from user screenshots and source match receipts.
 // Championship results and Toilet Bowl outcomes are different competitions.
-// "Shitter of the Year" = lower FINAL score in the King (Last Place) game.
+// "Shitter of the Year" = last-place loser of the King (Last Place) / Toilet Bowl final.
 const source='../data/sleeper_postseason_placement_receipts_2020_2025.json';
 const make=(type,text,className)=>{
  const el=document.createElement(type);
@@ -64,7 +64,7 @@ function renderSeason(root,s){
 }
 function renderHistory(root,data){
  const heading=make('h2','Hall of Shame · Shitter of the Year');
- const intro=make('p','The manager with the lower final score in the season-ending Toilet Bowl. These results are not counted as positive league records.','placement-intro');
+ const intro=make('p','The manager who finishes last in the losers bracket by losing the final Toilet Bowl. These results are not counted as positive league records.','placement-intro');
  root.append(heading,intro);
  const list=make('div',null,'placement-shame-list');
  for(const s of [...data.seasons].sort((a,b)=>b.year-a.year)){
