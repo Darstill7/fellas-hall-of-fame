@@ -211,7 +211,36 @@ export async function mountDraftTradeCareer(host,manager){
    tradeSection.append(item);
   }
   details.append(tradeSection);
-  box.append(details);
+  // One-click topic navigation: open the research disclosure, scroll to the
+  // selected subsection, and move keyboard focus to its heading.
+  const topics=[
+   ['Draft picks',draftSection],['ESPN history',esSection],
+   ['Started points',productionSection],['Round peers',peersSection],
+   ['Position peers',positionSection],['Trades',tradeSection]
+  ];
+  const topicNav=elt('nav','career-research-topics');
+  topicNav.setAttribute('aria-label','Drafting and trading research topics');
+  topicNav.append(elt('p','career-research-topics-title','Choose what to explore'));
+  const topicGrid=elt('div','career-research-topics-grid');
+  topics.forEach(([label,section],index)=>{
+   const id='career-research-topic-'+index;
+   section.id=id;
+   const heading=section.querySelector('h4');
+   if(heading)heading.tabIndex=-1;
+   const button=elt('button','career-research-topic-button',label);
+   button.type='button';
+   button.setAttribute('aria-controls',id);
+   button.addEventListener('click',()=>{
+    box.open=true;details.open=true;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+     section.scrollIntoView({block:'start',behavior:'instant'});
+     heading?.focus({preventScroll:true});
+    }));
+   });
+   topicGrid.append(button);
+  });
+  topicNav.append(topicGrid);
+  box.append(topicNav,details);
   box.append(elt('p','muted career-resume-caveat',
    'Event counts are not all-time trade totals or wins. The 2026 trade sides are provisional and excluded; incomplete events and missing earlier trade archives are not scored. The complete ESPN original-player archive is authoritative for 2016–2019 names; the older research summary may contain pre-recovery placeholders. Original selections do not establish draft value.'));
  }catch(error){
