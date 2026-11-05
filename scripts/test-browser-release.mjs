@@ -377,6 +377,19 @@ try{
      birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
     const name=profileNames[slug];
     if(name){
+     // Canonical pages must also remain compact when visitors follow a
+     // direct Explore link with the feature-directory hash.
+     if(['stilly','tom','stover'].includes(slug)){
+      const deepLinkPage=await context.newPage();
+      try{
+       await deepLinkPage.goto(baseUrl+route+'#profile-features',{waitUntil:'networkidle',timeout:30000});
+       await deepLinkPage.locator('#profile-features').waitFor({state:'visible',timeout:10000});
+       if(!await deepLinkPage.locator('body').evaluate(el=>el.classList.contains('profile-landing'))||
+          await deepLinkPage.locator('main > section.section:visible').count()!==0||
+          new URL(deepLinkPage.url()).hash!=='#profile-features')
+        errors.push(width+' '+route+' Explore deep link expands archive instead of compact directory');
+      }finally{await deepLinkPage.close()}
+     }
      if((await page.locator('main .hero h1').innerText()).trim()!==name)
       errors.push(width+' '+route+' manager hero must show the canonical public nickname');
      const heroActions=page.locator('main .hero > .buttons > a');
