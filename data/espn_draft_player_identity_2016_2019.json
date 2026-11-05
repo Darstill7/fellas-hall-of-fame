@@ -5,7 +5,7 @@
     2016,
     2019
   ],
-  "description": "ESPN player identity crosswalk for all Fellas original 2016–2019 draft selections",
+  "description": "ESPN-era draft identity crosswalk: 272 unique players independently matched by ESPN ID, 23 D/ST decoded, and 1 user-confirmed original selection reconciled to the remaining ID.",
   "sourceCrosswalk": {
     "name": "DynastyProcess Fantasy Football Player IDs",
     "url": "https://github.com/dynastyprocess/data/blob/master/files/db_playerids.csv",
@@ -20,11 +20,14 @@
   },
   "coverage": {
     "uniqueIds": 296,
-    "uniqueIdentified": 295,
-    "uniqueUnresolved": 1,
+    "uniqueIdentified": 296,
+    "uniqueUnresolved": 0,
     "positivePlayers": 273,
-    "positiveIdentified": 272,
-    "defenseIds": 23
+    "positiveIdentified": 273,
+    "defenseIds": 23,
+    "userConfirmedIdentityCount": 1,
+    "independentExactIdCrosswalkMatches": 272,
+    "verifiedSelectionIdentities": 598
   },
   "players": {
     "1097": {
@@ -1541,11 +1544,24 @@
     },
     "2977698": {
       "espnId": 2977698,
-      "name": null,
-      "position": null,
-      "verification": "unresolved",
-      "source": null,
-      "reason": "Not present in the external ESPN ID crosswalk; needs original ESPN player pool or authenticated player card for this historical ID."
+      "name": "Glenn Gronkowski",
+      "position": "RB",
+      "nflRole": "FB",
+      "nflTeamIn2017": "New England Patriots",
+      "verification": "user_confirmed_original_draft_selection",
+      "source": "League-manager firsthand confirmation 2026-11-05",
+      "independentEspnIdCrosswalkVerified": false,
+      "explanation": "The player name comes from the league manager's firsthand account of Tony's mistaken 2017 selection, reconciled to the sole remaining unidentified ESPN draft player ID; an independent ESPN ID mapping is unavailable.",
+      "postDraftCorrection": {
+        "intendedPlayer": "Rob Gronkowski",
+        "intendedEspnId": 13229,
+        "position": "TE",
+        "action": "League manually replaced Glenn with Rob after the draft",
+        "source": "League-manager firsthand confirmation 2026-11-05",
+        "exactTimeUnknown": true,
+        "recordType": "post_draft_manual_correction_not_original_selection"
+      },
+      "athleteReference": "https://www.nfl.com/news/patriots-sign-glenn-gronkowski-to-futures-contract-0ap3000000785869"
     },
     "2978929": {
       "espnId": 2978929,
