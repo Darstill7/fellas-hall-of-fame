@@ -650,6 +650,18 @@ try{
        errors.push(width+' incomplete provider FAAB by-season history');
       await faabHistory.locator('summary').click();
      }
+     const pickupHistory=firstMethod.locator('details.report-pickup-history');
+     if(await pickupHistory.count()!==1)
+      errors.push(width+' season-by-season pickup evidence missing');
+     else{
+      await pickupHistory.locator('summary').click();
+      const rows=pickupHistory.locator('li');
+      if(await rows.count()<2||
+         !(await pickupHistory.innerText()).includes('later started')||
+         !(await pickupHistory.innerText()).includes('repeat adds'))
+       errors.push(width+' incomplete seasonal acquisition usage details');
+      await pickupHistory.locator('summary').click();
+     }
      await firstMethod.locator(':scope > summary').click();
     }
     const categoryPanels=page.locator('[data-report-manager] details.report-category-details');

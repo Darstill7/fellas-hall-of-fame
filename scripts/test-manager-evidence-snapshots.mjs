@@ -5,6 +5,7 @@ const audit=get('data-integrity/REPORT_CARD_NA_RECOVERY_AUDIT_2026-11-04.json');
 const rows=buildEvidenceSnapshots({
  placements:get('data/fellas_final_placements_2016_2025_verified.json'),
  acquisitions:get('data/manager_acquisition_distinct_v1.json'),
+ pickupSeasons:get('data/manager_acquisition_by_season_v1.json'),
  keeperResearch:get('data/keeper_2025_website_research_v1.json'),
  keeper2026:get('data/keeper_2026_website_research_v1.json'),
  startSit:get('data-integrity/sleeper-start-sit-ui-benchmarks-2026-week8.json'),
@@ -40,6 +41,14 @@ for(const e of rows){
     e.faab.years.some(y=>y.year===2026&&y.winningSpend<0))
   throw Error('Manager FAAB provider source does not reconcile '+e.manager);
 }
+for(const e of rows){
+ if(e.pickups.years.length===0||
+    e.pickups.years.reduce((sum,y)=>sum+y.distinct,0)!==e.pickups.distinct||
+    e.pickups.years.reduce((sum,y)=>sum+y.laterStarted,0)!==e.pickups.started||
+    e.pickups.years.reduce((sum,y)=>sum+y.repeats,0)!==e.pickups.reacquisitions||
+    e.pickups.years.some(y=>y.laterStarted>y.distinct))
+  throw Error('Season acquisition evidence mismatch '+e.manager);
+}
 const cardSource=fs.readFileSync('assets/manager-report-card.mjs','utf8');
 if(!cardSource.includes('waivers:null,lineups:null,keepers:null'))
  throw Error('Ungraded managerial decision categories should remain null');
@@ -53,7 +62,8 @@ if(!page.includes('buildEvidenceSnapshots(')||!page.includes("evidenceSnapshot(x
    !page.includes('report-fact-grid')||!page.includes('report-fact-method')||
    !page.includes('keeper_2025_website_research_v1.json')||
    !page.includes('keeper_2026_website_research_v1.json')||
-   !page.includes('faab-manager-spend-research-v1.json')||!page.includes('report-faab-history'))
+   !page.includes('faab-manager-spend-research-v1.json')||!page.includes('report-faab-history')||
+   !page.includes('manager_acquisition_by_season_v1.json')||!page.includes('report-pickup-history'))
  throw Error('Evidence not wired into the public report card page');
 const css=fs.readFileSync('analytics/manager-report-cards.html','utf8');
 if(!css.includes('.report-fact-grid')||!css.includes('min-height:46px'))
