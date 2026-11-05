@@ -1699,6 +1699,8 @@ try{
          !await page.locator('.profile-career-resume').evaluate(el=>el.open))
        errors.push(width+' '+slug+' career résumé feature failed to reveal hidden evidence');
       await researchShelf.evaluate(el=>el.open=false);
+      if(!await page.locator('.profile-focus-toolbar').isVisible())
+       errors.push(width+' '+slug+' closing research drawer hid the return navigation');
       await page.locator('.profile-focus-toolbar button').click();
       const front=page.locator('[data-profile-feature][data-feature-target=".profile-front-office-snapshot"]');
       const frontGroup=page.locator('details.profile-feature-group').filter({has:front});
