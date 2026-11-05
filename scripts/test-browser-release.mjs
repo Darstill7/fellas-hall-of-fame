@@ -302,8 +302,8 @@ try{
       await evidence.locator(':scope > summary').click();
      }
      const direct=page.locator('#profile-features .profile-featured-link');
-     if(await direct.count()!==3)
-      errors.push(width+' '+route+' three manager entry points missing');
+     if(await direct.count()!==2)
+      errors.push(width+' '+route+' Records and Report Card entry points missing');
      const weighted=heroMadden.locator('details.profile-rating-components');
      if(await weighted.count()!==1||await weighted.evaluate(el=>el.open))
       errors.push(width+' '+route+' canonical weight breakdown unavailable or expanded on load');

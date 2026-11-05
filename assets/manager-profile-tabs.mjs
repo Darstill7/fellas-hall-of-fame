@@ -140,6 +140,35 @@ if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')
   evidence.className='profile-snapshot-receipts';
   const summary=document.createElement('summary');
   summary.textContent='Regular-season record details and sources';
+  // Two readable headline facts stay visible; the complete canonical stat
+  // grid and provenance remain in the disclosure below. Populate from source
+  // nodes after the deferred canonical record binder has run.
+  const highlights=document.createElement('div');
+  highlights.className='profile-career-highlights';
+  highlights.setAttribute('aria-label','Career highlights');
+  const originalCards=[...originalStats.querySelectorAll(':scope > .stat')];
+  const selected=[
+   originalCards.find(card=>/^Championships$/.test(card.querySelector('small')?.textContent?.trim()||'')),
+   originalCards.find(card=>/Regular-season record/.test(card.querySelector('small')?.textContent||''))
+  ].filter(Boolean);
+  for(const card of selected){
+   const metric=document.createElement('div');
+   metric.className='profile-career-highlight';
+   const label=document.createElement('span');
+   label.className='profile-career-highlight-label';
+   label.textContent=card.querySelector('small')?.textContent?.trim()||'Career';
+   const value=document.createElement('strong');
+   const sourceValue=card.querySelector('strong');
+   const syncValue=()=>{value.textContent=sourceValue?.textContent?.trim()||'—'};
+   syncValue();
+   if(sourceValue)new MutationObserver(syncValue).observe(sourceValue,{childList:true,subtree:true,characterData:true});
+   metric.append(label,value);highlights.append(metric);
+  }
+  if(highlights.children.length===2){
+   const recordLink=profileSnapshot.querySelector('.profile-owned-records');
+   if(recordLink)recordLink.before(highlights);
+   else profileSnapshot.append(highlights);
+  }
   evidence.append(summary,originalStats);
   const source=profileSnapshot.querySelector('.profile-snapshot-source');
   if(source)evidence.append(source);
@@ -147,7 +176,7 @@ if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')
   if(records)records.after(evidence);
   else profileSnapshot.append(evidence);
   const heading=profileSnapshot.querySelector('.profile-snapshot-heading');
-  if(heading)heading.textContent='Personal record book';
+  if(heading)heading.textContent='Career highlights';
   profileSnapshot.classList.add('profile-snapshot-condensed');
  }
 }
@@ -261,8 +290,8 @@ function mountProfileFeatureDirectory(quick,manager){
   const arrow=document.createElement('span');arrow.className='profile-feature-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent='→';
   item.append(symbol,body,arrow);groupHosts.get(index).append(item);
  }
- // Three direct, reliable routes before the full research directory.
- // Links remain navigable without relying on a profile tab being mounted.
+ // The two primary destinations: historical records and manager report card.
+ // Start/Sit remains available within the deeper Lineups & Keepers category.
  const featured=document.createElement('nav');
  featured.className='profile-featured-routes';
  featured.setAttribute('aria-label','Recommended starting points');
@@ -273,9 +302,8 @@ function mountProfileFeatureDirectory(quick,manager){
  const featuredLinks=document.createElement('div');
  featuredLinks.className='profile-featured-links';
  const featuredDestinations=[
-  ['Career overview','Titles, results and franchise story','#verified-history-panel'],
-  ['Manager report card','Strengths, ratings and evidence','../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards'],
-  ['Start/Sit accuracy','Weekly lineup decisions','../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name)]
+  ['Records','Personal bests, league records and season history','../record-books.html?manager='+encodeURIComponent(name)+'#owned-records'],
+  ['Report Card','Overall ratings, category grades and evidence','../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards']
  ];
  for(const [label,description,href] of featuredDestinations){
   const a=document.createElement('a');
@@ -359,7 +387,7 @@ function mountProfileFeatureDirectory(quick,manager){
   if(!opened.matches?.('details.profile-feature-group')||!opened.open)return;
   for(const other of menu.querySelectorAll('details.profile-feature-group'))if(other!==opened)other.open=false;
  },true);
- css.textContent+=' .profile-featured-routes{margin:15px 0 20px}.profile-featured-title{font-size:12px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#efd295;margin:0 0 8px!important}.profile-featured-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.profile-featured-link{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 7px;align-content:center;min-width:0;min-height:92px;padding:15px;background:#19394b;border:1px solid #688493;border-radius:11px;color:#fff;text-decoration:none}.profile-featured-link strong{font-size:14px;line-height:1.35}.profile-featured-link small{grid-column:1;font-size:12px;line-height:1.5;color:#cddce5}.profile-featured-link span{grid-column:2;grid-row:1/3;align-self:center;color:#efd295;font-size:19px}.profile-featured-link:hover{border-color:#efd295;background:#244a5d}.profile-featured-link:focus-visible{outline:3px solid #efd295;outline-offset:3px}@media(max-width:700px){.profile-featured-links{grid-template-columns:1fr}.profile-featured-link{min-height:70px;padding:12px 15px}}';
+ css.textContent+=' .profile-featured-routes{margin:12px 0 16px}.profile-featured-title{font-size:12px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#efd295;margin:0 0 8px!important}.profile-featured-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.profile-featured-link{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 7px;align-content:center;min-width:0;min-height:92px;padding:15px;background:#19394b;border:1px solid #688493;border-radius:11px;color:#fff;text-decoration:none}.profile-featured-link strong{font-size:14px;line-height:1.35}.profile-featured-link small{grid-column:1;font-size:12px;line-height:1.5;color:#cddce5}.profile-featured-link span{grid-column:2;grid-row:1/3;align-self:center;color:#efd295;font-size:19px}.profile-featured-link:hover{border-color:#efd295;background:#244a5d}.profile-featured-link:focus-visible{outline:3px solid #efd295;outline-offset:3px}@media(max-width:700px){.profile-featured-links{grid-template-columns:1fr}.profile-featured-link{min-height:70px;padding:12px 15px}}';
  css.textContent+=' .profile-rating-guide{margin:15px 0 0;padding:0;background:#112b3b;border:1px solid #456377;border-radius:12px}.profile-rating-guide>summary{padding:13px 16px;min-height:48px;line-height:1.5;color:#f0d398;font-weight:800;cursor:pointer}.profile-rating-guide>summary:focus-visible{outline:3px solid #f0d398;outline-offset:2px}.profile-rating-guide-content{padding:0 16px 14px}.profile-rating-guide-content p{line-height:1.65;font-size:13px;margin:9px 0;color:#d3e1e9}.profile-rating-guide-content strong{color:#fff}';
  document.head.append(css);
 }

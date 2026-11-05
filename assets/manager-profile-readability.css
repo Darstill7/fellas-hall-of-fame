@@ -224,3 +224,12 @@ main .hero .profile-snapshot-receipts>summary:focus-visible{outline:3px solid #e
 main .hero .profile-snapshot-receipts .profile-snapshot-stats{margin:5px 0 12px}
 main .hero .profile-snapshot-receipts .profile-snapshot-source{margin:8px 0 12px!important}
 @media(max-width:650px){main .hero .profile-snapshot-condensed{padding:12px;margin:9px 0 12px}main .hero .profile-snapshot-receipts{padding:0 10px}}
+
+/* Visible career headlines; detailed receipts stay behind the disclosure. */
+main .hero .profile-career-highlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:2px 0 13px}
+main .hero .profile-career-highlight{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;min-width:0;min-height:82px;border:1px solid #436475;border-radius:12px;background:#193341;padding:12px 15px}
+main .hero .profile-career-highlight-label{font-size:12px;line-height:1.35;font-weight:750;color:#c8d8e2}
+main .hero .profile-career-highlight strong{font-size:clamp(22px,4vw,30px);line-height:1.15;letter-spacing:-.025em;color:#f5d28a;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+main .hero .profile-snapshot-condensed>.profile-snapshot-heading{font-size:18px;line-height:1.3;margin:0 0 10px}
+@media(max-width:650px){main .hero .profile-career-highlights{gap:8px;margin:0 0 10px}main .hero .profile-career-highlight{padding:12px;min-height:76px}main .hero .profile-career-highlight strong{font-size:clamp(20px,6vw,26px)}}
+@media(max-width:330px){main .hero .profile-career-highlights{grid-template-columns:minmax(0,1fr)}}

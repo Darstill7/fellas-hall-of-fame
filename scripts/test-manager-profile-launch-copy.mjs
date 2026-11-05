@@ -33,13 +33,18 @@ if(!tabsSource.includes('careerSnapshot.before(primaryProfileActions)')||
    !tabsSource.includes('profileTopicMenu.after(profilePlayoffSection)'))
  throw Error('Manager first-screen hierarchy must remain consistent');
 if(!tabsSource.includes('mountManagerPlayoffResume();')||
- !tabsSource.includes('items:[0,1,12,13]')||
+ !tabsSource.includes('items:[0,1,11,12]')||
  !tabsSource.includes("href:'#profile-playoff-resume'"))
  throw Error('Playoff résumé is missing from the shared manager profile navigation');
-// Every public manager landing page must share the same three clear first-step routes.
-for(const label of ['Career overview','Manager report card','Start/Sit accuracy']){
+// Every public manager landing page leads with Records and Report Card.
+for(const label of ['Records','Report Card']){
  if(!tabsSource.includes("'"+label+"'"))throw Error('First-screen profile route missing: '+label);
 }
+if(tabsSource.includes("['Start/Sit accuracy','Weekly lineup decisions'")||
+   !tabsSource.includes("['Records','Personal bests")||
+   !tabsSource.includes("['Report Card','Overall ratings")||
+   !tabsSource.includes("{label:'Start/Sit accuracy'"))
+ throw Error('Profile lead must prioritize Records and Report Card while keeping Start/Sit in research');
 if(!tabsSource.includes("shell.append(featured,menu)")||
  !tabsSource.includes("profile-featured-links")||
  !tabsSource.includes("encodeURIComponent(name)+'#cards'"))
@@ -83,6 +88,11 @@ if(!careerResumeCss.includes('.profile-career-finish-summary')||
 // Original verified stat values must remain in the DOM and reachable,
 // without duplicating the first-screen rating and career summary.
 const profileStyles=fs.readFileSync('assets/manager-profile-readability.css','utf8');
+if(!tabsSource.includes("profile-career-highlights")||
+   !tabsSource.includes("new MutationObserver(syncValue)")||
+   !profileStyles.includes("main .hero .profile-career-highlights"))
+ throw Error('Source-bound championship and regular-season headline facts missing');
+
 for(const required of [
  "profile-snapshot-receipts","profile-snapshot-condensed",
  "evidence.append(summary,originalStats)","if(source)evidence.append(source)",
@@ -136,7 +146,7 @@ if(!featureMenu.includes("import {findOwnedRecords,recordCategoryLabels} from '.
 const recordBook=fs.readFileSync('managers/record-books.html','utf8');
 if(!featureMenu.includes("label:'Records you own'")||!featureMenu.includes("href:'../record-books.html?manager='+encodeURIComponent(manager)+'#owned-records'"))
  throw Error('Manager feature menu lost its personal record book deep link');
-if(!featureMenu.includes("items:[0,1,12,13]"))
+if(!featureMenu.includes("items:[0,1,11,12]"))
  throw Error('Record books are no longer in the Career & Results feature group');
 if(!recordBook.includes("new URLSearchParams(location.search).get('manager')"))
  throw Error('Record book does not restore manager selection from its URL');
