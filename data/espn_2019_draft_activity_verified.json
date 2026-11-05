@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "season": 2019,
+  "leagueId": "1313090",
+  "leagueName": "The Fellas",
+  "source": {
+    "type": "Authenticated ESPN mDraftDetail+mTeam+mSettings+mMatchupScore export provided by the league manager",
+    "format": "ESPN leagueHistory JSON, one season",
+    "rawJsonSha256": "14a8c0c68b4c4577b8c92ee2a4c759ffb16b10915d8e5b23b66e241e1e91fa09",
+    "rawExportCommitted": false,
+    "note": "No personal ESPN account IDs, login credentials or member names are published here."
+  },
+  "draft": {
+    "providerDraftType": "OFFLINE",
+    "providerDrafted": true,
+    "completed": true,
+    "rounds": 15,
+    "teams": 10,
+    "totalPicks": 150,
+    "round1PickOrder": [
+      5,
+      9,
+      12,
+      3,
+      11,
+      1,
+      7,
+      10,
+      6,
+      4
+    ],
+    "orderType": "MANUAL",
+    "pickSequence": "Snake: reverse the first-round team order in even rounds",
+    "keeperCount": 0,
+    "allDraftPicksMarkedKeeperFalse": true,
+    "playerIdentityStatus": "ESPN player IDs verified, player display names NOT included in this API export",
+    "playerIdNotice": "Negative player IDs represent ESPN team-defense / special-team identities. Preserve signed integers without treating them as missing values.",
+    "sourcePickDataScope": "Player IDs are listed in ascending draft-round order for each team. Given the 10-team snake order, each round and overall selection is reproducible.",
+    "draftValueGrades": "Not yet calculated: player names and performance/lineup attribution require separate source evidence."
+  },
+  "settings": {
+    "auctionBudgetField": 200,
+    "draftSelectionType": "OFFLINE (do not infer auction draft from auctionBudgetField)",
+    "acquisitionBudget": 100,
+    "acquisitionType": "WAIVERS_TRADITIONAL",
+    "faabEnabled": true,
+    "minimumBid": 0,
+    "regularSeasonMatchups": 13,
+    "playoffTeams": 6,
+    "playoffRoundLength": 1,
+    "scoringType": "H2H_POINTS",
+    "receptionPoints": 0.5
+  },
+  "seasonMatchups": {
+    "sourceMatchupRows": 81,
+    "sourceRegularSeasonRows": 65,
+    "sourcePostseasonRows": 16,
+    "upstreamCanonical": "data/espn_history_2016_2019.json",
+    "note": "Postseason and running-cumulative consolation weeks are preserved by existing bracket-specific canonical source. This normalized file is not a second source of truth for scores."
+  },
+  "teams": [
+    {
+      "espnTeamId": 1,
+      "manager": "Stilly",
+      "teamName": "Dishes? NOTHIN",
+      "finalRank": 5,
+      "regularSeason": {
+        "wins": 6,
+        "losses": 7,
+        "pointsFor": 1464.36
+      },
+      "transactionCounter": {
+        "tradeParticipations": 5,
+        "acquisitions": 27,
+        "drops": 26,
+        "acquisitionBudgetSpent": 58
+      },
+      "draftPlayerIdsByRound": [
+        3051392,
+        3120348,
+        2976212,
+        16731,
+        3052117,
+        2979477,
+        15705,
+        3046439,
+        2573079,
+        3049916,
+        3127306,
+        14993,
+        -16030,
+        2330,
+        3123969
+      ]
+    },
+    {
+      "espnTeamId": 3,
+      "manager": "Stew",
+      "teamName": "Kickers  SUCK",
+      "finalRank": 2,
+      "regularSeason": {
+        "wins": 9,
+        "losses": 4,
+        "pointsFor": 1618.32
+      },
+      "transactionCounter": {
+        "tradeParticipations": 1,
+        "acquisitions": 36,
+        "drops": 34,
+        "acquisitionBudgetSpent": 98
+      },
+      "draftPlayerIdsByRound": [
+        16800,
+        3128720,
+        16737,
+        3115364,
+        2577327,
+        3045144,
+        3051876,
+        3892889,
+        3916148,
+        4040761,
+        3916387,
+        3116136,
+        -16006,
+        9704,
+        3128774
+      ]
+    },
+    {
+      "espnTeamId": 4,
+      "manager": "Stover",
+      "teamName": "Yogurt Slingers II",
+      "finalRank": 9,
+      "regularSeason": {
+        "wins": 4,
+        "losses": 9,
+        "pointsFor": 1354.6
+      },
+      "transactionCounter": {
+        "tradeParticipations": 2,
+        "acquisitions": 29,
+        "drops": 28,
+        "acquisitionBudgetSpent": 75
+      },
+      "draftPlayerIdsByRound": [
+        3045147,
+        15825,
+        2976499,
+        12649,
+        13981,
+        13983,
+        3843750,
+        3052587,
+        15683,
+        15853,
+        -16033,
+        5529,
+        4241372,
+        4035072,
+        16974
+      ]
+    },
+    {
+      "espnTeamId": 5,
+      "manager": "Evans",
+      "teamName": "I Love  Tubing",
+      "finalRank": 10,
+      "regularSeason": {
+        "wins": 5,
+        "losses": 8,
+        "pointsFor": 1188.32
+      },
+      "transactionCounter": {
+        "tradeParticipations": 5,
+        "acquisitions": 49,
+        "drops": 48,
+        "acquisitionBudgetSpent": 82
+      },
+      "draftPlayerIdsByRound": [
+        3929630,
+        17359,
+        13934,
+        15880,
+        15835,
+        16913,
+        16790,
+        11283,
+        11237,
+        3051902,
+        -16014,
+        3122449,
+        5536,
+        1097,
+        16777
+      ]
+    },
+    {
+      "espnTeamId": 6,
+      "manager": "Koble",
+      "teamName": "Team Koble",
+      "finalRank": 7,
+      "regularSeason": {
+        "wins": 4,
+        "losses": 9,
+        "pointsFor": 1418.3
+      },
+      "transactionCounter": {
+        "tradeParticipations": 1,
+        "acquisitions": 25,
+        "drops": 25,
+        "acquisitionBudgetSpent": 100
+      },
+      "draftPlayerIdsByRound": [
+        13982,
+        3116385,
+        4047365,
+        3128721,
+        3116165,
+        4045163,
+        12537,
+        13295,
+        16799,
+        3917315,
+        10452,
+        4039359,
+        2587819,
+        -16007,
+        3050478
+      ]
+    },
+    {
+      "espnTeamId": 7,
+      "manager": "Thommy",
+      "teamName": "Boy Named Suh",
+      "finalRank": 8,
+      "regularSeason": {
+        "wins": 2,
+        "losses": 11,
+        "pointsFor": 1175.38
+      },
+      "transactionCounter": {
+        "tradeParticipations": 4,
+        "acquisitions": 33,
+        "drops": 31,
+        "acquisitionBudgetSpent": 100
+      },
+      "draftPlayerIdsByRound": [
+        2508176,
+        3116406,
+        3919596,
+        16944,
+        2977187,
+        14912,
+        3066158,
+        2574808,
+        13994,
+        15920,
+        3121427,
+        3115913,
+        3116365,
+        -16005,
+        15245
+      ]
+    },
+    {
+      "espnTeamId": 9,
+      "manager": "Birch",
+      "teamName": "AP’s Daycare",
+      "finalRank": 1,
+      "regularSeason": {
+        "wins": 11,
+        "losses": 2,
+        "pointsFor": 1624.54
+      },
+      "transactionCounter": {
+        "tradeParticipations": 0,
+        "acquisitions": 19,
+        "drops": 19,
+        "acquisitionBudgetSpent": 68
+      },
+      "draftPlayerIdsByRound": [
+        3117251,
+        15818,
+        15847,
+        3139477,
+        3043078,
+        2969962,
+        3915416,
+        16725,
+        3052876,
+        5528,
+        3060022,
+        14198,
+        3128429,
+        -16016,
+        2971573
+      ]
+    },
+    {
+      "espnTeamId": 10,
+      "manager": "Tony",
+      "teamName": "Tittsburgh Feelers",
+      "finalRank": 4,
+      "regularSeason": {
+        "wins": 8,
+        "losses": 5,
+        "pointsFor": 1435.8
+      },
+      "transactionCounter": {
+        "tradeParticipations": 1,
+        "acquisitions": 23,
+        "drops": 23,
+        "acquisitionBudgetSpent": 57
+      },
+      "draftPlayerIdsByRound": [
+        2976316,
+        2977644,
+        4035538,
+        3040151,
+        3122840,
+        2974858,
+        8439,
+        2979843,
+        2580,
+        -16003,
+        3123076,
+        3051738,
+        2985659,
+        3042778,
+        3122672
+      ]
+    },
+    {
+      "espnTeamId": 11,
+      "manager": "Mitch",
+      "teamName": "New England’s QB Room",
+      "finalRank": 3,
+      "regularSeason": {
+        "wins": 9,
+        "losses": 4,
+        "pointsFor": 1548
+      },
+      "transactionCounter": {
+        "tradeParticipations": 2,
+        "acquisitions": 39,
+        "drops": 38,
+        "acquisitionBudgetSpent": 82
+      },
+      "draftPlayerIdsByRound": [
+        15795,
+        3116593,
+        16460,
+        3042519,
+        3139605,
+        3925357,
+        3043080,
+        2976592,
+        15072,
+        3046779,
+        4361606,
+        -16018,
+        3055899,
+        2969939,
+        3916430
+      ]
+    },
+    {
+      "espnTeamId": 12,
+      "manager": "Kuhl",
+      "teamName": "Hockenson  Loogies On You",
+      "finalRank": 6,
+      "regularSeason": {
+        "wins": 7,
+        "losses": 6,
+        "pointsFor": 1518.92
+      },
+      "transactionCounter": {
+        "tradeParticipations": 1,
+        "acquisitions": 23,
+        "drops": 21,
+        "acquisitionBudgetSpent": 40
+      },
+      "draftPlayerIdsByRound": [
+        3054850,
+        16733,
+        3916925,
+        14924,
+        2576434,
+        3068267,
+        3045138,
+        3895856,
+        3139925,
+        3059915,
+        16732,
+        14881,
+        13217,
+        17427,
+        -16019
+      ]
+    }
+  ]
+}
