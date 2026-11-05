@@ -139,3 +139,12 @@ Safeguards committed:
 - Expanded `scripts/test-browser-release.mjs` to select both names and verify their separate WLT records, distinct profile navigation, and absence of an ambiguous `Tom` option.
 
 This is a source-level identity audit and code correction. Chromium/WebKit runtime checks and Pages publication remain separately unverified.
+
+## November 5 — navigation release gate: direct Explore deep links
+
+- Audited the actual shared profile landing initialization. Found that loading a current manager profile with `#profile-features` invoked the broad `overview` tab and unintentionally left the archived historical sections exposed, unlike opening the same page normally. This undermined the compact mobile-first navigation and could appear clunky for links from other site pages.
+- Updated `assets/manager-profile-tabs.mjs` to explicitly recognize `#profile-features` as a **landing-page deep link**, retain that hash, hide the unrelated historical sections, and scroll into the feature directory after it mounts. The ordinary biography/section deep links still resolve via their intended historical category.
+- Expanded `scripts/test-browser-release.mjs` to open `managers/stilly/#profile-features`, `managers/tom/#profile-features`, and `managers/stover/#profile-features` at the tested viewport widths. The assertion requires the compact landing state, no visible archive wall, and preservation of the feature-directory URL hash.
+- Re-read the ten current HTML profiles and canonical generated records, then checked visible manager identity, career record, two functional static hero actions, shared chapter navigation, short editorial story, full biography paragraph count, and presence of the shared enhancement module. **10/10 source checks passed**. Both modified JavaScript assets passed static compilation.
+- **Browser execution is still not confirmed.** The GitHub connector exposed zero combined status entries on the latest commit and does not list push-triggered Actions runs. The external GitHub Actions page and published Pages site were inaccessible to the available browser/search environment. There is no verified Chromium, WebKit, mobile screenshot, or successful Pages publish claim yet.
+- Next release step: run and inspect the main-branch canonical workflow, Chromium and WebKit jobs, and Pages deployment; fix any real run failures. Avoid marking visual QA complete until the rendered 390px and 1280px layouts are inspected.
