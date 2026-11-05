@@ -204,3 +204,25 @@ The user explicitly confirmed (1) **2019 I Love Tubing belonged to Evans**, whil
 - Extended `scripts/verify-espn-playoff-formats.mjs` (already in canonical GitHub Actions) to independently calculate the lowest final losers-consolation scorer from original ESPN games for each year and compare the new awards and current-manager badges. Extended browser checks for the ESPN Origins award table.
 
 **Verification scope:** Re-read original ESPN final-round scores and owner IDs directly. New award calculations and the ESPN format validator passed an in-memory JavaScript execution using the saved GitHub source bytes. GitHub CI push-job statuses and Chromium/WebKit browser execution must still be independently inspected. This does **not** certify any later-year (Sleeper-era) Shitter awards.
+
+## November 5 — original authenticated 2016–2018 ESPN draft and activity recovery
+
+The user supplied three authenticated ESPN `leagueHistory/1313090` exports in order: **2018, 2017 and 2016**. Each contained draft picks, teams, regular-season W/L/T, transaction counters, historical roster settings and the ESPN matchups previously archived. The original exports were read directly and reconciled by ESPN numeric team ID against `data/espn_history_2016_2019.json`. Draft source identities `Thommy` and `Schermerhorn` are kept separate throughout.
+
+| Year | Participants | Rounds | Draft picks | ESPN draft type | Keepers | FAAB enabled |
+|---|---:|---:|---:|---|---:|---|
+| 2016 | 8 | 16 | **128** | SNAKE | 0 | **No** |
+| 2017 | 10 | 16 | **160** | OFFLINE | 0 | **No** |
+| 2018 | 10 | 16 | **160** | OFFLINE | 0 | **No** |
+| 2019 (previously recovered) | 10 | 15 | **150** | OFFLINE | 0 | **Yes** |
+| **Total** | **38 manager-seasons** | | **598** | | | |
+
+**Critical waiver distinction:** The first three exports carry a nominal configured `acquisitionBudget:100` but `isUsingAcquisitionBudget:false`, with actual `acquisitionBudgetSpent:0` for every manager. Thus 2016–2018 were **not FAAB seasons**; do not calculate FAAB efficiency or label $0 as a winning FAAB bid. 2019 was FAAB-enabled. The `auctionBudget:200` field in all years does not imply auction drafting: 2016 was explicitly SNAKE, 2017–2019 OFFLINE, with zero keepers throughout.
+
+**Persisted data:** `data/espn_2016_2018_drafts_activity_verified.json` contains every historical drafted ESPN player ID in overall-pick order (128+160+160), per-year actual team order, all 28 team-season transaction counters, official finishing positions, no-keeper settings, original export hashes, and season score provenance. It omits member UUIDs and real names. `data/espn_2019_draft_activity_verified.json` remains the separate verified 2019 source. The 448 new player-ID sequences were cross-compared in full with the uploaded originals via FNV32 and matched exactly: 2016 `e5d13726`, 2017 `58a36b96`, 2018 `b43eecdc`. No invented player display names or performance-based draft grades were added.
+
+**Website:** `seasons/espn-origins.html` now offers a compact **2016–2019 season selector**, displaying each manager's official finish, number of draft picks, trade participation count, acquisitions, drops, and contextually correct FAAB status (`Not used` in 2016–2018, dollar amounts only in 2019). The table uses nickname identities and keeps player-ID technical data in the structured archive. New browser assertions check all four selected seasons, team counts, the original `Thommy`/`Schermerhorn` distinction, and no-keeper/non-FAAB labeling.
+
+**Regression:** Added `scripts/verify-espn-2016-2018-draft-activity.mjs` alongside existing 2019 verification. It validates all 448 player IDs with source hashes, ten-/eight-team mapping, source regular-season records, zero keepers, waiver rules, and no identity collisions. Both scripts are wired into the canonical GitHub Actions workflow. An in-memory JavaScript execution of **both validators passed** against the current GitHub repository bytes, and changed inline/browser JavaScript passed syntax checks. This does **not** establish live Pages deployment or green Chromium/WebKit CI.
+
+**Opportunity:** These new counters fill previously unsupported ESPN-era drafting and trading *volume* gaps. To grade player-selection *value*, recover ESPN historical player identity catalog and season performance/lineup records first. Transaction counts alone do not establish whether moves improved a team's performance.
