@@ -635,9 +635,22 @@ try{
      const firstMethod=factMethods.first();
      await firstMethod.locator('summary').click();
      if(!await firstMethod.locator('p.fine').first().isVisible()||
-        !(await firstMethod.innerText()).includes('Not rated'))
-      errors.push(width+' verified manager facts or honest unrated explanation not accessible');
-     await firstMethod.locator('summary').click();
+        !(await firstMethod.innerText()).includes('Not rated')||
+        !(await firstMethod.innerText()).includes('successful waiver claims'))
+      errors.push(width+' verified manager facts, FAAB totals, or honest unrated explanation not accessible');
+     const faabHistory=firstMethod.locator('details.report-faab-history');
+     if(await faabHistory.count()!==1)
+      errors.push(width+' source-backed FAAB season history missing');
+     else{
+      await faabHistory.locator('summary').click();
+      const count=await faabHistory.locator('li').count();
+      const historyText=await faabHistory.innerText();
+      if(count<2||!historyText.includes('2026 (through W7)')||
+         !historyText.includes('winning spend')||!historyText.includes('$0 wins'))
+       errors.push(width+' incomplete provider FAAB by-season history');
+      await faabHistory.locator('summary').click();
+     }
+     await firstMethod.locator(':scope > summary').click();
     }
     const categoryPanels=page.locator('[data-report-manager] details.report-category-details');
     const evidencePanels=page.locator('[data-report-manager] details.report-evidence-details');
