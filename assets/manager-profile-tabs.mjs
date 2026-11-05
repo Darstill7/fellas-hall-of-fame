@@ -140,6 +140,28 @@ if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')
   evidence.className='profile-snapshot-receipts';
   const summary=document.createElement('summary');
   summary.textContent='Regular-season record details and sources';
+  // Two readable headline facts stay visible; the complete canonical stat
+  // grid and provenance remain in the disclosure below. Populate from source
+  // nodes after the deferred canonical record binder has run.
+  const highlights=document.createElement('div');
+  highlights.className='profile-career-highlights';
+  highlights.setAttribute('aria-label','Career highlights');
+  const originalCards=[...originalStats.querySelectorAll(':scope > .stat')];
+  const selected=[
+   originalCards.find(card=>/^Championships$/.test(card.querySelector('small')?.textContent?.trim()||'')),
+   originalCards.find(card=>/Regular-season record/.test(card.querySelector('small')?.textContent||''))
+  ].filter(Boolean);
+  for(const card of selected){
+   const metric=document.createElement('div');
+   metric.className='profile-career-highlight';
+   const label=document.createElement('span');
+   label.className='profile-career-highlight-label';
+   label.textContent=card.querySelector('small')?.textContent?.trim()||'Career';
+   const value=document.createElement('strong');
+   value.textContent=card.querySelector('strong')?.textContent?.trim()||'—';
+   metric.append(label,value);highlights.append(metric);
+  }
+  if(highlights.children.length===2)profileSnapshot.append(highlights);
   evidence.append(summary,originalStats);
   const source=profileSnapshot.querySelector('.profile-snapshot-source');
   if(source)evidence.append(source);
@@ -147,7 +169,7 @@ if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')
   if(records)records.after(evidence);
   else profileSnapshot.append(evidence);
   const heading=profileSnapshot.querySelector('.profile-snapshot-heading');
-  if(heading)heading.textContent='Personal record book';
+  if(heading)heading.textContent='Career highlights';
   profileSnapshot.classList.add('profile-snapshot-condensed');
  }
 }
