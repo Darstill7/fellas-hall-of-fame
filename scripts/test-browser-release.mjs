@@ -311,6 +311,10 @@ try{
        !!(snapshot.compareDocumentPosition(actions)&Node.DOCUMENT_POSITION_FOLLOWING);
      });
      if(!heroOrder)errors.push(width+' '+route+' hierarchy must be title, verified career snapshot, then navigation');
+     const honors=page.locator('main .hero .profile-honors-line');
+     if(await honors.count()!==1||!await honors.isVisible()||
+        !/Championship season|Still chasing a first championship/.test(await honors.innerText()))
+      errors.push(width+' '+route+' visible title-season context missing from career hero');
      const bioEntry=page.locator('#profile-features button.profile-biography-entry[data-feature-target="#legacy-resume"][data-feature-tab="overview"]');
      if(await bioEntry.count()!==1||!(await bioEntry.innerText()).includes('career story'))
       errors.push(width+' '+route+' direct career biography entry missing');
