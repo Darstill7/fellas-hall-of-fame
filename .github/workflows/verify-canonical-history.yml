@@ -459,6 +459,8 @@ jobs:
         run: node scripts/test-start-sit-page-runtime.mjs
       - name: Research-only six-season hindsight lineup analysis
         run: node scripts/analyze-six-season-lineups.mjs
+      - name: Reconcile all 830 lineup observations with original weekly rosters
+        run: node scripts/test-lineup-roster-source-parity.mjs
       - name: Run recovered 2025 research-only lineup analysis
         run: node scripts/analyze-recovered-2025-lineups.mjs
       - name: Reconstruct scored 2026 manager start-sit hindsight without skill grades
