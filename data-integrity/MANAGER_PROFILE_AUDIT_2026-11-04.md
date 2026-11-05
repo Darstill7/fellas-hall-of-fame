@@ -101,3 +101,23 @@ Inspected the primary `managers/<slug>/index.html` file for all ten current mana
 - Updated the shared feature navigation to anchor Back **before** the enclosing research shelf instead. Thus the section can be collapsed without trapping readers in the focused view.
 - Added a Chromium/WebKit regression assertion: collapsing the research shelf after focusing its career résumé must leave the return toolbar visible.
 - Source-level JavaScript compilation checks passed for `assets/manager-profile-tabs.mjs`, `scripts/test-browser-release.mjs`, and `scripts/verify-core-consumers.mjs`. These are syntax checks, not actual browser executions.
+
+## November 5 continuation — public identity and ten-profile structural parity
+
+### Completed and committed
+- The public `managers/tom/` page now shows **Thommy** in its main heading and source-backed championship text. The route and old data keys remain `tom` / `Tom` as needed for existing archival compatibility. Both the rivalry summary and rivalry analytics display Thommy instead of reverting to Tom.
+- All ten raw manager-page heroes now have only two actions: **Explore profile** and **All managers**. `Explore profile` points to the existing `#franchise-story` before JavaScript runs, while the shared module upgrades its destination to the full `#profile-features` directory after mounting.
+- Removed the old nine-page JavaScript transformation that split already-short career introductions into a preview and another redundant "Read the full story" disclosure. The complete long-form Career Biography remains one primary, discoverable feature.
+- **Stover:** Replaced his bespoke, nonfunctional-without-JS "Pick what you want to see" tab header and four-item quick grid with the same static chapter-navigation skeleton used by the other nine profiles. The shared script now constructs Stover's navigational controls and full feature menu through the same branch as every other manager.
+- **Stover:** Removed duplicated story-stat tiles, an overlapping long-form story disclosure, and the stale `142`-games fallback. Retained the founding YogurtSlingers → Gurt franchise context and documented 2022 title in his concise career overview; the full biography and historical sections remain.
+- Updated `scripts/test-browser-release.mjs` to check all ten main headings, dynamic hero actions, navigation focus return, and a **single canonical record in the hero** instead of stale test assertions requiring duplicated record and game totals inside the story. It now rejects obsolete extra story cards or disclosures on every manager.
+- Expanded `scripts/verify-core-consumers.mjs` to require canonical visible nicknames (including Thommy), exactly two useful source HTML hero actions, shared chapter navigation, concise stories without duplicate source stats, and substantial individual biographies.
+
+### Verification performed
+Re-read all ten primary profile HTML files and canonical career, championship and biography JSON after the changes. **10/10 passed** cross-file source checks for public name, current regular-season record, documented championship total/years, two working source-level header actions, chapter navigation, concise nonduplicative overview, and three-paragraph individual biography. This is source verification, not an executed Node or browser suite.
+
+### Remaining release gates
+1. Run `node scripts/verify-core-consumers.mjs` in GitHub Actions and inspect the actual result.
+2. Confirm Chromium and WebKit end-to-end tests, especially Stover's conversion to the common route, Thommy's manager/slug aliasing, the career biography entry and keyboard focus after return.
+3. Inspect the actual 390px and 1280px layouts to confirm biography spacing, feature focus, and readability without overflow.
+4. Confirm Pages deployment on the last combined commit. The accessible GitHub connector returned **zero combined status entries**, and its commit-workflow-run lookup covers only pull-request runs; neither output proves push CI or Pages deployment succeeded.
