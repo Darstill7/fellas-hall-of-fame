@@ -238,6 +238,13 @@ export async function mountDraftTradeCareer(host,manager){
     }));
    });
    topicGrid.append(button);
+   const returnButton=elt('button','career-research-return','↑ Back to draft topics');
+   returnButton.type='button';
+   returnButton.addEventListener('click',()=>{
+    topicNav.scrollIntoView({block:'start',behavior:'instant'});
+    button.focus({preventScroll:true});
+   });
+   section.append(returnButton);
   });
   topicNav.append(topicGrid);
   box.append(topicNav,details);
