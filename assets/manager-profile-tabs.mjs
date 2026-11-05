@@ -568,6 +568,7 @@ if(main&&tabs){
  body.profile-feature-focused main>section.section:not(.profile-selected-section){display:none!important}
  body.profile-feature-focused main>.profile-madden:not(.profile-selected-madden){display:none!important}
  body.profile-feature-focused .profile-research-shelf-body>.profile-focus-excluded{display:none!important}
+ .profile-feature-unavailable{grid-column:1/-1;margin:0 0 8px;padding:10px 12px;border:1px solid #b99758;border-radius:9px;color:#f2dfba;font-size:12px;line-height:1.5}
  .profile-focus-toolbar{display:none;align-items:center;flex-wrap:wrap;gap:12px;margin:12px 0 16px;padding:12px 14px;background:#102736;border:1px solid #678595;border-radius:11px}
  body.profile-feature-focused .profile-focus-toolbar{display:flex}
  .profile-focus-toolbar strong{font-size:14px;flex:1;min-width:180px}
@@ -722,12 +723,19 @@ if(main&&tabs){
   const target=button.dataset.featureTarget,category=button.dataset.featureTab;
   const destination=target&&document.querySelector(target);
   if(!destination){
-   // Never leave a feature button looking inert when optional archive data
-   // has not been mounted for this particular manager.
-   button.setAttribute('aria-disabled','true');
-   button.title='This section is not available for this manager yet';
+   // Some optional research panels mount after the initial HTML. Explain
+   // the missing panel visibly and allow another click once it has loaded.
+   const existing=button.nextElementSibling;
+   if(!existing?.matches('.profile-feature-unavailable')){
+    const note=document.createElement('p');
+    note.className='profile-feature-unavailable';
+    note.setAttribute('role','status');
+    note.textContent='This research section has not loaded yet. Try again shortly, or choose another topic.';
+    button.after(note);
+   }
    return;
   }
+  button.nextElementSibling?.matches('.profile-feature-unavailable')&&button.nextElementSibling.remove();
   if(category)activate(category);
   focusFeature(button,destination);
   const shelf=destination.closest('details.profile-research-shelf');
