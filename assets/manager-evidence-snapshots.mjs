@@ -49,6 +49,14 @@ export function buildEvidenceSnapshots({placements,acquisitions,pickupSeasons=nu
    perYear.reduce((t,x)=>t+x.repeatedEventRows,0)!==a.reacquisitions||
    perYear.some(x=>x.distinctPlayerAdds<x.withLaterRecordedStarts||x.distinctPlayerAdds<0)))
    throw Error('Acquisition per-year sums mismatch canonical manager totals '+name);
+  if(current){
+   const keeperStarts=current.keepers.reduce((n,p)=>n+p.starts,0);
+   const keeperPoints=current.keepers.reduce((n,p)=>n+p.startedPoints,0);
+   if(keeperStarts!==current.verifiedOriginalManagerStarts||
+      Math.abs(keeperPoints-current.regularStartedPoints)>.015||
+      current.keepers.some(p=>p.starts<0||p.startedPoints<0||typeof p.transferredDuringSeason!=='boolean'))
+    throw Error('2026 keeper source player contributions mismatch manager summary '+name);
+  }
   const draftYears=[...new Set(draftTrade.rows.filter(r=>r.manager===name&&r.recordedSelections>0).map(r=>r.year))].sort((x,y)=>x-y);
   const row={
    manager:name,
@@ -66,9 +74,13 @@ export function buildEvidenceSnapshots({placements,acquisitions,pickupSeasons=nu
        failedClaims:x.failedClaims,winningSpend:x.completedBidSpend})),
      period:faab.scope,gradeStatus:'not-rated'}:null,
    keepers:{season:2025,recorded:k.keepers.length,startedPoints:k.regularStartedPoints,
+     names:k.keepers.map(p=>({name:p.name,round:p.round,position:p.position})),
      current:current?{season:2026,throughWeek:keeper2026.throughWeek,
        recorded:current.keepers.length,startedPoints:current.regularStartedPoints,
-       starts:current.verifiedOriginalManagerStarts,gradeStatus:'not-rated'}:null,
+       starts:current.verifiedOriginalManagerStarts,
+       players:current.keepers.map(p=>({name:p.name,round:p.round,position:p.position,
+        starts:p.starts,startedPoints:p.startedPoints,transferredDuringSeason:p.transferredDuringSeason})),
+       gradeStatus:'not-rated'}:null,
      gradeStatus:'not-rated'},
    startSit:{season:2026,throughWeek:8,accuracyPercent:h.accuracyPercent,
      gradeStatus:'not-rated',basis:'Sleeper UI screenshot'},
