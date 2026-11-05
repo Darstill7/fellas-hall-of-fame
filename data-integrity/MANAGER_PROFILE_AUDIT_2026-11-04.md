@@ -167,3 +167,19 @@ This is a source-level identity audit and code correction. Chromium/WebKit runti
 
 ### Release follow-up
 Run canonical validation and Chromium/WebKit browser tests for the latest main revision, inspect focused biography visibility and all eleven feature destinations on 390px and 1280px viewports, and verify published GitHub Pages parity after the run.
+
+## November 5 — original ESPN 2016–2019 brackets recovered
+
+Eight original ESPN winners/consolation screenshots were supplied and cross-checked against `data/espn_history_2016_2019.json`, `data/unified_record_book_2016_2026.json`, and ESPN team `finalRank` fields. Structured provenance now lives in `data-integrity/ESPN_PLAYOFF_FORMAT_EVIDENCE_2016_2019.json`.
+
+**Verified formats:** 2016 winners and consolation rounds were NFL Weeks 14–15 and 16–17 two-week aggregate matchups; 2017 both brackets were NFL Weeks 13–14 and 15–16 two-week aggregate matchups. Thommy's 2017 championship final total of 241 was 126 in NFL Week 15 plus 115 in NFL Week 16, **not one game week**. The 2018 winners bracket was single week each round; 2018 consolation advancement used unusual rules, but final ranks are available. The 2019 winners bracket was single-week; its bottom-four consolation ladder used Week 14–16 *cumulative running points*. Final 2019 ranking from original `finalRank`: Koble 7th (366.60), Thommy 8th (358.30), Stover 9th (328.56), Evans 10th (264.76).
+
+**Identity contradiction requiring confirmation:** User initially labeled “I Love Tubing” as Stew. Original ESPN team ID and owner mapping identifies it as **Evans**; Stew was “Kickers SUCK” and the 2019 championship runner-up. Do not award 2019 last place to Stew without reconciling contrary source evidence.
+
+**Newly recovered placements:** Using original ESPN team `finalRank` fields, upgraded **20 formerly “Finish not certified” current-manager seasons** across 2016–2019 in `data/manager_verified_season_endings_v1.json`; previously certified champion/runner-up entries were retained. This established 2018 Stilly 10th, 2017 Birch 10th, and the 2019 bottom-four placements; former manager ranks are preserved in the new historical evidence file.
+
+**Cumulative scoring correction:** The canonical ledger and season-by-season matchup projection now mark all six 2019 bottom-four ladder entries as `cumulativeScoring` and attach their actual `weeksCovered`. Record-book maxima exclude the multiweek cumulative values from independent postseason matchup scoring records; four inflated career bests (Koble, Thommy, Stover, Evans) were corrected. The public record-book UI now labels 2016–2017 two-week aggregate matchup totals as combined NFL weeks.
+
+**Regression coverage:** Added `scripts/verify-espn-playoff-formats.mjs` and installed it in the main-branch canonical workflow; the script protects original two-week score components, 2019 cumulative scope in both projections, official final ranks, owner separation, recovered season finishes and corrected postseason records. Updated `scripts/verify-specialty-records.mjs` for valid extrema and expanded browser QA for recovered placements and 2017 score labeling. Executed the playoff-format, specialty-record-book, and ledger projection audit scripts against current GitHub files in a JavaScript in-memory emulation of `fs.readFileSync`; **all three passed**. This is not an actual GitHub CI or Chromium/WebKit run.
+
+**Unresolved for editorial awards:** whether “Shitter of the Year” always equals the original ESPN last-place `finalRank`, rather than lowest scoring among all final-round consolation participants. Those differ in some early seasons. Until the user confirms, report last-place finishes but do not blindly backfill the punishment award.
