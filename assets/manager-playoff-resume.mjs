@@ -76,12 +76,12 @@ export async function mountManagerPlayoffResume(){
   const bestPlace=completed.length?Math.min(...completed.map(year=>year.finalPlace)):null;
   const context=node('div','profile-career-finish-summary');
   context.setAttribute('aria-label','Verified career finishing summary');
-  const heading=node('strong',null,'Completed-season results');
+  const contextHeading=node('strong',null,'Completed-season results');
   const line=node('p',null,
    (resume.allEraSummary?resume.allEraSummary.seasons:completed.length)+' documented seasons · '+
    (resume.allEraSummary?resume.allEraSummary.topThree:completed.filter(year=>year.finalPlace<=3).length)+
    ' top-three finishes · '+(bestPlace===null?'No verified final place':'Best finish: #'+bestPlace));
-  context.append(heading,line);
+  context.append(contextHeading,line);
   if(mostRecent)context.append(node('p','profile-career-latest',
    'Most recent completed season: '+mostRecent.year+' · '+mostRecent.finish));
   section.insertBefore(context,status);
