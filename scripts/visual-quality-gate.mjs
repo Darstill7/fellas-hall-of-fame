@@ -117,6 +117,15 @@ try{
          findings.push(engine+' '+width+' '+key+' incorrect profile landing hierarchy '+JSON.stringify(hierarchy));
         if(hierarchy.actionHeight<44)
          findings.push(engine+' '+width+' '+key+' primary profile action too small');
+        const headlineFacts=await page.locator('main .hero .profile-career-highlights > .profile-career-highlight').evaluateAll(cards=>cards.map(card=>{
+         const r=card.getBoundingClientRect();
+         return {label:card.querySelector('span')?.textContent?.trim(),value:card.querySelector('strong')?.textContent?.trim(),
+          left:r.left,right:r.right,width:r.width,height:r.height}
+        }));
+        if(headlineFacts.length!==2||headlineFacts.some(f=>!f.label||!f.value||f.width<90||f.height<50||
+           f.left< -3||f.right>width+3)||!headlineFacts.some(f=>f.label==='Championships')||
+           !headlineFacts.some(f=>f.label==='Regular-season record'))
+         findings.push(engine+' '+width+' '+key+' first-screen career headlines unreadable '+JSON.stringify(headlineFacts));
         // The detailed archive starts hidden by design. Open it through the
         // same manager feature control a visitor uses before measuring.
         const careerFeature=page.locator('#profile-features button[data-feature-target="#verified-history-panel"]');
