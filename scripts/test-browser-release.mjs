@@ -244,10 +244,10 @@ try{
       topics=document.querySelector('main .profile-quickstart'),
       playoff=document.getElementById('profile-playoff-resume');
      return !!hero&&!!action&&!!snapshot&&!!topics&&!!playoff&&
-      !!(action.compareDocumentPosition(snapshot)&Node.DOCUMENT_POSITION_FOLLOWING)&&
-      !hero.contains(playoff)&&
-      !!(topics.compareDocumentPosition(playoff)&Node.DOCUMENT_POSITION_FOLLOWING)&&
-      !!(topics.compareDocumentPosition(document.querySelector('main .profile-madden'))&Node.DOCUMENT_POSITION_FOLLOWING);
+      hero.contains(snapshot)&&hero.contains(action)&&hero.contains(playoff)&&
+      !!(snapshot.compareDocumentPosition(action)&Node.DOCUMENT_POSITION_FOLLOWING)&&
+      !!(action.compareDocumentPosition(playoff)&Node.DOCUMENT_POSITION_FOLLOWING)&&
+      !!(playoff.compareDocumentPosition(topics)&Node.DOCUMENT_POSITION_FOLLOWING);
     });
     if(!hierarchy)errors.push(width+' '+route+' first-screen navigation and résumé hierarchy broken');
     const panel=page.locator('#profile-playoff-resume');
