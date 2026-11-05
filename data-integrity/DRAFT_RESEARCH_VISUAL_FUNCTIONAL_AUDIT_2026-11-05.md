@@ -11,8 +11,8 @@ Release approval: **NOT GRANTED**
 1. **Unnecessary disclosure depth**: users previously had to open a manager feature, then another research receipt, then scan through six long research sections. Added a six-choice topic navigator, opening the correct disclosure and focusing its heading with one topic click once inside the résumé. Each section now has a keyboard-accessible return-to-topics action.
 2. **Dense research typography**: introduced stronger h4 hierarchy, 13px/1.72 evidence copy, spacing between example rows, explicit borders and compact, high-contrast topic buttons.
 3. **Mobile targets**: >=52px topic-button height; 2 columns under 700px and 1 column under 365px; focus-visible outlines and scroll margin.
-4. **Functional regression**: extended the existing Chromium/WebKit route suite to check six topic options, Position peers/Trades reveal-and-focus, return-to-topics keyboard focus, >=44px target height, visibility within viewport and absence of page-level horizontal overflow.
-5. **Visual evidence capture**: when FELLAS_VISUAL_AUDIT=1, capture `drafting-trading-focused.png` at the tested browser width in the visual-audit artifact directory. Screenshots must be actually inspected before sign-off.
+4. **Functional regression**: extended the existing Chromium/WebKit route suite to exercise all six topic options with exclusive reveal-and-focus, return-to-topics keyboard focus, >=44px target height, visibility within viewport and absence of page-level horizontal overflow.
+5. **Visual evidence capture**: when FELLAS_VISUAL_AUDIT=1, capture `drafting-trading-<manager>-topics.png` and `drafting-trading-<manager>-focused.png` at the tested browser width in the visual-audit artifact directory. Screenshots must be actually inspected before sign-off.
 6. **Source integrity**: extended `scripts/verify-draft-production.mjs` to enforce topic links, keyboard focus semantics, minimum target styling and browser-test presence.
 
 ## Second-pass fixes and stronger release gates
@@ -20,7 +20,9 @@ Release approval: **NOT GRANTED**
 8. **Complete screenshot matrix**: Chromium 390px + 1280px, WebKit 390px, 10 managers, two drafting views each = 60 expected screenshot files.
 9. **Blocking capture audit**: `scripts/verify-draft-visual-captures.mjs` checks all expected PNG signatures, image dimensions, file size, and creates a machine-readable capture manifest. Successful capture is *not* equivalent to successful human visual inspection.
 10. **Module syntax coverage**: canonical CI now syntax-checks every shipped `.mjs` and `.js` asset, including the drafting experience.
-11. **Behavior assertions**: browser tests now verify only one drafting topic is visible, accurate ARIA expanded state, keyboard focus/return and absence of overflow.
+11. **Behavior assertions**: browser tests now exercise all six drafting topics, verify only one topic is visible, check ARIA expanded state, keyboard focus/return, and detect clipping and overlapping controls.
+12. **Narrow-phone check**: both mobile engines also test 320px menu layout, minimum 44px touch controls and horizontal overflow before restoring 390px.
+13. **Actions access limitation**: latest main commit exposes no status entries through the available status endpoint, and the available workflow lookup covers only PR-triggered runs. Neither result proves pass or failure; inspect the actual Actions run and artifacts to determine sign-off.
 
 ## Status evidence
 - GitHub connector confirmed updated source files and SHA-backed commits on main.
