@@ -14,6 +14,7 @@ for(const year of [2016,2017,2018]){
   new Set(d.draft.playerIdsByOverallPick).size===16*n,year+' draft IDs incomplete or repeated');
  check(d.teams.length===n&&d.draft.keeperCount===0&&d.draft.picksMarkedKeeper===false,year+' manager or keeper mismatch');
  check(d.waivers.isUsingAcquisitionBudget===false&&d.waivers.observedSpending===0,year+' incorrectly presented as FAAB season');
+ check(d.scoring?.receptionPoints===0&&d.scoring?.scoringFormat==='standard (non-PPR)',year+' non-PPR scoring rule lost');
  check(d.sourceMatchupCount===o.games.length,year+' canonical schedule changed');
  check(d.draft.firstRoundTeamOrder.length===n&&
   new Set(d.draft.firstRoundTeamOrder).size===n,year+' draft order invalid');
