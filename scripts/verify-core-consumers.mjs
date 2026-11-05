@@ -140,6 +140,26 @@ assert(profileNav.includes('featureDirectory?.querySelector(\'.profile-feature-g
 assert(profileNav.includes('profile-feature-unavailable')&&
  !profileNav.includes("button.setAttribute('aria-disabled','true')"),
  'Missing optional research must show retryable status rather than a dead button');
+// Three clear entry routes (Career Story, Records, Report Card) lead the page.
+// The five deeper topic groups must not duplicate Records and Report Card.
+const topicStart=profileNav.indexOf(' const features=[');
+const topicEnd=profileNav.indexOf(' const shell=document.createElement',topicStart);
+assert(topicStart>=0&&topicEnd>topicStart,'Manager topic inventory missing');
+const topicInventory=profileNav.slice(topicStart,topicEnd);
+const topicLabels=[...topicInventory.matchAll(/\{label:'([^']+)'/g)].map(m=>m[1]);
+assert(topicLabels.length===11&&new Set(topicLabels).size===11&&
+ !topicLabels.includes('Records you own')&&!topicLabels.includes('Manager report card'),
+ 'Manager topic menu must have eleven unique deeper destinations without duplicated featured routes');
+const groupStart=profileNav.indexOf(' const groups=[');
+const groupEnd=profileNav.indexOf(' const groupHosts=new Map()',groupStart);
+assert(groupStart>=0&&groupEnd>groupStart,'Manager topic groups missing');
+const groupIndexes=[...profileNav.slice(groupStart,groupEnd).matchAll(/items:\[([0-9, ]+)\]/g)]
+ .flatMap(m=>m[1].split(',').map(s=>Number(s.trim()))).sort((a,b)=>a-b);
+assert(JSON.stringify(groupIndexes)===JSON.stringify(Array.from({length:11},(_,i)=>i)),
+ 'Each deeper feature must appear in exactly one topic group');
+assert(profileNav.includes("['Records','Personal bests, league records and season history','../record-books.html?manager='+encodeURIComponent(name)")&&
+ profileNav.includes("['Report Card','Overall ratings, category grades and evidence','../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)"),
+ 'Featured Records and Report Card must use canonical manager identity');
 const encyclopediaRenderer=read('assets/manager-encyclopedia.js');
 assert(encyclopediaRenderer.includes('waiver_award_candidates.json')&&encyclopediaRenderer.includes('v9_trade_engine.json'),'Manager encyclopedia must use source evidence');
 assert(encyclopediaRenderer.includes("encyclopediaUpdated='unavailable'"),'Failed encyclopedia fetch must expose unavailable status');
