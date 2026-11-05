@@ -1974,12 +1974,20 @@ try{
     }
     // The recovered manager record archive uses Thommy, not the legacy Tom alias.
     const managerOptions=await page.locator('#manager option').evaluateAll(opts=>opts.map(x=>x.value));
-    if(!managerOptions.includes('Thommy'))
-     errors.push(width+' career record book missing canonical Thommy manager option');
+    if(!managerOptions.includes('Thommy')||!managerOptions.includes('Schermerhorn')||managerOptions.includes('Tom'))
+     errors.push(width+' historical record book must distinguish Thommy and Schermerhorn without ambiguous Tom');
     else{
      await page.locator('#manager').selectOption('Thommy');
-     if(!(await page.locator('#profile').innerText()).includes('Recorded postseason matchups'))
-      errors.push(width+' career record book manager selector lost records after change');
+     const thommyProfile=await page.locator('#profile').innerText();
+     if(!thommyProfile.includes('Recorded postseason matchups')||!thommyProfile.includes('67–75–1')||
+        !((await page.locator('#manager-destination a').getAttribute('href'))||'').endsWith('tom/'))
+      errors.push(width+' Thommy historical record must retain his own career and current profile');
+     await page.locator('#manager').selectOption('Schermerhorn');
+     const historicalProfile=await page.locator('#profile').innerText();
+     if(!historicalProfile.includes('12–13')||!historicalProfile.includes('25 games')||
+        await page.locator('#manager-destination a').count()!==0||
+        !(await page.locator('#manager-destination').innerText()).includes('Historical manager'))
+      errors.push(width+' Schermerhorn historical record is merged or has invalid current-profile link');
     }
    }
    if(route==='managers/stilly/'){
