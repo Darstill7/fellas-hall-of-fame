@@ -129,6 +129,28 @@ async function mountProfileRecordOwnership(){
  }
 }
 mountProfileRecordOwnership();
+// Consolidate the duplicate record tiles during profile initialization, not
+// in the asynchronous rating loader. All ten managers retain the exact
+// source-backed values and the individual record-book link.
+const profileSnapshot=document.querySelector('main .hero .profile-career-snapshot');
+if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')){
+ const originalStats=profileSnapshot.querySelector('.profile-snapshot-stats');
+ if(originalStats){
+  const evidence=document.createElement('details');
+  evidence.className='profile-snapshot-receipts';
+  const summary=document.createElement('summary');
+  summary.textContent='Regular-season record details and sources';
+  evidence.append(summary,originalStats);
+  const source=profileSnapshot.querySelector('.profile-snapshot-source');
+  if(source)evidence.append(source);
+  const records=profileSnapshot.querySelector('.profile-owned-records');
+  if(records)records.after(evidence);
+  else profileSnapshot.append(evidence);
+  const heading=profileSnapshot.querySelector('.profile-snapshot-heading');
+  if(heading)heading.textContent='Personal record book';
+  profileSnapshot.classList.add('profile-snapshot-condensed');
+ }
+}
 const recordPreviewCss=document.createElement('style');
 recordPreviewCss.textContent='.profile-owned-records{display:flex;align-items:center;gap:10px 15px;flex-wrap:wrap;margin-top:15px;padding:14px 16px;border-radius:11px;border:1px solid #607a86;background:#102b39;color:#f8f1df;text-decoration:none;line-height:1.5;min-height:52px}.profile-owned-records:hover{border-color:#e3bd71;background:#183749}.profile-owned-records:focus-visible{outline:3px solid #f5d594;outline-offset:3px}.profile-owned-records strong{font-size:14px;white-space:nowrap}.profile-owned-record-count{font-size:12px;color:#d0dce3;flex:1 1 200px;overflow-wrap:break-word}.profile-owned-record-arrow{margin-left:auto;color:#e3bd71;font-size:20px;font-weight:800}@media(max-width:650px){.profile-owned-records{gap:4px 9px;padding:12px 14px}.profile-owned-record-count{flex-basis:100%;order:3}.profile-owned-record-arrow{margin-left:auto}}';
 document.head.append(recordPreviewCss);
