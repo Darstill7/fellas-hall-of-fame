@@ -1,5 +1,6 @@
 import {buildDraftTradeCareer} from './manager-draft-trade-career.mjs';
 import {buildDraftProduction} from './manager-draft-production.mjs';
+import {buildDraftRoundPeers} from './manager-draft-round-peers.mjs';
 import {tradeEvents} from './manager-trade-intelligence.mjs';
 // Compact, original-manager career archive. No performance or skill grades.
 const root='../../';
@@ -42,6 +43,8 @@ export async function mountDraftTradeCareer(host,manager){
    throw Error('Career research provenance changed');
   const career=buildDraftTradeCareer(source.rows,manager);
   const production=buildDraftProduction(draftProductionRows,manager);
+  const peerStudy=buildDraftRoundPeers(draftProductionRows,manager);
+  if(peerStudy.selectedPicks!==production.selectionCount)throw Error('Round-peer receipt scope differs from draft production');
   const related=tradeEvents(trade).filter(event=>
    event.complete&&event.managers.includes(manager)&&event.year<=2025).slice(0,3);
   box.replaceChildren(summary);
@@ -139,6 +142,31 @@ export async function mountDraftTradeCareer(host,manager){
    productionSection.append(examples);
   }else productionSection.append(elt('p','muted','No original non-keeper draft selections documented for completed Sleeper seasons.'));
   details.append(productionSection);
+  const peersSection=elt('section','career-resume-section career-draft-round-peers');
+  peersSection.append(elt('h4',null,'Compared with same-year draft rounds · research only'));
+  peersSection.append(elt('p','muted',
+   'For each original non-keeper selection, compare points earned in the drafting manager’s regular-season starting lineup against the median of other original picks from the same year and round. The selected pick is excluded from its own peer median. Comparisons require at least five peers.'));
+  peersSection.append(elt('p','muted',
+   'This measures observed lineup contribution, not draft skill, player-season total points, injury-adjusted value, replacement value, or position-adjusted opportunity. Round peers may play different positions; trades and manager starting choices also affect results. No OVR or report-card grade is changed.'));
+  if(peerStudy.selectedPicks){
+   peersSection.append(elt('p',null,peerStudy.comparablePicks+' of '+peerStudy.selectedPicks+
+    ' completed-season selections have enough same-round peers.'));
+   for(const year of peerStudy.byYear){
+    peersSection.append(elt('p','career-resume-example',year.year+' · '+year.aboveMedian+
+     ' above / '+year.atMedian+' equal / '+year.belowMedian+' below peer median · '+
+     year.comparablePicks+' comparable picks'+(year.unavailable?' · '+year.unavailable+' not comparable':'')));
+   }
+   if(peerStudy.examples.length){
+    const examples=elt('details','career-resume-receipts');
+    examples.append(elt('summary',null,'See three largest positive observed differences'));
+    for(const pick of peerStudy.examples)
+     examples.append(elt('p','career-resume-example',pick.year+' · R'+pick.round+' '+pick.player+
+      ' · '+pick.points.toFixed(1)+' started pts vs '+pick.peerMedian.toFixed(1)+
+      ' peer median · difference +'+pick.difference.toFixed(1)+' · '+pick.peerCount+' other picks'));
+    peersSection.append(examples);
+   }
+  }else peersSection.append(elt('p','muted','No completed-season non-keeper picks to compare.'));
+  details.append(peersSection);
   const tradeSection=elt('section','career-resume-section career-resume-trades');
   tradeSection.append(elt('h4',null,'Recent source-verified trade records'));
   if(!related.length)tradeSection.append(elt('p','muted',
