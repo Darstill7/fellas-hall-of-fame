@@ -31,7 +31,8 @@ for(const [yearText,winner] of Object.entries(expected)){
    [g.home,g.away].includes(team?.id));
   const home=g?.home===team?.id;
   const score=home?g?.hs:g?.as;
-  const week=home?g?.homeWeeks?.[16]:g?.awayWeeks?.[16];
+  const finalWeek=year===2016?17:16;
+  const week=home?g?.homeWeeks?.[finalWeek]:g?.awayWeeks?.[finalWeek];
   const lost=home?g?.winner==='AWAY':g?.winner==='HOME';
   const award=awards.seasons[yearText];
   check(team?.finalRank===last&&lost,
