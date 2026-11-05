@@ -15,6 +15,13 @@ Release approval: **NOT GRANTED**
 5. **Visual evidence capture**: when FELLAS_VISUAL_AUDIT=1, capture `drafting-trading-focused.png` at the tested browser width in the visual-audit artifact directory. Screenshots must be actually inspected before sign-off.
 6. **Source integrity**: extended `scripts/verify-draft-production.mjs` to enforce topic links, keyboard focus semantics, minimum target styling and browser-test presence.
 
+## Second-pass fixes and stronger release gates
+7. **Single-topic focus**: selecting one of six draft topics now hides the other five sections. Closing the topic returns to the concise menu. This prevents a dense wall of analysis without deleting evidence.
+8. **Complete screenshot matrix**: Chromium 390px + 1280px, WebKit 390px, 10 managers, two drafting views each = 60 expected screenshot files.
+9. **Blocking capture audit**: `scripts/verify-draft-visual-captures.mjs` checks all expected PNG signatures, image dimensions, file size, and creates a machine-readable capture manifest. Successful capture is *not* equivalent to successful human visual inspection.
+10. **Module syntax coverage**: canonical CI now syntax-checks every shipped `.mjs` and `.js` asset, including the drafting experience.
+11. **Behavior assertions**: browser tests now verify only one drafting topic is visible, accurate ARIA expanded state, keyboard focus/return and absence of overflow.
+
 ## Status evidence
 - GitHub connector confirmed updated source files and SHA-backed commits on main.
 - This environment could **not** clone the repository or reach the public GitHub Pages URL for a live-page visual inspection; attempts failed with unreachable host/tool page access.
