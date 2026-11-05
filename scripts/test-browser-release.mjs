@@ -419,8 +419,8 @@ try{
       if(slug==='stilly'){
        const seasons=await page.locator('#season-history details.season-entry').evaluateAll(nodes=>nodes.map(node=>({text:node.textContent,year:node.querySelector('summary strong')?.textContent,award:node.querySelector('.season-award-label')?.textContent})));
        const awards=seasons.filter(x=>x.award==='Shitter of the Year').map(x=>Number(x.year)).sort((a,b)=>a-b);
-       if(JSON.stringify(awards)!==JSON.stringify([2018]))
-        errors.push(width+' Stilly 2016 must not carry last-place award; 2018 must carry it');
+       if(JSON.stringify(awards)!==JSON.stringify([2018,2021]))
+        errors.push(width+' Stilly awards should cover verified 2018 and 2021, not 2016');
       }
      }
      const shelf=page.locator('details.profile-research-shelf');
