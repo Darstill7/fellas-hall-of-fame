@@ -316,6 +316,16 @@ function mountProfileFeatureDirectory(quick,manager){
   a.append(strong,small,arrow);featuredLinks.append(a);
  }
  featured.append(featuredLinks);
+ // A plain hash cannot reveal the career chapter while landing mode hides
+ // every archive section. Use the same tested feature path as the directory.
+ featuredLinks.addEventListener('click',event=>{
+  const link=event.target.closest('a[href="#verified-history-panel"]');
+  if(!link)return;
+  const destination=menu.querySelector('button[data-feature-target="#verified-history-panel"]');
+  if(!destination)return;
+  event.preventDefault();
+  destination.click();
+ });
  shell.append(featured,menu);
  const ratingGuide=document.createElement('details');
  ratingGuide.className='profile-rating-guide';
