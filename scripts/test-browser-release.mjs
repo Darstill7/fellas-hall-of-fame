@@ -1247,6 +1247,13 @@ try{
     if(rows.length!==4||expected.some((expectedRow,i)=>expectedRow.some(t=>!rows[i]?.includes(t)))||
        (await page.locator('main').innerText()).includes('2019 I Love Tubing belonged to Stew'))
      errors.push(width+' ESPN Origins punishment archive missing award winners, correct score scopes or Evans owner');
+    await page.waitForFunction(()=>document.querySelectorAll('#espn-2019-activity tr').length===10,null,{timeout:8000}).catch(()=>{});
+    const activity=page.locator('#espn-2019-activity tr');
+    if(await activity.count()!==10||!(await activity.first().innerText()).includes('Birch')||
+       !(await activity.allTextContents()).some(row=>row.includes('Evans')&&row.includes('49'))||
+       !(await activity.allTextContents()).some(row=>row.includes('Thommy')&&row.includes('100')))
+     errors.push(width+' ESPN Origins 2019 draft/front-office table missing ten manager identities or verified source activity');
+
    }
    if(route==='seasons/'){
     if(!await page.locator('header nav[aria-label="Season archive navigation"] a[href="../analytics/rivalries.html"]').count())
