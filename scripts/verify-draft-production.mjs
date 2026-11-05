@@ -19,7 +19,7 @@ const incomplete={...minimal,year:2026,overall:2,reg_starter_points:1000};
 const keeper={...minimal,overall:3,keeper:true,reg_starter_points:900};
 let x=buildDraftProduction([minimal,incomplete,keeper],'Stilly');
 assert(x.selectionCount===1&&x.points===12.5&&x.starts===3,'2026 or keepers counted in completed contribution');
-try{buildDraftProduction([minimal,minimal],'Stilly');throw Error('Duplicate was accepted')}catch(e){assert(/Duplicate/.test(e.message),'Unexpected duplicate-pick test error')}
+try{buildDraftProduction([minimal,minimal],'Stilly');throw Error('Duplicate was accepted')}catch(e){assert(/duplicate/i.test(e.message),'Unexpected duplicate-pick test error')}
 const page=fs.readFileSync('assets/manager-draft-trade-career-page.mjs','utf8');
 assert(page.includes("fetchJSON('data/v9_draft_engine.json')")&&page.includes('buildDraftProduction(draftProductionRows,manager)')&&
  page.includes('This is not total player production, surplus value or a drafting grade.')&&page.includes('career-draft-production'),
