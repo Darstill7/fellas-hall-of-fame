@@ -26,14 +26,17 @@ export async function mountDraftTradeCareer(host,manager){
  box.append(summary,elt('p','muted','Loading documented draft and trade history…'));
  host.append(box);
  try{
-  const [source,trade]=await Promise.all([
+  const [source,trade,espnBoard]=await Promise.all([
    fetchJSON('data/manager_draft_trade_profile_evidence_v1.json'),
-   fetchJSON('data/v9_trade_engine.json')
+   fetchJSON('data/v9_trade_engine.json'),
+   fetchJSON('data/espn_draft_boards_named_2016_2019.json')
   ]);
   if(source.status!=='research_only_no_draft_or_trade_skill_grades'||
      source.seasonCutoff?.year!==2026||
      source.seasonCutoff?.throughWeek!==8||
-     !Array.isArray(trade.sides))
+     !Array.isArray(trade.sides)||
+     espnBoard.coverage?.totalSelections!==598||espnBoard.coverage?.unresolvedSelections!==0||
+     !espnBoard.seasons?.['2018']?.playerPicks)
    throw Error('Career research provenance changed');
   const career=buildDraftTradeCareer(source.rows,manager);
   const related=tradeEvents(trade).filter(event=>
@@ -60,7 +63,7 @@ export async function mountDraftTradeCareer(host,manager){
   details.append(detailSummary);
   const coverage=elt('p','muted career-resume-coverage',
    career.espnSeasons+' ESPN seasons · '+career.sleeperSeasons+' Sleeper seasons · '+
-   career.unresolvedNames+' unresolved draft player names · '+
+   'ESPN original player names recovered · '+
    career.fullyRepresentedTrades+' multi-side qualifying trade events · '+
    career.partialTrades+' partial qualifying trade events.');
   details.append(coverage);
@@ -76,6 +79,42 @@ export async function mountDraftTradeCareer(host,manager){
   if(!career.latestPicks.length)draftSection.append(
    elt('p','muted','No named early draft selections available.'));
   details.append(draftSection);
+  // The legacy career research snapshot predates full ESPN athlete ID recovery.
+  // Use the named original board for ESPN selections, never stale early-pick
+  // labels or offline 2018 import positions.
+  const esSection=elt('section','career-resume-section career-espn-history');
+  esSection.append(elt('h4',null,'Original ESPN drafts · 2016–2019'));
+  const identityManager=manager==='Tom'?'Thommy':manager;
+  let esYears=0,esPicks=0;
+  for(const year of [2016,2017,2018,2019]){
+   const sourceYear=espnBoard.seasons[String(year)];
+   if(!Array.isArray(sourceYear?.playerPicks))throw Error('Missing ESPN draft '+year);
+   const picks=sourceYear.playerPicks.filter(p=>p.manager===identityManager);
+   if(!picks.length)continue;
+   esYears++;esPicks+=picks.length;
+   if(picks.some(p=>!p.player||!p.position))throw Error('Incomplete recovered ESPN identity '+year);
+   const row=elt('div','career-resume-example');
+   row.append(elt('strong',null,year+' · '+picks.length+' selections'));
+   const positionCounts=new Map();
+   for(const pick of picks)positionCounts.set(pick.position,(positionCounts.get(pick.position)||0)+1);
+   row.append(elt('p','muted',[...positionCounts].map(([position,count])=>position+' '+count).join(' · ')));
+   if(year===2018){
+    row.append(elt('p','muted','Offline draft · original round and overall pick order not verified.'));
+   }else{
+    const first=picks.filter(p=>p.round===1).sort((a,b)=>a.overall-b.overall);
+    row.append(elt('p','muted',first.length?'Recorded first-round selection: '+first.map(p=>p.player+' (#'+p.overall+')').join(', '):'No first-round selection recorded for this manager.'));
+   }
+   if(year===2017&&identityManager==='Tony')
+    row.append(elt('p','muted','Original pick: Glenn Gronkowski; manually replaced after the draft with Rob Gronkowski. Not a second selection.'));
+   const link=elt('a','career-resume-link','Explore '+year+' selections');
+   link.href=root+'seasons/espn-draft-history.html?manager='+encodeURIComponent(identityManager)+'&year='+year;
+   row.append(link);esSection.append(row);
+  }
+  if(esYears){
+   const heading=elt('p','muted',esPicks+' named original selections across '+esYears+' ESPN draft seasons; counts indicate activity, not value.');
+   esSection.insertBefore(heading,esSection.children[1]||null);
+  }else esSection.append(elt('p','muted','No original ESPN draft selections attributed to this manager.'));
+  details.append(esSection);
   const tradeSection=elt('section','career-resume-section career-resume-trades');
   tradeSection.append(elt('h4',null,'Recent source-verified trade records'));
   if(!related.length)tradeSection.append(elt('p','muted',
@@ -93,7 +132,7 @@ export async function mountDraftTradeCareer(host,manager){
   details.append(tradeSection);
   box.append(details);
   box.append(elt('p','muted career-resume-caveat',
-   'Event counts are not all-time trade totals or wins. The 2026 trade sides are provisional and excluded; incomplete events and missing earlier trade archives are not scored. Draft examples are original selections, not proof of draft value.'));
+   'Event counts are not all-time trade totals or wins. The 2026 trade sides are provisional and excluded; incomplete events and missing earlier trade archives are not scored. The complete ESPN original-player archive is authoritative for 2016–2019 names; the older research summary may contain pre-recovery placeholders. Original selections do not establish draft value.'));
  }catch(error){
   box.replaceChildren(summary,elt('p','muted',
    'Career evidence is unavailable; no substitute totals or trade grades shown.'));
