@@ -12,7 +12,7 @@ export function buildDraftProduction(drafts, manager) {
   if(seen.has(key)||!Number.isInteger(p.year)||!Number.isInteger(p.overall)||pick.overall<1||
      !Number.isInteger(p.round)||pick.round<1||typeof pick.player!=='string'||!pick.player.trim()||
      !Number.isInteger(p.reg_starts)||p.reg_starts<0||
-     !Number.isFinite(p.reg_starter_points)||p.reg_starter_points<0)
+     !Number.isFinite(p.reg_starter_points))
    throw Error('Invalid or duplicate original-manager draft receipt: '+key);
   seen.add(key);
  }
