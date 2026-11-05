@@ -28,12 +28,12 @@ for(const [manager,expected] of Object.entries(expectedPlayoffs)){
   throw Error('Playoff résumé includes an incomplete season or missing year for '+manager);
 }
 const tabsSource=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
-if(!tabsSource.includes('careerSnapshot.before(primaryProfileActions)')||
+if(!tabsSource.includes('careerSnapshot.after(primaryProfileActions)')||
    !tabsSource.includes('profileHero.after(profileTopicMenu)')||
    !tabsSource.includes('profileTopicMenu.after(profilePlayoffSection)'))
  throw Error('Manager first-screen hierarchy must remain consistent');
 if(!tabsSource.includes('mountManagerPlayoffResume();')||
- !tabsSource.includes('items:[0,1,11,12]')||
+ !tabsSource.includes('items:[0,1,10]')||
  !tabsSource.includes("href:'#profile-playoff-resume'"))
  throw Error('Playoff résumé is missing from the shared manager profile navigation');
 // Every public manager landing page leads with Records and Report Card.
@@ -144,9 +144,9 @@ if(!featureMenu.includes("import {findOwnedRecords,recordCategoryLabels} from '.
  throw Error('Every manager must expose a source-backed record ownership preview and honest zero state');
 
 const recordBook=fs.readFileSync('managers/record-books.html','utf8');
-if(!featureMenu.includes("label:'Records you own'")||!featureMenu.includes("href:'../record-books.html?manager='+encodeURIComponent(manager)+'#owned-records'"))
+if(!featureMenu.includes("heading.textContent='Records you own'")||!featureMenu.includes("link.href='../record-books.html?manager='+encodeURIComponent(normalized)+'#owned-records'"))
  throw Error('Manager feature menu lost its personal record book deep link');
-if(!featureMenu.includes("items:[0,1,11,12]"))
+if(!featureMenu.includes("items:[0,1,10]"))
  throw Error('Record books are no longer in the Career & Results feature group');
 if(!recordBook.includes("new URLSearchParams(location.search).get('manager')"))
  throw Error('Record book does not restore manager selection from its URL');
