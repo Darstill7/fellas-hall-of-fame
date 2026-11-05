@@ -1,0 +1,714 @@
+{
+  "version": 1,
+  "asOf": "2026-11-04",
+  "status": "observed_hindsight_not_skill_grade",
+  "scope": "Completed Sleeper regular seasons 2020–2025, 830 archived team-weeks",
+  "method": "Observed scored starting lineup versus ex-post best nine-slot lineup available from archived starters plus bench. QB,2 RB,2 WR,TE,2 RB/WR/TE FLEX,DEF; used current research-page rules, not independently certified league-year eligibility or pre-lock player availability.",
+  "limitations": [
+    "Archived bench scores and lineup alternatives are known with hindsight; this is not start/sit decision skill.",
+    "Missing, incomplete, or vacant starter arrangements are excluded; no substituted zero or generated player scores.",
+    "2016–2019 ESPN are not part of this dataset.",
+    "Do not compare raw manager counts across unequal tenures as skill rates."
+  ],
+  "sourceFiles": [
+    "data-integrity/lineup-coverage-2020-audit.json",
+    "data-integrity/lineup-coverage-2021-audit.json",
+    "data-integrity/lineup-coverage-2022-audit.json",
+    "data-integrity/lineup-coverage-2023-audit.json",
+    "data-integrity/lineup-coverage-2024-audit.json",
+    "data-integrity/lineup-coverage-2025-audit.json"
+  ],
+  "observedWeeks": 830,
+  "comparableWeeks": 822,
+  "excludedWeeks": 8,
+  "seasonCoverage": [
+    {
+      "year": 2020,
+      "observedWeeks": 130,
+      "comparableWeeks": 130,
+      "excludedWeeks": 0
+    },
+    {
+      "year": 2021,
+      "observedWeeks": 140,
+      "comparableWeeks": 139,
+      "excludedWeeks": 1
+    },
+    {
+      "year": 2022,
+      "observedWeeks": 140,
+      "comparableWeeks": 138,
+      "excludedWeeks": 2
+    },
+    {
+      "year": 2023,
+      "observedWeeks": 140,
+      "comparableWeeks": 139,
+      "excludedWeeks": 1
+    },
+    {
+      "year": 2024,
+      "observedWeeks": 140,
+      "comparableWeeks": 138,
+      "excludedWeeks": 2
+    },
+    {
+      "year": 2025,
+      "observedWeeks": 140,
+      "comparableWeeks": 138,
+      "excludedWeeks": 2
+    }
+  ],
+  "exclusions": [
+    {
+      "year": 2021,
+      "week": 13,
+      "manager": "Tony",
+      "reason": "Illegal or incomplete actual starter slots"
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Thommy",
+      "reason": "Vacant starting slot"
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "manager": "Evans",
+      "reason": "Vacant starting slot"
+    },
+    {
+      "year": 2023,
+      "week": 9,
+      "manager": "Thommy",
+      "reason": "Vacant starting slot"
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "manager": "Tony",
+      "reason": "Vacant starting slot"
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "manager": "Stover",
+      "reason": "Vacant starting slot"
+    },
+    {
+      "year": 2025,
+      "week": 1,
+      "manager": "JMid",
+      "reason": "Illegal or incomplete actual starter slots"
+    },
+    {
+      "year": 2025,
+      "week": 2,
+      "manager": "JMid",
+      "reason": "Illegal or incomplete actual starter slots"
+    }
+  ],
+  "managerCoverage": [
+    {
+      "manager": "Birch",
+      "observedWeeks": 83,
+      "comparableWeeks": 83,
+      "excludedWeeks": 0,
+      "meanHindsightAccuracy": 88.18,
+      "meanHindsightGap": 15.3,
+      "seasons": [
+        {
+          "year": 2020,
+          "observedWeeks": 13,
+          "comparableWeeks": 13,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 89.28,
+          "meanHindsightGap": 15.03
+        },
+        {
+          "year": 2021,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 81.7,
+          "meanHindsightGap": 25.28
+        },
+        {
+          "year": 2022,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 91.74,
+          "meanHindsightGap": 9.53
+        },
+        {
+          "year": 2023,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 89.64,
+          "meanHindsightGap": 11.74
+        },
+        {
+          "year": 2024,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 86.76,
+          "meanHindsightGap": 17.84
+        },
+        {
+          "year": 2025,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 90.01,
+          "meanHindsightGap": 12.36
+        }
+      ]
+    },
+    {
+      "manager": "Evans",
+      "observedWeeks": 41,
+      "comparableWeeks": 40,
+      "excludedWeeks": 1,
+      "meanHindsightAccuracy": 87.64,
+      "meanHindsightGap": 16.29,
+      "seasons": [
+        {
+          "year": 2020,
+          "observedWeeks": 13,
+          "comparableWeeks": 13,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 85.81,
+          "meanHindsightGap": 20.71
+        },
+        {
+          "year": 2021,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 89.69,
+          "meanHindsightGap": 12.88
+        },
+        {
+          "year": 2022,
+          "observedWeeks": 14,
+          "comparableWeeks": 13,
+          "excludedWeeks": 1,
+          "meanHindsightAccuracy": 87.27,
+          "meanHindsightGap": 15.53
+        }
+      ]
+    },
+    {
+      "manager": "JMid",
+      "observedWeeks": 42,
+      "comparableWeeks": 40,
+      "excludedWeeks": 2,
+      "meanHindsightAccuracy": 89.46,
+      "meanHindsightGap": 13.73,
+      "seasons": [
+        {
+          "year": 2023,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 87.63,
+          "meanHindsightGap": 16.51
+        },
+        {
+          "year": 2024,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 90.6,
+          "meanHindsightGap": 12.84
+        },
+        {
+          "year": 2025,
+          "observedWeeks": 14,
+          "comparableWeeks": 12,
+          "excludedWeeks": 2,
+          "meanHindsightAccuracy": 90.26,
+          "meanHindsightGap": 11.52
+        }
+      ]
+    },
+    {
+      "manager": "Koble",
+      "observedWeeks": 55,
+      "comparableWeeks": 55,
+      "excludedWeeks": 0,
+      "meanHindsightAccuracy": 89.7,
+      "meanHindsightGap": 12.24,
+      "seasons": [
+        {
+          "year": 2020,
+          "observedWeeks": 13,
+          "comparableWeeks": 13,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 85.71,
+          "meanHindsightGap": 17.96
+        },
+        {
+          "year": 2021,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 90.86,
+          "meanHindsightGap": 10.08
+        },
+        {
+          "year": 2022,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 88.6,
+          "meanHindsightGap": 12.83
+        },
+        {
+          "year": 2023,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 93.37,
+          "meanHindsightGap": 8.48
+        }
+      ]
+    },
+    {
+      "manager": "Kuhl",
+      "observedWeeks": 83,
+      "comparableWeeks": 83,
+      "excludedWeeks": 0,
+      "meanHindsightAccuracy": 86.94,
+      "meanHindsightGap": 16.75,
+      "seasons": [
+        {
+          "year": 2020,
+          "observedWeeks": 13,
+          "comparableWeeks": 13,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 87.03,
+          "meanHindsightGap": 16.91
+        },
+        {
+          "year": 2021,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 84.58,
+          "meanHindsightGap": 20.53
+        },
+        {
+          "year": 2022,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 87.33,
+          "meanHindsightGap": 16.86
+        },
+        {
+          "year": 2023,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 87.63,
+          "meanHindsightGap": 15.19
+        },
+        {
+          "year": 2024,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 86.65,
+          "meanHindsightGap": 17.21
+        },
+        {
+          "year": 2025,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 88.42,
+          "meanHindsightGap": 13.82
+        }
+      ]
+    },
+    {
+      "manager": "Mitch",
+      "observedWeeks": 83,
+      "comparableWeeks": 83,
+      "excludedWeeks": 0,
+      "meanHindsightAccuracy": 90.74,
+      "meanHindsightGap": 12.27,
+      "seasons": [
+        {
+          "year": 2020,
+          "observedWeeks": 13,
+          "comparableWeeks": 13,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 90.84,
+          "meanHindsightGap": 12.37
+        },
+        {
+          "year": 2021,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 92.42,
+          "meanHindsightGap": 9.89
+        },
+        {
+          "year": 2022,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 91.29,
+          "meanHindsightGap": 11
+        },
+        {
+          "year": 2023,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 89.06,
+          "meanHindsightGap": 14.5
+        },
+        {
+          "year": 2024,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 89.77,
+          "meanHindsightGap": 12.53
+        },
+        {
+          "year": 2025,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 91.07,
+          "meanHindsightGap": 13.33
+        }
+      ]
+    },
+    {
+      "manager": "Scott",
+      "observedWeeks": 28,
+      "comparableWeeks": 28,
+      "excludedWeeks": 0,
+      "meanHindsightAccuracy": 88.59,
+      "meanHindsightGap": 14.55,
+      "seasons": [
+        {
+          "year": 2024,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 84.61,
+          "meanHindsightGap": 19.57
+        },
+        {
+          "year": 2025,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 92.57,
+          "meanHindsightGap": 9.54
+        }
+      ]
+    },
+    {
+      "manager": "Stew",
+      "observedWeeks": 83,
+      "comparableWeeks": 83,
+      "excludedWeeks": 0,
+      "meanHindsightAccuracy": 87.07,
+      "meanHindsightGap": 16.23,
+      "seasons": [
+        {
+          "year": 2020,
+          "observedWeeks": 13,
+          "comparableWeeks": 13,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 84.98,
+          "meanHindsightGap": 18.86
+        },
+        {
+          "year": 2021,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 85.17,
+          "meanHindsightGap": 17.61
+        },
+        {
+          "year": 2022,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 88.9,
+          "meanHindsightGap": 15.14
+        },
+        {
+          "year": 2023,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 83.64,
+          "meanHindsightGap": 20.8
+        },
+        {
+          "year": 2024,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 90.39,
+          "meanHindsightGap": 11.68
+        },
+        {
+          "year": 2025,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 89.2,
+          "meanHindsightGap": 13.45
+        }
+      ]
+    },
+    {
+      "manager": "Stilly",
+      "observedWeeks": 83,
+      "comparableWeeks": 83,
+      "excludedWeeks": 0,
+      "meanHindsightAccuracy": 87.4,
+      "meanHindsightGap": 16.01,
+      "seasons": [
+        {
+          "year": 2020,
+          "observedWeeks": 13,
+          "comparableWeeks": 13,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 84.24,
+          "meanHindsightGap": 19.84
+        },
+        {
+          "year": 2021,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 88.14,
+          "meanHindsightGap": 15.29
+        },
+        {
+          "year": 2022,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 89.26,
+          "meanHindsightGap": 13.69
+        },
+        {
+          "year": 2023,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 87.55,
+          "meanHindsightGap": 16.9
+        },
+        {
+          "year": 2024,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 85.58,
+          "meanHindsightGap": 17.44
+        },
+        {
+          "year": 2025,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 89.41,
+          "meanHindsightGap": 13.15
+        }
+      ]
+    },
+    {
+      "manager": "Stover",
+      "observedWeeks": 83,
+      "comparableWeeks": 82,
+      "excludedWeeks": 1,
+      "meanHindsightAccuracy": 87.84,
+      "meanHindsightGap": 15.22,
+      "seasons": [
+        {
+          "year": 2020,
+          "observedWeeks": 13,
+          "comparableWeeks": 13,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 87.94,
+          "meanHindsightGap": 14.39
+        },
+        {
+          "year": 2021,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 90.21,
+          "meanHindsightGap": 13.34
+        },
+        {
+          "year": 2022,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 89.54,
+          "meanHindsightGap": 14.15
+        },
+        {
+          "year": 2023,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 81.55,
+          "meanHindsightGap": 21.94
+        },
+        {
+          "year": 2024,
+          "observedWeeks": 14,
+          "comparableWeeks": 13,
+          "excludedWeeks": 1,
+          "meanHindsightAccuracy": 90.35,
+          "meanHindsightGap": 13.03
+        },
+        {
+          "year": 2025,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 87.67,
+          "meanHindsightGap": 14.27
+        }
+      ]
+    },
+    {
+      "manager": "Thommy",
+      "observedWeeks": 83,
+      "comparableWeeks": 81,
+      "excludedWeeks": 2,
+      "meanHindsightAccuracy": 89.27,
+      "meanHindsightGap": 13.59,
+      "seasons": [
+        {
+          "year": 2020,
+          "observedWeeks": 13,
+          "comparableWeeks": 13,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 89.91,
+          "meanHindsightGap": 13.2
+        },
+        {
+          "year": 2021,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 90.84,
+          "meanHindsightGap": 11.08
+        },
+        {
+          "year": 2022,
+          "observedWeeks": 14,
+          "comparableWeeks": 13,
+          "excludedWeeks": 1,
+          "meanHindsightAccuracy": 87.68,
+          "meanHindsightGap": 14.95
+        },
+        {
+          "year": 2023,
+          "observedWeeks": 14,
+          "comparableWeeks": 13,
+          "excludedWeeks": 1,
+          "meanHindsightAccuracy": 89.61,
+          "meanHindsightGap": 12.58
+        },
+        {
+          "year": 2024,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 87.26,
+          "meanHindsightGap": 16.31
+        },
+        {
+          "year": 2025,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 90.25,
+          "meanHindsightGap": 13.43
+        }
+      ]
+    },
+    {
+      "manager": "Tony",
+      "observedWeeks": 83,
+      "comparableWeeks": 81,
+      "excludedWeeks": 2,
+      "meanHindsightAccuracy": 88.05,
+      "meanHindsightGap": 15.8,
+      "seasons": [
+        {
+          "year": 2020,
+          "observedWeeks": 13,
+          "comparableWeeks": 13,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 87.04,
+          "meanHindsightGap": 15.78
+        },
+        {
+          "year": 2021,
+          "observedWeeks": 14,
+          "comparableWeeks": 13,
+          "excludedWeeks": 1,
+          "meanHindsightAccuracy": 90.34,
+          "meanHindsightGap": 14.48
+        },
+        {
+          "year": 2022,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 86.99,
+          "meanHindsightGap": 16.51
+        },
+        {
+          "year": 2023,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 91.85,
+          "meanHindsightGap": 10.09
+        },
+        {
+          "year": 2024,
+          "observedWeeks": 14,
+          "comparableWeeks": 13,
+          "excludedWeeks": 1,
+          "meanHindsightAccuracy": 83.77,
+          "meanHindsightGap": 21.63
+        },
+        {
+          "year": 2025,
+          "observedWeeks": 14,
+          "comparableWeeks": 14,
+          "excludedWeeks": 0,
+          "meanHindsightAccuracy": 88.1,
+          "meanHindsightGap": 16.63
+        }
+      ]
+    }
+  ]
+}
