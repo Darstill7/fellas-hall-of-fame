@@ -49,6 +49,21 @@ for(const slug of managers){
  if(!page.includes('assets/manager-profile-tabs.mjs'))
   throw Error('Manager profile is not using the shared starting routes: '+slug);
 }
+// Prevent the weighted Legacy OVR explainer from disappearing or drifting
+// away from its canonical formula inputs.
+const ratingCard=fs.readFileSync('assets/manager-profile-madden.mjs','utf8');
+const ratingModel=fs.readFileSync('assets/fellas-rating-model.mjs','utf8');
+if(!ratingCard.includes("import {makeRatings,WEIGHTS}")||
+ !ratingCard.includes("manager.breakdown[key]")||
+ !ratingCard.includes("const factorPanel=")||
+ !ratingCard.includes("'+factorPanel+'")||
+ !ratingCard.includes("profile-rating-factor-grid"))
+ throw Error('Manager rating factor explanation must use the canonical breakdown');
+for(const factor of ['titles','finals','playoffs','regular','allPlay','recent','peak','tenure']){
+ if(!ratingCard.includes("['"+factor+"'")||
+  !ratingModel.includes(factor+':'))
+  throw Error('Legacy OVR factor missing from card or formula: '+factor);
+}
 const guide=JSON.parse(fs.readFileSync('data/season_guide.json','utf8'));
 const names={stilly:'Stilly',jmid:'JMid',tom:'Thommy',stew:'Stew',scott:'Scott',mitch:'Mitch',tony:'Tony',stover:'Stover',kuhl:'Kuhl',birch:'Birch'};
 for(const slug of managers){
