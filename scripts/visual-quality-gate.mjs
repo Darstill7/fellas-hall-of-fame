@@ -70,7 +70,7 @@ try{
          mainLandmark:!!main,
          primaryStyle:!!document.querySelector('link[href*="assets/fellas-ui-system.css"]'),
          loading:/(loading verified manager rankings)/i.test(document.getElementById('home-manager-status')?.innerText||''),
-         snapshotTiles:[...document.querySelectorAll('.profile-career-snapshot .stat')].filter(visible).length,
+         snapshotTiles:document.querySelectorAll('.profile-career-snapshot .stat').length,
          bodyTextLength:(document.body.innerText||'').length};
        });
        const record={engine,width,route:key,...audit,runtimeErrors:runtime};
@@ -213,6 +213,31 @@ try{
         const disclosure=resume.locator('details.profile-playoff-history');
         await disclosure.locator('summary').click();
         if(await disclosure.locator('li').count()!==10)throw Error('Playoff timeline not ten completed seasons');
+        const original=page.locator('main .hero details.profile-snapshot-receipts');
+        if(await original.count()!==1||await original.evaluate(el=>el.open))
+         throw Error('Original verified career statistics must begin collapsed');
+        await original.locator(':scope > summary').click();
+        if(!await original.evaluate(el=>el.open)||await original.locator('.stat').count()!==3)
+         throw Error('Career record source disclosure failed to reveal three verified statistics');
+        await original.locator(':scope > summary').click();
+        if(await original.evaluate(el=>el.open))
+         throw Error('Career source disclosure failed to close');
+        const featured=page.locator('#profile-features nav.profile-featured-routes');
+        if(await featured.locator('a.profile-featured-link').count()!==3)
+         throw Error('Three primary profile destinations must be directly reachable');
+        const canonicalLinks=await featured.locator('a').evaluateAll(nodes=>nodes.map(a=>({
+         text:a.textContent,href:new URL(a.href),label:a.querySelector('strong')?.textContent
+        })).map(x=>({label:x.label,path:x.href.pathname,manager:x.href.searchParams.get('manager')})));
+        if(canonicalLinks[1]?.manager!==canonical||canonicalLinks[2]?.manager!==canonical||
+           !canonicalLinks[1]?.path.endsWith('/analytics/manager-report-cards.html')||
+           !canonicalLinks[2]?.path.endsWith('/analytics/manager-lineup-research.html'))
+         throw Error('Primary profile links target the wrong manager');
+        const factors=page.locator('details.profile-rating-components');
+        if(await factors.count()!==1||await factors.evaluate(el=>el.open))
+         throw Error('Career rating factor breakdown missing or not collapsed');
+        await factors.locator(':scope > summary').click();
+        if(await factors.locator('.profile-rating-factor').count()!==8)
+         throw Error('All eight official career rating factors must be available');
         const preview=page.locator('a[data-profile-owned-records]');
         if(!await preview.count())throw Error('Personal record preview missing');
         if(['stilly','tom','stover'].includes(slug)){
