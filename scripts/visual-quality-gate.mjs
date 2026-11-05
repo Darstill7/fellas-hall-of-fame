@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','managers/','analytics/manager-report-cards.html','analytics/records.html',
+const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
  'analytics/power-ratings.html','analytics/rivalries.html','hall/','seasons/',
  'analytics/manager-madden-cards.html','managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
@@ -149,7 +149,23 @@ try{
          }
         }
        }
+       if(route==='analytics/manager-lineup-research.html'){
+        const proof=page.locator('#historical-coverage details');
+        if(await proof.count()!==1)
+         findings.push(engine+' '+width+' lineup research missing evidence coverage');
+        else{
+         const label=await proof.locator('summary').innerText();
+         if(!label.includes('822 / 830')||!label.includes('8 excluded'))
+          findings.push(engine+' '+width+' lineup source coverage totals missing');
+         await proof.locator('summary').click();
+         if(await proof.locator('tbody tr').count()!==6)
+          findings.push(engine+' '+width+' six-season coverage detail incomplete');
+        }
+       }
        if(route==='analytics/manager-report-cards.html'){
+        const history=page.locator('[data-report-manager] details.report-lineup-history');
+        if(await history.count()!==10)
+         findings.push(engine+' '+width+' incomplete historical lineup coverage for ten managers');
         const tiles=page.locator('[data-report-manager] .report-fact-grid');
         if(await tiles.count()!==10)
          findings.push(engine+' '+width+' report cards missing source-backed summary tiles');
