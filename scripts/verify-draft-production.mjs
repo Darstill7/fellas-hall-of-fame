@@ -37,7 +37,7 @@ assert(styles.includes('.career-research-topics-grid')&&
  styles.includes('@media(max-width:365px)'),
  'Draft research needs readable mobile navigation and touch targets');
 assert(browser.includes('draft research lacks six topic shortcuts')&&
- browser.includes('drafting-trading-focused.png')&&
+ browser.includes("'drafting-trading-'+slug+'-focused.png'")&&
  browser.includes('focused:document.activeElement===heading'),
  'Browser release suite must actually test draft topic navigation and focus');
 console.log('Draft production evidence PASS: completed Sleeper seasons, no keeper/2026 leakage, source totals and all managers');
