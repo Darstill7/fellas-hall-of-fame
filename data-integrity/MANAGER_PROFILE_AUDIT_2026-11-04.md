@@ -148,3 +148,22 @@ This is a source-level identity audit and code correction. Chromium/WebKit runti
 - Re-read the ten current HTML profiles and canonical generated records, then checked visible manager identity, career record, two functional static hero actions, shared chapter navigation, short editorial story, full biography paragraph count, and presence of the shared enhancement module. **10/10 source checks passed**. Both modified JavaScript assets passed static compilation.
 - **Browser execution is still not confirmed.** The GitHub connector exposed zero combined status entries on the latest commit and does not list push-triggered Actions runs. The external GitHub Actions page and published Pages site were inaccessible to the available browser/search environment. There is no verified Chromium, WebKit, mobile screenshot, or successful Pages publish claim yet.
 - Next release step: run and inspect the main-branch canonical workflow, Chromium and WebKit jobs, and Pages deployment; fix any real run failures. Avoid marking visual QA complete until the rendered 390px and 1280px layouts are inspected.
+
+## November 5 continuation — simplify the manager navigation while CI processes
+
+### Fixes published to main
+1. **Corrected the historical Records link** in the expandable feature directory. It previously used the raw `manager` value, which was `Tom` on the Thommy profile, while the record-books selector requires the canonical public name `Thommy`. Both routes now use `name` (including Thommy), preventing a silent fallback to the wrong selected record.
+2. **Removed redundant choices.** The three primary destinations are **Read [manager]'s career story**, **Records**, and **Report Card**. The expandable directory has **eleven distinct deeper features** in five groups instead of thirteen buttons duplicating two of those primary destinations.
+3. Renamed the second group from **Ratings & Report Card** to **Ratings & Legacy**, accurately describing its Legacy OVR and Season OVR content without suggesting the separately featured Report Card is buried there.
+4. **Career Story is now a focused reading experience.** Selecting the featured biography hides the dense résumé modules that follow its three paragraphs, but preserves loading/unavailable copy when the biography has not mounted. Returning to the directory removes this isolation state so the complete Legacy Résumé remains available elsewhere.
+5. Extended the browser release script to assert: one correctly parameterized featured Records link for every manager, exactly eleven uniquely labeled deeper features, the five correct group labels, isolated biography prose with the full résumé restored on return, and visible title-season context in the career headline.
+6. Expanded source verifier assertions to guard the three featured routes and ensure each deeper feature is present **exactly once** in the five menu groups.
+
+### Additional accuracy checks
+- Re-read all ten source HTML profiles and canonical career, legacy-title, and biography data. The names, regular-season records, championship counts/years, two source-HTML primary actions, and three-paragraph biographies matched **10/10**.
+- Compared the biographical regular-season records and year references against `data/career_core_generated.json` annual entries for all ten managers, including Stover 2021/2022/2024, Thommy 2019/2024, Mitch 2025/2026, Kuhl 2020–2026, and Birch 2019–2021. The cited annual W–L claims were consistent with the ledger-derived season rows. This does not certify every qualitative player or transaction anecdote.
+- Checked that all five deeper *dynamic class target families* are emitted by their respective JS modules (`manager-profile-madden.mjs`, `manager-draft-trade-career-page.mjs`, `manager-season-evidence.mjs`, `manager-profile-tabs.mjs`, and `manager-playoff-resume.mjs`). This is structural coverage, not a browser render guarantee.
+- Static JavaScript compilation and direct inventory assertions passed. **Do not mark Chromium, WebKit, or Pages green** without actual workflow/browser evidence. The connector currently exposes no push-triggered workflow results or combined status entries.
+
+### Release follow-up
+Run canonical validation and Chromium/WebKit browser tests for the latest main revision, inspect focused biography visibility and all eleven feature destinations on 390px and 1280px viewports, and verify published GitHub Pages parity after the run.
