@@ -174,5 +174,5 @@ if(problems.length){
  for(const error of problems)console.error(' - '+error);
  process.exitCode=1;
 }else{
- console.log('ESPN bracket format audit PASS: historic brackets, user-confirmed 2019 ownership, four lowest-score Shitter awards, final ranks and postseason scoring records.');
+ console.log('ESPN bracket format audit PASS: historic brackets, user-confirmed 2019 ownership, four last-place losers-bracket Shitter awards, final ranks and postseason scoring records.');
 }
