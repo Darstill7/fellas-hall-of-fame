@@ -166,6 +166,17 @@ if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')
   }
   if(highlights.children.length===2){
    profileSnapshot.append(highlights);
+   // Keep title seasons visible without adding a third oversized stat card.
+   // This text comes from the existing verified title-year source, not
+   // another frozen manager-by-manager figure.
+   const titleYearsCard=originalCards.find(card=>/Championship season/i.test(card.querySelector('small')?.textContent||''));
+   const titleYears=titleYearsCard?.querySelector('strong')?.textContent?.trim();
+   if(titleYears){
+    const honors=document.createElement('p');
+    honors.className='profile-honors-line';
+    honors.textContent=/^(No verified title|None|—)$/i.test(titleYears)?'Still chasing a first championship':'Championship season'+(titleYears.includes(',')?'s':'')+': '+titleYears;
+    profileSnapshot.append(honors);
+   }
   }
   evidence.append(summary,originalStats);
   const source=profileSnapshot.querySelector('.profile-snapshot-source');
