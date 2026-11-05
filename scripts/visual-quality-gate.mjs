@@ -238,6 +238,45 @@ try{
           findings.push(engine+' '+width+' six-season coverage detail incomplete');
         }
        }
+       if(route==='managers/record-books.html'){
+        const chooser=page.locator('.record-picker #manager');
+        const links=page.locator('.record-quick-links a');
+        const sections=page.locator('.record-jump-nav a');
+        if(await chooser.count()!==1||await links.count()!==2||await sections.count()!==4)
+         findings.push(engine+' '+width+' records page missing manager picker or its primary navigation');
+        else{
+         const destinations=await links.evaluateAll(nodes=>nodes.map(a=>({
+          href:new URL(a.href),height:a.getBoundingClientRect().height,
+          left:a.getBoundingClientRect().left,right:a.getBoundingClientRect().right
+         })).map(a=>({path:a.href.pathname,manager:a.href.searchParams.get('manager'),
+          height:a.height,left:a.left,right:a.right})));
+         if(!destinations[0]?.path.endsWith('/managers/stilly/')||
+            !destinations[1]?.path.endsWith('/analytics/manager-report-cards.html')||
+            destinations[1]?.manager!=='Stilly'||
+            destinations.some(x=>x.height<44||x.left< -3||x.right>width+3))
+          findings.push(engine+' '+width+' records page manager actions broken '+JSON.stringify(destinations));
+         const selected=page.locator('#profile .cards:first-child .card');
+         if(await selected.count()!==3)
+          findings.push(engine+' '+width+' record book lost three career summary metrics');
+        }
+       }
+       if(route==='analytics/manager-report-cards.html'){
+        const actions=page.locator('#cards [data-report-manager] .report-primary-actions');
+        if(await actions.count()!==10)
+         findings.push(engine+' '+width+' report cards missing direct Profile and Records actions');
+        else{
+         const bad=await actions.evaluateAll(nodes=>nodes.flatMap(nav=>{
+          const manager=nav.closest('[data-report-manager]')?.dataset.reportManager;
+          const links=[...nav.querySelectorAll('a')];
+          return links.length!==2||!links[0].pathname.includes('/managers/')||
+           !links[1].pathname.endsWith('/managers/record-books.html')||
+           new URL(links[1].href).searchParams.get('manager')!==manager||
+           links.some(a=>{const r=a.getBoundingClientRect();return r.height<44||r.width<100;})
+           ?[manager]:[];
+         }));
+         if(bad.length)findings.push(engine+' '+width+' invalid report card actions: '+bad.join(','));
+        }
+       }
        if(route==='analytics/manager-report-cards.html'){
         const history=page.locator('[data-report-manager] details.report-lineup-history');
         if(await history.count()!==10)
