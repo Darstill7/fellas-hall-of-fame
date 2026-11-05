@@ -10,15 +10,18 @@
   },
   "coverage": {
     "totalSelections": 598,
-    "namedSelections": 597,
-    "unresolvedSelections": 1,
-    "unresolvedPlayerIds": [
-      2977698
-    ],
+    "namedSelections": 598,
+    "unresolvedSelections": 0,
+    "unresolvedPlayerIds": [],
     "verifiedSelectionOrderPicks": 438,
-    "positionSortedSourceRows": 160
+    "positionSortedSourceRows": 160,
+    "identityProvenance": {
+      "independentExactEspnIdCrosswalkPlayerIds": 272,
+      "teamDefenseIds": 23,
+      "userConfirmedOriginalPlayerIds": 1
+    }
   },
-  "warning": "Player names are from an independent exact-ID crosswalk. The 2018 offline import is POSITION-SORTED and must not be displayed as original pick order. One 2017 player ID still requires ESPN-native verification.",
+  "warning": "All 598 original selections have mapped names: 597 through an independent ID catalog/team D/ST decoding and one through league-manager firsthand confirmation (Glenn Gronkowski, Tony 2017). Tony's subsequent Rob Gronkowski replacement is a separate post-draft correction. The 2018 position-sorted offline import cannot establish original pick order.",
   "seasons": {
     "2016": {
       "draftType": "SNAKE",
@@ -1902,10 +1905,18 @@
           "espnTeamId": 10,
           "manager": "Tony",
           "espnPlayerId": 2977698,
-          "player": null,
-          "position": null,
-          "identityStatus": "unresolved",
-          "pickOrderVerified": true
+          "player": "Glenn Gronkowski",
+          "position": "RB",
+          "identityStatus": "user_confirmed_original_draft_selection",
+          "pickOrderVerified": true,
+          "postDraftCorrection": {
+            "correctedTo": "Rob Gronkowski",
+            "correctedEspnPlayerId": 13229,
+            "correctedPosition": "TE",
+            "basis": "User confirms Tony accidentally chose Glenn and the league replaced him with Rob after the draft",
+            "originalSelectionPreserved": true,
+            "correctionDate": "Unverified"
+          }
         },
         {
           "overall": 29,
