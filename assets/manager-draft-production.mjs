@@ -9,10 +9,10 @@ export function buildDraftProduction(drafts, manager) {
  const seen=new Set();
  for(const pick of rows){
   const key=pick.year+':'+pick.overall;
-  if(seen.has(key)||!Number.isInteger(p.year)||!Number.isInteger(p.overall)||pick.overall<1||
-     !Number.isInteger(p.round)||pick.round<1||typeof pick.player!=='string'||!pick.player.trim()||
-     !Number.isInteger(p.reg_starts)||p.reg_starts<0||
-     !Number.isFinite(p.reg_starter_points))
+  if(seen.has(key)||!Number.isInteger(pick.year)||!Number.isInteger(pick.overall)||pick.overall<1||
+     !Number.isInteger(pick.round)||pick.round<1||typeof pick.player!=='string'||!pick.player.trim()||
+     !Number.isInteger(pick.reg_starts)||pick.reg_starts<0||
+     !Number.isFinite(pick.reg_starter_points))
    throw Error('Invalid or duplicate original-manager draft receipt: '+key);
   seen.add(key);
  }
