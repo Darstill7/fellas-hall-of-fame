@@ -1128,6 +1128,31 @@ try{
     }));
     if(spacing.line<17||spacing.pad<11)
      errors.push(width+' all-time record book table type remains cramped');
+    // Closest margins must be selected from every verified regular-season
+    // matchup, not from the top 100 blowouts. Regression: 2018 W7 was 0.16.
+    await page.locator('#categories button[data-category="close"]').click();
+    await page.waitForFunction(()=>document.querySelector('#scope')?.textContent.includes('Week 8')&&
+     document.querySelector('#rows tr:first-child td:last-child')?.textContent==='0.16',null,{timeout:10000});
+    const closestAudit=await page.locator('#rows tr').evaluateAll(trs=>trs.map(tr=>{
+     const cells=[...tr.querySelectorAll('td')];
+     return {year:cells[0]?.textContent,win:cells[1]?.textContent,loss:cells[2]?.textContent,
+      margin:cells[3]?.textContent,at:cells[0]?.getBoundingClientRect().left,
+      display:getComputedStyle(tr).display};
+    }));
+    if(closestAudit.length!==100||
+       !closestAudit[0].year.includes('2018 · W7')||
+       closestAudit[0].win!=='Stew'||closestAudit[0].loss!=='Thommy'||
+       closestAudit[0].margin!=='0.16'||
+       closestAudit[99].margin!=='6.42'||
+       closestAudit.some((r,i)=>!/^[0-9]+\.[0-9]{2}$/.test(r.margin)||
+        (i>0&&Number(r.margin)<Number(closestAudit[i-1].margin)))||
+       (width===390&&closestAudit.some(r=>r.at< -2||r.display!=='grid')))
+     errors.push(width+' closest-game ranking or mobile card layout incorrect: '+JSON.stringify(closestAudit.slice(0,3)));
+    await page.locator('#categories button[data-category="big"]').click();
+    const largest=await page.locator('#rows tr:first-child td:last-child').textContent();
+    if(largest!=='101.38')
+     errors.push(width+' biggest-win margin not calculated from canonical games: '+largest);
+
    }
    if(['managers/index.html','hall/','seasons/','analytics/manager-madden-cards.html'].includes(route)){
     if(!await page.locator('body.fellas-polished').count()||
