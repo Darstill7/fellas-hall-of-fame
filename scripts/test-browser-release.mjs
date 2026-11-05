@@ -1258,6 +1258,7 @@ try{
       if(rows.length!==expectedTeams||!rows[0].includes(firstManager)||
          !rows.some(row=>row.includes(checkName))||
          !context.includes('no keepers')||
+         !(year==='2016'||year==='2017'?context.includes('rounded whole-number points'):year==='2018'?context.includes('decimal points')&&context.includes('traditional waivers'):context.includes('half-PPR')&&context.includes('FAAB'))||
          (year==='2019'?!rows.some(row=>row.includes('Evans')&&row.includes('49')):
           !rows.every(row=>row.includes('Not used'))))
        errors.push(width+' ESPN '+year+' draft/waiver selector lost recovered owner mappings, no-keeper rules or pre-2019 FAAB status');
