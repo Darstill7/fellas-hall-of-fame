@@ -87,3 +87,10 @@ Inspected the primary `managers/<slug>/index.html` file for all ten current mana
 - Static source compilation check on GitHub's latest `assets/manager-profile-tabs.mjs`, `assets/legacy-resume.js`, and `scripts/test-browser-release.mjs` passed. All ten biography JSON entries still contain three narrative paragraphs. These checks do **not** constitute a Chromium/WebKit run.
 - No historical statistics, awards, name mappings, or manager-specific facts were modified in this batch.
 - Browser/CI/Pages validation is still **unverified**, as public GitHub Actions run inspection was not available through current accessible tooling. Keep release gate closed until confirmed.
+
+### Additional reliability improvement — missing optional panels
+
+- Fixed a misleading interaction: previously, selecting a not-yet-mounted optional research panel permanently applied `aria-disabled=true` to that feature button and showed only a hover tooltip. It could look like nothing happened, even if the deferred component mounted later.
+- The feature directory now places visible, screen-reader-announced feedback immediately beneath the selected button: the research has not loaded yet and the visitor may retry. It **does not disable the control**, and removes the notice when the destination becomes available.
+- `scripts/verify-core-consumers.mjs` now guards the contextual Back control, hidden focused menu, and retryable research state against source-level regression.
+- Syntax-checked the modified scripts and re-read their source-level invariants. Full browser execution / GitHub Actions / Pages success remains unverified.
