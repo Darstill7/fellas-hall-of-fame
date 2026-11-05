@@ -72,4 +72,31 @@ for(const year of [2020,2021,2022,2023,2024,2025])
  }
 assert.equal(observed,830);assert.equal(comparable,822);assert.equal(excluded,8);
 assert.deepEqual(reasons,published.exclusionReasons);
+const mean=(arr,key)=>arr.length?arr.reduce((n,r)=>n+r[key],0)/arr.length:null;
+for(const row of published.managerSeasons){
+ const samples=audit.observations.filter(x=>x.year===row.year&&x.manager===row.manager);
+ const eligible=samples.filter(x=>!x.reason);
+ assert.equal(samples.length,row.observedWeeks,'Annual manager coverage mismatch '+row.manager+'/'+row.year);
+ assert.equal(eligible.length,row.comparableWeeks,'Annual manager included-week count mismatch '+row.manager+'/'+row.year);
+ assert.equal(samples.length-eligible.length,row.excludedWeeks,'Annual manager excluded-week count mismatch '+row.manager+'/'+row.year);
+ const expectedReasons=samples.filter(x=>x.reason).map(x=>({week:x.week,reason:x.reason}));
+ assert.deepEqual(row.excludedReasons,expectedReasons,'Wrong excluded-week explanation '+row.manager+'/'+row.year);
+ if(eligible.length){
+  assert.ok(Math.abs(row.averageHindsightAccuracy-mean(eligible,'accuracy'))<.011,
+   'Annual manager hindsight accuracy cannot differ from included weeks '+row.manager+'/'+row.year);
+  assert.ok(Math.abs(row.averageHindsightGap-mean(eligible,'gap'))<.011,
+   'Annual manager hindsight gap cannot differ from included weeks '+row.manager+'/'+row.year);
+ }else{
+  assert.equal(row.averageHindsightAccuracy,null);
+  assert.equal(row.averageHindsightGap,null);
+ }
+}
+for(const manager of published.managers){
+ const eligible=audit.observations.filter(x=>x.manager===manager.manager&&!x.reason);
+ assert.ok(eligible.length>0);
+ assert.ok(Math.abs(manager.averageHindsightAccuracy-mean(eligible,'accuracy'))<.011,
+  'Career observed hindsight average differs from recorded team-weeks '+manager.manager);
+ assert.ok(Math.abs(manager.averageHindsightGap-mean(eligible,'gap'))<.011,
+  'Career observed hindsight point gap differs from recorded team-weeks '+manager.manager);
+}
 console.log('Source parity passed: 83 files, 830 weeks, 822 research-comparable, 8 excluded; no unsupported grades.');
