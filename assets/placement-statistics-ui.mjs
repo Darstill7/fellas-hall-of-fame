@@ -79,7 +79,8 @@ async function show(){
   const partial=audit.stats.filter(m=>m.seasonsPlayed<6);
   const explanation=add('p','Average and median use final postseason place (1 = best, 10 = last). Last is the number of Shitter of the Year finishes. Only managers present for all six seasons qualify for the six-season average-finish record.');
   explanation.className='placement-stat-help';root.append(explanation);
-  root.append(add('h3','All six Sleeper seasons'))root.append(makeTable(fully));
+  root.append(add('h3','All six Sleeper seasons'));
+  root.append(makeTable(fully));
   root.append(add('h3','Shorter Sleeper tenures'))root.append(makeTable(partial));
   if(audit.findings.length){
    const note=add('p','2020 third-place finishing order is verified, but the third-place game score remains under review because the screenshot and archived scores differ by 0.10.');
