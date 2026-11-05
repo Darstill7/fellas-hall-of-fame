@@ -662,6 +662,18 @@ try{
        errors.push(width+' incomplete seasonal acquisition usage details');
       await pickupHistory.locator('summary').click();
      }
+     const keeperHistory=firstMethod.locator('details.report-keeper-history');
+     if(await keeperHistory.count()!==1)
+      errors.push(width+' keeper source detail missing');
+     else{
+      await keeperHistory.locator('summary').click();
+      const keepers=keeperHistory.locator('li');
+      if(await keepers.count()!==2||
+         !(await keeperHistory.innerText()).includes('started points')||
+         !(await keeperHistory.innerText()).includes('2025 declarations'))
+       errors.push(width+' keeper player evidence or decision caveat missing');
+      await keeperHistory.locator('summary').click();
+     }
      await firstMethod.locator(':scope > summary').click();
     }
     const categoryPanels=page.locator('[data-report-manager] details.report-category-details');

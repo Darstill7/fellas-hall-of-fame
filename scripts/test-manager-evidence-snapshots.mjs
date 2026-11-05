@@ -25,6 +25,9 @@ for(const e of rows){
     e.keepers.startedPoints!==verified.keepers.startedPoints||
     e.keepers.current.startedPoints!==verified.keepers2026.startedPoints||
     e.keepers.current.starts!==verified.keepers2026.starts||
+    e.keepers.current.players.length!==e.keepers.current.recorded||
+    e.keepers.current.players.reduce((n,p)=>n+p.starts,0)!==e.keepers.current.starts||
+    Math.abs(e.keepers.current.players.reduce((n,p)=>n+p.startedPoints,0)-e.keepers.current.startedPoints)>.015||
     e.faab.completedClaims!==verified.faab.completedClaims||
     e.faab.winningSpend!==verified.faab.winningSpend||
     e.drafts.documentedSeasonCount!==verified.drafts.documentedSeasons)
@@ -63,7 +66,8 @@ if(!page.includes('buildEvidenceSnapshots(')||!page.includes("evidenceSnapshot(x
    !page.includes('keeper_2025_website_research_v1.json')||
    !page.includes('keeper_2026_website_research_v1.json')||
    !page.includes('faab-manager-spend-research-v1.json')||!page.includes('report-faab-history')||
-   !page.includes('manager_acquisition_by_season_v1.json')||!page.includes('report-pickup-history'))
+   !page.includes('manager_acquisition_by_season_v1.json')||!page.includes('report-pickup-history')||
+   !page.includes('report-keeper-history'))
  throw Error('Evidence not wired into the public report card page');
 const css=fs.readFileSync('analytics/manager-report-cards.html','utf8');
 if(!css.includes('.report-fact-grid')||!css.includes('min-height:46px'))
