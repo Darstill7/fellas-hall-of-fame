@@ -377,6 +377,12 @@ try{
      birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
     const name=profileNames[slug];
     if(name){
+     if((await page.locator('main .hero h1').innerText()).trim()!==name)
+      errors.push(width+' '+route+' manager hero must show the canonical public nickname');
+     const heroActions=page.locator('main .hero > .buttons > a');
+     if(await heroActions.count()!==2||
+        !((await heroActions.first().getAttribute('href'))==='#profile-features'))
+      errors.push(width+' '+route+' hero still shows legacy multi-link navigation');
      const shelf=page.locator('details.profile-research-shelf');
      if(await shelf.count()!==1)errors.push(width+' '+route+' research shelf missing');
      else{
@@ -1692,6 +1698,9 @@ try{
       if(!await page.locator('#profile-features').isVisible()||
          !await page.locator('#profile-features .profile-focus-toolbar').count())
        errors.push(width+' '+slug+' Back action failed to restore feature directory');
+      await page.waitForFunction(()=>document.activeElement?.matches('details.profile-feature-group[open] > summary'),null,{timeout:2000}).catch(()=>{});
+      if(!await page.evaluate(()=>document.activeElement?.matches('details.profile-feature-group[open] > summary')))
+       errors.push(width+' '+slug+' Back navigation lost keyboard focus on hidden toolbar');
       const careerGroup=page.locator('details.profile-feature-group').filter({has:career});
       if(!await careerGroup.evaluate(el=>el.open))await careerGroup.locator(':scope > summary').click();
       await career.click();
