@@ -6,7 +6,7 @@
 <body><header><b>THE FELLAS · ESPN ARCHIVE</b><a href="./espn-origins.html">Back to ESPN Origins</a></header>
 <main><p class="eyebrow">Draft History · 2016–2019</p><h1>The original draft classes.</h1>
 <p class="lead">Explore the original ESPN-era selections by year, manager and position. Athlete names were matched using their ESPN IDs against an independent historical player catalog.</p>
-<div class="metrics"><div class="metric"><strong>598</strong><small>Archived selections</small></div><div class="metric"><strong>597</strong><small>Names confirmed</small></div><div class="metric"><strong>4</strong><small>Original seasons</small></div></div>
+<div class="metrics"><div class="metric"><strong>598</strong><small>Archived selections</small></div><div class="metric"><strong>598</strong><small>Names identified</small></div><div class="metric"><strong>4</strong><small>Original seasons</small></div></div>
 <fieldset aria-label="Filter draft history">
 <label>Season<select id="year"><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option></select></label>
 <label>Manager<select id="manager"><option value="">All managers</option></select></label>
@@ -16,7 +16,7 @@
 <div class="notice" id="context" role="status">Loading original draft history…</div>
 <div class="meta"><span id="result-count">Loading selections…</span><span id="order-status"></span></div>
 <div class="scroll"><table><thead><tr><th id="pick-heading">Pick</th><th>Player</th><th>Position</th><th>Manager</th></tr></thead><tbody id="picks"><tr><td colspan="4" class="empty">Loading verified player names…</td></tr></tbody></table></div>
-<p class="small">Original ESPN player identities are verified by exact ID, including team defenses. One 2017 player remains unconfirmed. No draft-value grades are assigned without player-production evidence. The 2018 archive preserves each team's recorded players, but ESPN's position-grouped offline import does not prove the original selection order.</p>
+<p class="small">Original ESPN player identities are verified by exact ID, including team defenses. Tony's original 2017 Glenn Gronkowski selection was manually corrected to his intended pick, Rob Gronkowski, after the draft. No draft-value grades are assigned without player-production evidence. The 2018 draft was offline; ESPN's position-sorted export preserves the recorded player/team assignments but cannot certify the original draft order.</p>
 <footer><a href="./espn-origins.html">ESPN Origins</a> · <a href="../managers/">Manager profiles</a> · <a href="../seasons/">All seasons</a></footer></main>
 <script>
 (()=>{'use strict';
@@ -29,7 +29,7 @@
    order.textContent=offline?'Original draft order unavailable':'Selections in ESPN-recorded order';pickHead.textContent=offline?'Entry':'Overall pick';
    count.textContent=picks.length+' of '+season.playerPicks.length+' selections shown';tbody.replaceChildren();
    if(!picks.length){message('No selections match those filters.');return}
-   for(const item of picks){const tr=document.createElement('tr');const cells=[offline?'—':String(item.overall),item.player||'Name not verified',item.position||'Unknown',item.manager];cells.forEach((value,index)=>{const td=document.createElement('td');td.textContent=value;if(index===1){td.className=item.player?'player':'missing';if(item.player){const tag=document.createElement('span');tag.className='sub';tag.textContent='Round '+item.round+' · Pick '+item.roundPick;td.append(tag)}else{const tag=document.createElement('span');tag.className='sub';tag.textContent='Historical ESPN player ID '+item.espnPlayerId;td.append(tag)}}tr.append(td)});tbody.append(tr)}
+   for(const item of picks){const tr=document.createElement('tr');const cells=[offline?'—':String(item.overall),item.player||'Name not verified',item.position||'Unknown',item.manager];cells.forEach((value,index)=>{const td=document.createElement('td');td.textContent=value;if(index===1){td.className=item.player?'player':'missing';if(item.player){const tag=document.createElement('span');tag.className='sub';tag.textContent=item.postDraftCorrection?'Original pick · replaced after draft with '+item.postDraftCorrection.correctedTo:'Round '+item.round+' · Pick '+item.roundPick;td.append(tag)}else{const tag=document.createElement('span');tag.className='sub';tag.textContent='Historical ESPN player ID '+item.espnPlayerId;td.append(tag)}}tr.append(td)});tbody.append(tr)}
   }
   y.addEventListener('change',()=>{refreshManagers();render()});[manager,pos,search].forEach(el=>el.addEventListener(el===search?'input':'change',render));refreshManagers();render();
  }).catch(()=>{context.textContent='Historical draft data is unavailable.';message('Unable to load archived selections.')});
