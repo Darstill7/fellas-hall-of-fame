@@ -7,6 +7,14 @@ const historical=validateLineupCoverage(get('data/lineup_hindsight_coverage_2020
  get('data-integrity/LINEUP_HISTORY_RECEIPT_AUDIT_2020_2025.json'));
 if(historical.researchComparable!==822||historical.excludedWeeks!==8||historical.teamWeeks!==830)
  throw Error('Historical 830-team-week audit changed');
+const ruleMatrix=get('data-integrity/sleeper-season-rule-matrix-2020-2026.json');
+const expectedSlots=['QB','RB','RB','WR','WR','TE','FLEX','FLEX','DEF'];
+for(const year of [2020,2021,2022,2023,2024,2025]){
+ const row=ruleMatrix.seasons.find(x=>x.year===year);
+ if(!row||JSON.stringify(row.rosterPositions.slice(0,9))!==JSON.stringify(expectedSlots)||
+    row.totalRosters!==10||row.rosterPositions.filter(x=>x==='FLEX').length!==2)
+  throw Error('Historical nine-starting-slot source rules do not match lineup model '+year);
+}
 const rows=buildEvidenceSnapshots({
  placements:get('data/fellas_final_placements_2016_2025_verified.json'),
  acquisitions:get('data/manager_acquisition_distinct_v1.json'),
