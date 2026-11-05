@@ -216,7 +216,6 @@ function mountProfileFeatureDirectory(quick,manager){
   {label:'Drafting & trading résumé',detail:'Documented picks and trades — no invented decision grades',target:'.profile-career-resume',icon:'🔄'},
   {label:'Roster decisions by season',detail:'Draft picks, trades, pickups and keepers, year by year',target:'.profile-season-evidence',icon:'📋'},
   {label:'Pickup & keeper totals',detail:'Which acquisitions started and how many points keepers scored',target:'.profile-front-office-snapshot',icon:'📊'},
-  {label:'Pickup highlights',detail:'Up to three recorded additions, starts and points; costs when available',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'💰'},
   {label:'Start/Sit accuracy',detail:'Weekly lineup efficiency and coverage',href:'../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name),icon:'🎯'},
   {label:'Keeper research',detail:'2025 and in-progress 2026 keeper evidence',href:'../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(name),icon:'🔒'},
   {label:'Manager report card',detail:'Category ratings, verified achievements and evidence limitations',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'📋'},
@@ -230,11 +229,11 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.dataset.profileFeatureMenu='';
  shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Five topics. Open a category, then choose a feature to explore the records and what they mean.</p>';
  const groups=[
-  {title:'Career & Results',help:'Championships, records and every season',items:[0,1,12,13]},
-  {title:'Ratings & Report Card',help:'Legacy OVR, individual seasons and how ratings work',items:[3,4,11]},
-  {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7,8]},
+  {title:'Career & Results',help:'Championships, records and every season',items:[0,1,11,12]},
+  {title:'Ratings & Report Card',help:'Legacy OVR, individual seasons and how ratings work',items:[3,4,10]},
+  {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7]},
   {title:'Rivals & Matchups',help:'Head-to-head records and memorable games',items:[2]},
-  {title:'Lineups & Keepers',help:'Start/Sit accuracy and keeper research',items:[9,10]}
+  {title:'Lineups & Keepers',help:'Start/Sit accuracy and keeper research',items:[8,9]}
  ];
  const groupHosts=new Map();
  const menu=document.createElement('div');menu.className='profile-feature-groups';

@@ -117,6 +117,13 @@ try{
          findings.push(engine+' '+width+' '+key+' incorrect profile landing hierarchy '+JSON.stringify(hierarchy));
         if(hierarchy.actionHeight<44)
          findings.push(engine+' '+width+' '+key+' primary profile action too small');
+        // The detailed archive starts hidden by design. Open it through the
+        // same manager feature control a visitor uses before measuring.
+        const careerFeature=page.locator('#profile-features button[data-feature-target="#verified-history-panel"]');
+        if(await careerFeature.count()!==1)throw Error('Career records feature button missing');
+        await careerFeature.click();
+        if(!await page.locator('#historical-record-profile').isVisible())
+         throw Error('Career feature did not reveal the record book');
         // Regression for the missing .fr-historical class: without this
         // container hook, record labels, scores and dates merge into one line.
         const recordLayout=await page.evaluate(()=>{
@@ -150,6 +157,11 @@ try{
            (width===390&&(!recordLayout.sideBySide||recordLayout.columns!==2))||
            (width===1280&&recordLayout.columns!==3))
          findings.push(engine+' '+width+' '+key+' unreadable record-book layout '+JSON.stringify(recordLayout));
+        const backToTopics=page.locator('.profile-focus-toolbar button').first();
+        if(await backToTopics.count()!==1)throw Error('Career records return control missing');
+        await backToTopics.click();
+        if(await page.locator('body').evaluate(el=>el.classList.contains('profile-feature-focused')))
+         throw Error('Career records return did not restore topic navigation');
        }
        if(/^seasons\/202[0-5]\.html$/.test(route)){
         const proof=page.locator('#verified-placements');

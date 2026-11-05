@@ -1597,13 +1597,13 @@ try{
        errors.push(width+' '+slug+' profile topic labels or order incorrect');
      }
      const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
-     if(await features.count()!==14)
-      errors.push(width+' '+slug+' missing fourteen individually labeled feature destinations');
+     if(await features.count()!==13)
+      errors.push(width+' '+slug+' missing thirteen individually labeled feature destinations');
      else{
       const labels=await features.locator('strong').allTextContents();
       for(const label of ['Championships & career record','Season-by-season results',
        'Head-to-head & rivalries','Legacy OVR progression','Drafting & trading résumé',
-       'Pickup highlights','Start/Sit accuracy','Keeper research']){
+       'Start/Sit accuracy','Keeper research']){
        if(!labels.includes(label))errors.push(width+' '+slug+' feature button missing '+label);
       }
       const destinations=await features.evaluateAll(nodes=>nodes.map(x=>x.tagName==='A'?
