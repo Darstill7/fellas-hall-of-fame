@@ -1947,6 +1947,32 @@ try{
      await buttons.last().click();
      const chosen=await buttons.last().getAttribute('data-year');
      if(!(await page.locator('#heading').innerText()).includes(chosen))errors.push(width+' Awards Show year selection not reflected');
+     for(const [year,manager,score] of [['2016','Stilly','165.00'],['2017','Halderman','96.00'],['2018','Stilly','86.76'],['2019','Evans','80.46']]){
+      await page.locator('#years button[data-year="'+year+'"]').click();
+      const award=page.locator('#awards [data-shitter-award="'+year+'"]');
+      if(await award.count()!==1||!(await award.innerText()).includes(manager)||
+         !(await award.innerText()).includes(score))
+       errors.push(width+' Awards Show '+year+' Shitter punishment missing or conflated with regular season');
+     }
+     await page.locator('#years button[data-year="2025"]').click();
+     if(await page.locator('#awards [data-shitter-award]').count()!==0)
+      errors.push(width+' Awards Show invented an unverified Sleeper-era Shitter punishment');
+    }
+   }
+   if(route==='seasons/historical-awards.html'){
+    const select=page.locator('#year');
+    await select.waitFor({state:'visible',timeout:8000}).catch(()=>{});
+    if(await select.count()===1){
+     for(const [year,manager,score] of [['2016','Stilly','165.00'],['2017','Halderman','96.00'],['2018','Stilly','86.76'],['2019','Evans','80.46']]){
+      await select.selectOption(year);
+      const awards=await page.locator('#awards').innerText();
+      if(!awards.includes('Shitter of the Year')||!awards.includes(manager)||!awards.includes(score)||
+         !awards.includes('The Basement'))
+       errors.push(width+' '+year+' historical award list lacks separate punishment and regular-season Basement');
+     }
+     await select.selectOption('2025');
+     if((await page.locator('#awards').innerText()).includes('Shitter of the Year'))
+      errors.push(width+' historical award archive inferred unverified Sleeper-era Shitter winner');
     }
    }
    if(route.startsWith('managers/')&&slugs.includes(route.slice('managers/'.length,-'.html'.length))&&route.endsWith('.html')){
