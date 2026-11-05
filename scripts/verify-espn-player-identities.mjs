@@ -72,5 +72,19 @@ check(website.includes('espn_draft_boards_named_2016_2019.json')&&
  website.includes("offline?'—':String(item.overall)")&&website.includes("item.player||'Name not verified'"),
  'Draft browser must use canonical names, and never show false 2018 pick numbers');
 check(archive.includes('espn-draft-history.html'),'ESPN Origins must link to complete searchable draft history');
+check(website.includes("requested.get('manager')")&&website.includes("requested.get('year')")&&website.includes("manager.value=canonical"),
+ 'Draft archive must support manager and season deep links');
+check(website.includes('id="manager-resume"')&&website.includes('owned.length')&&website.includes('Recorded first-round pick:')&&website.includes('Round and early-pick rankings are deliberately withheld.'),
+ 'Manager draft résumé must show sourced counts and withhold 2018 draft rankings');
+check(website.includes('The league subsequently replaced him with Rob Gronkowski')&&website.includes('not an additional draft selection'),
+ 'Manager résumé must preserve Tony original-pick vs correction distinction');
+const activeLegacyManagers=['stilly','stew','tom','stover','birch','tony','mitch','kuhl'];
+for(const slug of activeLegacyManagers){
+ const profile=fs.readFileSync('managers/'+slug+'/index.html','utf8');
+ const name=slug==='tom'?'Thommy':slug[0].toUpperCase()+slug.slice(1);
+ check(profile.includes('espn-draft-history.html?manager='+encodeURIComponent(name))&&profile.includes('Original ESPN drafts'),
+  'Missing manager deep link to the historical ESPN draft archive: '+slug);
+}
+
 if(errors.length){console.error('ESPN player identity validation FAILED ('+errors.length+')');errors.forEach(e=>console.error(' - '+e));process.exitCode=1}
 else console.log('ESPN player identity validation PASS: 598/598 picks identified, documented Glenn-to-Rob correction, and 2018 offline order safeguards.');
