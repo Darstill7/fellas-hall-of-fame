@@ -183,3 +183,24 @@ Eight original ESPN winners/consolation screenshots were supplied and cross-chec
 **Regression coverage:** Added `scripts/verify-espn-playoff-formats.mjs` and installed it in the main-branch canonical workflow; the script protects original two-week score components, 2019 cumulative scope in both projections, official final ranks, owner separation, recovered season finishes and corrected postseason records. Updated `scripts/verify-specialty-records.mjs` for valid extrema and expanded browser QA for recovered placements and 2017 score labeling. Executed the playoff-format, specialty-record-book, and ledger projection audit scripts against current GitHub files in a JavaScript in-memory emulation of `fs.readFileSync`; **all three passed**. This is not an actual GitHub CI or Chromium/WebKit run.
 
 **Unresolved for editorial awards:** whether “Shitter of the Year” always equals the original ESPN last-place `finalRank`, rather than lowest scoring among all final-round consolation participants. Those differ in some early seasons. Until the user confirms, report last-place finishes but do not blindly backfill the punishment award.
+
+## November 5 — user-certified 2019 owner and Shitter of the Year rule
+
+The user explicitly confirmed (1) **2019 I Love Tubing belonged to Evans**, while Stew managed **Kickers SUCK**, and (2) **Shitter of the Year was awarded to the lowest-scoring team in the final consolation round**. Applied this as the final **LOSERS_CONSOLATION_LADDER** round, excluding the distinct winners' consolation track. Do not equate the punishment award with the official finalRank when they differ.
+
+| Year | Shitter of the Year | Deciding final-round score | Official ESPN rank | Distinction |
+|---|---|---|---|---|
+| 2016 | **Stilly** | 165 combined, NFL Weeks 16–17 | 6th of 8 | Official ESPN last place was Schermerhorn, not the punishment winner |
+| 2017 | **Halderman** | 96 combined, NFL Weeks 15–16 | 6th of 10 | Official ESPN last place was Birch, not the punishment winner |
+| 2018 | **Stilly** | 86.76 in NFL Week 16 | 10th of 10 | Last place and punishment winner coincide |
+| 2019 | **Evans** (*I Love Tubing*) | 80.46 in NFL Week 16; separate 264.76 cumulative Weeks 14–16 total | 10th of 10 | Last place and punishment winner coincide; Stew was championship runner-up |
+
+**Data & UI changes:**
+- Created `data/espn_shitter_of_the_year_2016_2019.json` as a structured primary award projection with all final losers-ladder participants, ESPN team IDs, matchup identifiers, week scopes, owner mappings, user confirmation, and scores.
+- Updated `data-integrity/ESPN_PLAYOFF_FORMAT_EVIDENCE_2016_2019.json` to close the owner and award questions; only the detailed 2018 ladder advancement/tiebreak mechanics remain unknown. Official final positions and the punishment award are still verified.
+- Added `awards`/`awardNote` to Stilly's 2016 and 2018 season-endings rows; **did not change the official 6th-place and 10th-place finishing positions**.
+- Updated `assets/manager-season-history.js` to show awarded Shitter seasons in the mobile accordion and desktop season archive separately from `ending`.
+- Added a four-year sourced Shitter table to `seasons/espn-origins.html` (fetches the award JSON; explicitly identifies 2019 Evans and Stew).
+- Extended `scripts/verify-espn-playoff-formats.mjs` (already in canonical GitHub Actions) to independently calculate the lowest final losers-consolation scorer from original ESPN games for each year and compare the new awards and current-manager badges. Extended browser checks for the ESPN Origins award table.
+
+**Verification scope:** Re-read original ESPN final-round scores and owner IDs directly. New award calculations and the ESPN format validator passed an in-memory JavaScript execution using the saved GitHub source bytes. GitHub CI push-job statuses and Chromium/WebKit browser execution must still be independently inspected. This does **not** certify any later-year (Sleeper-era) Shitter awards.
