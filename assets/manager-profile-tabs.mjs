@@ -256,7 +256,7 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Five topics. Open a category, then choose a feature to explore the records and what they mean.</p>';
  const groups=[
   {title:'Career & Results',help:'Championships, playoffs and every season',items:[0,1,10]},
-  {title:'Ratings & Report Card',help:'Legacy OVR, individual seasons and how ratings work',items:[3,4]},
+  {title:'Ratings & Legacy',help:'Career Legacy OVR and individual season ratings',items:[3,4]},
   {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7]},
   {title:'Rivals & Matchups',help:'Head-to-head records and memorable games',items:[2]},
   {title:'Lineups & Keepers',help:'Start/Sit accuracy and keeper research',items:[8,9]}
