@@ -117,6 +117,28 @@ try{
          findings.push(engine+' '+width+' '+key+' incorrect profile landing hierarchy '+JSON.stringify(hierarchy));
         if(hierarchy.actionHeight<44)
          findings.push(engine+' '+width+' '+key+' primary profile action too small');
+        // First screen: prioritize championships/record, then two usable
+        // destinations, without repeated Records controls or tiny tap targets.
+        const entryGeometry=await page.evaluate(()=>{
+         const root=document.querySelector('#profile-features');
+         const links=[...(root?.querySelectorAll('.profile-featured-links > a')||[])];
+         const cards=[...document.querySelectorAll('main .hero .profile-career-highlight')];
+         const rect=el=>{const r=el.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height}};
+         return {
+          labels:links.map(a=>a.querySelector('strong')?.textContent?.trim()),
+          links:links.map(rect),
+          stats:cards.map(rect),
+          duplicateTopLevelRecords:document.querySelectorAll('main .hero > .profile-owned-records,main .hero .profile-career-snapshot > .profile-owned-records').length,
+          fullWidth:document.documentElement.scrollWidth>document.documentElement.clientWidth+3
+         };
+        });
+        if(JSON.stringify(entryGeometry.labels)!==JSON.stringify(['Records','Report Card'])||
+           entryGeometry.links.length!==2||
+           entryGeometry.links.some(r=>r.width<120||r.height<44||r.left< -3||r.right>width+3)||
+           entryGeometry.stats.length!==2||
+           entryGeometry.stats.some(r=>r.width<90||r.height<50||r.left< -3||r.right>width+3)||
+           entryGeometry.duplicateTopLevelRecords!==0||entryGeometry.fullWidth)
+         findings.push(engine+' '+width+' '+key+' first-screen entry layout '+JSON.stringify(entryGeometry));
         const headlineFacts=await page.locator('main .hero .profile-career-highlights > .profile-career-highlight').evaluateAll(cards=>cards.map(card=>{
          const r=card.getBoundingClientRect();
          return {label:card.querySelector('span')?.textContent?.trim(),value:card.querySelector('strong')?.textContent?.trim(),
@@ -321,10 +343,11 @@ try{
         await returnButton.click();
         if(await page.locator('body').evaluate(el=>el.classList.contains('profile-feature-focused')))
          throw Error('Returning to profile topics did not reset focused mode');
-        const preview=page.locator('a[data-profile-owned-records]');
-        if(!await preview.count())throw Error('Personal record preview missing');
+        const preview=page.locator('main .hero details.profile-snapshot-receipts a[data-profile-owned-records]');
+        if(await preview.count()!==1)throw Error('Detailed record ownership source link missing');
+        if(await preview.isVisible())throw Error('Duplicate record shortcut is visible above primary Records link');
         if(['stilly','tom','stover'].includes(slug)){
-         await preview.click();
+         await featured.locator('a[href*="record-books.html"]').click();
          await page.waitForURL(url=>url.pathname.endsWith('/managers/record-books.html'),{timeout:10000});
          await page.waitForFunction(()=>document.querySelector('#manager')?.options.length>0,{timeout:10000});
          await page.waitForFunction(name=>document.getElementById('manager')?.value===name,canonical,{timeout:10000});
