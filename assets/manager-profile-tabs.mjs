@@ -247,7 +247,7 @@ function mountProfileFeatureDirectory(quick,manager){
   {label:'Start/Sit accuracy',detail:'Weekly lineup efficiency and coverage',href:'../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name),icon:'🎯'},
   {label:'Keeper research',detail:'2025 and in-progress 2026 keeper evidence',href:'../../analytics/keeper-decision-research.html?year=2026&manager='+encodeURIComponent(name),icon:'🔒'},
   {label:'Manager report card',detail:'Category ratings, verified achievements and evidence limitations',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards',icon:'📋'},
-  {label:'Records you own',detail:'League records, personal bests and season-by-season history',href:'../record-books.html?manager='+encodeURIComponent(manager)+'#owned-records',icon:'📖'},
+  {label:'Records you own',detail:'League records, personal bests and season-by-season history',href:'../record-books.html?manager='+encodeURIComponent(name)+'#owned-records',icon:'📖'},
   {label:'Playoff résumé',detail:'Verified playoff berths, championship games and annual results',href:'#profile-playoff-resume',icon:'🏅'}
  ];
  const shell=document.createElement('section');
