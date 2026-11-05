@@ -222,15 +222,27 @@ export async function mountDraftTradeCareer(host,manager){
   topicNav.setAttribute('aria-label','Drafting and trading research topics');
   topicNav.append(elt('p','career-research-topics-title','Choose what to explore'));
   const topicGrid=elt('div','career-research-topics-grid');
+  const topicHint=elt('p','muted career-research-prompt',
+   'Select a topic above to open that research by itself. The full source coverage remains available here.');
+  details.insertBefore(topicHint,details.children[2]||null);
+  const topicButtons=[];
   topics.forEach(([label,section],index)=>{
    const id='career-research-topic-'+index;
    section.id=id;
+   section.hidden=true;
    const heading=section.querySelector('h4');
    if(heading)heading.tabIndex=-1;
    const button=elt('button','career-research-topic-button',label);
    button.type='button';
    button.setAttribute('aria-controls',id);
+   button.setAttribute('aria-expanded','false');
+   topicButtons.push(button);
    button.addEventListener('click',()=>{
+    topics.forEach(([unused,other],i)=>{
+     other.hidden=other!==section;
+     topicButtons[i]?.setAttribute('aria-expanded',String(other===section));
+    });
+    topicHint.hidden=true;
     box.open=true;details.open=true;
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
      section.scrollIntoView({block:'start',behavior:'instant'});
@@ -241,6 +253,10 @@ export async function mountDraftTradeCareer(host,manager){
    const returnButton=elt('button','career-research-return','↑ Back to draft topics');
    returnButton.type='button';
    returnButton.addEventListener('click',()=>{
+    details.open=false;
+    topics.forEach(([unused,other])=>{other.hidden=true});
+    topicButtons.forEach(other=>other.setAttribute('aria-expanded','false'));
+    topicHint.hidden=false;
     topicNav.scrollIntoView({block:'start',behavior:'instant'});
     button.focus({preventScroll:true});
    });
