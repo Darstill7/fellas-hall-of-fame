@@ -11,7 +11,7 @@
   "rules": [
     "Rank #1 is champion; #2 runner-up; 3–8 bracket placement; #9 wins the Toilet Bowl final; #10 loses the final and earns Shitter of the Year.",
     "All ten participants have exactly one finishing rank per season.",
-    "2020 third-place Birch vs Stover winner is clear, but exact Birch score differs by 0.10 between screenshot and archived matchup file; leave score unverified.",
+    "2020 third-place Birch score is commissioner-confirmed as 110.10; Stover's archived 78.90 stands. Prior 110.14 / 110.24 readings are superseded and preserved in placement correction provenance.",
     "Cross-era all-time performance statistics must use comparable eligible seasons and distinguish former from current managers."
   ],
   "seasons": [
@@ -31,12 +31,16 @@
         {
           "rank": 3,
           "manager": "Birch",
-          "scoreVerified": false
+          "scoreVerified": true,
+          "postseasonThirdPlaceScore": 110.1,
+          "scoreSource": "commissioner confirmed 2026-11-05; archived readings 110.14 and 110.24 superseded"
         },
         {
           "rank": 4,
           "manager": "Stover",
-          "scoreVerified": false
+          "scoreVerified": true,
+          "postseasonThirdPlaceScore": 78.9,
+          "scoreSource": "archived final third-place game score"
         },
         {
           "rank": 5,
