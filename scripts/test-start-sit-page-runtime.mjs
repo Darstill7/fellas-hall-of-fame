@@ -5,7 +5,11 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
-const code=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
+const source=fs.readFileSync('assets/manager-lineup-research-page.mjs','utf8');
+const importLine="import {validateLineupCoverage} from './lineup-history-coverage.mjs';";
+assert.ok(source.includes(importLine),'Historical lineup source validator must remain imported');
+const code=source.replace(importLine,''); // vm script harness; coverage module has separate receipt tests
+
 const completedWeek=JSON.parse(fs.readFileSync('data/keeper_2026_website_research_v1.json','utf8')).throughWeek;
 assert.ok(Number.isInteger(completedWeek)&&completedWeek>=8&&completedWeek<=14);
 
@@ -55,7 +59,7 @@ async function runQuery(query){
    URLSearchParams,Date,Number,Map,Set,Array,String,Math,console:{error(e){throw e;}}};
  // Capture the actual async page-load promise rather than relying on
  // a fixed count of event-loop turns (which can make CI flaky).
- const startup="$('season').addEventListener('change',load);load();";
+ const startup="$('season').addEventListener('change',load);void renderHistoricalCoverage();load();";
  assert.ok(code.includes(startup),'Start/Sit page startup hook changed');
  const testableCode=code.replace(startup,
   "$('season').addEventListener('change',load);globalThis.__runtimeDone=load();");
