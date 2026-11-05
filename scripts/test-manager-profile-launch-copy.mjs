@@ -96,6 +96,21 @@ for(const slug of managers){
  if(!html.includes('profile-career-snapshot')&&!html.includes('class="stats"'))
   throw Error('Manager career record source is missing: '+slug);
 }
+// The career record markup relies on its scoped class. Without it, mobile
+// stat labels and values collapse into unformatted adjacent text.
+const historicalRecordsSource=fs.readFileSync('assets/manager-historical-records.js','utf8');
+const profileTabSource=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+for(const assertion of [
+ "root.classList.add('fr-historical')",
+ ".fr-historical .fr-grid{grid-template-columns:repeat(2,minmax(0,1fr))",
+ ".fr-historical .fr-stat{display:flex;flex-direction:column",
+ "Sleeper 2020–2026 Week 8;"
+]){
+ if(!historicalRecordsSource.includes(assertion))
+  throw Error('Mobile career record-book spacing or evidence cutoff missing: '+assertion);
+}
+if(!profileTabSource.includes('.profile-section-switcher .profile-tab-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))'))
+ throw Error('Condensed mobile archive navigation not installed');
 const guide=JSON.parse(fs.readFileSync('data/season_guide.json','utf8'));
 const names={stilly:'Stilly',jmid:'JMid',tom:'Thommy',stew:'Stew',scott:'Scott',mitch:'Mitch',tony:'Tony',stover:'Stover',kuhl:'Kuhl',birch:'Birch'};
 for(const slug of managers){
