@@ -1,0 +1,834 @@
+{
+  "version": 1,
+  "asOf": "2026-11-04",
+  "scope": "Sleeper regular seasons 2020–2025; archived scored starters and bench only",
+  "status": "research_only_hindsight_not_decision_grade",
+  "sourceCount": 83,
+  "teamWeeks": 830,
+  "researchComparable": 822,
+  "excludedWeeks": 8,
+  "exclusionReasons": {
+    "Illegal or incomplete actual starter slots": 3,
+    "Vacant starting slot": 5
+  },
+  "method": "Observed points divided by ex-post nine-slot optimum from recorded starters and bench, averaged across research-comparable weeks. Assumes QB RB RB WR WR TE FLEX FLEX DEF, FLEX permits RB/WR/TE. Not documented game-time availability or certified pre-lock legality.",
+  "limitations": [
+    "Historical IR/taxi eligibility and in-game statuses not comprehensively recovered.",
+    "Nonstandard or vacant starter observations excluded with reasons; never assign 0%/N/A as scored value.",
+    "The 2016–2019 ESPN years do not have equivalent roster snapshots.",
+    "2026 Week 8 is a separately sourced current-season benchmark; excluded from completed-year history.",
+    "Mean percentages represent hindsight optimality, not coaching skill or official Sleeper all-season source statistic.",
+    "2025 weekly sources use documented WAR roster reconstructions for Weeks 1 and 7; remaining weeks use Sleeper snapshots."
+  ],
+  "seasons": [
+    {
+      "year": 2020,
+      "weeks": 13,
+      "teamWeeks": 130,
+      "comparable": 130,
+      "excluded": 0,
+      "exclusions": {}
+    },
+    {
+      "year": 2021,
+      "weeks": 14,
+      "teamWeeks": 140,
+      "comparable": 139,
+      "excluded": 1,
+      "exclusions": {
+        "Illegal or incomplete actual starter slots": 1
+      }
+    },
+    {
+      "year": 2022,
+      "weeks": 14,
+      "teamWeeks": 140,
+      "comparable": 138,
+      "excluded": 2,
+      "exclusions": {
+        "Vacant starting slot": 2
+      }
+    },
+    {
+      "year": 2023,
+      "weeks": 14,
+      "teamWeeks": 140,
+      "comparable": 139,
+      "excluded": 1,
+      "exclusions": {
+        "Vacant starting slot": 1
+      }
+    },
+    {
+      "year": 2024,
+      "weeks": 14,
+      "teamWeeks": 140,
+      "comparable": 138,
+      "excluded": 2,
+      "exclusions": {
+        "Vacant starting slot": 2
+      }
+    },
+    {
+      "year": 2025,
+      "weeks": 14,
+      "teamWeeks": 140,
+      "comparable": 138,
+      "excluded": 2,
+      "exclusions": {
+        "Illegal or incomplete actual starter slots": 2
+      }
+    }
+  ],
+  "managerSeasons": [
+    {
+      "year": 2020,
+      "manager": "Birch",
+      "observedWeeks": 13,
+      "comparableWeeks": 13,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 89.28,
+      "averageHindsightGap": 15.03,
+      "excludedReasons": []
+    },
+    {
+      "year": 2020,
+      "manager": "Evans",
+      "observedWeeks": 13,
+      "comparableWeeks": 13,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 85.81,
+      "averageHindsightGap": 20.71,
+      "excludedReasons": []
+    },
+    {
+      "year": 2020,
+      "manager": "Koble",
+      "observedWeeks": 13,
+      "comparableWeeks": 13,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 85.71,
+      "averageHindsightGap": 17.96,
+      "excludedReasons": []
+    },
+    {
+      "year": 2020,
+      "manager": "Kuhl",
+      "observedWeeks": 13,
+      "comparableWeeks": 13,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 87.03,
+      "averageHindsightGap": 16.91,
+      "excludedReasons": []
+    },
+    {
+      "year": 2020,
+      "manager": "Mitch",
+      "observedWeeks": 13,
+      "comparableWeeks": 13,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 90.84,
+      "averageHindsightGap": 12.37,
+      "excludedReasons": []
+    },
+    {
+      "year": 2020,
+      "manager": "Stew",
+      "observedWeeks": 13,
+      "comparableWeeks": 13,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 84.98,
+      "averageHindsightGap": 18.86,
+      "excludedReasons": []
+    },
+    {
+      "year": 2020,
+      "manager": "Stilly",
+      "observedWeeks": 13,
+      "comparableWeeks": 13,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 84.24,
+      "averageHindsightGap": 19.84,
+      "excludedReasons": []
+    },
+    {
+      "year": 2020,
+      "manager": "Stover",
+      "observedWeeks": 13,
+      "comparableWeeks": 13,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 87.94,
+      "averageHindsightGap": 14.39,
+      "excludedReasons": []
+    },
+    {
+      "year": 2020,
+      "manager": "Thommy",
+      "observedWeeks": 13,
+      "comparableWeeks": 13,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 89.91,
+      "averageHindsightGap": 13.2,
+      "excludedReasons": []
+    },
+    {
+      "year": 2020,
+      "manager": "Tony",
+      "observedWeeks": 13,
+      "comparableWeeks": 13,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 87.04,
+      "averageHindsightGap": 15.78,
+      "excludedReasons": []
+    },
+    {
+      "year": 2021,
+      "manager": "Birch",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 81.7,
+      "averageHindsightGap": 25.28,
+      "excludedReasons": []
+    },
+    {
+      "year": 2021,
+      "manager": "Evans",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 89.69,
+      "averageHindsightGap": 12.88,
+      "excludedReasons": []
+    },
+    {
+      "year": 2021,
+      "manager": "Koble",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 90.86,
+      "averageHindsightGap": 10.08,
+      "excludedReasons": []
+    },
+    {
+      "year": 2021,
+      "manager": "Kuhl",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 84.58,
+      "averageHindsightGap": 20.53,
+      "excludedReasons": []
+    },
+    {
+      "year": 2021,
+      "manager": "Mitch",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 92.42,
+      "averageHindsightGap": 9.89,
+      "excludedReasons": []
+    },
+    {
+      "year": 2021,
+      "manager": "Stew",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 85.17,
+      "averageHindsightGap": 17.61,
+      "excludedReasons": []
+    },
+    {
+      "year": 2021,
+      "manager": "Stilly",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 88.14,
+      "averageHindsightGap": 15.29,
+      "excludedReasons": []
+    },
+    {
+      "year": 2021,
+      "manager": "Stover",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 90.21,
+      "averageHindsightGap": 13.34,
+      "excludedReasons": []
+    },
+    {
+      "year": 2021,
+      "manager": "Thommy",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 90.84,
+      "averageHindsightGap": 11.08,
+      "excludedReasons": []
+    },
+    {
+      "year": 2021,
+      "manager": "Tony",
+      "observedWeeks": 14,
+      "comparableWeeks": 13,
+      "excludedWeeks": 1,
+      "averageHindsightAccuracy": 90.34,
+      "averageHindsightGap": 14.48,
+      "excludedReasons": [
+        {
+          "week": 13,
+          "reason": "Illegal or incomplete actual starter slots"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "manager": "Birch",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 91.74,
+      "averageHindsightGap": 9.53,
+      "excludedReasons": []
+    },
+    {
+      "year": 2022,
+      "manager": "Evans",
+      "observedWeeks": 14,
+      "comparableWeeks": 13,
+      "excludedWeeks": 1,
+      "averageHindsightAccuracy": 87.27,
+      "averageHindsightGap": 15.53,
+      "excludedReasons": [
+        {
+          "week": 13,
+          "reason": "Vacant starting slot"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "manager": "Koble",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 88.6,
+      "averageHindsightGap": 12.83,
+      "excludedReasons": []
+    },
+    {
+      "year": 2022,
+      "manager": "Kuhl",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 87.33,
+      "averageHindsightGap": 16.86,
+      "excludedReasons": []
+    },
+    {
+      "year": 2022,
+      "manager": "Mitch",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 91.29,
+      "averageHindsightGap": 11,
+      "excludedReasons": []
+    },
+    {
+      "year": 2022,
+      "manager": "Stew",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 88.9,
+      "averageHindsightGap": 15.14,
+      "excludedReasons": []
+    },
+    {
+      "year": 2022,
+      "manager": "Stilly",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 89.26,
+      "averageHindsightGap": 13.69,
+      "excludedReasons": []
+    },
+    {
+      "year": 2022,
+      "manager": "Stover",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 89.54,
+      "averageHindsightGap": 14.15,
+      "excludedReasons": []
+    },
+    {
+      "year": 2022,
+      "manager": "Thommy",
+      "observedWeeks": 14,
+      "comparableWeeks": 13,
+      "excludedWeeks": 1,
+      "averageHindsightAccuracy": 87.68,
+      "averageHindsightGap": 14.95,
+      "excludedReasons": [
+        {
+          "week": 3,
+          "reason": "Vacant starting slot"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "manager": "Tony",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 86.99,
+      "averageHindsightGap": 16.51,
+      "excludedReasons": []
+    },
+    {
+      "year": 2023,
+      "manager": "Birch",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 89.64,
+      "averageHindsightGap": 11.74,
+      "excludedReasons": []
+    },
+    {
+      "year": 2023,
+      "manager": "JMid",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 87.63,
+      "averageHindsightGap": 16.51,
+      "excludedReasons": []
+    },
+    {
+      "year": 2023,
+      "manager": "Koble",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 93.37,
+      "averageHindsightGap": 8.48,
+      "excludedReasons": []
+    },
+    {
+      "year": 2023,
+      "manager": "Kuhl",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 87.63,
+      "averageHindsightGap": 15.19,
+      "excludedReasons": []
+    },
+    {
+      "year": 2023,
+      "manager": "Mitch",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 89.06,
+      "averageHindsightGap": 14.5,
+      "excludedReasons": []
+    },
+    {
+      "year": 2023,
+      "manager": "Stew",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 83.64,
+      "averageHindsightGap": 20.8,
+      "excludedReasons": []
+    },
+    {
+      "year": 2023,
+      "manager": "Stilly",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 87.55,
+      "averageHindsightGap": 16.9,
+      "excludedReasons": []
+    },
+    {
+      "year": 2023,
+      "manager": "Stover",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 81.55,
+      "averageHindsightGap": 21.94,
+      "excludedReasons": []
+    },
+    {
+      "year": 2023,
+      "manager": "Thommy",
+      "observedWeeks": 14,
+      "comparableWeeks": 13,
+      "excludedWeeks": 1,
+      "averageHindsightAccuracy": 89.61,
+      "averageHindsightGap": 12.58,
+      "excludedReasons": [
+        {
+          "week": 9,
+          "reason": "Vacant starting slot"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "manager": "Tony",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 91.85,
+      "averageHindsightGap": 10.09,
+      "excludedReasons": []
+    },
+    {
+      "year": 2024,
+      "manager": "Birch",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 86.76,
+      "averageHindsightGap": 17.84,
+      "excludedReasons": []
+    },
+    {
+      "year": 2024,
+      "manager": "JMid",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 90.6,
+      "averageHindsightGap": 12.84,
+      "excludedReasons": []
+    },
+    {
+      "year": 2024,
+      "manager": "Kuhl",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 86.65,
+      "averageHindsightGap": 17.21,
+      "excludedReasons": []
+    },
+    {
+      "year": 2024,
+      "manager": "Mitch",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 89.77,
+      "averageHindsightGap": 12.53,
+      "excludedReasons": []
+    },
+    {
+      "year": 2024,
+      "manager": "Scott",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 84.61,
+      "averageHindsightGap": 19.57,
+      "excludedReasons": []
+    },
+    {
+      "year": 2024,
+      "manager": "Stew",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 90.39,
+      "averageHindsightGap": 11.68,
+      "excludedReasons": []
+    },
+    {
+      "year": 2024,
+      "manager": "Stilly",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 85.58,
+      "averageHindsightGap": 17.44,
+      "excludedReasons": []
+    },
+    {
+      "year": 2024,
+      "manager": "Stover",
+      "observedWeeks": 14,
+      "comparableWeeks": 13,
+      "excludedWeeks": 1,
+      "averageHindsightAccuracy": 90.35,
+      "averageHindsightGap": 13.03,
+      "excludedReasons": [
+        {
+          "week": 11,
+          "reason": "Vacant starting slot"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "manager": "Thommy",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 87.26,
+      "averageHindsightGap": 16.31,
+      "excludedReasons": []
+    },
+    {
+      "year": 2024,
+      "manager": "Tony",
+      "observedWeeks": 14,
+      "comparableWeeks": 13,
+      "excludedWeeks": 1,
+      "averageHindsightAccuracy": 83.77,
+      "averageHindsightGap": 21.63,
+      "excludedReasons": [
+        {
+          "week": 3,
+          "reason": "Vacant starting slot"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "manager": "Birch",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 90.01,
+      "averageHindsightGap": 12.36,
+      "excludedReasons": []
+    },
+    {
+      "year": 2025,
+      "manager": "JMid",
+      "observedWeeks": 14,
+      "comparableWeeks": 12,
+      "excludedWeeks": 2,
+      "averageHindsightAccuracy": 90.26,
+      "averageHindsightGap": 11.52,
+      "excludedReasons": [
+        {
+          "week": 1,
+          "reason": "Illegal or incomplete actual starter slots"
+        },
+        {
+          "week": 2,
+          "reason": "Illegal or incomplete actual starter slots"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "manager": "Kuhl",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 88.42,
+      "averageHindsightGap": 13.82,
+      "excludedReasons": []
+    },
+    {
+      "year": 2025,
+      "manager": "Mitch",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 91.07,
+      "averageHindsightGap": 13.33,
+      "excludedReasons": []
+    },
+    {
+      "year": 2025,
+      "manager": "Scott",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 92.57,
+      "averageHindsightGap": 9.54,
+      "excludedReasons": []
+    },
+    {
+      "year": 2025,
+      "manager": "Stew",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 89.2,
+      "averageHindsightGap": 13.45,
+      "excludedReasons": []
+    },
+    {
+      "year": 2025,
+      "manager": "Stilly",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 89.41,
+      "averageHindsightGap": 13.15,
+      "excludedReasons": []
+    },
+    {
+      "year": 2025,
+      "manager": "Stover",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 87.67,
+      "averageHindsightGap": 14.27,
+      "excludedReasons": []
+    },
+    {
+      "year": 2025,
+      "manager": "Thommy",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 90.25,
+      "averageHindsightGap": 13.43,
+      "excludedReasons": []
+    },
+    {
+      "year": 2025,
+      "manager": "Tony",
+      "observedWeeks": 14,
+      "comparableWeeks": 14,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 88.1,
+      "averageHindsightGap": 16.63,
+      "excludedReasons": []
+    }
+  ],
+  "managers": [
+    {
+      "manager": "Birch",
+      "seasons": 6,
+      "observedWeeks": 83,
+      "comparableWeeks": 83,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 88.18,
+      "averageHindsightGap": 15.3
+    },
+    {
+      "manager": "Evans",
+      "seasons": 3,
+      "observedWeeks": 41,
+      "comparableWeeks": 40,
+      "excludedWeeks": 1,
+      "averageHindsightAccuracy": 87.64,
+      "averageHindsightGap": 16.29
+    },
+    {
+      "manager": "JMid",
+      "seasons": 3,
+      "observedWeeks": 42,
+      "comparableWeeks": 40,
+      "excludedWeeks": 2,
+      "averageHindsightAccuracy": 89.46,
+      "averageHindsightGap": 13.73
+    },
+    {
+      "manager": "Koble",
+      "seasons": 4,
+      "observedWeeks": 55,
+      "comparableWeeks": 55,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 89.7,
+      "averageHindsightGap": 12.24
+    },
+    {
+      "manager": "Kuhl",
+      "seasons": 6,
+      "observedWeeks": 83,
+      "comparableWeeks": 83,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 86.94,
+      "averageHindsightGap": 16.75
+    },
+    {
+      "manager": "Mitch",
+      "seasons": 6,
+      "observedWeeks": 83,
+      "comparableWeeks": 83,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 90.74,
+      "averageHindsightGap": 12.27
+    },
+    {
+      "manager": "Scott",
+      "seasons": 2,
+      "observedWeeks": 28,
+      "comparableWeeks": 28,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 88.59,
+      "averageHindsightGap": 14.55
+    },
+    {
+      "manager": "Stew",
+      "seasons": 6,
+      "observedWeeks": 83,
+      "comparableWeeks": 83,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 87.07,
+      "averageHindsightGap": 16.23
+    },
+    {
+      "manager": "Stilly",
+      "seasons": 6,
+      "observedWeeks": 83,
+      "comparableWeeks": 83,
+      "excludedWeeks": 0,
+      "averageHindsightAccuracy": 87.4,
+      "averageHindsightGap": 16.01
+    },
+    {
+      "manager": "Stover",
+      "seasons": 6,
+      "observedWeeks": 83,
+      "comparableWeeks": 82,
+      "excludedWeeks": 1,
+      "averageHindsightAccuracy": 87.84,
+      "averageHindsightGap": 15.22
+    },
+    {
+      "manager": "Thommy",
+      "seasons": 6,
+      "observedWeeks": 83,
+      "comparableWeeks": 81,
+      "excludedWeeks": 2,
+      "averageHindsightAccuracy": 89.27,
+      "averageHindsightGap": 13.59
+    },
+    {
+      "manager": "Tony",
+      "seasons": 6,
+      "observedWeeks": 83,
+      "comparableWeeks": 81,
+      "excludedWeeks": 2,
+      "averageHindsightAccuracy": 88.05,
+      "averageHindsightGap": 15.8
+    }
+  ]
+}
