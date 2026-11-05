@@ -317,7 +317,13 @@
             "acquisitionBudgetSpent": 0
           }
         }
-      ]
+      ],
+      "scoring": {
+        "receptionPoints": 0,
+        "scoringFormat": "standard (non-PPR)",
+        "source": "ESPN scoringSettings.scoringItems: no receptions statistic (statId 53) points rule present",
+        "comparabilityWarning": "Do not evaluate these seasons using 2019 half-PPR scoring or compare unadjusted positional draft value across scoring formats."
+      }
     },
     "2017": {
       "rawExportSha256": "2ed93d2f76ffc1adc29957f0f3c74af8a3249b926facbaf8faaba86e247a6b21",
@@ -704,7 +710,13 @@
             "acquisitionBudgetSpent": 0
           }
         }
-      ]
+      ],
+      "scoring": {
+        "receptionPoints": 0,
+        "scoringFormat": "standard (non-PPR)",
+        "source": "ESPN scoringSettings.scoringItems: no receptions statistic (statId 53) points rule present",
+        "comparabilityWarning": "Do not evaluate these seasons using 2019 half-PPR scoring or compare unadjusted positional draft value across scoring formats."
+      }
     },
     "2018": {
       "rawExportSha256": "56d5de188fd74dc0fec6a1e59e1cdfc98bea0cc0bc7ba8e254c48c9d332164c7",
@@ -1091,7 +1103,13 @@
             "acquisitionBudgetSpent": 0
           }
         }
-      ]
+      ],
+      "scoring": {
+        "receptionPoints": 0,
+        "scoringFormat": "standard (non-PPR)",
+        "source": "ESPN scoringSettings.scoringItems: no receptions statistic (statId 53) points rule present",
+        "comparabilityWarning": "Do not evaluate these seasons using 2019 half-PPR scoring or compare unadjusted positional draft value across scoring formats."
+      }
     }
   }
 }
