@@ -117,6 +117,39 @@ try{
          findings.push(engine+' '+width+' '+key+' incorrect profile landing hierarchy '+JSON.stringify(hierarchy));
         if(hierarchy.actionHeight<44)
          findings.push(engine+' '+width+' '+key+' primary profile action too small');
+        // Regression for the missing .fr-historical class: without this
+        // container hook, record labels, scores and dates merge into one line.
+        const recordLayout=await page.evaluate(()=>{
+         const root=document.querySelector('#historical-record-profile');
+         if(!root)return {missing:'historical record root'};
+         const grid=root.querySelector('.fr-grid');
+         const cards=[...root.querySelectorAll('.fr-grid > .fr-stat')];
+         if(!grid||cards.length!==6)return {missing:'six canonical record cards'};
+         const area=grid.getBoundingClientRect();
+         const first=cards[0].getBoundingClientRect(),second=cards[1].getBoundingClientRect();
+         const labels=cards.map(card=>card.querySelector('small')?.textContent?.trim());
+         const values=cards.map(card=>card.querySelector('strong')?.textContent?.trim());
+         return {
+          scoped:root.classList.contains('fr-historical'),
+          grid:getComputedStyle(grid).display,
+          cardDisplay:getComputedStyle(cards[0]).display,
+          columns:getComputedStyle(grid).gridTemplateColumns.split(' ').length,
+          sideBySide:Math.abs(first.top-second.top)<3&&first.right<=second.left+3,
+          clipped:[root,grid,...cards].some(el=>{
+           const r=el.getBoundingClientRect();
+           return r.right>document.documentElement.clientWidth+3||r.left< -3;
+          }),
+          noLabelsMissing:labels.every(Boolean),noValuesMissing:values.every(Boolean),
+          context:cards.every(card=>!!card.querySelector('span')?.textContent?.trim()),
+          cardHeight:first.height,gridWidth:area.width
+         };
+        });
+        if(recordLayout.missing||!recordLayout.scoped||recordLayout.grid!=='grid'||
+           recordLayout.cardDisplay!=='flex'||!recordLayout.noLabelsMissing||
+           !recordLayout.noValuesMissing||!recordLayout.context||recordLayout.clipped||
+           (width===390&&(!recordLayout.sideBySide||recordLayout.columns!==2))||
+           (width===1280&&recordLayout.columns!==3))
+         findings.push(engine+' '+width+' '+key+' unreadable record-book layout '+JSON.stringify(recordLayout));
        }
        if(/^seasons\/202[0-5]\.html$/.test(route)){
         const proof=page.locator('#verified-placements');
