@@ -377,12 +377,12 @@ try{
      birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
     const name=profileNames[slug];
     if(name){
-     // The two Records entry points must be identical and use the canonical
-     // manager name; old Tom aliases silently select the wrong record book.
+     // The sole featured Records shortcut must use the canonical manager name;
+     // never restore the obsolete duplicate under expandable topics.
      const recordsEntries=await page.locator('#profile-features a[href*="record-books.html"]').evaluateAll(nodes=>nodes.map(a=>a.getAttribute('href')));
      const expectedRecords='../record-books.html?manager='+encodeURIComponent(name)+'#owned-records';
-     if(recordsEntries.length!==2||recordsEntries.some(href=>href!==expectedRecords))
-      errors.push(width+' '+route+' Records shortcuts disagree or use stale manager identity');
+     if(recordsEntries.length!==1||recordsEntries[0]!==expectedRecords)
+      errors.push(width+' '+route+' featured Records shortcut is duplicated or uses stale manager identity');
      // Canonical pages must also remain compact when visitors follow a
      // direct Explore link with the feature-directory hash.
      if(['stilly','tom','stover'].includes(slug)){
@@ -1679,10 +1679,13 @@ try{
        errors.push(width+' '+slug+' profile topic labels or order incorrect');
      }
      const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
-     if(await features.count()!==13)
-      errors.push(width+' '+slug+' missing thirteen individually labeled feature destinations');
+     if(await features.count()!==11)
+      errors.push(width+' '+slug+' expected eleven unique, nonduplicated deeper feature destinations');
      else{
       const labels=await features.locator('strong').allTextContents();
+      if(labels.includes('Records you own')||labels.includes('Manager report card')||
+         new Set(labels).size!==labels.length)
+       errors.push(width+' '+slug+' duplicate Records/Report Card destinations clutter deeper topics');
       for(const label of ['Championships & career record','Season-by-season results',
        'Head-to-head & rivalries','Legacy OVR progression','Drafting & trading résumé',
        'Start/Sit accuracy','Keeper research']){
