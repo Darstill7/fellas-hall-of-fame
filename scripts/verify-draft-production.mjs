@@ -25,6 +25,9 @@ assert(page.includes("fetchJSON('data/v9_draft_engine.json')")&&page.includes('b
  page.includes('This is not total player production, surplus value or a drafting grade.')&&page.includes('career-draft-production'),
  'Career website missing evidence-limited draft production section');
 const ui=fs.readFileSync('assets/manager-draft-trade-career-page.mjs','utf8');
+const namedTopics=['Draft picks','ESPN history','Started points','Round peers','Position peers','Trades'];
+for(const name of namedTopics)assert(ui.includes("['"+name+"',"),
+ 'Drafting menu is missing its '+name+' destination');
 const styles=fs.readFileSync('assets/manager-profile-readability.css','utf8');
 const browser=fs.readFileSync('scripts/test-browser-release.mjs','utf8');
 assert(ui.includes("const topics=[")&&ui.includes("['Draft picks',draftSection]")&&
@@ -42,6 +45,8 @@ assert(browser.includes('draft research lacks six topic shortcuts')&&
  browser.includes("'drafting-trading-'+slug+'-focused.png'")&&
  browser.includes('focused:document.activeElement===heading')&&
  browser.includes('draft topics exposed multiple sections')&&
+ browser.includes('draft text or control overlap')&&
+ browser.includes("['Draft picks','career-research-topic-0']")&&
  browser.includes('return should collapse the long research content')&&
  browser.includes("'drafting-trading-'+slug+'-topics.png'"),
  'Browser release suite must actually test draft topic navigation and focus');
