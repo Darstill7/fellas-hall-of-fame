@@ -240,7 +240,33 @@ function mountProfileFeatureDirectory(quick,manager){
   const arrow=document.createElement('span');arrow.className='profile-feature-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent='→';
   item.append(symbol,body,arrow);groupHosts.get(index).append(item);
  }
- shell.append(menu);
+ // Three direct, reliable routes before the full research directory.
+ // Links remain navigable without relying on a profile tab being mounted.
+ const featured=document.createElement('nav');
+ featured.className='profile-featured-routes';
+ featured.setAttribute('aria-label','Recommended starting points');
+ const featuredTitle=document.createElement('p');
+ featuredTitle.className='profile-featured-title';
+ featuredTitle.textContent='Start here';
+ featured.append(featuredTitle);
+ const featuredLinks=document.createElement('div');
+ featuredLinks.className='profile-featured-links';
+ const featuredDestinations=[
+  ['Career overview','Titles, results and franchise story','#verified-history-panel'],
+  ['Manager report card','Strengths, ratings and evidence','../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards'],
+  ['Start/Sit accuracy','Weekly lineup decisions','../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name)]
+ ];
+ for(const [label,description,href] of featuredDestinations){
+  const a=document.createElement('a');
+  a.className='profile-featured-link';
+  a.href=href;
+  const strong=document.createElement('strong');strong.textContent=label;
+  const small=document.createElement('small');small.textContent=description;
+  const arrow=document.createElement('span');arrow.textContent='→';arrow.setAttribute('aria-hidden','true');
+  a.append(strong,small,arrow);featuredLinks.append(a);
+ }
+ featured.append(featuredLinks);
+ shell.append(featured,menu);
  const ratingGuide=document.createElement('details');
  ratingGuide.className='profile-rating-guide';
  const ratingSummary=document.createElement('summary');
@@ -312,6 +338,7 @@ function mountProfileFeatureDirectory(quick,manager){
   if(!opened.matches?.('details.profile-feature-group')||!opened.open)return;
   for(const other of menu.querySelectorAll('details.profile-feature-group'))if(other!==opened)other.open=false;
  },true);
+ css.textContent+=' .profile-featured-routes{margin:15px 0 20px}.profile-featured-title{font-size:12px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#efd295;margin:0 0 8px!important}.profile-featured-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.profile-featured-link{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 7px;align-content:center;min-width:0;min-height:92px;padding:15px;background:#19394b;border:1px solid #688493;border-radius:11px;color:#fff;text-decoration:none}.profile-featured-link strong{font-size:14px;line-height:1.35}.profile-featured-link small{grid-column:1;font-size:12px;line-height:1.5;color:#cddce5}.profile-featured-link span{grid-column:2;grid-row:1/3;align-self:center;color:#efd295;font-size:19px}.profile-featured-link:hover{border-color:#efd295;background:#244a5d}.profile-featured-link:focus-visible{outline:3px solid #efd295;outline-offset:3px}@media(max-width:700px){.profile-featured-links{grid-template-columns:1fr}.profile-featured-link{min-height:70px;padding:12px 15px}}';
  css.textContent+=' .profile-rating-guide{margin:15px 0 0;padding:0;background:#112b3b;border:1px solid #456377;border-radius:12px}.profile-rating-guide>summary{padding:13px 16px;min-height:48px;line-height:1.5;color:#f0d398;font-weight:800;cursor:pointer}.profile-rating-guide>summary:focus-visible{outline:3px solid #f0d398;outline-offset:2px}.profile-rating-guide-content{padding:0 16px 14px}.profile-rating-guide-content p{line-height:1.65;font-size:13px;margin:9px 0;color:#d3e1e9}.profile-rating-guide-content strong{color:#fff}';
  document.head.append(css);
 }
