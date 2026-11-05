@@ -6,6 +6,7 @@ import fs from 'node:fs';
 const load=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const source=load('data/espn_history_2016_2019.json');
 const ledger=load('data/unified_record_book_2016_2026.json');
+const projected=load('data/season_weekly_matchups_2016_2026_v1.json');
 const book=load('data/manager_record_books_2016_2026.json');
 const endings=load('data/manager_verified_season_endings_v1.json');
 const evidence=load('data-integrity/ESPN_PLAYOFF_FORMAT_EVIDENCE_2016_2019.json');
@@ -60,6 +61,13 @@ for(const game of cumulative){
   '2019 cumulative score does not match original ESPN fixture');
  if(original&&game.week>14)check(original.homeAdjustment>0&&original.awayAdjustment>0,
   '2019 running score must contain earlier-week carry-forward');
+}
+for(const g of cumulative){
+ const match=projected.bySeason['2019']?.games?.find(x=>x.week===g.week&&x.stage===g.stage&&x.home===g.home&&x.away===g.away);
+ check(!!match&&match.cumulativeScoring===true&&
+  match.scoreAggregation==='running_three_week_consolation_total'&&
+  arraysEqual(match.weeksCovered,g.weeksCovered),
+  'Published weekly-matchup view loses 2019 cumulative score scope: '+g.home+' vs '+g.away);
 }
 const finalCumulative=new Map(evidence.seasons['2019'].consolation.finalCumulativeRankings.map(r=>[r.manager,r]));
 for(const [name,total] of [['Koble',366.6],['Thommy',358.3],['Stover',328.56],['Evans',264.76]]){
