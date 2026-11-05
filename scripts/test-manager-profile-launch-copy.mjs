@@ -172,8 +172,11 @@ if(placementStats.get('Mitch')?.averageFinish!==4.167||
    placementStats.get('Scott')?.seasonsPlayed!==2||
    placementStats.get('Stew')?.bottomThree!==4)
  throw Error('Season-finishing historical stats changed');
-if(placementAudit.findings.length!==2||placementAudit.findings.some(f=>f.year!==2020))
- throw Error('Score reconciliation issues require re-review');
+// Canonical and receipt scores have been reconciled, including Birch's
+// commissioner-confirmed 110.14 in the 2020 third-place matchup.
+if(placementAudit.findings.length!==0||
+   placementMaster.seasons.some(season=>season.finishers.some(f=>f.scoreVerified!==true)))
+ throw Error('Postseason scores must remain reconciled across all 60 verified finishes');
 const mitchResume=buildPlayoffResume(playoffEspn,playoffSleeper,'Mitch',placementReceipts);
 const scottResume=buildPlayoffResume(playoffEspn,playoffSleeper,'Scott',placementReceipts);
 if(mitchResume.finalPlaceSummary?.seasons!==6||
