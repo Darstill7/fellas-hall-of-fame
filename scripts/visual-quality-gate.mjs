@@ -258,6 +258,8 @@ try{
          const selected=page.locator('#profile .cards:first-child .card');
          if(await selected.count()!==3)
           findings.push(engine+' '+width+' record book lost three career summary metrics');
+         const careerFirst=await page.evaluate(()=>document.querySelector('#profile')?.compareDocumentPosition(document.querySelector('#owned-records'))&Node.DOCUMENT_POSITION_FOLLOWING);
+         if(!careerFirst)findings.push(engine+' '+width+' record book buries career results beneath archive');
         }
        }
        if(route==='analytics/manager-report-cards.html'){
