@@ -1832,7 +1832,11 @@ try{
       if(await choices.count()!==6)
        errors.push(width+' '+slug+' draft research lacks six topic shortcuts');
       else{
-       for(const [label,id] of [['Position peers','career-research-topic-4'],
+       for(const [label,id] of [['Draft picks','career-research-topic-0'],
+                                ['ESPN history','career-research-topic-1'],
+                                ['Started points','career-research-topic-2'],
+                                ['Round peers','career-research-topic-3'],
+                                ['Position peers','career-research-topic-4'],
                                 ['Trades','career-research-topic-5']]){
         const choice=choices.getByText(label,{exact:true});
         const bounds=await choice.boundingBox();
@@ -1849,6 +1853,26 @@ try{
           expanded.length===1&&expanded[0].getAttribute('aria-controls')===target;
         },id);
         if(!onlySelected)errors.push(width+' '+slug+' draft topics exposed multiple sections or incorrect expanded state');
+        const readability=await page.evaluate(target=>{
+         const root=document.querySelector('.profile-career-resume');
+         const topic=document.getElementById(target);
+         const textNodes=[...topic.querySelectorAll('p,a,button,h4,strong,span')].filter(el=>{
+          const style=getComputedStyle(el),rect=el.getBoundingClientRect();
+          return style.display!=='none'&&style.visibility!=='hidden'&&rect.width>0&&rect.height>0;
+         });
+         const clipped=textNodes.filter(el=>el.scrollWidth>el.clientWidth+3&&
+          !['auto','scroll'].includes(getComputedStyle(el).overflowX)).slice(0,4)
+          .map(el=>(el.textContent||'').trim().slice(0,45));
+         const buttons=[...root.querySelectorAll('.career-research-topic-button')];
+         const overlap=buttons.some((a,i)=>buttons.slice(i+1).some(b=>{
+          const x=a.getBoundingClientRect(),y=b.getBoundingClientRect();
+          return Math.min(x.right,y.right)-Math.max(x.left,y.left)>2&&
+           Math.min(x.bottom,y.bottom)-Math.max(x.top,y.top)>2;
+         }));
+         return {clipped,overlap,panelOverflow:root.scrollWidth>root.clientWidth+3};
+        },id);
+        if(readability.clipped.length||readability.overlap||readability.panelOverflow)
+         errors.push(width+' '+slug+' '+label+' draft text or control overlap: '+JSON.stringify(readability));
         const focused=await page.evaluate(target=>{
          const heading=document.getElementById(target)?.querySelector('h4');
          const rect=heading?.getBoundingClientRect();
