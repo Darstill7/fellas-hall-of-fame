@@ -2,7 +2,7 @@
 const root=document.querySelector('[data-rivalry-analytics]');if(!root)return;
 const name=root.dataset.rivalryAnalytics==='Tom'?'Thommy':root.dataset.rivalryAnalytics;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const label=s=>s==='Thommy'?'Tom':s;
+const label=s=>s;
 fetch('../../data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(data=>{
  const games=data.games.filter(g=>g.stage==='regular'&&(g.home===name||g.away===name));
  const opponent=g=>g.home===name?g.away:g.home;
