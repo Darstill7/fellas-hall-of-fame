@@ -15,6 +15,11 @@ for(const year of [2016,2017,2018]){
  check(d.teams.length===n&&d.draft.keeperCount===0&&d.draft.picksMarkedKeeper===false,year+' manager or keeper mismatch');
  check(d.waivers.isUsingAcquisitionBudget===false&&d.waivers.observedSpending===0,year+' incorrectly presented as FAAB season');
  check(d.scoring?.receptionPoints===0&&d.scoring?.scoringFormat==='standard (non-PPR)',year+' non-PPR scoring rule lost');
+ const regular=o.games.filter(g=>g.stage==='NONE'||g.stage==='regular');
+ const totals=regular.flatMap(g=>[g.hs,g.as]);
+ check(d.scoring.displayedScorePrecision===(year===2018?'decimal':'whole_number'),year+' scoring precision transition misclassified');
+ check(year===2018?totals.some(v=>!Number.isInteger(v)):totals.every(Number.isInteger),year+' original regular-season score precision disagrees with ESPN ledger');
+ check(d.waivers.system==='Traditional waivers/free agents'&&d.waivers.isUsingAcquisitionBudget===false,year+' traditional waiver confirmation missing');
  check(d.sourceMatchupCount===o.games.length,year+' canonical schedule changed');
  check(d.draft.firstRoundTeamOrder.length===n&&
   new Set(d.draft.firstRoundTeamOrder).size===n,year+' draft order invalid');
