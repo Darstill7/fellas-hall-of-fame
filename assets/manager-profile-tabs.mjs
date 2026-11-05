@@ -185,10 +185,11 @@ recordPreviewCss.textContent='.profile-owned-records{display:flex;align-items:ce
 document.head.append(recordPreviewCss);
 
 mountManagerPlayoffResume();
-// Make the main action available before the numbers, especially on mobile.
+// Career accomplishments must precede navigation calls to action. Keep the
+// canonical championship and WLT numbers above the fold on every profile.
 const primaryProfileActions=profileHero?.querySelector(':scope > .buttons');
 const careerSnapshot=profileHero?.querySelector(':scope > .profile-career-snapshot');
-if(primaryProfileActions&&careerSnapshot)careerSnapshot.before(primaryProfileActions);
+if(primaryProfileActions&&careerSnapshot)careerSnapshot.after(primaryProfileActions);
 const legacyNav=document.querySelector('nav.profile-chapters');
 if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const manager=document.querySelector('main .hero h1')?.textContent?.trim()||'Manager';
@@ -299,6 +300,17 @@ function mountProfileFeatureDirectory(quick,manager){
  featuredTitle.className='profile-featured-title';
  featuredTitle.textContent='Start here';
  featured.append(featuredTitle);
+ // The human career story is the first deep read, before records, rankings
+ // or technical research. Use the existing focused-section controller so the
+ // button works even when biography sections are hidden on the landing page.
+ const biographyEntry=document.createElement('button');
+ biographyEntry.type='button';
+ biographyEntry.className='profile-biography-entry';
+ biographyEntry.dataset.profileFeature='';
+ biographyEntry.dataset.featureTarget='#legacy-resume';
+ biographyEntry.dataset.featureTab='overview';
+ biographyEntry.innerHTML='<span><strong>Read '+name+'\\'s career story</strong><small>Career beginnings, defining seasons and championship legacy</small></span><span aria-hidden="true">→</span>';
+ featured.append(biographyEntry);
  const featuredLinks=document.createElement('div');
  featuredLinks.className='profile-featured-links';
  const featuredDestinations=[
@@ -388,6 +400,7 @@ function mountProfileFeatureDirectory(quick,manager){
   for(const other of menu.querySelectorAll('details.profile-feature-group'))if(other!==opened)other.open=false;
  },true);
  css.textContent+=' .profile-featured-routes{margin:12px 0 16px}.profile-featured-title{font-size:12px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#efd295;margin:0 0 8px!important}.profile-featured-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.profile-featured-link{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 7px;align-content:center;min-width:0;min-height:92px;padding:15px;background:#19394b;border:1px solid #688493;border-radius:11px;color:#fff;text-decoration:none}.profile-featured-link strong{font-size:14px;line-height:1.35}.profile-featured-link small{grid-column:1;font-size:12px;line-height:1.5;color:#cddce5}.profile-featured-link span{grid-column:2;grid-row:1/3;align-self:center;color:#efd295;font-size:19px}.profile-featured-link:hover{border-color:#efd295;background:#244a5d}.profile-featured-link:focus-visible{outline:3px solid #efd295;outline-offset:3px}@media(max-width:700px){.profile-featured-links{grid-template-columns:1fr}.profile-featured-link{min-height:70px;padding:12px 15px}}';
+ css.textContent+=' .profile-biography-entry{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;min-height:72px;margin:0 0 9px;padding:14px 16px;border:1px solid #d7b96f;border-radius:11px;background:#223b47;color:#fff;text-align:left;font:inherit;cursor:pointer}.profile-biography-entry>span:first-child{display:flex;flex-direction:column;gap:4px}.profile-biography-entry strong{font-size:15px;line-height:1.35}.profile-biography-entry small{font-size:12px;line-height:1.5;color:#e1edf2}.profile-biography-entry>span:last-child{font-size:23px;color:#f6d992}.profile-biography-entry:hover{background:#2a4b59}.profile-biography-entry:focus-visible{outline:3px solid #ffe5a1;outline-offset:3px}@media(max-width:650px){.profile-biography-entry{min-height:67px;padding:12px 14px}}';
  css.textContent+=' .profile-rating-guide{margin:15px 0 0;padding:0;background:#112b3b;border:1px solid #456377;border-radius:12px}.profile-rating-guide>summary{padding:13px 16px;min-height:48px;line-height:1.5;color:#f0d398;font-weight:800;cursor:pointer}.profile-rating-guide>summary:focus-visible{outline:3px solid #f0d398;outline-offset:2px}.profile-rating-guide-content{padding:0 16px 14px}.profile-rating-guide-content p{line-height:1.65;font-size:13px;margin:9px 0;color:#d3e1e9}.profile-rating-guide-content strong{color:#fff}';
  document.head.append(css);
 }
