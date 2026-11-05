@@ -419,8 +419,8 @@ try{
       if(slug==='stilly'){
        const seasons=await page.locator('#season-history details.season-entry').evaluateAll(nodes=>nodes.map(node=>({text:node.textContent,year:node.querySelector('summary strong')?.textContent,award:node.querySelector('.season-award-label')?.textContent})));
        const awards=seasons.filter(x=>x.award==='Shitter of the Year').map(x=>Number(x.year)).sort((a,b)=>a-b);
-       if(JSON.stringify(awards)!==JSON.stringify([2016,2018]))
-        errors.push(width+' Stilly season archive must distinguish 2016 and 2018 Shitter awards from official finishing places');
+       if(JSON.stringify(awards)!==JSON.stringify([2018]))
+        errors.push(width+' Stilly 2016 must not carry last-place award; 2018 must carry it');
       }
      }
      const shelf=page.locator('details.profile-research-shelf');
@@ -2112,32 +2112,32 @@ try{
      await buttons.last().click();
      const chosen=await buttons.last().getAttribute('data-year');
      if(!(await page.locator('#heading').innerText()).includes(chosen))errors.push(width+' Awards Show year selection not reflected');
-     for(const [year,manager,score] of [['2016','Stilly','165.00'],['2017','Halderman','96.00'],['2018','Stilly','86.76'],['2019','Evans','80.46']]){
+     for(const [year,manager] of [['2016','Schermerhorn'],['2017','Birch'],['2018','Stilly'],['2019','Evans'],['2020','Tony'],['2021','Stilly'],['2022','Birch'],['2023','Stew'],['2024','Kuhl'],['2025','Stover']]){
       await page.locator('#years button[data-year="'+year+'"]').click();
       const award=page.locator('#awards [data-shitter-award="'+year+'"]');
       if(await award.count()!==1||!(await award.innerText()).includes(manager)||
-         !(await award.innerText()).includes(score))
+         !(await award.innerText()).includes('Last place in losers bracket'))
        errors.push(width+' Awards Show '+year+' Shitter punishment missing or conflated with regular season');
      }
-     await page.locator('#years button[data-year="2025"]').click();
+     await page.locator('#years button[data-year="2026"]').click();
      if(await page.locator('#awards [data-shitter-award]').count()!==0)
-      errors.push(width+' Awards Show invented an unverified Sleeper-era Shitter punishment');
+      errors.push(width+' Awards Show invented a 2026 Shitter before the season ended');
     }
    }
    if(route==='seasons/historical-awards.html'){
     const select=page.locator('#year');
     await select.waitFor({state:'visible',timeout:8000}).catch(()=>{});
     if(await select.count()===1){
-     for(const [year,manager,score] of [['2016','Stilly','165.00'],['2017','Halderman','96.00'],['2018','Stilly','86.76'],['2019','Evans','80.46']]){
+     for(const [year,manager] of [['2016','Schermerhorn'],['2017','Birch'],['2018','Stilly'],['2019','Evans'],['2020','Tony'],['2021','Stilly'],['2022','Birch'],['2023','Stew'],['2024','Kuhl'],['2025','Stover']]){
       await select.selectOption(year);
       const awards=await page.locator('#awards').innerText();
-      if(!awards.includes('Shitter of the Year')||!awards.includes(manager)||!awards.includes(score)||
+      if(!awards.includes('Shitter of the Year')||!awards.includes(manager)||!awards.includes('Last in losers bracket')||
          !awards.includes('The Basement'))
        errors.push(width+' '+year+' historical award list lacks separate punishment and regular-season Basement');
      }
-     await select.selectOption('2025');
+     await select.selectOption('2026');
      if((await page.locator('#awards').innerText()).includes('Shitter of the Year'))
-      errors.push(width+' historical award archive inferred unverified Sleeper-era Shitter winner');
+      errors.push(width+' historical awards invented incomplete 2026 Shitter');
     }
    }
    if(route.startsWith('managers/')&&slugs.includes(route.slice('managers/'.length,-'.html'.length))&&route.endsWith('.html')){
