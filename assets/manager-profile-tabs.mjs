@@ -572,6 +572,8 @@ if(main&&tabs){
  body.profile-feature-focused .profile-focus-toolbar{display:flex}
  .profile-focus-toolbar strong{font-size:14px;flex:1;min-width:180px}
  .profile-focus-toolbar button{min-height:44px;cursor:pointer;background:#e3bd71;color:#10202b;border:0;border-radius:8px;padding:10px 14px;font:inherit;font-size:13px;font-weight:850}
+ body.profile-feature-focused .profile-feature-directory{display:none!important}
+ body.profile-feature-focused .profile-focus-toolbar{position:relative;z-index:2;margin:10px 0 14px}
  body.profile-feature-focused .profile-feature-button[aria-pressed="true"]{border-color:#e3bd71;background:#25475b;box-shadow:inset 4px 0 #e3bd71}
  body.profile-feature-focused .profile-feature-copy small{display:block}
  body.profile-feature-focused .profile-feature-button{min-height:58px;padding:10px 12px}
@@ -598,6 +600,8 @@ if(main&&tabs){
  }
  function returnToFeatureDirectory(){
   clearFeatureFocus();
+  // Reattach the same back control to the menu before restoring the landing.
+  featureDirectory?.querySelector('.profile-feature-groups')?.before(featureToolbar);
   document.body.classList.add('profile-landing');
   // Remove the legacy archive hash so a refresh keeps the short profile landing.
   history.replaceState(null,'',location.pathname+location.search);
@@ -637,6 +641,13 @@ if(main&&tabs){
    for(const child of shelfBody.children)if(child!==selected)child.classList.add('profile-focus-excluded');
   }
   focusName.textContent=button.querySelector('strong')?.textContent||'Selected feature';
+  // Put the single Back control beside the selected content, not above a
+  // lengthy directory that the reader has already left behind.
+  const anchor=section||(
+   document.querySelector('.profile-madden')?.contains(destination)
+    ?document.querySelector('.profile-madden')
+    :destination);
+  anchor?.before(featureToolbar);
  }
  // Keep the four historical section controllers for old deep links, but
  // make the eleven feature buttons the only primary navigation.
@@ -723,7 +734,7 @@ if(main&&tabs){
   if(shelf)shelf.open=true;
   if(destination.tagName==='DETAILS')destination.open=true;
   requestAnimationFrame(()=>requestAnimationFrame(()=>
-   destination.scrollIntoView({block:'start',behavior:'instant'})));
+   featureToolbar.scrollIntoView({block:'start',behavior:'instant'})));
  });
  tabs.addEventListener('click',event=>{const button=event.target.closest('button[data-profile-tab]');if(button){clearFeatureFocus();document.body.classList.remove('profile-landing');activate(button.dataset.profileTab,{reveal:true})}});
  tabs.addEventListener('keydown',event=>{const index=buttons.indexOf(document.activeElement);if(index<0)return;const direction=event.key==='ArrowRight'?1:event.key==='ArrowLeft'?-1:0;if(direction){event.preventDefault();clearFeatureFocus();document.body.classList.remove('profile-landing');activate(buttons[(index+direction+buttons.length)%buttons.length].dataset.profileTab,{focus:true,reveal:true})}});
