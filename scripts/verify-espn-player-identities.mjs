@@ -86,5 +86,15 @@ for(const slug of activeLegacyManagers){
   'Missing manager deep link to the historical ESPN draft archive: '+slug);
 }
 
+const careerView=fs.readFileSync('assets/manager-draft-trade-career-page.mjs','utf8');
+const seasonView=fs.readFileSync('assets/manager-season-evidence.mjs','utf8');
+check(careerView.includes("fetchJSON('data/espn_draft_boards_named_2016_2019.json')")&&
+ careerView.includes("year===2018")&&careerView.includes('original round and overall pick order not verified')&&
+ careerView.includes("season.platform==='Sleeper'")&&
+ careerView.includes("Original pick: Glenn Gronkowski; manually replaced after the draft with Rob Gronkowski"),
+ 'Career draft intelligence must use canonical ESPN identities and never promote offline 2018 order');
+check(seasonView.includes("year===2018?'Offline ESPN draft")&&
+ seasonView.includes("espn-draft-history.html?manager="),
+ 'Manager season evidence must withhold 2018 early-pick order and link recovered originals');
 if(errors.length){console.error('ESPN player identity validation FAILED ('+errors.length+')');errors.forEach(e=>console.error(' - '+e));process.exitCode=1}
 else console.log('ESPN player identity validation PASS: 598/598 picks identified, documented Glenn-to-Rob correction, and 2018 offline order safeguards.');
