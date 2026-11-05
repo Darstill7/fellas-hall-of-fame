@@ -1,0 +1,1374 @@
+{
+  "year": 2022,
+  "method": "Hindsight only; nine assumed slots, not pre-lock skill",
+  "sources": [
+    {
+      "year": 2022,
+      "week": 1,
+      "path": "data/sleeper_roster_snapshots_2022_week1.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "path": "data/sleeper_roster_snapshots_2022_week2.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "path": "data/sleeper_roster_snapshots_2022_week3.json",
+      "observed": 10,
+      "comparable": 9,
+      "excluded": 1
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "path": "data/sleeper_roster_snapshots_2022_week4.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "path": "data/sleeper_roster_snapshots_2022_week5.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "path": "data/sleeper_roster_snapshots_2022_week6.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "path": "data/sleeper_roster_snapshots_2022_week7.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "path": "data/sleeper_roster_snapshots_2022_week8.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "path": "data/sleeper_roster_snapshots_2022_week9.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "path": "data/sleeper_roster_snapshots_2022_week10.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "path": "data/sleeper_roster_snapshots_2022_week11.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "path": "data/sleeper_roster_snapshots_2022_week12.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "path": "data/sleeper_roster_snapshots_2022_week13.json",
+      "observed": 10,
+      "comparable": 9,
+      "excluded": 1
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "path": "data/sleeper_roster_snapshots_2022_week14.json",
+      "observed": 10,
+      "comparable": 10,
+      "excluded": 0
+    }
+  ],
+  "rows": [
+    {
+      "year": 2022,
+      "week": 1,
+      "manager": "Stilly",
+      "accuracy": 88.2316,
+      "gap": 14.8,
+      "actual": 110.96,
+      "optimal": 125.76
+    },
+    {
+      "year": 2022,
+      "week": 1,
+      "manager": "Evans",
+      "accuracy": 78.706,
+      "gap": 33.9,
+      "actual": 125.3,
+      "optimal": 159.2
+    },
+    {
+      "year": 2022,
+      "week": 1,
+      "manager": "Thommy",
+      "accuracy": 87.5859,
+      "gap": 11.2,
+      "actual": 79.02,
+      "optimal": 90.22
+    },
+    {
+      "year": 2022,
+      "week": 1,
+      "manager": "Stew",
+      "accuracy": 80.203,
+      "gap": 31.6,
+      "actual": 128.02,
+      "optimal": 159.62
+    },
+    {
+      "year": 2022,
+      "week": 1,
+      "manager": "Koble",
+      "accuracy": 81.2343,
+      "gap": 19.4,
+      "actual": 83.98,
+      "optimal": 103.38
+    },
+    {
+      "year": 2022,
+      "week": 1,
+      "manager": "Mitch",
+      "accuracy": 88.7991,
+      "gap": 12.2,
+      "actual": 96.72,
+      "optimal": 108.92
+    },
+    {
+      "year": 2022,
+      "week": 1,
+      "manager": "Tony",
+      "accuracy": 99.2127,
+      "gap": 0.9,
+      "actual": 113.42,
+      "optimal": 114.32
+    },
+    {
+      "year": 2022,
+      "week": 1,
+      "manager": "Stover",
+      "accuracy": 97.2667,
+      "gap": 4.1,
+      "actual": 145.9,
+      "optimal": 150
+    },
+    {
+      "year": 2022,
+      "week": 1,
+      "manager": "Kuhl",
+      "accuracy": 95.7989,
+      "gap": 5.7,
+      "actual": 129.98,
+      "optimal": 135.68
+    },
+    {
+      "year": 2022,
+      "week": 1,
+      "manager": "Birch",
+      "accuracy": 83.6636,
+      "gap": 24.4,
+      "actual": 124.96,
+      "optimal": 149.36
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "manager": "Stilly",
+      "accuracy": 93.3058,
+      "gap": 6.8,
+      "actual": 94.78,
+      "optimal": 101.58
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "manager": "Evans",
+      "accuracy": 93.6866,
+      "gap": 7.1,
+      "actual": 105.36,
+      "optimal": 112.46
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "manager": "Thommy",
+      "accuracy": 95.4912,
+      "gap": 5.7,
+      "actual": 120.72,
+      "optimal": 126.42
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "manager": "Stew",
+      "accuracy": 90.2781,
+      "gap": 17.2,
+      "actual": 159.72,
+      "optimal": 176.92
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "manager": "Koble",
+      "accuracy": 91.2375,
+      "gap": 14.7,
+      "actual": 153.06,
+      "optimal": 167.76
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "manager": "Mitch",
+      "accuracy": 96.9998,
+      "gap": 3.8,
+      "actual": 122.86,
+      "optimal": 126.66
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "manager": "Tony",
+      "accuracy": 90.716,
+      "gap": 13.2,
+      "actual": 128.98,
+      "optimal": 142.18
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "manager": "Stover",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 119.6,
+      "optimal": 119.6
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "manager": "Kuhl",
+      "accuracy": 77.0561,
+      "gap": 28.4,
+      "actual": 95.38,
+      "optimal": 123.78
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "manager": "Birch",
+      "accuracy": 94.6406,
+      "gap": 5.1,
+      "actual": 90.06,
+      "optimal": 95.16
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Stilly",
+      "accuracy": 66.8959,
+      "gap": 41.4,
+      "actual": 83.66,
+      "optimal": 125.06
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Evans",
+      "accuracy": 87.3285,
+      "gap": 11.82,
+      "actual": 81.46,
+      "optimal": 93.28
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Thommy",
+      "reason": "Vacant starting slot"
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Stew",
+      "accuracy": 83.4135,
+      "gap": 20.7,
+      "actual": 104.1,
+      "optimal": 124.8
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Koble",
+      "accuracy": 96.4457,
+      "gap": 3.7,
+      "actual": 100.4,
+      "optimal": 104.1
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Mitch",
+      "accuracy": 93.1757,
+      "gap": 10.1,
+      "actual": 137.9,
+      "optimal": 148
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Tony",
+      "accuracy": 83.752,
+      "gap": 18.5,
+      "actual": 95.36,
+      "optimal": 113.86
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Stover",
+      "accuracy": 75.361,
+      "gap": 38.9,
+      "actual": 118.98,
+      "optimal": 157.88
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Kuhl",
+      "accuracy": 70,
+      "gap": 46.5,
+      "actual": 108.5,
+      "optimal": 155
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Birch",
+      "accuracy": 94.4617,
+      "gap": 4.64,
+      "actual": 79.14,
+      "optimal": 83.78
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "manager": "Stilly",
+      "accuracy": 79.5861,
+      "gap": 29,
+      "actual": 113.06,
+      "optimal": 142.06
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "manager": "Evans",
+      "accuracy": 83.8541,
+      "gap": 18.5,
+      "actual": 96.08,
+      "optimal": 114.58
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "manager": "Thommy",
+      "accuracy": 96.9393,
+      "gap": 4.4,
+      "actual": 139.36,
+      "optimal": 143.76
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "manager": "Stew",
+      "accuracy": 92.3476,
+      "gap": 11.2,
+      "actual": 135.16,
+      "optimal": 146.36
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "manager": "Koble",
+      "accuracy": 75.4355,
+      "gap": 28.2,
+      "actual": 86.6,
+      "optimal": 114.8
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "manager": "Mitch",
+      "accuracy": 91.1961,
+      "gap": 11.1,
+      "actual": 114.98,
+      "optimal": 126.08
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "manager": "Tony",
+      "accuracy": 95.1702,
+      "gap": 6.5,
+      "actual": 128.08,
+      "optimal": 134.58
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "manager": "Stover",
+      "accuracy": 91.8972,
+      "gap": 11.6,
+      "actual": 131.56,
+      "optimal": 143.16
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "manager": "Kuhl",
+      "accuracy": 95.1783,
+      "gap": 7.6,
+      "actual": 150.02,
+      "optimal": 157.62
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "manager": "Birch",
+      "accuracy": 87.1094,
+      "gap": 13.2,
+      "actual": 89.2,
+      "optimal": 102.4
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "manager": "Stilly",
+      "accuracy": 88.6993,
+      "gap": 10.2,
+      "actual": 80.06,
+      "optimal": 90.26
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "manager": "Evans",
+      "accuracy": 93.1989,
+      "gap": 5.6,
+      "actual": 76.74,
+      "optimal": 82.34
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "manager": "Thommy",
+      "accuracy": 87.5884,
+      "gap": 15.1,
+      "actual": 106.56,
+      "optimal": 121.66
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "manager": "Stew",
+      "accuracy": 98.3615,
+      "gap": 2.6,
+      "actual": 156.08,
+      "optimal": 158.68
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "manager": "Koble",
+      "accuracy": 86.2924,
+      "gap": 14.7,
+      "actual": 92.54,
+      "optimal": 107.24
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "manager": "Mitch",
+      "accuracy": 86.8885,
+      "gap": 17.26,
+      "actual": 114.38,
+      "optimal": 131.64
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "manager": "Tony",
+      "accuracy": 78.4373,
+      "gap": 35.6,
+      "actual": 129.5,
+      "optimal": 165.1
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "manager": "Stover",
+      "accuracy": 91.453,
+      "gap": 12.4,
+      "actual": 132.68,
+      "optimal": 145.08
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "manager": "Kuhl",
+      "accuracy": 86.7431,
+      "gap": 22.2,
+      "actual": 145.26,
+      "optimal": 167.46
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "manager": "Birch",
+      "accuracy": 95.6115,
+      "gap": 4.6,
+      "actual": 100.22,
+      "optimal": 104.82
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "manager": "Stilly",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 102.18,
+      "optimal": 102.18
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "manager": "Evans",
+      "accuracy": 98.2399,
+      "gap": 1.84,
+      "actual": 102.7,
+      "optimal": 104.54
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "manager": "Thommy",
+      "accuracy": 76.865,
+      "gap": 24.5,
+      "actual": 81.4,
+      "optimal": 105.9
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "manager": "Stew",
+      "accuracy": 86.9763,
+      "gap": 14.3,
+      "actual": 95.5,
+      "optimal": 109.8
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "manager": "Koble",
+      "accuracy": 83.0975,
+      "gap": 12.9,
+      "actual": 63.42,
+      "optimal": 76.32
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "manager": "Mitch",
+      "accuracy": 86.4307,
+      "gap": 18.4,
+      "actual": 117.2,
+      "optimal": 135.6
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "manager": "Tony",
+      "accuracy": 88.5172,
+      "gap": 13.8,
+      "actual": 106.38,
+      "optimal": 120.18
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "manager": "Stover",
+      "accuracy": 90.6621,
+      "gap": 9.9,
+      "actual": 96.12,
+      "optimal": 106.02
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "manager": "Kuhl",
+      "accuracy": 97.942,
+      "gap": 2.3,
+      "actual": 109.46,
+      "optimal": 111.76
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "manager": "Birch",
+      "accuracy": 93.7461,
+      "gap": 8,
+      "actual": 119.92,
+      "optimal": 127.92
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "manager": "Stilly",
+      "accuracy": 81.7032,
+      "gap": 21.7,
+      "actual": 96.9,
+      "optimal": 118.6
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "manager": "Evans",
+      "accuracy": 92.7308,
+      "gap": 9.62,
+      "actual": 122.72,
+      "optimal": 132.34
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "manager": "Thommy",
+      "accuracy": 94.953,
+      "gap": 5.9,
+      "actual": 111,
+      "optimal": 116.9
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "manager": "Stew",
+      "accuracy": 83.0125,
+      "gap": 15,
+      "actual": 73.3,
+      "optimal": 88.3
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "manager": "Koble",
+      "accuracy": 77.2829,
+      "gap": 24.48,
+      "actual": 83.28,
+      "optimal": 107.76
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "manager": "Mitch",
+      "accuracy": 87.1519,
+      "gap": 15.5,
+      "actual": 105.14,
+      "optimal": 120.64
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "manager": "Tony",
+      "accuracy": 90.3937,
+      "gap": 14.3,
+      "actual": 134.56,
+      "optimal": 148.86
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "manager": "Stover",
+      "accuracy": 85.8802,
+      "gap": 19.7,
+      "actual": 119.82,
+      "optimal": 139.52
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "manager": "Kuhl",
+      "accuracy": 89.2387,
+      "gap": 12.1,
+      "actual": 100.34,
+      "optimal": 112.44
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "manager": "Birch",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 113.92,
+      "optimal": 113.92
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "manager": "Stilly",
+      "accuracy": 96.5618,
+      "gap": 4.7,
+      "actual": 132,
+      "optimal": 136.7
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "manager": "Evans",
+      "accuracy": 87.2187,
+      "gap": 18.4,
+      "actual": 125.56,
+      "optimal": 143.96
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "manager": "Thommy",
+      "accuracy": 75.1015,
+      "gap": 31.9,
+      "actual": 96.22,
+      "optimal": 128.12
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "manager": "Stew",
+      "accuracy": 90.9429,
+      "gap": 14.6,
+      "actual": 146.6,
+      "optimal": 161.2
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "manager": "Koble",
+      "accuracy": 89.225,
+      "gap": 17.1,
+      "actual": 141.6,
+      "optimal": 158.7
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "manager": "Mitch",
+      "accuracy": 93.3425,
+      "gap": 8.7,
+      "actual": 121.98,
+      "optimal": 130.68
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "manager": "Tony",
+      "accuracy": 95.7824,
+      "gap": 7.8,
+      "actual": 177.14,
+      "optimal": 184.94
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "manager": "Stover",
+      "accuracy": 87.3086,
+      "gap": 17.9,
+      "actual": 123.14,
+      "optimal": 141.04
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "manager": "Kuhl",
+      "accuracy": 89.3232,
+      "gap": 11.8,
+      "actual": 98.72,
+      "optimal": 110.52
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "manager": "Birch",
+      "accuracy": 91.0697,
+      "gap": 9.5,
+      "actual": 96.88,
+      "optimal": 106.38
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "manager": "Stilly",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 92.6,
+      "optimal": 92.6
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "manager": "Evans",
+      "accuracy": 70.7932,
+      "gap": 27.32,
+      "actual": 66.22,
+      "optimal": 93.54
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "manager": "Thommy",
+      "accuracy": 92.1445,
+      "gap": 7.7,
+      "actual": 90.32,
+      "optimal": 98.02
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "manager": "Stew",
+      "accuracy": 83.5764,
+      "gap": 25,
+      "actual": 127.22,
+      "optimal": 152.22
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "manager": "Koble",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 152.84,
+      "optimal": 152.84
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "manager": "Mitch",
+      "accuracy": 98.5558,
+      "gap": 1.4,
+      "actual": 95.54,
+      "optimal": 96.94
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "manager": "Tony",
+      "accuracy": 92.0807,
+      "gap": 10.2,
+      "actual": 118.6,
+      "optimal": 128.8
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "manager": "Stover",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 128.74,
+      "optimal": 128.74
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "manager": "Kuhl",
+      "accuracy": 83.3912,
+      "gap": 23.9,
+      "actual": 120,
+      "optimal": 143.9
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "manager": "Birch",
+      "accuracy": 89.62,
+      "gap": 10.98,
+      "actual": 94.8,
+      "optimal": 105.78
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "manager": "Stilly",
+      "accuracy": 99.3068,
+      "gap": 0.8,
+      "actual": 114.6,
+      "optimal": 115.4
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "manager": "Evans",
+      "accuracy": 90.1012,
+      "gap": 13.5,
+      "actual": 122.88,
+      "optimal": 136.38
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "manager": "Thommy",
+      "accuracy": 87.1813,
+      "gap": 18.5,
+      "actual": 125.82,
+      "optimal": 144.32
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "manager": "Stew",
+      "accuracy": 93.5028,
+      "gap": 9.2,
+      "actual": 132.4,
+      "optimal": 141.6
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "manager": "Koble",
+      "accuracy": 94.1307,
+      "gap": 5.3,
+      "actual": 85,
+      "optimal": 90.3
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "manager": "Mitch",
+      "accuracy": 91.0189,
+      "gap": 11,
+      "actual": 111.48,
+      "optimal": 122.48
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "manager": "Tony",
+      "accuracy": 90.1346,
+      "gap": 8.5,
+      "actual": 77.66,
+      "optimal": 86.16
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "manager": "Stover",
+      "accuracy": 97.2936,
+      "gap": 3.2,
+      "actual": 115.04,
+      "optimal": 118.24
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "manager": "Kuhl",
+      "accuracy": 83.5565,
+      "gap": 22.1,
+      "actual": 112.3,
+      "optimal": 134.4
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "manager": "Birch",
+      "accuracy": 77.8406,
+      "gap": 25.86,
+      "actual": 90.84,
+      "optimal": 116.7
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "manager": "Stilly",
+      "accuracy": 83.4187,
+      "gap": 23.3,
+      "actual": 117.22,
+      "optimal": 140.52
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "manager": "Evans",
+      "accuracy": 72.1181,
+      "gap": 37.2,
+      "actual": 96.22,
+      "optimal": 133.42
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "manager": "Thommy",
+      "accuracy": 86.9602,
+      "gap": 12.5,
+      "actual": 83.36,
+      "optimal": 95.86
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "manager": "Stew",
+      "accuracy": 86.5248,
+      "gap": 17.1,
+      "actual": 109.8,
+      "optimal": 126.9
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "manager": "Koble",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 118.94,
+      "optimal": 118.94
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "manager": "Mitch",
+      "accuracy": 97.6827,
+      "gap": 2.6,
+      "actual": 109.6,
+      "optimal": 112.2
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "manager": "Tony",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 77.28,
+      "optimal": 77.28
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "manager": "Stover",
+      "accuracy": 89.2362,
+      "gap": 16.6,
+      "actual": 137.62,
+      "optimal": 154.22
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "manager": "Kuhl",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 118.08,
+      "optimal": 118.08
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "manager": "Birch",
+      "accuracy": 96.0129,
+      "gap": 3.7,
+      "actual": 89.1,
+      "optimal": 92.8
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "manager": "Stilly",
+      "accuracy": 82.4775,
+      "gap": 24.5,
+      "actual": 115.32,
+      "optimal": 139.82
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "manager": "Evans",
+      "accuracy": 88.4021,
+      "gap": 14.4,
+      "actual": 109.76,
+      "optimal": 124.16
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "manager": "Thommy",
+      "accuracy": 81.5914,
+      "gap": 27.9,
+      "actual": 123.66,
+      "optimal": 151.56
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "manager": "Stew",
+      "accuracy": 92.9678,
+      "gap": 8.9,
+      "actual": 117.66,
+      "optimal": 126.56
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "manager": "Koble",
+      "accuracy": 92.3389,
+      "gap": 10.2,
+      "actual": 122.94,
+      "optimal": 133.14
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "manager": "Mitch",
+      "accuracy": 77.3749,
+      "gap": 31.2,
+      "actual": 106.7,
+      "optimal": 137.9
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "manager": "Tony",
+      "accuracy": 82.6199,
+      "gap": 24.2,
+      "actual": 115.04,
+      "optimal": 139.24
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "manager": "Stover",
+      "accuracy": 85.1456,
+      "gap": 15.3,
+      "actual": 87.7,
+      "optimal": 103
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "manager": "Kuhl",
+      "accuracy": 96.8013,
+      "gap": 3.5,
+      "actual": 105.92,
+      "optimal": 109.42
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "manager": "Birch",
+      "accuracy": 84.4532,
+      "gap": 20.5,
+      "actual": 111.36,
+      "optimal": 131.86
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "manager": "Stilly",
+      "accuracy": 92.1728,
+      "gap": 10.8,
+      "actual": 127.18,
+      "optimal": 137.98
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "manager": "Evans",
+      "reason": "Vacant starting slot"
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "manager": "Thommy",
+      "accuracy": 79.0226,
+      "gap": 27.3,
+      "actual": 102.84,
+      "optimal": 130.14
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "manager": "Stew",
+      "accuracy": 95.5574,
+      "gap": 5.3,
+      "actual": 114,
+      "optimal": 119.3
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "manager": "Koble",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 128.34,
+      "optimal": 128.34
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "manager": "Mitch",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 161.64,
+      "optimal": 161.64
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "manager": "Tony",
+      "accuracy": 67.7199,
+      "gap": 42.5,
+      "actual": 89.16,
+      "optimal": 131.66
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "manager": "Stover",
+      "accuracy": 78.9832,
+      "gap": 27.2,
+      "actual": 102.22,
+      "optimal": 129.42
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "manager": "Kuhl",
+      "accuracy": 96.4613,
+      "gap": 5.1,
+      "actual": 139.02,
+      "optimal": 144.12
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "manager": "Birch",
+      "accuracy": 96.0784,
+      "gap": 3,
+      "actual": 73.5,
+      "optimal": 76.5
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "manager": "Stilly",
+      "accuracy": 97.3258,
+      "gap": 3.7,
+      "actual": 134.66,
+      "optimal": 138.36
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "manager": "Evans",
+      "accuracy": 98.1928,
+      "gap": 2.7,
+      "actual": 146.7,
+      "optimal": 149.4
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "manager": "Thommy",
+      "accuracy": 98.48,
+      "gap": 1.8,
+      "actual": 116.62,
+      "optimal": 118.42
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "manager": "Stew",
+      "accuracy": 86.8779,
+      "gap": 19.3,
+      "actual": 127.78,
+      "optimal": 147.08
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "manager": "Koble",
+      "accuracy": 73.6402,
+      "gap": 28.98,
+      "actual": 80.96,
+      "optimal": 109.94
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "manager": "Mitch",
+      "accuracy": 89.5003,
+      "gap": 10.8,
+      "actual": 92.06,
+      "optimal": 102.86
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "manager": "Tony",
+      "accuracy": 63.3062,
+      "gap": 35.16,
+      "actual": 60.66,
+      "optimal": 95.82
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "manager": "Stover",
+      "accuracy": 83.0252,
+      "gap": 21.3,
+      "actual": 104.18,
+      "optimal": 125.48
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "manager": "Kuhl",
+      "accuracy": 61.186,
+      "gap": 44.9,
+      "actual": 70.78,
+      "optimal": 115.68
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "manager": "Birch",
+      "accuracy": 100,
+      "gap": 0,
+      "actual": 78.98,
+      "optimal": 78.98
+    }
+  ]
+}
