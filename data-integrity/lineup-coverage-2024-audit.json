@@ -1,0 +1,1268 @@
+{
+  "version": 1,
+  "year": 2024,
+  "source": "Verified archived Sleeper roster snapshots; ex-post optimizer with assumed QB/2RB/2WR/TE/2FLEX/DEF, no game-time eligibility verification",
+  "status": "research_only_not_manager_skill",
+  "observed": 140,
+  "comparable": 138,
+  "excluded": 2,
+  "reasons": {
+    "Vacant starting slot": 2
+  },
+  "rows": [
+    {
+      "year": 2024,
+      "week": 1,
+      "manager": "Stilly",
+      "actualPoints": 67.2,
+      "optimalPoints": 89.16,
+      "hindsightGap": 21.96,
+      "hindsightAccuracy": 75.3701
+    },
+    {
+      "year": 2024,
+      "week": 1,
+      "manager": "JMid",
+      "actualPoints": 92.96,
+      "optimalPoints": 103.56,
+      "hindsightGap": 10.6,
+      "hindsightAccuracy": 89.7644
+    },
+    {
+      "year": 2024,
+      "week": 1,
+      "manager": "Thommy",
+      "actualPoints": 110.66,
+      "optimalPoints": 143.76,
+      "hindsightGap": 33.1,
+      "hindsightAccuracy": 76.9755
+    },
+    {
+      "year": 2024,
+      "week": 1,
+      "manager": "Stew",
+      "actualPoints": 90.32,
+      "optimalPoints": 108.52,
+      "hindsightGap": 18.2,
+      "hindsightAccuracy": 83.2289
+    },
+    {
+      "year": 2024,
+      "week": 1,
+      "manager": "Scott",
+      "actualPoints": 112.18,
+      "optimalPoints": 126.18,
+      "hindsightGap": 14,
+      "hindsightAccuracy": 88.9047
+    },
+    {
+      "year": 2024,
+      "week": 1,
+      "manager": "Mitch",
+      "actualPoints": 94.68,
+      "optimalPoints": 99.58,
+      "hindsightGap": 4.9,
+      "hindsightAccuracy": 95.0793
+    },
+    {
+      "year": 2024,
+      "week": 1,
+      "manager": "Tony",
+      "actualPoints": 94.86,
+      "optimalPoints": 110.26,
+      "hindsightGap": 15.4,
+      "hindsightAccuracy": 86.033
+    },
+    {
+      "year": 2024,
+      "week": 1,
+      "manager": "Stover",
+      "actualPoints": 140.32,
+      "optimalPoints": 148.02,
+      "hindsightGap": 7.7,
+      "hindsightAccuracy": 94.798
+    },
+    {
+      "year": 2024,
+      "week": 1,
+      "manager": "Kuhl",
+      "actualPoints": 89.44,
+      "optimalPoints": 124.44,
+      "hindsightGap": 35,
+      "hindsightAccuracy": 71.874
+    },
+    {
+      "year": 2024,
+      "week": 1,
+      "manager": "Birch",
+      "actualPoints": 128.98,
+      "optimalPoints": 151.88,
+      "hindsightGap": 22.9,
+      "hindsightAccuracy": 84.9223
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "manager": "Stilly",
+      "actualPoints": 96.04,
+      "optimalPoints": 101.24,
+      "hindsightGap": 5.2,
+      "hindsightAccuracy": 94.8637
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "manager": "JMid",
+      "actualPoints": 110.42,
+      "optimalPoints": 113.72,
+      "hindsightGap": 3.3,
+      "hindsightAccuracy": 97.0981
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "manager": "Thommy",
+      "actualPoints": 111.42,
+      "optimalPoints": 122.52,
+      "hindsightGap": 11.1,
+      "hindsightAccuracy": 90.9403
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "manager": "Stew",
+      "actualPoints": 137.58,
+      "optimalPoints": 162.08,
+      "hindsightGap": 24.5,
+      "hindsightAccuracy": 84.884
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "manager": "Scott",
+      "actualPoints": 88.26,
+      "optimalPoints": 101.36,
+      "hindsightGap": 13.1,
+      "hindsightAccuracy": 87.0758
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "manager": "Mitch",
+      "actualPoints": 113.34,
+      "optimalPoints": 133.04,
+      "hindsightGap": 19.7,
+      "hindsightAccuracy": 85.1924
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "manager": "Tony",
+      "actualPoints": 92.4,
+      "optimalPoints": 105.6,
+      "hindsightGap": 13.2,
+      "hindsightAccuracy": 87.5
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "manager": "Stover",
+      "actualPoints": 120.02,
+      "optimalPoints": 121.32,
+      "hindsightGap": 1.3,
+      "hindsightAccuracy": 98.9285
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "manager": "Kuhl",
+      "actualPoints": 99.04,
+      "optimalPoints": 125.34,
+      "hindsightGap": 26.3,
+      "hindsightAccuracy": 79.0171
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "manager": "Birch",
+      "actualPoints": 136.86,
+      "optimalPoints": 143.76,
+      "hindsightGap": 6.9,
+      "hindsightAccuracy": 95.2003
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "manager": "Stilly",
+      "actualPoints": 106.76,
+      "optimalPoints": 127.86,
+      "hindsightGap": 21.1,
+      "hindsightAccuracy": 83.4976
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "manager": "JMid",
+      "actualPoints": 137.38,
+      "optimalPoints": 150.48,
+      "hindsightGap": 13.1,
+      "hindsightAccuracy": 91.2945
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "manager": "Thommy",
+      "actualPoints": 101.96,
+      "optimalPoints": 137.06,
+      "hindsightGap": 35.1,
+      "hindsightAccuracy": 74.3908
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "manager": "Stew",
+      "actualPoints": 121.58,
+      "optimalPoints": 135.28,
+      "hindsightGap": 13.7,
+      "hindsightAccuracy": 89.8729
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "manager": "Scott",
+      "actualPoints": 120.08,
+      "optimalPoints": 171.98,
+      "hindsightGap": 51.9,
+      "hindsightAccuracy": 69.8221
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "manager": "Mitch",
+      "actualPoints": 71.38,
+      "optimalPoints": 81.48,
+      "hindsightGap": 10.1,
+      "hindsightAccuracy": 87.6043
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "manager": "Tony",
+      "reason": "Vacant starting slot"
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "manager": "Stover",
+      "actualPoints": 81.04,
+      "optimalPoints": 93.62,
+      "hindsightGap": 12.58,
+      "hindsightAccuracy": 86.5627
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "manager": "Kuhl",
+      "actualPoints": 105.28,
+      "optimalPoints": 113.58,
+      "hindsightGap": 8.3,
+      "hindsightAccuracy": 92.6924
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "manager": "Birch",
+      "actualPoints": 101.42,
+      "optimalPoints": 121.12,
+      "hindsightGap": 19.7,
+      "hindsightAccuracy": 83.7351
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "manager": "Stilly",
+      "actualPoints": 116.72,
+      "optimalPoints": 128.36,
+      "hindsightGap": 11.64,
+      "hindsightAccuracy": 90.9318
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "manager": "JMid",
+      "actualPoints": 113.78,
+      "optimalPoints": 125.28,
+      "hindsightGap": 11.5,
+      "hindsightAccuracy": 90.8206
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "manager": "Thommy",
+      "actualPoints": 116.94,
+      "optimalPoints": 134.14,
+      "hindsightGap": 17.2,
+      "hindsightAccuracy": 87.1776
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "manager": "Stew",
+      "actualPoints": 127.94,
+      "optimalPoints": 148.14,
+      "hindsightGap": 20.2,
+      "hindsightAccuracy": 86.3643
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "manager": "Scott",
+      "actualPoints": 69.24,
+      "optimalPoints": 114.82,
+      "hindsightGap": 45.58,
+      "hindsightAccuracy": 60.3031
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "manager": "Mitch",
+      "actualPoints": 93.68,
+      "optimalPoints": 98.38,
+      "hindsightGap": 4.7,
+      "hindsightAccuracy": 95.2226
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "manager": "Tony",
+      "actualPoints": 119.98,
+      "optimalPoints": 149.26,
+      "hindsightGap": 29.28,
+      "hindsightAccuracy": 80.3832
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "manager": "Stover",
+      "actualPoints": 133.72,
+      "optimalPoints": 150.12,
+      "hindsightGap": 16.4,
+      "hindsightAccuracy": 89.0754
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "manager": "Kuhl",
+      "actualPoints": 110.7,
+      "optimalPoints": 118.4,
+      "hindsightGap": 7.7,
+      "hindsightAccuracy": 93.4966
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "manager": "Birch",
+      "actualPoints": 99.7,
+      "optimalPoints": 117.9,
+      "hindsightGap": 18.2,
+      "hindsightAccuracy": 84.5632
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "manager": "Stilly",
+      "actualPoints": 99.92,
+      "optimalPoints": 112.32,
+      "hindsightGap": 12.4,
+      "hindsightAccuracy": 88.9601
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "manager": "JMid",
+      "actualPoints": 145.68,
+      "optimalPoints": 151.68,
+      "hindsightGap": 6,
+      "hindsightAccuracy": 96.0443
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "manager": "Thommy",
+      "actualPoints": 126.16,
+      "optimalPoints": 147.88,
+      "hindsightGap": 21.72,
+      "hindsightAccuracy": 85.3124
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "manager": "Stew",
+      "actualPoints": 123.22,
+      "optimalPoints": 133.52,
+      "hindsightGap": 10.3,
+      "hindsightAccuracy": 92.2858
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "manager": "Scott",
+      "actualPoints": 81.36,
+      "optimalPoints": 90.06,
+      "hindsightGap": 8.7,
+      "hindsightAccuracy": 90.3398
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "manager": "Mitch",
+      "actualPoints": 128.94,
+      "optimalPoints": 138.4,
+      "hindsightGap": 9.46,
+      "hindsightAccuracy": 93.1647
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "manager": "Tony",
+      "actualPoints": 109.24,
+      "optimalPoints": 130.34,
+      "hindsightGap": 21.1,
+      "hindsightAccuracy": 83.8116
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "manager": "Stover",
+      "actualPoints": 133.26,
+      "optimalPoints": 133.26,
+      "hindsightGap": 0,
+      "hindsightAccuracy": 100
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "manager": "Kuhl",
+      "actualPoints": 89.24,
+      "optimalPoints": 104.44,
+      "hindsightGap": 15.2,
+      "hindsightAccuracy": 85.4462
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "manager": "Birch",
+      "actualPoints": 95.34,
+      "optimalPoints": 124.24,
+      "hindsightGap": 28.9,
+      "hindsightAccuracy": 76.7386
+    },
+    {
+      "year": 2024,
+      "week": 6,
+      "manager": "Stilly",
+      "actualPoints": 114.16,
+      "optimalPoints": 131.66,
+      "hindsightGap": 17.5,
+      "hindsightAccuracy": 86.7082
+    },
+    {
+      "year": 2024,
+      "week": 6,
+      "manager": "JMid",
+      "actualPoints": 129.42,
+      "optimalPoints": 143.72,
+      "hindsightGap": 14.3,
+      "hindsightAccuracy": 90.0501
+    },
+    {
+      "year": 2024,
+      "week": 6,
+      "manager": "Thommy",
+      "actualPoints": 152.02,
+      "optimalPoints": 152.02,
+      "hindsightGap": 0,
+      "hindsightAccuracy": 100
+    },
+    {
+      "year": 2024,
+      "week": 6,
+      "manager": "Stew",
+      "actualPoints": 78.92,
+      "optimalPoints": 99.32,
+      "hindsightGap": 20.4,
+      "hindsightAccuracy": 79.4603
+    },
+    {
+      "year": 2024,
+      "week": 6,
+      "manager": "Scott",
+      "actualPoints": 124.2,
+      "optimalPoints": 125.9,
+      "hindsightGap": 1.7,
+      "hindsightAccuracy": 98.6497
+    },
+    {
+      "year": 2024,
+      "week": 6,
+      "manager": "Mitch",
+      "actualPoints": 95.06,
+      "optimalPoints": 105.8,
+      "hindsightGap": 10.74,
+      "hindsightAccuracy": 89.8488
+    },
+    {
+      "year": 2024,
+      "week": 6,
+      "manager": "Tony",
+      "actualPoints": 79.78,
+      "optimalPoints": 105.78,
+      "hindsightGap": 26,
+      "hindsightAccuracy": 75.4207
+    },
+    {
+      "year": 2024,
+      "week": 6,
+      "manager": "Stover",
+      "actualPoints": 109.76,
+      "optimalPoints": 139.16,
+      "hindsightGap": 29.4,
+      "hindsightAccuracy": 78.8732
+    },
+    {
+      "year": 2024,
+      "week": 6,
+      "manager": "Kuhl",
+      "actualPoints": 133.7,
+      "optimalPoints": 156.8,
+      "hindsightGap": 23.1,
+      "hindsightAccuracy": 85.2679
+    },
+    {
+      "year": 2024,
+      "week": 6,
+      "manager": "Birch",
+      "actualPoints": 95.4,
+      "optimalPoints": 97.5,
+      "hindsightGap": 2.1,
+      "hindsightAccuracy": 97.8462
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "manager": "Stilly",
+      "actualPoints": 52.94,
+      "optimalPoints": 75.94,
+      "hindsightGap": 23,
+      "hindsightAccuracy": 69.7129
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "manager": "JMid",
+      "actualPoints": 107.24,
+      "optimalPoints": 148.34,
+      "hindsightGap": 41.1,
+      "hindsightAccuracy": 72.2934
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "manager": "Thommy",
+      "actualPoints": 103.8,
+      "optimalPoints": 127.9,
+      "hindsightGap": 24.1,
+      "hindsightAccuracy": 81.1572
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "manager": "Stew",
+      "actualPoints": 97.34,
+      "optimalPoints": 99.24,
+      "hindsightGap": 1.9,
+      "hindsightAccuracy": 98.0854
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "manager": "Scott",
+      "actualPoints": 110.58,
+      "optimalPoints": 133.58,
+      "hindsightGap": 23,
+      "hindsightAccuracy": 82.7819
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "manager": "Mitch",
+      "actualPoints": 95.8,
+      "optimalPoints": 109.5,
+      "hindsightGap": 13.7,
+      "hindsightAccuracy": 87.4886
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "manager": "Tony",
+      "actualPoints": 107.84,
+      "optimalPoints": 131.44,
+      "hindsightGap": 23.6,
+      "hindsightAccuracy": 82.045
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "manager": "Stover",
+      "actualPoints": 127.16,
+      "optimalPoints": 137.96,
+      "hindsightGap": 10.8,
+      "hindsightAccuracy": 92.1716
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "manager": "Kuhl",
+      "actualPoints": 102.86,
+      "optimalPoints": 111.06,
+      "hindsightGap": 8.2,
+      "hindsightAccuracy": 92.6166
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "manager": "Birch",
+      "actualPoints": 94.92,
+      "optimalPoints": 97.92,
+      "hindsightGap": 3,
+      "hindsightAccuracy": 96.9363
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "manager": "Stilly",
+      "actualPoints": 148.66,
+      "optimalPoints": 155.26,
+      "hindsightGap": 6.6,
+      "hindsightAccuracy": 95.7491
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "manager": "JMid",
+      "actualPoints": 106.08,
+      "optimalPoints": 141.18,
+      "hindsightGap": 35.1,
+      "hindsightAccuracy": 75.1381
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "manager": "Thommy",
+      "actualPoints": 111.44,
+      "optimalPoints": 125.92,
+      "hindsightGap": 14.48,
+      "hindsightAccuracy": 88.5006
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "manager": "Stew",
+      "actualPoints": 107.06,
+      "optimalPoints": 125.06,
+      "hindsightGap": 18,
+      "hindsightAccuracy": 85.6069
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "manager": "Scott",
+      "actualPoints": 112.2,
+      "optimalPoints": 139.8,
+      "hindsightGap": 27.6,
+      "hindsightAccuracy": 80.2575
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "manager": "Mitch",
+      "actualPoints": 114.98,
+      "optimalPoints": 134.7,
+      "hindsightGap": 19.72,
+      "hindsightAccuracy": 85.3601
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "manager": "Tony",
+      "actualPoints": 103.5,
+      "optimalPoints": 103.5,
+      "hindsightGap": 0,
+      "hindsightAccuracy": 100
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "manager": "Stover",
+      "actualPoints": 143.74,
+      "optimalPoints": 159.34,
+      "hindsightGap": 15.6,
+      "hindsightAccuracy": 90.2096
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "manager": "Kuhl",
+      "actualPoints": 132.28,
+      "optimalPoints": 142.48,
+      "hindsightGap": 10.2,
+      "hindsightAccuracy": 92.8411
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "manager": "Birch",
+      "actualPoints": 123.72,
+      "optimalPoints": 141.22,
+      "hindsightGap": 17.5,
+      "hindsightAccuracy": 87.608
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "manager": "Stilly",
+      "actualPoints": 120.36,
+      "optimalPoints": 146.96,
+      "hindsightGap": 26.6,
+      "hindsightAccuracy": 81.8998
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "manager": "JMid",
+      "actualPoints": 114.42,
+      "optimalPoints": 120.02,
+      "hindsightGap": 5.6,
+      "hindsightAccuracy": 95.3341
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "manager": "Thommy",
+      "actualPoints": 102.72,
+      "optimalPoints": 108.02,
+      "hindsightGap": 5.3,
+      "hindsightAccuracy": 95.0935
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "manager": "Stew",
+      "actualPoints": 89.4,
+      "optimalPoints": 96.4,
+      "hindsightGap": 7,
+      "hindsightAccuracy": 92.7386
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "manager": "Scott",
+      "actualPoints": 111.32,
+      "optimalPoints": 123.52,
+      "hindsightGap": 12.2,
+      "hindsightAccuracy": 90.1231
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "manager": "Mitch",
+      "actualPoints": 108.66,
+      "optimalPoints": 121.9,
+      "hindsightGap": 13.24,
+      "hindsightAccuracy": 89.1386
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "manager": "Tony",
+      "actualPoints": 132.54,
+      "optimalPoints": 149.94,
+      "hindsightGap": 17.4,
+      "hindsightAccuracy": 88.3954
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "manager": "Stover",
+      "actualPoints": 139.4,
+      "optimalPoints": 141.6,
+      "hindsightGap": 2.2,
+      "hindsightAccuracy": 98.4463
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "manager": "Kuhl",
+      "actualPoints": 128.64,
+      "optimalPoints": 128.64,
+      "hindsightGap": 0,
+      "hindsightAccuracy": 100
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "manager": "Birch",
+      "actualPoints": 134.88,
+      "optimalPoints": 157.88,
+      "hindsightGap": 23,
+      "hindsightAccuracy": 85.432
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "manager": "Stilly",
+      "actualPoints": 104.88,
+      "optimalPoints": 115.28,
+      "hindsightGap": 10.4,
+      "hindsightAccuracy": 90.9785
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "manager": "JMid",
+      "actualPoints": 165.02,
+      "optimalPoints": 165.02,
+      "hindsightGap": 0,
+      "hindsightAccuracy": 100
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "manager": "Thommy",
+      "actualPoints": 98.44,
+      "optimalPoints": 111.84,
+      "hindsightGap": 13.4,
+      "hindsightAccuracy": 88.0186
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "manager": "Stew",
+      "actualPoints": 91.1,
+      "optimalPoints": 92.2,
+      "hindsightGap": 1.1,
+      "hindsightAccuracy": 98.8069
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "manager": "Scott",
+      "actualPoints": 101.54,
+      "optimalPoints": 121.12,
+      "hindsightGap": 19.58,
+      "hindsightAccuracy": 83.8342
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "manager": "Mitch",
+      "actualPoints": 137.54,
+      "optimalPoints": 139.94,
+      "hindsightGap": 2.4,
+      "hindsightAccuracy": 98.285
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "manager": "Tony",
+      "actualPoints": 86.38,
+      "optimalPoints": 104.88,
+      "hindsightGap": 18.5,
+      "hindsightAccuracy": 82.3608
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "manager": "Stover",
+      "actualPoints": 90.08,
+      "optimalPoints": 104.88,
+      "hindsightGap": 14.8,
+      "hindsightAccuracy": 85.8886
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "manager": "Kuhl",
+      "actualPoints": 101.54,
+      "optimalPoints": 102.14,
+      "hindsightGap": 0.6,
+      "hindsightAccuracy": 99.4126
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "manager": "Birch",
+      "actualPoints": 87.6,
+      "optimalPoints": 89.5,
+      "hindsightGap": 1.9,
+      "hindsightAccuracy": 97.8771
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "manager": "Stilly",
+      "actualPoints": 92.74,
+      "optimalPoints": 133.38,
+      "hindsightGap": 40.64,
+      "hindsightAccuracy": 69.5307
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "manager": "JMid",
+      "actualPoints": 127.24,
+      "optimalPoints": 128.34,
+      "hindsightGap": 1.1,
+      "hindsightAccuracy": 99.1429
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "manager": "Thommy",
+      "actualPoints": 127.24,
+      "optimalPoints": 128.64,
+      "hindsightGap": 1.4,
+      "hindsightAccuracy": 98.9117
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "manager": "Stew",
+      "actualPoints": 96.18,
+      "optimalPoints": 102.08,
+      "hindsightGap": 5.9,
+      "hindsightAccuracy": 94.2202
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "manager": "Scott",
+      "actualPoints": 90.86,
+      "optimalPoints": 109.44,
+      "hindsightGap": 18.58,
+      "hindsightAccuracy": 83.0227
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "manager": "Mitch",
+      "actualPoints": 136.78,
+      "optimalPoints": 137.08,
+      "hindsightGap": 0.3,
+      "hindsightAccuracy": 99.7811
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "manager": "Tony",
+      "actualPoints": 131.68,
+      "optimalPoints": 164.82,
+      "hindsightGap": 33.14,
+      "hindsightAccuracy": 79.8932
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "manager": "Stover",
+      "reason": "Vacant starting slot"
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "manager": "Kuhl",
+      "actualPoints": 128.44,
+      "optimalPoints": 160.24,
+      "hindsightGap": 31.8,
+      "hindsightAccuracy": 80.1548
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "manager": "Birch",
+      "actualPoints": 89.18,
+      "optimalPoints": 126.78,
+      "hindsightGap": 37.6,
+      "hindsightAccuracy": 70.3423
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "manager": "Stilly",
+      "actualPoints": 140.5,
+      "optimalPoints": 164.9,
+      "hindsightGap": 24.4,
+      "hindsightAccuracy": 85.2032
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "manager": "JMid",
+      "actualPoints": 102.06,
+      "optimalPoints": 123.36,
+      "hindsightGap": 21.3,
+      "hindsightAccuracy": 82.7335
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "manager": "Thommy",
+      "actualPoints": 82.62,
+      "optimalPoints": 95.72,
+      "hindsightGap": 13.1,
+      "hindsightAccuracy": 86.3142
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "manager": "Stew",
+      "actualPoints": 106.18,
+      "optimalPoints": 106.18,
+      "hindsightGap": 0,
+      "hindsightAccuracy": 100
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "manager": "Scott",
+      "actualPoints": 107.92,
+      "optimalPoints": 107.92,
+      "hindsightGap": 0,
+      "hindsightAccuracy": 100
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "manager": "Mitch",
+      "actualPoints": 123.1,
+      "optimalPoints": 157.72,
+      "hindsightGap": 34.62,
+      "hindsightAccuracy": 78.0497
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "manager": "Tony",
+      "actualPoints": 115.28,
+      "optimalPoints": 150.88,
+      "hindsightGap": 35.6,
+      "hindsightAccuracy": 76.4051
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "manager": "Stover",
+      "actualPoints": 133.86,
+      "optimalPoints": 147.96,
+      "hindsightGap": 14.1,
+      "hindsightAccuracy": 90.4704
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "manager": "Kuhl",
+      "actualPoints": 103.86,
+      "optimalPoints": 124.16,
+      "hindsightGap": 20.3,
+      "hindsightAccuracy": 83.6501
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "manager": "Birch",
+      "actualPoints": 68.7,
+      "optimalPoints": 76.5,
+      "hindsightGap": 7.8,
+      "hindsightAccuracy": 89.8039
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "manager": "Stilly",
+      "actualPoints": 162.24,
+      "optimalPoints": 173.94,
+      "hindsightGap": 11.7,
+      "hindsightAccuracy": 93.2735
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "manager": "JMid",
+      "actualPoints": 132.86,
+      "optimalPoints": 139.36,
+      "hindsightGap": 6.5,
+      "hindsightAccuracy": 95.3358
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "manager": "Thommy",
+      "actualPoints": 99.66,
+      "optimalPoints": 126.26,
+      "hindsightGap": 26.6,
+      "hindsightAccuracy": 78.9324
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "manager": "Stew",
+      "actualPoints": 101.38,
+      "optimalPoints": 115.08,
+      "hindsightGap": 13.7,
+      "hindsightAccuracy": 88.0952
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "manager": "Scott",
+      "actualPoints": 98.16,
+      "optimalPoints": 104.16,
+      "hindsightGap": 6,
+      "hindsightAccuracy": 94.2396
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "manager": "Mitch",
+      "actualPoints": 84.28,
+      "optimalPoints": 116.1,
+      "hindsightGap": 31.82,
+      "hindsightAccuracy": 72.5926
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "manager": "Tony",
+      "actualPoints": 110.6,
+      "optimalPoints": 129.1,
+      "hindsightGap": 18.5,
+      "hindsightAccuracy": 85.67
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "manager": "Stover",
+      "actualPoints": 124.92,
+      "optimalPoints": 141.22,
+      "hindsightGap": 16.3,
+      "hindsightAccuracy": 88.4577
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "manager": "Kuhl",
+      "actualPoints": 100.24,
+      "optimalPoints": 120.84,
+      "hindsightGap": 20.6,
+      "hindsightAccuracy": 82.9527
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "manager": "Birch",
+      "actualPoints": 119.52,
+      "optimalPoints": 164.72,
+      "hindsightGap": 45.2,
+      "hindsightAccuracy": 72.5595
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "manager": "Stilly",
+      "actualPoints": 116.88,
+      "optimalPoints": 127.88,
+      "hindsightGap": 11,
+      "hindsightAccuracy": 91.3982
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "manager": "JMid",
+      "actualPoints": 145.66,
+      "optimalPoints": 155.96,
+      "hindsightGap": 10.3,
+      "hindsightAccuracy": 93.3957
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "manager": "Thommy",
+      "actualPoints": 105.34,
+      "optimalPoints": 117.14,
+      "hindsightGap": 11.8,
+      "hindsightAccuracy": 89.9266
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "manager": "Stew",
+      "actualPoints": 96.48,
+      "optimalPoints": 105.08,
+      "hindsightGap": 8.6,
+      "hindsightAccuracy": 91.8158
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "manager": "Scott",
+      "actualPoints": 96.6,
+      "optimalPoints": 128.6,
+      "hindsightGap": 32,
+      "hindsightAccuracy": 75.1166
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "manager": "Mitch",
+      "actualPoints": 146.66,
+      "optimalPoints": 146.66,
+      "hindsightGap": 0,
+      "hindsightAccuracy": 100
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "manager": "Tony",
+      "actualPoints": 126.94,
+      "optimalPoints": 156.44,
+      "hindsightGap": 29.5,
+      "hindsightAccuracy": 81.1429
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "manager": "Stover",
+      "actualPoints": 117.52,
+      "optimalPoints": 145.72,
+      "hindsightGap": 28.2,
+      "hindsightAccuracy": 80.6478
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "manager": "Kuhl",
+      "actualPoints": 94.3,
+      "optimalPoints": 127.9,
+      "hindsightGap": 33.6,
+      "hindsightAccuracy": 73.7295
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "manager": "Birch",
+      "actualPoints": 152.58,
+      "optimalPoints": 167.58,
+      "hindsightGap": 15,
+      "hindsightAccuracy": 91.0491
+    }
+  ]
+}
