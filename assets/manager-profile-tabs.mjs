@@ -309,7 +309,7 @@ function mountProfileFeatureDirectory(quick,manager){
  biographyEntry.dataset.profileFeature='';
  biographyEntry.dataset.featureTarget='#legacy-resume';
  biographyEntry.dataset.featureTab='overview';
- biographyEntry.innerHTML='<span><strong>Read '+name+'\\'s career story</strong><small>Career beginnings, defining seasons and championship legacy</small></span><span aria-hidden="true">→</span>';
+ biographyEntry.innerHTML='<span><strong>Read '+name+'’s career story</strong><small>Career beginnings, defining seasons and championship legacy</small></span><span aria-hidden="true">→</span>';
  featured.append(biographyEntry);
  const featuredLinks=document.createElement('div');
  featuredLinks.className='profile-featured-links';
