@@ -64,6 +64,12 @@ for(const factor of ['titles','finals','playoffs','regular','allPlay','recent','
   !ratingModel.includes(factor+':'))
   throw Error('Legacy OVR factor missing from card or formula: '+factor);
 }
+if(!ratingCard.includes("manager.breakdown[key]/WEIGHTS[key]")||
+ !ratingCard.includes("const summaryPanel=")||
+ !ratingCard.includes("'+summaryPanel+'")||
+ !ratingCard.includes("Most room in the model")||
+ !ratingCard.includes("not league-wide category ranks"))
+ throw Error('Career rating strength summaries must be normalized and properly qualified');
 const guide=JSON.parse(fs.readFileSync('data/season_guide.json','utf8'));
 const names={stilly:'Stilly',jmid:'JMid',tom:'Thommy',stew:'Stew',scott:'Scott',mitch:'Mitch',tony:'Tony',stover:'Stover',kuhl:'Kuhl',birch:'Birch'};
 for(const slug of managers){
