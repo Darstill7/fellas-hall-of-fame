@@ -522,5 +522,45 @@
     },
     "audit": "scripts/verify-espn-2019-draft-activity.mjs",
     "caveat": "ESPN exports signed player IDs but does not include player names or source trade timestamps in this view. Retain existing score and playoff records; season trade totals are not event receipts."
+  },
+  "historicalLeagueRulesConfirmedByUser": {
+    "confirmedOn": "2026-11-05",
+    "seasons": {
+      "2016": {
+        "scoring": "standard (no PPR)",
+        "waivers": "Traditional waiver/free-agent",
+        "scorePrecision": "rounded whole-number points"
+      },
+      "2017": {
+        "scoring": "standard (no PPR)",
+        "waivers": "Traditional waiver/free-agent",
+        "scorePrecision": "rounded whole-number points"
+      },
+      "2018": {
+        "scoring": "standard (no PPR)",
+        "waivers": "Traditional waiver/free-agent",
+        "scorePrecision": "decimal scoring"
+      },
+      "2019": {
+        "scoring": "half-PPR",
+        "waivers": "FAAB",
+        "scorePrecision": "decimal scoring"
+      }
+    },
+    "checks": {
+      "regularSeason2016TeamScores": {
+        "total": 104,
+        "integer": 104
+      },
+      "regularSeason2017TeamScores": {
+        "total": 120,
+        "integer": 120
+      },
+      "regularSeason2018TeamScores": {
+        "total": 130,
+        "integer": 2
+      },
+      "note": "Original ESPN league data shows the score representation shift in 2018. Preserve original scoring precision and avoid retroactive rescaling."
+    }
   }
 }
