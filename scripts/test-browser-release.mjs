@@ -1667,6 +1667,9 @@ try{
          await page.locator('#season-history').isVisible()||
          !await page.locator('.profile-focus-toolbar').isVisible())
        errors.push(width+' '+slug+' rivalry view did not isolate the chosen feature');
+      if(await page.locator('#profile-features').isVisible()||
+         !await page.locator('#head-to-head').evaluate(el=>el.previousElementSibling?.classList.contains('profile-focus-toolbar')))
+       errors.push(width+' '+slug+' focused feature retains oversized menu or loses contextual back button');
       if(await page.locator('[data-profile-tab="rivalries"]').getAttribute('aria-selected')!=='true'||
          !await page.locator('#head-to-head').isVisible())
        errors.push(width+' '+slug+' rivalry feature did not activate the visible research');
@@ -1674,6 +1677,9 @@ try{
       await researchShelf.evaluate(el=>el.open=false);
       const career=page.locator('[data-profile-feature][data-feature-target=".profile-career-resume"]');
       await page.locator('.profile-focus-toolbar button').click();
+      if(!await page.locator('#profile-features').isVisible()||
+         !await page.locator('#profile-features .profile-focus-toolbar').count())
+       errors.push(width+' '+slug+' Back action failed to restore feature directory');
       const careerGroup=page.locator('details.profile-feature-group').filter({has:career});
       if(!await careerGroup.evaluate(el=>el.open))await careerGroup.locator(':scope > summary').click();
       await career.click();
