@@ -20,7 +20,9 @@ for(const manager of managers){
  assert(result.selectedPicks===expected,'Incorrect manager attribution '+manager);
  compared+=result.comparablePicks;
 }
-assert(compared===880,'Unexpected number of year-round comparable selections: '+compared);
+assert(compared===760,'Unexpected number of current-manager comparable selections: '+compared);
+assert(rows.filter(p=>p.year>=2020&&p.year<=2025&&!p.keeper).length===880,
+ 'Unexpected total comparison population (includes former managers)');
 const make=(manager,overall,points,year=2025,round=1,keeper=false)=>({
  manager,overall,year,round,player:'Test '+overall,keeper,reg_starts:1,reg_starter_points:points
 });
@@ -45,4 +47,4 @@ assert(page.includes('buildDraftRoundPeers(draftProductionRows,manager)')&&
  page.includes('career-draft-round-peers')&&page.includes('No OVR or report-card grade is changed.')&&
  page.includes('at least five peers')&&page.includes('other original picks from the same year and round'),
  'Manager profile peer comparison must explain coverage and limitations');
-console.log('PASS: 880 complete-season draft selections compared; 10 managers; leave-one-out medians, 2026 and keeper exclusion, peer threshold, source integrity.');
+console.log('PASS: 760 current-manager selections compared against 880 complete-season picks (including former managers); 10 managers; leave-one-out medians, 2026 and keeper exclusion, peer threshold, source integrity.');
