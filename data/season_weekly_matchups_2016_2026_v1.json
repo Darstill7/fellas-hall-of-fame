@@ -5348,12 +5348,18 @@
           "home": "Stover",
           "away": "Birch",
           "homeScore": 78.9,
-          "awayScore": 110.24,
+          "awayScore": 110.1,
           "winner": "AWAY",
-          "margin": 31.34,
+          "margin": 31.2,
           "era": "Sleeper",
           "weeksCovered": null,
-          "twoWeekAggregate": false
+          "twoWeekAggregate": false,
+          "scoreCorrection": {
+            "originalArchivedBirchScore": 110.24,
+            "confirmedBirchScore": 110.1,
+            "confirmedOn": "2026-11-05",
+            "source": "league commissioner"
+          }
         }
       ]
     },
