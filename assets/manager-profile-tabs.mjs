@@ -165,16 +165,16 @@ if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')
    metric.append(label,value);highlights.append(metric);
   }
   if(highlights.children.length===2){
-   const recordLink=profileSnapshot.querySelector('.profile-owned-records');
-   if(recordLink)recordLink.before(highlights);
-   else profileSnapshot.append(highlights);
+   profileSnapshot.append(highlights);
   }
   evidence.append(summary,originalStats);
   const source=profileSnapshot.querySelector('.profile-snapshot-source');
   if(source)evidence.append(source);
   const records=profileSnapshot.querySelector('.profile-owned-records');
-  if(records)records.after(evidence);
-  else profileSnapshot.append(evidence);
+  // Preserve verified league-record ownership, but avoid a duplicate Records
+  // CTA above the actual Records and Report Card starting destinations.
+  if(records)evidence.append(records);
+  profileSnapshot.append(evidence);
   const heading=profileSnapshot.querySelector('.profile-snapshot-heading');
   if(heading)heading.textContent='Career highlights';
   profileSnapshot.classList.add('profile-snapshot-condensed');
