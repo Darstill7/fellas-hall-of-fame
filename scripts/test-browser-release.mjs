@@ -314,6 +314,18 @@ try{
      const bioEntry=page.locator('#profile-features button.profile-biography-entry[data-feature-target="#legacy-resume"][data-feature-tab="overview"]');
      if(await bioEntry.count()!==1||!(await bioEntry.innerText()).includes('career story'))
       errors.push(width+' '+route+' direct career biography entry missing');
+     else{
+      await bioEntry.click();
+      await page.waitForFunction(()=>document.querySelectorAll('#legacy-resume .career-bio-prose p').length===3,null,{timeout:8000}).catch(()=>{});
+      if(await page.locator('#legacy-resume .career-bio-prose p').count()!==3||
+         !await page.locator('#legacy-resume').isVisible()||
+         !await page.locator('.profile-focus-toolbar').isVisible())
+       errors.push(width+' '+route+' career story failed to open as three readable paragraphs');
+      await page.locator('.profile-focus-toolbar button').click();
+      if(!await page.locator('#profile-features').isVisible()||
+         !await page.locator('body').evaluate(el=>el.classList.contains('profile-landing')))
+       errors.push(width+' '+route+' biography return control did not restore landing page');
+     }
      const direct=page.locator('#profile-features .profile-featured-link');
      if(await direct.count()!==2)
       errors.push(width+' '+route+' Records and Report Card entry points missing');
