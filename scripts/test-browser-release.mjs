@@ -1853,6 +1853,20 @@ try{
           expanded.length===1&&expanded[0].getAttribute('aria-controls')===target;
         },id);
         if(!onlySelected)errors.push(width+' '+slug+' draft topics exposed multiple sections or incorrect expanded state');
+        const activeVisual=await page.evaluate(target=>{
+         const button=document.querySelector('.career-research-topic-button[aria-controls="'+target+'"]');
+         const header=document.getElementById(target)?.querySelector('h4');
+         const css=button&&getComputedStyle(button);
+         const headingCSS=header&&getComputedStyle(header);
+         return {selected:button?.getAttribute('aria-expanded')==='true',
+          highlighted:css?.boxShadow!=='none',
+          headingFocused:document.activeElement===header,
+          headingOutline:headingCSS?.outlineStyle!=='none'&&
+           parseFloat(headingCSS?.outlineWidth||'0')>=2};
+        },id);
+        if(!activeVisual.selected||!activeVisual.highlighted||
+           !activeVisual.headingFocused||!activeVisual.headingOutline)
+         errors.push(width+' '+slug+' '+label+' lacks visible topic selection or heading focus: '+JSON.stringify(activeVisual));
         const readability=await page.evaluate(target=>{
          const root=document.querySelector('.profile-career-resume');
          const topic=document.getElementById(target);
