@@ -662,6 +662,17 @@ try{
        errors.push(width+' incomplete seasonal acquisition usage details');
       await pickupHistory.locator('summary').click();
      }
+     const lineupHistory=firstMethod.locator('details.report-lineup-history');
+     if(await lineupHistory.count()!==1)
+      errors.push(width+' missing historical lineup coverage');
+     else{
+      await lineupHistory.locator(':scope > summary').click();
+      if(await lineupHistory.locator('li').count()!==6||
+         !(await lineupHistory.innerText()).includes('comparable')||
+         !(await lineupHistory.innerText()).includes('Exclusions are documented source gaps'))
+       errors.push(width+' historical lineup season coverage or evidence caveats missing');
+      await lineupHistory.locator(':scope > summary').click();
+     }
      const keeperHistory=firstMethod.locator('details.report-keeper-history');
      if(await keeperHistory.count()!==1)
       errors.push(width+' keeper source detail missing');
@@ -675,6 +686,20 @@ try{
       await keeperHistory.locator('summary').click();
      }
      await firstMethod.locator(':scope > summary').click();
+    }
+    const thommyMethod=page.locator('[data-report-manager="Thommy"] details.report-fact-method');
+    if(await thommyMethod.count()!==1)
+     errors.push(width+' Thommy historical source evidence missing');
+    else{
+     await thommyMethod.locator(':scope > summary').click();
+     const bySeason=thommyMethod.locator('details.report-lineup-history');
+     await bySeason.locator(':scope > summary').click();
+     const history=await bySeason.innerText();
+     if(!history.includes('W3 Vacant starting slot')||
+        !history.includes('W9 Vacant starting slot'))
+      errors.push(width+' excluded historical lineup weeks missing factual explanations');
+     await bySeason.locator(':scope > summary').click();
+     await thommyMethod.locator(':scope > summary').click();
     }
     const categoryPanels=page.locator('[data-report-manager] details.report-category-details');
     const evidencePanels=page.locator('[data-report-manager] details.report-evidence-details');

@@ -75,6 +75,9 @@ const page=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
 if(!page.includes("key==='trading'&&row.scores.trading===null")||
    !page.includes("row.coverage.verifiedTradeSides+'/4 verified sides'"))
  throw Error('Unrated trading cards must show verified sample counts');
+if(!page.includes('source exclusions:')||
+   !page.includes('report-lineup-history'))
+ throw Error('Manager lineup exclusions must be explained without grading them');
 if(!page.includes("v===null?'Not rated'")||!page.includes("score===null?'Not rated'"))
  throw Error('N/A grades must be labeled Not rated with descriptive evidence rather than false scores');
 if(!page.includes('buildEvidenceSnapshots(')||!page.includes("evidenceSnapshot(x.name)")||
