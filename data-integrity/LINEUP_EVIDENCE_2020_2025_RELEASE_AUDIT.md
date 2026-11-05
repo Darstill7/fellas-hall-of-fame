@@ -10,6 +10,7 @@
 - Source of truth: `data-integrity/LINEUP_HISTORY_RECEIPT_AUDIT_2020_2025.json`; compact website input `data/lineup_hindsight_coverage_2020_2025.json`.
 - Algorithm: maximize nine filled roster slots from recorded starters and bench after games have finished — QB, 2 RB, 2 WR, TE, 2 RB/WR/TE FLEX, DEF. For comparable weeks, hindsight accuracy = recorded starter points / ex-post optimal recorded-roster points × 100.
 - Exclusion criteria: vacant starting slots, missing/nonfinite player or team scores, impossible starter slot configuration, repeated player IDs, unsupported positions or starter-point mismatches. An excluded week is **not** zero skill or zero accuracy.
+- **League owner clarification (2026-11-04):** Managers have intentionally benched a remaining player while holding a narrow lead to avoid the risk of negative fantasy points. A vacant or incomplete lineup can therefore be a rational score-protection decision, not necessarily negligence. The five observed vacant-slot weeks and three incompatible/incomplete configurations stay excluded without penalty; do not label specific historical weeks intentional without matchup-score, player, lock-time and remaining-opponent evidence. Any future decision-skill model must permit strategic benching as a valid alternative where league rules allow it.
 
 | Season | Team-weeks | Comparable | Excluded |
 |---|---:|---:|---:|
