@@ -90,6 +90,14 @@ assert(new Set(bioTexts).size===10,'Every manager needs a distinct biography');
 assert(read('assets/legacy-resume.js').includes('data/manager_biographies_awards.json'),
  'Career biography renderer must load editorial source');
 
+const profileNav=read('assets/manager-profile-tabs.mjs');
+assert(profileNav.includes('featureDirectory?.querySelector(\'.profile-feature-groups\')?.before(featureToolbar)')&&
+ profileNav.includes('anchor?.before(featureToolbar)')&&
+ profileNav.includes('body.profile-feature-focused .profile-feature-directory{display:none!important}'),
+ 'Focused manager topics must offer contextual Back navigation without a duplicate menu');
+assert(profileNav.includes('profile-feature-unavailable')&&
+ !profileNav.includes("button.setAttribute('aria-disabled','true')"),
+ 'Missing optional research must show retryable status rather than a dead button');
 const encyclopediaRenderer=read('assets/manager-encyclopedia.js');
 assert(encyclopediaRenderer.includes('waiver_award_candidates.json')&&encyclopediaRenderer.includes('v9_trade_engine.json'),'Manager encyclopedia must use source evidence');
 assert(encyclopediaRenderer.includes("encyclopediaUpdated='unavailable'"),'Failed encyclopedia fetch must expose unavailable status');
