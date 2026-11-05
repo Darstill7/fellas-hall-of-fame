@@ -72,7 +72,7 @@ for(const [slug,id] of Object.entries(managers)){
  assert(hero.includes('<h1>'+id+'</h1>'),'Public manager display name must match canonical nickname, including Thommy: '+slug);
  const heroButtons=hero.match(/<div class="buttons">([\s\S]*?)<\/div>/)?.[1]||'';
  assert((heroButtons.match(/<a\b/g)||[]).length===2&&
-  heroButtons.includes('href="#profile-features"')&&heroButtons.includes('href="../"'),
+  heroButtons.includes('href="#franchise-story"')&&heroButtons.includes('href="../"'),
   'Manager hero must have exactly two clear entry actions before JavaScript: '+slug);
  const record=canonical.w+'–'+canonical.l+(canonical.t?'–'+canonical.t:'');
  const match=hero.match(/<strong data-canonical-manager-record="([^"]+)"[^>]*>([^<]+)<\/strong>/);
