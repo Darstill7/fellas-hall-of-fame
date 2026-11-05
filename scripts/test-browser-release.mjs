@@ -692,7 +692,7 @@ try{
       await lineupHistory.locator(':scope > summary').click();
       if(await lineupHistory.locator('li').count()!==6||
          !(await lineupHistory.innerText()).includes('comparable')||
-         !(await lineupHistory.innerText()).includes('Exclusions are documented source gaps'))
+         !(await lineupHistory.innerText()).includes('Excluded weeks are not failures or zero scores'))
        errors.push(width+' historical lineup season coverage or evidence caveats missing');
       await lineupHistory.locator(':scope > summary').click();
      }
@@ -1542,9 +1542,17 @@ try{
       const snapshotStats=snapshot.locator('.profile-snapshot-stats > .stat');
       if(await snapshotStats.count()<3)
        errors.push(width+' '+slug+' career snapshot lost existing verified stat cards');
-      else if(!await snapshotStats.first().isVisible()||
-        await snapshotStats.first().evaluate(el=>getComputedStyle(el).display==='none'))
-       errors.push(width+' '+slug+' career snapshot stat cards are hidden by legacy CSS');
+      const archived=snapshot.locator('details.profile-snapshot-receipts');
+      if(await archived.count()!==1||await archived.evaluate(el=>el.open))
+       errors.push(width+' '+slug+' archived stat disclosure must start collapsed');
+      else{
+       await archived.locator(':scope > summary').click();
+       if(!await snapshotStats.first().isVisible())
+        errors.push(width+' '+slug+' career stats unavailable after opening receipts');
+       await archived.locator(':scope > summary').click();
+       if(await archived.evaluate(el=>el.open))
+        errors.push(width+' '+slug+' archived stat disclosure did not close');
+      }
       const titles=await snapshotStats.locator('small').allTextContents();
       if(!titles.includes('Championships')||
          !titles.includes('Regular-season record')||
@@ -1589,8 +1597,8 @@ try{
        errors.push(width+' '+slug+' profile topic labels or order incorrect');
      }
      const features=page.locator('[data-profile-feature-menu] .profile-feature-button');
-     if(await features.count()!==12)
-      errors.push(width+' '+slug+' missing twelve individually labeled feature destinations');
+     if(await features.count()!==14)
+      errors.push(width+' '+slug+' missing fourteen individually labeled feature destinations');
      else{
       const labels=await features.locator('strong').allTextContents();
       for(const label of ['Championships & career record','Season-by-season results',
@@ -1601,7 +1609,7 @@ try{
       const destinations=await features.evaluateAll(nodes=>nodes.map(x=>x.tagName==='A'?
        {href:x.getAttribute('href'),label:x.querySelector('strong')?.textContent}:
        {target:x.dataset.featureTarget,tab:x.dataset.featureTab||null}));
-      if(destinations.some(d=>d.href&&!d.href.includes('manager=')||
+      if(destinations.some(d=>d.href&&!d.href.startsWith('#')&&!d.href.includes('manager=')||
         d.target&&!d.target.startsWith('.')&&!d.target.startsWith('#')))
        errors.push(width+' '+slug+' feature button destination invalid');
       if(!await page.locator('body').evaluate(el=>el.classList.contains('profile-landing')))
