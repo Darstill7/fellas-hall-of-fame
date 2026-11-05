@@ -1538,21 +1538,28 @@ try{
    }
    if(route.startsWith('managers/')&&route.endsWith('/')&&slugs.includes(route.split('/')[1])){
     const slug=route.split('/')[1];
-    if(['stilly','stew','tom','stover','birch'].includes(slug)){
-     const story=page.locator('#franchise-story');
-     const wlt=story.locator('[data-canonical-manager-record]');
-     const games=story.locator('[data-canonical-manager-games]');
-     if(await wlt.count()!==1||await games.count()!==1)errors.push(width+' '+route+' biography career bindings absent');
-     else {
-      if(await wlt.getAttribute('data-canonical-updated')!=='yes'||await games.getAttribute('data-canonical-updated')!=='yes')errors.push(width+' '+route+' biography career bindings failed to load canonical data');
-      const canonicalId=slug==='tom'?'Thommy':slug[0].toUpperCase()+slug.slice(1);
-      const careerResponse=await page.request.get(baseUrl+'data/career_core_generated.json');
-      const career=(await careerResponse.json()).managers[canonicalId];
-      const expected=career.w+'–'+career.l+(career.t?'–'+career.t:'');
-      if((await wlt.textContent()).trim()!==expected||(await games.textContent()).trim()!==String(career.games))
-       errors.push(width+' '+route+' biography values disagree with canonical career record');
-     }
-    }
+    // Older profiles duplicated WLT/game counts inside their story sections.
+    // The clean hierarchy now has one canonical record in the hero, with
+    // a short editorial overview and no competing career-stat cards.
+    const story=page.locator('#franchise-story');
+    const summary=story.locator('p.lead');
+    if(await summary.count()!==1||
+       (await summary.innerText()).trim().length<120||
+       (await summary.innerText()).trim().length>550)
+     errors.push(width+' '+route+' franchise overview is missing or too long');
+    if(await story.locator('[data-canonical-manager-record], [data-canonical-manager-games], .story-facts, details.story-detail').count()!==0)
+     errors.push(width+' '+route+' franchise overview repeats source stats or an obsolete story disclosure');
+    const verifiedHeroRecord=page.locator('main .hero [data-canonical-manager-record]');
+    await page.waitForFunction(()=>document.querySelector('main .hero [data-canonical-manager-record]')?.dataset.canonicalUpdated==='yes',null,{timeout:8000}).catch(()=>{});
+    const canonicalId=slug==='tom'?'Thommy':slug==='jmid'?'JMid':slug[0].toUpperCase()+slug.slice(1);
+    const careerResponse=await page.request.get(baseUrl+'data/career_core_generated.json');
+    const career=(await careerResponse.json()).managers[canonicalId];
+    const expected=career.w+'–'+career.l+(career.t?'–'+career.t:'');
+    if(await verifiedHeroRecord.count()!==1||
+       await verifiedHeroRecord.getAttribute('data-canonical-updated')!=='yes'||
+       (await verifiedHeroRecord.textContent()).trim()!==expected||
+       !(await verifiedHeroRecord.getAttribute('title')||'').includes(career.games+' archived games'))
+     errors.push(width+' '+route+' canonical career record or game coverage missing from main hero');
     const nickname=page.locator('main .hero .manager-nickname-origin');
     if(await nickname.count()!==1)errors.push(width+' '+slug+' nickname origin panel missing');
     else{
