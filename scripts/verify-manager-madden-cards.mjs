@@ -100,7 +100,11 @@ console.log('Homepage manager-first hierarchy PASS');
 
 const stoverProfile=fs.readFileSync('managers/stover/index.html','utf8');
 const profileTabs=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
-for(const tab of ['overview','seasons','rivalries','advanced'])if(!stoverProfile.includes('data-profile-tab="'+tab+'"')||!profileTabs.includes(tab+':new Set('))throw Error('Stover profile missing navigation tab '+tab);
+for(const [tab,label] of [['overview','Career'],['seasons','Each Year'],['rivalries','Head-to-Head'],['advanced','Deep Stats']])
+ if(!profileTabs.includes("['"+tab+"','"+label+"']")||!profileTabs.includes(tab+':new Set('))
+  throw Error('Shared profile navigator missing '+tab+' tab');
+if(!stoverProfile.includes('class="profile-chapters')||!stoverProfile.includes('manager-profile-tabs.mjs'))
+ throw Error('Stover does not load shared four-tab manager navigation');
 if(!stoverProfile.includes('manager-profile-tabs.mjs')||!stoverProfile.includes('.section[hidden]{display:none!important}'))throw Error('Stover profile tab presentation incomplete');
 if(stoverProfile.includes('verified title season is 2023')||!stoverProfile.includes('Stover won the league championship in 2022'))throw Error('Stover title narrative regressed');
 for(const anchor of ['franchise-story','season-history','head-to-head','franchise-encyclopedia','verified-history-panel','weekly-game-log'])if(!stoverProfile.includes('id="'+anchor+'"'))throw Error('Stover archival profile section missing '+anchor);
