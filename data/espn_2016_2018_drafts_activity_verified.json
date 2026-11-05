@@ -161,7 +161,8 @@
         "configuredBudget": 100,
         "isUsingAcquisitionBudget": false,
         "observedSpending": 0,
-        "analysisRule": "Grade acquisition activity separately from FAAB, which was disabled"
+        "analysisRule": "Traditional waiver/free-agent acquisitions; no FAAB bidding or FAAB efficiency grades.",
+        "system": "Traditional waivers/free agents"
       },
       "sourceMatchupCount": 60,
       "teams": [
@@ -321,8 +322,10 @@
       "scoring": {
         "receptionPoints": 0,
         "scoringFormat": "standard (non-PPR)",
-        "source": "ESPN scoringSettings.scoringItems: no receptions statistic (statId 53) points rule present",
-        "comparabilityWarning": "Do not evaluate these seasons using 2019 half-PPR scoring or compare unadjusted positional draft value across scoring formats."
+        "source": "ESPN scoring settings, original 2016–2018 matchup ledger and league-manager confirmation on 2026-11-05",
+        "comparabilityWarning": "Keep original-era scoring exactly as recorded; do not retroactively re-score historic matchups using later half-PPR or decimal settings.",
+        "displayedScorePrecision": "whole_number",
+        "scoreDisplayPolicy": "League used whole-number scoring with scores rounded to the nearest point (user-confirmed; original ESPN source records integers)"
       }
     },
     "2017": {
@@ -516,7 +519,8 @@
         "configuredBudget": 100,
         "isUsingAcquisitionBudget": false,
         "observedSpending": 0,
-        "analysisRule": "Grade acquisition activity separately from FAAB, which was disabled"
+        "analysisRule": "Traditional waiver/free-agent acquisitions; no FAAB bidding or FAAB efficiency grades.",
+        "system": "Traditional waivers/free agents"
       },
       "sourceMatchupCount": 70,
       "teams": [
@@ -714,8 +718,10 @@
       "scoring": {
         "receptionPoints": 0,
         "scoringFormat": "standard (non-PPR)",
-        "source": "ESPN scoringSettings.scoringItems: no receptions statistic (statId 53) points rule present",
-        "comparabilityWarning": "Do not evaluate these seasons using 2019 half-PPR scoring or compare unadjusted positional draft value across scoring formats."
+        "source": "ESPN scoring settings, original 2016–2018 matchup ledger and league-manager confirmation on 2026-11-05",
+        "comparabilityWarning": "Keep original-era scoring exactly as recorded; do not retroactively re-score historic matchups using later half-PPR or decimal settings.",
+        "displayedScorePrecision": "whole_number",
+        "scoreDisplayPolicy": "League used whole-number scoring with scores rounded to the nearest point (user-confirmed; original ESPN source records integers)"
       }
     },
     "2018": {
@@ -909,7 +915,8 @@
         "configuredBudget": 100,
         "isUsingAcquisitionBudget": false,
         "observedSpending": 0,
-        "analysisRule": "Grade acquisition activity separately from FAAB, which was disabled"
+        "analysisRule": "Traditional waiver/free-agent acquisitions; no FAAB bidding or FAAB efficiency grades.",
+        "system": "Traditional waivers/free agents"
       },
       "sourceMatchupCount": 81,
       "teams": [
@@ -1107,9 +1114,31 @@
       "scoring": {
         "receptionPoints": 0,
         "scoringFormat": "standard (non-PPR)",
-        "source": "ESPN scoringSettings.scoringItems: no receptions statistic (statId 53) points rule present",
-        "comparabilityWarning": "Do not evaluate these seasons using 2019 half-PPR scoring or compare unadjusted positional draft value across scoring formats."
+        "source": "ESPN scoring settings, original 2016–2018 matchup ledger and league-manager confirmation on 2026-11-05",
+        "comparabilityWarning": "Keep original-era scoring exactly as recorded; do not retroactively re-score historic matchups using later half-PPR or decimal settings.",
+        "displayedScorePrecision": "decimal",
+        "scoreDisplayPolicy": "Original ESPN decimal scoring; retain original decimal points"
       }
     }
-  }
+  },
+  "ruleTransitions": [
+    {
+      "effectiveSeason": 2016,
+      "receptionScoring": "standard",
+      "waivers": "traditional waiver/free-agent",
+      "scorePrecision": "whole-number scores (rounded to nearest point)"
+    },
+    {
+      "effectiveSeason": 2018,
+      "receptionScoring": "standard",
+      "waivers": "traditional waiver/free-agent",
+      "scorePrecision": "decimal scores"
+    },
+    {
+      "effectiveSeason": 2019,
+      "receptionScoring": "half-PPR",
+      "waivers": "FAAB",
+      "scorePrecision": "decimal scores"
+    }
+  ]
 }
