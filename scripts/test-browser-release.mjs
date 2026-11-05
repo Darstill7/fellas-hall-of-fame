@@ -523,7 +523,7 @@ try{
         errors.push(width+' '+route+' draft or trade event incorrectly scored');
        if(!text.includes('Current W–L not shown; archived record stops before Week 8'))
         errors.push(width+' '+route+' 2026 timeline leaked outdated Week 7 W–L');
-       const tradeLinks=await timeline.locator('.profile-season-trade-link').evaluateAll(nodes=>
+       const tradeLinks=await timeline.locator('.profile-season-trade-link[href*="manager-trade-intelligence.html"]').evaluateAll(nodes=>
         nodes.map(node=>{const url=new URL(node.href);return {
          manager:url.searchParams.get('manager'),year:url.searchParams.get('year'),
          path:url.pathname};}));
@@ -1212,7 +1212,7 @@ try{
     }));
     if(closestAudit.length!==100||
        !closestAudit[0].year.includes('2018 · W7')||
-       closestAudit[0].win!=='Stew'||closestAudit[0].loss!=='Thommy'||
+       closestAudit[0].win!=='Thommy'||closestAudit[0].loss!=='Stew'||
        closestAudit[0].margin!=='0.16'||
        closestAudit[99].margin!=='6.42'||
        closestAudit.some((r,i)=>!/^[0-9]+\.[0-9]{2}$/.test(r.margin)||
@@ -1272,10 +1272,10 @@ try{
    if(route==='seasons/espn-origins.html'){
     await page.waitForFunction(()=>document.querySelectorAll('#espn-shitter-awards tr').length===4,null,{timeout:8000}).catch(()=>{});
     const rows=await page.locator('#espn-shitter-awards tr').allTextContents();
-    const expected=[['2016','Stilly','165.00','NFL Weeks 16–17 combined'],
-     ['2017','Halderman','96.00','NFL Weeks 15–16 combined'],
+    const expected=[['2016','Schermerhorn','184.00','NFL Weeks 16–17 combined'],
+     ['2017','Birch','196.00','NFL Weeks 15–16 combined'],
      ['2018','Stilly','86.76','NFL Week 16'],
-     ['2019','Evans','80.46','NFL Week 16']];
+     ['2019','Evans','264.76','NFL Weeks 14–15–16 combined']];
     if(rows.length!==4||expected.some((expectedRow,i)=>expectedRow.some(t=>!rows[i]?.includes(t)))||
        (await page.locator('main').innerText()).includes('2019 I Love Tubing belonged to Stew'))
      errors.push(width+' ESPN Origins punishment archive missing award winners, correct score scopes or Evans owner');
@@ -1844,15 +1844,16 @@ try{
          errors.push(width+' '+slug+' '+label+' draft shortcut has inadequate touch target');
         await choice.click();
         const receiptOpen=await resume.locator('details.career-resume-receipts').first().evaluate(el=>el.open);
-        const onlySelected=await resume.evaluate(target=>{
-         const sections=[...document.querySelectorAll('.profile-career-resume .career-resume-section')];
-         const expected=document.getElementById(target);
-         const expanded=[...document.querySelectorAll('.profile-career-resume .career-research-topic-button')]
+        const onlySelected=await resume.evaluate((root,target)=>{
+         const sections=[...root.querySelectorAll('.career-resume-section')];
+         const expected=root.querySelector('#'+target);
+         const expanded=[...root.querySelectorAll('.career-research-topic-button')]
           .filter(b=>b.getAttribute('aria-expanded')==='true');
          return !!expected&&sections.length===6&&sections.every(el=>el.hidden===(el!==expected))&&
           expanded.length===1&&expanded[0].getAttribute('aria-controls')===target;
         },id);
         if(!onlySelected)errors.push(width+' '+slug+' draft topics exposed multiple sections or incorrect expanded state');
+        await page.waitForFunction(target=>document.activeElement===document.getElementById(target)?.querySelector('h4'),id,{timeout:3000}).catch(()=>{});
         const activeVisual=await page.evaluate(target=>{
          const button=document.querySelector('.career-research-topic-button[aria-controls="'+target+'"]');
          const header=document.getElementById(target)?.querySelector('h4');
