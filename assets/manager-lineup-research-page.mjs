@@ -30,7 +30,7 @@ async function renderHistoricalCoverage(){
   }
   table.append(body);wrap.append(table);details.append(wrap);
   const note=document.createElement('p');
-  note.textContent='Five archived observations had vacant starting slots and three had incomplete or incompatible starter configurations. Excluded weeks have no modeled percentage. These are postgame comparisons under assumed historical slots, not certified pre-kickoff decisions.';
+  note.textContent='Five archived observations had vacant starting slots and three had incomplete or incompatible starter configurations. Managers sometimes intentionally bench a remaining player to protect a narrow lead from potential negative points; a vacancy is not automatically a mistake. Intent for these specific weeks is unverified. All eight remain excluded without penalty. These are postgame comparisons, not certified pre-kickoff decisions.';
   details.append(note);target.replaceChildren(details);
  }catch(err){
   target.textContent='Historical coverage summary could not be verified. The original weekly records remain available below.';
