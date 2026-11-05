@@ -70,6 +70,16 @@ if(!ratingCard.includes("manager.breakdown[key]/WEIGHTS[key]")||
  !ratingCard.includes("Most room in the model")||
  !ratingCard.includes("not league-wide category ranks"))
  throw Error('Career rating strength summaries must be normalized and properly qualified');
+// A compact cross-era career résumé must remain data-backed and linked to the
+// detailed record book, rather than inventing unsourced achievement totals.
+const careerResumeUi=fs.readFileSync('assets/manager-playoff-resume.mjs','utf8');
+const careerResumeCss=fs.readFileSync('assets/manager-profile-readability.css','utf8');
+for(const required of ["'Career résumé'","resume.allEraSummary.topThree","Most recent completed season: ","Best finish: #","encodeURIComponent(resume.manager)"]){
+ if(!careerResumeUi.includes(required))throw Error('Career résumé evidence or record-book navigation missing: '+required);
+}
+if(!careerResumeCss.includes('.profile-career-finish-summary')||
+ !careerResumeCss.includes('.profile-career-record-link'))
+ throw Error('Responsive career résumé styling is missing');
 const guide=JSON.parse(fs.readFileSync('data/season_guide.json','utf8'));
 const names={stilly:'Stilly',jmid:'JMid',tom:'Thommy',stew:'Stew',scott:'Scott',mitch:'Mitch',tony:'Tony',stover:'Stover',kuhl:'Kuhl',birch:'Birch'};
 for(const slug of managers){
