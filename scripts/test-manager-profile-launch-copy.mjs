@@ -96,7 +96,7 @@ if(!tabsSource.includes("profile-career-highlights")||
 for(const required of [
  "profile-snapshot-receipts","profile-snapshot-condensed",
  "evidence.append(summary,originalStats)","if(source)evidence.append(source)",
- "if(records)records.after(evidence)"
+ "if(records)evidence.append(records)"
 ]){
  if(!tabsSource.includes(required)&&!profileStyles.includes(required))
   throw Error('Manager profile source-preserving cleanup is missing: '+required);
