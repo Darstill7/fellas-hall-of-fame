@@ -321,9 +321,13 @@ try{
          !await page.locator('#legacy-resume').isVisible()||
          !await page.locator('.profile-focus-toolbar').isVisible())
        errors.push(width+' '+route+' career story failed to open as three readable paragraphs');
+      if(!await page.locator('#legacy-resume').evaluate(el=>el.classList.contains('profile-biography-focus'))||
+         await page.locator('#legacy-resume > .stats').isVisible())
+       errors.push(width+' '+route+' biography focus still exposes the unrelated résumé stat tiles');
       await page.locator('.profile-focus-toolbar button').click();
       if(!await page.locator('#profile-features').isVisible()||
-         !await page.locator('body').evaluate(el=>el.classList.contains('profile-landing')))
+         !await page.locator('body').evaluate(el=>el.classList.contains('profile-landing'))||
+         await page.locator('#legacy-resume').evaluate(el=>el.classList.contains('profile-biography-focus')))
        errors.push(width+' '+route+' biography return control did not restore landing page');
      }
      const direct=page.locator('#profile-features .profile-featured-link');
