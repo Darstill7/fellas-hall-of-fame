@@ -1,6 +1,7 @@
 import {buildDraftTradeCareer} from './manager-draft-trade-career.mjs';
 import {buildDraftProduction} from './manager-draft-production.mjs';
 import {buildDraftRoundPeers} from './manager-draft-round-peers.mjs';
+import {buildDraftPositionPeers} from './manager-draft-position-peers.mjs';
 import {tradeEvents} from './manager-trade-intelligence.mjs';
 // Compact, original-manager career archive. No performance or skill grades.
 const root='../../';
@@ -44,6 +45,8 @@ export async function mountDraftTradeCareer(host,manager){
   const career=buildDraftTradeCareer(source.rows,manager);
   const production=buildDraftProduction(draftProductionRows,manager);
   const peerStudy=buildDraftRoundPeers(draftProductionRows,manager);
+  const positionStudy=buildDraftPositionPeers(draftProductionRows,manager);
+  if(positionStudy.selectedPicks!==production.selectionCount)throw Error('Position-peer source scope mismatch');
   if(peerStudy.selectedPicks!==production.selectionCount)throw Error('Round-peer receipt scope differs from draft production');
   const related=tradeEvents(trade).filter(event=>
    event.complete&&event.managers.includes(manager)&&event.year<=2025).slice(0,3);
@@ -167,6 +170,32 @@ export async function mountDraftTradeCareer(host,manager){
    }
   }else peersSection.append(elt('p','muted','No completed-season non-keeper picks to compare.'));
   details.append(peersSection);
+  const positionSection=elt('section','career-resume-section career-draft-position-peers');
+  positionSection.append(elt('h4',null,'Position-aware draft comparisons · research only'));
+  positionSection.append(elt('p','muted',
+   'Each original non-keeper pick is compared with other picks from the same season and position. Exact-round peers are preferred; if fewer than five other selections qualify, the pool expands to rounds one earlier or later. Picks with fewer than five comparable peers remain unavailable.'));
+  positionSection.append(elt('p','muted',
+   'These are original-manager regular-season started points, not full-season player output. Different roles within the same position, games missed, trades, and lineup choices still affect the result. This is not injury-adjusted draft value or a manager skill grade. No OVR or Report Card is changed.'));
+  positionSection.append(elt('p',null,
+   positionStudy.comparablePicks+' of '+positionStudy.selectedPicks+' picks have position-aware peers · '+
+   positionStudy.exactCount+' exact-round · '+positionStudy.adjacentCount+
+   ' adjacent-round · '+positionStudy.unavailableCount+' insufficient evidence.'));
+  for(const season of positionStudy.byYear)
+   positionSection.append(elt('p','career-resume-example',
+    season.year+' · '+season.exact+' exact / '+season.adjacent+' adjacent / '+
+    season.unavailable+' unavailable · '+season.above+' above, '+season.tied+
+    ' tied, '+season.below+' below their respective peer medians'));
+  if(positionStudy.examples.length){
+   const examples=elt('details','career-resume-receipts');
+   examples.append(elt('summary',null,'View positive position-aware examples and sample sizes'));
+   for(const pick of positionStudy.examples)
+    examples.append(elt('p','career-resume-example',pick.year+' · R'+pick.round+' '+pick.player+
+     ' ('+pick.position+') · '+pick.points.toFixed(1)+' pts vs '+
+     pick.peerMedian.toFixed(1)+' median · +'+pick.difference.toFixed(1)+
+     ' · '+pick.peerCount+' '+(pick.comparisonTier==='exact_round'?'exact-round':'adjacent-round')+' peers'));
+   positionSection.append(examples);
+  }
+  details.append(positionSection);
   const tradeSection=elt('section','career-resume-section career-resume-trades');
   tradeSection.append(elt('h4',null,'Recent source-verified trade records'));
   if(!related.length)tradeSection.append(elt('p','muted',
