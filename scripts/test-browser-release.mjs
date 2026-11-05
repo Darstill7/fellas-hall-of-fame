@@ -1902,6 +1902,22 @@ try{
         [...el.querySelectorAll('.career-resume-section')].every(section=>section.hidden)&&
         [...el.querySelectorAll('.career-research-topic-button')].every(button=>button.getAttribute('aria-expanded')==='false'));
        if(!collapsed)errors.push(width+' '+slug+' return should collapse the long research content');
+       if(width===390){
+        // 320px narrow-phone audit without multiplying full-site route visits.
+        await page.setViewportSize({width:320,height:720});
+        const narrow=await page.evaluate(()=>{
+         const menu=document.querySelector('.career-research-topics-grid');
+         const buttons=[...menu.querySelectorAll('button')];
+         const columns=getComputedStyle(menu).gridTemplateColumns.split(' ').filter(Boolean);
+         return {columns:columns.length,
+          minTap:Math.min(...buttons.map(b=>b.getBoundingClientRect().height)),
+          overflow:document.documentElement.scrollWidth>window.innerWidth+2,
+          buttons:buttons.length};
+        });
+        if(narrow.columns!==1||narrow.minTap<44||narrow.overflow||narrow.buttons!==6)
+         errors.push(width+' '+slug+' narrow 320px draft layout failed: '+JSON.stringify(narrow));
+        await page.setViewportSize({width:390,height:844});
+       }
       }
       await researchShelf.evaluate(el=>el.open=false);
       if(!await page.locator('.profile-focus-toolbar').isVisible())
