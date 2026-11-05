@@ -1,6 +1,7 @@
+import {validateLineupCoverage} from './lineup-history-coverage.mjs';
 // Descriptive historical evidence. These values NEVER become implicit manager skill ratings.
 export const ACTIVE_MANAGERS=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
-export function buildEvidenceSnapshots({placements,acquisitions,pickupSeasons=null,keeperResearch,keeper2026=null,startSit,draftTrade,faab=null}){
+export function buildEvidenceSnapshots({placements,acquisitions,pickupSeasons=null,keeperResearch,keeper2026=null,startSit,draftTrade,faab=null,lineupHistory=null}){
  const map=new Map();
  const unique=(rows,label)=>{const d=new Map();for(const row of rows){if(d.has(row.manager))throw Error('Duplicate '+label+' manager '+row.manager);d.set(row.manager,row)}return d};
  const finish=unique(placements.managers,'finishing');
@@ -9,6 +10,7 @@ export function buildEvidenceSnapshots({placements,acquisitions,pickupSeasons=nu
  const currentKeepers=keeper2026?unique(keeper2026.rows,'2026 keeper'):new Map();
  const accuracy=unique(startSit.data,'start/sit');
  const faabMap=faab?unique(faab.managerTotals,'FAAB'):new Map();
+ const lineupMap=lineupHistory?unique(validateLineupCoverage(lineupHistory).managers,'historical lineup'):new Map();
  const pickupSeasonMap=new Map();
  if(pickupSeasons)for(const item of pickupSeasons.rows){
   if(!pickupSeasonMap.has(item.manager))pickupSeasonMap.set(item.manager,[]);
@@ -23,8 +25,8 @@ export function buildEvidenceSnapshots({placements,acquisitions,pickupSeasons=nu
  if(keeperResearch.season!==2025||(keeper2026&&(keeper2026.season!==2026||keeper2026.throughWeek!==8))||startSit.season!==2026||startSit.throughWeek!==8)
   throw Error('Descriptive keeper and lineup source periods changed');
  for(const name of ACTIVE_MANAGERS){
-  const f=finish.get(name),a=pickups.get(name),k=keepers.get(name),current=currentKeepers.get(name),h=accuracy.get(name),bid=faabMap.get(name);
-  if(!f||!a||!k||!h||(faab&&!bid)||(keeper2026&&!current))throw Error('Missing manager evidence for '+name);
+  const f=finish.get(name),a=pickups.get(name),k=keepers.get(name),current=currentKeepers.get(name),h=accuracy.get(name),bid=faabMap.get(name),lineup=lineupMap.get(name);
+  if(!f||!a||!k||!h||(faab&&!bid)||(keeper2026&&!current)||(lineupHistory&&!lineup))throw Error('Missing manager evidence for '+name);
   if(!Number.isInteger(f.seasonsPlayed)||f.seasonsPlayed<1||
      !Number.isFinite(f.meanFinishScore)||!Number.isInteger(f.topThree)||
      !Number.isInteger(a.distinctSeasonPlayerAcquisitions)||
@@ -82,6 +84,12 @@ export function buildEvidenceSnapshots({placements,acquisitions,pickupSeasons=nu
         starts:p.starts,startedPoints:p.startedPoints,transferredDuringSeason:p.transferredDuringSeason})),
        gradeStatus:'not-rated'}:null,
      gradeStatus:'not-rated'},
+   historicalLineup:lineup?{period:'2020–2025',observedWeeks:lineup.observedWeeks,
+     comparableWeeks:lineup.comparableWeeks,excludedWeeks:lineup.excludedWeeks,
+     averageHindsightAccuracy:lineup.averageHindsightAccuracy,
+     averageHindsightGap:lineup.averageHindsightGap,
+     seasons:lineupHistory.managerSeasons.filter(s=>s.manager===name).sort((a,b)=>a.year-b.year),
+     gradeStatus:'not-rated'}:null,
    startSit:{season:2026,throughWeek:8,accuracyPercent:h.accuracyPercent,
      gradeStatus:'not-rated',basis:'Sleeper UI screenshot'},
    drafts:{documentedSeasonCount:draftYears.length,years:draftYears,
