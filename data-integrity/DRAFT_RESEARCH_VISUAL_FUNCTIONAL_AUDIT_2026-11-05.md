@@ -8,10 +8,10 @@ Release approval: **NOT GRANTED**
 - Canonical data/evidence gates unchanged; no drafting grade introduced
 
 ## Repository review findings and fixes
-1. **Unnecessary disclosure depth**: users previously had to open a manager feature, then another research receipt, then scan through six long research sections. Added a six-choice topic navigator, opening the correct disclosure and focusing its heading with one topic click once inside the résumé.
+1. **Unnecessary disclosure depth**: users previously had to open a manager feature, then another research receipt, then scan through six long research sections. Added a six-choice topic navigator, opening the correct disclosure and focusing its heading with one topic click once inside the résumé. Each section now has a keyboard-accessible return-to-topics action.
 2. **Dense research typography**: introduced stronger h4 hierarchy, 13px/1.72 evidence copy, spacing between example rows, explicit borders and compact, high-contrast topic buttons.
 3. **Mobile targets**: >=52px topic-button height; 2 columns under 700px and 1 column under 365px; focus-visible outlines and scroll margin.
-4. **Functional regression**: extended the existing Chromium/WebKit route suite to check six topic options, Position peers/Trades reveal-and-focus, >=44px target height, visibility within viewport and absence of page-level horizontal overflow.
+4. **Functional regression**: extended the existing Chromium/WebKit route suite to check six topic options, Position peers/Trades reveal-and-focus, return-to-topics keyboard focus, >=44px target height, visibility within viewport and absence of page-level horizontal overflow.
 5. **Visual evidence capture**: when FELLAS_VISUAL_AUDIT=1, capture `drafting-trading-focused.png` at the tested browser width in the visual-audit artifact directory. Screenshots must be actually inspected before sign-off.
 6. **Source integrity**: extended `scripts/verify-draft-production.mjs` to enforce topic links, keyboard focus semantics, minimum target styling and browser-test presence.
 
