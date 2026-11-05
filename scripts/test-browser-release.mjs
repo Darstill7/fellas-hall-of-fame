@@ -287,9 +287,32 @@ try{
      const designatedSnapshot=page.locator('main .hero [data-profile-career-snapshot]');
      if(await heroStats.count()!==1||
         await designatedSnapshot.count()!==1||
-        await designatedSnapshot.locator(':scope > .stats').count()!==1||
+        await designatedSnapshot.locator('details.profile-snapshot-receipts .stats').count()!==1||
         await page.locator('main .hero > .stats').count()!==0)
       errors.push(width+' '+route+' career statistics duplicated or missing from the intended snapshot');
+     const evidence=designatedSnapshot.locator('details.profile-snapshot-receipts');
+     if(await evidence.count()!==1||await evidence.evaluate(el=>el.open))
+      errors.push(width+' '+route+' verified source disclosure must begin collapsed');
+     else{
+      await evidence.locator(':scope > summary').click();
+      if(!await evidence.evaluate(el=>el.open)||
+         await evidence.locator('.stat').count()!==3||
+         !await evidence.locator('.stats').isVisible())
+       errors.push(width+' '+route+' archived career stats fail to expand');
+      await evidence.locator(':scope > summary').click();
+     }
+     const direct=page.locator('#profile-features .profile-featured-link');
+     if(await direct.count()!==3)
+      errors.push(width+' '+route+' three manager entry points missing');
+     const weighted=heroMadden.locator('details.profile-rating-components');
+     if(await weighted.count()!==1||await weighted.evaluate(el=>el.open))
+      errors.push(width+' '+route+' canonical weight breakdown unavailable or expanded on load');
+     else{
+      await weighted.locator(':scope > summary').click();
+      if(await weighted.locator('.profile-rating-factor').count()!==8)
+       errors.push(width+' '+route+' expected eight source-backed rating factors');
+      await weighted.locator(':scope > summary').click();
+     }
      const facts=heroMadden.locator(':scope > .profile-madden-facts > span');
      if(await facts.count()!==5)
       errors.push(width+' '+route+' primary career card should show five readable metrics');
