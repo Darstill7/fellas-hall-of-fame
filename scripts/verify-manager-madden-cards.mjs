@@ -107,9 +107,20 @@ for(const anchor of ['franchise-story','season-history','head-to-head','franchis
 console.log('Stover four-tab profile structure and title historical correction PASS');
 
 const kissStover=fs.readFileSync('managers/stover/index.html','utf8');
-if(!kissStover.includes('class="story-facts"')||!kissStover.includes('<summary>Read the full story</summary>'))throw Error('Stover KISS summary/full-story progressive disclosure missing');
-if(!kissStover.includes('data-canonical-manager-games="Stover"')||!kissStover.includes('data-canonical-manager-record="Stover"'))throw Error('Stover KISS career facts disconnected from canonical history');
-console.log('Stover simplified career story and canonical record bindings PASS');
+const canonicalBiography=JSON.parse(fs.readFileSync('data/manager_biographies_awards.json','utf8')).managers.Stover?.biography;
+const biographyLoader=fs.readFileSync('assets/legacy-resume.js','utf8');
+if(!kissStover.includes('id="franchise-story"')||
+   !kissStover.includes('data-legacy-resume="Stover"')||
+   !kissStover.includes('src="../../assets/legacy-resume.js"')||
+   !biographyLoader.includes('career-bio-prose')||
+   !biographyLoader.includes('manager_biographies_awards.json')||
+   !canonicalBiography?.includes('2022'))
+ throw Error('Stover concise intro and fully sourced biography are not connected');
+if(!kissStover.includes('data-canonical-manager-record="Stover"')||
+   !kissStover.includes('id="verified-history-panel"')||
+   !kissStover.includes('data-season-history="Stover"'))
+ throw Error('Stover career and season facts disconnected from canonical history');
+console.log('Stover concise profile, full biography and canonical record bindings PASS');
 
 const scoutingTemplate=fs.readFileSync('assets/manager-profile-madden.mjs','utf8');
 if(!scoutingTemplate.includes('Championship Games')||!scoutingTemplate.includes('manager.titleYears.length+manager.runnerYears.length'))throw Error('Profile finals count must include wins and runner-up finishes');
