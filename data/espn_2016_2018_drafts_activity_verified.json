@@ -154,7 +154,9 @@
           2977609,
           5362
         ],
-        "note": "Player IDs are source-verified, not player display names. Signed negative IDs are ESPN team D/ST. Every round follows a snake sequence."
+        "note": "Player IDs are source-verified, not player display names. Signed negative IDs are ESPN team D/ST. Every round follows a snake sequence.",
+        "pickOrderVerified": true,
+        "sourceOrderInterpretation": "ESPN recorded snake draft selection order"
       },
       "waivers": {
         "acquisitionType": "WAIVERS_TRADITIONAL",
@@ -512,7 +514,9 @@
           -16001,
           14032
         ],
-        "note": "Player IDs are source-verified, not player display names. Signed negative IDs are ESPN team D/ST. Every round follows a snake sequence."
+        "note": "Player IDs are source-verified, not player display names. Signed negative IDs are ESPN team D/ST. Every round follows a snake sequence.",
+        "pickOrderVerified": true,
+        "sourceOrderInterpretation": "ESPN recorded draft pick sequence; source-ordered rounds plausible"
       },
       "waivers": {
         "acquisitionType": "WAIVERS_TRADITIONAL",
@@ -908,7 +912,12 @@
           15920,
           2985659
         ],
-        "note": "Player IDs are source-verified, not player display names. Signed negative IDs are ESPN team D/ST. Every round follows a snake sequence."
+        "note": "Player IDs are source-verified, not player display names. Signed negative IDs are ESPN team D/ST. Every round follows a snake sequence.",
+        "pickOrderVerified": false,
+        "sourceOrderInterpretation": "ESPN offline draft import ordered by fantasy roster positions, not demonstrably the actual chronological draft",
+        "sourceOrderEvidence": "All 10 first export rows were QBs, all 10 second rows RBs, all 10 third rows RBs, all 10 fourth rows WRs, all 10 fifth rows WRs, and all 10 sixth rows TEs; this is position-grouped and not credible as a normal live chronological selection order.",
+        "overallPickAndRoundAccuracy": "UNVERIFIED: preserve the 160 athlete IDs and team assignments, but do not publish exported sequence as real draft pick numbers, steals, or reaches until a genuine draft log is recovered.",
+        "athleteIdentitiesVerifiedSeparately": true
       },
       "waivers": {
         "acquisitionType": "WAIVERS_TRADITIONAL",
