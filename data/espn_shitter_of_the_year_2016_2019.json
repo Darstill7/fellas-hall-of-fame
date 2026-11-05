@@ -1,0 +1,294 @@
+{
+  "version": 1,
+  "scope": "ESPN historical 2016–2019",
+  "award": "Shitter of the Year",
+  "userConfirmedDefinition": "Lowest scoring team in final consolation round",
+  "interpretation": "Only the LOSERS_CONSOLATION_LADDER final round is eligible, not the winners' consolation ladder. For 2016–2017 the decisive score is the round's two-week aggregate; for 2018 the Week 16 score; for 2019 the actual Week 16 score, with the separate three-week cumulative ladder retained as historical placement evidence.",
+  "identity": {
+    "year2019I_Love_Tubing": "Evans",
+    "year2019StewTeam": "Kickers SUCK",
+    "confirmedByUser": true
+  },
+  "sources": [
+    "data/espn_history_2016_2019.json",
+    "data/unified_record_book_2016_2026.json",
+    "data-integrity/ESPN_PLAYOFF_FORMAT_EVIDENCE_2016_2019.json",
+    "User confirmation 2026-11-05"
+  ],
+  "seasons": {
+    "2016": {
+      "finalRound": "losers_consolation_ladder",
+      "espnPeriod": 15,
+      "scoringCriterion": "lowest scored matchup total in final losers-consolation round",
+      "scoringWeeks": [
+        16,
+        17
+      ],
+      "scoreUnit": "matchup_total",
+      "awardWinner": "Stilly",
+      "awardTeam": "Vick's Out For Harambe",
+      "awardWinningScore": 165,
+      "officialFinish": 6,
+      "lowScoreEntrants": [
+        {
+          "manager": "Stilly",
+          "team": "Vick's Out For Harambe",
+          "espnTeamId": 1,
+          "officialFinish": 6,
+          "finalRoundTotal": 165,
+          "finalWeekScore": 77,
+          "matchupId": 58
+        },
+        {
+          "manager": "Stover",
+          "team": "PurpleHeaded YogurtSlingers",
+          "espnTeamId": 4,
+          "officialFinish": 5,
+          "finalRoundTotal": 183,
+          "finalWeekScore": 73,
+          "matchupId": 58
+        },
+        {
+          "manager": "Schermerhorn",
+          "team": "Team Schermerhorn",
+          "espnTeamId": 8,
+          "officialFinish": 8,
+          "finalRoundTotal": 184,
+          "finalWeekScore": 95,
+          "matchupId": 59
+        },
+        {
+          "manager": "Stew",
+          "team": "Make America  Gronk Again",
+          "espnTeamId": 3,
+          "officialFinish": 7,
+          "finalRoundTotal": 193,
+          "finalWeekScore": 110,
+          "matchupId": 59
+        }
+      ],
+      "measurement": {
+        "originalESPNPeriod": 15,
+        "winnerFinalRoundTotal": 165,
+        "winnerActualFinalWeekPoints": 77,
+        "weeklyBreakdown": {
+          "16": 88,
+          "17": 77
+        },
+        "carriedForwardPoints": 0,
+        "aggregatedTwoWeekRound": true,
+        "cumulativeThreeWeekLadder": false
+      },
+      "evidence": "Original ESPN LOSERS_CONSOLATION_LADDER matchups and user-confirmed award criterion"
+    },
+    "2017": {
+      "finalRound": "losers_consolation_ladder",
+      "espnPeriod": 14,
+      "scoringCriterion": "lowest scored matchup total in final losers-consolation round",
+      "scoringWeeks": [
+        15,
+        16
+      ],
+      "scoreUnit": "matchup_total",
+      "awardWinner": "Halderman",
+      "awardTeam": "Hold Muh Dick",
+      "awardWinningScore": 96,
+      "officialFinish": 6,
+      "lowScoreEntrants": [
+        {
+          "manager": "Halderman",
+          "team": "Hold Muh Dick",
+          "espnTeamId": 2,
+          "officialFinish": 6,
+          "finalRoundTotal": 96,
+          "finalWeekScore": 55,
+          "matchupId": 67
+        },
+        {
+          "manager": "Stover",
+          "team": "Garropolo By The Percy'",
+          "espnTeamId": 4,
+          "officialFinish": 8,
+          "finalRoundTotal": 169,
+          "finalWeekScore": 94,
+          "matchupId": 68
+        },
+        {
+          "manager": "Koble",
+          "team": "Team Koble",
+          "espnTeamId": 6,
+          "officialFinish": 5,
+          "finalRoundTotal": 181,
+          "finalWeekScore": 80,
+          "matchupId": 67
+        },
+        {
+          "manager": "Stew",
+          "team": "Cops and Rodgers",
+          "espnTeamId": 3,
+          "officialFinish": 7,
+          "finalRoundTotal": 186,
+          "finalWeekScore": 99,
+          "matchupId": 68
+        },
+        {
+          "manager": "Birch",
+          "team": "Hogan's Heroes",
+          "espnTeamId": 9,
+          "officialFinish": 10,
+          "finalRoundTotal": 196,
+          "finalWeekScore": 97,
+          "matchupId": 69
+        },
+        {
+          "manager": "Tony",
+          "team": "Tittsburgh Feelers",
+          "espnTeamId": 10,
+          "officialFinish": 9,
+          "finalRoundTotal": 214,
+          "finalWeekScore": 134,
+          "matchupId": 69
+        }
+      ],
+      "measurement": {
+        "originalESPNPeriod": 14,
+        "winnerFinalRoundTotal": 96,
+        "winnerActualFinalWeekPoints": 55,
+        "weeklyBreakdown": {
+          "15": 41,
+          "16": 55
+        },
+        "carriedForwardPoints": 0,
+        "aggregatedTwoWeekRound": true,
+        "cumulativeThreeWeekLadder": false
+      },
+      "evidence": "Original ESPN LOSERS_CONSOLATION_LADDER matchups and user-confirmed award criterion"
+    },
+    "2018": {
+      "finalRound": "losers_consolation_ladder",
+      "espnPeriod": 16,
+      "scoringCriterion": "lowest scored matchup total in final losers-consolation round",
+      "scoringWeeks": [
+        16
+      ],
+      "scoreUnit": "matchup_total",
+      "awardWinner": "Stilly",
+      "awardTeam": "Schaub On My Knob",
+      "awardWinningScore": 86.76,
+      "officialFinish": 10,
+      "lowScoreEntrants": [
+        {
+          "manager": "Stilly",
+          "team": "Schaub On My Knob",
+          "espnTeamId": 1,
+          "officialFinish": 10,
+          "finalRoundTotal": 86.76,
+          "finalWeekScore": 86.76,
+          "matchupId": 80
+        },
+        {
+          "manager": "Mitch",
+          "team": "Mitchell The Bitchell",
+          "espnTeamId": 11,
+          "officialFinish": 8,
+          "finalRoundTotal": 95.92,
+          "finalWeekScore": 95.92,
+          "matchupId": 79
+        },
+        {
+          "manager": "Evans",
+          "team": "Trubisky Titty Kissers",
+          "espnTeamId": 5,
+          "officialFinish": 7,
+          "finalRoundTotal": 109.28,
+          "finalWeekScore": 109.28,
+          "matchupId": 79
+        },
+        {
+          "manager": "Koble",
+          "team": "Team Koble",
+          "espnTeamId": 6,
+          "officialFinish": 9,
+          "finalRoundTotal": 125.14,
+          "finalWeekScore": 125.14,
+          "matchupId": 80
+        }
+      ],
+      "measurement": {
+        "originalESPNPeriod": 16,
+        "winnerFinalRoundTotal": 86.76,
+        "winnerActualFinalWeekPoints": 86.76,
+        "weeklyBreakdown": {
+          "16": 86.76
+        },
+        "carriedForwardPoints": 0,
+        "aggregatedTwoWeekRound": false,
+        "cumulativeThreeWeekLadder": false
+      },
+      "evidence": "Original ESPN LOSERS_CONSOLATION_LADDER matchups and user-confirmed award criterion"
+    },
+    "2019": {
+      "finalRound": "losers_consolation_ladder",
+      "espnPeriod": 16,
+      "scoringCriterion": "lowest actual NFL Week 16 score among final losers-ladder teams; also lowest three-week cumulative placement",
+      "scoringWeeks": [
+        16
+      ],
+      "scoreUnit": "single_week_16_points",
+      "awardWinner": "Evans",
+      "awardTeam": "I Love  Tubing",
+      "awardWinningScore": 80.46,
+      "officialFinish": 10,
+      "lowScoreEntrants": [
+        {
+          "manager": "Evans",
+          "team": "I Love  Tubing",
+          "espnTeamId": 5,
+          "officialFinish": 10,
+          "finalRoundTotal": 264.76,
+          "finalWeekScore": 80.46,
+          "matchupId": 81
+        },
+        {
+          "manager": "Stover",
+          "team": "Yogurt Slingers II",
+          "espnTeamId": 4,
+          "officialFinish": 9,
+          "finalRoundTotal": 328.56,
+          "finalWeekScore": 126.96,
+          "matchupId": 81
+        },
+        {
+          "manager": "Thommy",
+          "team": "Boy Named Suh",
+          "espnTeamId": 7,
+          "officialFinish": 8,
+          "finalRoundTotal": 358.3,
+          "finalWeekScore": 106.8,
+          "matchupId": 80
+        },
+        {
+          "manager": "Koble",
+          "team": "Team Koble",
+          "espnTeamId": 6,
+          "officialFinish": 7,
+          "finalRoundTotal": 366.6,
+          "finalWeekScore": 88.8,
+          "matchupId": 80
+        }
+      ],
+      "measurement": {
+        "originalESPNPeriod": 16,
+        "winnerFinalRoundTotal": 264.76,
+        "winnerActualFinalWeekPoints": 80.46,
+        "weeklyBreakdown": {
+          "16": 80.46
+        },
+        "carriedForwardPoints": 184.3,
+        "aggregatedTwoWeekRound": false,
+        "cumulativeThreeWeekLadder": true
+      },
+      "evidence": "Original ESPN LOSERS_CONSOLATION_LADDER matchups and user-confirmed award criterion"
+    }
+  }
+}
