@@ -85,10 +85,10 @@ if(!careerResumeCss.includes('.profile-career-finish-summary')||
 const profileStyles=fs.readFileSync('assets/manager-profile-readability.css','utf8');
 for(const required of [
  "profile-snapshot-receipts","profile-snapshot-condensed",
- "evidence.append(summary,stats)","if(source)evidence.append(source)",
+ "evidence.append(summary,originalStats)","if(source)evidence.append(source)",
  "if(records)records.after(evidence)"
 ]){
- if(!ratingCard.includes(required)&&!profileStyles.includes(required))
+ if(!tabsSource.includes(required)&&!profileStyles.includes(required))
   throw Error('Manager profile source-preserving cleanup is missing: '+required);
 }
 for(const slug of managers){
