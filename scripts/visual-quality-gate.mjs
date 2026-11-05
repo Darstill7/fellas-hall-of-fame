@@ -277,26 +277,30 @@ try{
         if(await original.evaluate(el=>el.open))
          throw Error('Career source disclosure failed to close');
         const featured=page.locator('#profile-features nav.profile-featured-routes');
-        if(await featured.locator('a.profile-featured-link').count()!==3)
-         throw Error('Three primary profile destinations must be directly reachable');
+        if(await featured.locator('a.profile-featured-link').count()!==2)
+         throw Error('Records and Report Card must be the two primary destinations');
         const canonicalLinks=await featured.locator('a').evaluateAll(nodes=>nodes.map(a=>({
-         text:a.textContent,href:new URL(a.href),label:a.querySelector('strong')?.textContent
-        })).map(x=>({label:x.label,path:x.href.pathname,manager:x.href.searchParams.get('manager')})));
-        if(canonicalLinks[1]?.manager!==canonical||canonicalLinks[2]?.manager!==canonical||
-           !canonicalLinks[1]?.path.endsWith('/analytics/manager-report-cards.html')||
-           !canonicalLinks[2]?.path.endsWith('/analytics/manager-lineup-research.html'))
-         throw Error('Primary profile links target the wrong manager');
-        // The prominent Career overview shortcut must reveal content, not
-        // scroll to a target hidden by the short-profile landing state.
-        await featured.locator('a[href="#verified-history-panel"]').click();
+         label:a.querySelector('strong')?.textContent?.trim(),
+         path:new URL(a.href).pathname,manager:new URL(a.href).searchParams.get('manager')
+        })));
+        if(canonicalLinks[0]?.label!=='Records'||canonicalLinks[1]?.label!=='Report Card'||
+           canonicalLinks.some(link=>link.manager!==canonical)||
+           !canonicalLinks[0]?.path.endsWith('/managers/record-books.html')||
+           !canonicalLinks[1]?.path.endsWith('/analytics/manager-report-cards.html'))
+         throw Error('Primary manager links are not Records and Report Card '+JSON.stringify(canonicalLinks));
+        // Verify Career & Results still opens from the deeper feature directory,
+        // without adding a third competing shortcut to the first screen.
+        const careerFeature=menu.locator('button[data-feature-target="#verified-history-panel"]');
+        if(await careerFeature.count()!==1)throw Error('Career archive feature missing');
+        await careerFeature.click();
         if(!await page.locator('#verified-history-panel').isVisible()||
            !await page.locator('#historical-record-profile').isVisible())
-         throw Error('Career overview shortcut points to hidden content');
+         throw Error('Career archive feature did not reveal its records');
         const shortcutReturn=page.locator('.profile-focus-toolbar button').first();
-        if(!await shortcutReturn.isVisible())throw Error('Career overview has no return navigation');
+        if(!await shortcutReturn.isVisible())throw Error('Career archive has no return navigation');
         await shortcutReturn.click();
         if(await page.locator('body').evaluate(el=>el.classList.contains('profile-feature-focused')))
-         throw Error('Career overview failed to restore profile topic directory');
+         throw Error('Career archive failed to restore topic directory');
         const factors=page.locator('details.profile-rating-components');
         if(await factors.count()!==1||await factors.evaluate(el=>el.open))
          throw Error('Career rating factor breakdown missing or not collapsed');
