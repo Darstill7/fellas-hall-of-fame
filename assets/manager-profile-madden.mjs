@@ -70,7 +70,7 @@ if(name){
   const leading=rankedFactors.slice(0,2);
   const growth=rankedFactors.at(-1);
   const strengthText=leading.map(f=>f.label).join(' and ');
-  const summaryPanel='<section class="profile-rating-scout" aria-label="Career rating summary"><h3>What shapes this rating?</h3><div class="profile-rating-scout-grid"><div><span>Strongest model factors</span><strong>'+strengthText+'</strong><small>Highest shares of available factor points</small></div><div><span>Most room in the model</span><strong>'+growth.label+'</strong><small>Lowest share of available factor points — not a skill grade</small></div></div><p>These reflect this manager\'s own scoring components, not league-wide category ranks. Open the formula below for exact points.</p></section>';
+  const summaryPanel='<section class="profile-rating-scout" aria-label="Career rating summary"><h3>What shapes this rating?</h3><div class="profile-rating-scout-grid"><div><span>Strongest model factors</span><strong>'+strengthText+'</strong><small>Highest shares of available factor points</small></div><div><span>Lowest relative factor</span><strong>'+growth.label+'</strong><small>Smallest share of available factor points, not a forecast</small></div></div><p>These reflect this manager\'s own scoring components, not league-wide category ranks. Open the formula below for exact points.</p></section>';
   const weightedTotal=Object.values(manager.breakdown).reduce((sum,value)=>sum+value,0);
   const factorPanel='<details class="profile-rating-components"><summary>How is this career rating calculated?</summary><p>Eight documented factors contribute to a raw score out of 100. The large Legacy OVR above uses a separate 65–99 display scale. This is a <strong>career achievement rating</strong>, not a draft, trade, waiver or lineup grade.</p><div class="profile-rating-factor-grid">'+factorRows+'</div><p class="profile-rating-factor-note">Rounded components total approximately '+weightedTotal.toFixed(1)+' / 100. Individual factors can include recency adjustments. This is a formula-based comparison, not an official league award.</p></details>';
   host.classList.add('tier-'+tier.id);
@@ -98,6 +98,28 @@ if(name){
   // card has loaded, remove the duplicate hero stat row from the visual
   // hierarchy (the source-backed values remain available in the DOM).
   document.querySelector('main .hero')?.classList.add('profile-hero-compact');
+  // A single headline résumé should own the visible career numbers.
+  // Keep the canonical hero values and their provenance in an accessible,
+  // collapsed disclosure instead of showing the same stats three times.
+  const snapshot=document.querySelector('main .hero .profile-career-snapshot');
+  if(snapshot&&!snapshot.querySelector('.profile-snapshot-receipts')){
+   const stats=snapshot.querySelector('.profile-snapshot-stats');
+   if(stats){
+    const evidence=document.createElement('details');
+    evidence.className='profile-snapshot-receipts';
+    const summary=document.createElement('summary');
+    summary.textContent='Regular-season record details and sources';
+    evidence.append(summary,stats);
+    const source=snapshot.querySelector('.profile-snapshot-source');
+    if(source)evidence.append(source);
+    const records=snapshot.querySelector('.profile-owned-records');
+    if(records)records.after(evidence);
+    else snapshot.append(evidence);
+    const heading=snapshot.querySelector('.profile-snapshot-heading');
+    if(heading)heading.textContent='Personal record book';
+    snapshot.classList.add('profile-snapshot-condensed');
+   }
+  }
   host.innerHTML='<div class="profile-madden-header"><div><div class="profile-madden-label">ALL-TIME MANAGER RATING · RANK #'+manager.rank+'</div><h2 class="profile-scouting-heading">Career rating <span>· '+name+'</span></h2><div class="profile-archetype">'+archetypes[0].name+'</div></div><div class="profile-madden-ovr">'+maddenOvr(manager.score).toFixed(1)+' <small>LEGACY OVR / 99</small></div></div><p class="profile-rating-plain"><strong>Legacy OVR</strong> is a 65–99 career score based on documented championships, playoff appearances and regular-season success. It is not a win percentage or a draft/trade skill grade.</p><div class="profile-madden-facts"><span><strong>'+manager.titleYears.length+'</strong> Championships'+(manager.titleYears.length?' · '+manager.titleYears.join(', '):'')+'</span><span><strong>'+(manager.titleYears.length+manager.runnerYears.length)+'</strong> Championship Games</span><span><strong>'+manager.career+'</strong> Career W–L</span><span><strong>'+manager.qualifiedYears.length+'</strong> Playoff Berths</span><span>Best individual season: <strong>'+(peakSeason?peakSeason.year+' · '+peakSeason.display.toFixed(1)+' OVR':'Not yet rated')+'</strong></span></div>'+summaryPanel+'<details class="profile-rating-explainer"><summary>What do the other numbers mean?</summary><p><strong>Championships</strong> are league titles won. <strong>Championship games</strong> include titles and runner-up finishes. <strong>Career W–L</strong> is archived regular-season wins and losses, not playoff record. <strong>Playoff berths</strong> count documented qualifications. <strong>Best individual season</strong> uses a separate Season OVR model (completed seasons only) and is not the career Legacy OVR.</p><p>The weekly trend below shows how the career rating moved during 2026 through the last archived rating week. Historical year-end ratings are retrospective reconstructions, not ratings published back then. Incomplete source coverage never creates a missing skill grade.</p></details>'+factorPanel+'<details class="profile-rating-trend"><summary>2026 rating movement · through Week '+history.at(-1).week+(delta===null?'':' · '+(delta>0?'+':'')+delta.toFixed(1)+' last change')+'</summary><p class="disclaimer">Verified 2026 weekly rating trend. This is a career-rating trajectory, not an individual-season grade.</p><svg class="profile-madden-trend" role="img" aria-label="Verified 2026 weekly OVR progression" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline fill="none" stroke="var(--accent)" stroke-width="3" vector-effect="non-scaling-stroke" points="'+trace+'"/></svg></details>'+seasonalPanel+historicalPanel+'<details class="profile-rating-more"><summary>More rating comparisons and methodology</summary><p><a class="season-record-link" href="../../analytics/manager-madden-cards.html?manager='+encodeURIComponent(name)+'#records-heading">Explore '+name+' best and worst seasons →</a></p><p><a href="../../analytics/manager-madden-cards.html">Compare every manager and view rating explanations →</a></p><p class="disclaimer">Overall rating is based on verified achievements and results. Drafting and trading estimates are provisional; waiver and lineup grades remain unavailable.</p></details>';
  }catch(error){host.innerHTML='<p role="status">Madden scouting information is currently unavailable. Historical profile content remains accessible.</p>';console.error(error)}
 }
