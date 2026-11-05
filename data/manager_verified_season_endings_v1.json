@@ -1,39 +1,44 @@
 {
   "version": 1,
-  "method": "Finalist outcomes validated from ESPN championship games, Sleeper finalist outcomes from preexisting archived manager-season results. Other finishes not inferred from consolation or seeds.",
+  "method": "2016–2019 official ESPN finalRank for all participating teams, cross-checked with original bracket screenshots; 2016–2017 rounds spanned two NFL weeks; 2019 bottom-four consolation was cumulative across Weeks 14–16. Later seasons retain their independent verification rules.",
   "source": [
     "data/espn_history_2016_2019.json",
-    "data/manager_season_results_v1.json"
+    "data/manager_season_results_v1.json",
+    "data-integrity/ESPN_PLAYOFF_FORMAT_EVIDENCE_2016_2019.json"
   ],
   "managers": {
     "Stilly": [
       {
         "year": 2016,
         "regular": "6-7",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "6th place",
+        "note": "Original ESPN team finish: 6th of 8 (Vick's Out For Harambe). Playoff rounds were two-NFL-week aggregates, not single-week scores.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 6
       },
       {
         "year": 2017,
         "regular": "6-6",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "3rd place",
+        "note": "Original ESPN team finish: 3rd of 10 (W-Word Redskins). Playoff rounds were two-NFL-week aggregates, not single-week scores.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 3
       },
       {
         "year": 2018,
         "regular": "6-7",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "10th place (last)",
+        "note": "Original ESPN team finish: 10th of 10 (Schaub On My Knob). Consolation advancement was unusual; verified placement does not imply a conventional elimination format.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 10
       },
       {
         "year": 2019,
         "regular": "6-7",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "5th place",
+        "note": "Original ESPN team finish: 5th of 10 (Dishes? NOTHIN).",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 5
       },
       {
         "year": 2020,
@@ -89,30 +94,34 @@
       {
         "year": 2016,
         "regular": "6-7",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "7th place",
+        "note": "Original ESPN team finish: 7th of 8 (Make America  Gronk Again). Playoff rounds were two-NFL-week aggregates, not single-week scores.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 7
       },
       {
         "year": 2017,
         "regular": "5-7",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "7th place",
+        "note": "Original ESPN team finish: 7th of 10 (Cops and Rodgers). Playoff rounds were two-NFL-week aggregates, not single-week scores.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 7
       },
       {
         "year": 2018,
         "regular": "7-6",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "5th place",
+        "note": "Original ESPN team finish: 5th of 10 (Kareem beat that Hunt). Consolation advancement was unusual; verified placement does not imply a conventional elimination format.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 5
       },
       {
         "year": 2019,
         "regular": "9-4",
         "ending": "Runner-up",
-        "note": "ESPN championship final: 114.14–109.42, opponent team ID 9",
-        "source": "ESPN original"
+        "note": "Original ESPN team finish: 2nd of 10 (Kickers  SUCK). ESPN championship final: 114.14–109.42, opponent team ID 9",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 2
       },
       {
         "year": 2020,
@@ -169,29 +178,33 @@
         "year": 2016,
         "regular": "7-5-1",
         "ending": "Champion",
-        "note": "ESPN championship final: 175–223, opponent team ID 2",
-        "source": "ESPN original"
+        "note": "Original ESPN team finish: 1st of 8 (It Ertz When Eifert). Playoff rounds were two-NFL-week aggregates, not single-week scores. ESPN championship final: 175–223, opponent team ID 2",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 1
       },
       {
         "year": 2017,
         "regular": "8-4",
         "ending": "Champion",
-        "note": "ESPN championship final: 241–212, opponent team ID 8",
-        "source": "ESPN original"
+        "note": "Original ESPN team finish: 1st of 10 (It Ertz When Eifert). Playoff rounds were two-NFL-week aggregates, not single-week scores. ESPN championship final: 241–212, opponent team ID 8",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 1
       },
       {
         "year": 2018,
         "regular": "7-6",
         "ending": "Champion",
-        "note": "ESPN championship final: 111.58–106.62, opponent team ID 9",
-        "source": "ESPN original"
+        "note": "Original ESPN team finish: 1st of 10 (2 Gurleys 1 Kupp). Consolation advancement was unusual; verified placement does not imply a conventional elimination format. ESPN championship final: 111.58–106.62, opponent team ID 9",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 1
       },
       {
         "year": 2019,
         "regular": "2-11",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "8th place",
+        "note": "Original ESPN team finish: 8th of 10 (Boy Named Suh). Bottom-four consolation used cumulative Weeks 14–16 points (358.30 total), not an individual Week 16 score.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 8
       },
       {
         "year": 2020,
@@ -247,30 +260,34 @@
       {
         "year": 2016,
         "regular": "5-8",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "5th place",
+        "note": "Original ESPN team finish: 5th of 8 (PurpleHeaded YogurtSlingers). Playoff rounds were two-NFL-week aggregates, not single-week scores.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 5
       },
       {
         "year": 2017,
         "regular": "6-6",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "8th place",
+        "note": "Original ESPN team finish: 8th of 10 (Garropolo By The Percy'). Playoff rounds were two-NFL-week aggregates, not single-week scores.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 8
       },
       {
         "year": 2018,
         "regular": "8-5",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "4th place",
+        "note": "Original ESPN team finish: 4th of 10 (Washington Foreskins). Consolation advancement was unusual; verified placement does not imply a conventional elimination format.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 4
       },
       {
         "year": 2019,
         "regular": "4-9",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "9th place",
+        "note": "Original ESPN team finish: 9th of 10 (Yogurt Slingers II). Bottom-four consolation used cumulative Weeks 14–16 points (328.56 total), not an individual Week 16 score.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 9
       },
       {
         "year": 2020,
@@ -326,23 +343,26 @@
       {
         "year": 2017,
         "regular": "5-7",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "10th place (last)",
+        "note": "Original ESPN team finish: 10th of 10 (Hogan's Heroes). Playoff rounds were two-NFL-week aggregates, not single-week scores.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 10
       },
       {
         "year": 2018,
         "regular": "6-7",
         "ending": "Runner-up",
-        "note": "ESPN championship final: 111.58–106.62, opponent team ID 7",
-        "source": "ESPN original"
+        "note": "Original ESPN team finish: 2nd of 10 (HEY DARNOLD!). Consolation advancement was unusual; verified placement does not imply a conventional elimination format. ESPN championship final: 111.58–106.62, opponent team ID 7",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 2
       },
       {
         "year": 2019,
         "regular": "11-2",
         "ending": "Champion",
-        "note": "ESPN championship final: 114.14–109.42, opponent team ID 3",
-        "source": "ESPN original"
+        "note": "Original ESPN team finish: 1st of 10 (AP’s Daycare). ESPN championship final: 114.14–109.42, opponent team ID 3",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 1
       },
       {
         "year": 2020,
@@ -398,23 +418,26 @@
       {
         "year": 2017,
         "regular": "6-6",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "9th place",
+        "note": "Original ESPN team finish: 9th of 10 (Tittsburgh Feelers). Playoff rounds were two-NFL-week aggregates, not single-week scores.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 9
       },
       {
         "year": 2018,
         "regular": "8-5",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "3rd place",
+        "note": "Original ESPN team finish: 3rd of 10 (Tittsburgh Feelers). Consolation advancement was unusual; verified placement does not imply a conventional elimination format.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 3
       },
       {
         "year": 2019,
         "regular": "8-5",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "4th place",
+        "note": "Original ESPN team finish: 4th of 10 (Tittsburgh Feelers).",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 4
       },
       {
         "year": 2020,
@@ -470,16 +493,18 @@
       {
         "year": 2018,
         "regular": "5-8",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "8th place",
+        "note": "Original ESPN team finish: 8th of 10 (Mitchell The Bitchell). Consolation advancement was unusual; verified placement does not imply a conventional elimination format.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 8
       },
       {
         "year": 2019,
         "regular": "9-4",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "3rd place",
+        "note": "Original ESPN team finish: 3rd of 10 (New England’s QB Room).",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 3
       },
       {
         "year": 2020,
@@ -535,16 +560,18 @@
       {
         "year": 2018,
         "regular": "7-6",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "6th place",
+        "note": "Original ESPN team finish: 6th of 10 (Vinateri Suites By Hilton). Consolation advancement was unusual; verified placement does not imply a conventional elimination format.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 6
       },
       {
         "year": 2019,
         "regular": "7-6",
-        "ending": "Finish not certified",
-        "note": "ESPN regular-season record verified; seed/placement is not a verified playoff finish",
-        "source": "ESPN original"
+        "ending": "6th place",
+        "note": "Original ESPN team finish: 6th of 10 (Hockenson  Loogies On You).",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 6
       },
       {
         "year": 2020,
