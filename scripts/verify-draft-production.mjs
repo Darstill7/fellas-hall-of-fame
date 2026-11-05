@@ -39,6 +39,7 @@ assert(ui.includes("const topics=[")&&ui.includes("['Draft picks',draftSection]"
  'Research shortcuts must reach their exact section with keyboard focus');
 assert(styles.includes('.career-research-topics-grid')&&
  styles.includes('min-height:52px')&&
+ styles.includes('.career-research-topic-button[aria-expanded="true"]')&&
  styles.includes('@media(max-width:365px)'),
  'Draft research needs readable mobile navigation and touch targets');
 assert(browser.includes('draft research lacks six topic shortcuts')&&
@@ -46,6 +47,7 @@ assert(browser.includes('draft research lacks six topic shortcuts')&&
  browser.includes('focused:document.activeElement===heading')&&
  browser.includes('draft topics exposed multiple sections')&&
  browser.includes('draft text or control overlap')&&
+ browser.includes('lacks visible topic selection or heading focus')&&
  browser.includes("['Draft picks','career-research-topic-0']")&&
  browser.includes('return should collapse the long research content')&&
  browser.includes("'drafting-trading-'+slug+'-topics.png'"),
