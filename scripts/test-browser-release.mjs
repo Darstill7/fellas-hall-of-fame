@@ -301,6 +301,19 @@ try{
        errors.push(width+' '+route+' archived career stats fail to expand');
       await evidence.locator(':scope > summary').click();
      }
+     // Career record and championships lead; navigation follows the résumé.
+     const heroOrder=await page.locator('main .hero').evaluate(hero=>{
+      const snapshot=hero.querySelector('[data-profile-career-snapshot]');
+      const actions=hero.querySelector(':scope > .buttons');
+      const title=hero.querySelector('h1');
+      return !!snapshot&&!!actions&&!!title&&
+       !!(title.compareDocumentPosition(snapshot)&Node.DOCUMENT_POSITION_FOLLOWING)&&
+       !!(snapshot.compareDocumentPosition(actions)&Node.DOCUMENT_POSITION_FOLLOWING);
+     });
+     if(!heroOrder)errors.push(width+' '+route+' hierarchy must be title, verified career snapshot, then navigation');
+     const bioEntry=page.locator('#profile-features button.profile-biography-entry[data-feature-target="#legacy-resume"][data-feature-tab="overview"]');
+     if(await bioEntry.count()!==1||!(await bioEntry.innerText()).includes('career story'))
+      errors.push(width+' '+route+' direct career biography entry missing');
      const direct=page.locator('#profile-features .profile-featured-link');
      if(await direct.count()!==2)
       errors.push(width+' '+route+' Records and Report Card entry points missing');
