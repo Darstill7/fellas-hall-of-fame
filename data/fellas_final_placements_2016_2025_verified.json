@@ -1,0 +1,1808 @@
+{
+  "version": 1,
+  "asOf": "2026-11-04",
+  "scope": "Official final finishing positions, completed seasons 2016–2025",
+  "sources": {
+    "espn": "data/espn_final_placements_2016_2019_verified.json",
+    "sleeper": "data/fellas_final_placements_2020_2025.json"
+  },
+  "precedence": "Original ESPN finalRank for 2016–2019; verified Sleeper bracket receipts for 2020–2025 override contradictory old FF HISTORY workbook summaries. Source workbook never overrides confirmed provider history.",
+  "normalization": "finishScore = 100 × (numberOfTeams - finalRank)/(numberOfTeams - 1), where champion = 100 and last place = 0; comparisons must show years played and league size.",
+  "eligibility": "Career average-finish record requires at least 6 completed seasons, through 2025; 2026 is excluded.",
+  "caveats": [
+    "2016 had eight entrants; all other seasons have ten.",
+    "2016–2019 ESPN last-place outcomes are official finalRank and loser-bracket final, not a claim that the exact Sleeper Shitter Bowl format existed.",
+    "2020 third-place Birch versus Stover score discrepancy remains unresolved; finishing positions are confirmed.",
+    "Managers who did not participate in a given season must not be assigned a fictional rank."
+  ],
+  "seasons": [
+    {
+      "year": 2016,
+      "provider": "ESPN",
+      "teams": 8,
+      "champion": "Thommy",
+      "finishes": [
+        {
+          "rank": 1,
+          "manager": "Thommy",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 100
+        },
+        {
+          "rank": 2,
+          "manager": "Halderman",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 85.7143
+        },
+        {
+          "rank": 3,
+          "manager": "Evans",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 71.4286
+        },
+        {
+          "rank": 4,
+          "manager": "Koble",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 57.1429
+        },
+        {
+          "rank": 5,
+          "manager": "Stover",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 42.8571
+        },
+        {
+          "rank": 6,
+          "manager": "Stilly",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 28.5714
+        },
+        {
+          "rank": 7,
+          "manager": "Stew",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 14.2857
+        },
+        {
+          "rank": 8,
+          "manager": "Schermerhorn",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 0
+        }
+      ],
+      "lastPlace": "Schermerhorn",
+      "lastPlaceBasis": "Official ESPN last-place finish, supported by losers-bracket final; not automatically equivalent to Sleeper's modern Toilet Bowl format"
+    },
+    {
+      "year": 2017,
+      "provider": "ESPN",
+      "teams": 10,
+      "champion": "Thommy",
+      "finishes": [
+        {
+          "rank": 1,
+          "manager": "Thommy",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 100
+        },
+        {
+          "rank": 2,
+          "manager": "Schermerhorn",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 88.8889
+        },
+        {
+          "rank": 3,
+          "manager": "Stilly",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 77.7778
+        },
+        {
+          "rank": 4,
+          "manager": "Evans",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 66.6667
+        },
+        {
+          "rank": 5,
+          "manager": "Koble",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 55.5556
+        },
+        {
+          "rank": 6,
+          "manager": "Halderman",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 44.4444
+        },
+        {
+          "rank": 7,
+          "manager": "Stew",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 33.3333
+        },
+        {
+          "rank": 8,
+          "manager": "Stover",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 22.2222
+        },
+        {
+          "rank": 9,
+          "manager": "Tony",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 11.1111
+        },
+        {
+          "rank": 10,
+          "manager": "Birch",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 0
+        }
+      ],
+      "lastPlace": "Birch",
+      "lastPlaceBasis": "Official ESPN last-place finish, supported by losers-bracket final; not automatically equivalent to Sleeper's modern Toilet Bowl format"
+    },
+    {
+      "year": 2018,
+      "provider": "ESPN",
+      "teams": 10,
+      "champion": "Thommy",
+      "finishes": [
+        {
+          "rank": 1,
+          "manager": "Thommy",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 100
+        },
+        {
+          "rank": 2,
+          "manager": "Birch",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 88.8889
+        },
+        {
+          "rank": 3,
+          "manager": "Tony",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 77.7778
+        },
+        {
+          "rank": 4,
+          "manager": "Stover",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 66.6667
+        },
+        {
+          "rank": 5,
+          "manager": "Stew",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 55.5556
+        },
+        {
+          "rank": 6,
+          "manager": "Kuhl",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 44.4444
+        },
+        {
+          "rank": 7,
+          "manager": "Evans",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 33.3333
+        },
+        {
+          "rank": 8,
+          "manager": "Mitch",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 22.2222
+        },
+        {
+          "rank": 9,
+          "manager": "Koble",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 11.1111
+        },
+        {
+          "rank": 10,
+          "manager": "Stilly",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 0
+        }
+      ],
+      "lastPlace": "Stilly",
+      "lastPlaceBasis": "Official ESPN last-place finish, supported by losers-bracket final; not automatically equivalent to Sleeper's modern Toilet Bowl format"
+    },
+    {
+      "year": 2019,
+      "provider": "ESPN",
+      "teams": 10,
+      "champion": "Birch",
+      "finishes": [
+        {
+          "rank": 1,
+          "manager": "Birch",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 100
+        },
+        {
+          "rank": 2,
+          "manager": "Stew",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 88.8889
+        },
+        {
+          "rank": 3,
+          "manager": "Mitch",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 77.7778
+        },
+        {
+          "rank": 4,
+          "manager": "Tony",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 66.6667
+        },
+        {
+          "rank": 5,
+          "manager": "Stilly",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 55.5556
+        },
+        {
+          "rank": 6,
+          "manager": "Kuhl",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 44.4444
+        },
+        {
+          "rank": 7,
+          "manager": "Koble",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 33.3333
+        },
+        {
+          "rank": 8,
+          "manager": "Thommy",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 22.2222
+        },
+        {
+          "rank": 9,
+          "manager": "Stover",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 11.1111
+        },
+        {
+          "rank": 10,
+          "manager": "Evans",
+          "source": "ESPN finalRank",
+          "scoreVerified": true,
+          "finishScore": 0
+        }
+      ],
+      "lastPlace": "Evans",
+      "lastPlaceBasis": "Official ESPN last-place finish, supported by losers-bracket final; not automatically equivalent to Sleeper's modern Toilet Bowl format"
+    },
+    {
+      "year": 2020,
+      "provider": "Sleeper",
+      "teams": 10,
+      "champion": "Koble",
+      "finishes": [
+        {
+          "rank": 1,
+          "manager": "Koble",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 100
+        },
+        {
+          "rank": 2,
+          "manager": "Mitch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 88.8889
+        },
+        {
+          "rank": 3,
+          "manager": "Birch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": false,
+          "finishScore": 77.7778
+        },
+        {
+          "rank": 4,
+          "manager": "Stover",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": false,
+          "finishScore": 66.6667
+        },
+        {
+          "rank": 5,
+          "manager": "Kuhl",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 55.5556
+        },
+        {
+          "rank": 6,
+          "manager": "Evans",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 44.4444
+        },
+        {
+          "rank": 7,
+          "manager": "Stilly",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 33.3333
+        },
+        {
+          "rank": 8,
+          "manager": "Thommy",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 22.2222
+        },
+        {
+          "rank": 9,
+          "manager": "Stew",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 11.1111
+        },
+        {
+          "rank": 10,
+          "manager": "Tony",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 0
+        }
+      ],
+      "lastPlace": "Tony",
+      "lastPlaceBasis": "Lower-scoring loser of verified final Sleeper Toilet Bowl"
+    },
+    {
+      "year": 2021,
+      "provider": "Sleeper",
+      "teams": 10,
+      "champion": "Tony",
+      "finishes": [
+        {
+          "rank": 1,
+          "manager": "Tony",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 100
+        },
+        {
+          "rank": 2,
+          "manager": "Evans",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 88.8889
+        },
+        {
+          "rank": 3,
+          "manager": "Birch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 77.7778
+        },
+        {
+          "rank": 4,
+          "manager": "Stover",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 66.6667
+        },
+        {
+          "rank": 5,
+          "manager": "Mitch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 55.5556
+        },
+        {
+          "rank": 6,
+          "manager": "Thommy",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 44.4444
+        },
+        {
+          "rank": 7,
+          "manager": "Kuhl",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 33.3333
+        },
+        {
+          "rank": 8,
+          "manager": "Stew",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 22.2222
+        },
+        {
+          "rank": 9,
+          "manager": "Koble",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 11.1111
+        },
+        {
+          "rank": 10,
+          "manager": "Stilly",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 0
+        }
+      ],
+      "lastPlace": "Stilly",
+      "lastPlaceBasis": "Lower-scoring loser of verified final Sleeper Toilet Bowl"
+    },
+    {
+      "year": 2022,
+      "provider": "Sleeper",
+      "teams": 10,
+      "champion": "Stover",
+      "finishes": [
+        {
+          "rank": 1,
+          "manager": "Stover",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 100
+        },
+        {
+          "rank": 2,
+          "manager": "Stew",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 88.8889
+        },
+        {
+          "rank": 3,
+          "manager": "Kuhl",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 77.7778
+        },
+        {
+          "rank": 4,
+          "manager": "Mitch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 66.6667
+        },
+        {
+          "rank": 5,
+          "manager": "Thommy",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 55.5556
+        },
+        {
+          "rank": 6,
+          "manager": "Stilly",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 44.4444
+        },
+        {
+          "rank": 7,
+          "manager": "Evans",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 33.3333
+        },
+        {
+          "rank": 8,
+          "manager": "Koble",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 22.2222
+        },
+        {
+          "rank": 9,
+          "manager": "Tony",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 11.1111
+        },
+        {
+          "rank": 10,
+          "manager": "Birch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 0
+        }
+      ],
+      "lastPlace": "Birch",
+      "lastPlaceBasis": "Lower-scoring loser of verified final Sleeper Toilet Bowl"
+    },
+    {
+      "year": 2023,
+      "provider": "Sleeper",
+      "teams": 10,
+      "champion": "Stilly",
+      "finishes": [
+        {
+          "rank": 1,
+          "manager": "Stilly",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 100
+        },
+        {
+          "rank": 2,
+          "manager": "Mitch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 88.8889
+        },
+        {
+          "rank": 3,
+          "manager": "Koble",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 77.7778
+        },
+        {
+          "rank": 4,
+          "manager": "Tony",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 66.6667
+        },
+        {
+          "rank": 5,
+          "manager": "Birch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 55.5556
+        },
+        {
+          "rank": 6,
+          "manager": "JMid",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 44.4444
+        },
+        {
+          "rank": 7,
+          "manager": "Thommy",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 33.3333
+        },
+        {
+          "rank": 8,
+          "manager": "Stover",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 22.2222
+        },
+        {
+          "rank": 9,
+          "manager": "Kuhl",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 11.1111
+        },
+        {
+          "rank": 10,
+          "manager": "Stew",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 0
+        }
+      ],
+      "lastPlace": "Stew",
+      "lastPlaceBasis": "Lower-scoring loser of verified final Sleeper Toilet Bowl"
+    },
+    {
+      "year": 2024,
+      "provider": "Sleeper",
+      "teams": 10,
+      "champion": "Thommy",
+      "finishes": [
+        {
+          "rank": 1,
+          "manager": "Thommy",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 100
+        },
+        {
+          "rank": 2,
+          "manager": "Stilly",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 88.8889
+        },
+        {
+          "rank": 3,
+          "manager": "Stover",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 77.7778
+        },
+        {
+          "rank": 4,
+          "manager": "JMid",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 66.6667
+        },
+        {
+          "rank": 5,
+          "manager": "Tony",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 55.5556
+        },
+        {
+          "rank": 6,
+          "manager": "Birch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 44.4444
+        },
+        {
+          "rank": 7,
+          "manager": "Scott",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 33.3333
+        },
+        {
+          "rank": 8,
+          "manager": "Stew",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 22.2222
+        },
+        {
+          "rank": 9,
+          "manager": "Mitch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 11.1111
+        },
+        {
+          "rank": 10,
+          "manager": "Kuhl",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 0
+        }
+      ],
+      "lastPlace": "Kuhl",
+      "lastPlaceBasis": "Lower-scoring loser of verified final Sleeper Toilet Bowl"
+    },
+    {
+      "year": 2025,
+      "provider": "Sleeper",
+      "teams": 10,
+      "champion": "Scott",
+      "finishes": [
+        {
+          "rank": 1,
+          "manager": "Scott",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 100
+        },
+        {
+          "rank": 2,
+          "manager": "Thommy",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 88.8889
+        },
+        {
+          "rank": 3,
+          "manager": "Mitch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 77.7778
+        },
+        {
+          "rank": 4,
+          "manager": "Birch",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 66.6667
+        },
+        {
+          "rank": 5,
+          "manager": "Tony",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 55.5556
+        },
+        {
+          "rank": 6,
+          "manager": "Stew",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 44.4444
+        },
+        {
+          "rank": 7,
+          "manager": "Stilly",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 33.3333
+        },
+        {
+          "rank": 8,
+          "manager": "JMid",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 22.2222
+        },
+        {
+          "rank": 9,
+          "manager": "Kuhl",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 11.1111
+        },
+        {
+          "rank": 10,
+          "manager": "Stover",
+          "source": "Verified Sleeper bracket",
+          "scoreVerified": true,
+          "finishScore": 0
+        }
+      ],
+      "lastPlace": "Stover",
+      "lastPlaceBasis": "Lower-scoring loser of verified final Sleeper Toilet Bowl"
+    }
+  ],
+  "managers": [
+    {
+      "manager": "Birch",
+      "seasonsPlayed": 9,
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "history": [
+        {
+          "year": 2017,
+          "rank": 10,
+          "teams": 10,
+          "finishScore": 0,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2018,
+          "rank": 2,
+          "teams": 10,
+          "finishScore": 88.8889,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2019,
+          "rank": 1,
+          "teams": 10,
+          "finishScore": 100,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2020,
+          "rank": 3,
+          "teams": 10,
+          "finishScore": 77.7778,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "rank": 3,
+          "teams": 10,
+          "finishScore": 77.7778,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "rank": 10,
+          "teams": 10,
+          "finishScore": 0,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "rank": 5,
+          "teams": 10,
+          "finishScore": 55.5556,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "rank": 6,
+          "teams": 10,
+          "finishScore": 44.4444,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "rank": 4,
+          "teams": 10,
+          "finishScore": 66.6667,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 56.79,
+      "topThree": 4,
+      "topHalf": 6,
+      "lastPlaceFinishes": [
+        {
+          "year": 2017,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2022,
+          "provider": "Sleeper"
+        }
+      ]
+    },
+    {
+      "manager": "Evans",
+      "seasonsPlayed": 7,
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "history": [
+        {
+          "year": 2016,
+          "rank": 3,
+          "teams": 8,
+          "finishScore": 71.4286,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2017,
+          "rank": 4,
+          "teams": 10,
+          "finishScore": 66.6667,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2018,
+          "rank": 7,
+          "teams": 10,
+          "finishScore": 33.3333,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2019,
+          "rank": 10,
+          "teams": 10,
+          "finishScore": 0,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2020,
+          "rank": 6,
+          "teams": 10,
+          "finishScore": 44.4444,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "rank": 2,
+          "teams": 10,
+          "finishScore": 88.8889,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "rank": 7,
+          "teams": 10,
+          "finishScore": 33.3333,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 48.3,
+      "topThree": 2,
+      "topHalf": 3,
+      "lastPlaceFinishes": [
+        {
+          "year": 2019,
+          "provider": "ESPN"
+        }
+      ]
+    },
+    {
+      "manager": "Halderman",
+      "seasonsPlayed": 2,
+      "years": [
+        2016,
+        2017
+      ],
+      "history": [
+        {
+          "year": 2016,
+          "rank": 2,
+          "teams": 8,
+          "finishScore": 85.7143,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2017,
+          "rank": 6,
+          "teams": 10,
+          "finishScore": 44.4444,
+          "provider": "ESPN"
+        }
+      ],
+      "meanFinishScore": 65.08,
+      "topThree": 1,
+      "topHalf": 1,
+      "lastPlaceFinishes": []
+    },
+    {
+      "manager": "JMid",
+      "seasonsPlayed": 3,
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "history": [
+        {
+          "year": 2023,
+          "rank": 6,
+          "teams": 10,
+          "finishScore": 44.4444,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "rank": 4,
+          "teams": 10,
+          "finishScore": 66.6667,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "rank": 8,
+          "teams": 10,
+          "finishScore": 22.2222,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 44.44,
+      "topThree": 0,
+      "topHalf": 1,
+      "lastPlaceFinishes": []
+    },
+    {
+      "manager": "Koble",
+      "seasonsPlayed": 8,
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "history": [
+        {
+          "year": 2016,
+          "rank": 4,
+          "teams": 8,
+          "finishScore": 57.1429,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2017,
+          "rank": 5,
+          "teams": 10,
+          "finishScore": 55.5556,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2018,
+          "rank": 9,
+          "teams": 10,
+          "finishScore": 11.1111,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2019,
+          "rank": 7,
+          "teams": 10,
+          "finishScore": 33.3333,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2020,
+          "rank": 1,
+          "teams": 10,
+          "finishScore": 100,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "rank": 9,
+          "teams": 10,
+          "finishScore": 11.1111,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "rank": 8,
+          "teams": 10,
+          "finishScore": 22.2222,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "rank": 3,
+          "teams": 10,
+          "finishScore": 77.7778,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 46.03,
+      "topThree": 2,
+      "topHalf": 4,
+      "lastPlaceFinishes": []
+    },
+    {
+      "manager": "Kuhl",
+      "seasonsPlayed": 8,
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "history": [
+        {
+          "year": 2018,
+          "rank": 6,
+          "teams": 10,
+          "finishScore": 44.4444,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2019,
+          "rank": 6,
+          "teams": 10,
+          "finishScore": 44.4444,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2020,
+          "rank": 5,
+          "teams": 10,
+          "finishScore": 55.5556,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "rank": 7,
+          "teams": 10,
+          "finishScore": 33.3333,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "rank": 3,
+          "teams": 10,
+          "finishScore": 77.7778,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "rank": 9,
+          "teams": 10,
+          "finishScore": 11.1111,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "rank": 10,
+          "teams": 10,
+          "finishScore": 0,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "rank": 9,
+          "teams": 10,
+          "finishScore": 11.1111,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 34.72,
+      "topThree": 1,
+      "topHalf": 2,
+      "lastPlaceFinishes": [
+        {
+          "year": 2024,
+          "provider": "Sleeper"
+        }
+      ]
+    },
+    {
+      "manager": "Mitch",
+      "seasonsPlayed": 8,
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "history": [
+        {
+          "year": 2018,
+          "rank": 8,
+          "teams": 10,
+          "finishScore": 22.2222,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2019,
+          "rank": 3,
+          "teams": 10,
+          "finishScore": 77.7778,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2020,
+          "rank": 2,
+          "teams": 10,
+          "finishScore": 88.8889,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "rank": 5,
+          "teams": 10,
+          "finishScore": 55.5556,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "rank": 4,
+          "teams": 10,
+          "finishScore": 66.6667,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "rank": 2,
+          "teams": 10,
+          "finishScore": 88.8889,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "rank": 9,
+          "teams": 10,
+          "finishScore": 11.1111,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "rank": 3,
+          "teams": 10,
+          "finishScore": 77.7778,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 61.11,
+      "topThree": 4,
+      "topHalf": 6,
+      "lastPlaceFinishes": []
+    },
+    {
+      "manager": "Schermerhorn",
+      "seasonsPlayed": 2,
+      "years": [
+        2016,
+        2017
+      ],
+      "history": [
+        {
+          "year": 2016,
+          "rank": 8,
+          "teams": 8,
+          "finishScore": 0,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2017,
+          "rank": 2,
+          "teams": 10,
+          "finishScore": 88.8889,
+          "provider": "ESPN"
+        }
+      ],
+      "meanFinishScore": 44.44,
+      "topThree": 1,
+      "topHalf": 1,
+      "lastPlaceFinishes": [
+        {
+          "year": 2016,
+          "provider": "ESPN"
+        }
+      ]
+    },
+    {
+      "manager": "Scott",
+      "seasonsPlayed": 2,
+      "years": [
+        2024,
+        2025
+      ],
+      "history": [
+        {
+          "year": 2024,
+          "rank": 7,
+          "teams": 10,
+          "finishScore": 33.3333,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "rank": 1,
+          "teams": 10,
+          "finishScore": 100,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 66.67,
+      "topThree": 1,
+      "topHalf": 1,
+      "lastPlaceFinishes": []
+    },
+    {
+      "manager": "Stew",
+      "seasonsPlayed": 10,
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "history": [
+        {
+          "year": 2016,
+          "rank": 7,
+          "teams": 8,
+          "finishScore": 14.2857,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2017,
+          "rank": 7,
+          "teams": 10,
+          "finishScore": 33.3333,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2018,
+          "rank": 5,
+          "teams": 10,
+          "finishScore": 55.5556,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2019,
+          "rank": 2,
+          "teams": 10,
+          "finishScore": 88.8889,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2020,
+          "rank": 9,
+          "teams": 10,
+          "finishScore": 11.1111,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "rank": 8,
+          "teams": 10,
+          "finishScore": 22.2222,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "rank": 2,
+          "teams": 10,
+          "finishScore": 88.8889,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "rank": 10,
+          "teams": 10,
+          "finishScore": 0,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "rank": 8,
+          "teams": 10,
+          "finishScore": 22.2222,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "rank": 6,
+          "teams": 10,
+          "finishScore": 44.4444,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 38.1,
+      "topThree": 2,
+      "topHalf": 3,
+      "lastPlaceFinishes": [
+        {
+          "year": 2023,
+          "provider": "Sleeper"
+        }
+      ]
+    },
+    {
+      "manager": "Stilly",
+      "seasonsPlayed": 10,
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "history": [
+        {
+          "year": 2016,
+          "rank": 6,
+          "teams": 8,
+          "finishScore": 28.5714,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2017,
+          "rank": 3,
+          "teams": 10,
+          "finishScore": 77.7778,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2018,
+          "rank": 10,
+          "teams": 10,
+          "finishScore": 0,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2019,
+          "rank": 5,
+          "teams": 10,
+          "finishScore": 55.5556,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2020,
+          "rank": 7,
+          "teams": 10,
+          "finishScore": 33.3333,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "rank": 10,
+          "teams": 10,
+          "finishScore": 0,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "rank": 6,
+          "teams": 10,
+          "finishScore": 44.4444,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "rank": 1,
+          "teams": 10,
+          "finishScore": 100,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "rank": 2,
+          "teams": 10,
+          "finishScore": 88.8889,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "rank": 7,
+          "teams": 10,
+          "finishScore": 33.3333,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 46.19,
+      "topThree": 3,
+      "topHalf": 4,
+      "lastPlaceFinishes": [
+        {
+          "year": 2018,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2021,
+          "provider": "Sleeper"
+        }
+      ]
+    },
+    {
+      "manager": "Stover",
+      "seasonsPlayed": 10,
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "history": [
+        {
+          "year": 2016,
+          "rank": 5,
+          "teams": 8,
+          "finishScore": 42.8571,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2017,
+          "rank": 8,
+          "teams": 10,
+          "finishScore": 22.2222,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2018,
+          "rank": 4,
+          "teams": 10,
+          "finishScore": 66.6667,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2019,
+          "rank": 9,
+          "teams": 10,
+          "finishScore": 11.1111,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2020,
+          "rank": 4,
+          "teams": 10,
+          "finishScore": 66.6667,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "rank": 4,
+          "teams": 10,
+          "finishScore": 66.6667,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "rank": 1,
+          "teams": 10,
+          "finishScore": 100,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "rank": 8,
+          "teams": 10,
+          "finishScore": 22.2222,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "rank": 3,
+          "teams": 10,
+          "finishScore": 77.7778,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "rank": 10,
+          "teams": 10,
+          "finishScore": 0,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 47.62,
+      "topThree": 2,
+      "topHalf": 5,
+      "lastPlaceFinishes": [
+        {
+          "year": 2025,
+          "provider": "Sleeper"
+        }
+      ]
+    },
+    {
+      "manager": "Thommy",
+      "seasonsPlayed": 10,
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "history": [
+        {
+          "year": 2016,
+          "rank": 1,
+          "teams": 8,
+          "finishScore": 100,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2017,
+          "rank": 1,
+          "teams": 10,
+          "finishScore": 100,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2018,
+          "rank": 1,
+          "teams": 10,
+          "finishScore": 100,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2019,
+          "rank": 8,
+          "teams": 10,
+          "finishScore": 22.2222,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2020,
+          "rank": 8,
+          "teams": 10,
+          "finishScore": 22.2222,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "rank": 6,
+          "teams": 10,
+          "finishScore": 44.4444,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "rank": 5,
+          "teams": 10,
+          "finishScore": 55.5556,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "rank": 7,
+          "teams": 10,
+          "finishScore": 33.3333,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "rank": 1,
+          "teams": 10,
+          "finishScore": 100,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "rank": 2,
+          "teams": 10,
+          "finishScore": 88.8889,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 66.67,
+      "topThree": 5,
+      "topHalf": 6,
+      "lastPlaceFinishes": []
+    },
+    {
+      "manager": "Tony",
+      "seasonsPlayed": 9,
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "history": [
+        {
+          "year": 2017,
+          "rank": 9,
+          "teams": 10,
+          "finishScore": 11.1111,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2018,
+          "rank": 3,
+          "teams": 10,
+          "finishScore": 77.7778,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2019,
+          "rank": 4,
+          "teams": 10,
+          "finishScore": 66.6667,
+          "provider": "ESPN"
+        },
+        {
+          "year": 2020,
+          "rank": 10,
+          "teams": 10,
+          "finishScore": 0,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2021,
+          "rank": 1,
+          "teams": 10,
+          "finishScore": 100,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2022,
+          "rank": 9,
+          "teams": 10,
+          "finishScore": 11.1111,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "rank": 4,
+          "teams": 10,
+          "finishScore": 66.6667,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2024,
+          "rank": 5,
+          "teams": 10,
+          "finishScore": 55.5556,
+          "provider": "Sleeper"
+        },
+        {
+          "year": 2025,
+          "rank": 5,
+          "teams": 10,
+          "finishScore": 55.5556,
+          "provider": "Sleeper"
+        }
+      ],
+      "meanFinishScore": 49.38,
+      "topThree": 2,
+      "topHalf": 6,
+      "lastPlaceFinishes": [
+        {
+          "year": 2020,
+          "provider": "Sleeper"
+        }
+      ]
+    }
+  ]
+}
