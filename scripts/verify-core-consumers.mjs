@@ -69,6 +69,7 @@ for(const [slug,id] of Object.entries(managers)){
  assert(!/AI-Written Biography/.test(html),'Generic AI biography title in profile: '+slug);
  const hero=html.match(/<section class="hero">([\s\S]*?)<\/section>/)?.[1];
  assert(hero,'Manager hero missing: '+slug);
+ assert(hero.includes('<h1>'+id+'</h1>'),'Public manager display name must match canonical nickname, including Thommy: '+slug);
  const record=canonical.w+'–'+canonical.l+(canonical.t?'–'+canonical.t:'');
  const match=hero.match(/<strong data-canonical-manager-record="([^"]+)"[^>]*>([^<]+)<\/strong>/);
  assert(match&&match[1]===id&&match[2]===record,
