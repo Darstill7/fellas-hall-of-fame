@@ -137,6 +137,31 @@ for(const person of book.managers){
  check(!!saved&&near(saved.points,max)&&!disallowed(saved),
   'Cumulative 2019 ladder score incorrectly listed as '+person.manager+' best postseason matchup');
 }
+// The public awards views must distinguish regular-season Basement lows from
+// the historical losers-consolation punishment; neither may manufacture
+// a Sleeper-era punishment from ordinary weekly scoring.
+const historicalAwardsPage=fs.readFileSync('seasons/historical-awards.html','utf8');
+const annualAwardsShow=fs.readFileSync('analytics/awards-show.html','utf8');
+const espnOriginsPage=fs.readFileSync('seasons/espn-origins.html','utf8');
+const managerHistoryView=fs.readFileSync('assets/manager-season-history.js','utf8');
+for(const [pageName,html] of [
+ ['Historical Awards',historicalAwardsPage],
+ ['Annual Awards Show',annualAwardsShow],
+ ['ESPN Origins',espnOriginsPage]
+]){
+ check(html.includes('espn_shitter_of_the_year_2016_2019.json')&&
+  html.includes('Shitter of the Year'),
+  pageName+' must read and label the verified ESPN punishment dataset');
+}
+check(historicalAwardsPage.includes('The Basement · regular season')&&
+ historicalAwardsPage.includes('final consolation'),
+ 'Historical Awards must keep regular-season Basement separate from postseason punishment');
+check(annualAwardsShow.includes('data-shitter-award')&&
+ annualAwardsShow.includes("punishment?.seasons?.[year]"),
+ 'Annual Awards Show must display punishment only for years in verified source');
+check(managerHistoryView.includes("x.awards?.includes('Shitter of the Year')")&&
+ managerHistoryView.includes('season-award-detail'),
+ 'Manager season history must show punishment award separately from league finishing rank');
 if(problems.length){
  console.error('ESPN bracket format audit FAILED ('+problems.length+')');
  for(const error of problems)console.error(' - '+error);
