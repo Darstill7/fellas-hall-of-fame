@@ -52,6 +52,44 @@ const dossierInventory=workflow.indexOf('      - name: Inventory unmatched histo
 const artifactUpload=workflow.indexOf('      - name: Upload link-audit report');
 assert(dossierInventory>=0&&topicAudit>dossierInventory&&artifactUpload>topicAudit,'Dossier editorial and topic audits must run before artifact upload');
 const managers={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
+
+// Editorial release gate: every current profile must agree with canonical
+// regular-season records, independently maintained title history and the
+// complete set of individual long-form biographies.
+const careerBiographies=JSON.parse(read('data/manager_biographies_awards.json')).managers;
+const bioTexts=[];
+for(const [slug,id] of Object.entries(managers)){
+ const html=read('managers/'+slug+'/index.html');
+ const canonical=careers.managers[id];
+ const legacy=legacyResumes[slug==='tom'?'Tom':id];
+ const biography=careerBiographies[slug==='tom'?'Tom':id]?.biography;
+ assert(canonical&&legacy,'Missing source-backed identity: '+slug);
+ assert(typeof biography==='string'&&biography.length>=650,
+  'Missing substantial manager biography: '+slug);
+ assert(!/AI-Written Biography/.test(html),'Generic AI biography title in profile: '+slug);
+ const hero=html.match(/<section class="hero">([\s\S]*?)<\/section>/)?.[1];
+ assert(hero,'Manager hero missing: '+slug);
+ const record=canonical.w+'–'+canonical.l+(canonical.t?'–'+canonical.t:'');
+ const match=hero.match(/<strong data-canonical-manager-record="([^"]+)"[^>]*>([^<]+)<\/strong>/);
+ assert(match&&match[1]===id&&match[2]===record,
+  'Stale or wrongly identified canonical record in hero: '+slug);
+ const title=hero.match(/<div class="stat"><strong>(\d+)<\/strong><small>Verified championships?<\/small><\/div>/);
+ assert(title&&Number(title[1])===legacy.championships,
+  'Championship total disagrees with source: '+slug);
+ for(const year of legacy.titleYears)assert(hero.includes(String(year)),
+  'Documented title year absent from manager hero: '+slug+' '+year);
+ const story=html.match(/<section[^>]*id="franchise-story"[^>]*>[\s\S]*?<p class="lead">([\s\S]*?)<\/p>/)?.[1];
+ assert(story&&story.length>=120&&story.length<=550,
+  'Intro should be a readable summary, not a duplicated full biography: '+slug);
+ assert(!/archived regular-season record is|over \d+ games/.test(story),
+  'Profile intro contains hard-coded, potentially stale career stats: '+slug);
+ assert(html.includes('data-legacy-resume='),'Full sourced résumé mount missing: '+slug);
+ bioTexts.push(biography);
+}
+assert(new Set(bioTexts).size===10,'Every manager needs a distinct biography');
+assert(read('assets/legacy-resume.js').includes('data/manager_biographies_awards.json'),
+ 'Career biography renderer must load editorial source');
+
 const encyclopediaRenderer=read('assets/manager-encyclopedia.js');
 assert(encyclopediaRenderer.includes('waiver_award_candidates.json')&&encyclopediaRenderer.includes('v9_trade_engine.json'),'Manager encyclopedia must use source evidence');
 assert(encyclopediaRenderer.includes("encyclopediaUpdated='unavailable'"),'Failed encyclopedia fetch must expose unavailable status');
