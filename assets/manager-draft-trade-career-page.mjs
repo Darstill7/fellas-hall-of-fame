@@ -68,16 +68,16 @@ export async function mountDraftTradeCareer(host,manager){
    career.partialTrades+' partial qualifying trade events.');
   details.append(coverage);
   const draftSection=elt('section','career-resume-section');
-  draftSection.append(elt('h4',null,'Recent draft snapshots'));
-  for(const season of career.latestPicks){
+  draftSection.append(elt('h4',null,'Recent Sleeper draft snapshots'));
+  for(const season of career.latestPicks.filter(season=>season.platform==='Sleeper')){
    const line=elt('p','career-resume-example');
    line.append(elt('strong',null,season.year+' · '));
    line.append(document.createTextNode(season.picks.map(p=>
     'R'+p.round+' '+p.player).join(' · ')));
    draftSection.append(line);
   }
-  if(!career.latestPicks.length)draftSection.append(
-   elt('p','muted','No named early draft selections available.'));
+  if(!career.latestPicks.some(season=>season.platform==='Sleeper'))draftSection.append(
+   elt('p','muted','No named recent Sleeper draft selections available.'));
   details.append(draftSection);
   // The legacy career research snapshot predates full ESPN athlete ID recovery.
   // Use the named original board for ESPN selections, never stale early-pick
