@@ -335,7 +335,7 @@ for(const yearData of bracketReceipts.seasons){
   throw Error('Championship bracket conflict in '+year);
  if(yearData.toiletBowl?.manager!==expectedLast[year])
   throw Error('Toilet Bowl loser mismatch in '+year);
- if(yearData.reviewNeeded?.length&&year!==2020)throw Error('Unexpected ambiguous third-place evidence in '+year);
+ if(yearData.reviewNeeded?.length)throw Error('Outstanding postseason score review remains for '+year);
  const finished=yearData.finalPlacements||[];
  if(finished.length!==10||yearData.placementsComplete!==true)
   throw Error('Postseason placements must be complete for '+year);
@@ -346,8 +346,8 @@ for(const yearData of bracketReceipts.seasons){
   throw Error('Final 10th-place manager must be Shitter of the Year in '+year);
  if(finished.find(x=>x.place===1)?.manager!==yearData.championship.winner)
   throw Error('Final first-place manager must be season champion '+year);
- if(year===2020&&finished.filter(x=>!x.scoreVerified).map(x=>x.place).join(',')!=='3,4')
-  throw Error('Unreconciled 2020 third place score must remain flagged');
+ if(finished.some(x=>x.scoreVerified!==true))
+  throw Error('Season contains unverified postseason final score for '+year);
  for(const game of yearData.placementGames){
   const matches=sourceMatchups.find(x=>x.year===year&&x.week===game.week)?.games||[];
   const found=matches.some(m=>{
