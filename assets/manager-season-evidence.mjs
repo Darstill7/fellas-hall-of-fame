@@ -120,17 +120,22 @@ export async function mountManagerSeasonEvidence(host,manager){
       evidence.trades.fullyRepresentedEvents+evidence.trades.partialEvents!==evidence.trades.representedEvents)
     throw Error('Invalid draft or trade evidence '+year);
    const draft=make('div','profile-season-draft-trade');
-   const picked=evidence.earlySelections.map(p=>'R'+p.round+' '+(p.player||'Name unresolved')).join(' · ');
+   const picked=year===2018?'Offline ESPN draft — original pick order unavailable':evidence.earlySelections.map(p=>'R'+p.round+' '+(p.player||'Name not in legacy research')).join(' · ');
    draft.append(make('p',null,'Draft · '+evidence.recordedSelections+' documented selections'+
       (evidence.recordedKeeperSelections?' ('+evidence.recordedKeeperSelections+' recorded keepers)':'')+
-      ' · earliest non-keeper picks: '+(picked||'Not recorded')));
-   if(evidence.unresolvedNames)
-    draft.append(make('p','muted',evidence.unresolvedNames+' ESPN draft player name(s) unresolved'));
+      ' · '+(year===2018?picked:'earliest non-keeper picks: '+(picked||'Not recorded'))));
+   if(evidence.unresolvedNames&&year>=2020)
+    draft.append(make('p','muted',evidence.unresolvedNames+' draft player name(s) unresolved in the existing research'));
    draft.append(make('p',null,'Trades · '+evidence.trades.representedEvents+
     ' qualifying source-backed event(s)'+
     (evidence.trades.partialEvents?' · '+evidence.trades.partialEvents+' partly represented':'')+
     ' · not trade wins or losses'));
    body.append(facts,draft);
+   if(year>=2016&&year<=2019){
+    const link=make('a','profile-season-trade-link','See '+year+' original ESPN selections and recovered player names');
+    link.href=root+'seasons/espn-draft-history.html?manager='+encodeURIComponent(manager==='Tom'?'Thommy':manager)+'&year='+year;
+    body.append(link);
+   }
    if(year>=2020){
     const trade=document.createElement('a');
     trade.className='profile-season-trade-link';
