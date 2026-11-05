@@ -286,6 +286,17 @@ try{
            !canonicalLinks[1]?.path.endsWith('/analytics/manager-report-cards.html')||
            !canonicalLinks[2]?.path.endsWith('/analytics/manager-lineup-research.html'))
          throw Error('Primary profile links target the wrong manager');
+        // The prominent Career overview shortcut must reveal content, not
+        // scroll to a target hidden by the short-profile landing state.
+        await featured.locator('a[href="#verified-history-panel"]').click();
+        if(!await page.locator('#verified-history-panel').isVisible()||
+           !await page.locator('#historical-record-profile').isVisible())
+         throw Error('Career overview shortcut points to hidden content');
+        const shortcutReturn=page.locator('.profile-focus-toolbar button').first();
+        if(!await shortcutReturn.isVisible())throw Error('Career overview has no return navigation');
+        await shortcutReturn.click();
+        if(await page.locator('body').evaluate(el=>el.classList.contains('profile-feature-focused')))
+         throw Error('Career overview failed to restore profile topic directory');
         const factors=page.locator('details.profile-rating-components');
         if(await factors.count()!==1||await factors.evaluate(el=>el.open))
          throw Error('Career rating factor breakdown missing or not collapsed');
