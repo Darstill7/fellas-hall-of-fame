@@ -69,3 +69,12 @@ Inspected the primary `managers/<slug>/index.html` file for all ten current mana
 4. Consider reconciling Tom/Thommy visible naming in a dedicated coordinated identity patch: simply renaming the hero's `h1` could change profile-js manager lookups.
 5. Harmonize the remaining Stover-specific layout intentionally, without losing historical highlights.
 6. Confirm GitHub Pages deployment at the final audited commit before suggesting the site is release-ready.
+
+## Continuation — career-first profile hierarchy
+
+- Reversed the previous shared JavaScript placement that moved the "Explore topics" CTA above verified career statistics. All ten modern routes now place **manager identity and short career headline → verified championships and WLT → title-season context → navigation controls → feature directory**, without duplicating or inventing the canonical values.
+- Kept the headline stat presentation to two compact, prominent facts: championship total and regular-season record. Added a readable championship-season line using each original page's source-backed title-year stat. Managers without a title are identified as pursuing their first championship, not given a fabricated date.
+- Added a prominent direct **Read [manager]'s career story** button to the shared "Start here" feature directory. It uses the established focused-section handler with `#legacy-resume`, so readers can reveal the full career biography while other research sections stay collapsed. The existing Records and Report Card destinations remain intact.
+- Added Chromium/WebKit browser-source regression assertions to `scripts/test-browser-release.mjs`: DOM order must put `h1` before `[data-profile-career-snapshot]` before hero action buttons; the dedicated biography entry must exist. The browser script and shared module were syntax-checked in isolation using a JS parser-equivalent compilation step, **not** executed in browsers in this task.
+- Scope applies through shared `assets/manager-profile-tabs.mjs` and `assets/manager-profile-readability.css` to all ten manager pages, including Stover's independently styled source HTML. No championship/WLT facts changed, and historic dossier chapters remain accessible.
+- **Release gate remains closed** until main-branch canonical validation, actual Chromium & WebKit page interaction/viewport checks and Pages publication are confirmed after these commits.
