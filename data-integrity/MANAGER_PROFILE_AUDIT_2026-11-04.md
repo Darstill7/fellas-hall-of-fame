@@ -51,3 +51,21 @@ Inspected the primary `managers/<slug>/index.html` file for all ten current mana
 - Remove duplication between the short story and full biography.
 - Prove image/typography/navigation quality in actual Chromium + WebKit at mobile and desktop widths.
 - Verify current GitHub Actions and GitHub Pages outcomes; no green status is claimed in this audit.
+
+## Continuation — profile correction and biography presentation batch
+
+- Updated **all ten** modern `managers/<slug>/index.html` pages with manager-specific short opening stories (roughly 200–270 characters), replacing duplicated long biographies and removing hard-coded Week 7 game totals in introductory prose.
+- Replaced ten generic top-of-page taglines with distinctive, career-relevant headlines identifying titles, milestones, records, or current challenges. Removed the prominent Start/Sit CTA from nine standard profile heroes; advanced lineup research remains elsewhere. Stover did not have that CTA in its separate hero layout.
+- Preserved the existing canonical `data-canonical-manager-record` bindings and championship hero statistics, and preserved full historical dossier links and all other sections.
+- The ten complete `data/manager_biographies_awards.json` biographies now have three editorial paragraphs each. Shared `assets/legacy-resume.js` renders those paragraphs in the career biography; `assets/manager-profile-readability.css` constrains reading width and improves line-height at mobile viewports.
+- Added a **blocking manager-level editorial invariant** to `scripts/verify-core-consumers.mjs`: each profile must retain its source-backed regular-season WLT, correct canonical identity (including Tom → Thommy), documented championship count and title years, one readable short story, a biography at least 650 characters, and a working biography résumé mount. The gate rejects identical biographies across the ten managers.
+- Re-read all ten live GitHub source HTML files after the first intro batch and compared the hero record/count, titles, short-story length and biography presence to the current canonical/legacy source. **All ten matched** in that source-level verification. This is **not** a claim that CI has executed or that a device browser has rendered the site successfully.
+
+### Remaining work / open release gates
+
+1. Obtain a **successful canonical GitHub Actions** run for the resulting main-branch head; inspect any failures. Rapid commits can cause job cancellations, so let the last combined head finish rather than interpreting cancellations as test failures.
+2. Check the biographies and chapter/navigation interactions in real Chromium and WebKit at 390px and 1280px; confirm paragraphs, headings, visibility, keyboard access, overflow and tap targets. No live browser pass is claimed here.
+3. Review other deeper dossier prose and dated player transaction assertions against direct evidence; do not take historical roster/story claims as all equally verified.
+4. Consider reconciling Tom/Thommy visible naming in a dedicated coordinated identity patch: simply renaming the hero's `h1` could change profile-js manager lookups.
+5. Harmonize the remaining Stover-specific layout intentionally, without losing historical highlights.
+6. Confirm GitHub Pages deployment at the final audited commit before suggesting the site is release-ready.
