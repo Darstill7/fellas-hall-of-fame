@@ -595,6 +595,9 @@ if(main&&tabs){
   history.replaceState(null,'',location.pathname+location.search);
   // Keep the last open topic, avoiding a toggle race when switching features.
   featureDirectory?.scrollIntoView({block:'start',behavior:'instant'});
+  // Back is hidden with the focused-only toolbar on the landing page;
+  // return keyboard focus to a visible topic rather than leaving it stranded.
+  requestAnimationFrame(()=>featureDirectory?.querySelector('details.profile-feature-group[open] > summary')?.focus({preventScroll:true}));
  }
  focusBack.addEventListener('click',returnToFeatureDirectory);
  // Escape provides a predictable exit from a focused evidence view.
