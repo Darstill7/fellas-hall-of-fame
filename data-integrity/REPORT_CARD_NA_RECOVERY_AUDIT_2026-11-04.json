@@ -9,7 +9,8 @@
     "startSit": "Sleeper platform displayed average through 2026 Week 8, not decision-quality skill",
     "keepers": "2025 observed original-manager keeper starts and points, not decision-time keeper value",
     "drafts": "Recorded source selections; outcome scores remain provisional",
-    "faab": "Provider-observed winning FAAB spend, paid and $0 successful waiver claims, failed claims; 2020–2025 full and 2026 Weeks 1–7 partial; not a skill grade"
+    "faab": "Provider-observed winning FAAB spend, paid and $0 successful waiver claims, failed claims; 2020–2025 full and 2026 Weeks 1–7 partial; not a skill grade",
+    "keepers2026": "Observed in-progress 2026 original-manager keeper starts and starter points through Week 8; NOT completed-season keeper skill"
   },
   "remainingRatings": {
     "waivers": "N/A: verified spend and winning claims are facts, but no full decision-quality rubric; failed bids are NOT spent budget",
@@ -70,6 +71,12 @@
         "winningSpend": 460,
         "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
         "grade": "Not rated"
+      },
+      "keepers2026": {
+        "throughWeek": 8,
+        "starts": 11,
+        "startedPoints": 195.48,
+        "grade": "Not rated, season in progress"
       }
     },
     {
@@ -123,6 +130,12 @@
         "winningSpend": 423,
         "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
         "grade": "Not rated"
+      },
+      "keepers2026": {
+        "throughWeek": 8,
+        "starts": 7,
+        "startedPoints": 178.8,
+        "grade": "Not rated, season in progress"
       }
     },
     {
@@ -176,6 +189,12 @@
         "winningSpend": 565,
         "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
         "grade": "Not rated"
+      },
+      "keepers2026": {
+        "throughWeek": 8,
+        "starts": 13,
+        "startedPoints": 232.7,
+        "grade": "Not rated, season in progress"
       }
     },
     {
@@ -229,6 +248,12 @@
         "winningSpend": 409,
         "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
         "grade": "Not rated"
+      },
+      "keepers2026": {
+        "throughWeek": 8,
+        "starts": 6,
+        "startedPoints": 76.48,
+        "grade": "Not rated, season in progress"
       }
     },
     {
@@ -281,6 +306,12 @@
         "winningSpend": 483,
         "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
         "grade": "Not rated"
+      },
+      "keepers2026": {
+        "throughWeek": 8,
+        "starts": 11,
+        "startedPoints": 89.6,
+        "grade": "Not rated, season in progress"
       }
     },
     {
@@ -333,6 +364,12 @@
         "winningSpend": 360,
         "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
         "grade": "Not rated"
+      },
+      "keepers2026": {
+        "throughWeek": 8,
+        "starts": 14,
+        "startedPoints": 228.4,
+        "grade": "Not rated, season in progress"
       }
     },
     {
@@ -384,6 +421,12 @@
         "winningSpend": 450,
         "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
         "grade": "Not rated"
+      },
+      "keepers2026": {
+        "throughWeek": 8,
+        "starts": 14,
+        "startedPoints": 249.66,
+        "grade": "Not rated, season in progress"
       }
     },
     {
@@ -435,6 +478,12 @@
         "winningSpend": 466,
         "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
         "grade": "Not rated"
+      },
+      "keepers2026": {
+        "throughWeek": 8,
+        "starts": 8,
+        "startedPoints": 86.7,
+        "grade": "Not rated, season in progress"
       }
     },
     {
@@ -480,6 +529,12 @@
         "winningSpend": 253,
         "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
         "grade": "Not rated"
+      },
+      "keepers2026": {
+        "throughWeek": 8,
+        "starts": 5,
+        "startedPoints": 56.9,
+        "grade": "Not rated, season in progress"
       }
     },
     {
@@ -525,6 +580,12 @@
         "winningSpend": 140,
         "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
         "grade": "Not rated"
+      },
+      "keepers2026": {
+        "throughWeek": 8,
+        "starts": 8,
+        "startedPoints": 139.8,
+        "grade": "Not rated, season in progress"
       }
     }
   ]

@@ -6,6 +6,7 @@ const rows=buildEvidenceSnapshots({
  placements:get('data/fellas_final_placements_2016_2025_verified.json'),
  acquisitions:get('data/manager_acquisition_distinct_v1.json'),
  keeperResearch:get('data/keeper_2025_website_research_v1.json'),
+ keeper2026:get('data/keeper_2026_website_research_v1.json'),
  startSit:get('data-integrity/sleeper-start-sit-ui-benchmarks-2026-week8.json'),
  draftTrade:get('data/manager_draft_trade_profile_evidence_v1.json'),
  faab:get('data-integrity/faab-manager-spend-research-v1.json')
@@ -21,11 +22,13 @@ for(const e of rows){
     e.pickups.distinct!==verified.pickups.distinct||
     e.startSit.accuracyPercent!==verified.sleeperLineup.week8AccuracyPercent||
     e.keepers.startedPoints!==verified.keepers.startedPoints||
+    e.keepers.current.startedPoints!==verified.keepers2026.startedPoints||
+    e.keepers.current.starts!==verified.keepers2026.starts||
     e.faab.completedClaims!==verified.faab.completedClaims||
     e.faab.winningSpend!==verified.faab.winningSpend||
     e.drafts.documentedSeasonCount!==verified.drafts.documentedSeasons)
   throw Error('Evidence snapshot differs from original receipts for '+e.manager);
- if(e.faab.gradeStatus!=='not-rated'||e.keepers.gradeStatus!=='not-rated'||e.startSit.gradeStatus!=='not-rated'||
+ if(e.faab.gradeStatus!=='not-rated'||e.keepers.current.gradeStatus!=='not-rated'||e.keepers.gradeStatus!=='not-rated'||e.startSit.gradeStatus!=='not-rated'||
     e.pickups.started>e.pickups.distinct)
   throw Error('Unjustified manager-skill grade or impossible pickup count '+e.manager);
 }
@@ -46,6 +49,7 @@ if(!page.includes("v===null?'Not rated'")||!page.includes("score===null?'Not rat
 if(!page.includes('buildEvidenceSnapshots(')||!page.includes("evidenceSnapshot(x.name)")||
    !page.includes('report-fact-grid')||!page.includes('report-fact-method')||
    !page.includes('keeper_2025_website_research_v1.json')||
+   !page.includes('keeper_2026_website_research_v1.json')||
    !page.includes('faab-manager-spend-research-v1.json')||!page.includes('report-faab-history'))
  throw Error('Evidence not wired into the public report card page');
 const css=fs.readFileSync('analytics/manager-report-cards.html','utf8');

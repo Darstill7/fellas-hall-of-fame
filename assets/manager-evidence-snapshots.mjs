@@ -1,11 +1,12 @@
 // Descriptive historical evidence. These values NEVER become implicit manager skill ratings.
 export const ACTIVE_MANAGERS=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
-export function buildEvidenceSnapshots({placements,acquisitions,keeperResearch,startSit,draftTrade,faab=null}){
+export function buildEvidenceSnapshots({placements,acquisitions,keeperResearch,keeper2026=null,startSit,draftTrade,faab=null}){
  const map=new Map();
  const unique=(rows,label)=>{const d=new Map();for(const row of rows){if(d.has(row.manager))throw Error('Duplicate '+label+' manager '+row.manager);d.set(row.manager,row)}return d};
  const finish=unique(placements.managers,'finishing');
  const pickups=unique(acquisitions.byManager,'pickup');
  const keepers=unique(keeperResearch.rows,'keeper');
+ const currentKeepers=keeper2026?unique(keeper2026.rows,'2026 keeper'):new Map();
  const accuracy=unique(startSit.data,'start/sit');
  const faabMap=faab?unique(faab.managerTotals,'FAAB'):new Map();
  const faabSeasonMap=new Map();
@@ -14,11 +15,11 @@ export function buildEvidenceSnapshots({placements,acquisitions,keeperResearch,s
   faabSeasonMap.get(season.manager).push(season);
  }
  if(faab&&faab.status!=='provider_observed_no_skill_grade')throw Error('FAAB source is not provider-observed research');
- if(keeperResearch.season!==2025||startSit.season!==2026||startSit.throughWeek!==8)
+ if(keeperResearch.season!==2025||(keeper2026&&(keeper2026.season!==2026||keeper2026.throughWeek!==8))||startSit.season!==2026||startSit.throughWeek!==8)
   throw Error('Descriptive keeper and lineup source periods changed');
  for(const name of ACTIVE_MANAGERS){
-  const f=finish.get(name),a=pickups.get(name),k=keepers.get(name),h=accuracy.get(name),bid=faabMap.get(name);
-  if(!f||!a||!k||!h||(faab&&!bid))throw Error('Missing manager evidence for '+name);
+  const f=finish.get(name),a=pickups.get(name),k=keepers.get(name),current=currentKeepers.get(name),h=accuracy.get(name),bid=faabMap.get(name);
+  if(!f||!a||!k||!h||(faab&&!bid)||(keeper2026&&!current))throw Error('Missing manager evidence for '+name);
   if(!Number.isInteger(f.seasonsPlayed)||f.seasonsPlayed<1||
      !Number.isFinite(f.meanFinishScore)||!Number.isInteger(f.topThree)||
      !Number.isInteger(a.distinctSeasonPlayerAcquisitions)||
@@ -32,6 +33,10 @@ export function buildEvidenceSnapshots({placements,acquisitions,keeperResearch,s
    !Number.isInteger(bid.completedBidSpend)||bid.completedBidSpend<0||
    bid.completedClaims!==bid.paidWins+bid.zeroDollarWins))
    throw Error('Provider FAAB claim totals do not reconcile for '+name);
+  if(current&&(!Number.isFinite(current.regularStartedPoints)||
+   !Number.isInteger(current.verifiedOriginalManagerStarts)||current.verifiedOriginalManagerStarts<0||
+   current.officialKeeperDecisionGrade!==null))
+   throw Error('Unrated partial-season keeper evidence must remain source-backed for '+name);
   const draftYears=[...new Set(draftTrade.rows.filter(r=>r.manager===name&&r.recordedSelections>0).map(r=>r.year))].sort((x,y)=>x-y);
   const row={
    manager:name,
@@ -47,6 +52,9 @@ export function buildEvidenceSnapshots({placements,acquisitions,keeperResearch,s
        failedClaims:x.failedClaims,winningSpend:x.completedBidSpend})),
      period:faab.scope,gradeStatus:'not-rated'}:null,
    keepers:{season:2025,recorded:k.keepers.length,startedPoints:k.regularStartedPoints,
+     current:current?{season:2026,throughWeek:keeper2026.throughWeek,
+       recorded:current.keepers.length,startedPoints:current.regularStartedPoints,
+       starts:current.verifiedOriginalManagerStarts,gradeStatus:'not-rated'}:null,
      gradeStatus:'not-rated'},
    startSit:{season:2026,throughWeek:8,accuracyPercent:h.accuracyPercent,
      gradeStatus:'not-rated',basis:'Sleeper UI screenshot'},
