@@ -507,5 +507,20 @@
       "2018": "Stilly",
       "2019": "Evans"
     }
+  },
+  "additional2019Evidence": {
+    "source": "User-supplied authenticated ESPN 2019 mDraftDetail+mTeam+mSettings+mMatchupScore export",
+    "normalized": "data/espn_2019_draft_activity_verified.json",
+    "coverage": {
+      "draftPicks": 150,
+      "rounds": 15,
+      "teamSeasonTransactionSummaries": 10,
+      "matchupRowsInSource": 81,
+      "faabBudgetPerTeam": 100,
+      "keeperCount": 0,
+      "halfPprReception": 0.5
+    },
+    "audit": "scripts/verify-espn-2019-draft-activity.mjs",
+    "caveat": "ESPN exports signed player IDs but does not include player names or source trade timestamps in this view. Retain existing score and playoff records; season trade totals are not event receipts."
   }
 }
