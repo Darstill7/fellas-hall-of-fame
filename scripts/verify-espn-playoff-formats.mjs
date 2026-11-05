@@ -10,6 +10,7 @@ const projected=load('data/season_weekly_matchups_2016_2026_v1.json');
 const book=load('data/manager_record_books_2016_2026.json');
 const endings=load('data/manager_verified_season_endings_v1.json');
 const evidence=load('data-integrity/ESPN_PLAYOFF_FORMAT_EVIDENCE_2016_2019.json');
+const punishment=load('data/espn_shitter_of_the_year_2016_2019.json');
 const problems=[];
 const check=(ok,message)=>{if(!ok)problems.push(message)};
 const arraysEqual=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
@@ -81,6 +82,50 @@ for(const [manager,rows] of Object.entries(endings.managers)){
   check(entry.ending!=='Finish not certified','Recoverable ESPN finishing position still omitted: '+manager+' '+entry.year);
  }
 }
+// Punishment was based on the *lowest scoring team* in the final round of
+// the losers' consolation ladder, not the original ESPN final finishing rank.
+// Do not mix in the winners' consolation side; it is a different ladder.
+check(punishment.identity?.year2019I_Love_Tubing==='Evans'&&
+ punishment.identity?.year2019StewTeam==='Kickers SUCK'&&
+ punishment.identity?.confirmedByUser===true,
+ 'User-confirmed 2019 Evans / Stew historical team ownership missing');
+check(evidence.seasons['2019'].consolation.userConfirmedOwnership===true &&
+ evidence.shitterOfYearRule?.userConfirmed==='Lowest scoring team in final consolation round',
+ 'User-confirmed ownership and Shitter award rule not recorded in bracket audit');
+const expectedShitters={2016:['Stilly',165],2017:['Halderman',96],2018:['Stilly',86.76],2019:['Evans',80.46]};
+for(const [yearText,[expectedWinner,expectedScore]] of Object.entries(expectedShitters)){
+ const year=Number(yearText),yearGames=games(year);
+ const loserGames=yearGames.filter(g=>g.stage==='LOSERS_CONSOLATION_LADDER');
+ const finalPeriod=Math.max(...loserGames.map(g=>g.period));
+ const finals=loserGames.filter(g=>g.period===finalPeriod);
+ const candidates=finals.flatMap(g=>[{
+  manager:mapping(year,g.home),total:g.hs,actualWeek:g.homeWeeks?.[16],scoreWeeks:g.homeWeeks
+ },{
+  manager:mapping(year,g.away),total:g.as,actualWeek:g.awayWeeks?.[16],scoreWeeks:g.awayWeeks
+ }]);
+ const scoringCandidates=candidates.map(c=>({
+  ...c,score:year===2019?c.actualWeek:c.total
+ })).sort((a,b)=>a.score-b.score);
+ const lowest=scoringCandidates[0],award=punishment.seasons[yearText];
+ check(!!award&&lowest.manager===expectedWinner&&near(lowest.score,expectedScore),
+  year+' last-round low scorer differs from original ESPN fixture');
+ check(award?.awardWinner===lowest.manager&&near(award?.awardWinningScore,lowest.score)&&
+  award?.officialFinish===rank(year,lowest.manager)&&
+  award?.lowScoreEntrants?.length===candidates.length,
+  year+' Shitter award differs from final losers-ladder scores, ranks or participants');
+ if(year===2019)check(award.measurement.winnerFinalRoundTotal===264.76&&
+  award.measurement.winnerActualFinalWeekPoints===80.46&&
+  rank(year,'Evans')===10,
+  '2019 award must distinguish actual Week 16 low score from three-week cumulative total');
+ const current=Object.entries(endings.managers).flatMap(([manager,rows])=>
+  rows.filter(row=>row.year===year&&row.awards?.includes('Shitter of the Year'))
+   .map(row=>manager));
+ check(arraysEqual(current,lowest.manager in endings.managers?[lowest.manager]:[]),
+  year+' current-manager Shitter award badges differ from original ESPN loser ladder');
+}
+check(rank(2016,'Stilly')===6&&rank(2016,'Schermerhorn')===8 &&
+ rank(2017,'Halderman')===6&&rank(2017,'Birch')===10,
+ 'Historical Shitter winners must remain distinct from official last-place standings');
 const disallowed=g=>g.cumulativeScoring&&g.weeksCovered?.length>1;
 for(const person of book.managers){
  const saved=person.postseason?.bestScoringMatchup;
@@ -97,5 +142,5 @@ if(problems.length){
  for(const error of problems)console.error(' - '+error);
  process.exitCode=1;
 }else{
- console.log('ESPN bracket format audit PASS: 2016–2019 two-week rounds, 2019 cumulative ladder, final placements, canonical identity and postseason scoring records.');
+ console.log('ESPN bracket format audit PASS: historic brackets, user-confirmed 2019 ownership, four lowest-score Shitter awards, final ranks and postseason scoring records.');
 }
