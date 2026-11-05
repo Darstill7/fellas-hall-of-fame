@@ -1840,6 +1840,15 @@ try{
          errors.push(width+' '+slug+' '+label+' draft shortcut has inadequate touch target');
         await choice.click();
         const receiptOpen=await resume.locator('details.career-resume-receipts').first().evaluate(el=>el.open);
+        const onlySelected=await resume.evaluate(target=>{
+         const sections=[...document.querySelectorAll('.profile-career-resume .career-resume-section')];
+         const expected=document.getElementById(target);
+         const expanded=[...document.querySelectorAll('.profile-career-resume .career-research-topic-button')]
+          .filter(b=>b.getAttribute('aria-expanded')==='true');
+         return !!expected&&sections.length===6&&sections.every(el=>el.hidden===(el!==expected))&&
+          expanded.length===1&&expanded[0].getAttribute('aria-controls')===target;
+        },id);
+        if(!onlySelected)errors.push(width+' '+slug+' draft topics exposed multiple sections or incorrect expanded state');
         const focused=await page.evaluate(target=>{
          const heading=document.getElementById(target)?.querySelector('h4');
          const rect=heading?.getBoundingClientRect();
@@ -1865,6 +1874,10 @@ try{
        }));
        if(!restored.focused||!restored.visible)
         errors.push(width+' '+slug+' draft topic return lost visible keyboard focus');
+       const collapsed=await resume.evaluate(el=>!el.querySelector('details.career-resume-receipts').open&&
+        [...el.querySelectorAll('.career-resume-section')].every(section=>section.hidden)&&
+        [...el.querySelectorAll('.career-research-topic-button')].every(button=>button.getAttribute('aria-expanded')==='false'));
+       if(!collapsed)errors.push(width+' '+slug+' return should collapse the long research content');
       }
       await researchShelf.evaluate(el=>el.open=false);
       if(!await page.locator('.profile-focus-toolbar').isVisible())
