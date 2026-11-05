@@ -62,11 +62,20 @@ for(const guard of ["a.name===b.name","v===null?'Not rated'","searchParams.set('
 console.log('Report card manager comparisons PASS');
 
 const managerRoutes={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
+// The current profile uses one shared, source-aware feature menu. Links are
+// generated at runtime for each manager rather than duplicated in ten HTML files.
+const sharedProfileNav=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+if(!sharedProfileNav.includes("['Report Card','Overall ratings")||
+   !sharedProfileNav.includes("'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards'")||
+   !sharedProfileNav.includes("a.href=href"))
+ throw Error('Shared manager profile report-card deep links are missing');
 for(const [slug,name] of Object.entries(managerRoutes)){
  const profile=fs.readFileSync('managers/'+slug+'/index.html','utf8');
- if(!profile.includes('../../analytics/manager-report-cards.html?manager='+name))throw Error('Missing report card profile link for '+name);
+ if(!profile.includes('manager-profile-tabs.mjs')||
+    !profile.includes('<h1>'+name+'</h1>'))
+  throw Error('Manager profile cannot mount its report-card link for '+name);
 }
-console.log('All 10 manager profiles link to corresponding report cards');
+console.log('All 10 manager profiles mount manager-specific report-card deep links');
 
 const auditHTML=fs.readFileSync('analytics/manager-decision-audit.html','utf8');
 const auditJS=fs.readFileSync('assets/manager-decision-audit.mjs','utf8');
