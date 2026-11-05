@@ -246,13 +246,11 @@
         "recipientFinalRoundTotal": 264.76,
         "recipientActualFinalWeekPoints": 80.46,
         "weeklyBreakdown": {
-          "14": 80.44,
-          "15": 103.86,
           "16": 80.46
         },
         "cumulativeThreeWeekLadder": true,
         "originalScoreSource": "data/espn_history_2016_2019.json",
-        "note": "Descriptive score of last-place finisher; award uses bracket placement rather than lowest points."
+        "note": "Award based on last place in cumulative Weeks 14–16 losers ladder; 264.76 is three-week placement total. The separately sourced actual Week 16 score is 80.46, not the award selection rule."
       },
       "evidence": "Original ESPN LOSERS_CONSOLATION_LADDER matchups and user-confirmed award criterion",
       "finalRoundEntrants": [
