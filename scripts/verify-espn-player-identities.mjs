@@ -42,15 +42,26 @@ check(sourceUnique.size===296&&Object.keys(identity.players).length===sourceUniq
  'Player identity catalog does not cover all 296 unique original ESPN IDs');
 check(Object.values(identity.players).filter(x=>x.position==='D/ST').length===23,
  'All 23 distinct drafted defenses must be decoded with ESPN proTeam IDs');
-check(Object.values(identity.players).filter(x=>x.position!=='D/ST'&&x.name).length===272,
- 'Exact individual-athlete crosswalk must identify 272 unique ESPN player IDs');
-check(all.length===598&&known.size===295&&unresolved.size===1&&unresolved.has(2977698),
- 'Selection identity coverage must be 597/598, with only ESPN player ID 2977698 unresolved');
-check(all.filter(p=>!p.player).length===1&&all.find(p=>!p.player)?.manager==='Tony'&&
- board.seasons['2017'].playerPicks.find(p=>p.espnPlayerId===2977698)?.overall===28,
- 'Unknown 2017 Tony selection must not be silently assigned a guessed player');
-check(board.coverage.namedSelections===597&&board.coverage.verifiedSelectionOrderPicks===438,
- 'Named-selection and reliable-position-order counters must remain separate');
+check(Object.values(identity.players).filter(x=>x.position!=='D/ST'&&x.name).length===273,
+ 'Expected 272 independent ESPN player ID matches plus one user-attested player');
+const original=identity.players[2977698];
+const tonyPick=board.seasons['2017'].playerPicks.find(p=>p.espnPlayerId===2977698);
+check(original?.name==='Glenn Gronkowski'&&original?.position==='RB'&&
+ original?.verification==='user_confirmed_original_draft_selection'&&
+ original?.independentEspnIdCrosswalkVerified===false,
+ 'Glenn Gronkowski must retain user-confirmed (not independently matched) identity provenance');
+check(original?.postDraftCorrection?.intendedPlayer==='Rob Gronkowski'&&
+ original?.postDraftCorrection?.intendedEspnId===13229&&
+ identity.players[13229]?.name==='Rob Gronkowski',
+ 'Post-draft correction must point to Rob Gronkowski, a different ESPN player ID');
+check(tonyPick?.manager==='Tony'&&tonyPick?.overall===28&&
+ tonyPick?.player==='Glenn Gronkowski'&&tonyPick?.postDraftCorrection?.correctedTo==='Rob Gronkowski',
+ 'Original 2017 draft selection must be Glenn, with Rob documented as the correction');
+check(all.length===598&&known.size===296&&unresolved.size===0&&
+ all.every(p=>!!p.player)&&board.coverage.namedSelections===598&&
+ board.coverage.unresolvedSelections===0&&board.coverage.verifiedSelectionOrderPicks===438&&
+ board.coverage.identityProvenance?.userConfirmedOriginalPlayerIds===1,
+ '598/598 names must be complete without implying all were independently ID-matched');
 const positionRounds=Array.from({length:6},(_,i)=>board.seasons['2018'].playerPicks.slice(i*10,i*10+10)
  .map(p=>p.position));
 check(positionRounds.every((positions,i)=>positions.every(p=>p===['QB','RB','RB','WR','WR','TE'][i])),
@@ -62,4 +73,4 @@ check(website.includes('espn_draft_boards_named_2016_2019.json')&&
  'Draft browser must use canonical names, and never show false 2018 pick numbers');
 check(archive.includes('espn-draft-history.html'),'ESPN Origins must link to complete searchable draft history');
 if(errors.length){console.error('ESPN player identity validation FAILED ('+errors.length+')');errors.forEach(e=>console.error(' - '+e));process.exitCode=1}
-else console.log('ESPN player identity validation PASS: 597/598 selections named, 23 defense IDs decoded, one unknown ID, 2018 draft-order safeguards.');
+else console.log('ESPN player identity validation PASS: 598/598 picks identified, documented Glenn-to-Rob correction, and 2018 offline order safeguards.');
