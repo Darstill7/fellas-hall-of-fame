@@ -45,6 +45,37 @@ const careers=JSON.parse(read('data/career_core_generated.json'));
 const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
 const league=JSON.parse(read('data/league.json'));
 const legacyResumes=JSON.parse(read('data/manager_legacy_resumes.json'));
+// Identity firewall: the active four-title manager is Thommy (legacy page
+// slug/key "tom"); the separate 2016–2017 former manager is Schermerhorn.
+// Never resolve the former manager through the active-manager "Tom" alias.
+const thommy=careers.managers.Thommy;
+const schermerhorn=careers.managers.Schermerhorn;
+assert(thommy&&schermerhorn&&thommy!==schermerhorn,
+ 'Thommy and former manager Schermerhorn must remain separate career identities');
+assert(thommy.games>100&&schermerhorn.games===25&&schermerhorn.w===12&&schermerhorn.l===13,
+ 'Former manager Schermerhorn was merged into the Thommy career or lost historical games');
+assert(Object.keys(schermerhorn.annual).join(',')==='2016,2017',
+ 'Schermerhorn must retain distinct 2016–2017 historical seasons');
+assert(thommy.h2h.Schermerhorn?.games===3&&
+ thommy.h2h.Schermerhorn?.w===2&&thommy.h2h.Schermerhorn?.l===1&&
+ schermerhorn.h2h.Thommy?.w===1&&schermerhorn.h2h.Thommy?.l===2,
+ 'Thommy and Schermerhorn must remain separate head-to-head opponents');
+const regularVsSchermerhorn=ledger.games.filter(g=>g.stage==='regular'&&
+ ((g.home==='Thommy'&&g.away==='Schermerhorn')||
+  (g.home==='Schermerhorn'&&g.away==='Thommy')));
+assert(regularVsSchermerhorn.length===3,
+ 'Historical ledger must preserve the three direct Thommy–Schermerhorn regular-season games');
+assert(!ledger.games.some(g=>g.home==='Tom'||g.away==='Tom'),
+ 'Raw canonical ledger cannot use ambiguous Tom identity');
+assert(legacyResumes.Tom?.name==='Thommy'&&legacyResumes.Tom?.championships===4,
+ 'Legacy Tom lookup key must visibly name Thommy and must never refer to Schermerhorn');
+assert(league.managers.Tom?.owner==='thommy',
+ 'Current league Tom alias must resolve only to active manager Thommy');
+const managerRecordBook=JSON.parse(read('data/manager_record_books_2016_2026.json'));
+assert(managerRecordBook.managers.some(m=>m.manager==='Thommy')&&
+ managerRecordBook.managers.some(m=>m.manager==='Schermerhorn')&&
+ !managerRecordBook.managers.some(m=>m.manager==='Tom'),
+ 'Historical record books must label Thommy and Schermerhorn independently');
 const workflow=read('.github/workflows/verify-canonical-history.yml');
 assert(workflow.includes("      - 'data-integrity/WORKFLOW_HANDOFF_2026-10-27.md'"),'Documentation-only handoff updates must not cancel browser CI runs');
 const topicAudit=workflow.indexOf('      - name: Classify dossier topical overlap');
