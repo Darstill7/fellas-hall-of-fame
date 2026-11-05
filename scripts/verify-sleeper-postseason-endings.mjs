@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const endings=read('data/manager_verified_season_endings_v1.json').managers;
 const placements=read('data/fellas_final_placements_2016_2025_verified.json').seasons.filter(s=>s.year>=2020&&s.year<=2025);
-const label=n=>n===1?'Champion':n===2?'Runner-up':n===3?'3rd place':n+'th place';
+const label=n=>n===1?'Champion':n===2?'Runner-up':n===3?'3rd place':n===10?'10th place (last)':n+'th place';
 let checked=0;
 for(const season of placements){
  assert.equal(season.teams,10,'Unexpected team count '+season.year);
