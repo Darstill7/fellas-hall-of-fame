@@ -45,7 +45,7 @@ export function buildDraftRoundPeers(drafts, manager){
    belowMedian:selected.filter(x=>x.difference<0).length,
    unavailable:candidates.filter(p=>p.year===year).length-selected.length};
  });
- const examples=[...comparisons].sort((a,b)=>b.difference-a.difference||a.year-b.year||a.overall-b.overall).slice(0,3);
+ const examples=comparisons.filter(x=>x.difference>0).sort((a,b)=>b.difference-a.difference||a.year-b.year||a.overall-b.overall).slice(0,3);
  return {manager,method:'leave_one_out_same_year_round_original_manager_starter_points_median',
   status:'descriptive_peer_comparison_not_draft_skill',
   selectedPicks:candidates.length,comparablePicks:comparisons.length,uncomparablePicks:uncomparable.length,
