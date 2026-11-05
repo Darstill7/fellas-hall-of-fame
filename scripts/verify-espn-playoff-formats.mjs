@@ -107,8 +107,9 @@ for(const [yearText,[expectedWinner,expectedTotal]] of Object.entries(expectedSh
  const lastGame=finals.find(g=>
   mapping(year,g.home)===expectedWinner||mapping(year,g.away)===expectedWinner);
  const score=lastGame?mapping(year,lastGame.home)===expectedWinner?lastGame.hs:lastGame.as:null;
+ const finalWeek=year===2016?17:16;
  const actualWeek=lastGame?mapping(year,lastGame.home)===expectedWinner?
-  lastGame.homeWeeks?.[16]:lastGame.awayWeeks?.[16]:null;
+  lastGame.homeWeeks?.[finalWeek]:lastGame.awayWeeks?.[finalWeek]:null;
  const candidates=finals.flatMap(g=>[mapping(year,g.home),mapping(year,g.away)]);
  const award=punishment.seasons[yearText];
  check(!!award&&near(score,expectedTotal)&&
