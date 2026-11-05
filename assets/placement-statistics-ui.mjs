@@ -81,7 +81,8 @@ async function show(){
   explanation.className='placement-stat-help';root.append(explanation);
   root.append(add('h3','All six Sleeper seasons'));
   root.append(makeTable(fully));
-  root.append(add('h3','Shorter Sleeper tenures'))root.append(makeTable(partial));
+  root.append(add('h3','Shorter Sleeper tenures'));
+  root.append(makeTable(partial));
   if(audit.findings.length){
    const note=add('p','2020 third-place finishing order is verified, but the third-place game score remains under review because the screenshot and archived scores differ by 0.10.');
    note.className='placement-stat-help';root.append(note);
