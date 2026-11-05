@@ -1,0 +1,440 @@
+{
+  "version": 1,
+  "asOf": "2026-11-04",
+  "scope": "Ten active manager Report Card evidence audit; Fellas archival sources",
+  "precedence": "Original ESPN results 2016–2019; verified Sleeper scoring, transactions and brackets 2020–2026; legacy FF HISTORY secondary only.",
+  "categories": {
+    "career": "Verified factual final ranks 2016–2025",
+    "pickups": "Recorded later starts, not an acquisition skill grade",
+    "startSit": "Sleeper platform displayed average through 2026 Week 8, not decision-quality skill",
+    "keepers": "2025 observed original-manager keeper starts and points, not decision-time keeper value",
+    "drafts": "Recorded source selections; outcome scores remain provisional"
+  },
+  "remainingRatings": {
+    "waivers": "N/A until full decision opportunity set and cost/results integrity",
+    "lineups": "N/A until legal lineup choices, game-time availability and comparable alternatives verified",
+    "keepers": "N/A until complete deadline alternatives/cost plus penalty methodology",
+    "drafts": "N/A for sample sizes below 12 nonkeeper scored draft picks",
+    "trades": "N/A below four verified qualifying trade sides"
+  },
+  "rows": [
+    {
+      "manager": "Stilly",
+      "career": {
+        "completedSeasons": 10,
+        "fieldAdjustedScore": 46.19,
+        "topThree": 3,
+        "lastPlace": 2
+      },
+      "pickups": {
+        "distinct": 172,
+        "laterStarted": 68,
+        "percent": 39.5,
+        "scope": "2020–2026 partial",
+        "grade": "Not rated"
+      },
+      "sleeperLineup": {
+        "week8AccuracyPercent": 92.4,
+        "scope": "2026 through Week 8; user screenshot",
+        "grade": "Not rated"
+      },
+      "keepers": {
+        "season": 2025,
+        "count": 2,
+        "startedPoints": 204.26,
+        "grade": "Not rated"
+      },
+      "drafts": {
+        "documentedSeasons": 11,
+        "years": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "grade": "Provisional outcome only"
+      }
+    },
+    {
+      "manager": "Stew",
+      "career": {
+        "completedSeasons": 10,
+        "fieldAdjustedScore": 38.1,
+        "topThree": 2,
+        "lastPlace": 1
+      },
+      "pickups": {
+        "distinct": 172,
+        "laterStarted": 83,
+        "percent": 48.3,
+        "scope": "2020–2026 partial",
+        "grade": "Not rated"
+      },
+      "sleeperLineup": {
+        "week8AccuracyPercent": 92,
+        "scope": "2026 through Week 8; user screenshot",
+        "grade": "Not rated"
+      },
+      "keepers": {
+        "season": 2025,
+        "count": 2,
+        "startedPoints": 65.8,
+        "grade": "Not rated"
+      },
+      "drafts": {
+        "documentedSeasons": 11,
+        "years": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "grade": "Provisional outcome only"
+      }
+    },
+    {
+      "manager": "Thommy",
+      "career": {
+        "completedSeasons": 10,
+        "fieldAdjustedScore": 66.67,
+        "topThree": 5,
+        "lastPlace": 0
+      },
+      "pickups": {
+        "distinct": 161,
+        "laterStarted": 81,
+        "percent": 50.3,
+        "scope": "2020–2026 partial",
+        "grade": "Not rated"
+      },
+      "sleeperLineup": {
+        "week8AccuracyPercent": 88.2,
+        "scope": "2026 through Week 8; user screenshot",
+        "grade": "Not rated"
+      },
+      "keepers": {
+        "season": 2025,
+        "count": 2,
+        "startedPoints": 238.2,
+        "grade": "Not rated"
+      },
+      "drafts": {
+        "documentedSeasons": 11,
+        "years": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "grade": "Provisional outcome only"
+      }
+    },
+    {
+      "manager": "Stover",
+      "career": {
+        "completedSeasons": 10,
+        "fieldAdjustedScore": 47.62,
+        "topThree": 2,
+        "lastPlace": 1
+      },
+      "pickups": {
+        "distinct": 120,
+        "laterStarted": 45,
+        "percent": 37.5,
+        "scope": "2020–2026 partial",
+        "grade": "Not rated"
+      },
+      "sleeperLineup": {
+        "week8AccuracyPercent": 87.8,
+        "scope": "2026 through Week 8; user screenshot",
+        "grade": "Not rated"
+      },
+      "keepers": {
+        "season": 2025,
+        "count": 2,
+        "startedPoints": 245.2,
+        "grade": "Not rated"
+      },
+      "drafts": {
+        "documentedSeasons": 11,
+        "years": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "grade": "Provisional outcome only"
+      }
+    },
+    {
+      "manager": "Birch",
+      "career": {
+        "completedSeasons": 9,
+        "fieldAdjustedScore": 56.79,
+        "topThree": 4,
+        "lastPlace": 2
+      },
+      "pickups": {
+        "distinct": 86,
+        "laterStarted": 35,
+        "percent": 40.7,
+        "scope": "2020–2026 partial",
+        "grade": "Not rated"
+      },
+      "sleeperLineup": {
+        "week8AccuracyPercent": 85.8,
+        "scope": "2026 through Week 8; user screenshot",
+        "grade": "Not rated"
+      },
+      "keepers": {
+        "season": 2025,
+        "count": 2,
+        "startedPoints": 25,
+        "grade": "Not rated"
+      },
+      "drafts": {
+        "documentedSeasons": 10,
+        "years": [
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "grade": "Provisional outcome only"
+      }
+    },
+    {
+      "manager": "Tony",
+      "career": {
+        "completedSeasons": 9,
+        "fieldAdjustedScore": 49.38,
+        "topThree": 2,
+        "lastPlace": 1
+      },
+      "pickups": {
+        "distinct": 164,
+        "laterStarted": 51,
+        "percent": 31.1,
+        "scope": "2020–2026 partial",
+        "grade": "Not rated"
+      },
+      "sleeperLineup": {
+        "week8AccuracyPercent": 88.9,
+        "scope": "2026 through Week 8; user screenshot",
+        "grade": "Not rated"
+      },
+      "keepers": {
+        "season": 2025,
+        "count": 2,
+        "startedPoints": 216.5,
+        "grade": "Not rated"
+      },
+      "drafts": {
+        "documentedSeasons": 10,
+        "years": [
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "grade": "Provisional outcome only"
+      }
+    },
+    {
+      "manager": "Mitch",
+      "career": {
+        "completedSeasons": 8,
+        "fieldAdjustedScore": 61.11,
+        "topThree": 4,
+        "lastPlace": 0
+      },
+      "pickups": {
+        "distinct": 148,
+        "laterStarted": 67,
+        "percent": 45.3,
+        "scope": "2020–2026 partial",
+        "grade": "Not rated"
+      },
+      "sleeperLineup": {
+        "week8AccuracyPercent": 87.2,
+        "scope": "2026 through Week 8; user screenshot",
+        "grade": "Not rated"
+      },
+      "keepers": {
+        "season": 2025,
+        "count": 2,
+        "startedPoints": 336.7,
+        "grade": "Not rated"
+      },
+      "drafts": {
+        "documentedSeasons": 9,
+        "years": [
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "grade": "Provisional outcome only"
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "career": {
+        "completedSeasons": 8,
+        "fieldAdjustedScore": 34.72,
+        "topThree": 1,
+        "lastPlace": 1
+      },
+      "pickups": {
+        "distinct": 105,
+        "laterStarted": 54,
+        "percent": 51.4,
+        "scope": "2020–2026 partial",
+        "grade": "Not rated"
+      },
+      "sleeperLineup": {
+        "week8AccuracyPercent": 83.1,
+        "scope": "2026 through Week 8; user screenshot",
+        "grade": "Not rated"
+      },
+      "keepers": {
+        "season": 2025,
+        "count": 2,
+        "startedPoints": 129.74,
+        "grade": "Not rated"
+      },
+      "drafts": {
+        "documentedSeasons": 9,
+        "years": [
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "grade": "Provisional outcome only"
+      }
+    },
+    {
+      "manager": "JMid",
+      "career": {
+        "completedSeasons": 3,
+        "fieldAdjustedScore": 44.44,
+        "topThree": 0,
+        "lastPlace": 0
+      },
+      "pickups": {
+        "distinct": 85,
+        "laterStarted": 43,
+        "percent": 50.6,
+        "scope": "2020–2026 partial",
+        "grade": "Not rated"
+      },
+      "sleeperLineup": {
+        "week8AccuracyPercent": 88.1,
+        "scope": "2026 through Week 8; user screenshot",
+        "grade": "Not rated"
+      },
+      "keepers": {
+        "season": 2025,
+        "count": 2,
+        "startedPoints": 154.92,
+        "grade": "Not rated"
+      },
+      "drafts": {
+        "documentedSeasons": 3,
+        "years": [
+          2024,
+          2025,
+          2026
+        ],
+        "grade": "Provisional outcome only"
+      }
+    },
+    {
+      "manager": "Scott",
+      "career": {
+        "completedSeasons": 2,
+        "fieldAdjustedScore": 66.67,
+        "topThree": 1,
+        "lastPlace": 0
+      },
+      "pickups": {
+        "distinct": 50,
+        "laterStarted": 23,
+        "percent": 46,
+        "scope": "2020–2026 partial",
+        "grade": "Not rated"
+      },
+      "sleeperLineup": {
+        "week8AccuracyPercent": 85.3,
+        "scope": "2026 through Week 8; user screenshot",
+        "grade": "Not rated"
+      },
+      "keepers": {
+        "season": 2025,
+        "count": 2,
+        "startedPoints": 295.7,
+        "grade": "Not rated"
+      },
+      "drafts": {
+        "documentedSeasons": 3,
+        "years": [
+          2024,
+          2025,
+          2026
+        ],
+        "grade": "Provisional outcome only"
+      }
+    }
+  ]
+}
