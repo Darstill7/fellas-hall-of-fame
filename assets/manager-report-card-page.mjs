@@ -75,6 +75,10 @@ try {
    '<p class="fine"><strong>Start/sit:</strong> '+e.startSit.accuracyPercent.toFixed(1)+'% Sleeper-displayed average through 2026 Week 8, from user-provided screenshots. Descriptive, not a decision-quality grade.</p>'+
    '<p class="fine"><strong>2025 keepers:</strong> '+e.keepers.recorded+' recorded, '+e.keepers.startedPoints.toFixed(2)+' regular-season points started by the original manager. Not a keeper decision grade.</p>'+
    '<p class="fine"><strong>2026 keepers through Week 8:</strong> '+e.keepers.current.recorded+' recorded, '+e.keepers.current.starts+' verified original-manager starts and '+e.keepers.current.startedPoints.toFixed(2)+' started points. The season is underway; no completed-season or decision-quality grade is claimed.</p>'+
+   '<details class="report-keeper-history"><summary>View recorded keeper contributions</summary>'+
+    '<p class="fine"><strong>2025 declarations:</strong> '+e.keepers.names.map(p=>esc(p.name)+' (R'+p.round+')').join(' · ')+'. Full 2025 contribution is aggregated above; no individual contribution split is inferred here.</p>'+
+    '<ul>'+e.keepers.current.players.map(p=>'<li><strong>'+esc(p.name)+' · R'+p.round+'</strong><span>'+p.starts+' starts · '+p.startedPoints.toFixed(2)+' started points'+(p.transferredDuringSeason?' · transferred during season':'')+'</span></li>').join('')+'</ul>'+
+    '<p class="fine">Only observed starts for the original keeper manager through 2026 Week 8 are counted. Zero starts do not independently establish a bad decision or dropped keeper.</p></details>'+
    '<p class="fine"><strong>Draft history:</strong> '+e.drafts.documentedSeasonCount+' seasons with documented selections. Historical coverage varies; outcome estimates do not establish decision skill.</p>'+
    '<p class="fine"><strong>Grade status:</strong> Waivers, lineups, and keeper decisions remain <strong>Not rated</strong> until their full evidence checks pass.</p>'+
    '</details>';
