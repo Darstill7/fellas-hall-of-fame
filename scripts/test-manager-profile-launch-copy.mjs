@@ -67,7 +67,7 @@ for(const factor of ['titles','finals','playoffs','regular','allPlay','recent','
 if(!ratingCard.includes("manager.breakdown[key]/WEIGHTS[key]")||
  !ratingCard.includes("const summaryPanel=")||
  !ratingCard.includes("'+summaryPanel+'")||
- !ratingCard.includes("Most room in the model")||
+ !ratingCard.includes("Lowest relative factor")||
  !ratingCard.includes("not league-wide category ranks"))
  throw Error('Career rating strength summaries must be normalized and properly qualified');
 // A compact cross-era career résumé must remain data-backed and linked to the
@@ -80,6 +80,22 @@ for(const required of ["'Career résumé'","resume.allEraSummary.topThree","Most
 if(!careerResumeCss.includes('.profile-career-finish-summary')||
  !careerResumeCss.includes('.profile-career-record-link'))
  throw Error('Responsive career résumé styling is missing');
+// Original verified stat values must remain in the DOM and reachable,
+// without duplicating the first-screen rating and career summary.
+const profileStyles=fs.readFileSync('assets/manager-profile-readability.css','utf8');
+for(const required of [
+ "profile-snapshot-receipts","profile-snapshot-condensed",
+ "evidence.append(summary,stats)","if(source)evidence.append(source)",
+ "if(records)records.after(evidence)"
+]){
+ if(!ratingCard.includes(required)&&!profileStyles.includes(required))
+  throw Error('Manager profile source-preserving cleanup is missing: '+required);
+}
+for(const slug of managers){
+ const html=fs.readFileSync('managers/'+slug+'/index.html','utf8');
+ if(!html.includes('profile-career-snapshot')&&!html.includes('class="stats"'))
+  throw Error('Manager career record source is missing: '+slug);
+}
 const guide=JSON.parse(fs.readFileSync('data/season_guide.json','utf8'));
 const names={stilly:'Stilly',jmid:'JMid',tom:'Thommy',stew:'Stew',scott:'Scott',mitch:'Mitch',tony:'Tony',stover:'Stover',kuhl:'Kuhl',birch:'Birch'};
 for(const slug of managers){
