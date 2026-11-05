@@ -1,7 +1,12 @@
 import fs from 'node:fs';
 import {buildEvidenceSnapshots,ACTIVE_MANAGERS} from '../assets/manager-evidence-snapshots.mjs';
+import {validateLineupCoverage} from '../assets/lineup-history-coverage.mjs';
 const get=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const audit=get('data-integrity/REPORT_CARD_NA_RECOVERY_AUDIT_2026-11-04.json');
+const historical=validateLineupCoverage(get('data/lineup_hindsight_coverage_2020_2025.json'),
+ get('data-integrity/LINEUP_HISTORY_RECEIPT_AUDIT_2020_2025.json'));
+if(historical.researchComparable!==822||historical.excludedWeeks!==8||historical.teamWeeks!==830)
+ throw Error('Historical 830-team-week audit changed');
 const rows=buildEvidenceSnapshots({
  placements:get('data/fellas_final_placements_2016_2025_verified.json'),
  acquisitions:get('data/manager_acquisition_distinct_v1.json'),
@@ -10,6 +15,7 @@ const rows=buildEvidenceSnapshots({
  keeper2026:get('data/keeper_2026_website_research_v1.json'),
  startSit:get('data-integrity/sleeper-start-sit-ui-benchmarks-2026-week8.json'),
  draftTrade:get('data/manager_draft_trade_profile_evidence_v1.json'),
+ lineupHistory:historical,
  faab:get('data-integrity/faab-manager-spend-research-v1.json')
 });
 if(rows.length!==10||audit.rows.length!==10||
@@ -20,6 +26,8 @@ for(const e of rows){
     e.finishing.seasons!==verified.career.completedSeasons||
     e.finishing.topThree!==verified.career.topThree||
     e.pickups.started!==verified.pickups.laterStarted||
+    e.historicalLineup.gradeStatus!=='not-rated'||
+    e.historicalLineup.comparableWeeks>e.historicalLineup.observedWeeks||
     e.pickups.distinct!==verified.pickups.distinct||
     e.startSit.accuracyPercent!==verified.sleeperLineup.week8AccuracyPercent||
     e.keepers.startedPoints!==verified.keepers.startedPoints||
@@ -67,12 +75,14 @@ if(!page.includes('buildEvidenceSnapshots(')||!page.includes("evidenceSnapshot(x
    !page.includes('keeper_2026_website_research_v1.json')||
    !page.includes('faab-manager-spend-research-v1.json')||!page.includes('report-faab-history')||
    !page.includes('manager_acquisition_by_season_v1.json')||!page.includes('report-pickup-history')||
-   !page.includes('report-keeper-history'))
+   !page.includes('report-keeper-history')||
+   !page.includes('lineup_hindsight_coverage_2020_2025.json')||!page.includes('report-lineup-history'))
  throw Error('Evidence not wired into the public report card page');
 const css=fs.readFileSync('analytics/manager-report-cards.html','utf8');
 if(!css.includes('.report-fact-grid')||!css.includes('min-height:46px'))
  throw Error('New source-backed evidence disclosure lacks mobile presentation or touch targets');
 const s=rows.find(x=>x.manager==='Stilly');
 if(s.finishing.seasons!==10||s.startSit.accuracyPercent!==92.4||s.keepers.startedPoints!==204.26||
- s.pickups.started!==68||s.faab.completedClaims!==81||s.faab.winningSpend!==460)throw Error('Example Stilly source receipts changed');
+ s.pickups.started!==68||s.historicalLineup.comparableWeeks!==83||
+ s.historicalLineup.observedWeeks!==83||Math.abs(s.historicalLineup.averageHindsightAccuracy-87.4)>.02||s.faab.completedClaims!==81||s.faab.winningSpend!==460)throw Error('Example Stilly source receipts changed');
 console.log('Manager N/A evidence gate: 10 verified manager snapshots; factual metrics displayed; three skill grades remain deliberately unrated.');
