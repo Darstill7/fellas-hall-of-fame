@@ -14,11 +14,12 @@ async function start(){
    fetch('../data/verified_espn_playoff_brackets_2016_2019.json'),
    fetch('../data/verified_sleeper_playoff_brackets_2020_2025.json'),
    fetch('../data/fellas_final_placements_2020_2025.json'),
-   fetch('../data/sleeper_postseason_placement_receipts_2020_2025.json')
+   fetch('../data/sleeper_postseason_placement_receipts_2020_2025.json'),
+   fetch('../data/fellas_final_placements_2016_2025_verified.json')
   ]);
   if(responses.some(r=>!r.ok))throw Error('Record files unavailable');
-  const [archive,guide,espn,sleeper,placements,placementReceipts]=await Promise.all(responses.map(r=>r.json()));
-  const postseason={espn,sleeper,placements,placementReceipts};
+  const [archive,guide,espn,sleeper,placements,placementReceipts,allEra]=await Promise.all(responses.map(r=>r.json()));
+  const postseason={espn,sleeper,placements,placementReceipts,allEra};
   if(archive.asOf!=='2026 Week 8'||!Array.isArray(archive.managers))throw Error('Unexpected record archive');
   const rows=archive.managers.map(m=>({name:m.manager,records:findOwnedRecords(archive,guide,m.manager,postseason)}))
    .sort((a,b)=>b.records.length-a.records.length||a.name.localeCompare(b.name));

@@ -2,6 +2,7 @@ import {findOwnedRecords,recordCategoryLabels,nextRecordChallenger} from '../ass
 import fs from 'node:fs';
 import {buildPlayoffResume} from '../assets/manager-playoff-resume.mjs';
 import {auditPlacementStatistics} from '../assets/placement-statistics.mjs';
+import {auditAllEraFinishes} from '../assets/all-era-final-placements.mjs';
 const managers=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 const obsolete=/The Fellas OS v5|static-first pre-publish build|Franchise encyclopedia · v9\.15|Players, Waivers & Trade Receipts/;
 for(const slug of managers){
@@ -98,6 +99,15 @@ if(mitchResume.finalPlaceSummary?.seasons!==6||
  throw Error('Manager profile finishing summaries do not match six-season placement audit');
 postseason.placements=placementMaster;
 postseason.placementReceipts=placementReceipts;
+const allEra=JSON.parse(fs.readFileSync('data/fellas_final_placements_2016_2025_verified.json','utf8'));
+const careerAudit=auditAllEraFinishes(allEra);
+if(careerAudit.totalPlaces!==98||careerAudit.managerCount!==14||careerAudit.eligibleCount!==10||
+   careerAudit.leaders.normalizedCareerAverage.value!==66.67||
+   careerAudit.leaders.normalizedCareerAverage.holders.join(',')!=='Thommy'||
+   careerAudit.leaders.topThreeCareer.value!==5||
+   careerAudit.leaders.topThreeCareer.holders.join(',')!=='Thommy')
+ throw Error('All-era rank and normalization audit requires review');
+postseason.allEra=allEra;
 const holderMap=new Map(book.managers.map(m=>[m.manager,findOwnedRecords(book,guide,m.manager,postseason)]));
 const expectedKinds=[
  'Highest regular-season weekly score','Largest regular-season victory',
@@ -108,9 +118,11 @@ const expectedKinds=[
  'Most championship-bracket playoff appearances','Most championship-game appearances',
  'Best average final finish (all six Sleeper seasons)',
  'Most top-three final finishes (2020–2025)',
- 'Most top-five final finishes (2020–2025)'
+ 'Most top-five final finishes (2020–2025)',
+ 'Best normalized career final finish (6+ seasons, 2016–2025)',
+ 'Most top-three finishes across 2016–2025'
 ];
-if(expectedKinds.length!==recordCategoryLabels.length||recordCategoryLabels.length!==14)
+if(expectedKinds.length!==recordCategoryLabels.length||recordCategoryLabels.length!==16)
  throw Error('Record category definitions and regression test disagree');
 for(const kind of expectedKinds){
  const holders=[...holderMap].filter(([,records])=>records.some(r=>r.label===kind));
@@ -136,6 +148,10 @@ for(const label of [
 ]){
  const holder=holderMap.get('Mitch').find(r=>r.label===label);
  if(!holder)throw Error('Mitch missing verified placement record: '+label);
+}
+for(const name of ['Best normalized career final finish (6+ seasons, 2016–2025)','Most top-three finishes across 2016–2025']){
+ if(!holderMap.get('Thommy').find(r=>r.label===name))
+  throw Error('Verified all-era career record ownership missing: '+name);
 }
 if(holderMap.get('Mitch').find(r=>r.label==='Most points in a completed regular season')?.value!==1894.88)
  throw Error('Completed-season scoring leader changed');
