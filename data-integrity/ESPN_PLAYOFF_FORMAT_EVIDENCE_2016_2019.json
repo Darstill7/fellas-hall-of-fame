@@ -1,0 +1,245 @@
+{
+  "version": "2026-11-05-screenshot-reconciliation-v1",
+  "purpose": "Historical ESPN playoff format and consolation placement evidence; no single-week score inference from aggregate brackets.",
+  "provenance": {
+    "kind": "User-provided original ESPN playoff bracket screenshots",
+    "files": [
+      "2016 Winners.png",
+      "2016 Consolation.png",
+      "2017 Winners.png",
+      "2017 Consolation.png",
+      "2018 Winners.png",
+      "2018 Consolation.png",
+      "2019 Bracket.png",
+      "2019 Consolation.png"
+    ],
+    "crossCheckedAgainst": [
+      "data/espn_history_2016_2019.json",
+      "data/unified_record_book_2016_2026.json",
+      "data/career_core_generated.json"
+    ]
+  },
+  "identityRules": {
+    "activeManager": "Thommy",
+    "legacyCurrentAlias": "Tom",
+    "formerManager": "Schermerhorn",
+    "differentPeople": true,
+    "manager2019I_Love_Tubing": "Evans",
+    "manager2019Kickers_Suck": "Stew",
+    "note": "Source ledger identifies I Love Tubing as Evans, despite user initially describing that team as Stew. Clarification requested; do not assign the 2019 last-place finish to Stew."
+  },
+  "seasons": {
+    "2016": {
+      "winners": {
+        "format": "two_week_aggregate_per_round",
+        "rounds": [
+          {
+            "round": 1,
+            "weeks": [
+              14,
+              15
+            ]
+          },
+          {
+            "round": 2,
+            "weeks": [
+              16,
+              17
+            ]
+          }
+        ],
+        "champion": "Thommy",
+        "runnerUp": "Halderman",
+        "final": {
+          "thommy": 223,
+          "halderman": 175,
+          "scoreScope": "weeks_16_17_combined"
+        }
+      },
+      "consolation": {
+        "format": "two_week_aggregate_per_round",
+        "rounds": [
+          {
+            "round": 1,
+            "weeks": [
+              14,
+              15
+            ]
+          },
+          {
+            "round": 2,
+            "weeks": [
+              16,
+              17
+            ]
+          }
+        ],
+        "placementRules": "Final positions in the consolation ladder should be reviewed separately from the lowest individual weekly score; last-place award not yet certified."
+      }
+    },
+    "2017": {
+      "winners": {
+        "format": "two_week_aggregate_per_round",
+        "rounds": [
+          {
+            "round": 1,
+            "weeks": [
+              13,
+              14
+            ]
+          },
+          {
+            "round": 2,
+            "weeks": [
+              15,
+              16
+            ]
+          }
+        ],
+        "champion": "Thommy",
+        "runnerUp": "Schermerhorn",
+        "final": {
+          "thommy": 241,
+          "schermerhorn": 212,
+          "scoreScope": "weeks_15_16_combined",
+          "thommyWeeklyBreakdown": {
+            "15": 126,
+            "16": 115
+          }
+        }
+      },
+      "consolation": {
+        "format": "two_week_aggregate_per_round",
+        "rounds": [
+          {
+            "round": 1,
+            "weeks": [
+              13,
+              14
+            ]
+          },
+          {
+            "round": 2,
+            "weeks": [
+              15,
+              16
+            ]
+          }
+        ],
+        "placementRules": "Bracket labeling includes placement ladders; last-place award definition needs explicit confirmation."
+      }
+    },
+    "2018": {
+      "winners": {
+        "format": "single_week_elimination",
+        "roundWeeks": [
+          14,
+          15,
+          16
+        ],
+        "champion": "Thommy",
+        "runnerUp": "Birch",
+        "final": {
+          "thommy": 111.58,
+          "birch": 106.62,
+          "scoreScope": "week_16_only"
+        }
+      },
+      "consolation": {
+        "format": "nonstandard_consolation_ladder",
+        "roundWeeks": [
+          14,
+          15,
+          16
+        ],
+        "rulesStatus": "partial_unknown",
+        "confirmedLastPlace": {
+          "manager": "Stilly",
+          "team": "Schaub On My Knob",
+          "evidence": "Lost final bottom consolation matchup against Koble in Week 16, 86.76 to 125.14; explicitly affirmed by user."
+        },
+        "note": "Do not invent full ranking or advancement rules; ESPN recorded an adjustment to Koble's Week 16 total."
+      }
+    },
+    "2019": {
+      "winners": {
+        "format": "single_week_elimination_with_byes",
+        "roundWeeks": [
+          14,
+          15,
+          16
+        ],
+        "champion": "Birch",
+        "runnerUp": "Stew",
+        "final": {
+          "birch": 114.14,
+          "stew": 109.42,
+          "scoreScope": "week_16_only"
+        }
+      },
+      "consolation": {
+        "format": "three_week_cumulative_points_ladder",
+        "weeks": [
+          14,
+          15,
+          16
+        ],
+        "runningScoreScopes": {
+          "14": [
+            14
+          ],
+          "15": [
+            14,
+            15
+          ],
+          "16": [
+            14,
+            15,
+            16
+          ]
+        },
+        "finalCumulativeRankings": [
+          {
+            "finish": 7,
+            "manager": "Koble",
+            "team": "Team Koble",
+            "threeWeekPoints": 366.6
+          },
+          {
+            "finish": 8,
+            "manager": "Thommy",
+            "team": "Boy Named Suh",
+            "threeWeekPoints": 358.3
+          },
+          {
+            "finish": 9,
+            "manager": "Stover",
+            "team": "Yogurt Slingers II",
+            "threeWeekPoints": 328.56
+          },
+          {
+            "finish": 10,
+            "manager": "Evans",
+            "team": "I Love Tubing",
+            "threeWeekPoints": 264.76
+          }
+        ],
+        "userConfirmedOrdering": true,
+        "ownerMappingPendingClarification": true,
+        "note": "These are cumulative Week 14–16 totals, not individual Week 16 scores. Finish mapping uses ESPN team owner ledger; Evans not Stew owns I Love Tubing."
+      }
+    }
+  },
+  "unresolvedQuestions": [
+    "Confirm 2019 I Love Tubing owner Evans (user described the team as Stew); Stew's 2019 source-mapped team Kickers SUCK finished runner-up.",
+    "Whether 2018 consolation ranks above Stilly should be certified from the screenshot's ladder connections despite the forgotten rules.",
+    "Confirm Shitter of the Year uses actual last-place consolation finish rather than simply the lowest raw score across all consolation games, particularly 2016–2017."
+  ],
+  "certification": {
+    "aggregate_vs_weekly": "verified_against_ESPN_weekly_components",
+    "winners_2016_2019": "verified_from_screenshots_and_ledger",
+    "consolation_2018_last": "user_confirmed",
+    "consolation_2019_bottom_four": "screenshot_verified_with_manager_mapping_question",
+    "historical_awards": "pending_specific_rule_confirmation"
+  }
+}
