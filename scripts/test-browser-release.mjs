@@ -1842,10 +1842,10 @@ try{
         if(!receiptOpen||!focused.focused||!focused.visible||focused.overflow)
          errors.push(width+' '+slug+' '+label+' research shortcut failed: '+JSON.stringify({receiptOpen,...focused}));
        }
-       if(captureVisuals&&slug==='stilly'){
+       if(captureVisuals){
         const dir=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width));
         await fs.mkdir(dir,{recursive:true});
-        await page.screenshot({path:path.join(dir,'drafting-trading-focused.png'),animations:'disabled',fullPage:false});
+        await page.screenshot({path:path.join(dir,'drafting-trading-'+slug+'-focused.png'),animations:'disabled',fullPage:false});
        }
        // Return from a deep topic to its navigation without leaving keyboard
        // focus in an off-screen collapsed section.
