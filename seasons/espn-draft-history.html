@@ -15,6 +15,7 @@
 </fieldset>
 <div class="notice" id="context" role="status">Loading original draft history…</div>
 <div class="meta"><span id="result-count">Loading selections…</span><span id="order-status"></span></div>
+<section id="manager-resume" class="notice" aria-live="polite" hidden><h2 style="margin:0 0 8px">Historical draft snapshot</h2><div id="draft-resume-content"></div></section>
 <div class="scroll"><table><thead><tr><th id="pick-heading">Pick</th><th>Player</th><th>Position</th><th>Manager</th></tr></thead><tbody id="picks"><tr><td colspan="4" class="empty">Loading verified player names…</td></tr></tbody></table></div>
 <p class="small">Most ESPN player identities were matched through an independent historical ID crosswalk; team defenses were decoded from ESPN IDs. Glenn Gronkowski's original selection is confirmed by the league manager rather than independently crosswalked. Tony's original 2017 Glenn Gronkowski selection was manually corrected to his intended pick, Rob Gronkowski, after the draft. No draft-value grades are assigned without player-production evidence. The 2018 draft was offline; ESPN's position-sorted export preserves the recorded player/team assignments but cannot certify the original draft order.</p>
 <footer><a href="./espn-origins.html">ESPN Origins</a> · <a href="../managers/">Manager profiles</a> · <a href="../seasons/">All seasons</a></footer></main>
@@ -28,6 +29,28 @@
    context.textContent=offline?'2018: ESPN saved the offline draft in position-grouped order. Player-to-manager assignments are archived, but exact pick numbers are not verified.':'ESPN recorded draft selection order. Positions are historical player positions; season scoring and waiver rules changed over time.';
    order.textContent=offline?'Original pick order unverified':'Selections in ESPN-recorded order';pickHead.textContent=offline?'Order':'Overall pick';
    count.textContent=picks.length+' of '+season.playerPicks.length+' selections shown';tbody.replaceChildren();
+   const resume=document.getElementById('manager-resume'),resumeContent=document.getElementById('draft-resume-content');
+   resume.hidden=!manager.value;
+   if(manager.value){
+    const owned=season.playerPicks.filter(p=>p.manager===manager.value);
+    const positions=new Map();
+    for(const pick of owned)positions.set(pick.position||'Unknown',(positions.get(pick.position||'Unknown')||0)+1);
+    const byPosition=[...positions].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).map(([position,n])=>position+': '+n).join(' · ');
+    const early=offline?[]:owned.filter(p=>p.round===1).sort((a,b)=>a.overall-b.overall);
+    resumeContent.replaceChildren();
+    const summary=document.createElement('p');
+    summary.textContent=manager.value+' · '+year+' · '+owned.length+' original recorded selections'+(byPosition?' · '+byPosition:'')+'.';
+    resumeContent.append(summary);
+    const note=document.createElement('p');note.className='small';
+    note.textContent=offline?'The 2018 draft was conducted offline. These are player-to-manager assignments, not a verified selection sequence. Round and early-pick rankings are deliberately withheld.':early.length?'Recorded first-round pick: '+early.map(p=>p.player+' (#'+p.overall+')').join(', ')+'.':'No first-round selection appears in this manager’s archived draft entries.';
+    resumeContent.append(note);
+    if(year==='2017'&&manager.value==='Tony'){
+     const correction=document.createElement('p');correction.className='small';
+     correction.textContent='Tony originally selected Glenn Gronkowski. The league subsequently replaced him with Rob Gronkowski; this correction is not an additional draft selection.';
+     resumeContent.append(correction);
+    }
+    const allLink=document.createElement('a');allLink.href='./espn-draft-history.html?manager='+encodeURIComponent(manager.value)+'&year='+year;allLink.textContent='Share this draft view';resumeContent.append(allLink);
+   }
    if(!picks.length){message('No selections match those filters.');return}
    for(const item of picks){const tr=document.createElement('tr');const cells=[offline?'—':String(item.overall),item.player||'Name not verified',item.position||'Unknown',item.manager];cells.forEach((value,index)=>{const td=document.createElement('td');td.textContent=value;if(index===1){td.className=item.player?'player':'missing';if(item.player){const tag=document.createElement('span');tag.className='sub';tag.textContent=item.postDraftCorrection?'Original pick · manually replaced after draft with '+item.postDraftCorrection.correctedTo:(offline?'Offline draft · original selection order unknown':'Round '+item.round+' · Pick '+item.roundPick);td.append(tag)}else{const tag=document.createElement('span');tag.className='sub';tag.textContent='Historical ESPN player ID '+item.espnPlayerId;td.append(tag)}}tr.append(td)});tbody.append(tr)}
   }
