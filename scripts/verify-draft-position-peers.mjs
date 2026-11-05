@@ -32,13 +32,13 @@ const same=[make('Stilly',1,100),make('Stew',2,10),make('Tony',3,20),
 const exactTest=buildDraftPositionPeers(same,'Stilly');
 assert(exactTest.exactCount===1&&exactTest.examples[0].peerMedian===30&&
  exactTest.examples[0].difference===70,'Exact-round leave-one-out median incorrect');
-const adjacent=[make('Stilly',1,100),make('Stew',2,10,{round:4}),
+const adjacentFixtures=[make('Stilly',1,100),make('Stew',2,10,{round:4}),
  make('Tony',3,20,{round:6}),make('Birch',4,30,{round:4}),
  make('Mitch',5,40,{round:6}),make('Kuhl',6,50,{round:4})];
-const fallback=buildDraftPositionPeers(adjacent,'Stilly');
+const fallback=buildDraftPositionPeers(adjacentFixtures,'Stilly');
 assert(fallback.exactCount===0&&fallback.adjacentCount===1&&
  fallback.examples[0].peerMedian===30,'Adjacent-round fallback not applied');
-assert(buildDraftPositionPeers(adjacent.slice(0,5),'Stilly').unavailableCount===1,
+assert(buildDraftPositionPeers(adjacentFixtures.slice(0,5),'Stilly').unavailableCount===1,
  'Unsupported sparse position cohort should remain unavailable');
 const excluded=[...same,make('Stilly',7,1000,{year:2026}),
  make('Stilly',8,2000,{keeper:true}),make('Stew',9,3000,{position:'QB'})];
