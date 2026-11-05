@@ -1231,6 +1231,17 @@ try{
         await page.locator('header .navlinks a[href="../analytics/franchise-timeline.html"]').count())
      errors.push(width+' Hall of Fame Managers link must open current directory');
    }
+   if(route==='seasons/espn-origins.html'){
+    await page.waitForFunction(()=>document.querySelectorAll('#espn-shitter-awards tr').length===4,null,{timeout:8000}).catch(()=>{});
+    const rows=await page.locator('#espn-shitter-awards tr').allTextContents();
+    const expected=[['2016','Stilly','165.00','NFL Weeks 16–17 combined'],
+     ['2017','Halderman','96.00','NFL Weeks 15–16 combined'],
+     ['2018','Stilly','86.76','NFL Weeks 16 combined'],
+     ['2019','Evans','80.46','NFL Week 16']];
+    if(rows.length!==4||expected.some((expectedRow,i)=>expectedRow.some(t=>!rows[i]?.includes(t)))||
+       (await page.locator('main').innerText()).includes('2019 I Love Tubing belonged to Stew'))
+     errors.push(width+' ESPN Origins punishment archive missing award winners, correct score scopes or Evans owner');
+   }
    if(route==='seasons/'){
     if(!await page.locator('header nav[aria-label="Season archive navigation"] a[href="../analytics/rivalries.html"]').count())
      errors.push(width+' Season Archive missing modern rivalry navigation');
