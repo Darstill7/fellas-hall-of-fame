@@ -1236,7 +1236,7 @@ try{
     const rows=await page.locator('#espn-shitter-awards tr').allTextContents();
     const expected=[['2016','Stilly','165.00','NFL Weeks 16–17 combined'],
      ['2017','Halderman','96.00','NFL Weeks 15–16 combined'],
-     ['2018','Stilly','86.76','NFL Weeks 16 combined'],
+     ['2018','Stilly','86.76','NFL Week 16'],
      ['2019','Evans','80.46','NFL Week 16']];
     if(rows.length!==4||expected.some((expectedRow,i)=>expectedRow.some(t=>!rows[i]?.includes(t)))||
        (await page.locator('main').innerText()).includes('2019 I Love Tubing belonged to Stew'))
