@@ -58,7 +58,7 @@ console.log('Championship aging and evidence-gated scouting PASS');
 const comparisonMarkup=fs.readFileSync('analytics/manager-report-cards.html','utf8');
 const comparisonScript=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
 for(const id of ['compare-a','compare-b','compare-go','comparison'])if(!comparisonMarkup.includes('id="'+id+'"'))throw Error('Missing report-card comparison control: '+id);
-for(const guard of ["a.name===b.name","v===null?'N/A'","searchParams.set('a'","searchParams.set('b'","drawComparison()"])if(!comparisonScript.includes(guard))throw Error('Missing comparison invariant: '+guard);
+for(const guard of ["a.name===b.name","v===null?'Not rated'","searchParams.set('a'","searchParams.set('b'","drawComparison()"])if(!comparisonScript.includes(guard))throw Error('Missing comparison invariant: '+guard);
 console.log('Report card manager comparisons PASS');
 
 const managerRoutes={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
