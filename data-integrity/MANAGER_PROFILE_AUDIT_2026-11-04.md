@@ -94,3 +94,10 @@ Inspected the primary `managers/<slug>/index.html` file for all ten current mana
 - The feature directory now places visible, screen-reader-announced feedback immediately beneath the selected button: the research has not loaded yet and the visitor may retry. It **does not disable the control**, and removes the notice when the destination becomes available.
 - `scripts/verify-core-consumers.mjs` now guards the contextual Back control, hidden focused menu, and retryable research state against source-level regression.
 - Syntax-checked the modified scripts and re-read their source-level invariants. Full browser execution / GitHub Actions / Pages success remains unverified.
+
+### Collapsible research navigation safety
+
+- Follow-up review found a real edge case in the contextual Back-control placement: some career/transaction modules reside inside `details.profile-research-shelf`. Moving Back inside that panel would make it disappear when the panel closes.
+- Updated the shared feature navigation to anchor Back **before** the enclosing research shelf instead. Thus the section can be collapsed without trapping readers in the focused view.
+- Added a Chromium/WebKit regression assertion: collapsing the research shelf after focusing its career résumé must leave the return toolbar visible.
+- Source-level JavaScript compilation checks passed for `assets/manager-profile-tabs.mjs`, `scripts/test-browser-release.mjs`, and `scripts/verify-core-consumers.mjs`. These are syntax checks, not actual browser executions.
