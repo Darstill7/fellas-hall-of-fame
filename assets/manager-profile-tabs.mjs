@@ -644,7 +644,7 @@ if(main&&tabs){
   focusName.textContent=button.querySelector('strong')?.textContent||'Selected feature';
   // Put the single Back control beside the selected content, not above a
   // lengthy directory that the reader has already left behind.
-  const anchor=section||(
+  const anchor=section||destination.closest('details.profile-research-shelf')||(
    document.querySelector('.profile-madden')?.contains(destination)
     ?document.querySelector('.profile-madden')
     :destination);
