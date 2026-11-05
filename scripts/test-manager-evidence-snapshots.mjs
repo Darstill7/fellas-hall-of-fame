@@ -41,6 +41,8 @@ const cardSource=fs.readFileSync('assets/manager-report-card.mjs','utf8');
 if(!cardSource.includes('waivers:null,lineups:null,keepers:null'))
  throw Error('Ungraded managerial decision categories should remain null');
 const page=fs.readFileSync('assets/manager-report-card-page.mjs','utf8');
+if(!page.includes("v===null?'Not rated'")||!page.includes("score===null?'Not rated'"))
+ throw Error('N/A grades must be labeled Not rated with descriptive evidence rather than false scores');
 if(!page.includes('buildEvidenceSnapshots(')||!page.includes("evidenceSnapshot(x.name)")||
    !page.includes('report-fact-grid')||!page.includes('report-fact-method')||
    !page.includes('keeper_2025_website_research_v1.json')||
