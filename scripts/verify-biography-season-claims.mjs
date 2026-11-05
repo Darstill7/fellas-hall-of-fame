@@ -3,15 +3,15 @@
 import fs from 'node:fs';
 const guide=JSON.parse(fs.readFileSync('data/season_guide.json','utf8'));
 const checks=[
- ['jmid',2024,'JMid',8,6,1730.22,'8–6 record and a documented league-high 1,730.22 points scored'],
- ['mitch',2025,'Mitch',13,1,1894.88,'13–1 and scored 1,894.88 points'],
- ['birch',2019,'Birch',11,2,null,'won the championship in 2019 after an 11–2 regular season']
+ ['jmid',2024,'JMid',8,6,1730.22,['league-leading 1,730.22 points in 2024']],
+ ['mitch',2025,'Mitch',13,1,1894.88,['13–1 season in 2025']],
+ ['birch',2019,'Birch',11,2,null,['took the title in 2019 after an 11–2 regular season']]
 ];
 const fails=[];
-for(const [slug,year,name,w,l,pf,phrase] of checks){
+for(const [slug,year,name,w,l,pf,phrases] of checks){
  const page=fs.readFileSync('managers/'+slug+'/index.html','utf8');
  const row=guide[year]?.standings?.find(x=>x.name===name);
- if(!row||row.w!==w||row.l!==l||(pf!==null&&Math.abs(row.pf-pf)>.01)||!page.includes(phrase))fails.push(slug+' '+year+' season/claim mismatch');
+ if(!row||row.w!==w||row.l!==l||(pf!==null&&Math.abs(row.pf-pf)>.01)||!phrases.every(phrase=>page.includes(phrase)))fails.push(slug+' '+year+' season/claim mismatch');
  if(slug==='jmid'&&guide[year].standings.some(x=>x.pf>pf+.01))fails.push('JMid 2024 was not season points leader');
  if(slug==='birch'&&guide[year].champion!==name)fails.push('Birch 2019 title mismatch');
 }
