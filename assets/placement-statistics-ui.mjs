@@ -1,6 +1,7 @@
 import {auditPlacementStatistics} from './placement-statistics.mjs';
 import {auditAllEraFinishes} from './all-era-final-placements.mjs';
 const root=document.getElementById('placement-stat-results');
+const espnHistory=document.getElementById('espn-last-place-history');
 const add=(tag,text)=>{const element=document.createElement(tag);if(text!==undefined)element.textContent=text;return element};
 function makeTable(members){
  const frame=add('div');frame.className='placement-stat-table-wrap';
@@ -50,6 +51,22 @@ async function show(){
   const [master,receipts,allEra]=await Promise.all(responses.map(r=>r.json()));
   const audit=auditPlacementStatistics(master,receipts);
   const fullHistory=auditAllEraFinishes(allEra);
+  if(espnHistory){
+   espnHistory.replaceChildren();
+   const title=add('h2','ESPN last-place finishes · 2016–2019');
+   const note=add('p','Official ESPN final ranks and losers-bracket finals. These predate the verified Sleeper Toilet Bowl rules, so they are listed separately.');
+   note.className='placement-stat-help';
+   espnHistory.append(title,note);
+   const list=add('div');list.className='placement-shame-list';
+   for(const s of allEra.seasons.filter(x=>x.provider==='ESPN').sort((a,b)=>b.year-a.year)){
+    const row=add('a');row.href='../seasons/'+s.year+'.html';
+    row.className='placement-shame-row';
+    row.append(add('span',String(s.year)),add('strong',s.lastPlace),add('span',s.teams+'-team season · official last place'));
+    list.append(row);
+   }
+   espnHistory.append(list);
+  }
+
   root.replaceChildren();
   const heading=add('h3','All-era final placements · 2016–2025');
   root.append(heading);
@@ -70,6 +87,7 @@ async function show(){
   }
  }catch(error){
   root.replaceChildren(add('p','The finishing-position comparison is temporarily unavailable.'));
+  if(espnHistory)espnHistory.replaceChildren(add('p','The ESPN last-place history is temporarily unavailable.'));
   console.error('Placement statistics unavailable',error);
  }
 }

@@ -1733,6 +1733,9 @@ try{
      if(!detail.includes('Next-best different manager:')||!detail.includes('Gap to the record:'))
       errors.push(width+' record comparison disclosure does not show its evidence');
     }
+    const espnLast=page.locator('#espn-last-place-history');
+    if(await espnLast.locator('a.placement-shame-row').count()!==4)
+     errors.push(width+' missing four verified ESPN-era last-place finishes');
     const placement=page.locator('#placement-statistics');
     if(await placement.count()!==1)
      errors.push(width+' finishing-statistics comparison missing');

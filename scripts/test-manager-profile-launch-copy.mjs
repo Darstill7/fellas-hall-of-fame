@@ -304,6 +304,9 @@ for(const manager of currentManagers){
 const tabular=fs.readFileSync('data/fellas_final_placements_2020_2025.csv','utf8').trim().split(/\r?\n/);
 if(tabular.length!==61)throw Error('CSV must include 60 ranked finishes plus header');
 const placementUi=fs.readFileSync('analytics/record-holders.html','utf8');
+if(!placementUi.includes('id="espn-last-place-history"')||
+   !fs.readFileSync('assets/placement-statistics-ui.mjs','utf8').includes("s.provider==='ESPN'"))
+ throw Error('ESPN 2016–2019 last-place history must remain separate from Sleeper Toilet Bowl');
 if(!placementUi.includes('id="placement-stat-results"')||
  !placementUi.includes('placement-statistics-ui.mjs'))
  throw Error('Expandable placement comparison is missing from record holders');
