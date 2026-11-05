@@ -1,6 +1,6 @@
 // Descriptive historical evidence. These values NEVER become implicit manager skill ratings.
 export const ACTIVE_MANAGERS=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
-export function buildEvidenceSnapshots({placements,acquisitions,keeperResearch,keeper2026=null,startSit,draftTrade,faab=null}){
+export function buildEvidenceSnapshots({placements,acquisitions,pickupSeasons=null,keeperResearch,keeper2026=null,startSit,draftTrade,faab=null}){
  const map=new Map();
  const unique=(rows,label)=>{const d=new Map();for(const row of rows){if(d.has(row.manager))throw Error('Duplicate '+label+' manager '+row.manager);d.set(row.manager,row)}return d};
  const finish=unique(placements.managers,'finishing');
@@ -9,6 +9,11 @@ export function buildEvidenceSnapshots({placements,acquisitions,keeperResearch,k
  const currentKeepers=keeper2026?unique(keeper2026.rows,'2026 keeper'):new Map();
  const accuracy=unique(startSit.data,'start/sit');
  const faabMap=faab?unique(faab.managerTotals,'FAAB'):new Map();
+ const pickupSeasonMap=new Map();
+ if(pickupSeasons)for(const item of pickupSeasons.rows){
+  if(!pickupSeasonMap.has(item.manager))pickupSeasonMap.set(item.manager,[]);
+  pickupSeasonMap.get(item.manager).push(item);
+ }
  const faabSeasonMap=new Map();
  if(faab)for(const season of faab.managerSeasons){
   if(!faabSeasonMap.has(season.manager))faabSeasonMap.set(season.manager,[]);
@@ -37,6 +42,13 @@ export function buildEvidenceSnapshots({placements,acquisitions,keeperResearch,k
    !Number.isInteger(current.verifiedOriginalManagerStarts)||current.verifiedOriginalManagerStarts<0||
    current.officialKeeperDecisionGrade!==null))
    throw Error('Unrated partial-season keeper evidence must remain source-backed for '+name);
+  const perYear=(pickupSeasonMap.get(name)||[]).slice().sort((x,y)=>x.year-y.year);
+  if(pickupSeasons&&(
+   perYear.reduce((t,x)=>t+x.distinctPlayerAdds,0)!==a.distinctSeasonPlayerAcquisitions||
+   perYear.reduce((t,x)=>t+x.withLaterRecordedStarts,0)!==a.withRecordedLaterStart||
+   perYear.reduce((t,x)=>t+x.repeatedEventRows,0)!==a.reacquisitions||
+   perYear.some(x=>x.distinctPlayerAdds<x.withLaterRecordedStarts||x.distinctPlayerAdds<0)))
+   throw Error('Acquisition per-year sums mismatch canonical manager totals '+name);
   const draftYears=[...new Set(draftTrade.rows.filter(r=>r.manager===name&&r.recordedSelections>0).map(r=>r.year))].sort((x,y)=>x-y);
   const row={
    manager:name,
@@ -44,7 +56,9 @@ export function buildEvidenceSnapshots({placements,acquisitions,keeperResearch,k
      lastPlace:f.lastPlaceFinishes.length,years:f.years},
    pickups:{distinct:a.distinctSeasonPlayerAcquisitions,started:a.withRecordedLaterStart,
      percent:Number((100*a.withRecordedLaterStart/a.distinctSeasonPlayerAcquisitions).toFixed(1)),
-     reacquisitions:a.reacquisitions,period:'2020–2026, 2026 partial'},
+     reacquisitions:a.reacquisitions,period:'2020–2026, 2026 partial',
+     years:pickupSeasons?perYear.map(x=>({year:x.year,distinct:x.distinctPlayerAdds,
+       laterStarted:x.withLaterRecordedStarts,repeats:x.repeatedEventRows})):[]},
    faab:bid?{completedClaims:bid.completedClaims,paidWins:bid.paidWins,zeroDollarWins:bid.zeroDollarWins,
      failedClaims:bid.failedClaims,winningSpend:bid.completedBidSpend,sourceOnlyClaims:bid.completedNotInOldArchive,
      years:(faabSeasonMap.get(name)||[]).sort((a,b)=>a.year-b.year).map(x=>({year:x.year,
