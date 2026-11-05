@@ -559,6 +559,9 @@ if(main&&tabs){
  .profile-focus-toolbar strong{font-size:14px;flex:1;min-width:180px}
  .profile-focus-toolbar button{min-height:44px;cursor:pointer;background:#e3bd71;color:#10202b;border:0;border-radius:8px;padding:10px 14px;font:inherit;font-size:13px;font-weight:850}
  body.profile-feature-focused .profile-feature-directory{display:none!important}
+ /* Biography-focused view: hide only the résumé modules following the
+    loaded biography. Loading and unavailable states stay visible. */
+ body.profile-feature-focused #legacy-resume.profile-biography-focus>.career-bio~*{display:none!important}
  body.profile-feature-focused .profile-focus-toolbar{position:relative;z-index:2;margin:10px 0 14px}
  body.profile-feature-focused .profile-feature-button[aria-pressed="true"]{border-color:#e3bd71;background:#25475b;box-shadow:inset 4px 0 #e3bd71}
  body.profile-feature-focused .profile-feature-copy small{display:block}
@@ -581,6 +584,7 @@ if(main&&tabs){
   document.body.classList.remove('profile-feature-focused');
   for(const section of sections)section.classList.remove('profile-selected-section');
   document.querySelector('.profile-madden')?.classList.remove('profile-selected-madden');
+  document.getElementById('legacy-resume')?.classList.remove('profile-biography-focus');
   for(const el of main.querySelectorAll('.profile-focus-excluded'))el.classList.remove('profile-focus-excluded');
   for(const button of main.querySelectorAll('button[data-profile-feature]'))button.setAttribute('aria-pressed','false');
  }
@@ -613,6 +617,10 @@ if(main&&tabs){
   document.body.classList.remove('profile-landing');
   document.body.classList.add('profile-feature-focused');
   button.setAttribute('aria-pressed','true');
+  // A career-story visit is for reading the biography, not for opening the
+  // full résumé, awards and trade research at the same time.
+  if(button.classList.contains('profile-biography-entry')&&destination.id==='legacy-resume')
+   destination.classList.add('profile-biography-focus');
   const section=sections.find(item=>item===destination||item.contains(destination));
   // A feature may live in a different legacy category from the active one.
   // Reveal its parent category before focusing the individual feature.
