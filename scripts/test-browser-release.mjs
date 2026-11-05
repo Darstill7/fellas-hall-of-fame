@@ -1247,12 +1247,21 @@ try{
     if(rows.length!==4||expected.some((expectedRow,i)=>expectedRow.some(t=>!rows[i]?.includes(t)))||
        (await page.locator('main').innerText()).includes('2019 I Love Tubing belonged to Stew'))
      errors.push(width+' ESPN Origins punishment archive missing award winners, correct score scopes or Evans owner');
-    await page.waitForFunction(()=>document.querySelectorAll('#espn-2019-activity tr').length===10,null,{timeout:8000}).catch(()=>{});
-    const activity=page.locator('#espn-2019-activity tr');
-    if(await activity.count()!==10||!(await activity.first().innerText()).includes('Birch')||
-       !(await activity.allTextContents()).some(row=>row.includes('Evans')&&row.includes('49'))||
-       !(await activity.allTextContents()).some(row=>row.includes('Thommy')&&row.includes('100')))
-     errors.push(width+' ESPN Origins 2019 draft/front-office table missing ten manager identities or verified source activity');
+    const yearSelector=page.locator('#espn-activity-year');
+    for(const [year,expectedTeams,firstManager,checkName] of [
+      ['2016',8,'Thommy','Schermerhorn'],['2017',10,'Thommy','Schermerhorn'],
+      ['2018',10,'Thommy','Stilly'],['2019',10,'Birch','Evans']]){
+      await yearSelector.selectOption(year);
+      await page.waitForFunction(expected=>document.querySelectorAll('#espn-activity tr').length===expected,expectedTeams,{timeout:8000}).catch(()=>{});
+      const rows=await page.locator('#espn-activity tr').allTextContents();
+      const context=await page.locator('#espn-activity-context').innerText();
+      if(rows.length!==expectedTeams||!rows[0].includes(firstManager)||
+         !rows.some(row=>row.includes(checkName))||
+         !context.includes('no keepers')||
+         (year==='2019'?!rows.some(row=>row.includes('Evans')&&row.includes('49')):
+          !rows.every(row=>row.includes('Not used'))))
+       errors.push(width+' ESPN '+year+' draft/waiver selector lost recovered owner mappings, no-keeper rules or pre-2019 FAAB status');
+    }
 
    }
    if(route==='seasons/'){
