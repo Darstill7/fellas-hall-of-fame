@@ -2,7 +2,7 @@
   "version": 2,
   "updated": "2026-11-05",
   "source": "User-uploaded Sleeper postseason bracket screenshots November 4, 2026 and archival matchup receipts",
-  "coverage": "2020–2025: championship winners, labeled Toilet Bowl finals and placement games; Birch 2020 third-place score commissioner-corrected to 110.10.",
+  "coverage": "2020–2025: championship winners, labeled Toilet Bowl finals and placement games; Birch 2020 third-place score commissioner-confirmed as 110.14 (supersedes initial 110.10 correction).",
   "rule": "Lower final score in the King (Last Place) / Toilet Bowl final determines Shitter of the Year. 8th-place games never determine Shitter of the Year.",
   "identity": "Sleeper historical handles normalized to manager nicknames, retaining distinct former managers",
   "dataSources": [
@@ -68,10 +68,10 @@
           "label": "3rd Place",
           "week": 16,
           "winner": "Birch",
-          "winnerScore": 110.1,
+          "winnerScore": 110.14,
           "loser": "Stover",
           "loserScore": 78.9,
-          "scoreSource": "commissioner-confirmed 2026-11-05; overrides conflicting archived readings"
+          "scoreSource": "commissioner-confirmed final correction 2026-11-05; initial 110.10 correction superseded; original archived 110.24 retained"
         }
       ],
       "reviewNeeded": [],
@@ -145,13 +145,14 @@
           "matchup": "2020 Week 16 · 3rd Place",
           "winner": "Birch",
           "opponent": "Stover",
-          "correctedScore": 110.1,
+          "correctedScore": 110.14,
           "opponentScore": 78.9,
-          "confirmation": "commissioner-confirmed 2026-11-05",
+          "confirmation": "commissioner-final correction 2026-11-05",
           "originalArchivedScore": 110.24,
           "earlierScreenshotReading": 110.14,
           "priorDiscrepancyNote": "Uploaded screenshot appears to show Birch 110.14; archived matchup ledger records Birch 110.24 against Stover 78.90. Winner is consistent but exact score requires comparison with official Sleeper history.",
-          "scope": "canonical postseason placement display; original matchups snapshot retained unchanged"
+          "scope": "authoritative canonical postseason score 110.14; original archived 110.24 and initial commissioner 110.10 correction retained as history",
+          "initialCommissionerStatement": 110.1
         }
       ]
     },
