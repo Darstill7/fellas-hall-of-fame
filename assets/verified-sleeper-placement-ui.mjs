@@ -45,7 +45,8 @@ function renderSeason(root,s){
   }
   details.append(summary,list);root.append(details);
  }
- if(s.reviewNeeded?.length)root.append(make('p','A third-place result from '+s.year+' has a small screenshot-versus-archive scoring discrepancy and is awaiting verification.','placement-note'));
+ if(s.scoreCorrections?.length)root.append(make('p','2020 third-place result: Birch 110.10–78.90 Stover. Birch’s score was confirmed by the commissioner on November 5, 2026, superseding the differing historical readings.','placement-note'));
+ if(s.reviewNeeded?.length)root.append(make('p','A placement score from '+s.year+' is still under review.','placement-note'));
  if(s.finalPlacements?.length){
   const ranks=make('details',null,'placement-more placement-final-ranks');
   ranks.append(make('summary',s.placementsComplete?'View all 10 final finishing positions':'View verified final finishing positions'));
@@ -53,7 +54,7 @@ function renderSeason(root,s){
   for(const entry of s.finalPlacements){
    const li=make('li');
    li.append(make('strong','#'+entry.place+' '+entry.manager),
-    make('span',entry.scoreVerified?'Bracket placement verified':'Finishing position verified · exact score under review'));
+    make('span',entry.scoreSource?.startsWith('commissioner-confirmed')?'Score confirmed by league commissioner':entry.scoreVerified?'Bracket placement verified':'Finishing position verified · exact score under review'));
    ordered.append(li);
   }
   ranks.append(ordered);
