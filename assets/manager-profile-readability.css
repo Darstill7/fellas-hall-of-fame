@@ -246,3 +246,9 @@ main .hero .profile-snapshot-condensed>.profile-snapshot-heading{font-size:18px;
  #legacy-resume .career-bio h2{font-size:24px;margin-bottom:12px}
  #legacy-resume .career-bio-prose p{font-size:15px;line-height:1.72;margin-bottom:14px}
 }
+
+/* Career hierarchy: title seasons are readable below the two verified headline facts. */
+main .hero .profile-honors-line{margin:2px 0 12px;padding:0 2px;color:#ead4a2;font-size:13px;font-weight:750;line-height:1.5;overflow-wrap:break-word}
+main .hero .profile-career-highlights{margin-bottom:8px}
+main .hero .profile-snapshot-condensed>.profile-snapshot-heading{margin-bottom:12px}
+@media(max-width:650px){main .hero .profile-honors-line{font-size:12px;line-height:1.55;margin-bottom:10px}}
