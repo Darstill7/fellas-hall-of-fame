@@ -212,3 +212,15 @@ main .profile-quickstart{margin-bottom:14px}
 .profile-career-record-link{display:inline-flex;align-items:center;min-height:44px;padding:9px 0;color:#efd08d;font-weight:800;font-size:13px;text-underline-offset:3px}
 .profile-career-record-link:focus-visible{outline:3px solid #f5d594;outline-offset:3px}
 @media(max-width:580px){.profile-career-finish-summary{padding:12px 13px}}
+
+/* The canonical rating and résumé now supply the visible career numbers.
+   Preserve the original stat grid and source wording behind one disclosure. */
+main .hero .profile-snapshot-condensed{padding:14px 16px;margin:10px 0 15px}
+main .hero .profile-snapshot-condensed .profile-snapshot-heading{font-size:16px;line-height:1.4;margin:0 0 8px}
+main .hero .profile-snapshot-condensed .profile-owned-records{margin:0 0 10px}
+main .hero .profile-snapshot-receipts{margin:0;padding:0 12px;border:1px solid #4d6978;background:#102838;border-radius:10px}
+main .hero .profile-snapshot-receipts>summary{cursor:pointer;min-height:45px;display:flex;align-items:center;padding:10px 0;font-size:13px;font-weight:800;line-height:1.5;color:#efd293}
+main .hero .profile-snapshot-receipts>summary:focus-visible{outline:3px solid #efd293;outline-offset:3px}
+main .hero .profile-snapshot-receipts .profile-snapshot-stats{margin:5px 0 12px}
+main .hero .profile-snapshot-receipts .profile-snapshot-source{margin:8px 0 12px!important}
+@media(max-width:650px){main .hero .profile-snapshot-condensed{padding:12px;margin:9px 0 12px}main .hero .profile-snapshot-receipts{padding:0 10px}}
