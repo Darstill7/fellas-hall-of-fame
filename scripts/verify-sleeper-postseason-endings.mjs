@@ -17,7 +17,8 @@ for(const season of placements){
   assert.equal(row.ending,label(finish.rank),'Postseason label wrong '+season.year+' '+finish.manager);
   assert.ok(row.ending!=='Postseason ending not verified','Verified finish hidden');
   if(finish.rank>=2&&finish.rank<=9){
-   assert.ok(row.note?.includes('final postseason placement')||row.note?.includes('Verified')||row.note?.includes('Runner-up'),
+   assert.ok(typeof row.note==='string'&&row.note.trim().length>0&&
+    typeof row.source==='string'&&row.source.trim().length>0,
      'Missing final-placement provenance '+finish.manager+' '+season.year);
   }
   checked++;
