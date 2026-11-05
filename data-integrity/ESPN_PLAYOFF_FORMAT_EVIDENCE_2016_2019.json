@@ -24,9 +24,9 @@
     "legacyCurrentAlias": "Tom",
     "formerManager": "Schermerhorn",
     "differentPeople": true,
-    "manager2019I_Love_Tubing": "Evans",
-    "manager2019Kickers_Suck": "Stew",
-    "note": "Source ledger identifies I Love Tubing as Evans, despite user initially describing that team as Stew. Clarification requested; do not assign the 2019 last-place finish to Stew."
+    "manager2019I_Love_Tubing": "Evans (user-confirmed 2026-11-05; original ESPN ownership agrees)",
+    "manager2019Kickers_Suck": "Stew (2019 championship runner-up; original ESPN ownership)",
+    "note": "Both ESPN source ownership and user confirmation agree: I Love Tubing = Evans, not Stew. Never use the current-manager Tom alias for former Schermerhorn."
   },
   "seasons": {
     "2016": {
@@ -221,26 +221,27 @@
             "finish": 10,
             "manager": "Evans",
             "team": "I Love Tubing",
-            "threeWeekPoints": 264.76
+            "threeWeekPoints": 264.76,
+            "ownerConfirmedByUser": true
           }
         ],
         "userConfirmedOrdering": true,
-        "ownerMappingPendingClarification": true,
-        "note": "These are cumulative Week 14–16 totals, not individual Week 16 scores. Finish mapping uses ESPN team owner ledger; Evans not Stew owns I Love Tubing."
+        "ownerMappingPendingClarification": false,
+        "note": "These are cumulative Week 14–16 totals, not individual Week 16 scores. Finish mapping uses ESPN team owner ledger; Evans not Stew owns I Love Tubing.",
+        "userConfirmedOwnership": true
       }
     }
   },
   "unresolvedQuestions": [
-    "2019 owner check: user referred to I Love Tubing as Stew, but the original ESPN team ID / owner mapping records I Love Tubing as Evans and Stew as Kickers SUCK (runner-up). Please confirm.",
-    "What exactly qualified for the annual Shitter of the Year award in 2016–2019: the final last-place franchise from ESPN finalRank, or the lowest individual score in the final consolation week? These rules yield different people in some years.",
-    "2018 consolation advancement/tiebreak mechanics are not fully known, although ESPN final finishing positions for all ten teams are verified."
+    "2018 consolation advancement/tiebreak mechanics are not fully known, although ESPN final finishing positions for all ten teams are verified.",
+    "2018 consolation advancement and tiebreak mechanics are still partly unknown; do not reconstruct them from finalRank alone."
   ],
   "certification": {
     "aggregate_vs_weekly": "verified_against_ESPN_weekly_components",
     "winners_2016_2019": "verified_from_screenshots_and_ledger",
     "consolation_2018_last": "user_confirmed",
-    "consolation_2019_bottom_four": "screenshot_verified_with_manager_mapping_question",
-    "historical_awards": "pending_specific_rule_confirmation",
+    "consolation_2019_bottom_four": "screenshot_verified_and_user_confirmed_Evans_ownership",
+    "historical_awards": "2016-2019 shitter award lowest_final_losers_consolation_score rule verified",
     "finalPlacements2016to2019": "All official ESPN finalRank entries reconciled with original bracket screenshots; 20 previously uncertified active-manager season endings recovered."
   },
   "officialESPNFinalRanks": {
@@ -494,5 +495,16 @@
     ],
     "postseasonWinnerScoringUnaffected": true,
     "regularSeasonRecordsUnaffected": true
+  },
+  "shitterOfYearRule": {
+    "userConfirmed": "Lowest scoring team in final consolation round",
+    "appliedInterpretation": "Lowest score in the final LOSERS_CONSOLATION_LADDER; 2016/2017 use two-week matchup aggregate, 2018 single Week 16, 2019 actual Week 16 (not three-week cumulative total). Distinct from ESPN finalRank.",
+    "source": "data/espn_shitter_of_the_year_2016_2019.json",
+    "winners": {
+      "2016": "Stilly",
+      "2017": "Halderman",
+      "2018": "Stilly",
+      "2019": "Evans"
+    }
   }
 }
