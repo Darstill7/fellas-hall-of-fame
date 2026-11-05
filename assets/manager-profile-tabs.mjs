@@ -158,7 +158,10 @@ if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')
    label.className='profile-career-highlight-label';
    label.textContent=card.querySelector('small')?.textContent?.trim()||'Career';
    const value=document.createElement('strong');
-   value.textContent=card.querySelector('strong')?.textContent?.trim()||'—';
+   const sourceValue=card.querySelector('strong');
+   const syncValue=()=>{value.textContent=sourceValue?.textContent?.trim()||'—'};
+   syncValue();
+   if(sourceValue)new MutationObserver(syncValue).observe(sourceValue,{childList:true,subtree:true,characterData:true});
    metric.append(label,value);highlights.append(metric);
   }
   if(highlights.children.length===2)profileSnapshot.append(highlights);
