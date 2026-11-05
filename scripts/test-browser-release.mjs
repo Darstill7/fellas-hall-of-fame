@@ -1817,6 +1817,37 @@ try{
       if(!await researchShelf.evaluate(el=>el.open)||
          !await page.locator('.profile-career-resume').evaluate(el=>el.open))
        errors.push(width+' '+slug+' career résumé feature failed to reveal hidden evidence');
+      // Drafting UX gate: a topic choice must reveal the exact research
+      // section in one click, focus its heading and remain touch-friendly.
+      const resume=page.locator('.profile-career-resume');
+      const choices=resume.locator('button.career-research-topic-button');
+      if(await choices.count()!==6)
+       errors.push(width+' '+slug+' draft research lacks six topic shortcuts');
+      else{
+       for(const [label,id] of [['Position peers','career-research-topic-4'],
+                                ['Trades','career-research-topic-5']]){
+        const choice=choices.getByText(label,{exact:true});
+        const bounds=await choice.boundingBox();
+        if(!bounds||bounds.height<44||bounds.width<80)
+         errors.push(width+' '+slug+' '+label+' draft shortcut has inadequate touch target');
+        await choice.click();
+        const receiptOpen=await resume.locator('details.career-resume-receipts').first().evaluate(el=>el.open);
+        const focused=await page.evaluate(target=>{
+         const heading=document.getElementById(target)?.querySelector('h4');
+         const rect=heading?.getBoundingClientRect();
+         return {focused:document.activeElement===heading,
+          visible:!!rect&&rect.height>0&&rect.top<innerHeight&&rect.bottom>0,
+          overflow:document.documentElement.scrollWidth>innerWidth+2};
+        },id);
+        if(!receiptOpen||!focused.focused||!focused.visible||focused.overflow)
+         errors.push(width+' '+slug+' '+label+' research shortcut failed: '+JSON.stringify({receiptOpen,...focused}));
+       }
+       if(captureVisuals&&slug==='stilly'){
+        const dir=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width));
+        await fs.mkdir(dir,{recursive:true});
+        await page.screenshot({path:path.join(dir,'drafting-trading-focused.png'),animations:'disabled',fullPage:false});
+       }
+      }
       await researchShelf.evaluate(el=>el.open=false);
       if(!await page.locator('.profile-focus-toolbar').isVisible())
        errors.push(width+' '+slug+' closing research drawer hid the return navigation');
