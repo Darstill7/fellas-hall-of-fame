@@ -416,6 +416,12 @@ try{
       const required={stilly:['2018','10th place (last)','2019','5th place'],tom:['2019','8th place'],stover:['2019','9th place'],birch:['2017','10th place (last)']}[slug];
       if(required.some(x=>!history.includes(x)))
        errors.push(width+' '+slug+' recovered ESPN finishing places missing from visible season archive');
+      if(slug==='stilly'){
+       const seasons=await page.locator('#season-history details.season-entry').evaluateAll(nodes=>nodes.map(node=>({text:node.textContent,year:node.querySelector('summary strong')?.textContent,award:node.querySelector('.season-award-label')?.textContent})));
+       const awards=seasons.filter(x=>x.award==='Shitter of the Year').map(x=>Number(x.year)).sort((a,b)=>a-b);
+       if(JSON.stringify(awards)!==JSON.stringify([2016,2018]))
+        errors.push(width+' Stilly season archive must distinguish 2016 and 2018 Shitter awards from official finishing places');
+      }
      }
      const shelf=page.locator('details.profile-research-shelf');
      if(await shelf.count()!==1)errors.push(width+' '+route+' research shelf missing');
