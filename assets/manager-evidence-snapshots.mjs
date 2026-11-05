@@ -8,6 +8,11 @@ export function buildEvidenceSnapshots({placements,acquisitions,keeperResearch,s
  const keepers=unique(keeperResearch.rows,'keeper');
  const accuracy=unique(startSit.data,'start/sit');
  const faabMap=faab?unique(faab.managerTotals,'FAAB'):new Map();
+ const faabSeasonMap=new Map();
+ if(faab)for(const season of faab.managerSeasons){
+  if(!faabSeasonMap.has(season.manager))faabSeasonMap.set(season.manager,[]);
+  faabSeasonMap.get(season.manager).push(season);
+ }
  if(faab&&faab.status!=='provider_observed_no_skill_grade')throw Error('FAAB source is not provider-observed research');
  if(keeperResearch.season!==2025||startSit.season!==2026||startSit.throughWeek!==8)
   throw Error('Descriptive keeper and lineup source periods changed');
@@ -37,6 +42,9 @@ export function buildEvidenceSnapshots({placements,acquisitions,keeperResearch,s
      reacquisitions:a.reacquisitions,period:'2020–2026, 2026 partial'},
    faab:bid?{completedClaims:bid.completedClaims,paidWins:bid.paidWins,zeroDollarWins:bid.zeroDollarWins,
      failedClaims:bid.failedClaims,winningSpend:bid.completedBidSpend,sourceOnlyClaims:bid.completedNotInOldArchive,
+     years:(faabSeasonMap.get(name)||[]).sort((a,b)=>a.year-b.year).map(x=>({year:x.year,
+       completedClaims:x.completedClaims,paidWins:x.paidWins,zeroDollarWins:x.zeroDollarWins,
+       failedClaims:x.failedClaims,winningSpend:x.completedBidSpend})),
      period:faab.scope,gradeStatus:'not-rated'}:null,
    keepers:{season:2025,recorded:k.keepers.length,startedPoints:k.regularStartedPoints,
      gradeStatus:'not-rated'},

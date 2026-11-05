@@ -8,10 +8,11 @@
     "pickups": "Recorded later starts, not an acquisition skill grade",
     "startSit": "Sleeper platform displayed average through 2026 Week 8, not decision-quality skill",
     "keepers": "2025 observed original-manager keeper starts and points, not decision-time keeper value",
-    "drafts": "Recorded source selections; outcome scores remain provisional"
+    "drafts": "Recorded source selections; outcome scores remain provisional",
+    "faab": "Provider-observed winning FAAB spend, paid and $0 successful waiver claims, failed claims; 2020–2025 full and 2026 Weeks 1–7 partial; not a skill grade"
   },
   "remainingRatings": {
-    "waivers": "N/A until full decision opportunity set and cost/results integrity",
+    "waivers": "N/A: verified spend and winning claims are facts, but no full decision-quality rubric; failed bids are NOT spent budget",
     "lineups": "N/A until legal lineup choices, game-time availability and comparable alternatives verified",
     "keepers": "N/A until complete deadline alternatives/cost plus penalty methodology",
     "drafts": "N/A for sample sizes below 12 nonkeeper scored draft picks",
@@ -60,6 +61,15 @@
           2026
         ],
         "grade": "Provisional outcome only"
+      },
+      "faab": {
+        "completedClaims": 81,
+        "paidWins": 53,
+        "zeroDollarWins": 28,
+        "failedClaims": 50,
+        "winningSpend": 460,
+        "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
+        "grade": "Not rated"
       }
     },
     {
@@ -104,6 +114,15 @@
           2026
         ],
         "grade": "Provisional outcome only"
+      },
+      "faab": {
+        "completedClaims": 103,
+        "paidWins": 43,
+        "zeroDollarWins": 60,
+        "failedClaims": 133,
+        "winningSpend": 423,
+        "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
+        "grade": "Not rated"
       }
     },
     {
@@ -148,6 +167,15 @@
           2026
         ],
         "grade": "Provisional outcome only"
+      },
+      "faab": {
+        "completedClaims": 114,
+        "paidWins": 68,
+        "zeroDollarWins": 46,
+        "failedClaims": 108,
+        "winningSpend": 565,
+        "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
+        "grade": "Not rated"
       }
     },
     {
@@ -192,6 +220,15 @@
           2026
         ],
         "grade": "Provisional outcome only"
+      },
+      "faab": {
+        "completedClaims": 55,
+        "paidWins": 39,
+        "zeroDollarWins": 16,
+        "failedClaims": 28,
+        "winningSpend": 409,
+        "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
+        "grade": "Not rated"
       }
     },
     {
@@ -235,6 +272,15 @@
           2026
         ],
         "grade": "Provisional outcome only"
+      },
+      "faab": {
+        "completedClaims": 37,
+        "paidWins": 28,
+        "zeroDollarWins": 9,
+        "failedClaims": 20,
+        "winningSpend": 483,
+        "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
+        "grade": "Not rated"
       }
     },
     {
@@ -278,6 +324,15 @@
           2026
         ],
         "grade": "Provisional outcome only"
+      },
+      "faab": {
+        "completedClaims": 28,
+        "paidWins": 21,
+        "zeroDollarWins": 7,
+        "failedClaims": 12,
+        "winningSpend": 360,
+        "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
+        "grade": "Not rated"
       }
     },
     {
@@ -320,6 +375,15 @@
           2026
         ],
         "grade": "Provisional outcome only"
+      },
+      "faab": {
+        "completedClaims": 99,
+        "paidWins": 71,
+        "zeroDollarWins": 28,
+        "failedClaims": 50,
+        "winningSpend": 450,
+        "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
+        "grade": "Not rated"
       }
     },
     {
@@ -362,6 +426,15 @@
           2026
         ],
         "grade": "Provisional outcome only"
+      },
+      "faab": {
+        "completedClaims": 68,
+        "paidWins": 51,
+        "zeroDollarWins": 17,
+        "failedClaims": 36,
+        "winningSpend": 466,
+        "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
+        "grade": "Not rated"
       }
     },
     {
@@ -398,6 +471,15 @@
           2026
         ],
         "grade": "Provisional outcome only"
+      },
+      "faab": {
+        "completedClaims": 55,
+        "paidWins": 39,
+        "zeroDollarWins": 16,
+        "failedClaims": 47,
+        "winningSpend": 253,
+        "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
+        "grade": "Not rated"
       }
     },
     {
@@ -434,6 +516,15 @@
           2026
         ],
         "grade": "Provisional outcome only"
+      },
+      "faab": {
+        "completedClaims": 33,
+        "paidWins": 19,
+        "zeroDollarWins": 14,
+        "failedClaims": 27,
+        "winningSpend": 140,
+        "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
+        "grade": "Not rated"
       }
     }
   ]
