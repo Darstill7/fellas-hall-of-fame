@@ -149,6 +149,16 @@ try{
          }
         }
        }
+       if(route==='analytics/manager-report-cards.html'){
+        const tiles=page.locator('[data-report-manager] .report-fact-grid');
+        if(await tiles.count()!==10)
+         findings.push(engine+' '+width+' report cards missing source-backed summary tiles');
+        else if(width===390){
+         const widthIssue=await tiles.evaluateAll(nodes=>nodes.some(n=>
+           n.getBoundingClientRect().width>document.documentElement.clientWidth+1));
+         if(widthIssue)findings.push(engine+' '+width+' report card evidence tiles overflow mobile');
+        }
+       }
        if(route==='analytics/record-holders.html'){
         const finishing=page.locator('#placement-statistics');
         if(await finishing.count()!==1)

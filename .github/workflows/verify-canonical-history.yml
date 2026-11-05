@@ -141,6 +141,8 @@ jobs:
         run: node scripts/test-manager-profile-launch-copy.mjs
       - name: Verify manager report card evidence
         run: node scripts/verify-manager-report-cards.mjs
+      - name: Certify all ten recoverable manager evidence snapshots without assigning false skill grades
+        run: node scripts/test-manager-evidence-snapshots.mjs
       - name: Guard 2026 SportsCenter against stale live-status claims
         run: node scripts/test-sportscenter-archive.mjs
       - name: Verify distinct $0 waiver versus free-agent acquisition labels

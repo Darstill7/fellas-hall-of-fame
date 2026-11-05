@@ -619,6 +619,26 @@ try{
     const scouting=page.locator('[data-report-manager] details.report-evidence-details details.report-scouting-more');
     if(await scouting.count()!==10||await scouting.evaluateAll(nodes=>nodes.some(node=>node.open)))
      errors.push(width+' detailed scouting dossier must be nested and initially collapsed');
+    const factTiles=page.locator('[data-report-manager] .report-fact-grid');
+    const factMethods=page.locator('[data-report-manager] details.report-fact-method');
+    if(await factTiles.count()!==10||await factMethods.count()!==10)
+     errors.push(width+' missing verified evidence tiles for all ten manager report cards');
+    else{
+     const accurate=await factTiles.evaluateAll(nodes=>nodes.every(n=>
+       n.querySelectorAll('.report-fact').length===3&&
+       n.textContent.includes('Career top-three finishes')&&
+       n.textContent.includes('Recorded pickups later started')&&
+       n.textContent.includes('2026 W8 start/sit accuracy')));
+     if(!accurate)errors.push(width+' missing factual evidence or incorrect report card tile count');
+     if(await factMethods.evaluateAll(nodes=>nodes.some(n=>n.open)))
+      errors.push(width+' evidence methodology should remain collapsed by default');
+     const firstMethod=factMethods.first();
+     await firstMethod.locator('summary').click();
+     if(!await firstMethod.locator('p.fine').first().isVisible()||
+        !(await firstMethod.innerText()).includes('Not rated'))
+      errors.push(width+' verified manager facts or honest unrated explanation not accessible');
+     await firstMethod.locator('summary').click();
+    }
     const categoryPanels=page.locator('[data-report-manager] details.report-category-details');
     const evidencePanels=page.locator('[data-report-manager] details.report-evidence-details');
     if(await categoryPanels.count()!==10||await evidencePanels.count()!==10)
