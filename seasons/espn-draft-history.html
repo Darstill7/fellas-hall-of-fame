@@ -31,7 +31,11 @@
    if(!picks.length){message('No selections match those filters.');return}
    for(const item of picks){const tr=document.createElement('tr');const cells=[offline?'—':String(item.overall),item.player||'Name not verified',item.position||'Unknown',item.manager];cells.forEach((value,index)=>{const td=document.createElement('td');td.textContent=value;if(index===1){td.className=item.player?'player':'missing';if(item.player){const tag=document.createElement('span');tag.className='sub';tag.textContent=item.postDraftCorrection?'Original pick · manually replaced after draft with '+item.postDraftCorrection.correctedTo:(offline?'Offline draft · original selection order unknown':'Round '+item.round+' · Pick '+item.roundPick);td.append(tag)}else{const tag=document.createElement('span');tag.className='sub';tag.textContent='Historical ESPN player ID '+item.espnPlayerId;td.append(tag)}}tr.append(td)});tbody.append(tr)}
   }
-  y.addEventListener('change',()=>{refreshManagers();render()});[manager,pos,search].forEach(el=>el.addEventListener(el===search?'input':'change',render));refreshManagers();render();
+  const requested=new URLSearchParams(location.search);const selectedManager=requested.get('manager');const selectedYear=requested.get('year');
+  if(selectedYear&&data.seasons[selectedYear])y.value=selectedYear;
+  refreshManagers();
+  if(selectedManager){const canonical=selectedManager==='Tom'?'Thommy':selectedManager;const options=[...manager.options].map(option=>option.value);if(options.includes(canonical))manager.value=canonical;else if(!selectedYear){const year=Object.keys(data.seasons).sort().reverse().find(year=>data.seasons[year].playerPicks.some(p=>p.manager===canonical));if(year){y.value=year;refreshManagers();manager.value=canonical;}}}
+  y.addEventListener('change',()=>{refreshManagers();render()});[manager,pos,search].forEach(el=>el.addEventListener(el===search?'input':'change',render));render();
  }).catch(()=>{context.textContent='Historical draft data is unavailable.';message('Unable to load archived selections.')});
 })();
 </script></body></html>
