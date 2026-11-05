@@ -45,7 +45,7 @@ function renderSeason(root,s){
   }
   details.append(summary,list);root.append(details);
  }
- if(s.scoreCorrections?.length)root.append(make('p','2020 third-place result: Birch 110.10–78.90 Stover. Birch’s score was confirmed by the commissioner on November 5, 2026, superseding the differing historical readings.','placement-note'));
+ if(s.scoreCorrections?.length)root.append(make('p','2020 third-place result: Birch 110.14–78.90 Stover. Birch’s score was confirmed by the commissioner on November 5, 2026, superseding the initial 110.10 correction and earlier archived 110.24 score.','placement-note'));
  if(s.reviewNeeded?.length)root.append(make('p','A placement score from '+s.year+' is still under review.','placement-note'));
  if(s.finalPlacements?.length){
   const ranks=make('details',null,'placement-more placement-final-ranks');
