@@ -1842,6 +1842,16 @@ try{
         if(!receiptOpen||!focused.focused||!focused.visible||focused.overflow)
          errors.push(width+' '+slug+' '+label+' research shortcut failed: '+JSON.stringify({receiptOpen,...focused}));
        }
+       // Return from a deep topic to its navigation without leaving keyboard
+       // focus in an off-screen collapsed section.
+       await page.locator('#career-research-topic-5 .career-research-return').click();
+       const restored=await page.evaluate(()=>({
+        focused:document.activeElement?.textContent?.trim()==='Trades'&&
+         document.activeElement?.classList.contains('career-research-topic-button'),
+        visible:!!document.activeElement&&document.activeElement.getBoundingClientRect().top<innerHeight
+       }));
+       if(!restored.focused||!restored.visible)
+        errors.push(width+' '+slug+' draft topic return lost visible keyboard focus');
        if(captureVisuals&&slug==='stilly'){
         const dir=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width));
         await fs.mkdir(dir,{recursive:true});
