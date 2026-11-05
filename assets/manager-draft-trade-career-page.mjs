@@ -1,4 +1,5 @@
 import {buildDraftTradeCareer} from './manager-draft-trade-career.mjs';
+import {buildDraftProduction} from './manager-draft-production.mjs';
 import {tradeEvents} from './manager-trade-intelligence.mjs';
 // Compact, original-manager career archive. No performance or skill grades.
 const root='../../';
@@ -26,10 +27,11 @@ export async function mountDraftTradeCareer(host,manager){
  box.append(summary,elt('p','muted','Loading documented draft and trade history…'));
  host.append(box);
  try{
-  const [source,trade,espnBoard]=await Promise.all([
+  const [source,trade,espnBoard,draftProductionRows]=await Promise.all([
    fetchJSON('data/manager_draft_trade_profile_evidence_v1.json'),
    fetchJSON('data/v9_trade_engine.json'),
-   fetchJSON('data/espn_draft_boards_named_2016_2019.json')
+   fetchJSON('data/espn_draft_boards_named_2016_2019.json'),
+   fetchJSON('data/v9_draft_engine.json')
   ]);
   if(source.status!=='research_only_no_draft_or_trade_skill_grades'||
      source.seasonCutoff?.year!==2026||
@@ -39,6 +41,7 @@ export async function mountDraftTradeCareer(host,manager){
      !espnBoard.seasons?.['2018']?.playerPicks)
    throw Error('Career research provenance changed');
   const career=buildDraftTradeCareer(source.rows,manager);
+  const production=buildDraftProduction(draftProductionRows,manager);
   const related=tradeEvents(trade).filter(event=>
    event.complete&&event.managers.includes(manager)&&event.year<=2025).slice(0,3);
   box.replaceChildren(summary);
@@ -115,6 +118,27 @@ export async function mountDraftTradeCareer(host,manager){
    esSection.insertBefore(heading,esSection.children[1]||null);
   }else esSection.append(elt('p','muted','No original ESPN draft selections attributed to this manager.'));
   details.append(esSection);
+  const productionSection=elt('section','career-resume-section career-draft-production');
+  productionSection.append(elt('h4',null,'Sleeper draft contribution · completed 2020–2025 seasons'));
+  productionSection.append(elt('p','muted',
+   'Observed regular-season points from games in which original draft selections started for their drafting manager. Excludes keepers, playoff starts, other managers’ starts and incomplete 2026. This is not total player production, surplus value or a drafting grade.'));
+  if(production.status==='observed_original_manager_starts_only'){
+   productionSection.append(elt('p',null,production.selectionCount+' non-keeper selections · '+production.starts+
+    ' recorded regular-season starts · '+production.points.toFixed(1)+' starter points across '+production.seasonCount+' documented seasons.'));
+   for(const season of production.byYear){
+    productionSection.append(elt('p','career-resume-example',season.year+' · '+season.selections+
+     ' picks · '+season.starts+' starts · '+season.points.toFixed(1)+' points'));
+   }
+   const examples=elt('details','career-resume-receipts');
+   examples.append(elt('summary',null,'View highest observed draft-pick contributions'));
+   for(const pick of production.top){
+    examples.append(elt('p','career-resume-example',pick.year+' · R'+pick.round+' '+pick.player+
+     ' · '+pick.starts+' starts · '+pick.points.toFixed(1)+' pts'+
+     (pick.tradedSameSeason?' · traded during season':'') ));
+   }
+   productionSection.append(examples);
+  }else productionSection.append(elt('p','muted','No original non-keeper draft selections documented for completed Sleeper seasons.'));
+  details.append(productionSection);
   const tradeSection=elt('section','career-resume-section career-resume-trades');
   tradeSection.append(elt('h4',null,'Recent source-verified trade records'));
   if(!related.length)tradeSection.append(elt('p','muted',
