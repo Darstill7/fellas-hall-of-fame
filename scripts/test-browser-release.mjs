@@ -1817,6 +1817,14 @@ try{
       if(!await researchShelf.evaluate(el=>el.open)||
          !await page.locator('.profile-career-resume').evaluate(el=>el.open))
        errors.push(width+' '+slug+' career résumé feature failed to reveal hidden evidence');
+      if(captureVisuals){
+       // Capture the topic directory as well as the focused research section.
+       // Both are needed to review spacing, heading hierarchy and tap clarity.
+       await page.locator('.career-research-topics').scrollIntoViewIfNeeded();
+       const dir=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width));
+       await fs.mkdir(dir,{recursive:true});
+       await page.screenshot({path:path.join(dir,'drafting-trading-'+slug+'-topics.png'),animations:'disabled',fullPage:false});
+      }
       // Drafting UX gate: a topic choice must reveal the exact research
       // section in one click, focus its heading and remain touch-friendly.
       const resume=page.locator('.profile-career-resume');
