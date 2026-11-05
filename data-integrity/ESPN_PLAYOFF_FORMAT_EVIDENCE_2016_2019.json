@@ -152,7 +152,7 @@
           15,
           16
         ],
-        "rulesStatus": "partial_unknown",
+        "rulesStatus": "placement_verified_advancement_rules_partly_unknown",
         "confirmedLastPlace": {
           "manager": "Stilly",
           "team": "Schaub On My Knob",
@@ -240,6 +240,245 @@
     "winners_2016_2019": "verified_from_screenshots_and_ledger",
     "consolation_2018_last": "user_confirmed",
     "consolation_2019_bottom_four": "screenshot_verified_with_manager_mapping_question",
-    "historical_awards": "pending_specific_rule_confirmation"
+    "historical_awards": "pending_specific_rule_confirmation",
+    "finalPlacements2016to2019": "ESPN original team finalRank validated against bracket screenshots, including nonstandard consolation rounds"
+  },
+  "officialESPNFinalRanks": {
+    "2016": [
+      {
+        "rank": 1,
+        "manager": "Thommy",
+        "team": "It Ertz When Eifert",
+        "seed": 3
+      },
+      {
+        "rank": 2,
+        "manager": "Halderman",
+        "team": "Forte Inch Ditka",
+        "seed": 1
+      },
+      {
+        "rank": 3,
+        "manager": "Evans",
+        "team": "Hernandez Hitmen",
+        "seed": 2
+      },
+      {
+        "rank": 4,
+        "manager": "Koble",
+        "team": "Team Koble",
+        "seed": 4
+      },
+      {
+        "rank": 5,
+        "manager": "Stover",
+        "team": "PurpleHeaded YogurtSlingers",
+        "seed": 7
+      },
+      {
+        "rank": 6,
+        "manager": "Stilly",
+        "team": "Vick's Out For Harambe",
+        "seed": 5
+      },
+      {
+        "rank": 7,
+        "manager": "Stew",
+        "team": "Make America  Gronk Again",
+        "seed": 6
+      },
+      {
+        "rank": 8,
+        "manager": "Schermerhorn",
+        "team": "Team Schermerhorn",
+        "seed": 8
+      }
+    ],
+    "2017": [
+      {
+        "rank": 1,
+        "manager": "Thommy",
+        "team": "It Ertz When Eifert",
+        "seed": 1
+      },
+      {
+        "rank": 2,
+        "manager": "Schermerhorn",
+        "team": "Team Schermerhorn",
+        "seed": 2
+      },
+      {
+        "rank": 3,
+        "manager": "Stilly",
+        "team": "W-Word Redskins",
+        "seed": 3
+      },
+      {
+        "rank": 4,
+        "manager": "Evans",
+        "team": "Drake's New Favorite Team",
+        "seed": 4
+      },
+      {
+        "rank": 5,
+        "manager": "Koble",
+        "team": "Team Koble",
+        "seed": 6
+      },
+      {
+        "rank": 6,
+        "manager": "Halderman",
+        "team": "Hold Muh Dick",
+        "seed": 10
+      },
+      {
+        "rank": 7,
+        "manager": "Stew",
+        "team": "Cops and Rodgers",
+        "seed": 9
+      },
+      {
+        "rank": 8,
+        "manager": "Stover",
+        "team": "Garropolo By The Percy'",
+        "seed": 5
+      },
+      {
+        "rank": 9,
+        "manager": "Tony",
+        "team": "Tittsburgh Feelers",
+        "seed": 7
+      },
+      {
+        "rank": 10,
+        "manager": "Birch",
+        "team": "Hogan's Heroes",
+        "seed": 8
+      }
+    ],
+    "2018": [
+      {
+        "rank": 1,
+        "manager": "Thommy",
+        "team": "2 Gurleys 1 Kupp",
+        "seed": 4
+      },
+      {
+        "rank": 2,
+        "manager": "Birch",
+        "team": "HEY DARNOLD!",
+        "seed": 6
+      },
+      {
+        "rank": 3,
+        "manager": "Tony",
+        "team": "Tittsburgh Feelers",
+        "seed": 1
+      },
+      {
+        "rank": 4,
+        "manager": "Stover",
+        "team": "Washington Foreskins",
+        "seed": 2
+      },
+      {
+        "rank": 5,
+        "manager": "Stew",
+        "team": "Kareem beat that Hunt",
+        "seed": 3
+      },
+      {
+        "rank": 6,
+        "manager": "Kuhl",
+        "team": "Vinateri Suites By Hilton",
+        "seed": 5
+      },
+      {
+        "rank": 7,
+        "manager": "Evans",
+        "team": "Trubisky Titty Kissers",
+        "seed": 7
+      },
+      {
+        "rank": 8,
+        "manager": "Mitch",
+        "team": "Mitchell The Bitchell",
+        "seed": 9
+      },
+      {
+        "rank": 9,
+        "manager": "Koble",
+        "team": "Team Koble",
+        "seed": 10
+      },
+      {
+        "rank": 10,
+        "manager": "Stilly",
+        "team": "Schaub On My Knob",
+        "seed": 8
+      }
+    ],
+    "2019": [
+      {
+        "rank": 1,
+        "manager": "Birch",
+        "team": "AP’s Daycare",
+        "seed": 1
+      },
+      {
+        "rank": 2,
+        "manager": "Stew",
+        "team": "Kickers  SUCK",
+        "seed": 2
+      },
+      {
+        "rank": 3,
+        "manager": "Mitch",
+        "team": "New England’s QB Room",
+        "seed": 3
+      },
+      {
+        "rank": 4,
+        "manager": "Tony",
+        "team": "Tittsburgh Feelers",
+        "seed": 4
+      },
+      {
+        "rank": 5,
+        "manager": "Stilly",
+        "team": "Dishes? NOTHIN",
+        "seed": 6
+      },
+      {
+        "rank": 6,
+        "manager": "Kuhl",
+        "team": "Hockenson  Loogies On You",
+        "seed": 5
+      },
+      {
+        "rank": 7,
+        "manager": "Koble",
+        "team": "Team Koble",
+        "seed": 8
+      },
+      {
+        "rank": 8,
+        "manager": "Thommy",
+        "team": "Boy Named Suh",
+        "seed": 10
+      },
+      {
+        "rank": 9,
+        "manager": "Stover",
+        "team": "Yogurt Slingers II",
+        "seed": 9
+      },
+      {
+        "rank": 10,
+        "manager": "Evans",
+        "team": "I Love  Tubing",
+        "seed": 7
+      }
+    ]
   }
 }
