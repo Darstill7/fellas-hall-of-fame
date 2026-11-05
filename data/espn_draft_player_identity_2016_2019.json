@@ -1,0 +1,2399 @@
+{
+  "schemaVersion": 1,
+  "leagueId": "1313090",
+  "seasonRange": [
+    2016,
+    2019
+  ],
+  "description": "ESPN player identity crosswalk for all Fellas original 2016–2019 draft selections",
+  "sourceCrosswalk": {
+    "name": "DynastyProcess Fantasy Football Player IDs",
+    "url": "https://github.com/dynastyprocess/data/blob/master/files/db_playerids.csv",
+    "commitBlobSha": "a1be13a0c5788821ddfb955656bc0be84a84d013",
+    "approach": "Exact integer ESPN player ID join, not fuzzy name matching",
+    "note": "Crosswalk uses latest listed name/position; do not infer an athlete's original 2016–2019 NFL team from current team columns."
+  },
+  "defenseDecoding": {
+    "formula": "ESPN D/ST player id = -16000 - proTeamId",
+    "source": "https://github.com/DanielTomaro13/sportsdata-mcp/blob/main/documentation/ESPNFantasy.md",
+    "seasonBrandNote": "Some franchises relocated or renamed. Use stable franchise naming for historical display."
+  },
+  "coverage": {
+    "uniqueIds": 296,
+    "uniqueIdentified": 295,
+    "uniqueUnresolved": 1,
+    "positivePlayers": 273,
+    "positiveIdentified": 272,
+    "defenseIds": 23
+  },
+  "players": {
+    "1097": {
+      "espnId": 1097,
+      "name": "Adam Vinatieri",
+      "position": "PK",
+      "gsisId": "00-0016919",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2330": {
+      "espnId": 2330,
+      "name": "Tom Brady",
+      "position": "QB",
+      "gsisId": "00-0019596",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2580": {
+      "espnId": 2580,
+      "name": "Drew Brees",
+      "position": "QB",
+      "gsisId": "00-0020531",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2622": {
+      "espnId": 2622,
+      "name": "Steve Smith",
+      "position": "WR",
+      "gsisId": "00-0020337",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "4333": {
+      "espnId": 4333,
+      "name": "Matt Bryant",
+      "position": "PK",
+      "gsisId": "00-0020578",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "4459": {
+      "espnId": 4459,
+      "name": "Carson Palmer",
+      "position": "QB",
+      "gsisId": "00-0021429",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "4527": {
+      "espnId": 4527,
+      "name": "Jason Witten",
+      "position": "TE",
+      "gsisId": "00-0022127",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "5362": {
+      "espnId": 5362,
+      "name": "Antonio Gates",
+      "position": "TE",
+      "gsisId": "00-0021547",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "5526": {
+      "espnId": 5526,
+      "name": "Eli Manning",
+      "position": "QB",
+      "gsisId": "00-0022803",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "5528": {
+      "espnId": 5528,
+      "name": "Larry Fitzgerald",
+      "position": "WR",
+      "gsisId": "00-0022921",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "5529": {
+      "espnId": 5529,
+      "name": "Philip Rivers",
+      "position": "QB",
+      "gsisId": "00-0022942",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "5536": {
+      "espnId": 5536,
+      "name": "Ben Roethlisberger",
+      "position": "QB",
+      "gsisId": "00-0022924",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "8416": {
+      "espnId": 8416,
+      "name": "Alex Smith",
+      "position": "QB",
+      "gsisId": "00-0023436",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "8439": {
+      "espnId": 8439,
+      "name": "Aaron Rodgers",
+      "position": "QB",
+      "gsisId": "00-0023459",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "8479": {
+      "espnId": 8479,
+      "name": "Frank Gore",
+      "position": "RB",
+      "gsisId": "00-0023500",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "8544": {
+      "espnId": 8544,
+      "name": "Darren Sproles",
+      "position": "RB",
+      "gsisId": "00-0023564",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "9354": {
+      "espnId": 9354,
+      "name": "Robbie Gould",
+      "position": "PK",
+      "gsisId": "00-0023252",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "9597": {
+      "espnId": 9597,
+      "name": "Jay Cutler",
+      "position": "QB",
+      "gsisId": "00-0024226",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "9613": {
+      "espnId": 9613,
+      "name": "DeAngelo Williams",
+      "position": "RB",
+      "gsisId": "00-0024242",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "9704": {
+      "espnId": 9704,
+      "name": "Stephen Gostkowski",
+      "position": "PK",
+      "gsisId": "00-0024333",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "9705": {
+      "espnId": 9705,
+      "name": "Brandon Marshall",
+      "position": "WR",
+      "gsisId": "00-0024334",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "9761": {
+      "espnId": 9761,
+      "name": "Delanie Walker",
+      "position": "TE",
+      "gsisId": "00-0024389",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "10452": {
+      "espnId": 10452,
+      "name": "Adrian Peterson",
+      "position": "RB",
+      "gsisId": "00-0025394",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "10456": {
+      "espnId": 10456,
+      "name": "Marshawn Lynch",
+      "position": "RB",
+      "gsisId": "00-0025399",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "10475": {
+      "espnId": 10475,
+      "name": "Greg Olsen",
+      "position": "TE",
+      "gsisId": "00-0025418",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "10636": {
+      "espnId": 10636,
+      "name": "Mason Crosby",
+      "position": "PK",
+      "gsisId": "00-0025580",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11122": {
+      "espnId": 11122,
+      "name": "Matt Prater",
+      "position": "PK",
+      "gsisId": "00-0023853",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11237": {
+      "espnId": 11237,
+      "name": "Matt Ryan",
+      "position": "QB",
+      "gsisId": "00-0026143",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11238": {
+      "espnId": 11238,
+      "name": "Darren McFadden",
+      "position": "RB",
+      "gsisId": "00-0026144",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11247": {
+      "espnId": 11247,
+      "name": "Jonathan Stewart",
+      "position": "RB",
+      "gsisId": "00-0026153",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11270": {
+      "espnId": 11270,
+      "name": "Jordy Nelson",
+      "position": "WR",
+      "gsisId": "00-0026176",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11278": {
+      "espnId": 11278,
+      "name": "Matt Forte",
+      "position": "RB",
+      "gsisId": "00-0026184",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11283": {
+      "espnId": 11283,
+      "name": "DeSean Jackson",
+      "position": "WR",
+      "gsisId": "00-0026189",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11295": {
+      "espnId": 11295,
+      "name": "Martellus Bennett",
+      "position": "TE",
+      "gsisId": "00-0026201",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11307": {
+      "espnId": 11307,
+      "name": "Jamaal Charles",
+      "position": "RB",
+      "gsisId": "00-0026213",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11364": {
+      "espnId": 11364,
+      "name": "Gary Barnidge",
+      "position": "TE",
+      "gsisId": "00-0026281",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11439": {
+      "espnId": 11439,
+      "name": "Pierre Garcon",
+      "position": "WR",
+      "gsisId": "00-0026345",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11467": {
+      "espnId": 11467,
+      "name": "Justin Forsett",
+      "position": "RB",
+      "gsisId": "00-0026373",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11674": {
+      "espnId": 11674,
+      "name": "Danny Amendola",
+      "position": "WR",
+      "gsisId": "00-0026035",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11788": {
+      "espnId": 11788,
+      "name": "Danny Woodhead",
+      "position": "RB",
+      "gsisId": "00-0026019",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "11923": {
+      "espnId": 11923,
+      "name": "Steven Hauschka",
+      "position": "PK",
+      "gsisId": "00-0025944",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "12460": {
+      "espnId": 12460,
+      "name": "Graham Gano",
+      "position": "PK",
+      "gsisId": "00-0026858",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "12483": {
+      "espnId": 12483,
+      "name": "Matthew Stafford",
+      "position": "QB",
+      "gsisId": "00-0026498",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "12497": {
+      "espnId": 12497,
+      "name": "Arian Foster",
+      "position": "RB",
+      "gsisId": "00-0026796",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "12503": {
+      "espnId": 12503,
+      "name": "Rashad Jennings",
+      "position": "RB",
+      "gsisId": "00-0027155",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "12514": {
+      "espnId": 12514,
+      "name": "LeSean McCoy",
+      "position": "RB",
+      "gsisId": "00-0027029",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "12537": {
+      "espnId": 12537,
+      "name": "Jared Cook",
+      "position": "TE",
+      "gsisId": "00-0027061",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "12556": {
+      "espnId": 12556,
+      "name": "Kenny Britt",
+      "position": "WR",
+      "gsisId": "00-0027006",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "12563": {
+      "espnId": 12563,
+      "name": "Michael Crabtree",
+      "position": "WR",
+      "gsisId": "00-0026986",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "12579": {
+      "espnId": 12579,
+      "name": "Jeremy Maclin",
+      "position": "WR",
+      "gsisId": "00-0026995",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "12601": {
+      "espnId": 12601,
+      "name": "Mike Wallace",
+      "position": "WR",
+      "gsisId": "00-0026901",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "12649": {
+      "espnId": 12649,
+      "name": "Julian Edelman",
+      "position": "WR",
+      "gsisId": "00-0027150",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13197": {
+      "espnId": 13197,
+      "name": "Sam Bradford",
+      "position": "QB",
+      "gsisId": "00-0027854",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13204": {
+      "espnId": 13204,
+      "name": "Ryan Mathews",
+      "position": "RB",
+      "gsisId": "00-0027864",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13213": {
+      "espnId": 13213,
+      "name": "LeGarrette Blount",
+      "position": "RB",
+      "gsisId": "00-0027325",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13215": {
+      "espnId": 13215,
+      "name": "Dez Bryant",
+      "position": "WR",
+      "gsisId": "00-0027902",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13216": {
+      "espnId": 13216,
+      "name": "Demaryius Thomas",
+      "position": "WR",
+      "gsisId": "00-0027874",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13217": {
+      "espnId": 13217,
+      "name": "Golden Tate",
+      "position": "WR",
+      "gsisId": "00-0027891",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13229": {
+      "espnId": 13229,
+      "name": "Rob Gronkowski",
+      "position": "TE",
+      "gsisId": "00-0027656",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13232": {
+      "espnId": 13232,
+      "name": "Jimmy Graham",
+      "position": "TE",
+      "gsisId": "00-0027696",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13271": {
+      "espnId": 13271,
+      "name": "Eric Decker",
+      "position": "WR",
+      "gsisId": "00-0027690",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13295": {
+      "espnId": 13295,
+      "name": "Emmanuel Sanders",
+      "position": "WR",
+      "gsisId": "00-0027685",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13587": {
+      "espnId": 13587,
+      "name": "Chris Ivory",
+      "position": "RB",
+      "gsisId": "00-0027531",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13934": {
+      "espnId": 13934,
+      "name": "Antonio Brown",
+      "position": "WR",
+      "gsisId": "00-0027793",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13981": {
+      "espnId": 13981,
+      "name": "Mark Ingram",
+      "position": "RB",
+      "gsisId": "00-0027966",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13982": {
+      "espnId": 13982,
+      "name": "Julio Jones",
+      "position": "WR",
+      "gsisId": "00-0027944",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13983": {
+      "espnId": 13983,
+      "name": "A.J. Green",
+      "position": "WR",
+      "gsisId": "00-0027942",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "13994": {
+      "espnId": 13994,
+      "name": "Cam Newton",
+      "position": "QB",
+      "gsisId": "00-0027939",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14005": {
+      "espnId": 14005,
+      "name": "DeMarco Murray",
+      "position": "RB",
+      "gsisId": "00-0028009",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14012": {
+      "espnId": 14012,
+      "name": "Andy Dalton",
+      "position": "QB",
+      "gsisId": "00-0027973",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14032": {
+      "espnId": 14032,
+      "name": "Torrey Smith",
+      "position": "WR",
+      "gsisId": "00-0027996",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14053": {
+      "espnId": 14053,
+      "name": "Randall Cobb",
+      "position": "WR",
+      "gsisId": "00-0028002",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14054": {
+      "espnId": 14054,
+      "name": "Kyle Rudolph",
+      "position": "TE",
+      "gsisId": "00-0027981",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14129": {
+      "espnId": 14129,
+      "name": "Bilal Powell",
+      "position": "RB",
+      "gsisId": "00-0028064",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14193": {
+      "espnId": 14193,
+      "name": "Jacquizz Rodgers",
+      "position": "RB",
+      "gsisId": "00-0028083",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14198": {
+      "espnId": 14198,
+      "name": "Dion Lewis",
+      "position": "RB",
+      "gsisId": "00-0028087",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14204": {
+      "espnId": 14204,
+      "name": "Julius Thomas",
+      "position": "TE",
+      "gsisId": "00-0028067",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14221": {
+      "espnId": 14221,
+      "name": "Doug Baldwin",
+      "position": "WR",
+      "gsisId": "00-0028434",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14322": {
+      "espnId": 14322,
+      "name": "Dan Bailey",
+      "position": "PK",
+      "gsisId": "00-0028660",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14402": {
+      "espnId": 14402,
+      "name": "Chris Hogan",
+      "position": "WR",
+      "gsisId": "00-0028237",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14851": {
+      "espnId": 14851,
+      "name": "Terrelle Pryor",
+      "position": "WR",
+      "gsisId": "00-0028825",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14874": {
+      "espnId": 14874,
+      "name": "Andrew Luck",
+      "position": "QB",
+      "gsisId": "00-0029668",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14879": {
+      "espnId": 14879,
+      "name": "Brock Osweiler",
+      "position": "QB",
+      "gsisId": "00-0029682",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14880": {
+      "espnId": 14880,
+      "name": "Kirk Cousins",
+      "position": "QB",
+      "gsisId": "00-0029604",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14881": {
+      "espnId": 14881,
+      "name": "Russell Wilson",
+      "position": "QB",
+      "gsisId": "00-0029263",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14885": {
+      "espnId": 14885,
+      "name": "Doug Martin",
+      "position": "RB",
+      "gsisId": "00-0029613",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14886": {
+      "espnId": 14886,
+      "name": "Lamar Miller",
+      "position": "RB",
+      "gsisId": "00-0029615",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14900": {
+      "espnId": 14900,
+      "name": "Coby Fleener",
+      "position": "TE",
+      "gsisId": "00-0029697",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14908": {
+      "espnId": 14908,
+      "name": "Michael Floyd",
+      "position": "WR",
+      "gsisId": "00-0029638",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14912": {
+      "espnId": 14912,
+      "name": "Alshon Jeffery",
+      "position": "WR",
+      "gsisId": "00-0029137",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14922": {
+      "espnId": 14922,
+      "name": "Mohamed Sanu",
+      "position": "WR",
+      "gsisId": "00-0029632",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14924": {
+      "espnId": 14924,
+      "name": "T.Y. Hilton",
+      "position": "WR",
+      "gsisId": "00-0029608",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "14993": {
+      "espnId": 14993,
+      "name": "Greg Zuerlein",
+      "position": "PK",
+      "gsisId": "00-0029621",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15009": {
+      "espnId": 15009,
+      "name": "Alfred Morris",
+      "position": "RB",
+      "gsisId": "00-0029141",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15058": {
+      "espnId": 15058,
+      "name": "Blair Walsh",
+      "position": "PK",
+      "gsisId": "00-0029576",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15072": {
+      "espnId": 15072,
+      "name": "Marvin Jones",
+      "position": "WR",
+      "gsisId": "00-0029293",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15102": {
+      "espnId": 15102,
+      "name": "Rishard Matthews",
+      "position": "WR",
+      "gsisId": "00-0029580",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15245": {
+      "espnId": 15245,
+      "name": "Giorgio Tavecchio",
+      "position": "PK",
+      "gsisId": "00-0028907",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15349": {
+      "espnId": 15349,
+      "name": "Cole Beasley",
+      "position": "WR",
+      "gsisId": "00-0029000",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15683": {
+      "espnId": 15683,
+      "name": "Justin Tucker",
+      "position": "PK",
+      "gsisId": "00-0029597",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15705": {
+      "espnId": 15705,
+      "name": "Josh Gordon",
+      "position": "WR",
+      "gsisId": "00-0029664",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15786": {
+      "espnId": 15786,
+      "name": "Tavon Austin",
+      "position": "WR",
+      "gsisId": "00-0030525",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15788": {
+      "espnId": 15788,
+      "name": "Tyler Eifert",
+      "position": "TE",
+      "gsisId": "00-0030549",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15795": {
+      "espnId": 15795,
+      "name": "DeAndre Hopkins",
+      "position": "WR",
+      "gsisId": "00-0030564",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15818": {
+      "espnId": 15818,
+      "name": "Keenan Allen",
+      "position": "WR",
+      "gsisId": "00-0030279",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15825": {
+      "espnId": 15825,
+      "name": "Le'Veon Bell",
+      "position": "RB",
+      "gsisId": "00-0030496",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15826": {
+      "espnId": 15826,
+      "name": "Giovani Bernard",
+      "position": "RB",
+      "gsisId": "00-0030456",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15835": {
+      "espnId": 15835,
+      "name": "Zach Ertz",
+      "position": "TE",
+      "gsisId": "00-0030061",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15839": {
+      "espnId": 15839,
+      "name": "Marquise Goodwin",
+      "position": "WR",
+      "gsisId": "00-0030068",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15847": {
+      "espnId": 15847,
+      "name": "Travis Kelce",
+      "position": "TE",
+      "gsisId": "00-0030506",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15848": {
+      "espnId": 15848,
+      "name": "Eddie Lacy",
+      "position": "RB",
+      "gsisId": "00-0030485",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15853": {
+      "espnId": 15853,
+      "name": "Vance McDonald",
+      "position": "TE",
+      "gsisId": "00-0030470",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15860": {
+      "espnId": 15860,
+      "name": "Jordan Reed",
+      "position": "TE",
+      "gsisId": "00-0030472",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15873": {
+      "espnId": 15873,
+      "name": "Markus Wheaton",
+      "position": "WR",
+      "gsisId": "00-0030460",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15880": {
+      "espnId": 15880,
+      "name": "Robert Woods",
+      "position": "WR",
+      "gsisId": "00-0030431",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15918": {
+      "espnId": 15918,
+      "name": "Caleb Sturgis",
+      "position": "PK",
+      "gsisId": "00-0030390",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15920": {
+      "espnId": 15920,
+      "name": "Latavius Murray",
+      "position": "RB",
+      "gsisId": "00-0030513",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15952": {
+      "espnId": 15952,
+      "name": "Mike Gillislee",
+      "position": "RB",
+      "gsisId": "00-0030433",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15965": {
+      "espnId": 15965,
+      "name": "Dustin Hopkins",
+      "position": "PK",
+      "gsisId": "00-0030098",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15966": {
+      "espnId": 15966,
+      "name": "Chris Thompson",
+      "position": "RB",
+      "gsisId": "00-0030404",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15971": {
+      "espnId": 15971,
+      "name": "Rex Burkhead",
+      "position": "RB",
+      "gsisId": "00-0030288",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "15994": {
+      "espnId": 15994,
+      "name": "Theo Riddick",
+      "position": "RB",
+      "gsisId": "00-0030107",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16016": {
+      "espnId": 16016,
+      "name": "Kenny Stills",
+      "position": "WR",
+      "gsisId": "00-0030085",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16020": {
+      "espnId": 16020,
+      "name": "Spencer Ware",
+      "position": "RB",
+      "gsisId": "00-0030414",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16040": {
+      "espnId": 16040,
+      "name": "C.J. Anderson",
+      "position": "RB",
+      "gsisId": "00-0029854",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16460": {
+      "espnId": 16460,
+      "name": "Adam Thielen",
+      "position": "WR",
+      "gsisId": "00-0030035",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16504": {
+      "espnId": 16504,
+      "name": "Jack Doyle",
+      "position": "TE",
+      "gsisId": "00-0030181",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16724": {
+      "espnId": 16724,
+      "name": "Blake Bortles",
+      "position": "QB",
+      "gsisId": "00-0031407",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16725": {
+      "espnId": 16725,
+      "name": "Sammy Watkins",
+      "position": "WR",
+      "gsisId": "00-0031325",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16730": {
+      "espnId": 16730,
+      "name": "Kelvin Benjamin",
+      "position": "TE",
+      "gsisId": "00-0031359",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16731": {
+      "espnId": 16731,
+      "name": "Brandin Cooks",
+      "position": "WR",
+      "gsisId": "00-0031236",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16732": {
+      "espnId": 16732,
+      "name": "Eric Ebron",
+      "position": "TE",
+      "gsisId": "00-0031387",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16733": {
+      "espnId": 16733,
+      "name": "Odell Beckham",
+      "position": "WR",
+      "gsisId": "00-0031235",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16737": {
+      "espnId": 16737,
+      "name": "Mike Evans",
+      "position": "WR",
+      "gsisId": "00-0031408",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16757": {
+      "espnId": 16757,
+      "name": "Derek Carr",
+      "position": "QB",
+      "gsisId": "00-0031280",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16760": {
+      "espnId": 16760,
+      "name": "Jimmy Garoppolo",
+      "position": "QB",
+      "gsisId": "00-0031345",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16763": {
+      "espnId": 16763,
+      "name": "Jordan Matthews",
+      "position": "TE",
+      "gsisId": "00-0031299",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16777": {
+      "espnId": 16777,
+      "name": "Carlos Hyde",
+      "position": "RB",
+      "gsisId": "00-0031045",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16781": {
+      "espnId": 16781,
+      "name": "Paul Richardson",
+      "position": "WR",
+      "gsisId": "00-0031257",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16783": {
+      "espnId": 16783,
+      "name": "Terrance West",
+      "position": "RB",
+      "gsisId": "00-0031375",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16790": {
+      "espnId": 16790,
+      "name": "Jarvis Landry",
+      "position": "WR",
+      "gsisId": "00-0031382",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16791": {
+      "espnId": 16791,
+      "name": "Donte Moncrief",
+      "position": "WR",
+      "gsisId": "00-0031339",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16799": {
+      "espnId": 16799,
+      "name": "Allen Robinson",
+      "position": "WR",
+      "gsisId": "00-0031428",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16800": {
+      "espnId": 16800,
+      "name": "Davante Adams",
+      "position": "WR",
+      "gsisId": "00-0031381",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16803": {
+      "espnId": 16803,
+      "name": "Jeremy Hill",
+      "position": "RB",
+      "gsisId": "00-0031301",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16804": {
+      "espnId": 16804,
+      "name": "John Brown",
+      "position": "WR",
+      "gsisId": "00-0031051",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16886": {
+      "espnId": 16886,
+      "name": "Martavis Bryant",
+      "position": "WR",
+      "gsisId": "00-0031373",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16913": {
+      "espnId": 16913,
+      "name": "James White",
+      "position": "RB",
+      "gsisId": "00-0031062",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16944": {
+      "espnId": 16944,
+      "name": "Devonta Freeman",
+      "position": "RB",
+      "gsisId": "00-0031285",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "16974": {
+      "espnId": 16974,
+      "name": "Trey Burton",
+      "position": "TE",
+      "gsisId": "00-0030710",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "17133": {
+      "espnId": 17133,
+      "name": "Isaiah Crowell",
+      "position": "RB",
+      "gsisId": "00-0030656",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "17177": {
+      "espnId": 17177,
+      "name": "Allen Hurns",
+      "position": "WR",
+      "gsisId": "00-0030821",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "17258": {
+      "espnId": 17258,
+      "name": "Willie Snead",
+      "position": "WR",
+      "gsisId": "00-0030663",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "17359": {
+      "espnId": 17359,
+      "name": "Damien Williams",
+      "position": "RB",
+      "gsisId": "00-0030874",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "17372": {
+      "espnId": 17372,
+      "name": "Chris Boswell",
+      "position": "PK",
+      "gsisId": "00-0031136",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "17427": {
+      "espnId": 17427,
+      "name": "Cairo Santos",
+      "position": "PK",
+      "gsisId": "00-0031203",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "17437": {
+      "espnId": 17437,
+      "name": "Taylor Gabriel",
+      "position": "WR",
+      "gsisId": "00-0031228",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2508176": {
+      "espnId": 2508176,
+      "name": "David Johnson",
+      "position": "RB",
+      "gsisId": "00-0032187",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2515416": {
+      "espnId": 2515416,
+      "name": "Jeremy Langford",
+      "position": "RB",
+      "gsisId": "00-0031569",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2520698": {
+      "espnId": 2520698,
+      "name": "Cameron Meredith",
+      "position": "WR",
+      "gsisId": "00-0031912",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2573079": {
+      "espnId": 2573079,
+      "name": "Carson Wentz",
+      "position": "QB",
+      "gsisId": "00-0032950",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2573300": {
+      "espnId": 2573300,
+      "name": "Jay Ajayi",
+      "position": "RB",
+      "gsisId": "00-0031590",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2574808": {
+      "espnId": 2574808,
+      "name": "Robbie Chosen",
+      "position": "WR",
+      "gsisId": "00-0032688",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2575408": {
+      "espnId": 2575408,
+      "name": "Rob Kelley",
+      "position": "RB",
+      "gsisId": "00-0032371",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2576019": {
+      "espnId": 2576019,
+      "name": "Josh Doctson",
+      "position": "WR",
+      "gsisId": "00-0032760",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2576237": {
+      "espnId": 2576237,
+      "name": "Thomas Rawls",
+      "position": "RB",
+      "gsisId": "00-0031897",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2576336": {
+      "espnId": 2576336,
+      "name": "Ameer Abdullah",
+      "position": "RB",
+      "gsisId": "00-0032104",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2576434": {
+      "espnId": 2576434,
+      "name": "Melvin Gordon",
+      "position": "RB",
+      "gsisId": "00-0032144",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2576623": {
+      "espnId": 2576623,
+      "name": "DeVante Parker",
+      "position": "WR",
+      "gsisId": "00-0031547",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2576716": {
+      "espnId": 2576716,
+      "name": "Jamison Crowder",
+      "position": "WR",
+      "gsisId": "00-0031941",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2576980": {
+      "espnId": 2576980,
+      "name": "Marcus Mariota",
+      "position": "QB",
+      "gsisId": "00-0032268",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2577134": {
+      "espnId": 2577134,
+      "name": "Ty Montgomery",
+      "position": "RB",
+      "gsisId": "00-0032200",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2577327": {
+      "espnId": 2577327,
+      "name": "Tyler Lockett",
+      "position": "WR",
+      "gsisId": "00-0032211",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2577417": {
+      "espnId": 2577417,
+      "name": "Dak Prescott",
+      "position": "QB",
+      "gsisId": "00-0033077",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2587819": {
+      "espnId": 2587819,
+      "name": "Tyrell Williams",
+      "position": "WR",
+      "gsisId": "00-0032160",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2969939": {
+      "espnId": 2969939,
+      "name": "Jameis Winston",
+      "position": "QB",
+      "gsisId": "00-0031503",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2969962": {
+      "espnId": 2969962,
+      "name": "Duke Johnson",
+      "position": "RB",
+      "gsisId": "00-0032257",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2971573": {
+      "espnId": 2971573,
+      "name": "Ka'imi Fairbairn",
+      "position": "PK",
+      "gsisId": "00-0032726",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2971589": {
+      "espnId": 2971589,
+      "name": "Paul Perkins",
+      "position": "RB",
+      "gsisId": "00-0032417",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2971618": {
+      "espnId": 2971618,
+      "name": "Nelson Agholor",
+      "position": "WR",
+      "gsisId": "00-0031549",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2974858": {
+      "espnId": 2974858,
+      "name": "Kenny Golladay",
+      "position": "WR",
+      "gsisId": "00-0033932",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2976212": {
+      "espnId": 2976212,
+      "name": "Stefon Diggs",
+      "position": "WR",
+      "gsisId": "00-0031588",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2976316": {
+      "espnId": 2976316,
+      "name": "Michael Thomas",
+      "position": "WR",
+      "gsisId": "00-0032765",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2976499": {
+      "espnId": 2976499,
+      "name": "Amari Cooper",
+      "position": "WR",
+      "gsisId": "00-0031544",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2976516": {
+      "espnId": 2976516,
+      "name": "T.J. Yeldon",
+      "position": "RB",
+      "gsisId": "00-0032209",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2976592": {
+      "espnId": 2976592,
+      "name": "Sterling Shepard",
+      "position": "WR",
+      "gsisId": "00-0032385",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2977187": {
+      "espnId": 2977187,
+      "name": "Cooper Kupp",
+      "position": "WR",
+      "gsisId": "00-0033908",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2977609": {
+      "espnId": 2977609,
+      "name": "Devin Funchess",
+      "position": "TE",
+      "gsisId": "00-0032055",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2977644": {
+      "espnId": 2977644,
+      "name": "Todd Gurley",
+      "position": "RB",
+      "gsisId": "00-0032241",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2977698": {
+      "espnId": 2977698,
+      "name": null,
+      "position": null,
+      "verification": "unresolved",
+      "source": null,
+      "reason": "Not present in the external ESPN ID crosswalk; needs original ESPN player pool or authenticated player card for this historical ID."
+    },
+    "2978929": {
+      "espnId": 2978929,
+      "name": "Corey Coleman",
+      "position": "WR",
+      "gsisId": "00-0032966",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2979477": {
+      "espnId": 2979477,
+      "name": "Tevin Coleman",
+      "position": "RB",
+      "gsisId": "00-0032058",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2979843": {
+      "espnId": 2979843,
+      "name": "Kenyan Drake",
+      "position": "RB",
+      "gsisId": "00-0033118",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2980105": {
+      "espnId": 2980105,
+      "name": "Matt Jones",
+      "position": "RB",
+      "gsisId": "00-0031939",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2980148": {
+      "espnId": 2980148,
+      "name": "C.J. Prosise",
+      "position": "RB",
+      "gsisId": "00-0032393",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2980453": {
+      "espnId": 2980453,
+      "name": "Jamaal Williams",
+      "position": "RB",
+      "gsisId": "00-0033948",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "2985659": {
+      "espnId": 2985659,
+      "name": "Wil Lutz",
+      "position": "PK",
+      "gsisId": "00-0032569",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3040151": {
+      "espnId": 3040151,
+      "name": "George Kittle",
+      "position": "TE",
+      "gsisId": "00-0033288",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3042435": {
+      "espnId": 3042435,
+      "name": "Kevin White",
+      "position": "WR",
+      "gsisId": "00-0031545",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3042519": {
+      "espnId": 3042519,
+      "name": "Aaron Jones",
+      "position": "RB",
+      "gsisId": "00-0033293",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3042778": {
+      "espnId": 3042778,
+      "name": "Corey Davis",
+      "position": "WR",
+      "gsisId": "00-0033871",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3043078": {
+      "espnId": 3043078,
+      "name": "Derrick Henry",
+      "position": "RB",
+      "gsisId": "00-0032764",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3043080": {
+      "espnId": 3043080,
+      "name": "O.J. Howard",
+      "position": "TE",
+      "gsisId": "00-0033879",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3045138": {
+      "espnId": 3045138,
+      "name": "Mike Williams",
+      "position": "WR",
+      "gsisId": "00-0033536",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3045144": {
+      "espnId": 3045144,
+      "name": "Tyler Boyd",
+      "position": "WR",
+      "gsisId": "00-0033009",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3045147": {
+      "espnId": 3045147,
+      "name": "James Conner",
+      "position": "RB",
+      "gsisId": "00-0033553",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3046409": {
+      "espnId": 3046409,
+      "name": "Alex Collins",
+      "position": "RB",
+      "gsisId": "00-0032426",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3046439": {
+      "espnId": 3046439,
+      "name": "Hunter Henry",
+      "position": "TE",
+      "gsisId": "00-0033090",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3046779": {
+      "espnId": 3046779,
+      "name": "Jared Goff",
+      "position": "QB",
+      "gsisId": "00-0033106",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3049916": {
+      "espnId": 3049916,
+      "name": "Matt Breida",
+      "position": "RB",
+      "gsisId": "00-0033308",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3050478": {
+      "espnId": 3050478,
+      "name": "Jake Elliott",
+      "position": "PK",
+      "gsisId": "00-0033787",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3051392": {
+      "espnId": 3051392,
+      "name": "Ezekiel Elliott",
+      "position": "RB",
+      "gsisId": "00-0033045",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3051738": {
+      "espnId": 3051738,
+      "name": "Marquez Valdes-Scantling",
+      "position": "WR",
+      "gsisId": "00-0034272",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3051876": {
+      "espnId": 3051876,
+      "name": "Evan Engram",
+      "position": "TE",
+      "gsisId": "00-0033881",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3051891": {
+      "espnId": 3051891,
+      "name": "Jordan Wilkins",
+      "position": "RB",
+      "gsisId": "00-0034400",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3051902": {
+      "espnId": 3051902,
+      "name": "Peyton Barber",
+      "position": "RB",
+      "gsisId": "00-0032741",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3052117": {
+      "espnId": 3052117,
+      "name": "Phillip Lindsay",
+      "position": "RB",
+      "gsisId": "00-0034109",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3052177": {
+      "espnId": 3052177,
+      "name": "John Ross",
+      "position": "WR",
+      "gsisId": "00-0033460",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3052587": {
+      "espnId": 3052587,
+      "name": "Baker Mayfield",
+      "position": "QB",
+      "gsisId": "00-0034855",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3052876": {
+      "espnId": 3052876,
+      "name": "Will Fuller",
+      "position": "WR",
+      "gsisId": "00-0033127",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3054850": {
+      "espnId": 3054850,
+      "name": "Alvin Kamara",
+      "position": "RB",
+      "gsisId": "00-0033906",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3055899": {
+      "espnId": 3055899,
+      "name": "Harrison Butker",
+      "position": "PK",
+      "gsisId": "00-0033303",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3059915": {
+      "espnId": 3059915,
+      "name": "Kareem Hunt",
+      "position": "RB",
+      "gsisId": "00-0033923",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3060022": {
+      "espnId": 3060022,
+      "name": "Jordan Howard",
+      "position": "RB",
+      "gsisId": "00-0032780",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3066158": {
+      "espnId": 3066158,
+      "name": "Tarik Cohen",
+      "position": "RB",
+      "gsisId": "00-0033556",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3068267": {
+      "espnId": 3068267,
+      "name": "Austin Ekeler",
+      "position": "RB",
+      "gsisId": "00-0033699",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3115364": {
+      "espnId": 3115364,
+      "name": "Leonard Fournette",
+      "position": "RB",
+      "gsisId": "00-0033856",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3115913": {
+      "espnId": 3115913,
+      "name": "Geronimo Allison",
+      "position": "WR",
+      "gsisId": "00-0032626",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3116136": {
+      "espnId": 3116136,
+      "name": "Justin Jackson",
+      "position": "RB",
+      "gsisId": "00-0034440",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3116164": {
+      "espnId": 3116164,
+      "name": "Mike Gesicki",
+      "position": "TE",
+      "gsisId": "00-0034829",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3116165": {
+      "espnId": 3116165,
+      "name": "Chris Godwin",
+      "position": "WR",
+      "gsisId": "00-0033921",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3116365": {
+      "espnId": 3116365,
+      "name": "Mark Andrews",
+      "position": "TE",
+      "gsisId": "00-0034753",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3116385": {
+      "espnId": 3116385,
+      "name": "Joe Mixon",
+      "position": "RB",
+      "gsisId": "00-0033897",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3116406": {
+      "espnId": 3116406,
+      "name": "Tyreek Hill",
+      "position": "WR",
+      "gsisId": "00-0033040",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3116593": {
+      "espnId": 3116593,
+      "name": "Dalvin Cook",
+      "position": "RB",
+      "gsisId": "00-0033893",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3117251": {
+      "espnId": 3117251,
+      "name": "Christian McCaffrey",
+      "position": "RB",
+      "gsisId": "00-0033280",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3120348": {
+      "espnId": 3120348,
+      "name": "JuJu Smith-Schuster",
+      "position": "WR",
+      "gsisId": "00-0033857",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3121427": {
+      "espnId": 3121427,
+      "name": "Curtis Samuel",
+      "position": "WR",
+      "gsisId": "00-0033282",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3122449": {
+      "espnId": 3122449,
+      "name": "James Washington",
+      "position": "WR",
+      "gsisId": "00-0034676",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3122672": {
+      "espnId": 3122672,
+      "name": "Royce Freeman",
+      "position": "RB",
+      "gsisId": "00-0034838",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3122840": {
+      "espnId": 3122840,
+      "name": "Deshaun Watson",
+      "position": "QB",
+      "gsisId": "00-0033537",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3122866": {
+      "espnId": 3122866,
+      "name": "Devontae Booker",
+      "position": "RB",
+      "gsisId": "00-0032972",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3123076": {
+      "espnId": 3123076,
+      "name": "David Njoku",
+      "position": "TE",
+      "gsisId": "00-0033885",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3123969": {
+      "espnId": 3123969,
+      "name": "Ito Smith",
+      "position": "RB",
+      "gsisId": "00-0034378",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3127306": {
+      "espnId": 3127306,
+      "name": "Dante Pettis",
+      "position": "WR",
+      "gsisId": "00-0034860",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3128429": {
+      "espnId": 3128429,
+      "name": "Courtland Sutton",
+      "position": "WR",
+      "gsisId": "00-0034348",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3128720": {
+      "espnId": 3128720,
+      "name": "Nick Chubb",
+      "position": "RB",
+      "gsisId": "00-0034791",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3128721": {
+      "espnId": 3128721,
+      "name": "Sony Michel",
+      "position": "RB",
+      "gsisId": "00-0034845",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3128774": {
+      "espnId": 3128774,
+      "name": "Kalen Ballage",
+      "position": "RB",
+      "gsisId": "00-0034799",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3139477": {
+      "espnId": 3139477,
+      "name": "Patrick Mahomes",
+      "position": "QB",
+      "gsisId": "00-0033873",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3139605": {
+      "espnId": 3139605,
+      "name": "Marlon Mack",
+      "position": "RB",
+      "gsisId": "00-0033951",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3139925": {
+      "espnId": 3139925,
+      "name": "Rashaad Penny",
+      "position": "RB",
+      "gsisId": "00-0034750",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3843750": {
+      "espnId": 3843750,
+      "name": "Derrius Guice",
+      "position": "RB",
+      "gsisId": "00-0034358",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3892889": {
+      "espnId": 3892889,
+      "name": "Dede Westbrook",
+      "position": "WR",
+      "gsisId": "00-0033839",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3895856": {
+      "espnId": 3895856,
+      "name": "Christian Kirk",
+      "position": "WR",
+      "gsisId": "00-0034775",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3912550": {
+      "espnId": 3912550,
+      "name": "Ronald Jones",
+      "position": "RB",
+      "gsisId": "00-0034816",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3915416": {
+      "espnId": 3915416,
+      "name": "D.J. Moore",
+      "position": "WR",
+      "gsisId": "00-0034827",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3916148": {
+      "espnId": 3916148,
+      "name": "Tony Pollard",
+      "position": "RB",
+      "gsisId": "00-0035261",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3916387": {
+      "espnId": 3916387,
+      "name": "Lamar Jackson",
+      "position": "QB",
+      "gsisId": "00-0034796",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3916430": {
+      "espnId": 3916430,
+      "name": "Nyheim Hines",
+      "position": "RB",
+      "gsisId": "00-0034367",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3916925": {
+      "espnId": 3916925,
+      "name": "Kerryon Johnson",
+      "position": "RB",
+      "gsisId": "00-0034349",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3917315": {
+      "espnId": 3917315,
+      "name": "Kyler Murray",
+      "position": "QB",
+      "gsisId": "00-0035228",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3919596": {
+      "espnId": 3919596,
+      "name": "Chris Carson",
+      "position": "RB",
+      "gsisId": "00-0033594",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3925357": {
+      "espnId": 3925357,
+      "name": "Calvin Ridley",
+      "position": "WR",
+      "gsisId": "00-0034837",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "3929630": {
+      "espnId": 3929630,
+      "name": "Saquon Barkley",
+      "position": "RB",
+      "gsisId": "00-0034844",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "4035072": {
+      "espnId": 4035072,
+      "name": "Benny Snell",
+      "position": "RB",
+      "gsisId": "00-0035217",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "4035538": {
+      "espnId": 4035538,
+      "name": "David Montgomery",
+      "position": "RB",
+      "gsisId": "00-0035685",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "4039359": {
+      "espnId": 4039359,
+      "name": "Darrell Henderson",
+      "position": "RB",
+      "gsisId": "00-0035664",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "4040761": {
+      "espnId": 4040761,
+      "name": "Devin Singletary",
+      "position": "RB",
+      "gsisId": "00-0035250",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "4045163": {
+      "espnId": 4045163,
+      "name": "Miles Sanders",
+      "position": "RB",
+      "gsisId": "00-0035243",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "4047365": {
+      "espnId": 4047365,
+      "name": "Josh Jacobs",
+      "position": "RB",
+      "gsisId": "00-0035700",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "4241372": {
+      "espnId": 4241372,
+      "name": "Marquise Brown",
+      "position": "WR",
+      "gsisId": "00-0035662",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "4361606": {
+      "espnId": 4361606,
+      "name": "Darwin Thompson",
+      "position": "RB",
+      "gsisId": "00-0035148",
+      "verification": "matched_exact_espn_id",
+      "source": "DynastyProcess db_playerids.csv"
+    },
+    "-16034": {
+      "espnId": -16034,
+      "name": "Houston Texans D/ST",
+      "position": "D/ST",
+      "nflTeam": "HOU",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16033": {
+      "espnId": -16033,
+      "name": "Baltimore Ravens D/ST",
+      "position": "D/ST",
+      "nflTeam": "BAL",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16030": {
+      "espnId": -16030,
+      "name": "Jacksonville Jaguars D/ST",
+      "position": "D/ST",
+      "nflTeam": "JAX",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16029": {
+      "espnId": -16029,
+      "name": "Carolina Panthers D/ST",
+      "position": "D/ST",
+      "nflTeam": "CAR",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16026": {
+      "espnId": -16026,
+      "name": "Seattle Seahawks D/ST",
+      "position": "D/ST",
+      "nflTeam": "SEA",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16024": {
+      "espnId": -16024,
+      "name": "Chargers D/ST",
+      "position": "D/ST",
+      "nflTeam": "LAC/SD",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16023": {
+      "espnId": -16023,
+      "name": "Pittsburgh Steelers D/ST",
+      "position": "D/ST",
+      "nflTeam": "PIT",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16022": {
+      "espnId": -16022,
+      "name": "Arizona Cardinals D/ST",
+      "position": "D/ST",
+      "nflTeam": "ARI",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16021": {
+      "espnId": -16021,
+      "name": "Philadelphia Eagles D/ST",
+      "position": "D/ST",
+      "nflTeam": "PHI",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16019": {
+      "espnId": -16019,
+      "name": "New York Giants D/ST",
+      "position": "D/ST",
+      "nflTeam": "NYG",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16018": {
+      "espnId": -16018,
+      "name": "New Orleans Saints D/ST",
+      "position": "D/ST",
+      "nflTeam": "NO",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16017": {
+      "espnId": -16017,
+      "name": "New England Patriots D/ST",
+      "position": "D/ST",
+      "nflTeam": "NE",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16016": {
+      "espnId": -16016,
+      "name": "Minnesota Vikings D/ST",
+      "position": "D/ST",
+      "nflTeam": "MIN",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16014": {
+      "espnId": -16014,
+      "name": "Rams D/ST",
+      "position": "D/ST",
+      "nflTeam": "LAR/STL",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16013": {
+      "espnId": -16013,
+      "name": "Raiders D/ST",
+      "position": "D/ST",
+      "nflTeam": "LV/OAK",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16012": {
+      "espnId": -16012,
+      "name": "Kansas City Chiefs D/ST",
+      "position": "D/ST",
+      "nflTeam": "KC",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16010": {
+      "espnId": -16010,
+      "name": "Tennessee Titans D/ST",
+      "position": "D/ST",
+      "nflTeam": "TEN",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16007": {
+      "espnId": -16007,
+      "name": "Denver Broncos D/ST",
+      "position": "D/ST",
+      "nflTeam": "DEN",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16006": {
+      "espnId": -16006,
+      "name": "Dallas Cowboys D/ST",
+      "position": "D/ST",
+      "nflTeam": "DAL",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16005": {
+      "espnId": -16005,
+      "name": "Cleveland Browns D/ST",
+      "position": "D/ST",
+      "nflTeam": "CLE",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16004": {
+      "espnId": -16004,
+      "name": "Cincinnati Bengals D/ST",
+      "position": "D/ST",
+      "nflTeam": "CIN",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16003": {
+      "espnId": -16003,
+      "name": "Chicago Bears D/ST",
+      "position": "D/ST",
+      "nflTeam": "CHI",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    },
+    "-16001": {
+      "espnId": -16001,
+      "name": "Atlanta Falcons D/ST",
+      "position": "D/ST",
+      "nflTeam": "ATL",
+      "verification": "decoded_espn_dst_team_id",
+      "source": "ESPN Fantasy D/ST ID formula (-16000 - proTeamId) + published proTeamId table"
+    }
+  }
+}
