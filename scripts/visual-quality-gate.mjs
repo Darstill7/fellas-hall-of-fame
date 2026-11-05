@@ -121,7 +121,7 @@ try{
         // destinations, without repeated Records controls or tiny tap targets.
         const entryGeometry=await page.evaluate(()=>{
          const root=document.querySelector('#profile-features');
-         const links=[...root?.querySelectorAll('.profile-featured-links > a')||[]];
+         const links=[...(root?.querySelectorAll('.profile-featured-links > a')||[])];
          const cards=[...document.querySelectorAll('main .hero .profile-career-highlight')];
          const rect=el=>{const r=el.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height}};
          return {
