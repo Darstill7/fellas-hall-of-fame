@@ -36,6 +36,19 @@ if(!tabsSource.includes('mountManagerPlayoffResume();')||
  !tabsSource.includes('items:[0,1,12,13]')||
  !tabsSource.includes("href:'#profile-playoff-resume'"))
  throw Error('Playoff résumé is missing from the shared manager profile navigation');
+// Every public manager landing page must share the same three clear first-step routes.
+for(const label of ['Career overview','Manager report card','Start/Sit accuracy']){
+ if(!tabsSource.includes("'"+label+"'"))throw Error('First-screen profile route missing: '+label);
+}
+if(!tabsSource.includes("shell.append(featured,menu)")||
+ !tabsSource.includes("profile-featured-links")||
+ !tabsSource.includes("encodeURIComponent(name)+'#cards'"))
+ throw Error('Manager starting routes must stay visible, styled and manager-specific');
+for(const slug of managers){
+ const page=fs.readFileSync('managers/'+slug+'/index.html','utf8');
+ if(!page.includes('assets/manager-profile-tabs.mjs'))
+  throw Error('Manager profile is not using the shared starting routes: '+slug);
+}
 const guide=JSON.parse(fs.readFileSync('data/season_guide.json','utf8'));
 const names={stilly:'Stilly',jmid:'JMid',tom:'Thommy',stew:'Stew',scott:'Scott',mitch:'Mitch',tony:'Tony',stover:'Stover',kuhl:'Kuhl',birch:'Birch'};
 for(const slug of managers){
