@@ -24,4 +24,20 @@ const page=fs.readFileSync('assets/manager-draft-trade-career-page.mjs','utf8');
 assert(page.includes("fetchJSON('data/v9_draft_engine.json')")&&page.includes('buildDraftProduction(draftProductionRows,manager)')&&
  page.includes('This is not total player production, surplus value or a drafting grade.')&&page.includes('career-draft-production'),
  'Career website missing evidence-limited draft production section');
+const ui=fs.readFileSync('assets/manager-draft-trade-career-page.mjs','utf8');
+const styles=fs.readFileSync('assets/manager-profile-readability.css','utf8');
+const browser=fs.readFileSync('scripts/test-browser-release.mjs','utf8');
+assert(ui.includes("const topics=[")&&ui.includes("['Draft picks',draftSection]")&&
+ ui.includes("['Position peers',positionSection]")&&
+ ui.includes("['Trades',tradeSection]")&&ui.includes("details.open=true")&&
+ ui.includes("heading?.focus({preventScroll:true})"),
+ 'Research shortcuts must reach their exact section with keyboard focus');
+assert(styles.includes('.career-research-topics-grid')&&
+ styles.includes('min-height:52px')&&
+ styles.includes('@media(max-width:365px)'),
+ 'Draft research needs readable mobile navigation and touch targets');
+assert(browser.includes('draft research lacks six topic shortcuts')&&
+ browser.includes('drafting-trading-focused.png')&&
+ browser.includes('focused:document.activeElement===heading'),
+ 'Browser release suite must actually test draft topic navigation and focus');
 console.log('Draft production evidence PASS: completed Sleeper seasons, no keeper/2026 leakage, source totals and all managers');
