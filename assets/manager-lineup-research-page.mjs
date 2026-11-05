@@ -1,9 +1,42 @@
+import {validateLineupCoverage} from './lineup-history-coverage.mjs';
 const $=id=>document.getElementById(id);
 const slots=['QB','RB','RB','WR','WR','TE','FLEX','FLEX','DEF'];
 const eligible=(p,s)=>s==='FLEX'?['RB','WR','TE'].includes(p.position):p.position===s;
 function optimal(roster){const pool=[...roster.starters,...roster.bench];let states=new Map([[0,0]]);for(const p of pool.filter(x=>Number.isFinite(x.points))){const next=new Map(states);for(const [mask,score] of states)for(let i=0;i<slots.length;i++){if(mask&(1<<i)||!eligible(p,slots[i]))continue;const key=mask|(1<<i),n=score+p.points;if(!next.has(key)||next.get(key)<n)next.set(key,n)}states=next}return states.get(511)??null}
 function evaluate(r){const pool=[...r.starters,...r.bench];if(r.starters.some(p=>p.empty===true&&String(p.id)==='0'))return {gap:null,reason:'Vacant starting slot'};const best=optimal(r);const sum=r.starters.reduce((n,p)=>n+Number(p.points||0),0);if(!pool.every(p=>Number.isFinite(p.points)))return {gap:null,reason:'Unscored roster player'};if(r.starters.length!==9||optimal({starters:r.starters,bench:[]})===null)return {gap:null,reason:'Illegal or incomplete actual starter slots'};if(!Number.isFinite(r.points))return {gap:null,reason:'Missing team points'};if(new Set(pool.map(p=>String(p.id))).size!==pool.length)return {gap:null,reason:'Duplicate player IDs'};if(!r.starters.every(p=>['QB','RB','WR','TE','DEF'].includes(p.position)))return {gap:null,reason:'Nonstandard starter position'};if(Math.abs(sum-r.points)>=.07)return {gap:null,reason:'Starter-score mismatch'};if(best===null)return {gap:null,reason:'No feasible lineup under assumed slots'};if(best+.07<r.points)return {gap:null,reason:'Optimizer below observed score'};if(best<=0)return {gap:null,reason:'Nonpositive optimal scored lineup'};return {gap:Math.max(0,best-r.points),accuracy:100*r.points/best,reason:null}}
 const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function renderHistoricalCoverage(){
+ const target=$('historical-coverage');if(!target)return;
+ try{
+  const response=await fetch('../data/lineup_hindsight_coverage_2020_2025.json');
+  if(!response.ok)throw Error('Historical coverage source unavailable');
+  const data=validateLineupCoverage(await response.json());
+  const details=document.createElement('details'),summary=document.createElement('summary');
+  summary.textContent='2020–2025 archive: '+data.researchComparable+' / '+data.teamWeeks+
+   ' comparable weeks · '+data.excludedWeeks+' excluded';
+  details.append(summary);
+  const wrap=document.createElement('div');wrap.className='wrap';
+  const table=document.createElement('table'),head=document.createElement('thead'),hrow=document.createElement('tr');
+  for(const label of ['Season','Compared','Excluded']){
+   const th=document.createElement('th');th.textContent=label;hrow.append(th);
+  }
+  head.append(hrow);table.append(head);const body=document.createElement('tbody');
+  for(const season of data.seasons){
+   const tr=document.createElement('tr');
+   for(const value of [season.year,season.comparable+' / '+season.teamWeeks,season.excluded]){
+    const td=document.createElement('td');td.textContent=String(value);tr.append(td);
+   }
+   body.append(tr);
+  }
+  table.append(body);wrap.append(table);details.append(wrap);
+  const note=document.createElement('p');
+  note.textContent='Five archived observations had vacant starting slots and three had incomplete or incompatible starter configurations. Excluded weeks have no modeled percentage. These are postgame comparisons under assumed historical slots, not certified pre-kickoff decisions.';
+  details.append(note);target.replaceChildren(details);
+ }catch(err){
+  target.textContent='Historical coverage summary could not be verified. The original weekly records remain available below.';
+  console.error('Historical lineup coverage unavailable',err);
+ }
+}
 const managerAliases={darstill:'Stilly',dsylvester9:'Stew',thommy:'Thommy',yogurtslinger15:'Stover',dillionpanthers15:'Stover',birchhh:'Birch',tsteg:'Tony',huppdawg80:'Mitch',ckuhl5:'Kuhl',jmidd:'JMid',sheffla:'Scott',evansbrandonm:'Evans',koble2323:'Koble'};
 const currentTeamManagers={'1':'Stilly','2':'JMid','3':'Thommy','4':'Stew','5':'Scott','6':'Mitch','7':'Tony','8':'Stover','9':'Kuhl','10':'Birch'};
 let current2026Weeks=8;
@@ -155,4 +188,4 @@ async function load(){
   for(const id of ['results','detail-summary','weekly-results','career-summary','career-results'])$(id).textContent='';
   $('detail-manager').replaceChildren();
   $('status').textContent='Source or model error: '+e.message+' — no substitute scores shown.'}}
-$('season').addEventListener('change',load);load();
+$('season').addEventListener('change',load);void renderHistoricalCoverage();load();
