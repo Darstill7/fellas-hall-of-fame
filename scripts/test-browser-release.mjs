@@ -353,12 +353,25 @@ try{
       if(await managerSwitch.inputValue()!==current)
        errors.push(width+' '+route+' manager switcher current profile mismatch');
       if(current==='stilly'){
-       await managerSwitch.selectOption('tony');
-       await page.waitForURL('**/managers/tony/',{timeout:10000}).catch(()=>{});
-       if(!page.url().endsWith('/managers/tony/'))
-        errors.push(width+' '+route+' switching manager failed to navigate to Tony');
-       await page.goBack({waitUntil:'networkidle'});
-       await page.waitForSelector('#profile-manager-switch');
+       // Use a separate page so real navigation cannot pollute the ongoing
+       // Stilly-profile assertions or the back-stack of the route audit.
+       const journey=await context.newPage();
+       try{
+        await journey.goto(baseUrl+'managers/stilly/',{waitUntil:'networkidle',timeout:30000});
+        const switchControl=journey.locator('#profile-manager-switch');
+        await switchControl.waitFor({state:'attached',timeout:10000});
+        await Promise.all([
+         journey.waitForURL('**/managers/tony/',{timeout:10000}),
+         switchControl.selectOption('tony')
+        ]);
+        if((await journey.locator('main .hero h1').innerText()).trim()!=='Tony')
+         errors.push(width+' '+route+' manager switch loaded wrong profile');
+        await journey.goBack({waitUntil:'networkidle'});
+        if(!journey.url().endsWith('/managers/stilly/'))
+         errors.push(width+' '+route+' manager switch browser back did not return to Stilly');
+       }catch(err){
+        errors.push(width+' '+route+' manager switch journey failed at '+journey.url()+': '+String(err));
+       }finally{await journey.close();}
       }
      }
      const weighted=heroMadden.locator('details.profile-rating-components');
