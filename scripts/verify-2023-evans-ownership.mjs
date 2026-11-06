@@ -50,4 +50,23 @@ assert.ok(!/25–25|2023.*9–5.*JMid/i.test(bio));
 const html=fs.readFileSync('managers/jmid/index.html','utf8');
 assert.ok(html.includes('>16–20</strong>'));
 assert.ok(html.includes('Evans completed the 2023 season'));
+const trophies=read('data/manager_historical_trophy_cases_v1.json').managers;
+assert.equal(trophies.JMid.teamAwards.some(x=>x.year===2023),false,'JMid must have no 2023 manager trophy');
+assert.ok(trophies.Evans.teamAwards.some(x=>x.year===2023&&x.label==='Scoring Champion'),'Evans must receive his 2023 scoring title');
+const war=read('data/fellas_war_manager_summary_v1.json');
+assert.ok(!war.byYear['2023'].some(x=>x.manager==='JMid'),'2023 player-based manager attribution must exclude JMid');
+assert.ok(war.byYear['2023'].some(x=>x.manager==='Evans'),'2023 player-based manager attribution must credit Evans');
+assert.equal(war.allTime.find(x=>x.manager==='JMid').starts,306,'JMid starter career research must exclude Evans 2023');
+const expanded=read('data/expanded_records_verified_v1.json');
+assert.equal(expanded.categoryCount,44);
+for(const c of expanded.categories){
+ assert.equal(c.leaders.some(x=>x.manager==='JMid'&&x.year===2023),false,'JMid cannot hold a 2023 record '+c.key);
+ for(const r of c.leaders)if(r.year===2023)assert.notEqual(r.evidence?.opponent,'JMid','2023 opponents must be attributed to Evans');
+}
+assert.equal(expanded.signatures.JMid.highlights.some(x=>x.season===2023||x.evidence?.years?.includes(2023)||x.evidence?.fromYear===2023),false,'JMid signature records must start 2024');
+const post=read('data/postseason_records_verified_v1.json');
+assert.ok(post.brackets.find(x=>x.year===2023).participants.includes('Evans'));
+assert.ok(!post.brackets.find(x=>x.year===2023).participants.includes('JMid'));
+assert.ok(!post.managers.find(x=>x.manager==='JMid').appearances.includes(2023));
+assert.ok(post.managers.find(x=>x.manager==='Evans').appearances.includes(2023));
 console.log('PASS: Evans owns 2023; JMid begins 2024. Games, standings, careers, postseason, acquisitions, bios, and franchise legends agree.');
