@@ -450,7 +450,7 @@ try{
 }catch(error){findings.push('Fatal visual run error: '+(error?.stack||String(error)));}
 finally{server.close();}
 await fs.mkdir(output,{recursive:true});
-const planned=routes.length*4;
+const planned=routes.length*5;
 const report={generated:new Date().toISOString(),routes:routes.length,planned,observed:screens.length,passed:findings.length===0&&screens.length===planned,findings,mobileJourneys,screens};
 await fs.writeFile(path.join(output,'report.json'),JSON.stringify(report,null,2)+'\n');
 console.log('VISUAL GATE '+(report.passed?'PASS':'NEEDS REVIEW')+' '+screens.length+'/'+planned+' screens, '+findings.length+' findings');
