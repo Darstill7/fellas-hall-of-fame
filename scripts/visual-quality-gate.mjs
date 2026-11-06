@@ -106,14 +106,14 @@ try{
           topics=document.querySelector('main .profile-quickstart'),
           playoff=document.getElementById('profile-playoff-resume');
          const top=node=>node?.getBoundingClientRect().top+window.scrollY;
-         return {actionBeforeSnapshot:!!action&&!!snapshot&&top(action)<top(snapshot),
+         return {snapshotBeforeAction:!!action&&!!snapshot&&top(snapshot)<top(action),
           playoffOutsideHero:!!playoff&&!hero?.contains(playoff),
           topicsBeforePlayoff:!!topics&&!!playoff&&top(topics)<top(playoff),
           topicsBeforeRatings:!!topics&&!!document.querySelector('main .profile-madden')&&top(topics)<top(document.querySelector('main .profile-madden')),
           recordPreview:!!snapshot?.querySelector('.profile-owned-records'),
           actionHeight:action?.querySelector('a')?.getBoundingClientRect().height||0};
         });
-        if(!hierarchy.actionBeforeSnapshot||!hierarchy.playoffOutsideHero||!hierarchy.topicsBeforePlayoff||!hierarchy.topicsBeforeRatings||!hierarchy.recordPreview)
+        if(!hierarchy.snapshotBeforeAction||!hierarchy.playoffOutsideHero||!hierarchy.topicsBeforePlayoff||!hierarchy.topicsBeforeRatings||!hierarchy.recordPreview)
          findings.push(engine+' '+width+' '+key+' incorrect profile landing hierarchy '+JSON.stringify(hierarchy));
         if(hierarchy.actionHeight<44)
          findings.push(engine+' '+width+' '+key+' primary profile action too small');
