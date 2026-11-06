@@ -88,6 +88,15 @@ try{
         findings.push(engine+' '+width+' '+key+' resource or JS error '+runtime.slice(0,3).join(' | '));
        if(audit.loading)
         findings.push(engine+' '+width+' '+key+' first-screen content remains in a loading state');
+       if(route===''){
+        const featured=await page.locator('main .section .cards .home-featured-card').evaluateAll(nodes=>nodes.map(n=>({
+         link:n.getAttribute('href'),height:n.getBoundingClientRect().height,
+         contrast:getComputedStyle(n).borderColor
+        })));
+        if(featured.length!==2||featured[0].link!=='hall/'||featured[1].link!=='analytics/records.html'||
+           featured.some(card=>card.height<120))
+         findings.push(engine+' '+width+' homepage champions and records feature hierarchy missing');
+       }
        if(route===''&&width===390){
         const headline=await page.locator('.hero h1').textContent();
         if(!/The history\.\s+The legends\.\s+The Fellas\./.test(headline||''))
