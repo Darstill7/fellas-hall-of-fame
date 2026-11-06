@@ -31,7 +31,8 @@ for(const m of d.managers){
    if(key==='runnerUps')return y.finalists.map(n).includes(m.manager)&&n(y.champion)!==m.manager;
    if(key==='topSeeds')return Object.entries(y.seedByManager).some(([person,seed])=>n(person)===m.manager&&seed===1);
    if(key==='championships')return n(y.champion)===m.manager;
-   return y[key].map(n).includes(m.manager);
+   const sourceKey=key==='semifinals'?'semifinalists':key==='finals'?'finalists':key;
+   return y[sourceKey].map(n).includes(m.manager);
   }).map(y=>y.year);
   assert.deepEqual(m[key],expected,m.manager+' '+key+' bracket parity');
  }
