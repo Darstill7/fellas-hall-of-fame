@@ -16,7 +16,7 @@ assert.ok(data.categoryCount>=40,"At least 40 documented categories expected");
 assert.deepEqual([...data.currentManagers].sort(),[...current].sort());
 assert.ok(data.rules.some(x=>x.includes("not necessarily consecutive NFL weeks")));
 assert.ok(data.rules.some(x=>x.includes("ESPN scoring")));
-assert.ok(data.rules.some(x=>x.includes("Personal best")));
+assert.ok(data.rules.some(x=>x.toLowerCase().includes("personal best")));
 const keys=new Set();
 const allNames=new Set(regular.flatMap(g=>[norm(g.home),norm(g.away)]));
 for(const category of data.categories){
