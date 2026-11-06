@@ -976,6 +976,38 @@ try{
     }
    }
    if(route===''){
+    // Native disclosure must work with both pointer and keyboard, and the
+    // visitor must be able to return from a real advanced research page.
+    const research=await context.newPage();
+    try{
+     await research.goto(baseUrl,{waitUntil:'networkidle',timeout:30000});
+     const more=research.locator('details.home-explore-more');
+     const core=research.locator('main .section.shell').filter({has:research.getByRole('heading',{name:'Explore the league'})}).locator(':scope > .cards > a.card');
+     if(await more.count()!==1||await more.evaluate(el=>el.open)||
+        await core.count()!==4)
+      errors.push(width+' homepage research discovery should start with four core destinations');
+     await more.locator(':scope > summary').focus();
+     await research.keyboard.press('Enter');
+     if(!await more.evaluate(el=>el.open)||
+        await more.locator('a.card').count()!==5)
+      errors.push(width+' homepage Explore more did not open with keyboard');
+     const target=more.locator('a.card[href="analytics/historical-spreads.html"]');
+     if(!await target.isVisible())errors.push(width+' homepage historical spreads not reachable when expanded');
+     else{
+      await target.click();
+      await research.waitForURL('**/analytics/historical-spreads.html',{timeout:10000});
+      if(!await research.locator('main h1').isVisible())
+       errors.push(width+' advanced homepage feature lacked a usable destination');
+      await research.goBack({waitUntil:'domcontentloaded'});
+      if(!research.url().endsWith('/fellas-hall-of-fame/')||
+         !await research.locator('main .hero h1').isVisible())
+       errors.push(width+' homepage Explore more browser back did not restore home');
+     }
+    }catch(error){
+     errors.push(width+' homepage advanced research journey failed: '+String(error));
+    }finally{await research.close();}
+   }
+   if(route===''){
     // Real new-visitor journey: homepage -> manager profile -> back ->
     // manager directory -> manager profile. No internal/test-only shortcuts.
     const visitor=await context.newPage();
