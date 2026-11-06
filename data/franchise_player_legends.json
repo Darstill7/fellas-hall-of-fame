@@ -3,7 +3,8 @@
     "source": "Sleeper matchup starter slots via Flaim Fantasy",
     "coverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores. Stover identity reconciled to Sleeper owner handle yogurtslinger15.",
     "points_definition": "Points credited only when player appeared in manager starting lineup. Each defense listed as DEF.",
-    "updated": "2026-10-27"
+    "updated": "2026-10-27",
+    "commissionerCorrection": "2026-11-06: 2023 JMidd handle represented Evans's managed team; JMid joined for 2024. All 2023 player starts are excluded from JMid's franchise records. Raw Sleeper receipts retained."
   },
   "managers": {
     "Stilly": [
@@ -2536,13 +2537,9 @@
         "id": "7564",
         "name": "Ja'Marr Chase",
         "position": "WR",
-        "points": 360.7,
-        "starts": 21,
+        "points": 356.3,
+        "starts": 20,
         "seasons": {
-          "2023": {
-            "points": 4.4,
-            "starts": 1
-          },
           "2024": {
             "points": 278.9,
             "starts": 13
@@ -2554,38 +2551,6 @@
           "2026": {
             "points": 49.7,
             "starts": 4
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "6904",
-        "name": "Jalen Hurts",
-        "position": "QB",
-        "points": 288.68,
-        "starts": 13,
-        "seasons": {
-          "2023": {
-            "points": 288.68,
-            "starts": 13
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "1479",
-        "name": "Keenan Allen",
-        "position": "WR",
-        "points": 251.16,
-        "starts": 15,
-        "seasons": {
-          "2023": {
-            "points": 224.86,
-            "starts": 13
-          },
-          "2024": {
-            "points": 26.3,
-            "starts": 2
           }
         }
       },
@@ -2604,20 +2569,6 @@
           "2025": {
             "points": 115.7,
             "starts": 11
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "5859",
-        "name": "A.J. Brown",
-        "position": "WR",
-        "points": 213.8,
-        "starts": 13,
-        "seasons": {
-          "2023": {
-            "points": 213.8,
-            "starts": 13
           }
         }
       },
@@ -2646,34 +2597,6 @@
           "2024": {
             "points": 180.7,
             "starts": 11
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "1466",
-        "name": "Travis Kelce",
-        "position": "TE",
-        "points": 159.6,
-        "starts": 12,
-        "seasons": {
-          "2023": {
-            "points": 159.6,
-            "starts": 12
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "8205",
-        "name": "Isiah Pacheco",
-        "position": "RB",
-        "points": 158.3,
-        "starts": 12,
-        "seasons": {
-          "2023": {
-            "points": 158.3,
-            "starts": 12
           }
         }
       },
@@ -2791,24 +2714,6 @@
       },
       {
         "manager": "JMid",
-        "id": "9756",
-        "name": "Jordan Addison",
-        "position": "WR",
-        "points": 95.4,
-        "starts": 9,
-        "seasons": {
-          "2023": {
-            "points": 88.3,
-            "starts": 7
-          },
-          "2026": {
-            "points": 7.1,
-            "starts": 2
-          }
-        }
-      },
-      {
-        "manager": "JMid",
         "id": "8136",
         "name": "Rachaad White",
         "position": "RB",
@@ -2818,52 +2723,6 @@
           "2024": {
             "points": 92.8,
             "starts": 8
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "2374",
-        "name": "Tyler Lockett",
-        "position": "WR",
-        "points": 92.4,
-        "starts": 10,
-        "seasons": {
-          "2023": {
-            "points": 92.4,
-            "starts": 10
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "4018",
-        "name": "Joe Mixon",
-        "position": "RB",
-        "points": 84.7,
-        "starts": 5,
-        "seasons": {
-          "2023": {
-            "points": 84.7,
-            "starts": 5
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "SF",
-        "name": "San Francisco 49ers",
-        "position": "DEF",
-        "points": 81,
-        "starts": 12,
-        "seasons": {
-          "2023": {
-            "points": 78,
-            "starts": 9
-          },
-          "2025": {
-            "points": 3,
-            "starts": 3
           }
         }
       },
@@ -2915,20 +2774,6 @@
       },
       {
         "manager": "JMid",
-        "id": "4111",
-        "name": "D'Onta Foreman",
-        "position": "RB",
-        "points": 58,
-        "starts": 4,
-        "seasons": {
-          "2023": {
-            "points": 58,
-            "starts": 4
-          }
-        }
-      },
-      {
-        "manager": "JMid",
         "id": "DEN",
         "name": "Denver Broncos",
         "position": "DEF",
@@ -2938,46 +2783,6 @@
           "2024": {
             "points": 56,
             "starts": 5
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "IND",
-        "name": "Indianapolis Colts",
-        "position": "DEF",
-        "points": 53,
-        "starts": 5,
-        "seasons": {
-          "2023": {
-            "points": 29,
-            "starts": 1
-          },
-          "2025": {
-            "points": 20,
-            "starts": 3
-          },
-          "2026": {
-            "points": 4,
-            "starts": 1
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "6826",
-        "name": "Cole Kmet",
-        "position": "TE",
-        "points": 50.3,
-        "starts": 7,
-        "seasons": {
-          "2023": {
-            "points": 7.1,
-            "starts": 1
-          },
-          "2024": {
-            "points": 43.2,
-            "starts": 6
           }
         }
       },
@@ -3033,6 +2838,20 @@
         "seasons": {
           "2026": {
             "points": 44.1,
+            "starts": 6
+          }
+        }
+      },
+      {
+        "manager": "JMid",
+        "id": "6826",
+        "name": "Cole Kmet",
+        "position": "TE",
+        "points": 43.2,
+        "starts": 6,
+        "seasons": {
+          "2024": {
+            "points": 43.2,
             "starts": 6
           }
         }
@@ -3151,34 +2970,6 @@
       },
       {
         "manager": "JMid",
-        "id": "6151",
-        "name": "Miles Sanders",
-        "position": "RB",
-        "points": 36.6,
-        "starts": 5,
-        "seasons": {
-          "2023": {
-            "points": 36.6,
-            "starts": 5
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "NYJ",
-        "name": "New York Jets",
-        "position": "DEF",
-        "points": 35,
-        "starts": 3,
-        "seasons": {
-          "2023": {
-            "points": 35,
-            "starts": 3
-          }
-        }
-      },
-      {
-        "manager": "JMid",
         "id": "9225",
         "name": "Tank Bigsby",
         "position": "RB",
@@ -3235,24 +3026,6 @@
       },
       {
         "manager": "JMid",
-        "id": "9753",
-        "name": "Zach Charbonnet",
-        "position": "RB",
-        "points": 27.7,
-        "starts": 2,
-        "seasons": {
-          "2023": {
-            "points": 16.4,
-            "starts": 1
-          },
-          "2025": {
-            "points": 11.3,
-            "starts": 1
-          }
-        }
-      },
-      {
-        "manager": "JMid",
         "id": "2505",
         "name": "Darren Waller",
         "position": "TE",
@@ -3267,15 +3040,15 @@
       },
       {
         "manager": "JMid",
-        "id": "8121",
-        "name": "Romeo Doubs",
+        "id": "1479",
+        "name": "Keenan Allen",
         "position": "WR",
-        "points": 25.9,
-        "starts": 5,
+        "points": 26.3,
+        "starts": 2,
         "seasons": {
-          "2023": {
-            "points": 25.9,
-            "starts": 5
+          "2024": {
+            "points": 26.3,
+            "starts": 2
           }
         }
       },
@@ -3295,20 +3068,6 @@
       },
       {
         "manager": "JMid",
-        "id": "5916",
-        "name": "Darrell Henderson",
-        "position": "RB",
-        "points": 25.4,
-        "starts": 3,
-        "seasons": {
-          "2023": {
-            "points": 25.4,
-            "starts": 3
-          }
-        }
-      },
-      {
-        "manager": "JMid",
         "id": "13287",
         "name": "Jeremiyah Love",
         "position": "RB",
@@ -3323,15 +3082,15 @@
       },
       {
         "manager": "JMid",
-        "id": "4179",
-        "name": "Joshua Dobbs",
-        "position": "QB",
-        "points": 25.12,
-        "starts": 1,
+        "id": "2133",
+        "name": "Davante Adams",
+        "position": "WR",
+        "points": 25,
+        "starts": 2,
         "seasons": {
-          "2023": {
-            "points": 25.12,
-            "starts": 1
+          "2026": {
+            "points": 25,
+            "starts": 2
           }
         }
       },
@@ -3355,20 +3114,6 @@
       },
       {
         "manager": "JMid",
-        "id": "2133",
-        "name": "Davante Adams",
-        "position": "WR",
-        "points": 25,
-        "starts": 2,
-        "seasons": {
-          "2026": {
-            "points": 25,
-            "starts": 2
-          }
-        }
-      },
-      {
-        "manager": "JMid",
         "id": "DET",
         "name": "Detroit Lions",
         "position": "DEF",
@@ -3382,6 +3127,24 @@
           "2026": {
             "points": 15,
             "starts": 3
+          }
+        }
+      },
+      {
+        "manager": "JMid",
+        "id": "IND",
+        "name": "Indianapolis Colts",
+        "position": "DEF",
+        "points": 24,
+        "starts": 4,
+        "seasons": {
+          "2025": {
+            "points": 20,
+            "starts": 3
+          },
+          "2026": {
+            "points": 4,
+            "starts": 1
           }
         }
       },
@@ -3471,20 +3234,6 @@
       },
       {
         "manager": "JMid",
-        "id": "5987",
-        "name": "Alexander Mattison",
-        "position": "RB",
-        "points": 15,
-        "starts": 1,
-        "seasons": {
-          "2024": {
-            "points": 15,
-            "starts": 1
-          }
-        }
-      },
-      {
-        "manager": "JMid",
         "id": "KC",
         "name": "Kansas City Chiefs",
         "position": "DEF",
@@ -3494,6 +3243,20 @@
           "2025": {
             "points": 15,
             "starts": 2
+          }
+        }
+      },
+      {
+        "manager": "JMid",
+        "id": "5987",
+        "name": "Alexander Mattison",
+        "position": "RB",
+        "points": 15,
+        "starts": 1,
+        "seasons": {
+          "2024": {
+            "points": 15,
+            "starts": 1
           }
         }
       },
@@ -3541,14 +3304,14 @@
       },
       {
         "manager": "JMid",
-        "id": "CIN",
-        "name": "Cincinnati Bengals",
-        "position": "DEF",
-        "points": 11,
+        "id": "9753",
+        "name": "Zach Charbonnet",
+        "position": "RB",
+        "points": 11.3,
         "starts": 1,
         "seasons": {
-          "2024": {
-            "points": 11,
+          "2025": {
+            "points": 11.3,
             "starts": 1
           }
         }
@@ -3569,14 +3332,14 @@
       },
       {
         "manager": "JMid",
-        "id": "6806",
-        "name": "J.K. Dobbins",
-        "position": "RB",
-        "points": 10.7,
+        "id": "CIN",
+        "name": "Cincinnati Bengals",
+        "position": "DEF",
+        "points": 11,
         "starts": 1,
         "seasons": {
-          "2023": {
-            "points": 10.7,
+          "2024": {
+            "points": 11,
             "starts": 1
           }
         }
@@ -3597,20 +3360,6 @@
       },
       {
         "manager": "JMid",
-        "id": "6828",
-        "name": "AJ Dillon",
-        "position": "RB",
-        "points": 9.6,
-        "starts": 1,
-        "seasons": {
-          "2023": {
-            "points": 9.6,
-            "starts": 1
-          }
-        }
-      },
-      {
-        "manager": "JMid",
         "id": "10236",
         "name": "Dalton Kincaid",
         "position": "TE",
@@ -3625,43 +3374,15 @@
       },
       {
         "manager": "JMid",
-        "id": "4082",
-        "name": "Curtis Samuel",
+        "id": "9756",
+        "name": "Jordan Addison",
         "position": "WR",
-        "points": 8.5,
-        "starts": 1,
+        "points": 7.1,
+        "starts": 2,
         "seasons": {
-          "2023": {
-            "points": 8.5,
-            "starts": 1
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "6820",
-        "name": "Clyde Edwards-Helaire",
-        "position": "RB",
-        "points": 7.8,
-        "starts": 1,
-        "seasons": {
-          "2023": {
-            "points": 7.8,
-            "starts": 1
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "7608",
-        "name": "Khalil Herbert",
-        "position": "RB",
-        "points": 7.6,
-        "starts": 1,
-        "seasons": {
-          "2023": {
-            "points": 7.6,
-            "starts": 1
+          "2026": {
+            "points": 7.1,
+            "starts": 2
           }
         }
       },
@@ -3755,15 +3476,15 @@
       },
       {
         "manager": "JMid",
-        "id": "8172",
-        "name": "Greg Dulcich",
-        "position": "TE",
-        "points": 3.2,
-        "starts": 1,
+        "id": "SF",
+        "name": "San Francisco 49ers",
+        "position": "DEF",
+        "points": 3,
+        "starts": 3,
         "seasons": {
-          "2023": {
-            "points": 3.2,
-            "starts": 1
+          "2025": {
+            "points": 3,
+            "starts": 3
           }
         }
       },
@@ -3833,20 +3554,6 @@
         "seasons": {
           "2026": {
             "points": 1.6,
-            "starts": 1
-          }
-        }
-      },
-      {
-        "manager": "JMid",
-        "id": "NE",
-        "name": "New England Patriots",
-        "position": "DEF",
-        "points": 0,
-        "starts": 1,
-        "seasons": {
-          "2023": {
-            "points": 0,
             "starts": 1
           }
         }

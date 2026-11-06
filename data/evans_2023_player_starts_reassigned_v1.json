@@ -1,0 +1,192 @@
+{
+  "schema": "evans-2023-reassigned-player-starts-v1",
+  "source": "data/franchise_player_legends.json prior to commissioner ownership correction; raw data/player_starts_2023.json remains unchanged",
+  "manager": "Evans",
+  "season": 2023,
+  "previouslyMisattributedTo": "JMid",
+  "comment": "Player-season starts/points attributed to team managed by Evans, regardless of the saved provider account handle. This is a separate 2023-only evidence set, not Evans's complete career.",
+  "players": [
+    {
+      "playerId": "7564",
+      "name": "Ja'Marr Chase",
+      "position": "WR",
+      "points": 4.4,
+      "starts": 1
+    },
+    {
+      "playerId": "6904",
+      "name": "Jalen Hurts",
+      "position": "QB",
+      "points": 288.68,
+      "starts": 13
+    },
+    {
+      "playerId": "1479",
+      "name": "Keenan Allen",
+      "position": "WR",
+      "points": 224.86,
+      "starts": 13
+    },
+    {
+      "playerId": "5859",
+      "name": "A.J. Brown",
+      "position": "WR",
+      "points": 213.8,
+      "starts": 13
+    },
+    {
+      "playerId": "1466",
+      "name": "Travis Kelce",
+      "position": "TE",
+      "points": 159.6,
+      "starts": 12
+    },
+    {
+      "playerId": "8205",
+      "name": "Isiah Pacheco",
+      "position": "RB",
+      "points": 158.3,
+      "starts": 12
+    },
+    {
+      "playerId": "9756",
+      "name": "Jordan Addison",
+      "position": "WR",
+      "points": 88.3,
+      "starts": 7
+    },
+    {
+      "playerId": "2374",
+      "name": "Tyler Lockett",
+      "position": "WR",
+      "points": 92.4,
+      "starts": 10
+    },
+    {
+      "playerId": "4018",
+      "name": "Joe Mixon",
+      "position": "RB",
+      "points": 84.7,
+      "starts": 5
+    },
+    {
+      "playerId": "SF",
+      "name": "San Francisco 49ers",
+      "position": "DEF",
+      "points": 78,
+      "starts": 9
+    },
+    {
+      "playerId": "4111",
+      "name": "D'Onta Foreman",
+      "position": "RB",
+      "points": 58,
+      "starts": 4
+    },
+    {
+      "playerId": "IND",
+      "name": "Indianapolis Colts",
+      "position": "DEF",
+      "points": 29,
+      "starts": 1
+    },
+    {
+      "playerId": "6826",
+      "name": "Cole Kmet",
+      "position": "TE",
+      "points": 7.1,
+      "starts": 1
+    },
+    {
+      "playerId": "6151",
+      "name": "Miles Sanders",
+      "position": "RB",
+      "points": 36.6,
+      "starts": 5
+    },
+    {
+      "playerId": "NYJ",
+      "name": "New York Jets",
+      "position": "DEF",
+      "points": 35,
+      "starts": 3
+    },
+    {
+      "playerId": "9753",
+      "name": "Zach Charbonnet",
+      "position": "RB",
+      "points": 16.4,
+      "starts": 1
+    },
+    {
+      "playerId": "8121",
+      "name": "Romeo Doubs",
+      "position": "WR",
+      "points": 25.9,
+      "starts": 5
+    },
+    {
+      "playerId": "5916",
+      "name": "Darrell Henderson",
+      "position": "RB",
+      "points": 25.4,
+      "starts": 3
+    },
+    {
+      "playerId": "4179",
+      "name": "Joshua Dobbs",
+      "position": "QB",
+      "points": 25.12,
+      "starts": 1
+    },
+    {
+      "playerId": "6806",
+      "name": "J.K. Dobbins",
+      "position": "RB",
+      "points": 10.7,
+      "starts": 1
+    },
+    {
+      "playerId": "6828",
+      "name": "AJ Dillon",
+      "position": "RB",
+      "points": 9.6,
+      "starts": 1
+    },
+    {
+      "playerId": "4082",
+      "name": "Curtis Samuel",
+      "position": "WR",
+      "points": 8.5,
+      "starts": 1
+    },
+    {
+      "playerId": "6820",
+      "name": "Clyde Edwards-Helaire",
+      "position": "RB",
+      "points": 7.8,
+      "starts": 1
+    },
+    {
+      "playerId": "7608",
+      "name": "Khalil Herbert",
+      "position": "RB",
+      "points": 7.6,
+      "starts": 1
+    },
+    {
+      "playerId": "8172",
+      "name": "Greg Dulcich",
+      "position": "TE",
+      "points": 3.2,
+      "starts": 1
+    },
+    {
+      "playerId": "NE",
+      "name": "New England Patriots",
+      "position": "DEF",
+      "points": 0,
+      "starts": 1
+    }
+  ]
+}

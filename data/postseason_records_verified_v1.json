@@ -1,0 +1,2793 @@
+{
+  "version": 1,
+  "asOf": "2026-11-06 — commissioner-corrected 2023 Evans ownership",
+  "title": "Verified Fellas postseason records",
+  "scope": "Completed seasons 2016–2025. 2026 postseason excluded.",
+  "sources": [
+    "data/verified_espn_playoff_brackets_2016_2019.json",
+    "data/verified_sleeper_playoff_brackets_2020_2025.json",
+    "data/unified_record_book_2016_2026.json"
+  ],
+  "rules": [
+    "Playoff appearances, semifinals, finals, first-round byes and No. 1 seeds use verified championship bracket records only; consolation and third-place games do not create playoff berths or finals.",
+    "Postseason single-week matchup scoring records include all archived playoff and consolation matchups where period scoring is a single NFL week, including Sleeper games whose bracket classification is unavailable.",
+    "2016–2017 ESPN two-week aggregates and 2019 cumulative consolation scoring are excluded from all single-week scoring records. Older ESPN seasons used different scoring and rounding, so cross-era raw-point comparisons are descriptive only.",
+    "Postseason scoring results are not championship-bracket win–loss records; no source-backed Sleeper win–loss playoff classification is inferred from an unclassified matchup.",
+    "Evans owns all 2023 bracket and postseason score records for the former JMidd account slot; JMid entered 2024."
+  ],
+  "seasonCount": 10,
+  "qualifiedPostseasonMatchups": 80,
+  "excludedMultiweekOrCumulative": 24,
+  "leaders": {
+    "playoffBerths": [
+      {
+        "manager": "Birch",
+        "count": 7,
+        "years": [
+          2018,
+          2019,
+          2020,
+          2021,
+          2023,
+          2024,
+          2025
+        ]
+      },
+      {
+        "manager": "Tom",
+        "count": 7,
+        "years": [
+          2016,
+          2017,
+          2018,
+          2021,
+          2022,
+          2024,
+          2025
+        ]
+      },
+      {
+        "manager": "Mitch",
+        "count": 6,
+        "years": [
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2025
+        ]
+      },
+      {
+        "manager": "Tony",
+        "count": 6,
+        "years": [
+          2018,
+          2019,
+          2021,
+          2023,
+          2024,
+          2025
+        ]
+      },
+      {
+        "manager": "Evans",
+        "count": 5,
+        "years": [
+          2016,
+          2017,
+          2020,
+          2021,
+          2023
+        ]
+      },
+      {
+        "manager": "Stilly",
+        "count": 5,
+        "years": [
+          2017,
+          2019,
+          2022,
+          2023,
+          2024
+        ]
+      },
+      {
+        "manager": "Stover",
+        "count": 5,
+        "years": [
+          2018,
+          2020,
+          2021,
+          2022,
+          2024
+        ]
+      },
+      {
+        "manager": "Kuhl",
+        "count": 4,
+        "years": [
+          2018,
+          2019,
+          2020,
+          2022
+        ]
+      },
+      {
+        "manager": "Stew",
+        "count": 4,
+        "years": [
+          2018,
+          2019,
+          2022,
+          2025
+        ]
+      },
+      {
+        "manager": "Koble",
+        "count": 3,
+        "years": [
+          2016,
+          2020,
+          2023
+        ]
+      },
+      {
+        "manager": "Halderman",
+        "count": 1,
+        "years": [
+          2016
+        ]
+      },
+      {
+        "manager": "JMid",
+        "count": 1,
+        "years": [
+          2024
+        ]
+      },
+      {
+        "manager": "Schermerhorn",
+        "count": 1,
+        "years": [
+          2017
+        ]
+      },
+      {
+        "manager": "Scott",
+        "count": 1,
+        "years": [
+          2025
+        ]
+      }
+    ],
+    "finals": [
+      {
+        "manager": "Tom",
+        "count": 5,
+        "years": [
+          2016,
+          2017,
+          2018,
+          2024,
+          2025
+        ]
+      },
+      {
+        "manager": "Birch",
+        "count": 2,
+        "years": [
+          2018,
+          2019
+        ]
+      },
+      {
+        "manager": "Mitch",
+        "count": 2,
+        "years": [
+          2020,
+          2023
+        ]
+      },
+      {
+        "manager": "Stew",
+        "count": 2,
+        "years": [
+          2019,
+          2022
+        ]
+      },
+      {
+        "manager": "Stilly",
+        "count": 2,
+        "years": [
+          2023,
+          2024
+        ]
+      },
+      {
+        "manager": "Evans",
+        "count": 1,
+        "years": [
+          2021
+        ]
+      },
+      {
+        "manager": "Halderman",
+        "count": 1,
+        "years": [
+          2016
+        ]
+      },
+      {
+        "manager": "Koble",
+        "count": 1,
+        "years": [
+          2020
+        ]
+      },
+      {
+        "manager": "Schermerhorn",
+        "count": 1,
+        "years": [
+          2017
+        ]
+      },
+      {
+        "manager": "Scott",
+        "count": 1,
+        "years": [
+          2025
+        ]
+      },
+      {
+        "manager": "Stover",
+        "count": 1,
+        "years": [
+          2022
+        ]
+      },
+      {
+        "manager": "Tony",
+        "count": 1,
+        "years": [
+          2021
+        ]
+      },
+      {
+        "manager": "JMid",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Kuhl",
+        "count": 0,
+        "years": []
+      }
+    ],
+    "semifinals": [
+      {
+        "manager": "Birch",
+        "count": 5,
+        "years": [
+          2018,
+          2019,
+          2020,
+          2021,
+          2025
+        ]
+      },
+      {
+        "manager": "Mitch",
+        "count": 5,
+        "years": [
+          2019,
+          2020,
+          2022,
+          2023,
+          2025
+        ]
+      },
+      {
+        "manager": "Tom",
+        "count": 5,
+        "years": [
+          2016,
+          2017,
+          2018,
+          2024,
+          2025
+        ]
+      },
+      {
+        "manager": "Evans",
+        "count": 4,
+        "years": [
+          2016,
+          2017,
+          2020,
+          2021
+        ]
+      },
+      {
+        "manager": "Stover",
+        "count": 4,
+        "years": [
+          2018,
+          2021,
+          2022,
+          2024
+        ]
+      },
+      {
+        "manager": "Tony",
+        "count": 4,
+        "years": [
+          2018,
+          2019,
+          2021,
+          2023
+        ]
+      },
+      {
+        "manager": "Koble",
+        "count": 3,
+        "years": [
+          2016,
+          2020,
+          2023
+        ]
+      },
+      {
+        "manager": "Stilly",
+        "count": 3,
+        "years": [
+          2017,
+          2023,
+          2024
+        ]
+      },
+      {
+        "manager": "Stew",
+        "count": 2,
+        "years": [
+          2019,
+          2022
+        ]
+      },
+      {
+        "manager": "Halderman",
+        "count": 1,
+        "years": [
+          2016
+        ]
+      },
+      {
+        "manager": "JMid",
+        "count": 1,
+        "years": [
+          2024
+        ]
+      },
+      {
+        "manager": "Kuhl",
+        "count": 1,
+        "years": [
+          2022
+        ]
+      },
+      {
+        "manager": "Schermerhorn",
+        "count": 1,
+        "years": [
+          2017
+        ]
+      },
+      {
+        "manager": "Scott",
+        "count": 1,
+        "years": [
+          2025
+        ]
+      }
+    ],
+    "byes": [
+      {
+        "manager": "Birch",
+        "count": 3,
+        "years": [
+          2019,
+          2020,
+          2021
+        ]
+      },
+      {
+        "manager": "Stover",
+        "count": 3,
+        "years": [
+          2018,
+          2022,
+          2024
+        ]
+      },
+      {
+        "manager": "Tony",
+        "count": 3,
+        "years": [
+          2018,
+          2021,
+          2023
+        ]
+      },
+      {
+        "manager": "Mitch",
+        "count": 2,
+        "years": [
+          2020,
+          2025
+        ]
+      },
+      {
+        "manager": "Stew",
+        "count": 2,
+        "years": [
+          2019,
+          2022
+        ]
+      },
+      {
+        "manager": "Koble",
+        "count": 1,
+        "years": [
+          2023
+        ]
+      },
+      {
+        "manager": "Scott",
+        "count": 1,
+        "years": [
+          2025
+        ]
+      },
+      {
+        "manager": "Tom",
+        "count": 1,
+        "years": [
+          2024
+        ]
+      },
+      {
+        "manager": "Evans",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Halderman",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "JMid",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Kuhl",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Schermerhorn",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Stilly",
+        "count": 0,
+        "years": []
+      }
+    ],
+    "topSeeds": [
+      {
+        "manager": "Birch",
+        "count": 2,
+        "years": [
+          2019,
+          2021
+        ]
+      },
+      {
+        "manager": "Mitch",
+        "count": 2,
+        "years": [
+          2020,
+          2025
+        ]
+      },
+      {
+        "manager": "Tony",
+        "count": 2,
+        "years": [
+          2018,
+          2023
+        ]
+      },
+      {
+        "manager": "Halderman",
+        "count": 1,
+        "years": [
+          2016
+        ]
+      },
+      {
+        "manager": "Stew",
+        "count": 1,
+        "years": [
+          2022
+        ]
+      },
+      {
+        "manager": "Stover",
+        "count": 1,
+        "years": [
+          2024
+        ]
+      },
+      {
+        "manager": "Tom",
+        "count": 1,
+        "years": [
+          2017
+        ]
+      },
+      {
+        "manager": "Evans",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "JMid",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Koble",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Kuhl",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Schermerhorn",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Scott",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Stilly",
+        "count": 0,
+        "years": []
+      }
+    ],
+    "championships": [
+      {
+        "manager": "Tom",
+        "count": 4,
+        "years": [
+          2016,
+          2017,
+          2018,
+          2024
+        ]
+      },
+      {
+        "manager": "Birch",
+        "count": 1,
+        "years": [
+          2019
+        ]
+      },
+      {
+        "manager": "Koble",
+        "count": 1,
+        "years": [
+          2020
+        ]
+      },
+      {
+        "manager": "Scott",
+        "count": 1,
+        "years": [
+          2025
+        ]
+      },
+      {
+        "manager": "Stilly",
+        "count": 1,
+        "years": [
+          2023
+        ]
+      },
+      {
+        "manager": "Stover",
+        "count": 1,
+        "years": [
+          2022
+        ]
+      },
+      {
+        "manager": "Tony",
+        "count": 1,
+        "years": [
+          2021
+        ]
+      },
+      {
+        "manager": "Evans",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Halderman",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "JMid",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Kuhl",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Mitch",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Schermerhorn",
+        "count": 0,
+        "years": []
+      },
+      {
+        "manager": "Stew",
+        "count": 0,
+        "years": []
+      }
+    ],
+    "berthStreak": [
+      {
+        "manager": "Mitch",
+        "count": 5,
+        "years": [
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2025
+        ]
+      },
+      {
+        "manager": "Birch",
+        "count": 4,
+        "years": [
+          2018,
+          2019,
+          2020,
+          2021,
+          2023,
+          2024,
+          2025
+        ]
+      },
+      {
+        "manager": "Kuhl",
+        "count": 3,
+        "years": [
+          2018,
+          2019,
+          2020,
+          2022
+        ]
+      },
+      {
+        "manager": "Stilly",
+        "count": 3,
+        "years": [
+          2017,
+          2019,
+          2022,
+          2023,
+          2024
+        ]
+      },
+      {
+        "manager": "Stover",
+        "count": 3,
+        "years": [
+          2018,
+          2020,
+          2021,
+          2022,
+          2024
+        ]
+      },
+      {
+        "manager": "Tom",
+        "count": 3,
+        "years": [
+          2016,
+          2017,
+          2018,
+          2021,
+          2022,
+          2024,
+          2025
+        ]
+      },
+      {
+        "manager": "Tony",
+        "count": 3,
+        "years": [
+          2018,
+          2019,
+          2021,
+          2023,
+          2024,
+          2025
+        ]
+      },
+      {
+        "manager": "Evans",
+        "count": 2,
+        "years": [
+          2016,
+          2017,
+          2020,
+          2021,
+          2023
+        ]
+      },
+      {
+        "manager": "Stew",
+        "count": 2,
+        "years": [
+          2018,
+          2019,
+          2022,
+          2025
+        ]
+      },
+      {
+        "manager": "Halderman",
+        "count": 1,
+        "years": [
+          2016
+        ]
+      },
+      {
+        "manager": "JMid",
+        "count": 1,
+        "years": [
+          2024
+        ]
+      },
+      {
+        "manager": "Koble",
+        "count": 1,
+        "years": [
+          2016,
+          2020,
+          2023
+        ]
+      },
+      {
+        "manager": "Schermerhorn",
+        "count": 1,
+        "years": [
+          2017
+        ]
+      },
+      {
+        "manager": "Scott",
+        "count": 1,
+        "years": [
+          2025
+        ]
+      }
+    ]
+  },
+  "records": {
+    "highestSingleWeek": [
+      {
+        "year": 2024,
+        "week": 17,
+        "manager": "Tom",
+        "opponent": "Stilly",
+        "points": 205.3,
+        "opponentPoints": 114.88,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2024,
+        "week": 16,
+        "manager": "Stilly",
+        "opponent": "Stover",
+        "points": 174.82,
+        "opponentPoints": 130.94,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2019,
+        "week": 15,
+        "manager": "Stew",
+        "opponent": "Mitch",
+        "points": 163.58,
+        "opponentPoints": 84.16,
+        "stage": "Verified championship bracket",
+        "era": "ESPN"
+      },
+      {
+        "year": 2025,
+        "week": 17,
+        "manager": "Scott",
+        "opponent": "Tom",
+        "points": 156.32,
+        "opponentPoints": 86,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2019,
+        "week": 15,
+        "manager": "Birch",
+        "opponent": "Tony",
+        "points": 153.1,
+        "opponentPoints": 131.52,
+        "stage": "Verified championship bracket",
+        "era": "ESPN"
+      },
+      {
+        "year": 2025,
+        "week": 15,
+        "manager": "Tom",
+        "opponent": "Stew",
+        "points": 148.76,
+        "opponentPoints": 121.5,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2020,
+        "week": 15,
+        "manager": "Stilly",
+        "opponent": "Tom",
+        "points": 148.72,
+        "opponentPoints": 124.46,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2019,
+        "week": 15,
+        "manager": "Stilly",
+        "opponent": "Kuhl",
+        "points": 148.44,
+        "opponentPoints": 122.88,
+        "stage": "Consolation",
+        "era": "ESPN"
+      },
+      {
+        "year": 2023,
+        "week": 16,
+        "manager": "Kuhl",
+        "opponent": "Stew",
+        "points": 148.16,
+        "opponentPoints": 125.3,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2023,
+        "week": 15,
+        "manager": "Stilly",
+        "opponent": "Birch",
+        "points": 146.36,
+        "opponentPoints": 105.06,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2024,
+        "week": 17,
+        "manager": "Stover",
+        "opponent": "JMid",
+        "points": 144,
+        "opponentPoints": 109.28,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2022,
+        "week": 15,
+        "manager": "Kuhl",
+        "opponent": "Tom",
+        "points": 143.86,
+        "opponentPoints": 122.08,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2019,
+        "week": 16,
+        "manager": "Mitch",
+        "opponent": "Tony",
+        "points": 143.56,
+        "opponentPoints": 109.36,
+        "stage": "Consolation",
+        "era": "ESPN"
+      },
+      {
+        "year": 2025,
+        "week": 16,
+        "manager": "Scott",
+        "opponent": "Birch",
+        "points": 141.88,
+        "opponentPoints": 70.4,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2023,
+        "week": 16,
+        "manager": "Stilly",
+        "opponent": "Tony",
+        "points": 141.66,
+        "opponentPoints": 108.58,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      }
+    ],
+    "lowestSingleWeek": [
+      {
+        "year": 2018,
+        "week": 15,
+        "manager": "Stew",
+        "opponent": "Kuhl",
+        "points": 48.14,
+        "opponentPoints": 66.42,
+        "stage": "Consolation",
+        "era": "ESPN"
+      },
+      {
+        "year": 2022,
+        "week": 17,
+        "manager": "Stew",
+        "opponent": "Stover",
+        "points": 48.16,
+        "opponentPoints": 99.22,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2022,
+        "week": 15,
+        "manager": "Birch",
+        "opponent": "Koble",
+        "points": 53.52,
+        "opponentPoints": 93.74,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2018,
+        "week": 14,
+        "manager": "Stilly",
+        "opponent": "Mitch",
+        "points": 55.9,
+        "opponentPoints": 97.32,
+        "stage": "Consolation",
+        "era": "ESPN"
+      },
+      {
+        "year": 2018,
+        "week": 14,
+        "manager": "Stew",
+        "opponent": "Birch",
+        "points": 61.8,
+        "opponentPoints": 125.68,
+        "stage": "Verified championship bracket",
+        "era": "ESPN"
+      },
+      {
+        "year": 2021,
+        "week": 15,
+        "manager": "Stew",
+        "opponent": "Kuhl",
+        "points": 62.76,
+        "opponentPoints": 116.7,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2018,
+        "week": 15,
+        "manager": "Kuhl",
+        "opponent": "Stew",
+        "points": 66.42,
+        "opponentPoints": 48.14,
+        "stage": "Consolation",
+        "era": "ESPN"
+      },
+      {
+        "year": 2023,
+        "week": 16,
+        "manager": "Evans",
+        "opponent": "Birch",
+        "points": 69.34,
+        "opponentPoints": 136.52,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2025,
+        "week": 16,
+        "manager": "Birch",
+        "opponent": "Scott",
+        "points": 70.4,
+        "opponentPoints": 141.88,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2023,
+        "week": 15,
+        "manager": "Stew",
+        "opponent": "Tom",
+        "points": 72.14,
+        "opponentPoints": 128.42,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2018,
+        "week": 16,
+        "manager": "Kuhl",
+        "opponent": "Stew",
+        "points": 72.74,
+        "opponentPoints": 98.74,
+        "stage": "Consolation",
+        "era": "ESPN"
+      },
+      {
+        "year": 2023,
+        "week": 16,
+        "manager": "Stover",
+        "opponent": "Tom",
+        "points": 72.84,
+        "opponentPoints": 110.82,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2021,
+        "week": 15,
+        "manager": "Stover",
+        "opponent": "Tony",
+        "points": 73.44,
+        "opponentPoints": 94.96,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2022,
+        "week": 16,
+        "manager": "Birch",
+        "opponent": "Tony",
+        "points": 74.7,
+        "opponentPoints": 111.86,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2020,
+        "week": 16,
+        "manager": "Stover",
+        "opponent": "Birch",
+        "points": 78.9,
+        "opponentPoints": 110.14,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      }
+    ],
+    "biggestWins": [
+      {
+        "year": 2024,
+        "week": 17,
+        "home": "Stilly",
+        "away": "Tom",
+        "homeScore": 114.88,
+        "awayScore": 205.3,
+        "winner": "Tom",
+        "loser": "Stilly",
+        "margin": 90.42,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2019,
+        "week": 15,
+        "home": "Stew",
+        "away": "Mitch",
+        "homeScore": 163.58,
+        "awayScore": 84.16,
+        "winner": "Stew",
+        "loser": "Mitch",
+        "margin": 79.42,
+        "stage": "Verified championship bracket",
+        "source": "espn_history_2016_2019",
+        "era": "ESPN"
+      },
+      {
+        "year": 2025,
+        "week": 16,
+        "home": "Scott",
+        "away": "Birch",
+        "homeScore": 141.88,
+        "awayScore": 70.4,
+        "winner": "Scott",
+        "loser": "Birch",
+        "margin": 71.48,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2025,
+        "week": 17,
+        "home": "Tom",
+        "away": "Scott",
+        "homeScore": 86,
+        "awayScore": 156.32,
+        "winner": "Scott",
+        "loser": "Tom",
+        "margin": 70.32,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2023,
+        "week": 16,
+        "home": "Evans",
+        "away": "Birch",
+        "homeScore": 69.34,
+        "awayScore": 136.52,
+        "winner": "Birch",
+        "loser": "Evans",
+        "margin": 67.18,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2018,
+        "week": 14,
+        "home": "Stew",
+        "away": "Birch",
+        "homeScore": 61.8,
+        "awayScore": 125.68,
+        "winner": "Birch",
+        "loser": "Stew",
+        "margin": 63.88,
+        "stage": "Verified championship bracket",
+        "source": "espn_history_2016_2019",
+        "era": "ESPN"
+      },
+      {
+        "year": 2023,
+        "week": 15,
+        "home": "Tom",
+        "away": "Stew",
+        "homeScore": 128.42,
+        "awayScore": 72.14,
+        "winner": "Tom",
+        "loser": "Stew",
+        "margin": 56.28,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2021,
+        "week": 15,
+        "home": "Stew",
+        "away": "Kuhl",
+        "homeScore": 62.76,
+        "awayScore": 116.7,
+        "winner": "Kuhl",
+        "loser": "Stew",
+        "margin": 53.94,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2022,
+        "week": 17,
+        "home": "Mitch",
+        "away": "Kuhl",
+        "homeScore": 85.18,
+        "awayScore": 138.82,
+        "winner": "Kuhl",
+        "loser": "Mitch",
+        "margin": 53.64,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2024,
+        "week": 16,
+        "home": "Tony",
+        "away": "Birch",
+        "homeScore": 139.8,
+        "awayScore": 87.36,
+        "winner": "Tony",
+        "loser": "Birch",
+        "margin": 52.44,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2022,
+        "week": 17,
+        "home": "Stew",
+        "away": "Stover",
+        "homeScore": 48.16,
+        "awayScore": 99.22,
+        "winner": "Stover",
+        "loser": "Stew",
+        "margin": 51.06,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2025,
+        "week": 15,
+        "home": "JMid",
+        "away": "Stover",
+        "homeScore": 137.8,
+        "awayScore": 89.1,
+        "winner": "JMid",
+        "loser": "Stover",
+        "margin": 48.7,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2020,
+        "week": 15,
+        "home": "Koble",
+        "away": "Birch",
+        "homeScore": 130.42,
+        "awayScore": 82.82,
+        "winner": "Koble",
+        "loser": "Birch",
+        "margin": 47.6,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2024,
+        "week": 16,
+        "home": "Stilly",
+        "away": "Stover",
+        "homeScore": 174.82,
+        "awayScore": 130.94,
+        "winner": "Stilly",
+        "loser": "Stover",
+        "margin": 43.88,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2018,
+        "week": 15,
+        "home": "Stover",
+        "away": "Birch",
+        "homeScore": 82.36,
+        "awayScore": 124.52,
+        "winner": "Birch",
+        "loser": "Stover",
+        "margin": 42.16,
+        "stage": "Verified championship bracket",
+        "source": "espn_history_2016_2019",
+        "era": "ESPN"
+      }
+    ],
+    "closestGames": [
+      {
+        "year": 2025,
+        "week": 15,
+        "home": "Stilly",
+        "away": "Kuhl",
+        "homeScore": 122.12,
+        "awayScore": 122,
+        "winner": "Stilly",
+        "loser": "Kuhl",
+        "margin": 0.12,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2025,
+        "week": 15,
+        "home": "Tony",
+        "away": "Birch",
+        "homeScore": 119.8,
+        "awayScore": 120.52,
+        "winner": "Birch",
+        "loser": "Tony",
+        "margin": 0.72,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2020,
+        "week": 15,
+        "home": "Stew",
+        "away": "Tony",
+        "homeScore": 118.06,
+        "awayScore": 116.94,
+        "winner": "Stew",
+        "loser": "Tony",
+        "margin": 1.12,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2024,
+        "week": 15,
+        "home": "JMid",
+        "away": "Tony",
+        "homeScore": 110.24,
+        "awayScore": 108.54,
+        "winner": "JMid",
+        "loser": "Tony",
+        "margin": 1.7,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2020,
+        "week": 15,
+        "home": "Evans",
+        "away": "Kuhl",
+        "homeScore": 99.76,
+        "awayScore": 101.9,
+        "winner": "Kuhl",
+        "loser": "Evans",
+        "margin": 2.14,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2024,
+        "week": 16,
+        "home": "JMid",
+        "away": "Tom",
+        "homeScore": 121.08,
+        "awayScore": 123.38,
+        "winner": "Tom",
+        "loser": "JMid",
+        "margin": 2.3,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2024,
+        "week": 16,
+        "home": "Stew",
+        "away": "Scott",
+        "homeScore": 92.48,
+        "awayScore": 95.72,
+        "winner": "Scott",
+        "loser": "Stew",
+        "margin": 3.24,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2024,
+        "week": 15,
+        "home": "Stilly",
+        "away": "Birch",
+        "homeScore": 125.94,
+        "awayScore": 122.68,
+        "winner": "Stilly",
+        "loser": "Birch",
+        "margin": 3.26,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2018,
+        "week": 14,
+        "home": "Tom",
+        "away": "Kuhl",
+        "homeScore": 96.54,
+        "awayScore": 92.64,
+        "winner": "Tom",
+        "loser": "Kuhl",
+        "margin": 3.9,
+        "stage": "Verified championship bracket",
+        "source": "espn_history_2016_2019",
+        "era": "ESPN"
+      },
+      {
+        "year": 2021,
+        "week": 16,
+        "home": "Evans",
+        "away": "Tony",
+        "homeScore": 133.98,
+        "awayScore": 138.28,
+        "winner": "Tony",
+        "loser": "Evans",
+        "margin": 4.3,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2019,
+        "week": 16,
+        "home": "Birch",
+        "away": "Stew",
+        "homeScore": 114.14,
+        "awayScore": 109.42,
+        "winner": "Birch",
+        "loser": "Stew",
+        "margin": 4.72,
+        "stage": "Verified championship bracket",
+        "source": "espn_history_2016_2019",
+        "era": "ESPN"
+      },
+      {
+        "year": 2019,
+        "week": 16,
+        "home": "Kuhl",
+        "away": "Stilly",
+        "homeScore": 133.36,
+        "awayScore": 138.26,
+        "winner": "Stilly",
+        "loser": "Kuhl",
+        "margin": 4.9,
+        "stage": "Consolation",
+        "source": "espn_history_2016_2019",
+        "era": "ESPN"
+      },
+      {
+        "year": 2018,
+        "week": 16,
+        "home": "Tom",
+        "away": "Birch",
+        "homeScore": 111.58,
+        "awayScore": 106.62,
+        "winner": "Tom",
+        "loser": "Birch",
+        "margin": 4.96,
+        "stage": "Verified championship bracket",
+        "source": "espn_history_2016_2019",
+        "era": "ESPN"
+      },
+      {
+        "year": 2025,
+        "week": 16,
+        "home": "Tom",
+        "away": "Mitch",
+        "homeScore": 134.28,
+        "awayScore": 126.3,
+        "winner": "Tom",
+        "loser": "Mitch",
+        "margin": 7.98,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      {
+        "year": 2025,
+        "week": 16,
+        "home": "Stew",
+        "away": "Tony",
+        "homeScore": 114,
+        "awayScore": 122.04,
+        "winner": "Tony",
+        "loser": "Stew",
+        "margin": 8.04,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      }
+    ]
+  },
+  "managers": [
+    {
+      "manager": "Birch",
+      "appearances": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025
+      ],
+      "semifinals": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2025
+      ],
+      "finals": [
+        2018,
+        2019
+      ],
+      "byes": [
+        2019,
+        2020,
+        2021
+      ],
+      "championships": [
+        2019
+      ],
+      "runnerUps": [
+        2018
+      ],
+      "topSeeds": [
+        2019,
+        2021
+      ],
+      "bestSingleWeek": {
+        "year": 2019,
+        "week": 15,
+        "manager": "Birch",
+        "opponent": "Tony",
+        "points": 153.1,
+        "opponentPoints": 131.52,
+        "stage": "Verified championship bracket",
+        "era": "ESPN"
+      },
+      "lowestSingleWeek": {
+        "year": 2022,
+        "week": 15,
+        "manager": "Birch",
+        "opponent": "Koble",
+        "points": 53.52,
+        "opponentPoints": 93.74,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "biggestPostseasonWin": {
+        "year": 2023,
+        "week": 16,
+        "home": "Evans",
+        "away": "Birch",
+        "homeScore": 69.34,
+        "awayScore": 136.52,
+        "winner": "Birch",
+        "loser": "Evans",
+        "margin": 67.18,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "closestPostseasonWin": {
+        "year": 2025,
+        "week": 15,
+        "home": "Tony",
+        "away": "Birch",
+        "homeScore": 119.8,
+        "awayScore": 120.52,
+        "winner": "Birch",
+        "loser": "Tony",
+        "margin": 0.72,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 18,
+      "recordedSingleWeekWins": 8,
+      "longestPlayoffBerthStreak": 4
+    },
+    {
+      "manager": "Evans",
+      "appearances": [
+        2016,
+        2017,
+        2020,
+        2021,
+        2023
+      ],
+      "semifinals": [
+        2016,
+        2017,
+        2020,
+        2021
+      ],
+      "finals": [
+        2021
+      ],
+      "byes": [],
+      "championships": [],
+      "runnerUps": [
+        2021
+      ],
+      "topSeeds": [],
+      "bestSingleWeek": {
+        "year": 2021,
+        "week": 16,
+        "manager": "Evans",
+        "opponent": "Tony",
+        "points": 133.98,
+        "opponentPoints": 138.28,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "lowestSingleWeek": {
+        "year": 2023,
+        "week": 16,
+        "manager": "Evans",
+        "opponent": "Birch",
+        "points": 69.34,
+        "opponentPoints": 136.52,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "biggestPostseasonWin": {
+        "year": 2018,
+        "week": 14,
+        "home": "Evans",
+        "away": "Koble",
+        "homeScore": 118.86,
+        "awayScore": 96.78,
+        "winner": "Evans",
+        "loser": "Koble",
+        "margin": 22.08,
+        "stage": "Consolation",
+        "source": "espn_history_2016_2019",
+        "era": "ESPN"
+      },
+      "closestPostseasonWin": {
+        "year": 2022,
+        "week": 15,
+        "home": "Evans",
+        "away": "Tony",
+        "homeScore": 130.38,
+        "awayScore": 121.32,
+        "winner": "Evans",
+        "loser": "Tony",
+        "margin": 9.06,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 10,
+      "recordedSingleWeekWins": 6,
+      "longestPlayoffBerthStreak": 2
+    },
+    {
+      "manager": "Halderman",
+      "appearances": [
+        2016
+      ],
+      "semifinals": [
+        2016
+      ],
+      "finals": [
+        2016
+      ],
+      "byes": [],
+      "championships": [],
+      "runnerUps": [
+        2016
+      ],
+      "topSeeds": [
+        2016
+      ],
+      "bestSingleWeek": null,
+      "lowestSingleWeek": null,
+      "biggestPostseasonWin": null,
+      "closestPostseasonWin": null,
+      "recordedSingleWeekAppearances": 0,
+      "recordedSingleWeekWins": 0,
+      "longestPlayoffBerthStreak": 1
+    },
+    {
+      "manager": "JMid",
+      "appearances": [
+        2024
+      ],
+      "semifinals": [
+        2024
+      ],
+      "finals": [],
+      "byes": [],
+      "championships": [],
+      "runnerUps": [],
+      "topSeeds": [],
+      "bestSingleWeek": {
+        "year": 2025,
+        "week": 15,
+        "manager": "JMid",
+        "opponent": "Stover",
+        "points": 137.8,
+        "opponentPoints": 89.1,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "lowestSingleWeek": {
+        "year": 2025,
+        "week": 16,
+        "manager": "JMid",
+        "opponent": "Stilly",
+        "points": 100.46,
+        "opponentPoints": 126.76,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "biggestPostseasonWin": {
+        "year": 2025,
+        "week": 15,
+        "home": "JMid",
+        "away": "Stover",
+        "homeScore": 137.8,
+        "awayScore": 89.1,
+        "winner": "JMid",
+        "loser": "Stover",
+        "margin": 48.7,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "closestPostseasonWin": {
+        "year": 2024,
+        "week": 15,
+        "home": "JMid",
+        "away": "Tony",
+        "homeScore": 110.24,
+        "awayScore": 108.54,
+        "winner": "JMid",
+        "loser": "Tony",
+        "margin": 1.7,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 5,
+      "recordedSingleWeekWins": 2,
+      "longestPlayoffBerthStreak": 1
+    },
+    {
+      "manager": "Koble",
+      "appearances": [
+        2016,
+        2020,
+        2023
+      ],
+      "semifinals": [
+        2016,
+        2020,
+        2023
+      ],
+      "finals": [
+        2020
+      ],
+      "byes": [
+        2023
+      ],
+      "championships": [
+        2020
+      ],
+      "runnerUps": [],
+      "topSeeds": [],
+      "bestSingleWeek": {
+        "year": 2020,
+        "week": 15,
+        "manager": "Koble",
+        "opponent": "Birch",
+        "points": 130.42,
+        "opponentPoints": 82.82,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "lowestSingleWeek": {
+        "year": 2022,
+        "week": 15,
+        "manager": "Koble",
+        "opponent": "Birch",
+        "points": 93.74,
+        "opponentPoints": 53.52,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "biggestPostseasonWin": {
+        "year": 2020,
+        "week": 15,
+        "home": "Koble",
+        "away": "Birch",
+        "homeScore": 130.42,
+        "awayScore": 82.82,
+        "winner": "Koble",
+        "loser": "Birch",
+        "margin": 47.6,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "closestPostseasonWin": {
+        "year": 2021,
+        "week": 15,
+        "home": "Stilly",
+        "away": "Koble",
+        "homeScore": 88.68,
+        "awayScore": 98.18,
+        "winner": "Koble",
+        "loser": "Stilly",
+        "margin": 9.5,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 10,
+      "recordedSingleWeekWins": 7,
+      "longestPlayoffBerthStreak": 1
+    },
+    {
+      "manager": "Kuhl",
+      "appearances": [
+        2018,
+        2019,
+        2020,
+        2022
+      ],
+      "semifinals": [
+        2022
+      ],
+      "finals": [],
+      "byes": [],
+      "championships": [],
+      "runnerUps": [],
+      "topSeeds": [],
+      "bestSingleWeek": {
+        "year": 2023,
+        "week": 16,
+        "manager": "Kuhl",
+        "opponent": "Stew",
+        "points": 148.16,
+        "opponentPoints": 125.3,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "lowestSingleWeek": {
+        "year": 2018,
+        "week": 15,
+        "manager": "Kuhl",
+        "opponent": "Stew",
+        "points": 66.42,
+        "opponentPoints": 48.14,
+        "stage": "Consolation",
+        "era": "ESPN"
+      },
+      "biggestPostseasonWin": {
+        "year": 2021,
+        "week": 15,
+        "home": "Stew",
+        "away": "Kuhl",
+        "homeScore": 62.76,
+        "awayScore": 116.7,
+        "winner": "Kuhl",
+        "loser": "Stew",
+        "margin": 53.94,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "closestPostseasonWin": {
+        "year": 2020,
+        "week": 15,
+        "home": "Evans",
+        "away": "Kuhl",
+        "homeScore": 99.76,
+        "awayScore": 101.9,
+        "winner": "Kuhl",
+        "loser": "Evans",
+        "margin": 2.14,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 17,
+      "recordedSingleWeekWins": 7,
+      "longestPlayoffBerthStreak": 3
+    },
+    {
+      "manager": "Mitch",
+      "appearances": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2025
+      ],
+      "semifinals": [
+        2019,
+        2020,
+        2022,
+        2023,
+        2025
+      ],
+      "finals": [
+        2020,
+        2023
+      ],
+      "byes": [
+        2020,
+        2025
+      ],
+      "championships": [],
+      "runnerUps": [
+        2020,
+        2023
+      ],
+      "topSeeds": [
+        2020,
+        2025
+      ],
+      "bestSingleWeek": {
+        "year": 2019,
+        "week": 16,
+        "manager": "Mitch",
+        "opponent": "Tony",
+        "points": 143.56,
+        "opponentPoints": 109.36,
+        "stage": "Consolation",
+        "era": "ESPN"
+      },
+      "lowestSingleWeek": {
+        "year": 2019,
+        "week": 15,
+        "manager": "Mitch",
+        "opponent": "Stew",
+        "points": 84.16,
+        "opponentPoints": 163.58,
+        "stage": "Verified championship bracket",
+        "era": "ESPN"
+      },
+      "biggestPostseasonWin": {
+        "year": 2018,
+        "week": 14,
+        "home": "Mitch",
+        "away": "Stilly",
+        "homeScore": 97.32,
+        "awayScore": 55.9,
+        "winner": "Mitch",
+        "loser": "Stilly",
+        "margin": 41.42,
+        "stage": "Consolation",
+        "source": "espn_history_2016_2019",
+        "era": "ESPN"
+      },
+      "closestPostseasonWin": {
+        "year": 2023,
+        "week": 15,
+        "home": "Evans",
+        "away": "Mitch",
+        "homeScore": 94.22,
+        "awayScore": 110.32,
+        "winner": "Mitch",
+        "loser": "Evans",
+        "margin": 16.1,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 19,
+      "recordedSingleWeekWins": 10,
+      "longestPlayoffBerthStreak": 5
+    },
+    {
+      "manager": "Schermerhorn",
+      "appearances": [
+        2017
+      ],
+      "semifinals": [
+        2017
+      ],
+      "finals": [
+        2017
+      ],
+      "byes": [],
+      "championships": [],
+      "runnerUps": [
+        2017
+      ],
+      "topSeeds": [],
+      "bestSingleWeek": null,
+      "lowestSingleWeek": null,
+      "biggestPostseasonWin": null,
+      "closestPostseasonWin": null,
+      "recordedSingleWeekAppearances": 0,
+      "recordedSingleWeekWins": 0,
+      "longestPlayoffBerthStreak": 1
+    },
+    {
+      "manager": "Scott",
+      "appearances": [
+        2025
+      ],
+      "semifinals": [
+        2025
+      ],
+      "finals": [
+        2025
+      ],
+      "byes": [
+        2025
+      ],
+      "championships": [
+        2025
+      ],
+      "runnerUps": [],
+      "topSeeds": [],
+      "bestSingleWeek": {
+        "year": 2025,
+        "week": 17,
+        "manager": "Scott",
+        "opponent": "Tom",
+        "points": 156.32,
+        "opponentPoints": 86,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "lowestSingleWeek": {
+        "year": 2024,
+        "week": 16,
+        "manager": "Scott",
+        "opponent": "Stew",
+        "points": 95.72,
+        "opponentPoints": 92.48,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "biggestPostseasonWin": {
+        "year": 2025,
+        "week": 16,
+        "home": "Scott",
+        "away": "Birch",
+        "homeScore": 141.88,
+        "awayScore": 70.4,
+        "winner": "Scott",
+        "loser": "Birch",
+        "margin": 71.48,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "closestPostseasonWin": {
+        "year": 2024,
+        "week": 16,
+        "home": "Stew",
+        "away": "Scott",
+        "homeScore": 92.48,
+        "awayScore": 95.72,
+        "winner": "Scott",
+        "loser": "Stew",
+        "margin": 3.24,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 4,
+      "recordedSingleWeekWins": 4,
+      "longestPlayoffBerthStreak": 1
+    },
+    {
+      "manager": "Stew",
+      "appearances": [
+        2018,
+        2019,
+        2022,
+        2025
+      ],
+      "semifinals": [
+        2019,
+        2022
+      ],
+      "finals": [
+        2019,
+        2022
+      ],
+      "byes": [
+        2019,
+        2022
+      ],
+      "championships": [],
+      "runnerUps": [
+        2019,
+        2022
+      ],
+      "topSeeds": [
+        2022
+      ],
+      "bestSingleWeek": {
+        "year": 2019,
+        "week": 15,
+        "manager": "Stew",
+        "opponent": "Mitch",
+        "points": 163.58,
+        "opponentPoints": 84.16,
+        "stage": "Verified championship bracket",
+        "era": "ESPN"
+      },
+      "lowestSingleWeek": {
+        "year": 2018,
+        "week": 15,
+        "manager": "Stew",
+        "opponent": "Kuhl",
+        "points": 48.14,
+        "opponentPoints": 66.42,
+        "stage": "Consolation",
+        "era": "ESPN"
+      },
+      "biggestPostseasonWin": {
+        "year": 2019,
+        "week": 15,
+        "home": "Stew",
+        "away": "Mitch",
+        "homeScore": 163.58,
+        "awayScore": 84.16,
+        "winner": "Stew",
+        "loser": "Mitch",
+        "margin": 79.42,
+        "stage": "Verified championship bracket",
+        "source": "espn_history_2016_2019",
+        "era": "ESPN"
+      },
+      "closestPostseasonWin": {
+        "year": 2020,
+        "week": 15,
+        "home": "Stew",
+        "away": "Tony",
+        "homeScore": 118.06,
+        "awayScore": 116.94,
+        "winner": "Stew",
+        "loser": "Tony",
+        "margin": 1.12,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 15,
+      "recordedSingleWeekWins": 5,
+      "longestPlayoffBerthStreak": 2
+    },
+    {
+      "manager": "Stilly",
+      "appearances": [
+        2017,
+        2019,
+        2022,
+        2023,
+        2024
+      ],
+      "semifinals": [
+        2017,
+        2023,
+        2024
+      ],
+      "finals": [
+        2023,
+        2024
+      ],
+      "byes": [],
+      "championships": [
+        2023
+      ],
+      "runnerUps": [
+        2024
+      ],
+      "topSeeds": [],
+      "bestSingleWeek": {
+        "year": 2024,
+        "week": 16,
+        "manager": "Stilly",
+        "opponent": "Stover",
+        "points": 174.82,
+        "opponentPoints": 130.94,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "lowestSingleWeek": {
+        "year": 2018,
+        "week": 14,
+        "manager": "Stilly",
+        "opponent": "Mitch",
+        "points": 55.9,
+        "opponentPoints": 97.32,
+        "stage": "Consolation",
+        "era": "ESPN"
+      },
+      "biggestPostseasonWin": {
+        "year": 2024,
+        "week": 16,
+        "home": "Stilly",
+        "away": "Stover",
+        "homeScore": 174.82,
+        "awayScore": 130.94,
+        "winner": "Stilly",
+        "loser": "Stover",
+        "margin": 43.88,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "closestPostseasonWin": {
+        "year": 2025,
+        "week": 15,
+        "home": "Stilly",
+        "away": "Kuhl",
+        "homeScore": 122.12,
+        "awayScore": 122,
+        "winner": "Stilly",
+        "loser": "Kuhl",
+        "margin": 0.12,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 18,
+      "recordedSingleWeekWins": 10,
+      "longestPlayoffBerthStreak": 3
+    },
+    {
+      "manager": "Stover",
+      "appearances": [
+        2018,
+        2020,
+        2021,
+        2022,
+        2024
+      ],
+      "semifinals": [
+        2018,
+        2021,
+        2022,
+        2024
+      ],
+      "finals": [
+        2022
+      ],
+      "byes": [
+        2018,
+        2022,
+        2024
+      ],
+      "championships": [
+        2022
+      ],
+      "runnerUps": [],
+      "topSeeds": [
+        2024
+      ],
+      "bestSingleWeek": {
+        "year": 2024,
+        "week": 17,
+        "manager": "Stover",
+        "opponent": "JMid",
+        "points": 144,
+        "opponentPoints": 109.28,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "lowestSingleWeek": {
+        "year": 2023,
+        "week": 16,
+        "manager": "Stover",
+        "opponent": "Tom",
+        "points": 72.84,
+        "opponentPoints": 110.82,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "biggestPostseasonWin": {
+        "year": 2022,
+        "week": 17,
+        "home": "Stew",
+        "away": "Stover",
+        "homeScore": 48.16,
+        "awayScore": 99.22,
+        "winner": "Stover",
+        "loser": "Stew",
+        "margin": 51.06,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "closestPostseasonWin": {
+        "year": 2023,
+        "week": 15,
+        "home": "Stover",
+        "away": "Kuhl",
+        "homeScore": 109.16,
+        "awayScore": 92.06,
+        "winner": "Stover",
+        "loser": "Kuhl",
+        "margin": 17.1,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 14,
+      "recordedSingleWeekWins": 4,
+      "longestPlayoffBerthStreak": 3
+    },
+    {
+      "manager": "Tom",
+      "appearances": [
+        2016,
+        2017,
+        2018,
+        2021,
+        2022,
+        2024,
+        2025
+      ],
+      "semifinals": [
+        2016,
+        2017,
+        2018,
+        2024,
+        2025
+      ],
+      "finals": [
+        2016,
+        2017,
+        2018,
+        2024,
+        2025
+      ],
+      "byes": [
+        2024
+      ],
+      "championships": [
+        2016,
+        2017,
+        2018,
+        2024
+      ],
+      "runnerUps": [
+        2025
+      ],
+      "topSeeds": [
+        2017
+      ],
+      "bestSingleWeek": {
+        "year": 2024,
+        "week": 17,
+        "manager": "Tom",
+        "opponent": "Stilly",
+        "points": 205.3,
+        "opponentPoints": 114.88,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "lowestSingleWeek": {
+        "year": 2021,
+        "week": 15,
+        "manager": "Tom",
+        "opponent": "Mitch",
+        "points": 84.68,
+        "opponentPoints": 107.7,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "biggestPostseasonWin": {
+        "year": 2024,
+        "week": 17,
+        "home": "Stilly",
+        "away": "Tom",
+        "homeScore": 114.88,
+        "awayScore": 205.3,
+        "winner": "Tom",
+        "loser": "Stilly",
+        "margin": 90.42,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "closestPostseasonWin": {
+        "year": 2024,
+        "week": 16,
+        "home": "JMid",
+        "away": "Tom",
+        "homeScore": 121.08,
+        "awayScore": 123.38,
+        "winner": "Tom",
+        "loser": "JMid",
+        "margin": 2.3,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 14,
+      "recordedSingleWeekWins": 10,
+      "longestPlayoffBerthStreak": 3
+    },
+    {
+      "manager": "Tony",
+      "appearances": [
+        2018,
+        2019,
+        2021,
+        2023,
+        2024,
+        2025
+      ],
+      "semifinals": [
+        2018,
+        2019,
+        2021,
+        2023
+      ],
+      "finals": [
+        2021
+      ],
+      "byes": [
+        2018,
+        2021,
+        2023
+      ],
+      "championships": [
+        2021
+      ],
+      "runnerUps": [],
+      "topSeeds": [
+        2018,
+        2023
+      ],
+      "bestSingleWeek": {
+        "year": 2024,
+        "week": 16,
+        "manager": "Tony",
+        "opponent": "Birch",
+        "points": 139.8,
+        "opponentPoints": 87.36,
+        "stage": "Postseason matchup · bracket unclassified",
+        "era": "Sleeper"
+      },
+      "lowestSingleWeek": {
+        "year": 2018,
+        "week": 15,
+        "manager": "Tony",
+        "opponent": "Tom",
+        "points": 82.3,
+        "opponentPoints": 94.8,
+        "stage": "Verified championship bracket",
+        "era": "ESPN"
+      },
+      "biggestPostseasonWin": {
+        "year": 2024,
+        "week": 16,
+        "home": "Tony",
+        "away": "Birch",
+        "homeScore": 139.8,
+        "awayScore": 87.36,
+        "winner": "Tony",
+        "loser": "Birch",
+        "margin": 52.44,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "closestPostseasonWin": {
+        "year": 2021,
+        "week": 16,
+        "home": "Evans",
+        "away": "Tony",
+        "homeScore": 133.98,
+        "awayScore": 138.28,
+        "winner": "Tony",
+        "loser": "Evans",
+        "margin": 4.3,
+        "stage": "Postseason matchup · bracket unclassified",
+        "source": "playoff_matchups_2020_2025",
+        "era": "Sleeper"
+      },
+      "recordedSingleWeekAppearances": 16,
+      "recordedSingleWeekWins": 7,
+      "longestPlayoffBerthStreak": 3
+    }
+  ],
+  "brackets": [
+    {
+      "year": 2016,
+      "participants": [
+        "Halderman",
+        "Koble",
+        "Evans",
+        "Tom"
+      ],
+      "semifinalists": [
+        "Halderman",
+        "Koble",
+        "Evans",
+        "Tom"
+      ],
+      "finalists": [
+        "Halderman",
+        "Tom"
+      ],
+      "byes": [],
+      "champion": "Tom"
+    },
+    {
+      "year": 2017,
+      "participants": [
+        "Tom",
+        "Evans",
+        "Schermerhorn",
+        "Stilly"
+      ],
+      "semifinalists": [
+        "Tom",
+        "Evans",
+        "Schermerhorn",
+        "Stilly"
+      ],
+      "finalists": [
+        "Tom",
+        "Schermerhorn"
+      ],
+      "byes": [],
+      "champion": "Tom"
+    },
+    {
+      "year": 2018,
+      "participants": [
+        "Tony",
+        "Tom",
+        "Kuhl",
+        "Stew",
+        "Birch",
+        "Stover"
+      ],
+      "semifinalists": [
+        "Tony",
+        "Tom",
+        "Stover",
+        "Birch"
+      ],
+      "finalists": [
+        "Tom",
+        "Birch"
+      ],
+      "byes": [
+        "Tony",
+        "Stover"
+      ],
+      "champion": "Tom"
+    },
+    {
+      "year": 2019,
+      "participants": [
+        "Birch",
+        "Tony",
+        "Kuhl",
+        "Mitch",
+        "Stilly",
+        "Stew"
+      ],
+      "semifinalists": [
+        "Birch",
+        "Tony",
+        "Stew",
+        "Mitch"
+      ],
+      "finalists": [
+        "Birch",
+        "Stew"
+      ],
+      "byes": [
+        "Birch",
+        "Stew"
+      ],
+      "champion": "Birch"
+    },
+    {
+      "year": 2020,
+      "participants": [
+        "Mitch",
+        "Birch",
+        "Kuhl",
+        "Evans",
+        "Stover",
+        "Koble"
+      ],
+      "semifinalists": [
+        "Mitch",
+        "Evans",
+        "Birch",
+        "Koble"
+      ],
+      "finalists": [
+        "Mitch",
+        "Koble"
+      ],
+      "byes": [
+        "Mitch",
+        "Birch"
+      ],
+      "champion": "Koble"
+    },
+    {
+      "year": 2021,
+      "participants": [
+        "Birch",
+        "Tony",
+        "Stover",
+        "Mitch",
+        "Evans",
+        "Tom"
+      ],
+      "semifinalists": [
+        "Birch",
+        "Evans",
+        "Tony",
+        "Stover"
+      ],
+      "finalists": [
+        "Tony",
+        "Evans"
+      ],
+      "byes": [
+        "Birch",
+        "Tony"
+      ],
+      "champion": "Tony"
+    },
+    {
+      "year": 2022,
+      "participants": [
+        "Stew",
+        "Stover",
+        "Kuhl",
+        "Mitch",
+        "Stilly",
+        "Tom"
+      ],
+      "semifinalists": [
+        "Stew",
+        "Mitch",
+        "Stover",
+        "Kuhl"
+      ],
+      "finalists": [
+        "Stew",
+        "Stover"
+      ],
+      "byes": [
+        "Stew",
+        "Stover"
+      ],
+      "champion": "Stover"
+    },
+    {
+      "year": 2023,
+      "participants": [
+        "Tony",
+        "Koble",
+        "Evans",
+        "Stilly",
+        "Birch",
+        "Mitch"
+      ],
+      "semifinalists": [
+        "Tony",
+        "Stilly",
+        "Koble",
+        "Mitch"
+      ],
+      "finalists": [
+        "Stilly",
+        "Mitch"
+      ],
+      "byes": [
+        "Tony",
+        "Koble"
+      ],
+      "champion": "Stilly"
+    },
+    {
+      "year": 2024,
+      "participants": [
+        "Stover",
+        "Tom",
+        "JMid",
+        "Stilly",
+        "Birch",
+        "Tony"
+      ],
+      "semifinalists": [
+        "Stover",
+        "Stilly",
+        "Tom",
+        "JMid"
+      ],
+      "finalists": [
+        "Stilly",
+        "Tom"
+      ],
+      "byes": [
+        "Stover",
+        "Tom"
+      ],
+      "champion": "Tom"
+    },
+    {
+      "year": 2025,
+      "participants": [
+        "Mitch",
+        "Scott",
+        "Tony",
+        "Tom",
+        "Stew",
+        "Birch"
+      ],
+      "semifinalists": [
+        "Mitch",
+        "Tom",
+        "Scott",
+        "Birch"
+      ],
+      "finalists": [
+        "Tom",
+        "Scott"
+      ],
+      "byes": [
+        "Mitch",
+        "Scott"
+      ],
+      "champion": "Scott"
+    }
+  ]
+}

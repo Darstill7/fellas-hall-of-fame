@@ -213,16 +213,16 @@
         {
           "opponent": "Evans",
           "w": 4,
-          "l": 3,
+          "l": 4,
           "t": 0,
-          "games": 7
+          "games": 8
         },
         {
           "opponent": "JMid",
           "w": 1,
-          "l": 4,
+          "l": 3,
           "t": 0,
-          "games": 5
+          "games": 4
         },
         {
           "opponent": "Scott",
@@ -312,28 +312,28 @@
     {
       "manager": "Evans",
       "firstSeason": 2016,
-      "lastSeason": 2022,
+      "lastSeason": 2023,
       "regular": {
-        "games": 93,
-        "w": 43,
-        "l": 50,
+        "games": 107,
+        "w": 52,
+        "l": 55,
         "t": 0
       },
       "bestWeek": {
-        "year": 2021,
-        "week": 14,
+        "year": 2023,
+        "week": 7,
         "home": "Evans",
-        "away": "Mitch",
-        "homeScore": 162.04,
-        "awayScore": 134.82,
+        "away": "Stew",
+        "homeScore": 167.46,
+        "awayScore": 109.42,
         "winner": "HOME",
-        "margin": 27.22,
+        "margin": 58.04,
         "stage": "regular",
         "era": "Sleeper",
-        "source": "sleeper_matchups_2021",
-        "points": 162.04,
-        "opponentPoints": 134.82,
-        "opponent": "Mitch",
+        "source": "sleeper_matchups_2023",
+        "points": 167.46,
+        "opponentPoints": 109.42,
+        "opponent": "Stew",
         "outcome": "W"
       },
       "worstWeek": {
@@ -422,9 +422,9 @@
         "outcome": "L"
       },
       "postseason": {
-        "games": 15,
+        "games": 17,
         "w": 7,
-        "l": 8,
+        "l": 10,
         "t": 0,
         "bestScoringMatchup": {
           "year": 2016,
@@ -453,66 +453,66 @@
       "headToHead": [
         {
           "opponent": "Stover",
-          "w": 4,
+          "w": 6,
           "l": 8,
           "t": 0,
-          "games": 12
+          "games": 14
         },
         {
-          "opponent": "Stew",
-          "w": 4,
-          "l": 7,
+          "opponent": "Koble",
+          "w": 7,
+          "l": 6,
           "t": 0,
-          "games": 11
+          "games": 13
         },
         {
           "opponent": "Stilly",
           "w": 6,
-          "l": 5,
+          "l": 7,
           "t": 0,
-          "games": 11
+          "games": 13
         },
         {
-          "opponent": "Koble",
-          "w": 6,
-          "l": 5,
+          "opponent": "Stew",
+          "w": 5,
+          "l": 7,
           "t": 0,
-          "games": 11
+          "games": 12
         },
         {
           "opponent": "Thommy",
-          "w": 5,
+          "w": 7,
           "l": 5,
           "t": 0,
-          "games": 10
+          "games": 12
         },
         {
           "opponent": "Tony",
-          "w": 2,
+          "w": 3,
           "l": 8,
           "t": 0,
-          "games": 10
+          "games": 11
         },
         {
           "opponent": "Mitch",
+          "w": 5,
+          "l": 4,
+          "t": 0,
+          "games": 9
+        },
+        {
+          "opponent": "Birch",
           "w": 4,
           "l": 4,
           "t": 0,
           "games": 8
         },
         {
-          "opponent": "Birch",
-          "w": 3,
-          "l": 4,
-          "t": 0,
-          "games": 7
-        },
-        {
           "opponent": "Kuhl",
           "w": 3,
-          "l": 3,
+          "l": 5,
           "t": 0,
-          "games": 6
+          "games": 8
         },
         {
           "opponent": "Halderman",
@@ -570,6 +570,12 @@
           "year": 2022,
           "w": 4,
           "l": 10,
+          "t": 0
+        },
+        {
+          "year": 2023,
+          "w": 9,
+          "l": 5,
           "t": 0
         }
       ]
@@ -731,6 +737,13 @@
           "games": 4
         },
         {
+          "opponent": "Koble",
+          "w": 3,
+          "l": 0,
+          "t": 0,
+          "games": 3
+        },
+        {
           "opponent": "Stew",
           "w": 0,
           "l": 3,
@@ -749,13 +762,6 @@
           "w": 0,
           "l": 2,
           "t": 1,
-          "games": 3
-        },
-        {
-          "opponent": "Koble",
-          "w": 3,
-          "l": 0,
-          "t": 0,
           "games": 3
         },
         {
@@ -797,29 +803,29 @@
     },
     {
       "manager": "JMid",
-      "firstSeason": 2023,
+      "firstSeason": 2024,
       "lastSeason": 2026,
       "regular": {
-        "games": 50,
-        "w": 25,
-        "l": 25,
+        "games": 36,
+        "w": 16,
+        "l": 20,
         "t": 0
       },
       "bestWeek": {
-        "year": 2023,
-        "week": 7,
+        "year": 2024,
+        "week": 10,
         "home": "JMid",
-        "away": "Stew",
-        "homeScore": 167.46,
-        "awayScore": 109.42,
+        "away": "Stover",
+        "homeScore": 165.02,
+        "awayScore": 90.08,
         "winner": "HOME",
-        "margin": 58.04,
+        "margin": 74.94,
         "stage": "regular",
         "era": "Sleeper",
-        "source": "sleeper_matchups_2023",
-        "points": 167.46,
-        "opponentPoints": 109.42,
-        "opponent": "Stew",
+        "source": "sleeper_matchups_2024",
+        "points": 165.02,
+        "opponentPoints": 90.08,
+        "opponent": "Stover",
         "outcome": "W"
       },
       "worstWeek": {
@@ -857,37 +863,37 @@
         "outcome": "W"
       },
       "closestWin": {
-        "year": 2023,
-        "week": 8,
+        "year": 2025,
+        "week": 4,
         "home": "JMid",
-        "away": "Tony",
-        "homeScore": 124.26,
-        "awayScore": 122.28,
+        "away": "Stew",
+        "homeScore": 124.38,
+        "awayScore": 121.02,
         "winner": "HOME",
-        "margin": 1.98,
+        "margin": 3.36,
         "stage": "regular",
         "era": "Sleeper",
-        "source": "sleeper_matchups_2023",
-        "points": 124.26,
-        "opponentPoints": 122.28,
-        "opponent": "Tony",
+        "source": "sleeper_matchups_2025",
+        "points": 124.38,
+        "opponentPoints": 121.02,
+        "opponent": "Stew",
         "outcome": "W"
       },
       "closestLoss": {
-        "year": 2023,
-        "week": 4,
+        "year": 2024,
+        "week": 12,
         "home": "JMid",
-        "away": "Kuhl",
-        "homeScore": 118.26,
-        "awayScore": 120.58,
+        "away": "Stew",
+        "homeScore": 102.06,
+        "awayScore": 106.18,
         "winner": "AWAY",
-        "margin": -2.32,
+        "margin": -4.12,
         "stage": "regular",
         "era": "Sleeper",
-        "source": "sleeper_matchups_2023",
-        "points": 118.26,
-        "opponentPoints": 120.58,
-        "opponent": "Kuhl",
+        "source": "sleeper_matchups_2024",
+        "points": 102.06,
+        "opponentPoints": 106.18,
+        "opponent": "Stew",
         "outcome": "L"
       },
       "biggestLoss": {
@@ -908,9 +914,9 @@
         "outcome": "L"
       },
       "postseason": {
-        "games": 7,
+        "games": 5,
         "w": 2,
-        "l": 5,
+        "l": 3,
         "t": 0,
         "bestScoringMatchup": {
           "year": 2025,
@@ -934,60 +940,39 @@
       },
       "headToHead": [
         {
-          "opponent": "Stover",
-          "w": 3,
-          "l": 4,
-          "t": 0,
-          "games": 7
-        },
-        {
-          "opponent": "Kuhl",
-          "w": 3,
-          "l": 3,
-          "t": 0,
-          "games": 6
-        },
-        {
           "opponent": "Stew",
-          "w": 4,
+          "w": 3,
           "l": 2,
           "t": 0,
-          "games": 6
-        },
-        {
-          "opponent": "Birch",
-          "w": 4,
-          "l": 1,
-          "t": 0,
           "games": 5
         },
         {
-          "opponent": "Mitch",
-          "w": 2,
-          "l": 3,
-          "t": 0,
-          "games": 5
-        },
-        {
-          "opponent": "Stilly",
+          "opponent": "Stover",
           "w": 1,
           "l": 4,
           "t": 0,
           "games": 5
         },
         {
-          "opponent": "Thommy",
+          "opponent": "Birch",
           "w": 3,
-          "l": 2,
+          "l": 1,
           "t": 0,
-          "games": 5
+          "games": 4
         },
         {
-          "opponent": "Tony",
-          "w": 2,
+          "opponent": "Kuhl",
+          "w": 3,
+          "l": 1,
+          "t": 0,
+          "games": 4
+        },
+        {
+          "opponent": "Mitch",
+          "w": 1,
           "l": 3,
           "t": 0,
-          "games": 5
+          "games": 4
         },
         {
           "opponent": "Scott",
@@ -997,20 +982,28 @@
           "games": 4
         },
         {
-          "opponent": "Koble",
+          "opponent": "Tony",
           "w": 1,
-          "l": 1,
+          "l": 3,
           "t": 0,
-          "games": 2
+          "games": 4
+        },
+        {
+          "opponent": "Stilly",
+          "w": 1,
+          "l": 2,
+          "t": 0,
+          "games": 3
+        },
+        {
+          "opponent": "Thommy",
+          "w": 1,
+          "l": 2,
+          "t": 0,
+          "games": 3
         }
       ],
       "annual": [
-        {
-          "year": 2023,
-          "w": 9,
-          "l": 5,
-          "t": 0
-        },
         {
           "year": 2024,
           "w": 8,
@@ -1044,7 +1037,7 @@
       "bestWeek": {
         "year": 2023,
         "week": 13,
-        "home": "JMid",
+        "home": "Evans",
         "away": "Kuhl",
         "homeScore": 141.12,
         "awayScore": 171.6,
@@ -1055,7 +1048,7 @@
         "source": "sleeper_matchups_2023",
         "points": 171.6,
         "opponentPoints": 141.12,
-        "opponent": "JMid",
+        "opponent": "Evans",
         "outcome": "W"
       },
       "worstWeek": {
@@ -1227,17 +1220,17 @@
         },
         {
           "opponent": "Evans",
-          "w": 3,
+          "w": 5,
           "l": 3,
           "t": 0,
-          "games": 6
+          "games": 8
         },
         {
           "opponent": "JMid",
-          "w": 3,
+          "w": 1,
           "l": 3,
           "t": 0,
-          "games": 6
+          "games": 4
         },
         {
           "opponent": "Scott",
@@ -1497,9 +1490,9 @@
         {
           "opponent": "Evans",
           "w": 4,
-          "l": 4,
+          "l": 5,
           "t": 0,
-          "games": 8
+          "games": 9
         },
         {
           "opponent": "Koble",
@@ -1511,9 +1504,9 @@
         {
           "opponent": "JMid",
           "w": 3,
-          "l": 2,
+          "l": 1,
           "t": 0,
-          "games": 5
+          "games": 4
         },
         {
           "opponent": "Scott",
@@ -1737,6 +1730,13 @@
           "games": 3
         },
         {
+          "opponent": "Koble",
+          "w": 1,
+          "l": 2,
+          "t": 0,
+          "games": 3
+        },
+        {
           "opponent": "Stew",
           "w": 3,
           "l": 0,
@@ -1752,13 +1752,6 @@
         },
         {
           "opponent": "Thommy",
-          "w": 1,
-          "l": 2,
-          "t": 0,
-          "games": 3
-        },
-        {
-          "opponent": "Koble",
           "w": 1,
           "l": 2,
           "t": 0,
@@ -2209,18 +2202,18 @@
           "games": 12
         },
         {
+          "opponent": "Evans",
+          "w": 7,
+          "l": 5,
+          "t": 0,
+          "games": 12
+        },
+        {
           "opponent": "Kuhl",
           "w": 5,
           "l": 7,
           "t": 0,
           "games": 12
-        },
-        {
-          "opponent": "Evans",
-          "w": 7,
-          "l": 4,
-          "t": 0,
-          "games": 11
         },
         {
           "opponent": "Koble",
@@ -2232,9 +2225,9 @@
         {
           "opponent": "JMid",
           "w": 2,
-          "l": 4,
+          "l": 3,
           "t": 0,
-          "games": 6
+          "games": 5
         },
         {
           "opponent": "Halderman",
@@ -2513,10 +2506,10 @@
         },
         {
           "opponent": "Evans",
-          "w": 5,
+          "w": 7,
           "l": 6,
           "t": 0,
-          "games": 11
+          "games": 13
         },
         {
           "opponent": "Kuhl",
@@ -2533,13 +2526,6 @@
           "games": 10
         },
         {
-          "opponent": "JMid",
-          "w": 4,
-          "l": 1,
-          "t": 0,
-          "games": 5
-        },
-        {
           "opponent": "Scott",
           "w": 3,
           "l": 2,
@@ -2552,6 +2538,13 @@
           "l": 3,
           "t": 0,
           "games": 4
+        },
+        {
+          "opponent": "JMid",
+          "w": 2,
+          "l": 1,
+          "t": 0,
+          "games": 3
         },
         {
           "opponent": "Schermerhorn",
@@ -2794,6 +2787,13 @@
           "games": 16
         },
         {
+          "opponent": "Evans",
+          "w": 8,
+          "l": 6,
+          "t": 0,
+          "games": 14
+        },
+        {
           "opponent": "Kuhl",
           "w": 7,
           "l": 7,
@@ -2822,13 +2822,6 @@
           "games": 13
         },
         {
-          "opponent": "Evans",
-          "w": 8,
-          "l": 4,
-          "t": 0,
-          "games": 12
-        },
-        {
           "opponent": "Mitch",
           "w": 3,
           "l": 7,
@@ -2838,9 +2831,9 @@
         {
           "opponent": "JMid",
           "w": 4,
-          "l": 3,
+          "l": 1,
           "t": 0,
-          "games": 7
+          "games": 5
         },
         {
           "opponent": "Scott",
@@ -3125,25 +3118,18 @@
           "games": 13
         },
         {
+          "opponent": "Evans",
+          "w": 5,
+          "l": 7,
+          "t": 0,
+          "games": 12
+        },
+        {
           "opponent": "Koble",
           "w": 7,
           "l": 5,
           "t": 0,
           "games": 12
-        },
-        {
-          "opponent": "Evans",
-          "w": 5,
-          "l": 5,
-          "t": 0,
-          "games": 10
-        },
-        {
-          "opponent": "JMid",
-          "w": 2,
-          "l": 3,
-          "t": 0,
-          "games": 5
         },
         {
           "opponent": "Scott",
@@ -3157,6 +3143,13 @@
           "w": 2,
           "l": 0,
           "t": 1,
+          "games": 3
+        },
+        {
+          "opponent": "JMid",
+          "w": 2,
+          "l": 1,
+          "t": 0,
           "games": 3
         },
         {
@@ -3428,6 +3421,13 @@
           "games": 12
         },
         {
+          "opponent": "Evans",
+          "w": 8,
+          "l": 3,
+          "t": 0,
+          "games": 11
+        },
+        {
           "opponent": "Koble",
           "w": 6,
           "l": 5,
@@ -3435,18 +3435,11 @@
           "games": 11
         },
         {
-          "opponent": "Evans",
-          "w": 8,
-          "l": 2,
-          "t": 0,
-          "games": 10
-        },
-        {
           "opponent": "JMid",
           "w": 3,
-          "l": 2,
+          "l": 1,
           "t": 0,
-          "games": 5
+          "games": 4
         },
         {
           "opponent": "Scott",
@@ -3676,6 +3669,13 @@
       },
       "headToHead": [
         {
+          "opponent": "Evans",
+          "w": 6,
+          "l": 7,
+          "t": 0,
+          "games": 13
+        },
+        {
           "opponent": "Stover",
           "w": 6,
           "l": 7,
@@ -3700,13 +3700,6 @@
           "opponent": "Birch",
           "w": 6,
           "l": 5,
-          "t": 0,
-          "games": 11
-        },
-        {
-          "opponent": "Evans",
-          "w": 5,
-          "l": 6,
           "t": 0,
           "games": 11
         },
@@ -3751,13 +3744,6 @@
           "l": 1,
           "t": 0,
           "games": 3
-        },
-        {
-          "opponent": "JMid",
-          "w": 1,
-          "l": 1,
-          "t": 0,
-          "games": 2
         }
       ],
       "annual": [

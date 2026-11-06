@@ -17,7 +17,7 @@ const playoffSleeper=JSON.parse(fs.readFileSync('data/verified_sleeper_playoff_b
 const expectedPlayoffs={
  Stilly:[5,2,1],Stew:[4,2,0],Thommy:[7,5,4],
  Stover:[5,1,1],Birch:[7,2,1],Tony:[6,1,1],
- Mitch:[6,2,0],Kuhl:[4,0,0],JMid:[2,0,0],Scott:[1,1,1]
+ Mitch:[6,2,0],Kuhl:[4,0,0],JMid:[1,0,0],Scott:[1,1,1]
 };
 for(const [manager,expected] of Object.entries(expectedPlayoffs)){
  const resume=buildPlayoffResume(playoffEspn,playoffSleeper,manager);
@@ -352,8 +352,11 @@ for(const yearData of bracketReceipts.seasons){
   const matches=sourceMatchups.find(x=>x.year===year&&x.week===game.week)?.games||[];
   const found=matches.some(m=>{
    const points=new Map([m.home,m.away]);
-   return points.get(handles[game.winner])===game.winnerScore&&
-     points.get(handles[game.loser])===game.loserScore;
+   // In 2023 the roster/account label JMidd belonged to Evans, who
+   // finished that entire season before JMid joined in 2024.
+   const rosterHandle=name=>year===2023&&name==='Evans'?'JMidd':handles[name];
+   return points.get(rosterHandle(game.winner))===game.winnerScore&&
+     points.get(rosterHandle(game.loser))===game.loserScore;
   });
   if(!found)throw Error('Unreconciled historical placement score '+year+' '+game.label);
   if(game.label==='King (Last Place)'&&

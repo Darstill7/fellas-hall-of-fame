@@ -6,7 +6,8 @@
   "limitations": [
     "2020 and 2021 Week 14 each had two scored but unpaired rosters; no results or byes inferred.",
     "Cross-era positional and scoring format differences affect raw point comparisons; luck uses within-week peer comparisons.",
-    "2026 is in progress."
+    "2026 is in progress.",
+    "Commissioner-confirmed owner: the JMidd Sleeper roster in 2023 belonged to Evans; JMid entered the league in 2024."
   ],
   "ranked": [
     {
@@ -541,9 +542,9 @@
     },
     {
       "manager": "Evans",
-      "games": 93,
-      "actualWins": 43,
-      "expectedWins": 44.786,
+      "games": 107,
+      "actualWins": 52,
+      "expectedWins": 54.23,
       "bySeason": {
         "2016": {
           "games": 13,
@@ -579,10 +580,15 @@
           "games": 14,
           "actualWins": 4,
           "expectedWins": 5.777777777777777
+        },
+        "2023": {
+          "games": 14,
+          "actualWins": 9,
+          "expectedWins": 9.444444444444445
         }
       },
-      "luckWins": -1.786,
-      "luckPer14": -0.269
+      "luckWins": -2.23,
+      "luckPer14": -0.292
     },
     {
       "manager": "Kuhl",
@@ -661,15 +667,10 @@
     },
     {
       "manager": "JMid",
-      "games": 50,
-      "actualWins": 25,
-      "expectedWins": 27.722,
+      "games": 36,
+      "actualWins": 16,
+      "expectedWins": 18.278,
       "bySeason": {
-        "2023": {
-          "games": 14,
-          "actualWins": 9,
-          "expectedWins": 9.444444444444445
-        },
         "2024": {
           "games": 14,
           "actualWins": 8,
@@ -686,8 +687,8 @@
           "expectedWins": 4.333333333333334
         }
       },
-      "luckWins": -2.722,
-      "luckPer14": -0.762
+      "luckWins": -2.278,
+      "luckPer14": -0.886
     }
   ]
 }

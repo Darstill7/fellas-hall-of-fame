@@ -94,13 +94,13 @@
     },
     {
       "manager": "JMid",
-      "playerSeasons": 109,
-      "starts": 432,
-      "starterPoints": 5478.98,
-      "aboveBenchmark": 3209.19,
-      "matchupSwing": 42,
-      "matchedWeeks": 432,
-      "aboveBenchmarkPerStart": 7.429
+      "playerSeasons": 83,
+      "starts": 306,
+      "starterPoints": 3780.02,
+      "aboveBenchmark": 2165.56,
+      "matchupSwing": 22,
+      "matchedWeeks": 306,
+      "aboveBenchmarkPerStart": 7.077
     },
     {
       "manager": "Scott",
@@ -111,6 +111,16 @@
       "matchupSwing": 35,
       "matchedWeeks": 306,
       "aboveBenchmarkPerStart": 6.649
+    },
+    {
+      "manager": "Evans",
+      "playerSeasons": 26,
+      "starts": 126,
+      "starterPoints": 1698.96,
+      "aboveBenchmark": 1043.63,
+      "matchupSwing": 20,
+      "matchedWeeks": 126,
+      "aboveBenchmarkPerStart": 8.283
     }
   ],
   "byYear": {
@@ -362,7 +372,7 @@
     ],
     "2023": [
       {
-        "manager": "JMid",
+        "manager": "Evans",
         "playerSeasons": 26,
         "starts": 126,
         "starterPoints": 1698.96,
@@ -759,5 +769,5 @@
       }
     ]
   },
-  "comparabilityNote": "All-time totals are tenure-sensitive. Stover is now fully reconciled across Sleeper owner handle yogurtslinger15 for 2020–2025 plus current 2026 records; pre-2020 player-level data remains unavailable."
+  "comparabilityNote": "All-time totals are tenure-sensitive. Stover is now fully reconciled across Sleeper owner handle yogurtslinger15 for 2020–2025 plus current 2026 records; pre-2020 player-level data remains unavailable. 2023 team slot originally labeled JMidd was managed by Evans (commissioner correction 2026-11-06); derived manager WAR summaries now credit Evans. Historical past-era coverage is partial."
 }

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "asOf": "2026-11-04",
+  "asOf": "2026-11-06; Evan's 2023 season credited to Evans, not JMid",
   "scope": "Ten active manager Report Card evidence audit; Fellas archival sources",
-  "precedence": "Original ESPN results 2016–2019; verified Sleeper scoring, transactions and brackets 2020–2026; legacy FF HISTORY secondary only.",
+  "precedence": "Original ESPN results 2016–2019; verified Sleeper scoring, transactions and brackets 2020–2026; legacy FF HISTORY secondary only. Commissioner correction confirmed Evans actively managed 2023 and JMid began in 2024; pickup and FAAB manager totals match season-specific ownership.",
   "categories": {
     "career": "Verified factual final ranks 2016–2025",
     "pickups": "Recorded later starts, not an acquisition skill grade",
@@ -489,15 +489,15 @@
     {
       "manager": "JMid",
       "career": {
-        "completedSeasons": 3,
+        "completedSeasons": 2,
         "fieldAdjustedScore": 44.44,
         "topThree": 0,
         "lastPlace": 0
       },
       "pickups": {
-        "distinct": 85,
-        "laterStarted": 43,
-        "percent": 50.6,
+        "distinct": 60,
+        "laterStarted": 34,
+        "percent": 56.7,
         "scope": "2020–2026 partial",
         "grade": "Not rated"
       },
@@ -522,11 +522,11 @@
         "grade": "Provisional outcome only"
       },
       "faab": {
-        "completedClaims": 55,
-        "paidWins": 39,
-        "zeroDollarWins": 16,
-        "failedClaims": 47,
-        "winningSpend": 253,
+        "completedClaims": 42,
+        "paidWins": 33,
+        "zeroDollarWins": 9,
+        "failedClaims": 35,
+        "winningSpend": 212,
         "claimCoverage": "2020–2025 W1–18; 2026 W1–7 partial",
         "grade": "Not rated"
       },

@@ -7,8 +7,8 @@ const cases=[
  ['stilly','Stilly',2023,['Mike Evans','Derrick Henry']],
  ['stew','Stew',2022,['Justin Jefferson',"Ja'Marr Chase"]],
  ['tony','Tony',2021,['Joe Mixon']],
- ['tony','Tony',2022,['James Robinson']],
- ['kuhl','Kuhl',2024,['J.K. Dobbins']],
+ ['tony','Tony',2023,['Cooper Kupp']],
+ ['kuhl','Kuhl',2023,['James Conner',"De'Von Achane",'Puka Nacua']],
  ['jmid','JMid',2024,['Kyren Williams','Calvin Ridley']]
 ];
 const errors=[];

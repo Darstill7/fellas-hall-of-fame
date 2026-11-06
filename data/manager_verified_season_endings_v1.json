@@ -697,14 +697,6 @@
     ],
     "JMid": [
       {
-        "year": 2023,
-        "regular": "9-5",
-        "ending": "6th place",
-        "note": "Verified Sleeper final postseason placement: 6 of 10. This is the final league finish, not the regular-season seed.",
-        "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
-        "finalRank": 6
-      },
-      {
         "year": 2024,
         "regular": "8-6",
         "ending": "4th place",
@@ -750,6 +742,76 @@
         "ending": "Season in progress",
         "note": "Record reflects archived 2026 snapshot through Week 8",
         "source": "Sleeper reconstruction"
+      }
+    ],
+    "Evans": [
+      {
+        "year": 2016,
+        "regular": "8-5",
+        "ending": "3rd place",
+        "note": "Original ESPN final finish: 3 of 8.",
+        "source": "ESPN recovered final finishing ranks / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 3
+      },
+      {
+        "year": 2017,
+        "regular": "6-6",
+        "ending": "4th place",
+        "note": "Original ESPN final finish: 4 of 10.",
+        "source": "ESPN recovered final finishing ranks / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 4
+      },
+      {
+        "year": 2018,
+        "regular": "6-7",
+        "ending": "7th place",
+        "note": "Original ESPN final finish: 7 of 10.",
+        "source": "ESPN recovered final finishing ranks / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 7
+      },
+      {
+        "year": 2019,
+        "regular": "5-8",
+        "ending": "10th place (last)",
+        "note": "Original ESPN final rank 10 of 10; certified 2019 losers-consolation last place, Shitter of the Year.",
+        "source": "ESPN recovered final finishing ranks / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 10,
+        "awards": [
+          "Shitter of the Year"
+        ],
+        "awardNote": "Evans finished last in the 2019 ESPN losers-consolation bracket; award follows verified final rank, not raw lowest single-week score."
+      },
+      {
+        "year": 2020,
+        "regular": "7-7",
+        "ending": "6th place",
+        "note": "Verified Sleeper final postseason placement: 6 of 10.",
+        "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 6
+      },
+      {
+        "year": 2021,
+        "regular": "7-7",
+        "ending": "Runner-up",
+        "note": "Verified Sleeper final postseason placement: 2 of 10.",
+        "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 2
+      },
+      {
+        "year": 2022,
+        "regular": "4-10",
+        "ending": "7th place",
+        "note": "Verified Sleeper final postseason placement: 7 of 10.",
+        "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 7
+      },
+      {
+        "year": 2023,
+        "regular": "9-5",
+        "ending": "6th place",
+        "note": "Verified Sleeper final postseason placement: 6 of 10.",
+        "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 6
       }
     ]
   }

@@ -2,7 +2,7 @@
   "version": "recorded-acquisitions-to-subsequent-starts-research-v1",
   "status": "observed_outcomes_not_skill_grades",
   "coverage": "Recorded 2020–2026 Sleeper acquisition events; 2026 partial; ESPN 2016–2019 not in source",
-  "explanation": "Counts are observed transaction-player rows and rows with any later start for the same seasonal roster. Repeated adds and re-acquisitions may count again; no acquisition skill or causal value is inferred.",
+  "explanation": "Counts are observed transaction-player rows and rows with any later start for the same seasonal roster. Repeated adds and re-acquisitions may count again; no acquisition skill or causal value is inferred. Commissioner correction (2026-11-06): the 2023 JMidd roster slot was managed by Evans; JMid's manager-specific acquisition history begins in 2024.",
   "annual": [
     {
       "year": 2020,
@@ -62,13 +62,13 @@
     },
     {
       "manager": "Evans",
-      "recordedAcquiredPlayers": 89,
-      "withLaterStarts": 39
+      "recordedAcquiredPlayers": 117,
+      "withLaterStarts": 48
     },
     {
       "manager": "JMid",
-      "recordedAcquiredPlayers": 95,
-      "withLaterStarts": 43
+      "recordedAcquiredPlayers": 67,
+      "withLaterStarts": 34
     },
     {
       "manager": "Koble",

@@ -3,7 +3,7 @@
   "generatedFor": "2026-10-30 historical recovery",
   "source": "Provider-reported complete and failed Sleeper claims, validated against archived transaction IDs",
   "status": "provider_observed_no_skill_grade",
-  "scope": "2020-2025 weeks 1-18; 2026 weeks 1-7 (partial)",
+  "scope": "2020-2025 weeks 1-18; 2026 weeks 1-7 (partial); commissioner-confirmed 2023 former JMidd team owner Evans, JMid began 2024",
   "policy": "Only status=complete claims contribute to reported winning spend. Failed bids are attempted; causes not established. Historical starting budgets, waiver alternatives and decision skill are NOT established.",
   "managerSeasons": [
     {
@@ -349,7 +349,7 @@
     },
     {
       "year": 2023,
-      "manager": "JMid",
+      "manager": "Evans",
       "completedClaims": 13,
       "failedClaims": 12,
       "paidWins": 6,
@@ -879,24 +879,24 @@
     },
     {
       "manager": "JMid",
-      "seasons": 4,
-      "completedClaims": 55,
-      "failedClaims": 47,
-      "paidWins": 39,
-      "zeroDollarWins": 16,
-      "completedBidSpend": 253,
-      "failedAttemptedBidTotal": 190,
+      "seasons": 3,
+      "completedClaims": 42,
+      "failedClaims": 35,
+      "paidWins": 33,
+      "zeroDollarWins": 9,
+      "completedBidSpend": 212,
+      "failedAttemptedBidTotal": 134,
       "completedNotInOldArchive": 2
     },
     {
       "manager": "Evans",
-      "seasons": 3,
-      "completedClaims": 50,
-      "failedClaims": 26,
-      "paidWins": 34,
-      "zeroDollarWins": 16,
-      "completedBidSpend": 225,
-      "failedAttemptedBidTotal": 313,
+      "seasons": 4,
+      "completedClaims": 63,
+      "failedClaims": 38,
+      "paidWins": 40,
+      "zeroDollarWins": 23,
+      "completedBidSpend": 266,
+      "failedAttemptedBidTotal": 369,
       "completedNotInOldArchive": 4
     },
     {
