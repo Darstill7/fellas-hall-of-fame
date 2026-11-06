@@ -614,8 +614,8 @@ if(main&&tabs){
      !event.altKey&&!event.ctrlKey&&!event.metaKey){
    event.preventDefault();
    returnToFeatureDirectory();
-   focusBack.blur();
-   featureDirectory?.querySelector('details.profile-feature-group[open] > summary')?.focus();
+   // The restoration callback focuses the originating visible feature on the next frame.
+   // Do not override it with a category heading here.
   }
  });
  function focusFeature(button,destination){
