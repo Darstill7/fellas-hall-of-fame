@@ -145,6 +145,21 @@ try{
          return {label:card.querySelector('span')?.textContent?.trim(),value:card.querySelector('strong')?.textContent?.trim(),
           left:r.left,right:r.right,width:r.width,height:r.height}
         }));
+        const editorialMetrics=await page.locator('main .hero .profile-snapshot-condensed').evaluate(box=>{
+         const highlights=[...box.querySelectorAll('.profile-career-highlight')];
+         const honors=box.querySelector('.profile-honors-line');
+         return {panelBorder:getComputedStyle(box).borderStyle,
+          panelPadding:parseFloat(getComputedStyle(box).paddingLeft),
+          figureSizes:highlights.map(el=>parseFloat(getComputedStyle(el.querySelector('strong')).fontSize)),
+          labelSizes:highlights.map(el=>parseFloat(getComputedStyle(el.querySelector('span')).fontSize)),
+          honorsContrast:honors?getComputedStyle(honors).color:'',
+          title:box.querySelector('.profile-snapshot-heading')?.textContent?.trim()}
+        });
+        if(editorialMetrics.panelBorder==='none'||editorialMetrics.panelPadding<10||
+           editorialMetrics.figureSizes.length!==2||editorialMetrics.figureSizes.some(size=>size<22)||
+           editorialMetrics.labelSizes.some(size=>size<11)||
+           editorialMetrics.title!=='Career highlights')
+         findings.push(engine+' '+width+' '+key+' profile editorial card hierarchy incorrect '+JSON.stringify(editorialMetrics));
         if(headlineFacts.length!==2||headlineFacts.some(f=>!f.label||!f.value||f.width<90||f.height<50||
            f.left< -3||f.right>width+3)||!headlineFacts.some(f=>f.label==='Championships')||
            !headlineFacts.some(f=>f.label==='Regular-season record'))
