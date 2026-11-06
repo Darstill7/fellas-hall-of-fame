@@ -88,6 +88,19 @@ try{
         findings.push(engine+' '+width+' '+key+' resource or JS error '+runtime.slice(0,3).join(' | '));
        if(audit.loading)
         findings.push(engine+' '+width+' '+key+' first-screen content remains in a loading state');
+       if(route==='managers/'){
+        const directory=await page.locator('#manager-directory-cards a.manager').evaluateAll(nodes=>nodes.map(n=>{
+         const rect=n.getBoundingClientRect();
+         const heading=n.querySelector('h2');
+         return {width:rect.width,height:rect.height,
+          headingSize:heading?parseFloat(getComputedStyle(heading).fontSize):0,
+          label:heading?.textContent?.trim()||'',link:n.getAttribute('href')};
+        }));
+        if(directory.length!==10||directory.some(c=>c.width<200||c.height<85||c.headingSize<21||!c.label||!c.link))
+         findings.push(engine+' '+width+' manager directory cards unreadable '+JSON.stringify(directory));
+        if(width===390&&directory.some(c=>c.height>175))
+         findings.push(engine+' '+width+' mobile directory card too tall for quick scanning');
+       }
        if(route===''&&width===390){
         const headline=await page.locator('.hero h1').textContent();
         if(!/The history\.\s+The legends\.\s+The Fellas\./.test(headline||''))
