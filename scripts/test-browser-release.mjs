@@ -2197,6 +2197,21 @@ try{
      const tinyTargets=await primary.locator('a').evaluateAll(links=>links.filter(link=>getComputedStyle(link).display!=='none'&&link.getBoundingClientRect().height<40).map(link=>link.textContent.trim()));
      if(tinyTargets.length)errors.push(width+' Manager Record Books links too small to tap: '+tinyTargets.join(', '));
     }
+    const recordJump=page.locator('nav.record-jump-nav');
+    const targets=['#profile','#owned-records','#opponents','#seasons'];
+    if(await recordJump.count()!==1||
+       !(await recordJump.locator('a').evaluateAll((links,expected)=>links.length===expected.length&&links.every((link,i)=>link.getAttribute('href')===expected[i]&&link.getBoundingClientRect().height>=44),targets))||
+       await page.locator('#opponents').count()!==1||await page.locator('#seasons').count()!==1)
+     errors.push(width+' record-book section navigation or tap target invalid');
+    const managerActionOptions=await page.locator('#manager option').evaluateAll(nodes=>nodes.map(x=>x.value));
+    const currentRecordManagers={Stilly:'stilly',Stew:'stew',Thommy:'tom',Stover:'stover',Birch:'birch',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',JMid:'jmid',Scott:'scott'};
+    for(const [name,slug] of Object.entries(currentRecordManagers)){
+     if(!managerActionOptions.includes(name)){errors.push(width+' missing '+name+' record-book selector');continue;}
+     await page.locator('#manager').selectOption(name);
+     const urls=await page.locator('#manager-destination a').evaluateAll(nodes=>nodes.map(node=>node.getAttribute('href')));
+     if(urls.length!==2||urls[0]!=='./'+slug+'/'||urls[1]!=='../analytics/manager-report-cards.html?manager='+encodeURIComponent(name))
+      errors.push(width+' '+name+' missing correct profile/report-card record-book shortcuts');
+    }
     await page.locator('#manager').selectOption('Stilly');
     const career=(await (await page.request.get(baseUrl+'data/career_core_generated.json')).json()).managers.Stilly;
     const expected=career.w+'–'+career.l+(career.t?'–'+career.t:'');
