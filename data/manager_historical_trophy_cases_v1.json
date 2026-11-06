@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "asOf": "2026 Week 7",
+  "asOf": "2026-11-06 — 2023 Evans ownership correction",
   "sources": [
     "data/fellas_awards_by_season.json",
     "data/manager_profile_career_summary_v2.json"
@@ -103,6 +103,15 @@
           "status": "documented",
           "source": "historical scoreboard",
           "coverage": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "label": "Scoring Champion",
+          "detail": "1698.96 total points",
+          "status": "documented",
+          "source": "historical scoreboard",
+          "coverage": "Sleeper",
+          "ownershipNote": "2023 team roster was managed by Evans; commissioner confirmed 2026-11-06"
         }
       ],
       "playerAwards": [],
@@ -161,14 +170,6 @@
       "championships": [],
       "espnFinals": [],
       "teamAwards": [
-        {
-          "year": 2023,
-          "label": "Scoring Champion",
-          "detail": "1698.96 total points",
-          "status": "documented",
-          "source": "historical scoreboard",
-          "coverage": "Sleeper"
-        },
         {
           "year": 2024,
           "label": "Scoring Champion",
