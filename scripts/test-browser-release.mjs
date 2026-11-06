@@ -518,11 +518,15 @@ try{
           !text.includes('not total trades or wins'))
         errors.push(width+' '+route+' season timeline provenance warning or data missing');
        const draftTrade=timeline.locator('.profile-season-draft-trade');
-       const expectedDraftSeasons=(await entries.count())-(name==='JMid'?1:0);
+       const expectedDraftSeasons=await entries.count();
        if(await draftTrade.count()!==expectedDraftSeasons)
         errors.push(width+' '+route+' missing or misattributed season-level draft or trade evidence');
-       if(name==='JMid'&&!(await timeline.innerText()).includes('Original draft not attributable to this manager'))
-        errors.push(width+' '+route+' 2023 original draft attribution caveat missing');
+       if(name==='JMid'){
+        const labels=await yearDetails.locator(':scope > summary').allInnerTexts();
+        if(labels.some(label=>label.includes('2023'))||
+           !labels.some(label=>label.includes('2024')))
+         errors.push(width+' '+route+' JMid historical seasons must begin in 2024; Evans managed all 2023');
+       }
        const currentYear=entries.first();
        if(!((await currentYear.innerText()).includes('Draft ·'))||
           !((await currentYear.innerText()).includes('Trades ·'))||
