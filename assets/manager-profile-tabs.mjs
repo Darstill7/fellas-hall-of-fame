@@ -580,6 +580,7 @@ if(main&&tabs){
  focusBack.type='button';focusBack.textContent='← Back to all features';
  featureToolbar.append(focusName,focusBack);
  featureDirectory?.querySelector('.profile-feature-groups')?.before(featureToolbar);
+ let lastProfileFeatureTrigger=null;
  function clearFeatureFocus(){
   document.body.classList.remove('profile-feature-focused');
   for(const section of sections)section.classList.remove('profile-selected-section');
@@ -599,7 +600,12 @@ if(main&&tabs){
   featureDirectory?.scrollIntoView({block:'start',behavior:'instant'});
   // Back is hidden with the focused-only toolbar on the landing page;
   // return keyboard focus to a visible topic rather than leaving it stranded.
-  requestAnimationFrame(()=>featureDirectory?.querySelector('details.profile-feature-group[open] > summary')?.focus({preventScroll:true}));
+  requestAnimationFrame(()=>{
+   const original=lastProfileFeatureTrigger;
+   const fallback=featureDirectory?.querySelector('details.profile-feature-group[open] > summary');
+   const focusTarget=original?.isConnected&&original.getClientRects().length?original:fallback;
+   focusTarget?.focus({preventScroll:true});
+  });
  }
  focusBack.addEventListener('click',returnToFeatureDirectory);
  // Escape provides a predictable exit from a focused evidence view.
@@ -733,6 +739,7 @@ if(main&&tabs){
   }
   button.nextElementSibling?.matches('.profile-feature-unavailable')&&button.nextElementSibling.remove();
   if(category)activate(category);
+  lastProfileFeatureTrigger=button;
   focusFeature(button,destination);
   const shelf=destination.closest('details.profile-research-shelf');
   if(shelf)shelf.open=true;
