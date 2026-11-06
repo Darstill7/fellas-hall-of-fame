@@ -1,0 +1,44 @@
+/* The Fellas postseason record experience: compact by default, deep on demand. */
+.postseason-showcase{margin:22px 0 30px;padding:22px;border:1px solid #4a6476;border-radius:15px;background:linear-gradient(145deg,#193446,#102534)}
+.postseason-showcase h2,.postseason-archive h2{margin:0 0 9px;font-size:clamp(24px,3vw,31px);line-height:1.25;letter-spacing:-.035em}
+.postseason-intro{color:#cad7e1;font-size:14px;line-height:1.7;max-width:76ch}
+.postseason-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
+.postseason-grid--three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.postseason-metric{min-width:0;background:#102332;border:1px solid #415d72;border-radius:12px;padding:15px;overflow-wrap:anywhere}
+.postseason-metric .postseason-label{display:block;color:#cedbe4;font-size:12px;line-height:1.5;font-weight:650}
+.postseason-metric strong{display:block;color:#f4cf85;font-size:clamp(21px,2.8vw,29px);line-height:1.2;margin:8px 0;font-variant-numeric:tabular-nums}
+.postseason-metric p{margin:0;color:#cbd9e1;font-size:12px;line-height:1.6}
+.postseason-metric a{color:#f4cf85;text-decoration:underline;text-underline-offset:3px}
+.postseason-action{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:10px;border:1px solid #cfac69;padding:10px 17px;background:#dec080;color:#152333!important;text-decoration:none!important;font-weight:800;font-size:13px}
+.postseason-action:hover{background:#fae4af}
+.postseason-archive{margin:20px 0 42px}
+.postseason-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 16px}
+.postseason-tabs button{min-height:44px;border:1px solid #5b788c;background:#162f40;border-radius:9px;padding:9px 13px;color:#f4f1e9;font-size:13px;font-weight:750;cursor:pointer}
+.postseason-tabs button[aria-pressed=true]{background:#dec080;border-color:#dec080;color:#162434}
+.postseason-tabs button:focus-visible,.postseason-action:focus-visible,.postseason-archive a:focus-visible{outline:3px solid #ffdfa0;outline-offset:3px}
+.postseason-table-scroll{width:100%;max-width:100%;overflow-x:auto;border:1px solid #456074;border-radius:13px}
+.postseason-table{width:100%;min-width:520px;border-collapse:collapse;font-size:13px}
+.postseason-table th,.postseason-table td{padding:12px 13px;border-bottom:1px solid #365064;text-align:left;vertical-align:top;line-height:1.6}
+.postseason-table th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#f5d290;background:#183347}
+.postseason-table td{color:#e5ecf0}
+.postseason-table tr:last-child td{border-bottom:0}
+.postseason-table td:nth-child(2){font-weight:800}
+.postseason-season-list{margin:18px 0 8px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.postseason-season-list article{border:1px solid #435c6e;background:#132b3a;padding:13px 15px;border-radius:11px}
+.postseason-season-list strong{color:#f0c981}
+.postseason-season-list p{margin:4px 0;color:#ccd9e1;font-size:13px;line-height:1.6}
+.postseason-note{padding:13px 16px;border-left:3px solid #e3bd71;background:#162c3b;color:#d1dde6;font-size:12px;line-height:1.7;border-radius:5px}
+.postseason-profile-strip{min-width:0;margin:17px 0 4px}
+.postseason-profile-strip details{border:1px solid #537184;border-radius:12px;background:#142c3a;padding:0;margin:0}
+.postseason-profile-strip summary{cursor:pointer;padding:12px 15px;font-size:13px;line-height:1.65;font-weight:750;color:#f6d594}
+.postseason-profile-strip summary:focus-visible{outline:3px solid #ffdfa0;outline-offset:3px}
+.postseason-profile-strip .postseason-profile-body{padding:0 15px 15px}
+.postseason-profile-strip .postseason-grid{margin:8px 0 13px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.postseason-profile-strip .postseason-metric{padding:11px 12px}
+.postseason-profile-strip .postseason-metric strong{font-size:22px}
+.postseason-profile-strip p{font-size:12px;line-height:1.6;color:#d1dde6}
+.postseason-manager-book{margin:22px 0 30px}
+.postseason-manager-book h2{font-size:clamp(21px,3vw,27px);margin:0 0 9px}
+.postseason-manager-book .postseason-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:800px){.postseason-grid,.postseason-profile-strip .postseason-grid,.postseason-manager-book .postseason-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.postseason-grid--three{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.postseason-showcase{padding:16px;margin:15px 0 24px}.postseason-grid{gap:9px}.postseason-metric{padding:13px 12px}.postseason-metric strong{font-size:22px}.postseason-season-list{grid-template-columns:1fr}.postseason-profile-strip .postseason-grid{gap:8px}.postseason-profile-strip .postseason-metric strong{font-size:20px}.postseason-manager-book .postseason-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
