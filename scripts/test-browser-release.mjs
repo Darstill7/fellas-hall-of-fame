@@ -1921,6 +1921,23 @@ try{
           expanded.length===1&&expanded[0].getAttribute('aria-controls')===target;
         },id);
         if(!onlySelected)errors.push(width+' '+slug+' draft topics exposed multiple sections or incorrect expanded state');
+        if(label==='Trades'){
+         const tradeSection=resume.locator('#career-research-topic-5');
+         const text=await tradeSection.innerText();
+         if(!text.includes('Trade partners and recorded exchanges')||
+            !text.includes('Browse all documented trade events'))
+          errors.push(width+' '+slug+' trade context or complete archive link missing');
+         if(slug==='stilly'&&(!text.includes('Trade with Stover')||
+             !text.includes('Stilly received (recorded): Brian Thomas Jr.')||
+             !text.includes('Stover received (recorded): Stefon Diggs')))
+          errors.push(width+' Stilly trade context missing recorded counterparty and both asset sides');
+         if(slug==='jmid'&&(!text.includes('Trade with Stew')||
+             !text.includes('JMid received (recorded): Calvin Ridley, Kyren Williams')||
+             !text.includes('Stew received (recorded): James Cook III')))
+          errors.push(width+' JMid 2024 trade context missing verified receiving sides');
+         if(slug==='scott'&&!text.includes('No qualifying pre-2026 trade sides'))
+          errors.push(width+' Scott trade research must distinguish unavailable qualifying history from no trades');
+        }
         await page.waitForFunction(target=>document.activeElement===document.getElementById(target)?.querySelector('h4'),id,{timeout:3000}).catch(()=>{});
         const activeVisual=await page.evaluate(target=>{
          const button=document.querySelector('.career-research-topic-button[aria-controls="'+target+'"]');
