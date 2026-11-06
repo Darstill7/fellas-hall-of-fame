@@ -1133,9 +1133,22 @@ try{
     await input.fill('not-a-manager');
     if(!await page.locator('#manager-no-results').isVisible()||await page.locator('#manager-directory-cards a.manager:visible').count()!==0)
      errors.push(width+' manager search empty state incorrect');
-    await input.fill('');
-    if(await page.locator('#manager-directory-cards a.manager:visible').count()!==10||!await page.locator('#manager-no-results').isHidden())
-     errors.push(width+' clearing manager search did not restore all ten');
+    await input.press('Escape');
+    if(await input.inputValue()!==''||
+       await page.locator('#manager-directory-cards a.manager:visible').count()!==10||
+       !await page.locator('#manager-no-results').isHidden())
+     errors.push(width+' Escape did not clear manager search and restore all ten');
+    await input.blur();
+    await page.keyboard.press('/');
+    if(!await input.evaluate(el=>document.activeElement===el))
+     errors.push(width+' slash keyboard shortcut failed to focus manager search');
+    await input.fill('stilly');
+    if(await page.locator('#manager-directory-cards a.manager:visible').count()!==1)
+     errors.push(width+' focused manager keyboard search failed');
+    await input.press('Escape');
+    if(await input.inputValue()!==''||
+       await page.locator('#manager-directory-cards a.manager:visible').count()!==10)
+     errors.push(width+' clearing focused manager search did not restore all ten');
    }
    if(route==='analytics/franchise-encyclopedia.html'){
     const managerLink=page.locator('header .nav a[href="../managers/"]');
