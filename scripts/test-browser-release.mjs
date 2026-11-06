@@ -2267,10 +2267,21 @@ try{
     }
     const recordJump=page.locator('nav.record-jump-nav');
     const targets=['#profile','#owned-records','#expanded-manager-records','#postseason-manager-panel','#opponents','#seasons'];
-    if(await recordJump.count()!==1||
-       !(await recordJump.locator('a').evaluateAll((links,expected)=>links.length===expected.length&&links.every((link,i)=>link.getAttribute('href')===expected[i]&&link.getBoundingClientRect().height>=44),targets))||
-       await page.locator('#opponents').count()!==1||await page.locator('#seasons').count()!==1)
-     errors.push(width+' record-book section navigation or tap target invalid');
+    // Personal record sections load from canonical JSON after the static nav
+    // mounts. Let the target exist before judging a navigable anchor.
+    await page.locator('#opponents').waitFor({state:'attached',timeout:7000}).catch(()=>{});
+    await page.locator('#seasons').waitFor({state:'attached',timeout:7000}).catch(()=>{});
+    const jumpEntries=await recordJump.locator('a').evaluateAll(links=>links.map(link=>({
+     href:link.getAttribute('href'),height:Math.round(link.getBoundingClientRect().height*10)/10
+    })));
+    const jumpValid=await recordJump.count()===1&&jumpEntries.length===targets.length&&
+      jumpEntries.every((link,i)=>link.href===targets[i]&&link.height>=44)&&
+      await page.locator('#opponents').count()===1&&await page.locator('#seasons').count()===1;
+    if(!jumpValid)
+     errors.push(width+' record-book section navigation or tap target invalid: '+JSON.stringify({
+      links:jumpEntries,expected:targets,opponents:await page.locator('#opponents').count(),
+      seasons:await page.locator('#seasons').count()
+     }));
     const managerActionOptions=await page.locator('#manager option').evaluateAll(nodes=>nodes.map(x=>x.value));
     const currentRecordManagers={Stilly:'stilly',Stew:'stew',Thommy:'tom',Stover:'stover',Birch:'birch',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',JMid:'jmid',Scott:'scott'};
     for(const [name,slug] of Object.entries(currentRecordManagers)){
