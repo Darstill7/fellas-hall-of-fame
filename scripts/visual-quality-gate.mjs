@@ -88,6 +88,22 @@ try{
         findings.push(engine+' '+width+' '+key+' resource or JS error '+runtime.slice(0,3).join(' | '));
        if(audit.loading)
         findings.push(engine+' '+width+' '+key+' first-screen content remains in a loading state');
+       if(route==='hall/'||route==='analytics/records.html'){
+        const hierarchy=await page.evaluate(()=>{
+         const hero=document.querySelector('main .hero');
+         const sections=[...document.querySelectorAll('main .section')];
+         const title=hero?.querySelector('h1');
+         const firstSection=sections[0];
+         return {titleSize:parseFloat(getComputedStyle(title).fontSize),
+          sectionTitleSize:parseFloat(getComputedStyle(firstSection?.querySelector('h2')).fontSize),
+          sectionCards:[...firstSection?.querySelectorAll('.tile')||[]].map(el=>({width:el.getBoundingClientRect().width,height:el.getBoundingClientRect().height})),
+          archiveTable:document.querySelector('main .records-table')?.getBoundingClientRect().width||0};
+        });
+        if(hierarchy.titleSize<32||hierarchy.sectionTitleSize<22||
+           (route==='hall/'&&(hierarchy.sectionCards.length!==6||hierarchy.sectionCards.some(c=>c.width<160||c.height<90)))||
+           (route==='analytics/records.html'&&hierarchy.archiveTable<200))
+         findings.push(engine+' '+width+' '+key+' hall/record editorial visual hierarchy '+JSON.stringify(hierarchy));
+       }
        if(route===''&&width===390){
         const headline=await page.locator('.hero h1').textContent();
         if(!/The history\.\s+The legends\.\s+The Fellas\./.test(headline||''))
