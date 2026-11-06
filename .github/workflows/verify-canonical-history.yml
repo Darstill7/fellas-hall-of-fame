@@ -104,6 +104,8 @@ jobs:
         run: node scripts/verify-biography-season-claims.mjs
       - name: Verify biography trade claims against archived sides
         run: node scripts/verify-biography-trade-claims.mjs
+      - name: Guard reader-friendly biographies against unsupported trade narration
+        run: node scripts/verify-biography-trade-narratives.mjs
       - name: Keep archived biography copy in sync with manager profiles
         run: node scripts/verify-biography-editorial-parity.mjs
       - name: Preserve historical manager dossier coverage
