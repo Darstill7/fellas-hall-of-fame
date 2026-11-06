@@ -1,0 +1,80 @@
+{
+  "schema": "fellas-featured-trade-storylines-v1",
+  "asOf": "2026-11-06",
+  "editorialScope": "Verified source receipts and commissioner-confirmed significance; 2026 is in progress and no completed-season trade/keeper decision grade is assigned.",
+  "stories": [
+    {
+      "id": "stilly-2025-three-team-to-2026-keeper-and-chase",
+      "title": "The three-team trade that reshaped Stilly's 2026",
+      "manager": "Stilly",
+      "importance": "Commissioner-confirmed defining franchise move; the deal enabled keeping Amon-Ra St. Brown for 2026, followed by acquiring Ja'Marr Chase again in October 2026.",
+      "milestones": [
+        {
+          "type": "completed_three_team_trade",
+          "year": 2025,
+          "date": "2025-11-12",
+          "tradeId": "1294402688213057536",
+          "participants": [
+            "Stilly",
+            "JMid",
+            "Tom"
+          ],
+          "recordedReceiving": {
+            "Stilly": [
+              "Amon-Ra St. Brown",
+              "Jordan Addison",
+              "Jared Goff"
+            ],
+            "JMid": [
+              "Ja'Marr Chase"
+            ],
+            "Tom": [
+              "A.J. Brown"
+            ]
+          },
+          "source": "data/trade_museum_stage66.json",
+          "limits": "All three player-receiving sides are recorded; FAAB components, if any, are not established by this player-only archive."
+        },
+        {
+          "type": "verified_keeper_selection",
+          "year": 2026,
+          "manager": "Stilly",
+          "player": "Amon-Ra St. Brown",
+          "draftRound": 1,
+          "startsThroughWeek8": 7,
+          "starterPointsThroughWeek8": 113.5,
+          "source": "data/keeper_2026_website_research_v1.json",
+          "limits": "Original-manager Week 8 snapshot; 2026 incomplete; counts are observed starts and points, not causal trade value or a full keeper grade."
+        },
+        {
+          "type": "in_progress_two_team_trade",
+          "year": 2026,
+          "date": "2026-10-07",
+          "tradeId": "1413584172332654592",
+          "participants": [
+            "Stilly",
+            "JMid"
+          ],
+          "recordedReceiving": {
+            "Stilly": [
+              "Ja'Marr Chase",
+              "Devaughn Vele"
+            ],
+            "JMid": [
+              "Davante Adams",
+              "George Kittle",
+              "Breece Hall"
+            ]
+          },
+          "source": "data/trade_museum_stage66.json",
+          "limits": "2026 ongoing, historical audit snapshot points are not the season's final trade outcome. FAAB components not independently established."
+        }
+      ],
+      "editorialCautions": [
+        "Keeper eligibility follows the player if traded. This story's 2026 keeper selection is verified; no later-year eligibility is inferred.",
+        "A full exchange can contain FAAB which is not visible in modeled player-only receipts.",
+        "This is a commissioner-confirmed story of strategic roster construction, not a certified trade win or championship causal claim."
+      ]
+    }
+  ]
+}
