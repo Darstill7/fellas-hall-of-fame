@@ -14,18 +14,18 @@ As of **2026-11-06**; source snapshot through **2026 Week 8**.
 
 | Manager | Categories with measurable evidence | League top-three category marks | Selected verified highlights |
 |:--|--:|--:|:--|
-| Stilly | 44 | 9 | Highest average score against one rival (132.07 ppg, League top-three); Most completed seasons (10 seasons, League top-three); Most wins against one rival (11 wins, League top-three) |
-| Stew | 44 | 6 | Most completed seasons (10 seasons, League top-three); Most meetings against one rival (20 games, League top-three); Most recorded regular-season games (143 games, League top-three) |
-| Tom | 44 | 7 | Most top-three finishes (5 finishes, League top-three); Best average normalized finish (66.67 score / 100, League top-three); Wins while scoring below 100 (14 wins, League top-three) |
-| Stover | 44 | 13 | Career regular-season wins (75 wins, League top-three); Most regular-season points scored (15318.4 pts, League top-three); Most points in a season (1770.9 pts, League top-three) |
-| Birch | 44 | 20 | Most top-half finishes (6 finishes, League top-three); Best season point differential (345.12 pts, League top-three); Most 140-point games in one season (5 games, League top-three) |
-| Tony | 44 | 15 | Biggest year-over-year finish rebound (100 points, League top-three); Highest rivalry win rate (83.33 %, League top-three); Largest cumulative margin versus one rival (270.78 pts, League top-three) |
-| Mitch | 44 | 25 | Most wins against one rival (11 wins, League top-three); Most points in a season (1894.88 pts, League top-three); Highest season scoring average (135.35 ppg, League top-three) |
-| Kuhl | 44 | 2 | Wins by 3 points or fewer (5 wins, League top-three); Longest consecutive 120-point run (4 games, League top-three); Most completed seasons (8 seasons, Personal best) |
-| JMid | 41 | 2 | Longest consecutive 100-point run (13 games, League top-three); Most points in a season (1730.22 pts, League top-three); Most completed seasons (3 seasons, Personal best) |
-| Scott | 40 | 1 | Largest regular-season victory (101.38 pts, League top-three); Most completed seasons (2 seasons, Personal best); Most top-three finishes (1 finishes, Personal best) |
+| Stilly | 44 | 13 | Highest average score against one rival (132.07 ppg, League top-three); Most completed seasons (10 seasons, League top-three); Most wins against one rival (11 wins, League top-three) |
+| Stew | 44 | 11 | Most completed seasons (10 seasons, League top-three); Most meetings against one rival (20 games, League top-three); Most recorded regular-season games (143 games, League top-three) |
+| Tom | 44 | 13 | Most top-three finishes (5 finishes, League top-three); Best average normalized finish (66.67 score / 100, League top-three); Wins while scoring below 100 (14 wins, League top-three) |
+| Stover | 44 | 18 | Career regular-season wins (75 wins, League top-three); Most regular-season points scored (15318.4 pts, League top-three); Most points in a season (1770.9 pts, League top-three) |
+| Birch | 44 | 21 | Most top-half finishes (6 finishes, League top-three); Best season point differential (345.12 pts, League top-three); Most 140-point games in one season (5 games, League top-three) |
+| Tony | 44 | 20 | Biggest year-over-year finish rebound (100 points, League top-three); Highest rivalry win rate (83.33 %, League top-three); Largest cumulative margin versus one rival (270.78 pts, League top-three) |
+| Mitch | 44 | 26 | Most wins against one rival (11 wins, League top-three); Most points in a season (1894.88 pts, League top-three); Highest season scoring average (135.35 ppg, League top-three) |
+| Kuhl | 44 | 4 | Wins by 3 points or fewer (5 wins, League top-three); Longest consecutive 120-point run (4 games, League top-three); Most completed seasons (8 seasons, Personal best) |
+| JMid | 41 | 3 | Longest consecutive 100-point run (13 games, League top-three); Most points in a season (1730.22 pts, League top-three); Most completed seasons (3 seasons, Personal best) |
+| Scott | 40 | 2 | Largest regular-season victory (101.38 pts, League top-three); Biggest year-over-year finish rebound (66.67 points, Personal best); Most top-three finishes (1 finishes, Personal best) |
 
-Counts labeled **league top-three** use a category’s individual best league rank (a single category, not each repeated individual game appearance). The interactive explorer may show multiple top-three **entries** within the same category if a manager owns several independent events.
+Counts labeled **league top-three** use each manager’s best competition rank within each category. Ties share rank (1, 1, 3): founding managers with ten completed seasons all receive first-place recognition. The interactive explorer may show multiple top-three **entries** within the same category if a manager owns several independent events.
 
 ## Methodology and caveats
 
