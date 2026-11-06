@@ -12,13 +12,14 @@
 
 ## Current trade policy (confirmed; start date needs archival qualification)
 - **Draft-pick trading is banned.** Do not offer it as a valid trade mechanism or interpret an otherwise incomplete deal as involving a draft pick. The effective date of the ban across historical seasons has *not* been supplied; do not retroactively invalidate old source records without clarification.
+- **Two-manager and three-manager trades are both permitted and have occurred.** A three-manager transaction is not inherently incomplete; include it when all three receiving sides are sufficiently verified.
 - **FAAB can be traded** between teams, including in an exchange occurring on November 6, 2026. The actual participants, player sides and FAAB amount of that specific transaction are **not yet given**; do not invent any of them or publish a full transaction as fact.
 - **Keeper eligibility/rights follow the player on a trade.** The acquiring owner may elect to retain the player under the same keeper conditions as before the transfer. These are player-attached rules, not an independent tradable keeper-right asset.
 - A trade detail page should record counterparties, dated incoming/outgoing player assets, FAAB transfers (if source-verified), and inherited keeper eligibility where relevant. Never show unsupported draft-pick transfers as a standard trade asset.
 
 ## Trade-museum editorial selection (confirmed)
-- **Main collection: only transactions with a sufficiently verified full exchange**: named counterparties, known direction of player assets, and FAAB or other exchange components documented when present.
-- **Incomplete receipts remain accessible in a separate research/archival collection** and must not be mixed into main finished-deal cards.
+- **Main collection: two-manager and three-manager transactions with a sufficiently verified full exchange**: named counterparties, known direction of player assets, and FAAB or other exchange components documented when present.
+- **Incomplete receipts remain accessible in a separate research/archival collection** and must not be mixed into main finished-deal cards. At the current player-receipt coverage level the Museum includes one three-manager exchange (November 12, 2025; Stilly, JMid, and Tom) and excludes only the one-sided 2020 and 2021 receipts. Three-manager exchanges must not be evaluated by a simplistic one-side-versus-one-side point margin.
 - Dedicated trade breakdowns should distinguish what each manager gave up, what they received, subsequent results, and source-certified assessments from mere observed point differentials. Historical results alone do not establish decision quality or ex-ante fairness.
 - Older ESPN trade screenshots may exist but are not yet available. Their absence is **unavailable**, not evidence of zero trades.
 
