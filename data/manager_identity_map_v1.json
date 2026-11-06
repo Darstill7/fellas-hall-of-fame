@@ -1,6 +1,6 @@
 {
   "version": "v1.3",
-  "updated": "2026-11-03",
+  "updated": "2026-11-06",
   "managers": {
     "Stover": {
       "canonical": "Stover",
@@ -243,6 +243,29 @@
       "manager": "Koble",
       "basis": "Historical roster-owner mapping used by Start/Sit research; Koble is a distinct historical manager",
       "status": "historical"
+    }
+  ],
+  "commissionerCorrections": [
+    {
+      "season": 2023,
+      "manager": "Evans",
+      "formerAtSeasonEnd": true,
+      "replacementManager": "JMid",
+      "replacementEffectiveSeason": 2024,
+      "confirmedOn": "2026-11-06",
+      "scope": "Evans managed all of the 2023 fantasy football season; JMid joined only after the 2023 season concluded. Historical Sleeper account/roster handle JMidd for 2023 is not evidence of JMid's 2023 managerial participation.",
+      "instruction": "Attribute all 2023 records, playoffs, season awards, matchups, player starts, acquisitions and any manager activity associated with that slot to Evans, not JMid; preserve raw provider evidence separately."
+    }
+  ],
+  "verifiedSleeperSeasonOwnershipOverrides": [
+    {
+      "year": 2023,
+      "providerHandle": "JMidd",
+      "roster": 2,
+      "owner": "Evans",
+      "replacedBy": "JMid",
+      "replacementBegan": 2024,
+      "source": "Commissioner correction 2026-11-06"
     }
   ]
 }
