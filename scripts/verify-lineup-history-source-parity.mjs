@@ -51,7 +51,8 @@ for(const year of [2020,2021,2022,2023,2024,2025])
   assert.equal(file?.path,path,'Source file path changed '+path);
   let valid=0,invalid=0;const managers=new Set();
   for(const roster of rosters){
-   const manager=alias[String(roster.owner||'').toLowerCase()];
+   const providerHandle=String(roster.owner||'').toLowerCase();
+   const manager=year===2023&&providerHandle==='jmidd'?'Evans':alias[providerHandle];
    assert.ok(manager&&!managers.has(manager),'Missing or duplicate owner '+path);
    managers.add(manager);const key=[year,week,manager].join('/');
    const row=receipt.get(key);assert.ok(row,'Missing published receipt '+key);
