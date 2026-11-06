@@ -1,6 +1,6 @@
 {
   "version": "v1.0",
-  "updated": "2026-10-27",
+  "updated": "2026-11-06",
   "coverage": {
     "playerHistory": "2020–2025 regular-season Weeks 1–14 and 2026 Weeks 1–6 credited starts; no playoffs or 2016–2019 player-level starter archive.",
     "waiver": "Verified completed Sleeper adds/waivers matched to subsequent credited regular-season starts; 2026 through Week 6.",
@@ -323,14 +323,9 @@
           "rank": 2,
           "name": "Ja'Marr Chase",
           "position": "WR",
-          "starterPoints": 360.7,
-          "starts": 21,
+          "starterPoints": 356.3,
+          "starts": 20,
           "seasons": [
-            {
-              "year": 2023,
-              "points": 4.4,
-              "starts": 1
-            },
             {
               "year": 2024,
               "points": 278.9,
@@ -350,39 +345,6 @@
         },
         {
           "rank": 3,
-          "name": "Jalen Hurts",
-          "position": "QB",
-          "starterPoints": 288.68,
-          "starts": 13,
-          "seasons": [
-            {
-              "year": 2023,
-              "points": 288.68,
-              "starts": 13
-            }
-          ]
-        },
-        {
-          "rank": 4,
-          "name": "Keenan Allen",
-          "position": "WR",
-          "starterPoints": 251.16,
-          "starts": 15,
-          "seasons": [
-            {
-              "year": 2023,
-              "points": 224.86,
-              "starts": 13
-            },
-            {
-              "year": 2024,
-              "points": 26.3,
-              "starts": 2
-            }
-          ]
-        },
-        {
-          "rank": 5,
           "name": "Courtland Sutton",
           "position": "WR",
           "starterPoints": 214.8,
@@ -401,21 +363,7 @@
           ]
         },
         {
-          "rank": 6,
-          "name": "A.J. Brown",
-          "position": "WR",
-          "starterPoints": 213.8,
-          "starts": 13,
-          "seasons": [
-            {
-              "year": 2023,
-              "points": 213.8,
-              "starts": 13
-            }
-          ]
-        },
-        {
-          "rank": 7,
+          "rank": 4,
           "name": "Josh Jacobs",
           "position": "RB",
           "starterPoints": 191.3,
@@ -429,7 +377,7 @@
           ]
         },
         {
-          "rank": 8,
+          "rank": 5,
           "name": "Kyren Williams",
           "position": "RB",
           "starterPoints": 180.7,
@@ -443,44 +391,77 @@
           ]
         },
         {
-          "rank": 9,
-          "name": "Travis Kelce",
-          "position": "TE",
-          "starterPoints": 159.6,
-          "starts": 12,
+          "rank": 6,
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "starterPoints": 149.2,
+          "starts": 9,
           "seasons": [
             {
-              "year": 2023,
-              "points": 159.6,
-              "starts": 12
+              "year": 2025,
+              "points": 149.2,
+              "starts": 9
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "name": "Kenneth Walker III",
+          "position": "RB",
+          "starterPoints": 133,
+          "starts": 5,
+          "seasons": [
+            {
+              "year": 2026,
+              "points": 133,
+              "starts": 5
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "name": "Rico Dowdle",
+          "position": "RB",
+          "starterPoints": 123.9,
+          "starts": 8,
+          "seasons": [
+            {
+              "year": 2025,
+              "points": 123.9,
+              "starts": 8
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "name": "Michael Pittman Jr.",
+          "position": "WR",
+          "starterPoints": 123.6,
+          "starts": 10,
+          "seasons": [
+            {
+              "year": 2025,
+              "points": 123.6,
+              "starts": 10
             }
           ]
         },
         {
           "rank": 10,
-          "name": "Isiah Pacheco",
-          "position": "RB",
-          "starterPoints": 158.3,
-          "starts": 12,
+          "name": "Caleb Williams",
+          "position": "QB",
+          "starterPoints": 106.48,
+          "starts": 6,
           "seasons": [
             {
-              "year": 2023,
-              "points": 158.3,
-              "starts": 12
+              "year": 2025,
+              "points": 106.48,
+              "starts": 6
             }
           ]
         }
       ],
       "mountRushmore": [
-        {
-          "name": "Ja'Marr Chase",
-          "position": "WR",
-          "starterPoints": 360.7,
-          "starts": 21,
-          "seasonCount": 4,
-          "peak": 278.9,
-          "score": 484.2
-        },
         {
           "name": "Joe Burrow",
           "position": "QB",
@@ -491,22 +472,31 @@
           "score": 481.8
         },
         {
-          "name": "Jalen Hurts",
-          "position": "QB",
-          "starterPoints": 288.68,
-          "starts": 13,
-          "seasonCount": 1,
-          "peak": 288.68,
-          "score": 361.3
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "starterPoints": 356.3,
+          "starts": 20,
+          "seasonCount": 3,
+          "peak": 278.9,
+          "score": 465.8
         },
         {
-          "name": "Keenan Allen",
+          "name": "Courtland Sutton",
           "position": "WR",
-          "starterPoints": 251.16,
-          "starts": 15,
+          "starterPoints": 214.8,
+          "starts": 17,
           "seasonCount": 2,
-          "peak": 224.86,
-          "score": 332.1
+          "peak": 115.7,
+          "score": 286.7
+        },
+        {
+          "name": "Josh Jacobs",
+          "position": "RB",
+          "starterPoints": 191.3,
+          "starts": 12,
+          "seasonCount": 1,
+          "peak": 191.3,
+          "score": 250.3
         }
       ],
       "bestWaiverCandidate": {
@@ -552,7 +542,7 @@
         "edge": -72.2,
         "confidence": "verified"
       },
-      "caveat": null
+      "caveat": "2023 historical roster slot belonged to Evans; JMid player-level career starts and Mount Rushmore begin 2024. Commissioner corrected 2026-11-06."
     },
     "Tom": {
       "playerHistory": [
