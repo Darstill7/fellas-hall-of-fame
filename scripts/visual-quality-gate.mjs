@@ -368,6 +368,9 @@ try{
         if(await original.evaluate(el=>el.open))
          throw Error('Career source disclosure failed to close');
         const featured=page.locator('#profile-features nav.profile-featured-routes');
+        const entryOrder=await featured.locator(':scope > .profile-featured-links, :scope > .profile-biography-entry').evaluateAll(nodes=>nodes.map(n=>n.classList.contains('profile-featured-links')?'Primary record links':'Career biography'));
+        if(JSON.stringify(entryOrder)!==JSON.stringify(['Primary record links','Career biography']))
+         throw Error('Records and Report Card must appear before optional biography '+JSON.stringify(entryOrder));
         if(await featured.locator('a.profile-featured-link').count()!==2)
          throw Error('Records and Report Card must be the two primary destinations');
         const canonicalLinks=await featured.locator('a').evaluateAll(nodes=>nodes.map(a=>({
