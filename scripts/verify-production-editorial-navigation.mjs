@@ -17,6 +17,11 @@ for(let year=2020;year<=2025;year++){
  assert.ok(page.includes('<a href="../managers/">Managers</a>')&&
   page.includes('<a href="../seasons/">Seasons</a>'),
   year+' archive global navigation must lead to directories');
+ assert.ok(page.includes('☰ Explore site')&&
+  page.includes('<a href="../managers/">👤 Managers</a>')&&
+  page.includes('<a href="../seasons/">📅 Seasons</a>')&&
+  page.includes('<a href="../managers/"><span>♟</span>Managers</a>'),
+  year+' mobile menu and dock must lead to manager/season directories');
  assert.ok(page.includes('id="verified-placements"'),
   year+' archive must preserve verified postseason results');
 }
