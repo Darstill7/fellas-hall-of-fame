@@ -15,7 +15,7 @@
     "Final placement achievements rely on verified official finishing ranks; 2016 had eight teams, later seasons ten. The normalized finish percentile adjusts for field size.",
     "Rivalry rate thresholds suppress small-sample leaders. No claim is made that fantasy points allowed measures defensive skill.",
     "An individual personal best is not necessarily a league-wide record. Highlight cards distinguish league top-three from personal records.",
-    "Tied rankings can appear in equal positions; position displayed is leaderboard listing order, not formal competition ranking."
+    "Tied record marks share their best competition rank (1, 1, 3), rather than being assigned arbitrary consecutive placements."
   ],
   "recoveredRegularGames": 700,
   "gameContributions": 1400,
@@ -472,7 +472,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 6,
           "manager": "Schermerhorn",
           "year": 2017,
           "week": 1,
@@ -804,7 +804,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 6,
           "manager": "JMid",
           "year": 2023,
           "week": 13,
@@ -1012,7 +1012,7 @@
           }
         },
         {
-          "rank": 20,
+          "rank": 19,
           "manager": "Mitch",
           "year": 2023,
           "week": 3,
@@ -1168,7 +1168,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 8,
           "manager": "Stew",
           "year": 2017,
           "week": 9,
@@ -1328,7 +1328,7 @@
           }
         },
         {
-          "rank": 19,
+          "rank": 18,
           "manager": "Koble",
           "year": 2017,
           "week": 1,
@@ -1644,7 +1644,7 @@
           }
         },
         {
-          "rank": 18,
+          "rank": 17,
           "manager": "Stover",
           "year": 2026,
           "week": 2,
@@ -1752,7 +1752,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 3,
           "manager": "Kuhl",
           "year": 2020,
           "week": 1,
@@ -1832,7 +1832,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 8,
           "manager": "Tony",
           "year": 2026,
           "week": 7,
@@ -1864,7 +1864,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 10,
           "manager": "Scott",
           "year": 2025,
           "week": 3,
@@ -1992,7 +1992,7 @@
           }
         },
         {
-          "rank": 19,
+          "rank": 18,
           "manager": "Kuhl",
           "year": 2020,
           "week": 10,
@@ -2308,7 +2308,7 @@
           }
         },
         {
-          "rank": 18,
+          "rank": 17,
           "manager": "Kuhl",
           "year": 2026,
           "week": 2,
@@ -2416,7 +2416,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 3,
           "manager": "Tom",
           "year": 2020,
           "week": 1,
@@ -2496,7 +2496,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 8,
           "manager": "Stover",
           "year": 2026,
           "week": 7,
@@ -2528,7 +2528,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 10,
           "manager": "Stover",
           "year": 2025,
           "week": 3,
@@ -2656,7 +2656,7 @@
           }
         },
         {
-          "rank": 19,
+          "rank": 18,
           "manager": "Tom",
           "year": 2020,
           "week": 10,
@@ -2796,7 +2796,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 6,
           "manager": "Kuhl",
           "year": 2023,
           "week": 13,
@@ -3004,7 +3004,7 @@
           }
         },
         {
-          "rank": 20,
+          "rank": 19,
           "manager": "Stew",
           "year": 2023,
           "week": 3,
@@ -3048,7 +3048,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 2,
           "manager": "Tony",
           "value": 72,
           "evidence": {
@@ -3072,7 +3072,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 5,
           "manager": "Tom",
           "value": 67,
           "evidence": {
@@ -3136,7 +3136,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 13,
           "manager": "Schermerhorn",
           "value": 12,
           "evidence": {
@@ -3164,7 +3164,7 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "manager": "Stilly",
           "value": 143,
           "evidence": {
@@ -3172,7 +3172,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 1,
           "manager": "Stover",
           "value": 143,
           "evidence": {
@@ -3180,7 +3180,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 1,
           "manager": "Tom",
           "value": 143,
           "evidence": {
@@ -3260,7 +3260,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 13,
           "manager": "Schermerhorn",
           "value": 25,
           "evidence": {
@@ -3554,7 +3554,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 6,
           "manager": "Tom",
           "value": 106.4,
           "evidence": {
@@ -3778,7 +3778,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 7,
           "manager": "Kuhl",
           "value": 78,
           "evidence": {
@@ -3878,7 +3878,7 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 4,
           "manager": "Tom",
           "value": 41,
           "evidence": {
@@ -4010,7 +4010,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 5,
           "manager": "Stilly",
           "value": 11,
           "evidence": {
@@ -4026,7 +4026,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 7,
           "manager": "Stover",
           "value": 9,
           "evidence": {
@@ -4110,7 +4110,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 2,
           "manager": "Stew",
           "value": 4,
           "evidence": {
@@ -4118,7 +4118,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 2,
           "manager": "Tony",
           "value": 4,
           "evidence": {
@@ -4142,7 +4142,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 6,
           "manager": "Stover",
           "value": 2,
           "evidence": {
@@ -4158,7 +4158,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 8,
           "manager": "Halderman",
           "value": 1,
           "evidence": {
@@ -4166,7 +4166,7 @@
           }
         },
         {
-          "rank": 10,
+          "rank": 8,
           "manager": "Kuhl",
           "value": 1,
           "evidence": {
@@ -4174,7 +4174,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 8,
           "manager": "Tom",
           "value": 1,
           "evidence": {
@@ -4190,7 +4190,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 12,
           "manager": "Schermerhorn",
           "value": 0,
           "evidence": {
@@ -4198,7 +4198,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 12,
           "manager": "Scott",
           "value": 0,
           "evidence": {
@@ -4234,7 +4234,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 2,
           "manager": "Tony",
           "value": 4,
           "evidence": {
@@ -4258,7 +4258,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 5,
           "manager": "Tom",
           "value": 2,
           "evidence": {
@@ -4274,7 +4274,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 7,
           "manager": "Stover",
           "value": 1,
           "evidence": {
@@ -4290,7 +4290,7 @@
           }
         },
         {
-          "rank": 10,
+          "rank": 9,
           "manager": "JMid",
           "value": 0,
           "evidence": {
@@ -4298,7 +4298,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 9,
           "manager": "Koble",
           "value": 0,
           "evidence": {
@@ -4306,7 +4306,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 9,
           "manager": "Schermerhorn",
           "value": 0,
           "evidence": {
@@ -4314,7 +4314,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 9,
           "manager": "Scott",
           "value": 0,
           "evidence": {
@@ -4322,7 +4322,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 9,
           "manager": "Stilly",
           "value": 0,
           "evidence": {
@@ -4358,7 +4358,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 2,
           "manager": "Stilly",
           "value": 12,
           "evidence": {
@@ -4366,7 +4366,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 2,
           "manager": "Stover",
           "value": 12,
           "evidence": {
@@ -4414,7 +4414,7 @@
           }
         },
         {
-          "rank": 10,
+          "rank": 9,
           "manager": "Schermerhorn",
           "value": 5,
           "evidence": {
@@ -4430,7 +4430,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 11,
           "manager": "Kuhl",
           "value": 4,
           "evidence": {
@@ -4446,7 +4446,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 13,
           "manager": "Scott",
           "value": 1,
           "evidence": {
@@ -4474,7 +4474,7 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "manager": "Tom",
           "value": 10,
           "evidence": {
@@ -4498,7 +4498,7 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 4,
           "manager": "Stew",
           "value": 8,
           "evidence": {
@@ -4506,7 +4506,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 4,
           "manager": "Tony",
           "value": 8,
           "evidence": {
@@ -4538,7 +4538,7 @@
           }
         },
         {
-          "rank": 10,
+          "rank": 9,
           "manager": "JMid",
           "value": 2,
           "evidence": {
@@ -4546,7 +4546,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 9,
           "manager": "Scott",
           "value": 2,
           "evidence": {
@@ -4570,7 +4570,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 13,
           "manager": "Schermerhorn",
           "value": 0,
           "evidence": {
@@ -4598,7 +4598,7 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "manager": "Kuhl",
           "value": 5,
           "evidence": {
@@ -4606,7 +4606,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 1,
           "manager": "Tony",
           "value": 5,
           "evidence": {
@@ -4622,7 +4622,7 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 4,
           "manager": "Stilly",
           "value": 4,
           "evidence": {
@@ -4630,7 +4630,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 4,
           "manager": "Stover",
           "value": 4,
           "evidence": {
@@ -4646,7 +4646,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 7,
           "manager": "Stew",
           "value": 3,
           "evidence": {
@@ -4654,7 +4654,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 7,
           "manager": "Tom",
           "value": 3,
           "evidence": {
@@ -4670,7 +4670,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 10,
           "manager": "Schermerhorn",
           "value": 2,
           "evidence": {
@@ -4686,7 +4686,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 12,
           "manager": "Scott",
           "value": 1,
           "evidence": {
@@ -4746,7 +4746,7 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 4,
           "manager": "Stew",
           "value": 8,
           "evidence": {
@@ -4754,7 +4754,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 4,
           "manager": "Tom",
           "value": 8,
           "evidence": {
@@ -4770,7 +4770,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 7,
           "manager": "Stilly",
           "value": 7,
           "evidence": {
@@ -4794,7 +4794,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 10,
           "manager": "Schermerhorn",
           "value": 3,
           "evidence": {
@@ -4810,7 +4810,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 12,
           "manager": "JMid",
           "value": 2,
           "evidence": {
@@ -4818,7 +4818,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 12,
           "manager": "Scott",
           "value": 2,
           "evidence": {
@@ -4846,7 +4846,7 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "manager": "Mitch",
           "value": 29,
           "evidence": {
@@ -4862,7 +4862,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 3,
           "manager": "Tony",
           "value": 27,
           "evidence": {
@@ -4902,7 +4902,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 8,
           "manager": "Koble",
           "value": 17,
           "evidence": {
@@ -5006,7 +5006,7 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 4,
           "manager": "Tony",
           "value": 7,
           "evidence": {
@@ -5039,7 +5039,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 7,
           "manager": "JMid",
           "value": 5,
           "evidence": {
@@ -5050,7 +5050,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 7,
           "manager": "Koble",
           "value": 5,
           "evidence": {
@@ -5061,7 +5061,7 @@
           }
         },
         {
-          "rank": 10,
+          "rank": 7,
           "manager": "Kuhl",
           "value": 5,
           "evidence": {
@@ -5083,7 +5083,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 11,
           "manager": "Stilly",
           "value": 4,
           "evidence": {
@@ -5105,7 +5105,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 13,
           "manager": "Scott",
           "value": 3,
           "evidence": {
@@ -5161,7 +5161,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 3,
           "manager": "Stover",
           "value": 11,
           "evidence": {
@@ -5194,7 +5194,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 6,
           "manager": "Stew",
           "value": 9,
           "evidence": {
@@ -5205,7 +5205,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 6,
           "manager": "Tom",
           "value": 9,
           "evidence": {
@@ -5216,7 +5216,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 6,
           "manager": "Tony",
           "value": 9,
           "evidence": {
@@ -5316,7 +5316,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 2,
           "manager": "Mitch",
           "value": 4,
           "evidence": {
@@ -5327,7 +5327,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 2,
           "manager": "Stew",
           "value": 4,
           "evidence": {
@@ -5349,7 +5349,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 5,
           "manager": "Evans",
           "value": 3,
           "evidence": {
@@ -5360,7 +5360,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 5,
           "manager": "JMid",
           "value": 3,
           "evidence": {
@@ -5371,7 +5371,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 5,
           "manager": "Koble",
           "value": 3,
           "evidence": {
@@ -5382,7 +5382,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 5,
           "manager": "Scott",
           "value": 3,
           "evidence": {
@@ -5393,7 +5393,7 @@
           }
         },
         {
-          "rank": 10,
+          "rank": 5,
           "manager": "Stilly",
           "value": 3,
           "evidence": {
@@ -5404,7 +5404,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 5,
           "manager": "Stover",
           "value": 3,
           "evidence": {
@@ -5415,7 +5415,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 5,
           "manager": "Tom",
           "value": 3,
           "evidence": {
@@ -5437,7 +5437,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 13,
           "manager": "Schermerhorn",
           "value": 2,
           "evidence": {
@@ -6072,7 +6072,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 2,
           "manager": "Birch",
           "year": 2021,
           "value": 11,
@@ -6086,7 +6086,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 2,
           "manager": "Stover",
           "year": 2021,
           "value": 11,
@@ -6100,7 +6100,7 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 2,
           "manager": "Stew",
           "year": 2022,
           "value": 11,
@@ -6128,7 +6128,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 6,
           "manager": "Koble",
           "year": 2023,
           "value": 10,
@@ -6142,7 +6142,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 6,
           "manager": "Tony",
           "year": 2023,
           "value": 10,
@@ -6156,7 +6156,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 6,
           "manager": "Stover",
           "year": 2024,
           "value": 10,
@@ -6184,7 +6184,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 10,
           "manager": "Stew",
           "year": 2019,
           "value": 9,
@@ -6198,7 +6198,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 10,
           "manager": "Birch",
           "year": 2020,
           "value": 9,
@@ -6212,7 +6212,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 10,
           "manager": "Kuhl",
           "year": 2020,
           "value": 9,
@@ -6226,7 +6226,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 10,
           "manager": "Mitch",
           "year": 2020,
           "value": 9,
@@ -6240,7 +6240,7 @@
           }
         },
         {
-          "rank": 15,
+          "rank": 10,
           "manager": "Stover",
           "year": 2022,
           "value": 9,
@@ -6254,7 +6254,7 @@
           }
         },
         {
-          "rank": 16,
+          "rank": 10,
           "manager": "JMid",
           "year": 2023,
           "value": 9,
@@ -6268,7 +6268,7 @@
           }
         },
         {
-          "rank": 17,
+          "rank": 10,
           "manager": "Tom",
           "year": 2024,
           "value": 9,
@@ -6296,7 +6296,7 @@
           }
         },
         {
-          "rank": 19,
+          "rank": 18,
           "manager": "Halderman",
           "year": 2016,
           "value": 8,
@@ -6310,7 +6310,7 @@
           }
         },
         {
-          "rank": 20,
+          "rank": 18,
           "manager": "Schermerhorn",
           "year": 2017,
           "value": 8,
@@ -6364,7 +6364,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 2,
           "manager": "Birch",
           "year": 2021,
           "value": 84.62,
@@ -6392,7 +6392,7 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 4,
           "manager": "Stew",
           "year": 2022,
           "value": 78.57,
@@ -6434,7 +6434,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 7,
           "manager": "Tony",
           "year": 2023,
           "value": 71.43,
@@ -6448,7 +6448,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 7,
           "manager": "Stover",
           "year": 2024,
           "value": 71.43,
@@ -6476,7 +6476,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 10,
           "manager": "Stew",
           "year": 2019,
           "value": 69.23,
@@ -6490,7 +6490,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 10,
           "manager": "Birch",
           "year": 2020,
           "value": 69.23,
@@ -6504,7 +6504,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 10,
           "manager": "Mitch",
           "year": 2020,
           "value": 69.23,
@@ -6532,7 +6532,7 @@
           }
         },
         {
-          "rank": 15,
+          "rank": 14,
           "manager": "Tom",
           "year": 2017,
           "value": 66.67,
@@ -6560,7 +6560,7 @@
           }
         },
         {
-          "rank": 17,
+          "rank": 16,
           "manager": "Stover",
           "year": 2022,
           "value": 64.29,
@@ -6574,7 +6574,7 @@
           }
         },
         {
-          "rank": 18,
+          "rank": 16,
           "manager": "JMid",
           "year": 2023,
           "value": 64.29,
@@ -6588,7 +6588,7 @@
           }
         },
         {
-          "rank": 19,
+          "rank": 16,
           "manager": "Tom",
           "year": 2024,
           "value": 64.29,
@@ -6934,7 +6934,7 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "manager": "Mitch",
           "year": 2020,
           "value": 5,
@@ -6948,7 +6948,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 1,
           "manager": "Tony",
           "year": 2021,
           "value": 5,
@@ -6962,7 +6962,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 1,
           "manager": "Mitch",
           "year": 2025,
           "value": 5,
@@ -6990,7 +6990,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 5,
           "manager": "JMid",
           "year": 2023,
           "value": 4,
@@ -7018,7 +7018,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 7,
           "manager": "Kuhl",
           "year": 2019,
           "value": 3,
@@ -7032,7 +7032,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 7,
           "manager": "Mitch",
           "year": 2019,
           "value": 3,
@@ -7046,7 +7046,7 @@
           }
         },
         {
-          "rank": 10,
+          "rank": 7,
           "manager": "Stew",
           "year": 2019,
           "value": 3,
@@ -7060,7 +7060,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 7,
           "manager": "Birch",
           "year": 2020,
           "value": 3,
@@ -7074,7 +7074,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 7,
           "manager": "Mitch",
           "year": 2021,
           "value": 3,
@@ -7088,7 +7088,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 7,
           "manager": "Tom",
           "year": 2021,
           "value": 3,
@@ -7102,7 +7102,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 7,
           "manager": "Koble",
           "year": 2022,
           "value": 3,
@@ -7116,7 +7116,7 @@
           }
         },
         {
-          "rank": 15,
+          "rank": 7,
           "manager": "Stew",
           "year": 2022,
           "value": 3,
@@ -7130,7 +7130,7 @@
           }
         },
         {
-          "rank": 16,
+          "rank": 7,
           "manager": "JMid",
           "year": 2024,
           "value": 3,
@@ -7144,7 +7144,7 @@
           }
         },
         {
-          "rank": 17,
+          "rank": 7,
           "manager": "Stilly",
           "year": 2024,
           "value": 3,
@@ -7158,7 +7158,7 @@
           }
         },
         {
-          "rank": 18,
+          "rank": 7,
           "manager": "Scott",
           "year": 2025,
           "value": 3,
@@ -7186,7 +7186,7 @@
           }
         },
         {
-          "rank": 20,
+          "rank": 19,
           "manager": "Tom",
           "year": 2018,
           "value": 2,
@@ -7223,7 +7223,7 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "manager": "Stilly",
           "value": 11,
           "evidence": {
@@ -7234,7 +7234,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 1,
           "manager": "Stover",
           "value": 11,
           "evidence": {
@@ -7245,7 +7245,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 1,
           "manager": "Stover",
           "value": 11,
           "evidence": {
@@ -7267,7 +7267,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 5,
           "manager": "Birch",
           "value": 10,
           "evidence": {
@@ -7278,7 +7278,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 5,
           "manager": "Birch",
           "value": 10,
           "evidence": {
@@ -7289,7 +7289,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 5,
           "manager": "Mitch",
           "value": 10,
           "evidence": {
@@ -7300,7 +7300,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 5,
           "manager": "Stew",
           "value": 10,
           "evidence": {
@@ -7311,7 +7311,7 @@
           }
         },
         {
-          "rank": 10,
+          "rank": 5,
           "manager": "Stilly",
           "value": 10,
           "evidence": {
@@ -7322,7 +7322,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 5,
           "manager": "Tom",
           "value": 10,
           "evidence": {
@@ -7333,7 +7333,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 5,
           "manager": "Tony",
           "value": 10,
           "evidence": {
@@ -7344,7 +7344,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 5,
           "manager": "Tony",
           "value": 10,
           "evidence": {
@@ -7366,7 +7366,7 @@
           }
         },
         {
-          "rank": 15,
+          "rank": 14,
           "manager": "Mitch",
           "value": 9,
           "evidence": {
@@ -7377,7 +7377,7 @@
           }
         },
         {
-          "rank": 16,
+          "rank": 14,
           "manager": "Stover",
           "value": 9,
           "evidence": {
@@ -7388,7 +7388,7 @@
           }
         },
         {
-          "rank": 17,
+          "rank": 14,
           "manager": "Tom",
           "value": 9,
           "evidence": {
@@ -7399,7 +7399,7 @@
           }
         },
         {
-          "rank": 18,
+          "rank": 14,
           "manager": "Tony",
           "value": 9,
           "evidence": {
@@ -7421,7 +7421,7 @@
           }
         },
         {
-          "rank": 20,
+          "rank": 19,
           "manager": "Mitch",
           "value": 8,
           "evidence": {
@@ -7455,7 +7455,7 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "manager": "Stilly",
           "value": 20,
           "evidence": {
@@ -7477,7 +7477,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 3,
           "manager": "Stover",
           "value": 17,
           "evidence": {
@@ -7499,7 +7499,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 5,
           "manager": "Kuhl",
           "value": 16,
           "evidence": {
@@ -7510,7 +7510,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 5,
           "manager": "Mitch",
           "value": 16,
           "evidence": {
@@ -7521,7 +7521,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 5,
           "manager": "Stew",
           "value": 16,
           "evidence": {
@@ -7532,7 +7532,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 5,
           "manager": "Stew",
           "value": 16,
           "evidence": {
@@ -7543,7 +7543,7 @@
           }
         },
         {
-          "rank": 10,
+          "rank": 5,
           "manager": "Stilly",
           "value": 16,
           "evidence": {
@@ -7554,7 +7554,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 5,
           "manager": "Stover",
           "value": 16,
           "evidence": {
@@ -7565,7 +7565,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 5,
           "manager": "Stover",
           "value": 16,
           "evidence": {
@@ -7576,7 +7576,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 5,
           "manager": "Tom",
           "value": 16,
           "evidence": {
@@ -7587,7 +7587,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 5,
           "manager": "Tom",
           "value": 16,
           "evidence": {
@@ -7598,7 +7598,7 @@
           }
         },
         {
-          "rank": 15,
+          "rank": 5,
           "manager": "Tom",
           "value": 16,
           "evidence": {
@@ -7609,7 +7609,7 @@
           }
         },
         {
-          "rank": 16,
+          "rank": 5,
           "manager": "Tony",
           "value": 16,
           "evidence": {
@@ -7631,7 +7631,7 @@
           }
         },
         {
-          "rank": 18,
+          "rank": 17,
           "manager": "Birch",
           "value": 15,
           "evidence": {
@@ -7642,7 +7642,7 @@
           }
         },
         {
-          "rank": 19,
+          "rank": 17,
           "manager": "Mitch",
           "value": 15,
           "evidence": {
@@ -7653,7 +7653,7 @@
           }
         },
         {
-          "rank": 20,
+          "rank": 17,
           "manager": "Stilly",
           "value": 15,
           "evidence": {
@@ -7720,7 +7720,7 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 4,
           "manager": "Stilly",
           "value": 73.33,
           "evidence": {
@@ -7775,7 +7775,7 @@
           }
         },
         {
-          "rank": 10,
+          "rank": 9,
           "manager": "Stover",
           "value": 68.75,
           "evidence": {
@@ -7797,7 +7797,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 11,
           "manager": "JMid",
           "value": 66.67,
           "evidence": {
@@ -7808,7 +7808,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 11,
           "manager": "Stover",
           "value": 66.67,
           "evidence": {
@@ -7819,7 +7819,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 11,
           "manager": "Tony",
           "value": 66.67,
           "evidence": {
@@ -7852,7 +7852,7 @@
           }
         },
         {
-          "rank": 17,
+          "rank": 16,
           "manager": "Mitch",
           "value": 62.5,
           "evidence": {
@@ -7863,7 +7863,7 @@
           }
         },
         {
-          "rank": 18,
+          "rank": 16,
           "manager": "Mitch",
           "value": 62.5,
           "evidence": {
@@ -8351,7 +8351,7 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "manager": "Stilly",
           "value": 10,
           "evidence": {
@@ -8370,7 +8370,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 1,
           "manager": "Stover",
           "value": 10,
           "evidence": {
@@ -8389,7 +8389,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 1,
           "manager": "Tom",
           "value": 10,
           "evidence": {
@@ -8426,7 +8426,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 5,
           "manager": "Tony",
           "value": 9,
           "evidence": {
@@ -8461,7 +8461,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 7,
           "manager": "Kuhl",
           "value": 8,
           "evidence": {
@@ -8478,7 +8478,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 7,
           "manager": "Mitch",
           "value": 8,
           "evidence": {
@@ -8534,7 +8534,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 12,
           "manager": "Schermerhorn",
           "value": 2,
           "evidence": {
@@ -8545,7 +8545,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 12,
           "manager": "Scott",
           "value": 2,
           "evidence": {
@@ -8595,7 +8595,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 2,
           "manager": "Mitch",
           "value": 4,
           "evidence": {
@@ -8631,7 +8631,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 5,
           "manager": "Koble",
           "value": 2,
           "evidence": {
@@ -8642,7 +8642,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 5,
           "manager": "Stew",
           "value": 2,
           "evidence": {
@@ -8653,7 +8653,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 5,
           "manager": "Stover",
           "value": 2,
           "evidence": {
@@ -8664,7 +8664,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 5,
           "manager": "Tony",
           "value": 2,
           "evidence": {
@@ -8685,7 +8685,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 10,
           "manager": "Kuhl",
           "value": 1,
           "evidence": {
@@ -8695,7 +8695,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 10,
           "manager": "Schermerhorn",
           "value": 1,
           "evidence": {
@@ -8705,7 +8705,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 10,
           "manager": "Scott",
           "value": 1,
           "evidence": {
@@ -8750,7 +8750,7 @@
           }
         },
         {
-          "rank": 2,
+          "rank": 1,
           "manager": "Mitch",
           "value": 6,
           "evidence": {
@@ -8765,7 +8765,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 1,
           "manager": "Tom",
           "value": 6,
           "evidence": {
@@ -8780,7 +8780,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 1,
           "manager": "Tony",
           "value": 6,
           "evidence": {
@@ -8822,7 +8822,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 6,
           "manager": "Stilly",
           "value": 4,
           "evidence": {
@@ -8847,7 +8847,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 8,
           "manager": "Stew",
           "value": 3,
           "evidence": {
@@ -8880,7 +8880,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 11,
           "manager": "JMid",
           "value": 1,
           "evidence": {
@@ -8890,7 +8890,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 11,
           "manager": "Schermerhorn",
           "value": 1,
           "evidence": {
@@ -8900,7 +8900,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 11,
           "manager": "Scott",
           "value": 1,
           "evidence": {
@@ -9151,7 +9151,7 @@
           }
         },
         {
-          "rank": 3,
+          "rank": 2,
           "manager": "Birch",
           "year": 2018,
           "value": 88.89,
@@ -9179,7 +9179,7 @@
           }
         },
         {
-          "rank": 5,
+          "rank": 4,
           "manager": "Koble",
           "year": 2020,
           "value": 66.67,
@@ -9193,7 +9193,7 @@
           }
         },
         {
-          "rank": 6,
+          "rank": 4,
           "manager": "Stew",
           "year": 2022,
           "value": 66.67,
@@ -9207,7 +9207,7 @@
           }
         },
         {
-          "rank": 7,
+          "rank": 4,
           "manager": "Tom",
           "year": 2024,
           "value": 66.67,
@@ -9221,7 +9221,7 @@
           }
         },
         {
-          "rank": 8,
+          "rank": 4,
           "manager": "Mitch",
           "year": 2025,
           "value": 66.67,
@@ -9235,7 +9235,7 @@
           }
         },
         {
-          "rank": 9,
+          "rank": 4,
           "manager": "Scott",
           "year": 2025,
           "value": 66.67,
@@ -9263,7 +9263,7 @@
           }
         },
         {
-          "rank": 11,
+          "rank": 10,
           "manager": "Stilly",
           "year": 2019,
           "value": 55.56,
@@ -9277,7 +9277,7 @@
           }
         },
         {
-          "rank": 12,
+          "rank": 10,
           "manager": "Stover",
           "year": 2020,
           "value": 55.56,
@@ -9291,7 +9291,7 @@
           }
         },
         {
-          "rank": 13,
+          "rank": 10,
           "manager": "Birch",
           "year": 2023,
           "value": 55.56,
@@ -9305,7 +9305,7 @@
           }
         },
         {
-          "rank": 14,
+          "rank": 10,
           "manager": "Koble",
           "year": 2023,
           "value": 55.56,
@@ -9319,7 +9319,7 @@
           }
         },
         {
-          "rank": 15,
+          "rank": 10,
           "manager": "Stilly",
           "year": 2023,
           "value": 55.56,
@@ -9333,7 +9333,7 @@
           }
         },
         {
-          "rank": 16,
+          "rank": 10,
           "manager": "Tony",
           "year": 2023,
           "value": 55.56,
@@ -9347,7 +9347,7 @@
           }
         },
         {
-          "rank": 17,
+          "rank": 10,
           "manager": "Stover",
           "year": 2024,
           "value": 55.56,
@@ -9389,7 +9389,7 @@
           }
         },
         {
-          "rank": 20,
+          "rank": 19,
           "manager": "Evans",
           "year": 2020,
           "value": 44.44,
@@ -9408,7 +9408,7 @@
   "signatures": {
     "Stilly": {
       "manager": "Stilly",
-      "leagueTopThree": 9,
+      "leagueTopThree": 13,
       "highlights": [
         {
           "key": "rival-scoring",
@@ -9430,7 +9430,7 @@
           "group": "Final standings",
           "value": 10,
           "unit": "seasons",
-          "leagueRank": 2,
+          "leagueRank": 1,
           "evidence": {
             "years": [
               2016,
@@ -9454,7 +9454,7 @@
           "group": "Rivalries",
           "value": 11,
           "unit": "wins",
-          "leagueRank": 2,
+          "leagueRank": 1,
           "evidence": {
             "opponent": "Tom",
             "meetings": 15,
@@ -9470,7 +9470,7 @@
           "group": "Rivalries",
           "value": 20,
           "unit": "games",
-          "leagueRank": 2,
+          "leagueRank": 1,
           "evidence": {
             "opponent": "Stew",
             "meetings": 20,
@@ -9486,7 +9486,7 @@
           "group": "Career",
           "value": 143,
           "unit": "games",
-          "leagueRank": 2,
+          "leagueRank": 1,
           "evidence": {
             "games": 143
           },
@@ -9516,7 +9516,7 @@
           "group": "Final standings",
           "value": 4,
           "unit": "finishes",
-          "leagueRank": 7,
+          "leagueRank": 6,
           "evidence": {
             "years": [
               2017,
@@ -9558,7 +9558,7 @@
     },
     "Stew": {
       "manager": "Stew",
-      "leagueTopThree": 6,
+      "leagueTopThree": 11,
       "highlights": [
         {
           "key": "seasons-played",
@@ -9645,7 +9645,7 @@
           "group": "Final standings",
           "value": 2,
           "unit": "finishes",
-          "leagueRank": 7,
+          "leagueRank": 5,
           "evidence": {
             "years": [
               2019,
@@ -9661,7 +9661,7 @@
           "group": "Final standings",
           "value": 3,
           "unit": "finishes",
-          "leagueRank": 9,
+          "leagueRank": 8,
           "evidence": {
             "years": [
               2018,
@@ -9702,7 +9702,7 @@
     },
     "Tom": {
       "manager": "Tom",
-      "leagueTopThree": 7,
+      "leagueTopThree": 13,
       "highlights": [
         {
           "key": "top-three-finishes",
@@ -9786,7 +9786,7 @@
           "group": "Final standings",
           "value": 6,
           "unit": "finishes",
-          "leagueRank": 3,
+          "leagueRank": 1,
           "evidence": {
             "years": [
               2016,
@@ -9806,7 +9806,7 @@
           "group": "Final standings",
           "value": 10,
           "unit": "seasons",
-          "leagueRank": 4,
+          "leagueRank": 1,
           "evidence": {
             "years": [
               2016,
@@ -9822,7 +9822,7 @@
             ]
           },
           "season": null,
-          "scope": "Personal best"
+          "scope": "League top-three"
         },
         {
           "key": "bounceback",
@@ -9830,7 +9830,7 @@
           "group": "Final standings",
           "value": 66.67,
           "unit": "points",
-          "leagueRank": 7,
+          "leagueRank": 4,
           "evidence": {
             "fromYear": 2023,
             "toYear": 2024,
@@ -9848,7 +9848,7 @@
           "group": "Rivalries",
           "value": 10,
           "unit": "wins",
-          "leagueRank": 11,
+          "leagueRank": 5,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 14,
@@ -9863,7 +9863,7 @@
     },
     "Stover": {
       "manager": "Stover",
-      "leagueTopThree": 13,
+      "leagueTopThree": 18,
       "highlights": [
         {
           "key": "most-wins",
@@ -9944,7 +9944,7 @@
           "group": "Final standings",
           "value": 2,
           "unit": "finishes",
-          "leagueRank": 8,
+          "leagueRank": 5,
           "evidence": {
             "years": [
               2022,
@@ -10003,7 +10003,7 @@
     },
     "Birch": {
       "manager": "Birch",
-      "leagueTopThree": 20,
+      "leagueTopThree": 21,
       "highlights": [
         {
           "key": "top-half-finishes",
@@ -10147,7 +10147,7 @@
     },
     "Tony": {
       "manager": "Tony",
-      "leagueTopThree": 15,
+      "leagueTopThree": 20,
       "highlights": [
         {
           "key": "bounceback",
@@ -10216,6 +10216,26 @@
           "scope": "League top-three"
         },
         {
+          "key": "top-half-finishes",
+          "label": "Most top-half finishes",
+          "group": "Final standings",
+          "value": 6,
+          "unit": "finishes",
+          "leagueRank": 1,
+          "evidence": {
+            "years": [
+              2018,
+              2019,
+              2021,
+              2023,
+              2024,
+              2025
+            ]
+          },
+          "season": null,
+          "scope": "League top-three"
+        },
+        {
           "key": "season-average",
           "label": "Highest season scoring average",
           "group": "Season",
@@ -10239,7 +10259,7 @@
           "group": "Final standings",
           "value": 9,
           "unit": "seasons",
-          "leagueRank": 6,
+          "leagueRank": 5,
           "evidence": {
             "years": [
               2017,
@@ -10262,31 +10282,11 @@
           "group": "Final standings",
           "value": 2,
           "unit": "finishes",
-          "leagueRank": 9,
+          "leagueRank": 5,
           "evidence": {
             "years": [
               2018,
               2021
-            ]
-          },
-          "season": null,
-          "scope": "Personal best"
-        },
-        {
-          "key": "top-half-finishes",
-          "label": "Most top-half finishes",
-          "group": "Final standings",
-          "value": 6,
-          "unit": "finishes",
-          "leagueRank": 4,
-          "evidence": {
-            "years": [
-              2018,
-              2019,
-              2021,
-              2023,
-              2024,
-              2025
             ]
           },
           "season": null,
@@ -10297,7 +10297,7 @@
     },
     "Mitch": {
       "manager": "Mitch",
-      "leagueTopThree": 25,
+      "leagueTopThree": 26,
       "highlights": [
         {
           "key": "rival-wins",
@@ -10388,34 +10388,12 @@
           "scope": "League top-three"
         },
         {
-          "key": "seasons-played",
-          "label": "Most completed seasons",
-          "group": "Final standings",
-          "value": 8,
-          "unit": "seasons",
-          "leagueRank": 9,
-          "evidence": {
-            "years": [
-              2018,
-              2019,
-              2020,
-              2021,
-              2022,
-              2023,
-              2024,
-              2025
-            ]
-          },
-          "season": null,
-          "scope": "Personal best"
-        },
-        {
           "key": "bounceback",
           "label": "Biggest year-over-year finish rebound",
           "group": "Final standings",
           "value": 66.67,
           "unit": "points",
-          "leagueRank": 8,
+          "leagueRank": 4,
           "evidence": {
             "fromYear": 2024,
             "toYear": 2025,
@@ -10433,12 +10411,34 @@
           "group": "Rivalries",
           "value": 16,
           "unit": "games",
-          "leagueRank": 7,
+          "leagueRank": 5,
           "evidence": {
             "opponent": "Stew",
             "meetings": 16,
             "wins": 10,
             "losses": 6
+          },
+          "season": null,
+          "scope": "Personal best"
+        },
+        {
+          "key": "seasons-played",
+          "label": "Most completed seasons",
+          "group": "Final standings",
+          "value": 8,
+          "unit": "seasons",
+          "leagueRank": 7,
+          "evidence": {
+            "years": [
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025
+            ]
           },
           "season": null,
           "scope": "Personal best"
@@ -10448,7 +10448,7 @@
     },
     "Kuhl": {
       "manager": "Kuhl",
-      "leagueTopThree": 2,
+      "leagueTopThree": 4,
       "highlights": [
         {
           "key": "nailbiters",
@@ -10456,7 +10456,7 @@
           "group": "Career",
           "value": 5,
           "unit": "wins",
-          "leagueRank": 2,
+          "leagueRank": 1,
           "evidence": {
             "games": 118
           },
@@ -10485,7 +10485,7 @@
           "group": "Final standings",
           "value": 8,
           "unit": "seasons",
-          "leagueRank": 8,
+          "leagueRank": 7,
           "evidence": {
             "years": [
               2018,
@@ -10507,7 +10507,7 @@
           "group": "Final standings",
           "value": 1,
           "unit": "finishes",
-          "leagueRank": 11,
+          "leagueRank": 10,
           "evidence": {
             "years": [
               2022
@@ -10594,7 +10594,7 @@
     },
     "JMid": {
       "manager": "JMid",
-      "leagueTopThree": 2,
+      "leagueTopThree": 3,
       "highlights": [
         {
           "key": "scoring-streak-100",
@@ -10653,11 +10653,27 @@
           "group": "Final standings",
           "value": 1,
           "unit": "finishes",
-          "leagueRank": 12,
+          "leagueRank": 11,
           "evidence": {
             "years": [
               2024
             ]
+          },
+          "season": null,
+          "scope": "Personal best"
+        },
+        {
+          "key": "rival-percentage",
+          "label": "Highest rivalry win rate",
+          "group": "Rivalries",
+          "value": 66.67,
+          "unit": "%",
+          "leagueRank": 11,
+          "evidence": {
+            "opponent": "Stew",
+            "meetings": 6,
+            "wins": 4,
+            "losses": 2
           },
           "season": null,
           "scope": "Personal best"
@@ -10711,29 +10727,13 @@
           },
           "season": null,
           "scope": "Personal best"
-        },
-        {
-          "key": "rival-percentage",
-          "label": "Highest rivalry win rate",
-          "group": "Rivalries",
-          "value": 66.67,
-          "unit": "%",
-          "leagueRank": 12,
-          "evidence": {
-            "opponent": "Stew",
-            "meetings": 6,
-            "wins": 4,
-            "losses": 2
-          },
-          "season": null,
-          "scope": "Personal best"
         }
       ],
       "categoriesWithEvidence": 41
     },
     "Scott": {
       "manager": "Scott",
-      "leagueTopThree": 1,
+      "leagueTopThree": 2,
       "highlights": [
         {
           "key": "biggest-win",
@@ -10755,19 +10755,21 @@
           "scope": "League top-three"
         },
         {
-          "key": "seasons-played",
-          "label": "Most completed seasons",
+          "key": "bounceback",
+          "label": "Biggest year-over-year finish rebound",
           "group": "Final standings",
-          "value": 2,
-          "unit": "seasons",
-          "leagueRank": 14,
+          "value": 66.67,
+          "unit": "points",
+          "leagueRank": 4,
           "evidence": {
-            "years": [
-              2024,
-              2025
-            ]
+            "fromYear": 2024,
+            "toYear": 2025,
+            "fromRank": 7,
+            "toRank": 1,
+            "fromTeams": 10,
+            "toTeams": 10
           },
-          "season": null,
+          "season": 2025,
           "scope": "Personal best"
         },
         {
@@ -10776,7 +10778,7 @@
           "group": "Final standings",
           "value": 1,
           "unit": "finishes",
-          "leagueRank": 13,
+          "leagueRank": 10,
           "evidence": {
             "years": [
               2025
@@ -10791,7 +10793,7 @@
           "group": "Final standings",
           "value": 1,
           "unit": "finishes",
-          "leagueRank": 14,
+          "leagueRank": 11,
           "evidence": {
             "years": [
               2025
@@ -10801,21 +10803,33 @@
           "scope": "Personal best"
         },
         {
-          "key": "bounceback",
-          "label": "Biggest year-over-year finish rebound",
+          "key": "seasons-played",
+          "label": "Most completed seasons",
           "group": "Final standings",
-          "value": 66.67,
-          "unit": "points",
-          "leagueRank": 9,
+          "value": 2,
+          "unit": "seasons",
+          "leagueRank": 12,
           "evidence": {
-            "fromYear": 2024,
-            "toYear": 2025,
-            "fromRank": 7,
-            "toRank": 1,
-            "fromTeams": 10,
-            "toTeams": 10
+            "years": [
+              2024,
+              2025
+            ]
           },
-          "season": 2025,
+          "season": null,
+          "scope": "Personal best"
+        },
+        {
+          "key": "rival-scoring",
+          "label": "Highest average score against one rival",
+          "group": "Rivalries",
+          "value": 112.97,
+          "unit": "ppg",
+          "leagueRank": 40,
+          "evidence": {
+            "opponent": "Tom",
+            "meetings": 5
+          },
+          "season": null,
           "scope": "Personal best"
         },
         {
@@ -10846,20 +10860,6 @@
             "meetings": 5,
             "wins": 2,
             "losses": 3
-          },
-          "season": null,
-          "scope": "Personal best"
-        },
-        {
-          "key": "rival-scoring",
-          "label": "Highest average score against one rival",
-          "group": "Rivalries",
-          "value": 112.97,
-          "unit": "ppg",
-          "leagueRank": 40,
-          "evidence": {
-            "opponent": "Tom",
-            "meetings": 5
           },
           "season": null,
           "scope": "Personal best"
