@@ -609,7 +609,7 @@
         },
         {
           "rank": 6,
-          "manager": "JMid",
+          "manager": "Evans",
           "source": "Verified Sleeper bracket",
           "scoreVerified": true,
           "finishScore": 44.4444
@@ -903,7 +903,7 @@
     },
     {
       "manager": "Evans",
-      "seasonsPlayed": 7,
+      "seasonsPlayed": 8,
       "years": [
         2016,
         2017,
@@ -911,7 +911,8 @@
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023
       ],
       "history": [
         {
@@ -962,9 +963,16 @@
           "teams": 10,
           "finishScore": 33.3333,
           "provider": "Sleeper"
+        },
+        {
+          "year": 2023,
+          "rank": 6,
+          "teams": 10,
+          "finishScore": 44.4444,
+          "provider": "Sleeper"
         }
       ],
-      "meanFinishScore": 48.3,
+      "meanFinishScore": 47.82,
       "topThree": 2,
       "topHalf": 3,
       "lastPlaceFinishes": [
@@ -1004,20 +1012,12 @@
     },
     {
       "manager": "JMid",
-      "seasonsPlayed": 3,
+      "seasonsPlayed": 2,
       "years": [
-        2023,
         2024,
         2025
       ],
       "history": [
-        {
-          "year": 2023,
-          "rank": 6,
-          "teams": 10,
-          "finishScore": 44.4444,
-          "provider": "Sleeper"
-        },
         {
           "year": 2024,
           "rank": 4,
