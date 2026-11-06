@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/postseason-records.html',
+const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/postseason-records.html','analytics/expanded-records.html',
  'analytics/power-ratings.html','analytics/rivalries.html','hall/','seasons/',
  'analytics/manager-madden-cards.html','managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
@@ -74,6 +74,14 @@ try{
          snapshotTiles:document.querySelectorAll('.profile-career-snapshot .stat').length,
          bodyTextLength:(document.body.innerText||'').length};
        });
+       if(key==='analytics/expanded-records.html'){
+        const rows=await page.locator('#expanded-rows tr').count();
+        if(rows<10||await page.locator('#expanded-group option').count()!==5||
+           await page.locator('#expanded-manager option').count()!==11)
+         findings.push(engine+' '+width+' expanded record explorer missing loaded rankings or manager selector');
+       }
+       if(key==='analytics/records.html'&&await page.locator('#expanded-records-teaser .records-lab-tile').count()!==3)
+        findings.push(engine+' '+width+' record book missing expanded record pathway');
        if(key==='analytics/postseason-records.html'){
         const rows=await page.locator('#postseason-table-body tr').count();
         if(rows<10||await page.locator('#postseason-detail .postseason-season-list article').count()!==10)
@@ -82,6 +90,10 @@ try{
        if(key==='analytics/records.html'&&await page.locator('#postseason-league-panel .postseason-metric').count()!==4)
         findings.push(engine+' '+width+' record book lacks postseason entry hierarchy');
        if(/^managers\/(stilly|stew|tom|stover|birch|tony|mitch|kuhl|jmid|scott)\/$/.test(key)){
+        const signatures=page.locator('main .hero [data-expanded-records-profile] details');
+        if(await signatures.count()!==1||await signatures.evaluate(el=>el.open))
+         findings.push(engine+' '+width+' '+key+' signature-records disclosure missing or initially open');
+
         const disclosure=page.locator('main .hero [data-postseason-profile] details');
         if(await disclosure.count()!==1||await disclosure.evaluate(el=>el.open))
          findings.push(engine+' '+width+' '+key+' postseason summary should load collapsed');
