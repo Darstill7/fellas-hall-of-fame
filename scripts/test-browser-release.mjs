@@ -714,6 +714,22 @@ try{
         !(await page.locator('#report-manager-count').innerText()).includes('All 10'))
       errors.push(width+' report manager selector did not restore all report cards');
     }
+    // Every manager's headline links must resolve to that manager, not a generic directory.
+    const reportRoutes=await page.locator('#cards [data-report-manager]').evaluateAll(cards=>cards.map(card=>({
+     manager:card.getAttribute('data-report-manager'),
+     urls:[...card.querySelectorAll('.report-primary-actions a')].map(a=>a.getAttribute('href')),
+     labels:[...card.querySelectorAll('.report-primary-actions a')].map(a=>a.textContent.trim()),
+     headline:card.querySelector('.report-first-glance')?.textContent||'',
+     actionHeights:[...card.querySelectorAll('.report-primary-actions a')].map(a=>a.getBoundingClientRect().height)
+    })));
+    const managerSlugs={Stilly:'stilly',Stew:'stew',Thommy:'tom',Stover:'stover',Birch:'birch',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',JMid:'jmid',Scott:'scott'};
+    if(reportRoutes.length!==10||reportRoutes.some(({manager,urls,labels,headline,actionHeights})=>
+      !managerSlugs[manager]||urls.length!==2||labels[0]!=='Manager profile'||
+      labels[1]!=='Career records'||
+      urls[0]!=='../managers/'+managerSlugs[manager]+'/'||
+      urls[1]!=='../managers/record-books.html?manager='+encodeURIComponent(manager)+'#owned-records'||
+      !/regular-season W–L/.test(headline)||actionHeights.some(h=>h<44)))
+     errors.push(width+' report-card routes, career record labels, or tap targets incorrect');
     const scouting=page.locator('[data-report-manager] details.report-evidence-details details.report-scouting-more');
     if(await scouting.count()!==10||await scouting.evaluateAll(nodes=>nodes.some(node=>node.open)))
      errors.push(width+' detailed scouting dossier must be nested and initially collapsed');
