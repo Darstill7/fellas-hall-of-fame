@@ -979,6 +979,29 @@ try{
     }
    }
    if(route===''){
+    // First-visit navigation must precede the ratings directory on every device.
+    const guide=page.locator('#start-here');
+    const directory=page.locator('.manager-showcase');
+    if(await guide.count()!==1||await directory.count()!==1)
+     errors.push(width+' first-visit navigation or manager directory missing');
+    else{
+     const positions=await page.evaluate(()=>({
+      guide:document.querySelector('#start-here').getBoundingClientRect().top+scrollY,
+      manager:document.querySelector('.manager-showcase').getBoundingClientRect().top+scrollY
+     }));
+     if(positions.guide>=positions.manager)
+      errors.push(width+' first-visit navigation must appear before ratings');
+     for(const href of ['hall/','analytics/records.html','managers/','seasons/'])
+      if(await guide.locator(':scope > .cards > a[href="'+href+'"]').count()!==1)
+       errors.push(width+' first-visit guide missing '+href);
+    }
+    if(width===390){
+     const actions=page.locator('main .hero .actions a.button');
+     if(!await actions.first().isVisible()||!await actions.nth(1).isVisible())
+      errors.push(width+' primary homepage actions must stay visible on mobile');
+    }
+   }
+   if(route===''){
     // Native disclosure must work with both pointer and keyboard, and the
     // visitor must be able to return from a real advanced research page.
     const research=await context.newPage();
