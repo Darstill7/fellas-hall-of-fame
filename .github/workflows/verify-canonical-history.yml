@@ -39,6 +39,8 @@ jobs:
           fi
       - name: Smoke-test GitHub Pages routes and manager profile assets
         run: node scripts/smoke-static-site.mjs
+      - name: Guard commissioner-confirmed 2023 Evans ownership and 2024 JMid entry
+        run: node scripts/verify-2023-evans-ownership.mjs
       - name: Verify generated career and H2H data
         run: node scripts/generate-career-core.mjs --check
       - name: Verify historical season guide output
