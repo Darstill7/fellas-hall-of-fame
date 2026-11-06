@@ -2266,7 +2266,7 @@ try{
      if(tinyTargets.length)errors.push(width+' Manager Record Books links too small to tap: '+tinyTargets.join(', '));
     }
     const recordJump=page.locator('nav.record-jump-nav');
-    const targets=['#profile','#owned-records','#opponents','#seasons'];
+    const targets=['#profile','#owned-records','#postseason-manager-panel','#expanded-manager-records','#opponents','#seasons'];
     if(await recordJump.count()!==1||
        !(await recordJump.locator('a').evaluateAll((links,expected)=>links.length===expected.length&&links.every((link,i)=>link.getAttribute('href')===expected[i]&&link.getBoundingClientRect().height>=44),targets))||
        await page.locator('#opponents').count()!==1||await page.locator('#seasons').count()!==1)
