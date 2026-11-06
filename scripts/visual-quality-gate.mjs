@@ -28,6 +28,7 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const baseUrl='http://127.0.0.1:'+server.address().port+base;
 const output=path.join(root,'data-integrity','visual-gate');
 const findings=[],screens=[],mobileJourneys=[];
+const placementReceipts=JSON.parse(await fs.readFile(path.join(root,'data','sleeper_postseason_placement_receipts_2020_2025.json'),'utf8'));
 try{
  for(const [engine,widths] of [['chromium',[390,768,1280]],['webkit',[390]]]){
   const browser=await (engine==='webkit'?webkit:chromium).launch({headless:true,...(engine==='webkit'?{}:{args:['--no-sandbox']})});
@@ -218,7 +219,9 @@ try{
           if(await detail.count()!==1)findings.push(engine+' '+width+' '+key+' placement detail missing');
           else{
            await detail.locator('summary').click();
-           const expected=year===2020?2:3;
+           const seasonReceipt=placementReceipts.seasons.find(s=>s.year===year);
+            const expected=seasonReceipt?.placementGames?.filter(g=>g.label!=='Championship'&&g.label!=='King (Last Place)').length;
+            if(!Number.isInteger(expected))throw Error('Missing source receipt for '+year);
            if(await detail.locator('li').count()!==expected)
             findings.push(engine+' '+width+' '+key+' expected '+expected+' source-matched non-final placements');
           }
