@@ -10,7 +10,7 @@ const expected=[
  {manager:'Stilly',id:'1023059879336013824',date:'2023-10-26',received:['Mike Evans','Derrick Henry'],other:'Tony',otherReceived:['Cooper Kupp']},
  {manager:'Stilly',id:'1144362000575840256',date:'2024-09-24',received:['Terry McLaurin',"De'Von Achane",'Tank Dell'],other:'Tom',otherReceived:['Christian McCaffrey','Diontae Johnson','Tee Higgins']},
  {manager:'Stilly',id:'1146947320588861440',date:'2024-10-02',received:['Chase Brown'],other:'Tom',otherReceived:['Jordan Love']},
- {manager:'Stew',id:'881580705233195008',date:'2022-09-30',received:['Ja\'Marr Chase'],other:'Birch',otherReceived:['Cordarrelle Patterson','Jeff Wilson','Chase Claypool']},
+ {manager:'Stew',id:'896468742987522048',date:'2022-11-10',received:['Ja\'Marr Chase'],other:'Birch',otherReceived:['Cordarrelle Patterson','Jeff Wilson','Chase Claypool']},
  {manager:'Stew',id:'1012571602774532096',date:'2023-09-27',received:['CeeDee Lamb','Travis Etienne Jr.'],other:'Kuhl',otherReceived:['James Conner',"De'Von Achane",'Puka Nacua']},
  {manager:'Tony',id:'1023059879336013824',date:'2023-10-26',received:['Cooper Kupp'],other:'Stilly',otherReceived:['Mike Evans','Derrick Henry']},
  {manager:'Kuhl',id:'1012571602774532096',date:'2023-09-27',received:['James Conner',"De'Von Achane",'Puka Nacua'],other:'Stew',otherReceived:['CeeDee Lamb','Travis Etienne Jr.']},
