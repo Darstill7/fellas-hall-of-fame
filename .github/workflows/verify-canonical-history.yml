@@ -27,6 +27,8 @@ jobs:
           find assets -type f \( -name '*.js' -o -name '*.mjs' \) -print0 | xargs -0 -r -n 1 node --check
       - name: Syntax-check HTML inline JavaScript
         run: node scripts/audit-inline-js.mjs
+      - name: Verify verified postseason record book and manager summaries
+        run: node scripts/verify-postseason-records.mjs
       - name: Inventory all site data dependencies (advisory)
         run: node scripts/audit-site-dependencies.mjs
       - name: Enforce valid internal links

@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
+const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/postseason-records.html',
  'analytics/power-ratings.html','analytics/rivalries.html','hall/','seasons/',
  'analytics/manager-madden-cards.html','managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
@@ -74,6 +74,18 @@ try{
          snapshotTiles:document.querySelectorAll('.profile-career-snapshot .stat').length,
          bodyTextLength:(document.body.innerText||'').length};
        });
+       if(key==='analytics/postseason-records.html'){
+        const rows=await page.locator('#postseason-table-body tr').count();
+        if(rows<10||await page.locator('#postseason-detail .postseason-season-list article').count()!==10)
+         findings.push(engine+' '+width+' postseason archive missing verified record tables');
+       }
+       if(key==='analytics/records.html'&&await page.locator('#postseason-league-panel .postseason-metric').count()!==4)
+        findings.push(engine+' '+width+' record book lacks postseason entry hierarchy');
+       if(/^managers\/(stilly|stew|tom|stover|birch|tony|mitch|kuhl|jmid|scott)\/$/.test(key)){
+        const disclosure=page.locator('main .hero [data-postseason-profile] details');
+        if(await disclosure.count()!==1||await disclosure.evaluate(el=>el.open))
+         findings.push(engine+' '+width+' '+key+' postseason summary should load collapsed');
+       }
        const record={engine,width,route:key,...audit,runtimeErrors:runtime};
        screens.push(record);
        if(!audit.heading||!audit.mainLandmark||audit.bodyTextLength<80)

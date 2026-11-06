@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','hall/','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','hall/','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/postseason-records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -940,6 +940,49 @@ try{
         !await page.locator('main h1').innerText().then(x=>x.includes("Stilly's Report Card"))||
         await page.locator('section[aria-label="Compare managers"]').isVisible())
       errors.push(width+' filtered report card does not return to its manager or hide unrelated comparisons');
+    }
+   }
+   // Source-backed postseason records must work as interactive pages and profile modules.
+   if(route==='analytics/postseason-records.html'){
+    await page.locator('#postseason-table-body tr').first().waitFor({state:'visible',timeout:10000});
+    const opening=await page.locator('#postseason-table-body tr').count();
+    if(opening<10||!await page.locator('#postseason-table-summary').innerText().then(x=>x.includes('championship-bracket')))
+     errors.push(width+' new postseason record book did not load verified bracket leaderboard');
+    await page.locator('button[data-mode="scores"]').click();
+    await page.locator('button[data-key="closestGames"]').click();
+    const first=await page.locator('#postseason-table-body tr').first().innerText();
+    if(!first.includes('Stilly')||!first.includes('0.12')||!first.includes('Kuhl'))
+     errors.push(width+' verified closest postseason game not reflected after changing record category');
+    await page.locator('button[data-mode="achievements"]').click();
+    await page.locator('button[data-key="finals"]').click();
+    const finals=await page.locator('#postseason-table-body tr').first().innerText();
+    if(!finals.includes('Tom')||!finals.includes('5'))
+     errors.push(width+' verified championship finals leaderboard incorrect');
+    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+3);
+    if(overflow)errors.push(width+' postseason record book causes horizontal page scrolling');
+   }
+   if(route==='analytics/records.html'){
+    if(await page.locator('#postseason-league-panel .postseason-metric').count()!==4||
+       await page.locator('#postseason-league-panel a[href="postseason-records.html"]').count()!==1)
+     errors.push(width+' main record book missing postseason leaderboard entry point');
+   }
+   if(route==='managers/record-books.html'){
+    if(await page.locator('#postseason-manager-panel .postseason-metric').count()!==7)
+     errors.push(width+' manager record book missing playoff achievements');
+    await page.locator('#manager').selectOption('Thommy');
+    if(!await page.locator('#postseason-manager-panel h2').innerText().then(x=>x.includes('Tom'))||
+       !await page.locator('#postseason-manager-panel').innerText().then(x=>x.includes('2016, 2017, 2018, 2024')))
+     errors.push(width+' manager postseason records did not follow nickname selection');
+   }
+   if(/^managers\/(stilly|stew|tom|stover|birch|tony|mitch|kuhl|jmid|scott)\/$/.test(route)){
+    const summary=page.locator('[data-postseason-profile] details > summary');
+    if(await summary.count()!==1||!await summary.isVisible())
+     errors.push(width+' '+route+' postseason profile résumé missing');
+    else{
+     await summary.click();
+     if(await page.locator('[data-postseason-profile] .postseason-metric').count()!==4||
+        await page.locator('[data-postseason-profile] a[href*="record-books.html?manager="]').count()!==1)
+      errors.push(width+' '+route+' postseason résumé did not reveal four source-backed achievements');
     }
    }
    if(route===''){
@@ -2262,7 +2305,7 @@ try{
      if(tinyTargets.length)errors.push(width+' Manager Record Books links too small to tap: '+tinyTargets.join(', '));
     }
     const recordJump=page.locator('nav.record-jump-nav');
-    const targets=['#profile','#owned-records','#opponents','#seasons'];
+    const targets=['#profile','#owned-records','#postseason-manager-panel','#opponents','#seasons'];
     if(await recordJump.count()!==1||
        !(await recordJump.locator('a').evaluateAll((links,expected)=>links.length===expected.length&&links.every((link,i)=>link.getAttribute('href')===expected[i]&&link.getBoundingClientRect().height>=44),targets))||
        await page.locator('#opponents').count()!==1||await page.locator('#seasons').count()!==1)
