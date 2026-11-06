@@ -340,6 +340,27 @@ try{
      const direct=page.locator('#profile-features .profile-featured-link');
      if(await direct.count()!==2)
       errors.push(width+' '+route+' Records and Report Card entry points missing');
+     // All ten profiles must offer a one-step way to change managers.
+     const managerSwitch=page.locator('#profile-manager-switch');
+     if(await managerSwitch.count()!==1)
+      errors.push(width+' '+route+' direct manager switcher missing');
+     else{
+      const options=await managerSwitch.locator('option').evaluateAll(nodes=>nodes.map(n=>n.value));
+      const expected=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
+      if(JSON.stringify(options)!==JSON.stringify(expected))
+       errors.push(width+' '+route+' manager switcher options inconsistent');
+      const current=route.split('/')[1];
+      if(await managerSwitch.inputValue()!==current)
+       errors.push(width+' '+route+' manager switcher current profile mismatch');
+      if(current==='stilly'){
+       await managerSwitch.selectOption('tony');
+       await page.waitForURL('**/managers/tony/',{timeout:10000}).catch(()=>{});
+       if(!page.url().endsWith('/managers/tony/'))
+        errors.push(width+' '+route+' switching manager failed to navigate to Tony');
+       await page.goBack({waitUntil:'networkidle'});
+       await page.waitForSelector('#profile-manager-switch');
+      }
+     }
      const weighted=heroMadden.locator('details.profile-rating-components');
      if(await weighted.count()!==1||await weighted.evaluate(el=>el.open))
       errors.push(width+' '+route+' canonical weight breakdown unavailable or expanded on load');
