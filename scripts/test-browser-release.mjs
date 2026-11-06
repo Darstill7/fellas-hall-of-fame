@@ -982,7 +982,7 @@ try{
     try{
      await research.goto(baseUrl,{waitUntil:'networkidle',timeout:30000});
      const more=research.locator('details.home-explore-more');
-     const core=research.locator('main .section.shell > .cards > a.card');
+     const core=research.locator('main .section.shell').filter({has:research.getByRole('heading',{name:'Explore the league'})}).locator(':scope > .cards > a.card');
      if(await more.count()!==1||await more.evaluate(el=>el.open)||
         await core.count()!==4)
       errors.push(width+' homepage research discovery should start with four core destinations');
