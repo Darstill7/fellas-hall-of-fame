@@ -948,7 +948,7 @@ try{
     await page.locator('#expanded-group').selectOption('Single-game');
     await page.locator('#expanded-category').selectOption('narrowest-win');
     const leading=await page.locator('#expanded-rows tr').first().innerText();
-    if(!leading.includes('0.01')&&!leading.includes('0.02')&&!leading.includes('0.04'))
+    if(!leading.includes('Tom')||!leading.includes('0.16'))
      errors.push(width+' closest victory category did not show a verified razor-thin finish');
     await page.locator('#expanded-manager').selectOption('Scott');
     if(!await page.locator('#expanded-spotlight').innerText().then(x=>x.includes('Scott')&&x.includes('Personal best'))||
