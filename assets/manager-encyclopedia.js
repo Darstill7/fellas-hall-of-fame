@@ -43,11 +43,11 @@
   if(!Array.isArray(source.sides))throw Error('Trade sides unavailable');
   const qualified=source.sides.filter(x=>canonical(x.manager)===canonical(manager)&&
    x.provisional===false&&String(x.confidence).startsWith('verified')&&
-   numeric(x.direct_edge)&&numeric(x.starter_points)&&numeric(x.starts)&&
-   x.direct_edge>0&&x.trade_id&&Array.isArray(x.assets)&&x.assets.length);
+   numeric(x.direct_edge)&&x.direct_edge>0&&x.trade_id);
   // A positive edge is an observed candidate, NOT proof that a trade was a wise decision.
   const t=qualified.sort((a,b)=>b.direct_edge-a.direct_edge)[0];
   if(!t)throw Error('No qualifying positive trade candidate');
+  if(!numeric(t.starter_points)||!numeric(t.starts)||!Array.isArray(t.assets)||!t.assets.length||!t.assets.every(x=>typeof x==='string'&&x.trim()))throw Error('Incomplete selected trade receipt');
   const counterparts=source.sides.filter(x=>x.year===t.year&&
    String(x.trade_id)===String(t.trade_id)&&
    canonical(x.manager)!==canonical(manager));
