@@ -6,13 +6,14 @@ if(!document.querySelector('link[data-expanded-record-css]')){
 const escapeHtml=v=>String(v??"—").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmt=(v,u)=>{const n=Number(v);const display=Number.isInteger(n)?String(n):n.toFixed(2);return u==="%"?display+"%":u==="score / 100"?display+"/100":display+(u?" "+u:"")};
 const groups=["Single-game","Career","Season","Rivalries","Final standings"];
+const ordinal=v=>{const n=Number(v);if(!Number.isInteger(n))return String(v);const tail=n%100;return n+((tail>=11&&tail<=13)?"th":({1:"st",2:"nd",3:"rd"}[n%10]||"th"))};
 const canonical=["Stilly","Stew","Tom","Stover","Birch","Tony","Mitch","Kuhl","JMid","Scott"];
 const detail=(row)=>{
  const e=row.evidence||{};
  if(e.opponent&&e.week)return row.year+" · W"+row.week+" vs "+e.opponent+(e.outcome?" · "+e.outcome:"");
  if(e.opponent&&e.meetings)return e.opponent+" · "+e.meetings+" meetings"+(Number.isFinite(e.wins)?" · "+e.wins+" wins":"");
  if(e.year&&e.games)return e.year+" · "+e.games+" recorded games";
- if(e.fromYear&&e.toYear)return e.fromYear+" → "+e.toYear+" · "+e.fromRank+"th to "+e.toRank+"th".replace("1th","1st").replace("2th","2nd").replace("3th","3rd");
+ if(e.fromYear&&e.toYear)return e.fromYear+" → "+e.toYear+" · "+ordinal(e.fromRank)+" to "+ordinal(e.toRank);
  if(e.endingYear)return "Streak ending "+e.endingYear+" W"+e.endingWeek;
  if(e.years?.length)return e.years.join(", ");
  if(row.season)return "Season "+row.season;
