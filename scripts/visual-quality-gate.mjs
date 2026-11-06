@@ -28,6 +28,7 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const baseUrl='http://127.0.0.1:'+server.address().port+base;
 const output=path.join(root,'data-integrity','visual-gate');
 const findings=[],screens=[],mobileJourneys=[];
+const placementReceipts=JSON.parse(await fs.readFile(path.join(root,'data','sleeper_postseason_placement_receipts_2020_2025.json'),'utf8'));
 try{
  for(const [engine,widths] of [['chromium',[390,768,1280]],['webkit',[390]]]){
   const browser=await (engine==='webkit'?webkit:chromium).launch({headless:true,...(engine==='webkit'?{}:{args:['--no-sandbox']})});
@@ -106,14 +107,14 @@ try{
           topics=document.querySelector('main .profile-quickstart'),
           playoff=document.getElementById('profile-playoff-resume');
          const top=node=>node?.getBoundingClientRect().top+window.scrollY;
-         return {actionBeforeSnapshot:!!action&&!!snapshot&&top(action)<top(snapshot),
+         return {snapshotBeforeAction:!!action&&!!snapshot&&top(snapshot)<top(action),
           playoffOutsideHero:!!playoff&&!hero?.contains(playoff),
           topicsBeforePlayoff:!!topics&&!!playoff&&top(topics)<top(playoff),
           topicsBeforeRatings:!!topics&&!!document.querySelector('main .profile-madden')&&top(topics)<top(document.querySelector('main .profile-madden')),
           recordPreview:!!snapshot?.querySelector('.profile-owned-records'),
           actionHeight:action?.querySelector('a')?.getBoundingClientRect().height||0};
         });
-        if(!hierarchy.actionBeforeSnapshot||!hierarchy.playoffOutsideHero||!hierarchy.topicsBeforePlayoff||!hierarchy.topicsBeforeRatings||!hierarchy.recordPreview)
+        if(!hierarchy.snapshotBeforeAction||!hierarchy.playoffOutsideHero||!hierarchy.topicsBeforePlayoff||!hierarchy.topicsBeforeRatings||!hierarchy.recordPreview)
          findings.push(engine+' '+width+' '+key+' incorrect profile landing hierarchy '+JSON.stringify(hierarchy));
         if(hierarchy.actionHeight<44)
          findings.push(engine+' '+width+' '+key+' primary profile action too small');
@@ -218,7 +219,9 @@ try{
           if(await detail.count()!==1)findings.push(engine+' '+width+' '+key+' placement detail missing');
           else{
            await detail.locator('summary').click();
-           const expected=year===2020?2:3;
+           const seasonReceipt=placementReceipts.seasons.find(s=>s.year===year);
+            const expected=seasonReceipt?.placementGames?.filter(g=>g.label!=='Championship'&&g.label!=='King (Last Place)').length;
+            if(!Number.isInteger(expected))throw Error('Missing source receipt for '+year);
            if(await detail.locator('li').count()!==expected)
             findings.push(engine+' '+width+' '+key+' expected '+expected+' source-matched non-final placements');
           }

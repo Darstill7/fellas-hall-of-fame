@@ -67,6 +67,10 @@ jobs:
         run: node scripts/verify-draft-position-peers.mjs
       - name: Verify canonical website consumers
         run: node scripts/verify-core-consumers.mjs
+      - name: Verify homepage standings remain available when ratings fail
+        run: node scripts/verify-homepage-standings-resilience.mjs
+      - name: Verify completed season archive editorial and navigation labels
+        run: node scripts/verify-production-editorial-navigation.mjs
       - name: Ensure 2026 season encyclopedia is labeled as a Week 7 archive
         run: node scripts/test-2026-season-archive-copy.mjs
       - name: Check historical playoff forecast is labeled as an archive
