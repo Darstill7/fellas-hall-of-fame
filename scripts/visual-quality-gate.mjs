@@ -145,10 +145,22 @@ try{
          findings.push(engine+' '+width+' mobile homepage headline words run together');
        }
        if(route===''&&width===390){
-        const firstManager=await page.locator('#home-manager-mobile .mobile-manager-row').first().evaluate(el=>el.getBoundingClientRect().top);
-        if(firstManager>844*.82)findings.push(engine+' '+width+' manager choices start too far below first screen: '+Math.round(firstManager)+'px');
-        if(await page.locator('main .hero .actions .button:visible').count())
-         findings.push(engine+' '+width+' duplicate homepage hero buttons crowd out manager discovery');
+        // The new first-visit design deliberately prioritizes four clear
+        // destinations over the formerly dominant manager rating directory.
+        const guide=page.locator('#start-here');
+        const first=guide.locator(':scope > .cards > a.card').first();
+        if(await guide.count()!==1||await first.count()!==1){
+         findings.push(engine+' '+width+' four-destination first-visit guide missing');
+        }else{
+         const top=await first.evaluate(el=>el.getBoundingClientRect().top);
+         const count=await guide.locator(':scope > .cards > a.card').count();
+         if(top>844*.82||count!==4)
+          findings.push(engine+' '+width+' primary destination choices not easy to find: y='+Math.round(top)+' count='+count);
+         const guideY=await guide.evaluate(el=>el.getBoundingClientRect().top);
+         const managerY=await page.locator('.manager-showcase').evaluate(el=>el.getBoundingClientRect().top);
+         if(guideY>=managerY)
+          findings.push(engine+' '+width+' starter guide must appear before manager rating directory');
+        }
        }
        if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
         if(audit.snapshotTiles<3)findings.push(engine+' '+width+' '+key+' career stats missing');
