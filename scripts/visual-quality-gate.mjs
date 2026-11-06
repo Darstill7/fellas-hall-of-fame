@@ -88,6 +88,57 @@ try{
         findings.push(engine+' '+width+' '+key+' resource or JS error '+runtime.slice(0,3).join(' | '));
        if(audit.loading)
         findings.push(engine+' '+width+' '+key+' first-screen content remains in a loading state');
+       if(route===''){
+        const featured=await page.locator('main .section .cards .home-featured-card').evaluateAll(nodes=>nodes.map(n=>({
+         link:n.getAttribute('href'),height:n.getBoundingClientRect().height,
+         contrast:getComputedStyle(n).borderColor
+        })));
+        if(featured.length!==2||featured[0].link!=='hall/'||featured[1].link!=='analytics/records.html'||
+           featured.some(card=>card.height<120))
+         findings.push(engine+' '+width+' homepage champions and records feature hierarchy missing');
+       }
+       if(route===''){
+        const discovery=await page.evaluate(()=>{
+         const sections=[...document.querySelectorAll('main .section.shell')];
+         const explore=sections.find(section=>section.querySelector('h2')?.textContent?.trim()==='Explore the league');
+         const core=[...explore?.querySelectorAll(':scope > .cards > a.card')||[]].map(a=>a.getAttribute('href'));
+         const advanced=explore?.querySelector('details.home-explore-more');
+         return {core,advancedCount:advanced?.querySelectorAll('a.card').length||0,
+          advancedCollapsed:advanced&&!advanced.open};
+        });
+        if(JSON.stringify(discovery.core)!==JSON.stringify(['hall/','analytics/records.html','managers/','seasons/'])||
+           discovery.advancedCount!==5||!discovery.advancedCollapsed)
+         findings.push(engine+' '+width+' '+key+' homepage discovery hierarchy '+JSON.stringify(discovery));
+       }
+       if(route==='hall/'||route==='analytics/records.html'){
+        const hierarchy=await page.evaluate(()=>{
+         const hero=document.querySelector('main .hero');
+         const sections=[...document.querySelectorAll('main .section')];
+         const title=hero?.querySelector('h1');
+         const firstSection=sections[0];
+         return {titleSize:parseFloat(getComputedStyle(title).fontSize),
+          sectionTitleSize:parseFloat(getComputedStyle(firstSection?.querySelector('h2')).fontSize),
+          sectionCards:[...firstSection?.querySelectorAll('.tile')||[]].map(el=>({width:el.getBoundingClientRect().width,height:el.getBoundingClientRect().height})),
+          archiveTable:document.querySelector('main .records-table')?.getBoundingClientRect().width||0};
+        });
+        if(hierarchy.titleSize<32||hierarchy.sectionTitleSize<22||
+           (route==='hall/'&&(hierarchy.sectionCards.length!==6||hierarchy.sectionCards.some(c=>c.width<160||c.height<90)))||
+           (route==='analytics/records.html'&&hierarchy.archiveTable<200))
+         findings.push(engine+' '+width+' '+key+' hall/record editorial visual hierarchy '+JSON.stringify(hierarchy));
+       }
+       if(route==='managers/'){
+        const directory=await page.locator('#manager-directory-cards a.manager').evaluateAll(nodes=>nodes.map(n=>{
+         const rect=n.getBoundingClientRect();
+         const heading=n.querySelector('h2');
+         return {width:rect.width,height:rect.height,
+          headingSize:heading?parseFloat(getComputedStyle(heading).fontSize):0,
+          label:heading?.textContent?.trim()||'',link:n.getAttribute('href')};
+        }));
+        if(directory.length!==10||directory.some(c=>c.width<200||c.height<85||c.headingSize<21||!c.label||!c.link))
+         findings.push(engine+' '+width+' manager directory cards unreadable '+JSON.stringify(directory));
+        if(width===390&&directory.some(c=>c.height>175))
+         findings.push(engine+' '+width+' mobile directory card too tall for quick scanning');
+       }
        if(route===''&&width===390){
         const headline=await page.locator('.hero h1').textContent();
         if(!/The history\.\s+The legends\.\s+The Fellas\./.test(headline||''))
@@ -145,6 +196,21 @@ try{
          return {label:card.querySelector('span')?.textContent?.trim(),value:card.querySelector('strong')?.textContent?.trim(),
           left:r.left,right:r.right,width:r.width,height:r.height}
         }));
+        const editorialMetrics=await page.locator('main .hero .profile-snapshot-condensed').evaluate(box=>{
+         const highlights=[...box.querySelectorAll('.profile-career-highlight')];
+         const honors=box.querySelector('.profile-honors-line');
+         return {panelBorder:getComputedStyle(box).borderStyle,
+          panelPadding:parseFloat(getComputedStyle(box).paddingLeft),
+          figureSizes:highlights.map(el=>parseFloat(getComputedStyle(el.querySelector('strong')).fontSize)),
+          labelSizes:highlights.map(el=>parseFloat(getComputedStyle(el.querySelector('span')).fontSize)),
+          honorsContrast:honors?getComputedStyle(honors).color:'',
+          title:box.querySelector('.profile-snapshot-heading')?.textContent?.trim()}
+        });
+        if(editorialMetrics.panelBorder==='none'||editorialMetrics.panelPadding<10||
+           editorialMetrics.figureSizes.length!==2||editorialMetrics.figureSizes.some(size=>size<22)||
+           editorialMetrics.labelSizes.some(size=>size<11)||
+           editorialMetrics.title!=='Career highlights')
+         findings.push(engine+' '+width+' '+key+' profile editorial card hierarchy incorrect '+JSON.stringify(editorialMetrics));
         if(headlineFacts.length!==2||headlineFacts.some(f=>!f.label||!f.value||f.width<90||f.height<50||
            f.left< -3||f.right>width+3)||!headlineFacts.some(f=>f.label==='Championships')||
            !headlineFacts.some(f=>f.label==='Regular-season record'))
