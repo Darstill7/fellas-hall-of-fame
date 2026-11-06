@@ -1,7 +1,8 @@
 {
   "meta": {
     "method": "Illustrative Mount Rushmore index: accumulated credited regular-season starter points + 2 × capped starts (42) + 12 × seasons (up to 5) + 0.12 × best season starter points. Minimum three documented starts. Excludes QB/RB/WR/TE positional adjustment, playoff/clutch value, and owner-uncertain seasons. This is a franchise-specific shortlist, not WAR.",
-    "coverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores"
+    "coverage": "2020–2025 regular season weeks 1–14; 2026 weeks 1–6; no playoff data or 2016–2019 ESPN scores",
+    "commissionerCorrection": "2023 starts in the team slot belong to Evans, not JMid; his Mount Rushmore is derived only from 2024 onward."
   },
   "managers": {
     "Stilly": [
@@ -44,15 +45,6 @@
     ],
     "JMid": [
       {
-        "name": "Ja'Marr Chase",
-        "position": "WR",
-        "points": 360.7,
-        "starts": 21,
-        "seasons": 4,
-        "peak": 278.9,
-        "score": 484.2
-      },
-      {
         "name": "Joe Burrow",
         "position": "QB",
         "points": 374.2,
@@ -62,22 +54,31 @@
         "score": 481.8
       },
       {
-        "name": "Jalen Hurts",
-        "position": "QB",
-        "points": 288.68,
-        "starts": 13,
-        "seasons": 1,
-        "peak": 288.68,
-        "score": 361.3
+        "name": "Ja'Marr Chase",
+        "position": "WR",
+        "points": 356.3,
+        "starts": 20,
+        "seasons": 3,
+        "peak": 278.9,
+        "score": 465.8
       },
       {
-        "name": "Keenan Allen",
+        "name": "Courtland Sutton",
         "position": "WR",
-        "points": 251.16,
-        "starts": 15,
+        "points": 214.8,
+        "starts": 17,
         "seasons": 2,
-        "peak": 224.86,
-        "score": 332.1
+        "peak": 115.7,
+        "score": 286.7
+      },
+      {
+        "name": "Josh Jacobs",
+        "position": "RB",
+        "points": 191.3,
+        "starts": 12,
+        "seasons": 1,
+        "peak": 191.3,
+        "score": 250.3
       }
     ],
     "Tom": [
