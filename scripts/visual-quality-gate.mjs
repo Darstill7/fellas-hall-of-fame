@@ -30,12 +30,12 @@ const output=path.join(root,'data-integrity','visual-gate');
 const findings=[],screens=[],mobileJourneys=[];
 const placementReceipts=JSON.parse(await fs.readFile(path.join(root,'data','sleeper_postseason_placement_receipts_2020_2025.json'),'utf8'));
 try{
- for(const [engine,widths] of [['chromium',[390,768,1280]],['webkit',[390]]]){
+ for(const [engine,widths] of [['chromium',[320,390,768,1280]],['webkit',[390]]]){
   const browser=await (engine==='webkit'?webkit:chromium).launch({headless:true,...(engine==='webkit'?{}:{args:['--no-sandbox']})});
   try{
    for(const width of widths){
-    const context=await browser.newContext({viewport:{width,height:width===390?844:width===768?960:900},
-     isMobile:width===390,hasTouch:width===390,reducedMotion:'reduce'});
+    const context=await browser.newContext({viewport:{width,height:width<=390?844:width===768?960:900},
+     isMobile:width<=390,hasTouch:width<=390,reducedMotion:'reduce'});
     try{
      for(const route of routes){
       const key=route||'index.html',name=key.replace(/[^a-z0-9-]+/gi,'_');
