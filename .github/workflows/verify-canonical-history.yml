@@ -29,6 +29,8 @@ jobs:
         run: node scripts/audit-inline-js.mjs
       - name: Verify verified postseason record book and manager summaries
         run: node scripts/verify-postseason-records.mjs
+      - name: Verify 44 expanded records and every active manager signature
+        run: node scripts/verify-expanded-records.mjs
       - name: Inventory all site data dependencies (advisory)
         run: node scripts/audit-site-dependencies.mjs
       - name: Enforce valid internal links
