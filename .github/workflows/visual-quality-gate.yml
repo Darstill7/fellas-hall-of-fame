@@ -2,6 +2,8 @@ name: Visual first-screen quality gate
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 concurrency:
   group: fellas-visual-${{ github.ref }}
