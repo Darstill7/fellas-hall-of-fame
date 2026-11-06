@@ -26,7 +26,9 @@ for(const category of data.categories){
  assert.ok(category.entries>=category.leaders.length&&category.leaders.length>0);
  assert.ok(category.leaders.length<=20);
  for(const [i,row] of category.leaders.entries()){
-  assert.equal(row.rank,i+1,"Leaderboard ranks must be explicit display-order positions");
+  const previous=category.leaders[i-1];
+  const expectedRank=i>0&&previous.value===row.value?previous.rank:i+1;
+  assert.equal(row.rank,expectedRank,"Ties must share competition rank; untied entries advance by position");
   assert.ok(allNames.has(row.manager),"Manager identity must appear in recovered games: "+row.manager);
   assert.ok(Number.isFinite(row.value),"Record marks must be finite numbers");
   assert.ok(row.evidence&&typeof row.evidence==="object");
