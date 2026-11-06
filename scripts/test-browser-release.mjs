@@ -1863,9 +1863,9 @@ try{
       if(!await page.locator('#profile-features').isVisible()||
          !await page.locator('#profile-features .profile-focus-toolbar').count())
        errors.push(width+' '+slug+' Back action failed to restore feature directory');
-      await page.waitForFunction(()=>document.activeElement?.matches('details.profile-feature-group[open] > summary'),null,{timeout:2000}).catch(()=>{});
-      if(!await page.evaluate(()=>document.activeElement?.matches('details.profile-feature-group[open] > summary')))
-       errors.push(width+' '+slug+' Back navigation lost keyboard focus on hidden toolbar');
+      await page.waitForFunction(()=>document.activeElement?.matches('[data-profile-feature][data-feature-target="#head-to-head"]'),null,{timeout:2500}).catch(()=>{});
+      if(!await rivalry.evaluate(el=>document.activeElement===el&&el.getClientRects().length>0))
+       errors.push(width+' '+slug+' Back navigation did not restore keyboard focus to rivalry feature');
       const careerGroup=page.locator('details.profile-feature-group').filter({has:career});
       if(!await careerGroup.evaluate(el=>el.open))await careerGroup.locator(':scope > summary').click();
       await career.click();
