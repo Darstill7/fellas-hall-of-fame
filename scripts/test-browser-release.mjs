@@ -2246,7 +2246,7 @@ try{
      const thommyProfile=await page.locator('#profile').innerText();
      if(!thommyProfile.includes('Recorded postseason matchups')||!thommyProfile.includes('67–75–1')||
         !thommyProfile.includes('241.00')||!thommyProfile.includes('NFL Weeks 15–16 combined')||
-        !((await page.locator('#manager-destination a').getAttribute('href'))||'').endsWith('tom/'))
+        !((await page.locator('#manager-destination a').first().getAttribute('href'))||'').endsWith('tom/'))
       errors.push(width+' Thommy historical record must retain his own career and current profile');
      await page.locator('#manager').selectOption('Schermerhorn');
      const historicalProfile=await page.locator('#profile').innerText();
