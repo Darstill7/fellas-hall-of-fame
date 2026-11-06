@@ -427,29 +427,26 @@
         "l": 10,
         "t": 0,
         "bestScoringMatchup": {
-          "year": 2019,
-          "week": 16,
+          "year": 2016,
+          "week": 15,
           "home": "Evans",
-          "away": "Stover",
-          "homeScore": 264.76,
-          "awayScore": 328.56,
-          "winner": "AWAY",
-          "margin": -63.8,
+          "away": "Koble",
+          "homeScore": 224,
+          "awayScore": 169,
+          "winner": "HOME",
+          "margin": 55,
           "stage": "consolation",
           "era": "ESPN",
           "source": "espn_history_2016_2019",
           "weeksCovered": [
-            14,
-            15,
-            16
+            16,
+            17
           ],
-          "twoWeekAggregate": false,
-          "scoreAggregation": "running_three_week_consolation_total",
-          "cumulativeScoring": true,
-          "points": 264.76,
-          "opponentPoints": 328.56,
-          "opponent": "Stover",
-          "outcome": "L"
+          "twoWeekAggregate": true,
+          "points": 224,
+          "opponentPoints": 169,
+          "opponent": "Koble",
+          "outcome": "W"
         },
         "important": "Some ESPN playoff games span multiple NFL weeks; Sleeper postseason bracket labels may be unavailable."
       },
