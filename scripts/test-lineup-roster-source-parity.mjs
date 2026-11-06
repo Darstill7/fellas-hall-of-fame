@@ -46,7 +46,10 @@ for(const f of audit.sourceFiles){
  assert.equal(rosters.length,10,f.path);
  let weekly=0;const managers=new Set();
  for(const r of rosters){
-  const name=alias[String(r.owner||'').toLowerCase()];
+  const rosterOwner=String(r.owner||'').toLowerCase();
+  // The 2023 roster handle jmidd belonged to Evans throughout that year;
+  // JMid joined only after the season finished (commissioner confirmed).
+  const name=f.year===2023&&rosterOwner==='jmidd'?'Evans':alias[rosterOwner];
   assert.ok(name&&!managers.has(name),'Unknown or duplicate owner '+f.path);
   managers.add(name);
   const id=[f.year,f.week,name].join('/');
