@@ -2276,9 +2276,6 @@ try{
         !(await page.locator('#manager-destination').innerText()).includes('Manager profile')||
         !(await page.locator('#manager-destination').innerText()).includes('Report card'))
       errors.push(width+' Birch deep-linked record book did not select correct manager');
-
-    }
-
     }
    }
    if(route==='managers/stilly/'){
