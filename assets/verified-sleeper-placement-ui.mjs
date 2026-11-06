@@ -1,6 +1,6 @@
 // Verified Sleeper postseason placements, sourced from user screenshots and source match receipts.
 // Championship results and Toilet Bowl outcomes are different competitions.
-// "Shitter of the Year" = lower FINAL score in the King (Last Place) game.
+// "Shitter of the Year" = last-place loser of the King (Last Place) / Toilet Bowl final.
 const source='../data/sleeper_postseason_placement_receipts_2020_2025.json';
 const make=(type,text,className)=>{
  const el=document.createElement(type);
@@ -45,7 +45,8 @@ function renderSeason(root,s){
   }
   details.append(summary,list);root.append(details);
  }
- if(s.reviewNeeded?.length)root.append(make('p','A third-place result from '+s.year+' has a small screenshot-versus-archive scoring discrepancy and is awaiting verification.','placement-note'));
+ if(s.scoreCorrections?.length)root.append(make('p','2020 third-place result: Birch 110.14–78.90 Stover. Birch’s score was confirmed by the commissioner on November 5, 2026, superseding the initial 110.10 correction and earlier archived 110.24 score.','placement-note'));
+ if(s.reviewNeeded?.length)root.append(make('p','A placement score from '+s.year+' is still under review.','placement-note'));
  if(s.finalPlacements?.length){
   const ranks=make('details',null,'placement-more placement-final-ranks');
   ranks.append(make('summary',s.placementsComplete?'View all 10 final finishing positions':'View verified final finishing positions'));
@@ -53,7 +54,7 @@ function renderSeason(root,s){
   for(const entry of s.finalPlacements){
    const li=make('li');
    li.append(make('strong','#'+entry.place+' '+entry.manager),
-    make('span',entry.scoreVerified?'Bracket placement verified':'Finishing position verified · exact score under review'));
+    make('span',entry.scoreSource?.startsWith('commissioner-confirmed')?'Score confirmed by league commissioner':entry.scoreVerified?'Bracket placement verified':'Finishing position verified · exact score under review'));
    ordered.append(li);
   }
   ranks.append(ordered);
@@ -64,7 +65,7 @@ function renderSeason(root,s){
 }
 function renderHistory(root,data){
  const heading=make('h2','Hall of Shame · Shitter of the Year');
- const intro=make('p','The manager with the lower final score in the season-ending Toilet Bowl. These results are not counted as positive league records.','placement-intro');
+ const intro=make('p','The manager who finishes last in the losers bracket by losing the final Toilet Bowl. These results are not counted as positive league records.','placement-intro');
  root.append(heading,intro);
  const list=make('div',null,'placement-shame-list');
  for(const s of [...data.seasons].sort((a,b)=>b.year-a.year)){

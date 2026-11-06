@@ -74,3 +74,12 @@ body.fellas-polished .records-table th{line-height:1.75!important;padding-top:12
  body.fellas-polished.profile-feature-focused .profile-feature-group>.profile-feature-list{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
  body.fellas-polished.profile-feature-focused .profile-feature-group>.profile-feature-list>.profile-feature-button{width:100%!important;min-width:0!important;box-sizing:border-box}
 }
+
+/* Mobile manager header: avoid inheriting bulky generic <details> card spacing.
+   Keep the "Explore site" disclosure keyboard accessible with a 44px target. */
+@media(max-width:700px){
+ body.fellas-polished.fellas-mobile-ready header.nav .wrap{min-height:72px;flex-wrap:nowrap;gap:12px;padding-top:10px;padding-bottom:10px}
+ body.fellas-polished .fellas-mobile-site-menu{flex:0 0 auto;margin:0;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent}
+ body.fellas-polished .fellas-mobile-site-menu>summary{min-height:44px;padding:10px 13px}
+ body.fellas-polished.fellas-mobile-ready header.nav .brand{min-width:0;max-width:calc(100% - 130px);font-size:14px;white-space:nowrap}
+}

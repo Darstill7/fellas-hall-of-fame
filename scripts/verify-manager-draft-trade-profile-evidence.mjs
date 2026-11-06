@@ -88,9 +88,15 @@ assert.ok(tabsSource.includes('function populateManagerResearch(quick,manager)')
  tabsSource.includes('populateManagerResearch(quick,manager);')&&
  tabsSource.includes('if(existingProfile&&!legacyNav)'),
  'Both standard and hand-curated profiles must mount the same research components');
-assert.ok(stoverSource.includes('data-manager-profile-tabs')&&
- stoverSource.includes('class="profile-quickstart"'),
- 'Stover custom profile must expose existing navigation and research mount');
+// The Stover page uses the same runtime upgrader as every other manager.
+// The chapter navigation is authored in HTML; tabs, quick-start features,
+// and research components are mounted by manager-profile-tabs.mjs.
+assert.ok(stoverSource.includes('class="profile-chapters')&&
+ stoverSource.includes('manager-profile-tabs.mjs')&&
+ stoverSource.includes('id="legacy-resume"')&&
+ tabsSource.includes("nav.dataset.managerProfileTabs=''")&&
+ tabsSource.includes("quick.className='profile-quickstart'"),
+ 'Stover custom profile must load shared navigation and research mount');
 const currentManagers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
 for(const manager of currentManagers){
  const seasons=published.rows.filter(r=>r.manager===manager);

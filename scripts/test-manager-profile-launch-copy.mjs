@@ -28,12 +28,12 @@ for(const [manager,expected] of Object.entries(expectedPlayoffs)){
   throw Error('Playoff résumé includes an incomplete season or missing year for '+manager);
 }
 const tabsSource=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
-if(!tabsSource.includes('careerSnapshot.before(primaryProfileActions)')||
+if(!tabsSource.includes('careerSnapshot.after(primaryProfileActions)')||
    !tabsSource.includes('profileHero.after(profileTopicMenu)')||
    !tabsSource.includes('profileTopicMenu.after(profilePlayoffSection)'))
  throw Error('Manager first-screen hierarchy must remain consistent');
 if(!tabsSource.includes('mountManagerPlayoffResume();')||
- !tabsSource.includes('items:[0,1,11,12]')||
+ !tabsSource.includes('items:[0,1,10]')||
  !tabsSource.includes("href:'#profile-playoff-resume'"))
  throw Error('Playoff résumé is missing from the shared manager profile navigation');
 // Every public manager landing page leads with Records and Report Card.
@@ -144,9 +144,9 @@ if(!featureMenu.includes("import {findOwnedRecords,recordCategoryLabels} from '.
  throw Error('Every manager must expose a source-backed record ownership preview and honest zero state');
 
 const recordBook=fs.readFileSync('managers/record-books.html','utf8');
-if(!featureMenu.includes("label:'Records you own'")||!featureMenu.includes("href:'../record-books.html?manager='+encodeURIComponent(manager)+'#owned-records'"))
+if(!featureMenu.includes("heading.textContent='Records you own'")||!featureMenu.includes("link.href='../record-books.html?manager='+encodeURIComponent(normalized)+'#owned-records'"))
  throw Error('Manager feature menu lost its personal record book deep link');
-if(!featureMenu.includes("items:[0,1,11,12]"))
+if(!featureMenu.includes("items:[0,1,10]"))
  throw Error('Record books are no longer in the Career & Results feature group');
 if(!recordBook.includes("new URLSearchParams(location.search).get('manager')"))
  throw Error('Record book does not restore manager selection from its URL');
@@ -172,8 +172,11 @@ if(placementStats.get('Mitch')?.averageFinish!==4.167||
    placementStats.get('Scott')?.seasonsPlayed!==2||
    placementStats.get('Stew')?.bottomThree!==4)
  throw Error('Season-finishing historical stats changed');
-if(placementAudit.findings.length!==2||placementAudit.findings.some(f=>f.year!==2020))
- throw Error('Score reconciliation issues require re-review');
+// Canonical and receipt scores have been reconciled, including Birch's
+// commissioner-confirmed 110.14 in the 2020 third-place matchup.
+if(placementAudit.findings.length!==0||
+   placementMaster.seasons.some(season=>season.finishers.some(f=>f.scoreVerified!==true)))
+ throw Error('Postseason scores must remain reconciled across all 60 verified finishes');
 const mitchResume=buildPlayoffResume(playoffEspn,playoffSleeper,'Mitch',placementReceipts);
 const scottResume=buildPlayoffResume(playoffEspn,playoffSleeper,'Scott',placementReceipts);
 if(mitchResume.finalPlaceSummary?.seasons!==6||
@@ -332,7 +335,7 @@ for(const yearData of bracketReceipts.seasons){
   throw Error('Championship bracket conflict in '+year);
  if(yearData.toiletBowl?.manager!==expectedLast[year])
   throw Error('Toilet Bowl loser mismatch in '+year);
- if(yearData.reviewNeeded?.length&&year!==2020)throw Error('Unexpected ambiguous third-place evidence in '+year);
+ if(yearData.reviewNeeded?.length)throw Error('Outstanding postseason score review remains for '+year);
  const finished=yearData.finalPlacements||[];
  if(finished.length!==10||yearData.placementsComplete!==true)
   throw Error('Postseason placements must be complete for '+year);
@@ -343,8 +346,8 @@ for(const yearData of bracketReceipts.seasons){
   throw Error('Final 10th-place manager must be Shitter of the Year in '+year);
  if(finished.find(x=>x.place===1)?.manager!==yearData.championship.winner)
   throw Error('Final first-place manager must be season champion '+year);
- if(year===2020&&finished.filter(x=>!x.scoreVerified).map(x=>x.place).join(',')!=='3,4')
-  throw Error('Unreconciled 2020 third place score must remain flagged');
+ if(finished.some(x=>x.scoreVerified!==true))
+  throw Error('Season contains unverified postseason final score for '+year);
  for(const game of yearData.placementGames){
   const matches=sourceMatchups.find(x=>x.year===year&&x.week===game.week)?.games||[];
   const found=matches.some(m=>{

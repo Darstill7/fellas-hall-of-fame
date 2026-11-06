@@ -45,8 +45,18 @@ for(const [slug,manager] of Object.entries(managers)){
  assert.ok(typeof bio==='string'&&bio.length>100,'Missing substantive source biography: '+manager);
  const story=page.match(/id="franchise-story"[\s\S]*?<p class="lead">([\s\S]*?)<\/p>/)?.[1];
  assert.ok(story,'Missing published biography: '+manager);
- const rendered=story.replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').replace(/&#39;/g,"'").trim().split(' The archived regular-season record is ')[0].trim();
- assert.equal(rendered,bio,'Biography differs from editorial source: '+manager);
+ const rendered=story.replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').replace(/&#39;/g,"'").trim();
+ // The landing intro is intentionally brief; the complete sourced biography is
+ // loaded separately by the shared career résumé on all ten profile pages.
+ assert.ok(rendered.length>=80&&rendered.length<=450,'Profile introduction length is out of range: '+manager);
+ assert.ok(page.includes('data-legacy-resume="'+sourceName+'"')&&
+  page.includes('src="../../assets/legacy-resume.js"'),
+  'Complete biography must be accessible from the manager profile: '+manager);
+ const biographyLoader=fs.readFileSync('assets/legacy-resume.js','utf8');
+ assert.ok(biographyLoader.includes('manager_biographies_awards.json')&&
+  biographyLoader.includes('career-bio-prose')&&biographyLoader.includes('detail.biography'),
+  'Complete biography must be rendered from canonical editorial source');
+ assert.notEqual(rendered,bio,'Full biography should not replace compact first-screen intro');
  // Match concrete transaction and player references without treating editorial
  // 'best/worst' candidates as certified decision-quality rankings.
  const biography=biographies[sourceName];

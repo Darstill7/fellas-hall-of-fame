@@ -84,7 +84,7 @@ async function show(){
   root.append(add('h3','Shorter Sleeper tenures'));
   root.append(makeTable(partial));
   if(audit.findings.length){
-   const note=add('p','2020 third-place finishing order is verified, but the third-place game score remains under review because the screenshot and archived scores differ by 0.10.');
+   const note=add('p','Some historical game scores have unresolved source differences. See the verified score evidence for affected games.');
    note.className='placement-stat-help';root.append(note);
   }
  }catch(error){

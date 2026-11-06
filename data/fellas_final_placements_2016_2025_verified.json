@@ -12,7 +12,7 @@
   "caveats": [
     "2016 had eight entrants; all other seasons have ten.",
     "2016–2019 ESPN last-place outcomes are official finalRank and loser-bracket final, not a claim that the exact Sleeper Shitter Bowl format existed.",
-    "2020 third-place Birch versus Stover score discrepancy remains unresolved; finishing positions are confirmed.",
+    "2020 Birch third-place score commissioner-confirmed as 110.14 on 2026-11-05; initial 110.10 commissioner statement and original 110.24 archive remain documented but superseded.",
     "Managers who did not participate in a given season must not be assigned a fictional rank."
   ],
   "seasons": [
@@ -346,15 +346,19 @@
           "rank": 3,
           "manager": "Birch",
           "source": "Verified Sleeper bracket",
-          "scoreVerified": false,
-          "finishScore": 77.7778
+          "scoreVerified": true,
+          "finishScore": 77.7778,
+          "postseasonThirdPlaceScore": 110.14,
+          "scoreSource": "commissioner final correction 2026-11-05: 110.14; previous 110.10 commissioner statement and original archive 110.24 superseded"
         },
         {
           "rank": 4,
           "manager": "Stover",
           "source": "Verified Sleeper bracket",
-          "scoreVerified": false,
-          "finishScore": 66.6667
+          "scoreVerified": true,
+          "finishScore": 66.6667,
+          "postseasonThirdPlaceScore": 78.9,
+          "scoreSource": "archived final third-place game score"
         },
         {
           "rank": 5,

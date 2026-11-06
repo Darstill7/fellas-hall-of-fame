@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "source": "User-uploaded Sleeper postseason bracket screenshots November 4, 2026 and archival matchup receipts",
-  "coverage": "2020–2025: championship winners, labeled Toilet Bowl finals; placement-game coverage varies by screenshot",
+  "coverage": "2020–2025: championship winners, labeled Toilet Bowl finals and placement games; Birch 2020 third-place score commissioner-confirmed as 110.14 (supersedes initial 110.10 correction).",
   "rule": "Lower final score in the King (Last Place) / Toilet Bowl final determines Shitter of the Year. 8th-place games never determine Shitter of the Year.",
   "identity": "Sleeper historical handles normalized to manager nicknames, retaining distinct former managers",
   "dataSources": [
@@ -63,17 +63,18 @@
           "winnerScore": 118.06,
           "loser": "Tony",
           "loserScore": 116.94
-        }
-      ],
-      "reviewNeeded": [
+        },
         {
           "label": "3rd Place",
-          "winner": "Birch",
-          "loser": "Stover",
           "week": 16,
-          "note": "Uploaded screenshot appears to show Birch 110.14; archived matchup ledger records Birch 110.24 against Stover 78.90. Winner is consistent but exact score requires comparison with official Sleeper history."
+          "winner": "Birch",
+          "winnerScore": 110.14,
+          "loser": "Stover",
+          "loserScore": 78.9,
+          "scoreSource": "commissioner-confirmed final correction 2026-11-05; initial 110.10 correction superseded; original archived 110.24 retained"
         }
       ],
+      "reviewNeeded": [],
       "finalPlacements": [
         {
           "place": 1,
@@ -91,13 +92,15 @@
           "place": 3,
           "manager": "Birch",
           "evidence": "3rd Place",
-          "scoreVerified": false
+          "scoreVerified": true,
+          "scoreSource": "commissioner-confirmed 2026-11-05"
         },
         {
           "place": 4,
           "manager": "Stover",
           "evidence": "3rd Place",
-          "scoreVerified": false
+          "scoreVerified": true,
+          "scoreSource": "archived third-place opponent score 78.90"
         },
         {
           "place": 5,
@@ -136,7 +139,22 @@
           "scoreVerified": true
         }
       ],
-      "placementsComplete": true
+      "placementsComplete": true,
+      "scoreCorrections": [
+        {
+          "matchup": "2020 Week 16 · 3rd Place",
+          "winner": "Birch",
+          "opponent": "Stover",
+          "correctedScore": 110.14,
+          "opponentScore": 78.9,
+          "confirmation": "commissioner-final correction 2026-11-05",
+          "originalArchivedScore": 110.24,
+          "earlierScreenshotReading": 110.14,
+          "priorDiscrepancyNote": "Uploaded screenshot appears to show Birch 110.14; archived matchup ledger records Birch 110.24 against Stover 78.90. Winner is consistent but exact score requires comparison with official Sleeper history.",
+          "scope": "authoritative canonical postseason score 110.14; original archived 110.24 and initial commissioner 110.10 correction retained as history",
+          "initialCommissionerStatement": 110.1
+        }
+      ]
     },
     {
       "year": 2021,

@@ -90,16 +90,20 @@ assert.ok(tabs.includes("{label:'Start/Sit accuracy'")&&
  tabs.includes("const item=document.createElement(feature.href?'a':'button')")&&
  tabs.includes('else item.href=feature.href;'),
  'Manager feature menu must retain a clickable career Start/Sit link');
-// Every current manager profile needs a direct, nickname-safe Start/Sit deep link.
-for(const [slug,name] of Object.entries({
- stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',
- tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'
-})){
+// Every current manager profile must mount the shared feature directory.
+// Its Start/Sit href is constructed at runtime from the manager nickname,
+// rather than duplicated as a hard-coded link in ten static profile files.
+assert.ok(tabs.includes("href:'../../analytics/manager-lineup-research.html?season=career&manager='+encodeURIComponent(name)")&&
+ tabs.includes("const item=document.createElement(feature.href?'a':'button')")&&
+ tabs.includes('else item.href=feature.href;'),
+ 'Shared manager directory must generate a clickable career Start/Sit link');
+const names={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',birch:'Birch',
+ tony:'Tony',mitch:'Mitch',kuhl:'Kuhl',jmid:'JMid',scott:'Scott'};
+for(const [slug,name] of Object.entries(names)){
  const profile=fs.readFileSync('managers/'+slug+'/index.html','utf8');
- const path='../../analytics/manager-lineup-research.html?season=career&amp;manager='+name;
- assert.ok(profile.includes(path),'Missing profile Start/Sit deep link: '+slug);
- assert.equal(profile.split(path).length-1,1,
-  'Duplicate Start/Sit profile link: '+slug);
+ assert.ok(profile.includes('manager-profile-tabs.mjs')&&
+  profile.includes('<h1>'+name+'</h1>'),
+  'Missing shared manager Start/Sit navigation mount: '+slug);
 }
 // Audit all 830 historical team-weeks rather than assuming a complete bench
 // means an actually legal/filled lineup. Exactly five known historical

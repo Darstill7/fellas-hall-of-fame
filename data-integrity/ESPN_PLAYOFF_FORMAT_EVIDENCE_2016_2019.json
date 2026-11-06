@@ -74,7 +74,7 @@
             ]
           }
         ],
-        "placementRules": "Final positions in the consolation ladder should be reviewed separately from the lowest individual weekly score; last-place award not yet certified."
+        "placementRules": "Official 8th of 8 and final 7th/8th consolation matchup establish Schermerhorn as last-place recipient."
       }
     },
     "2017": {
@@ -126,7 +126,7 @@
             ]
           }
         ],
-        "placementRules": "Bracket labeling includes placement ladders; last-place award definition needs explicit confirmation."
+        "placementRules": "Official 10th of 10 and final 9th/10th consolation matchup establish Birch as last-place recipient."
       }
     },
     "2018": {
@@ -240,10 +240,10 @@
     "winners_2016_2019": "verified_from_screenshots_and_ledger",
     "consolation_2018_last": "user_confirmed",
     "consolation_2019_bottom_four": "screenshot_verified_and_user_confirmed_Evans_ownership",
-    "historical_awards": "2016-2019 shitter award lowest_final_losers_consolation_score rule verified",
+    "historical_awards": "2016–2019 last-place loser-bracket recipients verified against ESPN finalRank and final consolation placements",
     "finalPlacements2016to2019": "All official ESPN finalRank entries reconciled with original bracket screenshots; 20 previously uncertified active-manager season endings recovered.",
     "userOwnerRule": "Evans managed I Love Tubing; Stew managed Kickers SUCK (2019). User-confirmed 2026-11-05.",
-    "shitterAwards": "2016 Stilly; 2017 Halderman; 2018 Stilly; 2019 Evans, from original final LOSERS_CONSOLATION_LADDER points and user-confirmed rule."
+    "shitterAwards": "2016 Schermerhorn; 2017 Birch; 2018 Stilly; 2019 Evans, based on last loser-bracket finishes (user-clarified 2026-11-05)."
   },
   "officialESPNFinalRanks": {
     "2016": [
@@ -498,12 +498,12 @@
     "regularSeasonRecordsUnaffected": true
   },
   "shitterOfYearRule": {
-    "userConfirmed": "Lowest scoring team in final consolation round",
-    "appliedInterpretation": "Lowest score in the final LOSERS_CONSOLATION_LADDER; 2016/2017 use two-week matchup aggregate, 2018 single Week 16, 2019 actual Week 16 (not three-week cumulative total). Distinct from ESPN finalRank.",
-    "source": "data/espn_shitter_of_the_year_2016_2019.json",
+    "userConfirmed": "Manager finishing last in the losers bracket each year",
+    "appliedInterpretation": "Last official loser-bracket placement determines the award, not lowest points in the final round. For 2016–2017, use final two-week last-place matchup; for 2018, the last-place Week 16 matchup; for 2019, the last-ranked team in the cumulative Weeks 14–16 consolation ladder.",
+    "source": "data/espn_shitter_of_the_year_2016_2019.json (updated user clarification Nov 5 2026)",
     "winners": {
-      "2016": "Stilly",
-      "2017": "Halderman",
+      "2016": "Schermerhorn",
+      "2017": "Birch",
       "2018": "Stilly",
       "2019": "Evans"
     }

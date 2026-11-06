@@ -244,10 +244,10 @@ try{
       topics=document.querySelector('main .profile-quickstart'),
       playoff=document.getElementById('profile-playoff-resume');
      return !!hero&&!!action&&!!snapshot&&!!topics&&!!playoff&&
-      !!(action.compareDocumentPosition(snapshot)&Node.DOCUMENT_POSITION_FOLLOWING)&&
-      !hero.contains(playoff)&&
-      !!(topics.compareDocumentPosition(playoff)&Node.DOCUMENT_POSITION_FOLLOWING)&&
-      !!(topics.compareDocumentPosition(document.querySelector('main .profile-madden'))&Node.DOCUMENT_POSITION_FOLLOWING);
+      hero.contains(snapshot)&&hero.contains(action)&&!hero.contains(playoff)&&
+      !!(snapshot.compareDocumentPosition(action)&Node.DOCUMENT_POSITION_FOLLOWING)&&
+      !!(action.compareDocumentPosition(topics)&Node.DOCUMENT_POSITION_FOLLOWING)&&
+      !!(topics.compareDocumentPosition(playoff)&Node.DOCUMENT_POSITION_FOLLOWING);
     });
     if(!hierarchy)errors.push(width+' '+route+' first-screen navigation and résumé hierarchy broken');
     const panel=page.locator('#profile-playoff-resume');
@@ -419,8 +419,8 @@ try{
       if(slug==='stilly'){
        const seasons=await page.locator('#season-history details.season-entry').evaluateAll(nodes=>nodes.map(node=>({text:node.textContent,year:node.querySelector('summary strong')?.textContent,award:node.querySelector('.season-award-label')?.textContent})));
        const awards=seasons.filter(x=>x.award==='Shitter of the Year').map(x=>Number(x.year)).sort((a,b)=>a-b);
-       if(JSON.stringify(awards)!==JSON.stringify([2016,2018]))
-        errors.push(width+' Stilly season archive must distinguish 2016 and 2018 Shitter awards from official finishing places');
+       if(JSON.stringify(awards)!==JSON.stringify([2018,2021]))
+        errors.push(width+' Stilly awards should cover verified 2018 and 2021, not 2016');
       }
      }
      const shelf=page.locator('details.profile-research-shelf');
@@ -452,28 +452,32 @@ try{
      if(await career.count()!==1||await career.getAttribute('data-manager-career-resume')!==name)
       errors.push(width+' '+route+' career résumé missing or misattributed');
      else{
-      await career.locator(':scope > summary').click();
+      if(!await career.evaluate(el=>el.open))await career.locator(':scope > summary').click();
       const metrics=career.locator('.career-resume-metric');
       if(await metrics.count()!==4)
        errors.push(width+' '+route+' career draft/trade résumé totals unavailable');
       else{
-       const receipts=career.locator('details.career-resume-receipts');
+       const receipts=career.locator(':scope > details.career-resume-receipts');
        if(await receipts.count()!==1||await receipts.evaluate(el=>el.open))
         errors.push(width+' '+route+' draft/trade receipts must start collapsed');
        else{
         await receipts.locator(':scope > summary').click();
-        if(!await career.locator('.career-resume-trades').isVisible()||
-           !await career.locator('.career-resume-coverage').isVisible())
-         errors.push(width+' '+route+' draft/trade receipts failed to reveal');
+        // The receipts reveal provenance immediately; all six research sections
+        // remain hidden until the visitor explicitly chooses a topic.
+        const coverageVisible=await career.locator('.career-resume-coverage').isVisible();
+        const topicsVisible=await career.locator('.career-research-topics').isVisible();
+        const tradeHidden=await career.locator('.career-resume-trades').evaluate(el=>el.hidden);
+        if(!coverageVisible||!topicsVisible||!tradeHidden)
+         errors.push(width+' '+route+' draft/trade receipts failed to reveal source coverage or preserve topic selection');
        }
        const text=await career.innerText();
        if(!text.includes('Recorded draft selections')||
           !text.includes('Recorded keeper slots')||
-          !text.includes('qualifying trade events')||
+          !text.toLowerCase().includes('qualifying trade events')||
           !text.includes('2026 trade sides are provisional')||
           !text.includes('not all-time trade totals'))
         errors.push(width+' '+route+' career résumé evidence/caveat incomplete');
-       const links=await career.locator('.career-resume-link').evaluateAll(nodes=>
+       const links=await career.locator('.career-resume-link[href*="manager-trade-intelligence.html"]').evaluateAll(nodes=>
         nodes.map(node=>{const url=new URL(node.href);return {
          manager:url.searchParams.get('manager'),year:url.searchParams.get('year'),
          path:url.pathname};}));
@@ -523,7 +527,7 @@ try{
         errors.push(width+' '+route+' draft or trade event incorrectly scored');
        if(!text.includes('Current W–L not shown; archived record stops before Week 8'))
         errors.push(width+' '+route+' 2026 timeline leaked outdated Week 7 W–L');
-       const tradeLinks=await timeline.locator('.profile-season-trade-link').evaluateAll(nodes=>
+       const tradeLinks=await timeline.locator('.profile-season-trade-link[href*="manager-trade-intelligence.html"]').evaluateAll(nodes=>
         nodes.map(node=>{const url=new URL(node.href);return {
          manager:url.searchParams.get('manager'),year:url.searchParams.get('year'),
          path:url.pathname};}));
@@ -1212,7 +1216,7 @@ try{
     }));
     if(closestAudit.length!==100||
        !closestAudit[0].year.includes('2018 · W7')||
-       closestAudit[0].win!=='Stew'||closestAudit[0].loss!=='Thommy'||
+       closestAudit[0].win!=='Thommy'||closestAudit[0].loss!=='Stew'||
        closestAudit[0].margin!=='0.16'||
        closestAudit[99].margin!=='6.42'||
        closestAudit.some((r,i)=>!/^[0-9]+\.[0-9]{2}$/.test(r.margin)||
@@ -1272,10 +1276,10 @@ try{
    if(route==='seasons/espn-origins.html'){
     await page.waitForFunction(()=>document.querySelectorAll('#espn-shitter-awards tr').length===4,null,{timeout:8000}).catch(()=>{});
     const rows=await page.locator('#espn-shitter-awards tr').allTextContents();
-    const expected=[['2016','Stilly','165.00','NFL Weeks 16–17 combined'],
-     ['2017','Halderman','96.00','NFL Weeks 15–16 combined'],
+    const expected=[['2016','Schermerhorn','184.00','NFL Weeks 16–17 combined'],
+     ['2017','Birch','196.00','NFL Weeks 15–16 combined'],
      ['2018','Stilly','86.76','NFL Week 16'],
-     ['2019','Evans','80.46','NFL Week 16']];
+     ['2019','Evans','264.76','NFL Weeks 14–15–16 combined']];
     if(rows.length!==4||expected.some((expectedRow,i)=>expectedRow.some(t=>!rows[i]?.includes(t)))||
        (await page.locator('main').innerText()).includes('2019 I Love Tubing belonged to Stew'))
      errors.push(width+' ESPN Origins punishment archive missing award winners, correct score scopes or Evans owner');
@@ -1844,15 +1848,16 @@ try{
          errors.push(width+' '+slug+' '+label+' draft shortcut has inadequate touch target');
         await choice.click();
         const receiptOpen=await resume.locator('details.career-resume-receipts').first().evaluate(el=>el.open);
-        const onlySelected=await resume.evaluate(target=>{
-         const sections=[...document.querySelectorAll('.profile-career-resume .career-resume-section')];
-         const expected=document.getElementById(target);
-         const expanded=[...document.querySelectorAll('.profile-career-resume .career-research-topic-button')]
+        const onlySelected=await resume.evaluate((root,target)=>{
+         const sections=[...root.querySelectorAll('.career-resume-section')];
+         const expected=root.querySelector('#'+target);
+         const expanded=[...root.querySelectorAll('.career-research-topic-button')]
           .filter(b=>b.getAttribute('aria-expanded')==='true');
          return !!expected&&sections.length===6&&sections.every(el=>el.hidden===(el!==expected))&&
           expanded.length===1&&expanded[0].getAttribute('aria-controls')===target;
         },id);
         if(!onlySelected)errors.push(width+' '+slug+' draft topics exposed multiple sections or incorrect expanded state');
+        await page.waitForFunction(target=>document.activeElement===document.getElementById(target)?.querySelector('h4'),id,{timeout:3000}).catch(()=>{});
         const activeVisual=await page.evaluate(target=>{
          const button=document.querySelector('.career-research-topic-button[aria-controls="'+target+'"]');
          const header=document.getElementById(target)?.querySelector('h4');
@@ -2112,32 +2117,32 @@ try{
      await buttons.last().click();
      const chosen=await buttons.last().getAttribute('data-year');
      if(!(await page.locator('#heading').innerText()).includes(chosen))errors.push(width+' Awards Show year selection not reflected');
-     for(const [year,manager,score] of [['2016','Stilly','165.00'],['2017','Halderman','96.00'],['2018','Stilly','86.76'],['2019','Evans','80.46']]){
+     for(const [year,manager] of [['2016','Schermerhorn'],['2017','Birch'],['2018','Stilly'],['2019','Evans'],['2020','Tony'],['2021','Stilly'],['2022','Birch'],['2023','Stew'],['2024','Kuhl'],['2025','Stover']]){
       await page.locator('#years button[data-year="'+year+'"]').click();
       const award=page.locator('#awards [data-shitter-award="'+year+'"]');
       if(await award.count()!==1||!(await award.innerText()).includes(manager)||
-         !(await award.innerText()).includes(score))
+         !(await award.innerText()).includes('Last place in losers bracket'))
        errors.push(width+' Awards Show '+year+' Shitter punishment missing or conflated with regular season');
      }
-     await page.locator('#years button[data-year="2025"]').click();
+     await page.locator('#years button[data-year="2026"]').click();
      if(await page.locator('#awards [data-shitter-award]').count()!==0)
-      errors.push(width+' Awards Show invented an unverified Sleeper-era Shitter punishment');
+      errors.push(width+' Awards Show invented a 2026 Shitter before the season ended');
     }
    }
    if(route==='seasons/historical-awards.html'){
     const select=page.locator('#year');
     await select.waitFor({state:'visible',timeout:8000}).catch(()=>{});
     if(await select.count()===1){
-     for(const [year,manager,score] of [['2016','Stilly','165.00'],['2017','Halderman','96.00'],['2018','Stilly','86.76'],['2019','Evans','80.46']]){
+     for(const [year,manager] of [['2016','Schermerhorn'],['2017','Birch'],['2018','Stilly'],['2019','Evans'],['2020','Tony'],['2021','Stilly'],['2022','Birch'],['2023','Stew'],['2024','Kuhl'],['2025','Stover']]){
       await select.selectOption(year);
       const awards=await page.locator('#awards').innerText();
-      if(!awards.includes('Shitter of the Year')||!awards.includes(manager)||!awards.includes(score)||
+      if(!awards.includes('Shitter of the Year')||!awards.includes(manager)||!awards.includes('Last in losers bracket')||
          !awards.includes('The Basement'))
        errors.push(width+' '+year+' historical award list lacks separate punishment and regular-season Basement');
      }
-     await select.selectOption('2025');
+     await select.selectOption('2026');
      if((await page.locator('#awards').innerText()).includes('Shitter of the Year'))
-      errors.push(width+' historical award archive inferred unverified Sleeper-era Shitter winner');
+      errors.push(width+' historical awards invented incomplete 2026 Shitter');
     }
    }
    if(route.startsWith('managers/')&&slugs.includes(route.slice('managers/'.length,-'.html'.length))&&route.endsWith('.html')){
