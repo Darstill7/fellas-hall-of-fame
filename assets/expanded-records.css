@@ -1,0 +1,40 @@
+/* Expanded Fellas record book. Built for phone-first readability. */
+.records-lab{min-width:0;margin:22px 0 32px;padding:22px;border:1px solid #4d697b;border-radius:15px;background:#142d3c;color:#f6f1e8}
+.records-lab h2{font-size:clamp(23px,3vw,30px);line-height:1.25;letter-spacing:-.025em;margin:0 0 8px}
+.records-lab h3{font-size:17px;line-height:1.45;margin:18px 0 6px}
+.records-lab-intro{font-size:13px;line-height:1.75;color:#c8d7e0;max-width:75ch;margin:7px 0 17px}
+.records-lab-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:13px 0 18px}
+.records-lab-tile{min-width:0;padding:16px;background:#102432;border:1px solid #486476;border-radius:12px;overflow-wrap:anywhere}
+.records-lab-tile small{font-size:12px;line-height:1.5;color:#c5d6df;display:block}
+.records-lab-tile strong{font-size:clamp(20px,2.7vw,29px);line-height:1.3;color:#f4d48d;display:block;margin:8px 0;font-variant-numeric:tabular-nums}
+.records-lab-tile p{font-size:12px;line-height:1.6;color:#c9d7e0;margin:0}
+.records-lab-tag{display:inline-block;border-radius:6px;border:1px solid #52798b;padding:3px 6px;font-size:10px;font-weight:850;letter-spacing:.025em;color:#d1e2eb;margin:7px 0 3px}
+.records-lab-tag--leader{border-color:#b99d60;color:#f4d48d}
+.records-lab-action{display:inline-flex;align-items:center;min-height:44px;padding:10px 15px;border-radius:10px;background:#e4c27b;color:#172635!important;font-size:13px;font-weight:850;text-decoration:none!important;border:1px solid #e4c27b}
+.records-lab-action:hover{background:#f6db9c}
+.records-lab-action:focus-visible,.records-lab button:focus-visible,.records-lab select:focus-visible,.records-lab summary:focus-visible,.records-lab a:focus-visible{outline:3px solid #ffe0a0;outline-offset:3px}
+.records-lab-controls{display:flex;flex-wrap:wrap;align-items:end;gap:11px;margin:16px 0}
+.records-lab-controls label{display:grid;gap:5px;color:#ead6aa;font-size:12px;font-weight:800}
+.records-lab-controls select{background:#122a3a;color:#fff;border:1px solid #668092;min-height:44px;border-radius:9px;padding:9px 11px;font:inherit;font-size:14px;max-width:100%}
+.records-lab-controls button{min-height:44px;background:#1a3b50;border:1px solid #597a8f;border-radius:9px;color:#fff;font:inherit;font-weight:750;padding:9px 13px;cursor:pointer}
+.records-lab-controls button[aria-pressed=true]{background:#e4c27b;color:#172635;border-color:#e4c27b}
+.records-lab-table-scroll{max-width:100%;overflow-x:auto;border:1px solid #476377;border-radius:11px}
+.records-lab-table{width:100%;min-width:510px;border-collapse:collapse;text-align:left;font-size:13px}
+.records-lab-table th,.records-lab-table td{padding:12px 13px;border-bottom:1px solid #3b5566;vertical-align:top;line-height:1.6}
+.records-lab-table th{color:#f6d590;background:#1b394b;text-transform:uppercase;letter-spacing:.07em;font-size:11px}
+.records-lab-table tr:last-child td{border-bottom:0}
+.records-lab-table td{color:#e4ecf1}
+.records-lab-table td a{color:#f5d18a;text-decoration:underline;text-underline-offset:3px}
+.records-lab-caveat{border-left:3px solid #d6b66c;background:#19374a;border-radius:5px;margin:20px 0 8px;padding:11px 15px;color:#cbd9e2;font-size:12px;line-height:1.7}
+.records-lab-profile{margin:14px 0 7px;min-width:0}
+.records-lab-profile details{padding:0;margin:0;border:1px solid #4c6c7d;border-radius:12px;background:#172f3f}
+.records-lab-profile summary{padding:12px 15px;min-height:44px;cursor:pointer;color:#f4d48d;font-size:13px;font-weight:800;line-height:1.65}
+.records-lab-profile-body{padding:0 15px 15px}
+.records-lab-profile .records-lab-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin:10px 0 13px}
+.records-lab-profile .records-lab-tile{padding:11px 12px}
+.records-lab-profile .records-lab-tile strong{font-size:21px}
+.records-lab-manager{margin:21px 0}
+.records-lab-manager .records-lab-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.records-lab-manager h2{font-size:clamp(21px,3vw,27px)}
+@media(max-width:800px){.records-lab-grid,.records-lab-profile .records-lab-grid,.records-lab-manager .records-lab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.records-lab{padding:15px}.records-lab-grid,.records-lab-profile .records-lab-grid,.records-lab-manager .records-lab-grid{gap:9px}.records-lab-tile{padding:12px}.records-lab-tile strong{font-size:21px}.records-lab-controls{display:grid;grid-template-columns:1fr}.records-lab-controls select{width:100%}}
