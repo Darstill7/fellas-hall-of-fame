@@ -2149,10 +2149,10 @@ try{
      if(heading.trim()!==tradeData.assets.join(' + ')||
         !detail.includes('+'+tradeData.direct_edge.toFixed(1))||
         !detail.includes(Number(tradeData.starter_points).toFixed(2)))
-     const partners=tradeSides.filter(x=>x.year===tradeData.year&&String(x.trade_id)===String(tradeData.trade_id)&&x.manager!==tradeData.manager);
-     if(partners.length&& !partners.some(x=>detail.includes(x.manager==='Tom'?'Thommy':x.manager)))
-      errors.push(width+' '+slug+' positive trade highlight omitted documented counterparty');
       errors.push(width+' '+slug+' trade card does not match its source');
+     const partners=tradeSides.filter(x=>x.year===tradeData.year&&String(x.trade_id)===String(tradeData.trade_id)&&x.manager!==tradeData.manager);
+     if(partners.length&&!partners.some(x=>detail.includes(x.manager==='Tom'?'Thommy':x.manager)))
+      errors.push(width+' '+slug+' positive trade highlight omitted documented counterparty');
     }
     // JavaScript-disabled visitors must see neutral archive navigation, never stale model claims.
     {
