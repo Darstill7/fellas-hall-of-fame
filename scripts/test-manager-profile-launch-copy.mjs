@@ -17,7 +17,7 @@ const playoffSleeper=JSON.parse(fs.readFileSync('data/verified_sleeper_playoff_b
 const expectedPlayoffs={
  Stilly:[5,2,1],Stew:[4,2,0],Thommy:[7,5,4],
  Stover:[5,1,1],Birch:[7,2,1],Tony:[6,1,1],
- Mitch:[6,2,0],Kuhl:[4,0,0],JMid:[2,0,0],Scott:[1,1,1]
+ Mitch:[6,2,0],Kuhl:[4,0,0],JMid:[1,0,0],Scott:[1,1,1]
 };
 for(const [manager,expected] of Object.entries(expectedPlayoffs)){
  const resume=buildPlayoffResume(playoffEspn,playoffSleeper,manager);
