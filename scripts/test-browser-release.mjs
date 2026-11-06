@@ -329,6 +329,9 @@ try{
          await page.locator('#legacy-resume > .stats').isVisible())
        errors.push(width+' '+route+' biography focus still exposes the unrelated résumé stat tiles');
       await page.locator('.profile-focus-toolbar button').click();
+      await page.waitForFunction(()=>document.activeElement?.classList?.contains('profile-biography-entry'),null,{timeout:3000}).catch(()=>{});
+      if(!await bioEntry.evaluate(el=>document.activeElement===el))
+       errors.push(width+' '+route+' biography return did not restore keyboard focus to entry');
       if(!await page.locator('#profile-features').isVisible()||
          !await page.locator('body').evaluate(el=>el.classList.contains('profile-landing'))||
          await page.locator('#legacy-resume').evaluate(el=>el.classList.contains('profile-biography-focus')))
