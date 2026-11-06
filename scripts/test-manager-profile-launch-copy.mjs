@@ -352,8 +352,11 @@ for(const yearData of bracketReceipts.seasons){
   const matches=sourceMatchups.find(x=>x.year===year&&x.week===game.week)?.games||[];
   const found=matches.some(m=>{
    const points=new Map([m.home,m.away]);
-   return points.get(handles[game.winner])===game.winnerScore&&
-     points.get(handles[game.loser])===game.loserScore;
+   // In 2023 the roster/account label JMidd belonged to Evans, who
+   // finished that entire season before JMid joined in 2024.
+   const rosterHandle=name=>year===2023&&name==='Evans'?'JMidd':handles[name];
+   return points.get(rosterHandle(game.winner))===game.winnerScore&&
+     points.get(rosterHandle(game.loser))===game.loserScore;
   });
   if(!found)throw Error('Unreconciled historical placement score '+year+' '+game.label);
   if(game.label==='King (Last Place)'&&
