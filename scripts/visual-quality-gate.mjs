@@ -97,6 +97,19 @@ try{
            featured.some(card=>card.height<120))
          findings.push(engine+' '+width+' homepage champions and records feature hierarchy missing');
        }
+       if(route===''){
+        const discovery=await page.evaluate(()=>{
+         const sections=[...document.querySelectorAll('main .section.shell')];
+         const explore=sections.find(section=>section.querySelector('h2')?.textContent?.trim()==='Explore the league');
+         const core=[...explore?.querySelectorAll(':scope > .cards > a.card')||[]].map(a=>a.getAttribute('href'));
+         const advanced=explore?.querySelector('details.home-explore-more');
+         return {core,advancedCount:advanced?.querySelectorAll('a.card').length||0,
+          advancedCollapsed:advanced&&!advanced.open};
+        });
+        if(JSON.stringify(discovery.core)!==JSON.stringify(['hall/','analytics/records.html','managers/','seasons/'])||
+           discovery.advancedCount!==5||!discovery.advancedCollapsed)
+         findings.push(engine+' '+width+' '+key+' homepage discovery hierarchy '+JSON.stringify(discovery));
+       }
        if(route===''&&width===390){
         const headline=await page.locator('.hero h1').textContent();
         if(!/The history\.\s+The legends\.\s+The Fellas\./.test(headline||''))
