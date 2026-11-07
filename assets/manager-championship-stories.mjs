@@ -6,12 +6,15 @@ export async function mountManagerChampionshipStories(){
  if(!heading||!resume||main.querySelector('#manager-championship-stories'))return;
  const selected=heading.textContent.trim(),canonical=selected==='Tom'?'Thommy':selected;
  try{
-  const [archiveResponse,guideResponse]=await Promise.all([
-   fetch('../../data/championship_season_stories_2016_2025_v1.json',{cache:'no-store'}),
-   fetch('../../data/season_guide.json',{cache:'no-store'})
-  ]);
-  if(!archiveResponse.ok||!guideResponse.ok)throw Error('Championship sources unavailable');
-  const [archive,guide]=await Promise.all([archiveResponse.json(),guideResponse.json()]);
+  const paths=[
+   'championship_season_stories_2016_2025_v1.json','season_guide.json',
+   'season_weekly_matchups_2016_2026_v1.json',
+   'verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json'
+  ];
+  const responses=await Promise.all(paths.map(file=>fetch('../../data/'+file,{cache:'no-store'})));
+  if(responses.some(response=>!response.ok))throw Error('Canonical championship evidence unavailable');
+  const [archive,guide,ledger,espn,sleeper]=await Promise.all(responses.map(response=>response.json()));
+  const brackets=[...espn.seasons,...sleeper.seasons];
   if(!Array.isArray(archive.seasons)||archive.seasons.length!==10)throw Error('Championship archive incomplete');
   const titles=archive.seasons.filter(story=>guide[story.year]?.champion===canonical).sort((a,b)=>b.year-a.year);
   if(!titles.length)return; // No gold trophy decoration for managers who have not won.
@@ -56,8 +59,26 @@ export async function mountManagerChampionshipStories(){
    const badge=make('span','championship-story-year','🏆 '+story.year+' FELLAS CHAMPION');
    const storyTitle=make('strong',null,story.title);
    const summary=make('small',null,story.dek);
+   const bracket=brackets.find(b=>b.year===story.year);
+   const games=ledger.bySeason?.[String(story.year)]?.games||[];
+   const runner=bracket?.runnerUp||bracket?.finalists?.find(name=>name!==canonical);
+   const final=games.filter(game=>game.stage!=='regular'&&(game.home===canonical||game.away===canonical)).at(-1);
+   if(!bracket||bracket.champion!==canonical||!final||
+      ![final.home,final.away].includes(runner)||
+      final.winner!==(final.home===canonical?'HOME':'AWAY'))
+    throw Error('Championship score evidence disagreement for '+story.year);
+   const mine=final.home===canonical?final.homeScore:final.awayScore;
+   const theirs=final.home===canonical?final.awayScore:final.homeScore;
+   const format=n=>Number(n).toFixed(2);
+   const outcome=make('div','championship-title-final');
+   const opponentName=runner==='Thommy'?'Tom':runner;
+   outcome.append(
+    make('span','championship-title-final-label','TITLE GAME · VS '+opponentName),
+    make('strong','championship-title-final-score',format(mine)+' – '+format(theirs)),
+    make('span','championship-title-final-format',final.twoWeekAggregate?'Two-week aggregate':'Championship final')
+   );
    const cta=make('span','championship-story-cta','Read the championship story →');
-   link.append(badge,storyTitle,summary,cta);list.append(link);
+   link.append(badge,storyTitle,summary,outcome,cta);list.append(link);
   }
   section.append(masthead,years,featureLabel,list);
   // Lead with the title exhibit, not after dozens of research sections.
@@ -89,7 +110,7 @@ export async function mountManagerChampionshipStories(){
 .championship-story-year{color:#f2d18e;font-size:11px;font-weight:900;letter-spacing:.075em}
 .manager-championship-story-card strong{font-size:clamp(17px,2.3vw,24px);line-height:1.28;color:#fff7e7;letter-spacing:-.025em}
 .manager-championship-story-card small{font-size:13px;line-height:1.6;color:#d3e0e5}
-.championship-story-cta{margin-top:auto;font-size:13px;font-weight:850;color:#f5d18e}
+.championship-title-final{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;padding:10px 0 9px;margin-top:4px;border-top:1px solid #a58c5e77}.championship-title-final-label{font-size:10px;letter-spacing:.075em;font-weight:850;color:#e4c993}.championship-title-final-score{font-size:clamp(17px,2.6vw,22px)!important;line-height:1.25!important;color:#ffe6b0;font-variant-numeric:tabular-nums}.championship-title-final-format{font-size:11px;color:#c3d3dd}.championship-story-cta{margin-top:auto;font-size:13px;font-weight:850;color:#f5d18e}
 @media(max-width:700px){.manager-championship-stories{padding:19px 16px;margin:13px auto 20px;border-radius:14px}.championship-masthead{grid-template-columns:auto minmax(0,1fr);align-items:start;gap:12px}.championship-masthead-trophy{width:59px;height:59px;font-size:32px;border-radius:13px}.championship-masthead-copy{min-width:0}.manager-championship-stories h2{font-size:clamp(23px,6.2vw,30px)!important}.championship-story-intro{font-size:13px}.championship-tally{grid-column:1/-1;min-width:0;min-height:0;flex-direction:row;justify-content:flex-start;gap:11px;padding:10px 13px}.championship-tally strong{font-size:32px}.championship-tally span{margin:0}.championship-ring-row{gap:7px;margin:14px 0 17px}.championship-ring{min-height:44px;padding:9px 11px;font-size:12px}.manager-championship-story-list{grid-template-columns:1fr}.manager-championship-story-card.championship-story-featured{grid-column:auto}.manager-championship-story-card{padding:15px;min-height:0}.manager-championship-story-card strong{font-size:19px}}
 @media(prefers-reduced-motion:reduce){.manager-championship-story-card,.championship-ring{transition:none}}
 `;
