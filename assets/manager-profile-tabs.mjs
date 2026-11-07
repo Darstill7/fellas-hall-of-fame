@@ -574,6 +574,54 @@ const profilePlayoffSection=document.getElementById('profile-playoff-resume');
 // It is the primary entrance, while ratings remain available lower down.
 if(profileHero&&profileTopicMenu)profileHero.after(profileTopicMenu);
 if(profileTopicMenu&&profilePlayoffSection)profileTopicMenu.after(profilePlayoffSection);
+
+// Hall of Fame first-visit experience: one readable career exhibit before research.
+// Every sentence comes from the editorial biography archive, never an invented accolade.
+function mountCareerExhibit(){
+ const hero=document.querySelector('main .hero');
+ const hub=document.querySelector('.manager-home-hub');
+ const slug=profileName==='Tom'?'Thommy':profileName;
+ if(!hero||!hub||!slug||document.querySelector('.hof-career-exhibit'))return;
+ const feature=document.createElement('section');
+ feature.className='hof-career-exhibit';
+ feature.setAttribute('aria-label',slug+' Hall of Fame career story');
+ const kicker=document.createElement('span');kicker.className='hof-career-kicker';kicker.textContent='THE CAREER STORY';
+ const h=document.createElement('h2');h.textContent='Behind the résumé';
+ const intro=document.createElement('p');intro.className='hof-career-intro';
+ const sourceIntro=document.querySelector('#franchise-story .lead');
+ intro.textContent=sourceIntro?.textContent?.trim()||'Explore the archived seasons, title results and defining roster decisions.';
+ const actions=document.createElement('div');actions.className='hof-career-actions';
+ const read=document.createElement('button');read.type='button';read.className='hof-career-read';read.textContent='Read the full biography →';
+ read.addEventListener('click',()=>{
+  const trigger=document.querySelector('#profile-features button.profile-biography-entry');
+  if(trigger){trigger.click();document.getElementById('legacy-resume')?.scrollIntoView({block:'start',behavior:'auto'})}
+  else document.getElementById('franchise-story')?.scrollIntoView({block:'start',behavior:'auto'});
+ });
+ const records=document.createElement('a');records.className='hof-career-secondary';
+ records.href='../../analytics/expanded-records.html?manager='+encodeURIComponent(slug==='Thommy'?'Tom':slug);
+ records.textContent='Career records ↗';
+ actions.append(read,records);
+ feature.append(kicker,h,intro,actions);
+ hero.after(feature);
+ feature.after(hub);
+ hub.classList.add('hof-nav-curated');
+ const hubHeading=hub.querySelector('h2');
+ if(hubHeading)hubHeading.textContent='Explore the legacy';
+ const hubNote=hub.querySelector('.manager-home-hub-note');
+ if(hubNote)hubNote.textContent='Six ways into the archive. Choose what matters to you.';
+ // Preview the exact opening sentences of the verified editorial biography.
+ fetch('../../data/manager_biographies_awards.json',{cache:'no-store'})
+  .then(response=>{if(!response.ok)throw Error('Biography unavailable');return response.json()})
+  .then(data=>{
+   const bio=data.managers?.[slug]?.biography;
+   if(typeof bio!=='string'||!bio.trim())return;
+   const paragraph=bio.split(/\n\s*\n/)[0].trim();
+   const sentences=paragraph.match(/[^.!?]+[.!?]+(?=\s|$)/g);
+   intro.textContent=sentences?.length>=2?sentences.slice(0,2).join(' ').trim():paragraph;
+  })
+  .catch(()=>{/* Keep the source-backed franchise overview available offline. */});
+}
+mountCareerExhibit();
 const hubStyle=document.createElement('style');
 hubStyle.textContent=`/* Personal manager home base: light navigation, never another giant menu. */
 .manager-home-hub{box-sizing:border-box;min-width:0;width:100%;max-width:960px;margin:4px auto 18px;padding:17px;border:1px solid #4a6879;border-radius:15px;background:linear-gradient(155deg,#173243,#0c202e)}
@@ -589,6 +637,9 @@ hubStyle.textContent=`/* Personal manager home base: light navigation, never ano
 @media(max-width:370px){.manager-home-hub-tile{min-height:70px;padding:9px 7px}.manager-home-hub-icon{font-size:17px}.manager-home-hub-copy small{font-size:10px}}
 `;
 document.head.append(hubStyle);
+const hofEditorialStyle=document.createElement('style');
+hofEditorialStyle.textContent="\n/* Hall of Fame exhibition: accomplishments first, a short story second, research third. */\nbody.profile-landing main>.hof-career-exhibit{display:block}\nbody.profile-feature-focused main>.hof-career-exhibit{display:none!important}\nmain>.hero{max-width:1000px;margin-inline:auto;padding-top:34px;padding-bottom:22px}\nmain>.hero h1{font-size:clamp(43px,7vw,76px);line-height:1.08;letter-spacing:-.055em;text-wrap:balance;margin:8px 0}\nmain>.hero .profile-career-snapshot{max-width:950px}\nmain>.hero .profile-career-snapshot .stat{min-width:0}\nmain>.hero .profile-honors-line{font-size:clamp(14px,1.8vw,17px);line-height:1.55;max-width:72ch}\nmain>.hero>.buttons{margin:16px 0 8px;gap:9px}\nmain>.hero>.buttons a{min-height:46px;display:inline-flex;align-items:center}\n.hof-career-exhibit{width:min(100%,960px);margin:9px auto 20px;padding:clamp(22px,3.8vw,37px);border-radius:18px;border:1px solid #6e6250;background:linear-gradient(145deg,#24313a 0%,#122532 58%,#0f1e28 100%);box-shadow:0 16px 45px rgba(0,0,0,.17);min-width:0}\n.hof-career-kicker{font-size:11px;font-weight:900;letter-spacing:.14em;color:#eac98b}\n.hof-career-exhibit h2{font-size:clamp(27px,4.3vw,40px);line-height:1.16;letter-spacing:-.036em;margin:9px 0 12px;color:#fff8e9}\n.hof-career-intro{max-width:68ch;font-size:clamp(16px,1.8vw,18px);line-height:1.74;color:#e4edf0;margin:0 0 20px;overflow-wrap:break-word}\n.hof-career-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}\n.hof-career-read,.hof-career-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 16px;border-radius:9px;font:inherit;font-size:14px;font-weight:850;text-align:center;line-height:1.4;cursor:pointer}\n.hof-career-read{border:1px solid #f0d08d;background:#e8c484;color:#142331}\n.hof-career-read:hover{background:#ffe4aa}\n.hof-career-secondary{border:1px solid #647e8b;color:#f6f0e4;text-decoration:none;background:#183440}\n.hof-career-secondary:hover{border-color:#e8c484;color:#fff}\n.hof-career-read:focus-visible,.hof-career-secondary:focus-visible{outline:3px solid #ffe4aa;outline-offset:3px}\n.hof-nav-curated{max-width:960px!important;margin:0 auto 15px!important;border:0!important;padding:0!important;background:none!important;box-shadow:none!important}\n.hof-nav-curated h2{font-size:clamp(23px,3vw,30px)!important;margin:0 0 5px!important}\n.hof-nav-curated .manager-home-hub-note{font-size:13px;line-height:1.6;margin:0 0 13px!important}\n.hof-nav-curated .manager-home-hub-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}\n.hof-nav-curated .manager-home-hub-tile{min-height:102px;padding:18px;border-radius:13px;align-items:flex-start;background:#142734;border:1px solid #435d6c}\n.hof-nav-curated .manager-home-hub-tile:nth-child(1),.hof-nav-curated .manager-home-hub-tile:nth-child(2){background:#1b3545;border-color:#a78a55}\n.hof-nav-curated .manager-home-hub-copy strong{font-size:16px;line-height:1.35}\n.hof-nav-curated .manager-home-hub-copy small{font-size:12px;line-height:1.5}\n.hof-nav-curated .manager-home-hub-icon{font-size:21px}\n.manager-home-more{margin-top:14px!important}\n.career-bio-prose{max-width:65ch!important;font-size:clamp(16px,1.6vw,19px)!important;line-height:1.78!important}\n@media(max-width:700px){\n main>.hero{padding-top:22px;padding-bottom:13px}\n main>.hero h1{font-size:clamp(40px,11vw,55px)}\n main>.hero .profile-career-snapshot{gap:9px}\n .hof-career-exhibit{padding:21px 18px;margin:12px auto 24px;border-radius:14px}\n .hof-career-exhibit h2{font-size:29px}\n .hof-career-intro{font-size:16px;line-height:1.72}\n .hof-career-actions{display:grid;grid-template-columns:1fr;gap:9px}\n .hof-career-read,.hof-career-secondary{width:100%;min-height:49px}\n .hof-nav-curated{width:100%!important;max-width:100%!important;padding:0!important}\n .hof-nav-curated .manager-home-hub-grid{grid-template-columns:1fr;gap:8px}\n .hof-nav-curated .manager-home-hub-tile{min-height:66px;padding:12px 14px;align-items:center;gap:12px}\n .hof-nav-curated .manager-home-hub-icon{font-size:21px}\n .hof-nav-curated .manager-home-hub-copy strong{font-size:15px}\n .hof-nav-curated .manager-home-hub-copy small{font-size:12px}\n .career-bio-prose{font-size:16px!important;line-height:1.75!important}\n}\n@media(prefers-reduced-motion:reduce){.hof-career-exhibit,.hof-nav-curated .manager-home-hub-tile{transition:none}}\n";
+document.head.append(hofEditorialStyle);
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
 // The old overview tiles and archive teaser repeat destinations available in the tabs.
 // Remove only these two identified promotional sections; preserve all data-backed sections.
