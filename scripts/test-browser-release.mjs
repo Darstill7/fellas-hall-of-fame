@@ -383,6 +383,40 @@ try{
      const direct=page.locator('#profile-features .profile-featured-link');
      if(await direct.count()!==2)
       errors.push(width+' '+route+' Records and Report Card entry points missing');
+     // All ten profiles must offer a one-step way to change managers.
+     const managerSwitch=page.locator('#profile-manager-switch');
+     if(await managerSwitch.count()!==1)
+      errors.push(width+' '+route+' direct manager switcher missing');
+     else{
+      const options=await managerSwitch.locator('option').evaluateAll(nodes=>nodes.map(n=>n.value));
+      const expected=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
+      if(JSON.stringify(options)!==JSON.stringify(expected))
+       errors.push(width+' '+route+' manager switcher options inconsistent');
+      const current=route.split('/')[1];
+      if(await managerSwitch.inputValue()!==current)
+       errors.push(width+' '+route+' manager switcher current profile mismatch');
+      if(current==='stilly'){
+       // Use a separate page so real navigation cannot pollute the ongoing
+       // Stilly-profile assertions or the back-stack of the route audit.
+       const journey=await context.newPage();
+       try{
+        await journey.goto(baseUrl+'managers/stilly/',{waitUntil:'networkidle',timeout:30000});
+        const switchControl=journey.locator('#profile-manager-switch');
+        await switchControl.waitFor({state:'attached',timeout:10000});
+        await Promise.all([
+         journey.waitForURL('**/managers/tony/',{timeout:10000}),
+         switchControl.selectOption('tony')
+        ]);
+        if((await journey.locator('main .hero h1').innerText()).trim()!=='Tony')
+         errors.push(width+' '+route+' manager switch loaded wrong profile');
+        await journey.goBack({waitUntil:'networkidle'});
+        if(!journey.url().endsWith('/managers/stilly/'))
+         errors.push(width+' '+route+' manager switch browser back did not return to Stilly');
+       }catch(err){
+        errors.push(width+' '+route+' manager switch journey failed at '+journey.url()+': '+String(err));
+       }finally{await journey.close();}
+      }
+     }
      const weighted=heroMadden.locator('details.profile-rating-components');
      if(await weighted.count()!==1||await weighted.evaluate(el=>el.open))
       errors.push(width+' '+route+' canonical weight breakdown unavailable or expanded on load');

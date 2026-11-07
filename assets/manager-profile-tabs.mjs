@@ -323,6 +323,25 @@ function mountProfileFeatureDirectory(quick,manager){
   a.append(strong,small,arrow);featuredLinks.append(a);
  }
  featured.append(featuredLinks,biographyEntry);
+ // Make back-to-back manager comparisons a single accessible selection.
+ const switcher=document.createElement('div');
+ switcher.className='profile-manager-switcher';
+ const label=document.createElement('label');label.htmlFor='profile-manager-switch';
+ label.textContent='Switch to another manager';
+ const select=document.createElement('select');select.id='profile-manager-switch';
+ const managers=[['Stilly','stilly'],['Stew','stew'],['Tom','tom'],['Stover','stover'],['Birch','birch'],['Tony','tony'],['Mitch','mitch'],['Kuhl','kuhl'],['JMid','jmid'],['Scott','scott']];
+ const currentSlug=manager==='Thommy'?'tom':manager.toLowerCase();
+ for(const [name,slug] of managers){
+  const option=document.createElement('option');
+  option.value=slug;option.textContent=name;option.selected=slug===currentSlug;
+  select.append(option);
+ }
+ select.addEventListener('change',()=>{
+  const slug=select.value;
+  if(managers.some(([,id])=>id===slug)&&slug!==currentSlug)window.location.assign('../'+slug+'/');
+ });
+ switcher.append(label,select);
+ featured.append(switcher);
  shell.append(featured,menu);
  const ratingGuide=document.createElement('details');
  ratingGuide.className='profile-rating-guide';
@@ -396,7 +415,8 @@ function mountProfileFeatureDirectory(quick,manager){
   for(const other of menu.querySelectorAll('details.profile-feature-group'))if(other!==opened)other.open=false;
  },true);
  css.textContent+=' .profile-featured-routes{margin:12px 0 16px}.profile-featured-title{font-size:12px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#efd295;margin:0 0 8px!important}.profile-featured-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.profile-featured-link{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 7px;align-content:center;min-width:0;min-height:92px;padding:15px;background:#19394b;border:1px solid #688493;border-radius:11px;color:#fff;text-decoration:none}.profile-featured-link strong{font-size:14px;line-height:1.35}.profile-featured-link small{grid-column:1;font-size:12px;line-height:1.5;color:#cddce5}.profile-featured-link span{grid-column:2;grid-row:1/3;align-self:center;color:#efd295;font-size:19px}.profile-featured-link:hover{border-color:#efd295;background:#244a5d}.profile-featured-link:focus-visible{outline:3px solid #efd295;outline-offset:3px}@media(max-width:700px){.profile-featured-links{grid-template-columns:1fr}.profile-featured-link{min-height:70px;padding:12px 15px}}';
-css.textContent+=' .profile-biography-entry{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;min-height:72px;margin:0 0 9px;padding:14px 16px;border:1px solid #d7b96f;border-radius:11px;background:#223b47;color:#fff;text-align:left;font:inherit;cursor:pointer}.profile-biography-entry>span:first-child{display:flex;flex-direction:column;gap:4px}.profile-biography-entry strong{font-size:15px;line-height:1.35}.profile-biography-entry small{font-size:12px;line-height:1.5;color:#e1edf2}.profile-biography-entry>span:last-child{font-size:23px;color:#f6d992}.profile-biography-entry:hover{background:#2a4b59}.profile-biography-entry:focus-visible{outline:3px solid #ffe5a1;outline-offset:3px}@media(max-width:650px){.profile-biography-entry{min-height:67px;padding:12px 14px}}';
+css.textContent+=' .profile-manager-switcher{display:flex;align-items:center;justify-content:space-between;gap:13px;flex-wrap:wrap;margin:15px 0 0;padding:13px 15px;border:1px solid #3d5969;border-radius:10px;background:#102634}.profile-manager-switcher label{font-size:13px;font-weight:800;color:#d7e5eb}.profile-manager-switcher select{min-height:46px;min-width:180px;max-width:100%;padding:10px 12px;font:inherit;font-size:14px;font-weight:750;color:#fff;background:#183749;border:1px solid #6d8c9b;border-radius:9px}.profile-manager-switcher select:focus-visible{outline:3px solid #ffe3a0;outline-offset:2px}@media(max-width:650px){.profile-manager-switcher{display:grid;gap:8px}.profile-manager-switcher select{width:100%}}';
+ css.textContent+=' .profile-biography-entry{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;min-height:72px;margin:0 0 9px;padding:14px 16px;border:1px solid #d7b96f;border-radius:11px;background:#223b47;color:#fff;text-align:left;font:inherit;cursor:pointer}.profile-biography-entry>span:first-child{display:flex;flex-direction:column;gap:4px}.profile-biography-entry strong{font-size:15px;line-height:1.35}.profile-biography-entry small{font-size:12px;line-height:1.5;color:#e1edf2}.profile-biography-entry>span:last-child{font-size:23px;color:#f6d992}.profile-biography-entry:hover{background:#2a4b59}.profile-biography-entry:focus-visible{outline:3px solid #ffe5a1;outline-offset:3px}@media(max-width:650px){.profile-biography-entry{min-height:67px;padding:12px 14px}}';
  css.textContent+=' .profile-featured-routes>.profile-biography-entry{margin-top:11px;margin-bottom:0;background:#152f40}';
  css.textContent+=' .profile-rating-guide{margin:15px 0 0;padding:0;background:#112b3b;border:1px solid #456377;border-radius:12px}.profile-rating-guide>summary{padding:13px 16px;min-height:48px;line-height:1.5;color:#f0d398;font-weight:800;cursor:pointer}.profile-rating-guide>summary:focus-visible{outline:3px solid #f0d398;outline-offset:2px}.profile-rating-guide-content{padding:0 16px 14px}.profile-rating-guide-content p{line-height:1.65;font-size:13px;margin:9px 0;color:#d3e1e9}.profile-rating-guide-content strong{color:#fff}';
  document.head.append(css);
