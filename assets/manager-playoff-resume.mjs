@@ -16,8 +16,11 @@ export function buildPlayoffResume(espn,sleeper,name,placementArchive=null,allEr
   const suffix=n=>n%100>=11&&n%100<=13?'th':n%10===1?'st':n%10===2?'nd':n%10===3?'rd':'th';
   // Keep full verified participation in the data model but omit absent
   // seasons from the visitor-facing timeline.
-  const played=Boolean(official)||!allEra;
-  const isShitter=played&&Number.isInteger(finalPlace)&&finalPlace===officialSeason?.teams;
+  const archiveSeason=placementArchive?.seasons?.find(y=>y.year===s.year);
+  const archiveEntry=archiveSeason?.finalPlacements?.find(p=>p.manager===manager);
+  const played=allEra?Boolean(official):placementArchive?Boolean(archiveEntry):true;
+  const fieldSize=officialSeason?.teams??archiveSeason?.teams??(s.year>=2020?10:null);
+  const isShitter=played&&Number.isInteger(finalPlace)&&Number.isInteger(fieldSize)&&finalPlace===fieldSize;
   const champion=s.champion===manager;
   const bye=qualified&&Array.isArray(s.byes)&&s.byes.includes(manager);
   const status=!played?'absent':champion?'champion':finalPlace===2?'finalist':
