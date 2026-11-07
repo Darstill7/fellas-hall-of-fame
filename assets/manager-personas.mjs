@@ -1,13 +1,14 @@
-// Editorial nicknames: interpretations of verified career results and existing biographies, not official league awards.
+// Baseball-card editorial blurbs. Claims are grounded in verified league history.
+// Nicknames are league editorial labels, not official awards.
 export const managerPersonas={
- Stilly:{name:'The Trade Addict',origin:'An original Fella who keeps reshaping his roster through major deals. His 2023 title gives the approach a championship payoff.'},
- Stew:{name:'The Deal Factory',origin:'An original manager with documented big-name trades and an 11–3, high-scoring 2022 season. Still chasing his first verified title.'},
- Thommy:{name:'The Four-Ring King',origin:'Won the first three Fellas championships (2016–2018), then added a fourth in 2024.'},
- Stover:{name:'The Yogurt King',origin:'The original PurpleHeaded YogurtSlingers franchise later became Gurt. He won the championship in 2022.'},
- Birch:{name:"Hogan's Hero",origin:"An early Hogan’s Heroes franchise identity, a 2018 championship-game appearance and a 2019 title."},
- Tony:{name:'The Quiet Closer',origin:'His archived profile emphasizes calculated roster moves over noise. His 2021 title is the defining result.'},
- Mitch:{name:'The Regular-Season Reaper',origin:'His 2025 team went 13–1 and scored 1,894.88 points, even though the championship column remains empty.'},
- Kuhl:{name:'The Process Paradox',origin:'Notable productive roster additions without a verified championship have defined this franchise’s results-versus-process debate.'},
- JMid:{name:'The Chaos Merchant',origin:'Big trades and a 2024 team that scored a documented league-high 1,730.22 points make for an unpredictable résumé.'},
- Scott:{name:'The Fast-Track Champion',origin:'Won the 2025 championship relatively early in his documented Fellas career.'}
+ Stilly:{name:'The Trade Addict',origin:'A founding Fella and the 2023 champion, Stilly has made roster reconstruction a franchise trademark. A 2024 runner-up finish followed his title, and a three-team deal in November 2025 brought Amon-Ra St. Brown into the fold as a 2026 keeper. The next October, he acquired Ja\'Marr Chase in another major move.'},
+ Stew:{name:'The Deal Factory',origin:'One of the league\'s originals, Stew remains a familiar name in the transaction ledger. His 2022 club finished 11–3, establishing one of his strongest regular-season résumés. A championship has yet to follow, leaving a clear distinction between his roster-building activity and his postseason record.'},
+ Thommy:{name:'The Four-Ring King',origin:'The standard every other Fella measures against. Thommy claimed the league\'s first three championships from 2016 through 2018, then returned to the top in 2024. Four titles across two eras give him the defining championship résumé in league history.'},
+ Stover:{name:'The Yogurt King',origin:'From the PurpleHeaded YogurtSlingers to Gurt, Stover has supplied one of the league\'s most recognizable franchise identities. The defining entry in his record book came in 2022, when he won the Fellas championship, adding a title to a long-running career.'},
+ Birch:{name:"Hogan's Hero",origin:'A 2018 championship-game appearance was the breakthrough; a year later, Birch finished the job. The 2019 title made Hogan\'s Heroes one of the league\'s early championship franchises and established Birch as a reliable fixture in its postseason history.'},
+ Tony:{name:'The Quiet Closer',origin:'Tony\'s 2021 championship stands at the center of a career marked by consequential deals and competitive seasons. His 2023 exchange with Stilly sent Mike Evans and Derrick Henry the other way in return for Cooper Kupp—a move that remains part of the league\'s documented trade history.'},
+ Mitch:{name:'The Regular-Season Reaper',origin:'Mitch\'s 2025 regular season belongs in the record book: a 13–1 finish and 1,894.88 points. The championship eluded him, making that campaign one of the sharpest contrasts in Fellas history between regular-season dominance and the final prize.'},
+ Kuhl:{name:'The Process Paradox',origin:'Kuhl\'s history includes ambitious moves and productive roster additions, with a documented 2023 trade involving Stew, De\'Von Achane and Puka Nacua among the notable transactions. The championship column remains blank, giving his career a continuing question: when will the roster work translate into a title?'},
+ JMid:{name:'The Chaos Merchant',origin:'JMid entered the league in 2024—not 2023—and made an immediate statistical impression. His debut team produced 1,730.22 regular-season points. His trade history began quickly as well, including a September 2024 exchange involving James Cook, Kyren Williams and Calvin Ridley.'},
+ Scott:{name:'The Fast-Track Champion',origin:'Scott moved into the championship class with his 2025 title, giving his still-developing Fellas career its defining result. The early trophy separates his résumé from those of longer-tenured managers still seeking their first championship.'}
 };
