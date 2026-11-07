@@ -357,7 +357,17 @@ try{
         if(!await resume.isVisible())throw Error('Playoff résumé not reachable by its topic link');
         const disclosure=resume.locator('details.profile-playoff-history');
         await disclosure.locator('summary').click();
-        if(await disclosure.locator('li').count()!==10)throw Error('Playoff timeline not ten completed seasons');
+        const displayedYears=await disclosure.locator('.profile-playoff-timeline .profile-finish-year').allInnerTexts();
+        const roster=route.split('/')[1]==='tom'?'Thommy':route.split('/')[1]==='jmid'?'JMid':
+          route.split('/')[1].charAt(0).toUpperCase()+route.split('/')[1].slice(1);
+        const source=await page.evaluate(async()=>{
+          const res=await fetch('../../data/fellas_final_placements_2016_2025_verified.json');
+          if(!res.ok)throw Error('Verified placement source unavailable');
+          return res.json();
+        });
+        const expected=source.seasons.filter(y=>y.finishes.some(x=>x.manager===roster)).map(y=>String(y.year));
+        if(JSON.stringify(displayedYears)!==JSON.stringify(expected))
+         throw Error('Season timeline must list only '+roster+' participation years ('+JSON.stringify(expected)+'), rendered '+JSON.stringify(displayedYears));
         const original=page.locator('main .hero details.profile-snapshot-receipts');
         if(await original.count()!==1||await original.evaluate(el=>el.open))
          throw Error('Original verified career statistics must begin collapsed');

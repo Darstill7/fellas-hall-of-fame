@@ -14,15 +14,24 @@ export function buildPlayoffResume(espn,sleeper,name,placementArchive=null,allEr
   const official=officialSeason?.finishes?.find(p=>p.manager===manager);
   const finalPlace=official?.rank??placementArchive?.seasons?.find(y=>y.year===s.year)?.finalPlacements?.find(p=>p.manager===manager)?.place;
   const suffix=n=>n%100>=11&&n%100<=13?'th':n%10===1?'st':n%10===2?'nd':n%10===3?'rd':'th';
-  const finish=allEra&&officialSeason&&!official?'Not in league':
-    finalPlace===10&&s.year>=2020?'10th · Shitter of the Year':
-    finalPlace===officialSeason?.teams&&s.year<=2019?'Last place · ESPN':
-    finalPlace===1?'Champion':
-    finalPlace===2?'Runner-up':
-    finalPlace?finalPlace+suffix(finalPlace)+' of '+(officialSeason?.teams||10):
-    !qualified?'Did not qualify':s.champion===manager?'Champion':finalist?'Runner-up':'Qualified';
-  return {year:s.year,qualified,finalist,champion:s.champion===manager,finish,finalPlace,
-   bye:qualified&&Array.isArray(s.byes)&&s.byes.includes(manager)};
+  // Keep full verified participation in the data model but omit absent
+  // seasons from the visitor-facing timeline.
+  const archiveSeason=placementArchive?.seasons?.find(y=>y.year===s.year);
+  const archiveEntry=archiveSeason?.finalPlacements?.find(p=>p.manager===manager);
+  const played=allEra?Boolean(official):placementArchive?Boolean(archiveEntry):true;
+  const fieldSize=officialSeason?.teams??archiveSeason?.teams??(s.year>=2020?10:null);
+  const isShitter=played&&Number.isInteger(finalPlace)&&Number.isInteger(fieldSize)&&finalPlace===fieldSize;
+  const champion=s.champion===manager;
+  const bye=qualified&&Array.isArray(s.byes)&&s.byes.includes(manager);
+  const status=!played?'absent':champion?'champion':finalPlace===2?'finalist':
+   isShitter?'shitter':qualified?'playoffs':'regular';
+  const finish=!played?'Not in league':
+   champion?'Champion':finalPlace===2?'Runner-up':
+   isShitter?'Shitter of the Year':
+   finalPlace?finalPlace+suffix(finalPlace)+' of '+(officialSeason?.teams||10):
+   !qualified?'Did not qualify':'Qualified';
+  return {year:s.year,qualified,finalist,champion,finish,finalPlace,
+   status,isShitter,provider:s.year<=2019?'ESPN':'Sleeper',bye};
  });
  const allEraRow=allEra?.managers?.find(m=>m.manager===manager);
  const allEraSummary=allEraRow?{
@@ -96,23 +105,44 @@ export async function mountManagerPlayoffResume(){
    metrics.append(tile);
   }
   const history=node('details','profile-playoff-history');
-  const summary=node('summary',null,'View postseason seasons and results');
+  const summary=node('summary',null,'Season-by-season achievements and finishes');
+  const legend=node('div','profile-finish-legend');
+  legend.setAttribute('aria-label','Season achievement legend');
+  for(const [kind,label,emoji] of [
+   ['champion','Champion','🏆'],['finalist','Finalist','🥈'],
+   ['playoffs','Playoffs','🏈'],['shitter','Shitter of the Year','💩']
+  ]){
+   const marker=node('span','profile-finish-legend-item profile-finish-'+kind);
+   marker.append(node('span','profile-finish-icon',emoji),node('span',null,label));
+   legend.append(marker);
+  }
   const list=node('ol','profile-playoff-timeline');
-  for(const season of resume.timeline){
-   const item=node('li',season.qualified?'profile-playoff-qualified':'profile-playoff-not-qualified');
-   item.append(node('strong',null,String(season.year)),
-    node('span',null,season.finish+(season.bye?' · First-round bye':'')));
+  for(const season of resume.timeline.filter(y=>y.status!=='absent')){
+   const item=node('li','profile-finish-row profile-finish-'+season.status+
+      (season.qualified?' profile-playoff-qualified':' profile-playoff-not-qualified'));
+   const label=node('div','profile-finish-result');
+   const icon=season.status==='champion'?'🏆':season.status==='finalist'?'🥈':
+     season.status==='shitter'?'💩':season.status==='playoffs'?'🏈':'';
+   if(icon)label.append(node('span','profile-finish-icon',icon));
+   const words=node('div','profile-finish-words');
+   words.append(node('strong','profile-finish-name',season.finish));
+   if(season.bye)words.append(node('small','profile-finish-subtitle','First-round bye'));
+   else if(season.status==='playoffs')words.append(node('small','profile-finish-subtitle','Championship bracket qualifier'));
+   else if(season.isShitter&&season.provider==='ESPN')
+    words.append(node('small','profile-finish-subtitle','ESPN final standing / legacy format'));
+   label.append(words);
+   item.append(node('strong','profile-finish-year',String(season.year)),label);
    list.append(item);
   }
   const note=node('p','profile-playoff-note',
-   'All 2016–2025 final positions come from official ESPN ranks and verified Sleeper brackets. ESPN last place and Sleeper Shitter Bowl are distinct formats. Consolation teams do not count as playoff qualifiers.');
-  history.append(summary);
+   'All displayed seasons come from verified ESPN and Sleeper final positions. The Shitter of the Year label identifies the lowest final finisher; ESPN and Sleeper used different consolation formats. Missing participation years are hidden. Consolation teams are not playoff qualifiers.');
+  history.append(summary,legend);
   if(resume.allEraSummary){
    const era=resume.allEraSummary;
    history.append(node('p','profile-playoff-note profile-playoff-allera',
     '2016–2025 final places: '+era.seasons+' seasons · '+era.finishScore.toFixed(2)+
     '/100 field-adjusted finish score · '+era.topThree+' top-three finishes · '+
-    era.lastPlace+' last-place finishes. 2016 had eight teams.'));
+    era.lastPlace+' Shitter of the Year finishes 💩. 2016 had eight teams.'));
   }
   if(resume.finalPlaceSummary){
    const f=resume.finalPlaceSummary;
