@@ -39,6 +39,42 @@ if(persona&&profileHero&&!profileHero.querySelector('.manager-nickname-origin'))
  style.textContent='.manager-nickname-origin{margin:12px 0 18px;border-left:4px solid #d6b976;padding:9px 14px;background:#122735;border-radius:0 9px 9px 0}.manager-nickname-origin summary{cursor:pointer;font-size:15px;min-height:44px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}.manager-nickname-origin summary span{font-weight:500;font-size:12px;color:#cfdee7}.manager-nickname-origin p{font-size:13px;margin:8px 0}';
  document.head.append(style);
 }
+// Every Hall of Fame profile has direct, keyboard-accessible access to all ten
+// current managers. The switcher is navigation only: no scores or archive claims.
+function mountHallOfFameManagerSwitcher(){
+ const main=document.querySelector('main#main-content'),hero=main?.querySelector(':scope > .hero');
+ if(!main||!hero||main.querySelector('.hof-manager-switcher'))return;
+ const names=['Birch','JMid','Kuhl','Mitch','Scott','Stew','Stilly','Stover','Tom','Tony'];
+ const current=profileName==='Thommy'?'Tom':profileName;
+ const active=names.indexOf(current);
+ if(active<0)return;
+ const slug=name=>name.toLowerCase();
+ const url=name=>'../'+slug(name)+'/';
+ const nav=document.createElement('nav');
+ nav.className='hof-manager-switcher';nav.setAttribute('aria-label','Browse Hall of Fame manager profiles');
+ const label=document.createElement('label');label.className='hof-manager-switcher-label';
+ label.textContent='Browse the Fellas';
+ const select=document.createElement('select');select.className='hof-manager-select';
+ select.setAttribute('aria-label','Choose a Fellas manager profile');
+ for(const name of names){
+  const option=document.createElement('option');
+  option.value=url(name);option.textContent=name==='Tom'?'Thommy (Tom)':name;
+  if(name===current)option.selected=true;
+  select.append(option);
+ }
+ select.addEventListener('change',()=>{if(select.value)location.assign(select.value)});
+ label.append(select);
+ const previous=names[(active-1+names.length)%names.length],next=names[(active+1)%names.length];
+ const makeLink=(name,text,description)=>{
+  const a=document.createElement('a');a.href=url(name);a.className='hof-manager-switcher-step';
+  a.textContent=text;a.title=description+' '+(name==='Tom'?'Thommy':name);
+  a.setAttribute('aria-label',description+' '+(name==='Tom'?'Thommy':name));
+  return a;
+ };
+ nav.append(makeLink(previous,'← Prev','Previous manager:'),label,makeLink(next,'Next →','Next manager:'));
+ hero.before(nav);
+}
+mountHallOfFameManagerSwitcher();
 // Give all ten profiles the same first-screen hierarchy without replacing
 // canonical stat values or historical source labels.
 if(profileHero&&!profileHero.querySelector('[data-profile-career-snapshot]')){
@@ -653,6 +689,9 @@ document.head.append(hofEditorialStyle);
 const hofTrophyStyle=document.createElement('style');
 hofTrophyStyle.textContent="\n/* The trophy case should feel different from an ordinary metrics dashboard. */\nmain>.hero .profile-career-highlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:15px 0}\nmain>.hero .profile-career-highlight{min-width:0;padding:19px 21px;border-radius:14px;border:1px solid #496474;background:#122936;display:flex;flex-direction:column;align-items:flex-start;gap:6px}\nmain>.hero .profile-career-highlight.hof-has-title{border-color:#a98b52;background:linear-gradient(125deg,#41341e 0%,#211f20 65%,#172834 100%);box-shadow:inset 4px 0 #e6bc70}\nmain>.hero .profile-career-highlight:first-child::before{content:\"🏆\";font-size:23px;line-height:1.1;margin-bottom:2px}\nmain>.hero .profile-career-highlight-label{font-size:12px;font-weight:800;line-height:1.45;letter-spacing:.025em;color:#d6e1e7}\nmain>.hero .profile-career-highlight strong{font-size:clamp(28px,4vw,44px);font-variant-numeric:tabular-nums;line-height:1.15;letter-spacing:-.045em;color:#fff4d7}\nmain>.hero .profile-honors-line{display:inline-block;margin:7px 0 10px;padding:9px 13px;border-left:3px solid #e4bf7d;background:#192d36;border-radius:0 8px 8px 0;color:#f4d59b;font-weight:750}\nmain>.hero .profile-snapshot-receipts{margin:8px 0 0;max-width:700px}\nmain>.hero .profile-snapshot-receipts>summary{min-height:44px;font-size:12px;line-height:1.5;color:#bbcbd4}\n#profile-playoff-resume{max-width:960px;margin-left:auto;margin-right:auto}\n#profile-playoff-resume .profile-playoff-metric{min-width:0}\n@media(max-width:650px){\n main>.hero .profile-career-highlights{gap:8px}\n main>.hero .profile-career-highlight{padding:15px 13px}\n main>.hero .profile-career-highlight strong{font-size:clamp(25px,7vw,36px);overflow-wrap:anywhere}\n main>.hero .profile-career-highlight-label{font-size:11px}\n main>.hero .profile-honors-line{font-size:13px;line-height:1.55}\n}\n";
 document.head.append(hofTrophyStyle);
+const hofSwitcherStyle=document.createElement('style');
+hofSwitcherStyle.textContent="\n/* One consistent manager-switching strip, not another grid of profile links. */\n.hof-manager-switcher{width:min(100%,960px);display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:end;gap:11px;margin:18px auto 0;padding:11px 13px;border:1px solid #385263;border-radius:12px;background:#0c202cf0}\n.hof-manager-switcher-label{display:flex;flex-direction:column;gap:5px;min-width:0;font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#cbd9e1}\n.hof-manager-select{min-width:0;width:100%;height:46px;padding:10px 34px 10px 13px;border:1px solid #688293;border-radius:9px;color:#f5f1e7;background:#193544;font:inherit;font-size:14px;font-weight:750;letter-spacing:normal;text-transform:none;cursor:pointer}\n.hof-manager-switcher-step{display:flex;min-width:86px;justify-content:center;align-items:center;min-height:46px;padding:11px 12px;border:1px solid #516b7b;border-radius:9px;background:#16303f;color:#f5e4bb;text-decoration:none;font-size:13px;font-weight:850;white-space:nowrap}\n.hof-manager-switcher-step:hover{background:#274759;border-color:#e3bd71;color:#fff}\n.hof-manager-switcher-step:focus-visible,.hof-manager-select:focus-visible{outline:3px solid #ffdc94;outline-offset:2px}\nbody.profile-feature-focused .hof-manager-switcher{display:grid}\nbody.profile-landing .profile-tabs{display:none!important}\nbody.profile-landing .profile-tab-guide{display:none!important}\nbody.profile-landing .profile-back-to-sections{display:none!important}\n@media(max-width:650px){.hof-manager-switcher{gap:7px;margin-top:9px;padding:8px;width:100%;border-radius:10px}.hof-manager-switcher-step{min-width:65px;padding:10px 7px;font-size:12px}.hof-manager-select{font-size:14px}.hof-manager-switcher-label{font-size:10px}.hof-manager-switcher+.hero{padding-top:17px}}\n";
+document.head.append(hofSwitcherStyle);
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
 // The old overview tiles and archive teaser repeat destinations available in the tabs.
 // Remove only these two identified promotional sections; preserve all data-backed sections.
