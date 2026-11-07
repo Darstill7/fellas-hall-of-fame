@@ -79,10 +79,12 @@ jobs:
         run: node scripts/verify-homepage-standings-resilience.mjs
       - name: Verify completed season archive editorial and navigation labels
         run: node scripts/verify-production-editorial-navigation.mjs
-      - name: Ensure 2026 season encyclopedia is labeled as a Week 7 archive
+      - name: Ensure current 2026 season page tracks verified weeks and retains historical archive
         run: node scripts/test-2026-season-archive-copy.mjs
-      - name: Check historical playoff forecast is labeled as an archive
+      - name: Guard canonical playoff-race projections and verified current results
         run: node scripts/test-playoff-race-archive.mjs
+      - name: Ensure every current-season consumer uses the latest completed week
+        run: node scripts/verify-current-week-website.mjs
       - name: Inventory unmatched historical dossier editorial headings
         run: node scripts/audit-dossier-editorial-inventory.mjs > data-integrity/dossier-editorial-inventory.json
       - name: Classify dossier topical overlap
@@ -179,7 +181,7 @@ jobs:
         run: node scripts/verify-lineup-history-source-parity.mjs
       - name: Certify all ten recoverable manager evidence snapshots without assigning false skill grades
         run: node scripts/test-manager-evidence-snapshots.mjs
-      - name: Guard 2026 SportsCenter against stale live-status claims
+      - name: Guard current 2026 SportsCenter and its historical Week 7 archive
         run: node scripts/test-sportscenter-archive.mjs
       - name: Verify distinct $0 waiver versus free-agent acquisition labels
         run: node scripts/test-pickup-cost-label.mjs
