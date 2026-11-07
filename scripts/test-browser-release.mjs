@@ -320,6 +320,16 @@ try{
      }catch(error){errors.push(width+' profile first-visit navigation journey failed: '+String(error))}
      finally{await visitor.close()}
     }
+    const confirmedTitles={tom:4,birch:1,tony:1,stover:1,stilly:1,scott:1};
+    const confirmedCount=confirmedTitles[route.split('/')[1]]||0;
+    const trophy=page.locator('#manager-championship-stories');
+    if(confirmedCount){
+     await trophy.waitFor({state:'visible',timeout:12000}).catch(()=>{});
+     if(await trophy.count()!==1||
+        await trophy.locator('.championship-ring').count()!==confirmedCount||
+        await trophy.locator('.championship-title-final-score').count()!==confirmedCount)
+      errors.push(width+' '+route+' championship trophy exhibit missing verified titles or final-game scores');
+    }else if(await trophy.count())errors.push(width+' '+route+' falsely awards a trophy');
     const moreResearch=page.locator('details.manager-home-more');
     if(await moreResearch.count()!==1||await moreResearch.evaluate(el=>el.open))
      errors.push(width+' '+route+' advanced research menu must initially be collapsed');
