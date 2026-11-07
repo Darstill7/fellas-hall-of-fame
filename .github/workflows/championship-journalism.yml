@@ -1,0 +1,35 @@
+name: Verify championship long-form journalism
+
+on:
+  pull_request:
+    paths:
+      - 'data/championship_season_stories_2016_2025_v1.json'
+      - 'data/championship_player_boxscores_2020_2025_v1.json'
+      - 'hall/championship-stories.html'
+      - 'scripts/verify-championship-journalism.mjs'
+      - 'scripts/verify-championship-stories.mjs'
+      - '.github/workflows/championship-journalism.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/championship_season_stories_2016_2025_v1.json'
+      - 'data/championship_player_boxscores_2020_2025_v1.json'
+      - 'hall/championship-stories.html'
+      - 'scripts/verify-championship-journalism.mjs'
+
+jobs:
+  editorial-fact-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout championship evidence
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify each canonical champion and historical game
+        run: node scripts/verify-championship-stories.mjs
+      - name: Reconcile championship MVPs, trades, score margins and story length
+        run: node scripts/verify-championship-journalism.mjs

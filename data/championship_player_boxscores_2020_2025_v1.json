@@ -1,0 +1,692 @@
+{
+  "version": 1,
+  "source": "Sleeper archived league-week head-to-head matchups with player-level starting lineup scores, retrieved through connected Flaim Fantasy, 2026-11-06",
+  "scope": "2020–2025 semifinal and championship starters for championship-winning managers; individual players' points are exact archived matchup contributions, not estimated or inferred. ESPN 2016–2019 starters not available in this dataset.",
+  "reconciliation": "Compare each championship team's week score and final opponent to data/season_weekly_matchups_2016_2026_v1.json and canonical verified playoff brackets. 2023 roster identity: Stilly is roster 1; 2023 JMidd roster name is an Evans-era slot, not JMid ownership.",
+  "games": [
+    {
+      "year": 2020,
+      "round": "semifinal",
+      "week": 15,
+      "champion": "Koble",
+      "score": 130.42,
+      "opponentScore": 82.82,
+      "opponentRosterId": 10,
+      "opponentOwner": "birchhh",
+      "starters": [
+        {
+          "name": "Ryan Tannehill",
+          "position": "QB",
+          "points": 37.02
+        },
+        {
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 24.2
+        },
+        {
+          "name": "Austin Ekeler",
+          "position": "RB",
+          "points": 9.9
+        },
+        {
+          "name": "Curtis Samuel",
+          "position": "WR",
+          "points": 5.8
+        },
+        {
+          "name": "A.J. Brown",
+          "position": "WR",
+          "points": 12.9
+        },
+        {
+          "name": "Robert Tonyan",
+          "position": "TE",
+          "points": 9.3
+        },
+        {
+          "name": "David Johnson",
+          "position": "RB",
+          "points": 17.8
+        },
+        {
+          "name": "Miles Sanders",
+          "position": "RB",
+          "points": 9.5
+        },
+        {
+          "name": "Los Angeles Rams",
+          "position": "DEF",
+          "points": 4
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "round": "championship",
+      "week": 16,
+      "champion": "Koble",
+      "score": 117.48,
+      "opponentScore": 99.42,
+      "opponentRosterId": 6,
+      "opponentOwner": "huppdawg80",
+      "starters": [
+        {
+          "name": "Jalen Hurts",
+          "position": "QB",
+          "points": 17.58
+        },
+        {
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 9.8
+        },
+        {
+          "name": "Austin Ekeler",
+          "position": "RB",
+          "points": 14.3
+        },
+        {
+          "name": "Emmanuel Sanders",
+          "position": "WR",
+          "points": 11.5
+        },
+        {
+          "name": "A.J. Brown",
+          "position": "WR",
+          "points": 6.3
+        },
+        {
+          "name": "Robert Tonyan",
+          "position": "TE",
+          "points": 2.2
+        },
+        {
+          "name": "David Johnson",
+          "position": "RB",
+          "points": 28.4
+        },
+        {
+          "name": "Miles Sanders",
+          "position": "RB",
+          "points": 15.4
+        },
+        {
+          "name": "Baltimore Ravens",
+          "position": "DEF",
+          "points": 12
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "round": "semifinal",
+      "week": 15,
+      "champion": "Tony",
+      "score": 94.96,
+      "opponentScore": 73.44,
+      "opponentRosterId": 8,
+      "opponentOwner": "yogurtslinger15",
+      "starters": [
+        {
+          "name": "Matthew Stafford",
+          "position": "QB",
+          "points": 15.46
+        },
+        {
+          "name": "Jonathan Taylor",
+          "position": "RB",
+          "points": 24
+        },
+        {
+          "name": "Joe Mixon",
+          "position": "RB",
+          "points": 6.5
+        },
+        {
+          "name": "CeeDee Lamb",
+          "position": "WR",
+          "points": 8
+        },
+        {
+          "name": "Davante Adams",
+          "position": "WR",
+          "points": 13.4
+        },
+        {
+          "name": "Kyle Pitts Sr.",
+          "position": "TE",
+          "points": 10.7
+        },
+        {
+          "name": "Cordarrelle Patterson",
+          "position": "RB",
+          "points": 3.3
+        },
+        {
+          "name": "Chuba Hubbard",
+          "position": "RB",
+          "points": 4.6
+        },
+        {
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF",
+          "points": 9
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "round": "championship",
+      "week": 16,
+      "champion": "Tony",
+      "score": 138.28,
+      "opponentScore": 133.98,
+      "opponentRosterId": 2,
+      "opponentOwner": "Evansbrandonm",
+      "starters": [
+        {
+          "name": "Matthew Stafford",
+          "position": "QB",
+          "points": 5.68
+        },
+        {
+          "name": "Jonathan Taylor",
+          "position": "RB",
+          "points": 11.8
+        },
+        {
+          "name": "Joe Mixon",
+          "position": "RB",
+          "points": 29.5
+        },
+        {
+          "name": "CeeDee Lamb",
+          "position": "WR",
+          "points": 8.4
+        },
+        {
+          "name": "Davante Adams",
+          "position": "WR",
+          "points": 28.4
+        },
+        {
+          "name": "Kyle Pitts Sr.",
+          "position": "TE",
+          "points": 13.2
+        },
+        {
+          "name": "Cordarrelle Patterson",
+          "position": "RB",
+          "points": 7.8
+        },
+        {
+          "name": "Alexander Mattison",
+          "position": "RB",
+          "points": 14.5
+        },
+        {
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF",
+          "points": 19
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "round": "semifinal",
+      "week": 16,
+      "champion": "Stover",
+      "score": 112.56,
+      "opponentScore": 87.68,
+      "opponentRosterId": 9,
+      "opponentOwner": "ckuhl5",
+      "starters": [
+        {
+          "name": "Patrick Mahomes",
+          "position": "QB",
+          "points": 23.76
+        },
+        {
+          "name": "Devin Singletary",
+          "position": "RB",
+          "points": 19.5
+        },
+        {
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 18.6
+        },
+        {
+          "name": "Diontae Johnson",
+          "position": "WR",
+          "points": 8.9
+        },
+        {
+          "name": "Tyreek Hill",
+          "position": "WR",
+          "points": 13.3
+        },
+        {
+          "name": "Travis Kelce",
+          "position": "TE",
+          "points": 15.3
+        },
+        {
+          "name": "Zay Jones",
+          "position": "WR",
+          "points": 1.6
+        },
+        {
+          "name": "Tyler Boyd",
+          "position": "WR",
+          "points": 3.6
+        },
+        {
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF",
+          "points": 8
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "round": "championship",
+      "week": 17,
+      "champion": "Stover",
+      "score": 99.22,
+      "opponentScore": 48.16,
+      "opponentRosterId": 4,
+      "opponentOwner": "Dsylvester9",
+      "starters": [
+        {
+          "name": "Patrick Mahomes",
+          "position": "QB",
+          "points": 25.02
+        },
+        {
+          "name": "Devin Singletary",
+          "position": "RB",
+          "points": 0.3
+        },
+        {
+          "name": "Hassan Haskins",
+          "position": "RB",
+          "points": 6.3
+        },
+        {
+          "name": "Diontae Johnson",
+          "position": "WR",
+          "points": 4.5
+        },
+        {
+          "name": "Tyreek Hill",
+          "position": "WR",
+          "points": 13.7
+        },
+        {
+          "name": "Travis Kelce",
+          "position": "TE",
+          "points": 7.8
+        },
+        {
+          "name": "Zay Jones",
+          "position": "WR",
+          "points": 3.9
+        },
+        {
+          "name": "DJ Moore",
+          "position": "WR",
+          "points": 21.7
+        },
+        {
+          "name": "New York Giants",
+          "position": "DEF",
+          "points": 16
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "round": "semifinal",
+      "week": 16,
+      "champion": "Stilly",
+      "score": 141.66,
+      "opponentScore": 108.58,
+      "opponentRosterId": 7,
+      "opponentOwner": "tsteg",
+      "starters": [
+        {
+          "name": "Josh Allen",
+          "position": "QB",
+          "points": 24.98
+        },
+        {
+          "name": "Rachaad White",
+          "position": "RB",
+          "points": 16.7
+        },
+        {
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 20.88
+        },
+        {
+          "name": "Mike Evans",
+          "position": "WR",
+          "points": 24.1
+        },
+        {
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "points": 6.7
+        },
+        {
+          "name": "David Njoku",
+          "position": "TE",
+          "points": 13.4
+        },
+        {
+          "name": "David Montgomery",
+          "position": "RB",
+          "points": 13.9
+        },
+        {
+          "name": "Aaron Jones Sr.",
+          "position": "RB",
+          "points": 14
+        },
+        {
+          "name": "Denver Broncos",
+          "position": "DEF",
+          "points": 7
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "round": "championship",
+      "week": 17,
+      "champion": "Stilly",
+      "score": 104.96,
+      "opponentScore": 90.18,
+      "opponentRosterId": 6,
+      "opponentOwner": "huppdawg80",
+      "starters": [
+        {
+          "name": "Josh Allen",
+          "position": "QB",
+          "points": 19.16
+        },
+        {
+          "name": "Rachaad White",
+          "position": "RB",
+          "points": 6.6
+        },
+        {
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 4.2
+        },
+        {
+          "name": "Mike Evans",
+          "position": "WR",
+          "points": 8.5
+        },
+        {
+          "name": "Michael Pittman Jr.",
+          "position": "WR",
+          "points": 7.1
+        },
+        {
+          "name": "David Njoku",
+          "position": "TE",
+          "points": 15.4
+        },
+        {
+          "name": "David Montgomery",
+          "position": "RB",
+          "points": 12.5
+        },
+        {
+          "name": "Aaron Jones Sr.",
+          "position": "RB",
+          "points": 13.5
+        },
+        {
+          "name": "Buffalo Bills",
+          "position": "DEF",
+          "points": 18
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "round": "semifinal",
+      "week": 16,
+      "champion": "Thommy",
+      "score": 123.38,
+      "opponentScore": 121.08,
+      "opponentRosterId": 2,
+      "opponentOwner": "JMidd",
+      "starters": [
+        {
+          "name": "Jordan Love",
+          "position": "QB",
+          "points": 11.48
+        },
+        {
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 20.9
+        },
+        {
+          "name": "Bijan Robinson",
+          "position": "RB",
+          "points": 23.3
+        },
+        {
+          "name": "Jameson Williams",
+          "position": "WR",
+          "points": 24.5
+        },
+        {
+          "name": "Tee Higgins",
+          "position": "WR",
+          "points": 15.8
+        },
+        {
+          "name": "Travis Kelce",
+          "position": "TE",
+          "points": 5.5
+        },
+        {
+          "name": "Adam Thielen",
+          "position": "WR",
+          "points": 12.8
+        },
+        {
+          "name": "DeVonta Smith",
+          "position": "WR",
+          "points": 8.1
+        },
+        {
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "round": "championship",
+      "week": 17,
+      "champion": "Thommy",
+      "score": 205.3,
+      "opponentScore": 114.88,
+      "opponentRosterId": 1,
+      "opponentOwner": "Darstill",
+      "starters": [
+        {
+          "name": "Jordan Love",
+          "position": "QB",
+          "points": 14
+        },
+        {
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 23.5
+        },
+        {
+          "name": "Bijan Robinson",
+          "position": "RB",
+          "points": 22.3
+        },
+        {
+          "name": "Jameson Williams",
+          "position": "WR",
+          "points": 22
+        },
+        {
+          "name": "Tee Higgins",
+          "position": "WR",
+          "points": 34.6
+        },
+        {
+          "name": "Travis Kelce",
+          "position": "TE",
+          "points": 18.4
+        },
+        {
+          "name": "Adam Thielen",
+          "position": "WR",
+          "points": 26.5
+        },
+        {
+          "name": "DeVonta Smith",
+          "position": "WR",
+          "points": 28
+        },
+        {
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF",
+          "points": 16
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "round": "semifinal",
+      "week": 16,
+      "champion": "Scott",
+      "score": 141.88,
+      "opponentScore": 70.4,
+      "opponentRosterId": 10,
+      "opponentOwner": "birchhh",
+      "starters": [
+        {
+          "name": "Bo Nix",
+          "position": "QB",
+          "points": 15.18
+        },
+        {
+          "name": "Bijan Robinson",
+          "position": "RB",
+          "points": 27.3
+        },
+        {
+          "name": "James Cook III",
+          "position": "RB",
+          "points": 26.9
+        },
+        {
+          "name": "George Pickens",
+          "position": "WR",
+          "points": 22.5
+        },
+        {
+          "name": "Ladd McConkey",
+          "position": "WR",
+          "points": 12.3
+        },
+        {
+          "name": "Trey McBride",
+          "position": "TE",
+          "points": 4.7
+        },
+        {
+          "name": "Tetairoa McMillan",
+          "position": "WR",
+          "points": 16.3
+        },
+        {
+          "name": "Christian Watson",
+          "position": "WR",
+          "points": 2.7
+        },
+        {
+          "name": "Minnesota Vikings",
+          "position": "DEF",
+          "points": 14
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "round": "championship",
+      "week": 17,
+      "champion": "Scott",
+      "score": 156.32,
+      "opponentScore": 86,
+      "opponentRosterId": 3,
+      "opponentOwner": "thommy",
+      "starters": [
+        {
+          "name": "Brock Purdy",
+          "position": "QB",
+          "points": 36.92
+        },
+        {
+          "name": "Bijan Robinson",
+          "position": "RB",
+          "points": 38.4
+        },
+        {
+          "name": "James Cook III",
+          "position": "RB",
+          "points": 8.2
+        },
+        {
+          "name": "George Pickens",
+          "position": "WR",
+          "points": 9.8
+        },
+        {
+          "name": "Ladd McConkey",
+          "position": "WR",
+          "points": 3.6
+        },
+        {
+          "name": "Trey McBride",
+          "position": "TE",
+          "points": 18.6
+        },
+        {
+          "name": "Tetairoa McMillan",
+          "position": "WR",
+          "points": 1
+        },
+        {
+          "name": "Christian Watson",
+          "position": "WR",
+          "points": 19.8
+        },
+        {
+          "name": "New York Giants",
+          "position": "DEF",
+          "points": 20
+        }
+      ]
+    }
+  ]
+}
