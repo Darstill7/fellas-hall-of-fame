@@ -613,7 +613,7 @@ function mountCareerExhibit(){
  fetch('../../data/manager_biographies_awards.json',{cache:'no-store'})
   .then(response=>{if(!response.ok)throw Error('Biography unavailable');return response.json()})
   .then(data=>{
-   const bio=data.managers?.[slug]?.biography;
+   const bio=data.managers?.[profileName==='Tom'?'Tom':slug]?.biography;
    if(typeof bio!=='string'||!bio.trim())return;
    const paragraph=bio.split(/\n\s*\n/)[0].trim();
    const sentences=paragraph.match(/[^.!?]+[.!?]+(?=\s|$)/g);
