@@ -84,6 +84,17 @@ export async function mountManagerChampionshipStories(){
   // Lead with the title exhibit, not after dozens of research sections.
   // Historical playoff data and the archive directory remain untouched.
   if(hero)hero.after(section);else resume.after(section);
+  // The gallery loads asynchronously above the archive navigation. In Safari,
+  // inserting it after initial hash scrolling can push #seasons/#rivalries
+  // below the visible screen. Re-anchor those intentional deep links only.
+  const selectedChapter=location.hash.slice(1).toLowerCase();
+  if(['overview','seasons','rivalries','advanced'].includes(selectedChapter)){
+   const navigation=document.querySelector('[data-manager-profile-tabs]');
+   if(navigation)requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    if(location.hash.slice(1).toLowerCase()===selectedChapter)
+     navigation.scrollIntoView({block:'start',behavior:'instant'});
+   }));
+  }
   if(!document.getElementById('manager-championship-story-style')){
    const style=make('style');style.id='manager-championship-story-style';
    style.textContent=`
