@@ -597,10 +597,9 @@ function mountCareerExhibit(){
   if(trigger){trigger.click();document.getElementById('legacy-resume')?.scrollIntoView({block:'start',behavior:'auto'})}
   else document.getElementById('franchise-story')?.scrollIntoView({block:'start',behavior:'auto'});
  });
- const records=document.createElement('a');records.className='hof-career-secondary';
- records.href='../../analytics/expanded-records.html?manager='+encodeURIComponent(slug==='Thommy'?'Tom':slug);
- records.textContent='Career records ↗';
- actions.append(read,records);
+ // Records already lead the hero and have a destination in the archive navigation.
+ // A second copy here would turn the story into another cluttered button row.
+ actions.append(read);
  feature.append(kicker,h,intro,actions);
  hero.after(feature);
  feature.after(hub);
