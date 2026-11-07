@@ -239,6 +239,30 @@ try{
    }
    if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
     const managerName=route.split('/')[1]==='tom'?'Tom':route.split('/')[1].charAt(0).toUpperCase()+route.split('/')[1].slice(1);
+    const switcher=page.locator('nav.hof-manager-switcher');
+    if(await switcher.count()!==1||!await switcher.isVisible())
+     errors.push(width+' '+route+' direct manager-to-manager navigator missing');
+    else{
+     const options=await switcher.locator('select.hof-manager-select option').allTextContents();
+     const routes=await switcher.locator('select.hof-manager-select option').evaluateAll(nodes=>nodes.map(node=>node.value));
+     if(options.length!==10||!options.includes('Thommy (Tom)')||
+        !routes.includes('../tom/')||new Set(routes).size!==10)
+      errors.push(width+' '+route+' manager switcher must show all ten unique profile routes');
+     const selected=await switcher.locator('select').inputValue();
+     const expected='../'+route.split('/')[1]+'/';
+     if(selected!==expected)errors.push(width+' '+route+' manager switcher selected wrong profile: '+selected);
+     for(const side of ['Previous manager:','Next manager:']){
+      const link=switcher.locator('a[aria-label^="'+side+'"]');
+      if(await link.count()!==1||!(await link.getAttribute('href'))?.startsWith('../'))
+       errors.push(width+' '+route+' missing accessible '+side+' link');
+     }
+     if(width===390){
+      const rects=await switcher.evaluate(el=>({right:el.getBoundingClientRect().right,
+        controls:[...el.querySelectorAll('a,select')].map(node=>({height:node.getBoundingClientRect().height,right:node.getBoundingClientRect().right}))}));
+      if(rects.right>width+2||rects.controls.some(t=>t.height<44||t.right>width+2))
+       errors.push(width+' '+route+' manager switcher too small or mobile overflow '+JSON.stringify(rects));
+     }
+    }
     const hub=page.locator('.manager-home-hub');
     if(await hub.count()!==1||await hub.locator('.manager-home-hub-tile').count()!==6)
      errors.push(width+' '+route+' missing six-destination personal manager hub');
