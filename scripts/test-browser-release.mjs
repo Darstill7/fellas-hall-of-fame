@@ -2224,6 +2224,21 @@ try{
     const cards=await page.locator('#record-leaders .leader-card').count();
     const remaining=await page.locator('#record-other .leader-card').count();
     const kinds=await page.locator('#record-categories .category-card').count();
+    const expandedKinds=await page.locator('#expanded-record-categories .category-card').count();
+    const tabs=page.locator('#record-family-nav button');
+    const countLabel=await page.locator('#record-count-summary').innerText();
+    if(expandedKinds!==44||await tabs.count()!==6||!countLabel.includes('44 expanded categories')||!countLabel.includes('16 established categories'))
+     errors.push(width+' Recordholders failed to load all 44 expanded categories');
+    const career= tabs.filter({hasText:'Career ('});
+    await career.click();
+    const familyCount=await page.locator('#expanded-record-categories .category-card').count();
+    if(familyCount<1||familyCount>=44||await career.getAttribute('aria-pressed')!=='true')
+     errors.push(width+' Recordholders family filter did not change visible categories');
+    await tabs.first().click();
+    const restored=await page.locator('#expanded-record-categories .category-card').count();
+    if(restored!==44)errors.push(width+' Recordholders failed to restore all 44 expanded records');
+    const evidenceLink=page.locator('#expanded-record-categories .category-card a[href^="expanded-records.html?"]').first();
+    if(await evidenceLink.count()!==1)errors.push(width+' expanded record evidence deep link missing');
     if(cards<1||cards+remaining!==14||kinds!==16)
      errors.push(width+' record holders mismatch: '+cards+' leaders, '+remaining+' remaining, '+kinds+' categories');
     const first=await page.locator('#record-leaders .leader-card').first().innerText();
