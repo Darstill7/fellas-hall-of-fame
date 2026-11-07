@@ -151,6 +151,19 @@ try{
          findings.push(engine+' '+width+' duplicate homepage hero buttons crowd out manager discovery');
        }
        if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
+        const switcherMetrics=await page.locator('nav.hof-manager-switcher').evaluate(el=>{
+         const rect=el.getBoundingClientRect(),links=[...el.querySelectorAll('a,select')];
+         return {right:rect.right,width:rect.width,controlCount:links.length,
+          controlHeights:links.map(node=>node.getBoundingClientRect().height),
+          controlRights:links.map(node=>node.getBoundingClientRect().right),
+          selected:el.querySelector('select')?.selectedOptions[0]?.textContent?.trim()};
+        }).catch(()=>null);
+        if(!switcherMetrics||switcherMetrics.controlCount!==3||
+           switcherMetrics.controlHeights.some(height=>height<44)||
+           (width===390&&(switcherMetrics.right>width+2||switcherMetrics.controlRights.some(right=>right>width+2))))
+         findings.push(engine+' '+width+' '+key+' Hall of Fame manager switcher lacks readable, reachable controls '+JSON.stringify(switcherMetrics));
+        if(await page.locator('body.profile-landing .profile-tabs:visible').count())
+         findings.push(engine+' '+width+' '+key+' redundant archive tabs still clutter first-visit Hall of Fame profile');
         const hubMetrics=await page.locator('.manager-home-hub').evaluate(el=>{
          const bounds=el.getBoundingClientRect();
          const tiles=[...el.querySelectorAll('.manager-home-hub-tile')].map(t=>{const r=t.getBoundingClientRect();return {width:r.width,height:r.height,right:r.right}});
