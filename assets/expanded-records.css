@@ -46,3 +46,15 @@
 .records-lab-manager .records-lab-tile p{font-size:13px;line-height:1.55;overflow-wrap:break-word}
 .records-lab-manager .records-lab-tag{align-self:flex-start;max-width:100%;font-size:11px;line-height:1.5;margin:4px 0}
 @media(max-width:600px){.records-lab-manager{padding:15px}.records-lab-manager .records-lab-grid{grid-template-columns:1fr;gap:10px}.records-lab-manager .records-lab-tile{padding:15px;gap:3px}.records-lab-manager .records-lab-action{width:100%;justify-content:center;text-align:center;padding:12px}.records-lab-manager .records-lab-intro{line-height:1.6;font-size:13px}}
+
+/* Profile records live in the manager's own résumé, not behind an anonymous disclosure. */
+.records-lab-profile-direct{margin:16px 0 22px}
+.records-profile-summary{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:18px;border:1px solid #638597;border-radius:13px;background:#102c3b}
+.records-profile-summary>div{flex:1 1 260px;min-width:0}
+.records-profile-eyebrow{display:block;font-size:11px;letter-spacing:.095em;font-weight:850;color:#e8c37d}
+.records-profile-summary h2{margin:7px 0!important;color:#f5f0e8;font-size:clamp(20px,3vw,26px)}
+.records-profile-summary .records-lab-intro{margin:4px 0 0;font-size:13px;line-height:1.6}
+.records-profile-summary .records-lab-action{flex:0 1 auto}
+.records-profile-preview{margin-top:8px!important}
+.records-profile-preview summary{min-height:44px!important;padding:10px 13px!important}
+@media(max-width:650px){.records-profile-summary{padding:14px;gap:8px}.records-profile-summary .records-lab-action{width:100%;justify-content:center}.records-profile-summary h2{font-size:22px}}
