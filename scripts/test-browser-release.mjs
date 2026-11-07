@@ -1383,6 +1383,25 @@ try{
     }
    }
    if(route==='hall/'){
+    const cases=page.locator('#championship-trophy-case .champ-year-card');
+    const expectedYears=Array.from({length:10},(_,i)=>String(2025-i));
+    const presented=await cases.evaluateAll(nodes=>nodes.map(node=>({
+     year:new URL(node.href).searchParams.get('year'),
+     score:node.querySelector('.champ-year-score')?.textContent?.trim(),
+     target:new URL(node.href).pathname,
+     right:node.getBoundingClientRect().right,
+     height:node.getBoundingClientRect().height
+    })));
+    if(JSON.stringify(presented.map(x=>x.year))!==JSON.stringify(expectedYears)||
+       presented.some(x=>!x.score?.includes('–')||!x.target.endsWith('/hall/championship-stories.html')))
+     errors.push(width+' Hall championship gallery must link ten verified title years and scores');
+    if(!await page.locator('#championship-trophy-case .champ-year-card').first().innerText().then(x=>x.includes('Scott')&&x.includes('156.32–86.00'))||
+       !await page.locator('#championship-trophy-case .champ-year-card').last().innerText().then(x=>x.includes('Tom')&&x.includes('223.00–175.00')))
+     errors.push(width+' Hall championship gallery bookend years or scoring changed');
+    if(width===390&&presented.some(x=>x.right>width+2||x.height<100))
+     errors.push(width+' Hall trophy cards overflow or compress on mobile');
+    const early=await page.locator('#championship-trophy-case .champ-year-card').last().innerText();
+    if(!early.includes('Two-week'))errors.push(width+' 2016 championship aggregate not identified');
     if(!await page.locator('header .navlinks a[href="../managers/"]').count()||
         await page.locator('header .navlinks a[href="../analytics/franchise-timeline.html"]').count())
      errors.push(width+' Hall of Fame Managers link must open current directory');
