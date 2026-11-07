@@ -14,17 +14,17 @@
 <script type="module">
 const $=id=>document.getElementById(id);const fmt=(n,d=2)=>Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});const clean=n=>n==='Tom'?'Thommy':n;const esc=x=>String(x??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 function render(data){
- const w=data.verified_through_week;if(!Number.isInteger(w)||w<1||!Array.isArray(data.week8_results))throw Error('Missing verified snapshot');
+ const w=data.verified_through_week;if(!Number.isInteger(w)||w<1||!Array.isArray(data.latest_results))throw Error('Missing verified snapshot');
  const scenario=data.scenarios?.['6'];if(!scenario||Object.keys(scenario).length!==10||Object.keys(data.teams||{}).length!==10)throw Error('Incomplete model');
  $('race-title').textContent='Playoff Race · Week '+w;
  $('race-asof').textContent='THE FELLAS · VERIFIED THROUGH WEEK '+w+' · '+data.as_of;
- $('race-subtitle').textContent='40 completed league games through Week '+w+'. The playoff picture updates from the canonical result ledger.';
+ $('race-subtitle').textContent=String(w*5)+' completed league matchups through Week '+w+'. The playoff picture updates from the canonical result ledger.';
  $('completed').textContent=String(w);
  $('race-status').textContent='Completed through Week '+w+' · All ten managers · Six-team playoff format';
  const managers=Object.keys(data.teams).sort((a,b)=>data.teams[b].w-data.teams[a].w||data.teams[b].pf-data.teams[a].pf);
  $('race-standings').innerHTML=managers.map((n,i)=>{const t=data.teams[n],p=scenario[n];return '<tr><td>'+(i+1)+'</td><td class="manager">'+esc(clean(n))+'<span class="team">'+esc(t.team)+'</span></td><td>'+t.w+'–'+t.l+'</td><td>'+fmt(t.pf)+'</td><td>'+fmt(p.playoff_pct,1)+'%</td><td>'+fmt(p.top2_pct,1)+'%</td></tr>'}).join('');
  $('recent-label').textContent='Week '+w+' final scores';
- const results=data.week8_results;if(w===8&&results.length!==5)throw Error('Incomplete Week 8 scores');
+ const results=data.latest_results;if(w===8&&results.length!==5)throw Error('Incomplete Week 8 scores');
  $('recent-results').innerHTML=results.map(g=>'<article class="card"><div class="card-row"><span><b>'+esc(clean(g.a))+'</b> <span class="muted">vs</span> <b>'+esc(clean(g.b))+'</b><span class="pill">FINAL</span></span><span class="score">'+fmt(g.a_score)+' – '+fmt(g.b_score)+'</span></div></article>').join('');
  const weeks=Object.keys(data.fixtures).map(Number).filter(x=>x>w).sort((a,b)=>a-b);$('race-week').replaceChildren(...weeks.map(x=>{const opt=document.createElement('option');opt.value=String(x);opt.textContent='Week '+x;return opt}));
  const draw=()=>{const fixtures=data.fixtures[$('race-week').value]||[];$('race-fixtures').innerHTML=fixtures.map(([a,b])=>'<article class="card"><div class="card-row"><h3>'+esc(clean(a))+' vs '+esc(clean(b))+'</h3><span class="small">Week '+$('race-week').value+'</span></div><div class="small">'+esc(data.teams[a]?.team)+' · '+esc(data.teams[b]?.team)+'</div></article>').join('')};$('race-week').onchange=draw;if(weeks.length)draw();else $('race-fixtures').textContent='No remaining regular-season fixtures in this snapshot.';
