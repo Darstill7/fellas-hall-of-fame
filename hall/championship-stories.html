@@ -28,7 +28,7 @@ const num=x=>Number(x).toLocaleString('en-US',{minimumFractionDigits:2,maximumFr
 const name=x=>x==='Thommy'?'Tom':x;
 const urlFor=y=>'championship-stories.html?year='+y;
 const load=async p=>{const res=await fetch(p,{cache:'no-store'});if(!res.ok)throw Error(p+' HTTP '+res.status);return res.json()};
-try{
+(async()=>{try{
  const [archive,guide,ledger,espn,sleeper]=await Promise.all([
   load('../data/championship_season_stories_2016_2025_v1.json'),
   load('../data/season_guide.json'),load('../data/season_weekly_matchups_2016_2026_v1.json'),
@@ -71,4 +71,5 @@ try{
  picker.addEventListener('change',()=>{active=Number(picker.value);history.pushState(null,'',urlFor(active));draw();$('championship-feature').scrollIntoView({block:'start',behavior:'smooth'})});
  window.addEventListener('popstate',()=>{const q=Number(new URLSearchParams(location.search).get('year'));active=years.includes(q)?q:2025;draw()});
 }catch(error){console.error(error);$('championship-feature').innerHTML='<div class="notice error" role="alert">The verified championship archive cannot be loaded. No unverified season story will be shown.</div>'}
+})();
 </script></body></html>
