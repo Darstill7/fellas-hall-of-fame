@@ -4,28 +4,40 @@ if(!document.querySelector('link[data-expanded-record-css]')){
  const l=document.createElement("link");l.rel="stylesheet";l.href=css;l.dataset.expandedRecordCss="";document.head.append(l);
 }
 const escapeHtml=v=>String(v??"—").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const fmt=(v,u)=>{const n=Number(v);const display=Number.isInteger(n)?String(n):n.toFixed(2);return u==="%"?display+"%":u==="score / 100"?display+"/100":display+(u?" "+u:"")};
+const fmt=(v,u)=>{const n=Number(v);const display=Number.isFinite(n)?n.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:2}):String(v??"—");return u==="%"?display+"%":u==="score / 100"?display+"/100":display+(u?" "+u:"")};
 const groups=["Single-game","Career","Season","Rivalries","Final standings"];
 const ordinal=v=>{const n=Number(v);if(!Number.isInteger(n))return String(v);const tail=n%100;return n+((tail>=11&&tail<=13)?"th":({1:"st",2:"nd",3:"rd"}[n%10]||"th"))};
 const canonical=["Stilly","Stew","Tom","Stover","Birch","Tony","Mitch","Kuhl","JMid","Scott"];
+// A list of all observed seasons is not evidence of years achieving an award.
+// Finished-place highlights are resolved against the official final-placement ledger.
+let verifiedTopThreeYears=new Map();
+function verifiedFinishContext(row){
+ const raw=verifiedTopThreeYears.get(row.manager||"");
+ if(!raw)return "Verified podium years unavailable; see completed-season history";
+ return raw.map(r=>r.year+" ("+ordinal(r.rank)+")").join(" · ");
+}
 const detail=(row)=>{
  const e=row.evidence||{};
- if(e.opponent&&e.week)return row.year+" · W"+row.week+" vs "+e.opponent+(e.outcome?" · "+e.outcome:"");
- if(e.opponent&&e.meetings)return e.opponent+" · "+e.meetings+" meetings"+(Number.isFinite(e.wins)?" · "+e.wins+" wins":"");
- if(e.year&&e.games)return e.year+" · "+e.games+" recorded games";
- if(e.fromYear&&e.toYear)return e.fromYear+" → "+e.toYear+" · "+ordinal(e.fromRank)+" to "+ordinal(e.toRank);
- if(e.endingYear)return "Streak ending "+e.endingYear+" W"+e.endingWeek;
+ if(row.key==="top-three-finishes")return verifiedFinishContext(row);
+ const year=e.year??row.year??row.season;
+ const week=e.week??row.week;
+ if(e.opponent&&Number.isInteger(Number(week))&&Number.isInteger(Number(year)))
+  return year+" · Week "+week+" vs "+e.opponent+(e.outcome?" · "+(e.outcome==="W"?"Win":e.outcome==="L"?"Loss":e.outcome):"");
+ if(e.opponent&&Number.isFinite(e.meetings))return e.opponent+" · "+e.meetings+" meetings"+(Number.isFinite(e.wins)?" · "+e.wins+" wins":"");
+ if(year&&e.games&&row.group==="Season")return year+" season · "+e.games+" recovered games";
+ if(e.fromYear&&e.toYear)return e.fromYear+" to "+e.toYear+" · "+ordinal(e.fromRank)+" to "+ordinal(e.toRank);
+ if(e.endingYear)return "Streak ending "+e.endingYear+(e.endingWeek?" · Week "+e.endingWeek:"");
  if(e.years?.length)return e.years.join(", ");
- if(row.season)return "Season "+row.season;
- if(e.games)return e.games+" recovered games";
- return "Verified recovered history";
+ if(year)return "Season "+year;
+ if(e.games)return e.games+" recovered regular-season games";
+ return "Verified recovered league history";
 };
 const tile=(title,value,sub,tag="")=>'<article class="records-lab-tile"><small>'+escapeHtml(title)+'</small><strong>'+escapeHtml(value)+'</strong>'
  +(tag?'<span class="records-lab-tag '+(tag.includes("League")?"records-lab-tag--leader":"")+'">'+escapeHtml(tag)+'</span>':"")
  +'<p>'+escapeHtml(sub)+'</p></article>';
 function signatureTiles(data,name,limit=3){
  const sig=data.signatures?.[name];if(!sig)return "";
- return sig.highlights.slice(0,limit).map(r=>tile(r.label,fmt(r.value,r.unit),detail(r),r.scope)).join("");
+ return sig.highlights.slice(0,limit).map(r=>tile(r.label,fmt(r.value,r.unit),detail({...r,manager:name}),r.scope==="League top-three"?"League top three · #"+r.leagueRank:r.scope==="Personal best"?"Personal mark · #"+r.leagueRank+" league rank":r.scope)).join("");
 }
 function managerLeagueHolders(data,name){
  return data.categories.flatMap(c=>c.leaders.filter(r=>r.manager===name&&r.rank<=3).map(r=>({category:c,record:r})))
@@ -62,7 +74,7 @@ function renderManagerBook(data){
   if(!sig){host.innerHTML='<h2>Signature records</h2><p class="records-lab-intro">This archived manager is not in the current ten-manager signature collection. Historical matchup records remain available above.</p>';return}
   const holders=managerLeagueHolders(data,name);
   host.innerHTML='<h2>Signature records · '+escapeHtml(name)+'</h2>'
-   +'<p class="records-lab-intro">'+holders.length+' league top-three entries across '+data.categoryCount+' researched record categories, plus personal milestones from the recovered game ledger.</p>'
+   +'<p class="records-lab-intro">'+holders.length+' ranked top-three entries across '+new Set(holders.map(x=>x.category.key)).size+' distinct categories (of '+data.categoryCount+'), plus separately labeled personal milestones.</p>'
    +'<div class="records-lab-grid">'+signatureTiles(data,name,6)+'</div>'
    +'<a class="records-lab-action" href="../analytics/expanded-records.html?manager='+encodeURIComponent(name)+'">See every '+escapeHtml(name)+" record and ranking →</a>";
  };
@@ -121,6 +133,22 @@ try{
  const res=await fetch(new URL("../data/expanded_records_verified_v1.json",import.meta.url));
  if(!res.ok)throw Error("Expanded records archive: HTTP "+res.status);
  const data=await res.json();
+ // Keep the first screen resilient: finishing receipt failure must not block every record.
+ try{
+  const placement=await fetch(new URL("../data/fellas_final_placements_2016_2025_verified.json",import.meta.url));
+  if(placement.ok){
+   const official=await placement.json();
+   if(Array.isArray(official.seasons)){
+    const map=new Map();
+    for(const season of official.seasons)for(const finish of season.finishes||[]){
+     if(finish.rank>3||!Number.isInteger(finish.rank))continue;
+     const who=finish.manager==="Thommy"?"Tom":finish.manager;
+     const rows=map.get(who)||[];rows.push({year:season.year,rank:finish.rank});map.set(who,rows);
+    }
+    verifiedTopThreeYears=map;
+   }
+  }
+ }catch(error){console.warn("Official podium-year evidence unavailable",error)};
  if(data.version!==1||data.categoryCount!==data.categories.length||!canonical.every(n=>data.signatures?.[n]))throw Error("Expanded record data invalid");
  renderHub(data);renderProfile(data);renderManagerBook(data);renderExplorer(data);
 }catch(error){
