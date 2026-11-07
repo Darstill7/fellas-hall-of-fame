@@ -651,6 +651,10 @@ try{
     const managerPicker=page.locator('#manager');
     await managerPicker.selectOption('Stilly');
     await page.locator('#years').selectOption('2026');
+    // The source-backed trade cards mount after the 51-event trade ledger loads.
+    // Wait for DOM attachment before opening details; otherwise its asynchronous
+    // rerender can collapse the disclosure while the test is interacting.
+    await page.locator('#seasons .trade-exchange').first().waitFor({state:'attached',timeout:15000});
     const season=page.locator('#seasons .season');
     await season.locator('details').first().locator('summary').click();
     await page.locator('.trade-exchange').first().waitFor({state:'visible',timeout:15000});
