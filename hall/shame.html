@@ -261,31 +261,69 @@ th{position:sticky;top:0;z-index:1}
   .section-band{margin-left:-11px;margin-right:-11px;padding-left:11px;padding-right:11px}
   .power-row{grid-template-columns:62px 1fr 58px}
 }
+
+/* Hall of Shame editorial reading experience: separate categories and keep text legible. */
+html{scroll-padding-top:80px}
+.shame-intro{margin:18px 0 34px}
+.shame-feature{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center;padding:clamp(20px,4vw,32px);border:1px solid #8b6850;border-radius:20px;background:linear-gradient(115deg,#34261e 0%,#192332 52%,#111d28 100%);box-shadow:0 16px 36px #0004}
+.shame-trophy{font-size:clamp(42px,7vw,70px);display:grid;place-items:center;width:clamp(70px,11vw,105px);aspect-ratio:1;border-radius:22px;background:#4a3225;border:1px solid #a57a5b}
+.shame-feature h2{font-size:clamp(26px,4vw,40px);margin:5px 0 8px;letter-spacing:-.04em;color:#ffe1b5;line-height:1.13}
+.shame-feature p{max-width:67ch;font-size:15px;line-height:1.65;color:#e0d6cf;margin:0 0 15px}
+.shame-feature-link{display:inline-flex;min-height:46px;align-items:center;padding:11px 17px;border-radius:11px;color:#1a1a18!important;background:#ffe0a7;text-decoration:none;font-size:13px;font-weight:900;line-height:1.35}
+.shame-feature-link:hover{background:#fff0ca}
+.shame-jump{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:16px}
+.shame-jump a{display:flex;align-items:center;justify-content:center;min-height:46px;border:1px solid #576879;border-radius:11px;background:#152635;color:#e5edf2;text-align:center;padding:10px 8px;text-decoration:none;font-size:12px;font-weight:800}
+.shame-jump a:hover,.shame-jump a:focus-visible{border-color:#e8c58a;background:#20394a}
+.shame-category{margin:36px 0 46px;scroll-margin-top:80px}
+.shame-category-head{display:flex;gap:16px;align-items:end;justify-content:space-between;border-bottom:1px solid #415262;padding-bottom:14px;margin-bottom:16px}
+.shame-category-eyebrow{color:#ebbf7d;font-weight:850;letter-spacing:.12em;font-size:11px}
+.shame-category-head h2{font-size:clamp(26px,4vw,36px);line-height:1.18;letter-spacing:-.035em;margin:5px 0 7px}
+.shame-category-head p{font-size:14px;line-height:1.6;color:#c2d0d9;margin:0;max-width:65ch}
+.shame-category-count{font-size:11px;font-weight:800;color:#e3c896;white-space:nowrap}
+.shame-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.shame-card{min-width:0;padding:22px;border-radius:16px;box-shadow:none}
+.shame-card .label{font-size:11px;line-height:1.5;letter-spacing:.09em}
+.shame-card h2{font-size:clamp(20px,2.4vw,27px);line-height:1.22;letter-spacing:-.025em;margin:12px 0}
+.shame-card .muted{font-size:14px;line-height:1.65;color:#d3dfe5;margin:0}
+.shame-card:focus-within{outline:2px solid #e8c58a}
+@media(max-width:700px){html{scroll-padding-top:16px}.shame-feature{grid-template-columns:1fr;gap:13px}.shame-trophy{width:68px;font-size:43px;border-radius:16px}.shame-feature p{font-size:14px}.shame-jump{grid-template-columns:repeat(2,minmax(0,1fr))}.shame-category-head{align-items:start;flex-direction:column;gap:8px}.shame-category{margin:29px 0 35px;scroll-margin-top:18px}.shame-cards{grid-template-columns:1fr;gap:10px}.shame-card{padding:18px}.shame-card .muted{font-size:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style><style>.fellas-review-notice{position:relative;z-index:100;box-sizing:border-box;text-align:center;background:#291f0d;border-bottom:1px solid #d7af55;color:#ffe7a6;padding:9px 14px;font:600 12px/1.5 system-ui,Arial,sans-serif}.fellas-review-notice a{color:#ffe7a6;text-decoration:underline;text-underline-offset:2px}</style><link rel="stylesheet" href="../assets/archive-readability.css"></head><body class=""><div class="wrap"><div class="brandbar">
 <a class="brandmark" href="../index.html">
 <span class="brand-crest">F</span>
 <span class="brand-copy"><strong>THE FELLAS</strong><small>Fantasy Football League · Est. 2016</small></span>
 </a>
-<span class="live-chip"><i class="live-dot"></i>2026 · Week 6 snapshot</span>
-</div><div class="page-kicker"><span>From the Fellas archive</span><span>Historical highlights</span></div><header class="top"><div><div class="eyebrow">Permanent evidence locker</div><h1>HALL OF SHAME</h1><p><a href="../analytics/record-holders.html#shitter-year-history">View verified Toilet Bowl history (2020–2025)</a></p><p>The plaques nobody wants. Bad trades, bench catastrophes, FAAB burns, scoring disasters and playoff wounds.</p></div></header><nav class="nav">
-<a href="../index.html">Dashboard</a><a href="../managers/stilly.html">Managers</a><a href="../seasons/2025.html">Seasons</a><a href="../analytics/trades.html">Trade ROI</a><a href="../analytics/drafts.html">Draft Value</a><a href="../analytics/rivalries.html">Rivalries</a><a href="../hall/players.html">Player Hall</a><a href="../hall/shame.html">Hall of Shame</a><a href="../analytics/nemesis.html">Nemesis</a><a href="../analytics/search.html">Search</a><a href="../museum.html">Museum</a>
+<span class="live-chip"><i class="live-dot"></i>Historical highlights · archived</span>
+</div><div class="page-kicker"><span>From the Fellas archive</span><span>Historical highlights</span></div><header class="top"><div><div class="eyebrow">Permanent evidence locker</div><h1>HALL OF SHAME</h1><p>The plaques nobody wants. Bad trades, bench catastrophes, FAAB burns, scoring disasters and playoff wounds.</p></div></header><nav class="nav">
+<a href="../index.html">Dashboard</a><a href="../managers/">Managers</a><a href="../seasons/2025.html">Seasons</a><a href="../analytics/trades.html">Trade ROI</a><a href="../analytics/drafts.html">Draft Value</a><a href="../analytics/rivalries.html">Rivalries</a><a href="../hall/players.html">Player Hall</a><a href="../hall/shame.html">Hall of Shame</a><a href="../analytics/nemesis.html">Nemesis</a><a href="../analytics/search.html">Search</a><a href="../museum.html">Museum</a>
 </nav>
 <details class="mobile-menu">
 <summary class="pill gold">☰ Explore more</summary>
 <div class="menu-grid">
 <a href="../index.html">🏠 Dashboard</a>
 <a href="../analytics/search.html">🔎 Search</a>
-<a href="../managers/stilly.html">👤 Managers</a>
+<a href="../managers/">👤 Managers</a>
 <a href="../seasons/2026.html">📅 Seasons</a>
 <a href="../analytics/rivalries.html">⚔️ Rivalries</a>
 <a href="../labs/power-index.html">🏆 Power Index</a>
 <a href="../data-integrity/replay-booth.html">📖 League Archive</a>
-<a href="../data-integrity/audit.html" >Source Notes</a>
+<a href="../data-integrity/source-status.html">History coverage</a>
 </div></details>
 <div class="mobile-dock">
 <a href="../index.html"><span>⌂</span>Home</a>
 <a href="../analytics/search.html"><span>⌕</span>Search</a>
-<a href="../managers/stilly.html"><span>♟</span>Managers</a>
+<a href="../managers/"><span>♟</span>Managers</a>
 <a href="../analytics/rivalries.html"><span>⚔</span>Rivals</a>
 <a href="../data-integrity/replay-booth.html"><span>↺</span>Archive</a>
-</div><section class="section"><div class="grid"><div class="card c6"><div class="label">Worst realized trade</div><h2>Stew · 2023</h2><p class="muted">Jefferson + Josh Jacobs → Gabe Davis after the future first was voided.</p></div><div class="card c6"><div class="label">Worst star liquidation</div><h2>Kuhl · 2023</h2><p class="muted">Ja’Marr Chase → Tyler Lockett after future picks were voided.</p></div><div class="card c6"><div class="label">Biggest bench explosion</div><h2>Stew · 2023</h2><p class="muted">De’Von Achane scored 51.3 on the bench.</p></div><div class="card c6"><div class="label">Late-season bench wound</div><h2>Tony · 2023</h2><p class="muted">Amari Cooper 48.0 on bench while Stefon Diggs scored 5.4.</p></div><div class="card c6"><div class="label">Playoff lineup pain</div><h2>Tony · 2025</h2><p class="muted">Pollard 17.7 on bench, Walker 2.4 started, lost by 0.72.</p></div><div class="card c6"><div class="label">Semifinal self-own</div><h2>Mitch · 2025</h2><p class="muted">Chris Rodriguez 13.4 on bench over MHJ 1.9; exact swap flips semifinal.</p></div><div class="card c6"><div class="label">Lowest known Sleeper score</div><h2>Scott · 2026</h2><p class="muted">46.38 in Week 2.</p></div><div class="card c6"><div class="label">Championship collapse</div><h2>Stew · 2022</h2><p class="muted">48.16 in title game after 11–3, league-best PF and potential PF.</p></div><div class="card c6"><div class="label">FAAB burn</div><h2>Koble · 2023</h2><p class="muted">Roschon Johnson $30 — biggest burn candidate.</p></div><div class="card c6"><div class="label">FAAB burn</div><h2>Kuhl · 2024</h2><p class="muted">Trey Sermon $35 — major burn candidate.</p></div><div class="card c6"><div class="label">FAAB burn</div><h2>Stover · 2024</h2><p class="muted">Jauan Jennings $32 — 0.0 in Weeks 8–9 and not started.</p></div></div></section><div class="footer">The Fellas · Historical highlights. Statistical coverage varies by season; editorial judgments are labeled separately from verified results.</div></div></body></html>
+</div><section class="shame-intro" aria-labelledby="shame-intro-heading"><div class="shame-feature"><span class="shame-trophy" aria-hidden="true">💩</span><div><div class="shame-category-eyebrow">The league's most unwanted award</div><h2 id="shame-intro-heading">Shitter of the Year</h2><p>Finish last in the final consolation bracket and you earn the title. Browse verified recipients and historical bracket evidence.</p><a class="shame-feature-link" href="../analytics/record-holders.html#shitter-year-history">See verified Shitter of the Year history <span aria-hidden="true">→</span></a></div></div><nav class="shame-jump" aria-label="Hall of Shame categories"><a href="#shame-trades">↔ Disastrous trades</a><a href="#shame-lineups">▦ Lineup regrets</a><a href="#shame-scores">↓ Scoring collapses</a><a href="#shame-faab">$ FAAB misses</a></nav></section>
+<section class="shame-category" id="shame-trades" aria-labelledby="shame-trades-heading"><div class="shame-category-head"><div><div class="shame-category-eyebrow">THE TRANSACTION DESK</div><h2 id="shame-trades-heading">Trades that aged badly</h2><p>Archived deals remembered for their disappointing outcomes.</p></div><span class="shame-category-count">2 archived moments</span></div><div class="shame-cards"><div class="card shame-card"><div class="label">Worst realized trade</div><h2>Stew · 2023</h2><p class="muted">Jefferson + Josh Jacobs → Gabe Davis after the future first was voided.</p></div>
+<div class="card shame-card"><div class="label">Worst star liquidation</div><h2>Kuhl · 2023</h2><p class="muted">Ja’Marr Chase → Tyler Lockett after future picks were voided.</p></div></div></section>
+<section class="shame-category" id="shame-lineups" aria-labelledby="shame-lineups-heading"><div class="shame-category-head"><div><div class="shame-category-eyebrow">LEFT ON THE BENCH</div><h2 id="shame-lineups-heading">Lineup regrets</h2><p>The points were there. The starters were somewhere else.</p></div><span class="shame-category-count">4 archived moments</span></div><div class="shame-cards"><div class="card shame-card"><div class="label">Biggest bench explosion</div><h2>Stew · 2023</h2><p class="muted">De’Von Achane scored 51.3 on the bench.</p></div>
+<div class="card shame-card"><div class="label">Late-season bench wound</div><h2>Tony · 2023</h2><p class="muted">Amari Cooper 48.0 on bench while Stefon Diggs scored 5.4.</p></div>
+<div class="card shame-card"><div class="label">Playoff lineup pain</div><h2>Tony · 2025</h2><p class="muted">Pollard 17.7 on bench, Walker 2.4 started, lost by 0.72.</p></div>
+<div class="card shame-card"><div class="label">Semifinal self-own</div><h2>Mitch · 2025</h2><p class="muted">Chris Rodriguez 13.4 on bench over MHJ 1.9; exact swap flips semifinal.</p></div></div></section>
+<section class="shame-category" id="shame-scores" aria-labelledby="shame-scores-heading"><div class="shame-category-head"><div><div class="shame-category-eyebrow">THE SCOREBOARD</div><h2 id="shame-scores-heading">Scoring collapses</h2><p>Memorable low totals and painful finishes from the scoring archive.</p></div><span class="shame-category-count">2 archived moments</span></div><div class="shame-cards"><div class="card shame-card"><div class="label">Lowest known Sleeper score</div><h2>Scott · 2026</h2><p class="muted">46.38 in Week 2.</p></div>
+<div class="card shame-card"><div class="label">Championship collapse</div><h2>Stew · 2022</h2><p class="muted">48.16 in title game after 11–3, league-best PF and potential PF.</p></div></div></section>
+<section class="shame-category" id="shame-faab" aria-labelledby="shame-faab-heading"><div class="shame-category-head"><div><div class="shame-category-eyebrow">THE WAIVER WIRE</div><h2 id="shame-faab-heading">FAAB misses</h2><p>Notable archived acquisition costs and outcomes. Editorial judgments are not official skill grades.</p></div><span class="shame-category-count">3 archived moments</span></div><div class="shame-cards"><div class="card shame-card"><div class="label">FAAB burn</div><h2>Koble · 2023</h2><p class="muted">Roschon Johnson $30 — biggest burn candidate.</p></div>
+<div class="card shame-card"><div class="label">FAAB burn</div><h2>Kuhl · 2024</h2><p class="muted">Trey Sermon $35 — major burn candidate.</p></div>
+<div class="card shame-card"><div class="label">FAAB burn</div><h2>Stover · 2024</h2><p class="muted">Jauan Jennings $32 — 0.0 in Weeks 8–9 and not started.</p></div></div></section><div class="footer">The Fellas · Historical highlights. Statistical coverage varies by season; editorial judgments are labeled separately from verified results.</div></div></body></html>
