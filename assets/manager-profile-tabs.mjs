@@ -521,7 +521,7 @@ if(existingProfile&&!legacyNav){
 // rivalries and report card, with the complete research directory kept below.
 function mountManagerHomeHub(){
  const quick=document.querySelector('main .profile-quickstart');
- if(!quick||quick.querySelector('.manager-home-hub'))return;
+ if(!quick||document.querySelector('.manager-home-hub'))return;
  const who=profileName==='Tom'?'Thommy':profileName;
  if(!who)return;
  const hub=document.createElement('section');hub.className='manager-home-hub';
@@ -552,7 +552,9 @@ function mountManagerHomeHub(){
   grid.append(el);
  }
  hub.append(h,note,grid);
- quick.prepend(hub);
+ // Place the personal hub beside the research archive, not inside the legacy shortcut card.
+ quick.before(hub);
+ quick.classList.add('manager-home-base');
  const featureDirectory=quick.querySelector('#profile-features');
  if(featureDirectory&&!quick.querySelector('.manager-home-more')){
   const more=document.createElement('details');more.className='manager-home-more';
@@ -574,8 +576,8 @@ if(profileHero&&profileTopicMenu)profileHero.after(profileTopicMenu);
 if(profileTopicMenu&&profilePlayoffSection)profileTopicMenu.after(profilePlayoffSection);
 const hubStyle=document.createElement('style');
 hubStyle.textContent=`/* Personal manager home base: light navigation, never another giant menu. */
-.manager-home-hub{max-width:960px;margin:4px auto 18px;padding:17px;border:1px solid #4a6879;border-radius:15px;background:linear-gradient(155deg,#173243,#0c202e)}
-.manager-home-more{max-width:960px;margin:9px auto 19px;padding:0;border:1px solid #465f6f;border-radius:11px;background:#0f2634;overflow:hidden}.manager-home-more>summary{display:flex;align-items:center;min-height:49px;padding:12px 16px;cursor:pointer;color:#eac87f;font-size:14px;font-weight:850}.manager-home-more>summary:after{content:"+";margin-left:auto;font-size:22px}.manager-home-more[open]>summary:after{content:"−"}.manager-home-more>summary:focus-visible{outline:3px solid #fff;outline-offset:-3px}body.profile-feature-focused .manager-home-hub,body.profile-feature-focused .manager-home-more{display:none!important}.manager-home-more #profile-features{margin:0;padding:13px;border-top:1px solid #465f6f}.manager-home-more[open]{overflow:visible}
+.manager-home-hub{box-sizing:border-box;min-width:0;width:100%;max-width:960px;margin:4px auto 18px;padding:17px;border:1px solid #4a6879;border-radius:15px;background:linear-gradient(155deg,#173243,#0c202e)}
+.manager-home-base>h2,.manager-home-base>p.muted,.manager-home-base>.profile-quick-grid{display:none!important}.manager-home-base{padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;min-width:0!important}.manager-home-more{max-width:960px;margin:9px auto 19px;padding:0;border:1px solid #465f6f;border-radius:11px;background:#0f2634;overflow:hidden}.manager-home-more>summary{display:flex;align-items:center;min-height:49px;padding:12px 16px;cursor:pointer;color:#eac87f;font-size:14px;font-weight:850}.manager-home-more>summary:after{content:"+";margin-left:auto;font-size:22px}.manager-home-more[open]>summary:after{content:"−"}.manager-home-more>summary:focus-visible{outline:3px solid #fff;outline-offset:-3px}body.profile-feature-focused .manager-home-hub,body.profile-feature-focused .manager-home-more{display:none!important}.manager-home-more #profile-features{margin:0;padding:13px;border-top:1px solid #465f6f}.manager-home-hub-grid>.manager-home-hub-tile{width:100%;box-sizing:border-box;min-width:0}.manager-home-more[open]{overflow:visible}
 .manager-home-hub h2{margin:0 0 4px!important;font-size:clamp(21px,3.5vw,29px)!important;line-height:1.25;letter-spacing:-.02em}
 .manager-home-hub-note{margin:0 0 14px!important;color:#c2d1da;font-size:13px;line-height:1.5}
 .manager-home-hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
@@ -583,7 +585,7 @@ hubStyle.textContent=`/* Personal manager home base: light navigation, never ano
 .manager-home-hub-tile:hover{background:#1e4356;border-color:#e3bd71;color:#fff}.manager-home-hub-tile:focus-visible{outline:3px solid #ffe1a1;outline-offset:2px}
 .manager-home-hub-icon{font-size:22px;flex:none}.manager-home-hub-copy{display:flex;flex-direction:column;gap:3px;min-width:0}.manager-home-hub-copy strong{color:#fff;font-size:14px;line-height:1.3}.manager-home-hub-copy small{font-size:11px;line-height:1.4;color:#b7cad7}
 .career-bio-prose{max-width:69ch!important;margin-inline:auto;font-size:clamp(16px,1.5vw,19px)!important;line-height:1.72!important}.career-bio-prose p{margin:0 0 1.1em!important}
-@media(max-width:650px){.manager-home-hub{padding:13px;margin:5px 0 13px}.manager-home-hub h2{font-size:22px!important}.manager-home-hub-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.manager-home-hub-tile{min-height:75px;gap:8px;padding:10px}.manager-home-hub-icon{font-size:19px}.manager-home-hub-copy strong{font-size:13px}.manager-home-hub-copy small{font-size:10px}.career-bio-prose{font-size:16px!important;line-height:1.7!important;padding-inline:1px}}
+@media(max-width:650px){.manager-home-hub{padding:13px;margin:5px 0 13px;max-width:calc(100vw - 42px);width:min(100%,calc(100vw - 42px))}.manager-home-hub h2{font-size:22px!important}.manager-home-hub-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.manager-home-hub-tile{min-height:75px;gap:8px;padding:10px}.manager-home-hub-icon{font-size:19px}.manager-home-hub-copy strong{font-size:13px}.manager-home-hub-copy small{font-size:10px}.career-bio-prose{font-size:16px!important;line-height:1.7!important;padding-inline:1px}}
 @media(max-width:370px){.manager-home-hub-tile{min-height:70px;padding:9px 7px}.manager-home-hub-icon{font-size:17px}.manager-home-hub-copy small{font-size:10px}}
 `;
 document.head.append(hubStyle);
