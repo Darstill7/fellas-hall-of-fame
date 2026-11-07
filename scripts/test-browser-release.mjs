@@ -1067,10 +1067,14 @@ try{
       else await card.click();
      }
      await visitor.waitForURL('**/managers/stilly/',{timeout:10000});
-     await visitor.locator('#profile-features').waitFor({state:'visible',timeout:10000});
+     // The six-destination manager home hub replaces the previously expanded
+     // feature directory on the first visit. The old feature list stays hidden
+     // until a visitor explicitly opens the advanced navigation.
+     await visitor.locator('.manager-home-hub').waitFor({state:'visible',timeout:10000});
      if(!(await visitor.locator('main .hero h1').innerText()).includes('Stilly')||
-        !await visitor.locator('#profile-features').isVisible())
-      errors.push(width+' first-visit homepage manager link failed to reach usable profile');
+        !await visitor.locator('.manager-home-hub-grid').isVisible()||
+        await visitor.locator('.manager-home-hub-tile').count()!==6)
+      errors.push(width+' first-visit homepage manager link failed to reach usable personal hub');
      await visitor.goBack({waitUntil:'networkidle'});
      if(!visitor.url().endsWith('/fellas-hall-of-fame/'))
       errors.push(width+' first-visit browser back did not restore homepage');
