@@ -552,6 +552,16 @@ function mountManagerHomeHub(){
  }
  hub.append(h,note,grid);
  quick.prepend(hub);
+ const featureDirectory=quick.querySelector('#profile-features');
+ if(featureDirectory&&!quick.querySelector('.manager-home-more')){
+  const more=document.createElement('details');more.className='manager-home-more';
+  const summary=document.createElement('summary');summary.textContent='More stats & research';
+  more.append(summary);
+  featureDirectory.before(more);more.append(featureDirectory);
+  const reveal=()=>{more.open=true};
+  hub.querySelector('.manager-home-hub-tile')?.addEventListener('click',reveal,{capture:true});
+  if(location.hash==='#profile-features')reveal();
+ }
 }
 mountManagerHomeHub();
 // Let visitors choose a topic before seeing the complete playoff résumé.
@@ -564,6 +574,7 @@ if(profileTopicMenu&&profilePlayoffSection)profileTopicMenu.after(profilePlayoff
 const hubStyle=document.createElement('style');
 hubStyle.textContent=`/* Personal manager home base: light navigation, never another giant menu. */
 .manager-home-hub{max-width:960px;margin:4px auto 18px;padding:17px;border:1px solid #4a6879;border-radius:15px;background:linear-gradient(155deg,#173243,#0c202e)}
+.manager-home-more{max-width:960px;margin:9px auto 19px;padding:0;border:1px solid #465f6f;border-radius:11px;background:#0f2634;overflow:hidden}.manager-home-more>summary{display:flex;align-items:center;min-height:49px;padding:12px 16px;cursor:pointer;color:#eac87f;font-size:14px;font-weight:850}.manager-home-more>summary:after{content:"+";margin-left:auto;font-size:22px}.manager-home-more[open]>summary:after{content:"−"}.manager-home-more>summary:focus-visible{outline:3px solid #fff;outline-offset:-3px}.manager-home-more #profile-features{margin:0;padding:13px;border-top:1px solid #465f6f}.manager-home-more[open]{overflow:visible}
 .manager-home-hub h2{margin:0 0 4px!important;font-size:clamp(21px,3.5vw,29px)!important;line-height:1.25;letter-spacing:-.02em}
 .manager-home-hub-note{margin:0 0 14px!important;color:#c2d1da;font-size:13px;line-height:1.5}
 .manager-home-hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
@@ -650,6 +661,7 @@ if(main&&tabs){
   // Remove the legacy archive hash so a refresh keeps the short profile landing.
   history.replaceState(null,'',location.pathname+location.search);
   // Keep the last open topic, avoiding a toggle race when switching features.
+  featureDirectory?.closest('details.manager-home-more')?.setAttribute('open','');
   featureDirectory?.scrollIntoView({block:'start',behavior:'instant'});
   // Back is hidden with the focused-only toolbar on the landing page;
   // return keyboard focus to a visible topic rather than leaving it stranded.
@@ -929,6 +941,7 @@ if(main&&tabs){
  // Avoid turning a direct #profile-features visit into a long data wall.
  if(directoryDeepLink){
   document.body.classList.add('profile-landing');
+  featureDirectory?.closest('details.manager-home-more')?.setAttribute('open','');
   history.replaceState(null,'',location.pathname+location.search+'#profile-features');
   requestAnimationFrame(()=>requestAnimationFrame(()=>featureDirectory?.scrollIntoView({block:'start',behavior:'instant'})));
  }
