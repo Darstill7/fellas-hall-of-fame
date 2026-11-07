@@ -907,7 +907,7 @@ try{
      const entries=await highlights.locator('li').count();
      if(entries!==30)errors.push(width+' report cards expected three selected pickup examples per manager, got '+entries);
      const first=highlights.first();
-     await first.locator('summary').click();
+     await first.locator(':scope > summary').click();
      const content=await first.innerText();
      if(!content.includes('starts')||!content.includes('lineup pts')||
         !content.includes('Not all pickups')||!content.includes('Not a FAAB skill grade'))
