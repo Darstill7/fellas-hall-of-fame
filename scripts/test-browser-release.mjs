@@ -1091,6 +1091,18 @@ try{
     }finally{await visitor.close();}
    }
    if(route===''){
+    const order=await page.evaluate(()=>{
+     const featured=document.querySelector('main .section.shell .home-featured-card');
+     const manager=document.querySelector('main .manager-showcase');
+     return Boolean(featured&&manager&&(featured.compareDocumentPosition(manager)&Node.DOCUMENT_POSITION_FOLLOWING));
+    });
+    if(!order)errors.push(width+' desktop document order must promote championship and records destinations');
+    if(width===390){
+     const top=await page.locator('#home-manager-mobile .mobile-manager-row').first().evaluate(el=>el.getBoundingClientRect().top);
+     if(top>695)errors.push(width+' mobile manager finder starts too far below first screen: '+Math.round(top)+'px');
+    }
+   }
+   if(route===''){
     const leagueSection=page.locator('section.section.shell').filter({has:page.getByRole('heading',{name:'Explore the league'})});
     const recordsSection=page.locator('section.section.shell[aria-labelledby="season-records-home"]');
     if(await leagueSection.count()!==1||await recordsSection.count()!==1||
