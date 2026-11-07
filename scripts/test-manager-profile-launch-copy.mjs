@@ -32,7 +32,8 @@ if(!tabsSource.includes('careerSnapshot.after(primaryProfileActions)')||
    !tabsSource.includes('profileHero.after(profileTopicMenu)')||
    !tabsSource.includes('profileTopicMenu.after(profilePlayoffSection)'))
  throw Error('Manager first-screen hierarchy must remain consistent');
-if(!tabsSource.includes('mountManagerPlayoffResume();')||
+if(!tabsSource.includes('mountManagerPlayoffResume().then(mountManagerChampionshipStories)')||
+ !tabsSource.includes("import {mountManagerChampionshipStories} from './manager-championship-stories.mjs'")||
  !tabsSource.includes('items:[0,1,10]')||
  !tabsSource.includes("href:'#profile-playoff-resume'"))
  throw Error('Playoff résumé is missing from the shared manager profile navigation');

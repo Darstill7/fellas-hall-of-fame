@@ -26,6 +26,8 @@ jobs:
         run: |
           node --check scripts/rebuild-playoff-race.mjs
           node --check scripts/verify-current-week-website.mjs
+      - name: Verify complete championship season features against canonical finals
+        run: node scripts/verify-championship-stories.mjs
       - name: Syntax-check all shipped JavaScript assets and modules
         run: |
           find assets -type f \( -name '*.js' -o -name '*.mjs' \) -print0 | xargs -0 -r -n 1 node --check

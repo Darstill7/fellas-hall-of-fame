@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','hall/','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','hall/','hall/championship-stories.html','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -264,6 +264,18 @@ try{
     if(!hierarchy)errors.push(width+' '+route+' first-screen navigation and résumé hierarchy broken');
     const panel=page.locator('#profile-playoff-resume');
     await panel.waitFor({state:'visible',timeout:10000});
+    // Every champion's profile links directly to its verified title features.
+    const championSeasons={tom:[2016,2017,2018,2024],birch:[2019],tony:[2021],stover:[2022],stilly:[2023],scott:[2025]};
+    const slug=route.split('/')[1],championships=championSeasons[slug]||[];
+    const chapterPanel=page.locator('#manager-championship-stories');
+    if(championships.length){
+     await chapterPanel.waitFor({state:'visible',timeout:12000}).catch(()=>{});
+     const links=chapterPanel.locator('a.manager-championship-story-card');
+     if(await links.count()!==championships.length)errors.push(width+' '+route+' missing verified championship season links');
+     for(const year of championships)
+      if(await chapterPanel.locator('a.manager-championship-story-card[href*="year='+year+'"]').count()!==1)errors.push(width+' '+route+' missing '+year+' championship story');
+    }else if(await chapterPanel.count())errors.push(width+' '+route+' falsely shows a championship feature');
+
     const metrics=panel.locator('.profile-playoff-metric');
     if(await metrics.count()!==3)
      errors.push(width+' '+route+' missing three verified playoff résumé metrics');
@@ -1336,6 +1348,25 @@ try{
        !await page.locator('a.fellas-skip[href="#main-content"]').count()||
        !await page.locator('main#main-content').count())
      errors.push(width+' '+route+' missing shared design and keyboard skip navigation');
+   }
+   if(route==='hall/championship-stories.html'){
+    const article=page.locator('#championship-feature');
+    await article.locator('.story-section').first().waitFor({state:'visible',timeout:12000});
+    const chapters=page.locator('#chapters a');
+    if(await chapters.count()!==10||await article.locator('.story-section').count()!==4)
+     errors.push(width+' Championship anthology missing ten seasons or four narrative chapters');
+    if(!(await article.innerText()).includes('Scott')||!(await article.innerText()).includes('156.32'))
+     errors.push(width+' 2025 Scott championship story missing actual final');
+    await page.locator('#season-picker').selectOption('2018');
+    const summary=await article.innerText();
+    if(!summary.includes('Three in a Row')||!summary.includes('111.58')||!summary.includes('106.62'))
+     errors.push(width+' 2018 championship selection did not render verified three-peat');
+    if(!new URL(page.url()).searchParams.get('year')?.includes('2018'))
+     errors.push(width+' Championship year selection did not update shareable URL');
+    if(width===390){
+      const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
+      if(overflow>3)errors.push(width+' Championship story overflows mobile viewport by '+overflow+'px');
+    }
    }
    if(route==='hall/'){
     if(!await page.locator('header .navlinks a[href="../managers/"]').count()||

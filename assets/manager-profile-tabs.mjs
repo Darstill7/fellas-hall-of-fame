@@ -3,6 +3,7 @@ import {mountManagerSeasonEvidence} from './manager-season-evidence.mjs';
 import {managerPersonas} from './manager-personas.mjs';
 import {findOwnedRecords,recordCategoryLabels} from './manager-record-ownership.mjs';
 import {mountManagerPlayoffResume} from './manager-playoff-resume.mjs';
+import {mountManagerChampionshipStories} from './manager-championship-stories.mjs';
 // Upgrade the older seven-link chapter navigator without discarding existing archive sections.
 const profileName=document.querySelector('main .hero h1')?.textContent?.trim();
 const persona=managerPersonas[profileName]||managerPersonas[profileName==='Tom'?'Thommy':profileName];
@@ -195,7 +196,7 @@ const recordPreviewCss=document.createElement('style');
 recordPreviewCss.textContent='.profile-owned-records{display:flex;align-items:center;gap:10px 15px;flex-wrap:wrap;margin-top:15px;padding:14px 16px;border-radius:11px;border:1px solid #607a86;background:#102b39;color:#f8f1df;text-decoration:none;line-height:1.5;min-height:52px}.profile-owned-records:hover{border-color:#e3bd71;background:#183749}.profile-owned-records:focus-visible{outline:3px solid #f5d594;outline-offset:3px}.profile-owned-records strong{font-size:14px;white-space:nowrap}.profile-owned-record-count{font-size:12px;color:#d0dce3;flex:1 1 200px;overflow-wrap:break-word}.profile-owned-record-arrow{margin-left:auto;color:#e3bd71;font-size:20px;font-weight:800}@media(max-width:650px){.profile-owned-records{gap:4px 9px;padding:12px 14px}.profile-owned-record-count{flex-basis:100%;order:3}.profile-owned-record-arrow{margin-left:auto}}';
 document.head.append(recordPreviewCss);
 
-mountManagerPlayoffResume();
+mountManagerPlayoffResume().then(mountManagerChampionshipStories).catch(error=>console.warn('Manager championship stories mount failed',error));
 // Career accomplishments must precede navigation calls to action. Keep the
 // canonical championship and WLT numbers above the fold on every profile.
 const primaryProfileActions=profileHero?.querySelector(':scope > .buttons');
