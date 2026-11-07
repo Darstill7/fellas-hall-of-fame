@@ -510,7 +510,7 @@ const existingProfile=document.querySelector('nav[data-manager-profile-tabs]');
 if(existingProfile&&!legacyNav){
  // Prebuilt profile shells should share the same two clear entry actions.
  const existingHeroActions=document.querySelector('main .hero .buttons');
- if(existingHeroActions)existingHeroActions.innerHTML='<a class="btn" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(manager==='Thommy'?'Tom':manager)+'">My Records</a><a class="btn secondary" href="#profile-features">Explore topics</a>';
+ if(existingHeroActions)existingHeroActions.innerHTML='<a class="btn" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(profileName==='Thommy'?'Tom':profileName)+'">My Records</a><a class="btn secondary" href="#profile-features">Explore topics</a>';
  const quick=document.querySelector('.profile-quickstart');
  const manager=document.querySelector('main .hero h1')?.textContent?.trim()||'';
  populateManagerResearch(quick,manager);
