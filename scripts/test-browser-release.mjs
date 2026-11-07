@@ -647,6 +647,42 @@ try{
     if(await page.locator('a[href="power-ratings.html"]').count()===0)
      errors.push(width+' '+route+' missing current all-time ranking navigation');
    }
+   if(route==='analytics/franchise-timeline.html'){
+    const managerPicker=page.locator('#manager');
+    await managerPicker.selectOption('Stilly');
+    await page.locator('#years').selectOption('2026');
+    await page.locator('.trade-exchange').first().waitFor({state:'visible',timeout:15000});
+    const season=page.locator('#seasons .season');
+    const tradeText=await season.innerText();
+    if(!tradeText.includes('Received · Stilly')||!tradeText.includes("Ja'Marr Chase")||!tradeText.includes('Sent · JMid')||!tradeText.includes('Davante Adams')||!tradeText.includes('George Kittle')||!tradeText.includes('Breece Hall')||!tradeText.includes('−15.1 pts'))
+     errors.push(width+' Franchise Timeline missing full verified 2026 trade sides or qualified point delta');
+    if(await page.locator('#seasons .season .event').filter({hasText:'first three picks'}).count()||
+       (await page.locator('#summary').innerText()).includes('Draft picks in archive'))
+     errors.push(width+' Timeline still features incomplete draft sample or draft count');
+    if(await season.locator('.timeline-draft-note a').count()!==1)
+     errors.push(width+' Timeline missing simple complete-draft destination');
+    const result=season.locator('details.timeline-matchups');
+    await result.locator('summary').click();
+    const rows=result.locator('.timeline-game');
+    if(await rows.count()!==6)
+     errors.push(width+' Timeline archived 2026 results should be six compact rows');
+    else{
+     const first=await rows.first().innerText();
+     if(!first.includes('vs Scott')||!first.includes('107.94 – 134.96')||!first.includes('−27.02'))
+      errors.push(width+' Timeline weekly result does not display opponent, score and signed margin');
+     if(width===390){
+      const metrics=await rows.evaluateAll(nodes=>nodes.map(n=>({right:n.getBoundingClientRect().right,width:n.getBoundingClientRect().width})));
+      if(metrics.some(x=>x.right>width+2||x.width<250))
+       errors.push(width+' Timeline result rows overflow or are cramped on mobile');
+     }
+    }
+    await page.locator('#years').selectOption('2025');
+    const three=page.locator('.trade-exchange').filter({hasText:'Amon-Ra St. Brown'}).first();
+    await three.waitFor({state:'visible',timeout:15000});
+    const threeText=await three.locator('xpath=..').innerText();
+    if(!threeText.includes('Other managers received')||!threeText.includes('Three-team trade')||threeText.includes('Observed starter points +/−'))
+     errors.push(width+' Franchise Timeline three-team trade incorrectly assigns a sent side or a two-team plus/minus');
+   }
    if(route==='analytics/manager-performance-timeline.html'){
     const notes=page.locator('details.timeline-notes');
     if(await notes.count()!==1||await notes.evaluate(el=>el.open))
