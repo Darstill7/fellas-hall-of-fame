@@ -1,11 +1,19 @@
+// Verify current season page is driven by the completed-week ledger,
+// while the original Week 7 frozen snapshot remains historically labeled.
 import fs from 'node:fs';
-const html=fs.readFileSync('seasons/2026.html','utf8');
-for(const phrase of ['2026 · Archived Week 7','Standings after Week 7','not current results','Historical standings','<div class="metric">W7</div>','Later results are not included in this snapshot.','href="../managers/"']){
- if(!html.includes(phrase))throw Error('2026 archived season scope/navigation missing: '+phrase);
+const page=fs.readFileSync('seasons/2026.html','utf8');
+const old=fs.readFileSync('seasons/2026-week7-archive.html','utf8');
+for(const phrase of ['data/season_weekly_matchups_2016_2026_v1.json','2026 standings','latest-week','games-count','latest-games','playoff-race.html','2026-week7-archive.html']){
+ if(!page.includes(phrase))throw Error('Current season missing data or navigation: '+phrase);
 }
-for(const obsolete of ['REVIEW BUILD','static-first pre-publish build','Fellas OS v8','<div class="metric">W6</div>','href="../managers/stilly.html"','data-integrity/audit.html','data-integrity/replay-booth.html','<i class="live-dot"></i>']){
- if(html.includes(obsolete))throw Error('2026 season archive still exposes stale or developer-facing label: '+obsolete);
+for(const obsolete of ['Archived Week 7','Standings after Week 7','Historical standings','Later results are not included in this snapshot.']){
+ if(page.includes(obsolete))throw Error('Current 2026 season falsely presented as a frozen archive: '+obsolete);
 }
-const rowCount=(html.match(/<td class="rank">\d+<\/td>/g)||[]).length;
-if(rowCount!==10)throw Error('2026 Week 7 standings must retain 10 manager rows; found '+rowCount);
-console.log('2026 archived season labels and ten-team standings preserved.');
+for(const phrase of ['Archived Week 7','Week 7','not current results']){
+ if(!old.includes(phrase))throw Error('Preserved Week 7 archive lost historical label: '+phrase);
+}
+const mirror=JSON.parse(fs.readFileSync('data/season_weekly_matchups_2016_2026_v1.json','utf8'));
+const source=mirror.bySeason['2026'];
+const week=Math.max(...source.games.filter(g=>g.stage==='regular').map(g=>g.week));
+if(source.standings.length!==10||source.games.filter(g=>g.week===week&&g.stage==='regular').length!==5)throw Error('Current season mirror not complete');
+console.log('CURRENT SEASON FRESHNESS PASS: dynamic ledger plus preserved historical Week 7 snapshot; current Week '+week);

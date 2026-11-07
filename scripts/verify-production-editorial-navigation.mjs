@@ -2,9 +2,9 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const home=fs.readFileSync('index.html','utf8');
-assert.ok(home.includes('Historical feature · Week 7')&&
- home.includes('Both linked features are archived at Week 7'),
- 'Homepage must distinguish the older SportsCenter archive from current standings');
+assert.ok(home.includes('2026 SportsCenter &amp; Playoff Race')&&
+ home.includes('Both views now read the verified season ledger'),
+ 'Homepage must link to latest weekly SportsCenter and Playoff Race rather than frozen archives');
 for(let year=2020;year<=2025;year++){
  const page=fs.readFileSync('seasons/'+year+'.html','utf8');
  assert.ok(page.includes('<h1>'+year+'</h1>')&&

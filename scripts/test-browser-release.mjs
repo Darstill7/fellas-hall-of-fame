@@ -1618,7 +1618,7 @@ try{
     const archiveLabel=await archivedFeature.locator('.kicker').textContent();
     const archiveStatus=await archivedFeature.locator('.status').textContent();
     const archiveDescription=await archivedFeature.locator('p').first().textContent();
-    if(await archivedFeature.count()!==1||!archiveLabel?.includes('Historical feature · Week 7')||!archiveStatus?.includes('Both linked features are archived at Week 7')||!archiveDescription?.includes('current verified standings above'))errors.push(width+' homepage does not distinguish current standings from archived Week 7 features');
+    if(await archivedFeature.count()!==1||!archiveLabel?.includes('Updated from verified season data')||!archiveStatus?.includes('Both views now read the verified season ledger')||!archiveDescription?.includes('latest final scores'))errors.push(width+' homepage does not clearly identify up-to-date 2026 season features');
     const search=page.locator('#home-manager-search');
     if(width===390){
      if(!await search.isVisible())errors.push(width+' mobile manager finder missing');
