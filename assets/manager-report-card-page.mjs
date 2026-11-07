@@ -87,7 +87,6 @@ try {
  };
  const notablePickups=name=>{
   // Source is a selected, retrospectively verified highlight set, not every pickup.
-  // Do not import its positional-replacement estimate into the public UI.
   const sourceName=name==='Thommy'?'Tom':name;
   const entries=(waivers.managers[sourceName]??[]).filter(x=>
    x.manager===sourceName&&Number.isInteger(x.year)&&x.year>=2020&&x.year<=2026&&
@@ -95,12 +94,16 @@ try {
    typeof x.player==='string'&&x.player.trim());
   const sorted=[...entries].sort((a,b)=>b.points-a.points||b.starts-a.starts||a.year-b.year).slice(0,3);
   if(!sorted.length)return '';
+  const fmt=n=>Number(n).toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});
   const label=sorted.map(x=>'<li><div class="pickup-name"><strong>'+esc(x.player)+'</strong><span>'+x.year+'</span></div>'+
-   '<div class="pickup-facts"><span><b>'+x.starts+'</b> starts</span><span><b>'+x.points.toFixed(1)+'</b> lineup pts</span></div>'+
+   '<div class="pickup-facts"><span><b>'+x.starts+'</b> starts</span><span class="pickup-points"><b>'+fmt(x.points)+'</b> starter pts</span></div>'+
    '<span class="pickup-cost" data-pickup-year="'+x.year+'" data-pickup-week="'+x.acquisitionWeek+
    '" data-pickup-transaction="'+esc(x.transactionId)+'" data-pickup-player="'+esc(x.player)+
    '" data-pickup-type="'+esc(x.acquisitionType)+'">Cost: checking records…</span></li>').join('');
-  return '<details class="pickup-highlights"><summary>Pickup highlights <span class="pickup-summary-meta">' +sorted.length+' examples · starts and points</span></summary><p class="fine">Verified later-start highlights from the archival research, ranked here only by recorded starter points. Not all pickups; 2026 coverage is partial. Not a FAAB skill grade, bid-cost comparison, or replacement value.</p><ul>'+label+'</ul></details>';
+  return '<details class="pickup-highlights"><summary>Pickup highlights <span class="pickup-summary-meta">Top '+sorted.length+' recovered starter-point totals</span></summary>'+
+   '<p class="pickup-lead">Which additions actually made the lineup? Not all pickups are represented: these are selected archived examples, not a complete pickup ranking.</p>'+
+   '<ul>'+label+'</ul>'+
+   '<details class="pickup-method"><summary>How these pickups are measured</summary><p class="fine">Sorted by verified points scored in starts after acquisition. Acquisitions without documented starts are not represented here. The archive is incomplete, including 2026. Not a FAAB skill grade: these lineup pts are observations, not decision value, adjusted player value or a complete waiver evaluation.</p></details></details>';
  };
  const slugs={Stilly:'stilly',Stew:'stew',Thommy:'tom',Stover:'stover',Birch:'birch',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',JMid:'jmid',Scott:'scott'};
  const compareA=document.getElementById('compare-a'),compareB=document.getElementById('compare-b');

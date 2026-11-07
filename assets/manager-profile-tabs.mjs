@@ -218,7 +218,7 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const actions=hero?.querySelector('.buttons');
  if(actions){
   // Start/Sit is a named feature below; no duplicate hero shortcut.
-  actions.innerHTML='<a class="btn" href="#profile-features">Explore topics</a><a class="btn secondary" href="../">All managers</a>';
+  actions.innerHTML='<a class="btn" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(manager==='Thommy'?'Tom':manager)+'">My Records</a><a class="btn secondary" href="#profile-features">Explore topics</a>';
  }
  const quick=document.createElement('section');
  quick.className='profile-quickstart';quick.setAttribute('aria-label',manager+' career at a glance');
@@ -253,7 +253,7 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.id='profile-features';
  shell.setAttribute('aria-label','Manager features');
  shell.dataset.profileFeatureMenu='';
- shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Five topics. Open a category, then choose a feature to explore the records and what they mean.</p>';
+ shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a topic below or open the verified record portfolio.</p><a class="profile-records-link" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(name)+'">View '+name+'\'s records and rankings →</a>';
  const groups=[
   {title:'Career & Results',help:'Championships, playoffs and every season',items:[0,1,10]},
   {title:'Ratings & Legacy',help:'Career Legacy OVR and individual season ratings',items:[3,4]},
@@ -503,13 +503,15 @@ function populateManagerResearch(quick,manager){
  css.textContent+='.profile-career-resume{margin:16px 0;border:1px solid #768593;border-radius:13px;padding:0;background:#132d3b;overflow:hidden}.profile-career-resume>summary{padding:16px 17px;color:var(--gold);font-size:17px;font-weight:850;min-height:52px;cursor:pointer}.profile-career-resume>summary:focus-visible{outline:3px solid white;outline-offset:-3px}.career-resume-intro,.career-resume-coverage,.career-resume-caveat{padding:0 15px;font-size:12px;line-height:1.5}.career-resume-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:8px 15px}.career-resume-metric{padding:12px 9px;background:#1b3847;border:1px solid #486879;border-radius:10px;min-width:0}.career-resume-metric strong{font-size:22px;display:block;color:#fff;font-variant-numeric:tabular-nums}.career-resume-metric span{font-size:11px;line-height:1.35;color:#c5d6df;display:block}.career-resume-section{padding:10px 16px 0}.career-resume-section h4{font-size:14px;color:var(--gold);margin:6px 0 12px}.career-resume-example{font-size:13px;color:#e0e9ee;margin:8px 0}.career-resume-trade{padding:12px;background:#1c3847;border:1px solid #426477;border-radius:9px;margin:8px 0}.career-resume-trade strong{font-size:12px}.career-resume-trade p{font-size:12px;margin:5px 0}.career-resume-link{font-size:12px;color:var(--gold);font-weight:850;text-decoration:underline;text-underline-offset:3px}.career-resume-link:focus-visible{outline:3px solid white;outline-offset:2px}@media(max-width:650px){.career-resume-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.career-resume-metric strong{font-size:20px}}';
  css.textContent+='.profile-stat-explainer{margin:12px 0;padding:0;border:1px solid #476879;border-radius:10px;background:#102b3a}.profile-stat-explainer>summary{min-height:44px;padding:12px 14px;font-weight:800;color:#f0cf88;cursor:pointer}.profile-stat-explainer>p{padding:0 14px;margin:9px 0 12px;font-size:13px;line-height:1.55;color:#d5e1e9}.profile-stat-explainer strong{color:#fff}';
  css.textContent+='.profile-tabs{padding:8px 12px!important;margin:8px 0 14px!important;background:#0e2230f2!important}.profile-section-switcher>summary{min-height:44px;display:flex;align-items:center;padding:6px 8px;color:var(--gold);font-weight:850;font-size:13px;cursor:pointer}.profile-section-switcher>summary:focus-visible{outline:3px solid white;outline-offset:2px}.profile-section-switcher[open]{max-height:48vh;overflow-y:auto}.profile-section-switcher:not([open]) .profile-tab-row,.profile-section-switcher:not([open]) [data-profile-tab-description]{display:none!important}.profile-tab-guide[hidden]{display:none!important}.profile-location-label{padding:3px 7px!important}.profile-feature-directory{scroll-margin-top:95px}@media(max-width:650px){.profile-tabs{margin:8px 0 12px!important;padding:11px!important}.profile-section-switcher>summary{padding:4px 6px!important;min-height:42px;font-size:13px}.profile-section-switcher[open]{max-height:none;overflow:visible}.profile-section-switcher .profile-tab-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:8px 0!important}.profile-section-switcher .profile-tab-row button{padding:9px 7px!important;min-height:42px!important;font-size:12px!important;line-height:1.2!important}.profile-tabs>.eyebrow{font-size:11px!important;margin:0 0 5px!important}.profile-tabs .profile-tab-guide,[data-profile-tab-description]{font-size:12px!important;line-height:1.4!important;margin:6px 0!important}}';
+ css.textContent+='@media(max-width:650px){.profile-tabs{max-width:100%!important;padding:6px 10px!important;margin:5px 0 10px!important}.profile-tabs>.eyebrow,.profile-tabs>.profile-location-label,.profile-tabs>[data-profile-tab-description]{display:none!important}.profile-section-switcher>summary{min-height:44px!important;padding:7px 9px!important;font-size:12px!important}.profile-section-switcher[open]{max-height:200px!important;overflow-y:auto!important}.profile-section-switcher .profile-tab-row{margin:3px 0!important}.profile-feature-directory .profile-records-link{display:flex;align-items:center;min-height:48px;padding:12px 14px;margin:10px 0 14px;border:1px solid #e3bd71;border-radius:10px;color:#f2d28b;font-size:14px;font-weight:850;text-decoration:none}}.profile-records-link{display:inline-flex;align-items:center;min-height:48px;padding:11px 14px;margin:10px 0;border:1px solid #e3bd71;border-radius:10px;color:#f2d28b;font-weight:850;text-decoration:none}.profile-records-link:focus-visible{outline:3px solid #fff;outline-offset:2px}';
+ css.textContent+='@media(max-width:650px){.profile-tabs .profile-location-label{display:block!important;font-size:10px!important;line-height:1.3!important;margin:0 0 3px!important;padding:0 4px!important;letter-spacing:.04em!important;color:#d6bd82!important}}';
  document.head.append(css);
 }
 const existingProfile=document.querySelector('nav[data-manager-profile-tabs]');
 if(existingProfile&&!legacyNav){
  // Prebuilt profile shells should share the same two clear entry actions.
  const existingHeroActions=document.querySelector('main .hero .buttons');
- if(existingHeroActions)existingHeroActions.innerHTML='<a class="btn" href="#profile-features">Explore topics</a><a class="btn secondary" href="../">All managers</a>';
+ if(existingHeroActions)existingHeroActions.innerHTML='<a class="btn" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(profileName==='Thommy'?'Tom':profileName)+'">My Records</a><a class="btn secondary" href="#profile-features">Explore topics</a>';
  const quick=document.querySelector('.profile-quickstart');
  const manager=document.querySelector('main .hero h1')?.textContent?.trim()||'';
  populateManagerResearch(quick,manager);
@@ -658,7 +660,7 @@ if(main&&tabs){
  const switcher=document.createElement('details');
  switcher.className='profile-section-switcher';
  const switchSummary=document.createElement('summary');
- switchSummary.textContent='More archive sections';
+ switchSummary.textContent='Other sections';
  switcher.append(switchSummary);
  for(const child of [...tabs.children])switcher.append(child);
  tabs.append(switcher);
@@ -666,7 +668,7 @@ if(main&&tabs){
  if(heroExplore){heroExplore.href='#profile-features';heroExplore.textContent='Explore features ↓'}
  const buttons=[...tabs.querySelectorAll('button[data-profile-tab]')];
  const headingLabel=tabs.querySelector('.eyebrow');
- if(headingLabel)headingLabel.textContent='Explore this manager';
+ if(headingLabel)headingLabel.textContent='';
  // Give tabs an immediate, visible destination. The old implementation
  // changed hidden sections below a large always-visible evidence block,
  // which made the controls look inert to visitors.

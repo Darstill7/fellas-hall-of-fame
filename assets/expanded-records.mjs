@@ -67,13 +67,14 @@ function renderProfile(data){
  const host=document.querySelector("[data-expanded-records-profile]");if(!host)return;
  const name=host.dataset.expandedRecordsProfile;
  const sig=data.signatures?.[name];if(!sig)return;
- const holders=managerLeagueHolders(data,name);
- host.classList.add("records-lab-profile");
- host.innerHTML='<details><summary>Signature records · '+holders.length+' league top-three entries · '+sig.categoriesWithEvidence+' measured categories</summary>'
- +'<div class="records-lab-profile-body"><p class="records-lab-intro">Verified regular-season and final-standing records, including personal bests where this manager is not the league holder.</p>'
- +'<div class="records-lab-grid">'+signatureTiles(data,name,3)+'</div>'
- +'<a class="records-lab-action" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(name)+'">Explore '+escapeHtml(name)+"'s record collection →</a>"
- +'</div></details>';
+ const ranked=managerLeagueHolders(data,name);
+ const firstPlace=new Set(ranked.filter(x=>x.record.rank===1).map(x=>x.category.key)).size;
+ const topThree=new Set(ranked.map(x=>x.category.key)).size;
+ const link='../../analytics/expanded-records.html?manager='+encodeURIComponent(name);
+ host.classList.add("records-lab-profile","records-lab-profile-direct");
+ host.innerHTML='<div class="records-profile-summary"><div><span class="records-profile-eyebrow">VERIFIED RECORD PORTFOLIO</span><h2>'+escapeHtml(name)+' · Records</h2><p class="records-lab-intro">'+firstPlace+' first-place categories · '+topThree+' categories ranked in the top three · '+data.categoryCount+' researched categories. Ties share credit; personal marks are not league records.</p></div>'
+ +'<a class="records-lab-action" href="'+link+'">All records and rankings →</a></div>'
+ +'<details class="records-profile-preview"><summary>Preview standout records</summary><div class="records-lab-profile-body"><div class="records-lab-grid">'+signatureTiles(data,name,3)+'</div></div></details>';
 }
 function renderManagerBook(data){
  const host=document.getElementById("expanded-manager-records"),picker=document.getElementById("manager");if(!host||!picker)return;
