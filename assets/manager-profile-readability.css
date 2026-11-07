@@ -299,3 +299,26 @@ main .profile-career-resume .career-resume-metric span{line-height:1.5}
  main .profile-career-resume .career-resume-caveat{padding:0 12px 14px}
  main .profile-career-resume .career-resume-receipts .career-resume-section p{line-height:1.65}
 }
+
+/* Championship-led season achievements: restrained sports-card hierarchy. */
+.profile-finish-legend{display:flex;flex-wrap:wrap;align-items:center;gap:7px 13px;padding:13px 0 9px;margin:0 0 5px;border-bottom:1px solid #3b5566}
+.profile-finish-legend-item{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;color:#bdd1dc;white-space:nowrap}
+.profile-finish-legend-item.profile-finish-champion{color:#ffda88}.profile-finish-legend-item.profile-finish-finalist{color:#d9e0ec}.profile-finish-legend-item.profile-finish-playoffs{color:#9cddda}.profile-finish-legend-item.profile-finish-shitter{color:#d6a8e5}
+.profile-playoff-timeline{gap:8px!important;padding:11px 0 8px!important}
+.profile-playoff-timeline li.profile-finish-row{display:grid;grid-template-columns:66px minmax(0,1fr);align-items:center;gap:10px;min-height:63px;margin:0;padding:10px 12px;border:1px solid #3b5669;border-radius:10px;background:#112838;line-height:1.4}
+.profile-finish-row .profile-finish-year{font-size:16px;color:#c4d6df;font-variant-numeric:tabular-nums}
+.profile-finish-result{display:flex;gap:11px;align-items:center;min-width:0}
+.profile-finish-icon{font-size:20px;line-height:1;flex:none}
+.profile-finish-words{min-width:0;display:flex;flex-direction:column;gap:3px}
+.profile-finish-name{font-size:14px;line-height:1.35;font-weight:850;overflow-wrap:break-word;text-align:left;color:#f1f2f3}
+.profile-finish-subtitle{color:#c7d5de;font-size:11px;line-height:1.45}
+.profile-playoff-timeline li.profile-finish-champion{background:linear-gradient(110deg,#403017,#1f2b2c 75%);border-color:#e9bd69;box-shadow:inset 4px 0 #f2cd75}
+.profile-finish-champion .profile-finish-name{font-size:17px;color:#ffe0a0}
+.profile-playoff-timeline li.profile-finish-finalist{border-color:#aabed0;box-shadow:inset 4px 0 #aabed0}
+.profile-finish-finalist .profile-finish-name{color:#e2ebf6}
+.profile-playoff-timeline li.profile-finish-playoffs{border-color:#498c93;box-shadow:inset 4px 0 #70bfba}
+.profile-finish-playoffs .profile-finish-name{color:#a6e5e0}
+.profile-playoff-timeline li.profile-finish-shitter{background:#2a2032;border-color:#86679a;box-shadow:inset 4px 0 #b487d5}
+.profile-finish-shitter .profile-finish-name{color:#ecc8fa}
+.profile-playoff-timeline li.profile-finish-regular .profile-finish-name{color:#b9cbd5;font-weight:700}
+@media(max-width:580px){.profile-playoff-history{padding:0 11px}.profile-playoff-timeline li.profile-finish-row{grid-template-columns:52px minmax(0,1fr);min-height:60px;padding:11px 9px;gap:9px}.profile-finish-name{font-size:13px}.profile-finish-champion .profile-finish-name{font-size:16px}.profile-finish-icon{font-size:18px}.profile-finish-legend{gap:7px 10px}.profile-finish-legend-item{font-size:10px}}
