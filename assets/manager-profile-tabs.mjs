@@ -470,7 +470,7 @@ function populateManagerResearch(quick,manager){
   grid.append(
    tile(a.withRecordedLaterStart+' / '+a.distinctSeasonPlayerAcquisitions,'Pickups used in a starting lineup · 2020–26'),
    tile(String(k.verifiedOriginalManagerStarts),'Times an original keeper started · 2026 Weeks 1–'+keepers.throughWeek),
-   tile(k.regularStartedPoints.toFixed(1),'Points from those keeper starts · 2026')
+   tile(k.regularStartedPoints.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1}),'Points from those keeper starts · 2026')
   );
   snapshot.append(grid);
   const explainer=document.createElement('details');

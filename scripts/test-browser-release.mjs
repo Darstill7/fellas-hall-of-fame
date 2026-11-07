@@ -2292,6 +2292,16 @@ try{
       errors.push(width+' '+name+' missing correct profile/report-card record-book shortcuts');
     }
     await page.locator('#manager').selectOption('Stilly');
+    const sig=page.locator('#expanded-manager-records');
+    await sig.locator('.records-lab-tile').first().waitFor({timeout:12000});
+    const sigText=await sig.innerText();
+    if(sigText.includes('undefined')||sigText.includes('NaN')||!sigText.includes('2017 · Week 9 vs Tony · Win')||!sigText.includes('2017 (3rd) · 2023 (1st) · 2024 (2nd)')||!sigText.includes('15,198.5 pts')||!sigText.includes('11 wins')||sigText.includes('15677.98'))
+     errors.push(width+' Stilly signature records have incorrect game, podium, or numeric context');
+    if(width===390){
+     const tiles=await sig.locator('.records-lab-tile').evaluateAll(els=>els.map(el=>({width:el.getBoundingClientRect().width,right:el.getBoundingClientRect().right})));
+     if(tiles.length<6||tiles.some(x=>x.width<290||x.right>width+2))
+      errors.push(width+' manager signature cards cramped or overflowing on mobile');
+    }
     const career=(await (await page.request.get(baseUrl+'data/career_core_generated.json')).json()).managers.Stilly;
     const expected=career.w+'–'+career.l+(career.t?'–'+career.t:'');
     if(!(await page.locator('#profile').innerText()).includes(expected))errors.push(width+' historical archive did not render canonical Stilly WLT '+expected);
