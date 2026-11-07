@@ -264,11 +264,30 @@ try{
       errors.push(width+' '+route+' missing documented finishing-position summary');
      if(await details.locator('.profile-playoff-allera').count()!==1)
       errors.push(width+' '+route+' all-era final finishing summary missing');
-     const years=await details.locator('.profile-playoff-timeline li').count();
-     if(years!==10)
-      errors.push(width+' '+route+' postseason timeline should show ten completed seasons, received '+years);
+     const rows=details.locator('.profile-playoff-timeline li');
+     const shownYears=await rows.locator('.profile-finish-year').allInnerTexts();
+     const finishData=await (await page.request.get(baseUrl+'data/fellas_final_placements_2016_2025_verified.json')).json();
+     const manager=route.split('/')[1]==='tom'?'Thommy':route.split('/')[1]==='jmid'?'JMid':
+       route.split('/')[1].charAt(0).toUpperCase()+route.split('/')[1].slice(1);
+     const expectedYears=finishData.seasons.filter(x=>x.finishes.some(f=>f.manager===manager)).map(x=>String(x.year));
+     if(JSON.stringify(shownYears)!==JSON.stringify(expectedYears))
+      errors.push(width+' '+route+' season achievements must show only actual participation years');
+     if((await details.innerText()).includes('Not in league')||(await details.innerText()).includes('Last place'))
+      errors.push(width+' '+route+' season history contains absent-season or outdated Shitter copy');
      if((await details.innerText()).includes('2026'))
       errors.push(width+' '+route+' postseason timeline incorrectly includes incomplete 2026');
+     for(const item of await rows.all()){
+      const label=await item.innerText();
+      const year=Number((await item.locator('.profile-finish-year').innerText()).trim());
+      const season=finishData.seasons.find(x=>x.year===year);
+      const rank=season?.finishes.find(f=>f.manager===manager)?.rank;
+      const expectedStatus=rank===1?'champion':rank===2?'finalist':
+        rank===season?.teams?'shitter':(await item.getAttribute('class')).includes('profile-playoff-qualified')?'playoffs':'regular';
+      if(!(await item.getAttribute('class')).includes('profile-finish-'+expectedStatus))
+       errors.push(width+' '+route+' finish achievement styling mismatch for '+year);
+      if(expectedStatus==='champion'&&!label.includes('🏆')||expectedStatus==='shitter'&&(!label.includes('💩')||!label.includes('Shitter of the Year')))
+       errors.push(width+' '+route+' special title or Shitter marker missing for '+year);
+     }
     }
     const link=page.locator('.profile-feature-button[href="#profile-playoff-resume"]');
     if(await link.count()!==1)
