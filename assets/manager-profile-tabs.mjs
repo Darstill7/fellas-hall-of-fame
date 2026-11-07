@@ -33,13 +33,49 @@ if(desktopSiteNav&&!document.querySelector('.fellas-mobile-site-menu')){
 if(persona&&profileHero&&!profileHero.querySelector('.manager-nickname-origin')){
  const panel=document.createElement('details');
  panel.className='manager-nickname-origin';
- panel.innerHTML='<summary><strong>'+persona.name+'</strong> <span>· Career capsule</span></summary><p>'+persona.origin+'</p>';
+ panel.innerHTML='<summary><strong>'+persona.name+'</strong> <span>· Why the nickname?</span></summary><p>'+persona.origin+'</p><p class="muted">Editorial nickname based on archived Fellas history, not an official league award.</p>';
  const heading=profileHero.querySelector('h1');
  heading?.after(panel);
  const style=document.createElement('style');
  style.textContent='.manager-nickname-origin{margin:12px 0 18px;border-left:4px solid #d6b976;padding:9px 14px;background:#122735;border-radius:0 9px 9px 0}.manager-nickname-origin summary{cursor:pointer;font-size:15px;min-height:44px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}.manager-nickname-origin summary span{font-weight:500;font-size:12px;color:#cfdee7}.manager-nickname-origin p{font-size:13px;margin:8px 0}';
  document.head.append(style);
 }
+// Every Hall of Fame profile has direct, keyboard-accessible access to all ten
+// current managers. The switcher is navigation only: no scores or archive claims.
+function mountHallOfFameManagerSwitcher(){
+ const main=document.querySelector('main#main-content'),hero=main?.querySelector(':scope > .hero');
+ if(!main||!hero||main.querySelector('.hof-manager-switcher'))return;
+ const names=['Birch','JMid','Kuhl','Mitch','Scott','Stew','Stilly','Stover','Tom','Tony'];
+ const current=profileName==='Thommy'?'Tom':profileName;
+ const active=names.indexOf(current);
+ if(active<0)return;
+ const slug=name=>name.toLowerCase();
+ const url=name=>'../'+slug(name)+'/';
+ const nav=document.createElement('nav');
+ nav.className='hof-manager-switcher';nav.setAttribute('aria-label','Browse Hall of Fame manager profiles');
+ const label=document.createElement('label');label.className='hof-manager-switcher-label';
+ label.textContent='Browse the Fellas';
+ const select=document.createElement('select');select.className='hof-manager-select';
+ select.setAttribute('aria-label','Choose a Fellas manager profile');
+ for(const name of names){
+  const option=document.createElement('option');
+  option.value=url(name);option.textContent=name==='Tom'?'Thommy (Tom)':name;
+  if(name===current)option.selected=true;
+  select.append(option);
+ }
+ select.addEventListener('change',()=>{if(select.value)location.assign(select.value)});
+ label.append(select);
+ const previous=names[(active-1+names.length)%names.length],next=names[(active+1)%names.length];
+ const makeLink=(name,text,description)=>{
+  const a=document.createElement('a');a.href=url(name);a.className='hof-manager-switcher-step';
+  a.textContent=text;a.title=description+' '+(name==='Tom'?'Thommy':name);
+  a.setAttribute('aria-label',description+' '+(name==='Tom'?'Thommy':name));
+  return a;
+ };
+ nav.append(makeLink(previous,'← Prev','Previous manager:'),label,makeLink(next,'Next →','Next manager:'));
+ hero.before(nav);
+}
+mountHallOfFameManagerSwitcher();
 // Give all ten profiles the same first-screen hierarchy without replacing
 // canonical stat values or historical source labels.
 if(profileHero&&!profileHero.querySelector('[data-profile-career-snapshot]')){
@@ -219,7 +255,7 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const actions=hero?.querySelector('.buttons');
  if(actions){
   // Start/Sit is a named feature below; no duplicate hero shortcut.
-  actions.innerHTML='<a class="btn" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(manager==='Thommy'?'Tom':manager)+'">My Records</a><a class="btn secondary" href="#profile-features">Explore topics</a>';
+  actions.innerHTML='<a class="btn" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(manager==='Thommy'?'Tom':manager)+'">My Records</a><a class="btn secondary" href="../">All managers</a>';
  }
  const quick=document.createElement('section');
  quick.className='profile-quickstart';quick.setAttribute('aria-label',manager+' career at a glance');
@@ -518,6 +554,56 @@ if(existingProfile&&!legacyNav){
  populateManagerResearch(quick,manager);
  if(quick)quick.after(existingProfile);
 }
+// Every manager has one recognizable home base: career, records, seasons,
+// rivalries and report card, with the complete research directory kept below.
+function mountManagerHomeHub(){
+ const quick=document.querySelector('main .profile-quickstart');
+ if(!quick||document.querySelector('.manager-home-hub'))return;
+ const who=profileName==='Tom'?'Thommy':profileName;
+ if(!who)return;
+ const hub=document.createElement('section');hub.className='manager-home-hub';
+ hub.setAttribute('aria-label',who+' personal league hub');
+ const h=document.createElement('h2');h.textContent=who+' · Your Fellas history';
+ const note=document.createElement('p');note.textContent='Your career, your records, your rivalries. Start anywhere.';
+ note.className='manager-home-hub-note';
+ const grid=document.createElement('nav');grid.className='manager-home-hub-grid';grid.setAttribute('aria-label','Primary manager destinations');
+ const routes=[
+  {label:'Career story',detail:'Defining seasons and milestones',icon:'📖',action:'story'},
+  {label:'My records',detail:'League rankings and personal marks',icon:'🏅',href:'../../analytics/expanded-records.html?manager='+encodeURIComponent(who==='Thommy'?'Tom':who)},
+  {label:'Every season',detail:'Year-by-year results',icon:'📅',tab:'seasons'},
+  {label:'Rivalries',detail:'Head-to-head history',icon:'⚔️',tab:'rivalries'},
+  {label:'Report card',detail:'Career ratings and grades',icon:'📊',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(who)+'#cards'},
+  {label:'Trades & pickups',detail:'How the roster was built',icon:'🔄',tab:'advanced'}
+ ];
+ for(const route of routes){
+  const el=document.createElement(route.href?'a':'button');
+  if(el.tagName==='BUTTON'){el.type='button';if(route.tab)el.dataset.profileJump=route.tab;}
+  else el.href=route.href;
+  el.className='manager-home-hub-tile';
+  const icon=document.createElement('span');icon.className='manager-home-hub-icon';icon.textContent=route.icon;icon.setAttribute('aria-hidden','true');
+  const words=document.createElement('span');words.className='manager-home-hub-copy';
+  const name=document.createElement('strong');name.textContent=route.label;
+  const desc=document.createElement('small');desc.textContent=route.detail;
+  words.append(name,desc);el.append(icon,words);
+  if(route.action==='story')el.addEventListener('click',()=>quick.querySelector('button.profile-biography-entry')?.click());
+  grid.append(el);
+ }
+ hub.append(h,note,grid);
+ // Place the personal hub beside the research archive, not inside the legacy shortcut card.
+ quick.before(hub);
+ quick.classList.add('manager-home-base');
+ const featureDirectory=quick.querySelector('#profile-features');
+ if(featureDirectory&&!quick.querySelector('.manager-home-more')){
+  const more=document.createElement('details');more.className='manager-home-more';
+  const summary=document.createElement('summary');summary.textContent='More stats & research';
+  more.append(summary);
+  featureDirectory.before(more);more.append(featureDirectory);
+  const reveal=()=>{more.open=true};
+  hub.querySelector('.manager-home-hub-tile')?.addEventListener('click',reveal,{capture:true});
+  if(location.hash==='#profile-features')reveal();
+ }
+}
+mountManagerHomeHub();
 // Let visitors choose a topic before seeing the complete playoff résumé.
 const profileTopicMenu=document.querySelector('main .profile-quickstart');
 const profilePlayoffSection=document.getElementById('profile-playoff-resume');
@@ -525,6 +611,92 @@ const profilePlayoffSection=document.getElementById('profile-playoff-resume');
 // It is the primary entrance, while ratings remain available lower down.
 if(profileHero&&profileTopicMenu)profileHero.after(profileTopicMenu);
 if(profileTopicMenu&&profilePlayoffSection)profileTopicMenu.after(profilePlayoffSection);
+
+// Hall of Fame first-visit experience: one readable career exhibit before research.
+// Every sentence comes from the editorial biography archive, never an invented accolade.
+function mountCareerExhibit(){
+ const hero=document.querySelector('main .hero');
+ const hub=document.querySelector('.manager-home-hub');
+ const slug=profileName==='Tom'?'Thommy':profileName;
+ if(!hero||!hub||!slug||document.querySelector('.hof-career-exhibit'))return;
+ const feature=document.createElement('section');
+ feature.className='hof-career-exhibit';
+ feature.setAttribute('aria-label',slug+' Hall of Fame career story');
+ const kicker=document.createElement('span');kicker.className='hof-career-kicker';kicker.textContent='THE CAREER STORY';
+ const h=document.createElement('h2');h.textContent='Behind the résumé';
+ const intro=document.createElement('p');intro.className='hof-career-intro';
+ const sourceIntro=document.querySelector('#franchise-story .lead');
+ intro.textContent=sourceIntro?.textContent?.trim()||'Explore the archived seasons, title results and defining roster decisions.';
+ const actions=document.createElement('div');actions.className='hof-career-actions';
+ const read=document.createElement('button');read.type='button';read.className='hof-career-read';read.textContent='Read the full biography →';
+ read.addEventListener('click',()=>{
+  const trigger=document.querySelector('#profile-features button.profile-biography-entry');
+  if(trigger){trigger.click();document.getElementById('legacy-resume')?.scrollIntoView({block:'start',behavior:'auto'})}
+  else document.getElementById('franchise-story')?.scrollIntoView({block:'start',behavior:'auto'});
+ });
+ // Records already lead the hero and have a destination in the archive navigation.
+ // A second copy here would turn the story into another cluttered button row.
+ actions.append(read);
+ feature.append(kicker,h,intro,actions);
+ hero.after(feature);
+ feature.after(hub);
+ // The résumé must greet visitors before any browse controls. Keep switching
+ // directly below the achievements, with the biography after the switcher.
+ const profileSwitcher=document.querySelector('.hof-manager-switcher');
+ if(profileSwitcher)hero.after(profileSwitcher);
+ hub.classList.add('hof-nav-curated');
+ const hubHeading=hub.querySelector('h2');
+ if(hubHeading)hubHeading.textContent='Explore the legacy';
+ const hubNote=hub.querySelector('.manager-home-hub-note');
+ if(hubNote)hubNote.textContent='Six ways into the archive. Choose what matters to you.';
+ // Preview the exact opening sentences of the verified editorial biography.
+ fetch('../../data/manager_biographies_awards.json',{cache:'no-store'})
+  .then(response=>{if(!response.ok)throw Error('Biography unavailable');return response.json()})
+  .then(data=>{
+   const bio=data.managers?.[profileName==='Tom'?'Tom':slug]?.biography;
+   if(typeof bio!=='string'||!bio.trim())return;
+   const paragraph=bio.split(/\n\s*\n/)[0].trim();
+   const sentences=paragraph.match(/[^.!?]+[.!?]+(?=\s|$)/g);
+   intro.textContent=sentences?.length>=2?sentences.slice(0,2).join(' ').trim():paragraph;
+  })
+  .catch(()=>{/* Keep the source-backed franchise overview available offline. */});
+}
+mountCareerExhibit();
+// Gold trophy treatment is earned, never applied to a zero-championship card.
+const championshipHighlight=document.querySelector('main .profile-career-highlight:first-child');
+const championshipCount=championshipHighlight?.querySelector('strong');
+if(championshipHighlight&&championshipCount){
+ const updateTitleStatus=()=>{
+  const count=Number.parseInt(championshipCount.textContent?.trim()||'',10);
+  championshipHighlight.classList.toggle('hof-has-title',Number.isFinite(count)&&count>0);
+ };
+ updateTitleStatus();
+ new MutationObserver(updateTitleStatus).observe(championshipCount,{childList:true,subtree:true,characterData:true});
+}
+const hubStyle=document.createElement('style');
+hubStyle.textContent=`/* Personal manager home base: light navigation, never another giant menu. */
+.manager-home-hub{box-sizing:border-box;min-width:0;width:100%;max-width:960px;margin:4px auto 18px;padding:17px;border:1px solid #4a6879;border-radius:15px;background:linear-gradient(155deg,#173243,#0c202e)}
+.manager-home-base>h2,.manager-home-base>p.muted,.manager-home-base>.profile-quick-grid{display:none!important}.manager-home-base{padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;min-width:0!important}.manager-home-more{max-width:960px;margin:9px auto 19px;padding:0;border:1px solid #465f6f;border-radius:11px;background:#0f2634;overflow:hidden}.manager-home-more>summary{display:flex;align-items:center;min-height:49px;padding:12px 16px;cursor:pointer;color:#eac87f;font-size:14px;font-weight:850}.manager-home-more>summary:after{content:"+";margin-left:auto;font-size:22px}.manager-home-more[open]>summary:after{content:"−"}.manager-home-more>summary:focus-visible{outline:3px solid #fff;outline-offset:-3px}body.profile-feature-focused .manager-home-hub,body.profile-feature-focused .manager-home-more{display:none!important}.manager-home-more #profile-features{margin:0;padding:13px;border-top:1px solid #465f6f}.manager-home-hub-grid>.manager-home-hub-tile{width:100%;box-sizing:border-box;min-width:0}.manager-home-more[open]{overflow:visible}
+.manager-home-hub h2{margin:0 0 4px!important;font-size:clamp(21px,3.5vw,29px)!important;line-height:1.25;letter-spacing:-.02em}
+.manager-home-hub-note{margin:0 0 14px!important;color:#c2d1da;font-size:13px;line-height:1.5}
+.manager-home-hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.manager-home-hub-tile{display:flex;align-items:center;gap:11px;min-width:0;min-height:76px;padding:13px;text-align:left;text-decoration:none;font:inherit;color:#f7f2e8;background:#142e40;border:1px solid #4f7183;border-radius:11px;cursor:pointer;transition:background .15s,border-color .15s}
+.manager-home-hub-tile:hover{background:#1e4356;border-color:#e3bd71;color:#fff}.manager-home-hub-tile:focus-visible{outline:3px solid #ffe1a1;outline-offset:2px}
+.manager-home-hub-icon{font-size:22px;flex:none}.manager-home-hub-copy{display:flex;flex-direction:column;gap:3px;min-width:0}.manager-home-hub-copy strong{color:#fff;font-size:14px;line-height:1.3}.manager-home-hub-copy small{font-size:11px;line-height:1.4;color:#b7cad7}
+.career-bio-prose{max-width:69ch!important;margin-inline:auto;font-size:clamp(16px,1.5vw,19px)!important;line-height:1.72!important}.career-bio-prose p{margin:0 0 1.1em!important}
+@media(max-width:650px){.manager-home-hub{padding:13px;margin:5px 0 13px;max-width:calc(100vw - 42px);width:min(100%,calc(100vw - 42px))}.manager-home-hub h2{font-size:22px!important}.manager-home-hub-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.manager-home-hub-tile{min-height:75px;gap:8px;padding:10px}.manager-home-hub-icon{font-size:19px}.manager-home-hub-copy strong{font-size:13px}.manager-home-hub-copy small{font-size:10px}.career-bio-prose{font-size:16px!important;line-height:1.7!important;padding-inline:1px}}
+@media(max-width:370px){.manager-home-hub-tile{min-height:70px;padding:9px 7px}.manager-home-hub-icon{font-size:17px}.manager-home-hub-copy small{font-size:10px}}
+`;
+document.head.append(hubStyle);
+const hofEditorialStyle=document.createElement('style');
+hofEditorialStyle.textContent="\n/* Hall of Fame exhibition: accomplishments first, a short story second, research third. */\nbody.profile-landing main>.hof-career-exhibit{display:block}\nbody.profile-feature-focused main>.hof-career-exhibit{display:none!important}\nmain>.hero{max-width:1000px;margin-inline:auto;padding-top:34px;padding-bottom:22px}\nmain>.hero h1{font-size:clamp(43px,7vw,76px);line-height:1.08;letter-spacing:-.055em;text-wrap:balance;margin:8px 0}\nmain>.hero .profile-career-snapshot{max-width:950px}\nmain>.hero .profile-career-snapshot .stat{min-width:0}\nmain>.hero .profile-honors-line{font-size:clamp(14px,1.8vw,17px);line-height:1.55;max-width:72ch}\nmain>.hero>.buttons{margin:16px 0 8px;gap:9px}\nmain>.hero>.buttons a{min-height:46px;display:inline-flex;align-items:center}\n.hof-career-exhibit{width:min(100%,960px);margin:9px auto 20px;padding:clamp(22px,3.8vw,37px);border-radius:18px;border:1px solid #6e6250;background:linear-gradient(145deg,#24313a 0%,#122532 58%,#0f1e28 100%);box-shadow:0 16px 45px rgba(0,0,0,.17);min-width:0}\n.hof-career-kicker{font-size:11px;font-weight:900;letter-spacing:.14em;color:#eac98b}\n.hof-career-exhibit h2{font-size:clamp(27px,4.3vw,40px);line-height:1.16;letter-spacing:-.036em;margin:9px 0 12px;color:#fff8e9}\n.hof-career-intro{max-width:68ch;font-size:clamp(16px,1.8vw,18px);line-height:1.74;color:#e4edf0;margin:0 0 20px;overflow-wrap:break-word}\n.hof-career-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}\n.hof-career-read,.hof-career-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 16px;border-radius:9px;font:inherit;font-size:14px;font-weight:850;text-align:center;line-height:1.4;cursor:pointer}\n.hof-career-read{border:1px solid #f0d08d;background:#e8c484;color:#142331}\n.hof-career-read:hover{background:#ffe4aa}\n.hof-career-secondary{border:1px solid #647e8b;color:#f6f0e4;text-decoration:none;background:#183440}\n.hof-career-secondary:hover{border-color:#e8c484;color:#fff}\n.hof-career-read:focus-visible,.hof-career-secondary:focus-visible{outline:3px solid #ffe4aa;outline-offset:3px}\n.hof-nav-curated{max-width:960px!important;margin:0 auto 15px!important;border:0!important;padding:0!important;background:none!important;box-shadow:none!important}\n.hof-nav-curated h2{font-size:clamp(23px,3vw,30px)!important;margin:0 0 5px!important}\n.hof-nav-curated .manager-home-hub-note{font-size:13px;line-height:1.6;margin:0 0 13px!important}\n.hof-nav-curated .manager-home-hub-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}\n.hof-nav-curated .manager-home-hub-tile{min-height:102px;padding:18px;border-radius:13px;align-items:flex-start;background:#142734;border:1px solid #435d6c}\n.hof-nav-curated .manager-home-hub-tile:nth-child(1),.hof-nav-curated .manager-home-hub-tile:nth-child(2){background:#1b3545;border-color:#a78a55}\n.hof-nav-curated .manager-home-hub-copy strong{font-size:16px;line-height:1.35}\n.hof-nav-curated .manager-home-hub-copy small{font-size:12px;line-height:1.5}\n.hof-nav-curated .manager-home-hub-icon{font-size:21px}\n.manager-home-more{margin-top:14px!important}\n.career-bio-prose{max-width:65ch!important;font-size:clamp(16px,1.6vw,19px)!important;line-height:1.78!important}\n@media(max-width:700px){\n main>.hero{padding-top:22px;padding-bottom:13px}\n main>.hero h1{font-size:clamp(40px,11vw,55px)}\n main>.hero .profile-career-snapshot{gap:9px}\n .hof-career-exhibit{padding:21px 18px;margin:12px auto 24px;border-radius:14px}\n .hof-career-exhibit h2{font-size:29px}\n .hof-career-intro{font-size:16px;line-height:1.72}\n .hof-career-actions{display:grid;grid-template-columns:1fr;gap:9px}\n .hof-career-read,.hof-career-secondary{width:100%;min-height:49px}\n .hof-nav-curated{width:100%!important;max-width:100%!important;padding:0!important}\n .hof-nav-curated .manager-home-hub-grid{grid-template-columns:1fr;gap:8px}\n .hof-nav-curated .manager-home-hub-tile{min-height:66px;padding:12px 14px;align-items:center;gap:12px}\n .hof-nav-curated .manager-home-hub-icon{font-size:21px}\n .hof-nav-curated .manager-home-hub-copy strong{font-size:15px}\n .hof-nav-curated .manager-home-hub-copy small{font-size:12px}\n .career-bio-prose{font-size:16px!important;line-height:1.75!important}\n}\n@media(prefers-reduced-motion:reduce){.hof-career-exhibit,.hof-nav-curated .manager-home-hub-tile{transition:none}}\n";
+document.head.append(hofEditorialStyle);
+const hofTrophyStyle=document.createElement('style');
+hofTrophyStyle.textContent="\n/* The trophy case should feel different from an ordinary metrics dashboard. */\nmain>.hero .profile-career-highlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:15px 0}\nmain>.hero .profile-career-highlight{min-width:0;padding:19px 21px;border-radius:14px;border:1px solid #496474;background:#122936;display:flex;flex-direction:column;align-items:flex-start;gap:6px}\nmain>.hero .profile-career-highlight.hof-has-title{border-color:#a98b52;background:linear-gradient(125deg,#41341e 0%,#211f20 65%,#172834 100%);box-shadow:inset 4px 0 #e6bc70}\nmain>.hero .profile-career-highlight:first-child::before{content:\"🏆\";font-size:23px;line-height:1.1;margin-bottom:2px}\nmain>.hero .profile-career-highlight-label{font-size:12px;font-weight:800;line-height:1.45;letter-spacing:.025em;color:#d6e1e7}\nmain>.hero .profile-career-highlight strong{font-size:clamp(28px,4vw,44px);font-variant-numeric:tabular-nums;line-height:1.15;letter-spacing:-.045em;color:#fff4d7}\nmain>.hero .profile-honors-line{display:inline-block;margin:7px 0 10px;padding:9px 13px;border-left:3px solid #e4bf7d;background:#192d36;border-radius:0 8px 8px 0;color:#f4d59b;font-weight:750}\nmain>.hero .profile-snapshot-receipts{margin:8px 0 0;max-width:700px}\nmain>.hero .profile-snapshot-receipts>summary{min-height:44px;font-size:12px;line-height:1.5;color:#bbcbd4}\n#profile-playoff-resume{max-width:960px;margin-left:auto;margin-right:auto}\n#profile-playoff-resume .profile-playoff-metric{min-width:0}\n@media(max-width:650px){\n main>.hero .profile-career-highlights{gap:8px}\n main>.hero .profile-career-highlight{padding:15px 13px}\n main>.hero .profile-career-highlight strong{font-size:clamp(25px,7vw,36px);overflow-wrap:anywhere}\n main>.hero .profile-career-highlight-label{font-size:11px}\n main>.hero .profile-honors-line{font-size:13px;line-height:1.55}\n}\n";
+document.head.append(hofTrophyStyle);
+const hofSwitcherStyle=document.createElement('style');
+hofSwitcherStyle.textContent="\n/* One consistent manager-switching strip, not another grid of profile links. */\n.hof-manager-switcher{width:min(100%,960px);display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:end;gap:11px;margin:18px auto 0;padding:11px 13px;border:1px solid #385263;border-radius:12px;background:#0c202cf0}\n.hof-manager-switcher-label{display:flex;flex-direction:column;gap:5px;min-width:0;font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#cbd9e1}\n.hof-manager-select{min-width:0;width:100%;height:46px;padding:10px 34px 10px 13px;border:1px solid #688293;border-radius:9px;color:#f5f1e7;background:#193544;font:inherit;font-size:14px;font-weight:750;letter-spacing:normal;text-transform:none;cursor:pointer}\n.hof-manager-switcher-step{display:flex;min-width:86px;justify-content:center;align-items:center;min-height:46px;padding:11px 12px;border:1px solid #516b7b;border-radius:9px;background:#16303f;color:#f5e4bb;text-decoration:none;font-size:13px;font-weight:850;white-space:nowrap}\n.hof-manager-switcher-step:hover{background:#274759;border-color:#e3bd71;color:#fff}\n.hof-manager-switcher-step:focus-visible,.hof-manager-select:focus-visible{outline:3px solid #ffdc94;outline-offset:2px}\nbody.profile-feature-focused .hof-manager-switcher{display:grid}\nbody.profile-landing .profile-tabs{display:none!important}\nbody.profile-landing .profile-tab-guide{display:none!important}\nbody.profile-landing .profile-back-to-sections{display:none!important}\n@media(max-width:650px){.hof-manager-switcher{gap:7px;margin-top:9px;padding:8px;width:100%;border-radius:10px}.hof-manager-switcher-step{min-width:65px;padding:10px 7px;font-size:12px}.hof-manager-select{font-size:14px}.hof-manager-switcher-label{font-size:10px}.hof-manager-switcher+.hero{padding-top:17px}}\n";
+document.head.append(hofSwitcherStyle);
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
 // The old overview tiles and archive teaser repeat destinations available in the tabs.
 // Remove only these two identified promotional sections; preserve all data-backed sections.
@@ -600,6 +772,7 @@ if(main&&tabs){
   // Remove the legacy archive hash so a refresh keeps the short profile landing.
   history.replaceState(null,'',location.pathname+location.search);
   // Keep the last open topic, avoiding a toggle race when switching features.
+  featureDirectory?.closest('details.manager-home-more')?.setAttribute('open','');
   featureDirectory?.scrollIntoView({block:'start',behavior:'instant'});
   // Back is hidden with the focused-only toolbar on the landing page;
   // return keyboard focus to a visible topic rather than leaving it stranded.
@@ -716,6 +889,10 @@ if(main&&tabs){
   if(!jump)return;
   event.preventDefault();
   const key=jump.dataset.profileJump;
+  // An archive destination is not a landing teaser: reveal the selected
+  // content before scrolling, even when entered from the initial home hub.
+  clearFeatureFocus();
+  document.body.classList.remove('profile-landing');
   activate(key,{reveal:true});
   for(const item of main.querySelectorAll('[data-profile-jump]'))
    item.setAttribute('aria-pressed',String(item===jump));
@@ -879,6 +1056,7 @@ if(main&&tabs){
  // Avoid turning a direct #profile-features visit into a long data wall.
  if(directoryDeepLink){
   document.body.classList.add('profile-landing');
+  featureDirectory?.closest('details.manager-home-more')?.setAttribute('open','');
   history.replaceState(null,'',location.pathname+location.search+'#profile-features');
   requestAnimationFrame(()=>requestAnimationFrame(()=>featureDirectory?.scrollIntoView({block:'start',behavior:'instant'})));
  }
