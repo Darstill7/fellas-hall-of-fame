@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Validate user-supplied playoff brackets and success first scoring.
 on:
   push:
     branches: [main]
