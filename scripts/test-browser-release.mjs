@@ -2193,9 +2193,21 @@ try{
          await page.evaluate(()=>location.hash!=='') )
        errors.push(width+' '+slug+' Escape did not return to clean feature directory');
      }
-     await switcher.locator(':scope > summary').click();
-     if(!await switcher.evaluate(el=>el.open))
-      errors.push(width+' '+slug+' optional archive sections failed to expand');
+     // The Hall of Fame landing intentionally hides redundant legacy tabs.
+     // Enter the archive using the real visible destination first.
+     if(!await switcher.isVisible()){
+      await page.locator('.manager-home-hub button[data-profile-jump="seasons"]').click();
+      if(!await page.locator('#season-history').isVisible())
+       errors.push(width+' '+slug+' curated Every season action did not reveal archive');
+     }
+     if(!await switcher.isVisible())
+      errors.push(width+' '+slug+' archive navigator unreachable after opening seasons');
+     else{
+      if(!await switcher.evaluate(el=>el.open))
+       await switcher.locator(':scope > summary').click();
+      if(!await switcher.evaluate(el=>el.open))
+       errors.push(width+' '+slug+' optional archive sections failed to expand');
+     }
      if(width===390){
       await page.locator('[data-profile-tab="seasons"]').click();
       const seasons=page.locator('#season-history .season-accordion .season-entry');
@@ -2247,8 +2259,12 @@ try{
      // leaving the optional archive disclosure closed. Open it before
      // exercising its secondary controls.
      const postReturnSwitcher=page.locator('details.profile-section-switcher');
-     if(!await postReturnSwitcher.evaluate(el=>el.open))
+     if(!await postReturnSwitcher.isVisible())
+      await page.locator('.manager-home-hub button[data-profile-jump="seasons"]').click();
+     if(await postReturnSwitcher.isVisible()&&!await postReturnSwitcher.evaluate(el=>el.open))
       await postReturnSwitcher.locator(':scope > summary').click();
+     if(!await postReturnSwitcher.isVisible())
+      errors.push(width+' '+slug+' archive navigation unreachable after browser back');
      for(const category of ['overview','seasons','rivalries','advanced']){
       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
       await button.click();
