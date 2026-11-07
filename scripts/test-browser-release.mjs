@@ -2248,6 +2248,9 @@ try{
     if(await disclosures.count()!==16)
      errors.push(width+' missing next-manager comparisons on record categories');
     else{
+     // The legacy 16-category catalog is intentionally collapsed for readers.
+     // Open its parent disclosure before testing a nested comparison control.
+     await page.locator('.legacy-record-disclosure').evaluate(element=>{element.open=true;});
      await disclosures.first().locator('summary').click();
      const detail=await disclosures.first().innerText();
      if(!detail.includes('Next-best different manager:')||!detail.includes('Gap to the record:'))
