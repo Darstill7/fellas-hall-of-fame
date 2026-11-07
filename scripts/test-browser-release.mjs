@@ -290,7 +290,7 @@ try{
         await finalReceipts.locator('.championship-title-final-score').count()!==championships.length)
       errors.push(width+' '+route+' trophy case must show verified final opponent and score for each title');
      const receipts=await finalReceipts.allInnerTexts();
-     if(receipts.some(line=>!/TITLE GAME.*VS[\\s\\S]*\\d+\\.\\d{2}\\s*[–-]\\s*\\d+\\.\\d{2}/.test(line)))
+     if(receipts.some(line=>!line.includes('TITLE GAME')||!line.includes('VS ')||(line.match(/[0-9]+[.][0-9][0-9]/g)||[]).length!==2))
       errors.push(width+' '+route+' championship final-score receipt missing context');
      const links=chapterPanel.locator('a.manager-championship-story-card');
      if(await links.count()!==championships.length)errors.push(width+' '+route+' missing verified championship season links');
