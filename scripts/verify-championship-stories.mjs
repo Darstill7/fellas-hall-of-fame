@@ -21,7 +21,7 @@ for(const story of stories.seasons){
  if(words<220||words>650)throw Error('Championship story too thin or too dense '+y+' '+words);
  if(story.sections.some(s=>!s.heading||s.text.split(/\s+/).length<40))
   throw Error('Incomplete championship narrative chapter '+y);
- if(/undefined|NaN|lorem ipsum|tbd|coming soon/i.test(text))throw Error('Placeholder in championship feature '+y);
+ if(/\b(?:undefined|NaN|tbd)\b|lorem ipsum|coming soon/i.test(text))throw Error('Placeholder in championship feature '+y);
  const all=games.bySeason[String(y)]?.games;
  if(!all)throw Error('Missing season schedule '+y);
  const reg=all.filter(g=>g.stage==='regular'&&(g.home===champ||g.away===champ));
