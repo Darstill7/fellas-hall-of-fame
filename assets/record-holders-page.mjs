@@ -5,7 +5,7 @@ const catalogGroups=['All','Single-game','Career','Season','Rivalries','Final st
 const expandedName=name=>name==='Thommy'?'Tom':name;
 const displayName=name=>name==='Tom'?'Thommy':name;
 const formatExpanded=(record,unit)=>{const val=Number(record.value);const formatted=Number.isFinite(val)?new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(val):String(record.value);return unit==='%'?formatted+'%':unit==='score / 100'?formatted+'/100':formatted+(unit?' '+unit:'')};
-const toLabel=record=>record.value+(record.unit==='pts'?' pts':record.unit==='%'?'%':' '+record.unit);
+const toLabel=record=>{const n=Number(record.value);const value=Number.isFinite(n)?n.toLocaleString('en-US',{maximumFractionDigits:2}):String(record.value);return value+(record.unit==='pts'?' pts':record.unit==='%'?'%':' '+record.unit)};
 const target=name=>'../managers/record-books.html?manager='+encodeURIComponent(name)+'#owned-records';
 const tag=(name,value,cls)=>{const e=document.createElement(name);if(cls)e.className=cls;if(value!==undefined)e.textContent=value;return e};
 const detail=(name,label)=>{const a=tag('a',label);a.href=target(name);return a};
@@ -97,7 +97,7 @@ async function start(){
     const summary=tag('summary','How close is the next manager?');
     const explanation=tag('p',
       'Next-best different manager: '+challenger.manager+' · '+toLabel(challenger)+
-      ' · '+challenger.context+'. Gap to the record: '+challenger.gap+
+      ' · '+challenger.context+'. Gap to the record: '+(Number.isFinite(Number(challenger.gap))?Number(challenger.gap).toLocaleString('en-US',{maximumFractionDigits:2}):String(challenger.gap))+
       (challenger.unit==='%'?' percentage points':challenger.unit==='pts'?' points':' '+challenger.unit)+'.');
     disclosure.append(summary,explanation);card.append(disclosure);
    }
