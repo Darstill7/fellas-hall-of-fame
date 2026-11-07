@@ -38,7 +38,7 @@ jobs:
           delete-branch: true
           title: 'Review next Sleeper week before canonical ratings refresh'
           body: |
-            Automated staging candidate ONLY. **Do not merge this PR as canonical history.** After human review, run the approved importer with FELLAS_APPROVE_WEEKLY_IMPORT=YES and commit all regenerated projections together, then verify full CI. Verify all team identities and five finalized score pairs against Sleeper. Check all generated data and site-wide stale projections; repair additional consumers if CI flags them. The public Madden card recalculates upon approved deployment.
+            Automated staging candidate ONLY. **Do not merge this PR as canonical history.** After human review, run the approved importer with FELLAS_APPROVE_WEEKLY_IMPORT=YES and commit all regenerated projections together, then verify full CI. Verify all team identities and five finalized score pairs against Sleeper. Check all generated data and site-wide stale projections; repair additional consumers if CI flags them. The public Madden card recalculates upon approved deployment. REQUIRED CROSS-PAGE WEEKLY CHECKLIST: canonical matchup ledger, season mirror, season guide, manager career/record profiles, all-play and luck, 2026 season hub, SportsCenter, Playoff Race simulations and schedule strength, record portfolios, lineup/keeper snapshots where verified, weekly recap and visible homepage copy. Run `node scripts/verify-current-week-website.mjs` and `node scripts/test-playoff-race-archive.mjs`. Preserve named historical snapshots but never present them as the current week.
           add-paths: |
             data-integrity/sleeper-sync-candidates/*.json
             data/unified_record_book_2016_2026.json
