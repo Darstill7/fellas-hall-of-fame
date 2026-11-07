@@ -516,6 +516,44 @@ if(existingProfile&&!legacyNav){
  populateManagerResearch(quick,manager);
  if(quick)quick.after(existingProfile);
 }
+// Every manager has one recognizable home base: career, records, seasons,
+// rivalries and report card, with the complete research directory kept below.
+function mountManagerHomeHub(){
+ const quick=document.querySelector('main .profile-quickstart');
+ if(!quick||quick.querySelector('.manager-home-hub'))return;
+ const who=profileName==='Tom'?'Thommy':profileName;
+ if(!who)return;
+ const hub=document.createElement('section');hub.className='manager-home-hub';
+ hub.setAttribute('aria-label',who+' personal league hub');
+ const h=document.createElement('h2');h.textContent=who+' · Your Fellas history';
+ const note=document.createElement('p');note.textContent='Your career, your records, your rivalries. Start anywhere.';
+ note.className='manager-home-hub-note';
+ const grid=document.createElement('nav');grid.className='manager-home-hub-grid';grid.setAttribute('aria-label','Primary manager destinations');
+ const routes=[
+  {label:'Career story',detail:'Defining seasons and milestones',icon:'📖',action:'story'},
+  {label:'My records',detail:'League rankings and personal marks',icon:'🏅',href:'../../analytics/expanded-records.html?manager='+encodeURIComponent(who==='Thommy'?'Tom':who)},
+  {label:'Every season',detail:'Year-by-year results',icon:'📅',tab:'seasons'},
+  {label:'Rivalries',detail:'Head-to-head history',icon:'⚔️',tab:'rivalries'},
+  {label:'Report card',detail:'Career ratings and grades',icon:'📊',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(who)+'#cards'},
+  {label:'Trades & pickups',detail:'How the roster was built',icon:'🔄',tab:'advanced'}
+ ];
+ for(const route of routes){
+  const el=document.createElement(route.href?'a':'button');
+  if(el.tagName==='BUTTON'){el.type='button';if(route.tab)el.dataset.profileJump=route.tab;}
+  else el.href=route.href;
+  el.className='manager-home-hub-tile';
+  const icon=document.createElement('span');icon.className='manager-home-hub-icon';icon.textContent=route.icon;icon.setAttribute('aria-hidden','true');
+  const words=document.createElement('span');words.className='manager-home-hub-copy';
+  const name=document.createElement('strong');name.textContent=route.label;
+  const desc=document.createElement('small');desc.textContent=route.detail;
+  words.append(name,desc);el.append(icon,words);
+  if(route.action==='story')el.addEventListener('click',()=>quick.querySelector('button.profile-biography-entry')?.click());
+  grid.append(el);
+ }
+ hub.append(h,note,grid);
+ quick.prepend(hub);
+}
+mountManagerHomeHub();
 // Let visitors choose a topic before seeing the complete playoff résumé.
 const profileTopicMenu=document.querySelector('main .profile-quickstart');
 const profilePlayoffSection=document.getElementById('profile-playoff-resume');
@@ -523,6 +561,20 @@ const profilePlayoffSection=document.getElementById('profile-playoff-resume');
 // It is the primary entrance, while ratings remain available lower down.
 if(profileHero&&profileTopicMenu)profileHero.after(profileTopicMenu);
 if(profileTopicMenu&&profilePlayoffSection)profileTopicMenu.after(profilePlayoffSection);
+const hubStyle=document.createElement('style');
+hubStyle.textContent=`/* Personal manager home base: light navigation, never another giant menu. */
+.manager-home-hub{max-width:960px;margin:4px auto 18px;padding:17px;border:1px solid #4a6879;border-radius:15px;background:linear-gradient(155deg,#173243,#0c202e)}
+.manager-home-hub h2{margin:0 0 4px!important;font-size:clamp(21px,3.5vw,29px)!important;line-height:1.25;letter-spacing:-.02em}
+.manager-home-hub-note{margin:0 0 14px!important;color:#c2d1da;font-size:13px;line-height:1.5}
+.manager-home-hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.manager-home-hub-tile{display:flex;align-items:center;gap:11px;min-width:0;min-height:76px;padding:13px;text-align:left;text-decoration:none;font:inherit;color:#f7f2e8;background:#142e40;border:1px solid #4f7183;border-radius:11px;cursor:pointer;transition:background .15s,border-color .15s}
+.manager-home-hub-tile:hover{background:#1e4356;border-color:#e3bd71;color:#fff}.manager-home-hub-tile:focus-visible{outline:3px solid #ffe1a1;outline-offset:2px}
+.manager-home-hub-icon{font-size:22px;flex:none}.manager-home-hub-copy{display:flex;flex-direction:column;gap:3px;min-width:0}.manager-home-hub-copy strong{color:#fff;font-size:14px;line-height:1.3}.manager-home-hub-copy small{font-size:11px;line-height:1.4;color:#b7cad7}
+.career-bio-prose{max-width:69ch!important;margin-inline:auto;font-size:clamp(16px,1.5vw,19px)!important;line-height:1.72!important}.career-bio-prose p{margin:0 0 1.1em!important}
+@media(max-width:650px){.manager-home-hub{padding:13px;margin:5px 0 13px}.manager-home-hub h2{font-size:22px!important}.manager-home-hub-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.manager-home-hub-tile{min-height:75px;gap:8px;padding:10px}.manager-home-hub-icon{font-size:19px}.manager-home-hub-copy strong{font-size:13px}.manager-home-hub-copy small{font-size:10px}.career-bio-prose{font-size:16px!important;line-height:1.7!important;padding-inline:1px}}
+@media(max-width:370px){.manager-home-hub-tile{min-height:70px;padding:9px 7px}.manager-home-hub-icon{font-size:17px}.manager-home-hub-copy small{font-size:10px}}
+`;
+document.head.append(hubStyle);
 // Profile navigation v1. Presentation only: the existing canonical data loaders remain the source of truth.
 // The old overview tiles and archive teaser repeat destinations available in the tabs.
 // Remove only these two identified promotional sections; preserve all data-backed sections.
