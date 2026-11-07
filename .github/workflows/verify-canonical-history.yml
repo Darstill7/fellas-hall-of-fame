@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Accept final 14-manager Fellas power index.
 on:
   push:
     branches: [main]
