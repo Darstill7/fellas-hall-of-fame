@@ -254,6 +254,10 @@ try{
      }
     }
 
+    const moreResearch=page.locator('details.manager-home-more');
+    if(await moreResearch.count()!==1||await moreResearch.evaluate(el=>el.open))
+     errors.push(width+' '+route+' advanced research menu must initially be collapsed');
+    else await moreResearch.locator(':scope > summary').click();
     const recordLink=page.locator('main .hero .buttons a[href*="expanded-records.html?manager="]');
     if(await recordLink.count()!==1)errors.push(width+' '+route+' no direct Records action on manager hero');
     const recordOverview=page.locator('[data-expanded-records-profile] .records-profile-summary');
