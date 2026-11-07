@@ -275,7 +275,7 @@ try{
       const ringLinks=[...el.querySelectorAll('a.championship-ring')];
       return {count:Number(el.dataset.championshipCount),top:rect.top+window.scrollY,
        heroBottom:(hero?.getBoundingClientRect().bottom||0)+window.scrollY,
-       right:rect.right,years:ringLinks.map(a=>Number(a.textContent.match(/20\\d\\d/)?.[0]||0)),
+       right:rect.right,years:ringLinks.map(a=>Number(a.textContent.match(/20\d\d/)?.[0]||0)),
        rings:ringLinks.map(a=>({height:a.getBoundingClientRect().height,right:a.getBoundingClientRect().right})),
        tally:el.querySelector('.championship-tally strong')?.textContent?.trim()};
      });
