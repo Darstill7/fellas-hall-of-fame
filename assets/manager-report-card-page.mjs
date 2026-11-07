@@ -103,7 +103,7 @@ try {
   return '<details class="pickup-highlights"><summary>Pickup highlights <span class="pickup-summary-meta">Top '+sorted.length+' recovered starter-point totals</span></summary>'+
    '<p class="pickup-lead">Which additions actually made the lineup? Not all pickups are represented: these are selected archived examples, not a complete pickup ranking.</p>'+
    '<ul>'+label+'</ul>'+
-   '<details class="pickup-method"><summary>How these pickups are measured</summary><p class="fine">Sorted by verified points scored in starts after acquisition. Acquisitions without documented starts are not represented here. The archive is incomplete, including 2026; starts and points are observations, not FAAB skill, decision value, adjusted player value or a complete waiver evaluation.</p></details></details>';
+   '<details class="pickup-method"><summary>How these pickups are measured</summary><p class="fine">Sorted by verified points scored in starts after acquisition. Acquisitions without documented starts are not represented here. The archive is incomplete, including 2026. Not a FAAB skill grade: these lineup pts are observations, not decision value, adjusted player value or a complete waiver evaluation.</p></details></details>';
  };
  const slugs={Stilly:'stilly',Stew:'stew',Thommy:'tom',Stover:'stover',Birch:'birch',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',JMid:'jmid',Scott:'scott'};
  const compareA=document.getElementById('compare-a'),compareB=document.getElementById('compare-b');
