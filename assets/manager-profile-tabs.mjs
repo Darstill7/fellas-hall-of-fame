@@ -32,7 +32,7 @@ if(desktopSiteNav&&!document.querySelector('.fellas-mobile-site-menu')){
 if(persona&&profileHero&&!profileHero.querySelector('.manager-nickname-origin')){
  const panel=document.createElement('details');
  panel.className='manager-nickname-origin';
- panel.innerHTML='<summary><strong>'+persona.name+'</strong> <span>· Why the nickname?</span></summary><p>'+persona.origin+'</p><p class="muted">Editorial nickname based on archived Fellas history, not an official league award.</p>';
+ panel.innerHTML='<summary><strong>'+persona.name+'</strong> <span>· Career capsule</span></summary><p>'+persona.origin+'</p>';
  const heading=profileHero.querySelector('h1');
  heading?.after(panel);
  const style=document.createElement('style');
