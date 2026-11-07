@@ -299,6 +299,27 @@ try{
         layout.hubTop<layout.featureBottom-2)
       errors.push(width+' '+route+' mobile Hall of Fame exhibit must precede six full-width readable destinations: '+JSON.stringify(layout));
     }
+    // Real first-visit journeys: curated destinations must show their content,
+    // not leave the selected section suppressed by the short landing mode.
+    if(route==='managers/stilly/'){
+     const visitor=await context.newPage();
+     try{
+      await visitor.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
+      await visitor.locator('.manager-home-hub').waitFor({state:'visible',timeout:10000});
+      await visitor.locator('.manager-home-hub button').filter({hasText:'Every season'}).click();
+      if(!await visitor.locator('#season-history').isVisible()||
+         await visitor.locator('body').evaluate(el=>el.classList.contains('profile-landing')))
+       errors.push(width+' Stilly Every season hub destination failed to reveal archive');
+      await visitor.locator('.manager-home-hub button').filter({hasText:'Rivalries'}).click();
+      if(!await visitor.locator('#head-to-head').isVisible())
+       errors.push(width+' Stilly Rivalries hub destination failed to reveal matchup explorer');
+      await visitor.locator('nav.hof-manager-switcher select').selectOption('../birch/');
+      await visitor.waitForURL('**/managers/birch/',{timeout:12000});
+      if((await visitor.locator('main .hero h1').innerText()).trim()!=='Birch')
+       errors.push(width+' direct manager switch failed to navigate from Stilly to Birch');
+     }catch(error){errors.push(width+' profile first-visit navigation journey failed: '+String(error))}
+     finally{await visitor.close()}
+    }
     const moreResearch=page.locator('details.manager-home-more');
     if(await moreResearch.count()!==1||await moreResearch.evaluate(el=>el.open))
      errors.push(width+' '+route+' advanced research menu must initially be collapsed');
