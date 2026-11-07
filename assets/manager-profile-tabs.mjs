@@ -884,6 +884,10 @@ if(main&&tabs){
   if(!jump)return;
   event.preventDefault();
   const key=jump.dataset.profileJump;
+  // An archive destination is not a landing teaser: reveal the selected
+  // content before scrolling, even when entered from the initial home hub.
+  clearFeatureFocus();
+  document.body.classList.remove('profile-landing');
   activate(key,{reveal:true});
   for(const item of main.querySelectorAll('[data-profile-jump]'))
    item.setAttribute('aria-pressed',String(item===jump));
