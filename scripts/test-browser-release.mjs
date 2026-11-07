@@ -255,6 +255,26 @@ try{
      }
     }
 
+    // The public landing must be an editorial Hall of Fame exhibit, not a dashboard wall.
+    const careerExhibit=page.locator('main > .hof-career-exhibit');
+    if(await careerExhibit.count()!==1||!await careerExhibit.isVisible()||
+       !(await careerExhibit.locator('h2').innerText()).includes('Behind the résumé')||
+       await careerExhibit.locator('p.hof-career-intro').innerText().then(x=>x.trim().length)<65||
+       await careerExhibit.locator('button.hof-career-read').count()!==1)
+     errors.push(width+' '+route+' missing readable Hall of Fame career exhibit');
+    if(width===390){
+     const layout=await page.evaluate(()=>{
+      const feature=document.querySelector('.hof-career-exhibit'),hub=document.querySelector('.manager-home-hub');
+      const cards=[...document.querySelectorAll('.manager-home-hub-tile')].map(el=>el.getBoundingClientRect());
+      return {featureRight:feature?.getBoundingClientRect().right||0,featureWidth:feature?.getBoundingClientRect().width||0,
+       cards:cards.map(c=>({left:c.left,right:c.right,height:c.height})),hubTop:hub?.getBoundingClientRect().top||0,
+       featureBottom:feature?.getBoundingClientRect().bottom||0};
+     });
+     if(layout.featureRight>width+2||layout.cards.some(c=>c.right>width+2||c.height<60)||
+        layout.cards.some((c,i)=>i&&c.left!==layout.cards[0].left)||
+        layout.hubTop<layout.featureBottom-2)
+      errors.push(width+' '+route+' mobile Hall of Fame exhibit must precede six full-width readable destinations: '+JSON.stringify(layout));
+    }
     const moreResearch=page.locator('details.manager-home-more');
     if(await moreResearch.count()!==1||await moreResearch.evaluate(el=>el.open))
      errors.push(width+' '+route+' advanced research menu must initially be collapsed');
