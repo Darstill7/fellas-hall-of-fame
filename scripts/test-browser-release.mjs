@@ -262,6 +262,102 @@ try{
       !!(topics.compareDocumentPosition(playoff)&Node.DOCUMENT_POSITION_FOLLOWING);
     });
     if(!hierarchy)errors.push(width+' '+route+' first-screen navigation and résumé hierarchy broken');
+    const switcher=page.locator('nav.hof-manager-switcher');
+    if(await switcher.count()!==1||!await switcher.isVisible())
+     errors.push(width+' '+route+' direct manager-to-manager navigator missing');
+    else{
+     const options=await switcher.locator('select.hof-manager-select option').allTextContents();
+     const routes=await switcher.locator('select.hof-manager-select option').evaluateAll(nodes=>nodes.map(node=>node.value));
+     if(options.length!==10||!options.includes('Thommy (Tom)')||
+        !routes.includes('../tom/')||new Set(routes).size!==10)
+      errors.push(width+' '+route+' manager switcher must show all ten unique profile routes');
+     const selected=await switcher.locator('select').inputValue();
+     const expected='../'+route.split('/')[1]+'/';
+     if(selected!==expected)errors.push(width+' '+route+' manager switcher selected wrong profile: '+selected);
+     for(const side of ['Previous manager:','Next manager:']){
+      const link=switcher.locator('a[aria-label^="'+side+'"]');
+      if(await link.count()!==1||!(await link.getAttribute('href'))?.startsWith('../'))
+       errors.push(width+' '+route+' missing accessible '+side+' link');
+     }
+     if(width===390){
+      const rects=await switcher.evaluate(el=>({right:el.getBoundingClientRect().right,
+        controls:[...el.querySelectorAll('a,select')].map(node=>({height:node.getBoundingClientRect().height,right:node.getBoundingClientRect().right}))}));
+      if(rects.right>width+2||rects.controls.some(t=>t.height<44||t.right>width+2))
+       errors.push(width+' '+route+' manager switcher too small or mobile overflow '+JSON.stringify(rects));
+     }
+    }
+    const hub=page.locator('.manager-home-hub');
+    if(await hub.count()!==1||await hub.locator('.manager-home-hub-tile').count()!==6)
+     errors.push(width+' '+route+' missing six-destination personal manager hub');
+    else{
+     const destinations=await hub.locator('.manager-home-hub-tile').allInnerTexts();
+     for(const label of ['Career story','My records','Every season','Rivalries','Report card','Trades & pickups'])
+      if(!destinations.some(x=>x.includes(label)))errors.push(width+' '+route+' lacks hub destination '+label);
+     const recordHref=await hub.locator('a').filter({hasText:'My records'}).getAttribute('href');
+     if(!recordHref||!recordHref.includes('manager='))errors.push(width+' '+route+' personal Records link missing manager scope');
+     if(width===390){
+      const metrics=await hub.evaluate(el=>({right:el.getBoundingClientRect().right,tiles:[...el.querySelectorAll('.manager-home-hub-tile')].map(x=>x.getBoundingClientRect().height)}));
+      if(metrics.right>width+2)errors.push(width+' '+route+' manager hub exceeds viewport by '+(metrics.right-width).toFixed(1)+'px');
+      if(metrics.tiles.some(h=>h<60))errors.push(width+' '+route+' manager hub tap target smaller than 60px: '+JSON.stringify(metrics.tiles));
+     }
+    }
+
+    // The public landing must be an editorial Hall of Fame exhibit, not a dashboard wall.
+    const careerExhibit=page.locator('main > .hof-career-exhibit');
+    if(await careerExhibit.count()!==1||!await careerExhibit.isVisible()||
+       !(await careerExhibit.locator('h2').innerText()).includes('Behind the résumé')||
+       await careerExhibit.locator('p.hof-career-intro').innerText().then(x=>x.trim().length)<65||
+       await careerExhibit.locator('button.hof-career-read').count()!==1)
+     errors.push(width+' '+route+' missing readable Hall of Fame career exhibit');
+    if(width===390){
+     const layout=await page.evaluate(()=>{
+      const feature=document.querySelector('.hof-career-exhibit'),hub=document.querySelector('.manager-home-hub');
+      const cards=[...document.querySelectorAll('.manager-home-hub-tile')].map(el=>el.getBoundingClientRect());
+      return {featureRight:feature?.getBoundingClientRect().right||0,featureWidth:feature?.getBoundingClientRect().width||0,
+       cards:cards.map(c=>({left:c.left,right:c.right,height:c.height})),hubTop:hub?.getBoundingClientRect().top||0,
+       featureBottom:feature?.getBoundingClientRect().bottom||0};
+     });
+     if(layout.featureRight>width+2||layout.cards.some(c=>c.right>width+2||c.height<60)||
+        layout.cards.some((c,i)=>i&&c.left!==layout.cards[0].left)||
+        layout.hubTop<layout.featureBottom-2)
+      errors.push(width+' '+route+' mobile Hall of Fame exhibit must precede six full-width readable destinations: '+JSON.stringify(layout));
+    }
+    // Real first-visit journeys: curated destinations must show their content,
+    // not leave the selected section suppressed by the short landing mode.
+    if(route==='managers/stilly/'){
+     const visitor=await context.newPage();
+     try{
+      await visitor.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
+      await visitor.locator('.manager-home-hub').waitFor({state:'visible',timeout:10000});
+      await visitor.locator('.manager-home-hub button').filter({hasText:'Every season'}).click();
+      if(!await visitor.locator('#season-history').isVisible()||
+         await visitor.locator('body').evaluate(el=>el.classList.contains('profile-landing')))
+       errors.push(width+' Stilly Every season hub destination failed to reveal archive');
+      await visitor.locator('.manager-home-hub button').filter({hasText:'Rivalries'}).click();
+      if(!await visitor.locator('#head-to-head').isVisible())
+       errors.push(width+' Stilly Rivalries hub destination failed to reveal matchup explorer');
+      await visitor.locator('nav.hof-manager-switcher select').selectOption('../birch/');
+      await visitor.waitForURL('**/managers/birch/',{timeout:12000});
+      if((await visitor.locator('main .hero h1').innerText()).trim()!=='Birch')
+       errors.push(width+' direct manager switch failed to navigate from Stilly to Birch');
+     }catch(error){errors.push(width+' profile first-visit navigation journey failed: '+String(error))}
+     finally{await visitor.close()}
+    }
+    const confirmedTitles={tom:4,birch:1,tony:1,stover:1,stilly:1,scott:1};
+    const confirmedCount=confirmedTitles[route.split('/')[1]]||0;
+    const trophy=page.locator('#manager-championship-stories');
+    if(confirmedCount){
+     await trophy.waitFor({state:'visible',timeout:12000}).catch(()=>{});
+     if(await trophy.count()!==1||
+        await trophy.locator('.championship-ring').count()!==confirmedCount||
+        await trophy.locator('.championship-title-final-score').count()!==confirmedCount)
+      errors.push(width+' '+route+' championship trophy exhibit missing verified titles or final-game scores');
+    }else if(await trophy.count())errors.push(width+' '+route+' falsely awards a trophy');
+    const moreResearch=page.locator('details.manager-home-more');
+    if(await moreResearch.count()!==1||await moreResearch.evaluate(el=>el.open))
+     errors.push(width+' '+route+' advanced research menu must initially be collapsed');
+    else await moreResearch.locator(':scope > summary').click();
+
     const panel=page.locator('#profile-playoff-resume');
     await panel.waitFor({state:'visible',timeout:10000});
     // Every champion's profile links directly to its verified title features.
@@ -1078,10 +1174,11 @@ try{
       else await card.click();
      }
      await visitor.waitForURL('**/managers/stilly/',{timeout:10000});
-     await visitor.locator('#profile-features').waitFor({state:'visible',timeout:10000});
+     await visitor.locator('.manager-home-hub').waitFor({state:'visible',timeout:10000});
      if(!(await visitor.locator('main .hero h1').innerText()).includes('Stilly')||
-        !await visitor.locator('#profile-features').isVisible())
-      errors.push(width+' first-visit homepage manager link failed to reach usable profile');
+        !await visitor.locator('.manager-home-hub-grid').isVisible()||
+        await visitor.locator('.manager-home-hub-tile').count()!==6)
+      errors.push(width+' first-visit homepage manager link failed to reach usable personal hub');
      await visitor.goBack({waitUntil:'networkidle'});
      if(!visitor.url().endsWith('/fellas-hall-of-fame/'))
       errors.push(width+' first-visit browser back did not restore homepage');
@@ -1095,9 +1192,9 @@ try{
       errors.push(width+' first-visit navigation failed to reach manager directory');
      await visitor.locator('#manager-directory-cards a.manager[href="stilly/"]').click();
      await visitor.waitForURL('**/managers/stilly/',{timeout:10000});
-     await visitor.locator('#profile-features').waitFor({state:'visible',timeout:10000});
-     if(!await visitor.locator('#profile-features').isVisible())
-      errors.push(width+' first-visit directory manager link failed to reveal feature navigation');
+     await visitor.locator('.manager-home-hub').waitFor({state:'visible',timeout:10000});
+     if(!await visitor.locator('.manager-home-hub-grid').isVisible())
+      errors.push(width+' first-visit directory manager link failed to reveal manager home hub');
     }catch(error){
      errors.push(width+' first-visit end-to-end navigation journey failed: '+String(error));
     }finally{await visitor.close();}
@@ -2110,9 +2207,21 @@ try{
          await page.evaluate(()=>location.hash!=='') )
        errors.push(width+' '+slug+' Escape did not return to clean feature directory');
      }
-     await switcher.locator(':scope > summary').click();
-     if(!await switcher.evaluate(el=>el.open))
-      errors.push(width+' '+slug+' optional archive sections failed to expand');
+     // The Hall of Fame landing intentionally hides redundant legacy tabs.
+     // Enter the archive using the real visible destination first.
+     if(!await switcher.isVisible()){
+      await page.locator('.manager-home-hub button[data-profile-jump="seasons"]').click();
+      if(!await page.locator('#season-history').isVisible())
+       errors.push(width+' '+slug+' curated Every season action did not reveal archive');
+     }
+     if(!await switcher.isVisible())
+      errors.push(width+' '+slug+' archive navigator unreachable after opening seasons');
+     else{
+      if(!await switcher.evaluate(el=>el.open))
+       await switcher.locator(':scope > summary').click();
+      if(!await switcher.evaluate(el=>el.open))
+       errors.push(width+' '+slug+' optional archive sections failed to expand');
+     }
      if(width===390){
       await page.locator('[data-profile-tab="seasons"]').click();
       const seasons=page.locator('#season-history .season-accordion .season-entry');
@@ -2164,8 +2273,12 @@ try{
      // leaving the optional archive disclosure closed. Open it before
      // exercising its secondary controls.
      const postReturnSwitcher=page.locator('details.profile-section-switcher');
-     if(!await postReturnSwitcher.evaluate(el=>el.open))
+     if(!await postReturnSwitcher.isVisible())
+      await page.locator('.manager-home-hub button[data-profile-jump="seasons"]').click();
+     if(await postReturnSwitcher.isVisible()&&!await postReturnSwitcher.evaluate(el=>el.open))
       await postReturnSwitcher.locator(':scope > summary').click();
+     if(!await postReturnSwitcher.isVisible())
+      errors.push(width+' '+slug+' archive navigation unreachable after browser back');
      for(const category of ['overview','seasons','rivalries','advanced']){
       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
       await button.click();
