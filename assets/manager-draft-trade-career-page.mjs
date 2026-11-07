@@ -48,8 +48,10 @@ export async function mountDraftTradeCareer(host,manager){
   const positionStudy=buildDraftPositionPeers(draftProductionRows,manager);
   if(positionStudy.selectedPicks!==production.selectionCount)throw Error('Position-peer source scope mismatch');
   if(peerStudy.selectedPicks!==production.selectionCount)throw Error('Round-peer receipt scope differs from draft production');
+  // Include source-qualified partial events, visibly marked as incomplete.
+  // The older preview silently omitted these and showed only three trades.
   const related=tradeEvents(trade).filter(event=>
-   event.complete&&event.managers.includes(manager)&&event.year<=2025).slice(0,3);
+   event.managers.includes(manager)&&event.year<=2025).slice(0,10);
   box.replaceChildren(summary);
   box.append(elt('p','muted career-resume-intro',
    'Recorded draft picks and trades across available seasons. These counts are evidence, not drafting or trading grades.'));
@@ -197,19 +199,36 @@ export async function mountDraftTradeCareer(host,manager){
   }
   details.append(positionSection);
   const tradeSection=elt('section','career-resume-section career-resume-trades');
-  tradeSection.append(elt('h4',null,'Recent source-verified trade records'));
+  tradeSection.append(elt('h4',null,'Trade partners and recorded exchanges'));
+  tradeSection.append(elt('p','muted',
+   'Newest qualifying trades through 2025. The source lists assets credited to each receiving side; it may not capture draft picks, FAAB or every part of the exchange. 2026 provisional results are excluded.'));
   if(!related.length)tradeSection.append(elt('p','muted',
-   'No fully represented qualifying trades in this archive. This does not mean no trades occurred.'));
+   'No qualifying pre-2026 trade sides for this manager in this model. This does not mean no trades occurred; check the broader trade archive.'));
   for(const trade of related){
    const mySide=trade.sides.find(side=>side.manager===manager);
    const others=trade.managers.filter(n=>n!==manager);
    const item=elt('article','career-resume-trade');
-   item.append(elt('strong',null,trade.year+' · Week '+trade.week+' · With '+others.join(', ')));
-   item.append(elt('p',null,'Assets on this manager\'s recorded trade side: '+
-    (mySide.assets?.join(', ')||'Not identified in archive')));
+   const partner=others.length?others.join(', '):'not independently verified';
+   item.append(elt('strong',null,trade.year+' · Week '+trade.week+' · Trade with '+partner));
+   if(mySide?.date)item.append(elt('p','muted','Transaction date: '+mySide.date));
+   item.append(elt('p',null,manager+' received (recorded): '+
+    (mySide.assets?.length?mySide.assets.join(', '):'Assets not identified')));
+   if(others.length){
+    for(const side of trade.sides.filter(side=>side.manager!==manager)){
+     const name=side.manager==='Tom'?'Thommy':side.manager;
+     item.append(elt('p',null,name+' received (recorded): '+
+      (side.assets?.length?side.assets.join(', '):'Assets not identified')));
+    }
+   }else item.append(elt('p','muted','Counterparty and outgoing assets not confirmed by the qualifying source sides.'));
+   item.append(elt('p','muted',trade.complete
+    ?'Both managers have qualifying recorded sides. Additional components of the exchange may be missing.'
+    :'Partial source: this model does not verify both sides of the trade.'));
    item.append(deepLink(trade.year,manager));
    tradeSection.append(item);
   }
+  const fullArchive=elt('a','career-resume-link','Browse all documented trade events');
+  fullArchive.href=root+'analytics/manager-trade-intelligence.html?manager='+encodeURIComponent(manager);
+  tradeSection.append(fullArchive);
   details.append(tradeSection);
   // One-click topic navigation: open the research disclosure, scroll to the
   // selected subsection, and move keyboard focus to its heading.
