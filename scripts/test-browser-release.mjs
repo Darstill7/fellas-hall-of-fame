@@ -423,7 +423,7 @@ try{
       errors.push(width+' '+route+' manager hero must show the canonical public nickname');
      const heroActions=page.locator('main .hero > .buttons > a');
      if(await heroActions.count()!==2||
-        !((await heroActions.first().getAttribute('href'))==='#profile-features'))
+        !((await heroActions.first().getAttribute('href'))?.includes('expanded-records.html?manager=')))
       errors.push(width+' '+route+' hero still shows legacy multi-link navigation');
      if(['stilly','tom','stover','birch'].includes(slug)){
       await page.waitForFunction(()=>document.querySelector('#season-history .season-accordion')!==null,null,{timeout:8000}).catch(()=>{});
@@ -917,7 +917,7 @@ try{
      for(const [manager,expected] of [['Stew','Cost: $12 FAAB · Waiver claim'],
       ['Tony','Cost: $0 · Free agent (after waivers)']]){
       const details=page.locator('[data-report-manager="'+manager+'"] details.pickup-highlights');
-      await details.locator('summary').click();
+      await details.locator(':scope > summary').click();
       await page.waitForFunction(name=>{
        const el=document.querySelector('[data-report-manager="'+name+'"] .pickup-cost');
        return !!el&&el.textContent.startsWith('Cost: ')&&
@@ -1765,8 +1765,8 @@ try{
       errors.push(width+' '+slug+' competing older franchise-profile promo still visible');
      const heroActions=page.locator('main .hero .buttons a');
      if(await heroActions.count()!==2||
-        await heroActions.first().getAttribute('href')!=='#profile-features'||
-        await heroActions.nth(1).getAttribute('href')!=='../')
+        !(await heroActions.first().getAttribute('href'))?.includes('expanded-records.html?manager=')||
+        await heroActions.nth(1).getAttribute('href')!=='#profile-features')
       errors.push(width+' '+slug+' hero has duplicate or misleading navigation links');
      // The shared readability stylesheet must be loaded on each manager route.
      const readability=page.locator('link[href="../../assets/manager-profile-readability.css"]');
