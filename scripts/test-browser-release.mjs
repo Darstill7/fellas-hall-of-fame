@@ -239,6 +239,21 @@ try{
    }
    if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
     const managerName=route.split('/')[1]==='tom'?'Tom':route.split('/')[1].charAt(0).toUpperCase()+route.split('/')[1].slice(1);
+    const hub=page.locator('.manager-home-hub');
+    if(await hub.count()!==1||await hub.locator('.manager-home-hub-tile').count()!==6)
+     errors.push(width+' '+route+' missing six-destination personal manager hub');
+    else{
+     const destinations=await hub.locator('.manager-home-hub-tile').allInnerTexts();
+     for(const label of ['Career story','My records','Every season','Rivalries','Report card','Trades & pickups'])
+      if(!destinations.some(x=>x.includes(label)))errors.push(width+' '+route+' lacks hub destination '+label);
+     const recordHref=await hub.locator('a').filter({hasText:'My records'}).getAttribute('href');
+     if(!recordHref||!recordHref.includes('manager='))errors.push(width+' '+route+' personal Records link missing manager scope');
+     if(width===390){
+      const metrics=await hub.evaluate(el=>({right:el.getBoundingClientRect().right,tiles:[...el.querySelectorAll('.manager-home-hub-tile')].map(x=>x.getBoundingClientRect().height)}));
+      if(metrics.right>width+2||metrics.tiles.some(h=>h<60))errors.push(width+' '+route+' manager hub overflow or tap-target failure');
+     }
+    }
+
     const recordLink=page.locator('main .hero .buttons a[href*="expanded-records.html?manager="]');
     if(await recordLink.count()!==1)errors.push(width+' '+route+' no direct Records action on manager hero');
     const recordOverview=page.locator('[data-expanded-records-profile] .records-profile-summary');
