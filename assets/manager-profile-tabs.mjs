@@ -639,6 +639,10 @@ function mountCareerExhibit(){
  feature.append(kicker,h,intro,actions);
  hero.after(feature);
  feature.after(hub);
+ // The résumé must greet visitors before any browse controls. Keep switching
+ // directly below the achievements, with the biography after the switcher.
+ const profileSwitcher=document.querySelector('.hof-manager-switcher');
+ if(profileSwitcher)hero.after(profileSwitcher);
  hub.classList.add('hof-nav-curated');
  const hubHeading=hub.querySelector('h2');
  if(hubHeading)hubHeading.textContent='Explore the legacy';
