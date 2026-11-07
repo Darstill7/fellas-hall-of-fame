@@ -928,8 +928,10 @@ try{
      if(entries!==30)errors.push(width+' report cards expected three selected pickup examples per manager, got '+entries);
      const first=highlights.first();
      await first.locator(':scope > summary').click();
+     const methodology=first.locator('details.pickup-method > summary');
+     if(await methodology.count()===1)await methodology.click();
      const content=await first.innerText();
-     if(!content.includes('starts')||!content.includes('lineup pts')||
+     if(!content.includes('starts')||!content.includes('starter pts')||
         !content.includes('Not all pickups')||!content.includes('Not a FAAB skill grade'))
       errors.push(width+' pickup highlights missing actual starter-point evidence or research caveats');
      // Confirm an actually paid waiver and an unpriced ordinary add against
