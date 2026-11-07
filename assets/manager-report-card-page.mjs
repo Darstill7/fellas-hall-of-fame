@@ -101,7 +101,7 @@ try {
    '" data-pickup-transaction="'+esc(x.transactionId)+'" data-pickup-player="'+esc(x.player)+
    '" data-pickup-type="'+esc(x.acquisitionType)+'">Cost: checking records…</span></li>').join('');
   return '<details class="pickup-highlights"><summary>Pickup highlights <span class="pickup-summary-meta">Top '+sorted.length+' recovered starter-point totals</span></summary>'+
-   '<p class="pickup-lead">Which additions actually made the lineup? These are selected archived examples, not a complete pickup ranking.</p>'+
+   '<p class="pickup-lead">Which additions actually made the lineup? Not all pickups are represented: these are selected archived examples, not a complete pickup ranking.</p>'+
    '<ul>'+label+'</ul>'+
    '<details class="pickup-method"><summary>How these pickups are measured</summary><p class="fine">Sorted by verified points scored in starts after acquisition. Acquisitions without documented starts are not represented here. The archive is incomplete, including 2026; starts and points are observations, not FAAB skill, decision value, adjusted player value or a complete waiver evaluation.</p></details></details>';
  };
