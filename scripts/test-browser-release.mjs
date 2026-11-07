@@ -238,6 +238,18 @@ try{
     if(!noPartialGrade)errors.push(width+' 2026 partial keeper season leaked completed season grade');
    }
    if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
+    const managerName=route.split('/')[1]==='tom'?'Tom':route.split('/')[1].charAt(0).toUpperCase()+route.split('/')[1].slice(1);
+    const recordLink=page.locator('main .hero .buttons a[href*="expanded-records.html?manager="]');
+    if(await recordLink.count()!==1)errors.push(width+' '+route+' no direct Records action on manager hero');
+    const recordOverview=page.locator('[data-expanded-records-profile] .records-profile-summary');
+    await recordOverview.waitFor({state:'attached',timeout:12000}).catch(()=>{});
+    if(await recordOverview.count()!==1||!((await recordOverview.innerText()).includes('first-place categories')))
+     errors.push(width+' '+route+' lacks an embedded verified record résumé');
+    const archiveSwitcher=page.locator('details.profile-section-switcher');
+    if(await archiveSwitcher.count()===1&&width===390){
+     const metrics=await archiveSwitcher.evaluate(el=>({open:el.open,height:el.getBoundingClientRect().height}));
+     if(metrics.open||metrics.height>86)errors.push(width+' '+route+' legacy archive navigator remains oversized on mobile');
+    }
     const hierarchy=await page.evaluate(()=>{
      const hero=document.querySelector('main .hero'),action=hero?.querySelector(':scope > .buttons'),
       snapshot=hero?.querySelector(':scope > .profile-career-snapshot'),
@@ -681,7 +693,7 @@ try{
     for(const panel of await highlights.all()){
      const shown=await panel.locator('li').count();
      const summary=await panel.locator(':scope > summary').innerText();
-     if(!summary.includes(shown+' examples'))
+     if(!summary.includes('Top '+shown+' recovered starter-point totals'))
       errors.push(width+' report card pickup count differs from displayed examples');
     }
     const coverageGuide=page.locator('details.report-coverage-guide');
