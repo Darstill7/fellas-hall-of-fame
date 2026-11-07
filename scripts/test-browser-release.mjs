@@ -261,7 +261,7 @@ try{
      const links=chapterPanel.locator('a.manager-championship-story-card');
      if(await links.count()!==championships.length)errors.push(width+' '+route+' missing verified championship season links');
      for(const year of championships)
-      if(await links.locator('[href*="year='+year+'"]').count()!==1)errors.push(width+' '+route+' missing '+year+' championship story');
+      if(await chapterPanel.locator('a.manager-championship-story-card[href*="year='+year+'"]').count()!==1)errors.push(width+' '+route+' missing '+year+' championship story');
     }else if(await chapterPanel.count())errors.push(width+' '+route+' falsely shows a championship feature');
 
     const metrics=panel.locator('.profile-playoff-metric');
