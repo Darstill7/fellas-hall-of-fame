@@ -255,7 +255,7 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const actions=hero?.querySelector('.buttons');
  if(actions){
   // Start/Sit is a named feature below; no duplicate hero shortcut.
-  actions.innerHTML='<a class="btn" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(manager==='Thommy'?'Tom':manager)+'">My Records</a><a class="btn secondary" href="../">All managers</a>';
+  actions.innerHTML='<a class="btn" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(manager==='Thommy'?'Tom':manager)+'">My Records</a><a class="btn secondary" href="#profile-features">Explore topics</a>';
  }
  const quick=document.createElement('section');
  quick.className='profile-quickstart';quick.setAttribute('aria-label',manager+' career at a glance');
