@@ -1103,6 +1103,20 @@ try{
     }finally{await visitor.close();}
    }
    if(route===''){
+    const featuredBeforeManager=await page.evaluate(()=>{
+     const featured=document.querySelector('main .section.shell .home-featured-card');
+     const manager=document.querySelector('main .manager-showcase');
+     return Boolean(featured&&manager&&(featured.compareDocumentPosition(manager)&Node.DOCUMENT_POSITION_FOLLOWING));
+    });
+    if(!featuredBeforeManager)errors.push(width+' desktop homepage must preserve accessible featured-destination order');
+    if(width===390){
+     const firstManager=page.locator('#home-manager-mobile .mobile-manager-row').first();
+     await firstManager.waitFor({state:'visible',timeout:15000}).catch(()=>{});
+     const top=await firstManager.evaluate(el=>el.getBoundingClientRect().top).catch(()=>9999);
+     if(top>695)errors.push(width+' mobile manager card is below first screen: '+Math.round(top)+'px');
+    }
+   }
+   if(route===''){
     const leagueSection=page.locator('section.section.shell').filter({has:page.getByRole('heading',{name:'Explore the league'})});
     const recordsSection=page.locator('section.section.shell[aria-labelledby="season-records-home"]');
     if(await leagueSection.count()!==1||await recordsSection.count()!==1||
