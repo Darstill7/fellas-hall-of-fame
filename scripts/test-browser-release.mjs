@@ -988,6 +988,13 @@ try{
     const research=await context.newPage();
     try{
      await research.goto(baseUrl,{waitUntil:'networkidle',timeout:30000});
+     // The four core destinations must precede the optional ratings directory.
+     const homeOrder=await research.evaluate(()=>{
+      const core=document.querySelector('main .section.shell .home-featured-card');
+      const manager=document.querySelector('main .manager-showcase');
+      return Boolean(core&&manager&&(core.compareDocumentPosition(manager)&Node.DOCUMENT_POSITION_FOLLOWING));
+     });
+     if(!homeOrder)errors.push(width+' homepage must show core league destinations before manager ratings');
      const more=research.locator('details.home-explore-more');
      const core=research.locator('main .section.shell').filter({has:research.getByRole('heading',{name:'Explore the league'})}).locator(':scope > .cards > a.card');
      if(await more.count()!==1||await more.evaluate(el=>el.open)||
