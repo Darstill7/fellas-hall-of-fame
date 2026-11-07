@@ -250,7 +250,8 @@ try{
      if(!recordHref||!recordHref.includes('manager='))errors.push(width+' '+route+' personal Records link missing manager scope');
      if(width===390){
       const metrics=await hub.evaluate(el=>({right:el.getBoundingClientRect().right,tiles:[...el.querySelectorAll('.manager-home-hub-tile')].map(x=>x.getBoundingClientRect().height)}));
-      if(metrics.right>width+2||metrics.tiles.some(h=>h<60))errors.push(width+' '+route+' manager hub overflow or tap-target failure');
+      if(metrics.right>width+2)errors.push(width+' '+route+' manager hub exceeds viewport by '+(metrics.right-width).toFixed(1)+'px');
+      if(metrics.tiles.some(h=>h<60))errors.push(width+' '+route+' manager hub tap target smaller than 60px: '+JSON.stringify(metrics.tiles));
      }
     }
 
@@ -926,7 +927,7 @@ try{
      const entries=await highlights.locator('li').count();
      if(entries!==30)errors.push(width+' report cards expected three selected pickup examples per manager, got '+entries);
      const first=highlights.first();
-     await first.locator('summary').click();
+     await first.locator(':scope > summary').click();
      const content=await first.innerText();
      if(!content.includes('starts')||!content.includes('lineup pts')||
         !content.includes('Not all pickups')||!content.includes('Not a FAAB skill grade'))
@@ -1081,9 +1082,9 @@ try{
       errors.push(width+' first-visit navigation failed to reach manager directory');
      await visitor.locator('#manager-directory-cards a.manager[href="stilly/"]').click();
      await visitor.waitForURL('**/managers/stilly/',{timeout:10000});
-     await visitor.locator('#profile-features').waitFor({state:'visible',timeout:10000});
-     if(!await visitor.locator('#profile-features').isVisible())
-      errors.push(width+' first-visit directory manager link failed to reveal feature navigation');
+     await visitor.locator('.manager-home-hub').waitFor({state:'visible',timeout:10000});
+     if(!await visitor.locator('.manager-home-hub-grid').isVisible())
+      errors.push(width+' first-visit directory link failed to reveal manager home hub');
     }catch(error){
      errors.push(width+' first-visit end-to-end navigation journey failed: '+String(error));
     }finally{await visitor.close();}
