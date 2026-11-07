@@ -252,6 +252,18 @@ try{
     if(!hierarchy)errors.push(width+' '+route+' first-screen navigation and résumé hierarchy broken');
     const panel=page.locator('#profile-playoff-resume');
     await panel.waitFor({state:'visible',timeout:10000});
+    // Every champion's profile links directly to its verified title features.
+    const championSeasons={tom:[2016,2017,2018,2024],birch:[2019],tony:[2021],stover:[2022],stilly:[2023],scott:[2025]};
+    const slug=route.split('/')[1],championships=championSeasons[slug]||[];
+    const chapterPanel=page.locator('#manager-championship-stories');
+    if(championships.length){
+     await chapterPanel.waitFor({state:'visible',timeout:12000}).catch(()=>{});
+     const links=chapterPanel.locator('a.manager-championship-story-card');
+     if(await links.count()!==championships.length)errors.push(width+' '+route+' missing verified championship season links');
+     for(const year of championships)
+      if(await links.locator('[href*="year='+year+'"]').count()!==1)errors.push(width+' '+route+' missing '+year+' championship story');
+    }else if(await chapterPanel.count())errors.push(width+' '+route+' falsely shows a championship feature');
+
     const metrics=panel.locator('.profile-playoff-metric');
     if(await metrics.count()!==3)
      errors.push(width+' '+route+' missing three verified playoff résumé metrics');
