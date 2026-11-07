@@ -37,7 +37,16 @@ const tile=(title,value,sub,tag="")=>'<article class="records-lab-tile"><small>'
  +'<p>'+escapeHtml(sub)+'</p></article>';
 function signatureTiles(data,name,limit=3){
  const sig=data.signatures?.[name];if(!sig)return "";
- return sig.highlights.slice(0,limit).map(r=>tile(r.label,fmt(r.value,r.unit),detail({...r,manager:name}),r.scope==="League top-three"?"League top three · #"+r.leagueRank:r.scope==="Personal best"?"Personal mark · #"+r.leagueRank+" league rank":r.scope)).join("");
+ return sig.highlights.slice(0,limit).map(highlight=>{
+  // A signature must never hide the manager's better, source-verified ranking
+  // in the same category (e.g. 11 rival wins instead of 10).
+  const category=data.categories.find(c=>c.key===highlight.key);
+  const best=category?.leaders.filter(r=>r.manager===name).sort((a,b)=>a.rank-b.rank)[0];
+  const corrected=best&&Number.isInteger(highlight.leagueRank)&&best.rank<highlight.leagueRank;
+  const row=corrected?{...highlight,...best,key:highlight.key,label:highlight.label,unit:category.unit,leagueRank:best.rank,scope:best.rank<=3?"League top-three":"Personal best"}:highlight;
+  const badge=row.scope==="League top-three"?"League top three · #"+row.leagueRank:row.scope==="Personal best"?"Personal mark · #"+row.leagueRank+" league rank":row.scope;
+  return tile(row.label,fmt(row.value,row.unit),detail({...row,manager:name}),badge);
+ }).join("");
 }
 function managerLeagueHolders(data,name){
  return data.categories.flatMap(c=>c.leaders.filter(r=>r.manager===name&&r.rank<=3).map(r=>({category:c,record:r})))
