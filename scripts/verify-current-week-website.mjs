@@ -17,7 +17,7 @@ const scope=mirror.bySeason['2026'];
 if(scope.regularGames!==games.length||scope.standings.length!==10)throw Error('Season mirror has stale matchup count or fewer than 10 managers');
 if(guide['2026'].games!==games.length||!guide['2026'].summary.includes('Week '+week))
  throw Error('Season guide did not refresh to latest week');
-if(!String(luck.scope).includes('Week '+week))throw Error('All-play/luck ratings still use an older current-week sample');
+if(!new RegExp('Week\\s*'+week+'\\b').test(String(luck.scope)))throw Error('All-play/luck ratings still use an older current-week sample');
 for(const [manager,row] of Object.entries(race.teams)){
  const name=manager==='Tom'?'Thommy':manager;
  const found=scope.standings.find(x=>x.manager===name);
