@@ -651,8 +651,9 @@ try{
     const managerPicker=page.locator('#manager');
     await managerPicker.selectOption('Stilly');
     await page.locator('#years').selectOption('2026');
-    await page.locator('.trade-exchange').first().waitFor({state:'visible',timeout:15000});
     const season=page.locator('#seasons .season');
+    await season.locator('details').first().locator('summary').click();
+    await page.locator('.trade-exchange').first().waitFor({state:'visible',timeout:15000});
     const tradeText=await season.innerText();
     if(!tradeText.includes('Received · Stilly')||!tradeText.includes("Ja'Marr Chase")||!tradeText.includes('Sent · JMid')||!tradeText.includes('Davante Adams')||!tradeText.includes('George Kittle')||!tradeText.includes('Breece Hall')||!tradeText.includes('−15.1 pts'))
      errors.push(width+' Franchise Timeline missing full verified 2026 trade sides or qualified point delta');
@@ -677,6 +678,7 @@ try{
      }
     }
     await page.locator('#years').selectOption('2025');
+    await page.locator('#seasons .season details').first().locator('summary').click();
     const three=page.locator('.trade-exchange').filter({hasText:'Amon-Ra St. Brown'}).first();
     await three.waitFor({state:'visible',timeout:15000});
     const threeText=await three.locator('xpath=..').innerText();
