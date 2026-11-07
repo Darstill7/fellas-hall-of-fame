@@ -270,6 +270,28 @@ try{
     const chapterPanel=page.locator('#manager-championship-stories');
     if(championships.length){
      await chapterPanel.waitFor({state:'visible',timeout:12000}).catch(()=>{});
+     const trophyCase=await chapterPanel.evaluate(el=>{
+      const rect=el.getBoundingClientRect(),hero=document.querySelector('main .hero');
+      const ringLinks=[...el.querySelectorAll('a.championship-ring')];
+      return {count:Number(el.dataset.championshipCount),top:rect.top+window.scrollY,
+       heroBottom:(hero?.getBoundingClientRect().bottom||0)+window.scrollY,
+       right:rect.right,years:ringLinks.map(a=>Number(a.textContent.match(/20\d\d/)?.[0]||0)),
+       rings:ringLinks.map(a=>({height:a.getBoundingClientRect().height,right:a.getBoundingClientRect().right})),
+       tally:el.querySelector('.championship-tally strong')?.textContent?.trim()};
+     });
+     if(trophyCase.count!==championships.length||trophyCase.tally!==String(championships.length)||
+        trophyCase.top<trophyCase.heroBottom-3||
+        JSON.stringify(trophyCase.years)!==JSON.stringify([...championships].sort((a,b)=>a-b)))
+      errors.push(width+' '+route+' championship trophy case incorrect identity, count, or placement: '+JSON.stringify(trophyCase));
+     if(width===390&&(trophyCase.right>width+2||trophyCase.rings.some(r=>r.height<44||r.right>width+2)))
+      errors.push(width+' '+route+' mobile title rings overflow or too small: '+JSON.stringify(trophyCase));
+     const finalReceipts=chapterPanel.locator('.championship-title-final');
+     if(await finalReceipts.count()!==championships.length||
+        await finalReceipts.locator('.championship-title-final-score').count()!==championships.length)
+      errors.push(width+' '+route+' trophy case must show verified final opponent and score for each title');
+     const receipts=await finalReceipts.allInnerTexts();
+     if(receipts.some(line=>!line.includes('TITLE GAME')||!line.includes('VS ')||(line.match(/[0-9]+[.][0-9][0-9]/g)||[]).length!==2))
+      errors.push(width+' '+route+' championship final-score receipt missing context');
      const links=chapterPanel.locator('a.manager-championship-story-card');
      if(await links.count()!==championships.length)errors.push(width+' '+route+' missing verified championship season links');
      for(const year of championships)
