@@ -238,9 +238,20 @@ try{
          findings.push(engine+' '+width+' '+key+' first-screen career headlines unreadable '+JSON.stringify(headlineFacts));
         // The detailed archive starts hidden by design. Open it through the
         // same manager feature control a visitor uses before measuring.
+        const researchDisclosure=page.locator('details.manager-home-more');
+        if(await researchDisclosure.count()!==1)throw Error('Manager research disclosure missing');
+        // Follow the real visitor path: first open the optional research shelf.
+        // Clicking a hidden feature directly caused 30-second timeouts on every
+        // manager page and masked actual layout regressions in the visual gate.
+        if(!await researchDisclosure.evaluate(node=>node.open)){
+         await researchDisclosure.locator(':scope > summary').click({timeout:5000});
+        }
+        if(!await researchDisclosure.evaluate(node=>node.open))
+         throw Error('Manager research disclosure did not open');
         const careerFeature=page.locator('#profile-features button[data-feature-target="#verified-history-panel"]');
         if(await careerFeature.count()!==1)throw Error('Career records feature button missing');
-        await careerFeature.click();
+        if(!await careerFeature.isVisible())throw Error('Career records feature inaccessible after opening research');
+        await careerFeature.click({timeout:5000});
         if(!await page.locator('#historical-record-profile').isVisible())
          throw Error('Career feature did not reveal the record book');
         // Regression for the missing .fr-historical class: without this
