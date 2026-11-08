@@ -49,6 +49,8 @@ jobs:
         run: node scripts/verify-2023-evans-ownership.mjs
       - name: Verify all 44 owner-reconciled expanded Record Book categories
         run: node scripts/verify-expanded-records.mjs
+      - name: Verify legendary championship comeback and playoff records
+        run: node scripts/verify-legendary-records.mjs
       - name: Verify postseason record book against corrected brackets
         run: node scripts/verify-postseason-records.mjs
       - name: Guard legitimate three-team trades in source-qualified Trade Museum
