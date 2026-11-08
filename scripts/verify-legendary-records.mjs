@@ -98,7 +98,7 @@ const calc={
  'closest-opening-playoff-loss':nearest('opening'),
  'closest-semifinal-loss':nearest('semifinal'),
  'closest-championship-final':top(verifiedPostseason.filter(x=>x.round==='final').map(x=>({...x,manager:x.winner})),x=>x.margin,'min'),
- 'largest-championship-margin':maxFinal,
+ 'largest-championship-margin':top(verifiedPostseason.filter(x=>x.round==='final').map(x=>({...x,manager:x.winner})),x=>x.margin),
  'most-title-game-losses-without-ring':top(titlelessCounts,x=>x.finals)
 };
 const signature=rows=>rows.map(r=>r.manager+':'+r.year).sort().join('|');
