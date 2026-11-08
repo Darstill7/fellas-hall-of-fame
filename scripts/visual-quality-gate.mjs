@@ -136,7 +136,7 @@ try{
          return {value:node.textContent?.trim(),lines:lines.length,scroller:document.documentElement.scrollWidth,viewport:innerWidth,
            fit:rect.right<=innerWidth+3&&rect.left>=-3,cardFit:!!container&&container.getBoundingClientRect().width>=rect.width-1};
         });
-        if(metrics.lines!==1||!/^\\d{2}\\.\\d$/.test(metrics.value)||!metrics.fit||!metrics.cardFit)
+        if(metrics.lines!==1||!/^\d{2}\.\d$/.test(metrics.value)||!metrics.fit||!metrics.cardFit)
          findings.push(engine+' '+width+' manager OVR wraps or clips '+JSON.stringify(metrics));
         if(await page.locator('.card .scouting-details').count()!==await page.locator('.card').count())
          findings.push(engine+' '+width+' manager research details not grouped under disclosure');
