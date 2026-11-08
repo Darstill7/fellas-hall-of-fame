@@ -6,7 +6,7 @@ import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
- 'analytics/power-ratings.html','analytics/rivalries.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
+ 'analytics/power-ratings.html','analytics/rivalries.html','analytics/legendary-records.html','analytics/draft-value-lab.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
@@ -150,6 +150,21 @@ try{
         if(events!==3)findings.push(engine+' '+width+' timeline lost one or more 2025 Stilly trade events: '+events);
         if(!await page.locator('a[href="../seasons/2026.html"]').count())
          findings.push(engine+' '+width+' timeline archival freshness notice missing');
+       }
+       if(route==='analytics/draft-value-lab.html'){
+        const select=page.locator('#manager-choice');
+        if(!await select.count())throw Error('Draft Value Lab manager filter missing');
+        await select.selectOption('Stilly');
+        const normal=page.locator('#value-results tbody tr');
+        const draftRows=await normal.count();
+        const woody=await page.locator('#value-results tbody tr').filter({hasText:'Woody Marks'}).count();
+        if(draftRows!==13||woody!==1) findings.push(engine+' '+width+' Draft Value Lab did not show 13 nonkeeper selections and Woody Marks');
+        await page.locator('[data-kind="keeper"]').click({timeout:5000});
+        const keptRows=await page.locator('#value-results tbody tr').count();
+        const daniels=await page.locator('#value-results tbody tr').filter({hasText:'Jayden Daniels'}).count();
+        if(keptRows!==2||daniels!==1) findings.push(engine+' '+width+' Draft Value Lab keeper slot selection unavailable');
+        const overflow=await page.evaluate(()=>({width:document.documentElement.scrollWidth,viewport:innerWidth}));
+        if(overflow.width>overflow.viewport+5)findings.push(engine+' '+width+' Draft Value Lab has horizontal page overflow '+JSON.stringify(overflow));
        }
        if(route==='analytics/legendary-records.html'){
         const legend=await page.evaluate(()=>({
