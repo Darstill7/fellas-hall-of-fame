@@ -69,4 +69,14 @@ assert.ok(page.includes('draft_keeper_value_pilot_2025_2026w8_v1.json'),'Value p
 assert.ok(page.includes('Keeper decision grade: not yet verified'),'Research grade disclaimer required');
 assert.ok(page.includes('Bench points')||page.includes('bench scoring'),'Bench scoring exclusion required');
 assert.ok(page.includes('Round 13'),'Woody benchmark must be prominent');
+assert.ok(page.includes('id="efficiency-rows"')&&page.includes('const redrawEfficiency=()=>')&&page.includes("$('draft-year').addEventListener('change',redrawEfficiency)"),'Manager Value Points per Pick must track the selected season');
+for(const year of [2025,2026]){
+ const managers=[...new Set(data.draftPicks.filter(x=>x.year===year).map(x=>x.manager))];
+ assert.equal(managers.length,10,'Exactly ten draft efficiency managers '+year);
+ for(const manager of managers){
+  const picks=data.draftPicks.filter(x=>x.year===year&&x.manager===manager);
+  assert.equal(picks.length,13,'Exactly thirteen keeper-excluded draft picks '+year+' '+manager);
+  assert.ok(picks.every(x=>Number.isFinite(x.pointsAbovePeerMedian)),'Value peer receipts required '+year+' '+manager);
+ }
+}
 console.log('DRAFT + KEEPER PILOT VERIFIED: 260 nonkeeper draft receipts (2025/2026), 20 keeper observations, 2026 Week 7–8 original-team starts, source-backed value and no fabricated keeper grade.');
