@@ -69,4 +69,18 @@ assert.ok(page.includes('draft_keeper_value_pilot_2025_2026w8_v1.json'),'Value p
 assert.ok(page.includes('Keeper decision grade: not yet verified'),'Research grade disclaimer required');
 assert.ok(page.includes('Bench points')||page.includes('bench scoring'),'Bench scoring exclusion required');
 assert.ok(page.includes('Round 13'),'Woody benchmark must be prominent');
+assert.ok(page.includes('id="manager-value-ranking"')&&page.includes('Manager Draft Value per Pick')&&
+ page.includes('const updateManagerRanking=year=>')&&page.includes('data-value-manager'),
+ 'Interactive ten-manager value-per-pick ranking is missing');
+for(const year of [2025,2026]){
+ const managers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
+ const counts=managers.map(manager=>({manager,rows:data.draftPicks.filter(p=>p.year===year&&p.manager===manager)}));
+ assert.ok(counts.every(m=>m.rows.length===13),'Each manager must have thirteen nonkeeper selections for '+year);
+ const perPick=counts.map(m=>({manager:m.manager,value:m.rows.reduce((n,p)=>n+p.pointsAbovePeerMedian,0)/m.rows.length}));
+ assert.ok(perPick.every(m=>Number.isFinite(m.value)),'Draft ranking has nonfinite value '+year);
+ const sort=[...perPick].sort((a,b)=>b.value-a.value);
+ assert.equal(sort.length,10,'Ten ranked managers '+year);
+ if(year===2026){assert.equal(sort[0].manager,'Mitch');assert.equal(sort[1].manager,'Birch');}
+}
+
 console.log('DRAFT + KEEPER PILOT VERIFIED: 260 nonkeeper draft receipts (2025/2026), 20 keeper observations, 2026 Week 7–8 original-team starts, source-backed value and no fabricated keeper grade.');
