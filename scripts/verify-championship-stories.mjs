@@ -16,6 +16,10 @@ for(const story of stories.seasons){
  if(!champ||bracket?.champion!==champ)throw Error('Champion source disagreement '+y);
  if(!story.title||story.title.length<15||!story.dek||story.dek.length<40||story.sections.length!==4)
   throw Error('Championship story missing complete four-act feature structure '+y);
+ if(!story.insideTheRun||!story.insideTheRun.heading||!Array.isArray(story.insideTheRun.paragraphs)||story.insideTheRun.paragraphs.length!==2)throw Error('Missing championship deep-dive chapter '+y);
+ const deepDive=story.insideTheRun.paragraphs.join(' ');
+ if(deepDive.split(/\s+/).length<95||/\b(?:undefined|NaN|tbd)\b|lorem ipsum|coming soon/i.test(deepDive))throw Error('Championship deep-dive incomplete '+y);
+ if(y<=2019&&!/(?:ESPN|starter)/i.test(deepDive))throw Error('Historical ESPN limitations omitted '+y);
  const text=story.sections.map(s=>s.text).join(' ');
  const words=text.split(/\s+/).length;
  if(words<220||words>650)throw Error('Championship story too thin or too dense '+y+' '+words);
@@ -39,6 +43,7 @@ for(const story of stories.seasons){
 }
 const page=fs.readFileSync('hall/championship-stories.html','utf8');
 const hall=fs.readFileSync('hall/index.html','utf8');
+if(!page.includes('inside-run')||!page.includes('story.insideTheRun.paragraphs'))throw Error('Deep-dive chapter absent from championship feature renderer');
 for(const token of ['championship_season_stories_2016_2025_v1.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json','aria-label="Championship story archive"','id="season-picker"','id="championship-feature"'])
  if(!page.includes(token))throw Error('Missing source or navigation feature: '+token);
 for(let y=2016;y<=2025;y++)if(!hall.includes('championship-stories.html?year='+y))
