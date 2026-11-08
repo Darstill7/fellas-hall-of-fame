@@ -36,6 +36,48 @@ for(let year=2016;year<=2025;year++){
  }
 }
 const champions=all.filter(r=>r.champion),finalists=all.filter(r=>r.finalist),playoffs=all.filter(r=>r.playoffs);
+
+// Reconstruct only championship-bracket rounds with independently verified
+// bracket participants. Sleeper's "postseason_unclassified" includes consolation
+// games, so stage labels alone are NEVER sufficient to identify elimination games.
+const verifiedPostseason=[];
+for(let year=2016;year<=2025;year++){
+ const b=brackets.find(x=>x.year===year),yearGames=weekly.bySeason[String(year)].games.filter(g=>g.stage!=='regular');
+ const entryNames=Object.keys(b.seedByManager||{}).map(normalize),byes=(b.byes||[]).map(normalize);
+ const semis=(b.semifinalists||[]).map(normalize),lastTwo=(b.finalists||[]).map(normalize);
+ const lastWeek=Math.max(...yearGames.map(g=>g.week));
+ for(const g of yearGames){
+  const home=normalize(g.home),away=normalize(g.away);
+  let round=null;
+  if(year<=2019){
+   if(g.stage!=='championship_bracket')continue;
+   round=g.week===lastWeek?'final':g.week===lastWeek-1?'semifinal':'opening';
+  }else if(g.week===lastWeek&&lastTwo.includes(home)&&lastTwo.includes(away)){
+   round='final';
+  }else if(g.week===lastWeek-1&&semis.includes(home)&&semis.includes(away)){
+   round='semifinal';
+  }else if(year>=2022&&g.week===lastWeek-2&&entryNames.includes(home)&&entryNames.includes(away)&&!byes.includes(home)&&!byes.includes(away)){
+   round='opening';
+  }
+  if(!round)continue;
+  const winner=normalize(g[g.winner==='HOME'?'home':'away']);
+  const loser=winner===home?away:home;
+  const margin=Math.round(Math.abs(g.homeScore-g.awayScore)*100)/100;
+  verifiedPostseason.push({year,manager:loser,winner,loser,round,margin,aggregate:!!g.twoWeekAggregate});
+ }
+}
+const signed=rows=>rows.map(x=>x.manager+':'+x.year).sort().join('|');
+const nearest=(kind)=>top(verifiedPostseason.filter(x=>x.round===kind),x=>x.margin,'min');
+const maxFinal=top(verifiedPostseason.filter(x=>x.round==='final').map(x=>({...x,manager:x.winner})),x=>x.margin);
+const lastFinals=verifiedPostseason.filter(x=>x.round==='final');
+if(lastFinals.length!==10)throw Error('Verified postseason final count must be ten, got '+lastFinals.length);
+const withoutRing=new Set(all.filter(x=>x.champion).map(x=>x.manager));
+const titlelessCurrent=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'].filter(x=>!withoutRing.has(x));
+const titlelessCounts=titlelessCurrent.map(manager=>({
+ manager,finals:lastFinals.filter(x=>x.loser===manager).length,
+ year:Math.max(0,...lastFinals.filter(x=>x.loser===manager).map(x=>x.year))
+})).filter(x=>x.finals>0);
+
 const runnersUp=finalists.filter(r=>!r.champion);
 const finalSeedMargins=champions.map(winner=>{const runner=runnersUp.find(r=>r.year===winner.year);if(!runner)throw Error('Missing verified runner-up '+winner.year);return {...winner,seedGap:winner.seed-runner.seed};});
 const top=(rows,key,mode='max')=>{const values=rows.map(key);const best=mode==='max'?Math.max(...values):Math.min(...values);return rows.filter(x=>Math.abs(key(x)-best)<1e-9)};
@@ -53,7 +95,12 @@ const calc={
  'best-record-no-title':top(all.filter(x=>!x.champion),x=>x.winPct),
  'deepest-playoff-qualifier-hole':top(playoffs,x=>-x.deepest),
  'biggest-final-seed-upset':top(finalSeedMargins,x=>x.seedGap),
- 'lowest-seed-runner-up':top(runnersUp,x=>x.seed)
+ 'lowest-seed-runner-up':top(runnersUp,x=>x.seed),
+ 'closest-opening-playoff-loss':nearest('opening'),
+ 'closest-semifinal-loss':nearest('semifinal'),
+ 'closest-championship-final':nearest('final'),
+ 'largest-championship-margin':maxFinal,
+ 'most-title-game-losses-without-ring':top(titlelessCounts,x=>x.finals)
 };
 const signature=rows=>rows.map(r=>r.manager+':'+r.year).sort().join('|');
 if(exhibits.categories.length!==Object.keys(calc).length)throw Error('Legendary record count changed without verifier update');
