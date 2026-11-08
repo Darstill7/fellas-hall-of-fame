@@ -121,6 +121,35 @@ if(profileHero&&!profileHero.querySelector('[data-profile-career-snapshot]')){
   (lead||profileHero.querySelector('h1'))?.after(snapshot);
  }
 }
+// The first screen should tell one memorable, sourced story before the deep research.
+// Leave the detailed archive and existing canonical record widgets intact.
+async function mountVerifiedDefiningMoment(){
+ const name=profileName==='Tom'?'Thommy':profileName;
+ if(!profileHero||!name||profileHero.querySelector('[data-defining-moment]'))return;
+ try{
+  const response=await fetch('../../data/manager_defining_moments_verified_v1.json',{cache:'no-store'});
+  if(!response.ok)throw Error('Verified defining moments HTTP '+response.status);
+  const archive=await response.json(),record=archive.managers?.[name];
+  if(!record)return;
+  const safe=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const element=document.createElement('aside');
+  element.className='profile-defining-moment '+(record.type==='championship'?'profile-moment-champion':'profile-moment-career');
+  element.dataset.definingMoment=name;
+  element.setAttribute('aria-label','Defining franchise moment');
+  element.innerHTML='<div class="profile-moment-kicker">'+safe(record.eyebrow)+'</div>'+
+   '<div class="profile-moment-main"><div><h2>'+safe(record.headline)+'</h2><p>'+safe(record.story)+'</p></div>'+
+   '<strong class="profile-moment-stat">'+safe(record.metric)+'</strong></div>'+
+   '<a href="'+safe(record.url)+'">'+safe(record.action)+' →</a>'+
+   '<div class="profile-moment-source">Verified historical milestone · completed seasons through 2025</div>';
+  const snapshot=profileHero.querySelector('.profile-career-snapshot');
+  if(snapshot)snapshot.after(element);
+  else profileHero.querySelector('h1')?.after(element);
+ }catch(error){
+  console.warn('Optional defining moment unavailable',error);
+ }
+}
+mountVerifiedDefiningMoment();
+
 // A compact source-backed ownership preview sits beneath the career snapshot.
 // Verified categories only; zero does not diminish other accomplishments.
 async function mountProfileRecordOwnership(){

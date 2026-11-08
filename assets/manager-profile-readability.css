@@ -322,3 +322,26 @@ main .profile-career-resume .career-resume-metric span{line-height:1.5}
 .profile-finish-shitter .profile-finish-name{color:#ecc8fa}
 .profile-playoff-timeline li.profile-finish-regular .profile-finish-name{color:#b9cbd5;font-weight:700}
 @media(max-width:580px){.profile-playoff-history{padding:0 11px}.profile-playoff-timeline li.profile-finish-row{grid-template-columns:52px minmax(0,1fr);min-height:60px;padding:11px 9px;gap:9px}.profile-finish-name{font-size:13px}.profile-finish-champion .profile-finish-name{font-size:16px}.profile-finish-icon{font-size:18px}.profile-finish-legend{gap:7px 10px}.profile-finish-legend-item{font-size:10px}}
+
+
+/* One verifiable headline per franchise: museum feature, not another stat wall. */
+main .hero .profile-defining-moment{margin:18px 0 16px;border:1px solid #526c7c;border-radius:14px;background:linear-gradient(145deg,#162e3d,#0d202e);padding:clamp(15px,2.7vw,24px);min-width:0}
+main .hero .profile-defining-moment.profile-moment-career{border-color:#6b8491;background:linear-gradient(145deg,#193445,#102635)}
+main .hero .profile-defining-moment.profile-moment-champion{border-color:#c7a96b;background:radial-gradient(circle at 95% 0,rgba(207,167,81,.16),transparent 55%),linear-gradient(145deg,#182d3a,#0c202e)}
+main .hero .profile-moment-kicker{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:900;color:#c9dbe5;line-height:1.5}
+main .hero .profile-moment-champion .profile-moment-kicker{color:#e7cd94}
+main .hero .profile-moment-main{display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:17px;align-items:start;margin:9px 0 11px}
+main .hero .profile-moment-main>div{min-width:0}
+main .hero .profile-moment-main h2{font-size:clamp(20px,3vw,28px);line-height:1.2;letter-spacing:-.035em;margin:0 0 9px;overflow-wrap:normal}
+main .hero .profile-moment-main p{max-width:75ch;font-size:14px;line-height:1.65;color:#d5e1e8;margin:0}
+main .hero .profile-moment-stat{font-size:clamp(17px,2.7vw,25px);line-height:1.2;max-width:190px;text-align:right;color:#e4eff4;font-weight:900;font-variant-numeric:tabular-nums;overflow-wrap:normal;white-space:normal}
+main .hero .profile-moment-champion .profile-moment-stat{color:#f2d28c}
+main .hero .profile-defining-moment>a{display:inline-flex;align-items:center;min-height:44px;color:#f1d495;text-decoration:underline;text-underline-offset:4px;font-size:14px;font-weight:850}
+main .hero .profile-moment-source{font-size:11px;color:#aec3ce;line-height:1.5;margin-top:4px}
+@media(max-width:620px){
+ main .hero .profile-defining-moment{padding:16px;margin:14px 0}
+ main .hero .profile-moment-main{grid-template-columns:minmax(0,1fr);gap:7px}
+ main .hero .profile-moment-stat{order:-1;text-align:left;max-width:none;font-size:22px}
+ main .hero .profile-moment-main h2{font-size:21px}
+ main .hero .profile-moment-main p{font-size:13px}
+}
