@@ -151,6 +151,27 @@ try{
          findings.push(engine+' '+width+' duplicate homepage hero buttons crowd out manager discovery');
        }
        if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
+        const switcherMetrics=await page.locator('nav.hof-manager-switcher').evaluate(el=>{
+         const rect=el.getBoundingClientRect(),links=[...el.querySelectorAll('a,select')];
+         return {right:rect.right,width:rect.width,controlCount:links.length,
+          controlHeights:links.map(node=>node.getBoundingClientRect().height),
+          controlRights:links.map(node=>node.getBoundingClientRect().right),
+          selected:el.querySelector('select')?.selectedOptions[0]?.textContent?.trim()};
+        }).catch(()=>null);
+        if(!switcherMetrics||switcherMetrics.controlCount!==3||
+           switcherMetrics.controlHeights.some(height=>height<44)||
+           (width===390&&(switcherMetrics.right>width+2||switcherMetrics.controlRights.some(right=>right>width+2))))
+         findings.push(engine+' '+width+' '+key+' Hall of Fame manager switcher lacks readable, reachable controls '+JSON.stringify(switcherMetrics));
+        if(await page.locator('body.profile-landing .profile-tabs:visible').count())
+         findings.push(engine+' '+width+' '+key+' redundant archive tabs still clutter first-visit Hall of Fame profile');
+        const hubMetrics=await page.locator('.manager-home-hub').evaluate(el=>{
+         const bounds=el.getBoundingClientRect();
+         const tiles=[...el.querySelectorAll('.manager-home-hub-tile')].map(t=>{const r=t.getBoundingClientRect();return {width:r.width,height:r.height,right:r.right}});
+         return {right:bounds.right,tiles};
+        }).catch(()=>null);
+        if(!hubMetrics||hubMetrics.tiles.length!==6||hubMetrics.tiles.some(t=>t.height<60||t.width<100)||
+           (width===390&&(hubMetrics.right>width+2||hubMetrics.tiles.some(t=>t.right>width+2))))
+         findings.push(engine+' '+width+' '+key+' personal manager hub is not six readable tap targets '+JSON.stringify(hubMetrics));
         if(audit.snapshotTiles<3)findings.push(engine+' '+width+' '+key+' career stats missing');
         const hierarchy=await page.evaluate(()=>{
          const hero=document.querySelector('main .hero'),action=hero?.querySelector(':scope > .buttons'),
@@ -217,9 +238,20 @@ try{
          findings.push(engine+' '+width+' '+key+' first-screen career headlines unreadable '+JSON.stringify(headlineFacts));
         // The detailed archive starts hidden by design. Open it through the
         // same manager feature control a visitor uses before measuring.
+        const researchDisclosure=page.locator('details.manager-home-more');
+        if(await researchDisclosure.count()!==1)throw Error('Manager research disclosure missing');
+        // Follow the real visitor path: first open the optional research shelf.
+        // Clicking a hidden feature directly caused 30-second timeouts on every
+        // manager page and masked actual layout regressions in the visual gate.
+        if(!await researchDisclosure.evaluate(node=>node.open)){
+         await researchDisclosure.locator(':scope > summary').click({timeout:5000});
+        }
+        if(!await researchDisclosure.evaluate(node=>node.open))
+         throw Error('Manager research disclosure did not open');
         const careerFeature=page.locator('#profile-features button[data-feature-target="#verified-history-panel"]');
         if(await careerFeature.count()!==1)throw Error('Career records feature button missing');
-        await careerFeature.click();
+        if(!await careerFeature.isVisible())throw Error('Career records feature inaccessible after opening research');
+        await careerFeature.click({timeout:5000});
         if(!await page.locator('#historical-record-profile').isVisible())
          throw Error('Career feature did not reveal the record book');
         // Regression for the missing .fr-historical class: without this
