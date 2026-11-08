@@ -196,6 +196,12 @@ try{
         }));
         if(pick.count<5||pick.keeperCount!==20||!pick.note?.includes('Week 8'))
          findings.push(engine+' '+width+' draft/keeper research loading or coverage failure '+JSON.stringify(pick));
+        const managerRanking=await page.locator('#manager-value-ranking .manager-value-row').evaluateAll(rows=>rows.map(x=>({name:x.querySelector('.manager-name')?.textContent,height:x.getBoundingClientRect().height})));
+        if(managerRanking.length!==10||managerRanking[0]?.name!=='Mitch'||managerRanking.some(x=>x.height<44))
+         findings.push(engine+' '+width+' manager Value Points per Pick ranking incomplete or touch targets too small '+JSON.stringify(managerRanking));
+        await page.locator('#manager-value-ranking [data-value-manager="Mitch"]').click();
+        if(await page.locator('#draft-manager').inputValue()!=='Mitch')
+         findings.push(engine+' '+width+' draft manager ranking does not drill down to original selections');
         await page.locator('#draft-manager').selectOption('Stilly');
         await page.locator('#draft-position').selectOption('RB');
         const woody=await page.locator('#draft-rows').textContent();
