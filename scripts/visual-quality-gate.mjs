@@ -6,7 +6,7 @@ import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
- 'analytics/power-ratings.html','analytics/rivalries.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
+ 'analytics/power-ratings.html','analytics/rivalries.html','analytics/draft-keeper-value.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
@@ -150,6 +150,28 @@ try{
         if(events!==3)findings.push(engine+' '+width+' timeline lost one or more 2025 Stilly trade events: '+events);
         if(!await page.locator('a[href="../seasons/2026.html"]').count())
          findings.push(engine+' '+width+' timeline archival freshness notice missing');
+       }
+       if(route==='analytics/draft-keeper-value.html'){
+        await page.waitForFunction(()=>document.querySelector('#draft-rows')?.textContent?.includes('Matthew Golden'),{timeout:6000});
+        const pick=await page.evaluate(()=>({
+         count:document.querySelectorAll('#draft-rows tr').length,
+         keeperCount:document.querySelectorAll('#keeper-rows article.keeper-card').length,
+         first:document.querySelector('#draft-rows tr')?.textContent,
+         note:document.querySelector('#draft-coverage')?.textContent
+        }));
+        if(pick.count<5||pick.keeperCount!==20||!pick.note?.includes('Week 8'))
+         findings.push(engine+' '+width+' draft/keeper research loading or coverage failure '+JSON.stringify(pick));
+        await page.locator('#draft-manager').selectOption('Stilly');
+        await page.locator('#draft-position').selectOption('RB');
+        const woody=await page.locator('#draft-rows').textContent();
+        if(!woody.includes('Woody Marks')||!woody.includes('25.90')||!woody.includes('Round 13'))
+         findings.push(engine+' '+width+' Woody Marks 2026 verified pick value missing');
+        await page.locator('#keeper-manager').selectOption('Stilly');
+        const keeper=await page.locator('#keeper-rows').textContent();
+        if(!keeper.includes('Amon-Ra St. Brown')||!keeper.includes('Keeper decision grade: not yet verified'))
+         findings.push(engine+' '+width+' keeper observational return/decision distinction missing');
+        const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
+        if(overflow>4)findings.push(engine+' '+width+' draft value research page horizontal overflow '+overflow);
        }
        if(route==='analytics/legendary-records.html'){
         const legend=await page.evaluate(()=>({
