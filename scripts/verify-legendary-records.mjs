@@ -7,12 +7,16 @@ const exhibits=read('data/legendary_records_2016_2025_v1.json');
 const html=fs.readFileSync('analytics/legendary-records.html','utf8');
 const front=fs.readFileSync('analytics/records.html','utf8');
 const normalize=name=>name==='Tom'?'Thommy':name;
-const all=[];
+const all=[];const losingGames=[];
 for(let year=2016;year<=2025;year++){
  const season=weekly.bySeason[String(year)],bracket=brackets.find(b=>b.year===year);
  if(!season?.complete||!bracket)throw Error('Missing completed season or verified bracket '+year);
  const champion=normalize(guide[String(year)].champion);
  const games=season.games.filter(g=>g.stage==='regular');
+ for(const game of games){
+  if(game.winner==='HOME')losingGames.push({year,week:game.week,manager:normalize(game.away),points:game.awayScore});
+  else if(game.winner==='AWAY')losingGames.push({year,week:game.week,manager:normalize(game.home),points:game.homeScore});
+ }
  const managers=[...new Set(games.flatMap(g=>[normalize(g.home),normalize(g.away)]))];
  for(const manager of managers){
   const rows=games.filter(g=>normalize(g.home)===manager||normalize(g.away)===manager).sort((a,b)=>a.week-b.week);
@@ -42,7 +46,9 @@ const calc={
  'finalist-opening-losses':top(finalists,x=>x.initialLosses),
  'worst-finalist-record':top(finalists,x=>x.winPct,'min'),
  'worst-playoff-record':top(playoffs,x=>x.winPct,'min'),
- 'undefeated-six-week-champs':champions.filter(x=>x.sixWeek?.wins===6&&x.sixWeek.losses===0&&x.sixWeek.ties===0)
+ 'undefeated-six-week-champs':champions.filter(x=>x.sixWeek?.wins===6&&x.sixWeek.losses===0&&x.sixWeek.ties===0),
+ 'highest-score-in-loss':top(losingGames,x=>x.points),
+ 'best-record-no-title':top(all.filter(x=>!x.champion),x=>x.winPct)
 };
 const signature=rows=>rows.map(r=>r.manager+':'+r.year).sort().join('|');
 if(exhibits.categories.length!==Object.keys(calc).length)throw Error('Legendary record count changed without verifier update');
@@ -50,7 +56,7 @@ for(const card of exhibits.categories){
  const actual=calc[card.id];
  if(!actual)throw Error('Unknown legendary category '+card.id);
  if(signature(actual)!==signature(card.holder))throw Error('Legendary record holder mismatch '+card.id+' expected '+signature(actual)+' got '+signature(card.holder));
- if(!html.includes('id="'+card.id+'"')||!html.includes(card.title))throw Error('Missing HTML exhibit '+card.id);
+ if(!html.includes('id="'+card.id+'"')||!html.includes(card.title)||!html.includes(card.metric)||!html.includes(card.detail))throw Error('Missing or stale HTML exhibit '+card.id);
  if(!card.rule||!card.source||!card.detail)throw Error('Missing record methodology '+card.id);
  for(const h of card.holder){
   const row=actual.find(x=>x.manager===h.manager&&x.year===h.year);
