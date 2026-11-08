@@ -20,6 +20,10 @@ for(const story of stories.seasons){
  const deepDive=story.insideTheRun.paragraphs.join(' ');
  if(deepDive.split(/\s+/).length<95||/\b(?:undefined|NaN|tbd)\b|lorem ipsum|coming soon/i.test(deepDive))throw Error('Championship deep-dive incomplete '+y);
  if(y<=2019&&!/(?:ESPN|starter)/i.test(deepDive))throw Error('Historical ESPN limitations omitted '+y);
+ const labels=(story.editorialVerdicts||[]).map(v=>v.label);
+ if(story.editorialVerdicts?.length!==4||new Set(labels).size!==4)throw Error('Four distinct editorial verdicts required '+y);
+ if(story.editorialVerdicts.some(v=>!v.text||v.text.split(/\\s+/).length<12))throw Error('Editorial verdict missing evidence '+y);
+ if(y<=2019&&!story.editorialVerdicts.some(v=>/unavailable|not verify|does not verify/i.test(v.text)))throw Error('Legacy player limitations absent from editorial verdicts '+y);
  const text=story.sections.map(s=>s.text).join(' ');
  const words=text.split(/\s+/).length;
  if(words<220||words>650)throw Error('Championship story too thin or too dense '+y+' '+words);
@@ -43,6 +47,7 @@ for(const story of stories.seasons){
 }
 const page=fs.readFileSync('hall/championship-stories.html','utf8');
 const hall=fs.readFileSync('hall/index.html','utf8');
+if(!page.includes('editorialVerdicts')||!page.includes('editorial-verdict-grid'))throw Error('Editorial notebook not rendered');
 if(!page.includes('inside-run')||!page.includes('story.insideTheRun.paragraphs'))throw Error('Deep-dive chapter absent from championship feature renderer');
 for(const token of ['championship_season_stories_2016_2025_v1.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json','aria-label="Championship story archive"','id="season-picker"','id="championship-feature"'])
  if(!page.includes(token))throw Error('Missing source or navigation feature: '+token);
