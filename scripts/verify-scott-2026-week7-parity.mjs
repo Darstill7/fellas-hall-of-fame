@@ -5,3 +5,15 @@ const recapGame=recap.matchups.find(x=>x.winner==='Stew'&&x.loser==='Scott');
 if(!recapGame||recapGame.winner_points!==110.14||recapGame.loser_points!==expected||recapGame.margin!==4.92)throw Error('Week 7 JSON recap disagrees with certified Scott final');
 const recapText=fs.readFileSync('data/weekly-recaps/2026-week-07.md','utf8');
 if(!recapText.includes('Stew 110.14 def. Scott 105.22')||!recapText.includes('gives 112.62'))throw Error('Week 7 markdown recap disagrees with certified Scott final or hindsight arithmetic');
+
+
+// Reconstruct historical Week 7 cumulative totals directly from the canonical games.
+const week7Games=archive.games.filter(g=>g.week<=7&&g.stage==='regular');
+for(const [manager,kind,expectedTotal,expectedLine] of [
+  ['Scott','pf',678.48,'Scott 3-4, PF 678.48, PA 747.10'],
+  ['Stew','pa',784.24,'Stew 4-3, PF 868.82, PA 784.24']
+]){
+  const total=week7Games.reduce((sum,g)=>sum+(g.home===manager?(kind==='pf'?g.homeScore:g.awayScore):g.away===manager?(kind==='pf'?g.awayScore:g.homeScore):0),0);
+  const rounded=Math.round((total+Number.EPSILON)*100)/100;
+  if(!recapText.includes(expectedLine)||rounded!==expectedTotal)throw Error('Week 7 recap cumulative '+manager+' '+kind+' disagrees with canonical Week 1-7 ledger');
+}
