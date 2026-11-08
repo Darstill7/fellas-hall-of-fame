@@ -1,0 +1,34 @@
+/* Record Book: presentation and navigation only, no source-data changes. */
+body.fellas-polished.records-premium{background:radial-gradient(ellipse at 55% -10%,#284659 0%,#0b1c28 42%,#08131c 85%);color:#f6f1e8}
+.records-premium .record-cover{margin:22px 0 23px;padding:clamp(24px,4.5vw,54px);border:1px solid #a68b56;border-radius:18px;background:radial-gradient(ellipse at 100% -10%,#514830 0%,transparent 52%),linear-gradient(135deg,#203b4e,#102432 70%);box-shadow:0 14px 32px #0003;position:relative;overflow:hidden}
+.records-premium .record-cover:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#9b7b42,#f2daa2,#9b7b42)}
+.records-premium .record-cover h1{font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;font-size:clamp(46px,7vw,80px);letter-spacing:-.045em;line-height:1.08;margin:14px 0 19px}
+.records-premium .record-cover .lead{font-size:clamp(16px,1.8vw,20px);line-height:1.72;max-width:59ch;color:#e1e8ec}
+.records-premium .record-cover .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:25px 0}
+.records-premium .record-cover .stat{background:#0d2533c7;border:1px solid #607382;border-radius:12px;padding:15px;min-width:0}
+.records-premium .record-cover .stat strong{font-size:clamp(18px,2.7vw,28px);font-variant-numeric:tabular-nums;overflow-wrap:anywhere;color:#f3dba2}
+.records-premium .record-cover .stat small{font-size:12px;line-height:1.5;color:#d1dfe7}
+.records-premium .records-entry-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:17px 0 22px}
+.records-premium .records-entry-paths a{min-height:115px;padding:20px;border:1px solid #526b7b;border-radius:12px;background:#122c3bf0;display:flex;flex-direction:column;align-items:flex-start;gap:8px;transition:border-color .15s ease,background .15s ease}
+.records-premium .records-entry-paths a:hover{border-color:#e4bf7c;background:#28404a}
+.records-premium .records-entry-paths a strong{font-size:clamp(17px,2vw,21px);line-height:1.2;color:#f3dcad}
+.records-premium .records-entry-paths a span{font-size:13px;line-height:1.6;color:#c8d8e0}
+.records-premium .records-entry-paths a.records-entry-primary{border-color:#c6a66b;background:#243a3d}
+.records-premium .record-category-shortcuts{display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:thin;scroll-snap-type:x proximity;padding:9px 2px 14px;margin:8px 0 21px}
+.records-premium .record-category-shortcuts strong{font-size:11px;letter-spacing:.13em;color:#f0d18e;white-space:nowrap;margin-right:9px}
+.records-premium .record-category-shortcuts a{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 14px;border:1px solid #6b7a7b;border-radius:9px;text-decoration:none;color:#e9f1f4;font-weight:750;font-size:13px;scroll-snap-align:start}
+.records-premium .record-category-shortcuts a:hover{background:#304653;border-color:#e4c586;color:#ffe6ae}
+.records-premium .section{scroll-margin-top:22px}
+.records-premium .section h2{font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;letter-spacing:-.025em;font-size:clamp(25px,3vw,34px)}
+.records-premium .records-table{max-width:100%;overflow-x:auto}
+.records-premium :is(a,button,select,summary):focus-visible{outline:3px solid #ffe0a1;outline-offset:3px}
+@media(max-width:700px){
+ .records-premium .records-entry-paths{grid-template-columns:1fr}
+ .records-premium .records-entry-paths a{min-height:0;padding:17px}
+ .records-premium .record-cover{padding:23px 17px}
+ .records-premium .record-cover .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .records-premium .record-cover .stat:last-child{grid-column:1/-1}
+ .records-premium .record-category-shortcuts strong{display:none}
+}
+@media(max-width:390px){.records-premium .record-cover h1{font-size:clamp(39px,11vw,47px)}.records-premium .record-cover .stat{padding:12px}.records-premium .record-cover .stat strong{font-size:20px}.records-premium .record-cover .stat small{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.records-premium .records-entry-paths a{transition:none}}
