@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "asOf": "2026-11-07",
+  "scope": "Completed 2016–2025 seasons, excluding 2026 in-progress",
+  "confidence": "Recomputed from recovered historical matchups and verified winners-bracket participants.",
+  "categories": [
+    {
+      "id": "worst-championship-start",
+      "title": "The Impossible Comeback",
+      "label": "Worst opening start by an eventual champion",
+      "metric": "0–4",
+      "detail": "Stilly opened 2023 with four straight losses, sat at 1–5 after Week 6, and still won the title as the fourth seed.",
+      "holder": [
+        {
+          "manager": "Stilly",
+          "year": 2023
+        }
+      ],
+      "rule": "Most consecutive losses at the beginning of a champion's regular season.",
+      "source": "Regular-season games + verified winner brackets"
+    },
+    {
+      "id": "deepest-champion-hole",
+      "title": "From Rock Bottom to a Ring",
+      "label": "Deepest losing-record deficit survived by a champion",
+      "metric": "4 games below .500",
+      "detail": "Stilly reached 0–4 in Week 4 and 1–5 in Week 6 before rallying to 8–6 and winning the 2023 championship.",
+      "holder": [
+        {
+          "manager": "Stilly",
+          "year": 2023
+        }
+      ],
+      "rule": "Largest deficit of losses minus wins at any point in a champion's regular season.",
+      "source": "Regular-season games + verified winner brackets"
+    },
+    {
+      "id": "lowest-champion-seed",
+      "title": "The Cinderella Champion",
+      "label": "Lowest playoff seed to win the championship",
+      "metric": "No. 6 seed",
+      "detail": "Koble entered the 2020 postseason as the sixth seed after a 7–7 regular season and captured the title.",
+      "holder": [
+        {
+          "manager": "Koble",
+          "year": 2020
+        }
+      ],
+      "rule": "Largest official winners-bracket seed number among champions.",
+      "source": "Verified ESPN and Sleeper playoff brackets"
+    },
+    {
+      "id": "champion-most-losses",
+      "title": "The .500 Champion",
+      "label": "Most regular-season losses by an eventual champion",
+      "metric": "7 losses",
+      "detail": "Koble went 7–7 in 2020 and still won it all. This is a raw loss count, not adjusted for schedule length.",
+      "holder": [
+        {
+          "manager": "Koble",
+          "year": 2020
+        }
+      ],
+      "rule": "Largest total regular-season losses among completed championship seasons.",
+      "source": "Regular-season games + season guide"
+    },
+    {
+      "id": "champion-loss-streak",
+      "title": "The Losing Streak Survivors",
+      "label": "Longest regular-season losing streak by a champion",
+      "metric": "4 straight",
+      "detail": "Koble lost Weeks 8–11 in 2020; Stilly lost Weeks 1–4 in 2023. Both finished their seasons with a championship.",
+      "holder": [
+        {
+          "manager": "Koble",
+          "year": 2020
+        },
+        {
+          "manager": "Stilly",
+          "year": 2023
+        }
+      ],
+      "rule": "Longest run of consecutive regular-season losses within a title-winning season; ties retained.",
+      "source": "Regular-season games + season guide"
+    },
+    {
+      "id": "finalist-opening-losses",
+      "title": "The Finals Were Never Guaranteed",
+      "label": "Worst opening start by a championship finalist",
+      "metric": "0–4",
+      "detail": "Evans reached the 2021 final after beginning 0–4. Stilly also started 0–4 before winning the 2023 final.",
+      "holder": [
+        {
+          "manager": "Evans",
+          "year": 2021
+        },
+        {
+          "manager": "Stilly",
+          "year": 2023
+        }
+      ],
+      "rule": "Most opening losses among teams that reached the championship game.",
+      "source": "Regular-season games + verified finalists"
+    },
+    {
+      "id": "worst-finalist-record",
+      "title": "The Sixth Seed That Reached the Final",
+      "label": "Lowest win percentage by a championship finalist",
+      "metric": "6–8 (.429)",
+      "detail": "Mitch finished 2023 at 6–8, entered as the sixth seed, and reached the championship game against Stilly.",
+      "holder": [
+        {
+          "manager": "Mitch",
+          "year": 2023
+        }
+      ],
+      "rule": "Lowest regular-season win percentage among championship finalists; ties count as half a win.",
+      "source": "Season guide + verified finalist brackets"
+    },
+    {
+      "id": "worst-playoff-record",
+      "title": "The Playoff Survivor",
+      "label": "Lowest win percentage by a playoff qualifier",
+      "metric": "5–9 (.357)",
+      "detail": "Thommy made the six-team 2021 championship playoff bracket despite a 5–9 regular season.",
+      "holder": [
+        {
+          "manager": "Thommy",
+          "year": 2021
+        }
+      ],
+      "rule": "Lowest regular-season win percentage among verified championship-bracket participants, excluding consolation teams.",
+      "source": "Season guide + verified playoff brackets"
+    },
+    {
+      "id": "undefeated-six-week-champs",
+      "title": "The Perfect Six-Week Opening",
+      "label": "Champions who started 6–0",
+      "metric": "6–0",
+      "detail": "Birch in 2019 and Thommy in 2024 both won their first six regular-season games and went on to win their championships.",
+      "holder": [
+        {
+          "manager": "Birch",
+          "year": 2019
+        },
+        {
+          "manager": "Thommy",
+          "year": 2024
+        }
+      ],
+      "rule": "Champions with six recorded wins and no losses through Week 6.",
+      "source": "Regular-season games + season guide"
+    }
+  ],
+  "disclosures": [
+    "2016 used an eight-team league and four-team playoffs; subsequent fields differ.",
+    "ESPN and Sleeper scoring formats changed; these records focus on wins, seeds and finishes rather than point totals.",
+    "The archive credits Evans with 2023; JMid entered in 2024."
+  ]
+}
