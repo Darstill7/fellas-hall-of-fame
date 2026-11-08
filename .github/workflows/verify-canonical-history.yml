@@ -179,6 +179,8 @@ jobs:
         run: node scripts/audit-manager-editorial-accuracy.mjs
       - name: Audit 10 championships, 10 managers and narrative record holders
         run: node scripts/verify-comprehensive-editorial-evidence.mjs
+      - name: Verify one defining historical moment per current manager
+        run: node scripts/verify-manager-defining-moments.mjs
       - name: Preserve unpaired 2020 and 2021 roster-score evidence
         run: node scripts/verify-historical-unpaired-week14.mjs
       - name: Guard verified historical spreadsheet findings and ESPN finishing ranks
