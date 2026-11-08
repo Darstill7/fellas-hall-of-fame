@@ -30,7 +30,7 @@ for(let year=2016;year<=2025;year++){
    longestLossRun=Math.max(longestLossRun,lossRun);
    if(game.week===6)sixWeek={wins,losses,ties};
   }
-  const participants=(bracket.participants||bracket.seeds||[]).map(normalize);
+  const participants=(bracket.participants||Object.keys(bracket.seeds||bracket.seedByManager||{})).map(normalize);
   const finalists=(bracket.finalists||[]).map(normalize);
   all.push({manager,year,wins,losses,ties,initialLosses,deepest,longestLossRun,sixWeek,champion:manager===champion,finalist:finalists.includes(manager),playoffs:participants.includes(manager),seed:bracket.seedByManager?.[manager]??bracket.seedByManager?.[manager==='Thommy'?'Tom':manager]??null,winPct:(wins+ties/2)/(wins+losses+ties)});
  }
