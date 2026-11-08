@@ -51,7 +51,7 @@ const editorialCss=fs.readFileSync('assets/championship-editorial.css','utf8');
 for(const selector of ['.reading-nav','.cover-edition','.story-section:first-child p:first-letter','.skip-link','.archive{display:flex','.feature[data-chapter="2023"]','@media(prefers-reduced-motion:reduce)']){
  if(!editorialCss.includes(selector))throw Error('Editorial visual/accessibility requirement missing: '+selector);
 }
-for(const htmlToken of ['championship-editorial.css','class="reading-nav"','class="cover-edition"','id="road-to-ring"','id="championship-story"','id="editors-notebook"','id="final-stars"','id="player-profiles"','id="rivalry-rewind"']){
+for(const htmlToken of ['championship-editorial.css','class="reading-nav"','class="cover-edition"','class="cover-actions"','id="road-to-ring"','id="championship-story"','id="editors-notebook"','id="final-stars"','id="player-profiles"','id="rivalry-rewind"']){
  if(!page.includes(htmlToken))throw Error('Championship reading experience missing '+htmlToken);
 }
 
