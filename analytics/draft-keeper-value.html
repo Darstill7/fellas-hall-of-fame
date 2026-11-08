@@ -17,6 +17,20 @@ section{margin:30px 0}.section-head{border-top:1px solid var(--line);padding-top
 .method{border:1px solid var(--line);border-radius:12px;padding:0 15px;margin:12px 0;background:#152b38}.method summary{min-height:48px;display:flex;align-items:center;font-weight:850;color:var(--gold);cursor:pointer}.method p,.method li{color:var(--muted);font-size:13px;line-height:1.6}.method ul{padding-left:22px}.important{border-left:3px solid #e3c17a;padding:13px 17px;background:#233641;border-radius:5px;color:#e5edf0;font-size:13px}
 footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:12px}
 @media(max-width:700px){.wrap{padding:0 16px}.hero{padding:29px 0 19px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:last-child{grid-column:1/-1}.keeper-wrap{grid-template-columns:minmax(0,1fr)}.control select{min-width:110px}.table-wrap{margin-left:0;margin-right:0}}
+
+/* Comparative draft return belongs above the 150-pick research table. */
+.manager-value-board{border:1px solid #526c7d;background:#132a38;border-radius:13px;padding:clamp(12px,2.5vw,20px);margin:18px 0}
+.manager-value-board h3{font-size:21px;line-height:1.2;margin:0 0 6px}
+.manager-value-board .text-note{margin:0 0 13px;max-width:80ch}
+.manager-value-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.manager-value-row{min-height:60px;padding:10px 12px;display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:8px;align-items:center;text-align:left;color:#f7f1e7;background:#193544;border:1px solid #4d687a;border-radius:10px;font:inherit;cursor:pointer}
+.manager-value-row:hover,.manager-value-row[aria-pressed="true"]{border-color:#e9c983;background:#2c3d47}
+.manager-value-row .place{color:#e9cd8e;font-weight:900;font-size:13px;font-variant-numeric:tabular-nums}
+.manager-value-row .manager-name{font-weight:850;font-size:14px;overflow-wrap:anywhere}
+.manager-value-row .manager-return{text-align:right;font-weight:950;font-size:18px;line-height:1.2;font-variant-numeric:tabular-nums;white-space:nowrap;color:#f2d58e}
+.manager-value-row .manager-return.negative{color:#ebbdad}
+.manager-value-row .manager-return small{display:block;font-size:11px;line-height:1.5;font-weight:650;color:#c6d4dc}
+@media(max-width:690px){.manager-value-list{grid-template-columns:minmax(0,1fr)}.manager-value-row{min-height:56px}}
 </style></head><body>
 <a href="#main" class="skip">Skip to value research</a><header class="mast"><div class="wrap"><a class="brand" href="../index.html">THE <span>FELLAS</span></a><nav class="nav" aria-label="Site navigation"><a href="drafts.html">Draft Engine</a><a href="keeper-decision-research.html">Keepers</a><a href="records.html">Records</a><a href="../managers/">Managers</a></nav></div></header>
 <main class="wrap" id="main"><header class="hero"><div class="eyebrow">Source-verified · research lab · 2025 and 2026 through Week 8</div><h1>Draft Pick Value.<br>Keeper Return.</h1><p><strong>Current research window: 2026 through Week 8.</strong> Prefer this position-aware view for late-round comparisons. A separate <a href="draft-value-lab.html">same-round Week 6 snapshot →</a> remains available to explain the original baseline.</p><p>Two different questions deserve two different metrics. Did a draft pick deliver real starting-lineup points relative to its draft position? And did a manager get productive keeper usage for the cost—without pretending we know every alternative available at the keeper deadline?</p><div class="hero-links"><a href="#draft-picks">Explore draft bargains ↓</a><a href="#keeper-value">Keeper return research ↓</a><a href="#how-it-works">How the numbers work ↓</a></div></header>
@@ -28,7 +42,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);f
 </section>
 <section id="draft-picks"><div class="section-head"><div class="eyebrow">Metric 01 · nonkeeper picks</div><h2>Value Above Draft Peers</h2><p>We compare a pick's actual points scored while starting for the original manager with other nonkeeper picks from the same season, position and nearby draft rounds. Each row includes the actual points, number of starts, peer baseline and surplus. There is no reward for bench scoring.</p></div>
 <div class="controls"><label class="control">Season<select id="draft-year"><option value="2026">2026 · W8</option><option value="2025">2025 · final</option></select></label><label class="control">Manager<select id="draft-manager"><option value="all">All managers</option></select></label><label class="control">Position<select id="draft-position"><option value="all">All positions</option><option value="QB">QB</option><option value="RB">RB</option><option value="WR">WR</option><option value="TE">TE</option><option value="DEF">DEF</option></select></label><label class="control">Draft cost<select id="draft-round"><option value="all">All rounds</option><option value="late">Round 8+</option><option value="early">Rounds 1–7</option></select></label></div>
-<div class="text-note" id="draft-coverage">Loading verified pick values…</div><div class="table-wrap"><table class="leaderboard"><thead><tr><th>Player / manager</th><th>Pick</th><th class="number">Starts</th><th class="number">Started pts</th><th class="number">Peer median</th><th class="number">Value +/−</th></tr></thead><tbody id="draft-rows"><tr><td colspan="6">Loading…</td></tr></tbody></table></div><p class="text-note">2026 is unfinished. Sort order is observed value through Week 8, not a projection of final-season value. For details on raw picks and keeper flags, <a href="drafts.html">see the complete Draft Engine</a>.</p></section>
+<div class="text-note" id="draft-coverage">Loading verified pick values…</div><div class="manager-value-board" aria-labelledby="draft-manager-ranking-title"><h3 id="draft-manager-ranking-title">Manager Draft Value per Pick</h3><p class="text-note">Original-manager starter points above same-season, same-position nearby-round peers, divided by 13 nonkeeper picks. Keeper choices excluded. Tap a manager to see their selections. The season selector above changes this ranking; position and round filters only affect the pick table below.</p><div class="manager-value-list" id="manager-value-ranking" aria-label="Manager draft value leaderboard"></div></div><div class="table-wrap"><table class="leaderboard"><thead><tr><th>Player / manager</th><th>Pick</th><th class="number">Starts</th><th class="number">Started pts</th><th class="number">Peer median</th><th class="number">Value +/−</th></tr></thead><tbody id="draft-rows"><tr><td colspan="6">Loading…</td></tr></tbody></table></div><p class="text-note">2026 is unfinished. Sort order is observed value through Week 8, not a projection of final-season value. For details on raw picks and keeper flags, <a href="drafts.html">see the complete Draft Engine</a>.</p></section>
 <section id="keeper-value"><div class="section-head"><div class="eyebrow">Metric 02 · keeper selections</div><h2>Keeper Return vs. Keeper Decision</h2><p><strong>Keeper Return</strong> is already observable: the round spent, how many times the manager started that keeper, his points, and production versus same-position starters that week. <strong>Keeper Decision Value</strong> requires the alternatives realistically available at the keeper deadline; that counterfactual is not yet verified, so no official decision scores are assigned.</p></div>
 <div class="controls"><label class="control">2026 keeper manager<select id="keeper-manager"><option value="all">All managers</option></select></label></div>
 <div class="keeper-wrap" id="keeper-rows"><p>Loading keeper receipts…</p></div>
@@ -45,8 +59,21 @@ let data=null;const pretty=n=>Number(n).toFixed(2);
 const managers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
 const options=managers.map(m=>'<option value="'+m+'">'+m+'</option>').join('');
 $('draft-manager').insertAdjacentHTML('beforeend',options);$('keeper-manager').insertAdjacentHTML('beforeend',options);
+const updateManagerRanking=year=>{
+ const values=managers.map(manager=>{
+  const picks=data.draftPicks.filter(p=>p.year===year&&p.manager===manager);
+  const total=picks.reduce((n,p)=>n+p.pointsAbovePeerMedian,0);
+  return {manager,count:picks.length,total,perPick:picks.length?total/picks.length:null};
+ }).sort((a,b)=>(b.perPick??-Infinity)-(a.perPick??-Infinity));
+ $('manager-value-ranking').innerHTML=values.map((r,i)=>'<button class="manager-value-row" type="button" data-value-manager="'+esc(r.manager)+'" aria-pressed="'+String($('draft-manager').value===r.manager)+'" aria-label="Show '+esc(r.manager)+' draft picks, rank '+(i+1)+'"><span class="place">#'+(i+1)+'</span><span class="manager-name">'+esc(r.manager)+'</span><span class="manager-return'+(r.perPick<0?' negative':'')+'">'+(r.perPick>=0?'+':'')+pretty(r.perPick)+'<small>'+r.count+' picks · '+(r.total>=0?'+':'')+pretty(r.total)+' total</small></span></button>').join('');
+};
+$('manager-value-ranking').addEventListener('click',event=>{
+ const item=event.target.closest('[data-value-manager]');if(!item)return;
+ $('draft-manager').value=item.dataset.valueManager;redrawDraft();
+});
 const redrawDraft=()=>{
  if(!data)return;const y=Number($('draft-year').value),m=$('draft-manager').value,pos=$('draft-position').value,window=$('draft-round').value;
+ updateManagerRanking(y);
  const rows=data.draftPicks.filter(p=>p.year===y&&(m==='all'||p.manager===m)&&(pos==='all'||p.position===pos)&&(window==='all'||(window==='late'?p.round>=8:p.round<=7)));
  rows.sort((a,b)=>b.pointsAbovePeerMedian-a.pointsAbovePeerMedian||b.startedPoints-a.startedPoints||a.overall-b.overall);
  $('draft-coverage').textContent=rows.length+' nonkeeper selections · '+(y===2026?'Observed through Week 8, in progress':'Completed 2025 season')+' · Value ranked by starter points above the round/position peer median.';
