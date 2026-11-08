@@ -15,7 +15,7 @@ for(const [name,x] of Object.entries(data.managers)){
  assert.ok(x.url.startsWith('../../')&&!x.url.includes('http'),'Unsafe page link '+name);
  assert.ok(x.sources.length>=2,'Missing provenance '+name);
  assert.ok(x.year<=2025,'Defining moments must use completed years '+name);
- assert.ok(fs.existsSync(x.url.replace('../../','')),'Missing destination '+name+' '+x.url);
+ assert.ok(fs.existsSync(x.url.replace('../../','').split(/[?#]/)[0]),'Missing destination '+name+' '+x.url);
  const season=guide[x.year],stand=season.standings.find(z=>z.name===name),finish=placements.seasons.find(z=>z.year===x.year)?.finishes.find(z=>z.manager===name);
  assert.ok(stand&&finish,'Missing season ownership '+name+' '+x.year);
  if(x.type==='championship'){
