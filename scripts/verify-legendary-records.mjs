@@ -98,7 +98,7 @@ const calc={
  'lowest-seed-runner-up':top(runnersUp,x=>x.seed),
  'closest-opening-playoff-loss':nearest('opening'),
  'closest-semifinal-loss':nearest('semifinal'),
- 'closest-championship-final':nearest('final'),
+ 'closest-championship-final':top(verifiedPostseason.filter(x=>x.round==='final').map(x=>({...x,manager:x.winner})),x=>x.margin,'min'),
  'largest-championship-margin':maxFinal,
  'most-title-game-losses-without-ring':top(titlelessCounts,x=>x.finals)
 };
