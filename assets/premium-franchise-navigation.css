@@ -85,3 +85,21 @@ body.premium-franchise :is(.premium-menu-links a,.premium-links a,.premium-brand
  body.premium-franchise main .grid{grid-template-columns:minmax(0,1fr);gap:12px}
  body.premium-franchise main>.hero{margin-inline:0}
 }
+
+/* Preserve existing navigation behavior and selector contracts while elevating presentation. */
+body.premium-franchise header.nav{position:sticky;top:0;z-index:40;background:#0b1925f4;border-bottom:1px solid #4b6575;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+body.premium-franchise header.nav>.wrap{max-width:1180px;min-height:68px;gap:12px;padding-block:9px}
+body.premium-franchise header.nav .brand{display:inline-flex;align-items:center;min-height:48px;letter-spacing:.085em;font-size:15px;white-space:nowrap}
+body.premium-franchise header.nav .navlinks{gap:clamp(8px,1.4vw,17px)}
+body.premium-franchise header.nav .navlinks a{display:inline-flex;align-items:center;min-height:44px;padding:10px 5px;line-height:1.4}
+body.premium-franchise header.nav .navlinks a:hover{color:#f7daa2}
+body.premium-franchise header.nav .fellas-mobile-site-menu>summary{min-height:48px;border:1px solid #91774c;border-radius:9px;background:#1a3040;color:#f4d7a0;padding:10px 14px}
+body.premium-franchise header.nav .fellas-mobile-site-menu nav a{min-height:48px}
+body.premium-franchise header:has(.manager-directory-nav){position:sticky;top:0;z-index:40;padding:0;background:#0c1b27f1;backdrop-filter:blur(14px);border-bottom:1px solid #4c6675}
+body.premium-franchise header .manager-directory-nav{max-width:1180px;min-height:68px;padding-block:10px;align-items:center}
+body.premium-franchise header .manager-directory-nav .manager-nav-brand{display:inline-flex;align-items:center;min-height:48px;font-size:15px;letter-spacing:.08em}
+body.premium-franchise header .manager-nav-links>a{display:inline-flex;align-items:center;min-height:44px;padding:8px 4px;line-height:1.5}
+body.premium-franchise header .manager-nav-more>summary{min-height:46px;display:inline-flex;align-items:center;border:1px solid #806f57;border-radius:9px;padding:10px 14px}
+body.premium-franchise header .manager-nav-more a{min-height:44px}
+@media(max-width:850px){body.premium-franchise header.nav>.wrap{min-height:64px;padding-block:8px}body.premium-franchise header .manager-directory-nav{min-height:64px}}
+@media(max-width:560px){body.premium-franchise header.nav .brand{font-size:14px}body.premium-franchise header .manager-directory-nav .manager-nav-brand{font-size:14px}}
