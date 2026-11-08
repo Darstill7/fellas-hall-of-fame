@@ -6,7 +6,7 @@ import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
- 'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
+ 'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
@@ -594,6 +594,40 @@ try{
         await help.locator('summary').click();
         if(!await help.evaluate(el=>el.open))throw Error('Record coverage explanation did not open');
         mobileJourneys.push({engine,page:'record-holders',firstRecordAboveFold:true,scopeExpandable:true});
+       }
+       if(route==='hall/championship-stories.html'){
+        const feature=page.locator('#championship-feature .feature');
+        const story=page.locator('#championship-story');
+        const road=page.locator('#road-to-ring');
+        const nav=page.locator('nav.reading-nav');
+        const yearArchive=page.locator('nav#chapters');
+        if(!await feature.isVisible()||!await story.isVisible()||!await road.isVisible()||!await nav.isVisible())
+         throw Error('Championship feature, story, road or reading navigation failed to render');
+        if(await page.locator('.road-game').count()<1)
+         throw Error('Verified regular-season game log is missing');
+        const navHeight=await nav.locator('a').first().evaluate(el=>el.getBoundingClientRect().height);
+        if(navHeight<44)throw Error('Championship reading navigation touch targets below 44px');
+        const layout=await page.evaluate(()=>{
+         const el=document.querySelector('#championship-story');
+         const sty=getComputedStyle(el);
+         return {grid:sty.display,columns:sty.gridTemplateColumns,overflow:document.documentElement.scrollWidth-innerWidth};
+        });
+        if(layout.overflow>3)throw Error('Championship layout overflows '+layout.overflow+'px');
+        if(width<=390){
+         if(await yearArchive.evaluate(el=>el.scrollWidth<=el.clientWidth))
+          throw Error('Mobile championship archive should provide an accessible swipeable year list');
+         if(await page.locator('#championship-story .story-section').count()!==4)
+          throw Error('Four editorial chapters not visible on mobile');
+         await page.locator('#season-picker').selectOption('2023');
+         await page.waitForFunction(()=>document.querySelector('#championship-feature .feature')?.dataset.chapter==='2023');
+         if(!await page.locator('#rivalry-rewind').isVisible())
+          throw Error('2023 title rivalry history not visible');
+         await page.locator('#season-picker').selectOption('2017');
+         await page.waitForFunction(()=>document.querySelector('#championship-feature .feature')?.dataset.chapter==='2017');
+         if(await page.locator('nav.reading-nav a[href="#player-profiles"]').count())
+          throw Error('ESPN legacy years have unsupported player-profile navigation');
+         mobileJourneys.push({engine,page:'championship-anthology',width,mobileReading:true,yearSelection:true,archiveSwipe:true});
+        }
        }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
