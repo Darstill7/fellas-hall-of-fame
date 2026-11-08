@@ -1,0 +1,150 @@
+/* Championship editorial direction, v1 — accessible and responsive. */
+:root{--champ-paper:#f4ead6;--champ-ink:#0c1822;--champ-accent:#e7c078}
+body{background:radial-gradient(ellipse 120% 55rem at 60% -18%,#264156 0%,#0c1923 52%,#071017 100%);letter-spacing:.005em}
+.shell{max-width:1180px;padding-inline:clamp(16px,3vw,38px)}
+.top{position:relative;z-index:5;background:#0b1923f0;border-bottom:1px solid #3d5360}
+.top .shell{min-height:72px}
+.top .nav a{display:inline-flex;align-items:center;min-height:44px;padding:7px 3px;text-decoration:none;color:#d6e1e8}
+.top .nav a:hover{color:#f4d38f}
+.brand{font-size:15px;white-space:nowrap}
+.hero{padding:clamp(37px,6vw,72px) 0 20px}
+.hero h1{font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;font-weight:700;letter-spacing:-.044em;max-width:14ch;line-height:1.03;font-size:clamp(48px,7.8vw,92px)}
+.hero p{font-size:clamp(16px,1.75vw,19px);max-width:61ch}
+.chapter-nav{margin-top:23px}
+.archive{gap:10px;margin-bottom:30px}
+.archive a{transition:background .18s ease,border-color .18s ease,transform .18s ease;border-color:#435866;min-height:102px}
+.archive a:hover{transform:translateY(-2px)}
+.archive a[aria-current="page"]{background:linear-gradient(150deg,#403523,#1b313d);border-color:#dfbc77;box-shadow:inset 0 0 0 1px #e6c58080}
+.feature{position:relative;overflow:hidden;isolation:isolate;padding:clamp(24px,5vw,58px);border:1px solid #a38957;border-radius:18px;background:radial-gradient(ellipse at 92% 1%,#49503c 0%,transparent 40%),linear-gradient(125deg,#243949,#0a1925 75%);box-shadow:0 16px 40px #0003}
+.feature:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#8f6f37,#ead49b 49%,#8f6f37)}
+.feature:after{content:"";position:absolute;right:-8%;top:-18%;width:min(44%,360px);aspect-ratio:1;border:1px solid #f6dcaa25;border-radius:50%;box-shadow:0 0 0 25px #f6dcaa08,0 0 0 55px #f6dcaa06;pointer-events:none;z-index:-1}
+.feature .eyebrow{font-size:12px;letter-spacing:.18em}
+.feature h2{font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;font-weight:700;font-size:clamp(41px,5.9vw,73px);line-height:1.07;letter-spacing:-.04em;max-width:18ch;margin:19px 0}
+.feature .dek{font-size:clamp(17px,2vw,22px);line-height:1.57;max-width:55ch;color:#ebdabb}
+.story-meta{margin-top:31px;gap:10px}
+.story-stat{background:#081b2a91;border:1px solid #64747a;padding:16px;min-width:0}
+.story-stat strong{font-size:clamp(18px,2.5vw,28px);overflow-wrap:anywhere}
+.story-stat small{font-size:12px;line-height:1.5}
+.story-bracket-link a{min-height:48px;padding:12px 15px;border-color:#c6a669}
+.reading-nav{position:sticky;top:0;z-index:10;background:#0d1b26f5;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-block:1px solid #607180;margin:0 0 26px;padding:10px 0;box-shadow:0 8px 24px #0003}
+.reading-nav-inner{display:flex;gap:8px;align-items:center;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin}
+.reading-nav-title{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:900;white-space:nowrap;color:#f1d08d;margin-right:8px}
+.reading-nav a{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:1px solid #536c7a;border-radius:8px;color:#e3edf2;text-decoration:none;font-size:13px;font-weight:750;white-space:nowrap}
+.reading-nav a:hover,.reading-nav a:focus-visible{border-color:#e7c078;color:#ffe5aa;background:#284252}
+.champ-section{scroll-margin-top:95px}
+.road-to-ring,.mvp-showcase,.postseason-players,.rivalry-rewind,.inside-run{box-shadow:0 10px 28px #0002}
+.road-to-ring{padding:clamp(23px,4vw,35px)}
+.road-to-ring h3,.postseason-players h3,.rivalry-rewind h3,.inside-run h3,.editorial-verdicts h3{font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;letter-spacing:-.02em;line-height:1.14}
+.road-track{gap:10px}.road-beat{padding:16px;border-top:3px solid #71818b}
+.road-beat.title{border-top:3px solid #f1d18f}
+.road-beat span{font-size:clamp(17px,2vw,23px);overflow-wrap:anywhere}
+.story-layout{gap:clamp(20px,4vw,48px);margin-top:38px}
+.story-body{max-width:70ch}
+.story-section{margin-bottom:36px}
+.story-section h3{font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;color:#f3d7a1;font-size:clamp(23px,3vw,32px);margin-bottom:15px}
+.story-section p{font-size:clamp(16px,1.6vw,19px);line-height:1.9;letter-spacing:.005em;color:#ebf0ee}
+.story-section:first-child p:first-letter{float:left;font-family:Georgia,serif;font-size:3.8em;line-height:.86;padding:6px 10px 0 0;color:#e7c078}
+.inside-run{padding:clamp(20px,3vw,32px)}
+.inside-run p{line-height:1.88}
+.side{top:84px;border-color:#6a756d;background:linear-gradient(#1a2d37,#0d2431)}
+.editorial-verdict{background:#142b38;min-height:150px;padding:20px;border-top:3px solid #a28a56}
+.editorial-verdict h4{font-size:12px}
+.editorial-verdict p{font-size:15px;line-height:1.73}
+.chapter-bottom a{min-height:48px;padding:13px 18px}
+.notice{line-height:1.65}
+.feature[data-chapter="2023"]{background:radial-gradient(ellipse at 90% 0%,#516049 0%,transparent 48%),linear-gradient(125deg,#243d36,#0b1b29 75%)}
+.feature[data-chapter="2024"]{background:radial-gradient(ellipse at 90% 0%,#80623b 0%,transparent 45%),linear-gradient(125deg,#41331d,#0b1925 78%)}
+.feature[data-chapter="2025"]{background:radial-gradient(ellipse at 90% 0%,#285c7b 0%,transparent 48%),linear-gradient(125deg,#183c55,#0b1925 76%)}
+@media(max-width:850px){.reading-nav{margin-inline:calc(-1*clamp(16px,3vw,38px));padding-inline:clamp(16px,3vw,38px)}.side{position:static}.story-layout{gap:15px}}
+@media(max-width:560px){.hero{padding-top:29px}.hero h1{font-size:clamp(47px,13vw,66px)}.feature{padding:24px 19px}.feature h2{font-size:clamp(39px,11vw,53px)}.feature .dek{font-size:17px}.story-meta{gap:8px}.story-stat{padding:12px}.story-stat strong{font-size:20px}.reading-nav{margin-inline:-13px;padding-inline:13px}.reading-nav-title{display:none}.road-track{gap:8px}.road-beat{padding:12px}.story-section p{font-size:17px;line-height:1.82}.archive a{min-height:90px}.chapter-bottom{flex-direction:column}.chapter-bottom a{width:100%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.archive a{transition:none}.archive a:hover{transform:none}}
+
+/* Clear editorial hierarchy: let the article lead; let evidence follow. */
+.skip-link{position:absolute;left:-10000px;top:12px;z-index:100;background:#f4d491;color:#071721;padding:12px 16px;border-radius:7px;font-weight:900}
+.skip-link:focus{left:12px}
+.cover-edition{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.cover-year{font-size:11px;color:#ead3a7;font-weight:900;letter-spacing:.16em;border:1px solid #c7ab716b;border-radius:999px;padding:8px 12px;white-space:nowrap}
+.archive{display:flex;overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;gap:10px;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:#9c8150 #142632}
+.archive a{flex:0 0 clamp(142px,16vw,172px);scroll-snap-align:start;min-height:93px}
+.archive a strong{font-variant-numeric:tabular-nums}
+.story-layout{margin-top:20px}
+.story-section:not(:last-child){padding-bottom:18px;border-bottom:1px solid #324754}
+.story-section h3{max-width:29ch}
+.mvp-showcase,.postseason-players,.rivalry-rewind,.editorial-verdicts{scroll-margin-top:95px}
+.editorial-verdicts{padding-top:16px;border-top:1px solid #536778}
+.editorial-verdict-grid{gap:12px}
+.story-trade-receipts a:hover{border-color:#f4d595}
+@media(max-width:560px){.archive{margin-top:11px;margin-bottom:17px}.archive a{flex-basis:145px;min-height:83px}.cover-year{font-size:10px}.feature h2{max-width:100%}.story-section:not(:last-child){padding-bottom:12px}}
+@media print{body{background:#fff;color:#161e26}.top,.chapter-nav,.archive,.reading-nav,.chapter-bottom,.hero,.story-bracket-link,.road-archive{display:none!important}.feature,.road-to-ring,.story-section,.inside-run{background:#fff!important;color:#161e26!important;border-color:#777;box-shadow:none}.story-layout{display:block}.side{position:static;break-inside:avoid}.story-section p,.story-section h3{color:#161e26!important}.shell{max-width:100%}}
+
+/* Phone-first finishing: keep the reading surface calm even at 320px. */
+html{scroll-padding-top:88px}
+body{min-width:0;overflow-wrap:break-word}
+#championship-feature{min-width:0}
+.feature,.road-to-ring,.story-layout,.inside-run,.story-body,.postseason-players,.mvp-showcase{min-width:0}
+.feature h2,.story-section h3,.inside-run h3,.player-profile h4{overflow-wrap:break-word;hyphens:auto}
+.feature h2{word-break:normal}
+.archive{touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch}
+.reading-nav{max-width:100%;overscroll-behavior-x:contain}
+.reading-nav-inner{-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.reading-nav a{min-height:48px}
+.road-archive summary{min-height:50px}
+.story-section p{max-width:66ch}
+.story-trade-receipts nav a{overflow-wrap:anywhere}
+@media(max-width:700px){
+ .story-layout{display:flex;flex-direction:column;gap:16px}
+ .story-body,.side{width:100%;max-width:none}
+ .side{display:block;order:2;position:static}
+ .story-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .mvp-showcase{grid-template-columns:minmax(0,1fr)}
+ .mvp-entry{min-width:0}
+ .mvp-entry b{font-size:18px}
+ .mvp-player strong{font-size:14px}
+ .mvp-scores{min-width:0}
+ .story-trade-receipts nav a{width:100%;justify-content:flex-start}
+ .reading-nav{padding-block:7px}
+ .reading-nav-inner{gap:7px}
+ .reading-nav a{padding:10px 13px}
+ .road-games{grid-template-columns:1fr}
+ .road-game{padding:13px}
+ .editorial-verdict-grid{grid-template-columns:1fr}
+ .editorial-verdict{min-height:0}
+}
+@media(max-width:390px){
+ .shell{padding-inline:14px}
+ .feature{padding:22px 17px}
+ .feature h2{font-size:clamp(35px,10.3vw,43px);line-height:1.11}
+ .cover-year{max-width:100%;white-space:normal}
+ .feature .dek{font-size:16px;line-height:1.65}
+ .story-meta{gap:8px}
+ .story-stat{padding:12px 10px}
+ .story-stat strong{font-size:19px}
+ .story-stat small{font-size:11px}
+ .reading-nav{margin-inline:-14px;padding-inline:14px}
+ .road-track{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+ .road-beat{padding:12px 10px}
+ .road-beat span{font-size:16px}
+ .road-beat small{overflow-wrap:anywhere}
+ .road-beat.title{grid-column:1/-1}
+ .inside-run,.postseason-players,.rivalry-rewind{padding:18px 15px}
+ .story-section p,.inside-run p{font-size:16px;line-height:1.83}
+ .story-section:first-child p:first-letter{font-size:3em;padding-right:8px}
+ .postseason-players-grid{grid-template-columns:minmax(0,1fr)}
+ .chapter-bottom{margin-bottom:26px}
+}
+@supports(padding:env(safe-area-inset-left)){
+ @media(max-width:700px){
+  .shell{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}
+ }
+}
+
+.cover-actions{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:18px 0 8px}
+.cover-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;text-decoration:none;border-radius:9px;padding:12px 16px;font-size:14px;font-weight:850;line-height:1.35}
+.cover-primary-action{background:#eacf97;color:#142331;border:1px solid #f3d8a2}
+.cover-primary-action:hover{background:#f8e4b8;color:#0b1820}
+.cover-secondary-action{background:#102b38ae;color:#f5dfb2;border:1px solid #b59c6f}
+.cover-secondary-action:hover{background:#27414d;color:#fff}
+@media(max-width:390px){.cover-actions{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}.cover-actions a{width:100%;min-height:50px}.cover-actions+.story-meta{margin-top:19px}}
+
+/* Full-size brand hit area: tested in Chromium and WebKit at 320–1280px. */
+.top .brand{display:inline-flex;align-items:center;min-height:48px;min-width:44px;padding-block:8px;line-height:1.4}

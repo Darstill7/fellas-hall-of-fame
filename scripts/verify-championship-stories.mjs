@@ -16,6 +16,14 @@ for(const story of stories.seasons){
  if(!champ||bracket?.champion!==champ)throw Error('Champion source disagreement '+y);
  if(!story.title||story.title.length<15||!story.dek||story.dek.length<40||story.sections.length!==4)
   throw Error('Championship story missing complete four-act feature structure '+y);
+ if(!story.insideTheRun||!story.insideTheRun.heading||!Array.isArray(story.insideTheRun.paragraphs)||story.insideTheRun.paragraphs.length!==2)throw Error('Missing championship deep-dive chapter '+y);
+ const deepDive=story.insideTheRun.paragraphs.join(' ');
+ if(deepDive.split(/\s+/).length<95||/\b(?:undefined|NaN|tbd)\b|lorem ipsum|coming soon/i.test(deepDive))throw Error('Championship deep-dive incomplete '+y);
+ if(y<=2019&&!/(?:ESPN|starter)/i.test(deepDive))throw Error('Historical ESPN limitations omitted '+y);
+ const labels=(story.editorialVerdicts||[]).map(v=>v.label);
+ if(story.editorialVerdicts?.length!==4||new Set(labels).size!==4)throw Error('Four distinct editorial verdicts required '+y);
+ if(story.editorialVerdicts.some(v=>!v.text||v.text.trim().split(/\s+/).length<12))throw Error('Editorial verdict missing evidence '+y);
+ if(y<=2019&&!story.editorialVerdicts.some(v=>/unavailable|not verif|no verified|does not verif/i.test(v.text)))throw Error('Legacy player limitations absent from editorial verdicts '+y);
  const text=story.sections.map(s=>s.text).join(' ');
  const words=text.split(/\s+/).length;
  if(words<220||words>650)throw Error('Championship story too thin or too dense '+y+' '+words);
@@ -39,6 +47,19 @@ for(const story of stories.seasons){
 }
 const page=fs.readFileSync('hall/championship-stories.html','utf8');
 const hall=fs.readFileSync('hall/index.html','utf8');
+const editorialCss=fs.readFileSync('assets/championship-editorial.css','utf8');
+for(const selector of ['.reading-nav','.cover-edition','.story-section:first-child p:first-letter','.skip-link','.archive{display:flex','.feature[data-chapter="2023"]','@media(prefers-reduced-motion:reduce)']){
+ if(!editorialCss.includes(selector))throw Error('Editorial visual/accessibility requirement missing: '+selector);
+}
+for(const htmlToken of ['championship-editorial.css','class="reading-nav"','class="cover-edition"','class="cover-actions"','id="road-to-ring"','id="championship-story"','id="editors-notebook"','id="final-stars"','id="player-profiles"','id="rivalry-rewind"']){
+ if(!page.includes(htmlToken))throw Error('Championship reading experience missing '+htmlToken);
+}
+
+if(!page.includes('roadToRing')||!page.includes('regularLog')||!page.includes('road-archive')||!page.includes('data-chapter'))throw Error('Road to Ring timeline, recovered game log or distinct season presentation missing');
+if(!page.includes('rivalryRewind')||!page.includes('earlierMeetings')||!page.includes('rivalry-results'))throw Error('Rivalry rewind missing from championship anthology');
+if(!page.includes('playoffPlayerProfiles')||!page.includes('postseason-players-grid')||!page.includes('people.set(id,previous)'))throw Error('Verified two-round player profile renderer missing');
+if(!page.includes('editorialVerdicts')||!page.includes('editorial-verdict-grid'))throw Error('Editorial notebook not rendered');
+if(!page.includes('inside-run')||!page.includes('story.insideTheRun.paragraphs'))throw Error('Deep-dive chapter absent from championship feature renderer');
 for(const token of ['championship_season_stories_2016_2025_v1.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json','aria-label="Championship story archive"','id="season-picker"','id="championship-feature"'])
  if(!page.includes(token))throw Error('Missing source or navigation feature: '+token);
 for(let y=2016;y<=2025;y++)if(!hall.includes('championship-stories.html?year='+y))
