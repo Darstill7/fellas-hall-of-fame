@@ -326,6 +326,7 @@ main .profile-career-resume .career-resume-metric span{line-height:1.5}
 
 /* One verifiable headline per franchise: museum feature, not another stat wall. */
 main .hero .profile-defining-moment{margin:18px 0 16px;border:1px solid #526c7c;border-radius:14px;background:linear-gradient(145deg,#162e3d,#0d202e);padding:clamp(15px,2.7vw,24px);min-width:0}
+main .hero .profile-defining-moment.profile-moment-career{border-color:#6b8491;background:linear-gradient(145deg,#193445,#102635)}
 main .hero .profile-defining-moment.profile-moment-champion{border-color:#c7a96b;background:radial-gradient(circle at 95% 0,rgba(207,167,81,.16),transparent 55%),linear-gradient(145deg,#182d3a,#0c202e)}
 main .hero .profile-moment-kicker{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:900;color:#c9dbe5;line-height:1.5}
 main .hero .profile-moment-champion .profile-moment-kicker{color:#e7cd94}
