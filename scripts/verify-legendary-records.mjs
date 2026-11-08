@@ -36,6 +36,8 @@ for(let year=2016;year<=2025;year++){
  }
 }
 const champions=all.filter(r=>r.champion),finalists=all.filter(r=>r.finalist),playoffs=all.filter(r=>r.playoffs);
+const runnersUp=finalists.filter(r=>!r.champion);
+const finalSeedMargins=champions.map(winner=>{const runner=runnersUp.find(r=>r.year===winner.year);if(!runner)throw Error('Missing verified runner-up '+winner.year);return {...winner,seedGap:winner.seed-runner.seed};});
 const top=(rows,key,mode='max')=>{const values=rows.map(key);const best=mode==='max'?Math.max(...values):Math.min(...values);return rows.filter(x=>Math.abs(key(x)-best)<1e-9)};
 const calc={
  'worst-championship-start':top(champions,x=>x.initialLosses),
@@ -48,7 +50,10 @@ const calc={
  'worst-playoff-record':top(playoffs,x=>x.winPct,'min'),
  'undefeated-six-week-champs':champions.filter(x=>x.sixWeek?.wins===6&&x.sixWeek.losses===0&&x.sixWeek.ties===0),
  'highest-score-in-loss':top(losingGames,x=>x.points),
- 'best-record-no-title':top(all.filter(x=>!x.champion),x=>x.winPct)
+ 'best-record-no-title':top(all.filter(x=>!x.champion),x=>x.winPct),
+ 'deepest-playoff-qualifier-hole':top(playoffs,x=>-x.deepest),
+ 'biggest-final-seed-upset':top(finalSeedMargins,x=>x.seedGap),
+ 'lowest-seed-runner-up':top(runnersUp,x=>x.seed)
 };
 const signature=rows=>rows.map(r=>r.manager+':'+r.year).sort().join('|');
 if(exhibits.categories.length!==Object.keys(calc).length)throw Error('Legendary record count changed without verifier update');
