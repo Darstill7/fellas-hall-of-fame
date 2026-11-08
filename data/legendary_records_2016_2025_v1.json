@@ -180,6 +180,59 @@
       ],
       "rule": "Highest completed regular-season winning percentage among teams that did not win that season's title; ties count as half-wins.",
       "source": "Season guide + verified championship winners"
+    },
+    {
+      "id": "deepest-playoff-qualifier-hole",
+      "title": "The Season That Refused to Die",
+      "label": "Deepest regular-season deficit by a playoff qualifier",
+      "metric": "5 games below .500",
+      "detail": "Thommy in 2021 and Stew in 2025 each sank to 1–6 after Week 7, five games under .500, yet still qualified for the championship playoffs.",
+      "holder": [
+        {
+          "manager": "Thommy",
+          "year": 2021
+        },
+        {
+          "manager": "Stew",
+          "year": 2025
+        }
+      ],
+      "rule": "Largest losses-minus-wins deficit at any point in a completed regular season, among verified winners-bracket qualifiers; ties retained.",
+      "source": "2016–2025 canonical weekly matchups + verified playoff brackets"
+    },
+    {
+      "id": "biggest-final-seed-upset",
+      "title": "The Greatest Championship Upset",
+      "label": "Largest positive seed gap overcome to win the final",
+      "metric": "No. 6 over No. 1",
+      "detail": "In 2020, sixth-seeded Koble beat top-seeded Mitch in the championship final—the greatest official seed gap overcome in a title game.",
+      "holder": [
+        {
+          "manager": "Koble",
+          "year": 2020
+        }
+      ],
+      "rule": "Winner's playoff seed number minus runner-up's playoff seed number for completed championship finals; the largest positive difference wins.",
+      "source": "Verified ESPN and Sleeper championship finalists, champions and official seeds"
+    },
+    {
+      "id": "lowest-seed-runner-up",
+      "title": "The Longshot Finalists",
+      "label": "Lowest-seeded championship runner-ups",
+      "metric": "No. 6 seed",
+      "detail": "Birch reached the 2018 final as the sixth seed before losing to Thommy. Mitch matched that feat in 2023, finishing runner-up to Stilly.",
+      "holder": [
+        {
+          "manager": "Birch",
+          "year": 2018
+        },
+        {
+          "manager": "Mitch",
+          "year": 2023
+        }
+      ],
+      "rule": "Largest official winners-bracket seed number among teams who reached, but lost, the championship final; ties retained.",
+      "source": "Verified ESPN and Sleeper championship finalists and bracket seeds"
     }
   ],
   "disclosures": [
