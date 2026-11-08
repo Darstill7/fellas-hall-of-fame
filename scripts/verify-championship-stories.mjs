@@ -47,6 +47,7 @@ for(const story of stories.seasons){
 }
 const page=fs.readFileSync('hall/championship-stories.html','utf8');
 const hall=fs.readFileSync('hall/index.html','utf8');
+if(!page.includes('playoffPlayerProfiles')||!page.includes('postseason-players-grid')||!page.includes('people.set(id,previous)'))throw Error('Verified two-round player profile renderer missing');
 if(!page.includes('editorialVerdicts')||!page.includes('editorial-verdict-grid'))throw Error('Editorial notebook not rendered');
 if(!page.includes('inside-run')||!page.includes('story.insideTheRun.paragraphs'))throw Error('Deep-dive chapter absent from championship feature renderer');
 for(const token of ['championship_season_stories_2016_2025_v1.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json','aria-label="Championship story archive"','id="season-picker"','id="championship-feature"'])
