@@ -76,3 +76,64 @@ body{background:radial-gradient(ellipse 120% 55rem at 60% -18%,#264156 0%,#0c192
 .story-trade-receipts a:hover{border-color:#f4d595}
 @media(max-width:560px){.archive{margin-top:11px;margin-bottom:17px}.archive a{flex-basis:145px;min-height:83px}.cover-year{font-size:10px}.feature h2{max-width:100%}.story-section:not(:last-child){padding-bottom:12px}}
 @media print{body{background:#fff;color:#161e26}.top,.chapter-nav,.archive,.reading-nav,.chapter-bottom,.hero,.story-bracket-link,.road-archive{display:none!important}.feature,.road-to-ring,.story-section,.inside-run{background:#fff!important;color:#161e26!important;border-color:#777;box-shadow:none}.story-layout{display:block}.side{position:static;break-inside:avoid}.story-section p,.story-section h3{color:#161e26!important}.shell{max-width:100%}}
+
+/* Phone-first finishing: keep the reading surface calm even at 320px. */
+html{scroll-padding-top:88px}
+body{min-width:0;overflow-wrap:break-word}
+#championship-feature{min-width:0}
+.feature,.road-to-ring,.story-layout,.inside-run,.story-body,.postseason-players,.mvp-showcase{min-width:0}
+.feature h2,.story-section h3,.inside-run h3,.player-profile h4{overflow-wrap:break-word;hyphens:auto}
+.feature h2{word-break:normal}
+.archive{touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch}
+.reading-nav{max-width:100%;overscroll-behavior-x:contain}
+.reading-nav-inner{-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.reading-nav a{min-height:48px}
+.road-archive summary{min-height:50px}
+.story-section p{max-width:66ch}
+.story-trade-receipts nav a{overflow-wrap:anywhere}
+@media(max-width:700px){
+ .story-layout{display:flex;flex-direction:column;gap:16px}
+ .story-body,.side{width:100%;max-width:none}
+ .side{display:block;order:2;position:static}
+ .story-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .mvp-showcase{grid-template-columns:minmax(0,1fr)}
+ .mvp-entry{min-width:0}
+ .mvp-entry b{font-size:18px}
+ .mvp-player strong{font-size:14px}
+ .mvp-scores{min-width:0}
+ .story-trade-receipts nav a{width:100%;justify-content:flex-start}
+ .reading-nav{padding-block:7px}
+ .reading-nav-inner{gap:7px}
+ .reading-nav a{padding:10px 13px}
+ .road-games{grid-template-columns:1fr}
+ .road-game{padding:13px}
+ .editorial-verdict-grid{grid-template-columns:1fr}
+ .editorial-verdict{min-height:0}
+}
+@media(max-width:390px){
+ .shell{padding-inline:14px}
+ .feature{padding:22px 17px}
+ .feature h2{font-size:clamp(35px,10.3vw,43px);line-height:1.11}
+ .cover-year{max-width:100%;white-space:normal}
+ .feature .dek{font-size:16px;line-height:1.65}
+ .story-meta{gap:8px}
+ .story-stat{padding:12px 10px}
+ .story-stat strong{font-size:19px}
+ .story-stat small{font-size:11px}
+ .reading-nav{margin-inline:-14px;padding-inline:14px}
+ .road-track{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+ .road-beat{padding:12px 10px}
+ .road-beat span{font-size:16px}
+ .road-beat small{overflow-wrap:anywhere}
+ .road-beat.title{grid-column:1/-1}
+ .inside-run,.postseason-players,.rivalry-rewind{padding:18px 15px}
+ .story-section p,.inside-run p{font-size:16px;line-height:1.83}
+ .story-section:first-child p:first-letter{font-size:3em;padding-right:8px}
+ .postseason-players-grid{grid-template-columns:minmax(0,1fr)}
+ .chapter-bottom{margin-bottom:26px}
+}
+@supports(padding:env(safe-area-inset-left)){
+ @media(max-width:700px){
+  .shell{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}
+ }
+}
