@@ -6,7 +6,7 @@ import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
- 'analytics/power-ratings.html','analytics/rivalries.html','hall/','seasons/',
+ 'analytics/power-ratings.html','analytics/rivalries.html','analytics/legendary-records.html','hall/','seasons/',
  'analytics/manager-madden-cards.html','managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
@@ -125,6 +125,19 @@ try{
            (route==='hall/'&&(hierarchy.sectionCards.length!==6||hierarchy.sectionCards.some(c=>c.width<160||c.height<90)))||
            (route==='analytics/records.html'&&hierarchy.archiveTable<200))
          findings.push(engine+' '+width+' '+key+' hall/record editorial visual hierarchy '+JSON.stringify(hierarchy));
+       }
+       if(route==='analytics/legendary-records.html'){
+        const legend=await page.evaluate(()=>({
+         count:document.querySelectorAll('main .exhibit').length,
+         summaries:[...document.querySelectorAll('main .exhibit .record-evidence>summary')].map(e=>e.getBoundingClientRect().height),
+         links:[...document.querySelectorAll('.records-entry-paths a')].map(a=>a.getAttribute('href')),
+         first:document.querySelector('main .exhibit h2')?.textContent?.trim()
+        }));
+        if(legend.count!==11||legend.summaries.some(h=>h<44)||legend.first!=='The Impossible Comeback')
+         findings.push(engine+' '+width+' legendary records exhibit cards or evidence access incomplete '+JSON.stringify(legend));
+        const witness=page.locator('#worst-championship-start details.record-evidence');
+        await witness.locator('summary').click({timeout:5000});
+        if(!await witness.evaluate(node=>node.open))findings.push(engine+' '+width+' legendary source disclosure failed');
        }
        if(route==='managers/'){
         const directory=await page.locator('#manager-directory-cards a.manager').evaluateAll(nodes=>nodes.map(n=>{
