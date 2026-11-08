@@ -47,6 +47,7 @@ for(const story of stories.seasons){
 }
 const page=fs.readFileSync('hall/championship-stories.html','utf8');
 const hall=fs.readFileSync('hall/index.html','utf8');
+if(!page.includes('roadToRing')||!page.includes('regularLog')||!page.includes('road-archive')||!page.includes('data-chapter'))throw Error('Road to Ring timeline, recovered game log or distinct season presentation missing');
 if(!page.includes('rivalryRewind')||!page.includes('earlierMeetings')||!page.includes('rivalry-results'))throw Error('Rivalry rewind missing from championship anthology');
 if(!page.includes('playoffPlayerProfiles')||!page.includes('postseason-players-grid')||!page.includes('people.set(id,previous)'))throw Error('Verified two-round player profile renderer missing');
 if(!page.includes('editorialVerdicts')||!page.includes('editorial-verdict-grid'))throw Error('Editorial notebook not rendered');
