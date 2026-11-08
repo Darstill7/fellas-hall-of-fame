@@ -145,3 +145,6 @@ body{min-width:0;overflow-wrap:break-word}
 .cover-secondary-action{background:#102b38ae;color:#f5dfb2;border:1px solid #b59c6f}
 .cover-secondary-action:hover{background:#27414d;color:#fff}
 @media(max-width:390px){.cover-actions{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}.cover-actions a{width:100%;min-height:50px}.cover-actions+.story-meta{margin-top:19px}}
+
+/* Full-size brand hit area: tested in Chromium and WebKit at 320–1280px. */
+.top .brand{display:inline-flex;align-items:center;min-height:48px;min-width:44px;padding-block:8px;line-height:1.4}
