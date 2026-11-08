@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a151d"><title>Playoff History | The Fellas Hall of Fame</title>
+<meta name="description" content="Ten seasons of verified Fellas championship brackets, scores, title upsets and postseason heartbreaks.">
+<link rel="stylesheet" href="../assets/fellas-ui-system.css">
+<style>
+:root{color-scheme:dark;--ink:#f6f0e7;--muted:#cad8df;--gold:#ebcf8f;--line:#496272;--panel:#152b39}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 20% -10%,#284657,#0a151d 60%);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--gold)}a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #ffe7ac;outline-offset:3px} .skip{position:absolute;left:-10000px;background:#f3d894;color:#10222f;padding:12px;z-index:9}.skip:focus{left:8px;top:8px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}.mast{border-bottom:1px solid var(--line);background:#0e1c27}.mast .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:11px;padding-bottom:11px}.brand{font-weight:950;letter-spacing:.09em;color:#fff;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}.brand span{color:var(--gold)}.mast nav{display:flex;align-items:center;flex-wrap:wrap;gap:5px 13px}.mast nav a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;font-weight:750;text-decoration:none}
+.hero{padding:42px 0 27px}.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:850}.hero h1{font-size:clamp(38px,6vw,67px);line-height:1.08;letter-spacing:-.04em;margin:10px 0}.hero p{max-width:73ch;color:var(--muted);font-size:16px}.hero-links{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0 0}.pill-link{min-height:44px;padding:10px 14px;border:1px solid #82949e;border-radius:9px;display:inline-flex;align-items:center;text-decoration:none;font-size:13px;font-weight:800}.pill-link.primary{background:#e9cb83;color:#10222e;border-color:#e9cb83}
+.controller{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;display:flex;align-items:center;flex-wrap:wrap;gap:11px}.controller label{font-size:14px;font-weight:800}.controller select{min-height:48px;max-width:100%;min-width:185px;border-radius:10px;background:#203b4a;color:#fff;border:1px solid #8aa3b1;font:inherit;font-weight:750;padding:8px 12px}.controller button{min-height:48px;border-radius:10px;background:#1d3948;border:1px solid #7796a7;color:#fff;font:inherit;font-size:13px;font-weight:800;padding:10px 13px;cursor:pointer}.controller button:disabled{opacity:.45;cursor:not-allowed}
+.era{color:#d1dfe5;font-size:13px;margin-left:auto}.summary{padding:30px 0}.summary-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:start}.summary h2{font-size:clamp(26px,3.7vw,39px);line-height:1.16;margin:7px 0 8px;letter-spacing:-.035em}.summary .champion{color:var(--gold);font-weight:950}.subtitle{color:var(--muted);font-size:14px;margin:5px 0}.trophy{font-size:34px;line-height:1}.quick-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:21px 0}.quick-stat{background:#142c3a;border:1px solid #526b7a;border-radius:12px;padding:14px;min-width:0}.quick-stat small{display:block;color:#c4d5df;font-size:11px;line-height:1.4;font-weight:750}.quick-stat strong{display:block;font-size:clamp(18px,2.2vw,25px);font-weight:900;line-height:1.25;margin:5px 0;overflow-wrap:anywhere}.quick-stat a{font-size:13px;font-weight:750}.score-warning{border-left:3px solid #e4bf76;padding:11px 15px;background:#20323c;color:#e2e5e5;font-size:13px;line-height:1.65;margin:17px 0}
+.section-head{border-top:1px solid #496272;padding:23px 0 12px}.section-head h3{font-size:24px;letter-spacing:-.025em;line-height:1.2;margin:0 0 6px}.section-head p{color:var(--muted);font-size:13px;margin:0}.seed-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:24px}.seed-item{display:flex;align-items:center;gap:9px;padding:11px;border-radius:9px;background:#162d3a;border:1px solid #405b6b;font-size:14px;min-width:0}.seed-item strong{font-variant-numeric:tabular-nums;color:#e9d099}.seed-item span{overflow-wrap:anywhere;min-width:0}.seed-item em{margin-left:auto;font-style:normal;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#b6cbd6}
+.round-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;align-items:start;margin-bottom:30px}.round{min-width:0}.round>h3{font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:#ecd297;margin:0 0 11px}.match{background:linear-gradient(150deg,#1a3443,#102531);border:1px solid #4c6978;border-radius:12px;padding:13px;margin-bottom:10px;min-width:0}.match.final{border-color:#c2a466;background:radial-gradient(ellipse at 95% 0,#725a2f55,transparent 70%),#182e3c}.match .match-week{font-size:11px;font-weight:750;color:#c0d0da;line-height:1.4;margin-bottom:8px}.competitor{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:7px;border-radius:7px;padding:7px 8px}.competitor.won{background:#2e3e3f}.competitor .team{display:flex;align-items:center;min-width:0;gap:7px}.competitor .team-name{font-size:14px;font-weight:750;overflow-wrap:anywhere}.competitor .seed{font-size:11px;color:#e0c48a;min-width:18px}.competitor .score{font-size:16px;font-weight:900;font-variant-numeric:tabular-nums;white-space:nowrap}.competitor.won .score{color:#f3d48f}.match-footer{font-size:11px;color:#c4d3dc;margin:9px 3px 0}.no-scores{background:#132c38;border:1px dashed #6c8392;border-radius:12px;padding:17px;color:#c6d3dc;font-size:13px;line-height:1.6}
+.footer{border-top:1px solid #496272;padding:27px 0 40px;color:var(--muted);font-size:12px}
+@media(max-width:700px){.wrap{padding:0 16px}.hero{padding:30px 0 22px}.controller{gap:8px}.era{flex-basis:100%;margin-left:0}.summary{padding:21px 0}.quick-stats{grid-template-columns:1fr;gap:8px}.quick-stat{padding:12px}.seed-list{grid-template-columns:repeat(2,minmax(0,1fr))}.round-grid{grid-template-columns:minmax(0,1fr)}.summary-top{grid-template-columns:minmax(0,1fr) 30px}.trophy{font-size:27px}}
+@media(max-width:365px){.seed-list{grid-template-columns:1fr}.controller select{min-width:0;flex:1}.controller button{padding-inline:9px}.mast nav{gap:4px 10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<a class="skip" href="#main-content">Skip to playoff history</a>
+<header class="mast"><div class="wrap"><a class="brand" href="../index.html">THE <span>FELLAS</span></a><nav aria-label="Main navigation"><a href="../hall/">Hall of Fame</a><a href="../managers/">Managers</a><a href="records.html">Record Book</a><a href="../seasons/">Seasons</a></nav></div></header>
+<main class="wrap" id="main-content">
+<header class="hero"><div class="eyebrow">The road to immortality · 2016–2025</div><h1>Playoff History.</h1>
+<p>Every verified championship-bracket matchup, from the first ESPN titles to the Sleeper era. Follow the seeds, the upsets, the near-misses, and the path to each ring—without confusing consolation games with title games.</p>
+<div class="hero-links"><a class="pill-link primary" href="postseason-records.html">Postseason Record Book</a><a class="pill-link" href="legendary-records.html">Legendary Records</a><a class="pill-link" href="../hall/championship-stories.html">Championship Stories</a></div></header>
+<div class="controller"><label for="playoff-year">Choose season</label><button type="button" id="prev-year" aria-label="Previous playoff season">← Previous</button><select id="playoff-year" aria-label="Choose playoff year"><option value="2025">2025</option></select><button type="button" id="next-year" aria-label="Next playoff season">Next →</button><div class="era" id="source-coverage"></div></div>
+<div id="playoff-view" aria-live="polite" aria-atomic="false"><p class="subtitle">Loading verified playoff archive…</p></div>
+<section class="section-head" aria-labelledby="archive-rules"><h3 id="archive-rules">What the archive can prove</h3><p>These are completed 2016–2025 championship-bracket results. The 2016–2017 scores aggregate two NFL weeks; the 2022 championship reflects the canceled Buffalo–Cincinnati game. Missing early Sleeper scores are clearly marked. The 2026 playoffs remain unfinished and are not included here.</p></section>
+</main><footer class="footer"><div class="wrap">The Fellas Hall of Fame · Official archived matchups, not projections · <a href="../data-integrity/replay-booth.html">Correction archive</a></div></footer>
+<script>
+(()=>{'use strict';
+ const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const fmt=n=>Number(n).toFixed(2),order=['opening','semifinal','final'];
+ let archive=[],current=2025;
+ const title=round=>({opening:'Opening Round',semifinal:'Semifinals',final:'Championship'})[round];
+ const nameLink=n=>['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'].includes(n)
+  ?'../managers/'+(n==='Thommy'?'tom':n.toLowerCase())+'/':'../seasons/';
+ const matchCard=(m,round)=>'<article class="match'+(round==='final'?' final':'')+'" aria-label="'+esc(m.home)+' versus '+esc(m.away)+'">'+
+  '<div class="match-week">Week '+esc(m.weeksCovered.join(' &amp; '))+(m.aggregate?' · Two-week aggregate':'')+'</div>'+
+  [ ['home','homeScore','homeSeed'],['away','awayScore','awaySeed'] ].map(([team,score,seed])=>'<div class="competitor'+(m.winner===m[team]?' won':'')+'"><span class="team"><span class="seed">#'+esc(m[seed])+'</span><a class="team-name" href="'+nameLink(m[team])+'">'+esc(m[team])+'</a></span><span class="score">'+fmt(m[score])+'</span></div>').join('')+
+  '<div class="match-footer">'+esc(m.winner)+' advanced · '+fmt(m.margin)+'-point margin'+(m.seedUpset?' · Lower-seed upset':'')+'</div></article>';
+ const render=year=>{
+  const s=archive.find(x=>x.year===year);if(!s)return;
+  current=year;$('playoff-year').value=String(year);
+  $('prev-year').disabled=year===2016;$('next-year').disabled=year===2025;
+  $('source-coverage').textContent=s.provider+' · '+s.coverage.verifiedMatches+' verified winners-bracket scores';
+  const closest=s.closestGame?fmt(s.closestGame.margin)+' pts':'Not established';
+  const biggest=s.seedUpset?'#'+s.seedUpset.winnerSeed+' '+s.seedUpset.winner+' beat #'+s.seedUpset.loserSeed+' '+s.seedUpset.loser:'No seed upset verified';
+  const missing=s.coverage.missing.map(x=>'<p>'+esc(x)+'</p>').join('');
+  const note=s.coverage.specialNote?'<div class="score-warning"><strong>Important scoring context:</strong> '+esc(s.coverage.specialNote)+'</div>':'';
+  const uncertainty=missing?'<div class="score-warning"><strong>Partial score coverage.</strong> '+missing+' These matchups are not invented or assigned fabricated scores.</div>':'';
+  $('playoff-view').innerHTML='<section class="summary"><div class="summary-top"><div><div class="eyebrow">'+year+' championship · '+esc(s.provider)+'</div>'+
+   '<h2><span class="champion">'+esc(s.champion)+'</span> won the '+year+' Fellas title.</h2><p class="subtitle">Runner-up: '+esc(s.runnerUp)+' · '+esc(s.coverage.scoreFormat)+'</p></div><div class="trophy" aria-hidden="true">🏆</div></div>'+
+   '<div class="quick-stats"><div class="quick-stat"><small>Verified closest playoff matchup</small><strong>'+closest+'</strong><a href="#verified-rounds">Browse the rounds</a></div>'+
+   '<div class="quick-stat"><small>Largest confirmed seed upset</small><strong>'+esc(biggest)+'</strong><a href="legendary-records.html">Explore legendary records</a></div>'+
+   '<div class="quick-stat"><small>The championship story</small><strong>'+esc(s.champion)+' vs. '+esc(s.runnerUp)+'</strong><a href="../hall/championship-stories.html?year='+year+'">Read the full '+year+' season story →</a></div></div>'+note+uncertainty+'</section>'+
+   '<section class="section-head"><h3>Bracket seeds &amp; byes</h3><p>Official championship-field seedings. A bye means advancing directly to the semifinals, not a played victory.</p></section>'+
+   '<div class="seed-list">'+s.participants.map(t=>'<div class="seed-item"><strong>#'+t.seed+'</strong><span>'+esc(t.manager)+'</span>'+(t.bye?'<em>Bye</em>':'')+'</div>').join('')+'</div>'+
+   '<section class="section-head" id="verified-rounds"><h3>Verified championship-bracket games</h3><p>Scores are shown exactly as archived, with the winner highlighted. Consolation results are excluded.</p></section>'+
+   '<div class="round-grid">'+order.map(round=>'<section class="round" aria-label="'+title(round)+'"><h3>'+title(round)+'</h3>'+
+    (s.matches.filter(x=>x.round===round).map(x=>matchCard(x,round)).join('')||'<p class="no-scores">'+(round==='opening'&&s.participants.length===4?'Four-team field: no opening round.':'No independently verified score available for this round.')+'</p>')+
+    '</section>').join('')+'</div>';
+  history.replaceState(null,'','?year='+year);
+ };
+ const init=async()=>{
+  try{const res=await fetch('../data/playoff_explorer_verified_2016_2025_v1.json',{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);const data=await res.json();archive=data.seasons;
+    if(archive.length!==10)throw Error('Incomplete archival set');
+    $('playoff-year').innerHTML=archive.slice().reverse().map(s=>'<option value="'+s.year+'">'+s.year+' · '+esc(s.champion)+'</option>').join('');
+    const q=Number(new URLSearchParams(location.search).get('year'));render(archive.some(s=>s.year===q)?q:2025);
+    $('playoff-year').addEventListener('change',e=>render(Number(e.target.value)));
+    $('prev-year').addEventListener('click',()=>render(Math.max(2016,current-1)));
+    $('next-year').addEventListener('click',()=>render(Math.min(2025,current+1)));
+    addEventListener('popstate',()=>{const y=Number(new URLSearchParams(location.search).get('year'));if(archive.some(s=>s.year===y))render(y)});
+   }catch(err){console.error(err);$('playoff-view').innerHTML='<p role="alert" class="score-warning">The verified playoff history could not be loaded. <a href="postseason-records.html">View the Postseason Record Book instead.</a></p>'}
+ };init();
+})();
+</script></body></html>

@@ -1,0 +1,1370 @@
+{
+  "version": 1,
+  "scope": "Verified winners-bracket matchups, 2016–2025 completed seasons",
+  "asOf": "2026-11-08",
+  "sources": [
+    "data/season_weekly_matchups_2016_2026_v1.json",
+    "data/verified_espn_playoff_brackets_2016_2019.json",
+    "data/verified_sleeper_playoff_brackets_2020_2025.json"
+  ],
+  "coverageNote": "Consolation fixtures excluded. ESPN 2016–17 finals and semifinals cover two NFL weeks. Some Sleeper 2020–21 opening-round scores are not fully recovered.",
+  "seasons": [
+    {
+      "year": 2016,
+      "provider": "ESPN",
+      "champion": "Thommy",
+      "runnerUp": "Halderman",
+      "participants": [
+        {
+          "manager": "Halderman",
+          "seed": 1,
+          "bye": false
+        },
+        {
+          "manager": "Evans",
+          "seed": 2,
+          "bye": false
+        },
+        {
+          "manager": "Thommy",
+          "seed": 3,
+          "bye": false
+        },
+        {
+          "manager": "Koble",
+          "seed": 4,
+          "bye": false
+        }
+      ],
+      "matches": [
+        {
+          "round": "semifinal",
+          "week": 14,
+          "weeksCovered": [
+            14,
+            15
+          ],
+          "home": "Halderman",
+          "away": "Koble",
+          "homeSeed": 1,
+          "awaySeed": 4,
+          "homeScore": 188,
+          "awayScore": 167,
+          "winner": "Halderman",
+          "loser": "Koble",
+          "margin": 21,
+          "aggregate": true,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 14,
+          "weeksCovered": [
+            14,
+            15
+          ],
+          "home": "Evans",
+          "away": "Thommy",
+          "homeSeed": 2,
+          "awaySeed": 3,
+          "homeScore": 153,
+          "awayScore": 227,
+          "winner": "Thommy",
+          "loser": "Evans",
+          "margin": 74,
+          "aggregate": true,
+          "seedUpset": true
+        },
+        {
+          "round": "final",
+          "week": 15,
+          "weeksCovered": [
+            16,
+            17
+          ],
+          "home": "Halderman",
+          "away": "Thommy",
+          "homeSeed": 1,
+          "awaySeed": 3,
+          "homeScore": 175,
+          "awayScore": 223,
+          "winner": "Thommy",
+          "loser": "Halderman",
+          "margin": 48,
+          "aggregate": true,
+          "seedUpset": true
+        }
+      ],
+      "coverage": {
+        "verifiedMatches": 3,
+        "verifiedRounds": {
+          "opening": 0,
+          "semifinal": 2,
+          "final": 1
+        },
+        "missing": [],
+        "scoreFormat": "Two-NFL-week aggregate for semifinals and final",
+        "specialNote": null
+      },
+      "closestGame": {
+        "round": "semifinal",
+        "margin": 21,
+        "winner": "Halderman",
+        "loser": "Koble"
+      },
+      "seedUpset": {
+        "round": "final",
+        "winner": "Thommy",
+        "loser": "Halderman",
+        "winnerSeed": 3,
+        "loserSeed": 1
+      }
+    },
+    {
+      "year": 2017,
+      "provider": "ESPN",
+      "champion": "Thommy",
+      "runnerUp": "Schermerhorn",
+      "participants": [
+        {
+          "manager": "Thommy",
+          "seed": 1,
+          "bye": false
+        },
+        {
+          "manager": "Schermerhorn",
+          "seed": 2,
+          "bye": false
+        },
+        {
+          "manager": "Stilly",
+          "seed": 3,
+          "bye": false
+        },
+        {
+          "manager": "Evans",
+          "seed": 4,
+          "bye": false
+        }
+      ],
+      "matches": [
+        {
+          "round": "semifinal",
+          "week": 13,
+          "weeksCovered": [
+            13,
+            14
+          ],
+          "home": "Thommy",
+          "away": "Evans",
+          "homeSeed": 1,
+          "awaySeed": 4,
+          "homeScore": 233,
+          "awayScore": 217,
+          "winner": "Thommy",
+          "loser": "Evans",
+          "margin": 16,
+          "aggregate": true,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 13,
+          "weeksCovered": [
+            13,
+            14
+          ],
+          "home": "Schermerhorn",
+          "away": "Stilly",
+          "homeSeed": 2,
+          "awaySeed": 3,
+          "homeScore": 186,
+          "awayScore": 166,
+          "winner": "Schermerhorn",
+          "loser": "Stilly",
+          "margin": 20,
+          "aggregate": true,
+          "seedUpset": false
+        },
+        {
+          "round": "final",
+          "week": 14,
+          "weeksCovered": [
+            15,
+            16
+          ],
+          "home": "Thommy",
+          "away": "Schermerhorn",
+          "homeSeed": 1,
+          "awaySeed": 2,
+          "homeScore": 241,
+          "awayScore": 212,
+          "winner": "Thommy",
+          "loser": "Schermerhorn",
+          "margin": 29,
+          "aggregate": true,
+          "seedUpset": false
+        }
+      ],
+      "coverage": {
+        "verifiedMatches": 3,
+        "verifiedRounds": {
+          "opening": 0,
+          "semifinal": 2,
+          "final": 1
+        },
+        "missing": [],
+        "scoreFormat": "Two-NFL-week aggregate for semifinals and final",
+        "specialNote": null
+      },
+      "closestGame": {
+        "round": "semifinal",
+        "margin": 16,
+        "winner": "Thommy",
+        "loser": "Evans"
+      },
+      "seedUpset": null
+    },
+    {
+      "year": 2018,
+      "provider": "ESPN",
+      "champion": "Thommy",
+      "runnerUp": "Birch",
+      "participants": [
+        {
+          "manager": "Tony",
+          "seed": 1,
+          "bye": true
+        },
+        {
+          "manager": "Stover",
+          "seed": 2,
+          "bye": true
+        },
+        {
+          "manager": "Stew",
+          "seed": 3,
+          "bye": false
+        },
+        {
+          "manager": "Thommy",
+          "seed": 4,
+          "bye": false
+        },
+        {
+          "manager": "Kuhl",
+          "seed": 5,
+          "bye": false
+        },
+        {
+          "manager": "Birch",
+          "seed": 6,
+          "bye": false
+        }
+      ],
+      "matches": [
+        {
+          "round": "opening",
+          "week": 14,
+          "weeksCovered": [
+            14
+          ],
+          "home": "Stew",
+          "away": "Birch",
+          "homeSeed": 3,
+          "awaySeed": 6,
+          "homeScore": 61.8,
+          "awayScore": 125.68,
+          "winner": "Birch",
+          "loser": "Stew",
+          "margin": 63.88,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "opening",
+          "week": 14,
+          "weeksCovered": [
+            14
+          ],
+          "home": "Thommy",
+          "away": "Kuhl",
+          "homeSeed": 4,
+          "awaySeed": 5,
+          "homeScore": 96.54,
+          "awayScore": 92.64,
+          "winner": "Thommy",
+          "loser": "Kuhl",
+          "margin": 3.9,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Tony",
+          "away": "Thommy",
+          "homeSeed": 1,
+          "awaySeed": 4,
+          "homeScore": 82.3,
+          "awayScore": 94.8,
+          "winner": "Thommy",
+          "loser": "Tony",
+          "margin": 12.5,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "semifinal",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Stover",
+          "away": "Birch",
+          "homeSeed": 2,
+          "awaySeed": 6,
+          "homeScore": 82.36,
+          "awayScore": 124.52,
+          "winner": "Birch",
+          "loser": "Stover",
+          "margin": 42.16,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "final",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "Thommy",
+          "away": "Birch",
+          "homeSeed": 4,
+          "awaySeed": 6,
+          "homeScore": 111.58,
+          "awayScore": 106.62,
+          "winner": "Thommy",
+          "loser": "Birch",
+          "margin": 4.96,
+          "aggregate": false,
+          "seedUpset": false
+        }
+      ],
+      "coverage": {
+        "verifiedMatches": 5,
+        "verifiedRounds": {
+          "opening": 2,
+          "semifinal": 2,
+          "final": 1
+        },
+        "missing": [],
+        "scoreFormat": "One-week fantasy scores",
+        "specialNote": null
+      },
+      "closestGame": {
+        "round": "opening",
+        "margin": 3.9,
+        "winner": "Thommy",
+        "loser": "Kuhl"
+      },
+      "seedUpset": {
+        "round": "semifinal",
+        "winner": "Birch",
+        "loser": "Stover",
+        "winnerSeed": 6,
+        "loserSeed": 2
+      }
+    },
+    {
+      "year": 2019,
+      "provider": "ESPN",
+      "champion": "Birch",
+      "runnerUp": "Stew",
+      "participants": [
+        {
+          "manager": "Birch",
+          "seed": 1,
+          "bye": true
+        },
+        {
+          "manager": "Stew",
+          "seed": 2,
+          "bye": true
+        },
+        {
+          "manager": "Mitch",
+          "seed": 3,
+          "bye": false
+        },
+        {
+          "manager": "Tony",
+          "seed": 4,
+          "bye": false
+        },
+        {
+          "manager": "Kuhl",
+          "seed": 5,
+          "bye": false
+        },
+        {
+          "manager": "Stilly",
+          "seed": 6,
+          "bye": false
+        }
+      ],
+      "matches": [
+        {
+          "round": "opening",
+          "week": 14,
+          "weeksCovered": [
+            14
+          ],
+          "home": "Mitch",
+          "away": "Stilly",
+          "homeSeed": 3,
+          "awaySeed": 6,
+          "homeScore": 112.34,
+          "awayScore": 93.5,
+          "winner": "Mitch",
+          "loser": "Stilly",
+          "margin": 18.84,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "opening",
+          "week": 14,
+          "weeksCovered": [
+            14
+          ],
+          "home": "Tony",
+          "away": "Kuhl",
+          "homeSeed": 4,
+          "awaySeed": 5,
+          "homeScore": 115.98,
+          "awayScore": 91,
+          "winner": "Tony",
+          "loser": "Kuhl",
+          "margin": 24.98,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Birch",
+          "away": "Tony",
+          "homeSeed": 1,
+          "awaySeed": 4,
+          "homeScore": 153.1,
+          "awayScore": 131.52,
+          "winner": "Birch",
+          "loser": "Tony",
+          "margin": 21.58,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Stew",
+          "away": "Mitch",
+          "homeSeed": 2,
+          "awaySeed": 3,
+          "homeScore": 163.58,
+          "awayScore": 84.16,
+          "winner": "Stew",
+          "loser": "Mitch",
+          "margin": 79.42,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "final",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "Birch",
+          "away": "Stew",
+          "homeSeed": 1,
+          "awaySeed": 2,
+          "homeScore": 114.14,
+          "awayScore": 109.42,
+          "winner": "Birch",
+          "loser": "Stew",
+          "margin": 4.72,
+          "aggregate": false,
+          "seedUpset": false
+        }
+      ],
+      "coverage": {
+        "verifiedMatches": 5,
+        "verifiedRounds": {
+          "opening": 2,
+          "semifinal": 2,
+          "final": 1
+        },
+        "missing": [],
+        "scoreFormat": "One-week fantasy scores",
+        "specialNote": null
+      },
+      "closestGame": {
+        "round": "final",
+        "margin": 4.72,
+        "winner": "Birch",
+        "loser": "Stew"
+      },
+      "seedUpset": null
+    },
+    {
+      "year": 2020,
+      "provider": "Sleeper",
+      "champion": "Koble",
+      "runnerUp": "Mitch",
+      "participants": [
+        {
+          "manager": "Mitch",
+          "seed": 1,
+          "bye": true
+        },
+        {
+          "manager": "Birch",
+          "seed": 2,
+          "bye": true
+        },
+        {
+          "manager": "Kuhl",
+          "seed": 3,
+          "bye": false
+        },
+        {
+          "manager": "Evans",
+          "seed": 4,
+          "bye": false
+        },
+        {
+          "manager": "Stover",
+          "seed": 5,
+          "bye": false
+        },
+        {
+          "manager": "Koble",
+          "seed": 6,
+          "bye": false
+        }
+      ],
+      "matches": [
+        {
+          "round": "semifinal",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Koble",
+          "away": "Birch",
+          "homeSeed": 6,
+          "awaySeed": 2,
+          "homeScore": 130.42,
+          "awayScore": 82.82,
+          "winner": "Koble",
+          "loser": "Birch",
+          "margin": 47.6,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "final",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "Koble",
+          "away": "Mitch",
+          "homeSeed": 6,
+          "awaySeed": 1,
+          "homeScore": 117.48,
+          "awayScore": 99.42,
+          "winner": "Koble",
+          "loser": "Mitch",
+          "margin": 18.06,
+          "aggregate": false,
+          "seedUpset": true
+        }
+      ],
+      "coverage": {
+        "verifiedMatches": 2,
+        "verifiedRounds": {
+          "opening": 0,
+          "semifinal": 1,
+          "final": 1
+        },
+        "missing": [
+          "2 opening-round winners-bracket matchups without a verified score",
+          "1 semifinal score not recovered"
+        ],
+        "scoreFormat": "One-week fantasy scores",
+        "specialNote": null
+      },
+      "closestGame": {
+        "round": "final",
+        "margin": 18.06,
+        "winner": "Koble",
+        "loser": "Mitch"
+      },
+      "seedUpset": {
+        "round": "final",
+        "winner": "Koble",
+        "loser": "Mitch",
+        "winnerSeed": 6,
+        "loserSeed": 1
+      }
+    },
+    {
+      "year": 2021,
+      "provider": "Sleeper",
+      "champion": "Tony",
+      "runnerUp": "Evans",
+      "participants": [
+        {
+          "manager": "Birch",
+          "seed": 1,
+          "bye": true
+        },
+        {
+          "manager": "Tony",
+          "seed": 2,
+          "bye": true
+        },
+        {
+          "manager": "Stover",
+          "seed": 3,
+          "bye": false
+        },
+        {
+          "manager": "Mitch",
+          "seed": 4,
+          "bye": false
+        },
+        {
+          "manager": "Evans",
+          "seed": 5,
+          "bye": false
+        },
+        {
+          "manager": "Thommy",
+          "seed": 6,
+          "bye": false
+        }
+      ],
+      "matches": [
+        {
+          "round": "semifinal",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Tony",
+          "away": "Stover",
+          "homeSeed": 2,
+          "awaySeed": 3,
+          "homeScore": 94.96,
+          "awayScore": 73.44,
+          "winner": "Tony",
+          "loser": "Stover",
+          "margin": 21.52,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Evans",
+          "away": "Birch",
+          "homeSeed": 5,
+          "awaySeed": 1,
+          "homeScore": 109.02,
+          "awayScore": 96.28,
+          "winner": "Evans",
+          "loser": "Birch",
+          "margin": 12.74,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "final",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "Evans",
+          "away": "Tony",
+          "homeSeed": 5,
+          "awaySeed": 2,
+          "homeScore": 133.98,
+          "awayScore": 138.28,
+          "winner": "Tony",
+          "loser": "Evans",
+          "margin": 4.3,
+          "aggregate": false,
+          "seedUpset": false
+        }
+      ],
+      "coverage": {
+        "verifiedMatches": 3,
+        "verifiedRounds": {
+          "opening": 0,
+          "semifinal": 2,
+          "final": 1
+        },
+        "missing": [
+          "2 opening-round winners-bracket matchups without a verified score"
+        ],
+        "scoreFormat": "One-week fantasy scores",
+        "specialNote": null
+      },
+      "closestGame": {
+        "round": "final",
+        "margin": 4.3,
+        "winner": "Tony",
+        "loser": "Evans"
+      },
+      "seedUpset": {
+        "round": "semifinal",
+        "winner": "Evans",
+        "loser": "Birch",
+        "winnerSeed": 5,
+        "loserSeed": 1
+      }
+    },
+    {
+      "year": 2022,
+      "provider": "Sleeper",
+      "champion": "Stover",
+      "runnerUp": "Stew",
+      "participants": [
+        {
+          "manager": "Stew",
+          "seed": 1,
+          "bye": true
+        },
+        {
+          "manager": "Stover",
+          "seed": 2,
+          "bye": true
+        },
+        {
+          "manager": "Kuhl",
+          "seed": 3,
+          "bye": false
+        },
+        {
+          "manager": "Mitch",
+          "seed": 4,
+          "bye": false
+        },
+        {
+          "manager": "Stilly",
+          "seed": 5,
+          "bye": false
+        },
+        {
+          "manager": "Thommy",
+          "seed": 6,
+          "bye": false
+        }
+      ],
+      "matches": [
+        {
+          "round": "opening",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Stilly",
+          "away": "Mitch",
+          "homeSeed": 5,
+          "awaySeed": 4,
+          "homeScore": 94.92,
+          "awayScore": 127.9,
+          "winner": "Mitch",
+          "loser": "Stilly",
+          "margin": 32.98,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "opening",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Thommy",
+          "away": "Kuhl",
+          "homeSeed": 6,
+          "awaySeed": 3,
+          "homeScore": 122.08,
+          "awayScore": 143.86,
+          "winner": "Kuhl",
+          "loser": "Thommy",
+          "margin": 21.78,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "Stew",
+          "away": "Mitch",
+          "homeSeed": 1,
+          "awaySeed": 4,
+          "homeScore": 106.52,
+          "awayScore": 92.5,
+          "winner": "Stew",
+          "loser": "Mitch",
+          "margin": 14.02,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "Stover",
+          "away": "Kuhl",
+          "homeSeed": 2,
+          "awaySeed": 3,
+          "homeScore": 112.56,
+          "awayScore": 87.68,
+          "winner": "Stover",
+          "loser": "Kuhl",
+          "margin": 24.88,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "final",
+          "week": 17,
+          "weeksCovered": [
+            17
+          ],
+          "home": "Stew",
+          "away": "Stover",
+          "homeSeed": 1,
+          "awaySeed": 2,
+          "homeScore": 48.16,
+          "awayScore": 99.22,
+          "winner": "Stover",
+          "loser": "Stew",
+          "margin": 51.06,
+          "aggregate": false,
+          "seedUpset": true
+        }
+      ],
+      "coverage": {
+        "verifiedMatches": 5,
+        "verifiedRounds": {
+          "opening": 2,
+          "semifinal": 2,
+          "final": 1
+        },
+        "missing": [],
+        "scoreFormat": "One-week fantasy scores",
+        "specialNote": "Buffalo–Cincinnati Week 17 NFL game was canceled; recorded Fellas final is the verified league result, not a hypothetical uninterrupted result."
+      },
+      "closestGame": {
+        "round": "semifinal",
+        "margin": 14.02,
+        "winner": "Stew",
+        "loser": "Mitch"
+      },
+      "seedUpset": {
+        "round": "final",
+        "winner": "Stover",
+        "loser": "Stew",
+        "winnerSeed": 2,
+        "loserSeed": 1
+      }
+    },
+    {
+      "year": 2023,
+      "provider": "Sleeper",
+      "champion": "Stilly",
+      "runnerUp": "Mitch",
+      "participants": [
+        {
+          "manager": "Tony",
+          "seed": 1,
+          "bye": true
+        },
+        {
+          "manager": "Koble",
+          "seed": 2,
+          "bye": true
+        },
+        {
+          "manager": "Evans",
+          "seed": 3,
+          "bye": false
+        },
+        {
+          "manager": "Stilly",
+          "seed": 4,
+          "bye": false
+        },
+        {
+          "manager": "Birch",
+          "seed": 5,
+          "bye": false
+        },
+        {
+          "manager": "Mitch",
+          "seed": 6,
+          "bye": false
+        }
+      ],
+      "matches": [
+        {
+          "round": "opening",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Evans",
+          "away": "Mitch",
+          "homeSeed": 3,
+          "awaySeed": 6,
+          "homeScore": 94.22,
+          "awayScore": 110.32,
+          "winner": "Mitch",
+          "loser": "Evans",
+          "margin": 16.1,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "opening",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Stilly",
+          "away": "Birch",
+          "homeSeed": 4,
+          "awaySeed": 5,
+          "homeScore": 146.36,
+          "awayScore": 105.06,
+          "winner": "Stilly",
+          "loser": "Birch",
+          "margin": 41.3,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "Koble",
+          "away": "Mitch",
+          "homeSeed": 2,
+          "awaySeed": 6,
+          "homeScore": 104.2,
+          "awayScore": 131.12,
+          "winner": "Mitch",
+          "loser": "Koble",
+          "margin": 26.92,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "semifinal",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "Stilly",
+          "away": "Tony",
+          "homeSeed": 4,
+          "awaySeed": 1,
+          "homeScore": 141.66,
+          "awayScore": 108.58,
+          "winner": "Stilly",
+          "loser": "Tony",
+          "margin": 33.08,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "final",
+          "week": 17,
+          "weeksCovered": [
+            17
+          ],
+          "home": "Stilly",
+          "away": "Mitch",
+          "homeSeed": 4,
+          "awaySeed": 6,
+          "homeScore": 104.96,
+          "awayScore": 90.18,
+          "winner": "Stilly",
+          "loser": "Mitch",
+          "margin": 14.78,
+          "aggregate": false,
+          "seedUpset": false
+        }
+      ],
+      "coverage": {
+        "verifiedMatches": 5,
+        "verifiedRounds": {
+          "opening": 2,
+          "semifinal": 2,
+          "final": 1
+        },
+        "missing": [],
+        "scoreFormat": "One-week fantasy scores",
+        "specialNote": null
+      },
+      "closestGame": {
+        "round": "final",
+        "margin": 14.78,
+        "winner": "Stilly",
+        "loser": "Mitch"
+      },
+      "seedUpset": {
+        "round": "semifinal",
+        "winner": "Mitch",
+        "loser": "Koble",
+        "winnerSeed": 6,
+        "loserSeed": 2
+      }
+    },
+    {
+      "year": 2024,
+      "provider": "Sleeper",
+      "champion": "Thommy",
+      "runnerUp": "Stilly",
+      "participants": [
+        {
+          "manager": "Stover",
+          "seed": 1,
+          "bye": true
+        },
+        {
+          "manager": "Thommy",
+          "seed": 2,
+          "bye": true
+        },
+        {
+          "manager": "JMid",
+          "seed": 3,
+          "bye": false
+        },
+        {
+          "manager": "Stilly",
+          "seed": 4,
+          "bye": false
+        },
+        {
+          "manager": "Birch",
+          "seed": 5,
+          "bye": false
+        },
+        {
+          "manager": "Tony",
+          "seed": 6,
+          "bye": false
+        }
+      ],
+      "matches": [
+        {
+          "round": "opening",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "JMid",
+          "away": "Tony",
+          "homeSeed": 3,
+          "awaySeed": 6,
+          "homeScore": 110.24,
+          "awayScore": 108.54,
+          "winner": "JMid",
+          "loser": "Tony",
+          "margin": 1.7,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "opening",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Stilly",
+          "away": "Birch",
+          "homeSeed": 4,
+          "awaySeed": 5,
+          "homeScore": 125.94,
+          "awayScore": 122.68,
+          "winner": "Stilly",
+          "loser": "Birch",
+          "margin": 3.26,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "JMid",
+          "away": "Thommy",
+          "homeSeed": 3,
+          "awaySeed": 2,
+          "homeScore": 121.08,
+          "awayScore": 123.38,
+          "winner": "Thommy",
+          "loser": "JMid",
+          "margin": 2.3,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "Stilly",
+          "away": "Stover",
+          "homeSeed": 4,
+          "awaySeed": 1,
+          "homeScore": 174.82,
+          "awayScore": 130.94,
+          "winner": "Stilly",
+          "loser": "Stover",
+          "margin": 43.88,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "final",
+          "week": 17,
+          "weeksCovered": [
+            17
+          ],
+          "home": "Stilly",
+          "away": "Thommy",
+          "homeSeed": 4,
+          "awaySeed": 2,
+          "homeScore": 114.88,
+          "awayScore": 205.3,
+          "winner": "Thommy",
+          "loser": "Stilly",
+          "margin": 90.42,
+          "aggregate": false,
+          "seedUpset": false
+        }
+      ],
+      "coverage": {
+        "verifiedMatches": 5,
+        "verifiedRounds": {
+          "opening": 2,
+          "semifinal": 2,
+          "final": 1
+        },
+        "missing": [],
+        "scoreFormat": "One-week fantasy scores",
+        "specialNote": null
+      },
+      "closestGame": {
+        "round": "opening",
+        "margin": 1.7,
+        "winner": "JMid",
+        "loser": "Tony"
+      },
+      "seedUpset": {
+        "round": "semifinal",
+        "winner": "Stilly",
+        "loser": "Stover",
+        "winnerSeed": 4,
+        "loserSeed": 1
+      }
+    },
+    {
+      "year": 2025,
+      "provider": "Sleeper",
+      "champion": "Scott",
+      "runnerUp": "Thommy",
+      "participants": [
+        {
+          "manager": "Mitch",
+          "seed": 1,
+          "bye": true
+        },
+        {
+          "manager": "Scott",
+          "seed": 2,
+          "bye": true
+        },
+        {
+          "manager": "Tony",
+          "seed": 3,
+          "bye": false
+        },
+        {
+          "manager": "Thommy",
+          "seed": 4,
+          "bye": false
+        },
+        {
+          "manager": "Stew",
+          "seed": 5,
+          "bye": false
+        },
+        {
+          "manager": "Birch",
+          "seed": 6,
+          "bye": false
+        }
+      ],
+      "matches": [
+        {
+          "round": "opening",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Tony",
+          "away": "Birch",
+          "homeSeed": 3,
+          "awaySeed": 6,
+          "homeScore": 119.8,
+          "awayScore": 120.52,
+          "winner": "Birch",
+          "loser": "Tony",
+          "margin": 0.72,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "opening",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Thommy",
+          "away": "Stew",
+          "homeSeed": 4,
+          "awaySeed": 5,
+          "homeScore": 148.76,
+          "awayScore": 121.5,
+          "winner": "Thommy",
+          "loser": "Stew",
+          "margin": 27.26,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "Scott",
+          "away": "Birch",
+          "homeSeed": 2,
+          "awaySeed": 6,
+          "homeScore": 141.88,
+          "awayScore": 70.4,
+          "winner": "Scott",
+          "loser": "Birch",
+          "margin": 71.48,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
+          "round": "semifinal",
+          "week": 16,
+          "weeksCovered": [
+            16
+          ],
+          "home": "Thommy",
+          "away": "Mitch",
+          "homeSeed": 4,
+          "awaySeed": 1,
+          "homeScore": 134.28,
+          "awayScore": 126.3,
+          "winner": "Thommy",
+          "loser": "Mitch",
+          "margin": 7.98,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "final",
+          "week": 17,
+          "weeksCovered": [
+            17
+          ],
+          "home": "Thommy",
+          "away": "Scott",
+          "homeSeed": 4,
+          "awaySeed": 2,
+          "homeScore": 86,
+          "awayScore": 156.32,
+          "winner": "Scott",
+          "loser": "Thommy",
+          "margin": 70.32,
+          "aggregate": false,
+          "seedUpset": false
+        }
+      ],
+      "coverage": {
+        "verifiedMatches": 5,
+        "verifiedRounds": {
+          "opening": 2,
+          "semifinal": 2,
+          "final": 1
+        },
+        "missing": [],
+        "scoreFormat": "One-week fantasy scores",
+        "specialNote": null
+      },
+      "closestGame": {
+        "round": "opening",
+        "margin": 0.72,
+        "winner": "Birch",
+        "loser": "Tony"
+      },
+      "seedUpset": {
+        "round": "opening",
+        "winner": "Birch",
+        "loser": "Tony",
+        "winnerSeed": 6,
+        "loserSeed": 3
+      }
+    }
+  ]
+}

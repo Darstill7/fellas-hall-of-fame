@@ -6,7 +6,7 @@ import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
- 'analytics/power-ratings.html','analytics/rivalries.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
+ 'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
@@ -150,6 +150,26 @@ try{
         if(events!==3)findings.push(engine+' '+width+' timeline lost one or more 2025 Stilly trade events: '+events);
         if(!await page.locator('a[href="../seasons/2026.html"]').count())
          findings.push(engine+' '+width+' timeline archival freshness notice missing');
+       }
+       if(route==='analytics/playoff-history.html'){
+        await page.locator('#playoff-year').selectOption('2024',{timeout:5000});
+        const receipt=await page.evaluate(()=>({
+         title:document.querySelector('.summary h2')?.textContent,
+         games:document.querySelectorAll('article.match').length,
+         finals:document.querySelectorAll('article.match.final').length,
+         widths:document.documentElement.scrollWidth,
+         year:new URLSearchParams(location.search).get('year'),
+         score:document.querySelector('.match.final')?.textContent
+        }));
+        if(!receipt.title?.includes('Thommy')||receipt.games!==5||receipt.finals!==1||receipt.widths>width+4||receipt.year!=='2024'||!receipt.score?.includes('205.30'))
+         findings.push(engine+' '+width+' playoff explorer 2024 verification failure '+JSON.stringify(receipt));
+        await page.locator('#playoff-year').selectOption('2020',{timeout:5000});
+        const partial=await page.evaluate(()=>({warning:document.querySelector('.score-warning')?.textContent,year:new URLSearchParams(location.search).get('year')}));
+        if(!partial.warning?.includes('without a verified score')||partial.year!=='2020')
+         findings.push(engine+' '+width+' early Sleeper missing-score warning absent '+JSON.stringify(partial));
+        await page.locator('#playoff-year').selectOption('2016',{timeout:5000});
+        if(!await page.locator('#playoff-view').textContent().then(x=>x.includes('Two-NFL-week aggregate')))
+         findings.push(engine+' '+width+' ESPN two-week scoring qualifier absent');
        }
        if(route==='analytics/legendary-records.html'){
         const legend=await page.evaluate(()=>({
