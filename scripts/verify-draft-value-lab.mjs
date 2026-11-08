@@ -50,8 +50,10 @@ assert.ok(lab.definitions.keeperDecision.includes('eligible alternatives'));
 assert.ok(lab.definitions.caution.includes('traded'));
 assert.ok(lab.definitions.scope===undefined||lab.definitions.scope.includes('2026'));
 const page=fs.readFileSync('analytics/draft-value-lab.html','utf8');
-assert.ok(page.includes('fellas-draft-value-lab.mjs')&&page.includes('data/fellas_2026_sleeper_draft_board_verified_v1.json'));
-assert.ok(page.includes('data/v9_draft_engine.json')&&page.includes('Keeper Decision Quality is different'));
+const client=fs.readFileSync('assets/draft-value-lab-page.mjs','utf8');
+assert.ok(page.includes('assets/draft-value-lab-page.mjs')&&page.includes('Keeper Decision Quality is different'));
+assert.ok(client.includes('fellas-draft-value-lab.mjs')&&client.includes('data/fellas_2026_sleeper_draft_board_verified_v1.json'));
+assert.ok(client.includes('data/v9_draft_engine.json'));
 for(const p of ['analytics/drafts.html','analytics/drafts/index.html']){
  assert.ok(fs.readFileSync(p,'utf8').includes('draft-value-lab.html'),'Missing Draft Value Lab navigation '+p);
 }
