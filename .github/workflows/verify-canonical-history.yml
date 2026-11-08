@@ -79,6 +79,10 @@ jobs:
         run: node scripts/verify-espn-player-identities.mjs
       - name: Verify original-manager Sleeper draft production evidence
         run: node scripts/verify-draft-production.mjs
+      - name: Verify complete 2026 draft board and Week 6 round-slot comparisons
+        run: node scripts/verify-draft-value-lab.mjs
+      - name: Verify 2025 and Week 8 draft and keeper value research
+        run: node scripts/verify-draft-keeper-value-pilot.mjs
       - name: Verify descriptive same-year draft round peers and source exclusions
         run: node scripts/verify-draft-round-peers.mjs
       - name: Verify source-backed position-aware draft peer comparisons
