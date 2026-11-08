@@ -150,6 +150,36 @@
       ],
       "rule": "Champions with six recorded wins and no losses through Week 6.",
       "source": "Regular-season games + season guide"
+    },
+    {
+      "id": "highest-score-in-loss",
+      "title": "The Cruelest Defeat",
+      "label": "Highest regular-season score in a losing effort",
+      "metric": "164.80 points",
+      "detail": "Stew scored 164.80 in Week 10 of 2025 and still lost to Mitch, 167.82–164.80. An extraordinary week with nothing to show in the win column.",
+      "holder": [
+        {
+          "manager": "Stew",
+          "year": 2025
+        }
+      ],
+      "rule": "Highest recovered regular-season team total in a head-to-head loss; historical ESPN and Sleeper scoring formats differ.",
+      "source": "2016–2025 canonical weekly matchups"
+    },
+    {
+      "id": "best-record-no-title",
+      "title": "The Almost-Perfect Season",
+      "label": "Best regular-season winning percentage without a championship",
+      "metric": "13–1 (.929)",
+      "detail": "Mitch dominated the 2025 regular season at 13–1, entered the playoffs as the No. 1 seed, and watched Scott win the championship.",
+      "holder": [
+        {
+          "manager": "Mitch",
+          "year": 2025
+        }
+      ],
+      "rule": "Highest completed regular-season winning percentage among teams that did not win that season's title; ties count as half-wins.",
+      "source": "Season guide + verified championship winners"
     }
   ],
   "disclosures": [
