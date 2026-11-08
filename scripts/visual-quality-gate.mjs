@@ -196,6 +196,15 @@ try{
         }));
         if(pick.count<5||pick.keeperCount!==20||!pick.note?.includes('Week 8'))
          findings.push(engine+' '+width+' draft/keeper research loading or coverage failure '+JSON.stringify(pick));
+        const managerRows=await page.locator('#efficiency-rows tr').count();
+        const currentCoverage=await page.locator('#efficiency-coverage').textContent();
+        if(managerRows!==10||!currentCoverage.includes('Week 8'))
+         findings.push(engine+' '+width+' manager draft value per pick summary missing or stale: '+managerRows+' '+currentCoverage);
+        await page.locator('#draft-year').selectOption('2025');
+        const finishedCoverage=await page.locator('#efficiency-coverage').textContent();
+        if(!finishedCoverage.includes('completed season')||await page.locator('#efficiency-rows tr').count()!==10)
+         findings.push(engine+' '+width+' completed-year draft value efficiency filter failed');
+        await page.locator('#draft-year').selectOption('2026');
         await page.locator('#draft-manager').selectOption('Stilly');
         await page.locator('#draft-position').selectOption('RB');
         const woody=await page.locator('#draft-rows').textContent();
