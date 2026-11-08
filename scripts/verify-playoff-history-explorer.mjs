@@ -51,10 +51,12 @@ for(const year of Array.from({length:10},(_,i)=>2016+i)){
 }
 const html=fs.readFileSync('analytics/playoff-history.html','utf8');
 const recordPage=fs.readFileSync('analytics/postseason-records.html','utf8');
+const storiesPage=fs.readFileSync('hall/championship-stories.html','utf8');
 assert.ok(html.includes('playoff_explorer_verified_2016_2025_v1.json'));
 assert.ok(html.includes('new URLSearchParams(location.search).get('));
 assert.ok(html.includes('championship-stories.html?year='));
 assert.ok(html.includes('Some Sleeper')===false || html.includes('verified'));
 assert.ok(recordPage.includes('href="playoff-history.html"'),'postseason record book link absent');
+assert.ok(storiesPage.includes('playoff-history.html?year=\'+active'),'championship journalism does not link the matching bracket year');
 assert.ok(!archive.seasons.some(x=>x.year===2026),'unfinished season cannot join verified playoffs');
 console.log('PLAYOFF HISTORY VERIFIED: 10 completed seasons, '+counted+' independently sourced winners-bracket scores; '+missing+' explicit missing-score notices; ESPN aggregates retained.');
