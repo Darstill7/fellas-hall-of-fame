@@ -68,7 +68,6 @@ for(let year=2016;year<=2025;year++){
 }
 const signed=rows=>rows.map(x=>x.manager+':'+x.year).sort().join('|');
 const nearest=(kind)=>top(verifiedPostseason.filter(x=>x.round===kind),x=>x.margin,'min');
-const maxFinal=top(verifiedPostseason.filter(x=>x.round==='final').map(x=>({...x,manager:x.winner})),x=>x.margin);
 const lastFinals=verifiedPostseason.filter(x=>x.round==='final');
 if(lastFinals.length!==10)throw Error('Verified postseason final count must be ten, got '+lastFinals.length);
 const withoutRing=new Set(all.filter(x=>x.champion).map(x=>x.manager));
