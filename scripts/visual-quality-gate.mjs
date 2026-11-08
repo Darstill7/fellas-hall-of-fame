@@ -6,8 +6,8 @@ import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
- 'analytics/power-ratings.html','analytics/rivalries.html','hall/','seasons/',
- 'analytics/manager-madden-cards.html','managers/record-books.html','analytics/record-holders.html',
+ 'analytics/power-ratings.html','analytics/rivalries.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
+ 'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
 const server=http.createServer(async(req,res)=>{
@@ -125,6 +125,31 @@ try{
            (route==='hall/'&&(hierarchy.sectionCards.length!==6||hierarchy.sectionCards.some(c=>c.width<160||c.height<90)))||
            (route==='analytics/records.html'&&hierarchy.archiveTable<200))
          findings.push(engine+' '+width+' '+key+' hall/record editorial visual hierarchy '+JSON.stringify(hierarchy));
+       }
+       if(route==='analytics/manager-madden-cards.html'){
+        const score=page.locator('.card .ovr-value').first();
+        if(!await score.count())throw Error('Manager OVR value missing');
+        const metrics=await score.evaluate(node=>{
+         const container=node.closest('.ovr'),rect=node.getBoundingClientRect(),range=document.createRange();
+         range.selectNodeContents(node);
+         const lines=[...range.getClientRects()].filter(x=>x.width>0);
+         return {value:node.textContent?.trim(),lines:lines.length,scroller:document.documentElement.scrollWidth,viewport:innerWidth,
+           fit:rect.right<=innerWidth+3&&rect.left>=-3,cardFit:!!container&&container.getBoundingClientRect().width>=rect.width-1};
+        });
+        if(metrics.lines!==1||!/^\d{2}\.\d$/.test(metrics.value)||!metrics.fit||!metrics.cardFit)
+         findings.push(engine+' '+width+' manager OVR wraps or clips '+JSON.stringify(metrics));
+        if(await page.locator('.card .scouting-details').count()!==await page.locator('.card').count())
+         findings.push(engine+' '+width+' manager research details not grouped under disclosure');
+       }
+       if(route==='analytics/franchise-timeline.html'){
+        const card=page.locator('#seasons article.season').filter({hasText:'2025'}).first();
+        const trade=card.locator('details.timeline-event-group').first();
+        if(!await trade.count())throw Error('2025 archived transaction list missing');
+        await trade.locator('summary').click({timeout:5000});
+        const events=await trade.locator('ol.timeline-trades li').count();
+        if(events!==3)findings.push(engine+' '+width+' timeline lost one or more 2025 Stilly trade events: '+events);
+        if(!await page.locator('a[href="../seasons/2026.html"]').count())
+         findings.push(engine+' '+width+' timeline archival freshness notice missing');
        }
        if(route==='managers/'){
         const directory=await page.locator('#manager-directory-cards a.manager').evaluateAll(nodes=>nodes.map(n=>{
