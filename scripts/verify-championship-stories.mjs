@@ -47,6 +47,14 @@ for(const story of stories.seasons){
 }
 const page=fs.readFileSync('hall/championship-stories.html','utf8');
 const hall=fs.readFileSync('hall/index.html','utf8');
+const editorialCss=fs.readFileSync('assets/championship-editorial.css','utf8');
+for(const selector of ['.reading-nav','.cover-edition','.story-section:first-child p:first-letter','.skip-link','.archive{display:flex','.feature[data-chapter="2023"]','@media(prefers-reduced-motion:reduce)']){
+ if(!editorialCss.includes(selector))throw Error('Editorial visual/accessibility requirement missing: '+selector);
+}
+for(const htmlToken of ['championship-editorial.css','class="reading-nav"','class="cover-edition"','id="road-to-ring"','id="championship-story"','id="editors-notebook"','id="final-stars"','id="player-profiles"','id="rivalry-rewind"']){
+ if(!page.includes(htmlToken))throw Error('Championship reading experience missing '+htmlToken);
+}
+
 if(!page.includes('roadToRing')||!page.includes('regularLog')||!page.includes('road-archive')||!page.includes('data-chapter'))throw Error('Road to Ring timeline, recovered game log or distinct season presentation missing');
 if(!page.includes('rivalryRewind')||!page.includes('earlierMeetings')||!page.includes('rivalry-results'))throw Error('Rivalry rewind missing from championship anthology');
 if(!page.includes('playoffPlayerProfiles')||!page.includes('postseason-players-grid')||!page.includes('people.set(id,previous)'))throw Error('Verified two-round player profile renderer missing');
