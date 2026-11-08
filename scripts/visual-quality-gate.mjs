@@ -158,7 +158,7 @@ try{
          links:[...document.querySelectorAll('.records-entry-paths a')].map(a=>a.getAttribute('href')),
          first:document.querySelector('main .exhibit h2')?.textContent?.trim()
         }));
-        if(legend.count!==14||legend.summaries.some(h=>h<44)||legend.first!=='The Impossible Comeback')
+        if(legend.count!==19||legend.summaries.some(h=>h<44)||legend.first!=='The Impossible Comeback')
          findings.push(engine+' '+width+' legendary records exhibit cards or evidence access incomplete '+JSON.stringify(legend));
         const witness=page.locator('#worst-championship-start details.record-evidence');
         await witness.locator('summary').click({timeout:5000});
