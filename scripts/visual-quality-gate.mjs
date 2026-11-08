@@ -189,6 +189,19 @@ try{
          findings.push(engine+' '+width+' duplicate homepage hero buttons crowd out manager discovery');
        }
        if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
+        const moment=page.locator('main .hero [data-defining-moment]');
+        if(await moment.count()!==1){findings.push(engine+' '+width+' '+key+' missing unique defining franchise moment');}
+        else{
+         const info=await moment.evaluate(el=>({name:el.dataset.definingMoment,header:el.querySelector('h2')?.textContent?.trim(),
+           linkHeight:el.querySelector('a')?.getBoundingClientRect().height||0,metric:el.querySelector('.profile-moment-stat')?.textContent?.trim(),
+           champion:el.classList.contains('profile-moment-champion'),right:el.getBoundingClientRect().right}));
+         if(!info.name||!info.header||!info.metric||info.linkHeight<42||info.right>width+5)
+          findings.push(engine+' '+width+' '+key+' defining moment unclear or clipped '+JSON.stringify(info));
+         if(info.champion!==['Stilly','Thommy','Stover','Birch','Tony','Scott'].includes(info.name))
+          findings.push(engine+' '+width+' '+key+' championship gold assigned to wrong manager '+JSON.stringify(info));
+        }
+       }
+       if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
         const switcherMetrics=await page.locator('nav.hof-manager-switcher').evaluate(el=>{
          const rect=el.getBoundingClientRect(),links=[...el.querySelectorAll('a,select')];
          return {right:rect.right,width:rect.width,controlCount:links.length,
