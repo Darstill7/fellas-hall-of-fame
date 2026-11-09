@@ -17,7 +17,8 @@
     "lateRound": "Rounds 10–15, with keeper picks excluded from late-round draft-steal rankings.",
     "keeperObserved": "Retained player's original-manager starts and points, and difference to observed league same-position starting medians for those weeks.",
     "keeperDecision": "True keeper decision/opportunity cost needs the complete eligible roster at keeper lock, keeper cost rules, alternative candidates and their realized/predicted returns; those records have not been verified.",
-    "historicalGrades2020to2024": "For 2020–2024, rank each year's ten teams using the archived v9 draft-engine realized regular-starter surplus (its original, historical baseline). Label 1–2 A, 3–4 B, 5–6 C, 7–8 D, 9–10 F. This baseline is not the newer 2025 nearby same-position-and-round peer model, so do not compare point surplus or grades directly between eras. These are observed return tiers, not talent evaluation."
+    "historicalGrades2020to2024": "For 2020–2024, rank each year's ten teams using the archived v9 draft-engine realized regular-starter surplus (its original, historical baseline). Label 1–2 A, 3–4 B, 5–6 C, 7–8 D, 9–10 F. This baseline is not the newer 2025 nearby same-position-and-round peer model, so do not compare point surplus or grades directly between eras. These are observed return tiers, not talent evaluation.",
+    "keeperRoundSlotProxy": "For each 2026 keeper, compare original-team observed starter points to the same round's nonkeeper picks from the verified 2026 draft. This is an ex post realized slot comparison only, NOT a decision-time alternative or true keeper opportunity cost."
   },
   "limits": [
     "2025 and 2026 are separate windows; 2026 is incomplete through Week 8 and not a final ranking.",
@@ -3248,7 +3249,11 @@
             "position": "WR",
             "starts": 8,
             "startedPoints": 190.96,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 8,
+            "nonkeeperSameRoundMedianPoints": 19.9,
+            "observedRoundSlotReturn": 171.06,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           },
           {
             "name": "Tyler Warren",
@@ -3256,7 +3261,11 @@
             "position": "TE",
             "starts": 6,
             "startedPoints": 58.7,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 8,
+            "nonkeeperSameRoundMedianPoints": 7.3,
+            "observedRoundSlotReturn": 51.4,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           }
         ],
         "observedStartedPoints": 249.66,
@@ -3274,7 +3283,11 @@
             "position": "WR",
             "starts": 6,
             "startedPoints": 112.6,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 5,
+            "nonkeeperSameRoundMedianPoints": 106.6,
+            "observedRoundSlotReturn": 6,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           },
           {
             "name": "Tee Higgins",
@@ -3282,7 +3295,11 @@
             "position": "WR",
             "starts": 7,
             "startedPoints": 120.1,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 7,
+            "nonkeeperSameRoundMedianPoints": 61.9,
+            "observedRoundSlotReturn": 58.2,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           }
         ],
         "observedStartedPoints": 232.7,
@@ -3300,7 +3317,11 @@
             "position": "TE",
             "starts": 6,
             "startedPoints": 103.2,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 8,
+            "nonkeeperSameRoundMedianPoints": 19.9,
+            "observedRoundSlotReturn": 83.3,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           },
           {
             "name": "Javonte Williams",
@@ -3308,7 +3329,11 @@
             "position": "RB",
             "starts": 8,
             "startedPoints": 125.2,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 8,
+            "nonkeeperSameRoundMedianPoints": 0.95,
+            "observedRoundSlotReturn": 124.25,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           }
         ],
         "observedStartedPoints": 228.4,
@@ -3326,7 +3351,11 @@
             "position": "WR",
             "starts": 7,
             "startedPoints": 113.5,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 5,
+            "nonkeeperSameRoundMedianPoints": 106.6,
+            "observedRoundSlotReturn": 6.9,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           },
           {
             "name": "Jayden Daniels",
@@ -3334,7 +3363,11 @@
             "position": "QB",
             "starts": 4,
             "startedPoints": 81.98,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 9,
+            "nonkeeperSameRoundMedianPoints": 6.4,
+            "observedRoundSlotReturn": 75.58,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           }
         ],
         "observedStartedPoints": 195.48,
@@ -3352,7 +3385,11 @@
             "position": "RB",
             "starts": 7,
             "startedPoints": 178.8,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 5,
+            "nonkeeperSameRoundMedianPoints": 106.6,
+            "observedRoundSlotReturn": 72.2,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           },
           {
             "name": "Emeka Egbuka",
@@ -3360,7 +3397,11 @@
             "position": "WR",
             "starts": 0,
             "startedPoints": 0,
-            "transferredDuringSeason": true
+            "transferredDuringSeason": true,
+            "nonkeeperSameRoundPeerCount": 8,
+            "nonkeeperSameRoundMedianPoints": 66.45,
+            "observedRoundSlotReturn": -66.45,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           }
         ],
         "observedStartedPoints": 178.8,
@@ -3378,7 +3419,11 @@
             "position": "RB",
             "starts": 8,
             "startedPoints": 139.8,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 5,
+            "nonkeeperSameRoundMedianPoints": 106.6,
+            "observedRoundSlotReturn": 33.2,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           },
           {
             "name": "Ladd McConkey",
@@ -3386,7 +3431,11 @@
             "position": "WR",
             "starts": 0,
             "startedPoints": 0,
-            "transferredDuringSeason": true
+            "transferredDuringSeason": true,
+            "nonkeeperSameRoundPeerCount": 8,
+            "nonkeeperSameRoundMedianPoints": 7.3,
+            "observedRoundSlotReturn": -7.3,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           }
         ],
         "observedStartedPoints": 139.8,
@@ -3404,7 +3453,11 @@
             "position": "WR",
             "starts": 5,
             "startedPoints": 46.3,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 7,
+            "nonkeeperSameRoundMedianPoints": 61.9,
+            "observedRoundSlotReturn": -15.6,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           },
           {
             "name": "Cam Skattebo",
@@ -3412,7 +3465,11 @@
             "position": "RB",
             "starts": 6,
             "startedPoints": 43.3,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 8,
+            "nonkeeperSameRoundMedianPoints": 0.95,
+            "observedRoundSlotReturn": 42.35,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           }
         ],
         "observedStartedPoints": 89.6,
@@ -3430,7 +3487,11 @@
             "position": "WR",
             "starts": 5,
             "startedPoints": 66.1,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 9,
+            "nonkeeperSameRoundMedianPoints": 92.2,
+            "observedRoundSlotReturn": -26.1,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           },
           {
             "name": "Drake Maye",
@@ -3438,7 +3499,11 @@
             "position": "QB",
             "starts": 3,
             "startedPoints": 20.6,
-            "transferredDuringSeason": true
+            "transferredDuringSeason": true,
+            "nonkeeperSameRoundPeerCount": 9,
+            "nonkeeperSameRoundMedianPoints": 11,
+            "observedRoundSlotReturn": 9.6,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           }
         ],
         "observedStartedPoints": 86.7,
@@ -3456,7 +3521,11 @@
             "position": "WR",
             "starts": 3,
             "startedPoints": 39,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 7,
+            "nonkeeperSameRoundMedianPoints": 61.9,
+            "observedRoundSlotReturn": -22.9,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           },
           {
             "name": "Matthew Stafford",
@@ -3464,7 +3533,11 @@
             "position": "QB",
             "starts": 3,
             "startedPoints": 37.48,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 9,
+            "nonkeeperSameRoundMedianPoints": 0,
+            "observedRoundSlotReturn": 37.48,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           }
         ],
         "observedStartedPoints": 76.48,
@@ -3482,7 +3555,11 @@
             "position": "WR",
             "starts": 4,
             "startedPoints": 49.7,
-            "transferredDuringSeason": true
+            "transferredDuringSeason": true,
+            "nonkeeperSameRoundPeerCount": 5,
+            "nonkeeperSameRoundMedianPoints": 106.6,
+            "observedRoundSlotReturn": -56.9,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           },
           {
             "name": "Rome Odunze",
@@ -3490,7 +3567,11 @@
             "position": "WR",
             "starts": 1,
             "startedPoints": 7.2,
-            "transferredDuringSeason": false
+            "transferredDuringSeason": false,
+            "nonkeeperSameRoundPeerCount": 8,
+            "nonkeeperSameRoundMedianPoints": 66.45,
+            "observedRoundSlotReturn": -59.25,
+            "observedRoundSlotReturnIsDecisionOpportunityCost": false
           }
         ],
         "observedStartedPoints": 56.9,
@@ -3508,7 +3589,8 @@
       "every eligible alternate and deadline cost",
       "keeper selection timestamps and exchanged pick ownership where applicable",
       "comparable pre-draft value expectation if claiming ex ante decision quality"
-    ]
+    ],
+    "roundSlotProxyStatus": "descriptive_only_not_decision_time_opportunity_cost"
   },
   "archive2020to2024": {
     "status": "archived_observed_draft_returns_using_original_v9_baseline_not_directly_comparable_to_2025_pilot",
