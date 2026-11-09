@@ -1,0 +1,20 @@
+{
+  "schema": "fellas-keeper-rules-research-v1",
+  "confirmedOn": "2026-11-09",
+  "provenance": "league commissioner confirmation in conversation",
+  "confirmed": {
+    "keepersPerTeam": 2,
+    "annualKeeperRoundEscalation": -1,
+    "maxConsecutiveKeeperYears": 3,
+    "firstKeeperRoundForFreeAgentOrWaiverAcquisition": 9
+  },
+  "unresolved": {
+    "roundOneEscalation": null,
+    "keeperTenureTransferAfterTrade": null,
+    "firstKeeperCostOfTradeAcquisitionWithoutInheritedKeeperCost": null,
+    "simultaneousKeepersWithSameRoundCost": null,
+    "keeperDeadline2026": null,
+    "exactEligibleRosterAtLock": null
+  },
+  "interpretation": "A confirmed cost formula does not independently prove any given player is eligible. Never assign keeper decision grades from observed after-the-fact returns alone."
+}
