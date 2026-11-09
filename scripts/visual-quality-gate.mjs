@@ -629,6 +629,40 @@ try{
          mobileJourneys.push({engine,page:'championship-anthology',width,mobileReading:true,yearSelection:true,archiveSwipe:true});
         }
        }
+       // A complete visitor journey supplements page-level screenshots with actual links.
+       // Run once per browser engine on the representative 390px phone viewport.
+       if(route===''&&width===390){
+        const journey=await context.newPage();
+        try{
+         await journey.goto(baseUrl,{waitUntil:'domcontentloaded',timeout:15000});
+         await journey.locator('main .home-featured-card[href="hall/"]').click();
+         await journey.waitForURL(url=>url.pathname.endsWith('/hall/'),{timeout:12000});
+         if(!await journey.getByRole('heading',{name:/Hall of Fame/i}).count())
+          throw Error('Homepage Hall of Fame card failed to reach the museum');
+         await journey.locator('a[href="championship-stories.html"]').first().click();
+         await journey.waitForURL(url=>url.pathname.endsWith('/hall/championship-stories.html'),{timeout:12000});
+         await journey.locator('#championship-feature .feature').waitFor({timeout:15000});
+         await journey.locator('#chapters a[href*="year=2023"]').click();
+         await journey.waitForFunction(()=>document.querySelector('#championship-feature .feature')?.dataset.chapter==='2023',{timeout:10000});
+         if(!await journey.locator('#championship-story .story-section').count())
+          throw Error('Championship year link failed to open verified article');
+
+         await journey.goto(baseUrl,{waitUntil:'domcontentloaded',timeout:15000});
+         await journey.locator('main .card[href="managers/"]').first().click();
+         await journey.waitForURL(url=>url.pathname.endsWith('/managers/'),{timeout:12000});
+         await journey.locator('#manager-directory-cards a.manager[href="stilly/"]').click();
+         await journey.waitForURL(url=>url.pathname.endsWith('/managers/stilly/'),{timeout:12000});
+         if(!await journey.locator('#franchise-story').count())
+          throw Error('Manager card failed to open franchise story');
+         const mobile=journey.locator('header.nav details.fellas-mobile-site-menu');
+         await mobile.locator(':scope > summary').click();
+         await mobile.locator('nav a[href="../../analytics/records.html"]').click();
+         await journey.waitForURL(url=>url.pathname.endsWith('/analytics/records.html'),{timeout:12000});
+         if(!await journey.locator('#expanded-records').count())
+          throw Error('Manager-to-Records navigation did not open full record archive');
+         mobileJourneys.push({engine,width,page:'cross-page-reading-journey',path:'Home → Hall → 2023 story; Home → Stilly → Records',verified:true});
+        }finally{await journey.close();}
+       }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
        findings.push(engine+' '+width+' '+key+' audit error '+(error?.message||String(error)));
