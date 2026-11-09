@@ -168,3 +168,14 @@ body.premium-franchise .section[id]{
  }
  body.premium-franchise .section[id]{scroll-margin-top:76px}
 }
+
+/* Profiles replace legacy chapter links with a generated tab navigation.
+   The generated bar must not become another sticky header after JS mounts. */
+body.premium-franchise nav.profile-tabs{
+ position:static!important;top:auto!important;z-index:1!important;
+ box-shadow:none!important;backdrop-filter:none!important;
+}
+body.premium-franchise nav.profile-tabs .profile-tab-row{overflow-x:auto;flex-wrap:nowrap}
+body.premium-franchise nav.profile-tabs button[data-profile-tab]{
+ flex-shrink:0;min-height:48px!important;
+}
