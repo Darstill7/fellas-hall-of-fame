@@ -32,3 +32,15 @@ body.fellas-polished.records-premium{background:radial-gradient(ellipse at 55% -
 }
 @media(max-width:390px){.records-premium .record-cover h1{font-size:clamp(39px,11vw,47px)}.records-premium .record-cover .stat{padding:12px}.records-premium .record-cover .stat strong{font-size:20px}.records-premium .record-cover .stat small{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.records-premium .records-entry-paths a{transition:none}}
+
+/* Records: persistent way home, but no second fixed navigation rail. */
+body.records-premium>header.nav{position:sticky;top:0;z-index:40;background:#0b1c27f3;border-bottom:1px solid #526779;backdrop-filter:blur(14px);box-shadow:0 5px 18px #0004}
+body.records-premium>header.nav .brand{display:inline-flex;align-items:center;min-height:48px}
+body.records-premium>header.nav .navlinks a{display:inline-flex;align-items:center;min-height:46px;padding:9px 5px}
+body.records-premium .record-category-shortcuts{position:static;top:auto;touch-action:pan-x pan-y}
+body.records-premium .record-category-shortcuts a{min-height:48px}
+body.records-premium #expanded-records,body.records-premium #postseason-records,body.records-premium #original-records{scroll-margin-top:88px}
+@media(max-width:600px){
+ body.records-premium>header.nav .wrap{padding-block:9px}
+ body.records-premium #expanded-records,body.records-premium #postseason-records,body.records-premium #original-records{scroll-margin-top:75px}
+}
