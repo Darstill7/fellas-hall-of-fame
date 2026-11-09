@@ -1,0 +1,2150 @@
+{
+  "schema": "fellas-regular-season-weekly-league-top-scores-v1",
+  "asOf": "2026-11-09",
+  "source": "data/season_weekly_matchups_2016_2026_v1.json",
+  "definitions": {
+    "fullyPairedWeeksOnly": "All eight teams (2016) or all ten teams (later years) must have one recorded regular-season matchup in the league week. 2020/21 Week 14 excluded as incomplete.",
+    "leagueWeeklyTop": "Highest actual fantasy points among all eligible league teams that week; ties share top finish and are explicitly recorded. This is not weekly top points after a different starting lineup.",
+    "eraComparison": "Raw scores/rank frequency can differ across eight- and ten-team leagues, roster slots and different scoring settings; counts measure observed weekly league leadership, not adjusted fantasy skill.",
+    "seasons": "Historical 2016–2025 completed weeks; 2026 through Week 8 only, never mixed into historical completed-season rankings."
+  },
+  "coverage": {
+    "completedSeasonCompleteWeeks": 133,
+    "provisional2026CompleteWeeks": 8
+  },
+  "completedWeeklyReceipts": [
+    {
+      "year": 2016,
+      "week": 1,
+      "leagueTeams": 8,
+      "topScore": 133,
+      "managers": [
+        "Evans"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 2,
+      "leagueTeams": 8,
+      "topScore": 131,
+      "managers": [
+        "Stew"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 3,
+      "leagueTeams": 8,
+      "topScore": 136,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 4,
+      "leagueTeams": 8,
+      "topScore": 122,
+      "managers": [
+        "Halderman"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 5,
+      "leagueTeams": 8,
+      "topScore": 170,
+      "managers": [
+        "Halderman"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 6,
+      "leagueTeams": 8,
+      "topScore": 157,
+      "managers": [
+        "Stilly"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 7,
+      "leagueTeams": 8,
+      "topScore": 129,
+      "managers": [
+        "Evans"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 8,
+      "leagueTeams": 8,
+      "topScore": 105,
+      "managers": [
+        "Evans"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 9,
+      "leagueTeams": 8,
+      "topScore": 153,
+      "managers": [
+        "Evans"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 10,
+      "leagueTeams": 8,
+      "topScore": 157,
+      "managers": [
+        "Halderman"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 11,
+      "leagueTeams": 8,
+      "topScore": 126,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 12,
+      "leagueTeams": 8,
+      "topScore": 128,
+      "managers": [
+        "Halderman"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2016,
+      "week": 13,
+      "leagueTeams": 8,
+      "topScore": 151,
+      "managers": [
+        "Schermerhorn"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 1,
+      "leagueTeams": 10,
+      "topScore": 149,
+      "managers": [
+        "Stilly"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 2,
+      "leagueTeams": 10,
+      "topScore": 109,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 3,
+      "leagueTeams": 10,
+      "topScore": 113,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 4,
+      "leagueTeams": 10,
+      "topScore": 114,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 5,
+      "leagueTeams": 10,
+      "topScore": 121,
+      "managers": [
+        "Evans"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 6,
+      "leagueTeams": 10,
+      "topScore": 122,
+      "managers": [
+        "Schermerhorn"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 7,
+      "leagueTeams": 10,
+      "topScore": 124,
+      "managers": [
+        "Schermerhorn"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 8,
+      "leagueTeams": 10,
+      "topScore": 124,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 9,
+      "leagueTeams": 10,
+      "topScore": 148,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 10,
+      "leagueTeams": 10,
+      "topScore": 132,
+      "managers": [
+        "Schermerhorn"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 11,
+      "leagueTeams": 10,
+      "topScore": 123,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2017,
+      "week": 12,
+      "leagueTeams": 10,
+      "topScore": 137,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 1,
+      "leagueTeams": 10,
+      "topScore": 131.46,
+      "managers": [
+        "Stilly"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 2,
+      "leagueTeams": 10,
+      "topScore": 159.58,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 3,
+      "leagueTeams": 10,
+      "topScore": 128.04,
+      "managers": [
+        "Kuhl"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 4,
+      "leagueTeams": 10,
+      "topScore": 134.26,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 5,
+      "leagueTeams": 10,
+      "topScore": 124.5,
+      "managers": [
+        "Koble"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 6,
+      "leagueTeams": 10,
+      "topScore": 142.28,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 7,
+      "leagueTeams": 10,
+      "topScore": 142.92,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 8,
+      "leagueTeams": 10,
+      "topScore": 150.06,
+      "managers": [
+        "Evans"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 9,
+      "leagueTeams": 10,
+      "topScore": 150.54,
+      "managers": [
+        "Kuhl"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 10,
+      "leagueTeams": 10,
+      "topScore": 141.66,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 11,
+      "leagueTeams": 10,
+      "topScore": 122.62,
+      "managers": [
+        "Evans"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 12,
+      "leagueTeams": 10,
+      "topScore": 150.12,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2018,
+      "week": 13,
+      "leagueTeams": 10,
+      "topScore": 140.06,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 1,
+      "leagueTeams": 10,
+      "topScore": 169.32,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 2,
+      "leagueTeams": 10,
+      "topScore": 139.04,
+      "managers": [
+        "Stilly"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 3,
+      "leagueTeams": 10,
+      "topScore": 166.38,
+      "managers": [
+        "Stew"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 4,
+      "leagueTeams": 10,
+      "topScore": 163.18,
+      "managers": [
+        "Stew"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 5,
+      "leagueTeams": 10,
+      "topScore": 155.04,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 6,
+      "leagueTeams": 10,
+      "topScore": 154.14,
+      "managers": [
+        "Stilly"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 7,
+      "leagueTeams": 10,
+      "topScore": 127.34,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 8,
+      "leagueTeams": 10,
+      "topScore": 149.56,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 9,
+      "leagueTeams": 10,
+      "topScore": 148.52,
+      "managers": [
+        "Kuhl"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 10,
+      "leagueTeams": 10,
+      "topScore": 153.74,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 11,
+      "leagueTeams": 10,
+      "topScore": 140.44,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 12,
+      "leagueTeams": 10,
+      "topScore": 150.56,
+      "managers": [
+        "Stew"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2019,
+      "week": 13,
+      "leagueTeams": 10,
+      "topScore": 117.7,
+      "managers": [
+        "Koble"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 1,
+      "leagueTeams": 10,
+      "topScore": 148.2,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 2,
+      "leagueTeams": 10,
+      "topScore": 157.52,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 3,
+      "leagueTeams": 10,
+      "topScore": 157.38,
+      "managers": [
+        "Kuhl"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 4,
+      "leagueTeams": 10,
+      "topScore": 160.32,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 5,
+      "leagueTeams": 10,
+      "topScore": 140.96,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 6,
+      "leagueTeams": 10,
+      "topScore": 143.34,
+      "managers": [
+        "Koble"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 7,
+      "leagueTeams": 10,
+      "topScore": 156.68,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 8,
+      "leagueTeams": 10,
+      "topScore": 166.52,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 9,
+      "leagueTeams": 10,
+      "topScore": 144.8,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 10,
+      "leagueTeams": 10,
+      "topScore": 153.64,
+      "managers": [
+        "Evans"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 11,
+      "leagueTeams": 10,
+      "topScore": 161.04,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 12,
+      "leagueTeams": 10,
+      "topScore": 134.44,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2020,
+      "week": 13,
+      "leagueTeams": 10,
+      "topScore": 137.82,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 1,
+      "leagueTeams": 10,
+      "topScore": 167.36,
+      "managers": [
+        "Stew"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 2,
+      "leagueTeams": 10,
+      "topScore": 147.76,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 3,
+      "leagueTeams": 10,
+      "topScore": 135.04,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 4,
+      "leagueTeams": 10,
+      "topScore": 154.52,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 5,
+      "leagueTeams": 10,
+      "topScore": 178.82,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 6,
+      "leagueTeams": 10,
+      "topScore": 167.14,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 7,
+      "leagueTeams": 10,
+      "topScore": 151.46,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 8,
+      "leagueTeams": 10,
+      "topScore": 143.5,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 9,
+      "leagueTeams": 10,
+      "topScore": 115.24,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 10,
+      "leagueTeams": 10,
+      "topScore": 133.94,
+      "managers": [
+        "Kuhl"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 11,
+      "leagueTeams": 10,
+      "topScore": 168.88,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 12,
+      "leagueTeams": 10,
+      "topScore": 151.36,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2021,
+      "week": 13,
+      "leagueTeams": 10,
+      "topScore": 161.98,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 1,
+      "leagueTeams": 10,
+      "topScore": 145.9,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 2,
+      "leagueTeams": 10,
+      "topScore": 159.72,
+      "managers": [
+        "Stew"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "leagueTeams": 10,
+      "topScore": 137.9,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "leagueTeams": 10,
+      "topScore": 150.02,
+      "managers": [
+        "Kuhl"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 5,
+      "leagueTeams": 10,
+      "topScore": 156.08,
+      "managers": [
+        "Stew"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "leagueTeams": 10,
+      "topScore": 119.92,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 7,
+      "leagueTeams": 10,
+      "topScore": 134.56,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "leagueTeams": 10,
+      "topScore": 177.14,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 9,
+      "leagueTeams": 10,
+      "topScore": 152.84,
+      "managers": [
+        "Koble"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "leagueTeams": 10,
+      "topScore": 132.4,
+      "managers": [
+        "Stew"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "leagueTeams": 10,
+      "topScore": 137.62,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 12,
+      "leagueTeams": 10,
+      "topScore": 123.66,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 13,
+      "leagueTeams": 10,
+      "topScore": 161.64,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "leagueTeams": 10,
+      "topScore": 146.7,
+      "managers": [
+        "Evans"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 1,
+      "leagueTeams": 10,
+      "topScore": 157.94,
+      "managers": [
+        "Koble"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 2,
+      "leagueTeams": 10,
+      "topScore": 145.2,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 3,
+      "leagueTeams": 10,
+      "topScore": 144.94,
+      "managers": [
+        "Evans"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 4,
+      "leagueTeams": 10,
+      "topScore": 145.9,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 5,
+      "leagueTeams": 10,
+      "topScore": 164.76,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 6,
+      "leagueTeams": 10,
+      "topScore": 128.42,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 7,
+      "leagueTeams": 10,
+      "topScore": 167.46,
+      "managers": [
+        "Evans"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 8,
+      "leagueTeams": 10,
+      "topScore": 138.16,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 9,
+      "leagueTeams": 10,
+      "topScore": 137.62,
+      "managers": [
+        "Stilly"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 10,
+      "leagueTeams": 10,
+      "topScore": 170.26,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 11,
+      "leagueTeams": 10,
+      "topScore": 135.4,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 12,
+      "leagueTeams": 10,
+      "topScore": 173.86,
+      "managers": [
+        "Stilly"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 13,
+      "leagueTeams": 10,
+      "topScore": 171.6,
+      "managers": [
+        "Kuhl"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2023,
+      "week": 14,
+      "leagueTeams": 10,
+      "topScore": 135.34,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 1,
+      "leagueTeams": 10,
+      "topScore": 140.32,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "leagueTeams": 10,
+      "topScore": 137.58,
+      "managers": [
+        "Stew"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 3,
+      "leagueTeams": 10,
+      "topScore": 137.38,
+      "managers": [
+        "JMid"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "leagueTeams": 10,
+      "topScore": 133.72,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "leagueTeams": 10,
+      "topScore": 145.68,
+      "managers": [
+        "JMid"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 6,
+      "leagueTeams": 10,
+      "topScore": 152.02,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "leagueTeams": 10,
+      "topScore": 127.16,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "leagueTeams": 10,
+      "topScore": 148.66,
+      "managers": [
+        "Stilly"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "leagueTeams": 10,
+      "topScore": 139.4,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "leagueTeams": 10,
+      "topScore": 165.02,
+      "managers": [
+        "JMid"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 11,
+      "leagueTeams": 10,
+      "topScore": 136.78,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "leagueTeams": 10,
+      "topScore": 140.5,
+      "managers": [
+        "Stilly"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "leagueTeams": 10,
+      "topScore": 162.24,
+      "managers": [
+        "Stilly"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "leagueTeams": 10,
+      "topScore": 152.58,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 1,
+      "leagueTeams": 10,
+      "topScore": 125.96,
+      "managers": [
+        "Birch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 2,
+      "leagueTeams": 10,
+      "topScore": 128.5,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 3,
+      "leagueTeams": 10,
+      "topScore": 132.34,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 4,
+      "leagueTeams": 10,
+      "topScore": 165.5,
+      "managers": [
+        "Thommy"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 5,
+      "leagueTeams": 10,
+      "topScore": 177.58,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 6,
+      "leagueTeams": 10,
+      "topScore": 154.76,
+      "managers": [
+        "Scott"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 7,
+      "leagueTeams": 10,
+      "topScore": 180.86,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 8,
+      "leagueTeams": 10,
+      "topScore": 146.26,
+      "managers": [
+        "Stover"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 9,
+      "leagueTeams": 10,
+      "topScore": 126.6,
+      "managers": [
+        "Stew"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 10,
+      "leagueTeams": 10,
+      "topScore": 167.82,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 11,
+      "leagueTeams": 10,
+      "topScore": 155.1,
+      "managers": [
+        "Scott"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 12,
+      "leagueTeams": 10,
+      "topScore": 160.76,
+      "managers": [
+        "Mitch"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 13,
+      "leagueTeams": 10,
+      "topScore": 142.44,
+      "managers": [
+        "Scott"
+      ],
+      "tied": false
+    },
+    {
+      "year": 2025,
+      "week": 14,
+      "leagueTeams": 10,
+      "topScore": 127.56,
+      "managers": [
+        "Tony"
+      ],
+      "tied": false
+    }
+  ],
+  "completedLeaderboards": {
+    "allTimeWeeklyTopFinishes": [
+      {
+        "manager": "Mitch",
+        "totalWeeklyTopFinishes": 18
+      },
+      {
+        "manager": "Birch",
+        "totalWeeklyTopFinishes": 16
+      },
+      {
+        "manager": "Stover",
+        "totalWeeklyTopFinishes": 15
+      },
+      {
+        "manager": "Tony",
+        "totalWeeklyTopFinishes": 14
+      },
+      {
+        "manager": "Thommy",
+        "totalWeeklyTopFinishes": 13
+      },
+      {
+        "manager": "Evans",
+        "totalWeeklyTopFinishes": 11
+      },
+      {
+        "manager": "Stew",
+        "totalWeeklyTopFinishes": 10
+      },
+      {
+        "manager": "Stilly",
+        "totalWeeklyTopFinishes": 10
+      },
+      {
+        "manager": "Kuhl",
+        "totalWeeklyTopFinishes": 7
+      },
+      {
+        "manager": "Koble",
+        "totalWeeklyTopFinishes": 5
+      },
+      {
+        "manager": "Halderman",
+        "totalWeeklyTopFinishes": 4
+      },
+      {
+        "manager": "Schermerhorn",
+        "totalWeeklyTopFinishes": 4
+      },
+      {
+        "manager": "JMid",
+        "totalWeeklyTopFinishes": 3
+      },
+      {
+        "manager": "Scott",
+        "totalWeeklyTopFinishes": 3
+      }
+    ],
+    "topSingleSeasons": [
+      {
+        "year": 2025,
+        "manager": "Mitch",
+        "count": 5,
+        "weeks": [
+          3,
+          5,
+          7,
+          10,
+          12
+        ]
+      },
+      {
+        "year": 2016,
+        "manager": "Evans",
+        "count": 4,
+        "weeks": [
+          1,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "year": 2016,
+        "manager": "Halderman",
+        "count": 4,
+        "weeks": [
+          4,
+          5,
+          10,
+          12
+        ]
+      },
+      {
+        "year": 2017,
+        "manager": "Thommy",
+        "count": 4,
+        "weeks": [
+          4,
+          8,
+          9,
+          12
+        ]
+      },
+      {
+        "year": 2020,
+        "manager": "Mitch",
+        "count": 4,
+        "weeks": [
+          5,
+          7,
+          8,
+          11
+        ]
+      },
+      {
+        "year": 2021,
+        "manager": "Tony",
+        "count": 4,
+        "weeks": [
+          6,
+          7,
+          11,
+          12
+        ]
+      },
+      {
+        "year": 2024,
+        "manager": "Stover",
+        "count": 4,
+        "weeks": [
+          1,
+          4,
+          7,
+          9
+        ]
+      },
+      {
+        "year": 2017,
+        "manager": "Schermerhorn",
+        "count": 3,
+        "weeks": [
+          6,
+          7,
+          10
+        ]
+      },
+      {
+        "year": 2019,
+        "manager": "Stew",
+        "count": 3,
+        "weeks": [
+          3,
+          4,
+          12
+        ]
+      },
+      {
+        "year": 2019,
+        "manager": "Mitch",
+        "count": 3,
+        "weeks": [
+          5,
+          7,
+          11
+        ]
+      },
+      {
+        "year": 2020,
+        "manager": "Birch",
+        "count": 3,
+        "weeks": [
+          1,
+          9,
+          12
+        ]
+      },
+      {
+        "year": 2021,
+        "manager": "Stover",
+        "count": 3,
+        "weeks": [
+          3,
+          5,
+          13
+        ]
+      },
+      {
+        "year": 2022,
+        "manager": "Stew",
+        "count": 3,
+        "weeks": [
+          2,
+          5,
+          10
+        ]
+      },
+      {
+        "year": 2023,
+        "manager": "Birch",
+        "count": 3,
+        "weeks": [
+          2,
+          8,
+          10
+        ]
+      },
+      {
+        "year": 2024,
+        "manager": "JMid",
+        "count": 3,
+        "weeks": [
+          3,
+          5,
+          10
+        ]
+      },
+      {
+        "year": 2024,
+        "manager": "Stilly",
+        "count": 3,
+        "weeks": [
+          8,
+          12,
+          13
+        ]
+      },
+      {
+        "year": 2025,
+        "manager": "Scott",
+        "count": 3,
+        "weeks": [
+          6,
+          11,
+          13
+        ]
+      },
+      {
+        "year": 2018,
+        "manager": "Kuhl",
+        "count": 2,
+        "weeks": [
+          3,
+          9
+        ]
+      },
+      {
+        "year": 2018,
+        "manager": "Birch",
+        "count": 2,
+        "weeks": [
+          6,
+          12
+        ]
+      },
+      {
+        "year": 2018,
+        "manager": "Thommy",
+        "count": 2,
+        "weeks": [
+          7,
+          10
+        ]
+      },
+      {
+        "year": 2018,
+        "manager": "Evans",
+        "count": 2,
+        "weeks": [
+          8,
+          11
+        ]
+      },
+      {
+        "year": 2019,
+        "manager": "Birch",
+        "count": 2,
+        "weeks": [
+          1,
+          10
+        ]
+      },
+      {
+        "year": 2019,
+        "manager": "Stilly",
+        "count": 2,
+        "weeks": [
+          2,
+          6
+        ]
+      },
+      {
+        "year": 2020,
+        "manager": "Stover",
+        "count": 2,
+        "weeks": [
+          2,
+          13
+        ]
+      },
+      {
+        "year": 2021,
+        "manager": "Birch",
+        "count": 2,
+        "weeks": [
+          2,
+          9
+        ]
+      },
+      {
+        "year": 2021,
+        "manager": "Thommy",
+        "count": 2,
+        "weeks": [
+          4,
+          8
+        ]
+      },
+      {
+        "year": 2022,
+        "manager": "Stover",
+        "count": 2,
+        "weeks": [
+          1,
+          11
+        ]
+      },
+      {
+        "year": 2022,
+        "manager": "Mitch",
+        "count": 2,
+        "weeks": [
+          3,
+          13
+        ]
+      },
+      {
+        "year": 2022,
+        "manager": "Tony",
+        "count": 2,
+        "weeks": [
+          7,
+          8
+        ]
+      },
+      {
+        "year": 2023,
+        "manager": "Evans",
+        "count": 2,
+        "weeks": [
+          3,
+          7
+        ]
+      },
+      {
+        "year": 2023,
+        "manager": "Mitch",
+        "count": 2,
+        "weeks": [
+          5,
+          11
+        ]
+      },
+      {
+        "year": 2023,
+        "manager": "Tony",
+        "count": 2,
+        "weeks": [
+          6,
+          14
+        ]
+      },
+      {
+        "year": 2023,
+        "manager": "Stilly",
+        "count": 2,
+        "weeks": [
+          9,
+          12
+        ]
+      },
+      {
+        "year": 2025,
+        "manager": "Tony",
+        "count": 2,
+        "weeks": [
+          2,
+          14
+        ]
+      },
+      {
+        "year": 2016,
+        "manager": "Stew",
+        "count": 1,
+        "weeks": [
+          2
+        ]
+      },
+      {
+        "year": 2016,
+        "manager": "Thommy",
+        "count": 1,
+        "weeks": [
+          3
+        ]
+      },
+      {
+        "year": 2016,
+        "manager": "Stilly",
+        "count": 1,
+        "weeks": [
+          6
+        ]
+      },
+      {
+        "year": 2016,
+        "manager": "Stover",
+        "count": 1,
+        "weeks": [
+          11
+        ]
+      },
+      {
+        "year": 2016,
+        "manager": "Schermerhorn",
+        "count": 1,
+        "weeks": [
+          13
+        ]
+      },
+      {
+        "year": 2017,
+        "manager": "Stilly",
+        "count": 1,
+        "weeks": [
+          1
+        ]
+      },
+      {
+        "year": 2017,
+        "manager": "Tony",
+        "count": 1,
+        "weeks": [
+          2
+        ]
+      },
+      {
+        "year": 2017,
+        "manager": "Stover",
+        "count": 1,
+        "weeks": [
+          3
+        ]
+      },
+      {
+        "year": 2017,
+        "manager": "Evans",
+        "count": 1,
+        "weeks": [
+          5
+        ]
+      },
+      {
+        "year": 2017,
+        "manager": "Birch",
+        "count": 1,
+        "weeks": [
+          11
+        ]
+      },
+      {
+        "year": 2018,
+        "manager": "Stilly",
+        "count": 1,
+        "weeks": [
+          1
+        ]
+      },
+      {
+        "year": 2018,
+        "manager": "Tony",
+        "count": 1,
+        "weeks": [
+          2
+        ]
+      },
+      {
+        "year": 2018,
+        "manager": "Stover",
+        "count": 1,
+        "weeks": [
+          4
+        ]
+      },
+      {
+        "year": 2018,
+        "manager": "Koble",
+        "count": 1,
+        "weeks": [
+          5
+        ]
+      },
+      {
+        "year": 2018,
+        "manager": "Mitch",
+        "count": 1,
+        "weeks": [
+          13
+        ]
+      },
+      {
+        "year": 2019,
+        "manager": "Tony",
+        "count": 1,
+        "weeks": [
+          8
+        ]
+      },
+      {
+        "year": 2019,
+        "manager": "Kuhl",
+        "count": 1,
+        "weeks": [
+          9
+        ]
+      },
+      {
+        "year": 2019,
+        "manager": "Koble",
+        "count": 1,
+        "weeks": [
+          13
+        ]
+      },
+      {
+        "year": 2020,
+        "manager": "Kuhl",
+        "count": 1,
+        "weeks": [
+          3
+        ]
+      },
+      {
+        "year": 2020,
+        "manager": "Tony",
+        "count": 1,
+        "weeks": [
+          4
+        ]
+      },
+      {
+        "year": 2020,
+        "manager": "Koble",
+        "count": 1,
+        "weeks": [
+          6
+        ]
+      },
+      {
+        "year": 2020,
+        "manager": "Evans",
+        "count": 1,
+        "weeks": [
+          10
+        ]
+      },
+      {
+        "year": 2021,
+        "manager": "Stew",
+        "count": 1,
+        "weeks": [
+          1
+        ]
+      },
+      {
+        "year": 2021,
+        "manager": "Kuhl",
+        "count": 1,
+        "weeks": [
+          10
+        ]
+      },
+      {
+        "year": 2022,
+        "manager": "Kuhl",
+        "count": 1,
+        "weeks": [
+          4
+        ]
+      },
+      {
+        "year": 2022,
+        "manager": "Birch",
+        "count": 1,
+        "weeks": [
+          6
+        ]
+      },
+      {
+        "year": 2022,
+        "manager": "Koble",
+        "count": 1,
+        "weeks": [
+          9
+        ]
+      },
+      {
+        "year": 2022,
+        "manager": "Thommy",
+        "count": 1,
+        "weeks": [
+          12
+        ]
+      },
+      {
+        "year": 2022,
+        "manager": "Evans",
+        "count": 1,
+        "weeks": [
+          14
+        ]
+      },
+      {
+        "year": 2023,
+        "manager": "Koble",
+        "count": 1,
+        "weeks": [
+          1
+        ]
+      },
+      {
+        "year": 2023,
+        "manager": "Thommy",
+        "count": 1,
+        "weeks": [
+          4
+        ]
+      },
+      {
+        "year": 2023,
+        "manager": "Kuhl",
+        "count": 1,
+        "weeks": [
+          13
+        ]
+      },
+      {
+        "year": 2024,
+        "manager": "Stew",
+        "count": 1,
+        "weeks": [
+          2
+        ]
+      },
+      {
+        "year": 2024,
+        "manager": "Thommy",
+        "count": 1,
+        "weeks": [
+          6
+        ]
+      },
+      {
+        "year": 2024,
+        "manager": "Mitch",
+        "count": 1,
+        "weeks": [
+          11
+        ]
+      },
+      {
+        "year": 2024,
+        "manager": "Birch",
+        "count": 1,
+        "weeks": [
+          14
+        ]
+      },
+      {
+        "year": 2025,
+        "manager": "Birch",
+        "count": 1,
+        "weeks": [
+          1
+        ]
+      },
+      {
+        "year": 2025,
+        "manager": "Thommy",
+        "count": 1,
+        "weeks": [
+          4
+        ]
+      },
+      {
+        "year": 2025,
+        "manager": "Stover",
+        "count": 1,
+        "weeks": [
+          8
+        ]
+      },
+      {
+        "year": 2025,
+        "manager": "Stew",
+        "count": 1,
+        "weeks": [
+          9
+        ]
+      }
+    ]
+  },
+  "provisional2026": {
+    "weeklyReceipts": [
+      {
+        "year": 2026,
+        "week": 1,
+        "leagueTeams": 10,
+        "topScore": 161.26,
+        "managers": [
+          "Mitch"
+        ],
+        "tied": false
+      },
+      {
+        "year": 2026,
+        "week": 2,
+        "leagueTeams": 10,
+        "topScore": 168.72,
+        "managers": [
+          "Mitch"
+        ],
+        "tied": false
+      },
+      {
+        "year": 2026,
+        "week": 3,
+        "leagueTeams": 10,
+        "topScore": 152.58,
+        "managers": [
+          "JMid"
+        ],
+        "tied": false
+      },
+      {
+        "year": 2026,
+        "week": 4,
+        "leagueTeams": 10,
+        "topScore": 154.8,
+        "managers": [
+          "Tony"
+        ],
+        "tied": false
+      },
+      {
+        "year": 2026,
+        "week": 5,
+        "leagueTeams": 10,
+        "topScore": 172.9,
+        "managers": [
+          "Mitch"
+        ],
+        "tied": false
+      },
+      {
+        "year": 2026,
+        "week": 6,
+        "leagueTeams": 10,
+        "topScore": 129.2,
+        "managers": [
+          "Mitch"
+        ],
+        "tied": false
+      },
+      {
+        "year": 2026,
+        "week": 7,
+        "leagueTeams": 10,
+        "topScore": 133.12,
+        "managers": [
+          "Thommy"
+        ],
+        "tied": false
+      },
+      {
+        "year": 2026,
+        "week": 8,
+        "leagueTeams": 10,
+        "topScore": 141.68,
+        "managers": [
+          "JMid"
+        ],
+        "tied": false
+      }
+    ],
+    "counts": {
+      "Mitch": 4,
+      "JMid": 2,
+      "Tony": 1,
+      "Thommy": 1
+    }
+  }
+}
