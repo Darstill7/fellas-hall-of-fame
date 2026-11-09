@@ -219,3 +219,8 @@ body{min-width:0;overflow-wrap:break-word}
  .story-section p+p{margin-top:18px}
  .story-section h3{font-size:23px}
 }
+
+/* Only the opening paragraph gets the magazine drop cap. */
+.story-section:first-child p:not(:first-of-type)::first-letter{
+ float:none;font:inherit;line-height:inherit;padding:0;color:inherit;
+}
