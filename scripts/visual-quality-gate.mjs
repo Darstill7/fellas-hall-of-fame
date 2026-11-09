@@ -6,7 +6,7 @@ import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
- 'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
+ 'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
@@ -772,6 +772,38 @@ try{
          if(positions.header!=='sticky'||['sticky','fixed'].includes(positions.filters))
           throw Error('Record Book should keep only its main header sticky: '+JSON.stringify(positions));
         }finally{await checkPage.close();}
+       }
+       if(width===390&&route==='analytics/draft-intelligence.html'){
+        const reader=await context.newPage();
+        try{
+         await reader.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:15000});
+         await reader.locator('#manager-rows tr').first().waitFor({timeout:15000});
+         await reader.waitForFunction(()=>document.querySelectorAll('#manager-rows tr').length===10,{timeout:15000});
+         const firstGrade=await reader.locator('#manager-rows tr').first().innerText();
+         if(!firstGrade.includes('Birch')||!firstGrade.includes('A'))
+          throw Error('Completed 2025 original-pick return leaderboard mismatch');
+         const evidence=reader.locator('#manager-evidence-rows');
+         if(await evidence.locator('details').count()!==10)
+          throw Error('Ten source-backed manager draft evidence disclosures required');
+         const stillyDisclosure=evidence.locator('details').filter({hasText:'Stilly'}).first();
+         await stillyDisclosure.locator('summary').click();
+         const stillyEvidence=await stillyDisclosure.innerText();
+         if(!stillyEvidence.includes('Stilly')||!stillyEvidence.includes('D\'Andre Swift'))
+          throw Error('Manager pick-level evidence missing the sourced 2025 Stilly examples');
+         await reader.locator('button[data-year="2026"]').click();
+         await reader.waitForFunction(()=>document.querySelector('#manager-rows tr')?.textContent?.includes('Mitch'),{timeout:10000});
+         if(!await reader.locator('#manager-rows').innerText().then(t=>t.includes('Pending')))
+          throw Error('Incomplete 2026 season must not show final manager draft grades');
+         const woody=await reader.locator('#woody-feature').innerText();
+         if(!woody.includes('Woody Marks')||!woody.includes('25.90')||!woody.includes('Round 13'))
+          throw Error('Woody Marks verified late-round research missing');
+         if(await reader.locator('#keeper-rows tr').count()!==10)
+          throw Error('Keeper opportunity-cost research must cover ten managers');
+         if(!await reader.locator('#keeper-rows').innerText().then(t=>t.includes('Not verified')))
+          throw Error('Keeper decision grade must remain unavailable without eligible alternatives');
+         const overflow=await reader.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-window.innerWidth));
+         if(overflow>4)throw Error('Draft intelligence phone layout horizontal overflow '+overflow);
+        }finally{await reader.close();}
        }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){

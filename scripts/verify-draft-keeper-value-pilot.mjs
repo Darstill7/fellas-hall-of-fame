@@ -83,4 +83,87 @@ for(const year of [2025,2026]){
  if(year===2026){assert.equal(sort[0].manager,'Mitch');assert.equal(sort[1].manager,'Birch');}
 }
 
+
+const report=read('data/draft_intelligence_research_2025_2026w8_v1.json');
+assert.equal(report.schema,'fellas-draft-intelligence-research-v1');
+assert.equal(report.seasonSummaries.length,2);
+assert.equal(report.keeperResearch.season2025.length,10);
+assert.equal(report.keeperResearch.season2026.length,10);
+assert.equal(report.keeperResearch.opportunityCost,null);
+assert.ok(report.limits.some(x=>x.includes('2026 is incomplete')));
+const tier=rank=>rank<=2?'A':rank<=4?'B':rank<=6?'C':rank<=8?'D':'F';
+const researchRound2=x=>Math.round((x+Number.EPSILON)*100)/100;
+for(const season of report.seasonSummaries){
+ const {year,managerGrades,lateRoundSteals,byRound}=season;
+ assert.equal(managerGrades.length,10,'All ten manager research rows '+year);
+ assert.equal(season.selectionCount,130,'All thirteen nonkeeper choices per team '+year);
+ assert.equal(season.keeperExcluded,20,'Keep 20 keeper slots distinct '+year);
+ assert.deepEqual(byRound.map(x=>x.round),Array.from({length:15},(_,i)=>i+1));
+ assert.equal(byRound.reduce((n,x)=>n+x.picks,0),130);
+ const sameYear=data.draftPicks.filter(p=>p.year===year&&!p.keeper);
+ for(const [i,row] of managerGrades.entries()){
+  const sourced=sameYear.filter(p=>p.manager===row.manager);
+  assert.equal(sourced.length,13,'Must reconcile thirteen original picks: '+row.manager+' '+year);
+  assert.equal(row.rankByObservedSurplus,i+1);
+  assert.equal(row.isFinalGrade,year===2025);
+  assert.equal(row.observedReturnGrade2025,year===2025?tier(i+1):null);
+  assert.equal(row.nonKeeperPicks,13);
+  assert.equal(row.startedPoints,researchRound2(sourced.reduce((n,x)=>n+x.startedPoints,0)));
+  assert.equal(row.verifiedStarts,sourced.reduce((n,x)=>n+x.starts,0));
+  assert.ok(Math.abs(row.pointsAbovePeerMedian-sourced.reduce((n,x)=>n+x.pointsAbovePeerMedian,0))<0.02);
+  assert.equal(row.highestReturnPicks.length,3);
+  assert.equal(row.lowestReturnPicks.length,2);
+  for(const pick of [...row.highestReturnPicks,...row.lowestReturnPicks]){
+   const matching=sourced.find(x=>x.player===pick.player&&x.round===pick.round);
+   assert.ok(matching,'Manager rank evidence must reference original draft receipts: '+row.manager+' '+pick.player);
+   assert.equal(pick.originalManagerStarts,matching.starts);
+   assert.equal(pick.startedPoints,matching.startedPoints);
+   assert.equal(pick.pointsAbovePeerMedian,matching.pointsAbovePeerMedian);
+  }
+  assert.equal(row.byRound.length,15);
+  assert.equal(row.byRound.reduce((n,x)=>n+x.picks,0),13);
+  assert.equal(row.lateRoundStartedPoints,researchRound2(sourced.filter(x=>x.round>=10).reduce((n,x)=>n+x.startedPoints,0)));
+ }
+ for(const steal of lateRoundSteals){
+  const pick=sameYear.find(x=>x.manager===steal.manager&&x.overall===steal.overall&&x.player===steal.player);
+  assert.ok(pick,'Late steal missing source: '+year+' '+steal.player);
+  assert.ok(pick.round>=10&&pick.starts>=3&&!pick.keeper);
+  assert.equal(steal.startedPoints,pick.startedPoints);
+ }
+}
+assert.ok(report.seasonSummaries[1].lateRoundSteals.some(x=>x.manager==='Stilly'&&x.player==='Woody Marks'&&x.round===13&&x.overall===128&&x.startedPoints===25.9));
+const recovered=report.espnArchive2016to2019;
+assert.equal(recovered.selectionCountTotal,598);
+assert.equal(recovered.seasons.length,4);
+assert.equal(recovered.seasons.reduce((n,x)=>n+x.selections,0),598);
+assert.deepEqual(recovered.seasons.map(x=>x.selections),[128,160,160,150]);
+assert.equal(recovered.seasons.find(x=>x.year===2018).confirmedDraftPickOrder,false);
+assert.ok(recovered.seasons.every(x=>x.originalStarterPointGrade===null));
+assert.equal(report.archive2020to2024.byYear.length,5);
+for(const season of report.archive2020to2024.byYear){
+ assert.equal(season.managerRows.length,10);
+ assert.equal(season.selectionCount,150);
+ assert.equal(season.managerRows.reduce((n,x)=>n+x.selections,0),150);
+ assert.ok(season.managerRows.every((x,i)=>x.rank===i+1&&x.observedReturnTier===tier(i+1)));
+}
+assert.ok(report.keeperResearch.season2026.every(x=>x.keeperOpportunityCost===null&&x.keeperDecisionGrade===null));
+
+const medianArr=values=>{const ordered=values.slice().sort((a,b)=>a-b);return ordered.length%2?ordered[(ordered.length-1)/2]:(ordered[ordered.length/2-1]+ordered[ordered.length/2])/2;};
+const keeperSlotRows=report.keeperResearch.season2026.flatMap(x=>x.keepers);
+assert.equal(keeperSlotRows.length,20,'All twenty 2026 observed keeper round-slot receipts required');
+for(const k of keeperSlotRows){
+ const peers=data.draftPicks.filter(x=>x.year===2026&&!x.keeper&&x.round===k.round);
+ assert.ok(peers.length>=3,'At least three same-round nonkeeper receipts');
+ assert.equal(k.nonkeeperSameRoundPeerCount,peers.length);
+ assert.equal(k.nonkeeperSameRoundMedianPoints,researchRound2(medianArr(peers.map(x=>x.startedPoints))));
+ assert.equal(k.observedRoundSlotReturn,researchRound2(k.startedPoints-k.nonkeeperSameRoundMedianPoints));
+ assert.equal(k.observedRoundSlotReturnIsDecisionOpportunityCost,false);
+}
+assert.equal(report.keeperResearch.roundSlotProxyStatus,'descriptive_only_not_decision_time_opportunity_cost');
+
+const researchPage=fs.readFileSync('analytics/draft-intelligence.html','utf8');
+assert.ok(researchPage.includes('draft_intelligence_research_2025_2026w8_v1.json'));
+assert.ok(researchPage.includes('Keeper value vs. keeper decisions')&&researchPage.includes('no final grades')||researchPage.includes('No 2026 grades before season end.'));
+assert.ok(fs.readFileSync('analytics/draft-value-lab.html','utf8').includes('draft-intelligence.html'));
+assert.ok(fs.readFileSync('analytics/draft-keeper-value.html','utf8').includes('draft-intelligence.html'));
 console.log('DRAFT + KEEPER PILOT VERIFIED: 260 nonkeeper draft receipts (2025/2026), 20 keeper observations, 2026 Week 7–8 original-team starts, source-backed value and no fabricated keeper grade.');
