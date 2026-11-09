@@ -26,11 +26,11 @@ h1{font:700 clamp(40px,7vw,67px)/1.06 Georgia,serif;letter-spacing:-.035em;margi
 <header><nav aria-label="Site navigation"><a class="brand" href="../index.html">THE FELLAS</a><div class="navlinks"><a href="../hall/">Hall of Fame</a><a href="draft-legends.html">Draft Legends</a><a href="../managers/">Managers</a></div></nav></header>
 <main id="main"><div class="eyebrow">The Fellas · Keeper reference</div><h1>Keeper Tracker.</h1>
 <p class="lede">Who was kept, what round it cost, and the round it would cost to keep that player again.</p>
-<p class="rules"><strong>League rules:</strong> Two keepers per team. Each additional keeper year costs one round earlier, up to three consecutive years per manager. Waiver/free-agent pickups start at Round 9. A trade resets the new manager's three-year allowance, <strong>not</strong> the player's draft-round cost.</p>
+<p class="rules"><strong>League rules:</strong> Two keepers per team. Each additional keeper year costs one round earlier, stopping at Round 1. Up to three consecutive years per manager. Waiver/free-agent pickups start at Round 9. A trade resets the new manager's three-year allowance, <strong>not</strong> the player's draft-round cost.</p>
 <div class="filters"><label for="manager">Manager</label><select id="manager"><option value="all">All managers</option></select></div>
 <p class="summary" id="summary"></p><div class="status" id="status" role="status" aria-live="polite">Loading keeper rounds…</div>
 <div class="cards" id="cards"></div>
-<p class="note"><strong>2026 keeper selections.</strong> The next-round column is the cost if retained again in 2027, subject to eligibility and the three-year limit. It does not mean the player has been selected for 2027. A player currently at Round 1 needs an additional league-rule clarification before a further keeper cost can be shown. This page does not recommend who anyone should keep.</p>
+<p class="note"><strong>2026 keeper selections.</strong> The next-round column is the cost if retained again in 2027, subject to eligibility and the three-year limit. It does not mean the player has been selected for 2027. A Round 1 keeper remains a Round 1 keeper if eligible to be kept again. This page does not recommend who anyone should keep.</p>
 </main><footer>The Fellas · Keeper rounds only</footer>
 <script>
 const $=id=>document.getElementById(id);
@@ -42,7 +42,7 @@ function render(){
  const selected=$('manager').value,rows=records.filter(r=>selected==='all'||r.manager===selected);
  $('summary').textContent=rows.length+' manager'+(rows.length===1?'':'s')+' · '+rows.reduce((n,r)=>n+r.keepers.length,0)+' keeper selections';
  $('cards').innerHTML=rows.map(r=>'<section class="card"><h2>'+esc(r.manager)+'</h2>'+
- r.keepers.map(k=>'<div class="keeper"><div class="name">'+esc(k.name)+'</div><div class="round"><strong>R'+k.round+'</strong><small>2026 round</small></div><div class="round"><strong>'+(k.round>1?'R'+(k.round-1):'—')+'</strong><small>2027 if kept</small></div></div>').join('')+'</section>').join('');
+ r.keepers.map(k=>'<div class="keeper"><div class="name">'+esc(k.name)+'</div><div class="round"><strong>R'+k.round+'</strong><small>2026 round</small></div><div class="round"><strong>'+('R'+Math.max(1,k.round-1))+'</strong><small>2027 if kept</small></div></div>').join('')+'</section>').join('');
 }
 Promise.all([
  fetch('../data/draft_intelligence_research_2025_2026w8_v1.json',{cache:'no-store'}),
