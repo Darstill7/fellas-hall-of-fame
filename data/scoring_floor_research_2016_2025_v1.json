@@ -1,0 +1,1429 @@
+{
+  "schema": "fellas-regular-season-scoring-floor-research-v1",
+  "seasonRange": "2016–2025 completed seasons",
+  "source": "data/season_weekly_matchups_2016_2026_v1.json",
+  "method": "Only a manager-season with a score in every canonical regular-season week; rank the minimum single-week score as the seasonal scoring floor. Regular season only, no inferred missing scores and no 2026.",
+  "completeManagerSeasons": 94,
+  "excludedIncompleteManagerSeasons": [
+    {
+      "year": 2020,
+      "manager": "Birch",
+      "observedWeeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "expectedWeekCount": 14
+    },
+    {
+      "year": 2020,
+      "manager": "Mitch",
+      "observedWeeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "expectedWeekCount": 14
+    },
+    {
+      "year": 2021,
+      "manager": "Tony",
+      "observedWeeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "expectedWeekCount": 14
+    },
+    {
+      "year": 2021,
+      "manager": "Birch",
+      "observedWeeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "expectedWeekCount": 14
+    }
+  ],
+  "leaderboards": {
+    "highestSeasonFloor": [
+      {
+        "year": 2025,
+        "manager": "Mitch",
+        "weeks": 14,
+        "minScore": 96.2,
+        "minScoreWeek": 13,
+        "weeksStrictlyOver100": 13,
+        "weeksAtLeast105": 13,
+        "seasonMean": 135.35
+      },
+      {
+        "year": 2021,
+        "manager": "Mitch",
+        "weeks": 14,
+        "minScore": 92.96,
+        "minScoreWeek": 9,
+        "weeksStrictlyOver100": 12,
+        "weeksAtLeast105": 12,
+        "seasonMean": 122.57
+      },
+      {
+        "year": 2024,
+        "manager": "JMid",
+        "weeks": 14,
+        "minScore": 92.96,
+        "minScoreWeek": 1,
+        "weeksStrictlyOver100": 13,
+        "weeksAtLeast105": 12,
+        "seasonMean": 123.59
+      },
+      {
+        "year": 2022,
+        "manager": "Mitch",
+        "weeks": 14,
+        "minScore": 92.06,
+        "minScoreWeek": 14,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 114.87
+      },
+      {
+        "year": 2023,
+        "manager": "Stilly",
+        "weeks": 14,
+        "minScore": 90.4,
+        "minScoreWeek": 7,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 8,
+        "seasonMean": 117.54
+      },
+      {
+        "year": 2023,
+        "manager": "Koble",
+        "weeks": 14,
+        "minScore": 89.94,
+        "minScoreWeek": 14,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 10,
+        "seasonMean": 115.42
+      },
+      {
+        "year": 2019,
+        "manager": "Koble",
+        "weeks": 13,
+        "minScore": 89.5,
+        "minScoreWeek": 8,
+        "weeksStrictlyOver100": 10,
+        "weeksAtLeast105": 8,
+        "seasonMean": 109.1
+      },
+      {
+        "year": 2024,
+        "manager": "Kuhl",
+        "weeks": 14,
+        "minScore": 89.24,
+        "minScoreWeek": 5,
+        "weeksStrictlyOver100": 10,
+        "weeksAtLeast105": 6,
+        "seasonMean": 108.54
+      },
+      {
+        "year": 2019,
+        "manager": "Kuhl",
+        "weeks": 13,
+        "minScore": 88.64,
+        "minScoreWeek": 12,
+        "weeksStrictlyOver100": 10,
+        "weeksAtLeast105": 9,
+        "seasonMean": 116.84
+      },
+      {
+        "year": 2018,
+        "manager": "Stew",
+        "weeks": 13,
+        "minScore": 88.6,
+        "minScoreWeek": 3,
+        "weeksStrictlyOver100": 9,
+        "weeksAtLeast105": 9,
+        "seasonMean": 109.44
+      },
+      {
+        "year": 2019,
+        "manager": "Stew",
+        "weeks": 13,
+        "minScore": 87.9,
+        "minScoreWeek": 13,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 124.49
+      },
+      {
+        "year": 2022,
+        "manager": "Stover",
+        "weeks": 14,
+        "minScore": 87.7,
+        "minScoreWeek": 12,
+        "weeksStrictlyOver100": 12,
+        "weeksAtLeast105": 10,
+        "seasonMean": 118.81
+      },
+      {
+        "year": 2018,
+        "manager": "Mitch",
+        "weeks": 13,
+        "minScore": 86.94,
+        "minScoreWeek": 3,
+        "weeksStrictlyOver100": 9,
+        "weeksAtLeast105": 5,
+        "seasonMean": 110.6
+      },
+      {
+        "year": 2018,
+        "manager": "Tony",
+        "weeks": 13,
+        "minScore": 85.54,
+        "minScoreWeek": 10,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 10,
+        "seasonMean": 113.58
+      },
+      {
+        "year": 2020,
+        "manager": "Evans",
+        "weeks": 14,
+        "minScore": 83.78,
+        "minScoreWeek": 9,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 118.45
+      }
+    ],
+    "mostWeeksStrictlyOver100": [
+      {
+        "year": 2025,
+        "manager": "Mitch",
+        "weeks": 14,
+        "minScore": 96.2,
+        "minScoreWeek": 13,
+        "weeksStrictlyOver100": 13,
+        "weeksAtLeast105": 13,
+        "seasonMean": 135.35
+      },
+      {
+        "year": 2021,
+        "manager": "Stover",
+        "weeks": 14,
+        "minScore": 76.12,
+        "minScoreWeek": 8,
+        "weeksStrictlyOver100": 13,
+        "weeksAtLeast105": 12,
+        "seasonMean": 126.49
+      },
+      {
+        "year": 2024,
+        "manager": "JMid",
+        "weeks": 14,
+        "minScore": 92.96,
+        "minScoreWeek": 1,
+        "weeksStrictlyOver100": 13,
+        "weeksAtLeast105": 12,
+        "seasonMean": 123.59
+      },
+      {
+        "year": 2021,
+        "manager": "Mitch",
+        "weeks": 14,
+        "minScore": 92.96,
+        "minScoreWeek": 9,
+        "weeksStrictlyOver100": 12,
+        "weeksAtLeast105": 12,
+        "seasonMean": 122.57
+      },
+      {
+        "year": 2024,
+        "manager": "Stover",
+        "weeks": 14,
+        "minScore": 81.04,
+        "minScoreWeek": 3,
+        "weeksStrictlyOver100": 12,
+        "weeksAtLeast105": 12,
+        "seasonMean": 123.3
+      },
+      {
+        "year": 2022,
+        "manager": "Stew",
+        "weeks": 14,
+        "minScore": 73.3,
+        "minScoreWeek": 7,
+        "weeksStrictlyOver100": 12,
+        "weeksAtLeast105": 11,
+        "seasonMean": 123.38
+      },
+      {
+        "year": 2020,
+        "manager": "Thommy",
+        "weeks": 14,
+        "minScore": 78.96,
+        "minScoreWeek": 8,
+        "weeksStrictlyOver100": 12,
+        "weeksAtLeast105": 10,
+        "seasonMean": 116.22
+      },
+      {
+        "year": 2022,
+        "manager": "Stover",
+        "weeks": 14,
+        "minScore": 87.7,
+        "minScoreWeek": 12,
+        "weeksStrictlyOver100": 12,
+        "weeksAtLeast105": 10,
+        "seasonMean": 118.81
+      },
+      {
+        "year": 2021,
+        "manager": "Kuhl",
+        "weeks": 14,
+        "minScore": 69.9,
+        "minScoreWeek": 11,
+        "weeksStrictlyOver100": 12,
+        "weeksAtLeast105": 9,
+        "seasonMean": 110.42
+      },
+      {
+        "year": 2019,
+        "manager": "Stew",
+        "weeks": 13,
+        "minScore": 87.9,
+        "minScoreWeek": 13,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 124.49
+      },
+      {
+        "year": 2020,
+        "manager": "Evans",
+        "weeks": 14,
+        "minScore": 83.78,
+        "minScoreWeek": 9,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 118.45
+      },
+      {
+        "year": 2021,
+        "manager": "Evans",
+        "weeks": 14,
+        "minScore": 80.08,
+        "minScoreWeek": 12,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 114.15
+      }
+    ],
+    "mostWeeksAtLeast105": [
+      {
+        "year": 2025,
+        "manager": "Mitch",
+        "weeks": 14,
+        "minScore": 96.2,
+        "minScoreWeek": 13,
+        "weeksStrictlyOver100": 13,
+        "weeksAtLeast105": 13,
+        "seasonMean": 135.35
+      },
+      {
+        "year": 2021,
+        "manager": "Mitch",
+        "weeks": 14,
+        "minScore": 92.96,
+        "minScoreWeek": 9,
+        "weeksStrictlyOver100": 12,
+        "weeksAtLeast105": 12,
+        "seasonMean": 122.57
+      },
+      {
+        "year": 2021,
+        "manager": "Stover",
+        "weeks": 14,
+        "minScore": 76.12,
+        "minScoreWeek": 8,
+        "weeksStrictlyOver100": 13,
+        "weeksAtLeast105": 12,
+        "seasonMean": 126.49
+      },
+      {
+        "year": 2024,
+        "manager": "JMid",
+        "weeks": 14,
+        "minScore": 92.96,
+        "minScoreWeek": 1,
+        "weeksStrictlyOver100": 13,
+        "weeksAtLeast105": 12,
+        "seasonMean": 123.59
+      },
+      {
+        "year": 2024,
+        "manager": "Stover",
+        "weeks": 14,
+        "minScore": 81.04,
+        "minScoreWeek": 3,
+        "weeksStrictlyOver100": 12,
+        "weeksAtLeast105": 12,
+        "seasonMean": 123.3
+      },
+      {
+        "year": 2019,
+        "manager": "Stew",
+        "weeks": 13,
+        "minScore": 87.9,
+        "minScoreWeek": 13,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 124.49
+      },
+      {
+        "year": 2020,
+        "manager": "Evans",
+        "weeks": 14,
+        "minScore": 83.78,
+        "minScoreWeek": 9,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 118.45
+      },
+      {
+        "year": 2021,
+        "manager": "Evans",
+        "weeks": 14,
+        "minScore": 80.08,
+        "minScoreWeek": 12,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 114.15
+      },
+      {
+        "year": 2022,
+        "manager": "Stew",
+        "weeks": 14,
+        "minScore": 73.3,
+        "minScoreWeek": 7,
+        "weeksStrictlyOver100": 12,
+        "weeksAtLeast105": 11,
+        "seasonMean": 123.38
+      },
+      {
+        "year": 2022,
+        "manager": "Mitch",
+        "weeks": 14,
+        "minScore": 92.06,
+        "minScoreWeek": 14,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 114.87
+      },
+      {
+        "year": 2023,
+        "manager": "Evans",
+        "weeks": 14,
+        "minScore": 83.2,
+        "minScoreWeek": 1,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 121.35
+      },
+      {
+        "year": 2025,
+        "manager": "Thommy",
+        "weeks": 14,
+        "minScore": 81.44,
+        "minScoreWeek": 11,
+        "weeksStrictlyOver100": 11,
+        "weeksAtLeast105": 11,
+        "seasonMean": 112.06
+      }
+    ]
+  },
+  "managerSeasons": [
+    {
+      "year": 2016,
+      "manager": "Stilly",
+      "weeks": 13,
+      "minScore": 76,
+      "minScoreWeek": 3,
+      "weeksStrictlyOver100": 3,
+      "weeksAtLeast105": 3,
+      "seasonMean": 97.92
+    },
+    {
+      "year": 2016,
+      "manager": "Stover",
+      "weeks": 13,
+      "minScore": 51,
+      "minScoreWeek": 6,
+      "weeksStrictlyOver100": 3,
+      "weeksAtLeast105": 3,
+      "seasonMean": 88
+    },
+    {
+      "year": 2016,
+      "manager": "Halderman",
+      "weeks": 13,
+      "minScore": 74,
+      "minScoreWeek": 8,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 7,
+      "seasonMean": 113.23
+    },
+    {
+      "year": 2016,
+      "manager": "Stew",
+      "weeks": 13,
+      "minScore": 59,
+      "minScoreWeek": 5,
+      "weeksStrictlyOver100": 3,
+      "weeksAtLeast105": 3,
+      "seasonMean": 90.54
+    },
+    {
+      "year": 2016,
+      "manager": "Thommy",
+      "weeks": 13,
+      "minScore": 60,
+      "minScoreWeek": 2,
+      "weeksStrictlyOver100": 6,
+      "weeksAtLeast105": 3,
+      "seasonMean": 94.54
+    },
+    {
+      "year": 2016,
+      "manager": "Koble",
+      "weeks": 13,
+      "minScore": 70,
+      "minScoreWeek": 5,
+      "weeksStrictlyOver100": 6,
+      "weeksAtLeast105": 6,
+      "seasonMean": 100.62
+    },
+    {
+      "year": 2016,
+      "manager": "Evans",
+      "weeks": 13,
+      "minScore": 69,
+      "minScoreWeek": 13,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 7,
+      "seasonMean": 106.62
+    },
+    {
+      "year": 2016,
+      "manager": "Schermerhorn",
+      "weeks": 13,
+      "minScore": 79,
+      "minScoreWeek": 8,
+      "weeksStrictlyOver100": 4,
+      "weeksAtLeast105": 3,
+      "seasonMean": 96.92
+    },
+    {
+      "year": 2017,
+      "manager": "Stilly",
+      "weeks": 12,
+      "minScore": 46,
+      "minScoreWeek": 10,
+      "weeksStrictlyOver100": 4,
+      "weeksAtLeast105": 4,
+      "seasonMean": 94.08
+    },
+    {
+      "year": 2017,
+      "manager": "Stew",
+      "weeks": 12,
+      "minScore": 64,
+      "minScoreWeek": 11,
+      "weeksStrictlyOver100": 1,
+      "weeksAtLeast105": 1,
+      "seasonMean": 82
+    },
+    {
+      "year": 2017,
+      "manager": "Stover",
+      "weeks": 12,
+      "minScore": 57,
+      "minScoreWeek": 8,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 5,
+      "seasonMean": 91.33
+    },
+    {
+      "year": 2017,
+      "manager": "Schermerhorn",
+      "weeks": 12,
+      "minScore": 47,
+      "minScoreWeek": 5,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 4,
+      "seasonMean": 97.42
+    },
+    {
+      "year": 2017,
+      "manager": "Thommy",
+      "weeks": 12,
+      "minScore": 64,
+      "minScoreWeek": 5,
+      "weeksStrictlyOver100": 5,
+      "weeksAtLeast105": 5,
+      "seasonMean": 103.42
+    },
+    {
+      "year": 2017,
+      "manager": "Tony",
+      "weeks": 12,
+      "minScore": 44,
+      "minScoreWeek": 1,
+      "weeksStrictlyOver100": 2,
+      "weeksAtLeast105": 2,
+      "seasonMean": 87.67
+    },
+    {
+      "year": 2017,
+      "manager": "Birch",
+      "weeks": 12,
+      "minScore": 52,
+      "minScoreWeek": 1,
+      "weeksStrictlyOver100": 3,
+      "weeksAtLeast105": 3,
+      "seasonMean": 85.17
+    },
+    {
+      "year": 2017,
+      "manager": "Halderman",
+      "weeks": 12,
+      "minScore": 49,
+      "minScoreWeek": 7,
+      "weeksStrictlyOver100": 1,
+      "weeksAtLeast105": 1,
+      "seasonMean": 76.33
+    },
+    {
+      "year": 2017,
+      "manager": "Koble",
+      "weeks": 12,
+      "minScore": 80,
+      "minScoreWeek": 4,
+      "weeksStrictlyOver100": 2,
+      "weeksAtLeast105": 2,
+      "seasonMean": 91
+    },
+    {
+      "year": 2017,
+      "manager": "Evans",
+      "weeks": 12,
+      "minScore": 69,
+      "minScoreWeek": 1,
+      "weeksStrictlyOver100": 3,
+      "weeksAtLeast105": 3,
+      "seasonMean": 93.75
+    },
+    {
+      "year": 2018,
+      "manager": "Tony",
+      "weeks": 13,
+      "minScore": 85.54,
+      "minScoreWeek": 10,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 10,
+      "seasonMean": 113.58
+    },
+    {
+      "year": 2018,
+      "manager": "Koble",
+      "weeks": 13,
+      "minScore": 68.94,
+      "minScoreWeek": 4,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 5,
+      "seasonMean": 100.46
+    },
+    {
+      "year": 2018,
+      "manager": "Evans",
+      "weeks": 13,
+      "minScore": 74.62,
+      "minScoreWeek": 13,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 5,
+      "seasonMean": 106
+    },
+    {
+      "year": 2018,
+      "manager": "Stew",
+      "weeks": 13,
+      "minScore": 88.6,
+      "minScoreWeek": 3,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 9,
+      "seasonMean": 109.44
+    },
+    {
+      "year": 2018,
+      "manager": "Thommy",
+      "weeks": 13,
+      "minScore": 67.54,
+      "minScoreWeek": 8,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 7,
+      "seasonMean": 105.62
+    },
+    {
+      "year": 2018,
+      "manager": "Stover",
+      "weeks": 13,
+      "minScore": 73.64,
+      "minScoreWeek": 13,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 6,
+      "seasonMean": 103.79
+    },
+    {
+      "year": 2018,
+      "manager": "Mitch",
+      "weeks": 13,
+      "minScore": 86.94,
+      "minScoreWeek": 3,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 5,
+      "seasonMean": 110.6
+    },
+    {
+      "year": 2018,
+      "manager": "Stilly",
+      "weeks": 13,
+      "minScore": 56.14,
+      "minScoreWeek": 11,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 6,
+      "seasonMean": 97.95
+    },
+    {
+      "year": 2018,
+      "manager": "Birch",
+      "weeks": 13,
+      "minScore": 71.42,
+      "minScoreWeek": 1,
+      "weeksStrictlyOver100": 10,
+      "weeksAtLeast105": 9,
+      "seasonMean": 112.64
+    },
+    {
+      "year": 2018,
+      "manager": "Kuhl",
+      "weeks": 13,
+      "minScore": 65.18,
+      "minScoreWeek": 13,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 6,
+      "seasonMean": 105.43
+    },
+    {
+      "year": 2019,
+      "manager": "Birch",
+      "weeks": 13,
+      "minScore": 76.94,
+      "minScoreWeek": 7,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 10,
+      "seasonMean": 124.96
+    },
+    {
+      "year": 2019,
+      "manager": "Tony",
+      "weeks": 13,
+      "minScore": 59.12,
+      "minScoreWeek": 7,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 9,
+      "seasonMean": 110.45
+    },
+    {
+      "year": 2019,
+      "manager": "Stew",
+      "weeks": 13,
+      "minScore": 87.9,
+      "minScoreWeek": 13,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 11,
+      "seasonMean": 124.49
+    },
+    {
+      "year": 2019,
+      "manager": "Thommy",
+      "weeks": 13,
+      "minScore": 49.72,
+      "minScoreWeek": 10,
+      "weeksStrictlyOver100": 4,
+      "weeksAtLeast105": 3,
+      "seasonMean": 90.41
+    },
+    {
+      "year": 2019,
+      "manager": "Stilly",
+      "weeks": 13,
+      "minScore": 75,
+      "minScoreWeek": 9,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 8,
+      "seasonMean": 112.64
+    },
+    {
+      "year": 2019,
+      "manager": "Evans",
+      "weeks": 13,
+      "minScore": 48.24,
+      "minScoreWeek": 12,
+      "weeksStrictlyOver100": 4,
+      "weeksAtLeast105": 3,
+      "seasonMean": 91.41
+    },
+    {
+      "year": 2019,
+      "manager": "Mitch",
+      "weeks": 13,
+      "minScore": 72.5,
+      "minScoreWeek": 4,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 10,
+      "seasonMean": 119.08
+    },
+    {
+      "year": 2019,
+      "manager": "Koble",
+      "weeks": 13,
+      "minScore": 89.5,
+      "minScoreWeek": 8,
+      "weeksStrictlyOver100": 10,
+      "weeksAtLeast105": 8,
+      "seasonMean": 109.1
+    },
+    {
+      "year": 2019,
+      "manager": "Stover",
+      "weeks": 13,
+      "minScore": 73.92,
+      "minScoreWeek": 6,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 6,
+      "seasonMean": 104.2
+    },
+    {
+      "year": 2019,
+      "manager": "Kuhl",
+      "weeks": 13,
+      "minScore": 88.64,
+      "minScoreWeek": 12,
+      "weeksStrictlyOver100": 10,
+      "weeksAtLeast105": 9,
+      "seasonMean": 116.84
+    },
+    {
+      "year": 2020,
+      "manager": "Stilly",
+      "weeks": 14,
+      "minScore": 60.26,
+      "minScoreWeek": 10,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 6,
+      "seasonMean": 100.64
+    },
+    {
+      "year": 2020,
+      "manager": "Evans",
+      "weeks": 14,
+      "minScore": 83.78,
+      "minScoreWeek": 9,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 11,
+      "seasonMean": 118.45
+    },
+    {
+      "year": 2020,
+      "manager": "Stover",
+      "weeks": 14,
+      "minScore": 66.7,
+      "minScoreWeek": 6,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 8,
+      "seasonMean": 110.71
+    },
+    {
+      "year": 2020,
+      "manager": "Thommy",
+      "weeks": 14,
+      "minScore": 78.96,
+      "minScoreWeek": 8,
+      "weeksStrictlyOver100": 12,
+      "weeksAtLeast105": 10,
+      "seasonMean": 116.22
+    },
+    {
+      "year": 2020,
+      "manager": "Kuhl",
+      "weeks": 14,
+      "minScore": 69.18,
+      "minScoreWeek": 6,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 8,
+      "seasonMean": 109.55
+    },
+    {
+      "year": 2020,
+      "manager": "Stew",
+      "weeks": 14,
+      "minScore": 82.92,
+      "minScoreWeek": 12,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 5,
+      "seasonMean": 104.22
+    },
+    {
+      "year": 2020,
+      "manager": "Koble",
+      "weeks": 14,
+      "minScore": 50.58,
+      "minScoreWeek": 10,
+      "weeksStrictlyOver100": 10,
+      "weeksAtLeast105": 8,
+      "seasonMean": 110.95
+    },
+    {
+      "year": 2020,
+      "manager": "Tony",
+      "weeks": 14,
+      "minScore": 83.06,
+      "minScoreWeek": 11,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 8,
+      "seasonMean": 110.83
+    },
+    {
+      "year": 2021,
+      "manager": "Stilly",
+      "weeks": 14,
+      "minScore": 81.58,
+      "minScoreWeek": 9,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 10,
+      "seasonMean": 109.21
+    },
+    {
+      "year": 2021,
+      "manager": "Mitch",
+      "weeks": 14,
+      "minScore": 92.96,
+      "minScoreWeek": 9,
+      "weeksStrictlyOver100": 12,
+      "weeksAtLeast105": 12,
+      "seasonMean": 122.57
+    },
+    {
+      "year": 2021,
+      "manager": "Evans",
+      "weeks": 14,
+      "minScore": 80.08,
+      "minScoreWeek": 12,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 11,
+      "seasonMean": 114.15
+    },
+    {
+      "year": 2021,
+      "manager": "Stover",
+      "weeks": 14,
+      "minScore": 76.12,
+      "minScoreWeek": 8,
+      "weeksStrictlyOver100": 13,
+      "weeksAtLeast105": 12,
+      "seasonMean": 126.49
+    },
+    {
+      "year": 2021,
+      "manager": "Thommy",
+      "weeks": 14,
+      "minScore": 83.68,
+      "minScoreWeek": 9,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 6,
+      "seasonMean": 111.52
+    },
+    {
+      "year": 2021,
+      "manager": "Stew",
+      "weeks": 14,
+      "minScore": 62.2,
+      "minScoreWeek": 10,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 5,
+      "seasonMean": 102.29
+    },
+    {
+      "year": 2021,
+      "manager": "Koble",
+      "weeks": 14,
+      "minScore": 72.68,
+      "minScoreWeek": 9,
+      "weeksStrictlyOver100": 6,
+      "weeksAtLeast105": 6,
+      "seasonMean": 97.7
+    },
+    {
+      "year": 2021,
+      "manager": "Kuhl",
+      "weeks": 14,
+      "minScore": 69.9,
+      "minScoreWeek": 11,
+      "weeksStrictlyOver100": 12,
+      "weeksAtLeast105": 9,
+      "seasonMean": 110.42
+    },
+    {
+      "year": 2022,
+      "manager": "Stilly",
+      "weeks": 14,
+      "minScore": 80.06,
+      "minScoreWeek": 5,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 8,
+      "seasonMean": 108.23
+    },
+    {
+      "year": 2022,
+      "manager": "Koble",
+      "weeks": 14,
+      "minScore": 63.42,
+      "minScoreWeek": 6,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 6,
+      "seasonMean": 106.71
+    },
+    {
+      "year": 2022,
+      "manager": "Evans",
+      "weeks": 14,
+      "minScore": 66.22,
+      "minScoreWeek": 9,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 7,
+      "seasonMean": 103.22
+    },
+    {
+      "year": 2022,
+      "manager": "Stover",
+      "weeks": 14,
+      "minScore": 87.7,
+      "minScoreWeek": 12,
+      "weeksStrictlyOver100": 12,
+      "weeksAtLeast105": 10,
+      "seasonMean": 118.81
+    },
+    {
+      "year": 2022,
+      "manager": "Thommy",
+      "weeks": 14,
+      "minScore": 79.02,
+      "minScoreWeek": 1,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 7,
+      "seasonMean": 105.4
+    },
+    {
+      "year": 2022,
+      "manager": "Birch",
+      "weeks": 14,
+      "minScore": 73.5,
+      "minScoreWeek": 13,
+      "weeksStrictlyOver100": 5,
+      "weeksAtLeast105": 4,
+      "seasonMean": 96.63
+    },
+    {
+      "year": 2022,
+      "manager": "Stew",
+      "weeks": 14,
+      "minScore": 73.3,
+      "minScoreWeek": 7,
+      "weeksStrictlyOver100": 12,
+      "weeksAtLeast105": 11,
+      "seasonMean": 123.38
+    },
+    {
+      "year": 2022,
+      "manager": "Mitch",
+      "weeks": 14,
+      "minScore": 92.06,
+      "minScoreWeek": 14,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 11,
+      "seasonMean": 114.87
+    },
+    {
+      "year": 2022,
+      "manager": "Tony",
+      "weeks": 14,
+      "minScore": 60.66,
+      "minScoreWeek": 14,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 9,
+      "seasonMean": 110.84
+    },
+    {
+      "year": 2022,
+      "manager": "Kuhl",
+      "weeks": 14,
+      "minScore": 70.78,
+      "minScoreWeek": 14,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 10,
+      "seasonMean": 114.55
+    },
+    {
+      "year": 2023,
+      "manager": "Stilly",
+      "weeks": 14,
+      "minScore": 90.4,
+      "minScoreWeek": 7,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 8,
+      "seasonMean": 117.54
+    },
+    {
+      "year": 2023,
+      "manager": "Mitch",
+      "weeks": 14,
+      "minScore": 50.04,
+      "minScoreWeek": 9,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 9,
+      "seasonMean": 112.57
+    },
+    {
+      "year": 2023,
+      "manager": "Evans",
+      "weeks": 14,
+      "minScore": 83.2,
+      "minScoreWeek": 1,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 11,
+      "seasonMean": 121.35
+    },
+    {
+      "year": 2023,
+      "manager": "Stover",
+      "weeks": 14,
+      "minScore": 74.08,
+      "minScoreWeek": 10,
+      "weeksStrictlyOver100": 6,
+      "weeksAtLeast105": 6,
+      "seasonMean": 99.05
+    },
+    {
+      "year": 2023,
+      "manager": "Thommy",
+      "weeks": 14,
+      "minScore": 80.14,
+      "minScoreWeek": 6,
+      "weeksStrictlyOver100": 10,
+      "weeksAtLeast105": 10,
+      "seasonMean": 112.5
+    },
+    {
+      "year": 2023,
+      "manager": "Kuhl",
+      "weeks": 14,
+      "minScore": 76.74,
+      "minScoreWeek": 1,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 7,
+      "seasonMean": 107.56
+    },
+    {
+      "year": 2023,
+      "manager": "Stew",
+      "weeks": 14,
+      "minScore": 70.76,
+      "minScoreWeek": 13,
+      "weeksStrictlyOver100": 4,
+      "weeksAtLeast105": 4,
+      "seasonMean": 96.12
+    },
+    {
+      "year": 2023,
+      "manager": "Tony",
+      "weeks": 14,
+      "minScore": 80.46,
+      "minScoreWeek": 11,
+      "weeksStrictlyOver100": 10,
+      "weeksAtLeast105": 9,
+      "seasonMean": 117.15
+    },
+    {
+      "year": 2023,
+      "manager": "Koble",
+      "weeks": 14,
+      "minScore": 89.94,
+      "minScoreWeek": 14,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 10,
+      "seasonMean": 115.42
+    },
+    {
+      "year": 2023,
+      "manager": "Birch",
+      "weeks": 14,
+      "minScore": 64.68,
+      "minScoreWeek": 7,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 8,
+      "seasonMean": 110.45
+    },
+    {
+      "year": 2024,
+      "manager": "Stilly",
+      "weeks": 14,
+      "minScore": 52.94,
+      "minScoreWeek": 7,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 8,
+      "seasonMean": 110
+    },
+    {
+      "year": 2024,
+      "manager": "Thommy",
+      "weeks": 14,
+      "minScore": 82.62,
+      "minScoreWeek": 12,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 8,
+      "seasonMean": 110.74
+    },
+    {
+      "year": 2024,
+      "manager": "JMid",
+      "weeks": 14,
+      "minScore": 92.96,
+      "minScoreWeek": 1,
+      "weeksStrictlyOver100": 13,
+      "weeksAtLeast105": 12,
+      "seasonMean": 123.59
+    },
+    {
+      "year": 2024,
+      "manager": "Stover",
+      "weeks": 14,
+      "minScore": 81.04,
+      "minScoreWeek": 3,
+      "weeksStrictlyOver100": 12,
+      "weeksAtLeast105": 12,
+      "seasonMean": 123.3
+    },
+    {
+      "year": 2024,
+      "manager": "Stew",
+      "weeks": 14,
+      "minScore": 78.92,
+      "minScoreWeek": 6,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 6,
+      "seasonMean": 104.62
+    },
+    {
+      "year": 2024,
+      "manager": "Tony",
+      "weeks": 14,
+      "minScore": 79.78,
+      "minScoreWeek": 6,
+      "weeksStrictlyOver100": 10,
+      "weeksAtLeast105": 9,
+      "seasonMean": 108.59
+    },
+    {
+      "year": 2024,
+      "manager": "Scott",
+      "weeks": 14,
+      "minScore": 69.24,
+      "minScoreWeek": 4,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 7,
+      "seasonMean": 101.75
+    },
+    {
+      "year": 2024,
+      "manager": "Mitch",
+      "weeks": 14,
+      "minScore": 71.38,
+      "minScoreWeek": 3,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 8,
+      "seasonMean": 110.35
+    },
+    {
+      "year": 2024,
+      "manager": "Kuhl",
+      "weeks": 14,
+      "minScore": 89.24,
+      "minScoreWeek": 5,
+      "weeksStrictlyOver100": 10,
+      "weeksAtLeast105": 6,
+      "seasonMean": 108.54
+    },
+    {
+      "year": 2024,
+      "manager": "Birch",
+      "weeks": 14,
+      "minScore": 68.7,
+      "minScoreWeek": 12,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 6,
+      "seasonMean": 109.2
+    },
+    {
+      "year": 2025,
+      "manager": "Stilly",
+      "weeks": 14,
+      "minScore": 67.32,
+      "minScoreWeek": 10,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 8,
+      "seasonMean": 106.63
+    },
+    {
+      "year": 2025,
+      "manager": "Thommy",
+      "weeks": 14,
+      "minScore": 81.44,
+      "minScoreWeek": 11,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 11,
+      "seasonMean": 112.06
+    },
+    {
+      "year": 2025,
+      "manager": "JMid",
+      "weeks": 14,
+      "minScore": 53.72,
+      "minScoreWeek": 11,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 5,
+      "seasonMean": 102.05
+    },
+    {
+      "year": 2025,
+      "manager": "Stover",
+      "weeks": 14,
+      "minScore": 76.1,
+      "minScoreWeek": 13,
+      "weeksStrictlyOver100": 7,
+      "weeksAtLeast105": 6,
+      "seasonMean": 102.51
+    },
+    {
+      "year": 2025,
+      "manager": "Stew",
+      "weeks": 14,
+      "minScore": 70.4,
+      "minScoreWeek": 3,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 9,
+      "seasonMean": 113
+    },
+    {
+      "year": 2025,
+      "manager": "Mitch",
+      "weeks": 14,
+      "minScore": 96.2,
+      "minScoreWeek": 13,
+      "weeksStrictlyOver100": 13,
+      "weeksAtLeast105": 13,
+      "seasonMean": 135.35
+    },
+    {
+      "year": 2025,
+      "manager": "Scott",
+      "weeks": 14,
+      "minScore": 82.22,
+      "minScoreWeek": 5,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 8,
+      "seasonMean": 118.1
+    },
+    {
+      "year": 2025,
+      "manager": "Kuhl",
+      "weeks": 14,
+      "minScore": 79.08,
+      "minScoreWeek": 8,
+      "weeksStrictlyOver100": 8,
+      "weeksAtLeast105": 8,
+      "seasonMean": 101.98
+    },
+    {
+      "year": 2025,
+      "manager": "Tony",
+      "weeks": 14,
+      "minScore": 58.02,
+      "minScoreWeek": 6,
+      "weeksStrictlyOver100": 11,
+      "weeksAtLeast105": 11,
+      "seasonMean": 114.59
+    },
+    {
+      "year": 2025,
+      "manager": "Birch",
+      "weeks": 14,
+      "minScore": 78.92,
+      "minScoreWeek": 2,
+      "weeksStrictlyOver100": 9,
+      "weeksAtLeast105": 8,
+      "seasonMean": 108.87
+    }
+  ]
+}
