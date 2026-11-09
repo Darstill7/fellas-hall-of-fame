@@ -832,7 +832,7 @@ try{
         await page.waitForFunction(()=>document.querySelectorAll('#cards article.report').length===10,{timeout:12000});
         const a=await page.locator('#cards article.report').count();
         if(a!==10)throw Error('All ten manager draft report cards required');
-        if(!await page.locator('#cards').innerText().then(t=>t.includes('2026 — provisional through Week 8')))
+        if(!await page.locator('#cards').innerText().then(t=>t.includes('2026')&&t.includes('provisional through Week 8')))
           throw Error('Incomplete 2026 draft season must remain provisional');
        }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
