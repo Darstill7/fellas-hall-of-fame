@@ -111,6 +111,15 @@ for(const season of report.seasonSummaries){
   assert.equal(row.startedPoints,researchRound2(sourced.reduce((n,x)=>n+x.startedPoints,0)));
   assert.equal(row.verifiedStarts,sourced.reduce((n,x)=>n+x.starts,0));
   assert.ok(Math.abs(row.pointsAbovePeerMedian-sourced.reduce((n,x)=>n+x.pointsAbovePeerMedian,0))<0.02);
+  assert.equal(row.highestReturnPicks.length,3);
+  assert.equal(row.lowestReturnPicks.length,2);
+  for(const pick of [...row.highestReturnPicks,...row.lowestReturnPicks]){
+   const matching=sourced.find(x=>x.player===pick.player&&x.round===pick.round);
+   assert.ok(matching,'Manager rank evidence must reference original draft receipts: '+row.manager+' '+pick.player);
+   assert.equal(pick.originalManagerStarts,matching.starts);
+   assert.equal(pick.startedPoints,matching.startedPoints);
+   assert.equal(pick.pointsAbovePeerMedian,matching.pointsAbovePeerMedian);
+  }
   assert.equal(row.byRound.length,15);
   assert.equal(row.byRound.reduce((n,x)=>n+x.picks,0),13);
   assert.equal(row.lateRoundStartedPoints,researchRound2(sourced.filter(x=>x.round>=10).reduce((n,x)=>n+x.startedPoints,0)));
