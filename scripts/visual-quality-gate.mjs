@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/scoring-consistency.html','analytics/postseason-moments.html',
+const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/regular-season-close-calls.html','analytics/scoring-consistency.html','analytics/postseason-moments.html',
  'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','hall/playoff-heroes.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/manager-draft-report-cards.html','analytics/draft-legends.html','analytics/keeper-tracker.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
@@ -972,6 +972,27 @@ try{
          throw Error('Stew provisional Week 8 streak missing');
         const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
         if(overflow>5)throw Error('Scoring Consistency phone overflow '+overflow);
+       }
+       if(route==='analytics/regular-season-close-calls.html'){
+        await page.waitForFunction(()=>document.querySelectorAll('#entries .entry').length>=10,null,{timeout:15000});
+        const closest=await page.locator('#entries .entry').first().innerText();
+        if(!closest.includes('Thommy')||!closest.includes('Stew')||!closest.includes('0.16'))
+         throw Error('Closest completed-season matchup is missing or mislabeled');
+        await page.locator('[data-kind="loss"]').click();
+        const highest=await page.locator('#entries .entry').first().innerText();
+        if(!highest.includes('Stew')||!highest.includes('164.80'))
+         throw Error('Highest-scoring regular-season loss receipt mismatch');
+        await page.locator('[data-kind="margin"]').click();
+        const largest=await page.locator('#entries .entry').first().innerText();
+        if(!largest.includes('Scott')||!largest.includes('101.38'))
+         throw Error('Largest completed regular-season margin mismatch');
+        await page.locator('[data-kind="close"]').click();
+        await page.locator('#manager').selectOption('Tony');
+        const filtered=await page.locator('#entries .entry').allInnerTexts();
+        if(!filtered.length||filtered.some(x=>!x.includes('Tony')))
+         throw Error('Close-call manager filter must show only matching receipts');
+        const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
+        if(overflow>5)throw Error('Close Calls horizontal overflow '+overflow);
        }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
