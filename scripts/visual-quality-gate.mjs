@@ -866,6 +866,11 @@ try{
          throw Error('Keeper Tracker must present only keeper cost columns');
         if(/starter points|observed value|peer surplus|decision grade/i.test(text))
          throw Error('Keeper Tracker must not expose keeper performance analysis');
+        if(!text.includes('Amon-Ra St. Brown')||!text.includes('R1'))
+         throw Error('Round 1 keeper and round-floor display missing');
+        const amon=await page.locator('#cards .keeper').filter({hasText:'Amon-Ra St. Brown'}).innerText();
+        if((amon.match(/R1/g)||[]).length!==2)
+         throw Error('First-round keeper must cost Round 1 in both 2026 and projected 2027');
         if(await page.locator('#year').count())
          throw Error('Keeper Tracker should remain a simple single-season reference');
         const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
