@@ -1,0 +1,105 @@
+/* Shared premium navigation and franchise editorial shell. CSS-only progressive enhancement.
+   Existing page scripts and verified historical values are intentionally untouched. */
+:root{--premium-gold:#e8c77e;--premium-line:#455f71;--premium-blue:#101f2b}
+body.fellas-polished.premium-franchise{background:radial-gradient(ellipse 100% 38rem at 48% -15%,#284355 0%,#0b1822 60%,#08121b 100%);color:#f6f3e9}
+.premium-header{position:sticky;top:0;z-index:40;border-bottom:1px solid #415564;background:#0b1925f2;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.premium-header>.wrap{max-width:1180px;min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:10px}
+.premium-header .premium-brand{display:inline-flex;align-items:center;min-height:48px;gap:4px;flex-shrink:0;font-size:15px;letter-spacing:.09em;font-weight:950;color:#fff;text-decoration:none}
+.premium-header .premium-brand span{color:var(--premium-gold)}
+.premium-header .premium-links{display:flex;align-items:center;justify-content:flex-end;gap:clamp(7px,1.6vw,17px);flex-wrap:wrap}
+.premium-header .premium-links a{font-size:13px;line-height:1.35;min-height:44px;padding:10px 8px;display:inline-flex;align-items:center;text-decoration:none;color:#dfe8ed;font-weight:750;border-radius:7px;white-space:nowrap}
+.premium-header .premium-links a[aria-current=page]{color:#f4d797;background:#614b262e}
+.premium-header .premium-links a:hover{background:#243c4b;color:#ffe6b0}
+.premium-mobile-menu{display:none;position:relative}
+.premium-mobile-menu summary{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 16px;min-height:48px;border:1px solid #826b48;border-radius:10px;color:#f4d99c;background:#1a2d3a;font-size:14px;font-weight:850;cursor:pointer;list-style:none}
+.premium-mobile-menu summary::-webkit-details-marker{display:none}
+.premium-mobile-menu summary:after{content:"+";font-size:19px;line-height:1}
+.premium-mobile-menu[open] summary:after{content:"−"}
+.premium-mobile-menu .premium-menu-links{position:absolute;right:0;top:calc(100% + 9px);width:min(320px,calc(100vw - 28px));max-height:min(75dvh,580px);overflow:auto;padding:9px;border:1px solid #647789;background:#132939;border-radius:14px;box-shadow:0 20px 42px #0008;display:flex;flex-direction:column;gap:3px}
+.premium-mobile-menu .premium-menu-links a{display:flex;align-items:center;min-height:50px;padding:13px;border-radius:9px;font-size:15px;font-weight:770;color:#f1f3f5;text-decoration:none}
+.premium-mobile-menu .premium-menu-links a:hover,.premium-mobile-menu .premium-menu-links a[aria-current=page]{background:#344c59;color:#ffe4a6}
+.premium-header :is(a,summary):focus-visible{outline:3px solid #ffde98;outline-offset:3px}
+.premium-franchise main>.hero{position:relative;isolation:isolate;max-width:1140px;padding:clamp(32px,5vw,68px) clamp(19px,4vw,40px) clamp(25px,3.5vw,40px);margin:22px auto 22px;border:1px solid #766a4d;border-radius:18px;background:radial-gradient(ellipse at 90% -20%,#4b4b35 0%,transparent 52%),linear-gradient(130deg,#1c3748,#102230 68%,#0a1b28);box-shadow:0 18px 40px #0003;overflow:hidden}
+.premium-franchise main>.hero:before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,#957847,#f3dca0,#957847)}
+.premium-franchise main>.hero .eyebrow{font-size:11px;letter-spacing:.16em}
+.premium-franchise main>.hero h1{font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;font-weight:750;letter-spacing:-.045em;font-size:clamp(44px,7vw,78px);line-height:1.08;margin:13px 0 12px}
+.premium-franchise main>.hero .lead{max-width:61ch;font-size:clamp(17px,2vw,21px);line-height:1.65;color:#dfebed}
+.premium-franchise main>.hero .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:25px 0 14px}
+.premium-franchise main>.hero .stat{padding:17px;border:1px solid #526c7a;background:#0d2333bd;border-radius:12px;min-width:0}
+.premium-franchise main>.hero .stat strong{font-size:clamp(24px,3vw,37px);line-height:1.2;display:block;color:#f5dfab;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.premium-franchise main>.hero .stat small{font-size:12px;line-height:1.55;color:#d4e1e7}
+.premium-franchise main>.hero .buttons{margin-top:17px}
+.premium-franchise main>.hero .buttons a{min-height:48px}
+.premium-franchise .profile-chapters{position:sticky;z-index:12;top:68px;margin:0 auto 25px;padding:12px 16px;border:1px solid #476071;border-radius:12px;background:#112535f5;backdrop-filter:blur(12px)}
+.premium-franchise .profile-chapters .eyebrow{margin-bottom:8px}
+.premium-franchise .profile-chapters .buttons{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin;padding-bottom:4px;margin:0}
+.premium-franchise .profile-chapters .buttons a{flex:0 0 auto;min-height:46px;padding:11px 14px;white-space:nowrap;line-height:1.35}
+.premium-franchise main .section{scroll-margin-top:160px}
+.premium-franchise #franchise-story h2{font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;font-size:clamp(28px,4vw,40px);letter-spacing:-.025em}
+.premium-franchise #franchise-story p.lead{font-size:clamp(17px,1.8vw,20px);line-height:1.82;max-width:70ch}
+.premium-franchise .hero>div[data-expanded-records-profile],.premium-franchise .hero>div[data-postseason-profile]{min-width:0}
+@media(max-width:850px){
+ .premium-header .premium-links{display:none}
+ .premium-mobile-menu{display:block}
+ .premium-franchise .profile-chapters{top:67px}
+}
+@media(max-width:560px){
+ .premium-header>.wrap{min-height:64px;padding:8px 15px}
+ .premium-franchise main>.hero{margin:10px 0 17px;padding:28px 18px 25px;border-radius:13px}
+ .premium-franchise main>.hero h1{font-size:clamp(41px,12vw,58px)}
+ .premium-franchise main>.hero .lead{font-size:16px}
+ .premium-franchise main>.hero .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .premium-franchise main>.hero .stat{padding:12px}
+ .premium-franchise main>.hero .stat:last-child{grid-column:1/-1}
+ .premium-franchise main>.hero .stat strong{font-size:clamp(22px,7vw,29px)}
+ .premium-franchise .profile-chapters{top:64px;margin:0 -6px 21px;padding:9px 10px;border-radius:9px}
+ .premium-franchise .profile-chapters .eyebrow{font-size:10px}
+ .premium-franchise .profile-chapters .buttons a{min-height:48px}
+ .premium-franchise main .section{scroll-margin-top:155px}
+}
+@media(prefers-reduced-motion:reduce){.premium-franchise *{scroll-behavior:auto!important}}
+
+/* Cross-template compatibility: old hall/directory generic header styles must not win. */
+body.premium-franchise .premium-header{padding:0;margin:0}
+body.premium-franchise .premium-header>.wrap{padding-inline:clamp(16px,2.8vw,28px)}
+body.premium-franchise .premium-header .premium-links{min-width:0}
+body.premium-franchise .premium-header .premium-mobile-menu .premium-menu-links{justify-content:flex-start;flex-wrap:nowrap;align-items:stretch;margin:0}
+body.premium-franchise .premium-header .premium-mobile-menu .premium-menu-links a{margin:0;font-size:15px;min-height:50px}
+body.premium-franchise .premium-header .premium-brand{margin:0;font-size:15px}
+body.premium-franchise .premium-header .premium-mobile-menu{margin-left:auto}
+body.premium-franchise main>.hero .buttons a{border-radius:10px}
+body.premium-franchise main .tile,body.premium-franchise main a.manager{border:1px solid #526b7b;border-radius:16px;background:linear-gradient(155deg,#1a3343,#132735);box-shadow:0 10px 28px #0002;transition:border-color .15s ease,transform .15s ease}
+body.premium-franchise main .tile:hover,body.premium-franchise main a.manager:hover{border-color:#e8c77e;transform:translateY(-2px)}
+body.premium-franchise main a.manager{min-height:180px;padding:22px}
+body.premium-franchise main a.manager h2{font-family:Georgia,"Iowan Old Style",serif;letter-spacing:-.025em}
+body.premium-franchise main a.manager span{line-height:1.6}
+body.premium-franchise .manager-search input{min-height:50px;border:1px solid #708394;border-radius:9px;background:#0e2230;color:#fff;font:inherit}
+body.premium-franchise main .champ-year-card{min-width:0}
+body.premium-franchise :is(.premium-menu-links a,.premium-links a,.premium-brand,.manager,.tile):focus-visible{outline:3px solid #ffe0a1;outline-offset:3px}
+@media(max-width:850px){body.premium-franchise .premium-header>.wrap{flex-wrap:nowrap}}
+@media(max-width:560px){
+ body.premium-franchise .premium-header>.wrap{padding-inline:14px}
+ body.premium-franchise .premium-header .premium-brand{font-size:14px}
+ body.premium-franchise main a.manager{padding:19px;min-height:150px}
+ body.premium-franchise main a.manager h2{font-size:25px}
+ body.premium-franchise main .grid{grid-template-columns:minmax(0,1fr);gap:12px}
+ body.premium-franchise main>.hero{margin-inline:0}
+}
+
+/* Preserve existing navigation behavior and selector contracts while elevating presentation. */
+body.premium-franchise header.nav{position:sticky;top:0;z-index:40;background:#0b1925f4;border-bottom:1px solid #4b6575;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+body.premium-franchise header.nav>.wrap{max-width:1180px;min-height:68px;gap:12px;padding-block:9px}
+body.premium-franchise header.nav .brand{display:inline-flex;align-items:center;min-height:48px;letter-spacing:.085em;font-size:15px;white-space:nowrap}
+body.premium-franchise header.nav .navlinks{gap:clamp(8px,1.4vw,17px)}
+body.premium-franchise header.nav .navlinks a{display:inline-flex;align-items:center;min-height:44px;padding:10px 5px;line-height:1.4}
+body.premium-franchise header.nav .navlinks a:hover{color:#f7daa2}
+body.premium-franchise header.nav .fellas-mobile-site-menu>summary{min-height:48px;border:1px solid #91774c;border-radius:9px;background:#1a3040;color:#f4d7a0;padding:10px 14px}
+body.premium-franchise header.nav .fellas-mobile-site-menu nav a{min-height:48px}
+body.premium-franchise header:has(.manager-directory-nav){position:sticky;top:0;z-index:40;padding:0;background:#0c1b27f1;backdrop-filter:blur(14px);border-bottom:1px solid #4c6675}
+body.premium-franchise header .manager-directory-nav{max-width:1180px;min-height:68px;padding-block:10px;align-items:center}
+body.premium-franchise header .manager-directory-nav .manager-nav-brand{display:inline-flex;align-items:center;min-height:48px;font-size:15px;letter-spacing:.08em}
+body.premium-franchise header .manager-nav-links>a{display:inline-flex;align-items:center;min-height:44px;padding:8px 4px;line-height:1.5}
+body.premium-franchise header .manager-nav-more>summary{min-height:46px;display:inline-flex;align-items:center;border:1px solid #806f57;border-radius:9px;padding:10px 14px}
+body.premium-franchise header .manager-nav-more a{min-height:44px}
+@media(max-width:850px){body.premium-franchise header.nav>.wrap{min-height:64px;padding-block:8px}body.premium-franchise header .manager-directory-nav{min-height:64px}}
+@media(max-width:560px){body.premium-franchise header.nav .brand{font-size:14px}body.premium-franchise header .manager-directory-nav .manager-nav-brand{font-size:14px}}
