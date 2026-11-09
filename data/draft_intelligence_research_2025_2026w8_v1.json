@@ -28,7 +28,8 @@
     "2016–2019 ESPN draft order is recovered but week-by-week player starter points are not certified for comparable draft-value grades.",
     "Manager grades are descriptive return tiers (2025), never inferred management intent or talent skill.",
     "2026 keeper decision/opportunity cost remains unavailable, not zero.",
-    "The archived v9 surplus benchmark (2020–2024) differs from the 2025/2026 position-and-round peer median; point values are not cross-model comparable."
+    "The archived v9 surplus benchmark (2020–2024) differs from the 2025/2026 position-and-round peer median; point values are not cross-model comparable.",
+    "2018 ESPN offline draft import is position sorted, so its apparent player order cannot be treated as verified overall pick rank."
   ],
   "seasonSummaries": [
     {
@@ -9474,6 +9475,53 @@
             "displayManager": "Stilly"
           }
         ]
+      }
+    ]
+  },
+  "espnArchive2016to2019": {
+    "sourcePaths": [
+      "data/espn_2016_2018_drafts_activity_verified.json",
+      "data/espn_2019_draft_activity_verified.json",
+      "data/espn_draft_boards_named_2016_2019.json"
+    ],
+    "coverage": "named_draft_selections_only_without_certified_individual_weekly_original_team_starter_points",
+    "selectionCountTotal": 598,
+    "seasons": [
+      {
+        "year": 2016,
+        "teams": 8,
+        "rounds": 16,
+        "selections": 128,
+        "confirmedDraftPickOrder": true,
+        "originalStarterPointGrade": null,
+        "note": "Source selections can be named and displayed; weekly lineup-value grade not certified."
+      },
+      {
+        "year": 2017,
+        "teams": 10,
+        "rounds": 16,
+        "selections": 160,
+        "confirmedDraftPickOrder": true,
+        "originalStarterPointGrade": null,
+        "note": "Source selections can be named and displayed; weekly lineup-value grade not certified."
+      },
+      {
+        "year": 2018,
+        "teams": 10,
+        "rounds": 16,
+        "selections": 160,
+        "confirmedDraftPickOrder": false,
+        "originalStarterPointGrade": null,
+        "note": "Source import was position-sorted: do not publish reconstructed overall selection ranks."
+      },
+      {
+        "year": 2019,
+        "teams": 10,
+        "rounds": 15,
+        "selections": 150,
+        "confirmedDraftPickOrder": true,
+        "originalStarterPointGrade": null,
+        "note": "Verified ESPN player IDs and names; week-by-week original-drafter starter contributions not verified."
       }
     ]
   }
