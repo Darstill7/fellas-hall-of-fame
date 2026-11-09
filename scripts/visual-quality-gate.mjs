@@ -627,7 +627,7 @@ try{
           const archive=await response.json();
           const source=archive.seasons.find(s=>s.year===2023);
           const paragraphs=[...document.querySelectorAll('#championship-story .story-section')].map(section=>[...section.querySelectorAll(':scope > p')].map(p=>p.textContent.trim()));
-          const exact=paragraphs.every((parts,i)=>parts.join(' ').replace(/\\s+/g,' ').trim()===source.sections[i].text.replace(/\\s+/g,' ').trim());
+          const exact=paragraphs.every((parts,i)=>parts.join(' ').replace(/\s+/g,' ').trim()===source.sections[i].text.replace(/\s+/g,' ').trim());
           const sizes=[...document.querySelectorAll('#championship-story .story-section p')].map(p=>getComputedStyle(p).fontSize);
           return {chapters:paragraphs.length,parts:paragraphs.map(p=>p.length),exact,sizes};
          });
