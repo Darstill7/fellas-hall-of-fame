@@ -21,6 +21,8 @@ for(const story of stories.seasons){
  if(deepDive.split(/\s+/).length<95||/\b(?:undefined|NaN|tbd)\b|lorem ipsum|coming soon/i.test(deepDive))throw Error('Championship deep-dive incomplete '+y);
  if(y<=2019&&!/(?:ESPN|starter)/i.test(deepDive))throw Error('Historical ESPN limitations omitted '+y);
  const labels=(story.editorialVerdicts||[]).map(v=>v.label);
+ if(!(story.verifiedTradeReceipts||[]).length&&labels.includes('Defining move'))
+  throw Error('Unsupported defining-move card must be replaced with source-backed season detail '+y);
  if(story.editorialVerdicts?.length!==4||new Set(labels).size!==4)throw Error('Four distinct editorial verdicts required '+y);
  if(story.editorialVerdicts.some(v=>!v.text||v.text.trim().split(/\s+/).length<12))throw Error('Editorial verdict missing evidence '+y);
  if(y<=2019&&!story.editorialVerdicts.some(v=>/unavailable|not verif|no verified|does not verif/i.test(v.text)))throw Error('Legacy player limitations absent from editorial verdicts '+y);
