@@ -1,0 +1,1153 @@
+{
+  "schema": "fellas-regular-season-close-calls-research-v1",
+  "asOf": "2026-11-09",
+  "source": "data/season_weekly_matchups_2016_2026_v1.json",
+  "scope": "Regular-season paired matchups only. Completed 2016–2025 leaderboards; 2026 week 1–8 explicitly provisional and separate; differences across ESPN and Sleeper scoring eras are not adjusted.",
+  "coverage": {
+    "allRegularGames": 700,
+    "completedDecidedRegularGames": 659,
+    "provisional2026DecidedGames": 40,
+    "ties": [
+      {
+        "year": 2016,
+        "week": 13,
+        "home": "Halderman",
+        "away": "Thommy",
+        "homeScore": 121,
+        "awayScore": 121,
+        "status": "TIE",
+        "margin": 0,
+        "era": "ESPN"
+      }
+    ],
+    "knownUnpairedWeeks": "2020 and 2021 Week 14 include manager scores not paired to an opponent and cannot enter win-loss margin boards."
+  },
+  "completedSeason": {
+    "closestGames": [
+      {
+        "year": 2018,
+        "week": 7,
+        "winner": "Thommy",
+        "loser": "Stew",
+        "winnerPoints": 142.92,
+        "loserPoints": 142.76,
+        "margin": 0.16,
+        "era": "ESPN"
+      },
+      {
+        "year": 2024,
+        "week": 11,
+        "winner": "Tony",
+        "loser": "Stover",
+        "winnerPoints": 131.68,
+        "loserPoints": 131.44,
+        "margin": 0.24,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2019,
+        "week": 5,
+        "winner": "Koble",
+        "loser": "Stover",
+        "winnerPoints": 124.52,
+        "loserPoints": 124.24,
+        "margin": 0.28,
+        "era": "ESPN"
+      },
+      {
+        "year": 2020,
+        "week": 1,
+        "winner": "Kuhl",
+        "loser": "Thommy",
+        "winnerPoints": 129.16,
+        "loserPoints": 128.88,
+        "margin": 0.28,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2018,
+        "week": 7,
+        "winner": "Stover",
+        "loser": "Mitch",
+        "winnerPoints": 96.98,
+        "loserPoints": 96.32,
+        "margin": 0.66,
+        "era": "ESPN"
+      },
+      {
+        "year": 2019,
+        "week": 13,
+        "winner": "Birch",
+        "loser": "Mitch",
+        "winnerPoints": 114.1,
+        "loserPoints": 113.28,
+        "margin": 0.82,
+        "era": "ESPN"
+      },
+      {
+        "year": 2018,
+        "week": 6,
+        "winner": "Kuhl",
+        "loser": "Mitch",
+        "winnerPoints": 127.6,
+        "loserPoints": 126.72,
+        "margin": 0.88,
+        "era": "ESPN"
+      },
+      {
+        "year": 2020,
+        "week": 8,
+        "winner": "Stover",
+        "loser": "Tony",
+        "winnerPoints": 84.34,
+        "loserPoints": 83.42,
+        "margin": 0.92,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2019,
+        "week": 13,
+        "winner": "Evans",
+        "loser": "Kuhl",
+        "winnerPoints": 91.94,
+        "loserPoints": 90.96,
+        "margin": 0.98,
+        "era": "ESPN"
+      },
+      {
+        "year": 2025,
+        "week": 3,
+        "winner": "Scott",
+        "loser": "Stover",
+        "winnerPoints": 113.52,
+        "loserPoints": 112.54,
+        "margin": 0.98,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2017,
+        "week": 9,
+        "winner": "Stilly",
+        "loser": "Tony",
+        "winnerPoints": 64,
+        "loserPoints": 63,
+        "margin": 1,
+        "era": "ESPN"
+      },
+      {
+        "year": 2018,
+        "week": 5,
+        "winner": "Evans",
+        "loser": "Thommy",
+        "winnerPoints": 79.24,
+        "loserPoints": 78.18,
+        "margin": 1.06,
+        "era": "ESPN"
+      },
+      {
+        "year": 2021,
+        "week": 4,
+        "winner": "Birch",
+        "loser": "Mitch",
+        "winnerPoints": 109.84,
+        "loserPoints": 108.52,
+        "margin": 1.32,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2025,
+        "week": 4,
+        "winner": "Tony",
+        "loser": "Kuhl",
+        "winnerPoints": 127.38,
+        "loserPoints": 126.02,
+        "margin": 1.36,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2023,
+        "week": 1,
+        "winner": "Tony",
+        "loser": "Stew",
+        "winnerPoints": 100.86,
+        "loserPoints": 99.44,
+        "margin": 1.42,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2018,
+        "week": 3,
+        "winner": "Stew",
+        "loser": "Mitch",
+        "winnerPoints": 88.6,
+        "loserPoints": 86.94,
+        "margin": 1.66,
+        "era": "ESPN"
+      },
+      {
+        "year": 2019,
+        "week": 13,
+        "winner": "Koble",
+        "loser": "Tony",
+        "winnerPoints": 117.7,
+        "loserPoints": 116.02,
+        "margin": 1.68,
+        "era": "ESPN"
+      },
+      {
+        "year": 2020,
+        "week": 10,
+        "winner": "Kuhl",
+        "loser": "Thommy",
+        "winnerPoints": 107.54,
+        "loserPoints": 105.86,
+        "margin": 1.68,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2023,
+        "week": 8,
+        "winner": "Evans",
+        "loser": "Tony",
+        "winnerPoints": 124.26,
+        "loserPoints": 122.28,
+        "margin": 1.98,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2016,
+        "week": 5,
+        "winner": "Stilly",
+        "loser": "Schermerhorn",
+        "winnerPoints": 97,
+        "loserPoints": 95,
+        "margin": 2,
+        "era": "ESPN"
+      }
+    ],
+    "highestScoringLosses": [
+      {
+        "year": 2025,
+        "week": 10,
+        "winner": "Mitch",
+        "loser": "Stew",
+        "winnerPoints": 167.82,
+        "loserPoints": 164.8,
+        "margin": 3.02,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2021,
+        "week": 5,
+        "winner": "Mitch",
+        "loser": "Tony",
+        "winnerPoints": 163.1,
+        "loserPoints": 143.9,
+        "margin": 19.2,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2018,
+        "week": 7,
+        "winner": "Thommy",
+        "loser": "Stew",
+        "winnerPoints": 142.92,
+        "loserPoints": 142.76,
+        "margin": 0.16,
+        "era": "ESPN"
+      },
+      {
+        "year": 2022,
+        "week": 8,
+        "winner": "Stew",
+        "loser": "Koble",
+        "winnerPoints": 146.6,
+        "loserPoints": 141.6,
+        "margin": 5,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2021,
+        "week": 1,
+        "winner": "Stew",
+        "loser": "Thommy",
+        "winnerPoints": 167.36,
+        "loserPoints": 141.12,
+        "margin": 26.24,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2023,
+        "week": 13,
+        "winner": "Kuhl",
+        "loser": "Evans",
+        "winnerPoints": 171.6,
+        "loserPoints": 141.12,
+        "margin": 30.48,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2019,
+        "week": 3,
+        "winner": "Birch",
+        "loser": "Kuhl",
+        "winnerPoints": 146.76,
+        "loserPoints": 140.04,
+        "margin": 6.72,
+        "era": "ESPN"
+      },
+      {
+        "year": 2021,
+        "week": 6,
+        "winner": "Tony",
+        "loser": "Thommy",
+        "winnerPoints": 167.14,
+        "loserPoints": 139.2,
+        "margin": 27.94,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2020,
+        "week": 9,
+        "winner": "Birch",
+        "loser": "Thommy",
+        "winnerPoints": 144.8,
+        "loserPoints": 138.9,
+        "margin": 5.9,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2021,
+        "week": 2,
+        "winner": "Mitch",
+        "loser": "Stew",
+        "winnerPoints": 141.16,
+        "loserPoints": 138.74,
+        "margin": 2.42,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2023,
+        "week": 10,
+        "winner": "Birch",
+        "loser": "Koble",
+        "winnerPoints": 170.26,
+        "loserPoints": 138.36,
+        "margin": 31.9,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2021,
+        "week": 2,
+        "winner": "Birch",
+        "loser": "Kuhl",
+        "winnerPoints": 147.76,
+        "loserPoints": 137.6,
+        "margin": 10.16,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2019,
+        "week": 8,
+        "winner": "Tony",
+        "loser": "Stilly",
+        "winnerPoints": 149.56,
+        "loserPoints": 137.5,
+        "margin": 12.06,
+        "era": "ESPN"
+      },
+      {
+        "year": 2025,
+        "week": 7,
+        "winner": "Mitch",
+        "loser": "Scott",
+        "winnerPoints": 180.86,
+        "loserPoints": 136.06,
+        "margin": 44.8,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2021,
+        "week": 14,
+        "winner": "Evans",
+        "loser": "Mitch",
+        "winnerPoints": 162.04,
+        "loserPoints": 134.82,
+        "margin": 27.22,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2022,
+        "week": 14,
+        "winner": "Evans",
+        "loser": "Stilly",
+        "winnerPoints": 146.7,
+        "loserPoints": 134.66,
+        "margin": 12.04,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2020,
+        "week": 4,
+        "winner": "Stover",
+        "loser": "Stilly",
+        "winnerPoints": 139.5,
+        "loserPoints": 132.82,
+        "margin": 6.68,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2022,
+        "week": 8,
+        "winner": "Tony",
+        "loser": "Stilly",
+        "winnerPoints": 177.14,
+        "loserPoints": 132,
+        "margin": 45.14,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2023,
+        "week": 3,
+        "winner": "Stew",
+        "loser": "Mitch",
+        "winnerPoints": 135.38,
+        "loserPoints": 132,
+        "margin": 3.38,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2024,
+        "week": 11,
+        "winner": "Tony",
+        "loser": "Stover",
+        "winnerPoints": 131.68,
+        "loserPoints": 131.44,
+        "margin": 0.24,
+        "era": "Sleeper"
+      }
+    ],
+    "lowestScoringWins": [
+      {
+        "year": 2017,
+        "week": 9,
+        "winner": "Stilly",
+        "loser": "Tony",
+        "winnerPoints": 64,
+        "loserPoints": 63,
+        "margin": 1,
+        "era": "ESPN"
+      },
+      {
+        "year": 2020,
+        "week": 6,
+        "winner": "Kuhl",
+        "loser": "Stover",
+        "winnerPoints": 69.18,
+        "loserPoints": 66.7,
+        "margin": 2.48,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2017,
+        "week": 2,
+        "winner": "Birch",
+        "loser": "Stover",
+        "winnerPoints": 72,
+        "loserPoints": 63,
+        "margin": 9,
+        "era": "ESPN"
+      },
+      {
+        "year": 2017,
+        "week": 4,
+        "winner": "Stover",
+        "loser": "Halderman",
+        "winnerPoints": 73,
+        "loserPoints": 53,
+        "margin": 20,
+        "era": "ESPN"
+      },
+      {
+        "year": 2018,
+        "week": 13,
+        "winner": "Stover",
+        "loser": "Kuhl",
+        "winnerPoints": 73.64,
+        "loserPoints": 65.18,
+        "margin": 8.46,
+        "era": "ESPN"
+      },
+      {
+        "year": 2017,
+        "week": 1,
+        "winner": "Thommy",
+        "loser": "Tony",
+        "winnerPoints": 75,
+        "loserPoints": 44,
+        "margin": 31,
+        "era": "ESPN"
+      },
+      {
+        "year": 2017,
+        "week": 7,
+        "winner": "Stew",
+        "loser": "Halderman",
+        "winnerPoints": 76,
+        "loserPoints": 49,
+        "margin": 27,
+        "era": "ESPN"
+      },
+      {
+        "year": 2017,
+        "week": 9,
+        "winner": "Stew",
+        "loser": "Stover",
+        "winnerPoints": 77,
+        "loserPoints": 70,
+        "margin": 7,
+        "era": "ESPN"
+      },
+      {
+        "year": 2017,
+        "week": 12,
+        "winner": "Evans",
+        "loser": "Halderman",
+        "winnerPoints": 77,
+        "loserPoints": 63,
+        "margin": 14,
+        "era": "ESPN"
+      },
+      {
+        "year": 2017,
+        "week": 5,
+        "winner": "Halderman",
+        "loser": "Schermerhorn",
+        "winnerPoints": 79,
+        "loserPoints": 47,
+        "margin": 32,
+        "era": "ESPN"
+      },
+      {
+        "year": 2018,
+        "week": 5,
+        "winner": "Evans",
+        "loser": "Thommy",
+        "winnerPoints": 79.24,
+        "loserPoints": 78.18,
+        "margin": 1.06,
+        "era": "ESPN"
+      },
+      {
+        "year": 2019,
+        "week": 11,
+        "winner": "Tony",
+        "loser": "Thommy",
+        "winnerPoints": 79.26,
+        "loserPoints": 67.92,
+        "margin": 11.34,
+        "era": "ESPN"
+      },
+      {
+        "year": 2017,
+        "week": 4,
+        "winner": "Koble",
+        "loser": "Birch",
+        "winnerPoints": 80,
+        "loserPoints": 72,
+        "margin": 8,
+        "era": "ESPN"
+      },
+      {
+        "year": 2022,
+        "week": 5,
+        "winner": "Stilly",
+        "loser": "Evans",
+        "winnerPoints": 80.06,
+        "loserPoints": 76.74,
+        "margin": 3.32,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2022,
+        "week": 14,
+        "winner": "Koble",
+        "loser": "Kuhl",
+        "winnerPoints": 80.96,
+        "loserPoints": 70.78,
+        "margin": 10.18,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2017,
+        "week": 10,
+        "winner": "Stew",
+        "loser": "Stilly",
+        "winnerPoints": 82,
+        "loserPoints": 46,
+        "margin": 36,
+        "era": "ESPN"
+      },
+      {
+        "year": 2019,
+        "week": 7,
+        "winner": "Evans",
+        "loser": "Thommy",
+        "winnerPoints": 82.58,
+        "loserPoints": 61.62,
+        "margin": 20.96,
+        "era": "ESPN"
+      },
+      {
+        "year": 2016,
+        "week": 11,
+        "winner": "Evans",
+        "loser": "Halderman",
+        "winnerPoints": 83,
+        "loserPoints": 79,
+        "margin": 4,
+        "era": "ESPN"
+      },
+      {
+        "year": 2017,
+        "week": 1,
+        "winner": "Koble",
+        "loser": "Evans",
+        "winnerPoints": 83,
+        "loserPoints": 69,
+        "margin": 14,
+        "era": "ESPN"
+      },
+      {
+        "year": 2023,
+        "week": 1,
+        "winner": "Evans",
+        "loser": "Stover",
+        "winnerPoints": 83.2,
+        "loserPoints": 79.08,
+        "margin": 4.12,
+        "era": "Sleeper"
+      }
+    ],
+    "largestMargins": [
+      {
+        "year": 2025,
+        "week": 11,
+        "winner": "Scott",
+        "loser": "JMid",
+        "winnerPoints": 155.1,
+        "loserPoints": 53.72,
+        "margin": 101.38,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2016,
+        "week": 5,
+        "winner": "Halderman",
+        "loser": "Koble",
+        "winnerPoints": 170,
+        "loserPoints": 70,
+        "margin": 100,
+        "era": "ESPN"
+      },
+      {
+        "year": 2018,
+        "week": 2,
+        "winner": "Tony",
+        "loser": "Stilly",
+        "winnerPoints": 159.58,
+        "loserPoints": 72.34,
+        "margin": 87.24,
+        "era": "ESPN"
+      },
+      {
+        "year": 2017,
+        "week": 9,
+        "winner": "Thommy",
+        "loser": "Birch",
+        "winnerPoints": 148,
+        "loserPoints": 63,
+        "margin": 85,
+        "era": "ESPN"
+      },
+      {
+        "year": 2019,
+        "week": 10,
+        "winner": "Stew",
+        "loser": "Thommy",
+        "winnerPoints": 132.72,
+        "loserPoints": 49.72,
+        "margin": 83,
+        "era": "ESPN"
+      },
+      {
+        "year": 2021,
+        "week": 5,
+        "winner": "Birch",
+        "loser": "Stilly",
+        "winnerPoints": 167.28,
+        "loserPoints": 85.58,
+        "margin": 81.7,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2021,
+        "week": 11,
+        "winner": "Evans",
+        "loser": "Koble",
+        "winnerPoints": 157.4,
+        "loserPoints": 79.98,
+        "margin": 77.42,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2021,
+        "week": 13,
+        "winner": "Stover",
+        "loser": "Koble",
+        "winnerPoints": 161.98,
+        "loserPoints": 86.32,
+        "margin": 75.66,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2024,
+        "week": 10,
+        "winner": "JMid",
+        "loser": "Stover",
+        "winnerPoints": 165.02,
+        "loserPoints": 90.08,
+        "margin": 74.94,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2023,
+        "week": 12,
+        "winner": "Stilly",
+        "loser": "Tony",
+        "winnerPoints": 173.86,
+        "loserPoints": 99.58,
+        "margin": 74.28,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2021,
+        "week": 5,
+        "winner": "Stover",
+        "loser": "Thommy",
+        "winnerPoints": 178.82,
+        "loserPoints": 105.28,
+        "margin": 73.54,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2019,
+        "week": 10,
+        "winner": "Birch",
+        "loser": "Tony",
+        "winnerPoints": 153.74,
+        "loserPoints": 80.52,
+        "margin": 73.22,
+        "era": "ESPN"
+      },
+      {
+        "year": 2016,
+        "week": 13,
+        "winner": "Schermerhorn",
+        "loser": "Stew",
+        "winnerPoints": 151,
+        "loserPoints": 78,
+        "margin": 73,
+        "era": "ESPN"
+      },
+      {
+        "year": 2019,
+        "week": 9,
+        "winner": "Birch",
+        "loser": "Stilly",
+        "winnerPoints": 147.94,
+        "loserPoints": 75,
+        "margin": 72.94,
+        "era": "ESPN"
+      },
+      {
+        "year": 2024,
+        "week": 6,
+        "winner": "Thommy",
+        "loser": "Tony",
+        "winnerPoints": 152.02,
+        "loserPoints": 79.78,
+        "margin": 72.24,
+        "era": "Sleeper"
+      }
+    ]
+  },
+  "currentManagerMoments": [
+    {
+      "manager": "Stilly",
+      "closest": {
+        "year": 2017,
+        "week": 9,
+        "opponent": "Tony",
+        "result": "win",
+        "margin": 1
+      },
+      "highestScoringLoss": {
+        "year": 2019,
+        "week": 8,
+        "opponent": "Tony",
+        "points": 137.5,
+        "margin": 12.06
+      },
+      "lowestScoringWin": {
+        "year": 2017,
+        "week": 9,
+        "opponent": "Tony",
+        "points": 64,
+        "margin": 1
+      }
+    },
+    {
+      "manager": "Stew",
+      "closest": {
+        "year": 2018,
+        "week": 7,
+        "opponent": "Thommy",
+        "result": "loss",
+        "margin": 0.16
+      },
+      "highestScoringLoss": {
+        "year": 2025,
+        "week": 10,
+        "opponent": "Mitch",
+        "points": 164.8,
+        "margin": 3.02
+      },
+      "lowestScoringWin": {
+        "year": 2017,
+        "week": 7,
+        "opponent": "Halderman",
+        "points": 76,
+        "margin": 27
+      }
+    },
+    {
+      "manager": "Thommy",
+      "closest": {
+        "year": 2018,
+        "week": 7,
+        "opponent": "Stew",
+        "result": "win",
+        "margin": 0.16
+      },
+      "highestScoringLoss": {
+        "year": 2021,
+        "week": 1,
+        "opponent": "Stew",
+        "points": 141.12,
+        "margin": 26.24
+      },
+      "lowestScoringWin": {
+        "year": 2017,
+        "week": 1,
+        "opponent": "Tony",
+        "points": 75,
+        "margin": 31
+      }
+    },
+    {
+      "manager": "Stover",
+      "closest": {
+        "year": 2024,
+        "week": 11,
+        "opponent": "Tony",
+        "result": "loss",
+        "margin": 0.24
+      },
+      "highestScoringLoss": {
+        "year": 2024,
+        "week": 11,
+        "opponent": "Tony",
+        "points": 131.44,
+        "margin": 0.24
+      },
+      "lowestScoringWin": {
+        "year": 2017,
+        "week": 4,
+        "opponent": "Halderman",
+        "points": 73,
+        "margin": 20
+      }
+    },
+    {
+      "manager": "Birch",
+      "closest": {
+        "year": 2019,
+        "week": 13,
+        "opponent": "Mitch",
+        "result": "win",
+        "margin": 0.82
+      },
+      "highestScoringLoss": {
+        "year": 2025,
+        "week": 8,
+        "opponent": "Stew",
+        "points": 129.38,
+        "margin": 7.8
+      },
+      "lowestScoringWin": {
+        "year": 2017,
+        "week": 2,
+        "opponent": "Stover",
+        "points": 72,
+        "margin": 9
+      }
+    },
+    {
+      "manager": "Tony",
+      "closest": {
+        "year": 2024,
+        "week": 11,
+        "opponent": "Stover",
+        "result": "win",
+        "margin": 0.24
+      },
+      "highestScoringLoss": {
+        "year": 2021,
+        "week": 5,
+        "opponent": "Mitch",
+        "points": 143.9,
+        "margin": 19.2
+      },
+      "lowestScoringWin": {
+        "year": 2019,
+        "week": 11,
+        "opponent": "Thommy",
+        "points": 79.26,
+        "margin": 11.34
+      }
+    },
+    {
+      "manager": "Mitch",
+      "closest": {
+        "year": 2018,
+        "week": 7,
+        "opponent": "Stover",
+        "result": "loss",
+        "margin": 0.66
+      },
+      "highestScoringLoss": {
+        "year": 2021,
+        "week": 14,
+        "opponent": "Evans",
+        "points": 134.82,
+        "margin": 27.22
+      },
+      "lowestScoringWin": {
+        "year": 2019,
+        "week": 12,
+        "opponent": "Stilly",
+        "points": 86.76,
+        "margin": 6.62
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "closest": {
+        "year": 2020,
+        "week": 1,
+        "opponent": "Thommy",
+        "result": "win",
+        "margin": 0.28
+      },
+      "highestScoringLoss": {
+        "year": 2019,
+        "week": 3,
+        "opponent": "Birch",
+        "points": 140.04,
+        "margin": 6.72
+      },
+      "lowestScoringWin": {
+        "year": 2020,
+        "week": 6,
+        "opponent": "Stover",
+        "points": 69.18,
+        "margin": 2.48
+      }
+    },
+    {
+      "manager": "JMid",
+      "closest": {
+        "year": 2025,
+        "week": 4,
+        "opponent": "Stew",
+        "result": "win",
+        "margin": 3.36
+      },
+      "highestScoringLoss": {
+        "year": 2025,
+        "week": 5,
+        "opponent": "Mitch",
+        "points": 122.28,
+        "margin": 55.3
+      },
+      "lowestScoringWin": {
+        "year": 2025,
+        "week": 13,
+        "opponent": "Stew",
+        "points": 100.84,
+        "margin": 10.6
+      }
+    },
+    {
+      "manager": "Scott",
+      "closest": {
+        "year": 2025,
+        "week": 3,
+        "opponent": "Stover",
+        "result": "win",
+        "margin": 0.98
+      },
+      "highestScoringLoss": {
+        "year": 2025,
+        "week": 7,
+        "opponent": "Mitch",
+        "points": 136.06,
+        "margin": 44.8
+      },
+      "lowestScoringWin": {
+        "year": 2025,
+        "week": 1,
+        "opponent": "Kuhl",
+        "points": 96.84,
+        "margin": 13.54
+      }
+    }
+  ],
+  "provisional2026": {
+    "highestScoringLosses": [
+      {
+        "year": 2026,
+        "week": 1,
+        "winner": "Mitch",
+        "loser": "Stew",
+        "winnerPoints": 161.26,
+        "loserPoints": 158.52,
+        "margin": 2.74,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2026,
+        "week": 5,
+        "winner": "Mitch",
+        "loser": "Thommy",
+        "winnerPoints": 172.9,
+        "loserPoints": 124.94,
+        "margin": 47.96,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2026,
+        "week": 3,
+        "winner": "Birch",
+        "loser": "Stew",
+        "winnerPoints": 128.94,
+        "loserPoints": 123.22,
+        "margin": 5.72,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2026,
+        "week": 5,
+        "winner": "Stilly",
+        "loser": "Tony",
+        "winnerPoints": 126.36,
+        "loserPoints": 115.44,
+        "margin": 10.92,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2026,
+        "week": 7,
+        "winner": "Mitch",
+        "loser": "Stilly",
+        "winnerPoints": 119.98,
+        "loserPoints": 115.12,
+        "margin": 4.86,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2026,
+        "week": 7,
+        "winner": "Tony",
+        "loser": "Stover",
+        "winnerPoints": 112.12,
+        "loserPoints": 111.2,
+        "margin": 0.92,
+        "era": "Sleeper"
+      }
+    ],
+    "closestGames": [
+      {
+        "year": 2026,
+        "week": 7,
+        "winner": "Tony",
+        "loser": "Stover",
+        "winnerPoints": 112.12,
+        "loserPoints": 111.2,
+        "margin": 0.92,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2026,
+        "week": 4,
+        "winner": "Mitch",
+        "loser": "Scott",
+        "winnerPoints": 92.52,
+        "loserPoints": 90.54,
+        "margin": 1.98,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2026,
+        "week": 1,
+        "winner": "Mitch",
+        "loser": "Stew",
+        "winnerPoints": 161.26,
+        "loserPoints": 158.52,
+        "margin": 2.74,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2026,
+        "week": 7,
+        "winner": "Mitch",
+        "loser": "Stilly",
+        "winnerPoints": 119.98,
+        "loserPoints": 115.12,
+        "margin": 4.86,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2026,
+        "week": 7,
+        "winner": "Stew",
+        "loser": "Scott",
+        "winnerPoints": 110.14,
+        "loserPoints": 105.22,
+        "margin": 4.92,
+        "era": "Sleeper"
+      },
+      {
+        "year": 2026,
+        "week": 3,
+        "winner": "Birch",
+        "loser": "Stew",
+        "winnerPoints": 128.94,
+        "loserPoints": 123.22,
+        "margin": 5.72,
+        "era": "Sleeper"
+      }
+    ]
+  }
+}
