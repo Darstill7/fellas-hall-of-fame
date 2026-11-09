@@ -251,6 +251,13 @@ try{
         if(await page.locator('main .hero .actions .button:visible').count())
          findings.push(engine+' '+width+' duplicate homepage hero buttons crowd out manager discovery');
        }
+       if(width===390&&route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
+        const slug=route.split('/')[1];
+        const expected=slug==='tom'?'thommy':slug;
+        const draftLinks=await page.locator('a[href*="manager-draft-report-cards.html"]').evaluateAll(a=>a.map(x=>x.getAttribute('href')));
+        if(draftLinks.length!==1||!draftLinks[0].endsWith('?manager='+expected))
+         throw Error('Manager draft-report link must open selected manager at page top: '+slug+' '+JSON.stringify(draftLinks));
+       }
        if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
         const moment=page.locator('main .hero [data-defining-moment]');
         if(await moment.count()!==1){findings.push(engine+' '+width+' '+key+' missing unique defining franchise moment');}
