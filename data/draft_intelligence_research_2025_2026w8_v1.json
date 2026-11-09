@@ -18,7 +18,8 @@
     "keeperObserved": "Retained player's original-manager starts and points, and difference to observed league same-position starting medians for those weeks.",
     "keeperDecision": "True keeper decision/opportunity cost needs the complete eligible roster at keeper lock, keeper cost rules, alternative candidates and their realized/predicted returns; those records have not been verified.",
     "historicalGrades2020to2024": "For 2020–2024, rank each year's ten teams using the archived v9 draft-engine realized regular-starter surplus (its original, historical baseline). Label 1–2 A, 3–4 B, 5–6 C, 7–8 D, 9–10 F. This baseline is not the newer 2025 nearby same-position-and-round peer model, so do not compare point surplus or grades directly between eras. These are observed return tiers, not talent evaluation.",
-    "keeperRoundSlotProxy": "For each 2026 keeper, compare original-team observed starter points to the same round's nonkeeper picks from the verified 2026 draft. This is an ex post realized slot comparison only, NOT a decision-time alternative or true keeper opportunity cost."
+    "keeperRoundSlotProxy": "For each 2026 keeper, compare original-team observed starter points to the same round's nonkeeper picks from the verified 2026 draft. This is an ex post realized slot comparison only, NOT a decision-time alternative or true keeper opportunity cost.",
+    "managerEvidence": "For each manager, the top three and bottom two observed peer-adjusted pick returns are shown with original-manager starter points and credited starts. A weak pick outcome is not proof the draft-day process was poor."
   },
   "limits": [
     "2025 and 2026 are separate windows; 2026 is incomplete through Week 8 and not a final ranking.",
@@ -156,7 +157,51 @@
           ],
           "rankByObservedSurplus": 1,
           "observedReturnGrade2025": "A",
-          "isFinalGrade": true
+          "isFinalGrade": true,
+          "highestReturnPicks": [
+            {
+              "player": "Josh Allen",
+              "round": 2,
+              "position": "QB",
+              "originalManagerStarts": 13,
+              "startedPoints": 309.02,
+              "pointsAbovePeerMedian": 179.8
+            },
+            {
+              "player": "Cam Skattebo",
+              "round": 11,
+              "position": "RB",
+              "originalManagerStarts": 6,
+              "startedPoints": 100.9,
+              "pointsAbovePeerMedian": 99.3
+            },
+            {
+              "player": "David Montgomery",
+              "round": 4,
+              "position": "RB",
+              "originalManagerStarts": 13,
+              "startedPoints": 133.32,
+              "pointsAbovePeerMedian": 79.72
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "DJ Moore",
+              "round": 5,
+              "position": "WR",
+              "originalManagerStarts": 5,
+              "startedPoints": 52.48,
+              "pointsAbovePeerMedian": -35.62
+            },
+            {
+              "player": "Colston Loveland",
+              "round": 14,
+              "position": "TE",
+              "originalManagerStarts": 0,
+              "startedPoints": 0,
+              "pointsAbovePeerMedian": -7.9
+            }
+          ]
         },
         {
           "manager": "Tony",
@@ -277,7 +322,51 @@
           ],
           "rankByObservedSurplus": 2,
           "observedReturnGrade2025": "A",
-          "isFinalGrade": true
+          "isFinalGrade": true,
+          "highestReturnPicks": [
+            {
+              "player": "Javonte Williams",
+              "round": 11,
+              "position": "RB",
+              "originalManagerStarts": 12,
+              "startedPoints": 177,
+              "pointsAbovePeerMedian": 175.4
+            },
+            {
+              "player": "Travis Etienne",
+              "round": 9,
+              "position": "RB",
+              "originalManagerStarts": 10,
+              "startedPoints": 140.4,
+              "pointsAbovePeerMedian": 85.2
+            },
+            {
+              "player": "CeeDee Lamb",
+              "round": 1,
+              "position": "WR",
+              "originalManagerStarts": 10,
+              "startedPoints": 136.2,
+              "pointsAbovePeerMedian": 76.55
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Kyler Murray",
+              "round": 13,
+              "position": "QB",
+              "originalManagerStarts": 0,
+              "startedPoints": 0,
+              "pointsAbovePeerMedian": -97.64
+            },
+            {
+              "player": "Omarion Hampton",
+              "round": 3,
+              "position": "RB",
+              "originalManagerStarts": 4,
+              "startedPoints": 46.1,
+              "pointsAbovePeerMedian": -69.25
+            }
+          ]
         },
         {
           "manager": "Scott",
@@ -398,7 +487,51 @@
           ],
           "rankByObservedSurplus": 3,
           "observedReturnGrade2025": "B",
-          "isFinalGrade": true
+          "isFinalGrade": true,
+          "highestReturnPicks": [
+            {
+              "player": "George Pickens",
+              "round": 4,
+              "position": "WR",
+              "originalManagerStarts": 13,
+              "startedPoints": 206.9,
+              "pointsAbovePeerMedian": 126.4
+            },
+            {
+              "player": "Trey McBride",
+              "round": 3,
+              "position": "TE",
+              "originalManagerStarts": 13,
+              "startedPoints": 188.2,
+              "pointsAbovePeerMedian": 112.3
+            },
+            {
+              "player": "James Cook",
+              "round": 2,
+              "position": "RB",
+              "originalManagerStarts": 13,
+              "startedPoints": 221,
+              "pointsAbovePeerMedian": 92.9
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Matthew Golden",
+              "round": 7,
+              "position": "WR",
+              "originalManagerStarts": 2,
+              "startedPoints": 8.3,
+              "pointsAbovePeerMedian": -72.2
+            },
+            {
+              "player": "Ricky Pearsall",
+              "round": 8,
+              "position": "WR",
+              "originalManagerStarts": 5,
+              "startedPoints": 31.3,
+              "pointsAbovePeerMedian": -38.1
+            }
+          ]
         },
         {
           "manager": "Mitch",
@@ -519,7 +652,51 @@
           ],
           "rankByObservedSurplus": 4,
           "observedReturnGrade2025": "B",
-          "isFinalGrade": true
+          "isFinalGrade": true,
+          "highestReturnPicks": [
+            {
+              "player": "Jonathan Taylor",
+              "round": 2,
+              "position": "RB",
+              "originalManagerStarts": 13,
+              "startedPoints": 295.5,
+              "pointsAbovePeerMedian": 167.4
+            },
+            {
+              "player": "Christian McCaffrey",
+              "round": 1,
+              "position": "RB",
+              "originalManagerStarts": 13,
+              "startedPoints": 284,
+              "pointsAbovePeerMedian": 123.1
+            },
+            {
+              "player": "Tyler Warren",
+              "round": 9,
+              "position": "TE",
+              "originalManagerStarts": 12,
+              "startedPoints": 119.3,
+              "pointsAbovePeerMedian": 108.7
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Baker Mayfield",
+              "round": 7,
+              "position": "QB",
+              "originalManagerStarts": 5,
+              "startedPoints": 86.34,
+              "pointsAbovePeerMedian": -159.52
+            },
+            {
+              "player": "Marvin Harrison",
+              "round": 3,
+              "position": "WR",
+              "originalManagerStarts": 4,
+              "startedPoints": 41.8,
+              "pointsAbovePeerMedian": -62.15
+            }
+          ]
         },
         {
           "manager": "Stover",
@@ -640,7 +817,51 @@
           ],
           "rankByObservedSurplus": 5,
           "observedReturnGrade2025": "C",
-          "isFinalGrade": true
+          "isFinalGrade": true,
+          "highestReturnPicks": [
+            {
+              "player": "De'Von Achane",
+              "round": 2,
+              "position": "RB",
+              "originalManagerStarts": 13,
+              "startedPoints": 246.4,
+              "pointsAbovePeerMedian": 118.3
+            },
+            {
+              "player": "Khalil Shakir",
+              "round": 10,
+              "position": "WR",
+              "originalManagerStarts": 9,
+              "startedPoints": 69.4,
+              "pointsAbovePeerMedian": 69.4
+            },
+            {
+              "player": "DK Metcalf",
+              "round": 4,
+              "position": "WR",
+              "originalManagerStarts": 13,
+              "startedPoints": 141.5,
+              "pointsAbovePeerMedian": 61
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Cooper Kupp",
+              "round": 7,
+              "position": "WR",
+              "originalManagerStarts": 5,
+              "startedPoints": 31.1,
+              "pointsAbovePeerMedian": -49.4
+            },
+            {
+              "player": "Kaleb Johnson",
+              "round": 5,
+              "position": "RB",
+              "originalManagerStarts": 0,
+              "startedPoints": 0,
+              "pointsAbovePeerMedian": -47.85
+            }
+          ]
         },
         {
           "manager": "Thommy",
@@ -761,7 +982,51 @@
           ],
           "rankByObservedSurplus": 6,
           "observedReturnGrade2025": "C",
-          "isFinalGrade": true
+          "isFinalGrade": true,
+          "highestReturnPicks": [
+            {
+              "player": "Patrick Mahomes",
+              "round": 8,
+              "position": "QB",
+              "originalManagerStarts": 13,
+              "startedPoints": 269.12,
+              "pointsAbovePeerMedian": 225.95
+            },
+            {
+              "player": "Puka Nacua",
+              "round": 2,
+              "position": "WR",
+              "originalManagerStarts": 12,
+              "startedPoints": 213.4,
+              "pointsAbovePeerMedian": 86
+            },
+            {
+              "player": "Tony Pollard",
+              "round": 5,
+              "position": "RB",
+              "originalManagerStarts": 6,
+              "startedPoints": 57.6,
+              "pointsAbovePeerMedian": 22.5
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "T.J. Hockenson",
+              "round": 7,
+              "position": "TE",
+              "originalManagerStarts": 3,
+              "startedPoints": 10.6,
+              "pointsAbovePeerMedian": -77.3
+            },
+            {
+              "player": "Mike Evans",
+              "round": 3,
+              "position": "WR",
+              "originalManagerStarts": 3,
+              "startedPoints": 27,
+              "pointsAbovePeerMedian": -76.95
+            }
+          ]
         },
         {
           "manager": "JMid",
@@ -882,7 +1147,51 @@
           ],
           "rankByObservedSurplus": 7,
           "observedReturnGrade2025": "D",
-          "isFinalGrade": true
+          "isFinalGrade": true,
+          "highestReturnPicks": [
+            {
+              "player": "Rico Dowdle",
+              "round": 14,
+              "position": "RB",
+              "originalManagerStarts": 8,
+              "startedPoints": 123.9,
+              "pointsAbovePeerMedian": 123.9
+            },
+            {
+              "player": "Amon-Ra St. Brown",
+              "round": 1,
+              "position": "WR",
+              "originalManagerStarts": 9,
+              "startedPoints": 149.2,
+              "pointsAbovePeerMedian": 89.55
+            },
+            {
+              "player": "Josh Jacobs",
+              "round": 2,
+              "position": "RB",
+              "originalManagerStarts": 12,
+              "startedPoints": 191.3,
+              "pointsAbovePeerMedian": 63.2
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Travis Hunter",
+              "round": 5,
+              "position": "WR",
+              "originalManagerStarts": 2,
+              "startedPoints": 10,
+              "pointsAbovePeerMedian": -78.1
+            },
+            {
+              "player": "Chuba Hubbard",
+              "round": 3,
+              "position": "RB",
+              "originalManagerStarts": 4,
+              "startedPoints": 49.6,
+              "pointsAbovePeerMedian": -65.75
+            }
+          ]
         },
         {
           "manager": "Kuhl",
@@ -1003,7 +1312,51 @@
           ],
           "rankByObservedSurplus": 8,
           "observedReturnGrade2025": "D",
-          "isFinalGrade": true
+          "isFinalGrade": true,
+          "highestReturnPicks": [
+            {
+              "player": "Jaylen Warren",
+              "round": 10,
+              "position": "RB",
+              "originalManagerStarts": 7,
+              "startedPoints": 86.4,
+              "pointsAbovePeerMedian": 78.1
+            },
+            {
+              "player": "Drake Maye",
+              "round": 15,
+              "position": "QB",
+              "originalManagerStarts": 10,
+              "startedPoints": 195.28,
+              "pointsAbovePeerMedian": 66.06
+            },
+            {
+              "player": "Kyren Williams",
+              "round": 2,
+              "position": "RB",
+              "originalManagerStarts": 13,
+              "startedPoints": 189.9,
+              "pointsAbovePeerMedian": 61.8
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Derrick Henry",
+              "round": 1,
+              "position": "RB",
+              "originalManagerStarts": 6,
+              "startedPoints": 102.6,
+              "pointsAbovePeerMedian": -87.3
+            },
+            {
+              "player": "Calvin Ridley",
+              "round": 5,
+              "position": "WR",
+              "originalManagerStarts": 2,
+              "startedPoints": 10.4,
+              "pointsAbovePeerMedian": -77.7
+            }
+          ]
         },
         {
           "manager": "Stew",
@@ -1124,7 +1477,51 @@
           ],
           "rankByObservedSurplus": 9,
           "observedReturnGrade2025": "F",
-          "isFinalGrade": true
+          "isFinalGrade": true,
+          "highestReturnPicks": [
+            {
+              "player": "Tucker Kraft",
+              "round": 11,
+              "position": "TE",
+              "originalManagerStarts": 8,
+              "startedPoints": 103.2,
+              "pointsAbovePeerMedian": 96.65
+            },
+            {
+              "player": "Drake London",
+              "round": 3,
+              "position": "WR",
+              "originalManagerStarts": 9,
+              "startedPoints": 150,
+              "pointsAbovePeerMedian": 72.1
+            },
+            {
+              "player": "Emeka Egbuka",
+              "round": 7,
+              "position": "WR",
+              "originalManagerStarts": 11,
+              "startedPoints": 116,
+              "pointsAbovePeerMedian": 50.5
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Chase Brown",
+              "round": 2,
+              "position": "RB",
+              "originalManagerStarts": 3,
+              "startedPoints": 22.6,
+              "pointsAbovePeerMedian": -110.72
+            },
+            {
+              "player": "Dak Prescott",
+              "round": 10,
+              "position": "QB",
+              "originalManagerStarts": 0,
+              "startedPoints": 0,
+              "pointsAbovePeerMedian": -86.34
+            }
+          ]
         },
         {
           "manager": "Stilly",
@@ -1245,7 +1642,51 @@
           ],
           "rankByObservedSurplus": 10,
           "observedReturnGrade2025": "F",
-          "isFinalGrade": true
+          "isFinalGrade": true,
+          "highestReturnPicks": [
+            {
+              "player": "D'Andre Swift",
+              "round": 6,
+              "position": "RB",
+              "originalManagerStarts": 11,
+              "startedPoints": 143.3,
+              "pointsAbovePeerMedian": 126.8
+            },
+            {
+              "player": "Quinshon Judkins",
+              "round": 8,
+              "position": "RB",
+              "originalManagerStarts": 10,
+              "startedPoints": 123.4,
+              "pointsAbovePeerMedian": 87.55
+            },
+            {
+              "player": "Deebo Samuel",
+              "round": 7,
+              "position": "WR",
+              "originalManagerStarts": 9,
+              "startedPoints": 88.1,
+              "pointsAbovePeerMedian": 22.6
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Brock Purdy",
+              "round": 15,
+              "position": "QB",
+              "originalManagerStarts": 0,
+              "startedPoints": 0,
+              "pointsAbovePeerMedian": -183.69
+            },
+            {
+              "player": "Jahmyr Gibbs",
+              "round": 1,
+              "position": "RB",
+              "originalManagerStarts": 3,
+              "startedPoints": 53.3,
+              "pointsAbovePeerMedian": -136.6
+            }
+          ]
         }
       ],
       "lateRoundSteals": [
@@ -1676,7 +2117,51 @@
           ],
           "rankByObservedSurplus": 1,
           "observedReturnGrade2025": null,
-          "isFinalGrade": false
+          "isFinalGrade": false,
+          "highestReturnPicks": [
+            {
+              "player": "Josh Allen",
+              "round": 3,
+              "position": "QB",
+              "originalManagerStarts": 7,
+              "startedPoints": 184.32,
+              "pointsAbovePeerMedian": 144.37
+            },
+            {
+              "player": "D'Andre Swift",
+              "round": 5,
+              "position": "RB",
+              "originalManagerStarts": 8,
+              "startedPoints": 138.7,
+              "pointsAbovePeerMedian": 100.55
+            },
+            {
+              "player": "Bucky Irving",
+              "round": 4,
+              "position": "RB",
+              "originalManagerStarts": 8,
+              "startedPoints": 122.6,
+              "pointsAbovePeerMedian": 67.1
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Drake London",
+              "round": 2,
+              "position": "WR",
+              "originalManagerStarts": 6,
+              "startedPoints": 59.5,
+              "pointsAbovePeerMedian": -27.4
+            },
+            {
+              "player": "Isaiah Likely",
+              "round": 12,
+              "position": "TE",
+              "originalManagerStarts": 2,
+              "startedPoints": 23.1,
+              "pointsAbovePeerMedian": -2
+            }
+          ]
         },
         {
           "manager": "Birch",
@@ -1797,7 +2282,51 @@
           ],
           "rankByObservedSurplus": 2,
           "observedReturnGrade2025": null,
-          "isFinalGrade": false
+          "isFinalGrade": false,
+          "highestReturnPicks": [
+            {
+              "player": "Chuba Hubbard",
+              "round": 8,
+              "position": "RB",
+              "originalManagerStarts": 6,
+              "startedPoints": 108.6,
+              "pointsAbovePeerMedian": 97
+            },
+            {
+              "player": "Trey McBride",
+              "round": 3,
+              "position": "TE",
+              "originalManagerStarts": 8,
+              "startedPoints": 117.4,
+              "pointsAbovePeerMedian": 84.5
+            },
+            {
+              "player": "Derrick Henry",
+              "round": 2,
+              "position": "RB",
+              "originalManagerStarts": 8,
+              "startedPoints": 130.7,
+              "pointsAbovePeerMedian": 74
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Travis Kelce",
+              "round": 12,
+              "position": "TE",
+              "originalManagerStarts": 1,
+              "startedPoints": 6.4,
+              "pointsAbovePeerMedian": -18.7
+            },
+            {
+              "player": "Lamar Jackson",
+              "round": 4,
+              "position": "QB",
+              "originalManagerStarts": 5,
+              "startedPoints": 79.08,
+              "pointsAbovePeerMedian": -15.62
+            }
+          ]
         },
         {
           "manager": "Stover",
@@ -1918,7 +2447,51 @@
           ],
           "rankByObservedSurplus": 3,
           "observedReturnGrade2025": null,
-          "isFinalGrade": false
+          "isFinalGrade": false,
+          "highestReturnPicks": [
+            {
+              "player": "Matthew Golden",
+              "round": 11,
+              "position": "WR",
+              "originalManagerStarts": 7,
+              "startedPoints": 99.5,
+              "pointsAbovePeerMedian": 99.5
+            },
+            {
+              "player": "Kyren Williams",
+              "round": 2,
+              "position": "RB",
+              "originalManagerStarts": 8,
+              "startedPoints": 133.5,
+              "pointsAbovePeerMedian": 76.8
+            },
+            {
+              "player": "Christian McCaffrey",
+              "round": 1,
+              "position": "RB",
+              "originalManagerStarts": 7,
+              "startedPoints": 127,
+              "pointsAbovePeerMedian": 54.1
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Quinshon Judkins",
+              "round": 4,
+              "position": "RB",
+              "originalManagerStarts": 1,
+              "startedPoints": 6,
+              "pointsAbovePeerMedian": -50.7
+            },
+            {
+              "player": "Brian Thomas",
+              "round": 7,
+              "position": "WR",
+              "originalManagerStarts": 0,
+              "startedPoints": 0,
+              "pointsAbovePeerMedian": -39.2
+            }
+          ]
         },
         {
           "manager": "Stew",
@@ -2039,7 +2612,51 @@
           ],
           "rankByObservedSurplus": 4,
           "observedReturnGrade2025": null,
-          "isFinalGrade": false
+          "isFinalGrade": false,
+          "highestReturnPicks": [
+            {
+              "player": "Bhayshul Tuten",
+              "round": 5,
+              "position": "RB",
+              "originalManagerStarts": 7,
+              "startedPoints": 110.8,
+              "pointsAbovePeerMedian": 72.65
+            },
+            {
+              "player": "Zay Flowers",
+              "round": 4,
+              "position": "WR",
+              "originalManagerStarts": 7,
+              "startedPoints": 106.2,
+              "pointsAbovePeerMedian": 39.75
+            },
+            {
+              "player": "Tucker Kraft",
+              "round": 9,
+              "position": "TE",
+              "originalManagerStarts": 8,
+              "startedPoints": 71,
+              "pointsAbovePeerMedian": 26.9
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "J.K. Dobbins",
+              "round": 8,
+              "position": "RB",
+              "originalManagerStarts": 0,
+              "startedPoints": 0,
+              "pointsAbovePeerMedian": -28
+            },
+            {
+              "player": "Jalen Hurts",
+              "round": 7,
+              "position": "QB",
+              "originalManagerStarts": 3,
+              "startedPoints": 53.5,
+              "pointsAbovePeerMedian": -19.09
+            }
+          ]
         },
         {
           "manager": "JMid",
@@ -2160,7 +2777,51 @@
           ],
           "rankByObservedSurplus": 5,
           "observedReturnGrade2025": null,
-          "isFinalGrade": false
+          "isFinalGrade": false,
+          "highestReturnPicks": [
+            {
+              "player": "Tony Pollard",
+              "round": 7,
+              "position": "RB",
+              "originalManagerStarts": 7,
+              "startedPoints": 102.5,
+              "pointsAbovePeerMedian": 77
+            },
+            {
+              "player": "Kenneth Walker",
+              "round": 2,
+              "position": "RB",
+              "originalManagerStarts": 5,
+              "startedPoints": 133,
+              "pointsAbovePeerMedian": 76.3
+            },
+            {
+              "player": "Joe Burrow",
+              "round": 5,
+              "position": "QB",
+              "originalManagerStarts": 5,
+              "startedPoints": 123.3,
+              "pointsAbovePeerMedian": 57.2
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Jeremiyah Love",
+              "round": 3,
+              "position": "RB",
+              "originalManagerStarts": 2,
+              "startedPoints": 25.4,
+              "pointsAbovePeerMedian": -47.5
+            },
+            {
+              "player": "Terry McLaurin",
+              "round": 4,
+              "position": "WR",
+              "originalManagerStarts": 5,
+              "startedPoints": 38.5,
+              "pointsAbovePeerMedian": -34.2
+            }
+          ]
         },
         {
           "manager": "Tony",
@@ -2281,7 +2942,51 @@
           ],
           "rankByObservedSurplus": 6,
           "observedReturnGrade2025": null,
-          "isFinalGrade": false
+          "isFinalGrade": false,
+          "highestReturnPicks": [
+            {
+              "player": "Dak Prescott",
+              "round": 12,
+              "position": "QB",
+              "originalManagerStarts": 5,
+              "startedPoints": 80.5,
+              "pointsAbovePeerMedian": 62.36
+            },
+            {
+              "player": "Chris Olave",
+              "round": 3,
+              "position": "WR",
+              "originalManagerStarts": 7,
+              "startedPoints": 103.1,
+              "pointsAbovePeerMedian": 31.7
+            },
+            {
+              "player": "Caleb Williams",
+              "round": 9,
+              "position": "QB",
+              "originalManagerStarts": 3,
+              "startedPoints": 66.1,
+              "pointsAbovePeerMedian": 26.15
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Jadarian Price",
+              "round": 5,
+              "position": "RB",
+              "originalManagerStarts": 1,
+              "startedPoints": 4.5,
+              "pointsAbovePeerMedian": -35.75
+            },
+            {
+              "player": "Justin Jefferson",
+              "round": 1,
+              "position": "WR",
+              "originalManagerStarts": 6,
+              "startedPoints": 71.4,
+              "pointsAbovePeerMedian": -20.8
+            }
+          ]
         },
         {
           "manager": "Scott",
@@ -2402,7 +3107,51 @@
           ],
           "rankByObservedSurplus": 7,
           "observedReturnGrade2025": null,
-          "isFinalGrade": false
+          "isFinalGrade": false,
+          "highestReturnPicks": [
+            {
+              "player": "Ashton Jeanty",
+              "round": 2,
+              "position": "RB",
+              "originalManagerStarts": 8,
+              "startedPoints": 114.8,
+              "pointsAbovePeerMedian": 58.1
+            },
+            {
+              "player": "Michael Wilson",
+              "round": 7,
+              "position": "WR",
+              "originalManagerStarts": 6,
+              "startedPoints": 75.28,
+              "pointsAbovePeerMedian": 46.18
+            },
+            {
+              "player": "Blake Corum",
+              "round": 9,
+              "position": "RB",
+              "originalManagerStarts": 3,
+              "startedPoints": 42.9,
+              "pointsAbovePeerMedian": 41.9
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "David Montgomery",
+              "round": 3,
+              "position": "RB",
+              "originalManagerStarts": 5,
+              "startedPoints": 42,
+              "pointsAbovePeerMedian": -30.9
+            },
+            {
+              "player": "Colston Loveland",
+              "round": 4,
+              "position": "TE",
+              "originalManagerStarts": 7,
+              "startedPoints": 48.7,
+              "pointsAbovePeerMedian": -21.7
+            }
+          ]
         },
         {
           "manager": "Stilly",
@@ -2523,7 +3272,51 @@
           ],
           "rankByObservedSurplus": 8,
           "observedReturnGrade2025": null,
-          "isFinalGrade": false
+          "isFinalGrade": false,
+          "highestReturnPicks": [
+            {
+              "player": "CeeDee Lamb",
+              "round": 2,
+              "position": "WR",
+              "originalManagerStarts": 8,
+              "startedPoints": 139.3,
+              "pointsAbovePeerMedian": 53.5
+            },
+            {
+              "player": "Woody Marks",
+              "round": 13,
+              "position": "RB",
+              "originalManagerStarts": 3,
+              "startedPoints": 25.9,
+              "pointsAbovePeerMedian": 25.9
+            },
+            {
+              "player": "Davante Adams",
+              "round": 6,
+              "position": "WR",
+              "originalManagerStarts": 4,
+              "startedPoints": 64,
+              "pointsAbovePeerMedian": 17.1
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "Josh Jacobs",
+              "round": 3,
+              "position": "RB",
+              "originalManagerStarts": 2,
+              "startedPoints": 37.8,
+              "pointsAbovePeerMedian": -35.1
+            },
+            {
+              "player": "Marvin Harrison",
+              "round": 7,
+              "position": "WR",
+              "originalManagerStarts": 2,
+              "startedPoints": 8.7,
+              "pointsAbovePeerMedian": -30.5
+            }
+          ]
         },
         {
           "manager": "Kuhl",
@@ -2644,7 +3437,51 @@
           ],
           "rankByObservedSurplus": 9,
           "observedReturnGrade2025": null,
-          "isFinalGrade": false
+          "isFinalGrade": false,
+          "highestReturnPicks": [
+            {
+              "player": "Jaylen Warren",
+              "round": 6,
+              "position": "RB",
+              "originalManagerStarts": 8,
+              "startedPoints": 130.3,
+              "pointsAbovePeerMedian": 103.55
+            },
+            {
+              "player": "Seattle Seahawks",
+              "round": 13,
+              "position": "DEF",
+              "originalManagerStarts": 8,
+              "startedPoints": 67,
+              "pointsAbovePeerMedian": 56
+            },
+            {
+              "player": "Josh Downs",
+              "round": 11,
+              "position": "WR",
+              "originalManagerStarts": 4,
+              "startedPoints": 27.2,
+              "pointsAbovePeerMedian": 27.2
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "A.J. Brown",
+              "round": 2,
+              "position": "WR",
+              "originalManagerStarts": 3,
+              "startedPoints": 13.6,
+              "pointsAbovePeerMedian": -73.3
+            },
+            {
+              "player": "Kyle Pitts",
+              "round": 8,
+              "position": "TE",
+              "originalManagerStarts": 3,
+              "startedPoints": 3,
+              "pointsAbovePeerMedian": -66
+            }
+          ]
         },
         {
           "manager": "Thommy",
@@ -2765,7 +3602,51 @@
           ],
           "rankByObservedSurplus": 10,
           "observedReturnGrade2025": null,
-          "isFinalGrade": false
+          "isFinalGrade": false,
+          "highestReturnPicks": [
+            {
+              "player": "Rhamondre Stevenson",
+              "round": 6,
+              "position": "RB",
+              "originalManagerStarts": 6,
+              "startedPoints": 55.5,
+              "pointsAbovePeerMedian": 28.75
+            },
+            {
+              "player": "Malik Nabers",
+              "round": 3,
+              "position": "WR",
+              "originalManagerStarts": 7,
+              "startedPoints": 98.5,
+              "pointsAbovePeerMedian": 27.1
+            },
+            {
+              "player": "Juwan Johnson",
+              "round": 14,
+              "position": "TE",
+              "originalManagerStarts": 5,
+              "startedPoints": 26.6,
+              "pointsAbovePeerMedian": 11.85
+            }
+          ],
+          "lowestReturnPicks": [
+            {
+              "player": "De'Von Achane",
+              "round": 2,
+              "position": "RB",
+              "originalManagerStarts": 3,
+              "startedPoints": 21.1,
+              "pointsAbovePeerMedian": -51.8
+            },
+            {
+              "player": "Jaxson Dart",
+              "round": 10,
+              "position": "QB",
+              "originalManagerStarts": 2,
+              "startedPoints": 26.4,
+              "pointsAbovePeerMedian": -39.7
+            }
+          ]
         }
       ],
       "lateRoundSteals": [
