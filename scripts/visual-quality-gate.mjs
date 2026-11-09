@@ -254,6 +254,12 @@ try{
        if(width===390&&route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
         const slug=route.split('/')[1];
         const expected=slug==='tom'?'thommy':slug;
+        const hubCard=page.locator('.manager-home-hub-grid a[href*="manager-report-cards.html"]');
+        if(await hubCard.count()===1){
+         const href=await hubCard.getAttribute('href');
+         if(href.includes('#cards'))throw Error('Primary manager Report Card link must open at top: '+slug);
+        }
+
         // Some profiles progressively replace the static overview with an interactive home hub.
         // Check the canonical link in the original HTML, then verify destination behavior
         // separately rather than assuming an archived link stays mounted after hydration.
