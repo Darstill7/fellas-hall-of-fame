@@ -148,3 +148,26 @@ body{min-width:0;overflow-wrap:break-word}
 
 /* Full-size brand hit area: tested in Chromium and WebKit at 320–1280px. */
 .top .brand{display:inline-flex;align-items:center;min-height:48px;min-width:44px;padding-block:8px;line-height:1.4}
+
+/* Share-ready championship edition: keep the native reading actions in view. */
+.cover-actions .cover-share-action{
+ appearance:none;display:inline-flex;align-items:center;justify-content:center;
+ min-height:50px;min-width:44px;padding:12px 18px;cursor:pointer;
+ border:1px solid #bfa16a;border-radius:10px;
+ background:#1d3642;color:#f6daa1;font:800 14px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;
+}
+.cover-actions .cover-share-action:hover{background:#324b52;border-color:#ffe0a1;color:#ffe8b7}
+.cover-actions .cover-share-action:focus-visible{outline:3px solid #ffe3a1;outline-offset:3px}
+.championship-share-feedback{
+ margin:12px 0 8px;max-width:66ch;color:#f7db9c;
+ font-size:13px;line-height:1.55;font-weight:700;overflow-wrap:anywhere;
+}
+.championship-share-feedback[hidden]{display:none}
+.championship-share-fallback{
+ display:block;width:100%;max-width:560px;min-height:46px;
+ background:#0e2635;border:1px solid #8599a5;border-radius:8px;
+ color:#fff;font:600 13px/1.5 system-ui;padding:10px 12px;margin-top:8px
+}
+@media(max-width:600px){
+ .cover-actions .cover-share-action{width:100%;min-height:50px}
+}
