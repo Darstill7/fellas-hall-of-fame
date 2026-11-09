@@ -2336,9 +2336,13 @@ try{
      await page.evaluate(()=>window.scrollTo(0,document.body.scrollHeight));
      await page.waitForTimeout(120);
      const nav=page.locator('#profile-navigation');
-     if(!await nav.isVisible())errors.push(width+' '+slug+' sticky profile navigation missing while reading');
+     if(!await nav.isVisible())errors.push(width+' '+slug+' section navigation unavailable');
      const positioning=await nav.evaluate(el=>getComputedStyle(el).position);
-     if(positioning!=='sticky')errors.push(width+' '+slug+' profile navigation not sticky on mobile');
+     const siteHeader=page.locator('header.nav');
+     const sitePosition=await siteHeader.evaluate(el=>getComputedStyle(el).position);
+     if(sitePosition!=='sticky')errors.push(width+' '+slug+' primary site header not sticky on mobile');
+     if(positioning==='sticky'||positioning==='fixed')
+      errors.push(width+' '+slug+' second persistent section bar overlaps reading area');
      const locationLabel=nav.locator('.profile-location-label');
      if(!await locationLabel.isVisible())errors.push(width+' '+slug+' manager and section context not visible');
      if(await page.locator('.profile-back-to-sections').isVisible())errors.push(width+' '+slug+' obsolete floating navigation overlaps sticky tabs');
