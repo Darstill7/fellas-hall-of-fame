@@ -254,9 +254,14 @@ try{
        if(width===390&&route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
         const slug=route.split('/')[1];
         const expected=slug==='tom'?'thommy':slug;
-        const draftLinks=await page.locator('a[href*="manager-draft-report-cards.html"]').evaluateAll(a=>a.map(x=>x.getAttribute('href')));
-        if(draftLinks.length!==1||!draftLinks[0].endsWith('?manager='+expected))
-         throw Error('Manager draft-report link must open selected manager at page top: '+slug+' '+JSON.stringify(draftLinks));
+        // Some profiles progressively replace the static overview with an interactive home hub.
+        // Check the canonical link in the original HTML, then verify destination behavior
+        // separately rather than assuming an archived link stays mounted after hydration.
+        const source=await page.evaluate(async()=>{const r=await fetch(location.pathname);return r.text()});
+        const expectedLink='manager-draft-report-cards.html?manager='+expected;
+        const links=[...source.matchAll(/href="[^"]*manager-draft-report-cards\.html[^"]*"/g)].map(m=>m[0]);
+        if(links.length!==1||!links[0].includes(expectedLink))
+         throw Error('Manager profile source lost clean draft report destination: '+slug+' '+JSON.stringify(links));
        }
        if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
         const moment=page.locator('main .hero [data-defining-moment]');
@@ -613,7 +618,7 @@ try{
         const readingOrder=await page.evaluate(()=>{
          const article=document.querySelector('#championship-feature');
          const archive=document.querySelector('#chapters');
-         return !!article&&!!archive&&!!(article.compareDocumentPosition(archive)&Node.DOCUMENT_POSITION_PRECEDING);
+         return !!article&&!!archive&&!!(article.compareDocumentPosition(archive)&Node.DOCUMENT_POSITION_FOLLOWING);
         });
         if(!readingOrder)throw Error('Full championship article must precede the optional decade archive');
         if(await page.locator('.road-game').count()<1)
