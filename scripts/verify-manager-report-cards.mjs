@@ -66,7 +66,7 @@ const managerRoutes={stilly:'Stilly',stew:'Stew',tom:'Thommy',stover:'Stover',bi
 // generated at runtime for each manager rather than duplicated in ten HTML files.
 const sharedProfileNav=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
 if(!sharedProfileNav.includes("['Report Card','Overall ratings")||
-   !sharedProfileNav.includes("'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards'")||
+   !sharedProfileNav.includes("'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'")||
    !sharedProfileNav.includes("a.href=href"))
  throw Error('Shared manager profile report-card deep links are missing');
 for(const [slug,name] of Object.entries(managerRoutes)){

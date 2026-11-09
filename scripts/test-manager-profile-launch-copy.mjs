@@ -48,7 +48,7 @@ if(tabsSource.includes("['Start/Sit accuracy','Weekly lineup decisions'")||
  throw Error('Profile lead must prioritize Records and Report Card while keeping Start/Sit in research');
 if(!tabsSource.includes("shell.append(featured,menu)")||
  !tabsSource.includes("profile-featured-links")||
- !tabsSource.includes("encodeURIComponent(name)+'#cards'"))
+ !tabsSource.includes("encodeURIComponent(name)+'']"))
  throw Error('Manager starting routes must stay visible, styled and manager-specific');
 for(const slug of managers){
  const page=fs.readFileSync('managers/'+slug+'/index.html','utf8');

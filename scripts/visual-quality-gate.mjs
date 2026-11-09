@@ -251,6 +251,24 @@ try{
         if(await page.locator('main .hero .actions .button:visible').count())
          findings.push(engine+' '+width+' duplicate homepage hero buttons crowd out manager discovery');
        }
+       if(width===390&&route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
+        const slug=route.split('/')[1];
+        const expected=slug==='tom'?'thommy':slug;
+        const hubCard=page.locator('.manager-home-hub-grid a[href*="manager-report-cards.html"]');
+        if(await hubCard.count()===1){
+         const href=await hubCard.getAttribute('href');
+         if(href.includes('#cards'))throw Error('Primary manager Report Card link must open at top: '+slug);
+        }
+
+        // Some profiles progressively replace the static overview with an interactive home hub.
+        // Check the canonical link in the original HTML, then verify destination behavior
+        // separately rather than assuming an archived link stays mounted after hydration.
+        const source=await page.evaluate(async()=>{const r=await fetch(location.pathname);return r.text()});
+        const expectedLink='manager-draft-report-cards.html?manager='+expected;
+        const links=[...source.matchAll(/href="[^"]*manager-draft-report-cards\.html[^"]*"/g)].map(m=>m[0]);
+        if(links.length!==1||!links[0].includes(expectedLink))
+         throw Error('Manager profile source lost clean draft report destination: '+slug+' '+JSON.stringify(links));
+       }
        if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
         const moment=page.locator('main .hero [data-defining-moment]');
         if(await moment.count()!==1){findings.push(engine+' '+width+' '+key+' missing unique defining franchise moment');}
@@ -603,6 +621,12 @@ try{
         const yearArchive=page.locator('nav#chapters');
         if(!await feature.isVisible()||!await story.isVisible()||!await road.isVisible()||!await nav.isVisible())
          throw Error('Championship feature, story, road or reading navigation failed to render');
+        const readingOrder=await page.evaluate(()=>{
+         const article=document.querySelector('#championship-feature');
+         const archive=document.querySelector('#chapters');
+         return !!article&&!!archive&&!!(article.compareDocumentPosition(archive)&Node.DOCUMENT_POSITION_FOLLOWING);
+        });
+        if(!readingOrder)throw Error('Full championship article must precede the optional decade archive');
         if(await page.locator('.road-game').count()<1)
          throw Error('Verified regular-season game log is missing');
         const navHeight=await nav.locator('a').first().evaluate(el=>el.getBoundingClientRect().height);
@@ -666,6 +690,25 @@ try{
           throw Error('2017 final score must be explicitly labeled as aggregate');
          if(await page.locator('nav.reading-nav a[href="#player-profiles"]').count())
           throw Error('ESPN legacy years have unsupported player-profile navigation');
+         if(width===390){
+          const source=await page.evaluate(async()=>{const response=await fetch('../data-integrity/editorial_evidence_2016_2026_week8_v1.json');return(await response.json()).championships.map(x=>({year:x.year,champion:x.champion,points:x.championship.championPoints,runner:x.championship.runnerUpPoints}));});
+          if(source.length!==10)throw Error('Ten verified title years required for anthology audit');
+          for(const receipt of source){
+           await page.locator('#season-picker').selectOption(String(receipt.year));
+           await page.waitForFunction(y=>document.querySelector('#championship-feature .feature')?.dataset.chapter===String(y),receipt.year);
+           if(await page.locator('#championship-story .story-section').count()!==4)
+            throw Error('Missing complete championship narrative '+receipt.year);
+           const cover=await page.locator('.championship-cover-score').innerText();
+           const displayScore=n=>receipt.year<=2017?String(Math.round(Number(n))):Number(n).toFixed(2);
+           const expected=displayScore(receipt.points),opponent=displayScore(receipt.runner);
+           if(!cover.includes(expected)||!cover.includes(opponent))
+            throw Error('Championship source mismatch '+receipt.year+' '+cover);
+           if(await page.locator('nav#chapters a[aria-current="page"]').count()!==1)
+            throw Error('Ambiguous selected season in decade archive '+receipt.year);
+           const storyHref=new URL(page.url()).searchParams.get('year');
+           if(storyHref!==String(receipt.year))throw Error('No shareable year-specific address '+receipt.year);
+          }
+         }
          mobileJourneys.push({engine,page:'championship-anthology',width,mobileReading:true,yearSelection:true,archiveSwipe:true});
         }
        }
@@ -692,6 +735,8 @@ try{
          await journey.waitForURL(url=>url.pathname.endsWith('/managers/'),{timeout:12000});
          await journey.locator('#manager-directory-cards a.manager[href="stilly/"]').click();
          await journey.waitForURL(url=>url.pathname.endsWith('/managers/stilly/'),{timeout:12000});
+         const arrivedAtTop=await journey.evaluate(()=>window.scrollY);
+         if(arrivedAtTop>24)throw Error('Manager profile navigation must start at page top: '+arrivedAtTop);
          if(!await journey.locator('#franchise-story').count())
           throw Error('Manager card failed to open franchise story');
          const mobile=journey.locator('header.nav details.fellas-mobile-site-menu');
@@ -832,6 +877,23 @@ try{
         await page.waitForFunction(()=>document.querySelectorAll('#cards article.report').length===10,{timeout:12000});
         const a=await page.locator('#cards article.report').count();
         if(a!==10)throw Error('All ten manager draft report cards required');
+        if(width===390){
+         for(const manager of ['stilly','thommy']){
+          const focused=await context.newPage();
+          try{
+           await focused.goto(baseUrl+'analytics/manager-draft-report-cards.html?manager='+manager,{waitUntil:'domcontentloaded',timeout:15000});
+           await focused.waitForFunction(()=>document.querySelectorAll('#cards article.report').length===10,null,{timeout:15000});
+           const state=await focused.evaluate(()=>({
+            top:scrollY,
+            first:document.querySelector('#cards article.report')?.id,
+            selected:document.querySelector('#jump')?.value,
+            hash:location.hash
+           }));
+           if(state.top>24||state.first!==manager||state.selected!==manager||state.hash)
+            throw Error('Focused draft profile must open at top with matching manager card first: '+JSON.stringify(state));
+          }finally{await focused.close();}
+         }
+        }
         if(!await page.locator('#cards .section-label').allTextContents().then(a=>a.some(t=>/2026\s*[—–-]\s*provisional\s+through\s+Week\s*8/i.test(t))))
           throw Error('Incomplete 2026 draft season must remain provisional');
        }

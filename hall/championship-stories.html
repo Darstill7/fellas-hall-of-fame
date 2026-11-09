@@ -46,12 +46,18 @@ a{color:var(--gold)}a:focus-visible,button:focus-visible,select:focus-visible{ou
 @media(max-width:700px){.mvp-showcase{grid-template-columns:1fr;gap:15px;padding:16px;margin:14px 0 20px}.mvp-head h3{font-size:24px}.mvp-entry b{font-size:18px}.semi-showcase,.mvp-source{grid-column:auto}.semi-contributor{width:100%;border-radius:9px}.story-trade-receipts nav{flex-direction:column}.story-trade-receipts nav a{width:100%}}
 @media(max-width:850px){.archive{grid-template-columns:repeat(5,minmax(0,1fr))}.story-layout{grid-template-columns:1fr;gap:9px}.side{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}.side h3,.side .small-note{grid-column:1/-1}}
 @media(max-width:560px){.shell{padding:0 13px}.hero{padding-top:27px}.archive{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.archive a{min-height:75px;padding:10px}.chapter-nav{display:grid;grid-template-columns:1fr}.chapter-nav select{width:100%}.story-meta{grid-template-columns:repeat(2,minmax(0,1fr))}.feature{padding:18px}.story-section p{line-height:1.75}.side{grid-template-columns:1fr}.chapter-bottom a{flex:1 1 140px}.hero p{font-size:14px}}
+.year-directory{margin:28px 0 22px;padding-top:18px;border-top:1px solid #445a69}
+.year-directory h2{font-size:clamp(22px,3vw,28px);line-height:1.25;margin:0 0 6px}
+.year-directory p{color:var(--muted);font-size:13px;margin:0 0 8px}
+#championship-feature:focus{outline:none}
+#championship-feature{scroll-margin-top:18px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style><link rel="stylesheet" href="../assets/championship-editorial.css"></head><body><a href="#championship-feature" class="skip-link">Skip to championship story</a><header class="top"><div class="shell"><a class="brand" href="../index.html">THE <span>FELLAS</span></a><nav class="nav" aria-label="Main navigation"><a href="index.html">Hall of Fame</a><a href="../managers/">Managers</a><a href="../analytics/records.html">Records</a><a href="../seasons/">Seasons</a></nav></div></header>
 <main class="shell"><section class="hero"><div class="eyebrow">The Hall of Fame · Championship anthology</div><h1>Every ring has a story.</h1><p>Ten seasons. Ten championship campaigns. The triumphs, turning points and final matchups that put names on the Fellas trophy—reported from the league's verified results.</p></section>
 <div class="chapter-nav"><label for="season-picker">Choose a championship season</label><select id="season-picker" aria-label="Choose a championship year"></select></div>
-<nav id="chapters" class="archive" aria-label="Championship story archive"></nav>
 <article id="championship-feature" aria-live="polite"><div class="notice" role="status">Loading the championship archive…</div></article>
 <div class="chapter-bottom" id="chapter-bottom"></div>
+<section class="year-directory" aria-labelledby="year-directory-title"><h2 id="year-directory-title">Explore another championship</h2><p>Browse the other years—or use the season selector above to switch stories.</p><nav id="chapters" class="archive" aria-label="Championship story archive"></nav></section>
 <div class="notice"><strong>Source standard:</strong> The season and postseason scores are drawn from the verified ESPN and Sleeper historical records. ESPN 2016 and 2017 playoff results are two-week aggregate scores. A narrative interpretation is not evidence that a specific player, trade or lineup decision caused a victory.</div>
 </main>
 <script type="module">
@@ -226,7 +232,16 @@ const load=async p=>{const res=await fetch(p,{cache:'no-store'});if(!res.ok)thro
    fallback.focus();fallback.select();
   }
  });
- picker.addEventListener('change',()=>{active=Number(picker.value);history.pushState(null,'',urlFor(active));draw();$('championship-feature').scrollIntoView({block:'start',behavior:'smooth'})});
+ picker.addEventListener('change',()=>{
+  active=Number(picker.value);
+  history.pushState(null,'',urlFor(active));
+  draw();
+  const feature=$('championship-feature');
+  feature.setAttribute('tabindex','-1');
+  feature.focus({preventScroll:true});
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  feature.scrollIntoView({block:'start',behavior:reduceMotion?'instant':'smooth'});
+ });
  window.addEventListener('popstate',()=>{const q=Number(new URLSearchParams(location.search).get('year'));active=years.includes(q)?q:2025;draw()});
 }catch(error){console.error(error);$('championship-feature').innerHTML='<div class="notice error" role="alert">The verified championship archive cannot be loaded. No unverified season story will be shown.</div>'}
 })();
