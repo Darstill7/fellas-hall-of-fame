@@ -43,3 +43,14 @@ The 2024 championship story already links transaction `1144362000575840256` (rec
 5. Re-run story, transaction, canonical and Chromium/WebKit tests before merge.
 
 **Status:** Evidence documented; no championship prose has been modified by this audit.
+
+## Postseason player-lineup corroboration for 2024
+
+The archived `data/championship_player_boxscores_2020_2025_v1.json` gives two verified Thommy playoff lineups:
+
+- **Travis Kelce**, acquired in the October 17 trade, **started both playoff games**: 5.50 points in the 123.38–121.08 semifinal and **18.40** in the 205.30–114.88 championship. This transaction is a defensible *additional title-game contribution* to mention alongside Higgins and Love.
+- **Tee Higgins**, acquired September 24, scored **15.80 semifinal** and **34.60 final** points.
+- **Jordan Love**, acquired October 2, scored **11.48 semifinal** and **14.00 final** points.
+- **Tank Dell**, **Mark Andrews**, **Rico Dowdle** and **Brandon Aiyuk** do not appear in the verified Thommy semifinal or championship **starting lineups**. This is not proof they never contributed during the regular season, and they should not be presented as title-game starters.
+
+The above is sourced playoff impact only, not an adjusted trade ROI or counterfactual claim that the championship would have been lost without a particular transaction.
