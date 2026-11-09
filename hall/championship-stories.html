@@ -195,7 +195,7 @@ const load=async p=>{const res=await fetch(p,{cache:'no-store'});if(!res.ok)thro
   if(!button)return;
   const story=archive.seasons.find(s=>s.year===active);
   const title=active+' · '+name(guide[active].champion)+' — '+story.title+' | The Fellas';
-  const url=new URL(urlFor(active),location.href).href;
+  const url=new URL('share/'+active+'.html',location.href).href;
   const feedback=$('championship-feature').querySelector('.championship-share-feedback');
   const announce=value=>{if(feedback){feedback.textContent=value;feedback.hidden=false;}};
   try{
