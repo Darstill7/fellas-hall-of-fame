@@ -103,3 +103,45 @@ body.premium-franchise header .manager-nav-more>summary{min-height:46px;display:
 body.premium-franchise header .manager-nav-more a{min-height:44px}
 @media(max-width:850px){body.premium-franchise header.nav>.wrap{min-height:64px;padding-block:8px}body.premium-franchise header .manager-directory-nav{min-height:64px}}
 @media(max-width:560px){body.premium-franchise header.nav .brand{font-size:14px}body.premium-franchise header .manager-directory-nav .manager-nav-brand{font-size:14px}}
+
+/* ONE NAVIGATION LANDMARK STICKS. Local tabs and jumps remain in the reading flow.
+   JS swaps the original .profile-chapters for nav.profile-tabs on all ten profiles. */
+body.premium-franchise header.nav{
+ position:sticky;top:0;z-index:60;background:#0b1925f5;
+ box-shadow:0 4px 14px #0004;backdrop-filter:blur(12px);
+}
+body.premium-franchise nav.profile-chapters,
+body.premium-franchise nav.profile-tabs{
+ position:relative!important;top:auto!important;z-index:1!important;
+ box-shadow:none!important;backdrop-filter:none!important;
+}
+body.premium-franchise nav.profile-tabs{
+ margin-block:8px 18px;
+ border:1px solid #3d5665;border-radius:12px;
+ background:#102533;padding:10px;
+}
+body.premium-franchise nav.profile-tabs .profile-tab-row{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;
+}
+body.premium-franchise nav.profile-tabs button[data-profile-tab]{
+ min-height:48px;padding:10px 5px;touch-action:manipulation;
+}
+body.premium-franchise :is(nav.profile-chapters,nav.profile-tabs) a{
+ min-height:48px;scroll-snap-align:start;
+}
+body.premium-franchise main [id]{scroll-margin-top:88px}
+body.premium-franchise :is(header.nav,header .manager-directory-nav) a[aria-current="page"]{
+ color:#f0d091;text-decoration:underline;text-underline-offset:5px;
+}
+@media(max-width:600px){
+ body.premium-franchise header.nav .wrap{min-height:60px;padding-block:7px}
+ body.premium-franchise nav.profile-tabs{padding:8px;margin-block:5px 14px}
+ body.premium-franchise nav.profile-tabs .profile-tab-row{gap:4px}
+ body.premium-franchise nav.profile-tabs button[data-profile-tab]{
+  font-size:12px;line-height:1.4;min-height:48px;
+ }
+ body.premium-franchise nav.profile-chapters .buttons{
+  flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;
+ }
+ body.premium-franchise main [id]{scroll-margin-top:72px}
+}
