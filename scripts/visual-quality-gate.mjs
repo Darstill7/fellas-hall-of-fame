@@ -858,6 +858,23 @@ try{
         await page.waitForFunction(()=>document.querySelectorAll('#cards article.report').length===10,{timeout:12000});
         const a=await page.locator('#cards article.report').count();
         if(a!==10)throw Error('All ten manager draft report cards required');
+        if(width===390){
+         for(const manager of ['stilly','thommy']){
+          const focused=await context.newPage();
+          try{
+           await focused.goto(baseUrl+'analytics/manager-draft-report-cards.html?manager='+manager,{waitUntil:'domcontentloaded',timeout:15000});
+           await focused.waitForFunction(()=>document.querySelectorAll('#cards article.report').length===10,null,{timeout:15000});
+           const state=await focused.evaluate(()=>({
+            top:scrollY,
+            first:document.querySelector('#cards article.report')?.id,
+            selected:document.querySelector('#jump')?.value,
+            hash:location.hash
+           }));
+           if(state.top>24||state.first!==manager||state.selected!==manager||state.hash)
+            throw Error('Focused draft profile must open at top with matching manager card first: '+JSON.stringify(state));
+          }finally{await focused.close();}
+         }
+        }
         if(!await page.locator('#cards .section-label').allTextContents().then(a=>a.some(t=>/2026\s*[—–-]\s*provisional\s+through\s+Week\s*8/i.test(t))))
           throw Error('Incomplete 2026 draft season must remain provisional');
        }
