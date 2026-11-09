@@ -1,0 +1,5732 @@
+{
+  "schema": "fellas-current-manager-regular-season-rivalry-receipts-v1",
+  "asOf": "2026-11-09",
+  "source": "data/season_weekly_matchups_2016_2026_v1.json",
+  "scope": "Regular-season paired matches 2016–2025 plus 2026 Weeks 1–8. Current ten managers only; opponent-managed historical season slots retained separately; exclude playoff and consolation games, unpaired 2020/21 weeks, and unpublished 2026 W9. Streaks mean consecutive encounters against the same opponent, not consecutive calendar weeks.",
+  "currentManagerPairs": 45,
+  "longestRivalry": [
+    "Stew",
+    "Stilly"
+  ],
+  "mostMeetings": 20,
+  "evenWithAtLeastTenGames": [
+    {
+      "managers": [
+        "Stew",
+        "Stilly"
+      ],
+      "played": 20,
+      "record": {
+        "Stew": 10,
+        "Stilly": 10,
+        "ties": 0
+      }
+    },
+    {
+      "managers": [
+        "Kuhl",
+        "Stover"
+      ],
+      "played": 14,
+      "record": {
+        "Kuhl": 7,
+        "Stover": 7,
+        "ties": 0
+      }
+    }
+  ],
+  "rivalries": [
+    {
+      "managers": [
+        "Stew",
+        "Stilly"
+      ],
+      "played": 20,
+      "record": {
+        "Stew": 10,
+        "Stilly": 10,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Stew": 2016.78,
+        "Stilly": 2035.16
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Stilly",
+        "length": 3,
+        "start": {
+          "year": 2020,
+          "week": 14
+        },
+        "end": {
+          "year": 2021,
+          "week": 12
+        }
+      },
+      "closestMeeting": {
+        "year": 2021,
+        "week": 14,
+        "margin": 2.38,
+        "winner": "Stew"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 4,
+        "scoreA": 105.98,
+        "scoreB": 124.62,
+        "winner": "Stilly",
+        "margin": 18.64
+      },
+      "games": [
+        {
+          "year": 2016,
+          "week": 3,
+          "scoreA": 96,
+          "scoreB": 76,
+          "winner": "Stew",
+          "margin": 20
+        },
+        {
+          "year": 2016,
+          "week": 10,
+          "scoreA": 111,
+          "scoreB": 99,
+          "winner": "Stew",
+          "margin": 12
+        },
+        {
+          "year": 2017,
+          "week": 1,
+          "scoreA": 80,
+          "scoreB": 149,
+          "winner": "Stilly",
+          "margin": 69
+        },
+        {
+          "year": 2017,
+          "week": 10,
+          "scoreA": 82,
+          "scoreB": 46,
+          "winner": "Stew",
+          "margin": 36
+        },
+        {
+          "year": 2018,
+          "week": 5,
+          "scoreA": 113.78,
+          "scoreB": 124.14,
+          "winner": "Stilly",
+          "margin": 10.36
+        },
+        {
+          "year": 2018,
+          "week": 9,
+          "scoreA": 108.78,
+          "scoreB": 70.02,
+          "winner": "Stew",
+          "margin": 38.76
+        },
+        {
+          "year": 2019,
+          "week": 4,
+          "scoreA": 163.18,
+          "scoreB": 121.8,
+          "winner": "Stew",
+          "margin": 41.38
+        },
+        {
+          "year": 2019,
+          "week": 13,
+          "scoreA": 87.9,
+          "scoreB": 98.4,
+          "winner": "Stilly",
+          "margin": 10.5
+        },
+        {
+          "year": 2020,
+          "week": 9,
+          "scoreA": 102.06,
+          "scoreB": 69.9,
+          "winner": "Stew",
+          "margin": 32.16
+        },
+        {
+          "year": 2020,
+          "week": 14,
+          "scoreA": 97.64,
+          "scoreB": 115.72,
+          "winner": "Stilly",
+          "margin": 18.08
+        },
+        {
+          "year": 2021,
+          "week": 3,
+          "scoreA": 103.38,
+          "scoreB": 108.22,
+          "winner": "Stilly",
+          "margin": 4.84
+        },
+        {
+          "year": 2021,
+          "week": 12,
+          "scoreA": 80.24,
+          "scoreB": 106.32,
+          "winner": "Stilly",
+          "margin": 26.08
+        },
+        {
+          "year": 2021,
+          "week": 14,
+          "scoreA": 111.32,
+          "scoreB": 108.94,
+          "winner": "Stew",
+          "margin": 2.38
+        },
+        {
+          "year": 2022,
+          "week": 7,
+          "scoreA": 73.3,
+          "scoreB": 96.9,
+          "winner": "Stilly",
+          "margin": 23.6
+        },
+        {
+          "year": 2023,
+          "week": 2,
+          "scoreA": 114.64,
+          "scoreB": 95.02,
+          "winner": "Stew",
+          "margin": 19.62
+        },
+        {
+          "year": 2023,
+          "week": 11,
+          "scoreA": 72.94,
+          "scoreB": 104.6,
+          "winner": "Stilly",
+          "margin": 31.66
+        },
+        {
+          "year": 2024,
+          "week": 6,
+          "scoreA": 78.92,
+          "scoreB": 114.16,
+          "winner": "Stilly",
+          "margin": 35.24
+        },
+        {
+          "year": 2025,
+          "week": 2,
+          "scoreA": 127.78,
+          "scoreB": 119.2,
+          "winner": "Stew",
+          "margin": 8.58
+        },
+        {
+          "year": 2025,
+          "week": 11,
+          "scoreA": 105.94,
+          "scoreB": 87.2,
+          "winner": "Stew",
+          "margin": 18.74
+        },
+        {
+          "year": 2026,
+          "week": 4,
+          "scoreA": 105.98,
+          "scoreB": 124.62,
+          "winner": "Stilly",
+          "margin": 18.64
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Stew",
+        "Stover"
+      ],
+      "played": 17,
+      "record": {
+        "Stew": 8,
+        "Stover": 9,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Stew": 1924.52,
+        "Stover": 1825.06
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Stover",
+        "length": 5,
+        "start": {
+          "year": 2022,
+          "week": 11
+        },
+        "end": {
+          "year": 2025,
+          "week": 5
+        }
+      },
+      "closestMeeting": {
+        "year": 2023,
+        "week": 8,
+        "margin": 6.6,
+        "winner": "Stover"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 8,
+        "scoreA": 134.16,
+        "scoreB": 79.1,
+        "winner": "Stew",
+        "margin": 55.06
+      },
+      "games": [
+        {
+          "year": 2016,
+          "week": 2,
+          "scoreA": 131,
+          "scoreB": 97,
+          "winner": "Stew",
+          "margin": 34
+        },
+        {
+          "year": 2016,
+          "week": 9,
+          "scoreA": 93,
+          "scoreB": 72,
+          "winner": "Stew",
+          "margin": 21
+        },
+        {
+          "year": 2017,
+          "week": 9,
+          "scoreA": 77,
+          "scoreB": 70,
+          "winner": "Stew",
+          "margin": 7
+        },
+        {
+          "year": 2018,
+          "week": 2,
+          "scoreA": 89.9,
+          "scoreB": 120.96,
+          "winner": "Stover",
+          "margin": 31.06
+        },
+        {
+          "year": 2019,
+          "week": 3,
+          "scoreA": 166.38,
+          "scoreB": 107.12,
+          "winner": "Stew",
+          "margin": 59.26
+        },
+        {
+          "year": 2019,
+          "week": 12,
+          "scoreA": 150.56,
+          "scoreB": 87.42,
+          "winner": "Stew",
+          "margin": 63.14
+        },
+        {
+          "year": 2020,
+          "week": 2,
+          "scoreA": 101.38,
+          "scoreB": 157.52,
+          "winner": "Stover",
+          "margin": 56.14
+        },
+        {
+          "year": 2020,
+          "week": 11,
+          "scoreA": 96.58,
+          "scoreB": 117.38,
+          "winner": "Stover",
+          "margin": 20.8
+        },
+        {
+          "year": 2021,
+          "week": 6,
+          "scoreA": 86.48,
+          "scoreB": 125.3,
+          "winner": "Stover",
+          "margin": 38.82
+        },
+        {
+          "year": 2022,
+          "week": 2,
+          "scoreA": 159.72,
+          "scoreB": 119.6,
+          "winner": "Stew",
+          "margin": 40.12
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "scoreA": 109.8,
+          "scoreB": 137.62,
+          "winner": "Stover",
+          "margin": 27.82
+        },
+        {
+          "year": 2023,
+          "week": 8,
+          "scoreA": 99.16,
+          "scoreB": 105.76,
+          "winner": "Stover",
+          "margin": 6.6
+        },
+        {
+          "year": 2024,
+          "week": 5,
+          "scoreA": 123.22,
+          "scoreB": 133.26,
+          "winner": "Stover",
+          "margin": 10.04
+        },
+        {
+          "year": 2024,
+          "week": 14,
+          "scoreA": 96.48,
+          "scoreB": 117.52,
+          "winner": "Stover",
+          "margin": 21.04
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "scoreA": 85.04,
+          "scoreB": 91.9,
+          "winner": "Stover",
+          "margin": 6.86
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "scoreA": 124.66,
+          "scoreB": 85.6,
+          "winner": "Stew",
+          "margin": 39.06
+        },
+        {
+          "year": 2026,
+          "week": 8,
+          "scoreA": 134.16,
+          "scoreB": 79.1,
+          "winner": "Stew",
+          "margin": 55.06
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Birch",
+        "Kuhl"
+      ],
+      "played": 16,
+      "record": {
+        "Birch": 10,
+        "Kuhl": 6,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Birch": 1830.22,
+        "Kuhl": 1710.5
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Birch",
+        "length": 5,
+        "start": {
+          "year": 2019,
+          "week": 3
+        },
+        "end": {
+          "year": 2021,
+          "week": 11
+        }
+      },
+      "closestMeeting": {
+        "year": 2022,
+        "week": 12,
+        "margin": 5.44,
+        "winner": "Birch"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 4,
+        "scoreA": 108.28,
+        "scoreB": 71.32,
+        "winner": "Birch",
+        "margin": 36.96
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 1,
+          "scoreA": 71.42,
+          "scoreB": 114.76,
+          "winner": "Kuhl",
+          "margin": 43.34
+        },
+        {
+          "year": 2018,
+          "week": 9,
+          "scoreA": 107.6,
+          "scoreB": 150.54,
+          "winner": "Kuhl",
+          "margin": 42.94
+        },
+        {
+          "year": 2019,
+          "week": 3,
+          "scoreA": 146.76,
+          "scoreB": 140.04,
+          "winner": "Birch",
+          "margin": 6.72
+        },
+        {
+          "year": 2019,
+          "week": 12,
+          "scoreA": 141.48,
+          "scoreB": 88.64,
+          "winner": "Birch",
+          "margin": 52.84
+        },
+        {
+          "year": 2020,
+          "week": 8,
+          "scoreA": 124.14,
+          "scoreB": 89.28,
+          "winner": "Birch",
+          "margin": 34.86
+        },
+        {
+          "year": 2021,
+          "week": 2,
+          "scoreA": 147.76,
+          "scoreB": 137.6,
+          "winner": "Birch",
+          "margin": 10.16
+        },
+        {
+          "year": 2021,
+          "week": 11,
+          "scoreA": 102.02,
+          "scoreB": 69.9,
+          "winner": "Birch",
+          "margin": 32.12
+        },
+        {
+          "year": 2022,
+          "week": 3,
+          "scoreA": 79.14,
+          "scoreB": 108.5,
+          "winner": "Kuhl",
+          "margin": 29.36
+        },
+        {
+          "year": 2022,
+          "week": 12,
+          "scoreA": 111.36,
+          "scoreB": 105.92,
+          "winner": "Birch",
+          "margin": 5.44
+        },
+        {
+          "year": 2023,
+          "week": 3,
+          "scoreA": 116.46,
+          "scoreB": 123.46,
+          "winner": "Kuhl",
+          "margin": 7
+        },
+        {
+          "year": 2023,
+          "week": 12,
+          "scoreA": 136.74,
+          "scoreB": 102.9,
+          "winner": "Birch",
+          "margin": 33.84
+        },
+        {
+          "year": 2024,
+          "week": 1,
+          "scoreA": 128.98,
+          "scoreB": 89.44,
+          "winner": "Birch",
+          "margin": 39.54
+        },
+        {
+          "year": 2024,
+          "week": 10,
+          "scoreA": 87.6,
+          "scoreB": 101.54,
+          "winner": "Kuhl",
+          "margin": 13.94
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "scoreA": 122.14,
+          "scoreB": 108.52,
+          "winner": "Birch",
+          "margin": 13.62
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "scoreA": 98.34,
+          "scoreB": 108.14,
+          "winner": "Kuhl",
+          "margin": 9.8
+        },
+        {
+          "year": 2026,
+          "week": 4,
+          "scoreA": 108.28,
+          "scoreB": 71.32,
+          "winner": "Birch",
+          "margin": 36.96
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Mitch",
+        "Stew"
+      ],
+      "played": 16,
+      "record": {
+        "Mitch": 10,
+        "Stew": 6,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Mitch": 1866,
+        "Stew": 1851.02
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Mitch",
+        "length": 6,
+        "start": {
+          "year": 2018,
+          "week": 12
+        },
+        "end": {
+          "year": 2021,
+          "week": 11
+        }
+      },
+      "closestMeeting": {
+        "year": 2018,
+        "week": 3,
+        "margin": 1.66,
+        "winner": "Stew"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 1,
+        "scoreA": 161.26,
+        "scoreB": 158.52,
+        "winner": "Mitch",
+        "margin": 2.74
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 3,
+          "scoreA": 86.94,
+          "scoreB": 88.6,
+          "winner": "Stew",
+          "margin": 1.66
+        },
+        {
+          "year": 2018,
+          "week": 12,
+          "scoreA": 103.48,
+          "scoreB": 92.34,
+          "winner": "Mitch",
+          "margin": 11.14
+        },
+        {
+          "year": 2019,
+          "week": 8,
+          "scoreA": 128.78,
+          "scoreB": 99.66,
+          "winner": "Mitch",
+          "margin": 29.12
+        },
+        {
+          "year": 2020,
+          "week": 1,
+          "scoreA": 119.4,
+          "scoreB": 108.4,
+          "winner": "Mitch",
+          "margin": 11
+        },
+        {
+          "year": 2020,
+          "week": 10,
+          "scoreA": 102.28,
+          "scoreB": 93.88,
+          "winner": "Mitch",
+          "margin": 8.4
+        },
+        {
+          "year": 2021,
+          "week": 2,
+          "scoreA": 141.16,
+          "scoreB": 138.74,
+          "winner": "Mitch",
+          "margin": 2.42
+        },
+        {
+          "year": 2021,
+          "week": 11,
+          "scoreA": 109.66,
+          "scoreB": 98.88,
+          "winner": "Mitch",
+          "margin": 10.78
+        },
+        {
+          "year": 2022,
+          "week": 1,
+          "scoreA": 96.72,
+          "scoreB": 128.02,
+          "winner": "Stew",
+          "margin": 31.3
+        },
+        {
+          "year": 2022,
+          "week": 10,
+          "scoreA": 111.48,
+          "scoreB": 132.4,
+          "winner": "Stew",
+          "margin": 20.92
+        },
+        {
+          "year": 2023,
+          "week": 3,
+          "scoreA": 132,
+          "scoreB": 135.38,
+          "winner": "Stew",
+          "margin": 3.38
+        },
+        {
+          "year": 2023,
+          "week": 12,
+          "scoreA": 118.58,
+          "scoreB": 92.86,
+          "winner": "Mitch",
+          "margin": 25.72
+        },
+        {
+          "year": 2024,
+          "week": 4,
+          "scoreA": 93.68,
+          "scoreB": 127.94,
+          "winner": "Stew",
+          "margin": 34.26
+        },
+        {
+          "year": 2024,
+          "week": 13,
+          "scoreA": 84.28,
+          "scoreB": 101.38,
+          "winner": "Stew",
+          "margin": 17.1
+        },
+        {
+          "year": 2025,
+          "week": 1,
+          "scoreA": 108.48,
+          "scoreB": 89.22,
+          "winner": "Mitch",
+          "margin": 19.26
+        },
+        {
+          "year": 2025,
+          "week": 10,
+          "scoreA": 167.82,
+          "scoreB": 164.8,
+          "winner": "Mitch",
+          "margin": 3.02
+        },
+        {
+          "year": 2026,
+          "week": 1,
+          "scoreA": 161.26,
+          "scoreB": 158.52,
+          "winner": "Mitch",
+          "margin": 2.74
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Stew",
+        "Thommy"
+      ],
+      "played": 16,
+      "record": {
+        "Stew": 7,
+        "Thommy": 9,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Stew": 1727.98,
+        "Thommy": 1658.82
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Thommy",
+        "length": 5,
+        "start": {
+          "year": 2016,
+          "week": 5
+        },
+        "end": {
+          "year": 2018,
+          "week": 7
+        }
+      },
+      "closestMeeting": {
+        "year": 2018,
+        "week": 7,
+        "margin": 0.16,
+        "winner": "Thommy"
+      },
+      "latestMeeting": {
+        "year": 2025,
+        "week": 12,
+        "scoreA": 127.96,
+        "scoreB": 105.08,
+        "winner": "Stew",
+        "margin": 22.88
+      },
+      "games": [
+        {
+          "year": 2016,
+          "week": 5,
+          "scoreA": 59,
+          "scoreB": 86,
+          "winner": "Thommy",
+          "margin": 27
+        },
+        {
+          "year": 2016,
+          "week": 12,
+          "scoreA": 99,
+          "scoreB": 103,
+          "winner": "Thommy",
+          "margin": 4
+        },
+        {
+          "year": 2017,
+          "week": 3,
+          "scoreA": 78,
+          "scoreB": 98,
+          "winner": "Thommy",
+          "margin": 20
+        },
+        {
+          "year": 2017,
+          "week": 12,
+          "scoreA": 88,
+          "scoreB": 137,
+          "winner": "Thommy",
+          "margin": 49
+        },
+        {
+          "year": 2018,
+          "week": 7,
+          "scoreA": 142.76,
+          "scoreB": 142.92,
+          "winner": "Thommy",
+          "margin": 0.16
+        },
+        {
+          "year": 2019,
+          "week": 1,
+          "scoreA": 114.36,
+          "scoreB": 82.66,
+          "winner": "Stew",
+          "margin": 31.7
+        },
+        {
+          "year": 2019,
+          "week": 10,
+          "scoreA": 132.72,
+          "scoreB": 49.72,
+          "winner": "Stew",
+          "margin": 83
+        },
+        {
+          "year": 2020,
+          "week": 8,
+          "scoreA": 99.64,
+          "scoreB": 78.96,
+          "winner": "Stew",
+          "margin": 20.68
+        },
+        {
+          "year": 2021,
+          "week": 1,
+          "scoreA": 167.36,
+          "scoreB": 141.12,
+          "winner": "Stew",
+          "margin": 26.24
+        },
+        {
+          "year": 2021,
+          "week": 10,
+          "scoreA": 62.2,
+          "scoreB": 92.74,
+          "winner": "Thommy",
+          "margin": 30.54
+        },
+        {
+          "year": 2022,
+          "week": 5,
+          "scoreA": 156.08,
+          "scoreB": 106.56,
+          "winner": "Stew",
+          "margin": 49.52
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "scoreA": 127.78,
+          "scoreB": 116.62,
+          "winner": "Stew",
+          "margin": 11.16
+        },
+        {
+          "year": 2023,
+          "week": 9,
+          "scoreA": 113.32,
+          "scoreB": 116.06,
+          "winner": "Thommy",
+          "margin": 2.74
+        },
+        {
+          "year": 2024,
+          "week": 9,
+          "scoreA": 89.4,
+          "scoreB": 102.72,
+          "winner": "Thommy",
+          "margin": 13.32
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "scoreA": 70.4,
+          "scoreB": 99.66,
+          "winner": "Thommy",
+          "margin": 29.26
+        },
+        {
+          "year": 2025,
+          "week": 12,
+          "scoreA": 127.96,
+          "scoreB": 105.08,
+          "winner": "Stew",
+          "margin": 22.88
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Stilly",
+        "Stover"
+      ],
+      "played": 16,
+      "record": {
+        "Stilly": 5,
+        "Stover": 11,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Stilly": 1777.02,
+        "Stover": 1880.36
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Stover",
+        "length": 4,
+        "start": {
+          "year": 2020,
+          "week": 4
+        },
+        "end": {
+          "year": 2022,
+          "week": 3
+        }
+      },
+      "closestMeeting": {
+        "year": 2018,
+        "week": 6,
+        "margin": 3.32,
+        "winner": "Stover"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 6,
+        "scoreA": 71.3,
+        "scoreB": 121.68,
+        "winner": "Stover",
+        "margin": 50.38
+      },
+      "games": [
+        {
+          "year": 2016,
+          "week": 1,
+          "scoreA": 114,
+          "scoreB": 120,
+          "winner": "Stover",
+          "margin": 6
+        },
+        {
+          "year": 2016,
+          "week": 8,
+          "scoreA": 95,
+          "scoreB": 86,
+          "winner": "Stilly",
+          "margin": 9
+        },
+        {
+          "year": 2017,
+          "week": 3,
+          "scoreA": 105,
+          "scoreB": 113,
+          "winner": "Stover",
+          "margin": 8
+        },
+        {
+          "year": 2017,
+          "week": 12,
+          "scoreA": 123,
+          "scoreB": 114,
+          "winner": "Stilly",
+          "margin": 9
+        },
+        {
+          "year": 2018,
+          "week": 6,
+          "scoreA": 110.68,
+          "scoreB": 114,
+          "winner": "Stover",
+          "margin": 3.32
+        },
+        {
+          "year": 2019,
+          "week": 7,
+          "scoreA": 125.64,
+          "scoreB": 100.6,
+          "winner": "Stilly",
+          "margin": 25.04
+        },
+        {
+          "year": 2020,
+          "week": 4,
+          "scoreA": 132.82,
+          "scoreB": 139.5,
+          "winner": "Stover",
+          "margin": 6.68
+        },
+        {
+          "year": 2020,
+          "week": 13,
+          "scoreA": 120.58,
+          "scoreB": 137.82,
+          "winner": "Stover",
+          "margin": 17.24
+        },
+        {
+          "year": 2021,
+          "week": 7,
+          "scoreA": 88.48,
+          "scoreB": 134.42,
+          "winner": "Stover",
+          "margin": 45.94
+        },
+        {
+          "year": 2022,
+          "week": 3,
+          "scoreA": 83.66,
+          "scoreB": 118.98,
+          "winner": "Stover",
+          "margin": 35.32
+        },
+        {
+          "year": 2022,
+          "week": 12,
+          "scoreA": 115.32,
+          "scoreB": 87.7,
+          "winner": "Stilly",
+          "margin": 27.62
+        },
+        {
+          "year": 2023,
+          "week": 4,
+          "scoreA": 103.5,
+          "scoreB": 117.9,
+          "winner": "Stover",
+          "margin": 14.4
+        },
+        {
+          "year": 2023,
+          "week": 13,
+          "scoreA": 159.66,
+          "scoreB": 89.1,
+          "winner": "Stilly",
+          "margin": 70.56
+        },
+        {
+          "year": 2024,
+          "week": 9,
+          "scoreA": 120.36,
+          "scoreB": 139.4,
+          "winner": "Stover",
+          "margin": 19.04
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "scoreA": 108.02,
+          "scoreB": 146.26,
+          "winner": "Stover",
+          "margin": 38.24
+        },
+        {
+          "year": 2026,
+          "week": 6,
+          "scoreA": 71.3,
+          "scoreB": 121.68,
+          "winner": "Stover",
+          "margin": 50.38
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Stover",
+        "Thommy"
+      ],
+      "played": 16,
+      "record": {
+        "Stover": 11,
+        "Thommy": 5,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Stover": 1847.88,
+        "Thommy": 1681.12
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Stover",
+        "length": 6,
+        "start": {
+          "year": 2021,
+          "week": 5
+        },
+        "end": {
+          "year": 2024,
+          "week": 8
+        }
+      },
+      "closestMeeting": {
+        "year": 2018,
+        "week": 9,
+        "margin": 3.1,
+        "winner": "Stover"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 4,
+        "scoreA": 110.48,
+        "scoreB": 143.28,
+        "winner": "Thommy",
+        "margin": 32.8
+      },
+      "games": [
+        {
+          "year": 2016,
+          "week": 7,
+          "scoreA": 66,
+          "scoreB": 103,
+          "winner": "Thommy",
+          "margin": 37
+        },
+        {
+          "year": 2017,
+          "week": 5,
+          "scoreA": 118,
+          "scoreB": 64,
+          "winner": "Stover",
+          "margin": 54
+        },
+        {
+          "year": 2018,
+          "week": 1,
+          "scoreA": 95.08,
+          "scoreB": 121.84,
+          "winner": "Thommy",
+          "margin": 26.76
+        },
+        {
+          "year": 2018,
+          "week": 9,
+          "scoreA": 107.86,
+          "scoreB": 104.76,
+          "winner": "Stover",
+          "margin": 3.1
+        },
+        {
+          "year": 2019,
+          "week": 4,
+          "scoreA": 108.8,
+          "scoreB": 103.48,
+          "winner": "Stover",
+          "margin": 5.32
+        },
+        {
+          "year": 2019,
+          "week": 13,
+          "scoreA": 88.1,
+          "scoreB": 79.06,
+          "winner": "Stover",
+          "margin": 9.04
+        },
+        {
+          "year": 2020,
+          "week": 3,
+          "scoreA": 139.3,
+          "scoreB": 96.54,
+          "winner": "Stover",
+          "margin": 42.76
+        },
+        {
+          "year": 2020,
+          "week": 12,
+          "scoreA": 84.2,
+          "scoreB": 130.88,
+          "winner": "Thommy",
+          "margin": 46.68
+        },
+        {
+          "year": 2021,
+          "week": 5,
+          "scoreA": 178.82,
+          "scoreB": 105.28,
+          "winner": "Stover",
+          "margin": 73.54
+        },
+        {
+          "year": 2021,
+          "week": 14,
+          "scoreA": 144.8,
+          "scoreB": 104.54,
+          "winner": "Stover",
+          "margin": 40.26
+        },
+        {
+          "year": 2022,
+          "week": 8,
+          "scoreA": 123.14,
+          "scoreB": 96.22,
+          "winner": "Stover",
+          "margin": 26.92
+        },
+        {
+          "year": 2023,
+          "week": 5,
+          "scoreA": 130.82,
+          "scoreB": 123.94,
+          "winner": "Stover",
+          "margin": 6.88
+        },
+        {
+          "year": 2023,
+          "week": 14,
+          "scoreA": 113.6,
+          "scoreB": 84.56,
+          "winner": "Stover",
+          "margin": 29.04
+        },
+        {
+          "year": 2024,
+          "week": 8,
+          "scoreA": 143.74,
+          "scoreB": 111.44,
+          "winner": "Stover",
+          "margin": 32.3
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "scoreA": 95.14,
+          "scoreB": 108.3,
+          "winner": "Thommy",
+          "margin": 13.16
+        },
+        {
+          "year": 2026,
+          "week": 4,
+          "scoreA": 110.48,
+          "scoreB": 143.28,
+          "winner": "Thommy",
+          "margin": 32.8
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Thommy",
+        "Tony"
+      ],
+      "played": 16,
+      "record": {
+        "Thommy": 7,
+        "Tony": 9,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Thommy": 1754.4,
+        "Tony": 1786.38
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Tony",
+        "length": 3,
+        "start": {
+          "year": 2019,
+          "week": 2
+        },
+        "end": {
+          "year": 2020,
+          "week": 4
+        }
+      },
+      "closestMeeting": {
+        "year": 2022,
+        "week": 3,
+        "margin": 3.36,
+        "winner": "Thommy"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 3,
+        "scoreA": 86.66,
+        "scoreB": 92.44,
+        "winner": "Tony",
+        "margin": 5.78
+      },
+      "games": [
+        {
+          "year": 2017,
+          "week": 1,
+          "scoreA": 75,
+          "scoreB": 44,
+          "winner": "Thommy",
+          "margin": 31
+        },
+        {
+          "year": 2017,
+          "week": 10,
+          "scoreA": 108,
+          "scoreB": 127,
+          "winner": "Tony",
+          "margin": 19
+        },
+        {
+          "year": 2018,
+          "week": 6,
+          "scoreA": 121.5,
+          "scoreB": 110.7,
+          "winner": "Thommy",
+          "margin": 10.8
+        },
+        {
+          "year": 2019,
+          "week": 2,
+          "scoreA": 93.62,
+          "scoreB": 121.06,
+          "winner": "Tony",
+          "margin": 27.44
+        },
+        {
+          "year": 2019,
+          "week": 11,
+          "scoreA": 67.92,
+          "scoreB": 79.26,
+          "winner": "Tony",
+          "margin": 11.34
+        },
+        {
+          "year": 2020,
+          "week": 4,
+          "scoreA": 118.62,
+          "scoreB": 160.32,
+          "winner": "Tony",
+          "margin": 41.7
+        },
+        {
+          "year": 2020,
+          "week": 13,
+          "scoreA": 106.3,
+          "scoreB": 86.62,
+          "winner": "Thommy",
+          "margin": 19.68
+        },
+        {
+          "year": 2020,
+          "week": 14,
+          "scoreA": 151.32,
+          "scoreB": 125.56,
+          "winner": "Thommy",
+          "margin": 25.76
+        },
+        {
+          "year": 2021,
+          "week": 6,
+          "scoreA": 139.2,
+          "scoreB": 167.14,
+          "winner": "Tony",
+          "margin": 27.94
+        },
+        {
+          "year": 2022,
+          "week": 3,
+          "scoreA": 98.72,
+          "scoreB": 95.36,
+          "winner": "Thommy",
+          "margin": 3.36
+        },
+        {
+          "year": 2022,
+          "week": 12,
+          "scoreA": 123.66,
+          "scoreB": 115.04,
+          "winner": "Thommy",
+          "margin": 8.62
+        },
+        {
+          "year": 2023,
+          "week": 6,
+          "scoreA": 80.14,
+          "scoreB": 128.42,
+          "winner": "Tony",
+          "margin": 48.28
+        },
+        {
+          "year": 2024,
+          "week": 6,
+          "scoreA": 152.02,
+          "scoreB": 79.78,
+          "winner": "Thommy",
+          "margin": 72.24
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "scoreA": 109.32,
+          "scoreB": 126.12,
+          "winner": "Tony",
+          "margin": 16.8
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "scoreA": 122.4,
+          "scoreB": 127.56,
+          "winner": "Tony",
+          "margin": 5.16
+        },
+        {
+          "year": 2026,
+          "week": 3,
+          "scoreA": 86.66,
+          "scoreB": 92.44,
+          "winner": "Tony",
+          "margin": 5.78
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Birch",
+        "Thommy"
+      ],
+      "played": 15,
+      "record": {
+        "Birch": 9,
+        "Thommy": 6,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Birch": 1649.46,
+        "Thommy": 1600.26
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Birch",
+        "length": 4,
+        "start": {
+          "year": 2019,
+          "week": 6
+        },
+        "end": {
+          "year": 2022,
+          "week": 1
+        }
+      },
+      "closestMeeting": {
+        "year": 2020,
+        "week": 9,
+        "margin": 5.9,
+        "winner": "Birch"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 6,
+        "scoreA": 98.88,
+        "scoreB": 91.7,
+        "winner": "Birch",
+        "margin": 7.18
+      },
+      "games": [
+        {
+          "year": 2017,
+          "week": 9,
+          "scoreA": 63,
+          "scoreB": 148,
+          "winner": "Thommy",
+          "margin": 85
+        },
+        {
+          "year": 2018,
+          "week": 2,
+          "scoreA": 141.84,
+          "scoreB": 83.08,
+          "winner": "Birch",
+          "margin": 58.76
+        },
+        {
+          "year": 2018,
+          "week": 10,
+          "scoreA": 113.86,
+          "scoreB": 141.66,
+          "winner": "Thommy",
+          "margin": 27.8
+        },
+        {
+          "year": 2019,
+          "week": 6,
+          "scoreA": 102.42,
+          "scoreB": 65.72,
+          "winner": "Birch",
+          "margin": 36.7
+        },
+        {
+          "year": 2020,
+          "week": 9,
+          "scoreA": 144.8,
+          "scoreB": 138.9,
+          "winner": "Birch",
+          "margin": 5.9
+        },
+        {
+          "year": 2021,
+          "week": 7,
+          "scoreA": 123.18,
+          "scoreB": 98.8,
+          "winner": "Birch",
+          "margin": 24.38
+        },
+        {
+          "year": 2022,
+          "week": 1,
+          "scoreA": 124.96,
+          "scoreB": 79.02,
+          "winner": "Birch",
+          "margin": 45.94
+        },
+        {
+          "year": 2022,
+          "week": 10,
+          "scoreA": 90.84,
+          "scoreB": 125.82,
+          "winner": "Thommy",
+          "margin": 34.98
+        },
+        {
+          "year": 2023,
+          "week": 2,
+          "scoreA": 145.2,
+          "scoreB": 83.9,
+          "winner": "Birch",
+          "margin": 61.3
+        },
+        {
+          "year": 2023,
+          "week": 11,
+          "scoreA": 96.66,
+          "scoreB": 135.24,
+          "winner": "Thommy",
+          "margin": 38.58
+        },
+        {
+          "year": 2024,
+          "week": 4,
+          "scoreA": 99.7,
+          "scoreB": 116.94,
+          "winner": "Thommy",
+          "margin": 17.24
+        },
+        {
+          "year": 2024,
+          "week": 13,
+          "scoreA": 119.52,
+          "scoreB": 99.66,
+          "winner": "Birch",
+          "margin": 19.86
+        },
+        {
+          "year": 2025,
+          "week": 2,
+          "scoreA": 78.92,
+          "scoreB": 110.38,
+          "winner": "Thommy",
+          "margin": 31.46
+        },
+        {
+          "year": 2025,
+          "week": 11,
+          "scoreA": 105.68,
+          "scoreB": 81.44,
+          "winner": "Birch",
+          "margin": 24.24
+        },
+        {
+          "year": 2026,
+          "week": 6,
+          "scoreA": 98.88,
+          "scoreB": 91.7,
+          "winner": "Birch",
+          "margin": 7.18
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Birch",
+        "Tony"
+      ],
+      "played": 15,
+      "record": {
+        "Birch": 10,
+        "Tony": 5,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Birch": 1717.9,
+        "Tony": 1555.2
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Birch",
+        "length": 4,
+        "start": {
+          "year": 2019,
+          "week": 1
+        },
+        "end": {
+          "year": 2020,
+          "week": 12
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 1,
+        "margin": 3,
+        "winner": "Birch"
+      },
+      "latestMeeting": {
+        "year": 2025,
+        "week": 10,
+        "scoreA": 128.44,
+        "scoreB": 94.94,
+        "winner": "Birch",
+        "margin": 33.5
+      },
+      "games": [
+        {
+          "year": 2017,
+          "week": 7,
+          "scoreA": 69,
+          "scoreB": 94,
+          "winner": "Tony",
+          "margin": 25
+        },
+        {
+          "year": 2018,
+          "week": 7,
+          "scoreA": 95.32,
+          "scoreB": 114.46,
+          "winner": "Tony",
+          "margin": 19.14
+        },
+        {
+          "year": 2019,
+          "week": 1,
+          "scoreA": 169.32,
+          "scoreB": 114.92,
+          "winner": "Birch",
+          "margin": 54.4
+        },
+        {
+          "year": 2019,
+          "week": 10,
+          "scoreA": 153.74,
+          "scoreB": 80.52,
+          "winner": "Birch",
+          "margin": 73.22
+        },
+        {
+          "year": 2020,
+          "week": 3,
+          "scoreA": 133.12,
+          "scoreB": 110.58,
+          "winner": "Birch",
+          "margin": 22.54
+        },
+        {
+          "year": 2020,
+          "week": 12,
+          "scoreA": 134.44,
+          "scoreB": 93.8,
+          "winner": "Birch",
+          "margin": 40.64
+        },
+        {
+          "year": 2021,
+          "week": 1,
+          "scoreA": 91.6,
+          "scoreB": 105.14,
+          "winner": "Tony",
+          "margin": 13.54
+        },
+        {
+          "year": 2021,
+          "week": 10,
+          "scoreA": 105.18,
+          "scoreB": 96.62,
+          "winner": "Birch",
+          "margin": 8.56
+        },
+        {
+          "year": 2022,
+          "week": 2,
+          "scoreA": 90.06,
+          "scoreB": 128.98,
+          "winner": "Tony",
+          "margin": 38.92
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "scoreA": 89.1,
+          "scoreB": 77.28,
+          "winner": "Birch",
+          "margin": 11.82
+        },
+        {
+          "year": 2023,
+          "week": 4,
+          "scoreA": 86.24,
+          "scoreB": 121.62,
+          "winner": "Tony",
+          "margin": 35.38
+        },
+        {
+          "year": 2023,
+          "week": 13,
+          "scoreA": 122.66,
+          "scoreB": 95.88,
+          "winner": "Birch",
+          "margin": 26.78
+        },
+        {
+          "year": 2024,
+          "week": 8,
+          "scoreA": 123.72,
+          "scoreB": 103.5,
+          "winner": "Birch",
+          "margin": 20.22
+        },
+        {
+          "year": 2025,
+          "week": 1,
+          "scoreA": 125.96,
+          "scoreB": 122.96,
+          "winner": "Birch",
+          "margin": 3
+        },
+        {
+          "year": 2025,
+          "week": 10,
+          "scoreA": 128.44,
+          "scoreB": 94.94,
+          "winner": "Birch",
+          "margin": 33.5
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Mitch",
+        "Stilly"
+      ],
+      "played": 15,
+      "record": {
+        "Mitch": 11,
+        "Stilly": 4,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Mitch": 1836.88,
+        "Stilly": 1640.56
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Mitch",
+        "length": 6,
+        "start": {
+          "year": 2023,
+          "week": 1
+        },
+        "end": {
+          "year": 2026,
+          "week": 7
+        }
+      },
+      "closestMeeting": {
+        "year": 2021,
+        "week": 10,
+        "margin": 2.18,
+        "winner": "Mitch"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 7,
+        "scoreA": 119.98,
+        "scoreB": 115.12,
+        "winner": "Mitch",
+        "margin": 4.86
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 1,
+          "scoreA": 102.96,
+          "scoreB": 131.46,
+          "winner": "Stilly",
+          "margin": 28.5
+        },
+        {
+          "year": 2018,
+          "week": 10,
+          "scoreA": 123.92,
+          "scoreB": 131.72,
+          "winner": "Stilly",
+          "margin": 7.8
+        },
+        {
+          "year": 2019,
+          "week": 3,
+          "scoreA": 123.74,
+          "scoreB": 130.06,
+          "winner": "Stilly",
+          "margin": 6.32
+        },
+        {
+          "year": 2019,
+          "week": 12,
+          "scoreA": 86.76,
+          "scoreB": 80.14,
+          "winner": "Mitch",
+          "margin": 6.62
+        },
+        {
+          "year": 2020,
+          "week": 8,
+          "scoreA": 166.52,
+          "scoreB": 121.42,
+          "winner": "Mitch",
+          "margin": 45.1
+        },
+        {
+          "year": 2021,
+          "week": 1,
+          "scoreA": 162.3,
+          "scoreB": 107.56,
+          "winner": "Mitch",
+          "margin": 54.74
+        },
+        {
+          "year": 2021,
+          "week": 10,
+          "scoreA": 109.44,
+          "scoreB": 107.26,
+          "winner": "Mitch",
+          "margin": 2.18
+        },
+        {
+          "year": 2022,
+          "week": 2,
+          "scoreA": 122.86,
+          "scoreB": 94.78,
+          "winner": "Mitch",
+          "margin": 28.08
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "scoreA": 109.6,
+          "scoreB": 117.22,
+          "winner": "Stilly",
+          "margin": 7.62
+        },
+        {
+          "year": 2023,
+          "week": 1,
+          "scoreA": 107.56,
+          "scoreB": 90.84,
+          "winner": "Mitch",
+          "margin": 16.72
+        },
+        {
+          "year": 2023,
+          "week": 10,
+          "scoreA": 127.62,
+          "scoreB": 107.18,
+          "winner": "Mitch",
+          "margin": 20.44
+        },
+        {
+          "year": 2024,
+          "week": 2,
+          "scoreA": 113.34,
+          "scoreB": 96.04,
+          "winner": "Mitch",
+          "margin": 17.3
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "scoreA": 136.78,
+          "scoreB": 92.74,
+          "winner": "Mitch",
+          "margin": 44.04
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "scoreA": 123.5,
+          "scoreB": 117.02,
+          "winner": "Mitch",
+          "margin": 6.48
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "scoreA": 119.98,
+          "scoreB": 115.12,
+          "winner": "Mitch",
+          "margin": 4.86
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Stilly",
+        "Thommy"
+      ],
+      "played": 15,
+      "record": {
+        "Stilly": 11,
+        "Thommy": 4,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Stilly": 1646,
+        "Thommy": 1418.84
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Stilly",
+        "length": 5,
+        "start": {
+          "year": 2020,
+          "week": 6
+        },
+        "end": {
+          "year": 2023,
+          "week": 8
+        }
+      },
+      "closestMeeting": {
+        "year": 2023,
+        "week": 8,
+        "margin": 2.78,
+        "winner": "Stilly"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 2,
+        "scoreA": 163.34,
+        "scoreB": 63,
+        "winner": "Stilly",
+        "margin": 100.34
+      },
+      "games": [
+        {
+          "year": 2016,
+          "week": 4,
+          "scoreA": 94,
+          "scoreB": 63,
+          "winner": "Stilly",
+          "margin": 31
+        },
+        {
+          "year": 2016,
+          "week": 11,
+          "scoreA": 122,
+          "scoreB": 94,
+          "winner": "Stilly",
+          "margin": 28
+        },
+        {
+          "year": 2017,
+          "week": 6,
+          "scoreA": 100,
+          "scoreB": 92,
+          "winner": "Stilly",
+          "margin": 8
+        },
+        {
+          "year": 2018,
+          "week": 8,
+          "scoreA": 107.04,
+          "scoreB": 67.54,
+          "winner": "Stilly",
+          "margin": 39.5
+        },
+        {
+          "year": 2019,
+          "week": 5,
+          "scoreA": 108.86,
+          "scoreB": 150.8,
+          "winner": "Thommy",
+          "margin": 41.94
+        },
+        {
+          "year": 2020,
+          "week": 6,
+          "scoreA": 131.44,
+          "scoreB": 102.58,
+          "winner": "Stilly",
+          "margin": 28.86
+        },
+        {
+          "year": 2021,
+          "week": 2,
+          "scoreA": 142.52,
+          "scoreB": 85.88,
+          "winner": "Stilly",
+          "margin": 56.64
+        },
+        {
+          "year": 2021,
+          "week": 11,
+          "scoreA": 133.64,
+          "scoreB": 89.84,
+          "winner": "Stilly",
+          "margin": 43.8
+        },
+        {
+          "year": 2022,
+          "week": 6,
+          "scoreA": 102.18,
+          "scoreB": 81.4,
+          "winner": "Stilly",
+          "margin": 20.78
+        },
+        {
+          "year": 2023,
+          "week": 8,
+          "scoreA": 120.36,
+          "scoreB": 117.58,
+          "winner": "Stilly",
+          "margin": 2.78
+        },
+        {
+          "year": 2024,
+          "week": 1,
+          "scoreA": 67.2,
+          "scoreB": 110.66,
+          "winner": "Thommy",
+          "margin": 43.46
+        },
+        {
+          "year": 2024,
+          "week": 10,
+          "scoreA": 104.88,
+          "scoreB": 98.44,
+          "winner": "Stilly",
+          "margin": 6.44
+        },
+        {
+          "year": 2025,
+          "week": 1,
+          "scoreA": 81.22,
+          "scoreB": 96.32,
+          "winner": "Thommy",
+          "margin": 15.1
+        },
+        {
+          "year": 2025,
+          "week": 10,
+          "scoreA": 67.32,
+          "scoreB": 105.8,
+          "winner": "Thommy",
+          "margin": 38.48
+        },
+        {
+          "year": 2026,
+          "week": 2,
+          "scoreA": 163.34,
+          "scoreB": 63,
+          "winner": "Stilly",
+          "margin": 100.34
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Stilly",
+        "Tony"
+      ],
+      "played": 15,
+      "record": {
+        "Stilly": 5,
+        "Tony": 10,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Stilly": 1548.04,
+        "Tony": 1818.82
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Tony",
+        "length": 4,
+        "start": {
+          "year": 2018,
+          "week": 2
+        },
+        "end": {
+          "year": 2020,
+          "week": 2
+        }
+      },
+      "closestMeeting": {
+        "year": 2017,
+        "week": 9,
+        "margin": 1,
+        "winner": "Stilly"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 5,
+        "scoreA": 126.36,
+        "scoreB": 115.44,
+        "winner": "Stilly",
+        "margin": 10.92
+      },
+      "games": [
+        {
+          "year": 2017,
+          "week": 9,
+          "scoreA": 64,
+          "scoreB": 63,
+          "winner": "Stilly",
+          "margin": 1
+        },
+        {
+          "year": 2018,
+          "week": 2,
+          "scoreA": 72.34,
+          "scoreB": 159.58,
+          "winner": "Tony",
+          "margin": 87.24
+        },
+        {
+          "year": 2018,
+          "week": 11,
+          "scoreA": 56.14,
+          "scoreB": 106.84,
+          "winner": "Tony",
+          "margin": 50.7
+        },
+        {
+          "year": 2019,
+          "week": 8,
+          "scoreA": 137.5,
+          "scoreB": 149.56,
+          "winner": "Tony",
+          "margin": 12.06
+        },
+        {
+          "year": 2020,
+          "week": 2,
+          "scoreA": 91.14,
+          "scoreB": 138.36,
+          "winner": "Tony",
+          "margin": 47.22
+        },
+        {
+          "year": 2020,
+          "week": 11,
+          "scoreA": 94.7,
+          "scoreB": 83.06,
+          "winner": "Stilly",
+          "margin": 11.64
+        },
+        {
+          "year": 2021,
+          "week": 4,
+          "scoreA": 113.56,
+          "scoreB": 138.2,
+          "winner": "Tony",
+          "margin": 24.64
+        },
+        {
+          "year": 2021,
+          "week": 13,
+          "scoreA": 120.9,
+          "scoreB": 130.7,
+          "winner": "Tony",
+          "margin": 9.8
+        },
+        {
+          "year": 2022,
+          "week": 8,
+          "scoreA": 132,
+          "scoreB": 177.14,
+          "winner": "Tony",
+          "margin": 45.14
+        },
+        {
+          "year": 2023,
+          "week": 3,
+          "scoreA": 106.02,
+          "scoreB": 126.28,
+          "winner": "Tony",
+          "margin": 20.26
+        },
+        {
+          "year": 2023,
+          "week": 12,
+          "scoreA": 173.86,
+          "scoreB": 99.58,
+          "winner": "Stilly",
+          "margin": 74.28
+        },
+        {
+          "year": 2024,
+          "week": 7,
+          "scoreA": 52.94,
+          "scoreB": 107.84,
+          "winner": "Tony",
+          "margin": 54.9
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "scoreA": 103.22,
+          "scoreB": 129.32,
+          "winner": "Tony",
+          "margin": 26.1
+        },
+        {
+          "year": 2025,
+          "week": 12,
+          "scoreA": 103.36,
+          "scoreB": 93.92,
+          "winner": "Stilly",
+          "margin": 9.44
+        },
+        {
+          "year": 2026,
+          "week": 5,
+          "scoreA": 126.36,
+          "scoreB": 115.44,
+          "winner": "Stilly",
+          "margin": 10.92
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Birch",
+        "Mitch"
+      ],
+      "played": 14,
+      "record": {
+        "Birch": 8,
+        "Mitch": 6,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Birch": 1499,
+        "Mitch": 1605.78
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Birch",
+        "length": 4,
+        "start": {
+          "year": 2018,
+          "week": 4
+        },
+        "end": {
+          "year": 2020,
+          "week": 4
+        }
+      },
+      "closestMeeting": {
+        "year": 2019,
+        "week": 13,
+        "margin": 0.82,
+        "winner": "Birch"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 2,
+        "scoreA": 99.7,
+        "scoreB": 168.72,
+        "winner": "Mitch",
+        "margin": 69.02
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 4,
+          "scoreA": 105.06,
+          "scoreB": 95.38,
+          "winner": "Birch",
+          "margin": 9.68
+        },
+        {
+          "year": 2019,
+          "week": 4,
+          "scoreA": 94.6,
+          "scoreB": 72.5,
+          "winner": "Birch",
+          "margin": 22.1
+        },
+        {
+          "year": 2019,
+          "week": 13,
+          "scoreA": 114.1,
+          "scoreB": 113.28,
+          "winner": "Birch",
+          "margin": 0.82
+        },
+        {
+          "year": 2020,
+          "week": 4,
+          "scoreA": 114.5,
+          "scoreB": 88.2,
+          "winner": "Birch",
+          "margin": 26.3
+        },
+        {
+          "year": 2020,
+          "week": 13,
+          "scoreA": 97.7,
+          "scoreB": 132.36,
+          "winner": "Mitch",
+          "margin": 34.66
+        },
+        {
+          "year": 2021,
+          "week": 4,
+          "scoreA": 109.84,
+          "scoreB": 108.52,
+          "winner": "Birch",
+          "margin": 1.32
+        },
+        {
+          "year": 2021,
+          "week": 13,
+          "scoreA": 101.92,
+          "scoreB": 99.3,
+          "winner": "Birch",
+          "margin": 2.62
+        },
+        {
+          "year": 2022,
+          "week": 5,
+          "scoreA": 100.22,
+          "scoreB": 114.38,
+          "winner": "Mitch",
+          "margin": 14.16
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "scoreA": 78.98,
+          "scoreB": 92.06,
+          "winner": "Mitch",
+          "margin": 13.08
+        },
+        {
+          "year": 2023,
+          "week": 8,
+          "scoreA": 138.16,
+          "scoreB": 119.32,
+          "winner": "Birch",
+          "margin": 18.84
+        },
+        {
+          "year": 2024,
+          "week": 9,
+          "scoreA": 134.88,
+          "scoreB": 108.66,
+          "winner": "Birch",
+          "margin": 26.22
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "scoreA": 113.72,
+          "scoreB": 132.34,
+          "winner": "Mitch",
+          "margin": 18.62
+        },
+        {
+          "year": 2025,
+          "week": 12,
+          "scoreA": 95.62,
+          "scoreB": 160.76,
+          "winner": "Mitch",
+          "margin": 65.14
+        },
+        {
+          "year": 2026,
+          "week": 2,
+          "scoreA": 99.7,
+          "scoreB": 168.72,
+          "winner": "Mitch",
+          "margin": 69.02
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Kuhl",
+        "Stover"
+      ],
+      "played": 14,
+      "record": {
+        "Kuhl": 7,
+        "Stover": 7,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Kuhl": 1397.86,
+        "Stover": 1445.76
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Kuhl",
+        "length": 3,
+        "start": {
+          "year": 2019,
+          "week": 1
+        },
+        "end": {
+          "year": 2020,
+          "week": 6
+        }
+      },
+      "closestMeeting": {
+        "year": 2020,
+        "week": 6,
+        "margin": 2.48,
+        "winner": "Kuhl"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 2,
+        "scoreA": 56.32,
+        "scoreB": 129.26,
+        "winner": "Stover",
+        "margin": 72.94
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 5,
+          "scoreA": 102.92,
+          "scoreB": 106.44,
+          "winner": "Stover",
+          "margin": 3.52
+        },
+        {
+          "year": 2018,
+          "week": 13,
+          "scoreA": 65.18,
+          "scoreB": 73.64,
+          "winner": "Stover",
+          "margin": 8.46
+        },
+        {
+          "year": 2019,
+          "week": 1,
+          "scoreA": 134.2,
+          "scoreB": 123.78,
+          "winner": "Kuhl",
+          "margin": 10.42
+        },
+        {
+          "year": 2019,
+          "week": 10,
+          "scoreA": 142.78,
+          "scoreB": 97.02,
+          "winner": "Kuhl",
+          "margin": 45.76
+        },
+        {
+          "year": 2020,
+          "week": 6,
+          "scoreA": 69.18,
+          "scoreB": 66.7,
+          "winner": "Kuhl",
+          "margin": 2.48
+        },
+        {
+          "year": 2021,
+          "week": 3,
+          "scoreA": 110.84,
+          "scoreB": 135.04,
+          "winner": "Stover",
+          "margin": 24.2
+        },
+        {
+          "year": 2021,
+          "week": 12,
+          "scoreA": 104.6,
+          "scoreB": 109.98,
+          "winner": "Stover",
+          "margin": 5.38
+        },
+        {
+          "year": 2022,
+          "week": 6,
+          "scoreA": 109.46,
+          "scoreB": 96.12,
+          "winner": "Kuhl",
+          "margin": 13.34
+        },
+        {
+          "year": 2023,
+          "week": 2,
+          "scoreA": 81.24,
+          "scoreB": 97.88,
+          "winner": "Stover",
+          "margin": 16.64
+        },
+        {
+          "year": 2023,
+          "week": 11,
+          "scoreA": 77.34,
+          "scoreB": 128.6,
+          "winner": "Stover",
+          "margin": 51.26
+        },
+        {
+          "year": 2024,
+          "week": 6,
+          "scoreA": 133.7,
+          "scoreB": 109.76,
+          "winner": "Kuhl",
+          "margin": 23.94
+        },
+        {
+          "year": 2025,
+          "week": 2,
+          "scoreA": 97.66,
+          "scoreB": 85.44,
+          "winner": "Kuhl",
+          "margin": 12.22
+        },
+        {
+          "year": 2025,
+          "week": 11,
+          "scoreA": 112.44,
+          "scoreB": 86.1,
+          "winner": "Kuhl",
+          "margin": 26.34
+        },
+        {
+          "year": 2026,
+          "week": 2,
+          "scoreA": 56.32,
+          "scoreB": 129.26,
+          "winner": "Stover",
+          "margin": 72.94
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Kuhl",
+        "Thommy"
+      ],
+      "played": 14,
+      "record": {
+        "Kuhl": 4,
+        "Thommy": 10,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Kuhl": 1404.62,
+        "Thommy": 1602.98
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Thommy",
+        "length": 6,
+        "start": {
+          "year": 2023,
+          "week": 1
+        },
+        "end": {
+          "year": 2026,
+          "week": 7
+        }
+      },
+      "closestMeeting": {
+        "year": 2020,
+        "week": 1,
+        "margin": 0.28,
+        "winner": "Kuhl"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 7,
+        "scoreA": 100.3,
+        "scoreB": 133.12,
+        "winner": "Thommy",
+        "margin": 32.82
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 4,
+          "scoreA": 92.68,
+          "scoreB": 124.52,
+          "winner": "Thommy",
+          "margin": 31.84
+        },
+        {
+          "year": 2018,
+          "week": 12,
+          "scoreA": 97.64,
+          "scoreB": 107.12,
+          "winner": "Thommy",
+          "margin": 9.48
+        },
+        {
+          "year": 2019,
+          "week": 8,
+          "scoreA": 105.28,
+          "scoreB": 99.88,
+          "winner": "Kuhl",
+          "margin": 5.4
+        },
+        {
+          "year": 2020,
+          "week": 1,
+          "scoreA": 129.16,
+          "scoreB": 128.88,
+          "winner": "Kuhl",
+          "margin": 0.28
+        },
+        {
+          "year": 2020,
+          "week": 10,
+          "scoreA": 107.54,
+          "scoreB": 105.86,
+          "winner": "Kuhl",
+          "margin": 1.68
+        },
+        {
+          "year": 2021,
+          "week": 8,
+          "scoreA": 122.9,
+          "scoreB": 143.5,
+          "winner": "Thommy",
+          "margin": 20.6
+        },
+        {
+          "year": 2022,
+          "week": 2,
+          "scoreA": 95.38,
+          "scoreB": 120.72,
+          "winner": "Thommy",
+          "margin": 25.34
+        },
+        {
+          "year": 2022,
+          "week": 11,
+          "scoreA": 118.08,
+          "scoreB": 83.36,
+          "winner": "Kuhl",
+          "margin": 34.72
+        },
+        {
+          "year": 2023,
+          "week": 1,
+          "scoreA": 76.74,
+          "scoreB": 107.46,
+          "winner": "Thommy",
+          "margin": 30.72
+        },
+        {
+          "year": 2023,
+          "week": 10,
+          "scoreA": 93.2,
+          "scoreB": 110.82,
+          "winner": "Thommy",
+          "margin": 17.62
+        },
+        {
+          "year": 2024,
+          "week": 5,
+          "scoreA": 89.24,
+          "scoreB": 126.16,
+          "winner": "Thommy",
+          "margin": 36.92
+        },
+        {
+          "year": 2024,
+          "week": 14,
+          "scoreA": 94.3,
+          "scoreB": 105.34,
+          "winner": "Thommy",
+          "margin": 11.04
+        },
+        {
+          "year": 2025,
+          "week": 7,
+          "scoreA": 82.18,
+          "scoreB": 106.24,
+          "winner": "Thommy",
+          "margin": 24.06
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "scoreA": 100.3,
+          "scoreB": 133.12,
+          "winner": "Thommy",
+          "margin": 32.82
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Birch",
+        "Stilly"
+      ],
+      "played": 13,
+      "record": {
+        "Birch": 7,
+        "Stilly": 6,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Birch": 1477.22,
+        "Stilly": 1231.3
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Birch",
+        "length": 6,
+        "start": {
+          "year": 2018,
+          "week": 12
+        },
+        "end": {
+          "year": 2022,
+          "week": 9
+        }
+      },
+      "closestMeeting": {
+        "year": 2022,
+        "week": 9,
+        "margin": 2.2,
+        "winner": "Birch"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 8,
+        "scoreA": 96.9,
+        "scoreB": 113.58,
+        "winner": "Stilly",
+        "margin": 16.68
+      },
+      "games": [
+        {
+          "year": 2017,
+          "week": 5,
+          "scoreA": 72,
+          "scoreB": 90,
+          "winner": "Stilly",
+          "margin": 18
+        },
+        {
+          "year": 2018,
+          "week": 12,
+          "scoreA": 150.12,
+          "scoreB": 91.86,
+          "winner": "Birch",
+          "margin": 58.26
+        },
+        {
+          "year": 2019,
+          "week": 9,
+          "scoreA": 147.94,
+          "scoreB": 75,
+          "winner": "Birch",
+          "margin": 72.94
+        },
+        {
+          "year": 2020,
+          "week": 1,
+          "scoreA": 148.2,
+          "scoreB": 88.1,
+          "winner": "Birch",
+          "margin": 60.1
+        },
+        {
+          "year": 2020,
+          "week": 10,
+          "scoreA": 83.9,
+          "scoreB": 60.26,
+          "winner": "Birch",
+          "margin": 23.64
+        },
+        {
+          "year": 2021,
+          "week": 5,
+          "scoreA": 167.28,
+          "scoreB": 85.58,
+          "winner": "Birch",
+          "margin": 81.7
+        },
+        {
+          "year": 2022,
+          "week": 9,
+          "scoreA": 94.8,
+          "scoreB": 92.6,
+          "winner": "Birch",
+          "margin": 2.2
+        },
+        {
+          "year": 2023,
+          "week": 7,
+          "scoreA": 64.68,
+          "scoreB": 90.4,
+          "winner": "Stilly",
+          "margin": 25.72
+        },
+        {
+          "year": 2024,
+          "week": 5,
+          "scoreA": 95.34,
+          "scoreB": 99.92,
+          "winner": "Stilly",
+          "margin": 4.58
+        },
+        {
+          "year": 2024,
+          "week": 14,
+          "scoreA": 152.58,
+          "scoreB": 116.88,
+          "winner": "Birch",
+          "margin": 35.7
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "scoreA": 103.86,
+          "scoreB": 108.98,
+          "winner": "Stilly",
+          "margin": 5.12
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "scoreA": 99.62,
+          "scoreB": 118.14,
+          "winner": "Stilly",
+          "margin": 18.52
+        },
+        {
+          "year": 2026,
+          "week": 8,
+          "scoreA": 96.9,
+          "scoreB": 113.58,
+          "winner": "Stilly",
+          "margin": 16.68
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Birch",
+        "Stover"
+      ],
+      "played": 13,
+      "record": {
+        "Birch": 10,
+        "Stover": 3,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Birch": 1447.52,
+        "Stover": 1275.58
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Birch",
+        "length": 4,
+        "start": {
+          "year": 2017,
+          "week": 2
+        },
+        "end": {
+          "year": 2018,
+          "week": 11
+        }
+      },
+      "closestMeeting": {
+        "year": 2022,
+        "week": 7,
+        "margin": 5.9,
+        "winner": "Stover"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 1,
+        "scoreA": 160.26,
+        "scoreB": 70.8,
+        "winner": "Birch",
+        "margin": 89.46
+      },
+      "games": [
+        {
+          "year": 2017,
+          "week": 2,
+          "scoreA": 72,
+          "scoreB": 63,
+          "winner": "Birch",
+          "margin": 9
+        },
+        {
+          "year": 2017,
+          "week": 11,
+          "scoreA": 123,
+          "scoreB": 106,
+          "winner": "Birch",
+          "margin": 17
+        },
+        {
+          "year": 2018,
+          "week": 3,
+          "scoreA": 101.06,
+          "scoreB": 92.72,
+          "winner": "Birch",
+          "margin": 8.34
+        },
+        {
+          "year": 2018,
+          "week": 11,
+          "scoreA": 118.62,
+          "scoreB": 94.2,
+          "winner": "Birch",
+          "margin": 24.42
+        },
+        {
+          "year": 2019,
+          "week": 8,
+          "scoreA": 118.78,
+          "scoreB": 125.56,
+          "winner": "Stover",
+          "margin": 6.78
+        },
+        {
+          "year": 2020,
+          "week": 7,
+          "scoreA": 129.52,
+          "scoreB": 84.42,
+          "winner": "Birch",
+          "margin": 45.1
+        },
+        {
+          "year": 2021,
+          "week": 9,
+          "scoreA": 115.24,
+          "scoreB": 108.44,
+          "winner": "Birch",
+          "margin": 6.8
+        },
+        {
+          "year": 2022,
+          "week": 7,
+          "scoreA": 113.92,
+          "scoreB": 119.82,
+          "winner": "Stover",
+          "margin": 5.9
+        },
+        {
+          "year": 2023,
+          "week": 6,
+          "scoreA": 106.98,
+          "scoreB": 92.38,
+          "winner": "Birch",
+          "margin": 14.6
+        },
+        {
+          "year": 2024,
+          "week": 3,
+          "scoreA": 101.42,
+          "scoreB": 81.04,
+          "winner": "Birch",
+          "margin": 20.38
+        },
+        {
+          "year": 2024,
+          "week": 12,
+          "scoreA": 68.7,
+          "scoreB": 133.86,
+          "winner": "Stover",
+          "margin": 65.16
+        },
+        {
+          "year": 2025,
+          "week": 7,
+          "scoreA": 118.02,
+          "scoreB": 103.34,
+          "winner": "Birch",
+          "margin": 14.68
+        },
+        {
+          "year": 2026,
+          "week": 1,
+          "scoreA": 160.26,
+          "scoreB": 70.8,
+          "winner": "Birch",
+          "margin": 89.46
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Mitch",
+        "Thommy"
+      ],
+      "played": 13,
+      "record": {
+        "Mitch": 8,
+        "Thommy": 5,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Mitch": 1608.16,
+        "Thommy": 1482
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Mitch",
+        "length": 4,
+        "start": {
+          "year": 2018,
+          "week": 13
+        },
+        "end": {
+          "year": 2021,
+          "week": 3
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 6,
+        "margin": 8.46,
+        "winner": "Mitch"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 5,
+        "scoreA": 172.9,
+        "scoreB": 124.94,
+        "winner": "Mitch",
+        "margin": 47.96
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 13,
+          "scoreA": 140.06,
+          "scoreB": 73.02,
+          "winner": "Mitch",
+          "margin": 67.04
+        },
+        {
+          "year": 2019,
+          "week": 9,
+          "scoreA": 103.4,
+          "scoreB": 94.66,
+          "winner": "Mitch",
+          "margin": 8.74
+        },
+        {
+          "year": 2020,
+          "week": 7,
+          "scoreA": 156.68,
+          "scoreB": 118.38,
+          "winner": "Mitch",
+          "margin": 38.3
+        },
+        {
+          "year": 2021,
+          "week": 3,
+          "scoreA": 130.62,
+          "scoreB": 93.72,
+          "winner": "Mitch",
+          "margin": 36.9
+        },
+        {
+          "year": 2021,
+          "week": 12,
+          "scoreA": 111.1,
+          "scoreB": 136.2,
+          "winner": "Thommy",
+          "margin": 25.1
+        },
+        {
+          "year": 2022,
+          "week": 4,
+          "scoreA": 114.98,
+          "scoreB": 139.36,
+          "winner": "Thommy",
+          "margin": 24.38
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "scoreA": 161.64,
+          "scoreB": 102.84,
+          "winner": "Mitch",
+          "margin": 58.8
+        },
+        {
+          "year": 2023,
+          "week": 4,
+          "scoreA": 85.78,
+          "scoreB": 145.9,
+          "winner": "Thommy",
+          "margin": 60.12
+        },
+        {
+          "year": 2023,
+          "week": 13,
+          "scoreA": 101.68,
+          "scoreB": 142.02,
+          "winner": "Thommy",
+          "margin": 40.34
+        },
+        {
+          "year": 2024,
+          "week": 3,
+          "scoreA": 71.38,
+          "scoreB": 101.96,
+          "winner": "Thommy",
+          "margin": 30.58
+        },
+        {
+          "year": 2024,
+          "week": 12,
+          "scoreA": 123.1,
+          "scoreB": 82.62,
+          "winner": "Mitch",
+          "margin": 40.48
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "scoreA": 134.84,
+          "scoreB": 126.38,
+          "winner": "Mitch",
+          "margin": 8.46
+        },
+        {
+          "year": 2026,
+          "week": 5,
+          "scoreA": 172.9,
+          "scoreB": 124.94,
+          "winner": "Mitch",
+          "margin": 47.96
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Mitch",
+        "Tony"
+      ],
+      "played": 13,
+      "record": {
+        "Mitch": 9,
+        "Tony": 4,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Mitch": 1661.18,
+        "Tony": 1452.02
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Mitch",
+        "length": 3,
+        "start": {
+          "year": 2019,
+          "week": 7
+        },
+        "end": {
+          "year": 2021,
+          "week": 5
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 2,
+        "margin": 2.2,
+        "winner": "Tony"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 8,
+        "scoreA": 123.16,
+        "scoreB": 99.3,
+        "winner": "Mitch",
+        "margin": 23.86
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 5,
+          "scoreA": 103.52,
+          "scoreB": 86.3,
+          "winner": "Mitch",
+          "margin": 17.22
+        },
+        {
+          "year": 2018,
+          "week": 9,
+          "scoreA": 95.86,
+          "scoreB": 102.28,
+          "winner": "Tony",
+          "margin": 6.42
+        },
+        {
+          "year": 2019,
+          "week": 7,
+          "scoreA": 127.34,
+          "scoreB": 59.12,
+          "winner": "Mitch",
+          "margin": 68.22
+        },
+        {
+          "year": 2020,
+          "week": 9,
+          "scoreA": 142.44,
+          "scoreB": 129.42,
+          "winner": "Mitch",
+          "margin": 13.02
+        },
+        {
+          "year": 2021,
+          "week": 5,
+          "scoreA": 163.1,
+          "scoreB": 143.9,
+          "winner": "Mitch",
+          "margin": 19.2
+        },
+        {
+          "year": 2022,
+          "week": 7,
+          "scoreA": 105.14,
+          "scoreB": 134.56,
+          "winner": "Tony",
+          "margin": 29.42
+        },
+        {
+          "year": 2023,
+          "week": 2,
+          "scoreA": 121.8,
+          "scoreB": 143.58,
+          "winner": "Tony",
+          "margin": 21.78
+        },
+        {
+          "year": 2023,
+          "week": 11,
+          "scoreA": 135.4,
+          "scoreB": 80.46,
+          "winner": "Mitch",
+          "margin": 54.94
+        },
+        {
+          "year": 2024,
+          "week": 5,
+          "scoreA": 128.94,
+          "scoreB": 109.24,
+          "winner": "Mitch",
+          "margin": 19.7
+        },
+        {
+          "year": 2024,
+          "week": 14,
+          "scoreA": 146.66,
+          "scoreB": 126.94,
+          "winner": "Mitch",
+          "margin": 19.72
+        },
+        {
+          "year": 2025,
+          "week": 2,
+          "scoreA": 126.3,
+          "scoreB": 128.5,
+          "winner": "Tony",
+          "margin": 2.2
+        },
+        {
+          "year": 2025,
+          "week": 11,
+          "scoreA": 141.52,
+          "scoreB": 108.42,
+          "winner": "Mitch",
+          "margin": 33.1
+        },
+        {
+          "year": 2026,
+          "week": 8,
+          "scoreA": 123.16,
+          "scoreB": 99.3,
+          "winner": "Mitch",
+          "margin": 23.86
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Stew",
+        "Tony"
+      ],
+      "played": 13,
+      "record": {
+        "Stew": 6,
+        "Tony": 7,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Stew": 1315.54,
+        "Tony": 1324.08
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Tony",
+        "length": 5,
+        "start": {
+          "year": 2021,
+          "week": 9
+        },
+        "end": {
+          "year": 2024,
+          "week": 1
+        }
+      },
+      "closestMeeting": {
+        "year": 2023,
+        "week": 1,
+        "margin": 1.42,
+        "winner": "Tony"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 6,
+        "scoreA": 114.44,
+        "scoreB": 74.72,
+        "winner": "Stew",
+        "margin": 39.72
+      },
+      "games": [
+        {
+          "year": 2017,
+          "week": 4,
+          "scoreA": 76,
+          "scoreB": 89,
+          "winner": "Tony",
+          "margin": 13
+        },
+        {
+          "year": 2018,
+          "week": 4,
+          "scoreA": 116.6,
+          "scoreB": 109.76,
+          "winner": "Stew",
+          "margin": 6.84
+        },
+        {
+          "year": 2018,
+          "week": 13,
+          "scoreA": 120.56,
+          "scoreB": 111.24,
+          "winner": "Stew",
+          "margin": 9.32
+        },
+        {
+          "year": 2019,
+          "week": 9,
+          "scoreA": 116,
+          "scoreB": 108.54,
+          "winner": "Stew",
+          "margin": 7.46
+        },
+        {
+          "year": 2020,
+          "week": 6,
+          "scoreA": 124.14,
+          "scoreB": 91.42,
+          "winner": "Stew",
+          "margin": 32.72
+        },
+        {
+          "year": 2021,
+          "week": 9,
+          "scoreA": 66.9,
+          "scoreB": 114.06,
+          "winner": "Tony",
+          "margin": 47.16
+        },
+        {
+          "year": 2022,
+          "week": 6,
+          "scoreA": 95.5,
+          "scoreB": 106.38,
+          "winner": "Tony",
+          "margin": 10.88
+        },
+        {
+          "year": 2023,
+          "week": 1,
+          "scoreA": 99.44,
+          "scoreB": 100.86,
+          "winner": "Tony",
+          "margin": 1.42
+        },
+        {
+          "year": 2023,
+          "week": 10,
+          "scoreA": 85.04,
+          "scoreB": 109.72,
+          "winner": "Tony",
+          "margin": 24.68
+        },
+        {
+          "year": 2024,
+          "week": 1,
+          "scoreA": 90.32,
+          "scoreB": 94.86,
+          "winner": "Tony",
+          "margin": 4.54
+        },
+        {
+          "year": 2024,
+          "week": 10,
+          "scoreA": 91.1,
+          "scoreB": 86.38,
+          "winner": "Stew",
+          "margin": 4.72
+        },
+        {
+          "year": 2025,
+          "week": 7,
+          "scoreA": 119.5,
+          "scoreB": 127.14,
+          "winner": "Tony",
+          "margin": 7.64
+        },
+        {
+          "year": 2026,
+          "week": 6,
+          "scoreA": 114.44,
+          "scoreB": 74.72,
+          "winner": "Stew",
+          "margin": 39.72
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Stover",
+        "Tony"
+      ],
+      "played": 13,
+      "record": {
+        "Stover": 7,
+        "Tony": 6,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Stover": 1381.08,
+        "Tony": 1333.32
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Stover",
+        "length": 2,
+        "start": {
+          "year": 2020,
+          "week": 8
+        },
+        "end": {
+          "year": 2021,
+          "week": 2
+        }
+      },
+      "closestMeeting": {
+        "year": 2024,
+        "week": 11,
+        "margin": 0.24,
+        "winner": "Tony"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 7,
+        "scoreA": 111.2,
+        "scoreB": 112.12,
+        "winner": "Tony",
+        "margin": 0.92
+      },
+      "games": [
+        {
+          "year": 2017,
+          "week": 8,
+          "scoreA": 57,
+          "scoreB": 99,
+          "winner": "Tony",
+          "margin": 42
+        },
+        {
+          "year": 2018,
+          "week": 10,
+          "scoreA": 98.26,
+          "scoreB": 85.54,
+          "winner": "Stover",
+          "margin": 12.72
+        },
+        {
+          "year": 2019,
+          "week": 6,
+          "scoreA": 73.92,
+          "scoreB": 136.5,
+          "winner": "Tony",
+          "margin": 62.58
+        },
+        {
+          "year": 2020,
+          "week": 8,
+          "scoreA": 84.34,
+          "scoreB": 83.42,
+          "winner": "Stover",
+          "margin": 0.92
+        },
+        {
+          "year": 2021,
+          "week": 2,
+          "scoreA": 146.52,
+          "scoreB": 76.62,
+          "winner": "Stover",
+          "margin": 69.9
+        },
+        {
+          "year": 2021,
+          "week": 11,
+          "scoreA": 121.48,
+          "scoreB": 168.88,
+          "winner": "Tony",
+          "margin": 47.4
+        },
+        {
+          "year": 2022,
+          "week": 5,
+          "scoreA": 132.68,
+          "scoreB": 129.5,
+          "winner": "Stover",
+          "margin": 3.18
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "scoreA": 104.18,
+          "scoreB": 60.66,
+          "winner": "Stover",
+          "margin": 43.52
+        },
+        {
+          "year": 2023,
+          "week": 9,
+          "scoreA": 78.82,
+          "scoreB": 98.98,
+          "winner": "Tony",
+          "margin": 20.16
+        },
+        {
+          "year": 2024,
+          "week": 2,
+          "scoreA": 120.02,
+          "scoreB": 92.4,
+          "winner": "Stover",
+          "margin": 27.62
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "scoreA": 131.44,
+          "scoreB": 131.68,
+          "winner": "Tony",
+          "margin": 0.24
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "scoreA": 121.22,
+          "scoreB": 58.02,
+          "winner": "Stover",
+          "margin": 63.2
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "scoreA": 111.2,
+          "scoreB": 112.12,
+          "winner": "Tony",
+          "margin": 0.92
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Birch",
+        "Stew"
+      ],
+      "played": 12,
+      "record": {
+        "Birch": 5,
+        "Stew": 7,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Birch": 1251.04,
+        "Stew": 1303.92
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Stew",
+        "length": 3,
+        "start": {
+          "year": 2022,
+          "week": 4
+        },
+        "end": {
+          "year": 2023,
+          "week": 5
+        }
+      },
+      "closestMeeting": {
+        "year": 2024,
+        "week": 7,
+        "margin": 2.42,
+        "winner": "Stew"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 3,
+        "scoreA": 128.94,
+        "scoreB": 123.22,
+        "winner": "Birch",
+        "margin": 5.72
+      },
+      "games": [
+        {
+          "year": 2017,
+          "week": 8,
+          "scoreA": 111,
+          "scoreB": 82,
+          "winner": "Birch",
+          "margin": 29
+        },
+        {
+          "year": 2018,
+          "week": 8,
+          "scoreA": 109.62,
+          "scoreB": 121.96,
+          "winner": "Stew",
+          "margin": 12.34
+        },
+        {
+          "year": 2019,
+          "week": 5,
+          "scoreA": 117.24,
+          "scoreB": 108.84,
+          "winner": "Birch",
+          "margin": 8.4
+        },
+        {
+          "year": 2020,
+          "week": 5,
+          "scoreA": 108.34,
+          "scoreB": 121.32,
+          "winner": "Stew",
+          "margin": 12.98
+        },
+        {
+          "year": 2021,
+          "week": 8,
+          "scoreA": 116.66,
+          "scoreB": 97,
+          "winner": "Birch",
+          "margin": 19.66
+        },
+        {
+          "year": 2022,
+          "week": 4,
+          "scoreA": 89.2,
+          "scoreB": 135.16,
+          "winner": "Stew",
+          "margin": 45.96
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "scoreA": 73.5,
+          "scoreB": 114,
+          "winner": "Stew",
+          "margin": 40.5
+        },
+        {
+          "year": 2023,
+          "week": 5,
+          "scoreA": 66.8,
+          "scoreB": 94.36,
+          "winner": "Stew",
+          "margin": 27.56
+        },
+        {
+          "year": 2023,
+          "week": 14,
+          "scoreA": 105.44,
+          "scoreB": 71.54,
+          "winner": "Birch",
+          "margin": 33.9
+        },
+        {
+          "year": 2024,
+          "week": 7,
+          "scoreA": 94.92,
+          "scoreB": 97.34,
+          "winner": "Stew",
+          "margin": 2.42
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "scoreA": 129.38,
+          "scoreB": 137.18,
+          "winner": "Stew",
+          "margin": 7.8
+        },
+        {
+          "year": 2026,
+          "week": 3,
+          "scoreA": 128.94,
+          "scoreB": 123.22,
+          "winner": "Birch",
+          "margin": 5.72
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Kuhl",
+        "Stew"
+      ],
+      "played": 12,
+      "record": {
+        "Kuhl": 7,
+        "Stew": 5,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Kuhl": 1390.34,
+        "Stew": 1325.8
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Kuhl",
+        "length": 5,
+        "start": {
+          "year": 2018,
+          "week": 11
+        },
+        "end": {
+          "year": 2021,
+          "week": 4
+        }
+      },
+      "closestMeeting": {
+        "year": 2021,
+        "week": 13,
+        "margin": 4.96,
+        "winner": "Stew"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 5,
+        "scoreA": 95.1,
+        "scoreB": 142.56,
+        "winner": "Stew",
+        "margin": 47.46
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 11,
+          "scoreA": 118.62,
+          "scoreB": 90.88,
+          "winner": "Kuhl",
+          "margin": 27.74
+        },
+        {
+          "year": 2019,
+          "week": 7,
+          "scoreA": 119.64,
+          "scoreB": 108.62,
+          "winner": "Kuhl",
+          "margin": 11.02
+        },
+        {
+          "year": 2020,
+          "week": 3,
+          "scoreA": 157.38,
+          "scoreB": 89.54,
+          "winner": "Kuhl",
+          "margin": 67.84
+        },
+        {
+          "year": 2020,
+          "week": 12,
+          "scoreA": 119.64,
+          "scoreB": 82.92,
+          "winner": "Kuhl",
+          "margin": 36.72
+        },
+        {
+          "year": 2021,
+          "week": 4,
+          "scoreA": 117.52,
+          "scoreB": 111.16,
+          "winner": "Kuhl",
+          "margin": 6.36
+        },
+        {
+          "year": 2021,
+          "week": 13,
+          "scoreA": 108.46,
+          "scoreB": 113.42,
+          "winner": "Stew",
+          "margin": 4.96
+        },
+        {
+          "year": 2022,
+          "week": 9,
+          "scoreA": 120,
+          "scoreB": 127.22,
+          "winner": "Stew",
+          "margin": 7.22
+        },
+        {
+          "year": 2023,
+          "week": 6,
+          "scoreA": 114.44,
+          "scoreB": 99.12,
+          "winner": "Kuhl",
+          "margin": 15.32
+        },
+        {
+          "year": 2024,
+          "week": 2,
+          "scoreA": 99.04,
+          "scoreB": 137.58,
+          "winner": "Stew",
+          "margin": 38.54
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "scoreA": 128.44,
+          "scoreB": 96.18,
+          "winner": "Kuhl",
+          "margin": 32.26
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "scoreA": 92.06,
+          "scoreB": 126.6,
+          "winner": "Stew",
+          "margin": 34.54
+        },
+        {
+          "year": 2026,
+          "week": 5,
+          "scoreA": 95.1,
+          "scoreB": 142.56,
+          "winner": "Stew",
+          "margin": 47.46
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Kuhl",
+        "Tony"
+      ],
+      "played": 12,
+      "record": {
+        "Kuhl": 2,
+        "Tony": 10,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Kuhl": 1295.98,
+        "Tony": 1480.02
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Tony",
+        "length": 6,
+        "start": {
+          "year": 2023,
+          "week": 7
+        },
+        "end": {
+          "year": 2026,
+          "week": 1
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 4,
+        "margin": 1.36,
+        "winner": "Tony"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 1,
+        "scoreA": 105.92,
+        "scoreB": 153.86,
+        "winner": "Tony",
+        "margin": 47.94
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 8,
+          "scoreA": 74.44,
+          "scoreB": 118.58,
+          "winner": "Tony",
+          "margin": 44.14
+        },
+        {
+          "year": 2019,
+          "week": 5,
+          "scoreA": 113.34,
+          "scoreB": 148.74,
+          "winner": "Tony",
+          "margin": 35.4
+        },
+        {
+          "year": 2020,
+          "week": 5,
+          "scoreA": 93.96,
+          "scoreB": 109.22,
+          "winner": "Tony",
+          "margin": 15.26
+        },
+        {
+          "year": 2021,
+          "week": 7,
+          "scoreA": 96.04,
+          "scoreB": 151.46,
+          "winner": "Tony",
+          "margin": 55.42
+        },
+        {
+          "year": 2022,
+          "week": 1,
+          "scoreA": 129.98,
+          "scoreB": 113.42,
+          "winner": "Kuhl",
+          "margin": 16.56
+        },
+        {
+          "year": 2022,
+          "week": 10,
+          "scoreA": 112.3,
+          "scoreB": 77.66,
+          "winner": "Kuhl",
+          "margin": 34.64
+        },
+        {
+          "year": 2023,
+          "week": 7,
+          "scoreA": 128.86,
+          "scoreB": 132.38,
+          "winner": "Tony",
+          "margin": 3.52
+        },
+        {
+          "year": 2024,
+          "week": 3,
+          "scoreA": 105.28,
+          "scoreB": 109.2,
+          "winner": "Tony",
+          "margin": 3.92
+        },
+        {
+          "year": 2024,
+          "week": 12,
+          "scoreA": 103.86,
+          "scoreB": 115.28,
+          "winner": "Tony",
+          "margin": 11.42
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "scoreA": 126.02,
+          "scoreB": 127.38,
+          "winner": "Tony",
+          "margin": 1.36
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "scoreA": 105.98,
+          "scoreB": 122.84,
+          "winner": "Tony",
+          "margin": 16.86
+        },
+        {
+          "year": 2026,
+          "week": 1,
+          "scoreA": 105.92,
+          "scoreB": 153.86,
+          "winner": "Tony",
+          "margin": 47.94
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Kuhl",
+        "Mitch"
+      ],
+      "played": 11,
+      "record": {
+        "Kuhl": 6,
+        "Mitch": 5,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Kuhl": 1219.46,
+        "Mitch": 1332.68
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Kuhl",
+        "length": 3,
+        "start": {
+          "year": 2018,
+          "week": 6
+        },
+        "end": {
+          "year": 2020,
+          "week": 2
+        }
+      },
+      "closestMeeting": {
+        "year": 2018,
+        "week": 6,
+        "margin": 0.88,
+        "winner": "Kuhl"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 3,
+        "scoreA": 76.16,
+        "scoreB": 91.62,
+        "winner": "Mitch",
+        "margin": 15.46
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 6,
+          "scoreA": 127.6,
+          "scoreB": 126.72,
+          "winner": "Kuhl",
+          "margin": 0.88
+        },
+        {
+          "year": 2019,
+          "week": 6,
+          "scoreA": 119.9,
+          "scoreB": 106.46,
+          "winner": "Kuhl",
+          "margin": 13.44
+        },
+        {
+          "year": 2020,
+          "week": 2,
+          "scoreA": 137.04,
+          "scoreB": 125.88,
+          "winner": "Kuhl",
+          "margin": 11.16
+        },
+        {
+          "year": 2020,
+          "week": 11,
+          "scoreA": 94.98,
+          "scoreB": 161.04,
+          "winner": "Mitch",
+          "margin": 66.06
+        },
+        {
+          "year": 2021,
+          "week": 6,
+          "scoreA": 119.68,
+          "scoreB": 115.62,
+          "winner": "Kuhl",
+          "margin": 4.06
+        },
+        {
+          "year": 2022,
+          "week": 8,
+          "scoreA": 98.72,
+          "scoreB": 121.98,
+          "winner": "Mitch",
+          "margin": 23.26
+        },
+        {
+          "year": 2023,
+          "week": 5,
+          "scoreA": 124,
+          "scoreB": 164.76,
+          "winner": "Mitch",
+          "margin": 40.76
+        },
+        {
+          "year": 2023,
+          "week": 14,
+          "scoreA": 110.02,
+          "scoreB": 83.84,
+          "winner": "Kuhl",
+          "margin": 26.18
+        },
+        {
+          "year": 2024,
+          "week": 8,
+          "scoreA": 132.28,
+          "scoreB": 114.98,
+          "winner": "Kuhl",
+          "margin": 17.3
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "scoreA": 79.08,
+          "scoreB": 119.78,
+          "winner": "Mitch",
+          "margin": 40.7
+        },
+        {
+          "year": 2026,
+          "week": 3,
+          "scoreA": 76.16,
+          "scoreB": 91.62,
+          "winner": "Mitch",
+          "margin": 15.46
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Kuhl",
+        "Stilly"
+      ],
+      "played": 11,
+      "record": {
+        "Kuhl": 5,
+        "Stilly": 6,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Kuhl": 1249.24,
+        "Stilly": 1267.12
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Stilly",
+        "length": 3,
+        "start": {
+          "year": 2019,
+          "week": 2
+        },
+        "end": {
+          "year": 2020,
+          "week": 7
+        }
+      },
+      "closestMeeting": {
+        "year": 2024,
+        "week": 4,
+        "margin": 6.02,
+        "winner": "Stilly"
+      },
+      "latestMeeting": {
+        "year": 2025,
+        "week": 6,
+        "scoreA": 109.76,
+        "scoreB": 102.54,
+        "winner": "Kuhl",
+        "margin": 7.22
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 3,
+          "scoreA": 128.04,
+          "scoreB": 69.9,
+          "winner": "Kuhl",
+          "margin": 58.14
+        },
+        {
+          "year": 2019,
+          "week": 2,
+          "scoreA": 121.4,
+          "scoreB": 139.04,
+          "winner": "Stilly",
+          "margin": 17.64
+        },
+        {
+          "year": 2019,
+          "week": 11,
+          "scoreA": 103.72,
+          "scoreB": 113.06,
+          "winner": "Stilly",
+          "margin": 9.34
+        },
+        {
+          "year": 2020,
+          "week": 7,
+          "scoreA": 87.6,
+          "scoreB": 104.18,
+          "winner": "Stilly",
+          "margin": 16.58
+        },
+        {
+          "year": 2021,
+          "week": 9,
+          "scoreA": 110.54,
+          "scoreB": 81.58,
+          "winner": "Kuhl",
+          "margin": 28.96
+        },
+        {
+          "year": 2022,
+          "week": 4,
+          "scoreA": 150.02,
+          "scoreB": 113.06,
+          "winner": "Kuhl",
+          "margin": 36.96
+        },
+        {
+          "year": 2022,
+          "week": 13,
+          "scoreA": 139.02,
+          "scoreB": 127.18,
+          "winner": "Kuhl",
+          "margin": 11.84
+        },
+        {
+          "year": 2023,
+          "week": 9,
+          "scoreA": 88.2,
+          "scoreB": 137.62,
+          "winner": "Stilly",
+          "margin": 49.42
+        },
+        {
+          "year": 2024,
+          "week": 4,
+          "scoreA": 110.7,
+          "scoreB": 116.72,
+          "winner": "Stilly",
+          "margin": 6.02
+        },
+        {
+          "year": 2024,
+          "week": 13,
+          "scoreA": 100.24,
+          "scoreB": 162.24,
+          "winner": "Stilly",
+          "margin": 62
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "scoreA": 109.76,
+          "scoreB": 102.54,
+          "winner": "Kuhl",
+          "margin": 7.22
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Mitch",
+        "Stover"
+      ],
+      "played": 10,
+      "record": {
+        "Mitch": 7,
+        "Stover": 3,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Mitch": 1138.9,
+        "Stover": 1039.4
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Mitch",
+        "length": 4,
+        "start": {
+          "year": 2019,
+          "week": 2
+        },
+        "end": {
+          "year": 2021,
+          "week": 8
+        }
+      },
+      "closestMeeting": {
+        "year": 2018,
+        "week": 7,
+        "margin": 0.66,
+        "winner": "Stover"
+      },
+      "latestMeeting": {
+        "year": 2025,
+        "week": 13,
+        "scoreA": 96.2,
+        "scoreB": 76.1,
+        "winner": "Mitch",
+        "margin": 20.1
+      },
+      "games": [
+        {
+          "year": 2018,
+          "week": 7,
+          "scoreA": 96.32,
+          "scoreB": 96.98,
+          "winner": "Stover",
+          "margin": 0.66
+        },
+        {
+          "year": 2019,
+          "week": 2,
+          "scoreA": 117.06,
+          "scoreB": 104.42,
+          "winner": "Mitch",
+          "margin": 12.64
+        },
+        {
+          "year": 2019,
+          "week": 11,
+          "scoreA": 140.44,
+          "scoreB": 120.06,
+          "winner": "Mitch",
+          "margin": 20.38
+        },
+        {
+          "year": 2020,
+          "week": 5,
+          "scoreA": 140.96,
+          "scoreB": 117.88,
+          "winner": "Mitch",
+          "margin": 23.08
+        },
+        {
+          "year": 2021,
+          "week": 8,
+          "scoreA": 115.76,
+          "scoreB": 76.12,
+          "winner": "Mitch",
+          "margin": 39.64
+        },
+        {
+          "year": 2022,
+          "week": 9,
+          "scoreA": 95.54,
+          "scoreB": 128.74,
+          "winner": "Stover",
+          "margin": 33.2
+        },
+        {
+          "year": 2023,
+          "week": 7,
+          "scoreA": 122.56,
+          "scoreB": 84.34,
+          "winner": "Mitch",
+          "margin": 38.22
+        },
+        {
+          "year": 2024,
+          "week": 7,
+          "scoreA": 95.8,
+          "scoreB": 127.16,
+          "winner": "Stover",
+          "margin": 31.36
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "scoreA": 118.26,
+          "scoreB": 107.6,
+          "winner": "Mitch",
+          "margin": 10.66
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "scoreA": 96.2,
+          "scoreB": 76.1,
+          "winner": "Mitch",
+          "margin": 20.1
+        }
+      ]
+    },
+    {
+      "managers": [
+        "JMid",
+        "Stew"
+      ],
+      "played": 5,
+      "record": {
+        "JMid": 3,
+        "Stew": 2,
+        "ties": 0
+      },
+      "totalPoints": {
+        "JMid": 559.04,
+        "Stew": 552.98
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "JMid",
+        "length": 2,
+        "start": {
+          "year": 2025,
+          "week": 4
+        },
+        "end": {
+          "year": 2025,
+          "week": 13
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 4,
+        "margin": 3.36,
+        "winner": "JMid"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 2,
+        "scoreA": 94.38,
+        "scoreB": 113.96,
+        "winner": "Stew",
+        "margin": 19.58
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 3,
+          "scoreA": 137.38,
+          "scoreB": 121.58,
+          "winner": "JMid",
+          "margin": 15.8
+        },
+        {
+          "year": 2024,
+          "week": 12,
+          "scoreA": 102.06,
+          "scoreB": 106.18,
+          "winner": "Stew",
+          "margin": 4.12
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "scoreA": 124.38,
+          "scoreB": 121.02,
+          "winner": "JMid",
+          "margin": 3.36
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "scoreA": 100.84,
+          "scoreB": 90.24,
+          "winner": "JMid",
+          "margin": 10.6
+        },
+        {
+          "year": 2026,
+          "week": 2,
+          "scoreA": 94.38,
+          "scoreB": 113.96,
+          "winner": "Stew",
+          "margin": 19.58
+        }
+      ]
+    },
+    {
+      "managers": [
+        "JMid",
+        "Stover"
+      ],
+      "played": 5,
+      "record": {
+        "JMid": 1,
+        "Stover": 4,
+        "ties": 0
+      },
+      "totalPoints": {
+        "JMid": 549.1,
+        "Stover": 555.64
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Stover",
+        "length": 3,
+        "start": {
+          "year": 2025,
+          "week": 1
+        },
+        "end": {
+          "year": 2026,
+          "week": 5
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 1,
+        "margin": 8.16,
+        "winner": "Stover"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 5,
+        "scoreA": 105.3,
+        "scoreB": 113.94,
+        "winner": "Stover",
+        "margin": 8.64
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 1,
+          "scoreA": 92.96,
+          "scoreB": 140.32,
+          "winner": "Stover",
+          "margin": 47.36
+        },
+        {
+          "year": 2024,
+          "week": 10,
+          "scoreA": 165.02,
+          "scoreB": 90.08,
+          "winner": "JMid",
+          "margin": 74.94
+        },
+        {
+          "year": 2025,
+          "week": 1,
+          "scoreA": 85.92,
+          "scoreB": 94.08,
+          "winner": "Stover",
+          "margin": 8.16
+        },
+        {
+          "year": 2025,
+          "week": 10,
+          "scoreA": 99.9,
+          "scoreB": 117.22,
+          "winner": "Stover",
+          "margin": 17.32
+        },
+        {
+          "year": 2026,
+          "week": 5,
+          "scoreA": 105.3,
+          "scoreB": 113.94,
+          "winner": "Stover",
+          "margin": 8.64
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Scott",
+        "Stilly"
+      ],
+      "played": 5,
+      "record": {
+        "Scott": 2,
+        "Stilly": 3,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Scott": 542.16,
+        "Stilly": 579.9
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Stilly",
+        "length": 3,
+        "start": {
+          "year": 2024,
+          "week": 12
+        },
+        "end": {
+          "year": 2025,
+          "week": 14
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 14,
+        "margin": 11.18,
+        "winner": "Stilly"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 1,
+        "scoreA": 134.96,
+        "scoreB": 107.94,
+        "winner": "Scott",
+        "margin": 27.02
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 3,
+          "scoreA": 120.08,
+          "scoreB": 106.76,
+          "winner": "Scott",
+          "margin": 13.32
+        },
+        {
+          "year": 2024,
+          "week": 12,
+          "scoreA": 107.92,
+          "scoreB": 140.5,
+          "winner": "Stilly",
+          "margin": 32.58
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "scoreA": 82.22,
+          "scoreB": 116.54,
+          "winner": "Stilly",
+          "margin": 34.32
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "scoreA": 96.98,
+          "scoreB": 108.16,
+          "winner": "Stilly",
+          "margin": 11.18
+        },
+        {
+          "year": 2026,
+          "week": 1,
+          "scoreA": 134.96,
+          "scoreB": 107.94,
+          "winner": "Scott",
+          "margin": 27.02
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Scott",
+        "Stover"
+      ],
+      "played": 5,
+      "record": {
+        "Scott": 3,
+        "Stover": 2,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Scott": 521.14,
+        "Stover": 589.62
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Scott",
+        "length": 3,
+        "start": {
+          "year": 2025,
+          "week": 3
+        },
+        "end": {
+          "year": 2026,
+          "week": 3
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 3,
+        "margin": 0.98,
+        "winner": "Scott"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 3,
+        "scoreA": 120.6,
+        "scoreB": 105.78,
+        "winner": "Scott",
+        "margin": 14.82
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 4,
+          "scoreA": 69.24,
+          "scoreB": 133.72,
+          "winner": "Stover",
+          "margin": 64.48
+        },
+        {
+          "year": 2024,
+          "week": 13,
+          "scoreA": 98.16,
+          "scoreB": 124.92,
+          "winner": "Stover",
+          "margin": 26.76
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "scoreA": 113.52,
+          "scoreB": 112.54,
+          "winner": "Scott",
+          "margin": 0.98
+        },
+        {
+          "year": 2025,
+          "week": 12,
+          "scoreA": 119.62,
+          "scoreB": 112.66,
+          "winner": "Scott",
+          "margin": 6.96
+        },
+        {
+          "year": 2026,
+          "week": 3,
+          "scoreA": 120.6,
+          "scoreB": 105.78,
+          "winner": "Scott",
+          "margin": 14.82
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Scott",
+        "Thommy"
+      ],
+      "played": 5,
+      "record": {
+        "Scott": 2,
+        "Thommy": 3,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Scott": 564.86,
+        "Thommy": 635.14
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Thommy",
+        "length": 3,
+        "start": {
+          "year": 2024,
+          "week": 2
+        },
+        "end": {
+          "year": 2025,
+          "week": 4
+        }
+      },
+      "closestMeeting": {
+        "year": 2026,
+        "week": 8,
+        "margin": 6.22,
+        "winner": "Scott"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 8,
+        "scoreA": 112.56,
+        "scoreB": 106.34,
+        "winner": "Scott",
+        "margin": 6.22
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 2,
+          "scoreA": 88.26,
+          "scoreB": 111.42,
+          "winner": "Thommy",
+          "margin": 23.16
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "scoreA": 90.86,
+          "scoreB": 127.24,
+          "winner": "Thommy",
+          "margin": 36.38
+        },
+        {
+          "year": 2025,
+          "week": 4,
+          "scoreA": 130.74,
+          "scoreB": 165.5,
+          "winner": "Thommy",
+          "margin": 34.76
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "scoreA": 142.44,
+          "scoreB": 124.64,
+          "winner": "Scott",
+          "margin": 17.8
+        },
+        {
+          "year": 2026,
+          "week": 8,
+          "scoreA": 112.56,
+          "scoreB": 106.34,
+          "winner": "Scott",
+          "margin": 6.22
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Birch",
+        "JMid"
+      ],
+      "played": 4,
+      "record": {
+        "Birch": 1,
+        "JMid": 3,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Birch": 382.94,
+        "JMid": 470.02
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "JMid",
+        "length": 3,
+        "start": {
+          "year": 2024,
+          "week": 11
+        },
+        "end": {
+          "year": 2026,
+          "week": 7
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 6,
+        "margin": 21.48,
+        "winner": "JMid"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 7,
+        "scoreA": 73.3,
+        "scoreB": 127.28,
+        "winner": "JMid",
+        "margin": 53.98
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 2,
+          "scoreA": 136.86,
+          "scoreB": 110.42,
+          "winner": "Birch",
+          "margin": 26.44
+        },
+        {
+          "year": 2024,
+          "week": 11,
+          "scoreA": 89.18,
+          "scoreB": 127.24,
+          "winner": "JMid",
+          "margin": 38.06
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "scoreA": 83.6,
+          "scoreB": 105.08,
+          "winner": "JMid",
+          "margin": 21.48
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "scoreA": 73.3,
+          "scoreB": 127.28,
+          "winner": "JMid",
+          "margin": 53.98
+        }
+      ]
+    },
+    {
+      "managers": [
+        "JMid",
+        "Kuhl"
+      ],
+      "played": 4,
+      "record": {
+        "JMid": 3,
+        "Kuhl": 1,
+        "ties": 0
+      },
+      "totalPoints": {
+        "JMid": 495.5,
+        "Kuhl": 416.66
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "JMid",
+        "length": 3,
+        "start": {
+          "year": 2025,
+          "week": 3
+        },
+        "end": {
+          "year": 2026,
+          "week": 8
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 3,
+        "margin": 9.84,
+        "winner": "JMid"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 8,
+        "scoreA": 141.68,
+        "scoreB": 82.38,
+        "winner": "JMid",
+        "margin": 59.3
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 9,
+          "scoreA": 114.42,
+          "scoreB": 128.64,
+          "winner": "Kuhl",
+          "margin": 14.22
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "scoreA": 120.62,
+          "scoreB": 110.78,
+          "winner": "JMid",
+          "margin": 9.84
+        },
+        {
+          "year": 2025,
+          "week": 12,
+          "scoreA": 118.78,
+          "scoreB": 94.86,
+          "winner": "JMid",
+          "margin": 23.92
+        },
+        {
+          "year": 2026,
+          "week": 8,
+          "scoreA": 141.68,
+          "scoreB": 82.38,
+          "winner": "JMid",
+          "margin": 59.3
+        }
+      ]
+    },
+    {
+      "managers": [
+        "JMid",
+        "Mitch"
+      ],
+      "played": 4,
+      "record": {
+        "JMid": 1,
+        "Mitch": 3,
+        "ties": 0
+      },
+      "totalPoints": {
+        "JMid": 441.42,
+        "Mitch": 508.48
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Mitch",
+        "length": 3,
+        "start": {
+          "year": 2025,
+          "week": 5
+        },
+        "end": {
+          "year": 2026,
+          "week": 6
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 14,
+        "margin": 6.08,
+        "winner": "Mitch"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 6,
+        "scoreA": 89.16,
+        "scoreB": 129.2,
+        "winner": "Mitch",
+        "margin": 40.04
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 6,
+          "scoreA": 129.42,
+          "scoreB": 95.06,
+          "winner": "JMid",
+          "margin": 34.36
+        },
+        {
+          "year": 2025,
+          "week": 5,
+          "scoreA": 122.28,
+          "scoreB": 177.58,
+          "winner": "Mitch",
+          "margin": 55.3
+        },
+        {
+          "year": 2025,
+          "week": 14,
+          "scoreA": 100.56,
+          "scoreB": 106.64,
+          "winner": "Mitch",
+          "margin": 6.08
+        },
+        {
+          "year": 2026,
+          "week": 6,
+          "scoreA": 89.16,
+          "scoreB": 129.2,
+          "winner": "Mitch",
+          "margin": 40.04
+        }
+      ]
+    },
+    {
+      "managers": [
+        "JMid",
+        "Scott"
+      ],
+      "played": 4,
+      "record": {
+        "JMid": 2,
+        "Scott": 2,
+        "ties": 0
+      },
+      "totalPoints": {
+        "JMid": 436.6,
+        "Scott": 435.94
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "JMid",
+        "length": 2,
+        "start": {
+          "year": 2024,
+          "week": 5
+        },
+        "end": {
+          "year": 2024,
+          "week": 14
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 2,
+        "margin": 11.34,
+        "winner": "Scott"
+      },
+      "latestMeeting": {
+        "year": 2025,
+        "week": 11,
+        "scoreA": 53.72,
+        "scoreB": 155.1,
+        "winner": "Scott",
+        "margin": 101.38
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 5,
+          "scoreA": 145.68,
+          "scoreB": 81.36,
+          "winner": "JMid",
+          "margin": 64.32
+        },
+        {
+          "year": 2024,
+          "week": 14,
+          "scoreA": 145.66,
+          "scoreB": 96.6,
+          "winner": "JMid",
+          "margin": 49.06
+        },
+        {
+          "year": 2025,
+          "week": 2,
+          "scoreA": 91.54,
+          "scoreB": 102.88,
+          "winner": "Scott",
+          "margin": 11.34
+        },
+        {
+          "year": 2025,
+          "week": 11,
+          "scoreA": 53.72,
+          "scoreB": 155.1,
+          "winner": "Scott",
+          "margin": 101.38
+        }
+      ]
+    },
+    {
+      "managers": [
+        "JMid",
+        "Tony"
+      ],
+      "played": 4,
+      "record": {
+        "JMid": 1,
+        "Tony": 3,
+        "ties": 0
+      },
+      "totalPoints": {
+        "JMid": 456.16,
+        "Tony": 503.64
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Tony",
+        "length": 2,
+        "start": {
+          "year": 2025,
+          "week": 9
+        },
+        "end": {
+          "year": 2026,
+          "week": 4
+        }
+      },
+      "closestMeeting": {
+        "year": 2024,
+        "week": 4,
+        "margin": 6.2,
+        "winner": "Tony"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 4,
+        "scoreA": 106.12,
+        "scoreB": 154.8,
+        "winner": "Tony",
+        "margin": 48.68
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 4,
+          "scoreA": 113.78,
+          "scoreB": 119.98,
+          "winner": "Tony",
+          "margin": 6.2
+        },
+        {
+          "year": 2024,
+          "week": 13,
+          "scoreA": 132.86,
+          "scoreB": 110.6,
+          "winner": "JMid",
+          "margin": 22.26
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "scoreA": 103.4,
+          "scoreB": 118.26,
+          "winner": "Tony",
+          "margin": 14.86
+        },
+        {
+          "year": 2026,
+          "week": 4,
+          "scoreA": 106.12,
+          "scoreB": 154.8,
+          "winner": "Tony",
+          "margin": 48.68
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Kuhl",
+        "Scott"
+      ],
+      "played": 4,
+      "record": {
+        "Kuhl": 1,
+        "Scott": 3,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Kuhl": 404.88,
+        "Scott": 412.48
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Scott",
+        "length": 2,
+        "start": {
+          "year": 2024,
+          "week": 7
+        },
+        "end": {
+          "year": 2025,
+          "week": 1
+        }
+      },
+      "closestMeeting": {
+        "year": 2024,
+        "week": 7,
+        "margin": 7.72,
+        "winner": "Scott"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 6,
+        "scoreA": 101.82,
+        "scoreB": 114.56,
+        "winner": "Scott",
+        "margin": 12.74
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 7,
+          "scoreA": 102.86,
+          "scoreB": 110.58,
+          "winner": "Scott",
+          "margin": 7.72
+        },
+        {
+          "year": 2025,
+          "week": 1,
+          "scoreA": 83.3,
+          "scoreB": 96.84,
+          "winner": "Scott",
+          "margin": 13.54
+        },
+        {
+          "year": 2025,
+          "week": 10,
+          "scoreA": 116.9,
+          "scoreB": 90.5,
+          "winner": "Kuhl",
+          "margin": 26.4
+        },
+        {
+          "year": 2026,
+          "week": 6,
+          "scoreA": 101.82,
+          "scoreB": 114.56,
+          "winner": "Scott",
+          "margin": 12.74
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Mitch",
+        "Scott"
+      ],
+      "played": 4,
+      "record": {
+        "Mitch": 3,
+        "Scott": 1,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Mitch": 505.6,
+        "Scott": 440.32
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Mitch",
+        "length": 3,
+        "start": {
+          "year": 2024,
+          "week": 10
+        },
+        "end": {
+          "year": 2026,
+          "week": 4
+        }
+      },
+      "closestMeeting": {
+        "year": 2026,
+        "week": 4,
+        "margin": 1.98,
+        "winner": "Mitch"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 4,
+        "scoreA": 92.52,
+        "scoreB": 90.54,
+        "winner": "Mitch",
+        "margin": 1.98
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 1,
+          "scoreA": 94.68,
+          "scoreB": 112.18,
+          "winner": "Scott",
+          "margin": 17.5
+        },
+        {
+          "year": 2024,
+          "week": 10,
+          "scoreA": 137.54,
+          "scoreB": 101.54,
+          "winner": "Mitch",
+          "margin": 36
+        },
+        {
+          "year": 2025,
+          "week": 7,
+          "scoreA": 180.86,
+          "scoreB": 136.06,
+          "winner": "Mitch",
+          "margin": 44.8
+        },
+        {
+          "year": 2026,
+          "week": 4,
+          "scoreA": 92.52,
+          "scoreB": 90.54,
+          "winner": "Mitch",
+          "margin": 1.98
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Birch",
+        "Scott"
+      ],
+      "played": 3,
+      "record": {
+        "Birch": 2,
+        "Scott": 1,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Birch": 360.88,
+        "Scott": 284.94
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Birch",
+        "length": 2,
+        "start": {
+          "year": 2025,
+          "week": 9
+        },
+        "end": {
+          "year": 2026,
+          "week": 5
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 9,
+        "margin": 26.38,
+        "winner": "Birch"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 5,
+        "scoreA": 144.58,
+        "scoreB": 66.22,
+        "winner": "Birch",
+        "margin": 78.36
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 6,
+          "scoreA": 95.4,
+          "scoreB": 124.2,
+          "winner": "Scott",
+          "margin": 28.8
+        },
+        {
+          "year": 2025,
+          "week": 9,
+          "scoreA": 120.9,
+          "scoreB": 94.52,
+          "winner": "Birch",
+          "margin": 26.38
+        },
+        {
+          "year": 2026,
+          "week": 5,
+          "scoreA": 144.58,
+          "scoreB": 66.22,
+          "winner": "Birch",
+          "margin": 78.36
+        }
+      ]
+    },
+    {
+      "managers": [
+        "JMid",
+        "Stilly"
+      ],
+      "played": 3,
+      "record": {
+        "JMid": 1,
+        "Stilly": 2,
+        "ties": 0
+      },
+      "totalPoints": {
+        "JMid": 357.44,
+        "Stilly": 405.58
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Stilly",
+        "length": 2,
+        "start": {
+          "year": 2024,
+          "week": 8
+        },
+        "end": {
+          "year": 2025,
+          "week": 7
+        }
+      },
+      "closestMeeting": {
+        "year": 2024,
+        "week": 8,
+        "margin": 42.58,
+        "winner": "Stilly"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 3,
+        "scoreA": 152.58,
+        "scoreB": 104.98,
+        "winner": "JMid",
+        "margin": 47.6
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 8,
+          "scoreA": 106.08,
+          "scoreB": 148.66,
+          "winner": "Stilly",
+          "margin": 42.58
+        },
+        {
+          "year": 2025,
+          "week": 7,
+          "scoreA": 98.78,
+          "scoreB": 151.94,
+          "winner": "Stilly",
+          "margin": 53.16
+        },
+        {
+          "year": 2026,
+          "week": 3,
+          "scoreA": 152.58,
+          "scoreB": 104.98,
+          "winner": "JMid",
+          "margin": 47.6
+        }
+      ]
+    },
+    {
+      "managers": [
+        "JMid",
+        "Thommy"
+      ],
+      "played": 3,
+      "record": {
+        "JMid": 1,
+        "Thommy": 2,
+        "ties": 0
+      },
+      "totalPoints": {
+        "JMid": 283.7,
+        "Thommy": 300.16
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Thommy",
+        "length": 2,
+        "start": {
+          "year": 2025,
+          "week": 8
+        },
+        "end": {
+          "year": 2026,
+          "week": 1
+        }
+      },
+      "closestMeeting": {
+        "year": 2024,
+        "week": 7,
+        "margin": 3.44,
+        "winner": "JMid"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 1,
+        "scoreA": 73.56,
+        "scoreB": 89,
+        "winner": "Thommy",
+        "margin": 15.44
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 7,
+          "scoreA": 107.24,
+          "scoreB": 103.8,
+          "winner": "JMid",
+          "margin": 3.44
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "scoreA": 102.9,
+          "scoreB": 107.36,
+          "winner": "Thommy",
+          "margin": 4.46
+        },
+        {
+          "year": 2026,
+          "week": 1,
+          "scoreA": 73.56,
+          "scoreB": 89,
+          "winner": "Thommy",
+          "margin": 15.44
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Scott",
+        "Stew"
+      ],
+      "played": 3,
+      "record": {
+        "Scott": 2,
+        "Stew": 1,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Scott": 372.18,
+        "Stew": 308.86
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Scott",
+        "length": 2,
+        "start": {
+          "year": 2024,
+          "week": 8
+        },
+        "end": {
+          "year": 2025,
+          "week": 6
+        }
+      },
+      "closestMeeting": {
+        "year": 2026,
+        "week": 7,
+        "margin": 4.92,
+        "winner": "Stew"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 7,
+        "scoreA": 105.22,
+        "scoreB": 110.14,
+        "winner": "Stew",
+        "margin": 4.92
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 8,
+          "scoreA": 112.2,
+          "scoreB": 107.06,
+          "winner": "Scott",
+          "margin": 5.14
+        },
+        {
+          "year": 2025,
+          "week": 6,
+          "scoreA": 154.76,
+          "scoreB": 91.66,
+          "winner": "Scott",
+          "margin": 63.1
+        },
+        {
+          "year": 2026,
+          "week": 7,
+          "scoreA": 105.22,
+          "scoreB": 110.14,
+          "winner": "Stew",
+          "margin": 4.92
+        }
+      ]
+    },
+    {
+      "managers": [
+        "Scott",
+        "Tony"
+      ],
+      "played": 3,
+      "record": {
+        "Scott": 1,
+        "Tony": 2,
+        "ties": 0
+      },
+      "totalPoints": {
+        "Scott": 294.88,
+        "Tony": 335.68
+      },
+      "longestConsecutiveHeadToHeadWins": {
+        "manager": "Tony",
+        "length": 1,
+        "start": {
+          "year": 2024,
+          "week": 9
+        },
+        "end": {
+          "year": 2024,
+          "week": 9
+        }
+      },
+      "closestMeeting": {
+        "year": 2025,
+        "week": 8,
+        "margin": 18.36,
+        "winner": "Scott"
+      },
+      "latestMeeting": {
+        "year": 2026,
+        "week": 2,
+        "scoreA": 46.38,
+        "scoreB": 84.32,
+        "winner": "Tony",
+        "margin": 37.94
+      },
+      "games": [
+        {
+          "year": 2024,
+          "week": 9,
+          "scoreA": 111.32,
+          "scoreB": 132.54,
+          "winner": "Tony",
+          "margin": 21.22
+        },
+        {
+          "year": 2025,
+          "week": 8,
+          "scoreA": 137.18,
+          "scoreB": 118.82,
+          "winner": "Scott",
+          "margin": 18.36
+        },
+        {
+          "year": 2026,
+          "week": 2,
+          "scoreA": 46.38,
+          "scoreB": 84.32,
+          "winner": "Tony",
+          "margin": 37.94
+        }
+      ]
+    }
+  ]
+}
