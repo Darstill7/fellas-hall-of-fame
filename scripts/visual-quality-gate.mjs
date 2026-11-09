@@ -622,6 +622,10 @@ try{
          await page.waitForFunction(()=>document.querySelector('#championship-feature .feature')?.dataset.chapter==='2023');
          if(!await page.locator('#rivalry-rewind').isVisible())
           throw Error('2023 title rivalry history not visible');
+         const finalScore=await page.locator('.championship-cover-score').innerText();
+         if(!finalScore.includes('104.96')||!finalScore.includes('90.18')||
+            !finalScore.includes('Stilly')||!finalScore.includes('Mitch'))
+          throw Error('2023 championship cover missing verified finalist score');
          const share=page.locator('#championship-feature button[data-championship-share]');
          if(await share.count()!==1)throw Error('Every championship needs a clear Share story action');
          const shareHeight=await share.evaluate(el=>el.getBoundingClientRect().height);
@@ -636,6 +640,8 @@ try{
           throw Error('Sharing a championship did not include the selected year and champion');
          await page.locator('#season-picker').selectOption('2017');
          await page.waitForFunction(()=>document.querySelector('#championship-feature .feature')?.dataset.chapter==='2017');
+         if(!await page.locator('.championship-cover-score-label').innerText().then(t=>t.includes('TWO-WEEK AGGREGATE')))
+          throw Error('2017 final score must be explicitly labeled as aggregate');
          if(await page.locator('nav.reading-nav a[href="#player-profiles"]').count())
           throw Error('ESPN legacy years have unsupported player-profile navigation');
          mobileJourneys.push({engine,page:'championship-anthology',width,mobileReading:true,yearSelection:true,archiveSwipe:true});
