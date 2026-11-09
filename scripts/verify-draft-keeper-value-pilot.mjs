@@ -123,6 +123,13 @@ for(const season of report.seasonSummaries){
  }
 }
 assert.ok(report.seasonSummaries[1].lateRoundSteals.some(x=>x.manager==='Stilly'&&x.player==='Woody Marks'&&x.round===13&&x.overall===128&&x.startedPoints===25.9));
+const recovered=report.espnArchive2016to2019;
+assert.equal(recovered.selectionCountTotal,598);
+assert.equal(recovered.seasons.length,4);
+assert.equal(recovered.seasons.reduce((n,x)=>n+x.selections,0),598);
+assert.deepEqual(recovered.seasons.map(x=>x.selections),[128,160,160,150]);
+assert.equal(recovered.seasons.find(x=>x.year===2018).confirmedDraftPickOrder,false);
+assert.ok(recovered.seasons.every(x=>x.originalStarterPointGrade===null));
 assert.equal(report.archive2020to2024.byYear.length,5);
 for(const season of report.archive2020to2024.byYear){
  assert.equal(season.managerRows.length,10);
