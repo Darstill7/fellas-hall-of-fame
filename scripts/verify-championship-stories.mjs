@@ -62,6 +62,20 @@ for(let year=2020;year<=2025;year++){
   throw Error('Championship top scorer source missing '+year);
 }
 
+// Editorial facts that previously drifted from source: protect exact winner-side six-scorer list
+// and the special 2022 Week 17 cancellation qualification.
+const championship2024=finals.find(g=>g.year===2024);
+const twentyTwoPlus=championship2024.starters.filter(p=>p.points>=22-1e-9);
+if(twentyTwoPlus.length!==6)throw Error('2024 champion must have six championship starters with 22+ points');
+const copy2024=stories.seasons.find(s=>s.year===2024).insideTheRun.paragraphs.join(' ');
+if(!copy2024.includes('six players scoring at least 22 points')||
+   !twentyTwoPlus.every(p=>copy2024.includes(p.name)))
+ throw Error('2024 championship six-player fact must match official starter receipt');
+const copy2022=stories.seasons.find(s=>s.year===2022);
+if(!copy2022.sections.some(s=>/Buffalo.{0,5}Cincinnati|canceled/i.test(s.text))||
+   !copy2022.insideTheRun.paragraphs.some(p=>/canceled Buffalo.{0,5}Cincinnati/i.test(p)))
+ throw Error('2022 canceled Buffalo-Cincinnati championship context must remain visible');
+
 const page=fs.readFileSync('hall/championship-stories.html','utf8');
 const hall=fs.readFileSync('hall/index.html','utf8');
 const editorialCss=fs.readFileSync('assets/championship-editorial.css','utf8');
