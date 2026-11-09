@@ -871,6 +871,10 @@ try{
         const amon=await page.locator('#cards .keeper').filter({hasText:'Amon-Ra St. Brown'}).innerText();
         if((amon.match(/R1/g)||[]).length!==2)
          throw Error('First-round keeper must cost Round 1 in both 2026 and projected 2027');
+        const jayden=await page.locator('#cards .keeper').filter({hasText:'Jayden Daniels'}).innerText();
+        if(!jayden.includes('R12')||!jayden.includes('R11'))
+         throw Error('Round escalation must decrease the draft-round number by one');
+
         if(await page.locator('#year').count())
          throw Error('Keeper Tracker should remain a simple single-season reference');
         const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
