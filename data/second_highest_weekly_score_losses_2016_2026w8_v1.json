@@ -1,0 +1,550 @@
+{
+  "schema": "fellas-second-highest-weekly-score-losses-v1",
+  "asOf": "2026-11-09",
+  "source": "data/season_weekly_matchups_2016_2026_v1.json",
+  "definition": "In a fully paired regular-season league week, manager scored strictly second-highest across all recorded teams, yet lost to the weekly top scorer in the actual head-to-head matchup. Tied ranks use competition ranking; ties in a matchup are not losses.",
+  "coverage": "2016 eight-team, 2017 onward ten-team; exclude incomplete Week 14 in 2020 and 2021 entirely; completed-season 2016–2025 board with separate 2026 Week 8 provisional check.",
+  "fullyPairedWeeks": 141,
+  "completedSeasons": {
+    "total": 16,
+    "byManager": [
+      {
+        "manager": "Stilly",
+        "secondHighestScoreLosses": 4,
+        "examples": [
+          {
+            "year": 2017,
+            "week": 3,
+            "manager": "Stilly",
+            "managerPoints": 105,
+            "opponent": "Stover",
+            "opponentPoints": 113,
+            "margin": 8,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          },
+          {
+            "year": 2019,
+            "week": 4,
+            "manager": "Stilly",
+            "managerPoints": 121.8,
+            "opponent": "Stew",
+            "opponentPoints": 163.18,
+            "margin": 41.38,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          },
+          {
+            "year": 2019,
+            "week": 8,
+            "manager": "Stilly",
+            "managerPoints": 137.5,
+            "opponent": "Tony",
+            "opponentPoints": 149.56,
+            "margin": 12.06,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          },
+          {
+            "year": 2022,
+            "week": 14,
+            "manager": "Stilly",
+            "managerPoints": 134.66,
+            "opponent": "Evans",
+            "opponentPoints": 146.7,
+            "margin": 12.04,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          }
+        ]
+      },
+      {
+        "manager": "Stew",
+        "secondHighestScoreLosses": 3,
+        "examples": [
+          {
+            "year": 2018,
+            "week": 7,
+            "manager": "Stew",
+            "managerPoints": 142.76,
+            "opponent": "Thommy",
+            "opponentPoints": 142.92,
+            "margin": 0.16,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          },
+          {
+            "year": 2024,
+            "week": 3,
+            "manager": "Stew",
+            "managerPoints": 121.58,
+            "opponent": "JMid",
+            "opponentPoints": 137.38,
+            "margin": 15.8,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          },
+          {
+            "year": 2025,
+            "week": 10,
+            "manager": "Stew",
+            "managerPoints": 164.8,
+            "opponent": "Mitch",
+            "opponentPoints": 167.82,
+            "margin": 3.02,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          }
+        ]
+      },
+      {
+        "manager": "Koble",
+        "secondHighestScoreLosses": 2,
+        "examples": [
+          {
+            "year": 2016,
+            "week": 8,
+            "manager": "Koble",
+            "managerPoints": 100,
+            "opponent": "Evans",
+            "opponentPoints": 105,
+            "margin": 5,
+            "weeklyRank": 2,
+            "leagueSize": 8
+          },
+          {
+            "year": 2016,
+            "week": 12,
+            "manager": "Koble",
+            "managerPoints": 115,
+            "opponent": "Halderman",
+            "opponentPoints": 128,
+            "margin": 13,
+            "weeklyRank": 2,
+            "leagueSize": 8
+          }
+        ]
+      },
+      {
+        "manager": "Thommy",
+        "secondHighestScoreLosses": 2,
+        "examples": [
+          {
+            "year": 2021,
+            "week": 6,
+            "manager": "Thommy",
+            "managerPoints": 139.2,
+            "opponent": "Tony",
+            "opponentPoints": 167.14,
+            "margin": 27.94,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          },
+          {
+            "year": 2025,
+            "week": 13,
+            "manager": "Thommy",
+            "managerPoints": 124.64,
+            "opponent": "Scott",
+            "opponentPoints": 142.44,
+            "margin": 17.8,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          }
+        ]
+      },
+      {
+        "manager": "Tony",
+        "secondHighestScoreLosses": 2,
+        "examples": [
+          {
+            "year": 2019,
+            "week": 13,
+            "manager": "Tony",
+            "managerPoints": 116.02,
+            "opponent": "Koble",
+            "opponentPoints": 117.7,
+            "margin": 1.68,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          },
+          {
+            "year": 2025,
+            "week": 1,
+            "manager": "Tony",
+            "managerPoints": 122.96,
+            "opponent": "Birch",
+            "opponentPoints": 125.96,
+            "margin": 3,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          }
+        ]
+      },
+      {
+        "manager": "Evans",
+        "secondHighestScoreLosses": 1,
+        "examples": [
+          {
+            "year": 2017,
+            "week": 4,
+            "manager": "Evans",
+            "managerPoints": 107,
+            "opponent": "Thommy",
+            "opponentPoints": 114,
+            "margin": 7,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          }
+        ]
+      },
+      {
+        "manager": "Scott",
+        "secondHighestScoreLosses": 1,
+        "examples": [
+          {
+            "year": 2025,
+            "week": 4,
+            "manager": "Scott",
+            "managerPoints": 130.74,
+            "opponent": "Thommy",
+            "opponentPoints": 165.5,
+            "margin": 34.76,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          }
+        ]
+      },
+      {
+        "manager": "Stover",
+        "secondHighestScoreLosses": 1,
+        "examples": [
+          {
+            "year": 2017,
+            "week": 11,
+            "manager": "Stover",
+            "managerPoints": 106,
+            "opponent": "Birch",
+            "opponentPoints": 123,
+            "margin": 17,
+            "weeklyRank": 2,
+            "leagueSize": 10
+          }
+        ]
+      }
+    ],
+    "highestLosingPoints": [
+      {
+        "year": 2025,
+        "week": 10,
+        "manager": "Stew",
+        "managerPoints": 164.8,
+        "opponent": "Mitch",
+        "opponentPoints": 167.82,
+        "margin": 3.02,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2018,
+        "week": 7,
+        "manager": "Stew",
+        "managerPoints": 142.76,
+        "opponent": "Thommy",
+        "opponentPoints": 142.92,
+        "margin": 0.16,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2021,
+        "week": 6,
+        "manager": "Thommy",
+        "managerPoints": 139.2,
+        "opponent": "Tony",
+        "opponentPoints": 167.14,
+        "margin": 27.94,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2019,
+        "week": 8,
+        "manager": "Stilly",
+        "managerPoints": 137.5,
+        "opponent": "Tony",
+        "opponentPoints": 149.56,
+        "margin": 12.06,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2022,
+        "week": 14,
+        "manager": "Stilly",
+        "managerPoints": 134.66,
+        "opponent": "Evans",
+        "opponentPoints": 146.7,
+        "margin": 12.04,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2025,
+        "week": 4,
+        "manager": "Scott",
+        "managerPoints": 130.74,
+        "opponent": "Thommy",
+        "opponentPoints": 165.5,
+        "margin": 34.76,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2025,
+        "week": 13,
+        "manager": "Thommy",
+        "managerPoints": 124.64,
+        "opponent": "Scott",
+        "opponentPoints": 142.44,
+        "margin": 17.8,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2025,
+        "week": 1,
+        "manager": "Tony",
+        "managerPoints": 122.96,
+        "opponent": "Birch",
+        "opponentPoints": 125.96,
+        "margin": 3,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2019,
+        "week": 4,
+        "manager": "Stilly",
+        "managerPoints": 121.8,
+        "opponent": "Stew",
+        "opponentPoints": 163.18,
+        "margin": 41.38,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2024,
+        "week": 3,
+        "manager": "Stew",
+        "managerPoints": 121.58,
+        "opponent": "JMid",
+        "opponentPoints": 137.38,
+        "margin": 15.8,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2019,
+        "week": 13,
+        "manager": "Tony",
+        "managerPoints": 116.02,
+        "opponent": "Koble",
+        "opponentPoints": 117.7,
+        "margin": 1.68,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2016,
+        "week": 12,
+        "manager": "Koble",
+        "managerPoints": 115,
+        "opponent": "Halderman",
+        "opponentPoints": 128,
+        "margin": 13,
+        "weeklyRank": 2,
+        "leagueSize": 8
+      }
+    ],
+    "allReceipts": [
+      {
+        "year": 2016,
+        "week": 8,
+        "manager": "Koble",
+        "managerPoints": 100,
+        "opponent": "Evans",
+        "opponentPoints": 105,
+        "margin": 5,
+        "weeklyRank": 2,
+        "leagueSize": 8
+      },
+      {
+        "year": 2016,
+        "week": 12,
+        "manager": "Koble",
+        "managerPoints": 115,
+        "opponent": "Halderman",
+        "opponentPoints": 128,
+        "margin": 13,
+        "weeklyRank": 2,
+        "leagueSize": 8
+      },
+      {
+        "year": 2017,
+        "week": 3,
+        "manager": "Stilly",
+        "managerPoints": 105,
+        "opponent": "Stover",
+        "opponentPoints": 113,
+        "margin": 8,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2017,
+        "week": 4,
+        "manager": "Evans",
+        "managerPoints": 107,
+        "opponent": "Thommy",
+        "opponentPoints": 114,
+        "margin": 7,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2017,
+        "week": 11,
+        "manager": "Stover",
+        "managerPoints": 106,
+        "opponent": "Birch",
+        "opponentPoints": 123,
+        "margin": 17,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2018,
+        "week": 7,
+        "manager": "Stew",
+        "managerPoints": 142.76,
+        "opponent": "Thommy",
+        "opponentPoints": 142.92,
+        "margin": 0.16,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2019,
+        "week": 4,
+        "manager": "Stilly",
+        "managerPoints": 121.8,
+        "opponent": "Stew",
+        "opponentPoints": 163.18,
+        "margin": 41.38,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2019,
+        "week": 8,
+        "manager": "Stilly",
+        "managerPoints": 137.5,
+        "opponent": "Tony",
+        "opponentPoints": 149.56,
+        "margin": 12.06,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2019,
+        "week": 13,
+        "manager": "Tony",
+        "managerPoints": 116.02,
+        "opponent": "Koble",
+        "opponentPoints": 117.7,
+        "margin": 1.68,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2021,
+        "week": 6,
+        "manager": "Thommy",
+        "managerPoints": 139.2,
+        "opponent": "Tony",
+        "opponentPoints": 167.14,
+        "margin": 27.94,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2022,
+        "week": 14,
+        "manager": "Stilly",
+        "managerPoints": 134.66,
+        "opponent": "Evans",
+        "opponentPoints": 146.7,
+        "margin": 12.04,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2024,
+        "week": 3,
+        "manager": "Stew",
+        "managerPoints": 121.58,
+        "opponent": "JMid",
+        "opponentPoints": 137.38,
+        "margin": 15.8,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2025,
+        "week": 1,
+        "manager": "Tony",
+        "managerPoints": 122.96,
+        "opponent": "Birch",
+        "opponentPoints": 125.96,
+        "margin": 3,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2025,
+        "week": 4,
+        "manager": "Scott",
+        "managerPoints": 130.74,
+        "opponent": "Thommy",
+        "opponentPoints": 165.5,
+        "margin": 34.76,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2025,
+        "week": 10,
+        "manager": "Stew",
+        "managerPoints": 164.8,
+        "opponent": "Mitch",
+        "opponentPoints": 167.82,
+        "margin": 3.02,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      },
+      {
+        "year": 2025,
+        "week": 13,
+        "manager": "Thommy",
+        "managerPoints": 124.64,
+        "opponent": "Scott",
+        "opponentPoints": 142.44,
+        "margin": 17.8,
+        "weeklyRank": 2,
+        "leagueSize": 10
+      }
+    ]
+  },
+  "provisional2026": []
+}
