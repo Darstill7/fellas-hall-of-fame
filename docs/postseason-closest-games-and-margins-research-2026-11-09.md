@@ -73,6 +73,16 @@ A manager's counts below describe **recovered source games, not complete lifetim
 | JMid | 2 | 1 | 2024 opening vs Tony (1.70 margin) | win |
 | Scott | 2 | 2 | 2025 final vs Thommy (70.32 margin) | win |
 
+## Story leads worth investigating (scores established, interpretation provisional)
+
+- **Tony's back-to-back playoff heartbreak (2024 and 2025):** Lost the 2024 opening round to JMid **110.24–108.54** (1.70); lost the 2025 opening round to Birch **120.52–119.80** (0.72). Both are among the three tightest recovered single-week championship-bracket games. This is a specific, documentable two-year pattern—not evidence a single lineup decision cost either result.
+- **JMid's 2024 two-game swing:** Beat Tony by **1.70** in the opening round, then lost to eventual champion Thommy by **2.30** in the semifinal. The two winning margins were small, but calculating a 'four-point swing from a title' would be misleading because the finals weren't played by JMid.
+- **Thommy's close-call dynasty and fourth-ring escape:** The 2018 path included a **3.90** opening-round win over Kuhl and **4.96** final over Birch; the 2024 semifinal over JMid was decided by **2.30**. These results span distinct eras and are not player-level causality claims.
+- **Stew's 2019 extremes:** Defeated Mitch by **79.42** in the semifinal (163.58–84.16) but lost the title game to Birch by **4.72** (109.42–114.14). That contrast could be a strong manager-profile episode.
+- **Stilly's 2024 abrupt reversal:** Defeated Stover **174.82–130.94** in the semifinal, then fell **114.88–205.30** to Thommy in the championship. Avoid framing the 90.42-point title defeat as one player or trade's responsibility.
+
+No winner's-bracket game in these leads is inferred from a consolation matchup. Treat incomplete 2020 sources as missing data, not as evidence that only two playoff games occurred.
+
 ## Before publication
 
 1. Maintain the exact winner-bracket round filter and bracket membership test; never classify merely by postseason week.
