@@ -647,6 +647,19 @@ try{
           if(!(await preview.locator('.feature h2').innerText()).includes('From 0–4'))
            throw Error('Shared 2023 preview did not reach correct championship');
          }finally{await preview.close();}
+         const editorialProof=await page.evaluate(async()=>{
+          const response=await fetch('../data/championship_season_stories_2016_2025_v1.json');
+          const archive=await response.json();
+          const source=archive.seasons.find(s=>s.year===2023);
+          const paragraphs=[...document.querySelectorAll('#championship-story .story-section')].map(section=>[...section.querySelectorAll(':scope > p')].map(p=>p.textContent.trim()));
+          const exact=paragraphs.every((parts,i)=>parts.join(' ').replace(/\s+/g,' ').trim()===source.sections[i].text.replace(/\s+/g,' ').trim());
+          const sizes=[...document.querySelectorAll('#championship-story .story-section p')].map(p=>getComputedStyle(p).fontSize);
+          return {chapters:paragraphs.length,parts:paragraphs.map(p=>p.length),exact,sizes};
+         });
+         if(editorialProof.chapters!==4||editorialProof.parts.some(n=>n!==2)||!editorialProof.exact)
+          throw Error('Mobile championship chapters must preserve exact sourced prose in two readable paragraphs');
+         if(editorialProof.sizes.some(size=>parseFloat(size)<16))
+          throw Error('Championship chapter type below 16px on a phone');
          await page.locator('#season-picker').selectOption('2017');
          await page.waitForFunction(()=>document.querySelector('#championship-feature .feature')?.dataset.chapter==='2017');
          if(!await page.locator('.championship-cover-score-label').innerText().then(t=>t.includes('TWO-WEEK AGGREGATE')))

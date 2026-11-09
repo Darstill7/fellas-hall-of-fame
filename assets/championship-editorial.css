@@ -198,3 +198,29 @@ body{min-width:0;overflow-wrap:break-word}
  .championship-cover-score-line{gap:7px 10px}
  .championship-cover-score-value{flex:0 0 100%;order:2}
 }
+/* Editorial reading pass: quieter rhythm and readable measure on a phone. */
+.story-body{max-width:68ch}
+.story-section p{max-width:64ch;margin-block:0;color:#eaf0ed}
+.story-section p+p{margin-top:1.3em}
+.story-section h3{line-height:1.19;margin-bottom:clamp(15px,2vw,22px)}
+.story-section{scroll-margin-top:100px}
+.story-section:first-child p:first-of-type{font-weight:450}
+@media(max-width:700px){
+ .story-layout{margin-top:18px}
+ .story-section{margin-bottom:29px;padding-bottom:18px}
+ .story-section p{font-size:clamp(16px,4.15vw,17px);line-height:1.76;letter-spacing:0;max-width:100%}
+ .story-section p+p{margin-top:19px}
+ .story-section h3{font-size:clamp(23px,6vw,29px);line-height:1.2;max-width:22ch}
+ .story-section:first-child p:first-letter{font-size:3.25em;line-height:.84;padding-top:6px}
+ .story-body .inside-run p{line-height:1.76}
+}
+@media(max-width:390px){
+ .story-section p{font-size:16px;line-height:1.76}
+ .story-section p+p{margin-top:18px}
+ .story-section h3{font-size:23px}
+}
+
+/* Only the opening paragraph gets the magazine drop cap. */
+.story-section:first-child p:not(:first-of-type)::first-letter{
+ float:none;font:inherit;line-height:inherit;padding:0;color:inherit;
+}
