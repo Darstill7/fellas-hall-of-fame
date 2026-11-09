@@ -6,7 +6,7 @@ import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
- 'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
+ 'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/manager-draft-report-cards.html','analytics/draft-legends.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
@@ -804,6 +804,36 @@ try{
          const overflow=await reader.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-window.innerWidth));
          if(overflow>4)throw Error('Draft intelligence phone layout horizontal overflow '+overflow);
         }finally{await reader.close();}
+       }
+       if(route==='analytics/draft-legends.html'){
+        await page.waitForFunction(()=>document.querySelectorAll('#legend-cards .feature').length>0,{timeout:12000});
+        const year2025=await page.locator('#legends-heading').innerText();
+        const text2025=await page.locator('#legend-cards').innerText();
+        const keeper=await page.locator('#keeper-status').innerText();
+        if(!year2025.includes('2025')||!text2025.includes('2025')&& !text2025.includes('peer pts'))
+          throw Error('Draft Legends completed season failed to render');
+        if(!keeper.includes('20 recorded 2026 keepers')||!keeper.includes('pending evidence'))
+          throw Error('Keeper decision evidence labels missing');
+        const archiveRows=await page.locator('#archive tbody tr').count();
+        if(archiveRows!==5)throw Error('Archived 2020–2024 eras must remain separate: '+archiveRows);
+        const steals2025=await page.locator('#steals-body tr').count();
+        if(steals2025<3)throw Error('Verified 2025 late-round steals missing');
+        await page.locator('button[data-year="2026"]').click();
+        if(!await page.locator('#legends-heading').innerText().then(t=>t.includes('W8')))
+          throw Error('2026 draft legends must be provisional');
+        const stealRows2026=await page.locator('#steals-body tr').count();
+        if(stealRows2026<3)throw Error('Verified provisional 2026 steals missing');
+        if(!await page.locator('#steals-body').innerText().then(t=>t.includes('Woody Marks')))
+          throw Error('Woody Marks source-backed Round 13 feature missing');
+        if(!await page.locator('#miss-cards .feature').count())
+          throw Error('Missing source-supported low returns gallery');
+       }
+       if(route==='analytics/manager-draft-report-cards.html'){
+        await page.waitForFunction(()=>document.querySelectorAll('#cards article.report').length===10,{timeout:12000});
+        const a=await page.locator('#cards article.report').count();
+        if(a!==10)throw Error('All ten manager draft report cards required');
+        if(!await page.locator('#cards').innerText().then(t=>t.includes('2026 — provisional through Week 8')))
+          throw Error('Incomplete 2026 draft season must remain provisional');
        }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
