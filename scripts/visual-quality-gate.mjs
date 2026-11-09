@@ -622,8 +622,35 @@ try{
          await page.waitForFunction(()=>document.querySelector('#championship-feature .feature')?.dataset.chapter==='2023');
          if(!await page.locator('#rivalry-rewind').isVisible())
           throw Error('2023 title rivalry history not visible');
+         const finalScore=await page.locator('.championship-cover-score').innerText();
+         if(!finalScore.includes('104.96')||!finalScore.includes('90.18')||
+            !finalScore.includes('Stilly')||!finalScore.includes('Mitch'))
+          throw Error('2023 championship cover missing verified finalist score');
+         const share=page.locator('#championship-feature button[data-championship-share]');
+         if(await share.count()!==1)throw Error('Every championship needs a clear Share story action');
+         const shareHeight=await share.evaluate(el=>el.getBoundingClientRect().height);
+         if(shareHeight<44)throw Error('Share story button has an undersized phone touch target');
+         await page.evaluate(()=>{
+          Object.defineProperty(navigator,'share',{configurable:true,value:async payload=>{window.__fellasSharedStory=payload}});
+         });
+         await share.click();
+         const payload=await page.evaluate(()=>window.__fellasSharedStory);
+         if(!payload?.url?.endsWith('/hall/share/2023.html')||
+            !payload?.title?.includes('2023')||!payload?.title?.includes('Stilly'))
+          throw Error('Sharing a championship did not include the selected year and champion');
+         const preview=await context.newPage();
+         try{
+          const intro=await preview.goto(baseUrl+'hall/share/2023.html',{waitUntil:'domcontentloaded',timeout:15000});
+          if(!intro?.ok())throw Error('Share preview page does not exist');
+          await preview.waitForURL(url=>url.pathname.endsWith('/hall/championship-stories.html')&&url.searchParams.get('year')==='2023',{timeout:10000});
+          await preview.locator('#championship-feature .feature[data-chapter="2023"]').waitFor({timeout:15000});
+          if(!(await preview.locator('.feature h2').innerText()).includes('From 0–4'))
+           throw Error('Shared 2023 preview did not reach correct championship');
+         }finally{await preview.close();}
          await page.locator('#season-picker').selectOption('2017');
          await page.waitForFunction(()=>document.querySelector('#championship-feature .feature')?.dataset.chapter==='2017');
+         if(!await page.locator('.championship-cover-score-label').innerText().then(t=>t.includes('TWO-WEEK AGGREGATE')))
+          throw Error('2017 final score must be explicitly labeled as aggregate');
          if(await page.locator('nav.reading-nav a[href="#player-profiles"]').count())
           throw Error('ESPN legacy years have unsupported player-profile navigation');
          mobileJourneys.push({engine,page:'championship-anthology',width,mobileReading:true,yearSelection:true,archiveSwipe:true});
