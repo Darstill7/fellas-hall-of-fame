@@ -603,6 +603,12 @@ try{
         const yearArchive=page.locator('nav#chapters');
         if(!await feature.isVisible()||!await story.isVisible()||!await road.isVisible()||!await nav.isVisible())
          throw Error('Championship feature, story, road or reading navigation failed to render');
+        const readingOrder=await page.evaluate(()=>{
+         const article=document.querySelector('#championship-feature');
+         const archive=document.querySelector('#chapters');
+         return !!article&&!!archive&&!!(article.compareDocumentPosition(archive)&Node.DOCUMENT_POSITION_PRECEDING);
+        });
+        if(!readingOrder)throw Error('Full championship article must precede the optional decade archive');
         if(await page.locator('.road-game').count()<1)
          throw Error('Verified regular-season game log is missing');
         const navHeight=await nav.locator('a').first().evaluate(el=>el.getBoundingClientRect().height);
@@ -666,6 +672,24 @@ try{
           throw Error('2017 final score must be explicitly labeled as aggregate');
          if(await page.locator('nav.reading-nav a[href="#player-profiles"]').count())
           throw Error('ESPN legacy years have unsupported player-profile navigation');
+         if(width===390){
+          const source=await page.evaluate(async()=>{const response=await fetch('../data-integrity/editorial_evidence_2016_2026_week8_v1.json');return(await response.json()).championships.map(x=>({year:x.year,champion:x.champion,points:x.championship.championPoints,runner:x.championship.runnerUpPoints}));});
+          if(source.length!==10)throw Error('Ten verified title years required for anthology audit');
+          for(const receipt of source){
+           await page.locator('#season-picker').selectOption(String(receipt.year));
+           await page.waitForFunction(y=>document.querySelector('#championship-feature .feature')?.dataset.chapter===String(y),receipt.year);
+           if(await page.locator('#championship-story .story-section').count()!==4)
+            throw Error('Missing complete championship narrative '+receipt.year);
+           const cover=await page.locator('.championship-cover-score').innerText();
+           const expected=Number(receipt.points).toFixed(2),opponent=Number(receipt.runner).toFixed(2);
+           if(!cover.includes(expected)||!cover.includes(opponent))
+            throw Error('Championship source mismatch '+receipt.year+' '+cover);
+           if(await page.locator('nav#chapters a[aria-current="page"]').count()!==1)
+            throw Error('Ambiguous selected season in decade archive '+receipt.year);
+           const storyHref=new URL(page.url()).searchParams.get('year');
+           if(storyHref!==String(receipt.year))throw Error('No shareable year-specific address '+receipt.year);
+          }
+         }
          mobileJourneys.push({engine,page:'championship-anthology',width,mobileReading:true,yearSelection:true,archiveSwipe:true});
         }
        }
@@ -692,6 +716,8 @@ try{
          await journey.waitForURL(url=>url.pathname.endsWith('/managers/'),{timeout:12000});
          await journey.locator('#manager-directory-cards a.manager[href="stilly/"]').click();
          await journey.waitForURL(url=>url.pathname.endsWith('/managers/stilly/'),{timeout:12000});
+         const arrivedAtTop=await journey.evaluate(()=>window.scrollY);
+         if(arrivedAtTop>24)throw Error('Manager profile navigation must start at page top: '+arrivedAtTop);
          if(!await journey.locator('#franchise-story').count())
           throw Error('Manager card failed to open franchise story');
          const mobile=journey.locator('header.nav details.fellas-mobile-site-menu');
