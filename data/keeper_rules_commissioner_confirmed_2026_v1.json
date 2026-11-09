@@ -1,0 +1,21 @@
+{
+  "schema": "fellas-keeper-rules-research-v1",
+  "confirmedOn": "2026-11-09",
+  "provenance": "league commissioner confirmation in conversation",
+  "confirmed": {
+    "keepersPerTeam": 2,
+    "annualKeeperRoundEscalation": -1,
+    "maxConsecutiveKeeperYears": 3,
+    "firstKeeperRoundForFreeAgentOrWaiverAcquisition": 9,
+    "keeperTenureResetWhenPlayerTradedToNewManager": true,
+    "keeperDraftRoundCostContinuesAcrossTrade": true
+  },
+  "unresolved": {
+    "roundOneEscalation": null,
+    "firstKeeperCostOfTradeAcquisitionWithoutInheritedKeeperCost": null,
+    "simultaneousKeepersWithSameRoundCost": null,
+    "keeperDeadline2026": null,
+    "exactEligibleRosterAtLock": null
+  },
+  "interpretation": "After a trade, the acquiring manager gets a fresh three-year keeper tenure, but inherits the player's ongoing round-cost progression. A confirmed cost formula does not independently prove eligibility, lock-time ownership or all unselected alternatives. Never assign decision grades from after-the-fact returns alone."
+}
