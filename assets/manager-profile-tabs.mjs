@@ -1089,8 +1089,19 @@ if(main&&tabs){
   history.replaceState(null,'',location.pathname+location.search+'#profile-features');
   requestAnimationFrame(()=>requestAnimationFrame(()=>featureDirectory?.scrollIntoView({block:'start',behavior:'instant'})));
  }
+ // Only restore a saved reading position when the user uses browser Back/Forward.
+ // A fresh visit from a Madden card, directory or another page must start at the top.
+ // Session storage survives across links and must not be mistaken for navigation history.
+ const isHistoryTraversal=performance.getEntriesByType('navigation')[0]?.type==='back_forward';
  let restoredPosition=false;
- if(!target||categories[initial]){try{const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]&&(!target||initial===saved.tab)){activate(saved.tab);restoreReadingPosition(saved);restoredPosition=true}}catch{}}
+ if(isHistoryTraversal&&(!target||categories[initial])){
+  try{
+   const saved=JSON.parse(sessionStorage.getItem(scrollKey)||'null');
+   if(saved&&Date.now()-saved.at<30*60*1000&&categories[saved.tab]&&(!target||initial===saved.tab)){
+    activate(saved.tab);restoreReadingPosition(saved);restoredPosition=true;
+   }
+  }catch{}
+ }
  if(target&&!categories[initial]&&!directoryDeepLink)requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));
  // Homepage directory shortcuts use category hashes, not physical element IDs.
  // On a fresh deep link, bring the selected profile section navigation into view.

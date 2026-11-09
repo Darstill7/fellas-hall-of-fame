@@ -663,6 +663,34 @@ try{
          mobileJourneys.push({engine,width,page:'cross-page-reading-journey',path:'Home → Hall → 2023 story; Home → Stilly → Records',verified:true});
         }finally{await journey.close();}
        }
+       // New page visits should never inherit an old manager card reading position.
+       // Browser Back/Forward is separate: its existing reading-position test remains valid.
+       if(route===''&&width===390){
+        const visitor=await context.newPage();
+        try{
+         const home=baseUrl,profile=baseUrl+'managers/stilly/';
+         const openStilly=async()=>{
+          await visitor.goto(home,{waitUntil:'domcontentloaded',timeout:15000});
+          const row=visitor.locator('details.mobile-manager-row:has(a.mobile-manager-link[href="managers/stilly/"])');
+          await row.waitFor({state:'visible',timeout:15000});
+          await row.locator(':scope > summary').click();
+          await row.locator('a.mobile-manager-link').click();
+          await visitor.waitForURL(profile,{timeout:12000});
+          await visitor.locator('h1').waitFor({state:'visible',timeout:15000});
+         };
+         await openStilly();
+         await visitor.evaluate(()=>window.scrollTo(0,1400));
+         if(await visitor.evaluate(()=>window.scrollY)<250)
+          throw Error('Manager profile did not provide enough reading content to test scroll restoration');
+         await visitor.locator('header.nav a.brand').click();
+         await visitor.waitForURL(url=>url.pathname.endsWith('/index.html'),{timeout:12000});
+         await openStilly();
+         await visitor.waitForTimeout(1050); // Recheck after delayed profile data and scroll restoration.
+         const top=await visitor.evaluate(()=>window.scrollY);
+         if(top>95)throw Error('Fresh Madden manager card navigation reused old profile scroll position: '+top+'px');
+         mobileJourneys.push({engine,width,page:'madden-card-fresh-navigation',freshVisitTop:true,previousScrollCleared:true});
+        }finally{await visitor.close();}
+       }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
        findings.push(engine+' '+width+' '+key+' audit error '+(error?.message||String(error)));
