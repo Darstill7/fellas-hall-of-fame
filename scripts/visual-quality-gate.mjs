@@ -484,16 +484,26 @@ try{
        await page.screenshot({path:path.join(dir,name+'.png'),animations:'disabled',fullPage:false});
        if(engine==='chromium'&&width===390&&['index.html','managers/stilly/','analytics/manager-report-cards.html','analytics/rivalries.html'].includes(key))
         await page.screenshot({path:path.join(dir,name+'_full.png'),animations:'disabled',fullPage:true});
-       if(width===390&&route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
-        const positions=await page.evaluate(()=>({
-         header:getComputedStyle(document.querySelector('header.nav')).position,
-         chapters:getComputedStyle(document.querySelector('.profile-chapters')).position,
-         chapterLinks:[...document.querySelectorAll('.profile-chapters .buttons a')].map(a=>Math.round(a.getBoundingClientRect().height))
-        }));
-        if(positions.header!=='sticky'||positions.chapters==='sticky'||positions.chapters==='fixed')
-         throw Error('Mobile profiles must have ONE sticky header and static chapter shortcuts');
-        if(positions.chapterLinks.length<5||positions.chapterLinks.some(height=>height<44))
-         throw Error('Mobile profile chapter links must be readable 44px+ touch targets');
+       if(width===390&&route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
+        // Use a clean route fixture; other audits may have already navigated the shared page.
+        const navigationPage=await context.newPage();
+        try{
+         await navigationPage.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:15000});
+         const positions=await navigationPage.evaluate(()=>{
+          const header=document.querySelector('header.nav');
+          const chapters=document.querySelector('.profile-chapters');
+          if(!header||!chapters)throw Error('Manager navigation landmarks missing');
+          return {
+           header:getComputedStyle(header).position,
+           chapters:getComputedStyle(chapters).position,
+           chapterLinks:[...chapters.querySelectorAll('.buttons a')].map(a=>Math.round(a.getBoundingClientRect().height))
+          };
+         });
+         if(positions.header!=='sticky'||positions.chapters==='sticky'||positions.chapters==='fixed')
+          throw Error('Mobile profiles must have ONE sticky header and static chapter shortcuts');
+         if(positions.chapterLinks.length<5||positions.chapterLinks.some(height=>height<44))
+          throw Error('Mobile profile chapter links must be readable 44px+ touch targets');
+        }finally{await navigationPage.close();}
        }
        // Mobile tap-through: actual controls, navigation and verified destination,
        // not just screenshot or static link existence. Both Chromium and Safari.
@@ -675,12 +685,18 @@ try{
         }finally{await journey.close();}
        }
        if(width===390&&route==='analytics/records.html'){
-        const positions=await page.evaluate(()=>({
-          header:getComputedStyle(document.querySelector('body>header.nav')).position,
-          category:getComputedStyle(document.querySelector('.record-category-shortcuts')).position
-        }));
-        if(positions.header!=='sticky'||positions.category==='sticky'||positions.category==='fixed')
-         throw Error('Record Book navigation must use one sticky header and static category links');
+        const navigationPage=await context.newPage();
+        try{
+         await navigationPage.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:15000});
+         const positions=await navigationPage.evaluate(()=>{
+          const header=document.querySelector('body>header.nav');
+          const category=document.querySelector('.record-category-shortcuts');
+          if(!header||!category)throw Error('Record Book navigation landmarks missing');
+          return {header:getComputedStyle(header).position,category:getComputedStyle(category).position};
+         });
+         if(positions.header!=='sticky'||positions.category==='sticky'||positions.category==='fixed')
+          throw Error('Record Book navigation must use one sticky header and static category links');
+        }finally{await navigationPage.close();}
        }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
