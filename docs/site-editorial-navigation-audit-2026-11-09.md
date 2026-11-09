@@ -41,6 +41,26 @@
 **Action:** Give each of the three destinations a single purpose: Draft Intelligence = methodology/league tables; Manager Draft Report Cards = individual receipts; Draft Legends = memorable, tightly edited gallery. Avoid duplicating the same full tables across all three pages. Use existing typography tokens instead of new decorative cover themes.  
 **Acceptance:** Reader can identify the difference between the three pages from their first screen. The 2026 data is labeled W8/provisional on every page; older eras are not ranked against the new peer model.
 
+
+## Championship story inventory (source-inspected)
+
+The source anthology currently contains **10 seasons**, each with **four narrative sections**, **four editor's verdicts**, and **two inside-the-run paragraphs**. These counts confirm structure, not journalistic correctness. The `verifiedTradeReceipts` field counts only explicitly attached transaction receipts; zero does **not** mean no trades occurred.
+
+| Year | Story | Narrative sections | Editorial verdicts | Linked trade receipts | Priority for next review |
+| --- | --- | ---: | ---: | ---: | --- |
+| 2016 | The First Name on the Trophy | 4 | 4 | 0 | Check whether transaction evidence is missing or legitimately unavailable |
+| 2017 | The Champion Becomes the Standard | 4 | 4 | 0 | Check whether transaction evidence is missing or legitimately unavailable |
+| 2018 | Three in a Row, by Inches | 4 | 4 | 0 | Check whether transaction evidence is missing or legitimately unavailable |
+| 2019 | Hogan’s Heroes Finish the Job | 4 | 4 | 0 | Check whether transaction evidence is missing or legitimately unavailable |
+| 2020 | The Sixth Seed Takes the Trophy | 4 | 4 | 0 | Check whether transaction evidence is missing or legitimately unavailable |
+| 2021 | Tony Wins the One That Counts | 4 | 4 | 4 | Verify transaction attribution and impact |
+| 2022 | Stover Settles the Score | 4 | 4 | 0 | Check whether transaction evidence is missing or legitimately unavailable |
+| 2023 | From 0–4 to Fellas Champion | 4 | 4 | 1 | Verify transaction attribution and impact |
+| 2024 | The Fourth Ring, Six Years Later | 4 | 4 | 2 | Verify transaction attribution and impact |
+| 2025 | Scott’s Fast Track to the Trophy | 4 | 4 | 0 | Check whether transaction evidence is missing or legitimately unavailable |
+
+A linked trade receipt documents that the article contains a verifiable transaction link; it does **not** prove the trade caused the title. MVP and turning-point statements still require independent week-level corroboration.
+
 ## Editorial verification register template
 | Year | Champion / finalist / score and format | Season-changing transactions (source) | Playoff turning point (source) | MVP (evidence) | Unverified or ambiguous claim | Action |
 | --- | --- | --- | --- | --- | --- | --- |
