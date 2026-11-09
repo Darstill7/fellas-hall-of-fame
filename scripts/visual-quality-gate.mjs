@@ -785,7 +785,9 @@ try{
          const evidence=reader.locator('#manager-evidence-rows');
          if(await evidence.locator('details').count()!==10)
           throw Error('Ten source-backed manager draft evidence disclosures required');
-         const stillyEvidence=await evidence.innerText();
+         const stillyDisclosure=evidence.locator('details').filter({hasText:'Stilly'}).first();
+         await stillyDisclosure.locator('summary').click();
+         const stillyEvidence=await stillyDisclosure.innerText();
          if(!stillyEvidence.includes('Stilly')||!stillyEvidence.includes('D\'Andre Swift'))
           throw Error('Manager pick-level evidence missing the sourced 2025 Stilly examples');
          await reader.locator('button[data-year="2026"]').click();
