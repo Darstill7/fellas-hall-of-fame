@@ -1,0 +1,3846 @@
+{
+  "schema": "fellas-draft-intelligence-research-v1",
+  "asOf": "2026-11-08",
+  "scope": "Verified league records through 2026 Week 8; 2025 full season and 2026 partial season kept separate",
+  "status": "prepublication_research_not_official_manager_skill",
+  "sourcePaths": [
+    "data/draft_keeper_value_pilot_2025_2026w8_v1.json",
+    "data/keeper_2025_website_research_v1.json",
+    "data/keeper_2026_website_research_v1.json",
+    "data/v9_draft_engine.json"
+  ],
+  "methods": {
+    "draftPoints": "Sum actual regular-season points from players selected by this manager, counted only when starting for original drafting team; exclude post-trade starts and bench points.",
+    "peerSurplus": "Sum pilot pointsAbovePeerMedian across nonkeeper picks; the peer median is nearby same-position same-year draft rounds. This is descriptive realized draft production, not draft decision causality.",
+    "grade2025": "Within the ten 2025 managers, rank summed nonkeeper round-and-position peer surplus (13 selections each). Label ranks 1–2 A, 3–4 B, 5–6 C, 7–8 D, 9–10 F. This grade is an observed 2025 return tier only, not a manager skill grade.",
+    "grade2026": "No full-season letter grade until 2026 completes. Compare only within the same partial-season Week 8 window.",
+    "lateRound": "Rounds 10–15, with keeper picks excluded from late-round draft-steal rankings.",
+    "keeperObserved": "Retained player's original-manager starts and points, and difference to observed league same-position starting medians for those weeks.",
+    "keeperDecision": "True keeper decision/opportunity cost needs the complete eligible roster at keeper lock, keeper cost rules, alternative candidates and their realized/predicted returns; those records have not been verified."
+  },
+  "limits": [
+    "2025 and 2026 are separate windows; 2026 is incomplete through Week 8 and not a final ranking.",
+    "No keeper is counted as a new draft choice for manager draft grade.",
+    "Comparisons are against observed same-year round/position peers, not draft-day alternatives.",
+    "Original-manager starts exclude points earned on another roster after a trade.",
+    "2016–2019 ESPN draft order is recovered but week-by-week player starter points are not certified for comparable draft-value grades.",
+    "Manager grades are descriptive return tiers (2025), never inferred management intent or talent skill.",
+    "2026 keeper decision/opportunity cost remains unavailable, not zero."
+  ],
+  "seasonSummaries": [
+    {
+      "year": 2025,
+      "completed": true,
+      "throughWeek": null,
+      "managerGrades": [
+        {
+          "manager": "Birch",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 101,
+          "startedPoints": 1286.98,
+          "pointsAbovePeerMedian": 648.71,
+          "averageSurplusPerPick": 49.9,
+          "lateRoundPicks": 5,
+          "lateRoundStarts": 17,
+          "lateRoundStartedPoints": 193,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 127.4,
+              "peerSurplus": 67.75
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 309.02,
+              "peerSurplus": 179.8
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 159.76,
+              "peerSurplus": 66.36
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 133.32,
+              "peerSurplus": 79.72
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 52.48,
+              "peerSurplus": -35.62
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 115,
+              "peerSurplus": 26.9
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 135.8,
+              "peerSurplus": 71.9
+            },
+            {
+              "round": 8,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 61.2,
+              "peerSurplus": 29.9
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 46,
+              "peerSurplus": 46
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 100.9,
+              "peerSurplus": 99.3
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 26.1,
+              "peerSurplus": 26.1
+            },
+            {
+              "round": 13,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -7.9
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 20,
+              "peerSurplus": -1.5
+            }
+          ],
+          "rankByObservedSurplus": 1,
+          "observedReturnGrade2025": "A",
+          "isFinalGrade": true
+        },
+        {
+          "manager": "Tony",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 83,
+          "startedPoints": 1076,
+          "pointsAbovePeerMedian": 359.55,
+          "averageSurplusPerPick": 27.66,
+          "lateRoundPicks": 6,
+          "lateRoundStarts": 20,
+          "lateRoundStartedPoints": 258.8,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 10,
+              "startedPoints": 136.2,
+              "peerSurplus": 76.55
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 10,
+              "startedPoints": 172.1,
+              "peerSurplus": 31.29
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 46.1,
+              "peerSurplus": -69.25
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 128.1,
+              "peerSurplus": 74.5
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 80.5,
+              "peerSurplus": -7.6
+            },
+            {
+              "round": 6,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 9,
+              "startedPoints": 113.8,
+              "peerSurplus": 48.3
+            },
+            {
+              "round": 8,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 10,
+              "startedPoints": 140.4,
+              "peerSurplus": 85.2
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 66.8,
+              "peerSurplus": 58.5
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 12,
+              "startedPoints": 177,
+              "peerSurplus": 175.4
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -0.8
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -97.64
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -7.9
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 15,
+              "peerSurplus": -7
+            }
+          ],
+          "rankByObservedSurplus": 2,
+          "observedReturnGrade2025": "A",
+          "isFinalGrade": true
+        },
+        {
+          "manager": "Scott",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 76,
+          "startedPoints": 1069.7,
+          "pointsAbovePeerMedian": 337.1,
+          "averageSurplusPerPick": 25.93,
+          "lateRoundPicks": 5,
+          "lateRoundStarts": 4,
+          "lateRoundStartedPoints": 25.6,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 239.3,
+              "peerSurplus": 78.4
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 221,
+              "peerSurplus": 92.9
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 188.2,
+              "peerSurplus": 112.3
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 206.9,
+              "peerSurplus": 126.4
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 149.1,
+              "peerSurplus": 68.6
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -24.1
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 8.3,
+              "peerSurplus": -72.2
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 31.3,
+              "peerSurplus": -38.1
+            },
+            {
+              "round": 9,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 10,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 1.6,
+              "peerSurplus": -7.3
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -0.8
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 24,
+              "peerSurplus": 1
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            }
+          ],
+          "rankByObservedSurplus": 3,
+          "observedReturnGrade2025": "B",
+          "isFinalGrade": true
+        },
+        {
+          "manager": "Mitch",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 70,
+          "startedPoints": 1092.54,
+          "pointsAbovePeerMedian": 278.93,
+          "averageSurplusPerPick": 21.46,
+          "lateRoundPicks": 6,
+          "lateRoundStarts": 9,
+          "lateRoundStartedPoints": 77,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 284,
+              "peerSurplus": 123.1
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 295.5,
+              "peerSurplus": 167.4
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 41.8,
+              "peerSurplus": -62.15
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 184.8,
+              "peerSurplus": 104.3
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 3.8,
+              "peerSurplus": -44.05
+            },
+            {
+              "round": 6,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 86.34,
+              "peerSurplus": -159.52
+            },
+            {
+              "round": 8,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 12,
+              "startedPoints": 119.3,
+              "peerSurplus": 108.7
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 15,
+              "peerSurplus": 1.15
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 62,
+              "peerSurplus": 40
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            }
+          ],
+          "rankByObservedSurplus": 4,
+          "observedReturnGrade2025": "B",
+          "isFinalGrade": true
+        },
+        {
+          "manager": "Stover",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 77,
+          "startedPoints": 935.06,
+          "pointsAbovePeerMedian": 223.65,
+          "averageSurplusPerPick": 17.2,
+          "lateRoundPicks": 6,
+          "lateRoundStarts": 9,
+          "lateRoundStartedPoints": 69.4,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 246.4,
+              "peerSurplus": 118.3
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 245.86,
+              "peerSurplus": 25.25
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 141.5,
+              "peerSurplus": 61
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -47.85
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 136.9,
+              "peerSurplus": 48.8
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 31.1,
+              "peerSurplus": -49.4
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 11,
+              "startedPoints": 63.9,
+              "peerSurplus": -1.05
+            },
+            {
+              "round": 9,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 9,
+              "startedPoints": 69.4,
+              "peerSurplus": 69.4
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -0.8
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            }
+          ],
+          "rankByObservedSurplus": 5,
+          "observedReturnGrade2025": "C",
+          "isFinalGrade": true
+        },
+        {
+          "manager": "Thommy",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 59,
+          "startedPoints": 836.92,
+          "pointsAbovePeerMedian": 89,
+          "averageSurplusPerPick": 6.85,
+          "lateRoundPicks": 5,
+          "lateRoundStarts": 2,
+          "lateRoundStartedPoints": 19,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 160.9,
+              "peerSurplus": -29
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 12,
+              "startedPoints": 213.4,
+              "peerSurplus": 86
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 27,
+              "peerSurplus": -76.95
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 24.1,
+              "peerSurplus": -46.8
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 57.6,
+              "peerSurplus": 22.5
+            },
+            {
+              "round": 6,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 10.6,
+              "peerSurplus": -77.3
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 269.12,
+              "peerSurplus": 225.95
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 55.2,
+              "peerSurplus": -11.6
+            },
+            {
+              "round": 10,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -0.8
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 19,
+              "peerSurplus": -3
+            }
+          ],
+          "rankByObservedSurplus": 6,
+          "observedReturnGrade2025": "C",
+          "isFinalGrade": true
+        },
+        {
+          "manager": "JMid",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 58,
+          "startedPoints": 737.4,
+          "pointsAbovePeerMedian": 34.5,
+          "averageSurplusPerPick": 2.65,
+          "lateRoundPicks": 5,
+          "lateRoundStarts": 9,
+          "lateRoundStartedPoints": 129.9,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 9,
+              "startedPoints": 149.2,
+              "peerSurplus": 89.55
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 12,
+              "startedPoints": 191.3,
+              "peerSurplus": 63.2
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 49.6,
+              "peerSurplus": -65.75
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 13.1,
+              "peerSurplus": -57.8
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 10,
+              "peerSurplus": -78.1
+            },
+            {
+              "round": 6,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 9,
+              "startedPoints": 65.5,
+              "peerSurplus": -15
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 10,
+              "startedPoints": 123.6,
+              "peerSurplus": 58.1
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 5.2,
+              "peerSurplus": -58.7
+            },
+            {
+              "round": 10,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -8.9
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 123.9,
+              "peerSurplus": 123.9
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 6,
+              "peerSurplus": -16
+            }
+          ],
+          "rankByObservedSurplus": 7,
+          "observedReturnGrade2025": "D",
+          "isFinalGrade": true
+        },
+        {
+          "manager": "Kuhl",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 75,
+          "startedPoints": 910.1,
+          "pointsAbovePeerMedian": -24.77,
+          "averageSurplusPerPick": -1.91,
+          "lateRoundPicks": 6,
+          "lateRoundStarts": 28,
+          "lateRoundStartedPoints": 366.48,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 102.6,
+              "peerSurplus": -87.3
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 13,
+              "startedPoints": 189.9,
+              "peerSurplus": 61.8
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 39.4,
+              "peerSurplus": -64.55
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 11,
+              "startedPoints": 84.2,
+              "peerSurplus": 30.6
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 10.4,
+              "peerSurplus": -77.7
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 10,
+              "startedPoints": 117.12,
+              "peerSurplus": 29.02
+            },
+            {
+              "round": 7,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -69.4
+            },
+            {
+              "round": 9,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 86.4,
+              "peerSurplus": 78.1
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 7.9,
+              "peerSurplus": -46.3
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 8.9,
+              "peerSurplus": 8.9
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 9,
+              "startedPoints": 68,
+              "peerSurplus": 46
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 10,
+              "startedPoints": 195.28,
+              "peerSurplus": 66.06
+            }
+          ],
+          "rankByObservedSurplus": 8,
+          "observedReturnGrade2025": "D",
+          "isFinalGrade": true
+        },
+        {
+          "manager": "Stew",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 47,
+          "startedPoints": 544.4,
+          "pointsAbovePeerMedian": -122.46,
+          "averageSurplusPerPick": -9.42,
+          "lateRoundPicks": 6,
+          "lateRoundStarts": 19,
+          "lateRoundStartedPoints": 199.8,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 39.5,
+              "peerSurplus": -61.85
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 22.6,
+              "peerSurplus": -110.72
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 9,
+              "startedPoints": 150,
+              "peerSurplus": 72.1
+            },
+            {
+              "round": 4,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 5,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 16.5,
+              "peerSurplus": -7.6
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 11,
+              "startedPoints": 116,
+              "peerSurplus": 50.5
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -61
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -66.8
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -86.34
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 103.2,
+              "peerSurplus": 96.65
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 65,
+              "peerSurplus": 21
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 31.6,
+              "peerSurplus": 31.6
+            }
+          ],
+          "rankByObservedSurplus": 9,
+          "observedReturnGrade2025": "F",
+          "isFinalGrade": true
+        },
+        {
+          "manager": "Stilly",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 60,
+          "startedPoints": 649.7,
+          "pointsAbovePeerMedian": -371.69,
+          "averageSurplusPerPick": -28.59,
+          "lateRoundPicks": 5,
+          "lateRoundStarts": 5,
+          "lateRoundStartedPoints": 26,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 53.3,
+              "peerSurplus": -136.6
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 75.3,
+              "peerSurplus": -60.9
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 44,
+              "peerSurplus": -59.95
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 8.4,
+              "peerSurplus": -62.5
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 9,
+              "startedPoints": 87.9,
+              "peerSurplus": -11.95
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 11,
+              "startedPoints": 143.3,
+              "peerSurplus": 126.8
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 9,
+              "startedPoints": 88.1,
+              "peerSurplus": 22.6
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 10,
+              "startedPoints": 123.4,
+              "peerSurplus": 87.55
+            },
+            {
+              "round": 9,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -55.55
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 26,
+              "peerSurplus": -37.5
+            },
+            {
+              "round": 13,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -183.69
+            }
+          ],
+          "rankByObservedSurplus": 10,
+          "observedReturnGrade2025": "F",
+          "isFinalGrade": true
+        }
+      ],
+      "lateRoundSteals": [
+        {
+          "manager": "Tony",
+          "player": "Javonte Williams",
+          "position": "RB",
+          "round": 11,
+          "overall": 104,
+          "verifiedStarts": 12,
+          "startedPoints": 177,
+          "pointsAbovePeerMedian": 175.4,
+          "peerCount": 17,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "JMid",
+          "player": "Rico Dowdle",
+          "position": "RB",
+          "round": 14,
+          "overall": 133,
+          "verifiedStarts": 8,
+          "startedPoints": 123.9,
+          "pointsAbovePeerMedian": 123.9,
+          "peerCount": 14,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Birch",
+          "player": "Cam Skattebo",
+          "position": "RB",
+          "round": 11,
+          "overall": 105,
+          "verifiedStarts": 6,
+          "startedPoints": 100.9,
+          "pointsAbovePeerMedian": 99.3,
+          "peerCount": 17,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Stew",
+          "player": "Tucker Kraft",
+          "position": "TE",
+          "round": 11,
+          "overall": 102,
+          "verifiedStarts": 8,
+          "startedPoints": 103.2,
+          "pointsAbovePeerMedian": 96.65,
+          "peerCount": 4,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Kuhl",
+          "player": "Jaylen Warren",
+          "position": "RB",
+          "round": 10,
+          "overall": 95,
+          "verifiedStarts": 7,
+          "startedPoints": 86.4,
+          "pointsAbovePeerMedian": 78.1,
+          "peerCount": 16,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Stover",
+          "player": "Khalil Shakir",
+          "position": "WR",
+          "round": 10,
+          "overall": 91,
+          "verifiedStarts": 9,
+          "startedPoints": 69.4,
+          "pointsAbovePeerMedian": 69.4,
+          "peerCount": 12,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Kuhl",
+          "player": "Drake Maye",
+          "position": "QB",
+          "round": 15,
+          "overall": 146,
+          "verifiedStarts": 10,
+          "startedPoints": 195.28,
+          "pointsAbovePeerMedian": 66.06,
+          "peerCount": 8,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Tony",
+          "player": "J.K. Dobbins",
+          "position": "RB",
+          "round": 10,
+          "overall": 97,
+          "verifiedStarts": 7,
+          "startedPoints": 66.8,
+          "pointsAbovePeerMedian": 58.5,
+          "peerCount": 16,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Kuhl",
+          "player": "Pittsburgh Steelers",
+          "position": "DEF",
+          "round": 14,
+          "overall": 135,
+          "verifiedStarts": 9,
+          "startedPoints": 68,
+          "pointsAbovePeerMedian": 46,
+          "peerCount": 8,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Birch",
+          "player": "Jauan Jennings",
+          "position": "WR",
+          "round": 10,
+          "overall": 96,
+          "verifiedStarts": 4,
+          "startedPoints": 46,
+          "pointsAbovePeerMedian": 46,
+          "peerCount": 12,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Mitch",
+          "player": "Tampa Bay Buccaneers",
+          "position": "DEF",
+          "round": 14,
+          "overall": 134,
+          "verifiedStarts": 6,
+          "startedPoints": 62,
+          "pointsAbovePeerMedian": 40,
+          "peerCount": 8,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Stew",
+          "player": "Jake Ferguson",
+          "position": "TE",
+          "round": 15,
+          "overall": 142,
+          "verifiedStarts": 4,
+          "startedPoints": 31.6,
+          "pointsAbovePeerMedian": 31.6,
+          "peerCount": 5,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Birch",
+          "player": "Rhamondre Stevenson",
+          "position": "RB",
+          "round": 12,
+          "overall": 116,
+          "verifiedStarts": 4,
+          "startedPoints": 26.1,
+          "pointsAbovePeerMedian": 26.1,
+          "peerCount": 18,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Stew",
+          "player": "Denver Broncos",
+          "position": "DEF",
+          "round": 12,
+          "overall": 119,
+          "verifiedStarts": 7,
+          "startedPoints": 65,
+          "pointsAbovePeerMedian": 21,
+          "peerCount": 4,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Mitch",
+          "player": "Jacory Croskey-Merritt",
+          "position": "RB",
+          "round": 10,
+          "overall": 94,
+          "verifiedStarts": 3,
+          "startedPoints": 15,
+          "pointsAbovePeerMedian": 1.15,
+          "peerCount": 16,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Scott",
+          "player": "Washington Commanders",
+          "position": "DEF",
+          "round": 13,
+          "overall": 121,
+          "verifiedStarts": 3,
+          "startedPoints": 24,
+          "pointsAbovePeerMedian": 1,
+          "peerCount": 8,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        }
+      ],
+      "byRound": [
+        {
+          "round": 1,
+          "picks": 9,
+          "startedPoints": 1292.4,
+          "starts": 83,
+          "peerSurplus": 120.6
+        },
+        {
+          "round": 2,
+          "picks": 10,
+          "startedPoints": 1936.52,
+          "starts": 110,
+          "peerSurplus": 629.07
+        },
+        {
+          "round": 3,
+          "picks": 10,
+          "startedPoints": 991.72,
+          "starts": 72,
+          "peerSurplus": -122.59
+        },
+        {
+          "round": 4,
+          "picks": 9,
+          "startedPoints": 924.42,
+          "starts": 81,
+          "peerSurplus": 309.42
+        },
+        {
+          "round": 5,
+          "picks": 9,
+          "startedPoints": 451.78,
+          "starts": 45,
+          "peerSurplus": -211.77
+        },
+        {
+          "round": 6,
+          "picks": 6,
+          "startedPoints": 528.82,
+          "starts": 43,
+          "peerSurplus": 199.82
+        },
+        {
+          "round": 7,
+          "picks": 9,
+          "startedPoints": 655.54,
+          "starts": 66,
+          "peerSurplus": -180.12
+        },
+        {
+          "round": 8,
+          "picks": 7,
+          "startedPoints": 611.32,
+          "starts": 49,
+          "peerSurplus": 202.05
+        },
+        {
+          "round": 9,
+          "picks": 6,
+          "startedPoints": 381.3,
+          "starts": 35,
+          "peerSurplus": 86.7
+        },
+        {
+          "round": 10,
+          "picks": 7,
+          "startedPoints": 283.6,
+          "starts": 30,
+          "peerSurplus": 166.81
+        },
+        {
+          "round": 11,
+          "picks": 10,
+          "startedPoints": 390.6,
+          "starts": 28,
+          "peerSurplus": 253.3
+        },
+        {
+          "round": 12,
+          "picks": 10,
+          "startedPoints": 117.1,
+          "starts": 16,
+          "peerSurplus": 6.4
+        },
+        {
+          "round": 13,
+          "picks": 8,
+          "startedPoints": 32.9,
+          "starts": 4,
+          "peerSurplus": -87.74
+        },
+        {
+          "round": 14,
+          "picks": 10,
+          "startedPoints": 253.9,
+          "starts": 23,
+          "peerSurplus": 194.1
+        },
+        {
+          "round": 15,
+          "picks": 10,
+          "startedPoints": 286.88,
+          "starts": 21,
+          "peerSurplus": -113.53
+        }
+      ],
+      "selectionCount": 130,
+      "keeperExcluded": 20
+    },
+    {
+      "year": 2026,
+      "completed": false,
+      "throughWeek": 8,
+      "managerGrades": [
+        {
+          "manager": "Mitch",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 53,
+          "startedPoints": 771.72,
+          "pointsAbovePeerMedian": 394.52,
+          "averageSurplusPerPick": 30.35,
+          "lateRoundPicks": 6,
+          "lateRoundStarts": 9,
+          "lateRoundStartedPoints": 50.9,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 133.7,
+              "peerSurplus": 60.8
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 59.5,
+              "peerSurplus": -27.4
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 184.32,
+              "peerSurplus": 144.37
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 122.6,
+              "peerSurplus": 67.1
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 138.7,
+              "peerSurplus": 100.55
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 82,
+              "peerSurplus": 35.1
+            },
+            {
+              "round": 7,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 8,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -0.8
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 23.1,
+              "peerSurplus": -2
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 14.8,
+              "peerSurplus": 14.8
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 13,
+              "peerSurplus": 2
+            }
+          ],
+          "rankByObservedSurplus": 1,
+          "observedReturnGrade2025": null,
+          "isFinalGrade": false
+        },
+        {
+          "manager": "Birch",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 49,
+          "startedPoints": 701.56,
+          "pointsAbovePeerMedian": 293.29,
+          "averageSurplusPerPick": 22.56,
+          "lateRoundPicks": 5,
+          "lateRoundStarts": 6,
+          "lateRoundStartedPoints": 56.58,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 106.6,
+              "peerSurplus": 33.7
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 130.7,
+              "peerSurplus": 74
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 117.4,
+              "peerSurplus": 84.5
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 79.08,
+              "peerSurplus": -15.62
+            },
+            {
+              "round": 5,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 76.5,
+              "peerSurplus": 29.6
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 26.1,
+              "peerSurplus": -13.1
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 108.6,
+              "peerSurplus": 97
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -0.8
+            },
+            {
+              "round": 10,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 27.7,
+              "peerSurplus": 27.7
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 6.4,
+              "peerSurplus": -18.7
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -5.4
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 15.48,
+              "peerSurplus": 6.41
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 7,
+              "peerSurplus": -6
+            }
+          ],
+          "rankByObservedSurplus": 2,
+          "observedReturnGrade2025": null,
+          "isFinalGrade": false
+        },
+        {
+          "manager": "Stover",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 55,
+          "startedPoints": 637.1,
+          "pointsAbovePeerMedian": 226.5,
+          "averageSurplusPerPick": 17.42,
+          "lateRoundPicks": 6,
+          "lateRoundStarts": 21,
+          "lateRoundStartedPoints": 210.5,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 127,
+              "peerSurplus": 54.1
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 133.5,
+              "peerSurplus": 76.8
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 85.8,
+              "peerSurplus": 14.4
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 6,
+              "peerSurplus": -50.7
+            },
+            {
+              "round": 5,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 46.3,
+              "peerSurplus": -5.6
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -39.2
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 28,
+              "peerSurplus": 16.4
+            },
+            {
+              "round": 9,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 67.6,
+              "peerSurplus": 28.4
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 99.5,
+              "peerSurplus": 99.5
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 6.4,
+              "peerSurplus": 6.4
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 37,
+              "peerSurplus": 26
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            }
+          ],
+          "rankByObservedSurplus": 3,
+          "observedReturnGrade2025": null,
+          "isFinalGrade": false
+        },
+        {
+          "manager": "Stew",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 41,
+          "startedPoints": 522.6,
+          "pointsAbovePeerMedian": 134.21,
+          "averageSurplusPerPick": 10.32,
+          "lateRoundPicks": 6,
+          "lateRoundStarts": 1,
+          "lateRoundStartedPoints": 16,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 72.9,
+              "peerSurplus": 16.2
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 92.2,
+              "peerSurplus": 20.8
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 106.2,
+              "peerSurplus": 39.75
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 110.8,
+              "peerSurplus": 72.65
+            },
+            {
+              "round": 6,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 53.5,
+              "peerSurplus": -19.09
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -28
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 71,
+              "peerSurplus": 26.9
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 16,
+              "peerSurplus": 5
+            }
+          ],
+          "rankByObservedSurplus": 4,
+          "observedReturnGrade2025": null,
+          "isFinalGrade": false
+        },
+        {
+          "manager": "JMid",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 38,
+          "startedPoints": 554.76,
+          "pointsAbovePeerMedian": 130.87,
+          "averageSurplusPerPick": 10.07,
+          "lateRoundPicks": 6,
+          "lateRoundStarts": 7,
+          "lateRoundStartedPoints": 86.36,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 133,
+              "peerSurplus": 76.3
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 25.4,
+              "peerSurplus": -47.5
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 38.5,
+              "peerSurplus": -34.2
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 123.3,
+              "peerSurplus": 57.2
+            },
+            {
+              "round": 6,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 102.5,
+              "peerSurplus": 77
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 1.6,
+              "peerSurplus": -6.3
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 44.1,
+              "peerSurplus": -23.5
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 7.1,
+              "peerSurplus": 7.1
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 68.26,
+              "peerSurplus": 50.12
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -23.35
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 11,
+              "peerSurplus": -2
+            }
+          ],
+          "rankByObservedSurplus": 5,
+          "observedReturnGrade2025": null,
+          "isFinalGrade": false
+        },
+        {
+          "manager": "Tony",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 50,
+          "startedPoints": 606.6,
+          "pointsAbovePeerMedian": 96.31,
+          "averageSurplusPerPick": 7.41,
+          "lateRoundPicks": 5,
+          "lateRoundStarts": 13,
+          "lateRoundStartedPoints": 137.4,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 71.4,
+              "peerSurplus": -20.8
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 56.7,
+              "peerSurplus": -16.2
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 103.1,
+              "peerSurplus": 31.7
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 86.9,
+              "peerSurplus": 20.45
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 4.5,
+              "peerSurplus": -35.75
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 68.9,
+              "peerSurplus": 22
+            },
+            {
+              "round": 7,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 11.6,
+              "peerSurplus": -16.4
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 66.1,
+              "peerSurplus": 26.15
+            },
+            {
+              "round": 10,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 17.3,
+              "peerSurplus": 17.3
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 80.5,
+              "peerSurplus": 62.36
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 23.6,
+              "peerSurplus": 0.5
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 16,
+              "peerSurplus": 5
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            }
+          ],
+          "rankByObservedSurplus": 6,
+          "observedReturnGrade2025": null,
+          "isFinalGrade": false
+        },
+        {
+          "manager": "Scott",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 43,
+          "startedPoints": 431.82,
+          "pointsAbovePeerMedian": 27.16,
+          "averageSurplusPerPick": 2.09,
+          "lateRoundPicks": 6,
+          "lateRoundStarts": 5,
+          "lateRoundStartedPoints": 29.14,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 114.8,
+              "peerSurplus": 58.1
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 42,
+              "peerSurplus": -30.9
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 48.7,
+              "peerSurplus": -21.7
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 46.9,
+              "peerSurplus": -19.55
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 32.1,
+              "peerSurplus": -19.8
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 75.28,
+              "peerSurplus": 46.18
+            },
+            {
+              "round": 8,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 42.9,
+              "peerSurplus": 41.9
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 18.14,
+              "peerSurplus": -8.26
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 11,
+              "peerSurplus": -2
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -16.81
+            }
+          ],
+          "rankByObservedSurplus": 7,
+          "observedReturnGrade2025": null,
+          "isFinalGrade": false
+        },
+        {
+          "manager": "Stilly",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 35,
+          "startedPoints": 449.3,
+          "pointsAbovePeerMedian": -18.76,
+          "averageSurplusPerPick": -1.44,
+          "lateRoundPicks": 5,
+          "lateRoundStarts": 5,
+          "lateRoundStartedPoints": 65.1,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 139.3,
+              "peerSurplus": 53.5
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 37.8,
+              "peerSurplus": -35.1
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 38.5,
+              "peerSurplus": -18.2
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 25.5,
+              "peerSurplus": -14.75
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 64,
+              "peerSurplus": 17.1
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 8.7,
+              "peerSurplus": -30.5
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 70.4,
+              "peerSurplus": 14.55
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -6.8
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 39.2,
+              "peerSurplus": 5.35
+            },
+            {
+              "round": 12,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 25.9,
+              "peerSurplus": 25.9
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -13
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -16.81
+            }
+          ],
+          "rankByObservedSurplus": 8,
+          "observedReturnGrade2025": null,
+          "isFinalGrade": false
+        },
+        {
+          "manager": "Kuhl",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 44,
+          "startedPoints": 396.4,
+          "pointsAbovePeerMedian": -73,
+          "averageSurplusPerPick": -5.62,
+          "lateRoundPicks": 5,
+          "lateRoundStarts": 15,
+          "lateRoundStartedPoints": 101.5,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 47,
+              "peerSurplus": -59.6
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 13.6,
+              "peerSurplus": -73.3
+            },
+            {
+              "round": 3,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 25.4,
+              "peerSurplus": -31.3
+            },
+            {
+              "round": 5,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 61.9,
+              "peerSurplus": -4.55
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 130.3,
+              "peerSurplus": 103.55
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 13.7,
+              "peerSurplus": -25.5
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 3,
+              "peerSurplus": -66
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -6.8
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 1.9,
+              "peerSurplus": 1.9
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 4,
+              "startedPoints": 27.2,
+              "peerSurplus": 27.2
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 5.4,
+              "peerSurplus": 5.4
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 8,
+              "startedPoints": 67,
+              "peerSurplus": 56
+            },
+            {
+              "round": 14,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            }
+          ],
+          "rankByObservedSurplus": 9,
+          "observedReturnGrade2025": null,
+          "isFinalGrade": false
+        },
+        {
+          "manager": "Thommy",
+          "nonKeeperPicks": 13,
+          "verifiedStarts": 33,
+          "startedPoints": 288,
+          "pointsAbovePeerMedian": -138.2,
+          "averageSurplusPerPick": -10.63,
+          "lateRoundPicks": 6,
+          "lateRoundStarts": 9,
+          "lateRoundStartedPoints": 59,
+          "byRound": [
+            {
+              "round": 1,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 2,
+              "picks": 1,
+              "starts": 3,
+              "startedPoints": 21.1,
+              "peerSurplus": -51.8
+            },
+            {
+              "round": 3,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 98.5,
+              "peerSurplus": 27.1
+            },
+            {
+              "round": 4,
+              "picks": 1,
+              "starts": 7,
+              "startedPoints": 51.9,
+              "peerSurplus": -20.8
+            },
+            {
+              "round": 5,
+              "picks": 0,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 6,
+              "picks": 1,
+              "starts": 6,
+              "startedPoints": 55.5,
+              "peerSurplus": 28.75
+            },
+            {
+              "round": 7,
+              "picks": 1,
+              "starts": 1,
+              "startedPoints": 2,
+              "peerSurplus": -26
+            },
+            {
+              "round": 8,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -28
+            },
+            {
+              "round": 9,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -0.8
+            },
+            {
+              "round": 10,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 26.4,
+              "peerSurplus": -39.7
+            },
+            {
+              "round": 11,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": 0
+            },
+            {
+              "round": 12,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -26.4
+            },
+            {
+              "round": 13,
+              "picks": 1,
+              "starts": 0,
+              "startedPoints": 0,
+              "peerSurplus": -5.4
+            },
+            {
+              "round": 14,
+              "picks": 1,
+              "starts": 5,
+              "startedPoints": 26.6,
+              "peerSurplus": 11.85
+            },
+            {
+              "round": 15,
+              "picks": 1,
+              "starts": 2,
+              "startedPoints": 6,
+              "peerSurplus": -7
+            }
+          ],
+          "rankByObservedSurplus": 10,
+          "observedReturnGrade2025": null,
+          "isFinalGrade": false
+        }
+      ],
+      "lateRoundSteals": [
+        {
+          "manager": "Stover",
+          "player": "Matthew Golden",
+          "position": "WR",
+          "round": 11,
+          "overall": 101,
+          "verifiedStarts": 7,
+          "startedPoints": 99.5,
+          "pointsAbovePeerMedian": 99.5,
+          "peerCount": 20,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Tony",
+          "player": "Dak Prescott",
+          "position": "QB",
+          "round": 12,
+          "overall": 115,
+          "verifiedStarts": 5,
+          "startedPoints": 80.5,
+          "pointsAbovePeerMedian": 62.36,
+          "peerCount": 5,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Kuhl",
+          "player": "Seattle Seahawks",
+          "position": "DEF",
+          "round": 13,
+          "overall": 123,
+          "verifiedStarts": 8,
+          "startedPoints": 67,
+          "pointsAbovePeerMedian": 56,
+          "peerCount": 9,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "JMid",
+          "player": "Brock Purdy",
+          "position": "QB",
+          "round": 12,
+          "overall": 117,
+          "verifiedStarts": 3,
+          "startedPoints": 68.26,
+          "pointsAbovePeerMedian": 50.12,
+          "peerCount": 5,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Stover",
+          "player": "Dalton Kincaid",
+          "position": "TE",
+          "round": 10,
+          "overall": 100,
+          "verifiedStarts": 7,
+          "startedPoints": 67.6,
+          "pointsAbovePeerMedian": 28.4,
+          "peerCount": 7,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Kuhl",
+          "player": "Josh Downs",
+          "position": "WR",
+          "round": 11,
+          "overall": 103,
+          "verifiedStarts": 4,
+          "startedPoints": 27.2,
+          "pointsAbovePeerMedian": 27.2,
+          "peerCount": 20,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Stover",
+          "player": "Denver Broncos",
+          "position": "DEF",
+          "round": 14,
+          "overall": 140,
+          "verifiedStarts": 5,
+          "startedPoints": 37,
+          "pointsAbovePeerMedian": 26,
+          "peerCount": 9,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Stilly",
+          "player": "Woody Marks",
+          "position": "RB",
+          "round": 13,
+          "overall": 128,
+          "verifiedStarts": 3,
+          "startedPoints": 25.9,
+          "pointsAbovePeerMedian": 25.9,
+          "peerCount": 12,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Mitch",
+          "player": "Jalen Coker",
+          "position": "WR",
+          "round": 13,
+          "overall": 122,
+          "verifiedStarts": 3,
+          "startedPoints": 14.8,
+          "pointsAbovePeerMedian": 14.8,
+          "peerCount": 11,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Thommy",
+          "player": "Juwan Johnson",
+          "position": "TE",
+          "round": 14,
+          "overall": 134,
+          "verifiedStarts": 5,
+          "startedPoints": 26.6,
+          "pointsAbovePeerMedian": 11.85,
+          "peerCount": 4,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Tony",
+          "player": "Houston Texans",
+          "position": "DEF",
+          "round": 14,
+          "overall": 135,
+          "verifiedStarts": 4,
+          "startedPoints": 16,
+          "pointsAbovePeerMedian": 5,
+          "peerCount": 9,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Mitch",
+          "player": "Green Bay Packers",
+          "position": "DEF",
+          "round": 15,
+          "overall": 142,
+          "verifiedStarts": 4,
+          "startedPoints": 13,
+          "pointsAbovePeerMedian": 2,
+          "peerCount": 9,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        },
+        {
+          "manager": "Scott",
+          "player": "Philadelphia Eagles",
+          "position": "DEF",
+          "round": 14,
+          "overall": 132,
+          "verifiedStarts": 3,
+          "startedPoints": 11,
+          "pointsAbovePeerMedian": -2,
+          "peerCount": 9,
+          "comparisonStatus": "realized_return_peer_benchmark"
+        }
+      ],
+      "byRound": [
+        {
+          "round": 1,
+          "picks": 5,
+          "startedPoints": 485.7,
+          "starts": 33,
+          "peerSurplus": 68.2
+        },
+        {
+          "round": 2,
+          "picks": 10,
+          "startedPoints": 875.1,
+          "starts": 63,
+          "peerSurplus": 186.2
+        },
+        {
+          "round": 3,
+          "picks": 9,
+          "startedPoints": 786.52,
+          "starts": 54,
+          "peerSurplus": 209.37
+        },
+        {
+          "round": 4,
+          "picks": 10,
+          "startedPoints": 603.78,
+          "starts": 53,
+          "peerSurplus": -65.22
+        },
+        {
+          "round": 5,
+          "picks": 7,
+          "startedPoints": 511.6,
+          "starts": 33,
+          "peerSurplus": 155.8
+        },
+        {
+          "round": 6,
+          "picks": 8,
+          "startedPoints": 555.6,
+          "starts": 46,
+          "peerSurplus": 210.7
+        },
+        {
+          "round": 7,
+          "picks": 8,
+          "startedPoints": 281.78,
+          "starts": 26,
+          "peerSurplus": -30.21
+        },
+        {
+          "round": 8,
+          "picks": 8,
+          "startedPoints": 223.2,
+          "starts": 22,
+          "peerSurplus": -16.75
+        },
+        {
+          "round": 9,
+          "picks": 9,
+          "startedPoints": 224.1,
+          "starts": 20,
+          "peerSurplus": 55.45
+        },
+        {
+          "round": 10,
+          "picks": 8,
+          "startedPoints": 103,
+          "starts": 12,
+          "peerSurplus": -2.3
+        },
+        {
+          "round": 11,
+          "picks": 10,
+          "startedPoints": 210.9,
+          "starts": 17,
+          "peerSurplus": 177.05
+        },
+        {
+          "round": 12,
+          "picks": 9,
+          "startedPoints": 208.2,
+          "starts": 17,
+          "peerSurplus": 68.92
+        },
+        {
+          "round": 13,
+          "picks": 10,
+          "startedPoints": 131.3,
+          "starts": 16,
+          "peerSurplus": 86.4
+        },
+        {
+          "round": 14,
+          "picks": 9,
+          "startedPoints": 106.08,
+          "starts": 19,
+          "peerSurplus": 10.91
+        },
+        {
+          "round": 15,
+          "picks": 10,
+          "startedPoints": 53,
+          "starts": 10,
+          "peerSurplus": -41.62
+        }
+      ],
+      "selectionCount": 130,
+      "keeperExcluded": 20
+    }
+  ],
+  "keeperResearch": {
+    "season2025": [
+      {
+        "manager": "Mitch",
+        "keepers": [
+          {
+            "name": "George Kittle",
+            "round": 6,
+            "position": "TE"
+          },
+          {
+            "name": "Jaxon Smith-Njigba",
+            "round": 8,
+            "position": "WR"
+          }
+        ],
+        "observedStartedPoints": 336.7,
+        "pointsVsStarterMedian": 146.65,
+        "reportedResearchScore": 66.6,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Thommy",
+        "keepers": [
+          {
+            "name": "Tee Higgins",
+            "round": 6,
+            "position": "WR"
+          },
+          {
+            "name": "Jameson Williams",
+            "round": 10,
+            "position": "WR"
+          }
+        ],
+        "observedStartedPoints": 238.2,
+        "pointsVsStarterMedian": 48.5,
+        "reportedResearchScore": 57.8,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Stilly",
+        "keepers": [
+          {
+            "name": "Bucky Irving",
+            "round": 9,
+            "position": "RB"
+          },
+          {
+            "name": "Jayden Daniels",
+            "round": 13,
+            "position": "QB"
+          }
+        ],
+        "observedStartedPoints": 204.26,
+        "pointsVsStarterMedian": 2.35,
+        "reportedResearchScore": 49.3,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Tony",
+        "keepers": [
+          {
+            "name": "Zay Flowers",
+            "round": 6,
+            "position": "WR"
+          },
+          {
+            "name": "Brock Bowers",
+            "round": 8,
+            "position": "TE"
+          }
+        ],
+        "observedStartedPoints": 216.5,
+        "pointsVsStarterMedian": 33.7,
+        "reportedResearchScore": 48,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Scott",
+        "keepers": [
+          {
+            "name": "Ladd McConkey",
+            "round": 9,
+            "position": "WR"
+          },
+          {
+            "name": "Bo Nix",
+            "round": 10,
+            "position": "QB"
+          }
+        ],
+        "observedStartedPoints": 295.7,
+        "pointsVsStarterMedian": -24.23,
+        "reportedResearchScore": 47,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Birch",
+        "keepers": [
+          {
+            "name": "Brian Robinson",
+            "round": 8,
+            "position": "RB"
+          },
+          {
+            "name": "Jerry Jeudy",
+            "round": 13,
+            "position": "WR"
+          }
+        ],
+        "observedStartedPoints": 25,
+        "pointsVsStarterMedian": -13.4,
+        "reportedResearchScore": 46.1,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "JMid",
+        "keepers": [
+          {
+            "name": "Joe Burrow",
+            "round": 6,
+            "position": "QB"
+          },
+          {
+            "name": "Courtland Sutton",
+            "round": 10,
+            "position": "WR"
+          }
+        ],
+        "observedStartedPoints": 154.92,
+        "pointsVsStarterMedian": -14.46,
+        "reportedResearchScore": 40.5,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Kuhl",
+        "keepers": [
+          {
+            "name": "Xavier Worthy",
+            "round": 7,
+            "position": "WR"
+          },
+          {
+            "name": "Jared Goff",
+            "round": 9,
+            "position": "QB"
+          }
+        ],
+        "observedStartedPoints": 129.74,
+        "pointsVsStarterMedian": -24.81,
+        "reportedResearchScore": 39.1,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Stew",
+        "keepers": [
+          {
+            "name": "Nico Collins",
+            "round": 4,
+            "position": "WR"
+          },
+          {
+            "name": "Malik Nabers",
+            "round": 5,
+            "position": "WR"
+          }
+        ],
+        "observedStartedPoints": 65.8,
+        "pointsVsStarterMedian": 11.3,
+        "reportedResearchScore": 36.5,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Stover",
+        "keepers": [
+          {
+            "name": "Saquon Barkley",
+            "round": 1,
+            "position": "RB"
+          },
+          {
+            "name": "Brian Thomas",
+            "round": 9,
+            "position": "WR"
+          }
+        ],
+        "observedStartedPoints": 245.2,
+        "pointsVsStarterMedian": -3.65,
+        "reportedResearchScore": 35.6,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      }
+    ],
+    "season2026": [
+      {
+        "manager": "Mitch",
+        "keepers": [
+          {
+            "name": "Jaxon Smith-Njigba",
+            "round": 7,
+            "position": "WR",
+            "starts": 8,
+            "startedPoints": 190.96,
+            "transferredDuringSeason": false
+          },
+          {
+            "name": "Tyler Warren",
+            "round": 8,
+            "position": "TE",
+            "starts": 6,
+            "startedPoints": 58.7,
+            "transferredDuringSeason": false
+          }
+        ],
+        "observedStartedPoints": 249.66,
+        "pointsVsStarterMedian": 122.61,
+        "verifiedOriginalManagerStarts": 14,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Thommy",
+        "keepers": [
+          {
+            "name": "Puka Nacua",
+            "round": 1,
+            "position": "WR",
+            "starts": 6,
+            "startedPoints": 112.6,
+            "transferredDuringSeason": false
+          },
+          {
+            "name": "Tee Higgins",
+            "round": 5,
+            "position": "WR",
+            "starts": 7,
+            "startedPoints": 120.1,
+            "transferredDuringSeason": false
+          }
+        ],
+        "observedStartedPoints": 232.7,
+        "pointsVsStarterMedian": 100.05,
+        "verifiedOriginalManagerStarts": 13,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Tony",
+        "keepers": [
+          {
+            "name": "Brock Bowers",
+            "round": 7,
+            "position": "TE",
+            "starts": 6,
+            "startedPoints": 103.2,
+            "transferredDuringSeason": false
+          },
+          {
+            "name": "Javonte Williams",
+            "round": 10,
+            "position": "RB",
+            "starts": 8,
+            "startedPoints": 125.2,
+            "transferredDuringSeason": false
+          }
+        ],
+        "observedStartedPoints": 228.4,
+        "pointsVsStarterMedian": 84.05,
+        "verifiedOriginalManagerStarts": 14,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Stilly",
+        "keepers": [
+          {
+            "name": "Amon-Ra St. Brown",
+            "round": 1,
+            "position": "WR",
+            "starts": 7,
+            "startedPoints": 113.5,
+            "transferredDuringSeason": false
+          },
+          {
+            "name": "Jayden Daniels",
+            "round": 12,
+            "position": "QB",
+            "starts": 4,
+            "startedPoints": 81.98,
+            "transferredDuringSeason": false
+          }
+        ],
+        "observedStartedPoints": 195.48,
+        "pointsVsStarterMedian": 50.45,
+        "verifiedOriginalManagerStarts": 11,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Stew",
+        "keepers": [
+          {
+            "name": "Jahmyr Gibbs",
+            "round": 1,
+            "position": "RB",
+            "starts": 7,
+            "startedPoints": 178.8,
+            "transferredDuringSeason": false
+          },
+          {
+            "name": "Emeka Egbuka",
+            "round": 6,
+            "position": "WR",
+            "starts": 0,
+            "startedPoints": 0,
+            "transferredDuringSeason": true
+          }
+        ],
+        "observedStartedPoints": 178.8,
+        "pointsVsStarterMedian": 91.6,
+        "verifiedOriginalManagerStarts": 7,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Scott",
+        "keepers": [
+          {
+            "name": "Bijan Robinson",
+            "round": 1,
+            "position": "RB",
+            "starts": 8,
+            "startedPoints": 139.8,
+            "transferredDuringSeason": false
+          },
+          {
+            "name": "Ladd McConkey",
+            "round": 8,
+            "position": "WR",
+            "starts": 0,
+            "startedPoints": 0,
+            "transferredDuringSeason": true
+          }
+        ],
+        "observedStartedPoints": 139.8,
+        "pointsVsStarterMedian": 43.5,
+        "verifiedOriginalManagerStarts": 8,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Birch",
+        "keepers": [
+          {
+            "name": "Rashee Rice",
+            "round": 5,
+            "position": "WR",
+            "starts": 5,
+            "startedPoints": 46.3,
+            "transferredDuringSeason": false
+          },
+          {
+            "name": "Cam Skattebo",
+            "round": 10,
+            "position": "RB",
+            "starts": 6,
+            "startedPoints": 43.3,
+            "transferredDuringSeason": false
+          }
+        ],
+        "observedStartedPoints": 89.6,
+        "pointsVsStarterMedian": -29.65,
+        "verifiedOriginalManagerStarts": 11,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Kuhl",
+        "keepers": [
+          {
+            "name": "Nico Collins",
+            "round": 3,
+            "position": "WR",
+            "starts": 5,
+            "startedPoints": 66.1,
+            "transferredDuringSeason": false
+          },
+          {
+            "name": "Drake Maye",
+            "round": 14,
+            "position": "QB",
+            "starts": 3,
+            "startedPoints": 20.6,
+            "transferredDuringSeason": true
+          }
+        ],
+        "observedStartedPoints": 86.7,
+        "pointsVsStarterMedian": -12.67,
+        "verifiedOriginalManagerStarts": 8,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "Stover",
+        "keepers": [
+          {
+            "name": "DeVonta Smith",
+            "round": 5,
+            "position": "WR",
+            "starts": 3,
+            "startedPoints": 39,
+            "transferredDuringSeason": false
+          },
+          {
+            "name": "Matthew Stafford",
+            "round": 9,
+            "position": "QB",
+            "starts": 3,
+            "startedPoints": 37.48,
+            "transferredDuringSeason": false
+          }
+        ],
+        "observedStartedPoints": 76.48,
+        "pointsVsStarterMedian": -8.03,
+        "verifiedOriginalManagerStarts": 6,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      },
+      {
+        "manager": "JMid",
+        "keepers": [
+          {
+            "name": "Ja'Marr Chase",
+            "round": 1,
+            "position": "WR",
+            "starts": 4,
+            "startedPoints": 49.7,
+            "transferredDuringSeason": true
+          },
+          {
+            "name": "Rome Odunze",
+            "round": 6,
+            "position": "WR",
+            "starts": 1,
+            "startedPoints": 7.2,
+            "transferredDuringSeason": false
+          }
+        ],
+        "observedStartedPoints": 56.9,
+        "pointsVsStarterMedian": 8.55,
+        "verifiedOriginalManagerStarts": 5,
+        "keeperDecisionGrade": null,
+        "keeperOpportunityCost": null
+      }
+    ],
+    "opportunityCost": null,
+    "opportunityCostStatus": "cannot_calculate_without_decision_time_eligibility",
+    "requiredEvidence": [
+      "2025/2026 keeper-lock roster for each manager",
+      "precise keeper rules and round-cost adjustments",
+      "every eligible alternate and deadline cost",
+      "keeper selection timestamps and exchanged pick ownership where applicable",
+      "comparable pre-draft value expectation if claiming ex ante decision quality"
+    ]
+  },
+  "archive2020to2024": {
+    "status": "observed_original_manager_regular_starter_points_only_not_peer_normalized",
+    "byYear": [
+      {
+        "year": 2020,
+        "selectionCount": 150,
+        "managerRows": [
+          {
+            "manager": "Birch",
+            "selections": 15,
+            "observedRegularStarterPoints": 1295.88,
+            "regularStarts": 90
+          },
+          {
+            "manager": "Mitch",
+            "selections": 15,
+            "observedRegularStarterPoints": 1245.58,
+            "regularStarts": 88
+          },
+          {
+            "manager": "Kuhl",
+            "selections": 15,
+            "observedRegularStarterPoints": 1218.3,
+            "regularStarts": 93
+          },
+          {
+            "manager": "Stover",
+            "selections": 15,
+            "observedRegularStarterPoints": 1123.26,
+            "regularStarts": 85
+          },
+          {
+            "manager": "EvansBrandon",
+            "selections": 15,
+            "observedRegularStarterPoints": 1121.2,
+            "regularStarts": 80
+          },
+          {
+            "manager": "Tom",
+            "selections": 15,
+            "observedRegularStarterPoints": 1110.32,
+            "regularStarts": 85
+          },
+          {
+            "manager": "Koble",
+            "selections": 15,
+            "observedRegularStarterPoints": 971.64,
+            "regularStarts": 73
+          },
+          {
+            "manager": "Stew",
+            "selections": 15,
+            "observedRegularStarterPoints": 899.88,
+            "regularStarts": 72
+          },
+          {
+            "manager": "Tony",
+            "selections": 15,
+            "observedRegularStarterPoints": 682.78,
+            "regularStarts": 56
+          },
+          {
+            "manager": "Stilly",
+            "selections": 15,
+            "observedRegularStarterPoints": 639.8,
+            "regularStarts": 53
+          }
+        ]
+      },
+      {
+        "year": 2021,
+        "selectionCount": 150,
+        "managerRows": [
+          {
+            "manager": "Mitch",
+            "selections": 15,
+            "observedRegularStarterPoints": 1421.34,
+            "regularStarts": 95
+          },
+          {
+            "manager": "Stover",
+            "selections": 15,
+            "observedRegularStarterPoints": 1163.18,
+            "regularStarts": 78
+          },
+          {
+            "manager": "Stilly",
+            "selections": 15,
+            "observedRegularStarterPoints": 1044.94,
+            "regularStarts": 86
+          },
+          {
+            "manager": "Kuhl",
+            "selections": 15,
+            "observedRegularStarterPoints": 979.16,
+            "regularStarts": 80
+          },
+          {
+            "manager": "Stew",
+            "selections": 15,
+            "observedRegularStarterPoints": 929.04,
+            "regularStarts": 74
+          },
+          {
+            "manager": "Birch",
+            "selections": 15,
+            "observedRegularStarterPoints": 901.44,
+            "regularStarts": 75
+          },
+          {
+            "manager": "EvansBrandon",
+            "selections": 15,
+            "observedRegularStarterPoints": 884.7,
+            "regularStarts": 71
+          },
+          {
+            "manager": "Tony",
+            "selections": 15,
+            "observedRegularStarterPoints": 753.16,
+            "regularStarts": 52
+          },
+          {
+            "manager": "Koble",
+            "selections": 15,
+            "observedRegularStarterPoints": 713.84,
+            "regularStarts": 52
+          },
+          {
+            "manager": "Tom",
+            "selections": 15,
+            "observedRegularStarterPoints": 461.3,
+            "regularStarts": 41
+          }
+        ]
+      },
+      {
+        "year": 2022,
+        "selectionCount": 150,
+        "managerRows": [
+          {
+            "manager": "Stover",
+            "selections": 15,
+            "observedRegularStarterPoints": 1621.46,
+            "regularStarts": 117
+          },
+          {
+            "manager": "Kuhl",
+            "selections": 15,
+            "observedRegularStarterPoints": 1470.82,
+            "regularStarts": 109
+          },
+          {
+            "manager": "Mitch",
+            "selections": 15,
+            "observedRegularStarterPoints": 1189,
+            "regularStarts": 87
+          },
+          {
+            "manager": "Birch",
+            "selections": 15,
+            "observedRegularStarterPoints": 1148.86,
+            "regularStarts": 105
+          },
+          {
+            "manager": "Tony",
+            "selections": 15,
+            "observedRegularStarterPoints": 1129.92,
+            "regularStarts": 87
+          },
+          {
+            "manager": "Stew",
+            "selections": 15,
+            "observedRegularStarterPoints": 1070.58,
+            "regularStarts": 75
+          },
+          {
+            "manager": "Koble",
+            "selections": 15,
+            "observedRegularStarterPoints": 1048.24,
+            "regularStarts": 86
+          },
+          {
+            "manager": "Tom",
+            "selections": 15,
+            "observedRegularStarterPoints": 913.08,
+            "regularStarts": 67
+          },
+          {
+            "manager": "EvansBrandon",
+            "selections": 15,
+            "observedRegularStarterPoints": 765.6,
+            "regularStarts": 66
+          },
+          {
+            "manager": "Stilly",
+            "selections": 15,
+            "observedRegularStarterPoints": 724.92,
+            "regularStarts": 58
+          }
+        ]
+      },
+      {
+        "year": 2023,
+        "selectionCount": 150,
+        "managerRows": [
+          {
+            "manager": "EvansBrandon",
+            "selections": 15,
+            "observedRegularStarterPoints": 1377.14,
+            "regularStarts": 100
+          },
+          {
+            "manager": "Tony",
+            "selections": 15,
+            "observedRegularStarterPoints": 1356.64,
+            "regularStarts": 93
+          },
+          {
+            "manager": "Birch",
+            "selections": 15,
+            "observedRegularStarterPoints": 1328.68,
+            "regularStarts": 110
+          },
+          {
+            "manager": "Mitch",
+            "selections": 15,
+            "observedRegularStarterPoints": 1292.06,
+            "regularStarts": 95
+          },
+          {
+            "manager": "Koble",
+            "selections": 15,
+            "observedRegularStarterPoints": 1180.82,
+            "regularStarts": 88
+          },
+          {
+            "manager": "Stover",
+            "selections": 15,
+            "observedRegularStarterPoints": 1178.74,
+            "regularStarts": 105
+          },
+          {
+            "manager": "Stilly",
+            "selections": 15,
+            "observedRegularStarterPoints": 1105.64,
+            "regularStarts": 86
+          },
+          {
+            "manager": "Tom",
+            "selections": 15,
+            "observedRegularStarterPoints": 907.88,
+            "regularStarts": 63
+          },
+          {
+            "manager": "Kuhl",
+            "selections": 15,
+            "observedRegularStarterPoints": 848.42,
+            "regularStarts": 72
+          },
+          {
+            "manager": "Stew",
+            "selections": 15,
+            "observedRegularStarterPoints": 606.2,
+            "regularStarts": 55
+          }
+        ]
+      },
+      {
+        "year": 2024,
+        "selectionCount": 150,
+        "managerRows": [
+          {
+            "manager": "Stover",
+            "selections": 15,
+            "observedRegularStarterPoints": 1430.28,
+            "regularStarts": 94
+          },
+          {
+            "manager": "Birch",
+            "selections": 15,
+            "observedRegularStarterPoints": 1396.2,
+            "regularStarts": 105
+          },
+          {
+            "manager": "Kuhl",
+            "selections": 15,
+            "observedRegularStarterPoints": 1244.46,
+            "regularStarts": 100
+          },
+          {
+            "manager": "JMid",
+            "selections": 15,
+            "observedRegularStarterPoints": 1201.86,
+            "regularStarts": 81
+          },
+          {
+            "manager": "Scott",
+            "selections": 15,
+            "observedRegularStarterPoints": 1115.46,
+            "regularStarts": 97
+          },
+          {
+            "manager": "Tony",
+            "selections": 15,
+            "observedRegularStarterPoints": 1112.82,
+            "regularStarts": 90
+          },
+          {
+            "manager": "Mitch",
+            "selections": 15,
+            "observedRegularStarterPoints": 1097.68,
+            "regularStarts": 90
+          },
+          {
+            "manager": "Tom",
+            "selections": 15,
+            "observedRegularStarterPoints": 840,
+            "regularStarts": 58
+          },
+          {
+            "manager": "Stilly",
+            "selections": 15,
+            "observedRegularStarterPoints": 812.72,
+            "regularStarts": 70
+          },
+          {
+            "manager": "Stew",
+            "selections": 15,
+            "observedRegularStarterPoints": 793.5,
+            "regularStarts": 57
+          }
+        ]
+      }
+    ]
+  }
+}
