@@ -681,7 +681,8 @@ try{
            if(await page.locator('#championship-story .story-section').count()!==4)
             throw Error('Missing complete championship narrative '+receipt.year);
            const cover=await page.locator('.championship-cover-score').innerText();
-           const expected=Number(receipt.points).toFixed(2),opponent=Number(receipt.runner).toFixed(2);
+           const displayScore=n=>receipt.year<=2017?String(Math.round(Number(n))):Number(n).toFixed(2);
+           const expected=displayScore(receipt.points),opponent=displayScore(receipt.runner);
            if(!cover.includes(expected)||!cover.includes(opponent))
             throw Error('Championship source mismatch '+receipt.year+' '+cover);
            if(await page.locator('nav#chapters a[aria-current="page"]').count()!==1)
