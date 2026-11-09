@@ -25,6 +25,22 @@
 4. **2024 — timeline and six scorer proof:** Five full seasons intervened between Thommy's 2018 and 2024 titles (2019–2023). The title-game lineup had **six** scorers of at least 22, including Jameson Williams's 22.00; the archived text listed only five.
 5. **2025 — no invented award:** Replaced title-game 'MVP partnership' wording with the observed two highest winning-starter scores.
 
+## Editorial voice: avoid invented trade drama
+
+The first version used a uniform **“Defining move”** verdict even when no verified title-season transaction existed. That produced seven dead-end panels and a formulaic feel. Replaced those panels with specific, sourced angles:
+
+| Year | New editorial lens | Supported observation |
+| --- | --- | --- |
+| 2016 | What the archive preserves | The inaugural matchup and two-week results are verifiable; a named player/trade MVP is not |
+| 2017 | The final's format | The 241–212 title was a two-week aggregate, not a one-week scoring performance |
+| 2018 | The three-game gauntlet | Three elimination wins combined for a 21.36-point margin |
+| 2019 | The narrow escape | A 0.82-point Week 13 result preceded the 4.72-point championship |
+| 2020 | The lineup changed | Tannehill scored 37.02 in the semifinal; Hurts started the final with 17.58 |
+| 2022 | The interrupted final | Recorded outcome stands, with the canceled Buffalo–Cincinnati game explicitly acknowledged |
+| 2025 | The September hinge | Scott's Week 3 escape was decided by 0.98 and became part of an 8–6 bye season |
+
+For **2021 Tony, 2023 Stilly and 2024 Thommy**, retained “Defining move” because completed, linked trade receipts support the claims. A journalism gate now rejects a “Defining move” card in a year with no attached verified transaction receipt. The page still avoids unsupported player-level conclusions for 2016–2019.
+
 ## Coverage and unresolved evidence
 
 - **2016–2019:** The available ESPN archive establishes matchup scores and brackets, not a full individual player starter ledger. An individual playoff MVP, starter contribution, transaction-level championship impact or regular-season WAR rating cannot be claimed.
