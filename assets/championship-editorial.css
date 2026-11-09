@@ -171,3 +171,30 @@ body{min-width:0;overflow-wrap:break-word}
 @media(max-width:600px){
  .cover-actions .cover-share-action{width:100%;min-height:50px}
 }
+
+/* Final score is the immediate payoff for a group-chat reader. */
+.championship-cover-score{
+ display:grid;gap:9px;margin:20px 0 14px;padding:18px 20px;
+ border:1px solid #a68a58;border-radius:12px;
+ background:linear-gradient(120deg,#2c3732,#122935 75%);
+ box-shadow:inset 0 1px 0 #f1d59124;
+}
+.championship-cover-score-label{
+ color:#edcf92;font-size:10px;font-weight:900;
+ letter-spacing:.14em;line-height:1.5
+}
+.championship-cover-score-line{
+ display:flex;align-items:center;flex-wrap:wrap;gap:8px 15px;
+ font-size:clamp(13px,1.8vw,17px);line-height:1.4
+}
+.championship-cover-score-line strong{font-size:clamp(14px,2vw,18px);font-weight:900;color:#f6f4e8}
+.championship-cover-score-value{
+ font-family:Georgia,"Iowan Old Style",serif;
+ font-size:clamp(25px,3.7vw,41px);line-height:1.15;
+ font-weight:750;color:#f7da99;font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+@media(max-width:600px){
+ .championship-cover-score{padding:15px 14px}
+ .championship-cover-score-line{gap:7px 10px}
+ .championship-cover-score-value{flex:0 0 100%;order:2}
+}
