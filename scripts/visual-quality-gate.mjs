@@ -484,6 +484,17 @@ try{
        await page.screenshot({path:path.join(dir,name+'.png'),animations:'disabled',fullPage:false});
        if(engine==='chromium'&&width===390&&['index.html','managers/stilly/','analytics/manager-report-cards.html','analytics/rivalries.html'].includes(key))
         await page.screenshot({path:path.join(dir,name+'_full.png'),animations:'disabled',fullPage:true});
+       if(width===390&&route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
+        const positions=await page.evaluate(()=>({
+         header:getComputedStyle(document.querySelector('header.nav')).position,
+         chapters:getComputedStyle(document.querySelector('.profile-chapters')).position,
+         chapterLinks:[...document.querySelectorAll('.profile-chapters .buttons a')].map(a=>Math.round(a.getBoundingClientRect().height))
+        }));
+        if(positions.header!=='sticky'||positions.chapters==='sticky'||positions.chapters==='fixed')
+         throw Error('Mobile profiles must have ONE sticky header and static chapter shortcuts');
+        if(positions.chapterLinks.length<5||positions.chapterLinks.some(height=>height<44))
+         throw Error('Mobile profile chapter links must be readable 44px+ touch targets');
+       }
        // Mobile tap-through: actual controls, navigation and verified destination,
        // not just screenshot or static link existence. Both Chromium and Safari.
        if(width===390&&route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
@@ -628,17 +639,6 @@ try{
           throw Error('ESPN legacy years have unsupported player-profile navigation');
          mobileJourneys.push({engine,page:'championship-anthology',width,mobileReading:true,yearSelection:true,archiveSwipe:true});
         }
-       }
-       if(width===390&&route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
-        const positions=await page.evaluate(()=>({
-         header:getComputedStyle(document.querySelector('header.nav')).position,
-         chapters:getComputedStyle(document.querySelector('.profile-chapters')).position,
-         chapterLinks:[...document.querySelectorAll('.profile-chapters .buttons a')].map(a=>Math.round(a.getBoundingClientRect().height))
-        }));
-        if(positions.header!=='sticky'||positions.chapters==='sticky'||positions.chapters==='fixed')
-         throw Error('Mobile profiles must have ONE sticky header and static chapter shortcuts');
-        if(positions.chapterLinks.length<5||positions.chapterLinks.some(height=>height<44))
-         throw Error('Mobile profile chapter links must be readable 44px+ touch targets');
        }
        if(width===390&&route==='analytics/records.html'){
         const positions=await page.evaluate(()=>({
