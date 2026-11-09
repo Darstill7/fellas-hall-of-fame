@@ -1,0 +1,125 @@
+{
+  "schema": "fellas-championship-seeding-research-v1",
+  "sourcePaths": [
+    "data/verified_espn_playoff_brackets_2016_2019.json",
+    "data/verified_sleeper_playoff_brackets_2020_2025.json"
+  ],
+  "scope": "Only 2016–2025 completed championship brackets, not consolation; 2016–17 four-team format without byes, 2018–25 six-team field with top two byes; no incomplete 2026 title.",
+  "rows": [
+    {
+      "year": 2016,
+      "champion": "Thommy",
+      "championSeed": 3,
+      "runnerUp": "Halderman",
+      "runnerUpSeed": 1,
+      "topSeedManager": "Halderman",
+      "championHadBye": false,
+      "playoffFieldSize": 4
+    },
+    {
+      "year": 2017,
+      "champion": "Thommy",
+      "championSeed": 1,
+      "runnerUp": "Schermerhorn",
+      "runnerUpSeed": 2,
+      "topSeedManager": "Thommy",
+      "championHadBye": false,
+      "playoffFieldSize": 4
+    },
+    {
+      "year": 2018,
+      "champion": "Thommy",
+      "championSeed": 4,
+      "runnerUp": "Birch",
+      "runnerUpSeed": 6,
+      "topSeedManager": "Tony",
+      "championHadBye": false,
+      "playoffFieldSize": 6
+    },
+    {
+      "year": 2019,
+      "champion": "Birch",
+      "championSeed": 1,
+      "runnerUp": "Stew",
+      "runnerUpSeed": 2,
+      "topSeedManager": "Birch",
+      "championHadBye": true,
+      "playoffFieldSize": 6
+    },
+    {
+      "year": 2020,
+      "champion": "Koble",
+      "championSeed": 6,
+      "runnerUp": "Mitch",
+      "runnerUpSeed": 1,
+      "topSeedManager": "Mitch",
+      "championHadBye": false,
+      "playoffFieldSize": 6
+    },
+    {
+      "year": 2021,
+      "champion": "Tony",
+      "championSeed": 2,
+      "runnerUp": "Evans",
+      "runnerUpSeed": 5,
+      "topSeedManager": "Birch",
+      "championHadBye": true,
+      "playoffFieldSize": 6
+    },
+    {
+      "year": 2022,
+      "champion": "Stover",
+      "championSeed": 2,
+      "runnerUp": "Stew",
+      "runnerUpSeed": 1,
+      "topSeedManager": "Stew",
+      "championHadBye": true,
+      "playoffFieldSize": 6
+    },
+    {
+      "year": 2023,
+      "champion": "Stilly",
+      "championSeed": 4,
+      "runnerUp": "Mitch",
+      "runnerUpSeed": 6,
+      "topSeedManager": "Tony",
+      "championHadBye": false,
+      "playoffFieldSize": 6
+    },
+    {
+      "year": 2024,
+      "champion": "Thommy",
+      "championSeed": 2,
+      "runnerUp": "Stilly",
+      "runnerUpSeed": 4,
+      "topSeedManager": "Stover",
+      "championHadBye": true,
+      "playoffFieldSize": 6
+    },
+    {
+      "year": 2025,
+      "champion": "Scott",
+      "championSeed": 2,
+      "runnerUp": "Thommy",
+      "runnerUpSeed": 4,
+      "topSeedManager": "Mitch",
+      "championHadBye": true,
+      "playoffFieldSize": 6
+    }
+  ],
+  "summary": {
+    "no1SeedChampionships": 2,
+    "byeChampions": 5,
+    "seed4OrWorseChampions": 3,
+    "highestSeedChampion": {
+      "year": 2020,
+      "champion": "Koble",
+      "championSeed": 6,
+      "runnerUp": "Mitch",
+      "runnerUpSeed": 1,
+      "topSeedManager": "Mitch",
+      "championHadBye": false,
+      "playoffFieldSize": 6
+    }
+  }
+}
