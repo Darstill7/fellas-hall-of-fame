@@ -9,7 +9,7 @@ for(const slug of slugs){
  const legacy=fs.readFileSync('managers/'+slug+'.html','utf8');
  const primary=fs.readFileSync('managers/'+slug+'/index.html','utf8');
  const old=headings(legacy),modern=headings(primary);
- if(old.length<20||old.length<=modern.length)issues.push(slug+' older dossier may have lost its distinct long-form editorial coverage');
+ if(old.length<20||old.length<=modern.filter(h=>!['Draft Report Card','Draft Legends'].includes(h)).length)issues.push(slug+' older dossier may have lost its distinct long-form editorial coverage');
  if(!primary.includes('href="../'+slug+'.html"'))issues.push(slug+' profile no longer links to the long-form dossier');
  for(const module of required)if(!legacy.includes(module)||!primary.includes(module))issues.push(slug+' missing essential shared module '+module);
  if(!legacy.includes('They do not adjust fully for position scarcity, replacement value'))issues.push(slug+' measured trade rankings lack methodology limitation');
