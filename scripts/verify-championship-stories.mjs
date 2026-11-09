@@ -45,6 +45,23 @@ for(const story of stories.seasons){
  if(y<=2017&&!final.twoWeekAggregate)throw Error('Legacy two-week final not represented '+y);
  if(y>=2018&&final.twoWeekAggregate)throw Error('Single-week final incorrectly presented as aggregate '+y);
 }
+// Protect the six sourced Sleeper-era final scoring leaders without inventing ESPN-era player awards.
+const finalBoxscores=read('data/championship_player_boxscores_2020_2025_v1.json');
+const finals=finalBoxscores.games.filter(game=>game.round==='championship');
+if(finals.length!==6||new Set(finals.map(game=>game.year)).size!==6)
+ throw Error('Six distinct 2020–2025 championship lineup receipts required');
+for(let year=2020;year<=2025;year++){
+ const game=finals.find(g=>g.year===year),bracket=playoffs.find(p=>p.year===year);
+ if(!game||game.champion!==guide[year].champion||bracket.champion!==game.champion)
+  throw Error('Final lineup credited to wrong champion '+year);
+ const sum=game.starters.reduce((total,p)=>total+p.points,0);
+ if(game.starters.length!==9||Math.abs(sum-game.score)>0.015)
+  throw Error('Championship starter points do not reconcile to winning total '+year);
+ const top=[...game.starters].sort((a,b)=>b.points-a.points)[0];
+ if(!top||!top.name||!Number.isFinite(top.points))
+  throw Error('Championship top scorer source missing '+year);
+}
+
 const page=fs.readFileSync('hall/championship-stories.html','utf8');
 const hall=fs.readFileSync('hall/index.html','utf8');
 const editorialCss=fs.readFileSync('assets/championship-editorial.css','utf8');
