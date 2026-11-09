@@ -85,13 +85,13 @@ if(!page.includes('storyParagraphs(x.text)')||!readingCss.includes('Editorial re
 for(const story of stories.seasons){
  for(const chapter of story.sections){
   const source=chapter.text;
-  const candidates=[...source.matchAll(/[.!?]\\s+(?=[A-Z“])/g)].map(m=>m.index+1)
+  const candidates=[...source.matchAll(/[.!?]\s+(?=[A-Z“])/g)].map(m=>m.index+1)
    .filter(i=>i>source.length*.29&&i<source.length*.72);
   if(!candidates.length)throw Error(story.year+' chapter cannot be split at a safe sentence boundary');
   const pivot=candidates.reduce((a,b)=>Math.abs(a-source.length/2)<Math.abs(b-source.length/2)?a:b);
   const parts=[source.slice(0,pivot).trim(),source.slice(pivot).trim()];
-  if(parts.some(p=>p.split(/\\s+/).length<30)||
-     parts.join(' ').replace(/\\s+/g,' ')!==source.replace(/\\s+/g,' '))
+  if(parts.some(p=>p.split(/\s+/).length<30)||
+     parts.join(' ').replace(/\s+/g,' ')!==source.replace(/\s+/g,' '))
    throw Error(story.year+' championship paragraph splitting lost original text or created a stub');
  }
 }
