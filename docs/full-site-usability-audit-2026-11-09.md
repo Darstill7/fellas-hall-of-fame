@@ -24,8 +24,9 @@
 
 1. **Article priority:** Ten-year championship directory no longer separates year selection from the article; the full feature is the main content.
 2. **Halfway-down landings:** All 10 manager profile Draft Report Card destinations use a clean `?manager=` query. Requested manager is shown at the beginning of the report list instead of a forced native hash scroll. Deliberate legacy `#anchor` sharing remains available.
-3. **Accessible year switches:** Selected championship feature receives programmatic focus (without a sudden keyboard scroll), then scrolls to its masthead; respects reduced-motion preference.
-4. **Regression coverage:** Browsers check article-before-archive, all ten distinct shareable championship year URLs, four feature chapters and official final scores, focused draft-report landing for Stilly and Thommy, and top-of-page manager navigation.
+3. **Madden-style season-card navigation:** The manager profile rating module previously linked to the league-wide season cards with `#records-heading`, causing a new page to open far below its header. The link now keeps `?manager=` but removes the forced anchor jump, allowing the receiving page to start at the top.
+4. **Accessible year switches:** Selected championship feature receives programmatic focus (without a sudden keyboard scroll), then scrolls to its masthead; respects reduced-motion preference.
+5. **Regression coverage:** Browsers check article-before-archive, all ten distinct shareable championship year URLs, four feature chapters and official final scores, focused draft-report landing for Stilly and Thommy, and top-of-page manager navigation.
 
 ## What the current QA does—and does not—prove
 
