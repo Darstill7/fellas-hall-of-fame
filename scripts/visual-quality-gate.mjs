@@ -683,7 +683,7 @@ try{
          if(await visitor.evaluate(()=>window.scrollY)<250)
           throw Error('Manager profile did not provide enough reading content to test scroll restoration');
          await visitor.locator('header.nav a.brand').click();
-         await visitor.waitForURL(home,{timeout:12000});
+         await visitor.waitForURL(url=>url.pathname.endsWith('/index.html'),{timeout:12000});
          await openStilly();
          await visitor.waitForTimeout(1050); // Recheck after delayed profile data and scroll restoration.
          const top=await visitor.evaluate(()=>window.scrollY);
