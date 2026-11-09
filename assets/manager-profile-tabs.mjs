@@ -376,7 +376,7 @@ function mountProfileFeatureDirectory(quick,manager){
  featuredLinks.className='profile-featured-links';
  const featuredDestinations=[
   ['Records','Personal bests, league records and season history','../record-books.html?manager='+encodeURIComponent(name)+'#owned-records'],
-  ['Report Card','Overall ratings, category grades and evidence','../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'#cards']
+  ['Report Card','Overall ratings, category grades and evidence','../../analytics/manager-report-cards.html?manager='+encodeURIComponent(name)+'']
  ];
  for(const [label,description,href] of featuredDestinations){
   const a=document.createElement('a');
@@ -601,7 +601,7 @@ function mountManagerHomeHub(){
   {label:'My records',detail:'League rankings and personal marks',icon:'🏅',href:'../../analytics/expanded-records.html?manager='+encodeURIComponent(who==='Thommy'?'Tom':who)},
   {label:'Every season',detail:'Year-by-year results',icon:'📅',tab:'seasons'},
   {label:'Rivalries',detail:'Head-to-head history',icon:'⚔️',tab:'rivalries'},
-  {label:'Report card',detail:'Career ratings and grades',icon:'📊',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(who)+'#cards'},
+  {label:'Report card',detail:'Career ratings and grades',icon:'📊',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(who)},
   {label:'Trades & pickups',detail:'How the roster was built',icon:'🔄',tab:'advanced'}
  ];
  for(const route of routes){
