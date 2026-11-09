@@ -78,3 +78,20 @@ Josh Allen · Breece Hall · Tyrone Tracy Jr. · Justin Jefferson · Jauan Jenni
 6. Attach timestamped pre-lock value projections before assigning any ex ante decision grade. Keep realized Week 8 performance separate from decision quality.
 
 **Research status:** Rosters recovered and chosen-keeper continuity cross-checked; alternatives remain **potentially rostered in 2025**, not proven 2026 keeper-eligible. No keeper decision/opportunity-cost grade should be published yet.
+
+## Cross-season keeper rounds — six repeat player identities
+
+Both completed Sleeper draft boards contain 150 picks and **20 provider-marked keeper picks**. Comparing player identities across the two official keeper subsets finds **six** repeat players. All six appear **one round earlier in the 2026 draft** than in 2025:
+
+| Player | 2025 keeper round | 2026 keeper round | 2025 selection roster | 2026 selection roster | Observation |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Nico Collins | 4 | 3 | 4 (Stew) | 9 (Kuhl) | Moved between manager slots; 2025 transaction provenance must be retained |
+| Tee Higgins | 6 | 5 | 3 (Thommy) | 3 (Thommy) | Same manager slot |
+| Jaxon Smith-Njigba | 8 | 7 | 6 (Mitch) | 6 (Mitch) | Same manager slot |
+| Brock Bowers | 8 | 7 | 7 (Tony) | 7 (Tony) | Same manager slot |
+| Ladd McConkey | 9 | 8 | 5 (Scott) | 5 (Scott) | Same manager slot |
+| Jayden Daniels | 13 | 12 | 1 (Stilly) | 1 (Stilly) | Same manager slot |
+
+**Interpretation limit:** Six repeated draft costs changing by one round constitute **observational evidence of an escalation pattern**, but not proof of a universal league rule. The rule for keeper rights following a trade, first-round keeper caps, free-agent acquisitions, players not kept in the prior year and concurrent keeper costs remains unverified. For Nico Collins, the 2025 archived trade model separately records Kuhl receiving Nico Collins in a September 17 exchange; the change in keeper draft owner should not be erased by comparing only names. Importantly, 2025 roster-slot 4 and 2026 roster-slot 9 differ, even though the repeated player's draft-round shift is identical.
+
+This does **not** expand the eligible-alternative universe at the 2026 lock. Do not assert that the six repeat cases establish legal keeper cost for anyone else.
