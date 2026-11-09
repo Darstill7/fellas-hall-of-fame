@@ -95,6 +95,8 @@ These historical results use the existing v9 surplus baseline, a different compa
 
 **Observed keeper value:** retained round, actual original-manager starts, realized lineup fantasy points, same-position starter median during corresponding weeks, and post-trade exclusions. The 2026 archive contains 20 verified selections (two per manager). These metrics are available now for both 2025 and 2026.
 
+**Observed 2026 round-slot return (separate, now available):** compare a keeper's actual original-team starter points to the median points from *other managers' ordinary picks in that same 2026 round* (at least three peers per keeper round). This is a descriptive ex-post round-slot benchmark. It measures neither the eligible alternatives at keeper lock nor a manager's ex-ante opportunity cost; it does not replace the missing decision-grade evidence.
+
 **Keeper decision quality / opportunity cost: deliberately not yet computed.** Actual keeper score is not enough. We need each manager's keeper-eligible candidates as of lock, the relevant season's keeper-cost rules including escalating/penalty rounds, full deadline roster, any ineligible players, and available draft-pick options. Only with these can an honest comparison ask, “What did the manager give up by keeping Player A instead of Player B?” The correct missing value is **unavailable**, never zero.
 
 Suggested future columns: chosen keeper / round cost / realized start points / ex ante projected value at deadline / best eligible alternative / alternative round cost / selected draft pick opportunity foregone / projected net keeper advantage / realized net keeper advantage / data confidence. Explicitly separate **ex ante decisions** from **ex post results**.
