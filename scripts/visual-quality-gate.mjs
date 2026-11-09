@@ -731,6 +731,25 @@ try{
          mobileJourneys.push({engine,width,page:'madden-card-fresh-navigation',freshVisitTop:true,previousScrollCleared:true});
         }finally{await visitor.close();}
        }
+       // Regression: there must never be two stacked fixed navigation bars on mobile.
+       // Run the check on a fresh profile page: other audit steps may have followed links.
+       if(width===390&&route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
+        const checkPage=await context.newPage();
+        try{
+         await checkPage.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:15000});
+         await checkPage.locator('nav.profile-tabs').waitFor({state:'attached',timeout:15000});
+         const state=await checkPage.evaluate(()=>{
+          const header=document.querySelector('header.nav'),tabs=document.querySelector('nav.profile-tabs');
+          return {header:header?getComputedStyle(header).position:null,tabs:tabs?getComputedStyle(tabs).position:null};
+         });
+         if(state.header!=='sticky'||state.tabs==='sticky'||state.tabs==='fixed')
+          throw Error('Profile navigation should have exactly one sticky site header: '+JSON.stringify(state));
+         await checkPage.locator('main button[data-profile-jump="seasons"]').first().click();
+         const tabHeights=await checkPage.locator('nav.profile-tabs button[data-profile-tab]').evaluateAll(buttons=>buttons.map(el=>Math.round(el.getBoundingClientRect().height)));
+         if(tabHeights.length!==4||tabHeights.some(h=>h<44))
+          throw Error('Profile chapter controls must have four 44px+ touch targets: '+JSON.stringify(tabHeights));
+        }finally{await checkPage.close();}
+       }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
        findings.push(engine+' '+width+' '+key+' audit error '+(error?.message||String(error)));
