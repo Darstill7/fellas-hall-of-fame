@@ -635,9 +635,18 @@ try{
          });
          await share.click();
          const payload=await page.evaluate(()=>window.__fellasSharedStory);
-         if(!payload?.url?.endsWith('championship-stories.html?year=2023')||
+         if(!payload?.url?.endsWith('/hall/share/2023.html')||
             !payload?.title?.includes('2023')||!payload?.title?.includes('Stilly'))
           throw Error('Sharing a championship did not include the selected year and champion');
+         const preview=await context.newPage();
+         try{
+          const intro=await preview.goto(baseUrl+'hall/share/2023.html',{waitUntil:'domcontentloaded',timeout:15000});
+          if(!intro?.ok())throw Error('Share preview page does not exist');
+          await preview.waitForURL(url=>url.pathname.endsWith('/hall/championship-stories.html')&&url.searchParams.get('year')==='2023',{timeout:10000});
+          await preview.locator('#championship-feature .feature[data-chapter="2023"]').waitFor({timeout:15000});
+          if(!(await preview.locator('.feature h2').innerText()).includes('From 0–4'))
+           throw Error('Shared 2023 preview did not reach correct championship');
+         }finally{await preview.close();}
          await page.locator('#season-picker').selectOption('2017');
          await page.waitForFunction(()=>document.querySelector('#championship-feature .feature')?.dataset.chapter==='2017');
          if(!await page.locator('.championship-cover-score-label').innerText().then(t=>t.includes('TWO-WEEK AGGREGATE')))
