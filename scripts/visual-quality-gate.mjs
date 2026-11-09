@@ -744,7 +744,11 @@ try{
          });
          if(state.header!=='sticky'||state.tabs==='sticky'||state.tabs==='fixed')
           throw Error('Profile navigation should have exactly one sticky site header: '+JSON.stringify(state));
-         await checkPage.locator('main button[data-profile-jump="seasons"]').first().click();
+         // The old four-tab controller intentionally lives inside the collapsed
+         // "Other sections" disclosure. Open it before inspecting touch targets.
+         const switcher=checkPage.locator('nav.profile-tabs details.profile-section-switcher');
+         await switcher.locator(':scope > summary').click();
+         await checkPage.locator('nav.profile-tabs button[data-profile-tab]').first().waitFor({state:'visible',timeout:12000});
          const tabHeights=await checkPage.locator('nav.profile-tabs button[data-profile-tab]').evaluateAll(buttons=>buttons.map(el=>Math.round(el.getBoundingClientRect().height)));
          if(tabHeights.length!==4||tabHeights.some(h=>h<44))
           throw Error('Profile chapter controls must have four 44px+ touch targets: '+JSON.stringify(tabHeights));
