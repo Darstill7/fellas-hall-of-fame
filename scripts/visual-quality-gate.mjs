@@ -491,17 +491,18 @@ try{
          await navigationPage.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:15000});
          const positions=await navigationPage.evaluate(()=>{
           const header=document.querySelector('header.nav');
-          const chapters=document.querySelector('.profile-chapters');
-          if(!header||!chapters)throw Error('Manager navigation landmarks missing');
+          // The profile JS intentionally replaces .profile-chapters with .profile-tabs.
+          const tabs=document.querySelector('nav.profile-tabs');
+          if(!header||!tabs)throw Error('Manager navigation landmarks missing');
           return {
            header:getComputedStyle(header).position,
-           chapters:getComputedStyle(chapters).position,
-           chapterLinks:[...chapters.querySelectorAll('.buttons a')].map(a=>Math.round(a.getBoundingClientRect().height))
+           chapters:getComputedStyle(tabs).position,
+           chapterLinks:[...tabs.querySelectorAll('button[data-profile-tab]')].map(a=>Math.round(a.getBoundingClientRect().height))
           };
          });
          if(positions.header!=='sticky'||positions.chapters==='sticky'||positions.chapters==='fixed')
           throw Error('Mobile profiles must have ONE sticky header and static chapter shortcuts');
-         if(positions.chapterLinks.length<5||positions.chapterLinks.some(height=>height<44))
+         if(positions.chapterLinks.length!==4||positions.chapterLinks.some(height=>height<44))
           throw Error('Mobile profile chapter links must be readable 44px+ touch targets');
         }finally{await navigationPage.close();}
        }
