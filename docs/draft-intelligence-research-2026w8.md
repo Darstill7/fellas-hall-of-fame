@@ -79,6 +79,10 @@ Draft steal = documented late-round starter production, benchmarked against near
 
 **Verified Woody Marks case:** Round 13, overall pick 128, drafted by Stilly; three original-team starts, 25.90 starter points through Week 8, and +25.90 against the recorded nearby-round RB comparison group. This is not a lifetime, full-season or pre-draft skill result.
 
+## ESPN 2016–2019 — draft-order coverage, no invented starter-value grades
+
+The recovered ESPN archives provide **598 named draft selections** in total: 2016 had 8 teams × 16 rounds = 128 selections; 2017 had 10 × 16 = 160; 2018 had 10 × 16 = 160; and 2019 had 10 × 15 = 150. The 2018 offline import is **position sorted**, so individual apparent overall pick ranks are not verified. All four seasons lack the certified original-drafter weekly starter-point attribution required for a comparable annual draft-value grade. Do not substitute end-of-season player totals or a team weekly score.
+
 ## 2020–2024 archived observed returns
 
 These historical results use the existing v9 surplus baseline, a different comparison model from the 2025/2026 pilot. Annual return tiers identify high observed production, **not cross-year manager skill**.
