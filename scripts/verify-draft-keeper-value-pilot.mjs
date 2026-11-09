@@ -131,6 +131,20 @@ for(const season of report.archive2020to2024.byYear){
  assert.ok(season.managerRows.every((x,i)=>x.rank===i+1&&x.observedReturnTier===tier(i+1)));
 }
 assert.ok(report.keeperResearch.season2026.every(x=>x.keeperOpportunityCost===null&&x.keeperDecisionGrade===null));
+
+const medianArr=values=>{const ordered=values.slice().sort((a,b)=>a-b);return ordered.length%2?ordered[(ordered.length-1)/2]:(ordered[ordered.length/2-1]+ordered[ordered.length/2])/2;};
+const keeperSlotRows=report.keeperResearch.season2026.flatMap(x=>x.keepers);
+assert.equal(keeperSlotRows.length,20,'All twenty 2026 observed keeper round-slot receipts required');
+for(const k of keeperSlotRows){
+ const peers=data.draftPicks.filter(x=>x.year===2026&&!x.keeper&&x.round===k.round);
+ assert.ok(peers.length>=3,'At least three same-round nonkeeper receipts');
+ assert.equal(k.nonkeeperSameRoundPeerCount,peers.length);
+ assert.equal(k.nonkeeperSameRoundMedianPoints,researchRound2(medianArr(peers.map(x=>x.startedPoints))));
+ assert.equal(k.observedRoundSlotReturn,researchRound2(k.startedPoints-k.nonkeeperSameRoundMedianPoints));
+ assert.equal(k.observedRoundSlotReturnIsDecisionOpportunityCost,false);
+}
+assert.equal(report.keeperResearch.roundSlotProxyStatus,'descriptive_only_not_decision_time_opportunity_cost');
+
 const researchPage=fs.readFileSync('analytics/draft-intelligence.html','utf8');
 assert.ok(researchPage.includes('draft_intelligence_research_2025_2026w8_v1.json'));
 assert.ok(researchPage.includes('Keeper value vs. keeper decisions')&&researchPage.includes('no final grades')||researchPage.includes('No 2026 grades before season end.'));
