@@ -1,6 +1,6 @@
 # 2026 Keeper Research — Prior-Season Roster Evidence
 
-**Retrieved:** November 9, 2026 using connected Sleeper league snapshots through Flaim Fantasy. **Critical caveat:** These are **Week 17 of the 2025 season rosters**, *not* rosters at the 2026 keeper deadline. Nothing below establishes that a player was actually keeper-eligible or that the manager had that player at keeper lock. Week 17 starters and bench omit explicit reserve/taxi detail from provider history. The provider's current setting confirms **maxKeepers = 2** but does **not** provide round escalation or keeper-cost formulas.
+**Retrieved:** November 9, 2026 using connected Sleeper league snapshots through Flaim Fantasy. **Critical caveat:** These are **Week 17 of the 2025 season rosters**, *not* rosters at the 2026 keeper deadline. Nothing below establishes that a player was actually keeper-eligible or that the manager had that player at keeper lock. Week 17 starters and bench omit explicit reserve/taxi detail from provider history. Sleeper confirms **maxKeepers = 2**; the commissioner has separately confirmed the Fellas escalation, tenure and free-agent rules below. The provider does not independently encode those custom rules.
 
 ## Source identifiers and scope
 
@@ -72,7 +72,7 @@ Josh Allen · Breece Hall · Tyrone Tracy Jr. · Justin Jefferson · Jauan Jenni
 
 1. Confirm exact **2026 keeper lock timestamp** and whether Week 17 lineup/reserve data includes every rostered player at that timestamp (it does not on its own).
 2. Reconcile all offseason 2026 adds, drops, trades, cuts, and NFL player movements affecting keeper eligibility. Acquire a **deadline roster**, not a late-2025 proxy.
-3. Recover keeper-cost rules (first-round hard locks, year-to-year escalation, undrafted-player default, traded keeper rights, repeat-keeper limits, cost ties, penalties). Current maxKeepers=2 is not the full ruleset.
+3. Apply the now confirmed **one-round-earlier annual cost**, **three-consecutive-year maximum**, and **Round 9 starting cost for free-agent/waiver acquisitions**; still resolve first-round cost behavior, traded keeper-rights/tenure transfer, same-round conflicts and edge cases.
 4. Verify every candidate's 2025 acquisition channel, keeper history and exact 2026 draft round cost; the 2026 draft round of **chosen** players alone cannot reconstruct the cost of **unselected** options.
 5. Verify 2026 retained picks and trade permissions as applicable at lock. Current provider setting reports pickTrading=false, but do not extend that setting backwards without evidence.
 6. Attach timestamped pre-lock value projections before assigning any ex ante decision grade. Keep realized Week 8 performance separate from decision quality.
@@ -92,6 +92,23 @@ Both completed Sleeper draft boards contain 150 picks and **20 provider-marked k
 | Ladd McConkey | 9 | 8 | 5 (Scott) | 5 (Scott) | Same manager slot |
 | Jayden Daniels | 13 | 12 | 1 (Stilly) | 1 (Stilly) | Same manager slot |
 
-**Interpretation limit:** Six repeated draft costs changing by one round constitute **observational evidence of an escalation pattern**, but not proof of a universal league rule. The rule for keeper rights following a trade, first-round keeper caps, free-agent acquisitions, players not kept in the prior year and concurrent keeper costs remains unverified. For Nico Collins, the 2025 archived trade model separately records Kuhl receiving Nico Collins in a September 17 exchange; the change in keeper draft owner should not be erased by comparing only names. Importantly, 2025 roster-slot 4 and 2026 roster-slot 9 differ, even though the repeated player's draft-round shift is identical.
+**Interpretation limit:** Six repeated draft costs changing by one round constitute **observational evidence of an escalation pattern**, but not proof of a universal league rule. The commissioner has now confirmed standard one-round earlier annual cost, a three-consecutive-year cap, and Round 9 starting cost for free agents/waiver pickups. However, precise treatment of keeper rights following a trade, first-round caps, players previously kept by another owner, and simultaneous same-round costs still needs verification. For Nico Collins, the 2025 archived trade model separately records Kuhl receiving Nico Collins in a September 17 exchange; the change in keeper draft owner should not be erased by comparing only names. Importantly, 2025 roster-slot 4 and 2026 roster-slot 9 differ, even though the repeated player's draft-round shift is identical.
 
 This does **not** expand the eligible-alternative universe at the 2026 lock. Do not assert that the six repeat cases establish legal keeper cost for anyone else.
+
+## Commissioner-confirmed Fellas keeper rules (November 9, 2026)
+
+These override the **previously unknown custom-rules status** in this research file. They come from the league commissioner/user, rather than the limited settings fields available through Sleeper.
+
+1. A player kept for another season costs a draft pick **one round earlier** than the prior keeper round.
+2. There is a maximum of **three consecutive years** you can have a player as a keeper (the exact transition in ownership/keeper tenure when traded still requires verification).
+3. A player acquired via **free agency or waivers** can first be kept for a **Round 9** pick.
+4. The league permits a maximum of **two keepers** per team, also confirmed in Sleeper settings.
+
+### Operational cost examples
+
+- A player kept in Round 8 in 2025 costs **Round 7 in 2026**, if eligible.
+- A free-agent/waiver acquisition, kept for the first time, costs **Round 9**. If retained for another keeper season under the normal one-round progression, the next season would be **Round 8**, subject to eligibility and the three-year cap.
+- Six official 2025→2026 repeat keeper examples all align with the one-round progression, independently corroborating the commissioner rule.
+
+**Not yet established:** Exact initial cost of players acquired by trade when they were not a previous keeper; whether the three-year count stays with the player after a trade or resets for a new manager; how to handle Round 1 escalation; how multiple players competing for Round 9 are resolved; and the exact keeper lock roster/date. Until these are established, the model must return **unresolved**, not infer blanket eligibility or grades. The phrase “three consecutive years you can have them” is recorded as stated; it should not silently be interpreted as a transferable or nontransferable player-wide timer.
