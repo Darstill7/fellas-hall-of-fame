@@ -1,0 +1,2782 @@
+{
+  "schema": "fellas-scoring-streak-research-v1",
+  "asOf": "2026-11-09",
+  "source": "data/season_weekly_matchups_2016_2026_v1.json",
+  "scope": "Regular-season team scores only, consecutive within one season; missing source-week scores break an observed streak; 2026 through Week 8 only. Strict >100 and >=105 are different thresholds. Season scoring formats vary across eras.",
+  "seasons": [
+    {
+      "year": 2016,
+      "manager": "Stilly",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 1,
+        "start": 1,
+        "end": 1
+      },
+      "bestAtLeast105": {
+        "length": 1,
+        "start": 1,
+        "end": 1
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2016,
+      "manager": "Stover",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 1,
+        "start": 1,
+        "end": 1
+      },
+      "bestAtLeast105": {
+        "length": 1,
+        "start": 1,
+        "end": 1
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2016,
+      "manager": "Halderman",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 4,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 4,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2016,
+      "manager": "Stew",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 1,
+        "end": 2
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 1,
+        "end": 2
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2016,
+      "manager": "Thommy",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 6,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 1,
+        "start": 3,
+        "end": 3
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2016,
+      "manager": "Koble",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 1,
+        "end": 2
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 1,
+        "end": 2
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2016,
+      "manager": "Evans",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 7,
+        "end": 10
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 7,
+        "end": 10
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2016,
+      "manager": "Schermerhorn",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 1,
+        "start": 1,
+        "end": 1
+      },
+      "bestAtLeast105": {
+        "length": 1,
+        "start": 3,
+        "end": 3
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2017,
+      "manager": "Stilly",
+      "recordedWeeks": 12,
+      "scheduledSeasonWeeksObserved": 12,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 11,
+        "end": 12
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 11,
+        "end": 12
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2017,
+      "manager": "Stew",
+      "recordedWeeks": 12,
+      "scheduledSeasonWeeksObserved": 12,
+      "bestStrictlyOver100": {
+        "length": 1,
+        "start": 5,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 1,
+        "start": 5,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2017,
+      "manager": "Stover",
+      "recordedWeeks": 12,
+      "scheduledSeasonWeeksObserved": 12,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 5,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 11,
+        "end": 12
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2017,
+      "manager": "Schermerhorn",
+      "recordedWeeks": 12,
+      "scheduledSeasonWeeksObserved": 12,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 9,
+        "end": 11
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 6,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2017,
+      "manager": "Thommy",
+      "recordedWeeks": 12,
+      "scheduledSeasonWeeksObserved": 12,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 8,
+        "end": 10
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 8,
+        "end": 10
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2017,
+      "manager": "Tony",
+      "recordedWeeks": 12,
+      "scheduledSeasonWeeksObserved": 12,
+      "bestStrictlyOver100": {
+        "length": 1,
+        "start": 2,
+        "end": 2
+      },
+      "bestAtLeast105": {
+        "length": 1,
+        "start": 2,
+        "end": 2
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2017,
+      "manager": "Birch",
+      "recordedWeeks": 12,
+      "scheduledSeasonWeeksObserved": 12,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 10,
+        "end": 11
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 10,
+        "end": 11
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2017,
+      "manager": "Halderman",
+      "recordedWeeks": 12,
+      "scheduledSeasonWeeksObserved": 12,
+      "bestStrictlyOver100": {
+        "length": 1,
+        "start": 2,
+        "end": 2
+      },
+      "bestAtLeast105": {
+        "length": 1,
+        "start": 2,
+        "end": 2
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2017,
+      "manager": "Koble",
+      "recordedWeeks": 12,
+      "scheduledSeasonWeeksObserved": 12,
+      "bestStrictlyOver100": {
+        "length": 1,
+        "start": 7,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 1,
+        "start": 7,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2017,
+      "manager": "Evans",
+      "recordedWeeks": 12,
+      "scheduledSeasonWeeksObserved": 12,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 4,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 4,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2018,
+      "manager": "Tony",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 1,
+        "end": 4
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 1,
+        "end": 4
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2018,
+      "manager": "Koble",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 10,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 10,
+        "end": 12
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2018,
+      "manager": "Evans",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 1,
+        "end": 4
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 8,
+        "end": 9
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2018,
+      "manager": "Stew",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 4,
+        "end": 10
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 4,
+        "end": 10
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2018,
+      "manager": "Thommy",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 9,
+        "end": 12
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 10,
+        "end": 12
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2018,
+      "manager": "Stover",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 4,
+        "end": 6
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 4,
+        "end": 6
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2018,
+      "manager": "Mitch",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 10,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 1,
+        "start": 2,
+        "end": 2
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2018,
+      "manager": "Stilly",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 5,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 5,
+        "end": 6
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2018,
+      "manager": "Birch",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 2,
+        "end": 6
+      },
+      "bestAtLeast105": {
+        "length": 5,
+        "start": 8,
+        "end": 12
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2018,
+      "manager": "Kuhl",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 1,
+        "end": 3
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 6,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Birch",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 6,
+        "start": 8,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 6,
+        "start": 8,
+        "end": 13
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Tony",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 4,
+        "end": 6
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 4,
+        "end": 6
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Stew",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 1,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 1,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Thommy",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 3,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 1,
+        "start": 3,
+        "end": 3
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Stilly",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 2,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 2,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Evans",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 5,
+        "end": 6
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 5,
+        "end": 6
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Mitch",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 5,
+        "end": 11
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 5,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Koble",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 6,
+        "start": 2,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 5,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Stover",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 1,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 3,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Kuhl",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 5,
+        "end": 11
+      },
+      "bestAtLeast105": {
+        "length": 6,
+        "start": 5,
+        "end": 10
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2020,
+      "manager": "Stilly",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 6,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 3,
+        "end": 4
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2020,
+      "manager": "Birch",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 1,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 5,
+        "start": 1,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2020,
+      "manager": "Evans",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 5,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 5,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2020,
+      "manager": "Stover",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 1,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 5,
+        "start": 1,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2020,
+      "manager": "Thommy",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 6,
+        "start": 9,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 6,
+        "start": 9,
+        "end": 14
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2020,
+      "manager": "Kuhl",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 1,
+        "end": 4
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 1,
+        "end": 4
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2020,
+      "manager": "Stew",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 4,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 4,
+        "end": 6
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2020,
+      "manager": "Mitch",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 7,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 1,
+        "end": 3
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2020,
+      "manager": "Koble",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 4,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2020,
+      "manager": "Tony",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 2,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 2,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Stilly",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 10,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 5,
+        "start": 10,
+        "end": 14
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Mitch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Evans",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 5,
+        "end": 11
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 5,
+        "end": 11
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Stover",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 1,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 6,
+        "start": 2,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Thommy",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 4,
+        "end": 6
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 4,
+        "end": 6
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Stew",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 1,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 1,
+        "end": 2
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Koble",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 5,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 5,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Kuhl",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 6,
+        "start": 1,
+        "end": 6
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 2,
+        "end": 4
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Tony",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 3,
+        "end": 9
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 3,
+        "end": 9
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Birch",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 7,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 2,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Stilly",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 10,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 5,
+        "start": 10,
+        "end": 14
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Koble",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 11,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 11,
+        "end": 13
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Evans",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 6,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 1,
+        "end": 2
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Stover",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 1,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 5,
+        "start": 1,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Thommy",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 12,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 4,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Birch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 5,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 6,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Stew",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 8,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 8,
+        "end": 14
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Mitch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 2,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 2,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Tony",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 6,
+        "start": 4,
+        "end": 9
+      },
+      "bestAtLeast105": {
+        "length": 6,
+        "start": 4,
+        "end": 9
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Kuhl",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 3,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 5,
+        "start": 9,
+        "end": 13
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Stilly",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 8,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 8,
+        "end": 10
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Mitch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 5,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 1,
+        "end": 3
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Evans",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 6,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 8,
+        "start": 6,
+        "end": 13
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Stover",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 4,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 4,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Thommy",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 6,
+        "start": 8,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 6,
+        "start": 8,
+        "end": 13
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Kuhl",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 3,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 5,
+        "start": 3,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Stew",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 2,
+        "end": 3
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 2,
+        "end": 3
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Tony",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 2,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Koble",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 6,
+        "start": 3,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 10,
+        "end": 13
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Birch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 12,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 12,
+        "end": 14
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "Stilly",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 8,
+        "end": 10
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 12,
+        "end": 14
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "Thommy",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 9,
+        "start": 1,
+        "end": 9
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 4,
+        "end": 6
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "JMid",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 13,
+        "start": 2,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 10,
+        "start": 2,
+        "end": 11
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "Stover",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 6,
+        "start": 4,
+        "end": 9
+      },
+      "bestAtLeast105": {
+        "length": 6,
+        "start": 4,
+        "end": 9
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "Stew",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 2,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 2,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "Tony",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 11,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 11,
+        "end": 14
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "Scott",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 6,
+        "end": 10
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 6,
+        "end": 9
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "Mitch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 8,
+        "end": 12
+      },
+      "bestAtLeast105": {
+        "length": 5,
+        "start": 8,
+        "end": 12
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "Kuhl",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 6,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 3,
+        "end": 4
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "Birch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 1,
+        "end": 3
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 1,
+        "end": 2
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "Stilly",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 2,
+        "end": 9
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 7,
+        "end": 9
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "Thommy",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 4,
+        "end": 10
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 4,
+        "end": 10
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "JMid",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 3,
+        "end": 6
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 3,
+        "end": 6
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "Stover",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 6,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 3,
+        "end": 4
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "Stew",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 6,
+        "start": 7,
+        "end": 12
+      },
+      "bestAtLeast105": {
+        "length": 6,
+        "start": 7,
+        "end": 12
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "Mitch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 12,
+        "start": 1,
+        "end": 12
+      },
+      "bestAtLeast105": {
+        "length": 12,
+        "start": 1,
+        "end": 12
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "Scott",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 2,
+        "end": 4
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 6,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "Kuhl",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 3,
+        "end": 6
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 3,
+        "end": 6
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "Tony",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 1,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 5,
+        "start": 1,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "Birch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 7,
+        "end": 11
+      },
+      "bestAtLeast105": {
+        "length": 5,
+        "start": 7,
+        "end": 11
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2026,
+      "manager": "Scott",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 6,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 6,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 134.96
+        },
+        {
+          "week": 2,
+          "score": 46.38
+        },
+        {
+          "week": 3,
+          "score": 120.6
+        },
+        {
+          "week": 4,
+          "score": 90.54
+        },
+        {
+          "week": 5,
+          "score": 66.22
+        },
+        {
+          "week": 6,
+          "score": 114.56
+        },
+        {
+          "week": 7,
+          "score": 105.22
+        },
+        {
+          "week": 8,
+          "score": 112.56
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "manager": "Stilly",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 5,
+        "start": 1,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 1,
+        "end": 2
+      },
+      "everyObservedWeekAtLeast105": false,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 107.94
+        },
+        {
+          "week": 2,
+          "score": 163.34
+        },
+        {
+          "week": 3,
+          "score": 104.98
+        },
+        {
+          "week": 4,
+          "score": 124.62
+        },
+        {
+          "week": 5,
+          "score": 126.36
+        },
+        {
+          "week": 6,
+          "score": 71.3
+        },
+        {
+          "week": 7,
+          "score": 115.12
+        },
+        {
+          "week": 8,
+          "score": 113.58
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "manager": "Thommy",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 4,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 4,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 89
+        },
+        {
+          "week": 2,
+          "score": 63
+        },
+        {
+          "week": 3,
+          "score": 86.66
+        },
+        {
+          "week": 4,
+          "score": 143.28
+        },
+        {
+          "week": 5,
+          "score": 124.94
+        },
+        {
+          "week": 6,
+          "score": 91.7
+        },
+        {
+          "week": 7,
+          "score": 133.12
+        },
+        {
+          "week": 8,
+          "score": 106.34
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "manager": "JMid",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 3,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 3,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 73.56
+        },
+        {
+          "week": 2,
+          "score": 94.38
+        },
+        {
+          "week": 3,
+          "score": 152.58
+        },
+        {
+          "week": 4,
+          "score": 106.12
+        },
+        {
+          "week": 5,
+          "score": 105.3
+        },
+        {
+          "week": 6,
+          "score": 89.16
+        },
+        {
+          "week": 7,
+          "score": 127.28
+        },
+        {
+          "week": 8,
+          "score": 141.68
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "manager": "Mitch",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 4,
+        "start": 5,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 5,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 161.26
+        },
+        {
+          "week": 2,
+          "score": 168.72
+        },
+        {
+          "week": 3,
+          "score": 91.62
+        },
+        {
+          "week": 4,
+          "score": 92.52
+        },
+        {
+          "week": 5,
+          "score": 172.9
+        },
+        {
+          "week": 6,
+          "score": 129.2
+        },
+        {
+          "week": 7,
+          "score": 119.98
+        },
+        {
+          "week": 8,
+          "score": 123.16
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "manager": "Stew",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": true,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 158.52
+        },
+        {
+          "week": 2,
+          "score": 113.96
+        },
+        {
+          "week": 3,
+          "score": 123.22
+        },
+        {
+          "week": 4,
+          "score": 105.98
+        },
+        {
+          "week": 5,
+          "score": 142.56
+        },
+        {
+          "week": 6,
+          "score": 114.44
+        },
+        {
+          "week": 7,
+          "score": 110.14
+        },
+        {
+          "week": 8,
+          "score": 134.16
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "manager": "Tony",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 4,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 4,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 153.86
+        },
+        {
+          "week": 2,
+          "score": 84.32
+        },
+        {
+          "week": 3,
+          "score": 92.44
+        },
+        {
+          "week": 4,
+          "score": 154.8
+        },
+        {
+          "week": 5,
+          "score": 115.44
+        },
+        {
+          "week": 6,
+          "score": 74.72
+        },
+        {
+          "week": 7,
+          "score": 112.12
+        },
+        {
+          "week": 8,
+          "score": 99.3
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "manager": "Kuhl",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 2,
+        "start": 6,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 1,
+        "start": 1,
+        "end": 1
+      },
+      "everyObservedWeekAtLeast105": false,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 105.92
+        },
+        {
+          "week": 2,
+          "score": 56.32
+        },
+        {
+          "week": 3,
+          "score": 76.16
+        },
+        {
+          "week": 4,
+          "score": 71.32
+        },
+        {
+          "week": 5,
+          "score": 95.1
+        },
+        {
+          "week": 6,
+          "score": 101.82
+        },
+        {
+          "week": 7,
+          "score": 100.3
+        },
+        {
+          "week": 8,
+          "score": 82.38
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "manager": "Birch",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 3,
+        "start": 3,
+        "end": 5
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 3,
+        "end": 5
+      },
+      "everyObservedWeekAtLeast105": false,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 160.26
+        },
+        {
+          "week": 2,
+          "score": 99.7
+        },
+        {
+          "week": 3,
+          "score": 128.94
+        },
+        {
+          "week": 4,
+          "score": 108.28
+        },
+        {
+          "week": 5,
+          "score": 144.58
+        },
+        {
+          "week": 6,
+          "score": 98.88
+        },
+        {
+          "week": 7,
+          "score": 73.3
+        },
+        {
+          "week": 8,
+          "score": 96.9
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "manager": "Stover",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 6,
+        "start": 2,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 6,
+        "start": 2,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 70.8
+        },
+        {
+          "week": 2,
+          "score": 129.26
+        },
+        {
+          "week": 3,
+          "score": 105.78
+        },
+        {
+          "week": 4,
+          "score": 110.48
+        },
+        {
+          "week": 5,
+          "score": 113.94
+        },
+        {
+          "week": 6,
+          "score": 121.68
+        },
+        {
+          "week": 7,
+          "score": 111.2
+        },
+        {
+          "week": 8,
+          "score": 79.1
+        }
+      ]
+    }
+  ],
+  "topOver100": [
+    {
+      "year": 2024,
+      "manager": "JMid",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 13,
+        "start": 2,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 10,
+        "start": 2,
+        "end": 11
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "Mitch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 12,
+        "start": 1,
+        "end": 12
+      },
+      "bestAtLeast105": {
+        "length": 12,
+        "start": 1,
+        "end": 12
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "Thommy",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 9,
+        "start": 1,
+        "end": 9
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 4,
+        "end": 6
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2020,
+      "manager": "Koble",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 4,
+        "start": 4,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Mitch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Evans",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 6,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 8,
+        "start": 6,
+        "end": 13
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Tony",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 2,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "Kuhl",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 6,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 2,
+        "start": 3,
+        "end": 4
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2025,
+      "manager": "Stilly",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 2,
+        "end": 9
+      },
+      "bestAtLeast105": {
+        "length": 3,
+        "start": 7,
+        "end": 9
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2026,
+      "manager": "Stew",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": true,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 158.52
+        },
+        {
+          "week": 2,
+          "score": 113.96
+        },
+        {
+          "week": 3,
+          "score": 123.22
+        },
+        {
+          "week": 4,
+          "score": 105.98
+        },
+        {
+          "week": 5,
+          "score": 142.56
+        },
+        {
+          "week": 6,
+          "score": 114.44
+        },
+        {
+          "week": 7,
+          "score": 110.14
+        },
+        {
+          "week": 8,
+          "score": 134.16
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "manager": "Stew",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 4,
+        "end": 10
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 4,
+        "end": 10
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Stew",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 1,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 1,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    }
+  ],
+  "topAtLeast105": [
+    {
+      "year": 2025,
+      "manager": "Mitch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 12,
+        "start": 1,
+        "end": 12
+      },
+      "bestAtLeast105": {
+        "length": 12,
+        "start": 1,
+        "end": 12
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2024,
+      "manager": "JMid",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 13,
+        "start": 2,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 10,
+        "start": 2,
+        "end": 11
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Mitch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2023,
+      "manager": "Evans",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 6,
+        "end": 13
+      },
+      "bestAtLeast105": {
+        "length": 8,
+        "start": 6,
+        "end": 13
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2026,
+      "manager": "Stew",
+      "recordedWeeks": 8,
+      "scheduledSeasonWeeksObserved": 8,
+      "bestStrictlyOver100": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 8,
+        "start": 1,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": true,
+      "weekScores2026": [
+        {
+          "week": 1,
+          "score": 158.52
+        },
+        {
+          "week": 2,
+          "score": 113.96
+        },
+        {
+          "week": 3,
+          "score": 123.22
+        },
+        {
+          "week": 4,
+          "score": 105.98
+        },
+        {
+          "week": 5,
+          "score": 142.56
+        },
+        {
+          "week": 6,
+          "score": 114.44
+        },
+        {
+          "week": 7,
+          "score": 110.14
+        },
+        {
+          "week": 8,
+          "score": 134.16
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "manager": "Stew",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 4,
+        "end": 10
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 4,
+        "end": 10
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Stew",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 1,
+        "end": 7
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 1,
+        "end": 7
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2019,
+      "manager": "Stilly",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 13,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 2,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 2,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Evans",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 5,
+        "end": 11
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 5,
+        "end": 11
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2021,
+      "manager": "Tony",
+      "recordedWeeks": 13,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 3,
+        "end": 9
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 3,
+        "end": 9
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Stew",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 8,
+        "end": 14
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 8,
+        "end": 14
+      },
+      "everyObservedWeekAtLeast105": false
+    },
+    {
+      "year": 2022,
+      "manager": "Mitch",
+      "recordedWeeks": 14,
+      "scheduledSeasonWeeksObserved": 14,
+      "bestStrictlyOver100": {
+        "length": 7,
+        "start": 2,
+        "end": 8
+      },
+      "bestAtLeast105": {
+        "length": 7,
+        "start": 2,
+        "end": 8
+      },
+      "everyObservedWeekAtLeast105": false
+    }
+  ],
+  "bestOver100ByCurrentManager": [
+    {
+      "manager": "Stilly",
+      "bestStrictlyOver100": {
+        "year": 2025,
+        "length": 8,
+        "start": 2,
+        "end": 9
+      }
+    },
+    {
+      "manager": "Stew",
+      "bestStrictlyOver100": {
+        "year": 2026,
+        "length": 8,
+        "start": 1,
+        "end": 8
+      }
+    },
+    {
+      "manager": "Thommy",
+      "bestStrictlyOver100": {
+        "year": 2024,
+        "length": 9,
+        "start": 1,
+        "end": 9
+      }
+    },
+    {
+      "manager": "Stover",
+      "bestStrictlyOver100": {
+        "year": 2021,
+        "length": 7,
+        "start": 1,
+        "end": 7
+      }
+    },
+    {
+      "manager": "Birch",
+      "bestStrictlyOver100": {
+        "year": 2021,
+        "length": 7,
+        "start": 7,
+        "end": 13
+      }
+    },
+    {
+      "manager": "Tony",
+      "bestStrictlyOver100": {
+        "year": 2023,
+        "length": 8,
+        "start": 1,
+        "end": 8
+      }
+    },
+    {
+      "manager": "Mitch",
+      "bestStrictlyOver100": {
+        "year": 2025,
+        "length": 12,
+        "start": 1,
+        "end": 12
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "bestStrictlyOver100": {
+        "year": 2024,
+        "length": 8,
+        "start": 6,
+        "end": 13
+      }
+    },
+    {
+      "manager": "JMid",
+      "bestStrictlyOver100": {
+        "year": 2024,
+        "length": 13,
+        "start": 2,
+        "end": 14
+      }
+    },
+    {
+      "manager": "Scott",
+      "bestStrictlyOver100": {
+        "year": 2024,
+        "length": 5,
+        "start": 6,
+        "end": 10
+      }
+    }
+  ],
+  "missingScoreWeeks": [
+    {
+      "manager": "Birch",
+      "year": 2020,
+      "recordedWeeks": 13,
+      "weekSpan": 14
+    },
+    {
+      "manager": "Mitch",
+      "year": 2020,
+      "recordedWeeks": 13,
+      "weekSpan": 14
+    },
+    {
+      "manager": "Tony",
+      "year": 2021,
+      "recordedWeeks": 13,
+      "weekSpan": 14
+    },
+    {
+      "manager": "Birch",
+      "year": 2021,
+      "recordedWeeks": 13,
+      "weekSpan": 14
+    }
+  ]
+}
