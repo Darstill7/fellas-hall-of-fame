@@ -1,0 +1,80 @@
+# 2026 Keeper Research — Prior-Season Roster Evidence
+
+**Retrieved:** November 9, 2026 using connected Sleeper league snapshots through Flaim Fantasy. **Critical caveat:** These are **Week 17 of the 2025 season rosters**, *not* rosters at the 2026 keeper deadline. Nothing below establishes that a player was actually keeper-eligible or that the manager had that player at keeper lock. Week 17 starters and bench omit explicit reserve/taxi detail from provider history. The provider's current setting confirms **maxKeepers = 2** but does **not** provide round escalation or keeper-cost formulas.
+
+## Source identifiers and scope
+
+- 2025 Sleeper season league `1181421235163095040` (10 team-roster snapshots, historical matchup Week 17).
+- 2026 Sleeper season league `1340027406009761792` (completed draft, 150 picks, 20 picks marked keeper).
+- 2026 research source `data/draft_intelligence_research_2025_2026w8_v1.json` (two named keepers for each manager, verified lineup production and round-slot return).
+- The current manager mapping is grounded in corresponding team slots and matching 2026 keeper identities, **not** a claim that provider owner IDs/names were static across seasons. Stover's historical roster-8 owner display differs from 2026; check provider tenure separately.
+
+## Recoverable evidence, not confirmed keeper eligibility
+
+| Manager | 2025 roster ID | Players in W17 snapshot | Named 2026 keepers present in W17 roster | Keeper cost/eligibility at lock |
+| --- | ---: | ---: | --- | --- |
+| Stilly | 1 | 16 | Amon-Ra St. Brown (R1); Jayden Daniels (R12) | **Not verified** |
+| JMid | 2 | 15 | Ja'Marr Chase (R1); Rome Odunze (R6) | **Not verified** |
+| Thommy | 3 | 15 | Puka Nacua (R1); Tee Higgins (R5) | **Not verified** |
+| Stew | 4 | 16 | Jahmyr Gibbs (R1); Emeka Egbuka (R6) | **Not verified** |
+| Scott | 5 | 15 | Bijan Robinson (R1); Ladd McConkey (R8) | **Not verified** |
+| Mitch | 6 | 15 | Jaxon Smith-Njigba (R7); Tyler Warren (R8) | **Not verified** |
+| Tony | 7 | 16 | Brock Bowers (R7); Javonte Williams (R10) | **Not verified** |
+| Stover | 8 | 16 | DeVonta Smith (R5); Matthew Stafford (R9) | **Not verified** |
+| Kuhl | 9 | 16 | Nico Collins (R3); Drake Maye (R14) | **Not verified** |
+| Birch | 10 | 16 | Rashee Rice (R5); Cam Skattebo (R10) | **Not verified** |
+
+The named 2026 keeper selections are 20 of 20 present in their corresponding historical Week 17 roster snapshots after standard name normalization, and 20 of 20 match the completed 2026 draft's official keeper-name/round entries. This proves continuity between **two dated source receipts**; it does **not** prove eligibility, uninterrupted ownership or that any unkept Week 17 player was available at lock.
+
+## Full Week 17 candidate-research rosters — each player requires separate eligibility proof
+
+### Stilly · 2025 roster 1
+
+Jared Goff · Chase Brown · Kyle Monangai · Amon-Ra St. Brown · Deebo Samuel Sr. · Harold Fannin Jr. · Bucky Irving · D'Andre Swift · Tennessee Titans · Sam LaPorta · Jayden Daniels · Brian Thomas Jr. · Quinshon Judkins · Hunter Henry · Jordan Addison · Cleveland Browns
+
+### JMid · 2025 roster 2
+
+Joe Burrow · Josh Jacobs · Aaron Jones Sr. · Courtland Sutton · Ja'Marr Chase · Darren Waller · Wan'Dale Robinson · Michael Pittman Jr. · Buffalo Bills · Emanuel Wilson · Rome Odunze · Adonai Mitchell · Kimani Vidal · Rico Dowdle · Zach Charbonnet
+
+### Thommy · 2025 roster 3
+
+Caleb Williams · Woody Marks · Ashton Jeanty · Puka Nacua · A.J. Brown · Kyle Pitts Sr. · Tee Higgins · Jameson Williams · Detroit Lions · Audric Estime · Blake Corum · Nick Chubb · Dallas Goedert · Jordan Love · Romeo Doubs
+
+### Stew · 2025 roster 4
+
+Justin Herbert · TreVeyon Henderson · Jahmyr Gibbs · Emeka Egbuka · Drake London · Jake Ferguson · Jaylen Warren · RJ Harvey · Denver Broncos · Malik Nabers · Trevor Lawrence · Zonovan Knight · Alec Pierce · Kayshon Boutte · Quentin Johnston · New Orleans Saints
+
+### Scott · 2025 roster 5
+
+Brock Purdy · Bijan Robinson · James Cook III · George Pickens · Ladd McConkey · Trey McBride · Tetairoa McMillan · Christian Watson · New York Giants · Bo Nix · Ricky Pearsall · Oronde Gadsden · Luther Burden III · Jacory Croskey-Merritt · Colby Parkinson
+
+### Mitch · 2025 roster 6
+
+Dak Prescott · Christian McCaffrey · Jonathan Taylor · Jaxon Smith-Njigba · Michael Wilson · Tyler Warren · Marvin Harrison Jr. · Josh Downs · Tampa Bay Buccaneers · Chris Rodriguez Jr. · Keenan Allen · Davante Adams · George Kittle · Baker Mayfield · Cincinnati Bengals
+
+### Tony · 2025 roster 7
+
+Lamar Jackson · Javonte Williams · Travis Etienne Jr. · CeeDee Lamb · Chris Olave · Brock Bowers · Omarion Hampton · Zay Flowers · Houston Texans · Ryan Flournoy · Jaxson Dart · Tony Pollard · Chuba Hubbard · Garrett Wilson · Kenneth Walker III · Seattle Seahawks
+
+### Stover · 2025 roster 8
+
+Jalen Hurts · Saquon Barkley · De'Von Achane · DeVonta Smith · DK Metcalf · Mark Andrews · Kareem Hunt · Khalil Shakir · Green Bay Packers · Mike Evans · Stefon Diggs · Cooper Kupp · Matthew Stafford · Tyler Allgeier · Parker Washington · New England Patriots
+
+### Kuhl · 2025 roster 9
+
+Drake Maye · Derrick Henry · Kyren Williams · Nico Collins · Jaylen Waddle · Brenton Strange · Kenny Gainwell · Terry McLaurin · Los Angeles Rams · Trey Benson · Xavier Worthy · Travis Hunter · Jacoby Brissett · Alvin Kamara · Chris Godwin Jr. · Pittsburgh Steelers
+
+### Birch · 2025 roster 10
+
+Josh Allen · Breece Hall · Tyrone Tracy Jr. · Justin Jefferson · Jauan Jennings · Travis Kelce · DJ Moore · Jakobi Meyers · Philadelphia Eagles · Jayden Reed · Rashee Rice · Cam Skattebo · David Montgomery · Juwan Johnson · Michael Carter · Rhamondre Stevenson
+
+## Outstanding evidence needed to calculate keeper decision grades
+
+1. Confirm exact **2026 keeper lock timestamp** and whether Week 17 lineup/reserve data includes every rostered player at that timestamp (it does not on its own).
+2. Reconcile all offseason 2026 adds, drops, trades, cuts, and NFL player movements affecting keeper eligibility. Acquire a **deadline roster**, not a late-2025 proxy.
+3. Recover keeper-cost rules (first-round hard locks, year-to-year escalation, undrafted-player default, traded keeper rights, repeat-keeper limits, cost ties, penalties). Current maxKeepers=2 is not the full ruleset.
+4. Verify every candidate's 2025 acquisition channel, keeper history and exact 2026 draft round cost; the 2026 draft round of **chosen** players alone cannot reconstruct the cost of **unselected** options.
+5. Verify 2026 retained picks and trade permissions as applicable at lock. Current provider setting reports pickTrading=false, but do not extend that setting backwards without evidence.
+6. Attach timestamped pre-lock value projections before assigning any ex ante decision grade. Keep realized Week 8 performance separate from decision quality.
+
+**Research status:** Rosters recovered and chosen-keeper continuity cross-checked; alternatives remain **potentially rostered in 2025**, not proven 2026 keeper-eligible. No keeper decision/opportunity-cost grade should be published yet.
