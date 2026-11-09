@@ -489,6 +489,9 @@ try{
         const navigationPage=await context.newPage();
         try{
          await navigationPage.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:15000});
+         await navigationPage.locator('nav.profile-tabs').waitFor({state:'attached',timeout:12000});
+         // Tabs are intentionally hidden on the landing; reveal them through the actual user control.
+         await navigationPage.locator('main button[data-profile-jump="seasons"]').first().click();
          const positions=await navigationPage.evaluate(()=>{
           const header=document.querySelector('header.nav');
           // The profile JS intentionally replaces .profile-chapters with .profile-tabs.
