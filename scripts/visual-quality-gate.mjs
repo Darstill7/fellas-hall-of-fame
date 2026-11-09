@@ -6,7 +6,7 @@ import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
- 'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','hall/playoff-heroes.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/manager-draft-report-cards.html','analytics/draft-legends.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
+ 'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','hall/playoff-heroes.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/manager-draft-report-cards.html','analytics/draft-legends.html','analytics/keeper-tracker.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
@@ -851,6 +851,21 @@ try{
          throw Error('Championship story link does not preserve year');
         const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
         if(overflow>5)throw Error('Playoff Heroes horizontal overflow '+overflow);
+       }
+       if(route==='analytics/keeper-tracker.html'){
+        await page.waitForFunction(()=>document.querySelectorAll('#cards .card').length===10,null,{timeout:12000});
+        if(await page.locator('#cards .keeper').count()!==20)
+         throw Error('All twenty 2026 keepers must be rendered');
+        if(!(await page.locator('#cards').innerText()).includes('Jaxon Smith-Njigba'))
+         throw Error('2026 keeper archive missing Jaxon Smith-Njigba');
+        await page.locator('#manager').selectOption('Stilly');
+        if(await page.locator('#cards .card').count()!==1||await page.locator('#cards .keeper').count()!==2)
+         throw Error('Manager filter should display two keepers');
+        await page.locator('#year').selectOption('2025');
+        if(await page.locator('#cards .keeper').count()!==2)
+         throw Error('2025 keeper history should display two keepers');
+        const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
+        if(overflow>5)throw Error('Keeper Tracker horizontal overflow '+overflow);
        }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
