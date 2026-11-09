@@ -45,13 +45,13 @@ function render(){
  r.keepers.map(k=>'<div class="keeper"><div class="name">'+esc(k.name)+'</div><div class="round"><strong>R'+k.round+'</strong><small>2026 round</small></div><div class="round"><strong>'+('R'+Math.max(1,k.round-1))+'</strong><small>2027 if kept</small></div></div>').join('')+'</section>').join('');
 }
 Promise.all([
- fetch('../data/draft_intelligence_research_2025_2026w8_v1.json',{cache:'no-store'}),
+ fetch('../data/keeper_tracker_2026_v1.json',{cache:'no-store'}),
  fetch('../data/keeper_rules_commissioner_confirmed_2026_v1.json',{cache:'no-store'})
 ]).then(async rs=>{for(const r of rs)if(!r.ok)throw Error('Keeper source unavailable');return Promise.all(rs.map(r=>r.json()))})
  .then(([d,r])=>{
   if(r.confirmed?.keepersPerTeam!==2||r.confirmed?.maxConsecutiveKeeperYears!==3||r.confirmed?.annualKeeperRoundEscalation!==-1||r.confirmed?.firstKeeperRoundForFreeAgentOrWaiverAcquisition!==9||r.confirmed?.keeperTenureResetWhenPlayerTradedToNewManager!==true||r.confirmed?.keeperDraftRoundCostContinuesAcrossTrade!==true)throw Error('Keeper rules mismatch');
-  records=(d.keeperResearch?.season2026||[]).map(row=>({manager:row.manager,keepers:row.keepers.map(k=>({name:k.name,round:k.round}))})).sort((a,b)=>managers.indexOf(a.manager)-managers.indexOf(b.manager));
-  if(records.length!==10||records.some(r=>r.keepers.length!==2))throw Error('Incomplete keeper ledger');
+  records=(d.managers||[]).map(row=>({manager:row.manager,keepers:row.keepers.map(k=>({name:k.player,round:k.round2026}))})).sort((a,b)=>managers.indexOf(a.manager)-managers.indexOf(b.manager));
+  if(d.season!==2026||records.length!==10||records.some(r=>r.keepers.length!==2||r.keepers.some(k=>!Number.isInteger(k.round)||k.round<1||!k.name)))throw Error('Incomplete keeper ledger');
   const choice=new URLSearchParams(location.search).get('manager');if(managers.includes(choice))$('manager').value=choice;
   $('status').textContent='';render();
  }).catch(err=>{console.error(err);$('status').textContent='Keeper rounds are currently unavailable.'});
