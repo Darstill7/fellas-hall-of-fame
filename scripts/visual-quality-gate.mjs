@@ -747,7 +747,13 @@ try{
          // The old four-tab controller intentionally lives inside the collapsed
          // "Other sections" disclosure. Open it before inspecting touch targets.
          const switcher=checkPage.locator('nav.profile-tabs details.profile-section-switcher');
-         await switcher.locator(':scope > summary').click();
+         // Fresh profiles open their lightweight home hub, hiding detailed
+         // navigation until a visitor explicitly explores the full career.
+         if(!await switcher.isVisible())
+          await checkPage.locator('.manager-home-hub button[data-profile-jump="seasons"]').click();
+         await switcher.locator(':scope > summary').waitFor({state:'visible',timeout:12000});
+         if(!await switcher.evaluate(el=>el.open))
+          await switcher.locator(':scope > summary').click();
          await checkPage.locator('nav.profile-tabs button[data-profile-tab]').first().waitFor({state:'visible',timeout:12000});
          const tabHeights=await checkPage.locator('nav.profile-tabs button[data-profile-tab]').evaluateAll(buttons=>buttons.map(el=>Math.round(el.getBoundingClientRect().height)));
          if(tabHeights.length!==4||tabHeights.some(h=>h<44))
