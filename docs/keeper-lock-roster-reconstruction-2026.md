@@ -92,7 +92,7 @@ Both completed Sleeper draft boards contain 150 picks and **20 provider-marked k
 | Ladd McConkey | 9 | 8 | 5 (Scott) | 5 (Scott) | Same manager slot |
 | Jayden Daniels | 13 | 12 | 1 (Stilly) | 1 (Stilly) | Same manager slot |
 
-**Interpretation limit:** Six repeated draft costs changing by one round constitute **observational evidence of an escalation pattern**, but not proof of a universal league rule. The commissioner has now confirmed standard one-round earlier annual cost, a three-consecutive-year cap, and Round 9 starting cost for free agents/waiver pickups. However, precise treatment of keeper rights following a trade, first-round caps, players previously kept by another owner, and simultaneous same-round costs still needs verification. For Nico Collins, the 2025 archived trade model separately records Kuhl receiving Nico Collins in a September 17 exchange; the change in keeper draft owner should not be erased by comparing only names. Importantly, 2025 roster-slot 4 and 2026 roster-slot 9 differ, even though the repeated player's draft-round shift is identical.
+**Interpretation limit:** Six repeated draft costs changing by one round constitute **observational evidence of an escalation pattern**, but not proof of a universal league rule. The commissioner has now confirmed standard one-round earlier annual cost, a three-consecutive-year cap, and Round 9 starting cost for free agents/waiver pickups. However, first-round caps, players previously kept by another owner, and simultaneous same-round costs still needs verification. For Nico Collins, the 2025 archived trade model separately records Kuhl receiving Nico Collins in a September 17 exchange; the change in keeper draft owner should not be erased by comparing only names. Importantly, 2025 roster-slot 4 and 2026 roster-slot 9 differ, even though the repeated player's draft-round shift is identical.
 
 This does **not** expand the eligible-alternative universe at the 2026 lock. Do not assert that the six repeat cases establish legal keeper cost for anyone else.
 
@@ -101,7 +101,7 @@ This does **not** expand the eligible-alternative universe at the 2026 lock. Do 
 These override the **previously unknown custom-rules status** in this research file. They come from the league commissioner/user, rather than the limited settings fields available through Sleeper.
 
 1. A player kept for another season costs a draft pick **one round earlier** than the prior keeper round.
-2. There is a maximum of **three consecutive years** you can have a player as a keeper (the exact transition in ownership/keeper tenure when traded still requires verification).
+2. There is a maximum of **three consecutive years** you can have a player as a keeper (the three-year allowance resets for a new manager after a trade, while existing keeper round costs continue).
 3. A player acquired via **free agency or waivers** can first be kept for a **Round 9** pick.
 4. The league permits a maximum of **two keepers** per team, also confirmed in Sleeper settings.
 
@@ -111,4 +111,12 @@ These override the **previously unknown custom-rules status** in this research f
 - A free-agent/waiver acquisition, kept for the first time, costs **Round 9**. If retained for another keeper season under the normal one-round progression, the next season would be **Round 8**, subject to eligibility and the three-year cap.
 - Six official 2025→2026 repeat keeper examples all align with the one-round progression, independently corroborating the commissioner rule.
 
-**Not yet established:** Exact initial cost of players acquired by trade when they were not a previous keeper; whether the three-year count stays with the player after a trade or resets for a new manager; how to handle Round 1 escalation; how multiple players competing for Round 9 are resolved; and the exact keeper lock roster/date. Until these are established, the model must return **unresolved**, not infer blanket eligibility or grades. The phrase “three consecutive years you can have them” is recorded as stated; it should not silently be interpreted as a transferable or nontransferable player-wide timer.
+**Trade rule now confirmed:** When a player is traded, the acquiring manager receives a fresh three-year allowance, **but the player's draft-round cost continues from its prior progression** rather than restarting. **Still unresolved:** first-time trade-acquisition cost if the player did not have an established keeper cost, Round 1 escalation, simultaneous same-round keeper conflicts, and the exact keeper lock roster/date. Until those are established, affected candidate values remain **unresolved** rather than receiving invented eligibility or decision grades.
+
+## Commissioner confirmation: keeper trades reset tenure, not draft cost
+
+The commissioner explicitly confirmed that a newly acquiring manager receives a **fresh three-year consecutive keeper allowance** for a traded player, even if the previous manager had already used keeper years. The player's **round cost does not reset**: it continues one round earlier along its existing keeper-cost schedule.
+
+**Verified illustration — Nico Collins:** Stew used a Round 4 keeper selection on Nico Collins in 2025; Kuhl acquired him in the 2025 season via the verified September 17 transaction; Kuhl's official 2026 keeper selection cost Round 3. Under the newly confirmed rule, Kuhl begins a new three-year keeper allowance while paying the inherited escalating round cost. This illustration is not evidence of the exact keeper deadline, nor a guarantee of future Round 1 handling or eligibility after other roster moves.
+
+**Model separately:** (1) consecutive keeper years *with current manager* and (2) inheritable keeper draft-round cost *attached to the player*. Never reset both counters following a trade.
