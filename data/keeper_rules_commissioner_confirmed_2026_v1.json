@@ -1,0 +1,22 @@
+{
+  "schema": "fellas-keeper-rules-research-v1",
+  "confirmedOn": "2026-11-09",
+  "provenance": "league commissioner confirmation in conversation",
+  "confirmed": {
+    "keepersPerTeam": 2,
+    "annualKeeperRoundEscalation": -1,
+    "maxConsecutiveKeeperYears": 3,
+    "firstKeeperRoundForFreeAgentOrWaiverAcquisition": 9,
+    "keeperTenureResetWhenPlayerTradedToNewManager": true,
+    "keeperDraftRoundCostContinuesAcrossTrade": true,
+    "minimumKeeperRound": 1,
+    "roundOneKeeperCostRemainsRoundOne": true
+  },
+  "unresolved": {
+    "firstKeeperCostOfTradeAcquisitionWithoutInheritedKeeperCost": null,
+    "simultaneousKeepersWithSameRoundCost": null,
+    "keeperDeadline2026": null,
+    "exactEligibleRosterAtLock": null
+  },
+  "interpretation": "Annual keeper cost rises one round earlier until it reaches Round 1, then stays Round 1 for any remaining eligible keeper years. A manager can keep a player for at most three consecutive keeper seasons, with a new three-year tenure on trade but inherited round cost. Keeper cost does not establish eligibility; no performance-based decision grades."
+}

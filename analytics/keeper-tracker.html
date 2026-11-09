@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1821"><title>Keeper Tracker | The Fellas</title>
+<meta name="description" content="A simple Fellas keeper-round reference for every manager.">
+<link rel="stylesheet" href="../assets/fellas-ui-system.css">
+<style>
+:root{color-scheme:dark;--bg:#0b1821;--panel:#172f3d;--line:#4b6575;--gold:#f0cf85;--muted:#c2d0d9;--text:#f8f2e7}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 25% 0%,#284558,var(--bg) 62%);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--gold)}a:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.skip{position:absolute;top:-100px;background:#fff;color:#111;padding:12px}.skip:focus{top:4px}
+header{background:#102333;border-bottom:1px solid var(--line)}nav{max-width:1060px;margin:auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:8px 16px}
+nav a{display:inline-flex;min-height:44px;align-items:center;padding:6px 8px;font-weight:800;text-decoration:none}.brand{font-weight:1000;letter-spacing:.08em;color:#fff}.navlinks{display:flex;gap:4px;flex-wrap:wrap}
+main{max-width:1060px;margin:auto;padding:40px 16px 76px;min-width:0}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:900}
+h1{font:700 clamp(40px,7vw,67px)/1.06 Georgia,serif;letter-spacing:-.035em;margin:10px 0 12px}.lede{max-width:56ch;font-size:18px;color:#e0e5e6;margin:0 0 22px}
+.rules{margin:22px 0;padding:14px 18px;border-left:3px solid var(--gold);background:#203746;color:#dce5e9;font-size:14px}
+.filters{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:26px 0 17px}.filters label{font-weight:850}.filters select{min-height:46px;min-width:170px;padding:9px 13px;border:1px solid #8097a6;border-radius:8px;background:#233d4b;color:#fff;font:inherit}
+.summary{font-size:13px;color:var(--muted);margin:0 0 14px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{min-width:0;border:1px solid #526979;background:var(--panel);border-radius:13px;padding:20px}
+.card h2{font:700 26px/1.2 Georgia,serif;margin:0 0 9px}.keeper{display:grid;grid-template-columns:minmax(0,1fr) 82px 92px;align-items:center;gap:10px;border-top:1px solid #405969;padding:14px 0}
+.name{font-weight:850;overflow-wrap:anywhere}.round{text-align:center}.round strong{display:block;color:var(--gold);font-size:22px;line-height:1.25;font-variant-numeric:tabular-nums}.round small{display:block;font-size:11px;color:var(--muted);line-height:1.25}.status{min-height:24px;color:var(--muted)}
+.note{margin:24px 0 0;font-size:13px;color:var(--muted);max-width:85ch}footer{border-top:1px solid var(--line);color:var(--muted);text-align:center;padding:23px 15px;font-size:12px}
+@media(max-width:700px){.cards{grid-template-columns:1fr}main{padding-top:25px}}
+@media(max-width:355px){.card{padding:14px}.keeper{grid-template-columns:minmax(0,1fr) 64px 77px;gap:4px}.round strong{font-size:19px}.round small{font-size:10px}.navlinks a{padding:5px}}
+</style></head>
+<body><a class="skip" href="#main">Skip to keeper tracker</a>
+<header><nav aria-label="Site navigation"><a class="brand" href="../index.html">THE FELLAS</a><div class="navlinks"><a href="../hall/">Hall of Fame</a><a href="draft-legends.html">Draft Legends</a><a href="../managers/">Managers</a></div></nav></header>
+<main id="main"><div class="eyebrow">The Fellas · Keeper reference</div><h1>Keeper Tracker.</h1>
+<p class="lede">Who was kept, what round it cost, and the round it would cost to keep that player again.</p>
+<p class="rules"><strong>League rules:</strong> Two keepers per team. Each additional keeper year costs one round earlier, stopping at Round 1. Up to three consecutive years per manager. Waiver/free-agent pickups start at Round 9. A trade resets the new manager's three-year allowance, <strong>not</strong> the player's draft-round cost.</p>
+<div class="filters"><label for="manager">Manager</label><select id="manager"><option value="all">All managers</option></select></div>
+<p class="summary" id="summary"></p><div class="status" id="status" role="status" aria-live="polite">Loading keeper rounds…</div>
+<div class="cards" id="cards"></div>
+<p class="note"><strong>2026 keeper selections.</strong> The next-round column is the cost if retained again in 2027, subject to eligibility and the three-year limit. It does not mean the player has been selected for 2027. A Round 1 keeper remains a Round 1 keeper if eligible to be kept again. This page does not recommend who anyone should keep.</p>
+</main><footer>The Fellas · Keeper rounds only</footer>
+<script>
+const $=id=>document.getElementById(id);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const managers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
+$('manager').insertAdjacentHTML('beforeend',managers.map(m=>'<option value="'+esc(m)+'">'+esc(m)+'</option>').join(''));
+let records=[];
+function render(){
+ const selected=$('manager').value,rows=records.filter(r=>selected==='all'||r.manager===selected);
+ $('summary').textContent=rows.length+' manager'+(rows.length===1?'':'s')+' · '+rows.reduce((n,r)=>n+r.keepers.length,0)+' keeper selections';
+ $('cards').innerHTML=rows.map(r=>'<section class="card"><h2>'+esc(r.manager)+'</h2>'+
+ r.keepers.map(k=>'<div class="keeper"><div class="name">'+esc(k.name)+'</div><div class="round"><strong>R'+k.round+'</strong><small>2026 round</small></div><div class="round"><strong>'+('R'+Math.max(1,k.round-1))+'</strong><small>2027 if kept</small></div></div>').join('')+'</section>').join('');
+}
+Promise.all([
+ fetch('../data/keeper_tracker_2026_v1.json',{cache:'no-store'}),
+ fetch('../data/keeper_rules_commissioner_confirmed_2026_v1.json',{cache:'no-store'})
+]).then(async rs=>{for(const r of rs)if(!r.ok)throw Error('Keeper source unavailable');return Promise.all(rs.map(r=>r.json()))})
+ .then(([d,r])=>{
+  if(r.confirmed?.keepersPerTeam!==2||r.confirmed?.maxConsecutiveKeeperYears!==3||r.confirmed?.annualKeeperRoundEscalation!==-1||r.confirmed?.firstKeeperRoundForFreeAgentOrWaiverAcquisition!==9||r.confirmed?.keeperTenureResetWhenPlayerTradedToNewManager!==true||r.confirmed?.keeperDraftRoundCostContinuesAcrossTrade!==true)throw Error('Keeper rules mismatch');
+  records=(d.managers||[]).map(row=>({manager:row.manager,keepers:row.keepers.map(k=>({name:k.player,round:k.round2026}))})).sort((a,b)=>managers.indexOf(a.manager)-managers.indexOf(b.manager));
+  if(d.season!==2026||records.length!==10||records.some(r=>r.keepers.length!==2||r.keepers.some(k=>!Number.isInteger(k.round)||k.round<1||!k.name)))throw Error('Incomplete keeper ledger');
+  const choice=new URLSearchParams(location.search).get('manager');if(managers.includes(choice))$('manager').value=choice;
+  $('status').textContent='';render();
+ }).catch(err=>{console.error(err);$('status').textContent='Keeper rounds are currently unavailable.'});
+$('manager').addEventListener('change',()=>{render();const q=$('manager').value==='all'?'':'?manager='+encodeURIComponent($('manager').value);history.replaceState(null,'',location.pathname+q)});
+</script></body></html>
