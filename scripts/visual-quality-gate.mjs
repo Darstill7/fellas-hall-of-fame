@@ -6,7 +6,7 @@ import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
- 'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/manager-draft-report-cards.html','analytics/draft-legends.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
+ 'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','hall/playoff-heroes.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/manager-draft-report-cards.html','analytics/draft-legends.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
@@ -834,6 +834,23 @@ try{
         if(a!==10)throw Error('All ten manager draft report cards required');
         if(!await page.locator('#cards .section-label').allTextContents().then(a=>a.some(t=>/2026\s*[—–-]\s*provisional\s+through\s+Week\s*8/i.test(t))))
           throw Error('Incomplete 2026 draft season must remain provisional');
+       }
+       if(route==='hall/playoff-heroes.html'){
+        await page.waitForFunction(()=>document.querySelectorAll('#hero-grid .hero-card').length===3,{timeout:12000});
+        const first=await page.locator('#hero-grid .hero-card').first().innerText();
+        if(!first.includes('Bijan Robinson')||!first.includes('65.70'))
+         throw Error('2025 verified playoff leader not rendered');
+        if(await page.locator('#rows tr').count()<9)
+         throw Error('Full championship-run starter table missing');
+        await page.locator('#season').selectOption('2024');
+        const title=await page.locator('#season-heading').innerText();
+        const leader=await page.locator('#hero-grid .hero-card').first().innerText();
+        if(!title.includes('Thommy')||!leader.includes('Tee Higgins')||!leader.includes('50.40'))
+         throw Error('2024 verified playoff leader missing after year selection');
+        if(!await page.locator('#story-link').getAttribute('href').then(x=>x==='championship-stories.html?year=2024'))
+         throw Error('Championship story link does not preserve year');
+        const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
+        if(overflow>5)throw Error('Playoff Heroes horizontal overflow '+overflow);
        }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
