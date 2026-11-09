@@ -861,9 +861,13 @@ try{
         await page.locator('#manager').selectOption('Stilly');
         if(await page.locator('#cards .card').count()!==1||await page.locator('#cards .keeper').count()!==2)
          throw Error('Manager filter should display two keepers');
-        await page.locator('#year').selectOption('2025');
-        if(await page.locator('#cards .keeper').count()!==2)
-         throw Error('2025 keeper history should display two keepers');
+        const text=await page.locator('#cards').innerText();
+        if(!text.includes('2026 round')||!text.includes('2027 if kept'))
+         throw Error('Keeper Tracker must present only keeper cost columns');
+        if(/starter points|observed value|peer surplus|decision grade/i.test(text))
+         throw Error('Keeper Tracker must not expose keeper performance analysis');
+        if(await page.locator('#year').count())
+         throw Error('Keeper Tracker should remain a simple single-season reference');
         const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
         if(overflow>5)throw Error('Keeper Tracker horizontal overflow '+overflow);
        }
