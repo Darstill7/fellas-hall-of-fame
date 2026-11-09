@@ -782,6 +782,12 @@ try{
          const firstGrade=await reader.locator('#manager-rows tr').first().innerText();
          if(!firstGrade.includes('Birch')||!firstGrade.includes('A'))
           throw Error('Completed 2025 original-pick return leaderboard mismatch');
+         const evidence=reader.locator('#manager-evidence-rows');
+         if(await evidence.locator('details').count()!==10)
+          throw Error('Ten source-backed manager draft evidence disclosures required');
+         const stillyEvidence=await evidence.innerText();
+         if(!stillyEvidence.includes('Stilly')||!stillyEvidence.includes('D\'Andre Swift'))
+          throw Error('Manager pick-level evidence missing the sourced 2025 Stilly examples');
          await reader.locator('button[data-year="2026"]').click();
          await reader.waitForFunction(()=>document.querySelector('#manager-rows tr')?.textContent?.includes('Mitch'),{timeout:10000});
          if(!await reader.locator('#manager-rows').innerText().then(t=>t.includes('Pending')))
