@@ -64,4 +64,18 @@ for(const token of ['championship_season_stories_2016_2025_v1.json','verified_es
  if(!page.includes(token))throw Error('Missing source or navigation feature: '+token);
 for(let y=2016;y<=2025;y++)if(!hall.includes('championship-stories.html?year='+y))
  throw Error('Hall trophy case cannot open '+y+' championship story');
+
+const shareChampion={2016:'Tom',2017:'Tom',2018:'Tom',2019:'Birch',2020:'Koble',2021:'Tony',2022:'Stover',2023:'Stilly',2024:'Tom',2025:'Scott'};
+if(!page.includes('data-championship-share')||!page.includes('championship-cover-score')||
+   !editorialCss.includes('.cover-share-action'))
+ throw Error('Share action, verified cover score or accessible share styling missing');
+for(const story of stories.seasons){
+ const html=fs.readFileSync('hall/share/'+story.year+'.html','utf8');
+ for(const required of [story.title,shareChampion[story.year],'og:title','og:description','twitter:title',
+  'championship-stories.html?year='+story.year]){
+  if(!html.includes(required.replaceAll('’','&#8217;'))&&
+     !html.includes(required))throw Error(story.year+' share preview missing '+required);
+ }
+ if(!html.includes('location.replace('))throw Error(story.year+' share link does not route readers to article');
+}
 console.log('CHAMPIONSHIP ANTHOLOGY VERIFIED: ten original championship features, all champion identities and finals match canonical records.');
