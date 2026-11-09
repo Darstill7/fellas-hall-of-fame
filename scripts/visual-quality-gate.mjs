@@ -750,6 +750,19 @@ try{
           throw Error('Profile chapter controls must have four 44px+ touch targets: '+JSON.stringify(tabHeights));
         }finally{await checkPage.close();}
        }
+       if(width===390&&route==='analytics/records.html'){
+        const checkPage=await context.newPage();
+        try{
+         await checkPage.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:15000});
+         await checkPage.locator('.record-category-shortcuts').waitFor({state:'attached',timeout:15000});
+         const positions=await checkPage.evaluate(()=>({
+          header:getComputedStyle(document.querySelector('body.records-premium>header.nav')).position,
+          filters:getComputedStyle(document.querySelector('.record-category-shortcuts')).position
+         }));
+         if(positions.header!=='sticky'||['sticky','fixed'].includes(positions.filters))
+          throw Error('Record Book should keep only its main header sticky: '+JSON.stringify(positions));
+        }finally{await checkPage.close();}
+       }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
        findings.push(engine+' '+width+' '+key+' audit error '+(error?.message||String(error)));
