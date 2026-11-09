@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html',
+const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/postseason-moments.html',
  'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','hall/playoff-heroes.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/manager-draft-report-cards.html','analytics/draft-legends.html','analytics/keeper-tracker.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
@@ -941,6 +941,21 @@ try{
          throw Error('Keeper Tracker should remain a simple single-season reference');
         const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
         if(overflow>5)throw Error('Keeper Tracker horizontal overflow '+overflow);
+       }
+       if(route==='analytics/postseason-moments.html'){
+        await page.waitForFunction(()=>document.querySelectorAll('#games .moment').length>=10,null,{timeout:12000});
+        const first=await page.locator('#games .moment').first().innerText();
+        if(!first.includes('Birch')||!first.includes('Tony')||!first.includes('0.72'))
+         throw Error('Closest winner-bracket source result does not match 2025 receipt');
+        await page.locator('[data-mode="big"]').click();
+        if(!(await page.locator('#games .moment').first().innerText()).includes('90.42'))
+         throw Error('2024 title-game record margin missing');
+        await page.locator('#manager').selectOption('JMid');
+        const details=await page.locator('#manager-details').innerText();
+        if(!details.includes('Tony')||!details.includes('1.70'))
+         throw Error('JMid close playoff win must be source-backed');
+        const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
+        if(overflow>5)throw Error('Postseason Moments horizontal overflow '+overflow);
        }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
