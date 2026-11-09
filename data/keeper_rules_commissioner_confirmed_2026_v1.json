@@ -6,15 +6,16 @@
     "keepersPerTeam": 2,
     "annualKeeperRoundEscalation": -1,
     "maxConsecutiveKeeperYears": 3,
-    "firstKeeperRoundForFreeAgentOrWaiverAcquisition": 9
+    "firstKeeperRoundForFreeAgentOrWaiverAcquisition": 9,
+    "keeperTenureResetWhenPlayerTradedToNewManager": true,
+    "keeperDraftRoundCostContinuesAcrossTrade": true
   },
   "unresolved": {
     "roundOneEscalation": null,
-    "keeperTenureTransferAfterTrade": null,
     "firstKeeperCostOfTradeAcquisitionWithoutInheritedKeeperCost": null,
     "simultaneousKeepersWithSameRoundCost": null,
     "keeperDeadline2026": null,
     "exactEligibleRosterAtLock": null
   },
-  "interpretation": "A confirmed cost formula does not independently prove any given player is eligible. Never assign keeper decision grades from observed after-the-fact returns alone."
+  "interpretation": "After a trade, the acquiring manager gets a fresh three-year keeper tenure, but inherits the player's ongoing round-cost progression. A confirmed cost formula does not independently prove eligibility, lock-time ownership or all unselected alternatives. Never assign decision grades from after-the-fact returns alone."
 }
