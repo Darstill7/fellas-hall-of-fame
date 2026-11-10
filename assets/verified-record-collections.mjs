@@ -46,7 +46,7 @@ async function start(){
   const games=ledger.games.filter(g=>g.stage==='regular');
   const years=[...new Set(games.map(g=>Number(g.year)))];
   const latest=Math.max(...years);
-  const weeks=new Map(),seasonMap=new Map(),careerMap=new Map();
+  const weeks=new Map(),seasonMap=new Map(),careerMap=new Map(),titleWeeks=new Map();
   for(const g of games){
    const year=Number(g.year),week=Number(g.week),key=year+'|'+week;
    const home=Math.round(Number(g.homeScore)*100),away=Math.round(Number(g.awayScore)*100);
@@ -71,6 +71,7 @@ async function start(){
      closeLosses:0,expectedWins:0,actualWins:0,actualTies:0};
     record.games++;
     record.weeklyTitles+=Number(rank===1);
+    if(rank===1){const titleKey=year+'|'+r.manager;const titleList=titleWeeks.get(titleKey)||[];titleList.push(week);titleWeeks.set(titleKey,titleList)}
     record.topThree+=Number(rank<=3);
     record.lowest+=Number(!scores.some(p=>p<r.points));
     record.secondHighLosses+=Number(rank===2&&r.points<r.against);
@@ -93,6 +94,14 @@ async function start(){
   const lifetimeTop=ranks(career,x=>x.topThree);
   const lifetimeLow=ranks(career,x=>x.lowest);
   const lifetimeSecond=ranks(career,x=>x.secondHighLosses);
+  const seasonTitles=ranks(complete,x=>x.weeklyTitles);
+  const seasonStreaks=complete.map(s=>{
+   const weeks=[...(titleWeeks.get(s.year+'|'+s.manager)||[])].sort((a,b)=>a-b);
+   let best=0,run=0,last=null;
+   for(const week of weeks){run=last!==null&&week===last+1?run+1:1;best=Math.max(best,run);last=week}
+   return {...s,maxConsecutiveTitles:best};
+  });
+  const bestSeasonStreaks=ranks(seasonStreaks,x=>x.maxConsecutiveTitles);
   const seasonTop=ranks(complete,x=>x.topThree);
   const seasonClose=ranks(complete,x=>x.closeLosses);
   const luck=complete.map(s=>({...s,surplus:s.actualWins+s.actualTies/2-s.expectedWins}));
@@ -104,6 +113,8 @@ async function start(){
   const families=[
    {id:'dominance',title:'Weekly Dominance',items:[
     ['Most career weekly scoring titles','Highest-scoring manager in a fully paired league week.',lifetimeTitle,[['#',x=>x.rank],['Manager',x=>x.manager],['Titles',x=>x.weeklyTitles],['Weeks',x=>x.games]],x=>x.weeklyTitles+' weekly titles'],
+    ['Most weekly scoring titles in one season','League-high points in a complete weekly field, during a completed regular season.',seasonTitles,[['#',x=>x.rank],['Manager',x=>x.manager],['Year',x=>x.year],['Titles',x=>x.weeklyTitles],['Weeks',x=>x.games]],x=>x.weeklyTitles+' weekly titles'],
+    ['Longest single-season weekly scoring-title streak','Consecutive regular-season weeks leading the full league in scoring; tied highs share credit.',bestSeasonStreaks,[['#',x=>x.rank],['Manager',x=>x.manager],['Year',x=>x.year],['Streak',x=>x.maxConsecutiveTitles]],x=>x.maxConsecutiveTitles+' consecutive weeks'],
     ['Most career top-three weekly scores','Rank 1–3 of the entire weekly league field.',lifetimeTop,[['#',x=>x.rank],['Manager',x=>x.manager],['Top three',x=>x.topThree],['Weeks',x=>x.games]],x=>x.topThree+' top-three weeks'],
     ['Most top-three weeks in one season','Regular season only, completed seasons.',seasonTop,[['#',x=>x.rank],['Manager',x=>x.manager],['Year',x=>x.year],['Top three',x=>x.topThree],['Weeks',x=>x.games]],x=>x.topThree+' weeks']
    ]},
