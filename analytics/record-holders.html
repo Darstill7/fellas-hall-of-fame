@@ -8,13 +8,152 @@
 .opponent-average-table{width:100%;border-collapse:collapse;table-layout:auto;margin:14px 0 22px;font-size:13px;font-variant-numeric:tabular-nums}.opponent-average-table caption{text-align:left;color:var(--muted);font-size:12px;padding-bottom:10px}.opponent-average-table th,.opponent-average-table td{border-bottom:1px solid var(--border);padding:11px 9px;text-align:left}.opponent-average-table th{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}.opponent-average-table td:nth-child(n+4),.opponent-average-table th:nth-child(n+4){text-align:right}.opponent-average-table .record-best{color:var(--gold);font-weight:850}
 #opponent-average-record details{margin:18px 0 24px}#opponent-average-record details summary{cursor:pointer;min-height:44px;padding-block:12px;color:var(--gold);font-weight:750}
 @media(max-width:640px){.opponent-average-table{font-size:12px}.opponent-average-table th,.opponent-average-table td{padding:10px 5px}.opponent-average-table th:nth-child(5),.opponent-average-table td:nth-child(5),.opponent-average-table th:nth-child(6),.opponent-average-table td:nth-child(6){display:none}}
+</style><style id="verified-record-collections-style">
+#verified-record-collections .record-collections-group{margin:25px 0 40px}
+#verified-record-collections .record-collections-family{margin:18px 0 27px;padding:17px;background:var(--panel);border:1px solid var(--border);border-radius:13px}
+#verified-record-collections .record-collections-family h3{font-size:18px}
+#verified-record-collections .record-collections-hero{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px 20px;margin:16px 0}
+#verified-record-collections .record-collections-holder{font-size:16px;font-weight:800}
+#verified-record-collections .record-collections-number{color:var(--gold);font-size:21px;font-weight:900;font-variant-numeric:tabular-nums}
+#verified-record-collections .record-collections-table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+#verified-record-collections .record-collections-table caption{text-align:left;font-size:12px;color:var(--muted);padding:5px 0}
+#verified-record-collections .record-collections-table th,#verified-record-collections .record-collections-table td{padding:10px 8px;border-bottom:1px solid var(--border);text-align:left}
+#verified-record-collections .record-collections-table th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+#verified-record-collections .record-collections-table tr.record-collections-leader td{color:var(--gold);font-weight:800}
+#verified-record-collections summary{cursor:pointer;min-height:44px;padding:12px 0;color:var(--gold);font-weight:750}
+#verified-record-collections details{overflow-x:auto;max-width:100%}
+@media(max-width:600px){#verified-record-collections .record-collections-family{padding:12px}
+#verified-record-collections .record-collections-table{font-size:11px}
+#verified-record-collections .record-collections-table th,#verified-record-collections .record-collections-table td{padding:10px 4px}
+#verified-record-collections .record-collections-table th:nth-last-child(1),#verified-record-collections .record-collections-table td:nth-last-child(1){white-space:nowrap}
+}
+</style><style id="manager-record-finder-css">
+#manager-record-finder{margin:22px 0 35px;padding:clamp(16px,3vw,25px);border:1px solid #5b7485;border-radius:15px;background:#122b3b}
+#manager-record-finder h2{margin:0 0 5px;font-size:clamp(23px,3vw,31px)}
+#record-manager-choices{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.record-manager-choice,#record-former-manager{min-height:46px;border-radius:10px;border:1px solid #6e8795;background:#1d394a;color:#f6f2e9;font:700 14px system-ui;padding:10px 15px;cursor:pointer}
+.record-manager-choice[aria-pressed="true"]{background:#e8c47d;color:#0a141e;border-color:#e8c47d}
+#record-former-manager{max-width:100%;min-width:180px}
+#record-manager-selected{font-size:clamp(19px,2.5vw,25px);margin:21px 0 8px;outline-offset:5px}
+.record-finder-section{margin:18px 0 24px}
+.record-finder-section h3{color:#e8c47d;margin-bottom:10px}
+.record-finder-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,285px),1fr));gap:9px}
+.record-finder-result{display:flex;flex-direction:column;gap:5px;min-height:82px;background:#193748;border:1px solid #4e6c7b;border-radius:10px;padding:13px 15px;color:#f6f2e9;text-decoration:none}
+.record-finder-result:hover,.record-finder-result:focus-visible{border-color:#e8c47d;background:#254657}
+.record-finder-record{font-size:13px;line-height:1.5}
+.record-finder-value{color:#e8c47d;font-size:16px;font-variant-numeric:tabular-nums}
+.record-finder-more{display:inline-flex;min-height:46px;align-items:center;font-weight:800}
+@media(max-width:600px){.record-manager-choice{flex:1 1 74px;padding:10px 8px}.record-finder-results{grid-template-columns:1fr}#record-former-manager{width:100%}}
+</style><style id="record-book-editorial-polish">
+:root{--gold:#d8b975;--panel:#10202b;--border:#344b56;--muted:#bbc8cf}
+html{scroll-padding-top:24px}body{background:#0b141b;line-height:1.55}main.wrap{max-width:1160px;padding-top:32px}
+header{background:#0b141b;border-bottom:1px solid #31434c}header .wrap{max-width:1160px}
+.records-cover{margin:0 0 26px;padding:0;border:0;background:transparent}
+.records-cover-topline,.records-cover-bottomline,.record-finder-topline{display:flex;justify-content:space-between;align-items:center;gap:14px;letter-spacing:.13em;font-size:10px;font-weight:800;color:#aebec7}
+.records-cover-topline{padding:9px 0 18px;border-bottom:1px solid #4a5960}
+.records-cover-bottomline{padding:14px 0;border-top:1px solid #4a5960}
+.records-cover-layout{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(290px,.88fr);gap:clamp(26px,5vw,64px);padding:clamp(30px,5vw,68px) 0}
+.records-cover-intro{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.records-kicker{color:#d8b975;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;margin:0 0 14px}
+.records-cover h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(57px,8.5vw,112px);line-height:.93;letter-spacing:-.072em;font-weight:700;margin:0;max-width:9ch;text-wrap:balance}
+.records-cover h1 em{font-weight:400;font-style:italic;color:#e0c891}.records-title-dot{color:#e0c891}
+.records-cover-deck{font-size:clamp(17px,2vw,22px);color:#d3dbe0;line-height:1.45;max-width:31ch;margin:28px 0}
+.records-cover-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px 21px}
+.records-cover-primary{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 17px;min-height:49px;border-radius:2px;background:#ddc184;color:#14202a;text-decoration:none;font-weight:850;font-size:13px}
+.records-cover-secondary{display:inline-flex;align-items:center;min-height:48px;color:#e4d6b9;font-size:13px;font-weight:700;text-decoration:none;border-bottom:1px solid #8b7957}
+.records-cover-primary:hover{background:#f5dba0}.records-cover-secondary:hover{color:#fff}
+.records-feature{background:#152733;border:1px solid #59626a;position:relative;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;box-shadow:inset 0 4px #d8b975}
+.records-feature-meta{display:flex;justify-content:space-between;gap:12px;letter-spacing:.11em;font-size:10px;font-weight:800;color:#bfcbd0;border-bottom:1px solid #52616b;padding:0 0 15px}
+.records-feature-eyebrow{color:#e0c891;font-size:11px;letter-spacing:.2em;font-weight:850;margin:23px 0 0}
+.records-feature-number{font-size:clamp(98px,12vw,148px);font-family:Georgia,'Times New Roman',serif;line-height:1;letter-spacing:-.09em;color:#e9d19b;margin:0 0 9px;font-variant-numeric:lining-nums}
+.records-feature-number span{font:700 32px system-ui;color:#9baab2;margin-left:7px;vertical-align:top}
+.records-feature h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.028em;font-size:clamp(24px,3vw,33px);line-height:1.12;margin:0 0 27px;max-width:18ch}
+.records-feature-holder{display:flex;align-items:center;gap:11px;border-top:1px solid #53646b;padding:19px 0 0;margin-top:auto}
+.records-feature-holder strong{display:block;font-size:17px}.records-feature-holder small{display:block;font-size:12px;color:#bac9cf;margin-top:3px}
+.records-feature-monogram{width:44px;height:44px;flex:none;border:1px solid #bd9c60;border-radius:50%;display:grid;place-items:center;color:#d8b975;font:700 25px Georgia,serif}
+.records-feature-foot{font-size:11px;color:#9eafb9;margin:17px 0 0}
+.scope-guide{margin:18px 0 25px;background:transparent;border-color:#455661}
+#manager-record-finder{background:#12232f;border:1px solid #52616a;border-top:3px solid #d8b975;border-radius:3px;padding:clamp(17px,3vw,32px);margin:22px 0 48px}
+.record-finder-topline{padding-bottom:16px;border-bottom:1px solid #405560;margin-bottom:24px}
+#manager-record-finder h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.045em;font-size:clamp(32px,4.6vw,54px);line-height:1.1;margin:0 0 13px}
+#manager-record-finder h2 em{color:#e5cb8f}
+.record-finder-intro{font-size:15px;line-height:1.6;max-width:61ch}
+#record-manager-choices{margin:24px 0 14px;gap:7px}
+.record-manager-choice{background:transparent;border:1px solid #667782;color:#dce4e8;border-radius:3px;padding:12px 15px;font-size:13px;transition:background .15s,border-color .15s}
+.record-manager-choice[aria-pressed=true]{background:#d8b975;color:#11212b;border-color:#d8b975}
+.record-manager-choice:hover:not([aria-pressed=true]){background:#25404e;border-color:#acb8b9}
+#record-former-manager{background:#1a303d;border-radius:3px}
+#record-manager-selected{margin-top:28px;padding-top:23px;border-top:1px solid #50616a;font-family:Georgia,'Times New Roman',serif;font-size:clamp(23px,3.2vw,37px);font-weight:400}
+.record-finder-section h3{font-size:12px;text-transform:uppercase;letter-spacing:.11em;color:#d8b975;margin:0 0 13px}
+.record-finder-results{gap:10px}
+.record-finder-result{background:#172c38;border:1px solid #40545f;border-radius:3px;padding:16px;min-height:99px;transition:border-color .15s}
+.record-finder-result:hover{background:#203945;border-color:#d8b975}
+.record-finder-record{font-size:14px;line-height:1.4}.record-finder-value{font-family:Georgia,'Times New Roman',serif;font-size:20px;font-weight:700}
+.records-section-no{letter-spacing:.17em;color:#d8b975;font-size:11px;font-weight:850;margin:0}
+.records-archive-index{border-top:1px solid #57636b;padding-top:21px}
+.records-archive-index>h2,.records-archive-group>h2,#opponent-scoring>h2,#placement-statistics>h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(28px,3.6vw,40px);letter-spacing:-.035em;line-height:1.13}
+.leader-card{border-radius:3px;background:#152833;min-height:164px}.leader-card .count{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:29px}
+.category-card{border-radius:3px;background:#142733}.leader-card:hover,.category-card:hover{background:#203641}
+#verified-record-collections .record-collections-family{border-radius:3px!important;background:#142733!important}
+.record-collections-group{border-top:1px solid #354c57;padding-top:14px}
+#record-leaders,#expanded-record-categories{gap:11px}
+@media(max-width:740px){.records-cover-layout{grid-template-columns:1fr;gap:24px;padding:33px 0}.records-cover h1{font-size:clamp(65px,15vw,95px);max-width:10ch}.records-cover-deck{margin:18px 0 23px}.records-feature{max-width:100%;min-height:300px}.records-feature-number{font-size:100px}.records-feature h2{font-size:27px}.records-cover-bottomline{font-size:9px}.records-cover-bottomline span:last-child{display:none}}
+@media(max-width:420px){.records-cover-topline{font-size:9px}.records-cover h1{font-size:60px}.records-cover-primary{width:100%}.records-cover-secondary{min-height:44px}.records-feature{padding:20px}.record-manager-choice{flex:1 1 calc(25% - 8px);min-width:0}.record-finder-section{margin:18px 0}}
+@media(prefers-reduced-motion:reduce){.record-finder-result,.record-manager-choice{transition:none}}
+</style><style id="record-book-archive-chapters">
+.records-chapters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:20px 0 36px}
+.records-chapters a{display:flex;flex-direction:column;gap:7px;border:1px solid #52616a;padding:22px 21px;text-decoration:none;color:#f4f0e8;min-height:154px;background:#11232e;border-radius:2px}
+.records-chapters a:hover{border-color:#d8b975;background:#1c3440}
+.records-chapter-no{font-size:10px;font-weight:850;letter-spacing:.13em;color:#d8b975}
+.records-chapters strong{font-family:Georgia,'Times New Roman',serif;font-size:clamp(20px,2.3vw,27px);font-weight:400;letter-spacing:-.02em;line-height:1.14}
+.records-chapters a>span:last-child{font-size:12px;color:#b8c7ce}
+.records-subheading{font-family:Georgia,'Times New Roman',serif;font-size:23px;font-weight:400;border-top:1px solid #52616a;padding-top:21px;margin:0}
+.records-archive-disclosure{margin:36px 0;border:1px solid #56656d;border-radius:2px;background:#10232e}
+.records-archive-disclosure>summary{display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;min-height:106px;padding:20px 26px;list-style:none}
+.records-archive-disclosure>summary::-webkit-details-marker{display:none}
+.records-archive-disclosure>summary span:first-child{display:flex;flex-direction:column;gap:8px}
+.records-archive-disclosure>summary small{font-size:10px;font-weight:850;letter-spacing:.14em;color:#d8b975}
+.records-archive-disclosure>summary strong{font-family:Georgia,'Times New Roman',serif;font-size:clamp(24px,3vw,35px);line-height:1.12;font-weight:400;letter-spacing:-.03em}
+.records-disclosure-sign{font-size:32px;color:#d8b975;font-weight:300}
+.records-archive-disclosure[open] .records-disclosure-sign{transform:rotate(45deg)}
+.records-archive-disclosure-body{padding:0 25px 23px}
+.records-archive-disclosure>summary:focus-visible{outline:3px solid #d8b975;outline-offset:3px}
+@media(max-width:640px){.records-chapters{grid-template-columns:1fr;gap:8px}.records-chapters a{min-height:112px;padding:17px}.records-archive-disclosure>summary{padding:17px;min-height:86px}.records-archive-disclosure-body{padding:0 14px 17px}}
+@media(prefers-reduced-motion:reduce){.records-disclosure-sign{transition:none}}
+</style><style id="record-cover-link-polish">
+.records-feature-link{display:inline-flex;justify-content:space-between;align-items:center;gap:25px;color:#e9d19b;min-height:45px;padding:9px 0;margin-top:8px;border-bottom:1px solid #a48d5c;text-decoration:none;font-weight:750;font-size:13px;align-self:flex-start}
+.records-feature-link:hover{color:#fff;border-color:#e9d19b}
 </style></head>
 <body class="fellas-polished"><a class="fellas-skip" href="#main-content">Skip to content</a><header><div class="wrap"><a class="brand" href="../index.html">THE <span>FELLAS</span></a><nav aria-label="Main"><a href="../index.html">Home</a><a href="../managers/">Managers</a><a href="records.html">League Records</a><a href="../managers/record-books.html">Personal Records</a></nav></div></header>
-<main class="wrap" id="main-content"><div class="eyebrow">The Fellas · Historical leaderboard</div><h1>Record holders</h1><p class="muted">Who owns the league's biggest records? Choose a manager to explore the evidence.</p><details class="scope-guide"><summary>How are records counted?</summary><p>This is <strong>record ownership, not a manager power ranking</strong>. The Recordholders page now includes 44 expanded regular-season and final-standing categories alongside 16 established legacy leaderboards. Some concepts overlap, so these are 60 displayed category slots—not necessarily 60 different statistical concepts. Tied first-place managers share credit. Career wins and scoring include archived games through 2026 Week 9; completed-season and championship-bracket categories cover 2016–2025. Former managers remain eligible. ESPN and Sleeper scoring formats differed.</p></details>
-<section aria-labelledby="leaders-title"><h2 id="leaders-title">League leaders</h2><p class="muted" id="record-count-summary">Loading 44 expanded categories and 16 established categories…</p><div id="record-leaders" class="leader-grid" aria-live="polite"><p class="muted">Loading verified record holders…</p></div><details class="leader-nonholders" id="leader-other"><summary>See managers without a current category lead</summary><p class="muted">These managers still have personal records, accomplishments and career histories.</p><div id="record-other" class="leader-grid"></div></details></section>
-<section aria-labelledby="streaks-title"><h2 id="streaks-title">Historic streak records</h2><p class="muted">Verified from all available regular-season matchups, 2016 through the latest completed week. Includes consecutive weekly scoring titles and winless starts.</p><div id="verified-streak-records" class="category-list" aria-live="polite"><p class="muted">Loading documented streak records…</p></div></section>
+<main class="wrap" id="main-content">
+<section class="records-cover" aria-labelledby="records-cover-title">
+ <div class="records-cover-topline"><span>THE FELLAS / ARCHIVES</span><span>EST. 2016&nbsp; · &nbsp;11 SEASONS</span></div>
+ <div class="records-cover-layout">
+  <div class="records-cover-intro">
+   <p class="records-kicker">The official league archives</p>
+   <h1 id="records-cover-title">The <em>Record</em> Book<span class="records-title-dot">.</span></h1>
+   <p class="records-cover-deck">The greatest performances. The roughest breaks. Every Fella who left a mark.</p>
+   <div class="records-cover-actions"><a href="#manager-record-finder" class="records-cover-primary">Find your records <span aria-hidden="true">↗</span></a><a href="#browse-all-records" class="records-cover-secondary">Explore the archives ↓</a></div>
+  </div>
+  <aside class="records-feature" aria-label="Featured all-time record">
+   <div class="records-feature-meta"><span>RECORD NO. 001</span><span>SCORING / SEASON</span></div>
+   <p class="records-feature-eyebrow">THE STANDARD</p>
+   <div class="records-feature-number">05<span>×</span></div>
+   <h2>Weekly scoring titles in a season</h2>
+   <div class="records-feature-holder"><span class="records-feature-monogram" aria-hidden="true">M</span><span><strong>Mitch</strong><small>2025 · Weeks 3, 5, 7, 10 &amp; 12</small></span></div>
+   <a class="records-feature-link" href="?manager=Mitch#manager-record-finder">Explore Mitch’s records <span aria-hidden="true">↗</span></a><p class="records-feature-foot">Verified completed-season record · 2016–2025</p>
+  </aside>
+ </div>
+ <div class="records-cover-bottomline"><span>THE HISTORY IS THE TROPHY.</span><span>SCROLL TO EXPLORE ↓</span></div>
+</section><details class="scope-guide"><summary>How are records counted?</summary><p>This is <strong>record ownership, not a manager power ranking</strong>. The Recordholders page now includes 44 expanded regular-season and final-standing categories alongside 16 established legacy leaderboards. Some concepts overlap, so these are 60 displayed category slots—not necessarily 60 different statistical concepts. Tied first-place managers share credit. Career wins and scoring include archived games through 2026 Week 9; completed-season and championship-bracket categories cover 2016–2025. Former managers remain eligible. ESPN and Sleeper scoring formats differed.</p></details>
+<section id="manager-record-finder" aria-labelledby="manager-finder-heading"><div class="record-finder-topline"><span>01 / MANAGER INDEX</span><span>2016—2026</span></div><h2 id="manager-finder-heading">Your name. <em>Your records.</em></h2><p class="muted record-finder-intro">Pick a manager. Every verified first-place category they hold, gathered in one place. Personal milestones are separate.</p><div id="record-manager-choices" role="group" aria-label="Choose current manager"></div><label for="record-former-manager">Historical managers</label> <select id="record-former-manager" aria-label="Choose a former manager"><option value="">Former managers</option></select><h3 id="record-manager-selected" tabindex="-1">Loading manager records…</h3><div id="record-manager-results" aria-live="polite"></div></section>
+<section id="browse-all-records" class="records-archive-index" aria-labelledby="leaders-title"><p class="records-section-no">02 / EXPLORE</p><h2 id="leaders-title">Explore the archives</h2><p class="muted">Start with a manager above, or jump straight into a chapter of Fellas history.</p>
+<nav class="records-chapters" aria-label="Record Book chapters"><a href="#streaks-title"><span class="records-chapter-no">01 / STREAKS</span><strong>Runs of greatness</strong><span>Scoring streaks and sustained dominance</span></a><a href="#opponent-scoring"><span class="records-chapter-no">02 / ADVERSITY</span><strong>Bad beats &amp; brutal schedules</strong><span>The toughest seasons in league history</span></a><a href="#new-verified-records"><span class="records-chapter-no">03 / DEEP CUTS</span><strong>Dominance, misery &amp; luck</strong><span>The records standings don't tell you</span></a><a href="#complete-record-index"><span class="records-chapter-no">04 / THE ARCHIVE</span><strong>All 44 record categories</strong><span>Every verified category and its owner</span></a></nav>
+<h3 class="records-subheading">All-time first-place holders</h3><p class="muted" id="record-count-summary">Loading 44 expanded categories and 16 established categories…</p><div id="record-leaders" class="leader-grid" aria-live="polite"><p class="muted">Loading verified record holders…</p></div><details class="leader-nonholders" id="leader-other"><summary>See managers without a current category lead</summary><p class="muted">These managers still have personal records, accomplishments and career histories.</p><div id="record-other" class="leader-grid"></div></details></section>
+<section aria-labelledby="streaks-title" class="records-archive-group"><h2 id="streaks-title">Historic streak records</h2><p class="muted">Verified from all available regular-season matchups, 2016 through the latest completed week. Includes consecutive weekly scoring titles and winless starts.</p><div id="verified-streak-records" class="category-list" aria-live="polite"><p class="muted">Loading documented streak records…</p></div></section>
 <section id="opponent-scoring" aria-labelledby="opponent-scoring-title"><h2 id="opponent-scoring-title">Most points faced per game · Season record</h2><p class="muted">How difficult was a manager's schedule? The all-time leaderboard ranks completed regular seasons by opponent scoring average, with the active 2026 season kept separate.</p><div id="opponent-average-record" aria-live="polite"><p class="muted">Calculating historical schedule records…</p></div></section>
-<section aria-labelledby="expanded-title"><h2 id="expanded-title">Expanded records · 44 categories</h2><p class="muted">Choose a record family to explore first-place holders, verified values and linked evidence. Every category remains available.</p><nav class="record-family-nav" id="record-family-nav" aria-label="Record families"></nav><div id="expanded-record-categories" class="category-list" aria-live="polite"><p class="muted">Loading the expanded record catalog…</p></div></section>
+<section id="new-verified-records" class="records-archive-group" aria-labelledby="new-verified-records-title"><h2 id="new-verified-records-title">Weekly Dominance, Misery &amp; Luck</h2><p class="muted">Twelve verified records from fully paired regular-season weeks, with all-time leaderboards, full historical rankings, and a separate current-season watch.</p><div id="verified-record-collections" aria-live="polite"><p class="muted">Building historical leaderboards from verified matchups…</p></div></section>
+<section id="complete-record-index" class="records-archive-group" aria-labelledby="expanded-title"><details class="records-archive-disclosure"><summary><span><small>THE COMPLETE ARCHIVE / 44 CATEGORIES</small><strong id="expanded-title">Explore every verified record</strong></span><span class="records-disclosure-sign" aria-hidden="true">+</span></summary><div class="records-archive-disclosure-body"><p class="muted">Choose a record family to explore first-place holders, verified values and linked evidence. Every category remains available.</p><nav class="record-family-nav" id="record-family-nav" aria-label="Record families"></nav><div id="expanded-record-categories" class="category-list" aria-live="polite"><p class="muted">Loading the expanded record catalog…</p></div></div></details></section>
 <details class="legacy-record-disclosure"><summary>Established Record Book · 16 historical categories</summary><p class="muted">Original leaderboards remain available for comparison. Some overlap with the expanded catalog; they are not 16 additional unique statistical concepts.</p><div id="record-categories" class="category-list" aria-live="polite"><p class="muted">Loading established categories…</p></div></details>
 <section id="placement-statistics" aria-labelledby="placement-stats-title">
 <h2 id="placement-stats-title">Career finishes · 2016–2025</h2>
@@ -25,4 +164,4 @@
 </details>
 </section>
 <section id="espn-last-place-history" class="placement-results" aria-label="Original ESPN era last-place history"><p class="muted">Loading verified 2016–2019 final places…</p></section>
-<section id="shitter-year-history" class="placement-results" aria-label="Shitter of the Year history"><p class="muted">Loading verified Toilet Bowl history…</p></section><p class="scope">Have a favorite single-game performance? Each manager's <a href="../managers/record-books.html">personal record book</a> also includes their closest wins, highest scores, biggest losses, and season results. No unsupported historical categories are silently counted.</p></main><footer><div class="wrap">The Fellas · Archived league records · Historical coverage varies by season.</div></footer><script type="module" src="../assets/record-holders-page.mjs"></script><script type="module" src="../assets/record-streaks-page.mjs"></script><script type="module" src="../assets/opponent-average-record.mjs"></script><script type="module" src="../assets/placement-statistics-ui.mjs"></script><script type="module" src="../assets/verified-sleeper-placement-ui.mjs"></script></body></html>
+<section id="shitter-year-history" class="placement-results" aria-label="Shitter of the Year history"><p class="muted">Loading verified Toilet Bowl history…</p></section><p class="scope">Have a favorite single-game performance? Each manager's <a href="../managers/record-books.html">personal record book</a> also includes their closest wins, highest scores, biggest losses, and season results. No unsupported historical categories are silently counted.</p></main><footer><div class="wrap">The Fellas · Archived league records · Historical coverage varies by season.</div></footer><script type="module" src="../assets/record-holders-page.mjs"></script><script type="module" src="../assets/record-streaks-page.mjs"></script><script type="module" src="../assets/opponent-average-record.mjs"></script><script type="module" src="../assets/verified-record-collections.mjs"></script><script type="module" src="../assets/placement-statistics-ui.mjs"></script><script type="module" src="../assets/verified-sleeper-placement-ui.mjs"></script></body></html>

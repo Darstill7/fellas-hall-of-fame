@@ -6,6 +6,8 @@ import {mountManagerPlayoffResume} from './manager-playoff-resume.mjs';
 import {mountManagerChampionshipStories} from './manager-championship-stories.mjs';
 // Upgrade the older seven-link chapter navigator without discarding existing archive sections.
 const profileName=document.querySelector('main .hero h1')?.textContent?.trim();
+// Canonical manager-first Record Book; retain individual evidence views as research links.
+const managerRecordBookUrl=manager=>'../../analytics/record-holders.html?manager='+encodeURIComponent(manager==='Tom'?'Thommy':manager)+'#manager-record-finder';
 const persona=managerPersonas[profileName]||managerPersonas[profileName==='Tom'?'Thommy':profileName];
 const profileHero=document.querySelector('main .hero');
 // A compact site menu preserves the five primary destinations without
@@ -284,7 +286,7 @@ if(legacyNav&&!document.querySelector('[data-manager-profile-tabs]')){
  const actions=hero?.querySelector('.buttons');
  if(actions){
   // Start/Sit is a named feature below; no duplicate hero shortcut.
-  actions.innerHTML='<a class="btn" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(manager==='Thommy'?'Tom':manager)+'">My Records</a><a class="btn secondary" href="#profile-features">Explore topics</a>';
+  actions.innerHTML='<a class="btn" href="'+managerRecordBookUrl(manager)+'">My Records</a><a class="btn secondary" href="#profile-features">Explore topics</a>';
  }
  const quick=document.createElement('section');
  quick.className='profile-quickstart';quick.setAttribute('aria-label',manager+' career at a glance');
@@ -319,7 +321,7 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.id='profile-features';
  shell.setAttribute('aria-label','Manager features');
  shell.dataset.profileFeatureMenu='';
- shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a topic below or open the verified record portfolio.</p><a class="profile-records-link" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(name)+'">View '+name+'\'s records and rankings →</a>';
+ shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a topic below or open the verified record portfolio.</p><a class="profile-records-link" href="'+managerRecordBookUrl(name)+'">View '+name+'\'s records and rankings →</a>';
  const groups=[
   {title:'Career & Results',help:'Championships, playoffs and every season',items:[0,1,10]},
   {title:'Ratings & Legacy',help:'Career Legacy OVR and individual season ratings',items:[3,4]},
@@ -577,7 +579,7 @@ const existingProfile=document.querySelector('nav[data-manager-profile-tabs]');
 if(existingProfile&&!legacyNav){
  // Prebuilt profile shells should share the same two clear entry actions.
  const existingHeroActions=document.querySelector('main .hero .buttons');
- if(existingHeroActions)existingHeroActions.innerHTML='<a class="btn" href="../../analytics/expanded-records.html?manager='+encodeURIComponent(profileName==='Thommy'?'Tom':profileName)+'">My Records</a><a class="btn secondary" href="#profile-features">Explore topics</a>';
+ if(existingHeroActions)existingHeroActions.innerHTML='<a class="btn" href="'+managerRecordBookUrl(profileName)+'">My Records</a><a class="btn secondary" href="#profile-features">Explore topics</a>';
  const quick=document.querySelector('.profile-quickstart');
  const manager=document.querySelector('main .hero h1')?.textContent?.trim()||'';
  populateManagerResearch(quick,manager);
@@ -598,7 +600,7 @@ function mountManagerHomeHub(){
  const grid=document.createElement('nav');grid.className='manager-home-hub-grid';grid.setAttribute('aria-label','Primary manager destinations');
  const routes=[
   {label:'Career story',detail:'Defining seasons and milestones',icon:'📖',action:'story'},
-  {label:'My records',detail:'League rankings and personal marks',icon:'🏅',href:'../../analytics/expanded-records.html?manager='+encodeURIComponent(who==='Thommy'?'Tom':who)},
+  {label:'My records',detail:'League rankings and personal marks',icon:'🏅',href:managerRecordBookUrl(who)},
   {label:'Every season',detail:'Year-by-year results',icon:'📅',tab:'seasons'},
   {label:'Rivalries',detail:'Head-to-head history',icon:'⚔️',tab:'rivalries'},
   {label:'Report card',detail:'Career ratings and grades',icon:'📊',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(who)},
@@ -666,7 +668,12 @@ function mountCareerExhibit(){
  // Records already lead the hero and have a destination in the archive navigation.
  // A second copy here would turn the story into another cluttered button row.
  actions.append(read);
- feature.append(kicker,h,intro,actions);
+ const source= document.createElement('p');
+ source.className='hof-career-source-note';
+ source.append('Franchise biography draws on archived results and transactions. For the current season, ');
+ const live=document.createElement('a');live.href='../../analytics/sportscenter.html';live.textContent='see the latest verified 2026 scores and standings';
+ source.append(live,'.');
+ feature.append(kicker,h,intro,actions,source);
  hero.after(feature);
  feature.after(hub);
  // The résumé must greet visitors before any browse controls. Keep switching
