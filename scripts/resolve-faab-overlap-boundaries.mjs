@@ -12,10 +12,22 @@ for(let year=2020;year<=2026;year++){
  const tx=[];
  for(let week=1;week<=(year===2026?8:18);week++)tx.push(...read('data-integrity/provider-recovered-transactions-'+year+'-week'+week+'.json').transactions);
  const byId=new Map(tx.map(t=>[String(t.transactionId),t]));
- let resolvedByEvent=0,needsReview=0,notFlagged=0;
+ let resolvedByEvent=0,needsReview=0,notFlagged=0,unresolvedClaimTiming=0;
  for(const claim of claims.observations.filter(x=>x.year===year)){
   const current=byId.get(String(claim.transactionId));
-  assert.ok(current&&current.status==='complete','Missing completed source '+year+'/'+claim.transactionId);
+  if(!current){
+   // The completed waiver is certified by its receipt, but the older
+   // provider-recovery sample lacks event timestamp and ownership boundaries.
+   // Do not infer a legal free-agent pool or a resolved overlap from this gap.
+   unresolvedClaimTiming++;
+   rows.push({year,transactionId:String(claim.transactionId),claimWeek:claim.claimWeek,
+    playerId:claim.playerId,acquiringTeamId:claim.teamId,
+    classification:'completed_claim_timestamp_not_in_recovery_sample',evidence:[],
+    transactionCompleted:true,priorFreeAgentEligibilityVerified:false,
+    replacementAlternativeAvailabilityVerified:false});
+   continue;
+  }
+  assert.equal(current.status,'complete','Recovered event disagrees with completed claim '+year+'/'+claim.transactionId);
   const overlaps=(byYear.get(year)??[]).filter(i=>i.playerId===claim.playerId&&i.teamId!==claim.teamId&&
     i.startTimestamp<current.timestamp&&(i.endTimestamp===null||i.endTimestamp>=current.timestamp));
   const evidence=[];
@@ -37,9 +49,10 @@ for(let year=2020;year<=2026;year++){
     transactionCompleted:true,priorFreeAgentEligibilityVerified:false,
     replacementAlternativeAvailabilityVerified:false});
  }
- coverage.push({year,totalClaims:resolvedByEvent+needsReview+notFlagged,
+ coverage.push({year,totalClaims:resolvedByEvent+needsReview+notFlagged+unresolvedClaimTiming,
   apparentOverlapResolvedByCurrentEvent:resolvedByEvent,
   unresolvedOwnershipOverlaps:needsReview,noApparentOverlap:notFlagged,
+  claimsWithoutRecoveredEventTimestamp:unresolvedClaimTiming,
   preclaimAvailabilityCertified:0});
 }
 const result={schema:'fellas-faab-overlap-resolution-v1',
