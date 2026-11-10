@@ -25,6 +25,8 @@ jobs:
         run: node scripts/verify-manager-portfolio-first.mjs
       - name: Validate eleven-season editorial archive and shareable history links
         run: node scripts/verify-season-editorial-history.mjs
+      - name: Verify homepage editorial cover and manager finder
+        run: node scripts/verify-homepage-editorial.mjs
       - name: Capture desktop, tablet, phone and Safari first screens
         run: node scripts/visual-quality-gate.mjs
       - name: Publish visual audit and screenshots
