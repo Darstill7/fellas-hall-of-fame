@@ -150,6 +150,9 @@ async function start(){
     family:family.title,anchor:'records-'+family.id
    }));
   }));
+  // Store the payload as well as emitting the event: the two data modules load asynchronously.
+  // The manager finder must never miss record owners when the collection fetch finishes first.
+  document.__fellasVerifiedRecordOwners=ownership;
   document.dispatchEvent(new CustomEvent('fellas:verified-record-owners',{detail:{records:ownership}}));
   for(const family of families){
    const node=create('div',undefined,'record-collections-group');node.id='records-'+family.id;
