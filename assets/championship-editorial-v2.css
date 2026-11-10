@@ -1,0 +1,62 @@
+/* The Fellas | Championship Anthology, editorial edition 02
+   A restrained Hall-of-Fame reading system; preserved sourced article data. */
+:root{--anthology-bg:#09131a;--anthology-surface:#132631;--anthology-gold:#dfbe7b;--anthology-rule:#56636a}
+html{scroll-padding-top:32px}
+body{background:#09131a;color:#f6f0e6}
+.top{background:#0b161d;border-bottom-color:#536069}
+.top .shell{max-width:1190px}
+.top .nav{gap:4px 18px}
+.top .nav a{min-height:44px;display:inline-flex;align-items:center;font-size:12px;letter-spacing:.025em}
+.top .nav a[aria-current=page]{color:#ead096;border-bottom:2px solid #dfbe7b}
+main.shell{max-width:1190px}
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(235px,.65fr);gap:clamp(18px,4vw,58px);align-items:end;padding:clamp(34px,6vw,78px) 0 35px;border-bottom:1px solid var(--anthology-rule)}
+.hero::before{content:'THE FELLAS / HALL OF FAME / VOLUME I';position:absolute;top:13px;left:0;font-size:10px;color:#9eafb8;letter-spacing:.14em;font-weight:850}
+.hero .eyebrow{color:#dfbe7b;font-size:11px;letter-spacing:.18em}
+.hero h1{font:400 clamp(58px,8.5vw,107px)/1.01 Georgia,'Iowan Old Style',serif;letter-spacing:-.065em;max-width:9ch;margin:18px 0}
+.hero h1 em{color:#e6c98f;font-weight:400}
+.hero p{font-size:clamp(17px,1.9vw,20px);line-height:1.55;max-width:37ch;color:#cdd5d9;margin:0 0 6px}
+.anthology-mark{display:flex;flex-direction:column;justify-content:space-between;gap:35px;padding:22px 0 15px 24px;border-left:1px solid var(--anthology-rule);min-height:245px}
+.anthology-mark .mark-top{font-size:11px;font-weight:800;letter-spacing:.15em;color:#c5b494}
+.anthology-mark strong{font:400 clamp(86px,11vw,145px)/.85 Georgia,serif;color:#ead3a4;letter-spacing:-.07em}
+.anthology-mark strong small{font:700 16px/1.4 system-ui;letter-spacing:.03em;display:block;color:#aebfc7;margin-top:17px}
+.anthology-mark .mark-bottom{color:#a8b8be;font-size:11px;letter-spacing:.1em}
+.chapter-nav{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#122430;padding:15px 19px;border:1px solid #58646a;border-radius:2px;margin:24px 0 18px}
+.chapter-nav label{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:#e8c78a}
+.chapter-nav select{border-radius:2px;min-width:235px;background:#182e3a}
+.anthology-section-label{font-size:10px;font-weight:850;letter-spacing:.16em;color:#d5b879;text-transform:uppercase}
+#championship-feature{scroll-margin-top:20px}
+#championship-feature>.feature{border:1px solid #8b785a;border-radius:2px;background:#142733!important;box-shadow:none;padding:clamp(24px,5vw,58px)}
+#championship-feature>.feature:before{height:2px;background:#d5b879}
+#championship-feature>.feature:after{width:min(38%,310px);right:4%;top:6%;border-color:#e2c99322;box-shadow:0 0 0 24px #e2c99307,0 0 0 50px #e2c99305}
+.feature .cover-edition{border-bottom:1px solid #53636d;padding-bottom:17px}
+.feature h2{font-size:clamp(38px,6.1vw,74px);font-weight:400;line-height:1.12;letter-spacing:-.052em;margin:28px 0 18px}
+.feature .dek{font-size:clamp(17px,2.1vw,22px);line-height:1.58;color:#ded5c4}
+.feature .cover-actions a,.feature .cover-actions button{border-radius:2px}
+.feature .story-meta{border-top:1px solid #5c6a70;padding-top:18px}
+.feature .story-stat{border:0;border-right:1px solid #556773;border-radius:0;background:transparent;padding:12px 15px 12px 0}
+.feature .story-stat:last-child{border-right:0}
+.feature .story-stat strong{font:400 clamp(20px,2.6vw,30px)/1.2 Georgia,serif;color:#f1d4a0}
+.feature .story-stat small{color:#b8c9d0;line-height:1.5;margin-top:6px}
+.reading-nav{background:#0c1b24fa;box-shadow:none;border-color:#536b74}
+.reading-nav a{border-radius:2px}
+.story-layout{grid-template-columns:minmax(0,1fr) minmax(215px,260px);gap:clamp(22px,4vw,56px)}
+.story-body{max-width:68ch}
+.story-section{margin:0 0 31px}
+.story-section h3{font:400 clamp(23px,3vw,32px)/1.23 Georgia,serif;letter-spacing:-.025em;color:#e8c78c;margin:0 0 12px}
+.story-section p{font-size:clamp(16px,1.65vw,18px);line-height:1.9;color:#e9edf0;margin:0 0 15px}
+.side{border-radius:2px;background:#132631}
+.road-to-ring,.inside-run,.mvp-showcase,.postseason-players,.rivalry-rewind{border-radius:2px;box-shadow:none}
+.road-beat,.road-game,.editorial-verdict,.player-profile,.mvp-entry{border-radius:2px}
+.year-directory{padding-top:29px;border-top:1px solid #5b696e}
+.year-directory h2{font:400 clamp(27px,3.3vw,39px)/1.2 Georgia,serif;letter-spacing:-.035em}
+.archive{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.archive a{border-radius:2px;min-height:118px;background:#132733;border-color:#53636d;padding:15px 13px;transition:border-color .15s,background .15s}
+.archive a:hover{transform:none;background:#1d3540;border-color:#dfbe7b}
+.archive a[aria-current=page]{box-shadow:inset 0 3px #dfbe7b;background:#25342f}
+.archive a strong{font:400 25px/1.1 Georgia,serif;color:#e9cd95}
+.archive a span{font-size:13px;color:#f5f0e6}
+.archive a small{font-size:11px;color:#b2c2c9}
+.chapter-bottom a{border-radius:2px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:15px;padding-top:43px}.hero h1{font-size:clamp(58px,11vw,86px)}.anthology-mark{border-left:0;border-top:1px solid #56666d;padding:17px 0 0;min-height:0;gap:5px;flex-direction:row;align-items:end}.anthology-mark strong{font-size:74px}.anthology-mark strong small{font-size:10px;margin-top:8px}.anthology-mark .mark-bottom{max-width:100px;text-align:right}.story-layout{grid-template-columns:1fr}.archive{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.top .nav{gap:3px 11px}.top .nav a{font-size:12px}.hero{padding-top:42px}.hero h1{font-size:clamp(53px,13vw,72px);line-height:1.09}.hero p{font-size:16px}.anthology-mark{display:none}.chapter-nav{display:grid;grid-template-columns:1fr;padding:14px}.chapter-nav select{width:100%;min-width:0}.feature .story-meta{grid-template-columns:repeat(2,minmax(0,1fr))}.feature .story-stat:nth-child(2){border-right:0}.feature .story-stat:nth-child(n+3){border-top:1px solid #536571}.feature .story-stat{padding:12px 8px 12px 0}.archive{grid-template-columns:repeat(2,minmax(0,1fr))}.archive a{min-height:108px}.feature h2{line-height:1.17}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.archive a{transition:none}}
