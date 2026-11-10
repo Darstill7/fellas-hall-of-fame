@@ -35,8 +35,11 @@ const endings=read('data/manager_verified_season_endings_v1.json').managers;
 assert.equal(endings.JMid.some(x=>x.year===2023),false);
 assert.equal(endings.Evans.some(x=>x.year===2023),true);
 const book=read('data/manager_record_books_2016_2026.json').managers;
-assert.deepEqual(book.find(x=>x.manager==='JMid').regular,{games:36,w:16,l:20,t:0});
-assert.deepEqual(book.find(x=>x.manager==='Evans').regular,{games:107,w:52,l:55,t:0});
+for(const name of ['JMid','Evans']){
+ const actual=book.find(x=>x.manager===name).regular;
+ const expected=career[name];
+ assert.deepEqual(actual,{games:expected.games,w:expected.w,l:expected.l,t:expected.t},name+' record book must match canonical career');
+}
 const season=read('data/manager_season_results_v1.json');
 assert.equal(season.rows.some(x=>x.manager==='JMid'&&x.year===2023),false);
 assert.equal(season.rows.some(x=>x.manager==='Evans'&&x.year===2023),true);
