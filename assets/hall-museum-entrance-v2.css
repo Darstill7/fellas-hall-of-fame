@@ -1,0 +1,51 @@
+/* Hall of Fame museum entrance: print-inspired, readable, intentionally restrained. */
+:root{--museum-gold:#dec188;--museum-paper:#f3eee5;--museum-rule:#53616b}
+body.fellas-polished{background:#0a151d;color:var(--museum-paper)}
+body.fellas-polished .nav{background:#0b1720;border-bottom:1px solid var(--museum-rule)}
+body.fellas-polished .nav .wrap{max-width:1180px;gap:10px 25px;padding-block:12px}
+body.fellas-polished .navlinks{display:flex;flex-wrap:wrap;gap:6px 17px;font-size:12px}
+body.fellas-polished .navlinks a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+body.fellas-polished .navlinks a[aria-current=page]{color:var(--museum-gold);border-bottom:2px solid var(--museum-gold)}
+body.fellas-polished main.wrap{max-width:1180px}
+body.fellas-polished main>.hero{position:relative;max-width:none;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(220px,.7fr);align-items:end;gap:clamp(24px,5vw,60px);padding:clamp(40px,6vw,76px) 0 40px;border-bottom:1px solid #657178}
+body.fellas-polished main>.hero::before{content:'THE FELLAS / THE ARCHIVES / EST. 2016';position:absolute;top:14px;left:0;letter-spacing:.15em;font-size:10px;font-weight:850;color:#aebec6}
+body.fellas-polished main>.hero .eyebrow{letter-spacing:.19em;color:var(--museum-gold)}
+body.fellas-polished main>.hero h1{font:400 clamp(58px,8.5vw,108px)/1.1 Georgia,'Times New Roman',serif;letter-spacing:-.075em;max-width:11ch;margin:14px 0 20px}
+body.fellas-polished main>.hero h1 em{color:#e7cf9b;font-weight:400}
+body.fellas-polished main>.hero .lead{max-width:46ch;color:#d0dbe0;font-size:clamp(17px,1.85vw,20px);line-height:1.6}
+body.fellas-polished main>.hero .buttons{margin:23px 0 0;gap:11px}
+body.fellas-polished main>.hero .btn{min-height:48px;display:inline-flex;align-items:center;border-radius:2px;padding:11px 17px}
+body.fellas-polished .museum-hero-edition{min-height:290px;display:flex;flex-direction:column;justify-content:space-between;padding:21px 0 17px 27px;border-left:1px solid #657178}
+body.fellas-polished .museum-hero-edition .edition-label{font-size:10px;font-weight:800;letter-spacing:.17em;color:#cfb988}
+body.fellas-polished .museum-hero-edition strong{font:400 clamp(90px,12vw,145px)/.95 Georgia,serif;letter-spacing:-.065em;color:#e2c895}
+body.fellas-polished .museum-hero-edition strong small{display:block;font:700 11px/1.4 system-ui;letter-spacing:.14em;color:#c8d3d8;margin-top:12px}
+body.fellas-polished .museum-hero-edition .edition-note{font-size:12px;color:#bdcbd1;line-height:1.5}
+body.fellas-polished .section{padding:33px 0 43px;border-color:#465b65}
+body.fellas-polished main .section>.eyebrow{letter-spacing:.17em;color:#d9bd87}
+body.fellas-polished main .section h2{font:400 clamp(29px,4vw,43px)/1.15 Georgia,'Times New Roman',serif;letter-spacing:-.045em;margin:10px 0 12px}
+body.fellas-polished main .section>.muted{max-width:72ch}
+body.fellas-polished main .section .grid{gap:9px;margin:21px 0 5px}
+body.fellas-polished main .section .grid .tile{border:1px solid #566975;border-radius:2px;background:#132834;min-height:180px;padding:21px;gap:6px;transition:background .15s,border-color .15s}
+body.fellas-polished main .section .grid .tile:first-child{border-color:#b49a67;background:#24332f}
+body.fellas-polished main .section .grid .tile:hover{background:#1d3946;border-color:#dbbe81;transform:none}
+body.fellas-polished main .section .grid .tile h3{font:400 clamp(20px,2.4vw,26px)/1.2 Georgia,serif;letter-spacing:-.02em;color:#f2e6c8}
+body.fellas-polished main .section .grid .tile p{font-size:13px;color:#bfced5;line-height:1.58}
+body.fellas-polished main .section .grid .tile .small{color:#e7cb95}
+body.fellas-polished .hall-championship-timeline{border-top:1px solid #657178;padding-top:39px}
+body.fellas-polished .champ-year-grid{gap:9px}
+body.fellas-polished .champ-year-card,body.fellas-polished .champ-year-featured{border:1px solid #64707a;border-radius:2px;background:#132833;box-shadow:none;padding:clamp(17px,2.5vw,25px);min-height:216px;transition:background .15s,border-color .15s}
+body.fellas-polished .champ-year-card:hover{transform:none;background:#1e3844;border-color:#e0c28b}
+body.fellas-polished .champ-year-featured{border-color:#c9aa72;background:#263630;min-height:240px}
+body.fellas-polished .champ-year-label{font-size:10px;letter-spacing:.17em;color:#e5c788}
+body.fellas-polished .champ-year-winner{font:400 clamp(29px,4vw,44px)/1.12 Georgia,serif;letter-spacing:-.035em;color:#f4e9d4}
+body.fellas-polished .champ-year-featured .champ-year-winner{font-size:clamp(38px,5.5vw,66px)}
+body.fellas-polished .champ-year-matchup{color:#c5d0d7}
+body.fellas-polished .champ-year-bottom{border-color:#617078}
+body.fellas-polished .champ-year-score{font:400 clamp(20px,2.5vw,29px)/1.2 Georgia,serif;color:#e9ce9b}
+body.fellas-polished .hall-more-exhibits{border-radius:2px;background:#122631}
+body.fellas-polished .hall-more-exhibits summary{min-height:55px}
+body.fellas-polished :is(a,button,summary):focus-visible{outline:3px solid #f4d79c;outline-offset:3px}
+@media(max-width:800px){body.fellas-polished main>.hero{grid-template-columns:1fr;gap:14px;padding:44px 0 30px}body.fellas-polished main>.hero h1{font-size:clamp(61px,11vw,86px)}body.fellas-polished .museum-hero-edition{min-height:0;flex-direction:row;align-items:center;gap:18px;border-left:0;border-top:1px solid #5d6e76;padding:17px 0 0}body.fellas-polished .museum-hero-edition strong{font-size:72px}body.fellas-polished .museum-hero-edition strong small{font-size:10px;margin-top:4px}body.fellas-polished .museum-hero-edition .edition-note{max-width:125px;text-align:right}}
+@media(max-width:700px){body.fellas-polished .navlinks{width:100%;gap:3px 12px}body.fellas-polished main .section .grid{grid-template-columns:1fr 1fr}body.fellas-polished .champ-year-grid{grid-template-columns:1fr 1fr}body.fellas-polished .champ-year-featured{grid-column:1/-1}body.fellas-polished .champ-year-card{min-height:170px}}
+@media(max-width:550px){body.fellas-polished main>.hero h1{font-size:clamp(56px,13vw,74px)}body.fellas-polished main>.hero .buttons .btn{width:100%;justify-content:center}body.fellas-polished .museum-hero-edition{display:none}body.fellas-polished main .section .grid{grid-template-columns:1fr}body.fellas-polished .champ-year-grid{grid-template-columns:1fr}body.fellas-polished .champ-year-featured{grid-column:auto}body.fellas-polished .champ-year-card,body.fellas-polished .champ-year-featured{min-height:0}body.fellas-polished .champ-year-featured .champ-year-winner{font-size:43px}}
+@media(prefers-reduced-motion:reduce){body.fellas-polished .champ-year-card,body.fellas-polished main .section .grid .tile{transition:none}}
