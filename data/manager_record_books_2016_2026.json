@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "asOf": "2026 Week 8",
+  "asOf": "2026-11-10",
   "source": "data/unified_record_book_2016_2026.json",
   "scope": "Archived results, not necessarily exhaustive for missing Sleeper matchups; ESPN 2016-2019 confirmed",
   "caveats": [
@@ -17,9 +17,9 @@
       "firstSeason": 2017,
       "lastSeason": 2026,
       "regular": {
-        "games": 128,
+        "games": 129,
         "w": 72,
-        "l": 56,
+        "l": 57,
         "t": 0
       },
       "bestWeek": {
@@ -171,9 +171,9 @@
         {
           "opponent": "Tony",
           "w": 10,
-          "l": 5,
+          "l": 6,
           "t": 0,
-          "games": 15
+          "games": 16
         },
         {
           "opponent": "Mitch",
@@ -304,7 +304,7 @@
         {
           "year": 2026,
           "w": 5,
-          "l": 3,
+          "l": 4,
           "t": 0
         }
       ]
@@ -806,8 +806,8 @@
       "firstSeason": 2024,
       "lastSeason": 2026,
       "regular": {
-        "games": 36,
-        "w": 16,
+        "games": 37,
+        "w": 17,
         "l": 20,
         "t": 0
       },
@@ -976,10 +976,10 @@
         },
         {
           "opponent": "Scott",
-          "w": 2,
+          "w": 3,
           "l": 2,
           "t": 0,
-          "games": 4
+          "games": 5
         },
         {
           "opponent": "Tony",
@@ -1018,7 +1018,7 @@
         },
         {
           "year": 2026,
-          "w": 3,
+          "w": 4,
           "l": 5,
           "t": 0
         }
@@ -1029,9 +1029,9 @@
       "firstSeason": 2018,
       "lastSeason": 2026,
       "regular": {
-        "games": 118,
+        "games": 119,
         "w": 51,
-        "l": 67,
+        "l": 68,
         "t": 0
       },
       "bestWeek": {
@@ -1214,9 +1214,9 @@
         {
           "opponent": "Stilly",
           "w": 5,
-          "l": 6,
+          "l": 7,
           "t": 0,
-          "games": 11
+          "games": 12
         },
         {
           "opponent": "Evans",
@@ -1292,7 +1292,7 @@
         {
           "year": 2026,
           "w": 0,
-          "l": 8,
+          "l": 9,
           "t": 0
         }
       ]
@@ -1302,9 +1302,9 @@
       "firstSeason": 2018,
       "lastSeason": 2026,
       "regular": {
-        "games": 117,
+        "games": 118,
         "w": 71,
-        "l": 46,
+        "l": 47,
         "t": 0
       },
       "bestWeek": {
@@ -1483,9 +1483,9 @@
         {
           "opponent": "Stover",
           "w": 7,
-          "l": 3,
+          "l": 4,
           "t": 0,
-          "games": 10
+          "games": 11
         },
         {
           "opponent": "Evans",
@@ -1568,7 +1568,7 @@
         {
           "year": 2026,
           "w": 8,
-          "l": 0,
+          "l": 1,
           "t": 0
         }
       ]
@@ -1799,9 +1799,9 @@
       "firstSeason": 2024,
       "lastSeason": 2026,
       "regular": {
-        "games": 36,
+        "games": 37,
         "w": 17,
-        "l": 19,
+        "l": 20,
         "t": 0
       },
       "bestWeek": {
@@ -1956,9 +1956,9 @@
         {
           "opponent": "JMid",
           "w": 2,
-          "l": 2,
+          "l": 3,
           "t": 0,
-          "games": 4
+          "games": 5
         },
         {
           "opponent": "Kuhl",
@@ -2012,7 +2012,7 @@
         {
           "year": 2026,
           "w": 4,
-          "l": 4,
+          "l": 5,
           "t": 0
         }
       ]
@@ -2022,8 +2022,8 @@
       "firstSeason": 2016,
       "lastSeason": 2026,
       "regular": {
-        "games": 143,
-        "w": 67,
+        "games": 144,
+        "w": 68,
         "l": 76,
         "t": 0
       },
@@ -2079,20 +2079,20 @@
         "outcome": "W"
       },
       "closestWin": {
-        "year": 2018,
-        "week": 3,
-        "home": "Stew",
-        "away": "Mitch",
-        "homeScore": 88.6,
-        "awayScore": 86.94,
-        "winner": "HOME",
-        "margin": 1.66,
+        "year": 2026,
+        "week": 9,
+        "home": "Thommy",
+        "away": "Stew",
+        "homeScore": 86.6,
+        "awayScore": 87.36,
+        "winner": "AWAY",
+        "margin": 0.76,
         "stage": "regular",
-        "era": "ESPN",
-        "source": "espn_history_2016_2019",
-        "points": 88.6,
-        "opponentPoints": 86.94,
-        "opponent": "Mitch",
+        "era": "Sleeper",
+        "source": "sleeper_api_staged_week_9",
+        "points": 87.36,
+        "opponentPoints": 86.6,
+        "opponent": "Thommy",
         "outcome": "W"
       },
       "closestLoss": {
@@ -2182,10 +2182,10 @@
         },
         {
           "opponent": "Thommy",
-          "w": 7,
+          "w": 8,
           "l": 9,
           "t": 0,
-          "games": 16
+          "games": 17
         },
         {
           "opponent": "Tony",
@@ -2314,7 +2314,7 @@
         },
         {
           "year": 2026,
-          "w": 5,
+          "w": 6,
           "l": 3,
           "t": 0
         }
@@ -2325,8 +2325,8 @@
       "firstSeason": 2016,
       "lastSeason": 2026,
       "regular": {
-        "games": 143,
-        "w": 66,
+        "games": 144,
+        "w": 67,
         "l": 77,
         "t": 0
       },
@@ -2513,10 +2513,10 @@
         },
         {
           "opponent": "Kuhl",
-          "w": 6,
+          "w": 7,
           "l": 5,
           "t": 0,
-          "games": 11
+          "games": 12
         },
         {
           "opponent": "Koble",
@@ -2617,7 +2617,7 @@
         },
         {
           "year": 2026,
-          "w": 4,
+          "w": 5,
           "l": 4,
           "t": 0
         }
@@ -2628,8 +2628,8 @@
       "firstSeason": 2016,
       "lastSeason": 2026,
       "regular": {
-        "games": 143,
-        "w": 75,
+        "games": 144,
+        "w": 76,
         "l": 68,
         "t": 0
       },
@@ -2823,10 +2823,10 @@
         },
         {
           "opponent": "Mitch",
-          "w": 3,
+          "w": 4,
           "l": 7,
           "t": 0,
-          "games": 10
+          "games": 11
         },
         {
           "opponent": "JMid",
@@ -2920,7 +2920,7 @@
         },
         {
           "year": 2026,
-          "w": 3,
+          "w": 4,
           "l": 5,
           "t": 0
         }
@@ -2931,9 +2931,9 @@
       "firstSeason": 2016,
       "lastSeason": 2026,
       "regular": {
-        "games": 143,
+        "games": 144,
         "w": 67,
-        "l": 75,
+        "l": 76,
         "t": 1
       },
       "bestWeek": {
@@ -3071,9 +3071,9 @@
         {
           "opponent": "Stew",
           "w": 9,
-          "l": 7,
+          "l": 8,
           "t": 0,
-          "games": 16
+          "games": 17
         },
         {
           "opponent": "Stover",
@@ -3224,7 +3224,7 @@
         {
           "year": 2026,
           "w": 3,
-          "l": 5,
+          "l": 6,
           "t": 0
         }
       ]
@@ -3234,8 +3234,8 @@
       "firstSeason": 2017,
       "lastSeason": 2026,
       "regular": {
-        "games": 129,
-        "w": 72,
+        "games": 130,
+        "w": 73,
         "l": 57,
         "t": 0
       },
@@ -3380,10 +3380,10 @@
         },
         {
           "opponent": "Birch",
-          "w": 5,
+          "w": 6,
           "l": 10,
           "t": 0,
-          "games": 15
+          "games": 16
         },
         {
           "opponent": "Stilly",
@@ -3520,7 +3520,7 @@
         },
         {
           "year": 2026,
-          "w": 5,
+          "w": 6,
           "l": 3,
           "t": 0
         }
