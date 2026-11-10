@@ -15,7 +15,7 @@ function renderManagerFinder(){
  if(!root||!managerRows.length||!expandedData)return;
  const requested=new URLSearchParams(location.search).get('manager');
  const names=new Set(managerRows.map(r=>r.name));
- const selected=names.has(requested)?requested:'Mitch';
+ const selected=names.has(requested)?requested:'Stilly';
  const chooser=document.getElementById('record-manager-choices');
  const selectedLabel=document.getElementById('record-manager-selected');
  const results=document.getElementById('record-manager-results');
@@ -182,6 +182,9 @@ async function start(){
   expandedHost.replaceChildren(tag('p','Expanded records are temporarily unavailable. Try the full expanded Record Book.','scope'));
   const link=tag('a','Open expanded Record Book →');link.href='expanded-records.html';expandedHost.append(link);
   summary.textContent='Record categories temporarily unavailable.';
+  const finder=document.getElementById('record-manager-results');
+  if(finder){finder.replaceChildren(tag('p','The combined manager finder is temporarily unavailable. The individual record books remain accessible.','scope'));const link=tag('a','Open manager record books →');link.href='../managers/record-books.html';finder.append(link)}
+  const selectedLabel=document.getElementById('record-manager-selected');if(selectedLabel)selectedLabel.textContent='Manager record finder unavailable';
   console.error('Record holder leaderboard unavailable',error);
  }
 }
