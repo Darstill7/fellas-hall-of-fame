@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated": "2026-11-04",
-  "coverage": "ESPN 2016–2019; Sleeper 2020–2025 regular + archived playoff matchups; 2026 Weeks 1–8 regular",
+  "updated": "2026-11-10",
+  "coverage": "ESPN 2016–2019; Sleeper 2020–2025 regular + archived playoff matchups; 2026 Weeks 1–9 regular",
   "cautions": [
     "ESPN and Sleeper scoring systems may differ; cross-era raw scores are displayed but not normalized.",
     "2016–2017 ESPN two-week playoff aggregates are not single-week scores.",
@@ -51,7 +51,7 @@
       "postseason": 11
     },
     "2026": {
-      "regular": 40,
+      "regular": 45,
       "postseason": 0
     }
   },
@@ -10793,6 +10793,71 @@
       "stage": "regular",
       "era": "Sleeper",
       "source": "connected_sleeper_2026_week8_final"
+    },
+    {
+      "year": 2026,
+      "week": 9,
+      "home": "Stilly",
+      "away": "Kuhl",
+      "homeScore": 116.66,
+      "awayScore": 77.54,
+      "winner": "HOME",
+      "margin": 39.12,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_9"
+    },
+    {
+      "year": 2026,
+      "week": 9,
+      "home": "JMid",
+      "away": "Scott",
+      "homeScore": 148.74,
+      "awayScore": 109.94,
+      "winner": "HOME",
+      "margin": 38.8,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_9"
+    },
+    {
+      "year": 2026,
+      "week": 9,
+      "home": "Thommy",
+      "away": "Stew",
+      "homeScore": 86.6,
+      "awayScore": 87.36,
+      "winner": "AWAY",
+      "margin": 0.76,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_9"
+    },
+    {
+      "year": 2026,
+      "week": 9,
+      "home": "Mitch",
+      "away": "Stover",
+      "homeScore": 97.76,
+      "awayScore": 102.58,
+      "winner": "AWAY",
+      "margin": 4.82,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_9"
+    },
+    {
+      "year": 2026,
+      "week": 9,
+      "home": "Tony",
+      "away": "Birch",
+      "homeScore": 116.3,
+      "awayScore": 87.06,
+      "winner": "HOME",
+      "margin": 29.24,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_9"
     }
   ],
   "rankings": {

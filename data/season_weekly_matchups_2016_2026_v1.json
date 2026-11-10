@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scope": "2016-2026 Week8 unified ESPN and Sleeper weekly team scores, not individual player box scores",
+  "scope": "2016-2026 Week9 unified ESPN and Sleeper weekly team scores, not individual player box scores",
   "seasonYears": [
     2016,
     2017,
@@ -11067,98 +11067,98 @@
     "2026": {
       "year": 2026,
       "complete": false,
-      "regularGames": 40,
+      "regularGames": 45,
       "postseasonGames": 0,
       "standings": [
         {
           "manager": "Mitch",
           "w": 8,
-          "l": 0,
+          "l": 1,
           "t": 0,
-          "pf": 1059.36,
-          "pa": 853.44,
-          "games": 8
+          "pf": 1157.12,
+          "pa": 956.02,
+          "games": 9
         },
         {
           "manager": "Stew",
-          "w": 5,
+          "w": 6,
           "l": 3,
           "t": 0,
-          "pf": 1002.98,
-          "pa": 863.34,
-          "games": 8
+          "pf": 1090.34,
+          "pa": 949.94,
+          "games": 9
+        },
+        {
+          "manager": "Tony",
+          "w": 6,
+          "l": 3,
+          "t": 0,
+          "pf": 1003.3,
+          "pa": 907.3,
+          "games": 9
+        },
+        {
+          "manager": "Stilly",
+          "w": 5,
+          "l": 4,
+          "t": 0,
+          "pf": 1043.9,
+          "pa": 988.06,
+          "games": 9
         },
         {
           "manager": "Birch",
           "w": 5,
-          "l": 3,
-          "t": 0,
-          "pf": 910.84,
-          "pa": 832.84,
-          "games": 8
-        },
-        {
-          "manager": "Tony",
-          "w": 5,
-          "l": 3,
-          "t": 0,
-          "pf": 887,
-          "pa": 820.24,
-          "games": 8
-        },
-        {
-          "manager": "Stilly",
-          "w": 4,
           "l": 4,
           "t": 0,
-          "pf": 927.24,
-          "pa": 910.52,
-          "games": 8
+          "pf": 997.9,
+          "pa": 949.14,
+          "games": 9
+        },
+        {
+          "manager": "JMid",
+          "w": 4,
+          "l": 5,
+          "t": 0,
+          "pf": 1038.8,
+          "pa": 971.5,
+          "games": 9
+        },
+        {
+          "manager": "Stover",
+          "w": 4,
+          "l": 5,
+          "t": 0,
+          "pf": 944.82,
+          "pa": 1001.1,
+          "games": 9
         },
         {
           "manager": "Scott",
           "w": 4,
-          "l": 4,
-          "t": 0,
-          "pf": 791.04,
-          "pa": 853.44,
-          "games": 8
-        },
-        {
-          "manager": "JMid",
-          "w": 3,
           "l": 5,
           "t": 0,
-          "pf": 890.06,
-          "pa": 861.56,
-          "games": 8
-        },
-        {
-          "manager": "Stover",
-          "w": 3,
-          "l": 5,
-          "t": 0,
-          "pf": 842.24,
-          "pa": 903.34,
-          "games": 8
+          "pf": 900.98,
+          "pa": 1002.18,
+          "games": 9
         },
         {
           "manager": "Thommy",
           "w": 3,
-          "l": 5,
+          "l": 6,
           "t": 0,
-          "pf": 838.04,
-          "pa": 924.46,
-          "games": 8
+          "pf": 924.64,
+          "pa": 1011.82,
+          "games": 9
         },
         {
           "manager": "Kuhl",
           "w": 0,
-          "l": 8,
+          "l": 9,
           "t": 0,
-          "pf": 689.32,
-          "pa": 1014.94,
-          "games": 8
+          "pf": 766.86,
+          "pa": 1131.6,
+          "games": 9
         }
       ],
       "games": [
@@ -11681,6 +11681,71 @@
           "era": "Sleeper",
           "weeksCovered": null,
           "twoWeekAggregate": false
+        },
+        {
+          "week": 9,
+          "stage": "regular",
+          "home": "Stilly",
+          "away": "Kuhl",
+          "homeScore": 116.66,
+          "awayScore": 77.54,
+          "winner": "HOME",
+          "margin": 39.12,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false
+        },
+        {
+          "week": 9,
+          "stage": "regular",
+          "home": "JMid",
+          "away": "Scott",
+          "homeScore": 148.74,
+          "awayScore": 109.94,
+          "winner": "HOME",
+          "margin": 38.8,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false
+        },
+        {
+          "week": 9,
+          "stage": "regular",
+          "home": "Thommy",
+          "away": "Stew",
+          "homeScore": 86.6,
+          "awayScore": 87.36,
+          "winner": "AWAY",
+          "margin": 0.76,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false
+        },
+        {
+          "week": 9,
+          "stage": "regular",
+          "home": "Mitch",
+          "away": "Stover",
+          "homeScore": 97.76,
+          "awayScore": 102.58,
+          "winner": "AWAY",
+          "margin": 4.82,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false
+        },
+        {
+          "week": 9,
+          "stage": "regular",
+          "home": "Tony",
+          "away": "Birch",
+          "homeScore": 116.3,
+          "awayScore": 87.06,
+          "winner": "HOME",
+          "margin": 29.24,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false
         }
       ]
     }
@@ -11790,12 +11855,12 @@
       {
         "year": 2026,
         "manager": "Stilly",
-        "w": 4,
+        "w": 5,
         "l": 4,
         "t": 0,
-        "pf": 927.24,
-        "pa": 910.52,
-        "games": 8
+        "pf": 1043.9,
+        "pa": 988.06,
+        "games": 9
       }
     ],
     "Stover": [
@@ -11902,12 +11967,12 @@
       {
         "year": 2026,
         "manager": "Stover",
-        "w": 3,
+        "w": 4,
         "l": 5,
         "t": 0,
-        "pf": 842.24,
-        "pa": 903.34,
-        "games": 8
+        "pf": 944.82,
+        "pa": 1001.1,
+        "games": 9
       }
     ],
     "Halderman": [
@@ -12036,12 +12101,12 @@
       {
         "year": 2026,
         "manager": "Stew",
-        "w": 5,
+        "w": 6,
         "l": 3,
         "t": 0,
-        "pf": 1002.98,
-        "pa": 863.34,
-        "games": 8
+        "pf": 1090.34,
+        "pa": 949.94,
+        "games": 9
       }
     ],
     "Thommy": [
@@ -12149,11 +12214,11 @@
         "year": 2026,
         "manager": "Thommy",
         "w": 3,
-        "l": 5,
+        "l": 6,
         "t": 0,
-        "pf": 838.04,
-        "pa": 924.46,
-        "games": 8
+        "pf": 924.64,
+        "pa": 1011.82,
+        "games": 9
       }
     ],
     "Koble": [
@@ -12436,12 +12501,12 @@
       {
         "year": 2026,
         "manager": "Tony",
-        "w": 5,
+        "w": 6,
         "l": 3,
         "t": 0,
-        "pf": 887,
-        "pa": 820.24,
-        "games": 8
+        "pf": 1003.3,
+        "pa": 907.3,
+        "games": 9
       }
     ],
     "Birch": [
@@ -12539,11 +12604,11 @@
         "year": 2026,
         "manager": "Birch",
         "w": 5,
-        "l": 3,
+        "l": 4,
         "t": 0,
-        "pf": 910.84,
-        "pa": 832.84,
-        "games": 8
+        "pf": 997.9,
+        "pa": 949.14,
+        "games": 9
       }
     ],
     "Mitch": [
@@ -12631,11 +12696,11 @@
         "year": 2026,
         "manager": "Mitch",
         "w": 8,
-        "l": 0,
+        "l": 1,
         "t": 0,
-        "pf": 1059.36,
-        "pa": 853.44,
-        "games": 8
+        "pf": 1157.12,
+        "pa": 956.02,
+        "games": 9
       }
     ],
     "Kuhl": [
@@ -12723,11 +12788,11 @@
         "year": 2026,
         "manager": "Kuhl",
         "w": 0,
-        "l": 8,
+        "l": 9,
         "t": 0,
-        "pf": 689.32,
-        "pa": 1014.94,
-        "games": 8
+        "pf": 766.86,
+        "pa": 1131.6,
+        "games": 9
       }
     ],
     "JMid": [
@@ -12754,12 +12819,12 @@
       {
         "year": 2026,
         "manager": "JMid",
-        "w": 3,
+        "w": 4,
         "l": 5,
         "t": 0,
-        "pf": 890.06,
-        "pa": 861.56,
-        "games": 8
+        "pf": 1038.8,
+        "pa": 971.5,
+        "games": 9
       }
     ],
     "Scott": [
@@ -12787,11 +12852,11 @@
         "year": 2026,
         "manager": "Scott",
         "w": 4,
-        "l": 4,
+        "l": 5,
         "t": 0,
-        "pf": 791.04,
-        "pa": 853.44,
-        "games": 8
+        "pf": 900.98,
+        "pa": 1002.18,
+        "games": 9
       }
     ]
   },
