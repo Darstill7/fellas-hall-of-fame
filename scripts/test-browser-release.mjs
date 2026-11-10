@@ -136,8 +136,8 @@ try{
     if(isCurrentProfile){
      const destinations=await page.locator('header nav.navlinks[aria-label="Main"] a').evaluateAll(nodes=>
       nodes.map(a=>a.getAttribute('href')));
-     const expected=['../../index.html','../../managers/','../../analytics/manager-report-cards.html',
-      '../../analytics/records.html','../../analytics/rivalries.html'];
+     const expected=['../../index.html','../../managers/','../../hall/',
+      '../../analytics/record-holders.html?manager='+encodeURIComponent(slug==='tom'?'Thommy':slug==='jmid'?'JMid':slug[0].toUpperCase()+slug.slice(1))+'#manager-record-finder','../../seasons/2026.html'];
      if(JSON.stringify(destinations)!==JSON.stringify(expected))
       errors.push(width+' '+route+' manager primary navigation must match five key sections');
      const mobileMenu=page.locator('header.nav details.fellas-mobile-site-menu');
