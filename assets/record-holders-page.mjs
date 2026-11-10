@@ -33,7 +33,7 @@ async function start(){
    for(const name of names){const records=leadersByManager.get(name)||[];records.push({key:category.key,label:category.label,group:category.group});leadersByManager.set(name,records)}
   }
   const postseason={espn,sleeper,placements,placementReceipts,allEra};
-  if(archive.asOf!=='2026 Week 8'||!Array.isArray(archive.managers))throw Error('Unexpected record archive');
+  if(!Array.isArray(archive.managers)||archive.managers.length<10||!archive.asOf)throw Error('Unexpected record archive');
   const rows=archive.managers.map(m=>({name:m.manager,records:findOwnedRecords(archive,guide,m.manager,postseason),expandedRecords:leadersByManager.get(expandedName(m.manager))||[]}))
    .sort((a,b)=>b.expandedRecords.length-a.expandedRecords.length||b.records.length-a.records.length||a.name.localeCompare(b.name));
   for(const [name,records] of leadersByManager)if(!rows.some(row=>expandedName(row.name)===name))rows.push({name,records:[],expandedRecords:records});
