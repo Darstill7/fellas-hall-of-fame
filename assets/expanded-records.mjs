@@ -91,25 +91,24 @@ function renderManagerBook(data){
  picker.addEventListener("change",paint);paint();
 }
 function renderExplorer(data){
- const host=document.getElementById("expanded-records-explorer");if(!host)return;
+ const host=document.getElementById("expanded-records-explorer"),portfolio=document.getElementById("manager-record-portfolio");if(!host||!portfolio)return;
  const url=new URL(location.href);
  let selectedGroup=groups.includes(url.searchParams.get("group"))?url.searchParams.get("group"):"Career";
  let selectedCategory=data.categories.find(c=>c.key===url.searchParams.get("category")&&c.group===selectedGroup)?.key||data.categories.find(c=>c.group===selectedGroup)?.key;
- let selectedManager=canonical.includes(url.searchParams.get("manager"))?url.searchParams.get("manager"):"";
+ const requestedManager=url.searchParams.get("manager");
+ let selectedManager=canonical.includes(requestedManager)?requestedManager:requestedManager==="Thommy"?"Tom":"Stilly";
  host.classList.add("records-lab");
  host.innerHTML='<div class="records-lab-controls"><label>Record family<select id="expanded-group"></select></label>'
- +'<label>Record category<select id="expanded-category"></select></label>'
- +'<label>Manager spotlight<select id="expanded-manager"></select></label></div>'
+ +'<label>Record category<select id="expanded-category"></select></label></div>'
  +'<h2 id="expanded-title"></h2><p class="records-lab-intro" id="expanded-description"></p>'
  +'<div class="records-lab-table-scroll"><table class="records-lab-table"><thead><tr><th>Rank</th><th>Manager</th><th>Record</th><th>Verified context</th></tr></thead><tbody id="expanded-rows"></tbody></table></div>'
- +'<section id="expanded-spotlight" aria-live="polite"></section>'
  +'<p class="records-lab-caveat">'+data.rules.map(escapeHtml).join(" ")+'</p>';
- const group=host.querySelector("#expanded-group"),category=host.querySelector("#expanded-category"),manager=host.querySelector("#expanded-manager");
+ const group=host.querySelector("#expanded-group"),category=host.querySelector("#expanded-category"),manager=portfolio.querySelector("#expanded-manager");
  group.innerHTML=groups.map(g=>'<option value="'+escapeHtml(g)+'">'+escapeHtml(g)+'</option>').join("");
  manager.innerHTML='<option value="">All managers</option>'+canonical.map(m=>'<option value="'+escapeHtml(m)+'">'+escapeHtml(m)+'</option>').join("");
  const spotlight=()=>{
-  const el=host.querySelector("#expanded-spotlight");
-  if(!selectedManager){el.innerHTML='<h3>Find your manager’s records</h3><p class="records-lab-intro">Choose a manager above to see their league-leading rankings and personal records. Historical managers remain eligible in the league-wide tables.</p>';return}
+  const el=portfolio.querySelector("#expanded-spotlight");
+  if(!selectedManager){el.innerHTML='<h3>Choose a manager</h3><p class="records-lab-intro">Select any manager to view verified personal records. The full category research lab is below.</p>';return}
   const sig=data.signatures[selectedManager],holders=managerLeagueHolders(data,selectedManager);
   const seen=new Set(),unique=holders.filter(({category:c})=>!seen.has(c.key)&&seen.add(c.key));
   el.innerHTML='<h3>'+escapeHtml(selectedManager)+' · Record portfolio</h3>'
