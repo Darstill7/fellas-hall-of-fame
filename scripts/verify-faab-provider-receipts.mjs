@@ -9,7 +9,9 @@ for(const year of seasons){
  const archive=read('data/acquisitions_'+year+'.json').weeks.flatMap(w=>w.tx);
  const byId=new Map(archive.map(x=>[String(x.id),x]));
  const archivedWaivers=archive.filter(x=>x.type==='waiver');
- const expectedWeeks=year===2026?7:18;
+ const currentLedger=read('data/unified_record_book_2016_2026.json');
+ const latestFinalizedWeek=Math.max(...currentLedger.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week));
+ const expectedWeeks=year===2026?latestFinalizedWeek:18;
  if(file.year!==year||file.weeks.length!==expectedWeeks)throw Error('FAAB week coverage mismatch '+year);
  if(file.weeks.some((w,i)=>w.week!==i+1||w.ok!==true))throw Error('Incomplete weekly source response '+year);
  if(file.issues.length)throw Error('Unresolved FAAB provider fetch issues '+year);
