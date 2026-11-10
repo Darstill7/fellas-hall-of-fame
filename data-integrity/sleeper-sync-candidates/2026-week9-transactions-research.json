@@ -1,0 +1,601 @@
+{
+  "league": "1340027406009761792",
+  "season": 2026,
+  "week": 9,
+  "retrieved_on": "2026-11-10",
+  "source": "Flaim connected Sleeper league",
+  "status": "RESEARCH_ONLY_NOT_CANONICAL",
+  "count": 19,
+  "window": {
+    "mode": "explicit_week",
+    "weeks": [
+      9
+    ],
+    "returned_rows": 19
+  },
+  "transactions": [
+    {
+      "transaction_id": "1425176989702135808",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1794151182154,
+      "date": "2026-11-08",
+      "week": 9,
+      "team_ids": [
+        "8"
+      ],
+      "players_added": [
+        {
+          "id": "13301",
+          "name": "Antonio Williams",
+          "position": "WR",
+          "team": "WAS"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "9757",
+          "name": "Kendre Miller",
+          "position": "RB"
+        }
+      ],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Gurt"
+      ]
+    },
+    {
+      "transaction_id": "1424054905873727488",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1793996085507,
+      "date": "2026-11-06",
+      "week": 9,
+      "team_ids": [
+        "2"
+      ],
+      "players_added": [
+        {
+          "id": "9753",
+          "name": "Zach Charbonnet",
+          "position": "RB",
+          "team": "SEA"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "4454",
+          "name": "Kendrick Bourne",
+          "position": "WR",
+          "team": "ARI"
+        }
+      ],
+      "faab_bid": 0,
+      "draft_picks": [],
+      "team_names": [
+        "Tony Pollard Fan Club"
+      ]
+    },
+    {
+      "transaction_id": "1424524291990450196",
+      "type": "trade",
+      "status": "complete",
+      "timestamp": 1793995628259,
+      "date": "2026-11-06",
+      "week": 9,
+      "team_ids": [
+        "4",
+        "6"
+      ],
+      "players_added": [
+        {
+          "id": "11625",
+          "name": "Adonai Mitchell",
+          "position": "WR",
+          "team": "NYJ"
+        },
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF",
+          "team": "MIN"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "11625",
+          "name": "Adonai Mitchell",
+          "position": "WR",
+          "team": "NYJ"
+        },
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF",
+          "team": "MIN"
+        }
+      ],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Worst Team on Paper!",
+        "Suck My Njigba"
+      ]
+    },
+    {
+      "transaction_id": "1424524349456621568",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1793995580594,
+      "date": "2026-11-06",
+      "week": 9,
+      "team_ids": [
+        "6"
+      ],
+      "players_added": [
+        {
+          "id": "9756",
+          "name": "Jordan Addison",
+          "position": "WR",
+          "team": "MIN"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF",
+          "team": "LAR"
+        }
+      ],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Suck My Njigba"
+      ]
+    },
+    {
+      "transaction_id": "1423777024991866880",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1793985897383,
+      "date": "2026-11-06",
+      "week": 9,
+      "team_ids": [
+        "4"
+      ],
+      "players_added": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF",
+          "team": "MIN"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "9501",
+          "name": "DeMario Douglas",
+          "position": "WR",
+          "team": "NE"
+        }
+      ],
+      "faab_bid": 12,
+      "draft_picks": [],
+      "team_names": [
+        "Worst Team on Paper!"
+      ]
+    },
+    {
+      "transaction_id": "1423773030055755776",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1793985897383,
+      "date": "2026-11-06",
+      "week": 9,
+      "team_ids": [
+        "6"
+      ],
+      "players_added": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF",
+          "team": "MIN"
+        }
+      ],
+      "players_dropped": [],
+      "faab_bid": 0,
+      "draft_picks": [],
+      "team_names": [
+        "Suck My Njigba"
+      ]
+    },
+    {
+      "transaction_id": "1424080909241454592",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1793889856208,
+      "date": "2026-11-05",
+      "week": 9,
+      "team_ids": [
+        "7"
+      ],
+      "players_added": [
+        {
+          "id": "4993",
+          "name": "Mike Gesicki",
+          "position": "TE",
+          "team": "CIN"
+        }
+      ],
+      "players_dropped": [],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Bowers Castle"
+      ]
+    },
+    {
+      "transaction_id": "1424054719571124224",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1793883612104,
+      "date": "2026-11-05",
+      "week": 9,
+      "team_ids": [
+        "2"
+      ],
+      "players_added": [
+        {
+          "id": "DET",
+          "name": "Detroit Lions",
+          "position": "DEF",
+          "team": "DET"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "TB",
+          "name": "Tampa Bay Buccaneers",
+          "position": "DEF",
+          "team": "TB"
+        }
+      ],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Tony Pollard Fan Club"
+      ]
+    },
+    {
+      "transaction_id": "1423815045371981824",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1793826469323,
+      "date": "2026-11-04",
+      "week": 9,
+      "team_ids": [
+        "4"
+      ],
+      "players_added": [
+        {
+          "id": "10219",
+          "name": "Chris Rodriguez Jr.",
+          "position": "RB",
+          "team": "JAX"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "9753",
+          "name": "Zach Charbonnet",
+          "position": "RB",
+          "team": "SEA"
+        }
+      ],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Worst Team on Paper!"
+      ]
+    },
+    {
+      "transaction_id": "1423785441127075840",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1793819411120,
+      "date": "2026-11-04",
+      "week": 9,
+      "team_ids": [
+        "9"
+      ],
+      "players_added": [
+        {
+          "id": "13305",
+          "name": "Mike Washington Jr.",
+          "position": "RB",
+          "team": "LV"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "11637",
+          "name": "Keon Coleman",
+          "position": "WR",
+          "team": "BUF"
+        }
+      ],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Kirko Chains"
+      ]
+    },
+    {
+      "transaction_id": "1423775013361758218",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1793816924947,
+      "date": "2026-11-04",
+      "week": 9,
+      "team_ids": [
+        "1"
+      ],
+      "players_added": [
+        {
+          "id": "12492",
+          "name": "Pat Bryant",
+          "position": "WR",
+          "team": "DEN"
+        }
+      ],
+      "players_dropped": [],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Harry Woody"
+      ]
+    },
+    {
+      "transaction_id": "1423772735787606016",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1793816381932,
+      "date": "2026-11-04",
+      "week": 9,
+      "team_ids": [
+        "10"
+      ],
+      "players_added": [
+        {
+          "id": "NO",
+          "name": "New Orleans Saints",
+          "position": "DEF",
+          "team": "NO"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF",
+          "team": "MIN"
+        }
+      ],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Nacua Matata"
+      ]
+    },
+    {
+      "transaction_id": "1423770177928982528",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1793815772091,
+      "date": "2026-11-04",
+      "week": 9,
+      "team_ids": [
+        "8"
+      ],
+      "players_added": [
+        {
+          "id": "9757",
+          "name": "Kendre Miller",
+          "position": "RB"
+        }
+      ],
+      "players_dropped": [],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Gurt"
+      ]
+    },
+    {
+      "transaction_id": "1423770099755585536",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1793815753452,
+      "date": "2026-11-04",
+      "week": 9,
+      "team_ids": [
+        "5"
+      ],
+      "players_added": [
+        {
+          "id": "NYG",
+          "name": "New York Giants",
+          "position": "DEF",
+          "team": "NYG"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "position": "DEF",
+          "team": "NE"
+        }
+      ],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Team Sheffla"
+      ]
+    },
+    {
+      "transaction_id": "1423769276950622208",
+      "type": "add",
+      "status": "complete",
+      "timestamp": 1793815557281,
+      "date": "2026-11-04",
+      "week": 9,
+      "team_ids": [
+        "4"
+      ],
+      "players_added": [
+        {
+          "id": "CHI",
+          "name": "Chicago Bears",
+          "position": "DEF",
+          "team": "CHI"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "PIT",
+          "name": "Pittsburgh Steelers",
+          "position": "DEF",
+          "team": "PIT"
+        }
+      ],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Worst Team on Paper!"
+      ]
+    },
+    {
+      "transaction_id": "1423752850877534208",
+      "type": "waiver",
+      "status": "failed",
+      "timestamp": 1793815476487,
+      "date": "2026-11-04",
+      "week": 9,
+      "team_ids": [
+        "7"
+      ],
+      "players_added": [
+        {
+          "id": "8132",
+          "name": "Tyler Allgeier",
+          "position": "RB",
+          "team": "ARI"
+        }
+      ],
+      "players_dropped": [],
+      "faab_bid": 27,
+      "draft_picks": [],
+      "team_names": [
+        "Bowers Castle"
+      ]
+    },
+    {
+      "transaction_id": "1423743193513500672",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1793815476487,
+      "date": "2026-11-04",
+      "week": 9,
+      "team_ids": [
+        "1"
+      ],
+      "players_added": [
+        {
+          "id": "8132",
+          "name": "Tyler Allgeier",
+          "position": "RB",
+          "team": "ARI"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "9758",
+          "name": "C.J. Stroud",
+          "position": "QB",
+          "team": "HOU"
+        }
+      ],
+      "faab_bid": 29,
+      "draft_picks": [],
+      "team_names": [
+        "Harry Woody"
+      ]
+    },
+    {
+      "transaction_id": "1423736504756301824",
+      "type": "waiver",
+      "status": "complete",
+      "timestamp": 1793815476487,
+      "date": "2026-11-04",
+      "week": 9,
+      "team_ids": [
+        "5"
+      ],
+      "players_added": [
+        {
+          "id": "6130",
+          "name": "Devin Singletary",
+          "position": "RB",
+          "team": "NYG"
+        }
+      ],
+      "players_dropped": [
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "position": "DEF",
+          "team": "SF"
+        }
+      ],
+      "faab_bid": 4,
+      "draft_picks": [],
+      "team_names": [
+        "Team Sheffla"
+      ]
+    },
+    {
+      "transaction_id": "1423743090371391488",
+      "type": "drop",
+      "status": "complete",
+      "timestamp": 1793809313914,
+      "date": "2026-11-04",
+      "week": 9,
+      "team_ids": [
+        "1"
+      ],
+      "players_added": [],
+      "players_dropped": [
+        {
+          "id": "11435",
+          "name": "Emanuel Wilson",
+          "position": "RB",
+          "team": "SEA"
+        }
+      ],
+      "faab_bid": null,
+      "draft_picks": [],
+      "team_names": [
+        "Harry Woody"
+      ]
+    }
+  ],
+  "notes": [
+    "Includes failed waiver claims. Do not count them as completed acquisitions.",
+    "Trade rows' players_added and players_dropped do not determine per-side direction; verify original Sleeper trade detail before attributing exchange.",
+    "Verify all season-dependent derived datasets and CI before merge."
+  ]
+}
