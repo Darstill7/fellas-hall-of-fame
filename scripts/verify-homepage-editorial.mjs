@@ -14,7 +14,7 @@ assert(html.includes('id="home-manager-title"'),'Manager search destination miss
 assert(html.includes('id="home-season-snapshot"'),'Live season ledger surface missing');
 assert(html.includes('id="home-manager-mobile"'),'Mobile manager finder missing');
 assert.equal((html.match(/class="card home-featured-card"/g)||[]).length,2,'Hall and Records featured portals must remain');
-assert.equal((html.match(/<h1\\b/g)||[]).length,1,'Homepage must have one h1');
+assert.equal(html.split('<h1').length-1,1,'Homepage must have one h1');
 assert.equal(html.split('<section').length-1,html.split('</section>').length-1,'Homepage sections must be balanced');
 assert(css.includes('@media(max-width:650px)'),'First-screen manager-first mobile layout missing');
 assert(css.includes('prefers-reduced-motion'),'Reduced-motion fallback missing');
