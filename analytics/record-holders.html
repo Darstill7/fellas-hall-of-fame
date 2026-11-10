@@ -27,9 +27,27 @@
 #verified-record-collections .record-collections-table th,#verified-record-collections .record-collections-table td{padding:10px 4px}
 #verified-record-collections .record-collections-table th:nth-last-child(1),#verified-record-collections .record-collections-table td:nth-last-child(1){white-space:nowrap}
 }
+</style><style id="manager-record-finder-css">
+#manager-record-finder{margin:22px 0 35px;padding:clamp(16px,3vw,25px);border:1px solid #5b7485;border-radius:15px;background:#122b3b}
+#manager-record-finder h2{margin:0 0 5px;font-size:clamp(23px,3vw,31px)}
+#record-manager-choices{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.record-manager-choice,#record-former-manager{min-height:46px;border-radius:10px;border:1px solid #6e8795;background:#1d394a;color:#f6f2e9;font:700 14px system-ui;padding:10px 15px;cursor:pointer}
+.record-manager-choice[aria-pressed="true"]{background:#e8c47d;color:#0a141e;border-color:#e8c47d}
+#record-former-manager{max-width:100%;min-width:180px}
+#record-manager-selected{font-size:clamp(19px,2.5vw,25px);margin:21px 0 8px;outline-offset:5px}
+.record-finder-section{margin:18px 0 24px}
+.record-finder-section h3{color:#e8c47d;margin-bottom:10px}
+.record-finder-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,285px),1fr));gap:9px}
+.record-finder-result{display:flex;flex-direction:column;gap:5px;min-height:82px;background:#193748;border:1px solid #4e6c7b;border-radius:10px;padding:13px 15px;color:#f6f2e9;text-decoration:none}
+.record-finder-result:hover,.record-finder-result:focus-visible{border-color:#e8c47d;background:#254657}
+.record-finder-record{font-size:13px;line-height:1.5}
+.record-finder-value{color:#e8c47d;font-size:16px;font-variant-numeric:tabular-nums}
+.record-finder-more{display:inline-flex;min-height:46px;align-items:center;font-weight:800}
+@media(max-width:600px){.record-manager-choice{flex:1 1 74px;padding:10px 8px}.record-finder-results{grid-template-columns:1fr}#record-former-manager{width:100%}}
 </style></head>
 <body class="fellas-polished"><a class="fellas-skip" href="#main-content">Skip to content</a><header><div class="wrap"><a class="brand" href="../index.html">THE <span>FELLAS</span></a><nav aria-label="Main"><a href="../index.html">Home</a><a href="../managers/">Managers</a><a href="records.html">League Records</a><a href="../managers/record-books.html">Personal Records</a></nav></div></header>
 <main class="wrap" id="main-content"><div class="eyebrow">The Fellas · Historical leaderboard</div><h1>Record holders</h1><p class="muted">Who owns the league's biggest records? Choose a manager to explore the evidence.</p><details class="scope-guide"><summary>How are records counted?</summary><p>This is <strong>record ownership, not a manager power ranking</strong>. The Recordholders page now includes 44 expanded regular-season and final-standing categories alongside 16 established legacy leaderboards. Some concepts overlap, so these are 60 displayed category slots—not necessarily 60 different statistical concepts. Tied first-place managers share credit. Career wins and scoring include archived games through 2026 Week 9; completed-season and championship-bracket categories cover 2016–2025. Former managers remain eligible. ESPN and Sleeper scoring formats differed.</p></details>
+<section id="manager-record-finder" aria-labelledby="manager-finder-heading"><h2 id="manager-finder-heading">Find a manager’s records</h2><p class="muted">One click to see the league records each manager owns. Choose a Fella below; personal bests and full rankings are linked separately.</p><div id="record-manager-choices" role="group" aria-label="Choose current manager"></div><label for="record-former-manager">Historical managers</label> <select id="record-former-manager" aria-label="Choose a former manager"><option value="">Former managers</option></select><h3 id="record-manager-selected" tabindex="-1">Loading manager records…</h3><div id="record-manager-results" aria-live="polite"></div></section>
 <section aria-labelledby="leaders-title"><h2 id="leaders-title">League leaders</h2><p class="muted" id="record-count-summary">Loading 44 expanded categories and 16 established categories…</p><div id="record-leaders" class="leader-grid" aria-live="polite"><p class="muted">Loading verified record holders…</p></div><details class="leader-nonholders" id="leader-other"><summary>See managers without a current category lead</summary><p class="muted">These managers still have personal records, accomplishments and career histories.</p><div id="record-other" class="leader-grid"></div></details></section>
 <section aria-labelledby="streaks-title"><h2 id="streaks-title">Historic streak records</h2><p class="muted">Verified from all available regular-season matchups, 2016 through the latest completed week. Includes consecutive weekly scoring titles and winless starts.</p><div id="verified-streak-records" class="category-list" aria-live="polite"><p class="muted">Loading documented streak records…</p></div></section>
 <section id="opponent-scoring" aria-labelledby="opponent-scoring-title"><h2 id="opponent-scoring-title">Most points faced per game · Season record</h2><p class="muted">How difficult was a manager's schedule? The all-time leaderboard ranks completed regular seasons by opponent scoring average, with the active 2026 season kept separate.</p><div id="opponent-average-record" aria-live="polite"><p class="muted">Calculating historical schedule records…</p></div></section>
