@@ -30,7 +30,7 @@ body .wrap{max-width:1160px;padding:0 clamp(16px,3vw,34px) 86px}
 .mobile-menu{margin:10px 0 18px}
 .mobile-menu summary{min-height:44px;display:inline-flex;align-items:center}
 .mobile-dock{display:none!important}
-a:focus-visible,summary:focus-visible{outline:3px solid #edc983;outline-offset:3px}
+.nav a:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #edc983;outline-offset:3px}
 .section{margin:30px 0 58px}
 .section .grid{gap:15px}
 .section .card{box-shadow:none;border:1px solid #475461;border-radius:5px;background:linear-gradient(160deg,#1a2a36,#101f2a);padding:clamp(17px,2.5vw,26px)}
