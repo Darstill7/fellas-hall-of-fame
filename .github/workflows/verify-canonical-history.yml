@@ -132,6 +132,8 @@ jobs:
         run: node scripts/audit-dossier-preservation.mjs
       - name: Reconcile specialty record-book statistics to canonical ledger
         run: node scripts/verify-specialty-records.mjs
+      - name: Verify ten editorial manager profiles and record-book deep links
+        run: node scripts/verify-manager-profile-v2.mjs
       - name: Verify records across published pages
         run: node scripts/verify-canonical-history.mjs
       - name: Observe deployed GitHub Pages parity (deployment may lag CI)

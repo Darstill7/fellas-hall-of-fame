@@ -93,7 +93,7 @@ try{
          link:n.getAttribute('href'),height:n.getBoundingClientRect().height,
          contrast:getComputedStyle(n).borderColor
         })));
-        if(featured.length!==2||featured[0].link!=='hall/'||featured[1].link!=='analytics/records.html'||
+        if(featured.length!==2||featured[0].link!=='hall/'||featured[1].link!=='analytics/record-holders.html'||
            featured.some(card=>card.height<120))
          findings.push(engine+' '+width+' homepage champions and records feature hierarchy missing');
        }
@@ -106,7 +106,7 @@ try{
          return {core,advancedCount:advanced?.querySelectorAll('a.card').length||0,
           advancedCollapsed:advanced&&!advanced.open};
         });
-        if(JSON.stringify(discovery.core)!==JSON.stringify(['hall/','analytics/records.html','managers/','seasons/'])||
+        if(JSON.stringify(discovery.core)!==JSON.stringify(['hall/','analytics/record-holders.html','managers/','seasons/'])||
            discovery.advancedCount!==5||!discovery.advancedCollapsed)
          findings.push(engine+' '+width+' '+key+' homepage discovery hierarchy '+JSON.stringify(discovery));
        }
@@ -741,9 +741,9 @@ try{
           throw Error('Manager card failed to open franchise story');
          const mobile=journey.locator('header.nav details.fellas-mobile-site-menu');
          await mobile.locator(':scope > summary').click();
-         await mobile.locator('nav a[href="../../analytics/records.html"]').click();
-         await journey.waitForURL(url=>url.pathname.endsWith('/analytics/records.html'),{timeout:12000});
-         if(!await journey.locator('#expanded-records').count())
+         await mobile.locator('nav a[href*="analytics/record-holders.html"]').click();
+         await journey.waitForURL(url=>url.pathname.endsWith('/analytics/record-holders.html'),{timeout:12000});
+         if(!await journey.locator('#record-leaders').count())
           throw Error('Manager-to-Records navigation did not open full record archive');
          mobileJourneys.push({engine,width,page:'cross-page-reading-journey',path:'Home → Hall → 2023 story; Home → Stilly → Records',verified:true});
         }finally{await journey.close();}
