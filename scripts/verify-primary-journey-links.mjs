@@ -26,9 +26,11 @@ for(const {source,nav,skip} of pages){
  assert.equal((content.match(/<h1\b/g)||[]).length,1,'Each page needs one heading: '+source);
 }
 const tradesHtml=readFileSync('analytics/trade-museum.html','utf8');
-const archiveMatch=tradesHtml.match(/<script id="archive-data" type="application\\/json">([\\s\\S]*?)<\\/script>/);
-assert(archiveMatch,'Embedded trade evidence must remain intact');
-const archive=JSON.parse(archiveMatch[1]);
+const archiveStart='<script id="archive-data" type="application/json">';
+const archiveIndex=tradesHtml.indexOf(archiveStart);
+const archiveEnd=tradesHtml.indexOf('</script>',archiveIndex);
+assert(archiveIndex>=0&&archiveEnd>archiveIndex,'Embedded trade evidence must remain intact');
+const archive=JSON.parse(tradesHtml.slice(archiveIndex+archiveStart.length,archiveEnd));
 const managers=new Set(archive.flatMap(t=>t.sides.map(s=>s.manager)));
 for(const manager of ['EvansBrandon','Koble'])assert(managers.has(manager),'Historical participant source must be audited: '+manager);
 assert(tradesHtml.includes("key==='evansbrandon'?'Evans':name"),'EvansBrandon must resolve to the canonical Evans record book');
