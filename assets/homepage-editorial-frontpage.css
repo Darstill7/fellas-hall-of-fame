@@ -1,0 +1,58 @@
+/* Fellas homepage editorial front page | maintain verified data modules */
+:root{--front-gold:#dfc18a;--front-panel:#142832;--front-line:#56636b}
+body{background:#09141c;color:#f4f0e7}
+.site-header{background:#0b161ef4;border-bottom-color:#52616c}
+.site-header .shell{max-width:1210px}
+.home-editorial-hero{border-bottom:0;padding:30px 0 0;background:#0a151e}
+.home-editorial-hero>.shell{max-width:1210px}
+.home-edition-line,.home-edition-footer{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;color:#b6c2c8;font-size:10px;letter-spacing:.13em;font-weight:800;border-bottom:1px solid #596670}
+.home-edition-footer{border-bottom:0;border-top:1px solid #596670}
+.home-edition-footer a{color:#d8bd8a;text-decoration:none}
+.home-editorial-hero-grid{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(310px,.87fr);gap:clamp(26px,5vw,68px);padding:clamp(32px,5vw,64px) 0}
+.home-editorial-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.home-editorial-copy .kicker{color:#e1c58f;font-size:11px;letter-spacing:.19em;margin-bottom:10px}
+.home-editorial-copy h1{font:400 clamp(57px,7.2vw,91px)/1.1 Georgia,'Times New Roman',serif;letter-spacing:-.075em;max-width:11ch;margin:9px 0 27px}
+.home-editorial-copy h1 span{font-style:italic;color:#e5ca94}
+.home-editorial-copy>p{max-width:43ch;font-size:clamp(16px,1.9vw,20px);line-height:1.6;color:#cbd8dd}
+.home-editorial-copy .actions{gap:11px;margin:27px 0 0}
+.home-editorial-copy .actions .button{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;border-radius:2px;font-size:13px;padding:12px 17px;background:#182c38;border-color:#60717d}
+.home-editorial-copy .actions .button.primary{background:#dfc18a;border-color:#dfc18a;color:#0f1b24}
+.home-editorial-copy .actions .button.primary:hover{background:#f0d4a1}
+.home-editorial-lead{position:relative;display:flex;flex-direction:column;min-height:445px;background:#1a2d34;border:1px solid #8b7958;border-top:3px solid #e1c58d;padding:clamp(20px,3vw,29px);isolation:isolate}
+.home-editorial-lead:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 33%,#b8944a20,transparent 60%);pointer-events:none;z-index:-1}
+.home-editorial-lead-top,.home-editorial-lead-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:10px;font-weight:850;letter-spacing:.12em;color:#c0cbd0}
+.home-editorial-lead-top{border-bottom:1px solid #6a716e;padding-bottom:15px}
+.home-editorial-lead-content{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;flex:1;padding:19px 0}
+.home-editorial-lead-label{color:#e4c990;letter-spacing:.17em;font-size:10px;font-weight:850}
+.home-editorial-lead-year{font:400 clamp(70px,10vw,126px)/1 Georgia,serif;letter-spacing:-.08em;color:#e3cd9e;margin:7px 0 10px}
+.home-editorial-lead h2{font:400 clamp(27px,3.3vw,39px)/1.14 Georgia,serif;letter-spacing:-.035em;color:#fff1d8;margin:0 0 12px}
+.home-editorial-lead p{font-size:14px;line-height:1.6;color:#c7d3d6;max-width:38ch;margin:0 0 21px}
+.home-editorial-lead-content>a{display:inline-flex;align-items:center;justify-content:space-between;gap:21px;border-bottom:1px solid #b59d6a;color:#f2d49c;text-decoration:none;font-size:13px;font-weight:800;min-height:45px}
+.home-editorial-lead-bottom{border-top:1px solid #6a716e;padding-top:15px}
+main>.section.shell:first-of-type{padding-top:38px}
+main>.section.shell .section-head h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(28px,3.5vw,40px);font-weight:400;line-height:1.2}
+main>.section.shell .cards>.card{border-radius:3px;background:#142831;border-color:#51636b;box-shadow:none}
+main>.section.shell .cards>.card:hover{border-color:#d9ba80;transform:none;background:#213844}
+main>.section.shell .cards>.card h3{font-family:Georgia,'Times New Roman',serif;font-size:clamp(20px,2.5vw,27px);font-weight:400;letter-spacing:-.02em;line-height:1.2}
+main>.section.shell .cards>.card .card-icon{font-size:19px}
+main>.section.shell .cards>.card .go{color:#e4c58b}
+main>.section.shell .home-explore-more{border-radius:3px}
+.home-manager-card,.feature-panel{border-radius:4px}
+#home-manager-title{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(30px,4vw,44px);letter-spacing:-.04em}
+@media(max-width:850px){.home-editorial-hero-grid{grid-template-columns:1fr;gap:26px;padding:36px 0}.home-editorial-copy h1{font-size:clamp(66px,10vw,88px)}.home-editorial-lead{min-height:320px}.home-editorial-lead-year{font-size:88px}.home-editorial-lead-content{padding:15px 0}.home-editorial-lead h2{font-size:32px}}
+@media(max-width:550px){.home-editorial-hero{padding-top:13px}.home-edition-line{font-size:9px}.home-edition-line span:last-child{display:none}.home-editorial-hero-grid{padding:27px 0}.home-editorial-copy h1{font-size:clamp(53px,12.5vw,72px);line-height:1.12;margin:10px 0 20px}.home-editorial-copy>p{font-size:16px}.home-editorial-copy .actions{width:100%;margin-top:24px}.home-editorial-copy .actions .button{width:100%}.home-editorial-lead{padding:20px;min-height:300px}.home-editorial-lead-top{font-size:9px}.home-editorial-lead-top span:last-child{display:none}.home-editorial-lead-year{font-size:80px}.home-editorial-lead h2{font-size:30px}.home-edition-footer{font-size:9px}.home-edition-footer span{max-width:150px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* The existing mobile release contract prioritizes manager discovery on the
+   first screen. Keep the premium full-issue cover at tablet/desktop widths. */
+@media(max-width:650px){
+ body.home-premium main#main-content>.home-editorial-hero{padding:8px 0 6px!important}
+ body.home-premium main#main-content>.home-editorial-hero .home-edition-line,
+ body.home-premium main#main-content>.home-editorial-hero .home-edition-footer,
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-lead{display:none!important}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-hero-grid{display:block;padding:0!important}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy .kicker{font-size:10px;margin:0 0 4px}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy h1{font-size:clamp(28px,7.2vw,40px);line-height:1.12;letter-spacing:-.045em;margin:4px 0 6px}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy>p{font-size:13px;line-height:1.42;margin:0;max-width:42ch}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy .actions{display:none!important}
+}
