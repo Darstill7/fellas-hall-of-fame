@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "asOf": "2026-11-06 — reconciled Evans ownership 2023; 2026 through Week 8",
+  "asOf": "2026-11-10",
   "title": "Fellas Expanded Records Lab",
-  "scope": "Recovered 2016–2026 Week 8 regular-season matchups, verified completed final placements 2016–2025",
+  "scope": "Recovered 2016–2026 Week 9 regular-season matchups, verified completed final placements 2016–2025",
   "sources": [
     "data/unified_record_book_2016_2026.json",
     "data/fellas_final_placements_2016_2025_verified.json"
@@ -18,8 +18,8 @@
     "Tied record marks share their best competition rank (1, 1, 3), rather than being assigned arbitrary consecutive placements.",
     "Commissioner-corrected ownership: Evans managed the 2023 season; JMid entered in 2024. All 2023 roster-slot games and finishes are credited to Evans. Historical provider handle JMidd is not manager identity."
   ],
-  "recoveredRegularGames": 700,
-  "gameContributions": 1400,
+  "recoveredRegularGames": 705,
+  "gameContributions": 1410,
   "currentManagers": [
     "Stilly",
     "Stew",
@@ -41,7 +41,7 @@
       "description": "Highest recovered team total in one regular-season matchup.",
       "unit": "pts",
       "direction": "high",
-      "entries": 1400,
+      "entries": 1410,
       "qualifier": null,
       "leaders": [
         {
@@ -373,7 +373,7 @@
       "description": "Lowest recovered team total in one regular-season matchup.",
       "unit": "pts",
       "direction": "low",
-      "entries": 1400,
+      "entries": 1410,
       "qualifier": null,
       "leaders": [
         {
@@ -485,8 +485,7 @@
             "opponentPoints": 105,
             "outcome": "L",
             "era": "ESPN"
-          },
-          "rank": 6
+          }
         },
         {
           "manager": "Tom",
@@ -705,7 +704,7 @@
       "description": "A high-scoring defeat; regular-season matchups only.",
       "unit": "pts",
       "direction": "high",
-      "entries": 699,
+      "entries": 704,
       "qualifier": null,
       "leaders": [
         {
@@ -817,8 +816,7 @@
             "opponentPoints": 167.36,
             "outcome": "L",
             "era": "Sleeper"
-          },
-          "rank": 6
+          }
         },
         {
           "manager": "Kuhl",
@@ -1025,8 +1023,7 @@
             "opponentPoints": 177.14,
             "outcome": "L",
             "era": "Sleeper"
-          },
-          "rank": 19
+          }
         }
       ]
     },
@@ -1037,7 +1034,7 @@
       "description": "A win achieved with the fewest team points in a regular-season matchup.",
       "unit": "pts",
       "direction": "low",
-      "entries": 699,
+      "entries": 704,
       "qualifier": null,
       "leaders": [
         {
@@ -1181,8 +1178,7 @@
             "opponentPoints": 70,
             "outcome": "W",
             "era": "ESPN"
-          },
-          "rank": 8
+          }
         },
         {
           "manager": "Halderman",
@@ -1341,8 +1337,7 @@
             "opponentPoints": 69,
             "outcome": "W",
             "era": "ESPN"
-          },
-          "rank": 18
+          }
         },
         {
           "manager": "Evans",
@@ -1369,7 +1364,7 @@
       "description": "Largest verified winning margin.",
       "unit": "pts",
       "direction": "high",
-      "entries": 699,
+      "entries": 704,
       "qualifier": null,
       "leaders": [
         {
@@ -1657,8 +1652,7 @@
             "opponentPoints": 56.32,
             "outcome": "W",
             "era": "Sleeper"
-          },
-          "rank": 17
+          }
         },
         {
           "manager": "Tom",
@@ -1701,7 +1695,7 @@
       "description": "Smallest strictly positive winning margin.",
       "unit": "pts",
       "direction": "low",
-      "entries": 699,
+      "entries": 704,
       "qualifier": null,
       "leaders": [
         {
@@ -1765,8 +1759,7 @@
             "opponentPoints": 128.88,
             "outcome": "W",
             "era": "Sleeper"
-          },
-          "rank": 3
+          }
         },
         {
           "manager": "Stover",
@@ -1785,6 +1778,22 @@
           "rank": 5
         },
         {
+          "manager": "Stew",
+          "year": 2026,
+          "week": 9,
+          "value": 0.76,
+          "evidence": {
+            "year": 2026,
+            "week": 9,
+            "opponent": "Tom",
+            "points": 87.36,
+            "opponentPoints": 86.6,
+            "outcome": "W",
+            "era": "Sleeper"
+          },
+          "rank": 6
+        },
+        {
           "manager": "Birch",
           "year": 2019,
           "week": 13,
@@ -1798,7 +1807,7 @@
             "outcome": "W",
             "era": "ESPN"
           },
-          "rank": 6
+          "rank": 7
         },
         {
           "manager": "Kuhl",
@@ -1814,7 +1823,7 @@
             "outcome": "W",
             "era": "ESPN"
           },
-          "rank": 7
+          "rank": 8
         },
         {
           "manager": "Stover",
@@ -1830,7 +1839,7 @@
             "outcome": "W",
             "era": "Sleeper"
           },
-          "rank": 8
+          "rank": 9
         },
         {
           "manager": "Tony",
@@ -1845,8 +1854,7 @@
             "opponentPoints": 111.2,
             "outcome": "W",
             "era": "Sleeper"
-          },
-          "rank": 8
+          }
         },
         {
           "manager": "Evans",
@@ -1862,7 +1870,7 @@
             "outcome": "W",
             "era": "ESPN"
           },
-          "rank": 10
+          "rank": 11
         },
         {
           "manager": "Scott",
@@ -1877,8 +1885,7 @@
             "opponentPoints": 112.54,
             "outcome": "W",
             "era": "Sleeper"
-          },
-          "rank": 10
+          }
         },
         {
           "manager": "Stilly",
@@ -1894,7 +1901,7 @@
             "outcome": "W",
             "era": "ESPN"
           },
-          "rank": 12
+          "rank": 13
         },
         {
           "manager": "Evans",
@@ -1910,7 +1917,7 @@
             "outcome": "W",
             "era": "ESPN"
           },
-          "rank": 13
+          "rank": 14
         },
         {
           "manager": "Birch",
@@ -1926,7 +1933,7 @@
             "outcome": "W",
             "era": "Sleeper"
           },
-          "rank": 14
+          "rank": 15
         },
         {
           "manager": "Tony",
@@ -1942,7 +1949,7 @@
             "outcome": "W",
             "era": "Sleeper"
           },
-          "rank": 15
+          "rank": 16
         },
         {
           "manager": "Tony",
@@ -1958,7 +1965,7 @@
             "outcome": "W",
             "era": "Sleeper"
           },
-          "rank": 16
+          "rank": 17
         },
         {
           "manager": "Stew",
@@ -1974,7 +1981,7 @@
             "outcome": "W",
             "era": "ESPN"
           },
-          "rank": 17
+          "rank": 18
         },
         {
           "manager": "Koble",
@@ -1990,7 +1997,7 @@
             "outcome": "W",
             "era": "ESPN"
           },
-          "rank": 18
+          "rank": 19
         },
         {
           "manager": "Kuhl",
@@ -2005,24 +2012,7 @@
             "opponentPoints": 105.86,
             "outcome": "W",
             "era": "Sleeper"
-          },
-          "rank": 18
-        },
-        {
-          "manager": "Evans",
-          "year": 2023,
-          "week": 8,
-          "value": 1.98,
-          "evidence": {
-            "year": 2023,
-            "week": 8,
-            "opponent": "Tony",
-            "points": 124.26,
-            "opponentPoints": 122.28,
-            "outcome": "W",
-            "era": "Sleeper"
-          },
-          "rank": 20
+          }
         }
       ]
     },
@@ -2033,7 +2023,7 @@
       "description": "Largest negative margin in a regular-season loss.",
       "unit": "pts",
       "direction": "high",
-      "entries": 699,
+      "entries": 704,
       "qualifier": null,
       "leaders": [
         {
@@ -2321,8 +2311,7 @@
             "opponentPoints": 147.94,
             "outcome": "L",
             "era": "ESPN"
-          },
-          "rank": 17
+          }
         },
         {
           "manager": "Tony",
@@ -2365,7 +2354,7 @@
       "description": "Smallest strictly positive losing margin.",
       "unit": "pts",
       "direction": "low",
-      "entries": 699,
+      "entries": 704,
       "qualifier": null,
       "leaders": [
         {
@@ -2429,8 +2418,7 @@
             "opponentPoints": 129.16,
             "outcome": "L",
             "era": "Sleeper"
-          },
-          "rank": 3
+          }
         },
         {
           "manager": "Mitch",
@@ -2449,6 +2437,22 @@
           "rank": 5
         },
         {
+          "manager": "Tom",
+          "year": 2026,
+          "week": 9,
+          "value": 0.76,
+          "evidence": {
+            "year": 2026,
+            "week": 9,
+            "opponent": "Stew",
+            "points": 86.6,
+            "opponentPoints": 87.36,
+            "outcome": "L",
+            "era": "Sleeper"
+          },
+          "rank": 6
+        },
+        {
           "manager": "Mitch",
           "year": 2019,
           "week": 13,
@@ -2462,7 +2466,7 @@
             "outcome": "L",
             "era": "ESPN"
           },
-          "rank": 6
+          "rank": 7
         },
         {
           "manager": "Mitch",
@@ -2478,7 +2482,7 @@
             "outcome": "L",
             "era": "ESPN"
           },
-          "rank": 7
+          "rank": 8
         },
         {
           "manager": "Stover",
@@ -2494,7 +2498,7 @@
             "outcome": "L",
             "era": "Sleeper"
           },
-          "rank": 8
+          "rank": 9
         },
         {
           "manager": "Tony",
@@ -2509,8 +2513,7 @@
             "opponentPoints": 84.34,
             "outcome": "L",
             "era": "Sleeper"
-          },
-          "rank": 8
+          }
         },
         {
           "manager": "Kuhl",
@@ -2526,7 +2529,7 @@
             "outcome": "L",
             "era": "ESPN"
           },
-          "rank": 10
+          "rank": 11
         },
         {
           "manager": "Stover",
@@ -2541,8 +2544,7 @@
             "opponentPoints": 113.52,
             "outcome": "L",
             "era": "Sleeper"
-          },
-          "rank": 10
+          }
         },
         {
           "manager": "Tony",
@@ -2558,7 +2560,7 @@
             "outcome": "L",
             "era": "ESPN"
           },
-          "rank": 12
+          "rank": 13
         },
         {
           "manager": "Tom",
@@ -2574,7 +2576,7 @@
             "outcome": "L",
             "era": "ESPN"
           },
-          "rank": 13
+          "rank": 14
         },
         {
           "manager": "Mitch",
@@ -2590,7 +2592,7 @@
             "outcome": "L",
             "era": "Sleeper"
           },
-          "rank": 14
+          "rank": 15
         },
         {
           "manager": "Kuhl",
@@ -2606,7 +2608,7 @@
             "outcome": "L",
             "era": "Sleeper"
           },
-          "rank": 15
+          "rank": 16
         },
         {
           "manager": "Stew",
@@ -2622,7 +2624,7 @@
             "outcome": "L",
             "era": "Sleeper"
           },
-          "rank": 16
+          "rank": 17
         },
         {
           "manager": "Mitch",
@@ -2638,7 +2640,7 @@
             "outcome": "L",
             "era": "ESPN"
           },
-          "rank": 17
+          "rank": 18
         },
         {
           "manager": "Tom",
@@ -2654,7 +2656,7 @@
             "outcome": "L",
             "era": "Sleeper"
           },
-          "rank": 18
+          "rank": 19
         },
         {
           "manager": "Tony",
@@ -2669,24 +2671,7 @@
             "opponentPoints": 117.7,
             "outcome": "L",
             "era": "ESPN"
-          },
-          "rank": 18
-        },
-        {
-          "manager": "Scott",
-          "year": 2026,
-          "week": 4,
-          "value": 1.98,
-          "evidence": {
-            "year": 2026,
-            "week": 4,
-            "opponent": "Mitch",
-            "points": 90.54,
-            "opponentPoints": 92.52,
-            "outcome": "L",
-            "era": "Sleeper"
-          },
-          "rank": 20
+          }
         }
       ]
     },
@@ -2697,7 +2682,7 @@
       "description": "Highest points scored by an opponent in a game the manager still won.",
       "unit": "opponent pts",
       "direction": "high",
-      "entries": 699,
+      "entries": 704,
       "qualifier": null,
       "leaders": [
         {
@@ -2809,8 +2794,7 @@
             "opponentPoints": 141.12,
             "outcome": "W",
             "era": "Sleeper"
-          },
-          "rank": 6
+          }
         },
         {
           "manager": "Birch",
@@ -3017,8 +3001,7 @@
             "opponentPoints": 132,
             "outcome": "W",
             "era": "Sleeper"
-          },
-          "rank": 19
+          }
         }
       ]
     },
@@ -3034,59 +3017,58 @@
       "leaders": [
         {
           "manager": "Stover",
-          "value": 75,
+          "value": 76,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 1
+        },
+        {
+          "manager": "Tony",
+          "value": 73,
+          "evidence": {
+            "games": 130
+          },
+          "rank": 2
         },
         {
           "manager": "Birch",
           "value": 72,
           "evidence": {
-            "games": 128
-          },
-          "rank": 2
-        },
-        {
-          "manager": "Tony",
-          "value": 72,
-          "evidence": {
             "games": 129
           },
-          "rank": 2
+          "rank": 3
         },
         {
           "manager": "Mitch",
           "value": 71,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 4
         },
         {
           "manager": "Stew",
-          "value": 67,
+          "value": 68,
           "evidence": {
-            "games": 143
-          },
-          "rank": 5
-        },
-        {
-          "manager": "Tom",
-          "value": 67,
-          "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 5
         },
         {
           "manager": "Stilly",
-          "value": 66,
+          "value": 67,
           "evidence": {
-            "games": 143
+            "games": 144
           },
-          "rank": 7
+          "rank": 6
+        },
+        {
+          "manager": "Tom",
+          "value": 67,
+          "evidence": {
+            "games": 144
+          }
         },
         {
           "manager": "Evans",
@@ -3100,7 +3082,7 @@
           "manager": "Kuhl",
           "value": 51,
           "evidence": {
-            "games": 118
+            "games": 119
           },
           "rank": 9
         },
@@ -3113,20 +3095,19 @@
           "rank": 10
         },
         {
-          "manager": "Scott",
+          "manager": "JMid",
           "value": 17,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 11
         },
         {
-          "manager": "JMid",
-          "value": 16,
+          "manager": "Scott",
+          "value": 17,
           "evidence": {
-            "games": 36
-          },
-          "rank": 12
+            "games": 37
+          }
         },
         {
           "manager": "Halderman",
@@ -3141,8 +3122,7 @@
           "value": 12,
           "evidence": {
             "games": 25
-          },
-          "rank": 13
+          }
         }
       ]
     },
@@ -3150,7 +3130,7 @@
       "key": "most-games",
       "label": "Most recorded regular-season games",
       "group": "Career",
-      "description": "Count of recorded matchups; 2026 is through Week 8.",
+      "description": "Count of recorded matchups; 2026 is through Week 9.",
       "unit": "games",
       "direction": "high",
       "entries": 14,
@@ -3158,65 +3138,62 @@
       "leaders": [
         {
           "manager": "Stew",
-          "value": 143,
+          "value": 144,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 1
         },
         {
           "manager": "Stilly",
-          "value": 143,
+          "value": 144,
           "evidence": {
-            "games": 143
-          },
-          "rank": 1
+            "games": 144
+          }
         },
         {
           "manager": "Stover",
-          "value": 143,
+          "value": 144,
           "evidence": {
-            "games": 143
-          },
-          "rank": 1
+            "games": 144
+          }
         },
         {
           "manager": "Tom",
-          "value": 143,
+          "value": 144,
           "evidence": {
-            "games": 143
-          },
-          "rank": 1
+            "games": 144
+          }
         },
         {
           "manager": "Tony",
-          "value": 129,
+          "value": 130,
           "evidence": {
-            "games": 129
+            "games": 130
           },
           "rank": 5
         },
         {
           "manager": "Birch",
-          "value": 128,
+          "value": 129,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 6
         },
         {
           "manager": "Kuhl",
-          "value": 118,
+          "value": 119,
           "evidence": {
-            "games": 118
+            "games": 119
           },
           "rank": 7
         },
         {
           "manager": "Mitch",
-          "value": 117,
+          "value": 118,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 8
         },
@@ -3233,24 +3210,22 @@
           "value": 107,
           "evidence": {
             "games": 107
-          },
-          "rank": 9
+          }
         },
         {
           "manager": "JMid",
-          "value": 36,
+          "value": 37,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 11
         },
         {
           "manager": "Scott",
-          "value": 36,
+          "value": 37,
           "evidence": {
-            "games": 36
-          },
-          "rank": 11
+            "games": 37
+          }
         },
         {
           "manager": "Halderman",
@@ -3265,8 +3240,7 @@
           "value": 25,
           "evidence": {
             "games": 25
-          },
-          "rank": 13
+          }
         }
       ]
     },
@@ -3282,24 +3256,24 @@
       "leaders": [
         {
           "manager": "Mitch",
-          "value": 60.68,
+          "value": 60.17,
           "evidence": {
-            "games": 117,
+            "games": 118,
             "minimum": 60
           },
           "rank": 1
         },
         {
-          "manager": "Birch",
-          "value": 56.25,
+          "manager": "Tony",
+          "value": 56.15,
           "evidence": {
-            "games": 128,
+            "games": 130,
             "minimum": 60
           },
           "rank": 2
         },
         {
-          "manager": "Tony",
+          "manager": "Birch",
           "value": 55.81,
           "evidence": {
             "games": 129,
@@ -3309,9 +3283,9 @@
         },
         {
           "manager": "Stover",
-          "value": 52.45,
+          "value": 52.78,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "minimum": 60
           },
           "rank": 4
@@ -3327,27 +3301,27 @@
         },
         {
           "manager": "Stew",
-          "value": 46.85,
+          "value": 47.22,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "minimum": 60
           },
           "rank": 6
         },
         {
           "manager": "Tom",
-          "value": 46.85,
+          "value": 46.88,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "minimum": 60
           },
-          "rank": 6
+          "rank": 7
         },
         {
           "manager": "Stilly",
-          "value": 46.15,
+          "value": 46.53,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "minimum": 60
           },
           "rank": 8
@@ -3363,9 +3337,9 @@
         },
         {
           "manager": "Kuhl",
-          "value": 43.22,
+          "value": 42.86,
           "evidence": {
-            "games": 118,
+            "games": 119,
             "minimum": 60
           },
           "rank": 10
@@ -3384,65 +3358,65 @@
       "leaders": [
         {
           "manager": "Stover",
-          "value": 15318.4,
+          "value": 15420.98,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 1
         },
         {
-          "manager": "Stew",
-          "value": 15215.9,
+          "manager": "Stilly",
+          "value": 15315.16,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 2
         },
         {
-          "manager": "Tom",
-          "value": 15214.84,
+          "manager": "Stew",
+          "value": 15303.26,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 3
         },
         {
-          "manager": "Stilly",
-          "value": 15198.5,
+          "manager": "Tom",
+          "value": 15301.44,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 4
         },
         {
           "manager": "Tony",
-          "value": 14428.02,
+          "value": 14544.32,
           "evidence": {
-            "games": 129
+            "games": 130
           },
           "rank": 5
         },
         {
           "manager": "Birch",
-          "value": 14081.32,
+          "value": 14168.38,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 6
         },
         {
           "manager": "Mitch",
-          "value": 14035.5,
+          "value": 14133.26,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 7
         },
         {
           "manager": "Kuhl",
-          "value": 12715.22,
+          "value": 12792.76,
           "evidence": {
-            "games": 118
+            "games": 119
           },
           "rank": 8
         },
@@ -3464,17 +3438,17 @@
         },
         {
           "manager": "JMid",
-          "value": 4048.98,
+          "value": 4197.72,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 11
         },
         {
           "manager": "Scott",
-          "value": 3868.9,
+          "value": 3978.84,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 12
         },
@@ -3508,33 +3482,37 @@
       "leaders": [
         {
           "manager": "Mitch",
-          "value": 119.96,
+          "value": 119.77,
           "evidence": {
-            "games": 117
+            "games": 118,
+            "minimum": 60
           },
           "rank": 1
         },
         {
           "manager": "Tony",
-          "value": 111.85,
+          "value": 111.88,
           "evidence": {
-            "games": 129
+            "games": 130,
+            "minimum": 60
           },
           "rank": 2
         },
         {
           "manager": "Birch",
-          "value": 110.01,
+          "value": 109.83,
           "evidence": {
-            "games": 128
+            "games": 129,
+            "minimum": 60
           },
           "rank": 3
         },
         {
           "manager": "Kuhl",
-          "value": 107.76,
+          "value": 107.5,
           "evidence": {
-            "games": 118
+            "games": 119,
+            "minimum": 60
           },
           "rank": 4
         },
@@ -3542,39 +3520,44 @@
           "manager": "Evans",
           "value": 107.27,
           "evidence": {
-            "games": 107
+            "games": 107,
+            "minimum": 60
           },
           "rank": 5
         },
         {
           "manager": "Stover",
-          "value": 107.12,
+          "value": 107.09,
           "evidence": {
-            "games": 143
+            "games": 144,
+            "minimum": 60
           },
           "rank": 6
         },
         {
-          "manager": "Stew",
-          "value": 106.4,
+          "manager": "Stilly",
+          "value": 106.36,
           "evidence": {
-            "games": 143
+            "games": 144,
+            "minimum": 60
           },
           "rank": 7
+        },
+        {
+          "manager": "Stew",
+          "value": 106.27,
+          "evidence": {
+            "games": 144,
+            "minimum": 60
+          },
+          "rank": 8
         },
         {
           "manager": "Tom",
-          "value": 106.4,
+          "value": 106.26,
           "evidence": {
-            "games": 143
-          },
-          "rank": 7
-        },
-        {
-          "manager": "Stilly",
-          "value": 106.28,
-          "evidence": {
-            "games": 143
+            "games": 144,
+            "minimum": 60
           },
           "rank": 9
         },
@@ -3582,7 +3565,8 @@
           "manager": "Koble",
           "value": 104.25,
           "evidence": {
-            "games": 107
+            "games": 107,
+            "minimum": 60
           },
           "rank": 10
         }
@@ -3600,65 +3584,65 @@
       "leaders": [
         {
           "manager": "Stilly",
-          "value": 15677.98,
+          "value": 15755.52,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 1
         },
         {
           "manager": "Tom",
-          "value": 15638.16,
+          "value": 15725.52,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 2
         },
         {
-          "manager": "Stew",
-          "value": 15367.6,
+          "manager": "Stover",
+          "value": 15457.4,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 3
         },
         {
-          "manager": "Stover",
-          "value": 15359.64,
+          "manager": "Stew",
+          "value": 15454.2,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 4
         },
         {
           "manager": "Tony",
-          "value": 13885.92,
+          "value": 13972.98,
           "evidence": {
-            "games": 129
+            "games": 130
           },
           "rank": 5
         },
         {
           "manager": "Birch",
-          "value": 13454.94,
+          "value": 13571.24,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 6
         },
         {
           "manager": "Kuhl",
-          "value": 13242.66,
+          "value": 13359.32,
           "evidence": {
-            "games": 118
+            "games": 119
           },
           "rank": 7
         },
         {
           "manager": "Mitch",
-          "value": 13033.76,
+          "value": 13136.34,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 8
         },
@@ -3680,17 +3664,17 @@
         },
         {
           "manager": "Scott",
-          "value": 4157.16,
+          "value": 4305.9,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 11
         },
         {
           "manager": "JMid",
-          "value": 4062.02,
+          "value": 4171.96,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 12
         },
@@ -3726,23 +3710,23 @@
           "manager": "Mitch",
           "value": 92,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 1
         },
         {
           "manager": "Stover",
-          "value": 90,
+          "value": 91,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 2
         },
         {
           "manager": "Stilly",
-          "value": 88,
+          "value": 89,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 3
         },
@@ -3750,23 +3734,22 @@
           "manager": "Tom",
           "value": 86,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 4
         },
         {
           "manager": "Tony",
-          "value": 85,
+          "value": 86,
           "evidence": {
-            "games": 129
-          },
-          "rank": 5
+            "games": 130
+          }
         },
         {
           "manager": "Stew",
           "value": 79,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 6
         },
@@ -3774,7 +3757,7 @@
           "manager": "Birch",
           "value": 78,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 7
         },
@@ -3782,9 +3765,8 @@
           "manager": "Kuhl",
           "value": 78,
           "evidence": {
-            "games": 118
-          },
-          "rank": 7
+            "games": 119
+          }
         },
         {
           "manager": "Evans",
@@ -3804,17 +3786,17 @@
         },
         {
           "manager": "JMid",
-          "value": 27,
+          "value": 28,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 11
         },
         {
           "manager": "Scott",
-          "value": 22,
+          "value": 23,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 12
         },
@@ -3850,7 +3832,7 @@
           "manager": "Mitch",
           "value": 55,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 1
         },
@@ -3858,7 +3840,7 @@
           "manager": "Tony",
           "value": 49,
           "evidence": {
-            "games": 129
+            "games": 130
           },
           "rank": 2
         },
@@ -3866,7 +3848,7 @@
           "manager": "Stover",
           "value": 42,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 3
         },
@@ -3874,7 +3856,7 @@
           "manager": "Birch",
           "value": 41,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 4
         },
@@ -3882,15 +3864,14 @@
           "manager": "Tom",
           "value": 41,
           "evidence": {
-            "games": 143
-          },
-          "rank": 4
+            "games": 144
+          }
         },
         {
           "manager": "Stew",
           "value": 40,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 6
         },
@@ -3898,7 +3879,7 @@
           "manager": "Stilly",
           "value": 38,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 7
         },
@@ -3914,7 +3895,7 @@
           "manager": "Kuhl",
           "value": 31,
           "evidence": {
-            "games": 118
+            "games": 119
           },
           "rank": 9
         },
@@ -3928,9 +3909,9 @@
         },
         {
           "manager": "JMid",
-          "value": 13,
+          "value": 14,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 11
         },
@@ -3938,7 +3919,7 @@
           "manager": "Scott",
           "value": 10,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 12
         },
@@ -3974,7 +3955,7 @@
           "manager": "Mitch",
           "value": 23,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 1
         },
@@ -3982,7 +3963,7 @@
           "manager": "Birch",
           "value": 18,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 2
         },
@@ -3990,7 +3971,7 @@
           "manager": "Tony",
           "value": 14,
           "evidence": {
-            "games": 129
+            "games": 130
           },
           "rank": 3
         },
@@ -3998,7 +3979,7 @@
           "manager": "Tom",
           "value": 13,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 4
         },
@@ -4014,23 +3995,21 @@
           "manager": "Stew",
           "value": 11,
           "evidence": {
-            "games": 143
-          },
-          "rank": 5
+            "games": 144
+          }
         },
         {
           "manager": "Stilly",
           "value": 11,
           "evidence": {
-            "games": 143
-          },
-          "rank": 5
+            "games": 144
+          }
         },
         {
           "manager": "Stover",
           "value": 9,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 8
         },
@@ -4038,31 +4017,30 @@
           "manager": "Kuhl",
           "value": 8,
           "evidence": {
-            "games": 118
+            "games": 119
           },
           "rank": 9
+        },
+        {
+          "manager": "JMid",
+          "value": 6,
+          "evidence": {
+            "games": 37
+          },
+          "rank": 10
         },
         {
           "manager": "Koble",
           "value": 6,
           "evidence": {
             "games": 107
-          },
-          "rank": 10
-        },
-        {
-          "manager": "JMid",
-          "value": 5,
-          "evidence": {
-            "games": 36
-          },
-          "rank": 11
+          }
         },
         {
           "manager": "Scott",
           "value": 3,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 12
         },
@@ -4098,7 +4076,7 @@
           "manager": "Mitch",
           "value": 13,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 1
         },
@@ -4106,7 +4084,7 @@
           "manager": "Birch",
           "value": 4,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 2
         },
@@ -4114,23 +4092,21 @@
           "manager": "Stew",
           "value": 4,
           "evidence": {
-            "games": 143
-          },
-          "rank": 2
+            "games": 144
+          }
         },
         {
           "manager": "Tony",
           "value": 4,
           "evidence": {
-            "games": 129
-          },
-          "rank": 2
+            "games": 130
+          }
         },
         {
           "manager": "Stilly",
           "value": 3,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 5
         },
@@ -4146,9 +4122,8 @@
           "manager": "Stover",
           "value": 2,
           "evidence": {
-            "games": 143
-          },
-          "rank": 6
+            "games": 144
+          }
         },
         {
           "manager": "Halderman",
@@ -4162,25 +4137,22 @@
           "manager": "JMid",
           "value": 1,
           "evidence": {
-            "games": 36
-          },
-          "rank": 8
+            "games": 37
+          }
         },
         {
           "manager": "Kuhl",
           "value": 1,
           "evidence": {
-            "games": 118
-          },
-          "rank": 8
+            "games": 119
+          }
         },
         {
           "manager": "Tom",
           "value": 1,
           "evidence": {
-            "games": 143
-          },
-          "rank": 8
+            "games": 144
+          }
         },
         {
           "manager": "Koble",
@@ -4195,16 +4167,14 @@
           "value": 0,
           "evidence": {
             "games": 25
-          },
-          "rank": 12
+          }
         },
         {
           "manager": "Scott",
           "value": 0,
           "evidence": {
-            "games": 36
-          },
-          "rank": 12
+            "games": 37
+          }
         }
       ]
     },
@@ -4222,7 +4192,7 @@
           "manager": "Mitch",
           "value": 5,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 1
         },
@@ -4230,7 +4200,7 @@
           "manager": "Birch",
           "value": 4,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 2
         },
@@ -4238,15 +4208,14 @@
           "manager": "Tony",
           "value": 4,
           "evidence": {
-            "games": 129
-          },
-          "rank": 2
+            "games": 130
+          }
         },
         {
           "manager": "Stew",
           "value": 3,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 4
         },
@@ -4262,15 +4231,14 @@
           "manager": "Tom",
           "value": 2,
           "evidence": {
-            "games": 143
-          },
-          "rank": 5
+            "games": 144
+          }
         },
         {
           "manager": "Kuhl",
           "value": 1,
           "evidence": {
-            "games": 118
+            "games": 119
           },
           "rank": 7
         },
@@ -4278,9 +4246,8 @@
           "manager": "Stover",
           "value": 1,
           "evidence": {
-            "games": 143
-          },
-          "rank": 7
+            "games": 144
+          }
         },
         {
           "manager": "Halderman",
@@ -4294,41 +4261,36 @@
           "manager": "JMid",
           "value": 0,
           "evidence": {
-            "games": 36
-          },
-          "rank": 9
+            "games": 37
+          }
         },
         {
           "manager": "Koble",
           "value": 0,
           "evidence": {
             "games": 107
-          },
-          "rank": 9
+          }
         },
         {
           "manager": "Schermerhorn",
           "value": 0,
           "evidence": {
             "games": 25
-          },
-          "rank": 9
+          }
         },
         {
           "manager": "Scott",
           "value": 0,
           "evidence": {
-            "games": 36
-          },
-          "rank": 9
+            "games": 37
+          }
         },
         {
           "manager": "Stilly",
           "value": 0,
           "evidence": {
-            "games": 143
-          },
-          "rank": 9
+            "games": 144
+          }
         }
       ]
     },
@@ -4346,15 +4308,15 @@
           "manager": "Tom",
           "value": 14,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 1
         },
         {
           "manager": "Stew",
-          "value": 12,
+          "value": 13,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 2
         },
@@ -4362,17 +4324,16 @@
           "manager": "Stilly",
           "value": 12,
           "evidence": {
-            "games": 143
+            "games": 144
           },
-          "rank": 2
+          "rank": 3
         },
         {
           "manager": "Stover",
           "value": 12,
           "evidence": {
-            "games": 143
-          },
-          "rank": 2
+            "games": 144
+          }
         },
         {
           "manager": "Evans",
@@ -4386,9 +4347,8 @@
           "manager": "Tony",
           "value": 11,
           "evidence": {
-            "games": 129
-          },
-          "rank": 5
+            "games": 130
+          }
         },
         {
           "manager": "Koble",
@@ -4402,7 +4362,7 @@
           "manager": "Birch",
           "value": 7,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 8
         },
@@ -4410,7 +4370,7 @@
           "manager": "Mitch",
           "value": 5,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 9
         },
@@ -4419,8 +4379,7 @@
           "value": 5,
           "evidence": {
             "games": 25
-          },
-          "rank": 9
+          }
         },
         {
           "manager": "Halderman",
@@ -4434,15 +4393,14 @@
           "manager": "Kuhl",
           "value": 4,
           "evidence": {
-            "games": 118
-          },
-          "rank": 11
+            "games": 119
+          }
         },
         {
           "manager": "Scott",
           "value": 1,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 13
         },
@@ -4450,7 +4408,7 @@
           "manager": "JMid",
           "value": 0,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 14
         }
@@ -4470,7 +4428,7 @@
           "manager": "Stilly",
           "value": 10,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 1
         },
@@ -4478,15 +4436,14 @@
           "manager": "Tom",
           "value": 10,
           "evidence": {
-            "games": 143
-          },
-          "rank": 1
+            "games": 144
+          }
         },
         {
           "manager": "Mitch",
           "value": 9,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 3
         },
@@ -4494,7 +4451,7 @@
           "manager": "Kuhl",
           "value": 8,
           "evidence": {
-            "games": 118
+            "games": 119
           },
           "rank": 4
         },
@@ -4502,23 +4459,21 @@
           "manager": "Stew",
           "value": 8,
           "evidence": {
-            "games": 143
-          },
-          "rank": 4
+            "games": 144
+          }
         },
         {
           "manager": "Tony",
           "value": 8,
           "evidence": {
-            "games": 129
-          },
-          "rank": 4
+            "games": 130
+          }
         },
         {
           "manager": "Stover",
           "value": 5,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 7
         },
@@ -4534,7 +4489,7 @@
           "manager": "Birch",
           "value": 2,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 9
         },
@@ -4543,22 +4498,20 @@
           "value": 2,
           "evidence": {
             "games": 107
-          },
-          "rank": 9
+          }
         },
         {
           "manager": "Scott",
           "value": 2,
           "evidence": {
-            "games": 36
-          },
-          "rank": 9
+            "games": 37
+          }
         },
         {
           "manager": "JMid",
           "value": 1,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 12
         },
@@ -4575,8 +4528,7 @@
           "value": 0,
           "evidence": {
             "games": 25
-          },
-          "rank": 13
+          }
         }
       ]
     },
@@ -4594,7 +4546,7 @@
           "manager": "Birch",
           "value": 5,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 1
         },
@@ -4602,17 +4554,15 @@
           "manager": "Kuhl",
           "value": 5,
           "evidence": {
-            "games": 118
-          },
-          "rank": 1
+            "games": 119
+          }
         },
         {
           "manager": "Tony",
           "value": 5,
           "evidence": {
-            "games": 129
-          },
-          "rank": 1
+            "games": 130
+          }
         },
         {
           "manager": "Evans",
@@ -4626,41 +4576,37 @@
           "manager": "Mitch",
           "value": 4,
           "evidence": {
-            "games": 117
-          },
-          "rank": 4
+            "games": 118
+          }
+        },
+        {
+          "manager": "Stew",
+          "value": 4,
+          "evidence": {
+            "games": 144
+          }
         },
         {
           "manager": "Stilly",
           "value": 4,
           "evidence": {
-            "games": 143
-          },
-          "rank": 4
+            "games": 144
+          }
         },
         {
           "manager": "Stover",
           "value": 4,
           "evidence": {
-            "games": 143
-          },
-          "rank": 4
-        },
-        {
-          "manager": "Stew",
-          "value": 3,
-          "evidence": {
-            "games": 143
-          },
-          "rank": 8
+            "games": 144
+          }
         },
         {
           "manager": "Tom",
           "value": 3,
           "evidence": {
-            "games": 143
+            "games": 144
           },
-          "rank": 8
+          "rank": 9
         },
         {
           "manager": "Koble",
@@ -4675,14 +4621,13 @@
           "value": 2,
           "evidence": {
             "games": 25
-          },
-          "rank": 10
+          }
         },
         {
           "manager": "Scott",
           "value": 1,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 12
         },
@@ -4698,9 +4643,8 @@
           "manager": "JMid",
           "value": 0,
           "evidence": {
-            "games": 36
-          },
-          "rank": 13
+            "games": 37
+          }
         }
       ]
     },
@@ -4718,7 +4662,7 @@
           "manager": "Mitch",
           "value": 11,
           "evidence": {
-            "games": 117
+            "games": 118
           },
           "rank": 1
         },
@@ -4726,55 +4670,52 @@
           "manager": "Tony",
           "value": 10,
           "evidence": {
-            "games": 129
+            "games": 130
           },
           "rank": 2
+        },
+        {
+          "manager": "Stew",
+          "value": 9,
+          "evidence": {
+            "games": 144
+          },
+          "rank": 3
         },
         {
           "manager": "Stover",
           "value": 9,
           "evidence": {
-            "games": 143
-          },
-          "rank": 3
+            "games": 144
+          }
+        },
+        {
+          "manager": "Tom",
+          "value": 9,
+          "evidence": {
+            "games": 144
+          }
         },
         {
           "manager": "Birch",
           "value": 8,
           "evidence": {
-            "games": 128
+            "games": 129
           },
-          "rank": 4
+          "rank": 6
         },
         {
           "manager": "Evans",
           "value": 8,
           "evidence": {
             "games": 107
-          },
-          "rank": 4
-        },
-        {
-          "manager": "Stew",
-          "value": 8,
-          "evidence": {
-            "games": 143
-          },
-          "rank": 4
-        },
-        {
-          "manager": "Tom",
-          "value": 8,
-          "evidence": {
-            "games": 143
-          },
-          "rank": 4
+          }
         },
         {
           "manager": "Kuhl",
           "value": 7,
           "evidence": {
-            "games": 118
+            "games": 119
           },
           "rank": 8
         },
@@ -4782,9 +4723,8 @@
           "manager": "Stilly",
           "value": 7,
           "evidence": {
-            "games": 143
-          },
-          "rank": 8
+            "games": 144
+          }
         },
         {
           "manager": "Koble",
@@ -4799,8 +4739,7 @@
           "value": 3,
           "evidence": {
             "games": 25
-          },
-          "rank": 10
+          }
         },
         {
           "manager": "Halderman",
@@ -4814,15 +4753,14 @@
           "manager": "Scott",
           "value": 2,
           "evidence": {
-            "games": 36
-          },
-          "rank": 12
+            "games": 37
+          }
         },
         {
           "manager": "JMid",
           "value": 0,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 14
         }
@@ -4842,7 +4780,7 @@
           "manager": "Birch",
           "value": 29,
           "evidence": {
-            "games": 128
+            "games": 129
           },
           "rank": 1
         },
@@ -4850,15 +4788,14 @@
           "manager": "Mitch",
           "value": 29,
           "evidence": {
-            "games": 117
-          },
-          "rank": 1
+            "games": 118
+          }
         },
         {
           "manager": "Stover",
           "value": 27,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 3
         },
@@ -4866,15 +4803,14 @@
           "manager": "Tony",
           "value": 27,
           "evidence": {
-            "games": 129
-          },
-          "rank": 3
+            "games": 130
+          }
         },
         {
           "manager": "Tom",
           "value": 25,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 5
         },
@@ -4882,15 +4818,15 @@
           "manager": "Stew",
           "value": 24,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 6
         },
         {
           "manager": "Stilly",
-          "value": 21,
+          "value": 22,
           "evidence": {
-            "games": 143
+            "games": 144
           },
           "rank": 7
         },
@@ -4914,15 +4850,15 @@
           "manager": "Kuhl",
           "value": 14,
           "evidence": {
-            "games": 118
+            "games": 119
           },
           "rank": 10
         },
         {
           "manager": "JMid",
-          "value": 8,
+          "value": 9,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 11
         },
@@ -4946,7 +4882,7 @@
           "manager": "Scott",
           "value": 2,
           "evidence": {
-            "games": 36
+            "games": 37
           },
           "rank": 14
         }
@@ -4966,7 +4902,7 @@
           "manager": "Mitch",
           "value": 20,
           "evidence": {
-            "games": 117,
+            "games": 118,
             "endingYear": 2026,
             "endingWeek": 8,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -4977,7 +4913,7 @@
           "manager": "Stover",
           "value": 9,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2021,
             "endingWeek": 7,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -4988,7 +4924,7 @@
           "manager": "Birch",
           "value": 8,
           "evidence": {
-            "games": 128,
+            "games": 129,
             "endingYear": 2022,
             "endingWeek": 1,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -4999,7 +4935,7 @@
           "manager": "Stew",
           "value": 7,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2022,
             "endingWeek": 5,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -5010,18 +4946,17 @@
           "manager": "Tony",
           "value": 7,
           "evidence": {
-            "games": 129,
+            "games": 130,
             "endingYear": 2023,
             "endingWeek": 7,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 4
+          }
         },
         {
           "manager": "Tom",
           "value": 6,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2024,
             "endingWeek": 6,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -5047,19 +4982,17 @@
             "endingYear": 2023,
             "endingWeek": 1,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 7
+          }
         },
         {
           "manager": "Kuhl",
           "value": 5,
           "evidence": {
-            "games": 118,
+            "games": 119,
             "endingYear": 2019,
             "endingWeek": 10,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 7
+          }
         },
         {
           "manager": "Halderman",
@@ -5076,18 +5009,17 @@
           "manager": "Stilly",
           "value": 4,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2023,
             "endingWeek": 14,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 10
+          }
         },
         {
           "manager": "JMid",
           "value": 3,
           "evidence": {
-            "games": 36,
+            "games": 37,
             "endingYear": 2024,
             "endingWeek": 7,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -5102,19 +5034,17 @@
             "endingYear": 2017,
             "endingWeek": 8,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 12
+          }
         },
         {
           "manager": "Scott",
           "value": 3,
           "evidence": {
-            "games": 36,
+            "games": 37,
             "endingYear": 2024,
             "endingWeek": 8,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 12
+          }
         }
       ]
     },
@@ -5132,7 +5062,7 @@
           "manager": "Mitch",
           "value": 15,
           "evidence": {
-            "games": 117,
+            "games": 118,
             "endingYear": 2021,
             "endingWeek": 8,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -5143,7 +5073,7 @@
           "manager": "JMid",
           "value": 13,
           "evidence": {
-            "games": 36,
+            "games": 37,
             "endingYear": 2024,
             "endingWeek": 14,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -5154,7 +5084,7 @@
           "manager": "Birch",
           "value": 11,
           "evidence": {
-            "games": 128,
+            "games": 129,
             "endingYear": 2020,
             "endingWeek": 5,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -5165,12 +5095,11 @@
           "manager": "Stover",
           "value": 11,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2022,
             "endingWeek": 5,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 3
+          }
         },
         {
           "manager": "Koble",
@@ -5187,7 +5116,7 @@
           "manager": "Kuhl",
           "value": 9,
           "evidence": {
-            "games": 118,
+            "games": 119,
             "endingYear": 2021,
             "endingWeek": 6,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -5198,34 +5127,31 @@
           "manager": "Stew",
           "value": 9,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2026,
             "endingWeek": 8,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 6
+          }
         },
         {
           "manager": "Tom",
           "value": 9,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2024,
             "endingWeek": 9,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 6
+          }
         },
         {
           "manager": "Tony",
           "value": 9,
           "evidence": {
-            "games": 129,
+            "games": 130,
             "endingYear": 2025,
             "endingWeek": 5,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 6
+          }
         },
         {
           "manager": "Evans",
@@ -5242,18 +5168,17 @@
           "manager": "Stilly",
           "value": 8,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2025,
             "endingWeek": 9,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 10
+          }
         },
         {
           "manager": "Scott",
           "value": 5,
           "evidence": {
-            "games": 36,
+            "games": 37,
             "endingYear": 2024,
             "endingWeek": 10,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -5298,7 +5223,7 @@
           "manager": "Tony",
           "value": 7,
           "evidence": {
-            "games": 129,
+            "games": 130,
             "endingYear": 2023,
             "endingWeek": 8,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -5309,7 +5234,7 @@
           "manager": "Kuhl",
           "value": 4,
           "evidence": {
-            "games": 118,
+            "games": 119,
             "endingYear": 2020,
             "endingWeek": 4,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -5320,29 +5245,27 @@
           "manager": "Mitch",
           "value": 4,
           "evidence": {
-            "games": 117,
+            "games": 118,
             "endingYear": 2021,
             "endingWeek": 3,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 2
+          }
         },
         {
           "manager": "Stew",
           "value": 4,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2024,
             "endingWeek": 5,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 2
+          }
         },
         {
           "manager": "Birch",
           "value": 3,
           "evidence": {
-            "games": 128,
+            "games": 129,
             "endingYear": 2019,
             "endingWeek": 3,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
@@ -5357,19 +5280,17 @@
             "endingYear": 2020,
             "endingWeek": 7,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 5
+          }
         },
         {
           "manager": "JMid",
           "value": 3,
           "evidence": {
-            "games": 36,
+            "games": 37,
             "endingYear": 2025,
             "endingWeek": 5,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 5
+          }
         },
         {
           "manager": "Koble",
@@ -5379,52 +5300,47 @@
             "endingYear": 2023,
             "endingWeek": 12,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 5
+          }
         },
         {
           "manager": "Scott",
           "value": 3,
           "evidence": {
-            "games": 36,
+            "games": 37,
             "endingYear": 2025,
             "endingWeek": 8,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 5
+          }
         },
         {
           "manager": "Stilly",
           "value": 3,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2019,
             "endingWeek": 4,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 5
+          }
         },
         {
           "manager": "Stover",
           "value": 3,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2020,
             "endingWeek": 4,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 5
+          }
         },
         {
           "manager": "Tom",
           "value": 3,
           "evidence": {
-            "games": 143,
+            "games": 144,
             "endingYear": 2023,
             "endingWeek": 5,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 5
+          }
         },
         {
           "manager": "Halderman",
@@ -5445,8 +5361,7 @@
             "endingYear": 2017,
             "endingWeek": 7,
             "note": "Consecutive documented regular-season appearances (not necessarily consecutive NFL weeks)."
-          },
-          "rank": 13
+          }
         }
       ]
     },
@@ -7209,228 +7124,212 @@
       "description": "Regular-season wins against a single opponent in the recovered ledger.",
       "unit": "wins",
       "direction": "high",
-      "entries": 100,
+      "entries": 102,
       "qualifier": "At least five head-to-head meetings",
       "leaders": [
         {
           "manager": "Mitch",
+          "value": 11,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 15,
             "wins": 11,
             "losses": 4
           },
-          "value": 11,
           "rank": 1
         },
         {
           "manager": "Stilly",
+          "value": 11,
           "evidence": {
             "opponent": "Tom",
             "meetings": 15,
             "wins": 11,
             "losses": 4
-          },
-          "value": 11,
-          "rank": 1
+          }
         },
         {
           "manager": "Stover",
+          "value": 11,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 16,
             "wins": 11,
             "losses": 5
-          },
-          "value": 11,
-          "rank": 1
+          }
         },
         {
           "manager": "Stover",
+          "value": 11,
           "evidence": {
             "opponent": "Tom",
             "meetings": 16,
             "wins": 11,
             "losses": 5
-          },
-          "value": 11,
-          "rank": 1
+          }
         },
         {
           "manager": "Birch",
+          "value": 10,
           "evidence": {
             "opponent": "Stover",
             "meetings": 13,
             "wins": 10,
             "losses": 3
           },
-          "value": 10,
           "rank": 5
         },
         {
           "manager": "Birch",
+          "value": 10,
           "evidence": {
             "opponent": "Tony",
-            "meetings": 15,
+            "meetings": 16,
             "wins": 10,
-            "losses": 5
-          },
-          "value": 10,
-          "rank": 5
+            "losses": 6
+          }
         },
         {
           "manager": "Birch",
+          "value": 10,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 16,
             "wins": 10,
             "losses": 6
-          },
-          "value": 10,
-          "rank": 5
+          }
         },
         {
           "manager": "Mitch",
+          "value": 10,
           "evidence": {
             "opponent": "Stew",
             "meetings": 16,
             "wins": 10,
             "losses": 6
-          },
-          "value": 10,
-          "rank": 5
+          }
         },
         {
           "manager": "Stew",
+          "value": 10,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 20,
             "wins": 10,
             "losses": 10
-          },
-          "value": 10,
-          "rank": 5
+          }
         },
         {
           "manager": "Stilly",
+          "value": 10,
           "evidence": {
             "opponent": "Stew",
             "meetings": 20,
             "wins": 10,
             "losses": 10
-          },
-          "value": 10,
-          "rank": 5
+          }
         },
         {
           "manager": "Tom",
+          "value": 10,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 14,
             "wins": 10,
             "losses": 4
-          },
-          "value": 10,
-          "rank": 5
+          }
         },
         {
           "manager": "Tony",
+          "value": 10,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 15,
             "wins": 10,
             "losses": 5
-          },
-          "value": 10,
-          "rank": 5
+          }
         },
         {
           "manager": "Tony",
+          "value": 10,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 12,
             "wins": 10,
             "losses": 2
-          },
-          "value": 10,
-          "rank": 5
+          }
         },
         {
           "manager": "Birch",
+          "value": 9,
           "evidence": {
             "opponent": "Tom",
             "meetings": 15,
             "wins": 9,
             "losses": 6
           },
-          "value": 9,
           "rank": 14
         },
         {
           "manager": "Mitch",
+          "value": 9,
           "evidence": {
             "opponent": "Tony",
             "meetings": 13,
             "wins": 9,
             "losses": 4
-          },
-          "value": 9,
-          "rank": 14
+          }
         },
         {
           "manager": "Stover",
+          "value": 9,
           "evidence": {
             "opponent": "Stew",
             "meetings": 17,
             "wins": 9,
             "losses": 8
-          },
-          "value": 9,
-          "rank": 14
+          }
         },
         {
           "manager": "Tom",
+          "value": 9,
           "evidence": {
             "opponent": "Stew",
-            "meetings": 16,
+            "meetings": 17,
             "wins": 9,
-            "losses": 7
-          },
-          "value": 9,
-          "rank": 14
+            "losses": 8
+          }
         },
         {
           "manager": "Tony",
+          "value": 9,
           "evidence": {
             "opponent": "Tom",
             "meetings": 16,
             "wins": 9,
             "losses": 7
-          },
-          "value": 9,
-          "rank": 14
+          }
         },
         {
           "manager": "Birch",
+          "value": 8,
           "evidence": {
             "opponent": "Mitch",
             "meetings": 14,
             "wins": 8,
             "losses": 6
           },
-          "value": 8,
           "rank": 19
         },
         {
           "manager": "Mitch",
+          "value": 8,
           "evidence": {
             "opponent": "Tom",
             "meetings": 13,
             "wins": 8,
             "losses": 5
-          },
-          "value": 8,
-          "rank": 19
+          }
         }
       ]
     },
@@ -7441,228 +7340,212 @@
       "description": "Most recorded regular-season meetings with the same opponent.",
       "unit": "games",
       "direction": "high",
-      "entries": 100,
+      "entries": 102,
       "qualifier": "At least five head-to-head meetings",
       "leaders": [
         {
           "manager": "Stew",
+          "value": 20,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 20,
             "wins": 10,
             "losses": 10
           },
-          "value": 20,
           "rank": 1
         },
         {
           "manager": "Stilly",
+          "value": 20,
           "evidence": {
             "opponent": "Stew",
             "meetings": 20,
             "wins": 10,
             "losses": 10
-          },
-          "value": 20,
-          "rank": 1
+          }
         },
         {
           "manager": "Stew",
+          "value": 17,
           "evidence": {
             "opponent": "Stover",
             "meetings": 17,
             "wins": 8,
             "losses": 9
           },
-          "value": 17,
           "rank": 3
         },
         {
+          "manager": "Stew",
+          "value": 17,
+          "evidence": {
+            "opponent": "Tom",
+            "meetings": 17,
+            "wins": 8,
+            "losses": 9
+          }
+        },
+        {
           "manager": "Stover",
+          "value": 17,
           "evidence": {
             "opponent": "Stew",
             "meetings": 17,
             "wins": 9,
             "losses": 8
-          },
+          }
+        },
+        {
+          "manager": "Tom",
           "value": 17,
-          "rank": 3
+          "evidence": {
+            "opponent": "Stew",
+            "meetings": 17,
+            "wins": 9,
+            "losses": 8
+          }
         },
         {
           "manager": "Birch",
+          "value": 16,
+          "evidence": {
+            "opponent": "Tony",
+            "meetings": 16,
+            "wins": 10,
+            "losses": 6
+          },
+          "rank": 7
+        },
+        {
+          "manager": "Birch",
+          "value": 16,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 16,
             "wins": 10,
             "losses": 6
-          },
-          "value": 16,
-          "rank": 5
+          }
         },
         {
           "manager": "Kuhl",
+          "value": 16,
           "evidence": {
             "opponent": "Birch",
             "meetings": 16,
             "wins": 6,
             "losses": 10
-          },
-          "value": 16,
-          "rank": 5
+          }
         },
         {
           "manager": "Mitch",
+          "value": 16,
           "evidence": {
             "opponent": "Stew",
             "meetings": 16,
             "wins": 10,
             "losses": 6
-          },
-          "value": 16,
-          "rank": 5
+          }
         },
         {
           "manager": "Stew",
-          "evidence": {
-            "opponent": "Tom",
-            "meetings": 16,
-            "wins": 7,
-            "losses": 9
-          },
           "value": 16,
-          "rank": 5
-        },
-        {
-          "manager": "Stew",
           "evidence": {
             "opponent": "Mitch",
             "meetings": 16,
             "wins": 6,
             "losses": 10
-          },
-          "value": 16,
-          "rank": 5
+          }
         },
         {
           "manager": "Stilly",
+          "value": 16,
           "evidence": {
             "opponent": "Stover",
             "meetings": 16,
             "wins": 5,
             "losses": 11
-          },
-          "value": 16,
-          "rank": 5
+          }
         },
         {
           "manager": "Stover",
+          "value": 16,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 16,
             "wins": 11,
             "losses": 5
-          },
-          "value": 16,
-          "rank": 5
+          }
         },
         {
           "manager": "Stover",
+          "value": 16,
           "evidence": {
             "opponent": "Tom",
             "meetings": 16,
             "wins": 11,
             "losses": 5
-          },
-          "value": 16,
-          "rank": 5
+          }
         },
         {
           "manager": "Tom",
-          "evidence": {
-            "opponent": "Stew",
-            "meetings": 16,
-            "wins": 9,
-            "losses": 7
-          },
           "value": 16,
-          "rank": 5
-        },
-        {
-          "manager": "Tom",
           "evidence": {
             "opponent": "Stover",
             "meetings": 16,
             "wins": 5,
             "losses": 11
-          },
-          "value": 16,
-          "rank": 5
+          }
         },
         {
           "manager": "Tom",
+          "value": 16,
           "evidence": {
             "opponent": "Tony",
             "meetings": 16,
             "wins": 7,
             "losses": 9
-          },
-          "value": 16,
-          "rank": 5
+          }
         },
         {
           "manager": "Tony",
+          "value": 16,
           "evidence": {
             "opponent": "Tom",
             "meetings": 16,
             "wins": 9,
             "losses": 7
-          },
+          }
+        },
+        {
+          "manager": "Tony",
           "value": 16,
-          "rank": 5
-        },
-        {
-          "manager": "Birch",
           "evidence": {
-            "opponent": "Tony",
-            "meetings": 15,
-            "wins": 10,
-            "losses": 5
-          },
-          "value": 15,
-          "rank": 17
+            "opponent": "Birch",
+            "meetings": 16,
+            "wins": 6,
+            "losses": 10
+          }
         },
         {
           "manager": "Birch",
+          "value": 15,
           "evidence": {
             "opponent": "Tom",
             "meetings": 15,
             "wins": 9,
             "losses": 6
           },
-          "value": 15,
-          "rank": 17
+          "rank": 19
         },
         {
           "manager": "Mitch",
+          "value": 15,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 15,
             "wins": 11,
             "losses": 4
-          },
-          "value": 15,
-          "rank": 17
-        },
-        {
-          "manager": "Stilly",
-          "evidence": {
-            "opponent": "Tom",
-            "meetings": 15,
-            "wins": 11,
-            "losses": 4
-          },
-          "value": 15,
-          "rank": 17
+          }
         }
       ]
     },
@@ -7678,223 +7561,216 @@
       "leaders": [
         {
           "manager": "Tony",
+          "value": 83.33,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 12,
             "wins": 10,
             "losses": 2
           },
-          "value": 83.33,
           "rank": 1
         },
         {
           "manager": "Birch",
+          "value": 76.92,
           "evidence": {
             "opponent": "Stover",
             "meetings": 13,
             "wins": 10,
             "losses": 3
           },
-          "value": 76.92,
           "rank": 2
         },
         {
           "manager": "Mitch",
+          "value": 73.33,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 15,
             "wins": 11,
             "losses": 4
           },
-          "value": 73.33,
           "rank": 3
         },
         {
           "manager": "Stilly",
+          "value": 73.33,
           "evidence": {
             "opponent": "Tom",
             "meetings": 15,
             "wins": 11,
             "losses": 4
-          },
-          "value": 73.33,
-          "rank": 3
+          }
         },
         {
           "manager": "Tony",
+          "value": 72.73,
           "evidence": {
             "opponent": "Evans",
             "meetings": 11,
             "wins": 8,
             "losses": 3
           },
-          "value": 72.73,
           "rank": 5
         },
         {
           "manager": "Tom",
+          "value": 71.43,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 14,
             "wins": 10,
             "losses": 4
           },
-          "value": 71.43,
           "rank": 6
         },
         {
           "manager": "Mitch",
-          "evidence": {
-            "opponent": "Stover",
-            "meetings": 10,
-            "wins": 7,
-            "losses": 3
-          },
-          "value": 70,
-          "rank": 7
-        },
-        {
-          "manager": "Mitch",
+          "value": 69.23,
           "evidence": {
             "opponent": "Tony",
             "meetings": 13,
             "wins": 9,
             "losses": 4
           },
-          "value": 69.23,
-          "rank": 8
+          "rank": 7
         },
         {
           "manager": "Stover",
+          "value": 68.75,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 16,
             "wins": 11,
             "losses": 5
           },
-          "value": 68.75,
-          "rank": 9
+          "rank": 8
         },
         {
           "manager": "Stover",
+          "value": 68.75,
           "evidence": {
             "opponent": "Tom",
             "meetings": 16,
             "wins": 11,
             "losses": 5
-          },
-          "value": 68.75,
-          "rank": 9
-        },
-        {
-          "manager": "Birch",
-          "evidence": {
-            "opponent": "Tony",
-            "meetings": 15,
-            "wins": 10,
-            "losses": 5
-          },
-          "value": 66.67,
-          "rank": 11
+          }
         },
         {
           "manager": "Tony",
+          "value": 66.67,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 15,
             "wins": 10,
             "losses": 5
           },
-          "value": 66.67,
+          "rank": 10
+        },
+        {
+          "manager": "Mitch",
+          "value": 63.64,
+          "evidence": {
+            "opponent": "Stover",
+            "meetings": 11,
+            "wins": 7,
+            "losses": 4
+          },
           "rank": 11
         },
         {
           "manager": "Birch",
+          "value": 62.5,
+          "evidence": {
+            "opponent": "Tony",
+            "meetings": 16,
+            "wins": 10,
+            "losses": 6
+          },
+          "rank": 12
+        },
+        {
+          "manager": "Birch",
+          "value": 62.5,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 16,
             "wins": 10,
             "losses": 6
-          },
-          "value": 62.5,
-          "rank": 13
+          }
         },
         {
           "manager": "Kuhl",
+          "value": 62.5,
           "evidence": {
             "opponent": "Evans",
             "meetings": 8,
             "wins": 5,
             "losses": 3
-          },
-          "value": 62.5,
-          "rank": 13
+          }
         },
         {
           "manager": "Mitch",
+          "value": 62.5,
           "evidence": {
             "opponent": "Stew",
             "meetings": 16,
             "wins": 10,
             "losses": 6
-          },
-          "value": 62.5,
-          "rank": 13
+          }
         },
         {
           "manager": "Mitch",
+          "value": 62.5,
           "evidence": {
             "opponent": "Koble",
             "meetings": 8,
             "wins": 5,
             "losses": 3
-          },
-          "value": 62.5,
-          "rank": 13
+          }
         },
         {
           "manager": "Mitch",
+          "value": 61.54,
           "evidence": {
             "opponent": "Tom",
             "meetings": 13,
             "wins": 8,
             "losses": 5
           },
-          "value": 61.54,
           "rank": 17
         },
         {
           "manager": "Birch",
+          "value": 60,
           "evidence": {
             "opponent": "Tom",
             "meetings": 15,
             "wins": 9,
             "losses": 6
           },
-          "value": 60,
           "rank": 18
         },
         {
           "manager": "Evans",
+          "value": 58.33,
           "evidence": {
             "opponent": "Tom",
             "meetings": 12,
             "wins": 7,
             "losses": 5
           },
-          "value": 58.33,
           "rank": 19
         },
         {
           "manager": "Kuhl",
+          "value": 58.33,
           "evidence": {
             "opponent": "Koble",
             "meetings": 12,
             "wins": 7,
             "losses": 5
-          },
-          "value": 58.33,
-          "rank": 19
+          }
         }
       ]
     },
@@ -7905,227 +7781,227 @@
       "description": "Total points scored minus points allowed against one opponent over recorded regular-season meetings.",
       "unit": "pts",
       "direction": "high",
-      "entries": 100,
+      "entries": 102,
       "qualifier": "At least five head-to-head meetings",
       "leaders": [
         {
           "manager": "Tony",
+          "value": 270.78,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 15,
             "wins": 10,
             "losses": 5
           },
-          "value": 270.78,
           "rank": 1
         },
         {
           "manager": "Birch",
+          "value": 245.92,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 13,
             "wins": 7,
             "losses": 6
           },
-          "value": 245.92,
           "rank": 2
         },
         {
           "manager": "Stilly",
+          "value": 227.16,
           "evidence": {
             "opponent": "Tom",
             "meetings": 15,
             "wins": 11,
             "losses": 4
           },
-          "value": 227.16,
           "rank": 3
         },
         {
           "manager": "Mitch",
+          "value": 209.16,
           "evidence": {
             "opponent": "Tony",
             "meetings": 13,
             "wins": 9,
             "losses": 4
           },
-          "value": 209.16,
           "rank": 4
         },
         {
           "manager": "Tony",
+          "value": 205.86,
           "evidence": {
             "opponent": "Evans",
             "meetings": 11,
             "wins": 8,
             "losses": 3
           },
-          "value": 205.86,
           "rank": 5
         },
         {
           "manager": "Tom",
+          "value": 198.36,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 14,
             "wins": 10,
             "losses": 4
           },
-          "value": 198.36,
           "rank": 6
         },
         {
           "manager": "Mitch",
+          "value": 196.32,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 15,
             "wins": 11,
             "losses": 4
           },
-          "value": 196.32,
           "rank": 7
         },
         {
           "manager": "Tony",
+          "value": 184.04,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 12,
             "wins": 10,
             "losses": 2
           },
-          "value": 184.04,
           "rank": 8
         },
         {
           "manager": "Tony",
+          "value": 175.24,
           "evidence": {
             "opponent": "Koble",
             "meetings": 11,
             "wins": 6,
             "losses": 5
           },
-          "value": 175.24,
           "rank": 9
         },
         {
           "manager": "Birch",
+          "value": 171.94,
           "evidence": {
             "opponent": "Stover",
             "meetings": 13,
             "wins": 10,
             "losses": 3
           },
-          "value": 171.94,
           "rank": 10
         },
         {
           "manager": "Stover",
+          "value": 166.76,
           "evidence": {
             "opponent": "Tom",
             "meetings": 16,
             "wins": 11,
             "losses": 5
           },
-          "value": 166.76,
           "rank": 11
         },
         {
           "manager": "Birch",
+          "value": 133.46,
           "evidence": {
             "opponent": "Tony",
-            "meetings": 15,
+            "meetings": 16,
             "wins": 10,
-            "losses": 5
+            "losses": 6
           },
-          "value": 162.7,
           "rank": 12
         },
         {
           "manager": "Evans",
+          "value": 126.64,
           "evidence": {
             "opponent": "Koble",
             "meetings": 13,
             "wins": 7,
             "losses": 6
           },
-          "value": 126.64,
           "rank": 13
         },
         {
           "manager": "Mitch",
+          "value": 126.16,
           "evidence": {
             "opponent": "Tom",
             "meetings": 13,
             "wins": 8,
             "losses": 5
           },
-          "value": 126.16,
           "rank": 14
         },
         {
           "manager": "Evans",
+          "value": 124.04,
           "evidence": {
             "opponent": "Stover",
             "meetings": 14,
             "wins": 6,
             "losses": 8
           },
-          "value": 124.04,
           "rank": 15
         },
         {
           "manager": "Birch",
+          "value": 119.72,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 16,
             "wins": 10,
             "losses": 6
           },
-          "value": 119.72,
           "rank": 16
         },
         {
           "manager": "Kuhl",
+          "value": 118.28,
           "evidence": {
             "opponent": "Koble",
             "meetings": 12,
             "wins": 7,
             "losses": 5
           },
-          "value": 118.28,
           "rank": 17
         },
         {
           "manager": "Mitch",
+          "value": 113.22,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 11,
             "wins": 5,
             "losses": 6
           },
-          "value": 113.22,
           "rank": 18
         },
         {
           "manager": "Mitch",
+          "value": 106.78,
           "evidence": {
             "opponent": "Birch",
             "meetings": 14,
             "wins": 6,
             "losses": 8
           },
-          "value": 106.78,
           "rank": 19
         },
         {
           "manager": "Stover",
+          "value": 103.34,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 16,
             "wins": 11,
             "losses": 5
           },
-          "value": 103.34,
           "rank": 20
         }
       ]
@@ -8137,227 +8013,227 @@
       "description": "Average team points scored in meetings with one opponent.",
       "unit": "ppg",
       "direction": "high",
-      "entries": 100,
+      "entries": 102,
       "qualifier": "At least five head-to-head meetings",
       "leaders": [
         {
           "manager": "Mitch",
+          "value": 127.78,
           "evidence": {
             "opponent": "Tony",
             "meetings": 13,
             "wins": 9,
             "losses": 4
           },
-          "value": 127.78,
           "rank": 1
         },
         {
           "manager": "Tom",
+          "value": 127.03,
           "evidence": {
             "opponent": "Scott",
             "meetings": 5,
             "wins": 3,
             "losses": 2
           },
-          "value": 127.03,
           "rank": 2
         },
         {
           "manager": "Mitch",
+          "value": 123.7,
           "evidence": {
             "opponent": "Tom",
             "meetings": 13,
             "wins": 8,
             "losses": 5
           },
-          "value": 123.7,
           "rank": 3
         },
         {
           "manager": "Tony",
+          "value": 123.34,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 12,
             "wins": 10,
             "losses": 2
           },
-          "value": 123.33,
           "rank": 4
         },
         {
           "manager": "Mitch",
+          "value": 122.46,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 15,
             "wins": 11,
             "losses": 4
           },
-          "value": 122.46,
           "rank": 5
         },
         {
           "manager": "Tony",
+          "value": 121.25,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 15,
             "wins": 10,
             "losses": 5
           },
-          "value": 121.25,
           "rank": 6
         },
         {
           "manager": "Mitch",
+          "value": 121.15,
           "evidence": {
             "opponent": "Kuhl",
             "meetings": 11,
             "wins": 5,
             "losses": 6
           },
-          "value": 121.15,
           "rank": 7
         },
         {
           "manager": "Mitch",
+          "value": 120.89,
           "evidence": {
             "opponent": "Evans",
             "meetings": 9,
             "wins": 4,
             "losses": 5
           },
-          "value": 120.89,
           "rank": 8
         },
         {
           "manager": "Evans",
+          "value": 118.56,
           "evidence": {
             "opponent": "Mitch",
             "meetings": 9,
             "wins": 5,
             "losses": 4
           },
-          "value": 118.56,
           "rank": 9
         },
         {
           "manager": "Stover",
+          "value": 117.92,
           "evidence": {
             "opponent": "Scott",
             "meetings": 5,
             "wins": 2,
             "losses": 3
           },
-          "value": 117.92,
           "rank": 10
         },
         {
           "manager": "Stover",
+          "value": 117.52,
           "evidence": {
             "opponent": "Stilly",
             "meetings": 16,
             "wins": 11,
             "losses": 5
           },
-          "value": 117.52,
           "rank": 11
         },
         {
-          "manager": "Mitch",
-          "evidence": {
-            "opponent": "Stew",
-            "meetings": 16,
-            "wins": 10,
-            "losses": 6
-          },
-          "value": 116.63,
-          "rank": 12
-        },
-        {
-          "manager": "Tony",
-          "evidence": {
-            "opponent": "Koble",
-            "meetings": 11,
-            "wins": 6,
-            "losses": 5
-          },
-          "value": 116.43,
-          "rank": 13
-        },
-        {
-          "manager": "Tony",
-          "evidence": {
-            "opponent": "Evans",
-            "meetings": 11,
-            "wins": 8,
-            "losses": 3
-          },
-          "value": 116.38,
-          "rank": 14
-        },
-        {
-          "manager": "Stilly",
+          "manager": "JMid",
+          "value": 117.07,
           "evidence": {
             "opponent": "Scott",
             "meetings": 5,
             "wins": 3,
             "losses": 2
           },
-          "value": 115.98,
+          "rank": 12
+        },
+        {
+          "manager": "Mitch",
+          "value": 116.63,
+          "evidence": {
+            "opponent": "Stew",
+            "meetings": 16,
+            "wins": 10,
+            "losses": 6
+          },
+          "rank": 13
+        },
+        {
+          "manager": "Tony",
+          "value": 116.43,
+          "evidence": {
+            "opponent": "Koble",
+            "meetings": 11,
+            "wins": 6,
+            "losses": 5
+          },
+          "rank": 14
+        },
+        {
+          "manager": "Tony",
+          "value": 116.38,
+          "evidence": {
+            "opponent": "Evans",
+            "meetings": 11,
+            "wins": 8,
+            "losses": 3
+          },
           "rank": 15
         },
         {
+          "manager": "Stilly",
+          "value": 115.98,
+          "evidence": {
+            "opponent": "Scott",
+            "meetings": 5,
+            "wins": 3,
+            "losses": 2
+          },
+          "rank": 16
+        },
+        {
           "manager": "Kuhl",
+          "value": 115.86,
           "evidence": {
             "opponent": "Stew",
             "meetings": 12,
             "wins": 7,
             "losses": 5
           },
-          "value": 115.86,
-          "rank": 16
+          "rank": 17
         },
         {
           "manager": "Stew",
+          "value": 115.69,
           "evidence": {
             "opponent": "Mitch",
             "meetings": 16,
             "wins": 6,
             "losses": 10
           },
-          "value": 115.69,
-          "rank": 17
+          "rank": 18
         },
         {
           "manager": "Stover",
+          "value": 115.49,
           "evidence": {
             "opponent": "Tom",
             "meetings": 16,
             "wins": 11,
             "losses": 5
           },
-          "value": 115.49,
-          "rank": 18
-        },
-        {
-          "manager": "Stilly",
-          "evidence": {
-            "opponent": "Kuhl",
-            "meetings": 11,
-            "wins": 6,
-            "losses": 5
-          },
-          "value": 115.19,
           "rank": 19
         },
         {
-          "manager": "Birch",
+          "manager": "Stilly",
+          "value": 115.32,
           "evidence": {
-            "opponent": "Koble",
-            "meetings": 11,
-            "wins": 5,
-            "losses": 6
+            "opponent": "Kuhl",
+            "meetings": 12,
+            "wins": 7,
+            "losses": 5
           },
-          "value": 114.75,
           "rank": 20
         }
       ]
