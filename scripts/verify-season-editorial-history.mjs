@@ -25,6 +25,8 @@ assert(html.includes("url.searchParams.set('year'"),'Every selected edition must
 assert(html.includes("const initialYear=new URLSearchParams(location.search).get('year')"),'Year deep links must restore selection');
 assert(html.includes("x.year+'.html'"),'Completed Sleeper seasons must link to their dedicated archive');
 assert(html.includes("'../hall/championship-stories.html?year='+x.year"),'ESPN championship years must reach anthology');
+assert(html.includes('activeManagerSlugs={Stilly:'),'Current manager cross-links must exist');
+assert(html.includes('managerLink(r.name)'),'Archived standings must link active manager franchise profiles');
 assert(html.includes('season-editorial-history-v1.css'),'Shared editorial styles not linked');
 assert(css.includes('@media(max-width:450px)')&&css.includes('prefers-reduced-motion'),'Responsive accessible layout missing');
 console.log('PASS: all eleven seasons, preserved source data, dynamic 2026 caveat, deep links and editorial navigation');
