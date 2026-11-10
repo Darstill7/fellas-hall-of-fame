@@ -15,8 +15,10 @@ for(let year=2020;year<=2025;year++){
   '2026 · Week 6 snapshot','Verified through 2026 W6','2026 Week 6 standings verified'])
   assert.ok(!page.includes(old),year+' contains obsolete internal or season-cutoff label: '+old);
  assert.ok(page.includes('<a href="../managers/">Managers</a>')&&
-  page.includes('<a href="../seasons/">Seasons</a>'),
-  year+' archive global navigation must lead to directories');
+  page.includes('<a href="../hall/">Hall of Fame</a>')&&
+  page.includes('<a href="../analytics/record-holders.html">Records</a>')&&
+  page.includes('<a href="./?year='+year+'">Season library</a>'),
+  year+' archive global navigation must lead to managers, records and its own season edition');
  assert.ok(page.includes('☰ Explore site')&&
   page.includes('<a href="../managers/">👤 Managers</a>')&&
   page.includes('<a href="../seasons/">📅 Seasons</a>')&&
