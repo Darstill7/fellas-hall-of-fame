@@ -1,9 +1,9 @@
 {
   "schema": "fellas-faab-manager-spend-research-v2",
-  "generatedFor": "2026-10-30 historical recovery",
+  "generatedFor": "2026-11-10 Week 9 receipts reconciliation",
   "source": "Provider-reported complete and failed Sleeper claims, validated against archived transaction IDs",
   "status": "provider_observed_no_skill_grade",
-  "scope": "2020-2025 weeks 1-18; 2026 weeks 1-7 (partial); commissioner-confirmed 2023 former JMidd team owner Evans, JMid began 2024",
+  "scope": "2020-2025 weeks 1-18; 2026 weeks 1-9 (partial); commissioner-confirmed 2023 former JMidd team owner Evans, JMid began 2024",
   "policy": "Only status=complete claims contribute to reported winning spend. Failed bids are attempted; causes not established. Historical starting budgets, waiver alternatives and decision skill are NOT established.",
   "managerSeasons": [
     {
@@ -680,13 +680,13 @@
     {
       "year": 2026,
       "manager": "JMid",
-      "completedClaims": 10,
-      "failedClaims": 8,
-      "paidWins": 10,
-      "zeroDollarWins": 0,
-      "completedBidSpend": 67,
-      "failedAttemptedBidTotal": 24,
-      "completedNotInOldArchive": 1
+      "completedClaims": 12,
+      "failedClaims": 11,
+      "paidWins": 11,
+      "zeroDollarWins": 1,
+      "completedBidSpend": 69,
+      "failedAttemptedBidTotal": 36,
+      "completedNotInOldArchive": 0
     },
     {
       "year": 2026,
@@ -702,44 +702,44 @@
     {
       "year": 2026,
       "manager": "Mitch",
-      "completedClaims": 6,
-      "failedClaims": 2,
-      "paidWins": 4,
+      "completedClaims": 7,
+      "failedClaims": 3,
+      "paidWins": 5,
       "zeroDollarWins": 2,
-      "completedBidSpend": 15,
+      "completedBidSpend": 25,
       "failedAttemptedBidTotal": 0,
-      "completedNotInOldArchive": 1
+      "completedNotInOldArchive": 0
     },
     {
       "year": 2026,
       "manager": "Scott",
-      "completedClaims": 8,
-      "failedClaims": 3,
-      "paidWins": 5,
+      "completedClaims": 11,
+      "failedClaims": 4,
+      "paidWins": 8,
       "zeroDollarWins": 3,
-      "completedBidSpend": 30,
-      "failedAttemptedBidTotal": 24,
+      "completedBidSpend": 42,
+      "failedAttemptedBidTotal": 29,
       "completedNotInOldArchive": 0
     },
     {
       "year": 2026,
       "manager": "Stew",
-      "completedClaims": 7,
-      "failedClaims": 12,
-      "paidWins": 2,
-      "zeroDollarWins": 5,
-      "completedBidSpend": 15,
-      "failedAttemptedBidTotal": 8,
+      "completedClaims": 10,
+      "failedClaims": 19,
+      "paidWins": 4,
+      "zeroDollarWins": 6,
+      "completedBidSpend": 32,
+      "failedAttemptedBidTotal": 22,
       "completedNotInOldArchive": 0
     },
     {
       "year": 2026,
       "manager": "Stilly",
-      "completedClaims": 8,
+      "completedClaims": 10,
       "failedClaims": 5,
-      "paidWins": 3,
+      "paidWins": 5,
       "zeroDollarWins": 5,
-      "completedBidSpend": 21,
+      "completedBidSpend": 60,
       "failedAttemptedBidTotal": 8,
       "completedNotInOldArchive": 0
     },
@@ -752,28 +752,28 @@
       "zeroDollarWins": 0,
       "completedBidSpend": 17,
       "failedAttemptedBidTotal": 0,
-      "completedNotInOldArchive": 1
+      "completedNotInOldArchive": 0
     },
     {
       "year": 2026,
       "manager": "Thommy",
       "completedClaims": 13,
-      "failedClaims": 16,
+      "failedClaims": 17,
       "paidWins": 8,
       "zeroDollarWins": 5,
       "completedBidSpend": 49,
-      "failedAttemptedBidTotal": 37,
-      "completedNotInOldArchive": 3
+      "failedAttemptedBidTotal": 45,
+      "completedNotInOldArchive": 0
     },
     {
       "year": 2026,
       "manager": "Tony",
       "completedClaims": 0,
-      "failedClaims": 2,
+      "failedClaims": 3,
       "paidWins": 0,
       "zeroDollarWins": 0,
       "completedBidSpend": 0,
-      "failedAttemptedBidTotal": 5,
+      "failedAttemptedBidTotal": 32,
       "completedNotInOldArchive": 0
     }
   ],
@@ -782,12 +782,12 @@
       "manager": "Thommy",
       "seasons": 7,
       "completedClaims": 114,
-      "failedClaims": 108,
+      "failedClaims": 109,
       "paidWins": 68,
       "zeroDollarWins": 46,
       "completedBidSpend": 565,
-      "failedAttemptedBidTotal": 431,
-      "completedNotInOldArchive": 8
+      "failedAttemptedBidTotal": 439,
+      "completedNotInOldArchive": 5
     },
     {
       "manager": "Birch",
@@ -814,34 +814,34 @@
     {
       "manager": "Stilly",
       "seasons": 7,
-      "completedClaims": 81,
+      "completedClaims": 83,
       "failedClaims": 50,
-      "paidWins": 53,
+      "paidWins": 55,
       "zeroDollarWins": 28,
-      "completedBidSpend": 460,
+      "completedBidSpend": 499,
       "failedAttemptedBidTotal": 370,
       "completedNotInOldArchive": 7
     },
     {
       "manager": "Mitch",
       "seasons": 7,
-      "completedClaims": 99,
-      "failedClaims": 50,
-      "paidWins": 71,
+      "completedClaims": 100,
+      "failedClaims": 51,
+      "paidWins": 72,
       "zeroDollarWins": 28,
-      "completedBidSpend": 450,
+      "completedBidSpend": 460,
       "failedAttemptedBidTotal": 158,
-      "completedNotInOldArchive": 7
+      "completedNotInOldArchive": 6
     },
     {
       "manager": "Stew",
       "seasons": 7,
-      "completedClaims": 103,
-      "failedClaims": 133,
-      "paidWins": 43,
-      "zeroDollarWins": 60,
-      "completedBidSpend": 423,
-      "failedAttemptedBidTotal": 438,
+      "completedClaims": 106,
+      "failedClaims": 140,
+      "paidWins": 45,
+      "zeroDollarWins": 61,
+      "completedBidSpend": 440,
+      "failedAttemptedBidTotal": 452,
       "completedNotInOldArchive": 1
     },
     {
@@ -853,7 +853,7 @@
       "zeroDollarWins": 16,
       "completedBidSpend": 409,
       "failedAttemptedBidTotal": 185,
-      "completedNotInOldArchive": 5
+      "completedNotInOldArchive": 4
     },
     {
       "manager": "Koble",
@@ -870,23 +870,23 @@
       "manager": "Tony",
       "seasons": 7,
       "completedClaims": 28,
-      "failedClaims": 12,
+      "failedClaims": 13,
       "paidWins": 21,
       "zeroDollarWins": 7,
       "completedBidSpend": 360,
-      "failedAttemptedBidTotal": 57,
+      "failedAttemptedBidTotal": 84,
       "completedNotInOldArchive": 1
     },
     {
       "manager": "JMid",
       "seasons": 3,
-      "completedClaims": 42,
-      "failedClaims": 35,
-      "paidWins": 33,
-      "zeroDollarWins": 9,
-      "completedBidSpend": 212,
-      "failedAttemptedBidTotal": 134,
-      "completedNotInOldArchive": 2
+      "completedClaims": 44,
+      "failedClaims": 38,
+      "paidWins": 34,
+      "zeroDollarWins": 10,
+      "completedBidSpend": 214,
+      "failedAttemptedBidTotal": 146,
+      "completedNotInOldArchive": 1
     },
     {
       "manager": "Evans",
@@ -902,12 +902,12 @@
     {
       "manager": "Scott",
       "seasons": 3,
-      "completedClaims": 33,
-      "failedClaims": 27,
-      "paidWins": 19,
+      "completedClaims": 36,
+      "failedClaims": 28,
+      "paidWins": 22,
       "zeroDollarWins": 14,
-      "completedBidSpend": 140,
-      "failedAttemptedBidTotal": 126,
+      "completedBidSpend": 152,
+      "failedAttemptedBidTotal": 131,
       "completedNotInOldArchive": 1
     }
   ],
