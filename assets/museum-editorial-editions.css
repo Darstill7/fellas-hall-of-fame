@@ -1,0 +1,69 @@
+/* Fellas museum editions · Player Hall / Hall of Shame
+   Editorial presentation only. Historic exhibits retain their original data. */
+:root{--museum-paper:#f0e5cf;--museum-gold:#e7c783;--museum-ink:#08131d}
+html{scroll-padding-top:88px}
+body{background:radial-gradient(ellipse at 25% -8%,#243c4c 0,#0c1b27 45%,#07111a 78%)!important;color:var(--museum-paper)}
+body .wrap{max-width:1160px;padding:0 clamp(16px,3vw,34px) 86px}
+.museum-skip{position:absolute;top:-110px;left:14px;z-index:9000;background:#f1d392;color:#07131e;padding:12px 18px;font-weight:900;border-radius:7px;text-decoration:none}
+.museum-skip:focus{top:14px}
+.brandbar{border-bottom:1px solid #344553;padding-top:22px;padding-bottom:18px}
+.brandbar .brandmark{text-decoration:none}
+.brandbar .live-chip{font-size:11px;letter-spacing:.07em;color:#dfcba3;border-color:#65563c;background:#1a2630}
+.page-kicker{letter-spacing:.15em;text-transform:uppercase;color:#b4a994}
+.top{position:relative;isolation:isolate;display:block;margin-top:16px;padding:clamp(28px,6vw,70px) clamp(23px,5vw,64px) clamp(28px,5vw,55px);border:1px solid #655439;border-radius:3px;background:linear-gradient(120deg,rgba(25,42,55,.97),rgba(12,23,33,.98)),radial-gradient(circle at 90% 10%,#615134,#152331);overflow:hidden;box-shadow:none}
+.top::before{content:'';position:absolute;top:20px;right:24px;width:100px;height:100px;border:1px solid #9b7945;border-radius:50%;opacity:.45;pointer-events:none}
+.top::after{content:'';position:absolute;inset:12px;border:1px solid #b38c4a32;z-index:-1;pointer-events:none}
+.top .eyebrow{font:800 11px/1.3 system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#edc983}
+.top h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;letter-spacing:-.065em;font-size:clamp(52px,8.5vw,110px);line-height:.95;margin:20px 0 20px;color:#f7e8c8}
+.top p{font-size:clamp(16px,2vw,19px);line-height:1.75;max-width:750px;color:#d3d8d9}
+.nav{position:relative;top:auto;z-index:5;display:flex;flex-wrap:wrap;white-space:normal;overflow:visible;background:#0e1e2a;border:1px solid #42515c;border-top:0;margin:0 0 12px;padding:7px 10px}
+.nav a{display:inline-flex;min-height:44px;align-items:center;padding:11px clamp(9px,1.4vw,17px);color:#e4e0d3;font-weight:750;font-size:13px;text-decoration:none;border-bottom:2px solid transparent}
+.nav a:hover,.nav a[aria-current=page]{color:#f7d58e;border-bottom-color:#e9c77f}
+.museum-chapter{display:flex;gap:14px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin:30px 0 15px;padding:0 1px}
+.museum-chapter .chapter-name{font:700 clamp(24px,3vw,35px)/1.15 Georgia,'Times New Roman',serif;color:#f6e7c5;letter-spacing:-.03em}
+.museum-chapter .chapter-kicker{font-size:11px;font-weight:900;letter-spacing:.15em;color:#edc983;text-transform:uppercase}
+.museum-chapter p{max-width:710px;color:#bec9d0;line-height:1.65;margin:8px 0 0}
+.museum-sister-link{display:inline-flex;align-items:center;min-height:44px;padding:10px 15px;border:1px solid #8f7547;border-radius:5px;color:#ffe0a0;text-decoration:none;font-weight:750;font-size:13px}
+.museum-sister-link:hover{background:#2f2b21}
+.museum-evidence{margin:18px 0 8px;padding:15px 18px;border-left:3px solid #e2bd76;background:#142633;color:#c7d1d5;line-height:1.65;font-size:13px}
+.museum-evidence strong{color:#f2ddaf}
+.mobile-menu{margin:10px 0 18px}
+.mobile-menu summary{min-height:44px;display:inline-flex;align-items:center}
+.mobile-dock{display:none!important}
+a:focus-visible,summary:focus-visible{outline:3px solid #edc983;outline-offset:3px}
+.section{margin:30px 0 58px}
+.section .grid{gap:15px}
+.section .card{box-shadow:none;border:1px solid #475461;border-radius:5px;background:linear-gradient(160deg,#1a2a36,#101f2a);padding:clamp(17px,2.5vw,26px)}
+.section .card .label{letter-spacing:.17em;color:#e4bb78}
+.section .card h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(25px,3vw,35px);font-weight:700;line-height:1.13;color:#f8e9cd}
+.section .card .muted{font-size:14px;line-height:1.67;color:#c6d0d6}
+.section .card .hof-score{font:700 clamp(35px,5vw,55px)/1 Georgia,serif;color:#e9cb91}
+.section .meter{height:3px;background:#293d49;border-radius:0;margin-top:19px}
+.section .meter span{background:#d9b46c}
+.section .callout{border-radius:5px;background:#182b37;box-shadow:none}
+.section .pill.gold{min-height:44px;align-items:center}
+.shame-intro{margin:32px 0}
+.shame-feature{border-radius:5px;box-shadow:none;background:linear-gradient(110deg,#342925,#192b37 74%);border-color:#83674d}
+.shame-feature h2,.shame-category-head h2{font-family:Georgia,'Times New Roman',serif;letter-spacing:-.04em}
+.shame-trophy{border-radius:50%;background:#352b25;border-color:#947250}
+.shame-jump{gap:10px}
+.shame-jump a{min-height:44px;display:inline-flex;align-items:center;border-radius:4px}
+.shame-category{scroll-margin-top:25px}
+.shame-category .shame-card{border-radius:5px;box-shadow:none}
+.shame-category .shame-card h2{font-family:Georgia,'Times New Roman',serif;letter-spacing:-.02em}
+.footer{border-top:1px solid #4b514d;font-size:12px;color:#aebac2}
+@media(max-width:700px){
+ .top{padding:30px 21px}
+ .top::before{width:64px;height:64px;right:14px;top:14px}
+ .top h1{font-size:clamp(48px,13vw,77px)}
+ .nav{gap:0;padding:5px}
+ .nav a{font-size:12px;padding:10px 9px;min-height:44px}
+ .museum-chapter{align-items:flex-start}
+ .museum-sister-link{width:100%;justify-content:center}
+ .section .grid{grid-template-columns:1fr}
+ .section .grid>.card{grid-column:1/-1}
+ .rival-hero{align-items:flex-start}
+ .shame-feature{grid-template-columns:1fr}
+ .shame-trophy{width:68px;height:68px;font-size:43px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
