@@ -12,11 +12,17 @@ for(const g of ledger.games.filter(x=>x.stage==='regular')){
            {year:Number(g.year),week:Number(g.week),manager:g.away,points:Math.round(Number(g.awayScore)*100)});
  weeks.set(k,rows);
 }
-const excluded=[],titles=new Map();
+const excluded=[],titles=new Map(),topThree=new Map(),aboveAverage=new Map();
 for(const [k,rows] of weeks){
  const year=rows[0].year,required=year===2016?8:10;
  if(rows.length!==required||new Set(rows.map(x=>x.manager)).size!==required){excluded.push(k);continue}
  const high=Math.max(...rows.map(x=>x.points));
+ const mean=rows.reduce((sum,x)=>sum+x.points,0)/rows.length;
+ for(const r of rows){
+  const id=year+'|'+r.manager,rank=1+rows.filter(x=>x.points>r.points).length;
+  if(rank<=3){const arr=topThree.get(id)||[];arr.push(r.week);topThree.set(id,arr)}
+  if(r.points>mean)aboveAverage.set(id,(aboveAverage.get(id)||0)+1);
+ }
  for(const r of rows.filter(x=>x.points===high)){
   const id=year+'|'+r.manager,arr=titles.get(id)||[];
   arr.push(r.week);titles.set(id,arr);
@@ -35,4 +41,9 @@ assert.equal(Math.max(...[...titles].filter(([k])=>!k.startsWith('2026|')).map((
 assert.equal(titles.get('2026|Mitch')?.length,4,'Mitch 2026 provisional');
 assert.equal(streak(titles.get('2026|JMid')),2,'JMid 2026 Weeks 8–9');
 assert.deepEqual(titles.get('2026|JMid')?.filter(w=>w>=8),[8,9]);
-console.log('PASS: fully paired week coverage, all-time single-season titles, consecutive streaks and provisional 2026');
+assert.equal(streak(topThree.get('2023|Tony')),5,'Tony 2023 top-three streak');
+assert.equal(streak(topThree.get('2025|Tony')),5,'Tony 2025 top-three streak');
+assert.equal(Math.max(...[...topThree].filter(([k])=>!k.startsWith('2026|')).map(([,v])=>streak(v))),5,'Completed-season top-three streak maximum');
+assert.equal(aboveAverage.get('2022|Stew'),12,'Stew 2022 above-average weeks');
+assert.equal(Math.max(...[...aboveAverage].filter(([k])=>!k.startsWith('2026|')).map(([,v])=>v)),12,'Completed-season above-average weeks maximum');
+console.log('PASS: weekly scoring title, top-three streak, above-average consistency and provisional 2026 records');
