@@ -21,6 +21,8 @@ body.premium-franchise .hof-career-kicker{color:#e1c68d;letter-spacing:.19em;fon
 body.premium-franchise .hof-career-exhibit h2{font:400 clamp(28px,4vw,44px)/1.18 Georgia,'Times New Roman',serif;letter-spacing:-.045em;margin:12px 0 17px}
 body.premium-franchise .hof-career-intro{font:400 clamp(16px,2vw,21px)/1.72 Georgia,'Times New Roman',serif;color:#ede5d7;max-width:60ch}
 body.premium-franchise .hof-career-actions button{border-radius:2px;min-height:48px}
+body.premium-franchise .hof-career-source-note{border-top:1px solid #51636a;margin:17px 0 0;padding:15px 0 0;font-size:12px;line-height:1.7;color:#b9c9cd;max-width:75ch}
+body.premium-franchise .hof-career-source-note a{color:#eed3a0;text-decoration:underline;text-underline-offset:3px}
 body.premium-franchise .manager-home-hub{max-width:1000px;border:1px solid #5a6b75;border-radius:2px;background:#10252f;box-shadow:none;padding:clamp(18px,2.8vw,28px)}
 body.premium-franchise .manager-home-hub h2{font:400 clamp(25px,3.5vw,37px)/1.2 Georgia,'Times New Roman',serif!important;letter-spacing:-.04em;color:#f4e8d4}
 body.premium-franchise .manager-home-hub-tile{border-radius:2px;border-color:#526977;background:#17303d;min-height:76px;box-shadow:none}
