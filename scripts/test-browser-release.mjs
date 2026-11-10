@@ -240,7 +240,7 @@ try{
    }
    if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
     const managerName=route.split('/')[1]==='tom'?'Tom':route.split('/')[1].charAt(0).toUpperCase()+route.split('/')[1].slice(1);
-    const recordLink=page.locator('main .hero .buttons a[href*="expanded-records.html?manager="]');
+    const recordLink=page.locator('main .hero .buttons a[href*="record-holders.html?manager="]');
     if(await recordLink.count()!==1)errors.push(width+' '+route+' no direct Records action on manager hero');
     const recordOverview=page.locator('[data-expanded-records-profile] .records-profile-summary');
     await recordOverview.waitFor({state:'attached',timeout:12000}).catch(()=>{});
@@ -573,7 +573,7 @@ try{
       errors.push(width+' '+route+' manager hero must show the canonical public nickname');
      const heroActions=page.locator('main .hero > .buttons > a');
      if(await heroActions.count()!==2||
-        !((await heroActions.first().getAttribute('href'))?.includes('expanded-records.html?manager=')))
+        !((await heroActions.first().getAttribute('href'))?.includes('record-holders.html?manager=')))
       errors.push(width+' '+route+' hero still shows legacy multi-link navigation');
      if(['stilly','tom','stover','birch'].includes(slug)){
       await page.waitForFunction(()=>document.querySelector('#season-history .season-accordion')!==null,null,{timeout:8000}).catch(()=>{});
@@ -1971,7 +1971,7 @@ try{
       errors.push(width+' '+slug+' competing older franchise-profile promo still visible');
      const heroActions=page.locator('main .hero .buttons a');
      if(await heroActions.count()!==2||
-        !(await heroActions.first().getAttribute('href'))?.includes('expanded-records.html?manager=')||
+        !(await heroActions.first().getAttribute('href'))?.includes('record-holders.html?manager=')||
         await heroActions.nth(1).getAttribute('href')!=='#profile-features')
       errors.push(width+' '+slug+' hero has duplicate or misleading navigation links');
      // The shared readability stylesheet must be loaded on each manager route.
