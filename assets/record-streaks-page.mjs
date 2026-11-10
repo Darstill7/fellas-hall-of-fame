@@ -57,7 +57,7 @@ async function render(){
    longest.name+' · '+longest.year+' · Weeks '+longest.start+'–'+longest.end,
    'Weekly league-high scores: '+longest.scores.map(format).join(' / ')));
   host.append(card('Most consecutive losses to open a season',worst.length+' losses',
-   worst.name+' · '+worst.year+' · Opened '+worst.length+'–0 in losses (0–'+worst.length+' record)',
+   worst.name+' · '+worst.year+' · Opened 0–'+worst.length,
    'Regular-season opening results; ongoing seasons included'));
   const details=make('details',undefined,'leader-nonholders');
   const summary=make('summary','Explore every consecutive weekly scoring-title streak ('+twoPlus.length+')');
