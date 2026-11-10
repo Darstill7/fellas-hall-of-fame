@@ -161,7 +161,7 @@ try{
  if(data.version!==1||data.categoryCount!==data.categories.length||!canonical.every(n=>data.signatures?.[n]))throw Error("Expanded record data invalid");
  renderHub(data);renderProfile(data);renderManagerBook(data);renderExplorer(data);
 }catch(error){
- for(const id of ["expanded-records-teaser","expanded-manager-records","expanded-records-explorer"]){
+ for(const id of ["manager-record-portfolio","expanded-records-teaser","expanded-manager-records","expanded-records-explorer"]){
   const el=document.getElementById(id);if(el)el.textContent="Expanded records are temporarily unavailable. Existing verified records remain accessible.";
  }
  const profile=document.querySelector("[data-expanded-records-profile]");if(profile)profile.textContent="Additional records temporarily unavailable.";
