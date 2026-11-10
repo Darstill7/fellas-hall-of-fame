@@ -25,4 +25,14 @@ for(const {source,nav,skip} of pages){
  assert(content.includes('.audit-skip:focus{top:10px}'),'Skip navigation not focus visible in '+source);
  assert.equal((content.match(/<h1\b/g)||[]).length,1,'Each page needs one heading: '+source);
 }
+const tradesHtml=readFileSync('analytics/trade-museum.html','utf8');
+const archiveMatch=tradesHtml.match(/<script id="archive-data" type="application\\/json">([\\s\\S]*?)<\\/script>/);
+assert(archiveMatch,'Embedded trade evidence must remain intact');
+const archive=JSON.parse(archiveMatch[1]);
+const managers=new Set(archive.flatMap(t=>t.sides.map(s=>s.manager)));
+for(const manager of ['EvansBrandon','Koble'])assert(managers.has(manager),'Historical participant source must be audited: '+manager);
+assert(tradesHtml.includes("key==='evansbrandon'?'Evans':name"),'EvansBrandon must resolve to the canonical Evans record book');
+assert(tradesHtml.includes("return '../managers/record-books.html?manager='+encodeURIComponent(historical)"),'Former managers need permanent historical record books');
+assert(tradesHtml.includes('href="${managerPortfolioUrl(s.manager)}"'),'Individual trade cards must use the profile resolver');
+assert(existsSync('managers/record-books.html'),'Verified historical manager records must be available');
 console.log('PASS: Playoff Race and Trade Museum use canonical journey destinations and keyboard skip links');
