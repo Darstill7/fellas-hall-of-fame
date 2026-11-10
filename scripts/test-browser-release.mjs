@@ -1452,7 +1452,7 @@ try{
     // Closest margins must be selected from every verified regular-season
     // matchup, not from the top 100 blowouts. Regression: 2018 W7 was 0.16.
     await page.locator('#categories button[data-category="close"]').click();
-    await page.waitForFunction(()=>document.querySelector('#scope')?.textContent.includes('Week 8')&&
+    await page.waitForFunction(()=>document.querySelector('#scope')?.textContent.includes('Week 9')&&
      document.querySelector('#rows tr:first-child td:last-child')?.textContent==='0.16',null,{timeout:10000});
     const closestAudit=await page.locator('#rows tr').evaluateAll(trs=>trs.map(tr=>{
      const cells=[...tr.querySelectorAll('td')];
