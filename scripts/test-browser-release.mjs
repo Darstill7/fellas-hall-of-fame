@@ -1127,21 +1127,21 @@ try{
       errors.push(width+' duplicate hero actions compete with the immediately available manager finder');
      if(!await mobileNav.isVisible()||await desktopNav.isVisible())errors.push(width+' homepage mobile navigation visibility wrong');
      await mobileNav.locator(':scope > summary').click();
-     for(const href of ['managers/','analytics/manager-report-cards.html','analytics/records.html','analytics/rivalries.html'])
+     for(const href of ['index.html','managers/','hall/','analytics/record-holders.html','seasons/2026.html'])
       if(!await mobileNav.locator('nav.menu-links > a[href="'+href+'"]').isVisible())errors.push(width+' mobile main navigation missing '+href);
      const extra=mobileNav.locator('details.home-mobile-explore');
      if(await extra.count()!==1||await extra.evaluate(el=>el.open))
       errors.push(width+' mobile advanced navigation must start collapsed');
      await extra.locator(':scope > summary').click();
-     for(const href of ['hall/','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
+     for(const href of ['analytics/manager-report-cards.html','analytics/rivalries.html','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
       if(!await extra.locator('a[href="'+href+'"]').isVisible())errors.push(width+' mobile Explore destination missing '+href);
      await mobileNav.locator(':scope > summary').click();
     }else{
-     if(await desktopNav.locator(':scope > a').count()!==4)errors.push(width+' homepage must show four primary destinations plus Explore');
+     if(await desktopNav.locator(':scope > a').count()!==5)errors.push(width+' homepage must show five primary destinations plus Explore');
      const more=desktopNav.locator('details.home-nav-more');
      if(await more.count()!==1||await more.evaluate(el=>el.open))errors.push(width+' desktop extra navigation should begin collapsed');
      await more.locator(':scope > summary').click();
-     for(const href of ['hall/','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
+     for(const href of ['analytics/manager-report-cards.html','analytics/rivalries.html','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
       if(!await more.locator('a[href="'+href+'"]').isVisible())errors.push(width+' desktop extra navigation missing '+href);
      await more.locator(':scope > summary').click();
     }
@@ -2020,8 +2020,8 @@ try{
       const sourceNote=await snapshot.locator('.profile-snapshot-source').allTextContents();
       if(sourceNote.length!==1||
          !(slug==='scott'
-           ? /verified game.*tenure.*2026 Week 8/i.test(sourceNote[0])
-           : /ESPN.*Sleeper.*Week 8/i.test(sourceNote[0])))
+           ? /verified game.*tenure/i.test(sourceNote[0])
+           : /canonical matchup ledger.*ESPN and Sleeper/i.test(sourceNote[0])))
        errors.push(width+' '+slug+' snapshot lost source coverage for the manager actual tenure');
       if(width===390){
        const geometry=await snapshotStats.evaluateAll(items=>items.map(el=>({
