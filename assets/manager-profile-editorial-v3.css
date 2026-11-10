@@ -1,0 +1,56 @@
+/* Fellas Manager Profiles — editorial finish, v3.
+   Single quiet publication language around the existing verified interactive modules. */
+:root{--profile-v3-gold:#dfc38b;--profile-v3-paper:#f6f0e5;--profile-v3-rule:#596971}
+body.premium-franchise{background:#0b1620}
+body.premium-franchise main#main-content{max-width:1160px}
+body.premium-franchise main>.hero{box-shadow:none!important;border-radius:3px!important;background:#142833!important;border:1px solid #62717a!important;padding:clamp(24px,4vw,44px)!important}
+body.premium-franchise main>.hero::before{height:2px;background:#dbc189}
+body.premium-franchise main>.hero h1{font:400 clamp(48px,7.2vw,86px)/1.12 Georgia,'Times New Roman',serif!important;letter-spacing:-.06em!important;color:#f5ecdb;text-wrap:balance}
+body.premium-franchise main>.hero .lead{color:#d0dce0;line-height:1.65;max-width:60ch}
+body.premium-franchise main>.hero .profile-snapshot-heading{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#e3c88f}
+body.premium-franchise main>.hero .profile-career-snapshot{border-radius:2px!important;box-shadow:none!important}
+body.premium-franchise main>.hero .profile-career-highlights{gap:0}
+body.premium-franchise main>.hero .profile-career-highlight{border-radius:2px!important}
+body.premium-franchise main>.hero .profile-career-highlight strong{font-variant-numeric:tabular-nums}
+body.premium-franchise main>.hero .profile-honors-line{font-size:14px;color:#cfd9dd}
+body.premium-franchise .hof-manager-switcher{width:min(100%,1000px);background:#10232d;border:1px solid var(--profile-v3-rule);border-radius:2px;box-shadow:none;padding:11px 15px}
+body.premium-franchise .hof-manager-switcher-step{border-radius:2px;border-color:#5e727a}
+body.premium-franchise .hof-manager-select{border-radius:2px;border-color:#839097}
+body.premium-franchise .hof-career-exhibit{width:min(100%,1000px);border:0;border-top:2px solid #d8b976;border-bottom:1px solid #62717b;border-radius:0;background:#10252f;box-shadow:none;margin-top:20px;padding:clamp(22px,4vw,37px)}
+body.premium-franchise .hof-career-kicker{color:#e1c68d;letter-spacing:.19em;font-size:10px}
+body.premium-franchise .hof-career-exhibit h2{font:400 clamp(28px,4vw,44px)/1.18 Georgia,'Times New Roman',serif;letter-spacing:-.045em;margin:12px 0 17px}
+body.premium-franchise .hof-career-intro{font:400 clamp(16px,2vw,21px)/1.72 Georgia,'Times New Roman',serif;color:#ede5d7;max-width:60ch}
+body.premium-franchise .hof-career-actions button{border-radius:2px;min-height:48px}
+body.premium-franchise .hof-career-source-note{border-top:1px solid #51636a;margin:17px 0 0;padding:15px 0 0;font-size:12px;line-height:1.7;color:#b9c9cd;max-width:75ch}
+body.premium-franchise .hof-career-source-note a{color:#eed3a0;text-decoration:underline;text-underline-offset:3px}
+body.premium-franchise .manager-home-hub{max-width:1000px;border:1px solid #5a6b75;border-radius:2px;background:#10252f;box-shadow:none;padding:clamp(18px,2.8vw,28px)}
+body.premium-franchise .manager-home-hub h2{font:400 clamp(25px,3.5vw,37px)/1.2 Georgia,'Times New Roman',serif!important;letter-spacing:-.04em;color:#f4e8d4}
+body.premium-franchise .manager-home-hub-tile{border-radius:2px;border-color:#526977;background:#17303d;min-height:76px;box-shadow:none}
+body.premium-franchise .manager-home-hub-copy strong{font-size:14px}
+body.premium-franchise .manager-home-hub-copy small{font-size:12px;line-height:1.45}
+body.premium-franchise .manager-home-more{max-width:1000px;border-radius:2px}
+body.premium-franchise .profile-madden{box-shadow:none!important;border-radius:3px!important}
+body.premium-franchise .profile-madden-history,body.premium-franchise .profile-rating-explainer{border-radius:2px!important}
+body.premium-franchise .profile-madden-facts span{border-radius:2px}
+body.premium-franchise main>.section h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.025em;line-height:1.2}
+body.premium-franchise .career-bio-prose{font-family:Georgia,'Times New Roman',serif;font-size:clamp(17px,1.7vw,20px)!important;line-height:1.82!important;color:#e7e5df}
+body.premium-franchise .career-bio-prose p{margin-bottom:1.2em!important}
+body.premium-franchise :is(a,button,summary,select):focus-visible{outline:3px solid #f5dca5;outline-offset:3px}
+@media(max-width:700px){
+ body.premium-franchise main>.hero{padding:22px 17px!important;margin:9px 0 13px}
+ body.premium-franchise main>.hero h1{font-size:clamp(43px,11vw,66px)!important}
+ body.premium-franchise .hof-manager-switcher{margin-top:10px;padding:8px;gap:6px}
+ body.premium-franchise .hof-manager-switcher-step{min-width:0;padding:9px 8px;font-size:12px;min-height:48px}
+ body.premium-franchise .hof-manager-select{height:48px;font-size:13px;padding-left:8px}
+ body.premium-franchise .hof-career-exhibit{padding:19px 17px;margin:12px 0}
+ body.premium-franchise .hof-career-exhibit h2{font-size:32px}
+ body.premium-franchise .hof-career-intro{font-size:17px}
+ body.premium-franchise .manager-home-hub{padding:14px;margin:10px 0;width:100%;max-width:none}
+ body.premium-franchise .manager-home-hub-grid{gap:7px}
+ body.premium-franchise .manager-home-hub-tile{min-height:72px;padding:10px;gap:8px}
+ body.premium-franchise .manager-home-hub-icon{font-size:18px}
+ body.premium-franchise .manager-home-hub-copy strong{font-size:13px}
+ body.premium-franchise .manager-home-hub-copy small{font-size:11px}
+}
+@media(max-width:370px){body.premium-franchise .hof-manager-switcher{grid-template-columns:1fr 2fr 1fr}body.premium-franchise .hof-manager-switcher-step{font-size:11px}body.premium-franchise main>.hero h1{font-size:43px!important}}
+@media(prefers-reduced-motion:reduce){body.premium-franchise *{scroll-behavior:auto!important;transition:none!important}}

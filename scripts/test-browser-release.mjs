@@ -134,10 +134,11 @@ try{
     if(width===390&&design.overflow>5)
      errors.push(width+' '+route+' shared layout horizontal overflow '+design.overflow);
     if(isCurrentProfile){
+     const slug=route.split('/')[1];
      const destinations=await page.locator('header nav.navlinks[aria-label="Main"] a').evaluateAll(nodes=>
       nodes.map(a=>a.getAttribute('href')));
-     const expected=['../../index.html','../../managers/','../../analytics/manager-report-cards.html',
-      '../../analytics/records.html','../../analytics/rivalries.html'];
+     const expected=['../../index.html','../../managers/','../../hall/',
+      '../../analytics/record-holders.html?manager='+encodeURIComponent(slug==='tom'?'Thommy':slug==='jmid'?'JMid':slug[0].toUpperCase()+slug.slice(1))+'#manager-record-finder','../../seasons/2026.html'];
      if(JSON.stringify(destinations)!==JSON.stringify(expected))
       errors.push(width+' '+route+' manager primary navigation must match five key sections');
      const mobileMenu=page.locator('header.nav details.fellas-mobile-site-menu');
@@ -239,7 +240,7 @@ try{
    }
    if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
     const managerName=route.split('/')[1]==='tom'?'Tom':route.split('/')[1].charAt(0).toUpperCase()+route.split('/')[1].slice(1);
-    const recordLink=page.locator('main .hero .buttons a[href*="expanded-records.html?manager="]');
+    const recordLink=page.locator('main .hero .buttons a[href*="record-holders.html?manager="]');
     if(await recordLink.count()!==1)errors.push(width+' '+route+' no direct Records action on manager hero');
     const recordOverview=page.locator('[data-expanded-records-profile] .records-profile-summary');
     await recordOverview.waitFor({state:'attached',timeout:12000}).catch(()=>{});
@@ -295,6 +296,22 @@ try{
       if(!destinations.some(x=>x.includes(label)))errors.push(width+' '+route+' lacks hub destination '+label);
      const recordHref=await hub.locator('a').filter({hasText:'My records'}).getAttribute('href');
      if(!recordHref||!recordHref.includes('manager='))errors.push(width+' '+route+' personal Records link missing manager scope');
+     // Test the real journey through the manager hub, including identity aliases.
+     // The Record Book must hydrate the correct portfolio rather than defaulting to Stilly.
+     const managerSlug=route.split('/')[1];
+     if(width===390&&['tom','jmid'].includes(managerSlug)){
+      const visitor=await context.newPage();
+      try{
+       await visitor.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:15000});
+       await visitor.locator('.manager-home-hub-tile').filter({hasText:'My records'}).click();
+       await visitor.waitForURL(url=>url.pathname.endsWith('/analytics/record-holders.html')&&url.searchParams.has('manager'),{timeout:15000});
+       const expectedManager=managerSlug==='tom'?'Thommy':'JMid';
+       await visitor.waitForFunction(name=>document.querySelector('#record-manager-selected')?.textContent?.startsWith(name+' ·'),expectedManager,{timeout:16000});
+       const selected=await visitor.locator('#record-manager-selected').innerText();
+       if(!selected.includes('first-place category entries'))
+        errors.push(width+' '+route+' Record Book did not render selected manager records');
+      }finally{await visitor.close()}
+     }
      if(width===390){
       const metrics=await hub.evaluate(el=>({right:el.getBoundingClientRect().right,tiles:[...el.querySelectorAll('.manager-home-hub-tile')].map(x=>x.getBoundingClientRect().height)}));
       if(metrics.right>width+2)errors.push(width+' '+route+' manager hub exceeds viewport by '+(metrics.right-width).toFixed(1)+'px');
@@ -572,7 +589,7 @@ try{
       errors.push(width+' '+route+' manager hero must show the canonical public nickname');
      const heroActions=page.locator('main .hero > .buttons > a');
      if(await heroActions.count()!==2||
-        !((await heroActions.first().getAttribute('href'))?.includes('expanded-records.html?manager=')))
+        !((await heroActions.first().getAttribute('href'))?.includes('record-holders.html?manager=')))
       errors.push(width+' '+route+' hero still shows legacy multi-link navigation');
      if(['stilly','tom','stover','birch'].includes(slug)){
       await page.waitForFunction(()=>document.querySelector('#season-history .season-accordion')!==null,null,{timeout:8000}).catch(()=>{});
@@ -1126,21 +1143,21 @@ try{
       errors.push(width+' duplicate hero actions compete with the immediately available manager finder');
      if(!await mobileNav.isVisible()||await desktopNav.isVisible())errors.push(width+' homepage mobile navigation visibility wrong');
      await mobileNav.locator(':scope > summary').click();
-     for(const href of ['managers/','analytics/manager-report-cards.html','analytics/records.html','analytics/rivalries.html'])
+     for(const href of ['index.html','managers/','hall/','analytics/record-holders.html','seasons/2026.html'])
       if(!await mobileNav.locator('nav.menu-links > a[href="'+href+'"]').isVisible())errors.push(width+' mobile main navigation missing '+href);
      const extra=mobileNav.locator('details.home-mobile-explore');
      if(await extra.count()!==1||await extra.evaluate(el=>el.open))
       errors.push(width+' mobile advanced navigation must start collapsed');
      await extra.locator(':scope > summary').click();
-     for(const href of ['hall/','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
+     for(const href of ['analytics/manager-report-cards.html','analytics/rivalries.html','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
       if(!await extra.locator('a[href="'+href+'"]').isVisible())errors.push(width+' mobile Explore destination missing '+href);
      await mobileNav.locator(':scope > summary').click();
     }else{
-     if(await desktopNav.locator(':scope > a').count()!==4)errors.push(width+' homepage must show four primary destinations plus Explore');
+     if(await desktopNav.locator(':scope > a').count()!==5)errors.push(width+' homepage must show five primary destinations plus Explore');
      const more=desktopNav.locator('details.home-nav-more');
      if(await more.count()!==1||await more.evaluate(el=>el.open))errors.push(width+' desktop extra navigation should begin collapsed');
      await more.locator(':scope > summary').click();
-     for(const href of ['hall/','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
+     for(const href of ['analytics/manager-report-cards.html','analytics/rivalries.html','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
       if(!await more.locator('a[href="'+href+'"]').isVisible())errors.push(width+' desktop extra navigation missing '+href);
      await more.locator(':scope > summary').click();
     }
@@ -1970,7 +1987,7 @@ try{
       errors.push(width+' '+slug+' competing older franchise-profile promo still visible');
      const heroActions=page.locator('main .hero .buttons a');
      if(await heroActions.count()!==2||
-        !(await heroActions.first().getAttribute('href'))?.includes('expanded-records.html?manager=')||
+        !(await heroActions.first().getAttribute('href'))?.includes('record-holders.html?manager=')||
         await heroActions.nth(1).getAttribute('href')!=='#profile-features')
       errors.push(width+' '+slug+' hero has duplicate or misleading navigation links');
      // The shared readability stylesheet must be loaded on each manager route.
@@ -2019,8 +2036,8 @@ try{
       const sourceNote=await snapshot.locator('.profile-snapshot-source').allTextContents();
       if(sourceNote.length!==1||
          !(slug==='scott'
-           ? /verified game.*tenure.*2026 Week 8/i.test(sourceNote[0])
-           : /ESPN.*Sleeper.*Week 8/i.test(sourceNote[0])))
+           ? /verified game.*tenure/i.test(sourceNote[0])
+           : /canonical matchup ledger.*ESPN and Sleeper/i.test(sourceNote[0])))
        errors.push(width+' '+slug+' snapshot lost source coverage for the manager actual tenure');
       if(width===390){
        const geometry=await snapshotStats.evaluateAll(items=>items.map(el=>({
@@ -2466,6 +2483,8 @@ try{
     const countLabel=await page.locator('#record-count-summary').innerText();
     if(expandedKinds!==44||await tabs.count()!==6||!countLabel.includes('44 expanded categories')||!countLabel.includes('16 established categories'))
      errors.push(width+' Recordholders failed to load all 44 expanded categories');
+    const archiveDisclosure=page.locator('#complete-record-index details.records-archive-disclosure');
+    if(await archiveDisclosure.count()===1)await archiveDisclosure.locator('summary').click();
     const career= tabs.filter({hasText:'Career ('});
     await career.click();
     const familyCount=await page.locator('#expanded-record-categories .category-card').count();
