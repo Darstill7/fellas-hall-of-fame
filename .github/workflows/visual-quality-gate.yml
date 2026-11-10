@@ -23,6 +23,8 @@ jobs:
           npx playwright install --with-deps chromium webkit
       - name: Validate eleven-season editorial archive and shareable history links
         run: node scripts/verify-season-editorial-history.mjs
+      - name: Validate current season and 2020–2025 editorial editions
+        run: node scripts/verify-season-editions-phase2.mjs
       - name: Capture desktop, tablet, phone and Safari first screens
         run: node scripts/visual-quality-gate.mjs
       - name: Publish visual audit and screenshots
