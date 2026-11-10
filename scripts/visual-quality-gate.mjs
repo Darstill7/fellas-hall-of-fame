@@ -122,7 +122,7 @@ try{
           archiveTable:document.querySelector('main .records-table')?.getBoundingClientRect().width||0};
         });
         if(hierarchy.titleSize<32||hierarchy.sectionTitleSize<22||
-           (route==='hall/'&&(hierarchy.sectionCards.length!==6||hierarchy.sectionCards.some(c=>c.width<160||c.height<90)))||
+           (route==='hall/'&&(hierarchy.sectionCards.length!==8||hierarchy.sectionCards.some(c=>c.width<160||c.height<90)))||
            (route==='analytics/records.html'&&hierarchy.archiveTable<200))
          findings.push(engine+' '+width+' '+key+' hall/record editorial visual hierarchy '+JSON.stringify(hierarchy));
        }
