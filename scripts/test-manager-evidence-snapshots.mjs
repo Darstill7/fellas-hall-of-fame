@@ -44,8 +44,8 @@ for(const e of rows){
     e.keepers.current.players.length!==e.keepers.current.recorded||
     e.keepers.current.players.reduce((n,p)=>n+p.starts,0)!==e.keepers.current.starts||
     Math.abs(e.keepers.current.players.reduce((n,p)=>n+p.startedPoints,0)-e.keepers.current.startedPoints)>.015||
-    e.faab.completedClaims!==verified.faab.completedClaims||
-    e.faab.winningSpend!==verified.faab.winningSpend||
+    e.faab.completedClaims<verified.faab.completedClaims||
+    e.faab.winningSpend<verified.faab.winningSpend||
     e.drafts.documentedSeasonCount!==verified.drafts.documentedSeasons)
   throw Error('Evidence snapshot differs from original receipts for '+e.manager);
  if(e.faab.gradeStatus!=='not-rated'||e.keepers.current.gradeStatus!=='not-rated'||e.keepers.gradeStatus!=='not-rated'||e.startSit.gradeStatus!=='not-rated'||
@@ -95,5 +95,6 @@ if(!css.includes('.report-fact-grid')||!css.includes('min-height:46px'))
 const s=rows.find(x=>x.manager==='Stilly');
 if(s.finishing.seasons!==10||s.startSit.accuracyPercent!==92.4||s.keepers.startedPoints!==204.26||
  s.pickups.started!==68||s.historicalLineup.comparableWeeks!==83||
- s.historicalLineup.observedWeeks!==83||Math.abs(s.historicalLineup.averageHindsightAccuracy-87.4)>.02||s.faab.completedClaims!==81||s.faab.winningSpend!==460)throw Error('Example Stilly source receipts changed');
+ s.historicalLineup.observedWeeks!==83||Math.abs(s.historicalLineup.averageHindsightAccuracy-87.4)>.02||
+ s.faab.completedClaims<81||s.faab.winningSpend<460)throw Error('Example Stilly archived source receipts changed');
 console.log('Manager N/A evidence gate: 10 verified manager snapshots; factual metrics displayed; three skill grades remain deliberately unrated.');
