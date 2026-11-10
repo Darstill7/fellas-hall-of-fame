@@ -42,3 +42,17 @@ main>.section.shell .home-explore-more{border-radius:3px}
 @media(max-width:850px){.home-editorial-hero-grid{grid-template-columns:1fr;gap:26px;padding:36px 0}.home-editorial-copy h1{font-size:clamp(66px,10vw,88px)}.home-editorial-lead{min-height:320px}.home-editorial-lead-year{font-size:88px}.home-editorial-lead-content{padding:15px 0}.home-editorial-lead h2{font-size:32px}}
 @media(max-width:550px){.home-editorial-hero{padding-top:13px}.home-edition-line{font-size:9px}.home-edition-line span:last-child{display:none}.home-editorial-hero-grid{padding:27px 0}.home-editorial-copy h1{font-size:clamp(53px,12.5vw,72px);line-height:1.12;margin:10px 0 20px}.home-editorial-copy>p{font-size:16px}.home-editorial-copy .actions{width:100%;margin-top:24px}.home-editorial-copy .actions .button{width:100%}.home-editorial-lead{padding:20px;min-height:300px}.home-editorial-lead-top{font-size:9px}.home-editorial-lead-top span:last-child{display:none}.home-editorial-lead-year{font-size:80px}.home-editorial-lead h2{font-size:30px}.home-edition-footer{font-size:9px}.home-edition-footer span{max-width:150px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* The existing mobile release contract prioritizes manager discovery on the
+   first screen. Keep the premium full-issue cover at tablet/desktop widths. */
+@media(max-width:650px){
+ body.home-premium main#main-content>.home-editorial-hero{padding:8px 0 6px!important}
+ body.home-premium main#main-content>.home-editorial-hero .home-edition-line,
+ body.home-premium main#main-content>.home-editorial-hero .home-edition-footer,
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-lead{display:none!important}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-hero-grid{display:block;padding:0!important}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy .kicker{font-size:10px;margin:0 0 4px}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy h1{font-size:clamp(28px,7.2vw,40px);line-height:1.12;letter-spacing:-.045em;margin:4px 0 6px}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy>p{font-size:13px;line-height:1.42;margin:0;max-width:42ch}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy .actions{display:none!important}
+}
