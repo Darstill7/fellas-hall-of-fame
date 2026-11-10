@@ -8,6 +8,78 @@ const formatExpanded=(record,unit)=>{const val=Number(record.value);const format
 const toLabel=record=>{const n=Number(record.value);const value=Number.isFinite(n)?n.toLocaleString('en-US',{maximumFractionDigits:2}):String(record.value);return value+(record.unit==='pts'?' pts':record.unit==='%'?'%':' '+record.unit)};
 const target=name=>'../managers/record-books.html?manager='+encodeURIComponent(name)+'#owned-records';
 const tag=(name,value,cls)=>{const e=document.createElement(name);if(cls)e.className=cls;if(value!==undefined)e.textContent=value;return e};
+const currentManagers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
+let collectionWinners=[],managerRows=[],expandedData=null;
+function renderManagerFinder(){
+ const root=document.getElementById('manager-record-finder');
+ if(!root||!managerRows.length||!expandedData)return;
+ const requested=new URLSearchParams(location.search).get('manager');
+ const names=new Set(managerRows.map(r=>r.name));
+ const selected=names.has(requested)?requested:'Mitch';
+ const chooser=document.getElementById('record-manager-choices');
+ const selectedLabel=document.getElementById('record-manager-selected');
+ const results=document.getElementById('record-manager-results');
+ chooser.replaceChildren();
+ for(const name of currentManagers){
+  if(!names.has(name))continue;
+  const button=tag('button',name,'record-manager-choice');
+  button.type='button';button.setAttribute('aria-pressed',String(name===selected));
+  button.addEventListener('click',()=>chooseManager(name));
+  chooser.append(button);
+ }
+ const former=document.getElementById('record-former-manager');
+ former.replaceChildren();
+ const placeholder=tag('option','Former managers');placeholder.value='';former.append(placeholder);
+ for(const name of [...names].filter(n=>!active.has(n)).sort()){
+  const opt=tag('option',name);opt.value=name;former.append(opt);
+ }
+ former.value=active.has(selected)?'':selected;
+ former.onchange=()=>{if(former.value)chooseManager(former.value)};
+ const row=managerRows.find(r=>r.name===selected);
+ if(!row)return;
+ const expanded=expandedData.categories.flatMap(c=>{
+  const winners=c.leaders.filter(r=>r.rank===1&&displayName(r.manager)===selected);
+  return winners.length?[{label:c.label,group:c.group,value:formatExpanded(winners[0],c.unit),href:'expanded-records.html?group='+encodeURIComponent(c.group)+'&category='+encodeURIComponent(c.key)+'&manager='+encodeURIComponent(expandedName(selected))}]:[];
+ });
+ const legacy=row.records.map(r=>({label:r.label,group:'Established records',value:toLabel(r),href:target(selected)}));
+ const collection=collectionWinners.filter(r=>r.manager===selected).map(r=>({label:r.label,group:r.family,value:r.value+(r.year?' · '+r.year:''),href:'#'+r.anchor}));
+ // A concept can appear in multiple historical catalogs; display a warning instead of adding counts.
+ const sections=[['New historical collections',collection],['Expanded league records',expanded],['Established records',legacy]];
+ const count=collection.length+expanded.length+legacy.length;
+ selectedLabel.textContent=selected+' · '+count+' first-place category entries';
+ results.replaceChildren();
+ const warning=tag('p','These are first-place category entries, not '+count+' necessarily distinct records. Overlapping concepts across collections are retained for transparency. Ties share first place. Ongoing 2026 season watchlists are excluded.','muted');
+ results.append(warning);
+ for(const [heading,items] of sections){
+  const section=tag('section',undefined,'record-finder-section');
+  const h=tag('h3',heading+' · '+items.length);section.append(h);
+  if(!items.length)section.append(tag('p','No current first-place record in this collection.','muted'));
+  else{
+   const grid=tag('div',undefined,'record-finder-results');
+   for(const item of items){
+    const a=tag('a',undefined,'record-finder-result');a.href=item.href;
+    a.append(tag('span',item.label,'record-finder-record'),tag('strong',item.value,'record-finder-value'));
+    grid.append(a);
+   }
+   section.append(grid);
+  }
+  results.append(section);
+ }
+ const more=tag('a','See '+selected+'’s full personal record book →','record-finder-more');
+ more.href=target(selected);results.append(more);
+}
+function chooseManager(name){
+ const url=new URL(location.href);url.searchParams.set('manager',name);
+ history.replaceState(null,'',url);
+ renderManagerFinder();
+ const summary=document.getElementById('record-manager-selected');
+ if(summary)summary.focus({preventScroll:true});
+}
+document.addEventListener('fellas:verified-record-owners',event=>{
+ collectionWinners=Array.isArray(event.detail?.records)?event.detail.records:[];
+ renderManagerFinder();
+});
+
 const detail=(name,label)=>{const a=tag('a',label);a.href=target(name);return a};
 async function start(){
  const list=document.getElementById('record-leaders'),other=document.getElementById('record-other'),otherDisclosure=document.getElementById('leader-other'),categoryHost=document.getElementById('record-categories');
@@ -38,6 +110,7 @@ async function start(){
    .sort((a,b)=>b.expandedRecords.length-a.expandedRecords.length||b.records.length-a.records.length||a.name.localeCompare(b.name));
   for(const [name,records] of leadersByManager)if(!rows.some(row=>expandedName(row.name)===name))rows.push({name,records:[],expandedRecords:records});
   rows.sort((a,b)=>b.expandedRecords.length-a.expandedRecords.length||b.records.length-a.records.length||a.name.localeCompare(b.name));
+  managerRows=rows;expandedData=expanded;renderManagerFinder();
   summary.textContent=expanded.categoryCount+' expanded categories + '+categories.length+' established categories · Tied first-place managers share credit · Some record concepts overlap.';
   list.replaceChildren();
   other.replaceChildren();
