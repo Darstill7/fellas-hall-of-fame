@@ -31,6 +31,8 @@ jobs:
         run: node scripts/verify-season-editions-phase2.mjs
       - name: Validate key visitor navigation and keyboard skip routes
         run: node scripts/verify-primary-journey-links.mjs
+      - name: Verify Player Hall and Hall of Shame museum editions
+        run: node scripts/verify-museum-editorial-editions.mjs
       - name: Capture desktop, tablet, phone and Safari first screens
         run: node scripts/visual-quality-gate.mjs
       - name: Publish visual audit and screenshots

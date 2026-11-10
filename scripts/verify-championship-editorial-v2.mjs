@@ -25,7 +25,8 @@ assert(hall.includes('hall-museum-entrance-v2.css'),'Museum entry stylesheet req
 assert(hall.includes('id="championship-trophy-case"'),'Trophy collection must remain a direct destination');
 assert(hall.includes('href="championship-stories.html"'),'Anthology entry point required');
 assert(hall.includes('../analytics/record-holders.html'),'Museum records must use manager-first entry');
-assert.equal((hall.match(/class="tile"/g)||[]).length,6,'Keep all six museum exhibits');
+assert.equal((hall.match(/class="tile"/g)||[]).length,8,'Eight museum exhibits including the original six and both new collections');
+for(const link of ['championship-stories.html','../managers/','../analytics/record-holders.html','../analytics/rivalry-war-room.html','../analytics/trade-museum.html','../analytics/goat-debate.html','players.html','shame.html']) assert(hall.includes('href="'+link+'"'),'Museum exhibit link must be retained: '+link);
 assert.equal((hall.match(/href="championship-stories\.html\?year=\d{4}"/g)||[]).length,10,'Ten trophy tiles must remain linked');
 assert.equal((hall.match(/Two-week final · Aggregate score/g)||[]).length,2,'Preserve historic aggregate final labels');
 assert(museumCss.includes('@media(max-width:550px)'),'Museum phone layout required');
