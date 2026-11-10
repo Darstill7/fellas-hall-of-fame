@@ -1,0 +1,54 @@
+/* Fellas Season Editions: live 2026 + completed-season archive cards.
+   All data-bearing elements remain sourced from the canonical ledger. */
+body.fellas-season-edition{background:#0b151d;color:#f4efe5}
+.fellas-season-edition .wrap{max-width:1160px}
+.fellas-season-edition .nav{gap:5px 17px;align-items:center;border-bottom:1px solid #52636f;padding-bottom:12px}
+.fellas-season-edition .nav a{font-size:12px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none}
+.fellas-season-edition .nav a[aria-current=page]{color:#e1c68f;border-bottom:2px solid #dfc38b}
+.fellas-season-edition .hero{background:#142b37;border:1px solid #8f7a59;border-top:3px solid #dfc38b;border-radius:2px;box-shadow:none;padding:clamp(23px,4vw,46px)}
+.fellas-season-edition .hero .eyebrow{letter-spacing:.16em;font-size:10px}
+.fellas-season-edition .hero h1{font:400 clamp(56px,7.4vw,91px)/1.12 Georgia,'Times New Roman',serif;letter-spacing:-.06em;color:#f5ead6}
+.fellas-season-edition .hero #season-intro{font:400 clamp(16px,2vw,21px)/1.65 Georgia,'Times New Roman',serif;color:#d9e0db;max-width:62ch}
+.fellas-season-edition .hero .link-bar{margin-top:23px}
+.fellas-season-edition .link-bar a{border-radius:2px;background:#1a3440;border-color:#8b754f;min-height:48px}
+.fellas-season-edition .link-bar a:hover{background:#29434d;border-color:#e2c48d}
+.fellas-season-edition .status{background:#122835;border-left:3px solid #d8b87e;border-radius:2px}
+.fellas-season-edition .cards{gap:9px}
+.fellas-season-edition .cards .card{border:1px solid #526872;border-radius:2px;background:#142b36;box-shadow:none;padding:17px}
+.fellas-season-edition .cards .card strong{font:400 clamp(26px,3.2vw,37px)/1.18 Georgia,serif;color:#e5c992}
+.fellas-season-edition .cards .card small{display:block;line-height:1.5;font-size:11px}
+.fellas-season-edition section h2{font:400 clamp(27px,3.6vw,39px)/1.2 Georgia,'Times New Roman',serif;letter-spacing:-.035em;margin:33px 0 13px}
+.fellas-season-edition .table-scroll{border-radius:2px;border-color:#536976}
+.fellas-season-edition .table td,.fellas-season-edition .table th{padding:13px 11px}
+.fellas-season-edition .table th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#e3ca93}
+.fellas-season-edition .table .manager a{color:#f5eddb;text-decoration:underline;text-decoration-color:#8c7756;text-underline-offset:4px}
+.fellas-season-edition .result{background:#132b37;border-color:#506670;border-radius:2px;min-height:70px;padding:16px}
+.fellas-season-edition .result strong{line-height:1.5}
+.fellas-season-edition .result .score{color:#edce92}
+.fellas-season-edition .season-contents{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0 10px}
+.fellas-season-edition .season-contents a{display:inline-flex;align-items:center;min-height:44px;padding:9px 13px;border:1px solid #526d78;text-decoration:none;border-radius:2px;color:#e8d0a0;font-size:12px;font-weight:750}
+.fellas-season-edition .season-pulse{border-top:1px solid #60717b;border-bottom:1px solid #60717b;margin:33px 0;padding:13px 0 28px}
+.fellas-season-edition .season-pulse .pulse-kicker{color:#e4ca98;font-size:11px;font-weight:850;letter-spacing:.15em}
+.fellas-season-edition .season-pulse .pulse-lead{color:#c6d7db;margin:0 0 14px;max-width:74ch}
+.fellas-season-edition .season-pulse-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.fellas-season-edition .season-pulse-item{padding:19px;background:#142a36;border:1px solid #536974;border-radius:2px}
+.fellas-season-edition .season-pulse-item small{display:block;color:#e2c690;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.fellas-season-edition .season-pulse-item strong{display:block;margin:11px 0 3px;font:400 clamp(19px,2.5vw,28px)/1.2 Georgia,serif;color:#f8ead2}
+.fellas-season-edition .season-pulse-item span{color:#bcd0d5;font-size:12px}
+.fellas-season-edition .season-read-more{padding:19px 23px;background:#122a35;border-top:2px solid #d2b77f}
+.fellas-season-edition .season-read-more h2{margin:5px 0 12px}
+.fellas-season-edition .season-read-more .link-bar{margin:9px 0 0}
+.fellas-season-edition section[id]{scroll-margin-top:30px}
+.fellas-season-edition :is(a,button,summary):focus-visible{outline:3px solid #f6dc9b;outline-offset:3px}
+@media(max-width:700px){.fellas-season-edition .season-pulse-grid{grid-template-columns:1fr}.fellas-season-edition .hero{padding:23px 17px}.fellas-season-edition .hero h1{font-size:clamp(48px,11vw,68px)}.fellas-season-edition .cards{grid-template-columns:repeat(3,minmax(0,1fr))}.fellas-season-edition .cards .card{padding:12px}.fellas-season-edition .season-pulse-item{padding:15px}}
+@media(max-width:400px){.fellas-season-edition .cards .card strong{font-size:22px}.fellas-season-edition .nav{gap:2px 12px}.fellas-season-edition .season-read-more{padding:15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Completed-season editions retain their standings and playoff brackets. */
+body.fellas-season-classic .season-era-links{display:flex;flex-wrap:wrap;gap:8px;padding:13px 0;margin:12px 0 23px;border-top:1px solid #65717b;border-bottom:1px solid #65717b}
+body.fellas-season-classic .season-era-links a{display:inline-flex;min-height:45px;align-items:center;padding:10px 14px;background:#142d3a;border:1px solid #6a7a7f;border-radius:2px;color:#f3d59d;font-size:13px;font-weight:750;text-decoration:none}
+body.fellas-season-classic .season-era-links a:hover{background:#29434d}
+body.fellas-season-classic .hero h1{font:400 clamp(59px,8vw,92px)/1.08 Georgia,'Times New Roman',serif;letter-spacing:-.07em}
+body.fellas-season-classic .hero .callout{border-radius:2px}
+body.fellas-season-classic .section h2{font:400 clamp(26px,3.5vw,40px)/1.2 Georgia,serif;letter-spacing:-.025em}
+body.fellas-season-classic :is(.card,.game,.team){border-radius:2px}
+body.fellas-season-classic .season-era-nav-label{font-size:10px;font-weight:850;letter-spacing:.13em;color:#d9bf88}
