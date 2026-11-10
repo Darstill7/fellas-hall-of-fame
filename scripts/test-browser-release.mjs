@@ -2341,11 +2341,21 @@ try{
      for(const category of ['overview','seasons','rivalries','advanced']){
       const button=page.locator('[data-manager-profile-tabs] button[data-profile-tab="'+category+'"]');
       await button.click();
+      // WebKit can restore a tab from BFCache before the client-side selection
+      // callback has finished; wait for the actual selected + visible state,
+      // without changing the assertions or counting a timed-out state as green.
+      const expectedGuide=({overview:'Career overview',seasons:'Each Year',rivalries:'Head-to-Head',advanced:'Deep Stats'})[category];
+      const sectionId={overview:'franchise-story',seasons:'season-history',rivalries:'head-to-head',advanced:'franchise-encyclopedia'}[category];
+      await page.waitForFunction(({tab,guide,section})=>{
+       const selected=document.querySelector('[data-manager-profile-tabs] button[data-profile-tab="'+tab+'"]');
+       const help=document.querySelector('.profile-tab-guide');
+       const panel=document.getElementById(section);
+       return selected?.getAttribute('aria-selected')==='true'&&help?.textContent?.includes(guide)&&panel&&getComputedStyle(panel).display!=='none'&&panel.getClientRects().length>0;
+      },{tab:category,guide:expectedGuide,section:sectionId},{timeout:2600}).catch(()=>{});
       if(await button.getAttribute('aria-selected')!=='true')errors.push(width+' '+slug+' '+category+' tab did not activate');
       const activeGuide=await page.locator('.profile-tab-guide').innerText();
-      if(!activeGuide.includes(({overview:'Career overview',seasons:'Each Year',rivalries:'Head-to-Head',advanced:'Deep Stats'})[category]))
+      if(!activeGuide.includes(expectedGuide))
        errors.push(width+' '+slug+' category navigation has no visible active-section explanation');
-      const sectionId={overview:'franchise-story',seasons:'season-history',rivalries:'head-to-head',advanced:'franchise-encyclopedia'}[category];
       if(!await page.locator('#'+sectionId).isVisible())errors.push(width+' '+slug+' '+category+' content hidden');
      }
     }
