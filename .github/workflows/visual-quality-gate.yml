@@ -33,6 +33,10 @@ jobs:
         run: node scripts/verify-primary-journey-links.mjs
       - name: Verify Player Hall and Hall of Shame museum editions
         run: node scripts/verify-museum-editorial-editions.mjs
+      - name: Verify championship-backed Player Hall plaques and editorial rating labels
+        run: node scripts/verify-player-plaque-receipts.mjs
+      - name: Verify ten historical Shitter trophy-case receipts
+        run: node scripts/verify-shitter-trophy-case.mjs
       - name: Capture desktop, tablet, phone and Safari first screens
         run: node scripts/visual-quality-gate.mjs
       - name: Publish visual audit and screenshots
