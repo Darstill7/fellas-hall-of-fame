@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const base=read('data-integrity/faab-observed-acquisition-outcomes-v1.json');
 const roster=read('data/sleeper_roster_snapshots_2026_week8.json');
-const claims=base.observations.filter(r=>r.year===2026);
+const claims=base.observations.filter(r=>r.year===2026&&r.claimWeek<=7);
 assert.equal(base.status,'research_only_not_causal_or_skill_grade');
 assert.equal(base.coverage.find(x=>x.year===2026).regularSeasonWeekLimit,7);
 assert.equal(roster.season,2026);assert.equal(roster.week,8);
