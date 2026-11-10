@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/regular-season-close-calls.html','analytics/scoring-consistency.html','analytics/postseason-moments.html',
+const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/schedule-draw-all-play.html','analytics/regular-season-close-calls.html','analytics/scoring-consistency.html','analytics/postseason-moments.html',
  'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','hall/playoff-heroes.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/manager-draft-report-cards.html','analytics/draft-legends.html','analytics/keeper-tracker.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
@@ -993,6 +993,27 @@ try{
          throw Error('Close-call manager filter must show only matching receipts');
         const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
         if(overflow>5)throw Error('Close Calls horizontal overflow '+overflow);
+       }
+       if(route==='analytics/schedule-draw-all-play.html'){
+        await page.waitForFunction(()=>document.querySelectorAll('#results .item').length>=10,null,{timeout:15000});
+        const high=await page.locator('#results .item').first().innerText();
+        if(!high.includes('Birch')||!high.includes('2021')||!high.includes('+3.56'))
+         throw Error('Schedule surplus source-leading Birch season missing');
+        await page.locator('[data-mode="below"]').click();
+        const low=await page.locator('#results .item').first().innerText();
+        if(!low.includes('Thommy')||!low.includes('2020')||!low.includes('-2.56'))
+         throw Error('Source-leading Thommy schedule differential missing');
+        await page.locator('[data-mode="hard"]').click();
+        const tough=await page.locator('#results .item').first().innerText();
+        if(!tough.includes('Stover')||!tough.includes('2019')||!tough.includes('+13.39'))
+         throw Error('Weekly-normalized opponent scoring exposure missing');
+        await page.locator('[data-mode="runner"]').click();
+        await page.locator('#manager').selectOption('Stilly');
+        const runner=await page.locator('#results .item').allInnerTexts();
+        if(runner.length!==4||runner.some(x=>!x.includes('Stilly')))
+         throw Error('Four verified Stilly weekly second-highest score losses missing');
+        const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
+        if(overflow>5)throw Error('Schedule Draw narrow viewport overflow '+overflow);
        }
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
