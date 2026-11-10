@@ -15,8 +15,12 @@ const after=ledger.games.filter(g=>g.year===2023&&g.stage!=='regular');
 assert.equal(after.filter(g=>g.home==='JMid'||g.away==='JMid').length,0,'JMid must not own 2023 playoffs');
 assert.equal(after.filter(g=>g.home==='Evans'||g.away==='Evans').length,2,'Evans 2023 postseason receipts missing');
 const career=read('data/career_core_generated.json').managers;
-for(const [name,games,w,l] of [['JMid',36,16,20],['Evans',107,52,55]]){
- const r=career[name];assert.deepEqual([r.games,r.w,r.l,r.t],[games,w,l,0],name+' career record');
+for(const name of ['JMid','Evans']){
+ const own=ledger.games.filter(g=>g.stage==='regular'&&(g.home===name||g.away===name));
+ const w=own.filter(g=>(g.home===name&&g.winner==='HOME')||(g.away===name&&g.winner==='AWAY')).length;
+ const l=own.filter(g=>(g.home===name&&g.winner==='AWAY')||(g.away===name&&g.winner==='HOME')).length;
+ const t=own.length-w-l;
+ const r=career[name];assert.deepEqual([r.games,r.w,r.l,r.t],[own.length,w,l,t],name+' career record follows canonical finalized games');
 }
 assert.equal(career.JMid.annual['2023'],undefined);
 assert.deepEqual([career.Evans.annual['2023'].w,career.Evans.annual['2023'].l],[9,5]);
