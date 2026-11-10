@@ -1604,8 +1604,8 @@ try{
 
    }
    if(route==='seasons/'){
-    if(!await page.locator('header nav[aria-label="Season archive navigation"] a[href="../analytics/rivalries.html"]').count())
-     errors.push(width+' Season Archive missing modern rivalry navigation');
+    if(!await page.locator('header nav[aria-label="Season archive navigation"] a[href="../analytics/record-holders.html"]').count()||!await page.locator('header nav[aria-label="Season archive navigation"] a[href="2026.html"]').count())
+     errors.push(width+' Season Archive missing modern Record Book and current-season navigation');
    }
    if(route==='analytics/manager-madden-cards.html'){
     const links=page.locator('nav.madden-core-nav a');
