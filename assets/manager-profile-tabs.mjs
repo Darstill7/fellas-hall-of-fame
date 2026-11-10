@@ -668,7 +668,12 @@ function mountCareerExhibit(){
  // Records already lead the hero and have a destination in the archive navigation.
  // A second copy here would turn the story into another cluttered button row.
  actions.append(read);
- feature.append(kicker,h,intro,actions);
+ const source= document.createElement('p');
+ source.className='hof-career-source-note';
+ source.append('Franchise biography draws on archived results and transactions. For the current season, ');
+ const live=document.createElement('a');live.href='../../analytics/sportscenter.html';live.textContent='see the latest verified 2026 scores and standings';
+ source.append(live,'.');
+ feature.append(kicker,h,intro,actions,source);
  hero.after(feature);
  feature.after(hub);
  // The résumé must greet visitors before any browse controls. Keep switching
