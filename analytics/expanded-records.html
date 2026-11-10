@@ -4,11 +4,35 @@
 nav{background:#101e2a;border-bottom:1px solid #3c586b}nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:13px;padding-bottom:13px}nav a{min-height:44px;display:inline-flex;align-items:center;font-size:13px;font-weight:800;padding:7px}.links{display:flex;gap:11px;flex-wrap:wrap}
 .hero{padding:41px 0 17px}.hero small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#ebc781;font-weight:850}h1{font-size:clamp(35px,6vw,61px);letter-spacing:-.045em;line-height:1.13;margin:8px 0 13px}.hero p{max-width:75ch;color:#cddbe4;margin:5px 0 17px}.foot{padding:29px 0;border-top:1px solid #3c586b;font-size:12px;color:#c4d2dd;margin-top:20px}
 @media(max-width:600px){.wrap{padding:0 16px}.hero{padding-top:27px}}
+</style><style id="portfolio-first-layout">
+.portfolio-hero h1{font:400 clamp(49px,7vw,83px)/1.13 Georgia,'Times New Roman',serif;letter-spacing:-.065em}.portfolio-hero h1 em{font-weight:400;color:#efd19a}
+.portfolio-first{background:#172c38;border:1px solid #af9769;border-top:3px solid #e0c38b;border-radius:3px;margin:18px 0 38px;padding:clamp(17px,3.7vw,33px)}
+.portfolio-topline{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;border-bottom:1px solid #637481;padding-bottom:14px;font-size:10px;letter-spacing:.12em;font-weight:850;color:#dec18c}
+.portfolio-topline a{font-size:12px;letter-spacing:normal}
+.portfolio-select-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,275px);gap:18px;align-items:end;margin:25px 0 18px}
+.portfolio-select-row h2{font:400 clamp(27px,3.5vw,40px)/1.2 Georgia,serif;letter-spacing:-.035em;margin:0 0 8px}
+.portfolio-select-row label{display:grid;gap:6px;font-size:12px;color:#e8cf9e;font-weight:850}
+.portfolio-select-row select{width:100%;min-height:49px;background:#102633;border:1px solid #78919d;border-radius:2px;color:#f7f1e7;padding:10px 12px;font:700 14px system-ui}
+#expanded-spotlight>h3{font:400 clamp(25px,3vw,36px)/1.2 Georgia,serif;color:#f2d19a}
+#expanded-spotlight .records-lab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.records-lab-lab-intro{padding:15px 0 19px;border-top:1px solid #69757c}
+.records-lab-lab-intro>span{font-size:10px;letter-spacing:.16em;color:#e5c48b;font-weight:850}
+.records-lab-lab-intro h2{font:400 clamp(30px,4.4vw,48px)/1.18 Georgia,serif;letter-spacing:-.045em;margin:12px 0}
+.records-lab-lab-intro p{max-width:74ch;color:#cdd9df}
+.records-lab-lab-intro a{display:inline-flex;align-items:center;min-height:44px;color:#efcd94;font-weight:750}
+#expanded-records-explorer{scroll-margin-top:20px}
+@media(max-width:700px){.portfolio-select-row{grid-template-columns:1fr}.portfolio-select-row label{max-width:none}#expanded-spotlight .records-lab-grid{grid-template-columns:1fr}.portfolio-first{margin-bottom:27px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style></head><body>
 <nav aria-label="Primary navigation"><div class="wrap"><a href="../">🏆 THE FELLAS</a><div class="links"><a href="records.html">Record Book</a><a href="postseason-records.html">Postseason</a><a href="../managers/">Managers</a><a href="../hall/">Hall of Fame</a></div></div></nav>
-<main class="wrap"><header class="hero"><small>The league’s hidden history · 2016–2026 Week 8</small><h1>Expanded Records Lab</h1>
-<p>44 evidence-backed ways to measure the Fellas: legendary weeks, close finishes, scoring streaks, rivalries, career milestones, season dominance, and official final standings.</p>
-<p>Every current manager has a personal record portfolio. League-leading achievements are identified separately; no one is assigned a fictional title just for inclusion.</p>
-</header><section id="expanded-records-explorer" aria-live="polite"><p>Loading verified record categories…</p></section></main>
+<main class="wrap">
+<header class="hero portfolio-hero"><small>THE FELLAS / THE PERSONAL RECORD BOOK / VERIFIED ARCHIVE</small><h1>Every manager.<br><em>Every record.</em></h1><p>Choose a manager to explore their verified record portfolio. League-leading accomplishments, top-three marks, and individual bests are identified separately.</p></header>
+<section id="manager-record-portfolio" class="records-lab portfolio-first" aria-labelledby="portfolio-heading">
+ <div class="portfolio-topline"><span>01 / THE FRANCHISE PORTFOLIO</span><a href="../managers/">Explore all managers ↗</a></div>
+ <div class="portfolio-select-row"><div><h2 id="portfolio-heading">A manager’s record portfolio</h2><p class="records-lab-intro">Start with the person, then explore the entire record archive below.</p></div><label for="expanded-manager">Choose a manager<select id="expanded-manager" aria-label="Choose a manager's record portfolio"><option value="">Loading managers…</option></select></label></div>
+ <section id="expanded-spotlight" aria-live="polite"><p class="records-lab-intro">Loading the manager record portfolio…</p></section>
+</section>
+<section class="records-lab-lab-intro" aria-labelledby="lab-heading"><span>02 / EXPLORE THE ARCHIVE</span><h2 id="lab-heading">Expanded Records Lab</h2><p>Browse all 44 verified record categories, including standout weeks, close finishes, scoring streaks, rivalries, and career milestones. Archived coverage currently extends through Week 8 of 2026.</p><a href="#expanded-records-explorer">Browse categories ↓</a></section>
+<section id="expanded-records-explorer" aria-label="Expanded record categories" aria-live="polite"><p>Loading verified record categories…</p></section></main>
 <footer class="foot"><div class="wrap">The Fellas · Regular season and final standings · 2026 through Week 8 · Historical ESPN scoring and rounding differed from Sleeper.</div></footer>
 <script type="module" src="../assets/expanded-records.mjs"></script></body></html>
