@@ -11,6 +11,8 @@ const tag=(name,value,cls)=>{const e=document.createElement(name);if(cls)e.class
 const currentManagers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
 let collectionWinners=[],managerRows=[],expandedData=null;
 function renderManagerFinder(){
+ // Read the source snapshot as well as event updates; either module may load first.
+ if(Array.isArray(document.__fellasVerifiedRecordOwners))collectionWinners=document.__fellasVerifiedRecordOwners;
  const root=document.getElementById('manager-record-finder');
  if(!root||!managerRows.length||!expandedData)return;
  const requested=new URLSearchParams(location.search).get('manager');
