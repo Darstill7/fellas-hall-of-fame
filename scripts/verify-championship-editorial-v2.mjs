@@ -18,5 +18,5 @@ assert(css.includes('@media(max-width:560px)'),'Phone layout must be defined');
 assert(css.includes('prefers-reduced-motion'),'Reduced-motion preference must be respected');
 assert(html.includes('aria-label="Main navigation"'),'Primary nav landmark required');
 assert(html.includes('../analytics/record-holders.html'),'Records must reach manager-first Record Book');
-assert.equal((html.match(/<style\\b/g)||[]).length,(html.match(/<\\/style>/g)||[]).length,'Inline styles must be balanced');
+assert.equal(html.split('<style').length-1,html.split('</style>').length-1,'Inline styles must be balanced');
 console.log('PASS: ten championship editions, archive navigation, story features and editorial visual system');
