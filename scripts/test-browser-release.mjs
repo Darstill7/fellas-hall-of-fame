@@ -2467,6 +2467,8 @@ try{
     const countLabel=await page.locator('#record-count-summary').innerText();
     if(expandedKinds!==44||await tabs.count()!==6||!countLabel.includes('44 expanded categories')||!countLabel.includes('16 established categories'))
      errors.push(width+' Recordholders failed to load all 44 expanded categories');
+    const archiveDisclosure=page.locator('#complete-record-index details.records-archive-disclosure');
+    if(await archiveDisclosure.count()===1)await archiveDisclosure.locator('summary').click();
     const career= tabs.filter({hasText:'Career ('});
     await career.click();
     const familyCount=await page.locator('#expanded-record-categories .category-card').count();
