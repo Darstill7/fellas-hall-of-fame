@@ -296,6 +296,22 @@ try{
       if(!destinations.some(x=>x.includes(label)))errors.push(width+' '+route+' lacks hub destination '+label);
      const recordHref=await hub.locator('a').filter({hasText:'My records'}).getAttribute('href');
      if(!recordHref||!recordHref.includes('manager='))errors.push(width+' '+route+' personal Records link missing manager scope');
+     // Test the real journey through the manager hub, including identity aliases.
+     // The Record Book must hydrate the correct portfolio rather than defaulting to Stilly.
+     const managerSlug=route.split('/')[1];
+     if(width===390&&['tom','jmid'].includes(managerSlug)){
+      const visitor=await context.newPage();
+      try{
+       await visitor.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:15000});
+       await visitor.locator('.manager-home-hub-tile').filter({hasText:'My records'}).click();
+       await visitor.waitForURL(url=>url.pathname.endsWith('/analytics/record-holders.html')&&url.searchParams.has('manager'),{timeout:15000});
+       const expectedManager=managerSlug==='tom'?'Thommy':'JMid';
+       await visitor.waitForFunction(name=>document.querySelector('#record-manager-selected')?.textContent?.startsWith(name+' ·'),expectedManager,{timeout:16000});
+       const selected=await visitor.locator('#record-manager-selected').innerText();
+       if(!selected.includes('first-place category entries'))
+        errors.push(width+' '+route+' Record Book did not render selected manager records');
+      }finally{await visitor.close()}
+     }
      if(width===390){
       const metrics=await hub.evaluate(el=>({right:el.getBoundingClientRect().right,tiles:[...el.querySelectorAll('.manager-home-hub-tile')].map(x=>x.getBoundingClientRect().height)}));
       if(metrics.right>width+2)errors.push(width+' '+route+' manager hub exceeds viewport by '+(metrics.right-width).toFixed(1)+'px');
