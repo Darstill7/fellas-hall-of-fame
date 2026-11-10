@@ -71,7 +71,7 @@ if(process.argv.includes('--check')){
   errors.push('Recovered 2016–2019 ESPN regular-season evidence count changed; revisit seasons index coverage statement');
  if(page.includes('Seasons 2016–2019 have champion records only.')||
     !page.includes('reconstructed standings from 242 recorded games')||
-    !page.includes('archived through completed Week 7'))
+    !page.includes('archived Week 9 snapshot; use the 2026 Season hub'))
   errors.push('Seasons index coverage note must match recovered ESPN standings and historical 2026 cutoff');
  if(errors.length){console.error(errors.join('\n'));process.exit(1)}
  console.log('Season guide and embedded seasons page PASS; '+Object.keys(expected).length+' years');
