@@ -22,11 +22,20 @@ for(let year=2020;year<=2026;year++){
    assert.equal(previous.timestamp,t.timestamp,'Conflicting completed transaction timestamps '+year+'/'+id);
   txById.set(id,t);
  }
- let ambiguous=0,priorObserved=0,withoutBound=0;
+ let ambiguous=0,priorObserved=0,withoutBound=0,missingTimestamp=0;
  for(const claim of outcomes.observations.filter(x=>x.year===year)){
   const tx=txById.get(String(claim.transactionId));
-  assert.ok(tx&&tx.status==='complete','Missing completed acquisition receipt: season='+year+' week='+claim.week+' transactionId='+claim.transactionId+' playerId='+claim.playerId+' teamId='+claim.teamId+' receiptFound='+Boolean(tx)+' receiptStatus='+(tx?.status??'missing')+' allMatchingStatuses='+original.filter(t=>String(t.transactionId)===String(claim.transactionId)).map(t=>t.status+'@week'+t.week).join(','));
-  assert.ok(Number.isFinite(tx.timestamp),'Completed transaction missing timestamp '+year+'/'+claim.transactionId);
+  if(!tx||!Number.isFinite(tx.timestamp)){
+   // Later provider-certified claims may not be in the older event-timestamp
+   // recovery sample. Preserve the gap rather than fabricate an ownership state.
+   missingTimestamp++;
+   rows.push({year,transactionId:claim.transactionId,playerId:claim.playerId,teamId:claim.teamId,
+    transactionTimestamp:null,earlierEventBoundedOwnerCandidates:[],
+    status:'completed_claim_timestamp_not_recovered',claimAcceptedByProvider:true,
+    preclaimFreeAgentAvailabilityCertified:false,alternativeFreeAgentPoolCertified:false});
+   continue;
+  }
+  assert.equal(tx.status,'complete','Recovered transaction is not complete '+year+'/'+claim.transactionId);
   const prior=(byYear.get(year)??[]).filter(i=>i.playerId===claim.playerId&&
    i.startTimestamp<tx.timestamp&&(i.endTimestamp===null||i.endTimestamp>=tx.timestamp));
   const other=prior.filter(i=>i.teamId!==claim.teamId);
@@ -43,7 +52,8 @@ for(let year=2020;year<=2026;year++){
  }
  coverage.push({year,claims:outcomes.observations.filter(x=>x.year===year).length,
   claimsWithEarlierOtherTeamOverlap:priorObserved,claimsWithMultiplePriorIntervals:ambiguous,
-  claimsWithoutPriorEventBound:withoutBound,certifiedFreeAgentAlternatives:0});
+  claimsWithoutPriorEventBound:withoutBound,claimsWithoutRecoveredTimestamp:missingTimestamp,
+  certifiedFreeAgentAlternatives:0});
 }
 const report={schema:'fellas-faab-timestamp-ownership-conflict-screen-v1',
  status:'provisional_overlap_screen_not_certified_availability',

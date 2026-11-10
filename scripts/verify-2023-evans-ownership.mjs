@@ -15,8 +15,12 @@ const after=ledger.games.filter(g=>g.year===2023&&g.stage!=='regular');
 assert.equal(after.filter(g=>g.home==='JMid'||g.away==='JMid').length,0,'JMid must not own 2023 playoffs');
 assert.equal(after.filter(g=>g.home==='Evans'||g.away==='Evans').length,2,'Evans 2023 postseason receipts missing');
 const career=read('data/career_core_generated.json').managers;
-for(const [name,games,w,l] of [['JMid',36,16,20],['Evans',107,52,55]]){
- const r=career[name];assert.deepEqual([r.games,r.w,r.l,r.t],[games,w,l,0],name+' career record');
+for(const name of ['JMid','Evans']){
+ const own=ledger.games.filter(g=>g.stage==='regular'&&(g.home===name||g.away===name));
+ const w=own.filter(g=>(g.home===name&&g.winner==='HOME')||(g.away===name&&g.winner==='AWAY')).length;
+ const l=own.filter(g=>(g.home===name&&g.winner==='AWAY')||(g.away===name&&g.winner==='HOME')).length;
+ const t=own.length-w-l;
+ const r=career[name];assert.deepEqual([r.games,r.w,r.l,r.t],[own.length,w,l,t],name+' career record follows canonical finalized games');
 }
 assert.equal(career.JMid.annual['2023'],undefined);
 assert.deepEqual([career.Evans.annual['2023'].w,career.Evans.annual['2023'].l],[9,5]);
@@ -31,8 +35,11 @@ const endings=read('data/manager_verified_season_endings_v1.json').managers;
 assert.equal(endings.JMid.some(x=>x.year===2023),false);
 assert.equal(endings.Evans.some(x=>x.year===2023),true);
 const book=read('data/manager_record_books_2016_2026.json').managers;
-assert.deepEqual(book.find(x=>x.manager==='JMid').regular,{games:36,w:16,l:20,t:0});
-assert.deepEqual(book.find(x=>x.manager==='Evans').regular,{games:107,w:52,l:55,t:0});
+for(const name of ['JMid','Evans']){
+ const actual=book.find(x=>x.manager===name).regular;
+ const expected=career[name];
+ assert.deepEqual(actual,{games:expected.games,w:expected.w,l:expected.l,t:expected.t},name+' record book must match canonical career');
+}
 const season=read('data/manager_season_results_v1.json');
 assert.equal(season.rows.some(x=>x.manager==='JMid'&&x.year===2023),false);
 assert.equal(season.rows.some(x=>x.manager==='Evans'&&x.year===2023),true);
@@ -48,7 +55,8 @@ const bio=read('data/manager_biographies_awards.json').managers.JMid.biography;
 assert.ok(/joined.*after.*2023/i.test(bio));
 assert.ok(!/25–25|2023.*9–5.*JMid/i.test(bio));
 const html=fs.readFileSync('managers/jmid/index.html','utf8');
-assert.ok(html.includes('>16–20</strong>'));
+const jmidRecord=career.JMid.w+'–'+career.JMid.l+(career.JMid.t?'–'+career.JMid.t:'');
+assert.ok(html.includes('>'+jmidRecord+'</strong>'),'JMid hero record must follow canonical weekly updates');
 assert.ok(html.includes('Evans completed the 2023 season'));
 const trophies=read('data/manager_historical_trophy_cases_v1.json').managers;
 assert.equal(trophies.JMid.teamAwards.some(x=>x.year===2023),false,'JMid must have no 2023 manager trophy');

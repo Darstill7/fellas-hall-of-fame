@@ -27,7 +27,8 @@ for(const game of verifiedWeek8.matchups){
  }
 }
 assert.equal(seen.size,10);
-assert.equal(guide['2026'].games,40,'Expected 2026 40 canonical games through Week 8');
+const latest2026Week=Math.max(...read('data/unified_record_book_2016_2026.json').games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week));
+assert.equal(guide['2026'].games,latest2026Week*5,'2026 season guide must reflect every completed canonical week');
 const report=[];
 for(const [slug,manager] of Object.entries(managers)){
  const page=fs.readFileSync('managers/'+slug+'/index.html','utf8');
@@ -37,7 +38,7 @@ for(const [slug,manager] of Object.entries(managers)){
  const {games,w,l,t}=record.regular;
  assert.equal(games,w+l+t,'Career record arithmetic: '+manager);
  const standing=guide['2026'].standings.find(x=>x.name===manager);
- assert.ok(standing&&standing.games===8,'2026 published season record must be 8 games: '+manager);
+ assert.ok(standing&&standing.games===latest2026Week,'2026 published season record must match latest canonical week: '+manager);
  assert.ok(page.includes('data-canonical-manager-record="'+(manager==='Thommy'?'Tom':manager)+'"')||page.includes('data-canonical-manager-record="'+manager+'"'),'Missing page career record: '+manager);
  const expectedRecord=w+'–'+l+(t?'–'+t:'');
  assert.ok(page.includes(expectedRecord),'Public page record not aligned with canonical book: '+manager);
@@ -89,7 +90,7 @@ for(const [slug,manager] of Object.entries(managers)){
  assert.equal(canonicalGame.home===manager?canonicalGame.homeScore:canonicalGame.awayScore,week8.points,'Week 8 manager score mismatch: '+manager);
  assert.equal(canonicalGame.home===manager?canonicalGame.awayScore:canonicalGame.homeScore,week8.opponentPoints,'Week 8 opponent score mismatch: '+manager); 
  const candidate={w,l,t};
- report.push({manager,slug,championshipYears:titleYears,careerThroughWeek8:expectedRecord,week8,week8ReconciledCandidate:candidate,
+ report.push({manager,slug,championshipYears:titleYears,careerThroughLatestWeek:expectedRecord,week8,week8ReconciledCandidate:candidate,
   canonicalWeek8Integrated:true,biographySourceMatched:true,tradeCandidatesVerified,waiverHighlightVerified:true});
 }
 console.log('MANAGER EDITORIAL AUDIT PASS: 10 biographies, title ledgers, career records, selected trade/waiver receipts and 5 final Week 8 matchups accounted for.');

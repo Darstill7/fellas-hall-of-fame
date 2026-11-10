@@ -1452,7 +1452,7 @@ try{
     // Closest margins must be selected from every verified regular-season
     // matchup, not from the top 100 blowouts. Regression: 2018 W7 was 0.16.
     await page.locator('#categories button[data-category="close"]').click();
-    await page.waitForFunction(()=>document.querySelector('#scope')?.textContent.includes('Week 8')&&
+    await page.waitForFunction(()=>document.querySelector('#scope')?.textContent.includes('Week 9')&&
      document.querySelector('#rows tr:first-child td:last-child')?.textContent==='0.16',null,{timeout:10000});
     const closestAudit=await page.locator('#rows tr').evaluateAll(trs=>trs.map(tr=>{
      const cells=[...tr.querySelectorAll('td')];
@@ -1464,7 +1464,7 @@ try{
        !closestAudit[0].year.includes('2018 · W7')||
        closestAudit[0].win!=='Thommy'||closestAudit[0].loss!=='Stew'||
        closestAudit[0].margin!=='0.16'||
-       closestAudit[99].margin!=='6.42'||
+       closestAudit[99].margin!==((await (await page.request.get(baseUrl+'data/unified_record_book_2016_2026.json')).json()).games.filter(g=>g.stage==='regular').map(g=>Math.abs(Math.round(g.homeScore*100)-Math.round(g.awayScore*100))).filter(cents=>cents>0).sort((a,b)=>a-b)[99]/100).toFixed(2)||
        closestAudit.some((r,i)=>!/^[0-9]+\.[0-9]{2}$/.test(r.margin)||
         (i>0&&Number(r.margin)<Number(closestAudit[i-1].margin)))||
        (width===390&&closestAudit.some(r=>r.at< -2||r.display!=='grid')))
@@ -2550,7 +2550,10 @@ try{
     const sig=page.locator('#expanded-manager-records');
     await sig.locator('.records-lab-tile').first().waitFor({timeout:12000});
     const sigText=await sig.innerText();
-    if(sigText.includes('undefined')||sigText.includes('NaN')||!sigText.includes('2017 · Week 9 vs Tony · Win')||!sigText.includes('2017 (3rd) · 2023 (1st) · 2024 (2nd)')||!sigText.includes('15,198.5 pts')||!sigText.includes('11 wins')||sigText.includes('15677.98'))
+    const canonicalScorebook=(await (await page.request.get(baseUrl+'data/unified_record_book_2016_2026.json')).json()).games;
+    const stillyTotal=canonicalScorebook.filter(g=>g.stage==='regular').reduce((sum,g)=>sum+(g.home==='Stilly'?g.homeScore:g.away==='Stilly'?g.awayScore:0),0);
+    const stillyScoreDisplay=Number(stillyTotal.toFixed(2)).toLocaleString('en-US',{maximumFractionDigits:2})+' pts';
+    if(sigText.includes('undefined')||sigText.includes('NaN')||!sigText.includes('2017 · Week 9 vs Tony · Win')||!sigText.includes('2017 (3rd) · 2023 (1st) · 2024 (2nd)')||!sigText.includes(stillyScoreDisplay)||!sigText.includes('11 wins')||sigText.includes('15677.98'))
      errors.push(width+' Stilly signature records have incorrect game, podium, or numeric context');
     if(width===390){
      const tiles=await sig.locator('.records-lab-tile').evaluateAll(els=>els.map(el=>({width:el.getBoundingClientRect().width,right:el.getBoundingClientRect().right})));
@@ -2588,7 +2591,9 @@ try{
     else{
      await page.locator('#manager').selectOption('Thommy');
      const thommyProfile=await page.locator('#profile').innerText();
-     if(!thommyProfile.includes('Recorded postseason matchups')||!thommyProfile.includes('67–75–1')||
+     const thommyCareer=(await (await page.request.get(baseUrl+'data/career_core_generated.json')).json()).managers.Thommy;
+     const thommyCareerRecord=thommyCareer.w+'–'+thommyCareer.l+(thommyCareer.t?'–'+thommyCareer.t:'');
+     if(!thommyProfile.includes('Recorded postseason matchups')||!thommyProfile.includes(thommyCareerRecord)||
         !thommyProfile.includes('241.00')||!thommyProfile.includes('NFL Weeks 15–16 combined')||
         !((await page.locator('#manager-destination a').first().getAttribute('href'))||'').endsWith('tom/'))
       errors.push(width+' Thommy historical record must retain his own career and current profile');
