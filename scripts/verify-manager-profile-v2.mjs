@@ -9,6 +9,8 @@ const latestCss=readFileSync(new URL('../assets/manager-profile-editorial-v3.css
 assert(interactive.includes('const managerRecordBookUrl='),'Interactive profile routes must use the manager-first Record Book');
 assert(!interactive.includes('expanded-records.html?manager='),'Primary profile record links must not revert to the old research archive');
 assert(latestCss.includes('@media(max-width:700px)'),'Responsive editorial layout missing');
+assert(interactive.includes("source.className='hof-career-source-note'"),'Biography source note missing');
+assert(interactive.includes('see the latest verified 2026 scores and standings'),'Live 2026 crosslink missing');
 for(const name of names){
  const html=readFileSync(new URL('../managers/'+name+'/index.html',import.meta.url),'utf8');
  const manager=canonical(name);
