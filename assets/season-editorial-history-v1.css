@@ -1,0 +1,51 @@
+/* The Fellas · Season History editorial reading system.
+   All season statistics remain grounded in the original archive JSON. */
+:root{--season-gold:#e5c58c;--season-cream:#f4ebdb;--season-rule:#526773}
+body.fellas-polished{background:#0a151d;color:var(--season-cream)}
+body.fellas-polished .fellas-seasons-header{max-width:100%;background:#0b1922;border-bottom:1px solid #576570;padding:12px max(18px,calc((100vw - 1180px)/2))}
+body.fellas-polished .fellas-seasons-header nav{gap:5px 17px}
+body.fellas-polished .fellas-seasons-header nav a{font-size:12px;letter-spacing:.015em;min-height:44px;text-decoration:none;color:#d9e3e5}
+body.fellas-polished .fellas-seasons-header nav a[aria-current=page]{color:#eacb96;border-bottom:2px solid #e3c58e}
+body.fellas-polished main#main-content{max-width:1180px;margin:auto;padding:clamp(20px,3.5vw,45px) 18px 85px}
+body.fellas-polished .season-masthead{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(170px,.7fr);gap:clamp(20px,4vw,55px);align-items:end;margin-bottom:26px;padding:20px 0 31px;border-bottom:1px solid #5d6d75}
+body.fellas-polished .season-masthead .ey{font-size:10px;letter-spacing:.19em}
+body.fellas-polished .season-masthead h1{font:400 clamp(55px,8vw,94px)/1.08 Georgia,'Times New Roman',serif;letter-spacing:-.065em;margin:13px 0 18px}
+body.fellas-polished .season-masthead h1 em{font-weight:400;color:#e5cb97}
+body.fellas-polished .season-masthead .lead{font-size:clamp(16px,1.9vw,20px);line-height:1.58;max-width:55ch;color:#ccd9dd}
+body.fellas-polished .season-masthead-edition{border-left:1px solid #61747d;min-height:212px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;padding:6px 0 6px 25px}
+body.fellas-polished .season-masthead-edition span{font-size:10px;letter-spacing:.17em;color:#cfc0a2;font-weight:850}
+body.fellas-polished .season-masthead-edition strong{font:400 clamp(70px,9vw,112px)/1 Georgia,serif;color:#e3c98f;letter-spacing:-.06em}
+body.fellas-polished .season-masthead-edition small{font-size:12px;color:#b6c6cc;line-height:1.5}
+body.fellas-polished .season-quick-nav{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0 26px}
+body.fellas-polished .season-quick-nav a{display:inline-flex;align-items:center;min-height:47px;padding:11px 15px;border:1px solid #6a808a;border-radius:2px;color:#e7ca94;text-decoration:none;font-size:13px;font-weight:800;background:#152b37}
+body.fellas-polished .season-quick-nav a:first-child{background:#d7bc87;border-color:#d7bc87;color:#12242e}
+body.fellas-polished .season-quick-nav a:hover{border-color:#eecf93}
+body.fellas-polished .season-select-wrap{display:flex;align-items:center;gap:13px;flex-wrap:wrap;padding:17px 20px;border:1px solid #546976;border-radius:2px;background:#142935}
+body.fellas-polished .season-select-wrap label{margin:0;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#e2c68e}
+body.fellas-polished .season-select-wrap select{min-height:48px;min-width:185px;border-radius:2px}
+body.fellas-polished #season-buttons{gap:7px!important;margin:17px 0 24px!important}
+body.fellas-polished #season-buttons button{border-radius:2px!important;min-height:46px;padding:10px 15px!important;font-size:13px}
+body.fellas-polished .feature.season-editorial-cover{position:relative;border:1px solid #a68e63;border-top:3px solid #e3c48b;border-radius:2px;padding:clamp(21px,4vw,45px);background:#172c37;margin:12px 0 36px}
+body.fellas-polished .season-editorial-cover .ey{font-size:11px;letter-spacing:.16em}
+body.fellas-polished .season-editorial-cover h2{font:400 clamp(34px,5.5vw,64px)/1.12 Georgia,'Times New Roman',serif;letter-spacing:-.05em;color:#f6eddb;max-width:20ch;margin:16px 0}
+body.fellas-polished .season-editorial-cover #story{font:400 clamp(16px,2vw,21px)/1.7 Georgia,'Times New Roman',serif;max-width:67ch;color:#ebecdf}
+body.fellas-polished .season-editorial-cover #coverage{font-size:12px;max-width:75ch;line-height:1.55;color:#bccbd0;border-top:1px solid #526c77;padding-top:14px;margin-top:19px}
+body.fellas-polished .season-archive-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+body.fellas-polished .season-archive-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border:1px solid #bb9f69;background:#223842;color:#f0d39a;border-radius:2px;padding:11px 15px;text-decoration:none;font-size:13px;font-weight:800}
+body.fellas-polished .season-archive-actions a:first-child{background:#e0c18b;border-color:#e0c18b;color:#0e202a}
+body.fellas-polished .season-data-panels{gap:clamp(18px,3vw,35px);grid-template-columns:minmax(0,1.22fr) minmax(260px,.78fr)}
+body.fellas-polished .season-data-panels>section{min-width:0}
+body.fellas-polished .season-data-panels h2{font:400 clamp(25px,3vw,36px)/1.2 Georgia,'Times New Roman',serif;letter-spacing:-.03em;margin:10px 0 17px}
+body.fellas-polished .season-data-panels .tablewrap{border-radius:2px}
+body.fellas-polished .season-data-panels th,body.fellas-polished .season-data-panels td{font-variant-numeric:tabular-nums}
+body.fellas-polished .season-data-panels th{background:#142b36;font-size:11px;letter-spacing:.05em}
+body.fellas-polished .season-data-panels td{font-size:13px}
+body.fellas-polished .season-data-panels td a{font-weight:750;text-decoration:underline;text-decoration-color:#856f4a;text-underline-offset:3px}
+body.fellas-polished #highlights{border-radius:2px;background:#142c37}
+body.fellas-polished #highlights p{line-height:1.65}
+body.fellas-polished #seasonarchive{display:inline-flex;align-items:center;min-height:46px;border-bottom:1px solid #c4a46e;font-weight:750;text-decoration:none}
+body.fellas-polished main>details{border-radius:2px}
+body.fellas-polished main a:focus-visible,body.fellas-polished main button:focus-visible,body.fellas-polished main select:focus-visible{outline:3px solid #ffe3a5;outline-offset:3px}
+@media(max-width:760px){body.fellas-polished .season-masthead{grid-template-columns:1fr;padding-top:10px;gap:12px}body.fellas-polished .season-masthead-edition{display:none}body.fellas-polished .season-data-panels{grid-template-columns:1fr}body.fellas-polished .season-select-wrap{padding:14px;gap:10px}body.fellas-polished .season-quick-nav a{flex:1 1 auto}}
+@media(max-width:450px){body.fellas-polished .season-masthead h1{font-size:clamp(46px,12vw,62px)}body.fellas-polished .season-archive-actions a{width:100%}body.fellas-polished .season-select-wrap select{width:100%}body.fellas-polished #season-buttons{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))}body.fellas-polished #season-buttons button{padding:9px 3px!important;font-size:12px;min-width:0}body.fellas-polished .season-data-panels .tablewrap{max-width:100%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
