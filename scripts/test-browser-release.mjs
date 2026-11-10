@@ -134,6 +134,7 @@ try{
     if(width===390&&design.overflow>5)
      errors.push(width+' '+route+' shared layout horizontal overflow '+design.overflow);
     if(isCurrentProfile){
+     const slug=route.split('/')[1];
      const destinations=await page.locator('header nav.navlinks[aria-label="Main"] a').evaluateAll(nodes=>
       nodes.map(a=>a.getAttribute('href')));
      const expected=['../../index.html','../../managers/','../../hall/',
