@@ -30,4 +30,7 @@ for(const item of pages){
   }
  }
 }
+const hall=fs.readFileSync('hall/index.html','utf8');
+for (const destination of ['href="players.html"','href="shame.html"']) assert(hall.includes(destination),'Hall directory must feature '+destination);
+assert(hall.includes('Eight ways into the league history'),'Hall exhibit directory count must describe eight destinations');
 console.log('PASS: premium museum player/shame pages, five-link navigation, preserved exhibits, archive scope, keyboard skip and shared CSS.');
