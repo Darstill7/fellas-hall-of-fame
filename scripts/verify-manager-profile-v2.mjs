@@ -15,6 +15,8 @@ for(const name of names){
  const href='../../analytics/record-holders.html?manager='+encodeURIComponent(manager)+'#manager-record-finder';
  assert(html.includes('manager-profile-editorial-v2.css'),name+' missing shared design system');
  assert(html.includes('manager-profile-editorial-v3.css'),name+' missing shared editorial finish');
+ assert(html.includes('property="og:title"')&&html.includes('property="og:description"'),name+' missing social title/description');
+ assert(html.includes('property="og:url" content="https://darstill7.github.io/fellas-hall-of-fame/managers/'+name+'/"'),name+' missing direct profile share URL');
  assert(html.includes('manager-records-spotlight'),name+' missing record feature');
  assert(html.includes(href),name+' missing manager-specific record deep link');
  assert(html.includes('manager-records-spotlight'),name+' missing personal record feature');
