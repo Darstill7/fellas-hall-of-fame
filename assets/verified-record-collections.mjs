@@ -139,6 +139,18 @@ async function start(){
     ['Largest schedule disadvantage','Same all-play method; negative numbers indicate fewer actual wins than expected.',worstLuck,[['#',x=>x.rank],['Manager',x=>x.manager],['Year',x=>x.year],['Actual',x=>x.actualWins],['Expected',x=>num(x.expectedWins)],['Difference',x=>num(x.surplus)]],x=>num(x.surplus)+' wins']
    ]}
   ];
+  // Advertise actual completed-season category winners to the manager-first Record Holders view.
+  // Tied first-place managers share credit; a single manager can have multiple tied seasons.
+  const ownership=families.flatMap(family=>family.items.flatMap(([name,description,rows,columns,format])=>{
+   if(!rows.length)return [];
+   const first=rows[0].rank===1?rows[0]:null;
+   if(!first)return [];
+   return rows.filter(r=>r.rank===1).map(r=>({
+    manager:r.manager,label:name,value:format(r),year:r.year||null,
+    family:family.title,anchor:'records-'+family.id
+   }));
+  }));
+  document.dispatchEvent(new CustomEvent('fellas:verified-record-owners',{detail:{records:ownership}}));
   for(const family of families){
    const node=create('div',undefined,'record-collections-group');node.id='records-'+family.id;
    node.append(create('h2',family.title));
