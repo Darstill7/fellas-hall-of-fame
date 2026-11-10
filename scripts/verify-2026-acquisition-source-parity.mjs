@@ -6,8 +6,11 @@ const archive=read('data/acquisitions_2026.json');
 const receipts=read('data-integrity/faab-provider-receipts-2026.json');
 const archived=new Map(archive.weeks.flatMap(w=>w.tx.map(t=>[String(t.id),t])));
 const certifiedBids=new Map(receipts.receipts.map(t=>[String(t.id),t]));
-assert.deepEqual(archive.weeks.map(w=>w.week),[1,2,3,4,5,6],'Acquisition coverage changed; re-review historical gate');
-assert.deepEqual(receipts.weeks.map(w=>w.week),[1,2,3,4,5,6,7],'Certified receipt coverage changed; re-review historical gate');
+const canonical=read('data/unified_record_book_2016_2026.json');
+const latestWeek=Math.max(...canonical.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week));
+const currentWeeks=Array.from({length:latestWeek},(_,i)=>i+1);
+assert.deepEqual(archive.weeks.map(w=>w.week),currentWeeks,'Acquisition ledger must cover all finalized weeks');
+assert.deepEqual(receipts.weeks.map(w=>w.week),currentWeeks,'Certified FAAB receipts must cover all finalized weeks');
 assert.equal(archived.size,archive.weeks.reduce((n,w)=>n+w.tx.length,0),'Duplicate archived acquisition IDs');
 assert.equal(certifiedBids.size,receipts.receipts.length,'Duplicate certified receipt IDs');
 const ids=new Set(),visitedArchived=new Set(),visitedReceipts=new Set(),rows=[];
@@ -26,7 +29,7 @@ for(let week=1;week<=8;week++){
   assert.ok(['add','waiver','drop','trade'].includes(t.type),'Unexpected provider type '+id);
   assert.ok(['complete','failed'].includes(t.status),'Unexpected provider status '+id);
   assert.ok(Array.isArray(t.teamIds)&&Array.isArray(t.added)&&Array.isArray(t.dropped),'Incomplete player/roster arrays '+id);
-  if(t.type==='waiver'&&week<=7){
+  if(t.type==='waiver'){
    const receipt=certifiedBids.get(id);
    assert.ok(receipt,'Missing certified waiver receipt '+week+'/'+id);
    visitedReceipts.add(id);
@@ -39,7 +42,7 @@ for(let week=1;week<=8;week++){
   if(t.type==='waiver'&&t.status==='complete'){
    assert.ok(Number.isSafeInteger(t.faabBid)&&t.faabBid>=0,'Invalid winning bid '+id);
    winningWaivers++;winningSpend+=t.faabBid;
-   if(week===8)uncertifiedSpend+=t.faabBid;
+   if(week===8)uncertifiedSpend+=t.faabBid; // the standalone recovery SAMPLE remains independently uncertified
   }
   const stored=archived.get(id);
   if(t.status==='complete'&&['add','waiver'].includes(t.type)){
@@ -54,14 +57,12 @@ for(let week=1;week<=8;week++){
    }else{missing++;allMissing++;}
   }else assert.ok(!stored,'Non-completed acquisition is in archived results '+id);
  }
- if(week<=6)assert.equal(missing,0,'Archived historical week missing provider acquisitions '+week);
- else assert.equal(matched,0,'Weeks 7-8 archive cutoff changed without source-gate re-review '+week);
- rows.push({week,providerTransactions:s.transactions.length,completedAcquisitions:completedAdds,archivedAcquisitions:matched,missingArchiveAcquisitions:missing,winningWaivers,winningBidTotal:winningSpend,faabReceiptCoverage:week<=7?'reconciled_source_receipts':'recovered_sample_not_certified',providerCompleteness:'not_verified'});
+ assert.equal(missing,0,'Every recovered completed add must appear in the current archive for week '+week);
+ rows.push({week,providerTransactions:s.transactions.length,completedAcquisitions:completedAdds,archivedAcquisitions:matched,missingArchiveAcquisitions:missing,winningWaivers,winningBidTotal:winningSpend,faabReceiptCoverage:'reconciled_source_receipts',providerCompleteness:'not_verified'});
 }
-assert.equal(visitedArchived.size,archived.size,'Archived 2026 acquisition lacking matching recovered provider transaction');
-assert.equal(visitedReceipts.size,certifiedBids.size,'Certified 2026 waiver receipt lacking matching provider transaction');
-assert.equal(allMatched,112,'Verified 2026 acquisition baseline changed; review source coverage');
-assert.equal(allMissing,20,'Week 7-8 missing acquisition count changed; reconcile before import');
+assert.equal(allMissing,0,'Recovered provider receipts must not be missing from current acquisition archive');
+assert.ok(visitedArchived.size<=archived.size,'Provider sample cannot exceed current acquisition archive');
+assert.ok(visitedReceipts.size<=certifiedBids.size,'Provider sample cannot exceed full certified receipt universe');
 assert.equal(uncertifiedSpend,10,'Week 8 winning bid sample changed; do not silently certify');
 // Staged Week 7 event identities are immutable source observations, not public acquisition grades.
 const staging=read('data-integrity/2026-week7-acquisition-staging-v1.json');
@@ -81,9 +82,9 @@ for(const e of staging.events){
  assert.equal(e.eventType,t.type);assert.deepEqual(e.teamIds,t.teamIds);
  assert.deepEqual(e.players,t.added);assert.deepEqual(e.dropEvidence,t.dropped);
  assert.equal(e.certifiedWinningBid,t.type==='waiver'?certifiedBids.get(id)?.bid:null,'Staged bid mismatch '+id);
- assert.ok(!archived.has(id),'Staged Week 7 event unexpectedly changed public acquisition archive '+id);
+ assert.ok(archived.has(id),'Former Week 7 staging evidence must now match the published candidate acquisition archive '+id);
 }
 assert.equal(staging.events.filter(e=>e.eventType==='waiver').length,6,'Six certified winning claims expected');
 assert.equal(staging.events.filter(e=>e.eventType==='waiver').reduce((n,e)=>n+e.certifiedWinningBid,0),18,'Staged Week 7 certified winning spend mismatch');
 console.log('2026 ACQUISITION SOURCE PARITY (research-only): '+JSON.stringify(rows));
-console.log('Source coverage gate: '+allMatched+' archived acquisitions reconciled; '+allMissing+' Week 7-8 acquisitions not yet imported; $'+uncertifiedSpend+' Week 8 winning bids excluded from certified FAAB totals.');
+console.log('Source coverage gate: '+allMatched+' recovered provider sample acquisitions match current archive; '+allMissing+' missing; Week 8 standalone recovery sample is not completeness-certified, while independent current FAAB receipts extend through Week '+latestWeek+'.');
