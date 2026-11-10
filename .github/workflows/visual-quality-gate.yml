@@ -21,6 +21,8 @@ jobs:
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium webkit
+      - name: Verify manager portfolio is above expanded records lab
+        run: node scripts/verify-manager-portfolio-first.mjs
       - name: Validate eleven-season editorial archive and shareable history links
         run: node scripts/verify-season-editorial-history.mjs
       - name: Validate current season and 2020–2025 editorial editions
