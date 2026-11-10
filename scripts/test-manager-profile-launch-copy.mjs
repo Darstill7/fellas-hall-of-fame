@@ -115,7 +115,7 @@ for(const assertion of [
  "root.classList.add('fr-historical')",
  ".fr-historical .fr-grid{grid-template-columns:repeat(2,minmax(0,1fr))",
  ".fr-historical .fr-stat{display:flex;flex-direction:column",
- "Sleeper 2020–2026 Week 8;"
+ "Sleeper 2020–2026 Week 9;"
 ]){
  if(!historicalRecordsSource.includes(assertion))
   throw Error('Mobile career record-book spacing or evidence cutoff missing: '+assertion);
@@ -273,8 +273,10 @@ if(holderMap.get('Mitch').find(r=>r.label==='Most points in a completed regular 
  throw Error('Completed-season scoring leader changed');
 if(holderMap.get('Thommy').find(r=>r.label==='Closest regular-season victory')?.value!==0.16)
  throw Error('Closest victory leader changed');
-if(holderMap.get('Mitch').find(r=>r.label==='Highest career regular-season winning percentage (50+ games)')?.value!==60.68)
- throw Error('Qualified career winning percentage leader changed');
+const mitchCurrentRecord=book.managers.find(x=>x.manager==='Mitch').regular;
+const liveMitchWinPct=Math.round(10000*(mitchCurrentRecord.w+mitchCurrentRecord.t/2)/mitchCurrentRecord.games)/100;
+if(holderMap.get('Mitch').find(r=>r.label==='Highest career regular-season winning percentage (50+ games)')?.value!==liveMitchWinPct)
+ throw Error('Qualified career winning percentage leader differs from the latest verified career');
 if(holderMap.get('Thommy').find(r=>r.label==='Most championships')?.value!==4)
  throw Error('Four verified Thommy titles not recognized as record');
 if(holderMap.get('Mitch').find(r=>r.label==='Highest regular-season weekly score')?.value!==180.86)
