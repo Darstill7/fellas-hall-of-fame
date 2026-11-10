@@ -6,6 +6,10 @@ on:
       - 'data/championship_season_stories_2016_2025_v1.json'
       - 'data/championship_player_boxscores_2020_2025_v1.json'
       - 'hall/championship-stories.html'
+      - 'hall/index.html'
+      - 'assets/championship-editorial-v2.css'
+      - 'assets/hall-museum-entrance-v2.css'
+      - 'scripts/verify-championship-editorial-v2.mjs'
       - 'scripts/verify-championship-journalism.mjs'
       - 'scripts/verify-championship-stories.mjs'
       - '.github/workflows/championship-journalism.yml'
@@ -33,3 +37,5 @@ jobs:
         run: node scripts/verify-championship-stories.mjs
       - name: Reconcile championship MVPs, trades, score margins and story length
         run: node scripts/verify-championship-journalism.mjs
+      - name: Verify championship anthology, museum entry and all ten title links
+        run: node scripts/verify-championship-editorial-v2.mjs
