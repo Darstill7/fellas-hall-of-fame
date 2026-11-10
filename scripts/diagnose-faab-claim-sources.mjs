@@ -25,7 +25,18 @@ for(let year=2020;year<=2026;year++){
 for(const row of queue.rows){
  const context=byYear.get(row.year);
  const t=context.ids.get(row.transactionId);
- assert.ok(t,'Missing provider receipt '+row.year+'/'+row.transactionId);
+ if(!t){
+  // Independently certified completed waivers can be absent from older
+  // transaction-timestamp recovery samples; preserve that evidence gap.
+  assert.equal(row.year,2026,'Historical provider event missing '+row.year+'/'+row.transactionId);
+  const receipt=read('data-integrity/faab-provider-receipts-2026.json').receipts.find(x=>String(x.id)===row.transactionId);
+  assert.ok(receipt&&receipt.status==='complete'&&receipt.rosterIds.map(String).includes(String(row.teamId))&&receipt.playerIds.map(String).includes(String(row.playerId)),
+   'No certified provider waiver receipt '+row.transactionId);
+  results.push({...row,providerType:'waiver',providerTimestamp:null,
+   ownerIntervalStartCandidate:false,sourceBlockers:['original_provider_transaction_timestamp_not_recovered'],
+   nextObservedPlayerEvent:null,ownershipContinuousCertified:false,preclaimAvailabilityCertified:false});
+  continue;
+ }
  assert.equal(t.status,'complete');
  assert.ok((t.added??[]).some(p=>String(p.id)===row.playerId));
  const conflicts=ambiguousPlayerIds(t,context.counts);
