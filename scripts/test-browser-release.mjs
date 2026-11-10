@@ -1464,7 +1464,7 @@ try{
        !closestAudit[0].year.includes('2018 · W7')||
        closestAudit[0].win!=='Thommy'||closestAudit[0].loss!=='Stew'||
        closestAudit[0].margin!=='0.16'||
-       closestAudit[99].margin!==Number((await (await page.request.get(baseUrl+'data/unified_record_book_2016_2026.json')).json()).games.filter(g=>g.stage==='regular').map(g=>Math.abs(g.homeScore-g.awayScore)).sort((a,b)=>a-b)[99].toFixed(2)).toFixed(2)||
+       closestAudit[99].margin!==((await (await page.request.get(baseUrl+'data/unified_record_book_2016_2026.json')).json()).games.filter(g=>g.stage==='regular').map(g=>Math.abs(Math.round(g.homeScore*100)-Math.round(g.awayScore*100))).filter(cents=>cents>0).sort((a,b)=>a-b)[99]/100).toFixed(2)||
        closestAudit.some((r,i)=>!/^[0-9]+\.[0-9]{2}$/.test(r.margin)||
         (i>0&&Number(r.margin)<Number(closestAudit[i-1].margin)))||
        (width===390&&closestAudit.some(r=>r.at< -2||r.display!=='grid')))
