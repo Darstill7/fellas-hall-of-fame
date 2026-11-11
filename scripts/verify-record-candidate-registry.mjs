@@ -45,4 +45,17 @@ assert(new Set(data.categories.map(c=>c.id)).size===11);
 assert(data.managerIndex.Mitch?.some(e=>e.categoryId==='weekly-highs-career'&&e.rank===1));
 assert(data.managerIndex.Stilly?.some(e=>e.categoryId==='weekly-lows-career'&&e.rank===1));
 assert(!data.categories.some(c=>c.scope==='completed-season'&&c.leaders.some(x=>x.year===2026)));
+const currentManagers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
+for(const manager of currentManagers){
+ const records=data.managerIndex[manager];
+ assert(records?.length,'Missing personal record lookup for '+manager);
+ assert.equal(new Set(records.map(x=>x.categoryId)).size,records.length,
+  'Duplicate personal category in '+manager);
+ assert(records.every(x=>Number.isInteger(x.rank)&&x.rank>=1&&Number.isFinite(x.value)),
+  'Invalid ranked personal mark '+manager);
+}
+const portfolioTop=data.categories.find(c=>c.id==='rivalry-consecutive-meeting-wins');
+assert.equal(new Set(portfolioTop.holders.map(h=>h.manager+'|'+h.opponent)).size,6,
+ 'Six separate six-win streaks must share record status');
+
 console.log('PASS: provisional registry 11 categories, 705 games, 142 complete scored weeks, evidence-backed shared holders and manager indexing.');
