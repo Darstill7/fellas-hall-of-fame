@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Reverify nicknames, generated data, and all 79 routes.
 on:
   push:
     branches: [main]
