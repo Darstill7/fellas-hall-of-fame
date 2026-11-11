@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Confirm supported Ubuntu runner and biography trade audit.
 on:
   push:
     branches: [main]
