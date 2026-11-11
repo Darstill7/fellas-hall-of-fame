@@ -1,0 +1,21 @@
+name: Verify current-manager rivalry receipts (fast)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/regular_season_rivalry_receipts_2016_2026w9_v2.json'
+      - 'scripts/verify-rivalry-week9-v2.mjs'
+      - 'data/unified_record_book_2016_2026.json'
+      - '.github/workflows/verify-rivalry-data-fast.yml'
+  workflow_dispatch:
+jobs:
+  verify-rivalries:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify 45 head-to-head histories without browser dependencies
+        run: node scripts/verify-rivalry-week9-v2.mjs
