@@ -90,7 +90,7 @@ function renderManagerBook(data){
  };
  picker.addEventListener("change",paint);paint();
 }
-function renderExplorer(data){
+function renderExplorer(data,complete=null){
  const host=document.getElementById("expanded-records-explorer"),portfolio=document.getElementById("manager-record-portfolio");if(!host||!portfolio)return;
  const url=new URL(location.href);
  let selectedGroup=groups.includes(url.searchParams.get("group"))?url.searchParams.get("group"):"Career";
@@ -105,9 +105,42 @@ function renderExplorer(data){
  +'<p class="records-lab-caveat">'+data.rules.map(escapeHtml).join(" ")+'</p>';
  const group=host.querySelector("#expanded-group"),category=host.querySelector("#expanded-category"),manager=portfolio.querySelector("#expanded-manager");
  group.innerHTML=groups.map(g=>'<option value="'+escapeHtml(g)+'">'+escapeHtml(g)+'</option>').join("");
- manager.innerHTML='<option value="">All managers</option>'+canonical.map(m=>'<option value="'+escapeHtml(m)+'">'+escapeHtml(m)+'</option>').join("");
+ manager.innerHTML='<option value="">All managers</option>'+canonical.map(m=>'<option value="'+escapeHtml(m)+'">'+escapeHtml(m==="Tom"?"Thommy":m)+'</option>').join("");
  const spotlight=()=>{
   const el=portfolio.querySelector("#expanded-spotlight");
+  if(complete?.managers?.[selectedManager]){
+   // All 44 category rankings come from the complete, canonical full-ranking engine.
+   // Never imply a truncated global top-20 list is a manager's entire portfolio.
+   const person=complete.managers[selectedManager];
+   const full=person.categories;
+   const eligible=full.filter(c=>c.eligible);
+   const sorted=[...full].sort((a,b)=>groups.indexOf(a.group)-groups.indexOf(b.group)||
+    a.label.localeCompare(b.label));
+   const title=escapeHtml(person.displayName);
+   el.innerHTML='<h3>'+title+' · Complete record portfolio</h3>'
+    +'<p class="records-lab-intro"><strong>'+person.leagueRecordCategories+' league-leading categories</strong> · '
+    +person.topThreeCategories+' top-three categories · '+person.qualifyingCategories
+    +' qualifying categories of '+full.length+'. Every rank is calculated from the full recovered historical field, not a top-20 excerpt.</p>'
+    +'<div class="records-lab-table-scroll"><table class="records-lab-table records-lab-full-portfolio">'
+    +'<caption>Every published category · personally ranked or clearly marked ineligible</caption>'
+    +'<thead><tr><th>Category</th><th>League rank</th><th>Your best mark</th><th>Verified context</th></tr></thead><tbody>'
+    +sorted.map(r=>{
+      const url='?group='+encodeURIComponent(r.group)+'&category='+encodeURIComponent(r.categoryId)
+       +'&manager='+encodeURIComponent(selectedManager);
+      const label=r.leagueRank===1?'#1 · Shared league record':r.leagueRank!==null?'#'+r.leagueRank:'Not eligible';
+      const context=r.eligible?detail({key:r.categoryId,group:r.group,year:r.year,week:r.week,
+       evidence:r.evidence,manager:selectedManager}):'No qualifying source entry'+(r.qualifier?' · '+r.qualifier:'');
+      return '<tr'+(r.leagueRank===1?' class="records-full-holder"':'')+'>'
+       +'<td><a href="'+url+'">'+escapeHtml(r.label)+'</a><small class="records-full-group">'+escapeHtml(r.group)+'</small></td>'
+       +'<td>'+escapeHtml(label)+'</td><td>'+escapeHtml(r.eligible?fmt(r.value,r.unit):'—')+'</td>'
+       +'<td>'+escapeHtml(context)+'</td></tr>';
+     }).join('')
+    +'</tbody></table></div>'
+    +'<p class="records-lab-caveat">League records are marked #1. All other ranked marks are personal bests, not additional league titles. '
+    +'A missing qualifying result is never treated as a zero score. Current regular-season data are through 2026 Week 9; '
+    +'completed-season awards end in 2025. ESPN and Sleeper scoring rules differed.</p>';
+   return;
+  }
   if(!selectedManager){el.innerHTML='<h3>Choose a manager</h3><p class="records-lab-intro">Select any manager to view verified personal records. The full category research lab is below.</p>';return}
   const sig=data.signatures[selectedManager],holders=managerLeagueHolders(data,selectedManager);
   const seen=new Set(),unique=holders.filter(({category:c})=>!seen.has(c.key)&&seen.add(c.key));
@@ -142,6 +175,20 @@ try{
  const res=await fetch(new URL("../data/expanded_records_verified_v1.json",import.meta.url));
  if(!res.ok)throw Error("Expanded records archive: HTTP "+res.status);
  const data=await res.json();
+ // Reconstruct every rankable entry for the full 44-category manager portfolio.
+ // Preserve legacy source fallback if one of the canonical datasets is inaccessible.
+ let complete=null;
+ try{
+  const [gameRes,finishRes]=await Promise.all([
+   fetch(new URL("../data/unified_record_book_2016_2026.json",import.meta.url)),
+   fetch(new URL("../data/fellas_final_placements_2016_2025_verified.json",import.meta.url))
+  ]);
+  if(!gameRes.ok||!finishRes.ok)throw Error("Canonical portfolio sources unavailable");
+  const [{buildCompleteManagerPortfolios},games,finishes]=await Promise.all([
+   import("./full-manager-record-portfolios.mjs"),gameRes.json(),finishRes.json()
+  ]);
+  complete=buildCompleteManagerPortfolios(data,games,finishes);
+ }catch(error){console.warn("Complete personal rankings unavailable; retaining legacy highlights",error)}
  // Keep the first screen resilient: finishing receipt failure must not block every record.
  try{
   const placement=await fetch(new URL("../data/fellas_final_placements_2016_2025_verified.json",import.meta.url));
@@ -159,7 +206,7 @@ try{
   }
  }catch(error){console.warn("Official podium-year evidence unavailable",error)};
  if(data.version!==1||data.categoryCount!==data.categories.length||!canonical.every(n=>data.signatures?.[n]))throw Error("Expanded record data invalid");
- renderHub(data);renderProfile(data);renderManagerBook(data);renderExplorer(data);
+ renderHub(data);renderProfile(data);renderManagerBook(data);renderExplorer(data,complete);
 }catch(error){
  for(const id of ["manager-record-portfolio","expanded-records-teaser","expanded-manager-records","expanded-records-explorer"]){
   const el=document.getElementById(id);if(el)el.textContent="Expanded records are temporarily unavailable. Existing verified records remain accessible.";
