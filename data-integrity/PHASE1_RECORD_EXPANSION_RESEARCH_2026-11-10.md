@@ -1,5 +1,7 @@
 # Phase 1 records research — November 10, 2026
 
+> **SUPERSEDED IN PART — November 11, 2026:** The rivalry winning-streak calculation in this first-pass report incorrectly required adjacent calendar weeks. Do not quote its rivalry-streak holder. The corrected six-win shared rivalry mark and further scope corrections are in [the second-pass audit](PHASE1_RECORD_EXPANSION_SECOND_PASS_2026-11-11.md). Raw fewest-season-points-allowed is also withheld from release due to unequal season length and scoring eras.
+
 **Research only. Not approved as verified record holders or production content.**
 
 Canonical source: `data/unified_record_book_2016_2026.json`, updated 2026-11-10. 705 regular-season pairings (1410 manager game results), 142 complete scoring weeks. Incomplete weekly sets excluded: 2020-14 (8 teams); 2021-14 (8 teams).
