@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Validate live Pages parity with current editorial baseline.
 on:
   push:
     branches: [main]
