@@ -107,7 +107,7 @@ for(const g of games){
  const a=norm(g.home),b=norm(g.away),sum=fromCents(cents(g.homeScore)+cents(g.awayScore));
  const ev={year:g.year,week:g.week,home:a,away:b,homeScore:g.homeScore,awayScore:g.awayScore};
  push('combined-high',a,sum,ev,{opponent:b,year:g.year,week:g.week});
- push('combined-low',a,-sum,ev,{opponent:b,year:g.year,week:g.week});
+ push('combined-low',a,sum,ev,{opponent:b,year:g.year,week:g.week});
 }
 for(const [pair,games] of rivalries){
  const [a,b]=pair.split('|');
@@ -130,13 +130,14 @@ for(const [pair,games] of rivalries){
 const out=[];
 for(const c of records.values()){
  let rows=c.rows.filter(r=>r.value>0);
- rows.sort((a,b)=>b.value-a.value||a.manager.localeCompare(b.manager)||(a.year??0)-(b.year??0));
+ const direction=c.id==='combined-low'?'low':'high';
+ rows.sort((a,b)=>(direction==='low'?a.value-b.value:b.value-a.value)||a.manager.localeCompare(b.manager)||(a.year??0)-(b.year??0));
  let previous=null,rank=0;
  rows=rows.map((r,i)=>{if(previous!==r.value){rank=i+1;previous=r.value}return {...r,rank}});
  const leaders=rows.filter(r=>r.rank<=5);
  // All tied top marks are retained; no arbitrary truncation at first place.
  const holders=rows.filter(r=>r.rank===1);
- out.push({id:c.id,title:c.title,scope:c.scope,unit:c.unit,
+ out.push({id:c.id,title:c.title,scope:c.scope,unit:c.unit,direction,
   count:rows.length,leaders,holders});
 }
 const schema={schema:'fellas-phase2-record-research-v1',status:'provisional-not-published',
