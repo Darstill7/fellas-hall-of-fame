@@ -5,7 +5,34 @@ const run=path=>JSON.parse(execFileSync(process.execPath,[path],{encoding:'utf8'
 const all=run('scripts/build-draft-dna-selection-vault.mjs');
 const w9=run('scripts/build-draft-dna-2026-week9.mjs');
 const legacy=run('scripts/build-draft-dna-2020-2024-legacy-audit.mjs');
+const historical=run('scripts/build-draft-dna-2020-2025-starter-receipts.mjs');
+const comparable=run('scripts/build-draft-dna-comparable-2020-2025.mjs');
 assert.equal(all.schema,'fellas-original-draft-selection-vault-v1');
+assert.equal(historical.coverage.picks,900);
+assert.equal(historical.coverage.exactScoredPointParityPicks,900);
+assert.equal(historical.coverage.totalOriginalManagerStarts,4904);
+assert.equal(historical.coverage.playedRegularSeasonTeamWeeks,820);
+assert.equal(historical.coverage.documentedNameAliases,3);
+assert.deepEqual(historical.yearly.map(y=>y.regularSeasonThroughWeek),[13,13,14,14,14,14]);
+assert.equal(historical.picks.filter(p=>p.aliasSource).length,3);
+assert.equal(historical.picks.find(p=>p.year===2020&&p.player==='Will Fuller V')?.playerId,'3157');
+assert.equal(historical.picks.find(p=>p.year===2021&&p.player==='Robby Anderson')?.playerId,'3423');
+assert.equal(historical.picks.find(p=>p.year===2021&&p.player==='Washington Football Team')?.playerId,'WAS');
+assert.equal(comparable.coverage.totalOriginalSelections,900);
+assert.equal(comparable.coverage.nonkeeperSelections,880);
+assert.equal(comparable.coverage.keeperSelectionsExcluded,20);
+assert.equal(comparable.coverage.valuedSelections,880);
+assert.equal(comparable.coverage.historicalManagerSeasons,60);
+assert.equal(comparable.years.length,6);
+assert.equal(comparable.years.find(y=>y.year===2025).nonkeeperPicks,130);
+const official2025=JSON.parse((await import('node:fs')).readFileSync('data/draft_intelligence_research_2025_2026w8_v1.json','utf8'))
+ .seasonSummaries.find(x=>x.year===2025).managerGrades;
+for(const x of comparable.years.find(y=>y.year===2025).managerRows){
+ const source=official2025.find(p=>p.manager===x.manager);
+ assert(source,'Missing official 2025 source '+x.manager);
+ assert.equal(x.realizedPeerSurplus,source.pointsAbovePeerMedian,
+  'Unified model disagrees with established 2025 pilot '+x.manager);
+}
 assert.equal(legacy.coverage.picks,750);
 assert.equal(legacy.coverage.managerSeasons,50);
 assert.equal(legacy.coverage.legacyArchiveManagerParity,50);
