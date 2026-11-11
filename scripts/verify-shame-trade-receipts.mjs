@@ -41,6 +41,9 @@ rows.forEach((row,i)=>{
  assert(html.includes('+'+expected[i].gap.toFixed(2)),'PAR gap missing '+expected[i].id);
 });
 assert(!html.includes('The Jefferson–Jacobs liquidation')&&!html.includes('The Chase exit'),'Superseded voided-pick plaques must not be featured');
+const identities=load('data/manager_identity_map_v1.json');
+assert.equal(identities.managers.Tom.currentAlias,'Thommy','Source key Tom must map to real displayed manager Thommy');
+assert(html.includes('Thommy')&&!html.includes('<strong>Tom</strong>'),'Public-facing trade comparison must not confuse Thommy with Schermerhorn');
 for(const fragment of ['Draft-pick rule changes and voided picks are not criteria','18 fully matched two-manager transactions'])
  assert(html.includes(fragment),'Essential evidence limitation missing: '+fragment);
 assert(/not<\/strong> a definitive ranking of every deal since 2016/.test(html), 'Source coverage disclaimer must remain visible, regardless of semantic bold markup');
