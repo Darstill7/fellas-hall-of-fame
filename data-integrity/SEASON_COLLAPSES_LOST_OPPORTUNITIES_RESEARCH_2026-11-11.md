@@ -19,7 +19,7 @@ The engine `scripts/build-historic-collapse-records.mjs` reconstructs **98 manag
 | Most first-half wins despite missing playoffs | **Stover 2017** | **5–1 first half**, finishing 6–6 without a playoff berth |
 | Best undefeated first-half start without winning the title | **Tony 2023; Stover 2021** | Both opened **7–0**; neither won the championship |
 | Most losses in final four regular-season games by a playoff qualifier | **Evans 2020; Thommy 2025** | **Four consecutive losses** entering playoffs |
-| Longest losing streak in a non-playoff season | **Stew 2023** | **Nine consecutive losses** |
+| Longest losing streak in a non-playoff season | **Stew 2021** | **Eleven consecutive losses** |
 | Most regular-season wins by a playoff qualifier who missed the title game | **Mitch 2025** | **13–1**, ultimately third place |
 
 These are **provisional recovered-ledger claims**. In particular, do not claim the 2023 Tony, 2021 Stover or 2025 Mitch outcomes are specific playoff upsets without independently reviewing the official bracket, seeds, matchup scores and timing.
@@ -36,7 +36,7 @@ These are **provisional recovered-ledger claims**. In particular, do not claim t
 
 **Mitch 2025 — The 13–1 Non-Finalist.** Lost once in fourteen regular-season games, then finished third. The regular-season record and official placement justify a strong disappointment exhibit; the exact defeat that prevented the championship-game appearance deserves a separate story with bracket and point receipts.
 
-**Stew 2023 — The Nine-Loss Fall.** Lost the final nine regular-season matchups, finishing 3–11. This warrants a scoring-independent Hall of Shame season record, distinct from weekly low-scoring totals or voided draft-pick trades.
+**Stew 2021 — The Eleven-Loss Collapse.** Lost **eleven consecutive regular-season games, Weeks 2–12**, the longest non-playoff losing streak in the recovered season ledger. Stew's nine straight losses across 2023 Weeks 6–14 are separately verified, but **are not the record**. Neither mark depends on low weekly fantasy scores or voided draft-pick trades.
 
 **Thommy 2025 — Late Slide, Championship Final.** Lost the last four regular-season matchups, yet reached the championship game. Pair the *collapse* metric with the existing Phase 4 *playoff resilience* finding instead of double-counting identical four-loss categories.
 
