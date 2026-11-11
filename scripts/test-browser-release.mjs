@@ -2159,6 +2159,23 @@ try{
           expanded.length===1&&expanded[0].getAttribute('aria-controls')===target;
         },id);
         if(!onlySelected)errors.push(width+' '+slug+' draft topics exposed multiple sections or incorrect expanded state');
+        if(label==='Trades'){
+         const tradeSection=resume.locator('#career-research-topic-5');
+         const text=await tradeSection.innerText();
+         if(!text.includes('Trade partners and recorded exchanges')||
+            !text.includes('Browse all documented trade events'))
+          errors.push(width+' '+slug+' trade context or complete archive link missing');
+         if(slug==='stilly'&&(!text.includes('Trade with Stover')||
+             !text.includes('Stilly received (recorded): Brian Thomas Jr.')||
+             !text.includes('Stover received (recorded): Stefon Diggs')))
+          errors.push(width+' Stilly trade context missing recorded counterparty and both asset sides');
+         if(slug==='jmid'&&(!text.includes('Trade with Stew')||
+             !text.includes('JMid received (recorded): Calvin Ridley, Kyren Williams')||
+             !text.includes('Stew received (recorded): James Cook III')))
+          errors.push(width+' JMid 2024 trade context missing verified receiving sides');
+         if(slug==='scott'&&!text.includes('No qualifying pre-2026 trade sides'))
+          errors.push(width+' Scott trade research must distinguish unavailable qualifying history from no trades');
+        }
         await page.waitForFunction(target=>document.activeElement===document.getElementById(target)?.querySelector('h4'),id,{timeout:3000}).catch(()=>{});
         const activeVisual=await page.evaluate(target=>{
          const button=document.querySelector('.career-research-topic-button[aria-controls="'+target+'"]');
@@ -2377,8 +2394,9 @@ try{
     const managerId=slug==='tom'?'Tom':slug==='jmid'?'JMid':slug[0].toUpperCase()+slug.slice(1);
     const awardData=(await (await page.request.get(baseUrl+'data/waiver_award_candidates.json')).json()).managers[managerId]?.[0];
     const tradeSides=(await (await page.request.get(baseUrl+'data/v9_trade_engine.json')).json()).sides;
-    const tradeData=tradeSides.filter(x=>x.manager===managerId&&x.direct_edge>0).sort((a,b)=>b.direct_edge-a.direct_edge)[0];
-    if(await page.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated')!=='yes')errors.push(width+' '+slug+' shared encyclopedia renderer did not update');
+    const tradeData=tradeSides.filter(x=>(x.manager===managerId||(managerId==='Tom'&&x.manager==='Thommy'))&&x.provisional===false&&String(x.confidence).startsWith('verified')&&Number.isFinite(x.direct_edge)&&Number.isFinite(x.starter_points)&&x.direct_edge>0).sort((a,b)=>b.direct_edge-a.direct_edge)[0];
+    const expectedHighlightState=awardData&&tradeData?'yes':awardData||tradeData?'partial':'unavailable';
+    if(await page.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated')!==expectedHighlightState)errors.push(width+' '+slug+' independent highlight availability state differs from evidence');
     const waiverCard=page.locator('#franchise-encyclopedia [data-encyclopedia-waiver]');
     const tradeCard=page.locator('#franchise-encyclopedia [data-encyclopedia-trade]');
     if(await waiverCard.count()!==1||!awardData)errors.push(width+' '+slug+' waiver card or source missing');
@@ -2389,14 +2407,20 @@ try{
         !detail.includes('+'+awardData.par.toFixed(2))||!detail.includes(String(awardData.acquisitionType)))
       errors.push(width+' '+slug+' waiver card does not match its source');
     }
-    if(await tradeCard.count()!==1||!tradeData)errors.push(width+' '+slug+' trade card or source missing');
-    else{
+    if(await tradeCard.count()!==1)errors.push(width+' '+slug+' trade card missing');
+    else if(!tradeData){
+     if(!await tradeCard.innerText().then(t=>t.includes('Trade highlight unavailable')))
+      errors.push(width+' '+slug+' absent qualifying trade must show a neutral coverage limitation');
+    }else{
      const heading=await tradeCard.locator('h3').innerText();
      const detail=await tradeCard.locator('p').innerText();
      if(heading.trim()!==tradeData.assets.join(' + ')||
         !detail.includes('+'+tradeData.direct_edge.toFixed(1))||
         !detail.includes(Number(tradeData.starter_points).toFixed(2)))
       errors.push(width+' '+slug+' trade card does not match its source');
+     const partners=tradeSides.filter(x=>x.year===tradeData.year&&String(x.trade_id)===String(tradeData.trade_id)&&x.manager!==tradeData.manager);
+     if(partners.length&&!partners.some(x=>detail.includes(x.manager==='Tom'?'Thommy':x.manager)))
+      errors.push(width+' '+slug+' positive trade highlight omitted documented counterparty');
     }
     // JavaScript-disabled visitors must see neutral archive navigation, never stale model claims.
     {
@@ -2653,7 +2677,7 @@ try{
      await slow.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:30000});
      await slow.locator('#franchise-encyclopedia[data-encyclopedia-updated="loading"]').waitFor({state:'attached',timeout:5000});
      const loadingCards=await slow.locator('[data-encyclopedia-waiver], [data-encyclopedia-trade]').allInnerTexts();
-     if(loadingCards.length!==2||loadingCards.some(t=>!t.includes('Loading player and trade history')))
+     if(loadingCards.length!==2||loadingCards.some(t=>!t.includes('Loading historical evidence')))
       errors.push(width+' '+route+' source loading exposes stale highlight text');
     }finally{
      releaseSource();
@@ -2666,7 +2690,7 @@ try{
     const status=await failure.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
     const waiver=await failure.locator('[data-encyclopedia-waiver]').innerText();
     const trade=await failure.locator('[data-encyclopedia-trade]').innerText();
-    if(status!=='unavailable'||!waiver.includes('Pickup history unavailable')||!trade.includes('Trade history unavailable'))
+    if(status!=='partial'||!waiver.includes('Pickup highlight unavailable')||!trade.includes('recorded receiving:'))
      errors.push(width+' '+route+' failed-source encyclopedia did not fail closed');
     if(waiver.includes('125.20')||trade.includes('453.4')||trade.includes('198.0'))
      errors.push(width+' '+route+' failed-source encyclopedia leaked hardcoded historic evidence');
@@ -2682,7 +2706,7 @@ try{
     await corrupt.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
     const corruptStatus=await corrupt.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
     const corruptText=await corrupt.locator('#franchise-encyclopedia').innerText();
-    if(corruptStatus!=='unavailable'||!corruptText.includes('Pickup history unavailable')||!corruptText.includes('Trade history unavailable'))
+    if(corruptStatus!=='partial'||!corruptText.includes('Pickup highlight unavailable')||!corruptText.includes('recorded receiving:'))
      errors.push(width+' '+route+' malformed encyclopedia evidence did not fail closed');
     if(corruptText.includes('NaN')||corruptText.includes('125.20'))
      errors.push(width+' '+route+' malformed encyclopedia source exposed invalid or stale numbers');
@@ -2698,7 +2722,7 @@ try{
     await missingType.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
     const missingTypeStatus=await missingType.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
     const missingTypeText=await missingType.locator('#franchise-encyclopedia').innerText();
-    if(missingTypeStatus!=='unavailable'||!missingTypeText.includes('Pickup history unavailable'))
+    if(missingTypeStatus!=='partial'||!missingTypeText.includes('Pickup highlight unavailable'))
      errors.push(width+' '+route+' waiver with missing acquisition evidence did not fail closed');
     await missingType.close();
     // Verify that malformed trade-side evidence also fails closed, not just waiver data.
@@ -2706,7 +2730,7 @@ try{
     await corruptTrade.route('**/data/v9_trade_engine.json',async intercepted=>{
      const original=await intercepted.fetch();
      const json=await original.json();
-     const side=json.sides.filter(x=>x.manager==='Stilly'&&x.direct_edge>0)
+     const side=json.sides.filter(x=>x.manager==='Stilly'&&x.provisional===false&&String(x.confidence).startsWith('verified')&&x.direct_edge>0)
       .sort((a,b)=>b.direct_edge-a.direct_edge)[0];
      if(!side)throw Error('No qualifying Stilly trade-side evidence for fault injection');
      side.starter_points=null;
@@ -2715,7 +2739,7 @@ try{
     await corruptTrade.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
     const badTradeStatus=await corruptTrade.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
     const badTradeText=await corruptTrade.locator('#franchise-encyclopedia').innerText();
-    if(badTradeStatus!=='unavailable'||!badTradeText.includes('Trade history unavailable')||!badTradeText.includes('Pickup history unavailable'))
+    if(badTradeStatus!=='partial'||!badTradeText.includes('Trade highlight unavailable')||!badTradeText.includes('starter points'))
      errors.push(width+' '+route+' malformed trade evidence did not fail closed');
     if(badTradeText.includes('NaN')||badTradeText.includes('453.4'))
      errors.push(width+' '+route+' malformed trade source exposed invalid or stale numbers');
