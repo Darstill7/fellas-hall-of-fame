@@ -1,0 +1,22 @@
+name: Verify unified Record Book taxonomy
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/build-record-taxonomy-crosswalk.mjs'
+      - 'scripts/verify-record-taxonomy-crosswalk.mjs'
+      - 'data/expanded_records_verified_v1.json'
+      - 'data/legendary_records_2016_2025_v1.json'
+      - '.github/workflows/research-record-taxonomy.yml'
+  workflow_dispatch:
+jobs:
+  taxonomy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit source categories and conservative semantic aliases
+        run: node scripts/verify-record-taxonomy-crosswalk.mjs
