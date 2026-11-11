@@ -76,11 +76,36 @@ function renderProfile(data){
  +'<a class="records-lab-action" href="'+link+'">All records and rankings →</a></div>'
  +'<details class="records-profile-preview"><summary>Preview standout records</summary><div class="records-lab-profile-body"><div class="records-lab-grid">'+signatureTiles(data,name,3)+'</div></div></details>';
 }
-function renderManagerBook(data){
+function renderManagerBook(data,complete=null){
  const host=document.getElementById("expanded-manager-records"),picker=document.getElementById("manager");if(!host||!picker)return;
  host.classList.add("records-lab","records-lab-manager");
  const paint=()=>{
   const name=picker.value==="Thommy"?"Tom":picker.value,sig=data.signatures?.[name];
+  const personal=complete?.managers?.[name];
+  if(personal){
+   const sorted=[...personal.categories].sort((a,b)=>groups.indexOf(a.group)-groups.indexOf(b.group)||a.label.localeCompare(b.label));
+   host.innerHTML='<h2>Complete record portfolio · '+escapeHtml(personal.displayName)+'</h2>'
+    +'<p class="records-lab-intro">'+personal.leagueRecordCategories+' league-leading categories · '
+    +personal.topThreeCategories+' top-three categories · '+personal.qualifyingCategories
+    +' qualifying of '+sorted.length+' established categories. Individual best marks are not automatically league records.</p>'
+    +'<div class="records-lab-table-scroll"><table class="records-lab-table records-lab-full-portfolio">'
+    +'<caption>Full personal record standings and historical context</caption>'
+    +'<thead><tr><th>Category</th><th>League rank</th><th>Personal best</th><th>Source context</th></tr></thead><tbody>'
+    +sorted.map(r=>{
+     const link='../analytics/expanded-records.html?group='+encodeURIComponent(r.group)
+       +'&category='+encodeURIComponent(r.categoryId)+'&manager='+encodeURIComponent(name);
+     const context=r.eligible?detail({key:r.categoryId,group:r.group,year:r.year,week:r.week,evidence:r.evidence,manager:name})
+       :'No qualifying historical entry'+(r.qualifier?' · '+r.qualifier:'');
+     return '<tr'+(r.leagueRank===1?' class="records-full-holder"':'')+'>'
+      +'<td><a href="'+link+'">'+escapeHtml(r.label)+'</a><small class="records-full-group">'+escapeHtml(r.group)+'</small></td>'
+      +'<td>'+escapeHtml(r.leagueRank===null?'Not eligible':'#'+r.leagueRank+(r.leagueRank===1?' · League record':''))+'</td>'
+      +'<td>'+escapeHtml(r.eligible?fmt(r.value,r.unit):'—')+'</td>'
+      +'<td>'+escapeHtml(context)+'</td></tr>';
+    }).join('')+'</tbody></table></div>'
+    +'<a class="records-lab-action" href="../analytics/expanded-records.html?manager='+encodeURIComponent(name)
+    +'">Open the league-wide rankings and manager portfolio →</a>';
+   return;
+  }
   if(!sig){host.innerHTML='<h2>Signature records</h2><p class="records-lab-intro">This archived manager is not in the current ten-manager signature collection. Historical matchup records remain available above.</p>';return}
   const holders=managerLeagueHolders(data,name);
   host.innerHTML='<h2>Signature records · '+escapeHtml(name)+'</h2>'
@@ -206,7 +231,7 @@ try{
   }
  }catch(error){console.warn("Official podium-year evidence unavailable",error)};
  if(data.version!==1||data.categoryCount!==data.categories.length||!canonical.every(n=>data.signatures?.[n]))throw Error("Expanded record data invalid");
- renderHub(data);renderProfile(data);renderManagerBook(data);renderExplorer(data,complete);
+ renderHub(data);renderProfile(data);renderManagerBook(data,complete);renderExplorer(data,complete);
 }catch(error){
  for(const id of ["manager-record-portfolio","expanded-records-teaser","expanded-manager-records","expanded-records-explorer"]){
   const el=document.getElementById(id);if(el)el.textContent="Expanded records are temporarily unavailable. Existing verified records remain accessible.";
