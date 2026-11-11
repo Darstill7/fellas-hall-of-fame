@@ -2,6 +2,8 @@
 
 **Research snapshot:** 2026-11-10  ·  **Status:** comparative editorial research; *not* official career trade grades or complete 2016–2026 all-time verdicts.
 
+**Manager identity:** Raw trade files store the internal manager key `Tom`, which represents current manager **Thommy** (Zach), not historical manager Schermerhorn. The public editorial display uses Thommy while source-receipt tests retain `Tom` for reproducibility.
+
 ## Executive findings
 
 There is no such thing as a “bad trade because the league subsequently voided its draft pick.” Governance is separate from player-acquisition value. The older 2023 Jefferson/Jacobs-for-Gabe Davis and Chase-for-Lockett Hall of Shame plaques relied on draft-pick fallout rather than a measured performance outcome and **should no longer be the featured worst trades**.
@@ -10,10 +12,10 @@ Across the existing **44 reconstructed two-manager / multilateral Sleeper transa
 
 ### Distinct types of “best trade”
 
-1. **Largest measured regular-season advantage — Birch over Tom, 2021-08-31.** Birch received Lamar Jackson, Mark Andrews and Josh Jacobs. Tom received Dak Prescott, Noah Fant and Antonio Gibson. From the following scoring weeks through the regular-season archive's week-14 cutoff, the received players whom each manager actually started produced **263.54 versus 131.75 positional PAR**, an observed edge of **+131.79**. This does not prove the trade price, counterfactual alternative roster, or future keeper effect.
+1. **Largest measured regular-season advantage — Birch over Thommy, 2021-08-31.** Birch received Lamar Jackson, Mark Andrews and Josh Jacobs. Thommy received Dak Prescott, Noah Fant and Antonio Gibson. From the following scoring weeks through the regular-season archive's week-14 cutoff, the received players whom each manager actually started produced **263.54 versus 131.75 positional PAR**, an observed edge of **+131.79**. This does not prove the trade price, counterfactual alternative roster, or future keeper effect.
 2. **Most directly evidenced championship swing — Stilly over Tony, 2023-10-26.** Stilly received Mike Evans and Derrick Henry; Tony received Cooper Kupp. The matched regular-season PAR after the trade was **132.43 versus 27.44**, an observed **+104.99** difference. The stronger narrative proof is postseason: Evans (24.10) and Henry (20.88) supplied **44.98 points combined** in Stilly's semifinal victory *over Tony*, the exact manager who dealt them away. Stilly won the 2023 championship, though neither this trade nor these players alone explain the complete championship run.
 3. **Largest raw starter-point separation — Kuhl over Stew, 2023-09-27.** Kuhl received James Conner, De'Von Achane and Puka Nacua for Stew's incoming CeeDee Lamb and Travis Etienne Jr. The older raw starter-production study shows **415.90 versus 136.60**, a **+279.30 raw point** gap, but differs in weeks/starts from the stricter post-trade PAR preview. Fully matched later-week PAR was **171.03 versus 94.95**, or **+76.08**, which ranks fifth on the adjusted measure. These differences must *not* be conflated.
-4. **Why regular-season dominance is not a championship verdict — Stilly versus Tom, 2024-09-24.** Stilly received Terry McLaurin, De'Von Achane and Tank Dell and generated **220.01 positional PAR** against Tom's **117.09** with Christian McCaffrey, Diontae Johnson and Tee Higgins, a **+102.92** regular-season advantage. Yet Tom/Thommy won the 2024 championship, and Higgins—part of his incoming trade package—scored **34.60 fantasy points** in the final. It's valid to say Stilly received more *observed regular-season starter PAR*, not that Thommy made the worse championship-impact trade.
+4. **Why regular-season dominance is not a championship verdict — Stilly versus Thommy, 2024-09-24.** Stilly received Terry McLaurin, De'Von Achane and Tank Dell and generated **220.01 positional PAR** against Tom's **117.09** with Christian McCaffrey, Diontae Johnson and Tee Higgins, a **+102.92** regular-season advantage. Yet Thommy won the 2024 championship, and Higgins—part of his incoming trade package—scored **34.60 fantasy points** in the final. It's valid to say Stilly received more *observed regular-season starter PAR*, not that Thommy made the worse championship-impact trade.
 5. **Other major measured advantage — Mitch over Stilly, 2022-09-15.** Mitch received Adam Thielen and Saquon Barkley; Stilly received Jonathan Taylor. Fully matched post-trade PAR was **153.78 versus 56.55**, a **+97.23** difference. This is a credible large performance-outcome candidate, not a proof that an elite player's pre-trade price was irrational.
 
 ## Reproducible ranking: post-trade positional PAR
@@ -39,11 +41,11 @@ These have a strong original trade receipt and/or championship relevance but fai
 
 | Date | Observed incoming player exchange | Why not numerically ranked |
 |---|---|---|
-| 2021-08-30 | Tony received Jonathan Taylor, A.J. Brown, Corey Davis; Tom received Tyreek Hill, Josh Jacobs, Javonte Williams | Josh Jacobs was unresolved on Tom's side in the stricter positional study. Taylor was a verified regular-season engine in Tony's 2021 championship run. |
+| 2021-08-30 | Tony received Jonathan Taylor, A.J. Brown, Corey Davis; Thommy received Tyreek Hill, Josh Jacobs, Javonte Williams | Josh Jacobs was unresolved on Thommy's side in the stricter positional study. Taylor was a verified regular-season engine in Tony's 2021 championship run. |
 | 2021-09-27 | Evans received Aaron Rodgers and Keenan Allen; Kuhl received Leonard Fournette, Patrick Mahomes and Brandon Aiyuk | Rodgers and Allen were unresolved on one side, Fournette on the other. The original raw edge cannot substitute for a complete two-sided PAR comparison. |
 | 2021-10-07 | Stover received Leonard Fournette; Kuhl received DeVonta Smith | Fournette was unresolved in the positional study, despite a +95.70 original-engine starter-point edge. |
 | 2023-10-12 | Birch received CeeDee Lamb and Kenny Gainwell; Stew received Tony Pollard and Jaxon Smith-Njigba | Kenny Gainwell was unresolved in Birch's PAR source, despite a +158.60 original-engine raw starter edge. |
-| 2024-10-17 | Tony received Cooper Kupp, Kareem Hunt and Rico Dowdle; Tom received Travis Kelce and Brandon Aiyuk | Brandon Aiyuk was unresolved in Tom's post-trade positional source. Kelce nonetheless contributed 18.40 verified fantasy points to Tom's 2024 title-game lineup. |
+| 2024-10-17 | Tony received Cooper Kupp, Kareem Hunt and Rico Dowdle; Thommy received Travis Kelce and Brandon Aiyuk | Brandon Aiyuk was unresolved in Thommy's post-trade positional source. Kelce nonetheless contributed 18.40 verified fantasy points to Thommy's 2024 title-game lineup. |
 
 **The old voided-pick stories belong in league rules history.** The 2023 Stew/Jefferson–Jacobs/Gabe Davis and Evans/Kuhl Chase/Lockett transactions can still be inspected as actual transfers, but a later voided draft pick is not a loss measured in fantasy production or a valid reason to give a transaction a worst-of-all-time award.
 
