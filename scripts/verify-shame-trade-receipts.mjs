@@ -41,8 +41,9 @@ rows.forEach((row,i)=>{
  assert(html.includes('+'+expected[i].gap.toFixed(2)),'PAR gap missing '+expected[i].id);
 });
 assert(!html.includes('The Jefferson–Jacobs liquidation')&&!html.includes('The Chase exit'),'Superseded voided-pick plaques must not be featured');
-for(const fragment of ['Draft-pick rule changes and voided picks are not criteria','not a definitive ranking of every deal since 2016','18 fully matched two-manager transactions'])
+for(const fragment of ['Draft-pick rule changes and voided picks are not criteria','18 fully matched two-manager transactions'])
  assert(html.includes(fragment),'Essential evidence limitation missing: '+fragment);
+assert(/not<\/strong> a definitive ranking of every deal since 2016/.test(html), 'Source coverage disclaimer must remain visible, regardless of semantic bold markup');
 const champion2023=stories.seasons.find(x=>x.year===2023);
 const champion2024=stories.seasons.find(x=>x.year===2024);
 assert(champion2023.sections.some(x=>x.text.includes('44.98')&&x.text.includes('Tony')),'2023 title semifinal trade-impact story missing');
