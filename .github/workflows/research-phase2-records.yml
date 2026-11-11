@@ -1,0 +1,21 @@
+name: Phase 2 historical record candidates (data only)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/build-record-book-phase2.mjs'
+      - 'scripts/verify-record-book-phase2.mjs'
+      - 'data/unified_record_book_2016_2026.json'
+      - '.github/workflows/research-phase2-records.yml'
+  workflow_dispatch:
+jobs:
+  verify-research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Rebuild and audit 23 source-backed candidate categories
+        run: node scripts/verify-record-book-phase2.mjs
