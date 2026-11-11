@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Full public JSON alias migration validation.
 on:
   push:
     branches: [main]
