@@ -39,8 +39,9 @@ for(const [k,entries] of weekly){
   if(!eligible)continue;
   const ordered=[...entries].sort((a,b)=>b.points-a.points);
   const top=ordered[0].points, bottom=ordered.at(-1).points;
-  const distinctPoints=[...new Set(ordered.map(e=>e.points))].sort((a,b)=>b-a);
-  const runnerUp=distinctPoints[1]; const third=distinctPoints[2];
+  // Competition ranking: a tie at first place means no second-place finisher.
+  const runnerUp=ordered[0].points>ordered[1].points?ordered[1].points:NaN;
+  const third=ordered[2].points;
   const high=entries.filter(e=>e.points===top).map(e=>e.manager);
   const low=entries.filter(e=>e.points===bottom).map(e=>e.manager);
   for(const e of entries){
@@ -48,7 +49,7 @@ for(const [k,entries] of weekly){
     if(e.points===bottom)bump(last,e.manager);
     if(e.points===runnerUp)bump(second,e.manager);
     if(e.points>=third && e.points<e.oppPoints)bump(top3Loss,e.manager);
-    const lowThreshold=distinctPoints.at(-3);
+    const lowThreshold=ordered.at(-3).points;
     if(e.points<=lowThreshold && e.points>e.oppPoints)bump(bottom3Win,e.manager);
   }
   weeklySummary.push({year,week,high,low});
