@@ -96,3 +96,5 @@ body .wrap{max-width:1160px;padding:0 clamp(16px,3vw,34px) 86px}
 .shitter-methodology strong{color:#f3dda9}
 .shitter-methodology a{color:#f0d08c;text-underline-offset:4px}
 @media(max-width:680px){.shitter-history-heading{align-items:flex-start;flex-direction:column}.shitter-plaque-grid{grid-template-columns:1fr}.shitter-plaque{padding:24px}.shitter-score{font-size:30px}}
+
+.shame-evidence{margin:13px 0 0;padding-top:11px;border-top:1px solid #465464;font-size:13px;line-height:1.65}.shame-evidence a{color:#efcf8a;text-decoration:underline;text-underline-offset:4px;display:inline-flex;align-items:center;min-height:44px}.shame-evidence a:hover{color:#fff0c7}

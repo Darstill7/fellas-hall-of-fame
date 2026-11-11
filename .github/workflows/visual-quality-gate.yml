@@ -37,6 +37,8 @@ jobs:
         run: node scripts/verify-player-plaque-receipts.mjs
       - name: Verify ten historical Shitter trophy-case receipts
         run: node scripts/verify-shitter-trophy-case.mjs
+      - name: Verify Hall of Shame scoring-collapse source receipts
+        run: node scripts/verify-shame-scoring-receipts.mjs
       - name: Capture desktop, tablet, phone and Safari first screens
         run: node scripts/visual-quality-gate.mjs
       - name: Publish visual audit and screenshots
