@@ -41,6 +41,8 @@ jobs:
         run: node scripts/verify-shame-scoring-receipts.mjs
       - name: Verify notorious 2023 trade story receipts
         run: node scripts/verify-shame-trade-receipts.mjs
+      - name: Verify archived metrics context and current navigation
+        run: node scripts/verify-archived-metrics-navigation.mjs
       - name: Capture desktop, tablet, phone and Safari first screens
         run: node scripts/visual-quality-gate.mjs
       - name: Publish visual audit and screenshots
