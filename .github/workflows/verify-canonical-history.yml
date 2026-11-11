@@ -1,4 +1,5 @@
 name: Validate canonical Fellas records
+# Confirm recovered ESPN playoff results and rounded weekly scores.
 on:
   push:
     branches: [main]
