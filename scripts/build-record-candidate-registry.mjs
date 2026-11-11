@@ -110,10 +110,11 @@ for(const c of candidate){
  assert(c.entries.length,'Empty research category '+c.id);
  c.entries.sort((a,b)=>b.value-a.value||by(a.manager,b.manager)||
   (a.year??0)-(b.year??0)||(a.week??a.startWeek??0)-(b.week??b.startWeek??0));
- let prevValue=null,position=0;
+ let prevValue=null,position=0,currentRank=0;
  for(const entry of c.entries){
   position++;
-  if(tieKey(entry)!==prevValue){entry.rank=position;prevValue=tieKey(entry)}
+  if(tieKey(entry)!==prevValue){currentRank=position;prevValue=tieKey(entry)}
+  entry.rank=currentRank;
   entry.manager=norm(entry.manager);
  }
  c.holders=c.entries.filter(e=>e.rank===1);
