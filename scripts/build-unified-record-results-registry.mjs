@@ -53,8 +53,9 @@ for(const p of phase2.categories){
   entryCount:p.count,leaders:rankedFromRows(p.leaders,'phase2',id),
   holders:rankedFromRows(p.holders,'phase2',id),updatedFrom:'2016–2026 Week 9 canonical regular games',
   caveat:'Source-derived research; eligibility and cross-provider certification pending'};
- if(mapped){
-  assert(resultCategories.has(id),'Alias target missing '+p.id+' => '+id);
+ if(mapped&&resultCategories.has(id)){
+  // Existing published record (e.g. a Legendary category), or prior proposal
+  // for the same canonical ID, retains its source status.
   resultCategories.get(id).candidateEvidence.push(results);
  }else{
   assert(!resultCategories.has(id),'Unexpected ID collision '+id);
