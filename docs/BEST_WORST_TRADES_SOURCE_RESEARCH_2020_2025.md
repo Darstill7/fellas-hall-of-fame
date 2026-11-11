@@ -33,6 +33,20 @@ The table compares **the manager receiving the more productive package** with th
 | 9 | 2021-10-13 | Tony | Stilly | 50.60 | 48.57 / -2.03 | 89.20 / 2.80 |
 | 10 | 2025-09-21 | Stew | JMid | 41.12 | 52.60 / 11.48 | 139.00 / 66.80 |
 
+## High-interest transactions intentionally excluded from the numerical table
+
+These have a strong original trade receipt and/or championship relevance but fail the **two fully matched recipient sides** requirement. Their raw starter output is useful as evidence, not a comparable positional PAR verdict.
+
+| Date | Observed incoming player exchange | Why not numerically ranked |
+|---|---|---|
+| 2021-08-30 | Tony received Jonathan Taylor, A.J. Brown, Corey Davis; Tom received Tyreek Hill, Josh Jacobs, Javonte Williams | Josh Jacobs was unresolved on Tom's side in the stricter positional study. Taylor was a verified regular-season engine in Tony's 2021 championship run. |
+| 2021-09-27 | Evans received Aaron Rodgers and Keenan Allen; Kuhl received Leonard Fournette, Patrick Mahomes and Brandon Aiyuk | Rodgers and Allen were unresolved on one side, Fournette on the other. The original raw edge cannot substitute for a complete two-sided PAR comparison. |
+| 2021-10-07 | Stover received Leonard Fournette; Kuhl received DeVonta Smith | Fournette was unresolved in the positional study, despite a +95.70 original-engine starter-point edge. |
+| 2023-10-12 | Birch received CeeDee Lamb and Kenny Gainwell; Stew received Tony Pollard and Jaxon Smith-Njigba | Kenny Gainwell was unresolved in Birch's PAR source, despite a +158.60 original-engine raw starter edge. |
+| 2024-10-17 | Tony received Cooper Kupp, Kareem Hunt and Rico Dowdle; Tom received Travis Kelce and Brandon Aiyuk | Brandon Aiyuk was unresolved in Tom's post-trade positional source. Kelce nonetheless contributed 18.40 verified fantasy points to Tom's 2024 title-game lineup. |
+
+**The old voided-pick stories belong in league rules history.** The 2023 Stew/Jefferson–Jacobs/Gabe Davis and Evans/Kuhl Chase/Lockett transactions can still be inspected as actual transfers, but a later voided draft pick is not a loss measured in fantasy production or a valid reason to give a transaction a worst-of-all-time award.
+
 ## Interpretive limitations and release decisions
 
 - **Source match:** `data/trade_par_preview.json` matches the actual received players to recorded *starts strictly after the trade week*. If any received player isn't matched, its trade doesn't enter the ranking. `data/trade_museum_stage66.json` verifies identities, assets and original trade dates. `data/v9_trade_engine.json` supplies earlier raw starter-point observations but **not** an equal positional valuation or identical scoring window.
