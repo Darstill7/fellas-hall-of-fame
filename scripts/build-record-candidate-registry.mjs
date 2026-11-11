@@ -106,6 +106,7 @@ candidate.push({id:'rivalry-consecutive-meeting-wins',title:'Most consecutive wi
 candidate.push({id:'combined-matchup-points',title:'Most combined points in a regular-season game',
  scope:'single-game-raw-era-scores',unit:'points',direction:'high',entries:combined});
 const tieKey=x=>Math.round(x.value*1e5);
+const rankedAllByCategory=new Map();
 for(const c of candidate){
  assert(c.entries.length,'Empty research category '+c.id);
  c.entries.sort((a,b)=>b.value-a.value||by(a.manager,b.manager)||
@@ -120,11 +121,19 @@ for(const c of candidate){
  c.holders=c.entries.filter(e=>e.rank===1);
  c.leaders=c.entries.filter(e=>e.rank<=10);
  c.totalEntries=c.entries.length;
+ rankedAllByCategory.set(c.id,c.entries);
  delete c.entries;
 }
 const index={};
 for(const c of candidate){
- for(const entry of c.leaders){
+ // Every manager gets their single best observed mark in each applicable category,
+ // even if it falls outside the public top ten. Repeated streak checkpoints do
+ // not create duplicate manager-portfolio records.
+ const best=new Map();
+ for(const entry of rankedAllByCategory.get(c.id)){
+  if(!best.has(entry.manager))best.set(entry.manager,entry);
+ }
+ for(const entry of best.values()){
   (index[entry.manager]??=[]).push({categoryId:c.id,rank:entry.rank,value:entry.value,
     year:entry.year??null,week:entry.week??null,opponent:entry.opponent??null});
  }
