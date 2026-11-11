@@ -90,3 +90,9 @@ Proposed **removed from release batch**: 'Fewest season PA' unless normalized fo
 
 ## Recommended next technical change
 Implement a versioned deterministic `record-registry-phase1` builder that consumes canonical matchups and separately verified complete scored team-weeks, writes stable IDs and provenance, and provides the same registry to the Record Book and each manager portfolio. Add independent test fixtures for 2016 league-size changes, 2020/2021 byes, rivalry meeting streaks, fractional scores, ties, and Week 9 updates. Keep draft-only until all canonical, Chromium, WebKit, and visual gates pass.
+
+## Deterministic research harness (November 11)
+
+Added `scripts/research-phase1-record-candidates.mjs` to calculate provisional weekly ranks, scoring streaks, combined matchup totals, and rivalry **meeting** streaks from the canonical regular-season ledger. It explicitly excludes the incomplete scored-team sets in 2020/2021 Week 14 from league-wide weekly scoring awards while preserving their paired matchups for applicable head-to-head records; it respects the eight-manager 2016 format and requires ten distinct scored teams in later weeks. It outputs research JSON to stdout and **does not alter production data**.
+
+**Remaining release gate:** independent execution and agreement against the original provider receipts, test fixtures for shared weekly ranks and ties, reconciliation of missed scored-team byes, and canonical/visual CI on any eventual consumer integration. The script by itself is not an independent verification and should not be described as certification.
