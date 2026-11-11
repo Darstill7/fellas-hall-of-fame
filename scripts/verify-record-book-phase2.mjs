@@ -45,7 +45,7 @@ for(const category of result.categories){
  assert(category.leaders.length<=category.count,'Invalid count: '+category.id);
  assert(category.holders.length>0,'No shared holder: '+category.id);
  assert(category.holders.every(x=>x.rank===1),'Unranked co-holder: '+category.id);
- const distinct=new Set(category.leaders.map(x=>JSON.stringify([x.manager,x.year??null,x.week??null,x.opponent??null,x.value])));
+ const distinct=new Set(category.leaders.map(x=>JSON.stringify([x.manager,x.year??null,x.week??null,x.opponent??null,x.value,x.evidence])));
  assert.equal(distinct.size,category.leaders.length,'Duplicate ranked event: '+category.id);
  const dir=category.direction==='low'?1:-1;
  for(let i=1;i<category.leaders.length;i++){
