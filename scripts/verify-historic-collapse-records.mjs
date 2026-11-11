@@ -25,7 +25,7 @@ leader('collapse-second-half-winless',7,[['Koble',2021],['Stew',2023],['Thommy',
 leader('collapse-first-half-wins-missed-playoffs',5,[['Stover',2017]]);
 leader('collapse-early-undefeated-no-title',7,[['Tony',2023],['Stover',2021]]);
 leader('collapse-last-four-losses-playoff',4,[['Evans',2020],['Thommy',2025]]);
-leader('collapse-longest-loss-run-missed-playoffs',9,[['Stew',2023]]);
+leader('collapse-longest-loss-run-missed-playoffs',11,[['Stew',2021]]);
 leader('collapse-strongest-season-no-final',13,[['Mitch',2025]]);
 const Tony=get('collapse-half-season-swing-playoff-team').holders[0];
 assert.equal(Tony.evidence.first.w,7);assert.equal(Tony.evidence.first.l,0);
