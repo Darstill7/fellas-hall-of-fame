@@ -1,0 +1,56 @@
+{
+  "schema": "fellas-2020-2021-playoff-canonical-reconciliation-v1",
+  "asOf": "2026-11-12",
+  "status": "source_verified_patch_proposal_not_applied_to_canonical",
+  "sources": [
+    "data/recovered_winners_bracket_2020_2021_v1.json",
+    "data/verified_sleeper_playoff_brackets_2020_2025.json",
+    "data/playoff_explorer_verified_2016_2025_v1.json",
+    "data/season_weekly_matchups_2016_2026_v1.json"
+  ],
+  "defect": {
+    "year": 2020,
+    "field": "data/verified_sleeper_playoff_brackets_2020_2025.json -> seasons[year=2020].semifinalists",
+    "currently": [
+      "Mitch",
+      "Evans",
+      "Birch",
+      "Koble"
+    ],
+    "verifiedCorrection": [
+      "Mitch",
+      "Stover",
+      "Birch",
+      "Koble"
+    ],
+    "evidence": [
+      {
+        "week": 14,
+        "round": "opening",
+        "winner": "Stover",
+        "loser": "Evans",
+        "winnerScore": 110.84,
+        "loserScore": 108.72
+      },
+      {
+        "week": 15,
+        "round": "semifinal",
+        "winner": "Mitch",
+        "loser": "Stover",
+        "winnerScore": 140.96,
+        "loserScore": 112.14
+      }
+    ],
+    "risk": "Existing Playoff Explorer generator and validation derive matches from the unified weekly history; update the raw canonical weekly matches, bracket participant field, explorer data and downstream tests together in a controlled validation batch."
+  },
+  "recoveredMissingMatches": {
+    "years": [
+      2020,
+      2021
+    ],
+    "count": 5,
+    "source": "data/recovered_winners_bracket_2020_2021_v1.json",
+    "status": "included_in_expanded_trade_revenge_research_only"
+  },
+  "publicationRule": "Do not claim that the existing canonical Playoff Explorer itself has been upgraded until source reconciliation and CI both pass."
+}
