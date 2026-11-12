@@ -15,6 +15,9 @@ on:
       - 'scripts/verify-2022-playoff-trade-reunion.mjs'
       - 'data/playoff_explorer_verified_2016_2025_v1.json'
       - 'data/expanded_playoff_trade_revenge_2020_2025_v1.json'
+      - 'scripts/verify-recovered-playoff-brackets.mjs'
+      - 'data/recovered_playoff_bracket_canonical_reconciliation_v1.json'
+      - 'data/recovered_winners_bracket_2020_2021_v1.json'
       - 'data/sleeper_2022_w15_mitch_stilly_trade_reunion_v1.json'
       - 'scripts/verify-tony-2021-championship-trades.mjs'
       - 'analytics/tony-2021-four-trades-one-ring.html'
@@ -47,6 +50,9 @@ on:
       - 'scripts/verify-2022-playoff-trade-reunion.mjs'
       - 'data/playoff_explorer_verified_2016_2025_v1.json'
       - 'data/expanded_playoff_trade_revenge_2020_2025_v1.json'
+      - 'scripts/verify-recovered-playoff-brackets.mjs'
+      - 'data/recovered_playoff_bracket_canonical_reconciliation_v1.json'
+      - 'data/recovered_winners_bracket_2020_2021_v1.json'
       - 'data/sleeper_2022_w15_mitch_stilly_trade_reunion_v1.json'
       - 'scripts/verify-tony-2021-championship-trades.mjs'
       - 'analytics/tony-2021-four-trades-one-ring.html'
@@ -79,6 +85,7 @@ jobs:
           node --check scripts/verify-playoff-trade-revenge.mjs
           node --check scripts/build-expanded-playoff-trade-revenge.mjs
           node --check scripts/verify-2022-playoff-trade-reunion.mjs
+          node --check scripts/verify-recovered-playoff-brackets.mjs
       - name: Verify verified trades, multi-team lineage and championship caveats
         run: |
           node scripts/verify-greatest-worst-trades.mjs
@@ -87,3 +94,4 @@ jobs:
           node scripts/verify-playoff-trade-revenge.mjs
           node scripts/build-expanded-playoff-trade-revenge.mjs --check
           node scripts/verify-2022-playoff-trade-reunion.mjs
+          node scripts/verify-recovered-playoff-brackets.mjs
