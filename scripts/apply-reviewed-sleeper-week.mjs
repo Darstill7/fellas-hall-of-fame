@@ -71,6 +71,7 @@ execFileSync(process.execPath,['scripts/generate-career-core.mjs'],{stdio:'inher
 execFileSync(process.execPath,['scripts/generate-season-guide.mjs'],{stdio:'inherit'});
 // Regenerate Schedule Luck from the same approved matchup ledger; do not update it from staged PRs.
 execFileSync(process.execPath,['scripts/build-schedule-luck.mjs'],{stdio:'inherit'});
+execFileSync(process.execPath,['scripts/build-luck-performance-profiles.mjs'],{stdio:'inherit'});
 // Regenerate the playoff outlook from the same five approved games; never retain last week's model.
 execFileSync(process.execPath,['scripts/rebuild-playoff-race.mjs'],{stdio:'inherit'});
 for(const script of ['verify-weekly-ledger-parity.mjs','verify-manager-madden-cards.mjs','verify-fellas-rating.mjs','test-playoff-race-archive.mjs'])
