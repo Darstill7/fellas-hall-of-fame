@@ -1,0 +1,132 @@
+{
+  "id": "lowest-scoring-single-week-matchups",
+  "title": "Lowest-Scoring Matchups in League History",
+  "updated": "2026-11-12",
+  "coverage": "2016–2025 complete seasons and 2026 through Week 9",
+  "rule": "Rank distinct head-to-head games by combined points, regular season and eligible single-week postseason; exclude ESPN multiweek playoff aggregates and running cumulative consolation scores.",
+  "sourceDataset": "data/unified_record_book_2016_2026.json",
+  "eligibleMatchups": 785,
+  "disclosure": "ESPN and Sleeper scoring systems differ and raw points are not era-normalized; 2018 consolation bracket format was nonstandard.",
+  "leaderboard": [
+    {
+      "rank": 1,
+      "year": 2018,
+      "week": 15,
+      "stage": "consolation",
+      "winner": "Kuhl",
+      "loser": "Stew",
+      "winnerScore": 66.42,
+      "loserScore": 48.14,
+      "combinedScore": 114.56,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 2,
+      "year": 2017,
+      "week": 1,
+      "stage": "regular",
+      "winner": "Thommy",
+      "loser": "Tony",
+      "winnerScore": 75,
+      "loserScore": 44,
+      "combinedScore": 119,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 3,
+      "year": 2017,
+      "week": 7,
+      "stage": "regular",
+      "winner": "Stew",
+      "loser": "Halderman",
+      "winnerScore": 76,
+      "loserScore": 49,
+      "combinedScore": 125,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 4,
+      "year": 2017,
+      "week": 4,
+      "stage": "regular",
+      "winner": "Stover",
+      "loser": "Halderman",
+      "winnerScore": 73,
+      "loserScore": 53,
+      "combinedScore": 126,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 5,
+      "year": 2017,
+      "week": 5,
+      "stage": "regular",
+      "winner": "Halderman",
+      "loser": "Schermerhorn",
+      "winnerScore": 79,
+      "loserScore": 47,
+      "combinedScore": 126,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 6,
+      "year": 2017,
+      "week": 9,
+      "stage": "regular",
+      "winner": "Stilly",
+      "loser": "Tony",
+      "winnerScore": 64,
+      "loserScore": 63,
+      "combinedScore": 127,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 7,
+      "year": 2017,
+      "week": 10,
+      "stage": "regular",
+      "winner": "Stew",
+      "loser": "Stilly",
+      "winnerScore": 82,
+      "loserScore": 46,
+      "combinedScore": 128,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 8,
+      "year": 2026,
+      "week": 2,
+      "stage": "regular",
+      "winner": "Tony",
+      "loser": "Scott",
+      "winnerScore": 84.32,
+      "loserScore": 46.38,
+      "combinedScore": 130.7,
+      "source": "league_2026_w1_7"
+    },
+    {
+      "rank": 9,
+      "year": 2017,
+      "week": 2,
+      "stage": "regular",
+      "winner": "Birch",
+      "loser": "Stover",
+      "winnerScore": 72,
+      "loserScore": 63,
+      "combinedScore": 135,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 10,
+      "year": 2020,
+      "week": 6,
+      "stage": "regular",
+      "winner": "Kuhl",
+      "loser": "Stover",
+      "winnerScore": 69.18,
+      "loserScore": 66.7,
+      "combinedScore": 135.88,
+      "source": "sleeper_matchups_2020"
+    }
+  ]
+}
