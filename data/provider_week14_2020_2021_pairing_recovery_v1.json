@@ -1,0 +1,132 @@
+{
+  "schema": "fellas-provider-week14-2020-2021-pairing-recovery-v1",
+  "retrievedOn": "2026-11-12",
+  "source": "Historical Sleeper get_matchups 2020 and 2021 Week 14 via connected Flaim Fantasy; raw provider group ID and roster numbers retained",
+  "evidenceScope": "All four paired head-to-head matchups and two singletons in each week",
+  "years": [
+    {
+      "year": 2020,
+      "leagueId": "561248176597610496",
+      "byes": [
+        {
+          "manager": "Mitch",
+          "rosterId": 6,
+          "points": 86.12
+        },
+        {
+          "manager": "Birch",
+          "rosterId": 10,
+          "points": 161.2
+        }
+      ],
+      "pairs": [
+        {
+          "matchupId": 4,
+          "home": "Stilly",
+          "away": "Stew",
+          "homeRosterId": 1,
+          "awayRosterId": 4,
+          "homeScore": 115.72,
+          "awayScore": 97.64,
+          "stageProvenance": "postseason_non_winners_pairing_consolation_inferred_not_proven_by_group_id_alone"
+        },
+        {
+          "matchupId": 1,
+          "home": "Evans",
+          "away": "Stover",
+          "homeRosterId": 2,
+          "awayRosterId": 8,
+          "homeScore": 108.72,
+          "awayScore": 110.84,
+          "stageProvenance": "independently_verified_winners_bracket"
+        },
+        {
+          "matchupId": 5,
+          "home": "Thommy",
+          "away": "Tony",
+          "homeRosterId": 3,
+          "awayRosterId": 7,
+          "homeScore": 151.32,
+          "awayScore": 125.56,
+          "stageProvenance": "postseason_non_winners_pairing_consolation_inferred_not_proven_by_group_id_alone"
+        },
+        {
+          "matchupId": 2,
+          "home": "Koble",
+          "away": "Kuhl",
+          "homeRosterId": 5,
+          "awayRosterId": 9,
+          "homeScore": 149.98,
+          "awayScore": 118.14,
+          "stageProvenance": "independently_verified_winners_bracket"
+        }
+      ],
+      "byesProvenance": "Two provider singleton records match the independently verified first-round winners-bracket byes; a singleton itself is not proof of bye."
+    },
+    {
+      "year": 2021,
+      "leagueId": "668633299786244096",
+      "byes": [
+        {
+          "manager": "Tony",
+          "rosterId": 7,
+          "points": 119.08
+        },
+        {
+          "manager": "Birch",
+          "rosterId": 10,
+          "points": 65.48
+        }
+      ],
+      "pairs": [
+        {
+          "matchupId": 4,
+          "home": "Stilly",
+          "away": "Stew",
+          "homeRosterId": 1,
+          "awayRosterId": 4,
+          "homeScore": 108.94,
+          "awayScore": 111.32,
+          "stageProvenance": "postseason_non_winners_pairing_consolation_inferred_not_proven_by_group_id_alone"
+        },
+        {
+          "matchupId": 1,
+          "home": "Evans",
+          "away": "Mitch",
+          "homeRosterId": 2,
+          "awayRosterId": 6,
+          "homeScore": 162.04,
+          "awayScore": 134.82,
+          "stageProvenance": "independently_verified_winners_bracket"
+        },
+        {
+          "matchupId": 2,
+          "home": "Thommy",
+          "away": "Stover",
+          "homeRosterId": 3,
+          "awayRosterId": 8,
+          "homeScore": 104.54,
+          "awayScore": 144.8,
+          "stageProvenance": "independently_verified_winners_bracket"
+        },
+        {
+          "matchupId": 5,
+          "home": "Koble",
+          "away": "Kuhl",
+          "homeRosterId": 5,
+          "awayRosterId": 9,
+          "homeScore": 73.32,
+          "awayScore": 109.52,
+          "stageProvenance": "postseason_non_winners_pairing_consolation_inferred_not_proven_by_group_id_alone"
+        }
+      ],
+      "byesProvenance": "Two provider singleton records match the independently verified first-round winners-bracket byes; a singleton itself is not proof of bye."
+    }
+  ],
+  "limitations": [
+    "Sleeper matchup IDs identify numeric groups, not explicit winners/consolation labels. Do not infer official bracket positions solely from an ID.",
+    "Actual winners-bracket pairing classification is independently confirmed by source matchups, seeds and next-round progression.",
+    "Non-winners matchups are consistent with bottom-four teams and a consolation bracket, but source bracket classification is not directly returned.",
+    "Use in the 2020–2021 stage and standings reconciliation. No source ledger changes in this archive."
+  ]
+}
