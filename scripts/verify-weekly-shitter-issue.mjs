@@ -20,6 +20,15 @@ for(const [name,v] of Object.entries(data.lineupProjections)){
 }
 assert.equal(data.lineupProjections.Stover.players.at(-1).player,'EMPTY DEF');
 assert.equal(data.lineupProjections.Stover.players.at(-1).halfPprProjection,0);
+assert.equal(data.revisedMatchup.updatedSnapshot.stover,115.3,'Gurt updated projection');
+assert.equal(data.revisedMatchup.updatedSnapshot.birch,118.7,'Birch projection unchanged');
+assert.equal(data.revisedMatchup.updatedSnapshot.stoverCurrentStarters.length,9,'All nine current Gurt slots recorded');
+assert.equal(Math.round(data.revisedMatchup.updatedSnapshot.stoverCurrentStarters.reduce((sum,p)=>sum+p.halfPprProjection,0)*10)/10,115.3,'Revised total checks');
+assert.equal(data.revisedMatchup.updatedSnapshot.stoverCurrentStarters.at(-1).player,'Los Angeles Rams','Gurt actually starts Rams D');
+assert.equal(data.revisedMatchup.originalSnapshot.stover,104.4,'Original receipt remains untouched');
+assert.ok(html.includes('UPDATED: BIRCH -3.5')&&html.includes('O/U 234.0'),'Updated game board');
+assert.ok(html.includes('UPDATED PICK: BIRCH 119, STOVER 115'),'Updated prediction');
+assert.ok(html.includes('ORIGINAL PRE-UPDATE PICK: BIRCH 119, STOVER 104'),'Original article receipt preserved');
 const played=ledger.games.filter(x=>x.stage==='regular');
 const history=played.find(x=>Number(x.year)===2025 && Number(x.week)===10 && [x.home,x.away].sort().join('|')==='Mitch|Stew');
 assert.ok(history,'2025 Week 10 Mitch/Stew receipt');
@@ -29,7 +38,7 @@ assert.equal(top,332.62,'Historical lead is highest recovered regular-season com
 const ids=[...html.matchAll(/id="([^"]+)"/g)].map(x=>x[1]);
 for(const anchor of [...html.matchAll(/href="#([^"]+)"/g)].map(x=>x[1]))assert.ok(ids.includes(anchor),'Broken jump link: '+anchor);
 for(const name of ['mitch-stew','stilly-scott','jmid-thommy','tony-kuhl','birch-stover','shit-list','final-flush'])assert.ok(ids.includes(name),'Missing section '+name);
-for(const txt of ['STEW -1.5','STILLY -19.5','JMID -16.5','TONY -29.5','BIRCH -14.5'])assert.ok(html.includes(txt),'Missing projection-derived line '+txt);
+for(const txt of ['STEW -1.5','STILLY -19.5','JMID -16.5','TONY -29.5','BIRCH -3.5'])assert.ok(html.includes(txt),'Missing projection-derived line '+txt);
 assert.ok(html.includes('The football ends Monday night. The bullshit never does.'),'Final Flush sign-off');
 assert.ok(html.includes('published half-PPR player projections'),'Model methodology disclosed');
 assert.ok(html.includes('provisional'),'Uncertified streaks must be labeled');
