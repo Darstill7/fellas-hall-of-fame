@@ -19,7 +19,7 @@ const normalize=x=>x==='Tom'?'Thommy':x==='EvansBrandon'?'Evans':x;
 const round=n=>Number(n.toFixed(2));
 const games=[],tradeCandidates=[];
 for(const season of seasons){
- const additional=restoredBracket.records.filter(x=>x.year===season.year).map(x=>({round:x.round,week:x.week,winner:x.winner,loser:x.loser,home:x.winner,away:x.loser,homeScore:x.winnerScore,awayScore:x.loserScore,margin:x.winningMargin}));
+ const additional=restoredBracket.records.filter(x=>x.year===season.year&&!season.matches.some(m=>m.week===x.week&&m.winner===x.winner&&m.loser===x.loser)).map(x=>({round:x.round,week:x.week,winner:x.winner,loser:x.loser,home:x.winner,away:x.loser,homeScore:x.winnerScore,awayScore:x.loserScore,margin:x.winningMargin}));
  for(const game of [...season.matches,...additional]){
   const entry={year:season.year,round:game.round,week:game.week,winner:game.winner,loser:game.loser,winnerScore:game.winner===game.home?game.homeScore:game.awayScore,loserScore:game.winner===game.home?game.awayScore:game.homeScore,margin:game.margin,matchVerified:true,eligibleDirectTradeIds:[],status:'no_eligible_direct_trade_in_tracked_archive'};
   for(const trade of trades.filter(t=>t.year===season.year&&t.week<game.week&&t.sides.length===2)){
