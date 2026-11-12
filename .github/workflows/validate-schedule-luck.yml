@@ -1,0 +1,35 @@
+name: Validate Schedule Luck projections
+on:
+  push:
+    paths:
+      - 'data/unified_record_book_2016_2026.json'
+      - 'data/all_play_schedule_variance_2016_2026w8_v1.json'
+      - 'data/schedule_luck_current_v1.json'
+      - 'scripts/build-schedule-luck.mjs'
+      - 'scripts/apply-reviewed-sleeper-week.mjs'
+      - '.github/workflows/validate-schedule-luck.yml'
+  pull_request:
+    paths:
+      - 'data/unified_record_book_2016_2026.json'
+      - 'data/all_play_schedule_variance_2016_2026w8_v1.json'
+      - 'data/schedule_luck_current_v1.json'
+      - 'scripts/build-schedule-luck.mjs'
+      - 'scripts/apply-reviewed-sleeper-week.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  schedule-luck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax validation
+        run: |
+          node --check scripts/build-schedule-luck.mjs
+          node --check scripts/apply-reviewed-sleeper-week.mjs
+          node --check assets/manager-schedule-luck.mjs
+      - name: Reject stale or inconsistent Schedule Luck
+        run: node scripts/build-schedule-luck.mjs --check
