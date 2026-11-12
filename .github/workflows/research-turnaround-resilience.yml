@@ -1,0 +1,23 @@
+name: Season turnaround and playoff resilience research
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/build-season-turnaround-records.mjs'
+      - 'scripts/verify-season-turnaround-records.mjs'
+      - 'data/season_weekly_matchups_2016_2026_v1.json'
+      - 'data/postseason_records_verified_v1.json'
+      - 'data/fellas_final_placements_2016_2025_verified.json'
+      - '.github/workflows/research-turnaround-resilience.yml'
+  workflow_dispatch:
+jobs:
+  verify-turnarounds:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify 98 manager seasons and 14 provisional comeback records
+        run: node scripts/verify-season-turnaround-records.mjs
