@@ -1,0 +1,32 @@
+name: Verify unified Record Book results
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/build-unified-record-results-registry.mjs'
+      - 'scripts/verify-unified-record-results-registry.mjs'
+      - 'scripts/build-record-taxonomy-crosswalk.mjs'
+      - 'scripts/build-record-book-phase2.mjs'
+      - 'data/expanded_records_verified_v1.json'
+      - 'data/legendary_records_2016_2025_v1.json'
+      - '.github/workflows/verify-unified-record-results.yml'
+  workflow_dispatch:
+jobs:
+  results:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate unified results JSON
+        run: node scripts/build-unified-record-results-registry.mjs > unified_record_results_registry_2016_2026w9_v1.json
+      - name: Verify historical outcomes and personal portfolios
+        run: node scripts/verify-unified-record-results-registry.mjs
+      - name: Archive the generated results dataset for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: fellas-unified-record-results-registry
+          path: unified_record_results_registry_2016_2026w9_v1.json
+          retention-days: 30
