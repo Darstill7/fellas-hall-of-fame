@@ -1,0 +1,139 @@
+{
+  "schema": "fellas-2022-week15-direct-trade-opponent-lineups-v1",
+  "retrievedOn": "2026-11-12",
+  "source": "Connected Flaim Fantasy historical Sleeper roster, 2022 Week 15 (original archived weekly lineup), two roster IDs cross-matched to verified playoff explorer",
+  "leagueId": "857125408712310784",
+  "year": 2022,
+  "week": 15,
+  "round": "opening",
+  "tradeId": "875965138744864768",
+  "tradeDate": "2022-09-15",
+  "teamWinner": {
+    "manager": "Mitch",
+    "rosterId": 6,
+    "owner": "huppdawg80",
+    "score": 127.9,
+    "starters": [
+      {
+        "name": "Joe Burrow",
+        "position": "QB",
+        "points": 23.8
+      },
+      {
+        "name": "Saquon Barkley",
+        "position": "RB",
+        "points": 20.5
+      },
+      {
+        "name": "Tony Pollard",
+        "position": "RB",
+        "points": 12.6
+      },
+      {
+        "name": "Adam Thielen",
+        "position": "WR",
+        "points": 11.6
+      },
+      {
+        "name": "Chris Godwin Jr.",
+        "position": "WR",
+        "points": 18.3
+      },
+      {
+        "name": "Mark Andrews",
+        "position": "TE",
+        "points": 4.6
+      },
+      {
+        "name": "Tyler Lockett",
+        "position": "WR",
+        "points": 10.3
+      },
+      {
+        "name": "Brian Robinson Jr.",
+        "position": "RB",
+        "points": 10.2
+      },
+      {
+        "name": "Cleveland Browns",
+        "position": "DEF",
+        "points": 16
+      }
+    ]
+  },
+  "teamLoser": {
+    "manager": "Stilly",
+    "rosterId": 1,
+    "owner": "Darstill",
+    "score": 94.92,
+    "starters": [
+      {
+        "name": "Geno Smith",
+        "position": "QB",
+        "points": 14.32
+      },
+      {
+        "name": "Christian McCaffrey",
+        "position": "RB",
+        "points": 22.8
+      },
+      {
+        "name": "Jonathan Taylor",
+        "position": "RB",
+        "points": 1.8
+      },
+      {
+        "name": "Terry McLaurin",
+        "position": "WR",
+        "points": 10
+      },
+      {
+        "name": "Keenan Allen",
+        "position": "WR",
+        "points": 12.6
+      },
+      {
+        "name": "Gerald Everett",
+        "position": "TE",
+        "points": 6.2
+      },
+      {
+        "name": "Miles Sanders",
+        "position": "RB",
+        "points": 1.4
+      },
+      {
+        "name": "Tee Higgins",
+        "position": "WR",
+        "points": 13.8
+      },
+      {
+        "name": "Denver Broncos",
+        "position": "DEF",
+        "points": 12
+      }
+    ]
+  },
+  "tradeAssets": {
+    "mitchReceived": [
+      "Adam Thielen",
+      "Saquon Barkley"
+    ],
+    "stillyReceived": [
+      "Jonathan Taylor"
+    ]
+  },
+  "verifiedScoring": {
+    "barkley": 20.5,
+    "thielen": 11.6,
+    "mitchReceivedCombined": 32.1,
+    "taylor": 1.8,
+    "margin": 32.98,
+    "pointsMinusMargin": -0.88
+  },
+  "limitations": [
+    "Archived lineup and trade record verify starts and points but do not establish what either team would have started without the trade.",
+    "Do not treat Barkley + Thielen production as a causal swing versus the 32.98-point margin; receiving and sending sides differ in roster construction.",
+    "All player scores here come from historical Week 15 snapshots, not regular-season summary or hypothetical values."
+  ]
+}
