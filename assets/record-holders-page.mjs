@@ -9,7 +9,7 @@ const toLabel=record=>{const n=Number(record.value);const value=Number.isFinite(
 const target=name=>'../managers/record-books.html?manager='+encodeURIComponent(name)+'#owned-records';
 const tag=(name,value,cls)=>{const e=document.createElement(name);if(cls)e.className=cls;if(value!==undefined)e.textContent=value;return e};
 const currentManagers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
-let collectionWinners=[],managerRows=[],expandedData=null,fortuneRecord=null;
+let collectionWinners=[],managerRows=[],expandedData=null,fortuneRecord=null,scheduleLuckRows=[];
 function renderManagerFinder(){
  // Read the source snapshot as well as event updates; either module may load first.
  if(Array.isArray(document.__fellasVerifiedRecordOwners))collectionWinners=document.__fellasVerifiedRecordOwners;
@@ -53,6 +53,17 @@ function renderManagerFinder(){
  results.replaceChildren();
  const warning=tag('p','These are first-place category entries, not '+count+' necessarily distinct records. Overlapping concepts across collections are retained for transparency. Ties share first place. Ongoing 2026 season watchlists are excluded.','muted');
  results.append(warning);
+ const luck=scheduleLuckRows.find(r=>displayName(r.manager)===selected);
+ if(luck){
+  const metric=tag('section',undefined,'record-finder-section');
+  const title=tag('h3','Career Schedule Luck · Statistical profile (not record count)');
+  const signed=(x,d=2)=>(x>0?'+':'')+x.toFixed(d);
+  const value=tag('strong',signed(luck.winSurplus)+' wins above expectation');
+  const explanation=tag('p',luck.actualWinCredits+' actual win credits vs '+luck.expectedWins.toFixed(2)+' expected across '+luck.seasons+' completed seasons ('+luck.pairedWeeks+' paired weeks). Per-week differential: '+signed(luck.surplusPerWeek,4)+'.','muted');
+  const source=tag('a','Compare every manager →');source.href='#schedule-luck-leaderboard';
+  metric.append(title,value,explanation,source);
+  results.append(metric);
+ }
  for(const [heading,items] of sections){
   const section=tag('section',undefined,'record-finder-section');
   const h=tag('h3',heading+' · '+items.length);section.append(h);
@@ -114,7 +125,7 @@ async function start(){
   for(const [name,records] of leadersByManager)if(!rows.some(row=>expandedName(row.name)===name))rows.push({name,records:[],expandedRecords:records});
   rows.sort((a,b)=>b.expandedRecords.length-a.expandedRecords.length||b.records.length-a.records.length||a.name.localeCompare(b.name));
   managerRows=rows;expandedData=expanded;renderManagerFinder();
-  fetch('../data/hall_of_fortune_2016_2026w9_v1.json').then(r=>{if(!r.ok)throw Error('Schedule Luck registry unavailable');return r.json()}).then(data=>{const ranks=data.careerScheduleSurplusNormalized||[];const leader=ranks[0];if(leader?.manager==='Birch'&&leader.winSurplus>0){fortuneRecord=leader;renderManagerFinder()}}).catch(()=>{fortuneRecord=null});
+  fetch('../data/hall_of_fortune_2016_2026w9_v1.json').then(r=>{if(!r.ok)throw Error('Schedule Luck registry unavailable');return r.json()}).then(data=>{const ranks=data.careerScheduleSurplusNormalized||[];scheduleLuckRows=ranks;const leader=ranks[0];if(leader?.manager==='Birch'&&leader.winSurplus>0)fortuneRecord=leader;renderManagerFinder()}).catch(()=>{fortuneRecord=null});
   summary.textContent=expanded.categoryCount+' expanded categories + '+categories.length+' established categories · Tied first-place managers share credit · Some record concepts overlap.';
   list.replaceChildren();
   other.replaceChildren();
