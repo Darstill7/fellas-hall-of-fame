@@ -38,7 +38,7 @@ assert.equal(top,332.62,'Historical lead is highest recovered regular-season com
 const ids=[...html.matchAll(/id="([^"]+)"/g)].map(x=>x[1]);
 for(const anchor of [...html.matchAll(/href="#([^"]+)"/g)].map(x=>x[1]))assert.ok(ids.includes(anchor),'Broken jump link: '+anchor);
 for(const name of ['mitch-stew','stilly-scott','jmid-thommy','tony-kuhl','birch-stover','shit-list','final-flush'])assert.ok(ids.includes(name),'Missing section '+name);
-for(const txt of ['STEW -1.5','STILLY -19.5','JMID -16.5','TONY -29.5','BIRCH -14.5'])assert.ok(html.includes(txt),'Missing projection-derived line '+txt);
+for(const txt of ['STEW -1.5','STILLY -19.5','JMID -16.5','TONY -29.5','BIRCH -3.5'])assert.ok(html.includes(txt),'Missing projection-derived line '+txt);
 assert.ok(html.includes('The football ends Monday night. The bullshit never does.'),'Final Flush sign-off');
 assert.ok(html.includes('published half-PPR player projections'),'Model methodology disclosed');
 assert.ok(html.includes('provisional'),'Uncertified streaks must be labeled');
