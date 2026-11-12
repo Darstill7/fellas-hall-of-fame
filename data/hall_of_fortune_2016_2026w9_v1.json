@@ -1,0 +1,521 @@
+{
+  "id": "hall-of-fortune",
+  "version": 1,
+  "updated": "2026-11-12",
+  "sources": [
+    "data/unified_record_book_2016_2026.json",
+    "data/all_play_schedule_variance_2016_2026w8_v1.json"
+  ],
+  "coverage": "Single-game regular-season data through 2026 Week 9; all-play fully paired weeks through 2026 Week 8; completed seasons through 2025",
+  "methodology": {
+    "lowestWinningScores": "Smallest winning team scores in decided regular-season head-to-head games; no cross-era normalization.",
+    "secondLowestScoringWins": "Wins despite ranking second-lowest of full paired-league weekly scores. A true weekly lowest score cannot win a conventional head-to-head game against a league opponent with a strictly lower score.",
+    "seasonScheduleSurplus": "Actual win credits (wins plus half ties) less expected wins against a uniformly randomly selected league opponent using same-week all-play scores, fully paired weeks only.",
+    "careerSurplus": "Summed per-season fully-paired actual and expected win credits for completed seasons; normalize surplus by paired weeks to compare different tenures."
+  },
+  "cautions": [
+    "Not a causal luck metric; measures opponent-draw advantage rather than player selection quality.",
+    "2016 has eight teams; 2017 onward ten; all-play expectation adjusts for league size.",
+    "2020 and 2021 unpaired Week 14 records are excluded from the all-play comparisons.",
+    "2026 rankings provisional and excluded from completed-season and career totals.",
+    "Rounding of source expected wins to three decimals may affect career totals by a few thousandths."
+  ],
+  "lowestRegularSeasonWinningScores": [
+    {
+      "rank": 1,
+      "year": 2017,
+      "week": 9,
+      "winner": "Stilly",
+      "loser": "Tony",
+      "winnerScore": 64,
+      "loserScore": 63,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 2,
+      "year": 2020,
+      "week": 6,
+      "winner": "Kuhl",
+      "loser": "Stover",
+      "winnerScore": 69.18,
+      "loserScore": 66.7,
+      "source": "sleeper_matchups_2020"
+    },
+    {
+      "rank": 3,
+      "year": 2017,
+      "week": 2,
+      "winner": "Birch",
+      "loser": "Stover",
+      "winnerScore": 72,
+      "loserScore": 63,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 4,
+      "year": 2017,
+      "week": 4,
+      "winner": "Stover",
+      "loser": "Halderman",
+      "winnerScore": 73,
+      "loserScore": 53,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 5,
+      "year": 2018,
+      "week": 13,
+      "winner": "Stover",
+      "loser": "Kuhl",
+      "winnerScore": 73.64,
+      "loserScore": 65.18,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 6,
+      "year": 2017,
+      "week": 1,
+      "winner": "Thommy",
+      "loser": "Tony",
+      "winnerScore": 75,
+      "loserScore": 44,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 7,
+      "year": 2017,
+      "week": 7,
+      "winner": "Stew",
+      "loser": "Halderman",
+      "winnerScore": 76,
+      "loserScore": 49,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 8,
+      "year": 2017,
+      "week": 9,
+      "winner": "Stew",
+      "loser": "Stover",
+      "winnerScore": 77,
+      "loserScore": 70,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 9,
+      "year": 2017,
+      "week": 12,
+      "winner": "Evans",
+      "loser": "Halderman",
+      "winnerScore": 77,
+      "loserScore": 63,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 10,
+      "year": 2017,
+      "week": 5,
+      "winner": "Halderman",
+      "loser": "Schermerhorn",
+      "winnerScore": 79,
+      "loserScore": 47,
+      "source": "espn_history_2016_2019"
+    }
+  ],
+  "secondLowestScoringWinsByManager": [
+    {
+      "rank": 1,
+      "manager": "Thommy",
+      "count": 3,
+      "examples": [
+        {
+          "year": 2022,
+          "week": 9,
+          "points": 90.32,
+          "opponent": "Evans"
+        },
+        {
+          "year": 2024,
+          "week": 9,
+          "points": 102.72,
+          "opponent": "Stew"
+        },
+        {
+          "year": 2025,
+          "week": 3,
+          "points": 99.66,
+          "opponent": "Stew"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "manager": "Evans",
+      "count": 2,
+      "examples": [
+        {
+          "year": 2017,
+          "week": 12,
+          "points": 77,
+          "opponent": "Halderman"
+        },
+        {
+          "year": 2018,
+          "week": 5,
+          "points": 79.24,
+          "opponent": "Thommy"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "manager": "Tony",
+      "count": 2,
+      "examples": [
+        {
+          "year": 2019,
+          "week": 3,
+          "points": 98.34,
+          "opponent": "Evans"
+        },
+        {
+          "year": 2019,
+          "week": 11,
+          "points": 79.26,
+          "opponent": "Thommy"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "manager": "Birch",
+      "count": 1,
+      "examples": [
+        {
+          "year": 2017,
+          "week": 2,
+          "points": 72,
+          "opponent": "Stover"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "manager": "Kuhl",
+      "count": 1,
+      "examples": [
+        {
+          "year": 2020,
+          "week": 6,
+          "points": 69.18,
+          "opponent": "Stover"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "manager": "Stew",
+      "count": 1,
+      "examples": [
+        {
+          "year": 2023,
+          "week": 5,
+          "points": 94.36,
+          "opponent": "Birch"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "manager": "Stilly",
+      "count": 1,
+      "examples": [
+        {
+          "year": 2022,
+          "week": 5,
+          "points": 80.06,
+          "opponent": "Evans"
+        }
+      ]
+    }
+  ],
+  "mostFavorableCompletedSeasons": [
+    {
+      "rank": 1,
+      "year": 2021,
+      "manager": "Birch",
+      "actualWinCredits": 11,
+      "expectedWins": 7.444,
+      "surplus": 3.556,
+      "pairedWeeks": 13
+    },
+    {
+      "rank": 2,
+      "year": 2024,
+      "manager": "Thommy",
+      "actualWinCredits": 9,
+      "expectedWins": 6.5,
+      "surplus": 2.5,
+      "pairedWeeks": 14
+    },
+    {
+      "rank": 3,
+      "year": 2023,
+      "manager": "Koble",
+      "actualWinCredits": 10,
+      "expectedWins": 7.556,
+      "surplus": 2.444,
+      "pairedWeeks": 14
+    },
+    {
+      "rank": 4,
+      "year": 2019,
+      "manager": "Birch",
+      "actualWinCredits": 11,
+      "expectedWins": 8.667,
+      "surplus": 2.333,
+      "pairedWeeks": 13
+    },
+    {
+      "rank": 5,
+      "year": 2020,
+      "manager": "Kuhl",
+      "actualWinCredits": 9,
+      "expectedWins": 6.667,
+      "surplus": 2.333,
+      "pairedWeeks": 13
+    },
+    {
+      "rank": 6,
+      "year": 2025,
+      "manager": "Mitch",
+      "actualWinCredits": 13,
+      "expectedWins": 10.778,
+      "surplus": 2.222,
+      "pairedWeeks": 14
+    },
+    {
+      "rank": 7,
+      "year": 2018,
+      "manager": "Stover",
+      "actualWinCredits": 8,
+      "expectedWins": 6,
+      "surplus": 2,
+      "pairedWeeks": 13
+    },
+    {
+      "rank": 8,
+      "year": 2019,
+      "manager": "Evans",
+      "actualWinCredits": 5,
+      "expectedWins": 3.333,
+      "surplus": 1.667,
+      "pairedWeeks": 13
+    },
+    {
+      "rank": 9,
+      "year": 2023,
+      "manager": "Stover",
+      "actualWinCredits": 6,
+      "expectedWins": 4.444,
+      "surplus": 1.556,
+      "pairedWeeks": 14
+    },
+    {
+      "rank": 10,
+      "year": 2016,
+      "manager": "Thommy",
+      "actualWinCredits": 7.5,
+      "expectedWins": 6.214,
+      "surplus": 1.286,
+      "pairedWeeks": 13
+    },
+    {
+      "rank": 11,
+      "year": 2019,
+      "manager": "Stew",
+      "actualWinCredits": 9,
+      "expectedWins": 7.778,
+      "surplus": 1.222,
+      "pairedWeeks": 13
+    },
+    {
+      "rank": 12,
+      "year": 2022,
+      "manager": "Stew",
+      "actualWinCredits": 11,
+      "expectedWins": 9.778,
+      "surplus": 1.222,
+      "pairedWeeks": 14
+    },
+    {
+      "rank": 13,
+      "year": 2017,
+      "manager": "Stew",
+      "actualWinCredits": 5,
+      "expectedWins": 3.889,
+      "surplus": 1.111,
+      "pairedWeeks": 12
+    },
+    {
+      "rank": 14,
+      "year": 2018,
+      "manager": "Stilly",
+      "actualWinCredits": 6,
+      "expectedWins": 5,
+      "surplus": 1,
+      "pairedWeeks": 13
+    },
+    {
+      "rank": 15,
+      "year": 2019,
+      "manager": "Tony",
+      "actualWinCredits": 8,
+      "expectedWins": 7,
+      "surplus": 1,
+      "pairedWeeks": 13
+    }
+  ],
+  "careerScheduleSurplusNormalized": [
+    {
+      "rank": 1,
+      "manager": "Birch",
+      "seasons": 9,
+      "pairedWeeks": 120,
+      "actualWinCredits": 67,
+      "expectedWins": 60.665,
+      "winSurplus": 6.335,
+      "surplusPerWeek": 0.0528
+    },
+    {
+      "rank": 2,
+      "manager": "Stover",
+      "seasons": 10,
+      "pairedWeeks": 133,
+      "actualWinCredits": 70,
+      "expectedWins": 67.69,
+      "winSurplus": 2.31,
+      "surplusPerWeek": 0.0174
+    },
+    {
+      "rank": 3,
+      "manager": "Halderman",
+      "seasons": 2,
+      "pairedWeeks": 25,
+      "actualWinCredits": 12.5,
+      "expectedWins": 12.222,
+      "winSurplus": 0.278,
+      "surplusPerWeek": 0.0111
+    },
+    {
+      "rank": 4,
+      "manager": "Stew",
+      "seasons": 10,
+      "pairedWeeks": 133,
+      "actualWinCredits": 61,
+      "expectedWins": 60.159,
+      "winSurplus": 0.841,
+      "surplusPerWeek": 0.0063
+    },
+    {
+      "rank": 5,
+      "manager": "Mitch",
+      "seasons": 8,
+      "pairedWeeks": 108,
+      "actualWinCredits": 63,
+      "expectedWins": 63.221,
+      "winSurplus": -0.221,
+      "surplusPerWeek": -0.002
+    },
+    {
+      "rank": 6,
+      "manager": "Thommy",
+      "seasons": 10,
+      "pairedWeeks": 133,
+      "actualWinCredits": 63.5,
+      "expectedWins": 63.881,
+      "winSurplus": -0.381,
+      "surplusPerWeek": -0.0029
+    },
+    {
+      "rank": 7,
+      "manager": "Stilly",
+      "seasons": 10,
+      "pairedWeeks": 133,
+      "actualWinCredits": 61,
+      "expectedWins": 61.842,
+      "winSurplus": -0.842,
+      "surplusPerWeek": -0.0063
+    },
+    {
+      "rank": 8,
+      "manager": "Tony",
+      "seasons": 9,
+      "pairedWeeks": 120,
+      "actualWinCredits": 67,
+      "expectedWins": 68.001,
+      "winSurplus": -1.001,
+      "surplusPerWeek": -0.0083
+    },
+    {
+      "rank": 9,
+      "manager": "Koble",
+      "seasons": 8,
+      "pairedWeeks": 105,
+      "actualWinCredits": 48,
+      "expectedWins": 49.016,
+      "winSurplus": -1.016,
+      "surplusPerWeek": -0.0097
+    },
+    {
+      "rank": 10,
+      "manager": "Kuhl",
+      "seasons": 8,
+      "pairedWeeks": 108,
+      "actualWinCredits": 50,
+      "expectedWins": 51.446,
+      "winSurplus": -1.446,
+      "surplusPerWeek": -0.0134
+    },
+    {
+      "rank": 11,
+      "manager": "Evans",
+      "seasons": 8,
+      "pairedWeeks": 105,
+      "actualWinCredits": 51,
+      "expectedWins": 53.088,
+      "winSurplus": -2.088,
+      "surplusPerWeek": -0.0199
+    },
+    {
+      "rank": 12,
+      "manager": "Scott",
+      "seasons": 2,
+      "pairedWeeks": 28,
+      "actualWinCredits": 13,
+      "expectedWins": 13.778,
+      "winSurplus": -0.778,
+      "surplusPerWeek": -0.0278
+    },
+    {
+      "rank": 13,
+      "manager": "JMid",
+      "seasons": 2,
+      "pairedWeeks": 28,
+      "actualWinCredits": 13,
+      "expectedWins": 13.944,
+      "winSurplus": -0.944,
+      "surplusPerWeek": -0.0337
+    },
+    {
+      "rank": 14,
+      "manager": "Schermerhorn",
+      "seasons": 2,
+      "pairedWeeks": 25,
+      "actualWinCredits": 12,
+      "expectedWins": 13.047,
+      "winSurplus": -1.047,
+      "surplusPerWeek": -0.0419
+    }
+  ]
+}
