@@ -6,7 +6,8 @@
     "data/playoff_explorer_verified_2016_2025_v1.json",
     "data/trade_museum_stage66.json",
     "data/championship_player_boxscores_2020_2025_v1.json",
-    "data/playoff_trade_revenge_2020_2025_v1.json"
+    "data/playoff_trade_revenge_2020_2025_v1.json",
+    "data/sleeper_2022_w15_mitch_stilly_trade_reunion_v1.json"
   ],
   "coverage": {
     "seasons": [
@@ -33,10 +34,10 @@
       }
     ],
     "directOpponentTradeCandidates": 4,
-    "confirmedStartedAgainstFormerManagerTradeLinks": 3,
-    "confirmedRevengeGames": 2,
-    "unresolvedStarterCases": 1,
-    "scope": "Only verified winners-bracket games 2020–2025; only archived championship-winner player-level playoff box scores are currently used for confirmed former-player starts."
+    "confirmedStartedAgainstFormerManagerTradeLinks": 4,
+    "confirmedRevengeGames": 3,
+    "unresolvedStarterCases": 0,
+    "scope": "Only verified winners-bracket games 2020–2025; confirmed starter receipts are limited to championship-winner box scores and separately recovered Mitch/Stilly Week 15 2022 Sleeper roster snapshots."
   },
   "games": [
     {
@@ -117,7 +118,7 @@
       "eligibleDirectTradeIds": [
         "875965138744864768"
       ],
-      "status": "direct_trade_candidate_starter_unverified"
+      "status": "verified_revenge"
     },
     {
       "year": 2022,
@@ -384,10 +385,20 @@
       "tradeDate": "2022-09-15",
       "winnerReceived": "Adam Thielen + Saquon Barkley",
       "loserReceived": "Jonathan Taylor",
-      "archivedWinnerStarterBoxAvailable": false,
-      "startedPlayers": [],
-      "verifiedFormerPlayerPoints": null,
-      "evidenceStatus": "starter_box_missing"
+      "archivedWinnerStarterBoxAvailable": true,
+      "starterReceiptSource": "sleeper_2022_w15_mitch_stilly_trade_reunion",
+      "startedPlayers": [
+        {
+          "name": "Saquon Barkley",
+          "points": 20.5
+        },
+        {
+          "name": "Adam Thielen",
+          "points": 11.6
+        }
+      ],
+      "verifiedFormerPlayerPoints": 32.1,
+      "evidenceStatus": "verified_started_against_former_manager"
     },
     {
       "year": 2023,
@@ -401,6 +412,7 @@
       "winnerReceived": "Mike Evans + Derrick Henry",
       "loserReceived": "Cooper Kupp",
       "archivedWinnerStarterBoxAvailable": true,
+      "starterReceiptSource": "championship_player_boxscores_2020_2025",
       "startedPlayers": [
         {
           "name": "Derrick Henry",
@@ -426,6 +438,7 @@
       "winnerReceived": "Jordan Love",
       "loserReceived": "Chase Brown",
       "archivedWinnerStarterBoxAvailable": true,
+      "starterReceiptSource": "championship_player_boxscores_2020_2025",
       "startedPlayers": [
         {
           "name": "Jordan Love",
@@ -447,6 +460,7 @@
       "winnerReceived": "Christian McCaffrey + Diontae Johnson + Tee Higgins",
       "loserReceived": "Terry McLaurin + De'Von Achane + Tank Dell",
       "archivedWinnerStarterBoxAvailable": true,
+      "starterReceiptSource": "championship_player_boxscores_2020_2025",
       "startedPlayers": [
         {
           "name": "Tee Higgins",
@@ -459,6 +473,32 @@
   ],
   "verifiedRevengeLinks": [
     {
+      "year": 2022,
+      "round": "opening",
+      "week": 15,
+      "winner": "Mitch",
+      "loser": "Stilly",
+      "winningMargin": 32.98,
+      "tradeId": "875965138744864768",
+      "tradeDate": "2022-09-15",
+      "winnerReceived": "Adam Thielen + Saquon Barkley",
+      "loserReceived": "Jonathan Taylor",
+      "archivedWinnerStarterBoxAvailable": true,
+      "starterReceiptSource": "sleeper_2022_w15_mitch_stilly_trade_reunion",
+      "startedPlayers": [
+        {
+          "name": "Saquon Barkley",
+          "points": 20.5
+        },
+        {
+          "name": "Adam Thielen",
+          "points": 11.6
+        }
+      ],
+      "verifiedFormerPlayerPoints": 32.1,
+      "evidenceStatus": "verified_started_against_former_manager"
+    },
+    {
       "year": 2023,
       "round": "semifinal",
       "week": 16,
@@ -470,6 +510,7 @@
       "winnerReceived": "Mike Evans + Derrick Henry",
       "loserReceived": "Cooper Kupp",
       "archivedWinnerStarterBoxAvailable": true,
+      "starterReceiptSource": "championship_player_boxscores_2020_2025",
       "startedPlayers": [
         {
           "name": "Derrick Henry",
@@ -495,6 +536,7 @@
       "winnerReceived": "Jordan Love",
       "loserReceived": "Chase Brown",
       "archivedWinnerStarterBoxAvailable": true,
+      "starterReceiptSource": "championship_player_boxscores_2020_2025",
       "startedPlayers": [
         {
           "name": "Jordan Love",
@@ -516,6 +558,7 @@
       "winnerReceived": "Christian McCaffrey + Diontae Johnson + Tee Higgins",
       "loserReceived": "Terry McLaurin + De'Von Achane + Tank Dell",
       "archivedWinnerStarterBoxAvailable": true,
+      "starterReceiptSource": "championship_player_boxscores_2020_2025",
       "startedPlayers": [
         {
           "name": "Tee Higgins",
@@ -526,25 +569,9 @@
       "evidenceStatus": "verified_started_against_former_manager"
     }
   ],
-  "pendingStarterVerification": [
-    {
-      "year": 2022,
-      "round": "opening",
-      "week": 15,
-      "winner": "Mitch",
-      "loser": "Stilly",
-      "winningMargin": 32.98,
-      "tradeId": "875965138744864768",
-      "tradeDate": "2022-09-15",
-      "winnerReceived": "Adam Thielen + Saquon Barkley",
-      "loserReceived": "Jonathan Taylor",
-      "archivedWinnerStarterBoxAvailable": false,
-      "startedPlayers": [],
-      "verifiedFormerPlayerPoints": null,
-      "evidenceStatus": "starter_box_missing"
-    }
-  ],
+  "pendingStarterVerification": [],
   "methodology": [
+    "2022 Week 15 Mitch vs Stilly is independently confirmed from two archived Sleeper lineups; those starters sum to the verified 127.90–94.92 playoff score.",
     "An eligible candidate requires a verified winners-bracket game and a two-manager transaction in the tracked museum before that playoff week in which the winner received assets from the loser.",
     "An award requires exact matching player names in the winner’s verified starting lineup, not aggregate season production or roster possession.",
     "A game with no candidate means none in the tracked museum, not proof that no trade occurred.",
@@ -553,17 +580,6 @@
     "Winning margin comparisons are purely descriptive; a hypothetical roster without the trade could score differently."
   ],
   "missingResearch": [
-    {
-      "year": 2022,
-      "week": 15,
-      "fixture": "Mitch defeated Stilly 127.90–94.92",
-      "tradeId": "875965138744864768",
-      "playersToCheck": [
-        "Saquon Barkley",
-        "Adam Thielen"
-      ],
-      "why": "The trade itself and the playoff result are verified, but no archived Week 15 starter box score proves whether either player started."
-    },
     {
       "years": [
         2020,
@@ -581,5 +597,5 @@
       "why": "Acquire ESPN-era trade receipts plus original playoff player starts before admitting records."
     }
   ],
-  "recordPolicy": "Existing verified 48.60 two-trade combined and 44.98 single-trade records remain scoped and are not superseded by an unverified 2022 candidate."
+  "recordPolicy": "Existing 48.60 two-trade combined and 44.98 single-trade honors remain leaders within the expanded 25-game bracket audit; the newly verified Mitch/Stilly 2022 trade produced 32.10 from two starters in the 32.98-point opening-round victory."
 }
