@@ -46,11 +46,22 @@ assert.equal(cases[1].year,2023);assert.equal(cases[1].opponent,'Tony');assert.e
 assert.equal(cases[1].trades.length,1);
 assert.equal(archive.recordA.points,48.6);
 assert.equal(archive.recordB.points,44.98);
+// Keep published coverage language aligned with the independent expanded bracket registry.
+const expanded=read('data/expanded_playoff_trade_revenge_2020_2025_v1.json');
+assert.equal(expanded.schema,'fellas-expanded-playoff-trade-revenge-v1');
+assert.equal(expanded.coverage.verifiedWinnersBracketGames,expanded.games.length);
+assert.equal(expanded.games.length,30);
+assert.equal(expanded.coverage.newlyRecoveredBracketGames,5);
+assert.equal(expanded.tradeCandidates.length,4);
+assert.equal(expanded.verifiedRevengeLinks.length,4);
+assert.equal(expanded.games.filter(g=>g.status==='verified_revenge').length,3);
 const museum=fs.readFileSync('analytics/greatest-worst-trades.html','utf8');
 const records=fs.readFileSync('analytics/records.html','utf8');
 const holders=fs.readFileSync('analytics/record-holders.html','utf8');
 const finder=fs.readFileSync('assets/record-holders-page.mjs','utf8');
 assert(museum.includes('id="trade-revenge"')&&museum.includes('48.60')&&museum.includes('44.98'));
+assert(museum.includes('expanded 30-game winners-bracket archive'),'Published trade museum must report all 30 verified winners-bracket games');
+assert(!museum.includes('expanded 25-game archive'),'Outdated playoff archive count must not reappear');
 assert(records.includes('id="playoff-trade-revenge-records"'));
 assert(holders.includes('id="playoff-trade-revenge-records"'));
 assert(finder.includes('tradeRevenge?.recordA?.holder')&&finder.includes('tradeRevenge?.recordB?.holder'));
