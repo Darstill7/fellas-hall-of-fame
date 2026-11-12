@@ -66,4 +66,45 @@ for(const label of ['id="championship-changing-trades"','62.90','44.98','15.80',
  assert(html.includes(label),'Trade history page is missing qualified context '+label);
 assert(!research.status.includes('definitive')&&!research.methodology.some(x=>x.includes('proves the trade was necessary')));
 assert(research.researchQueue.some(x=>x.topic.includes('2016–2019')));
+const awards=read('data/championship_trade_awards_2020_2025_v1.json');
+assert.equal(awards.schema,'fellas-championship-trade-awards-2020-2025-v1');
+assert.equal(awards.coverage.matchedTradePlayerGameReceipts,research.qualifiedPlayoffReceipts.length);
+const tradeScores=new Map();
+for(const receipt of research.qualifiedPlayoffReceipts){
+ const original=archive.find(t=>t.id===receipt.tradeId);
+ const recipient=original?.sides.find(s=>name(s.manager)===receipt.champion);
+ assert(original&&recipient,'Awards need traceable source trade and recipient');
+ const current=tradeScores.get(receipt.tradeId)||{year:receipt.year,holder:receipt.champion,points:0,rounds:{}};
+ current.points=Number((current.points+receipt.totalAcquiredStarterPoints).toFixed(2));
+ current.rounds[receipt.round]=receipt.totalAcquiredStarterPoints;
+ tradeScores.set(receipt.tradeId,current);
+}
+const expectedAwards=[...tradeScores].sort((a,b)=>b[1].points-a[1].points);
+assert.equal(awards.coverage.distinctRecipientTrades,expectedAwards.length);
+assert.equal(awards.eligibleRanking.length,expectedAwards.length);
+expectedAwards.forEach(([id,group],i)=>{
+ const saved=awards.eligibleRanking[i];
+ assert.equal(saved.rank,i+1);
+ assert.equal(saved.tradeId,id);
+ assert.equal(saved.year,group.year);
+ assert.equal(saved.receivingManager,group.holder);
+ assert.equal(saved.totalPlayoffStarterPoints,group.points);
+});
+assert.equal(awards.officialScopedRecord.tradeId,expectedAwards[0][0]);
+assert.equal(awards.officialScopedRecord.holder,'Stilly');
+assert.equal(awards.officialScopedRecord.value,57.68);
+assert.equal(awards.officialScopedRecord.semifinalPoints,44.98);
+assert.equal(awards.officialScopedRecord.championshipPoints,12.70);
+const higgins=awards.honorableDistinctions.find(x=>x.player==='Tee Higgins');
+const mixon=awards.honorableDistinctions.find(x=>x.player==='Joe Mixon');
+assert(higgins&&higgins.semifinalPoints===15.8&&higgins.semifinalWinningMargin===2.3);
+assert(mixon&&mixon.championshipPoints===29.5&&mixon.championshipWinningMargin===4.3);
+const holderPage=fs.readFileSync('analytics/record-holders.html','utf8');
+const recordBook=fs.readFileSync('analytics/records.html','utf8');
+const holderJs=fs.readFileSync('assets/record-holders-page.mjs','utf8');
+assert(html.includes('id="championship-trade-awards"'));
+assert(holderPage.includes('id="championship-trade-record"'));
+assert(recordBook.includes('id="championship-trade-impact-record"'));
+assert(holderJs.includes('championshipTradeRecord')&&holderJs.includes("'#championship-trade-record'"));
+assert(html.includes('57.68')&&html.includes('15.80')&&html.includes('29.50'));
 console.log('PASS championship trade impacts: '+boxes.length+' champion playoff box scores, '+rebuilt.length+' incoming-player/game trade receipts, 2021/2023/2024 hero contexts, no fabricated causal verdicts.');
