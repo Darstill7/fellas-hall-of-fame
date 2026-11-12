@@ -11,12 +11,6 @@
   "defect": {
     "year": 2020,
     "field": "data/verified_sleeper_playoff_brackets_2020_2025.json -> seasons[year=2020].semifinalists",
-    "currently": [
-      "Mitch",
-      "Evans",
-      "Birch",
-      "Koble"
-    ],
     "verifiedCorrection": [
       "Mitch",
       "Stover",
@@ -42,7 +36,13 @@
       }
     ],
     "risk": "Five confirmed 2020–2021 playoff fixtures include four games still labeled regular in the legacy weekly ledger. Reclassifying those rows impacts season standings and downstream all-play computations, so defer that source-level mutation pending an independent audit.",
-    "status": "corrected_in_verified_sleeper_playoff_brackets_2020_2025.json"
+    "status": "corrected_in_verified_sleeper_playoff_brackets_2020_2025.json",
+    "priorValue": [
+      "Mitch",
+      "Evans",
+      "Birch",
+      "Koble"
+    ]
   },
   "recoveredMissingMatches": {
     "years": [
