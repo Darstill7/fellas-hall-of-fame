@@ -1,0 +1,225 @@
+{
+  "schema": "fellas-2020-2021-week14-stage-classification-audit-v1",
+  "asOf": "2026-11-12",
+  "status": "source_anomaly_verified_mutation_deferred",
+  "scope": "2020 and 2021 Week 14 games labeled regular in the legacy unified weekly scores but taking place after 13-week regular season",
+  "sourceFiles": [
+    "data/season_weekly_matchups_2016_2026_v1.json",
+    "data/recovered_winners_bracket_2020_2021_v1.json",
+    "data/verified_sleeper_playoff_brackets_2020_2025.json"
+  ],
+  "years": [
+    {
+      "year": 2020,
+      "legacyDeclaredRegularGames": 69,
+      "actualRegularLabeledGames": 69,
+      "regularWeek1To13": 65,
+      "regularLabeledWeek14": 4,
+      "playoffByes": [
+        "Mitch",
+        "Birch"
+      ],
+      "week14Games": [
+        {
+          "week": 14,
+          "home": "Stilly",
+          "away": "Stew",
+          "homeScore": 115.72,
+          "awayScore": 97.64,
+          "currentStage": "regular",
+          "verifiedWinnersBracket": false,
+          "sourceWinnerBracketReceipt": null,
+          "provisionalOtherStage": "not_in_winners_bracket_consolation_or_other_postseason_needs_provenance"
+        },
+        {
+          "week": 14,
+          "home": "Evans",
+          "away": "Stover",
+          "homeScore": 108.72,
+          "awayScore": 110.84,
+          "currentStage": "regular",
+          "verifiedWinnersBracket": true,
+          "sourceWinnerBracketReceipt": {
+            "winner": "Stover",
+            "loser": "Evans",
+            "round": "opening"
+          },
+          "provisionalOtherStage": null
+        },
+        {
+          "week": 14,
+          "home": "Thommy",
+          "away": "Tony",
+          "homeScore": 151.32,
+          "awayScore": 125.56,
+          "currentStage": "regular",
+          "verifiedWinnersBracket": false,
+          "sourceWinnerBracketReceipt": null,
+          "provisionalOtherStage": "not_in_winners_bracket_consolation_or_other_postseason_needs_provenance"
+        },
+        {
+          "week": 14,
+          "home": "Koble",
+          "away": "Kuhl",
+          "homeScore": 149.98,
+          "awayScore": 118.14,
+          "currentStage": "regular",
+          "verifiedWinnersBracket": true,
+          "sourceWinnerBracketReceipt": {
+            "winner": "Koble",
+            "loser": "Kuhl",
+            "round": "opening"
+          },
+          "provisionalOtherStage": null
+        }
+      ],
+      "standingsPotentiallyContaminated": [
+        {
+          "manager": "Kuhl",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Stover",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Evans",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Koble",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Stew",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Thommy",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Stilly",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Tony",
+          "standingsGames": 14
+        }
+      ],
+      "cleanupPolicy": "Do not convert all Week 14 games to winners-bracket. Two are confirmed championship opening fixtures; two are non-winners fixtures requiring separate classification. Recalculate any affected standings, all-play summaries, streaks and records in a controlled validation batch."
+    },
+    {
+      "year": 2021,
+      "legacyDeclaredRegularGames": 69,
+      "actualRegularLabeledGames": 69,
+      "regularWeek1To13": 65,
+      "regularLabeledWeek14": 4,
+      "playoffByes": [
+        "Birch",
+        "Tony"
+      ],
+      "week14Games": [
+        {
+          "week": 14,
+          "home": "Stilly",
+          "away": "Stew",
+          "homeScore": 108.94,
+          "awayScore": 111.32,
+          "currentStage": "regular",
+          "verifiedWinnersBracket": false,
+          "sourceWinnerBracketReceipt": null,
+          "provisionalOtherStage": "not_in_winners_bracket_consolation_or_other_postseason_needs_provenance"
+        },
+        {
+          "week": 14,
+          "home": "Evans",
+          "away": "Mitch",
+          "homeScore": 162.04,
+          "awayScore": 134.82,
+          "currentStage": "regular",
+          "verifiedWinnersBracket": true,
+          "sourceWinnerBracketReceipt": {
+            "winner": "Evans",
+            "loser": "Mitch",
+            "round": "opening"
+          },
+          "provisionalOtherStage": null
+        },
+        {
+          "week": 14,
+          "home": "Thommy",
+          "away": "Stover",
+          "homeScore": 104.54,
+          "awayScore": 144.8,
+          "currentStage": "regular",
+          "verifiedWinnersBracket": true,
+          "sourceWinnerBracketReceipt": {
+            "winner": "Stover",
+            "loser": "Thommy",
+            "round": "opening"
+          },
+          "provisionalOtherStage": null
+        },
+        {
+          "week": 14,
+          "home": "Koble",
+          "away": "Kuhl",
+          "homeScore": 73.32,
+          "awayScore": 109.52,
+          "currentStage": "regular",
+          "verifiedWinnersBracket": false,
+          "sourceWinnerBracketReceipt": null,
+          "provisionalOtherStage": "not_in_winners_bracket_consolation_or_other_postseason_needs_provenance"
+        }
+      ],
+      "standingsPotentiallyContaminated": [
+        {
+          "manager": "Stover",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Mitch",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Evans",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Thommy",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Kuhl",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Stilly",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Koble",
+          "standingsGames": 14
+        },
+        {
+          "manager": "Stew",
+          "standingsGames": 14
+        }
+      ],
+      "cleanupPolicy": "Do not convert all Week 14 games to winners-bracket. Two are confirmed championship opening fixtures; two are non-winners fixtures requiring separate classification. Recalculate any affected standings, all-play summaries, streaks and records in a controlled validation batch."
+    }
+  ],
+  "impact": {
+    "gamesPotentiallyMisclassified": 8,
+    "independentlyVerifiedChampionshipOpeningGames": 4,
+    "otherWeek14PairedGames": 4,
+    "canonicalPlayoffExplorer": "Corrected using independent Sleeper receipts, without reclassifying source weekly stage metadata.",
+    "requiredBeforeStageRewrite": [
+      "Verify exact non-winners consolation positions for both seasons",
+      "Recompute affected 2020–21 official regular-season standings and win-loss counts",
+      "Audit regular season score/record/all-play and streak downstream consumers",
+      "Change stage, total fields and expected source outputs together, then verify all canonical and browser gates"
+    ]
+  }
+}
