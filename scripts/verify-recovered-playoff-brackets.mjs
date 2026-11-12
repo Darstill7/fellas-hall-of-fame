@@ -34,7 +34,7 @@ assert.equal(tradeAudit.games.length,30);
 for(const year of [2020,2021,2022,2023,2024,2025])assert.equal(tradeAudit.games.filter(x=>x.year===year).length,5);
 assert.equal(recon.defect.year,2020);
 assert.equal(recon.defect.verifiedCorrection.includes('Stover'),true);
-assert.equal(recon.defect.currently.includes('Evans'),true);
+assert.equal(recon.defect.priorValue.includes('Evans'),true);
 const stoverOverEvans=recovered.records.find(x=>x.year===2020&&x.round==='opening'&&x.winner==='Stover'&&x.loser==='Evans');
 const mitchOverStover=recovered.records.find(x=>x.year===2020&&x.round==='semifinal'&&x.winner==='Mitch'&&x.loser==='Stover');
 assert(stoverOverEvans&&mitchOverStover);
