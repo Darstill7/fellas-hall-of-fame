@@ -34,6 +34,20 @@ export async function mountManagerScheduleLuck(profileName,hero){
   link.textContent='Compare every manager’s Schedule Luck →';
   link.style.cssText='display:inline-block;min-height:44px;padding-top:10px;color:#f2d28d;font-weight:750;font-size:13px';
   block.append(eyebrow,stat,detail,normalized,link);
+  // Current year is provisional and never changes the completed-season career record.
+  try{
+   const latestResponse=await fetch('../../data/schedule_luck_current_v1.json',{cache:'no-store'});
+   if(latestResponse.ok){
+    const latest=await latestResponse.json();
+    const row=latest.currentSeasonProvisional?.find(x=>x.manager===name);
+    if(row&&latest.currentThroughWeek!==null){
+     const live=document.createElement('p');
+     live.textContent='2026 through approved Week '+latest.currentThroughWeek+': '+signed(row.scheduleLuckWins)+' wins vs expectation (provisional, '+row.pairedWeeks+' paired weeks).';
+     live.style.cssText='font-size:13px;line-height:1.5;margin:8px 0;color:#efd69c';
+     block.insertBefore(live,link);
+    }
+   }
+  }catch{ /* Current-year display is optional; completed career score remains authoritative. */ }
   if(name==='Birch'){
    const holder=document.createElement('small');
    holder.textContent='ALL-TIME RECORD HOLDER · Most favorable cumulative schedule draw';
