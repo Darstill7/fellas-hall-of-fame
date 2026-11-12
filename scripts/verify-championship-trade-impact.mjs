@@ -50,6 +50,18 @@ const higgins=retrieve(2024,'semifinal','1144362000575840256');
 const higginsFinal=retrieve(2024,'championship','1144362000575840256');
 assert(higgins&&close(higgins.totalAcquiredStarterPoints,15.80)&&close(higgins.margin,2.30));
 assert(higginsFinal&&close(higginsFinal.totalAcquiredStarterPoints,34.60));
+const titlePlayers=research.qualifiedPlayoffReceipts.filter(x=>x.round==='championship')
+ .flatMap(x=>x.players.map(p=>({year:x.year,champion:x.champion,player:p.name,points:p.points,tradeId:x.tradeId,championshipMargin:x.margin})))
+ .sort((a,b)=>b.points-a.points||a.year-b.year);
+assert.equal(research.coverage.championshipAcquiredPlayerGameEntries,titlePlayers.length);
+assert.equal(research.championshipAcquiredStarterLeaderboard.length,titlePlayers.length);
+research.championshipAcquiredStarterLeaderboard.forEach((row,index)=>{
+ assert.equal(row.rank,index+1);
+ for(const field of ['year','champion','player','points','tradeId','championshipMargin'])
+  assert.equal(row[field],titlePlayers[index][field],'Title-game player scoring mismatch '+index+' '+field);
+});
+assert.equal(titlePlayers[0].player,'Tee Higgins');
+assert.equal(titlePlayers[0].points,34.6);
 for(const label of ['id="championship-changing-trades"','62.90','44.98','15.80','34.60','replacement-adjusted'])
  assert(html.includes(label),'Trade history page is missing qualified context '+label);
 assert(!research.status.includes('definitive')&&!research.methodology.some(x=>x.includes('proves the trade was necessary')));
