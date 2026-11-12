@@ -1,0 +1,24 @@
+name: Verify Weekly Shitter editorial issue
+on:
+  pull_request:
+    paths:
+      - 'shitter/**'
+      - 'scripts/verify-weekly-shitter-issue.mjs'
+      - 'index.html'
+  push:
+    branches: [main]
+    paths:
+      - 'shitter/**'
+      - 'scripts/verify-weekly-shitter-issue.mjs'
+      - 'index.html'
+permissions:
+  contents: read
+jobs:
+  editorial-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/verify-weekly-shitter-issue.mjs
