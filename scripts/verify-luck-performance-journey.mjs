@@ -25,6 +25,10 @@ if(data.currentThroughWeek!==schedule.currentThroughWeek||data.currentThroughWee
  throw Error('Current-year Schedule Luck and scoring datasets disagree');
 if(!['id="luck-plot"','id="luck-table"','id="scope"','id="include-short"','luck-performance-chart.mjs'].every(x=>html.includes(x)))
  throw Error('Chart is missing core accessible controls or script');
+if(!html.includes('id="manager-choice"')||!html.includes('class="chart-viewport"')||!html.includes('min-width:700px'))
+ throw Error('Mobile chart needs a scrollable viewport and full-size manager selector');
+if(!page.includes("managerChoice.addEventListener('change'")||!page.includes('svg.append(activePoint)')||!page.includes('includeShort.checked=true'))
+ throw Error('Selection controls cannot resolve overlapping points or short-tenure deep links');
 if(!page.includes('role:\'button\'')||!page.includes('aria-label')||!page.includes("addEventListener('keydown'"))
  throw Error('Interactive chart is not keyboard selectable');
 if(!profiles.includes('mountManagerLuckPerformance(profileName,profileHero)')||!component.includes('luck-vs-performance.html?manager='))
