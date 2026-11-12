@@ -51,8 +51,8 @@ export async function mountManagerLuckPerformance(profileName,hero){
   }
   table.append(tbody);tableWrap.append(table);details.append(tableWrap);
   const note=el('p','flp-footnote','* 2026 is provisional through approved Week '+(data.currentThroughWeek??'—')+' and is excluded from the career metrics above. League size is accounted for in weekly scoring strength; incomplete 2020/2021 Week 14 is excluded.');
-  const link=el('a','flp-link','Compare every manager’s Schedule Luck →');
-  link.href='../../analytics/record-holders.html#schedule-luck-leaderboard';
+  const link=el('a','flp-link','Compare every manager on the interactive chart →');
+  link.href='../../analytics/luck-vs-performance.html?manager='+encodeURIComponent(manager);
   details.append(note,link);section.append(details);
   const style=el('style');
   style.textContent=`
