@@ -57,6 +57,8 @@ jobs:
         run: node scripts/verify-playoff-history-explorer.mjs
       - name: Guard 2020–2021 Week 14 classification and protect regular-season standings
         run: node scripts/verify-week14-stage-audit.mjs
+      - name: Verify source-backed 2020–2021 corrected standings projection and championship editorial
+        run: node scripts/verify-corrected-2020-2021-standings-projection.mjs
       - name: Guard legitimate three-team trades in source-qualified Trade Museum
         run: node scripts/verify-trade-museum-scope.mjs
       - name: Verify generated career and H2H data
