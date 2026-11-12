@@ -39,6 +39,17 @@ for(const value of ['738428315181928448','1023059879336013824','1144362000575840
  assert(page.includes(value),'Page is missing published evidence '+value);
 for(const fragment of ['id="view-gains"','id="view-losses"','aria-pressed','data/greatest_worst_trades_research_v1.json','not</strong> definitive all-time'])
  assert(page.includes(fragment),'Ranking UI or limitation missing '+fragment);
+// Trade-ranking participant links must resolve to the canonical manager-profile routes.
+const managerSlugs={Birch:'birch',Thommy:'tom',Stilly:'stilly',Tony:'tony',Mitch:'mitch',Kuhl:'kuhl',Stew:'stew',JMid:'jmid',Scott:'scott',Stover:'stover'};
+const rankedManagers=new Set(registry.rankedObservedPARAdvantage.flatMap(row=>[row.betterReturn.manager,row.lowerReturn.manager]));
+for(const manager of rankedManagers){
+ const slug=managerSlugs[manager];
+ assert(slug,'Unmapped ranked trade participant: '+manager);
+ assert(fs.existsSync('managers/'+slug+'/index.html'),'Missing manager profile for '+manager);
+}
+for(const fragment of ["label.append(managerLink(side.manager))","managerLink(name)","encodeURIComponent(first.manager)","record-holders.html?manager=","../managers/birch/","../managers/tom/","../managers/stilly/","../managers/tony/"]){
+ assert(page.includes(fragment),'Missing manager drilldown or historical headline link: '+fragment);
+}
 assert(hall.includes('../analytics/greatest-worst-trades.html'),'Hall of Shame link missing');
 assert(trades.includes('href="greatest-worst-trades.html"'),'Trade history link missing');
 assert(!registry.awards.some(x=>x.transactionId==='1031121022772555776'),'Voided-pick governance not an award criterion');
