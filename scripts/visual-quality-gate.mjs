@@ -164,9 +164,17 @@ try{
         if(!receipt.title?.includes('Thommy')||receipt.games!==5||receipt.finals!==1||receipt.widths>width+4||receipt.year!=='2024'||!receipt.score?.includes('205.30'))
          findings.push(engine+' '+width+' playoff explorer 2024 verification failure '+JSON.stringify(receipt));
         await page.locator('#playoff-year').selectOption('2020',{timeout:5000});
-        const partial=await page.evaluate(()=>({warning:document.querySelector('.score-warning')?.textContent,year:new URLSearchParams(location.search).get('year')}));
-        if(!partial.warning?.includes('without a verified score')||partial.year!=='2020')
-         findings.push(engine+' '+width+' early Sleeper missing-score warning absent '+JSON.stringify(partial));
+        const recoveredPlayoffs=await page.evaluate(()=>({
+          warning:document.querySelector('.score-warning')?.textContent,
+          year:new URLSearchParams(location.search).get('year'),
+          games:document.querySelectorAll('#playoff-view .match').length,
+          stover:document.querySelector('#playoff-view')?.textContent?.includes('Stover'),
+          partialCoverage:document.querySelector('#playoff-view')?.textContent?.includes('Partial score coverage')
+        }));
+        if(!recoveredPlayoffs.warning?.includes('recovered from archived Sleeper matchups')||
+           !recoveredPlayoffs.warning?.includes('Week 14 games remains under audit')||
+           recoveredPlayoffs.games!==5||recoveredPlayoffs.year!=='2020'||!recoveredPlayoffs.stover||recoveredPlayoffs.partialCoverage)
+         findings.push(engine+' '+width+' recovered 2020 Sleeper bracket warning or five-game coverage missing '+JSON.stringify(recoveredPlayoffs));
         await page.locator('#playoff-year').selectOption('2016',{timeout:5000});
         if(!await page.locator('#playoff-view').textContent().then(x=>x.includes('Two-NFL-week aggregate')))
          findings.push(engine+' '+width+' ESPN two-week scoring qualifier absent');
