@@ -9,7 +9,7 @@ const toLabel=record=>{const n=Number(record.value);const value=Number.isFinite(
 const target=name=>'../managers/record-books.html?manager='+encodeURIComponent(name)+'#owned-records';
 const tag=(name,value,cls)=>{const e=document.createElement(name);if(cls)e.className=cls;if(value!==undefined)e.textContent=value;return e};
 const currentManagers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
-let collectionWinners=[],managerRows=[],expandedData=null;
+let collectionWinners=[],managerRows=[],expandedData=null,fortuneRecord=null;
 function renderManagerFinder(){
  // Read the source snapshot as well as event updates; either module may load first.
  if(Array.isArray(document.__fellasVerifiedRecordOwners))collectionWinners=document.__fellasVerifiedRecordOwners;
@@ -45,6 +45,7 @@ function renderManagerFinder(){
  });
  const legacy=row.records.map(r=>({label:r.label,group:'Established records',value:toLabel(r),href:target(selected)}));
  const collection=collectionWinners.filter(r=>r.manager===selected).map(r=>({label:r.label,group:r.family,value:r.value+(r.year?' · '+r.year:''),href:'#'+r.anchor}));
+  if(selected==='Birch'&&fortuneRecord)collection.unshift({label:'Most favorable career schedule draw · Schedule Luck',group:'Career',value:'+'+fortuneRecord.winSurplus.toFixed(2)+' wins',href:'#schedule-luck-record'});
  // A concept can appear in multiple historical catalogs; display a warning instead of adding counts.
  const sections=[['New historical collections',collection],['Expanded league records',expanded],['Established records',legacy]];
  const count=collection.length+expanded.length+legacy.length;
@@ -113,6 +114,7 @@ async function start(){
   for(const [name,records] of leadersByManager)if(!rows.some(row=>expandedName(row.name)===name))rows.push({name,records:[],expandedRecords:records});
   rows.sort((a,b)=>b.expandedRecords.length-a.expandedRecords.length||b.records.length-a.records.length||a.name.localeCompare(b.name));
   managerRows=rows;expandedData=expanded;renderManagerFinder();
+  fetch('../data/hall_of_fortune_2016_2026w9_v1.json').then(r=>{if(!r.ok)throw Error('Schedule Luck registry unavailable');return r.json()}).then(data=>{const ranks=data.careerScheduleSurplusNormalized||[];const leader=ranks[0];if(leader?.manager==='Birch'&&leader.winSurplus>0){fortuneRecord=leader;renderManagerFinder()}}).catch(()=>{fortuneRecord=null});
   summary.textContent=expanded.categoryCount+' expanded categories + '+categories.length+' established categories · Tied first-place managers share credit · Some record concepts overlap.';
   list.replaceChildren();
   other.replaceChildren();
