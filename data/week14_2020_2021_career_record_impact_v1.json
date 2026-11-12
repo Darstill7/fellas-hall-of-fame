@@ -1,0 +1,842 @@
+{
+  "schema": "fellas-2020-2021-stage-correction-career-impact-v1",
+  "asOf": "2026-11-12",
+  "status": "deterministic_downstream_impact_preview_not_applied",
+  "sourceFiles": [
+    "data/manager_record_books_2016_2026.json",
+    "data/corrected_2020_2021_regular_standings_projection_v1.json",
+    "data/season_weekly_matchups_2016_2026_v1.json",
+    "data/unified_record_book_2016_2026.json"
+  ],
+  "scope": "Remove eight non-regular 2020–21 Week 14 games from regular-season career W/L, annual H2H and scoring records. Preserve their actual fantasy scores in postseason/consolation evidence.",
+  "summary": {
+    "gamesToReclassify": 8,
+    "allManagerCases": 14,
+    "impactedManagers": 9,
+    "totalRemovedManagerGameCredits": 16,
+    "totalRemovedWinCredits": 8,
+    "totalRemovedLossCredits": 8,
+    "regularSeasonWinsRemovedFromArchive": 8,
+    "uniqueAffectedHeadToHeadPairs": 6
+  },
+  "managerCareers": [
+    {
+      "manager": "Birch",
+      "archivedRegular": {
+        "games": 129,
+        "w": 72,
+        "l": 57,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 129,
+        "w": 72,
+        "l": 57,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 0,
+        "w": 0,
+        "l": 0,
+        "t": 0,
+        "pf": 0,
+        "pa": 0
+      },
+      "removedOpponents": [],
+      "headToHeadAffected": []
+    },
+    {
+      "manager": "Evans",
+      "archivedRegular": {
+        "games": 107,
+        "w": 52,
+        "l": 55,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 105,
+        "w": 51,
+        "l": 54,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "pf": 270.76,
+        "pa": 245.66
+      },
+      "removedOpponents": [
+        {
+          "year": 2020,
+          "week": 14,
+          "opponent": "Stover",
+          "outcome": "L",
+          "points": 108.72,
+          "opponentPoints": 110.84
+        },
+        {
+          "year": 2021,
+          "week": 14,
+          "opponent": "Mitch",
+          "outcome": "W",
+          "points": 162.04,
+          "opponentPoints": 134.82
+        }
+      ],
+      "headToHeadAffected": [
+        {
+          "opponent": "Stover",
+          "archived": {
+            "games": 14,
+            "w": 6,
+            "l": 8,
+            "t": 0
+          },
+          "projected": {
+            "games": 13,
+            "w": 6,
+            "l": 7,
+            "t": 0
+          }
+        },
+        {
+          "opponent": "Mitch",
+          "archived": {
+            "games": 9,
+            "w": 5,
+            "l": 4,
+            "t": 0
+          },
+          "projected": {
+            "games": 8,
+            "w": 4,
+            "l": 4,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "manager": "Halderman",
+      "archivedRegular": {
+        "games": 25,
+        "w": 12,
+        "l": 12,
+        "t": 1
+      },
+      "projectedRegular": {
+        "games": 25,
+        "w": 12,
+        "l": 12,
+        "t": 1
+      },
+      "removedStats": {
+        "games": 0,
+        "w": 0,
+        "l": 0,
+        "t": 0,
+        "pf": 0,
+        "pa": 0
+      },
+      "removedOpponents": [],
+      "headToHeadAffected": []
+    },
+    {
+      "manager": "JMid",
+      "archivedRegular": {
+        "games": 37,
+        "w": 17,
+        "l": 20,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 37,
+        "w": 17,
+        "l": 20,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 0,
+        "w": 0,
+        "l": 0,
+        "t": 0,
+        "pf": 0,
+        "pa": 0
+      },
+      "removedOpponents": [],
+      "headToHeadAffected": []
+    },
+    {
+      "manager": "Kuhl",
+      "archivedRegular": {
+        "games": 119,
+        "w": 51,
+        "l": 68,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 117,
+        "w": 50,
+        "l": 67,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "pf": 227.66,
+        "pa": 223.3
+      },
+      "removedOpponents": [
+        {
+          "year": 2020,
+          "week": 14,
+          "opponent": "Koble",
+          "outcome": "L",
+          "points": 118.14,
+          "opponentPoints": 149.98
+        },
+        {
+          "year": 2021,
+          "week": 14,
+          "opponent": "Koble",
+          "outcome": "W",
+          "points": 109.52,
+          "opponentPoints": 73.32
+        }
+      ],
+      "headToHeadAffected": [
+        {
+          "opponent": "Koble",
+          "archived": {
+            "games": 12,
+            "w": 7,
+            "l": 5,
+            "t": 0
+          },
+          "projected": {
+            "games": 11,
+            "w": 7,
+            "l": 4,
+            "t": 0
+          }
+        },
+        {
+          "opponent": "Koble",
+          "archived": {
+            "games": 12,
+            "w": 7,
+            "l": 5,
+            "t": 0
+          },
+          "projected": {
+            "games": 11,
+            "w": 6,
+            "l": 5,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "manager": "Mitch",
+      "archivedRegular": {
+        "games": 118,
+        "w": 71,
+        "l": 47,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 117,
+        "w": 71,
+        "l": 46,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "pf": 134.82,
+        "pa": 162.04
+      },
+      "removedOpponents": [
+        {
+          "year": 2021,
+          "week": 14,
+          "opponent": "Evans",
+          "outcome": "L",
+          "points": 134.82,
+          "opponentPoints": 162.04
+        }
+      ],
+      "headToHeadAffected": [
+        {
+          "opponent": "Evans",
+          "archived": {
+            "games": 9,
+            "w": 4,
+            "l": 5,
+            "t": 0
+          },
+          "projected": {
+            "games": 8,
+            "w": 4,
+            "l": 4,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "manager": "Schermerhorn",
+      "archivedRegular": {
+        "games": 25,
+        "w": 12,
+        "l": 13,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 25,
+        "w": 12,
+        "l": 13,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 0,
+        "w": 0,
+        "l": 0,
+        "t": 0,
+        "pf": 0,
+        "pa": 0
+      },
+      "removedOpponents": [],
+      "headToHeadAffected": []
+    },
+    {
+      "manager": "Scott",
+      "archivedRegular": {
+        "games": 37,
+        "w": 17,
+        "l": 20,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 37,
+        "w": 17,
+        "l": 20,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 0,
+        "w": 0,
+        "l": 0,
+        "t": 0,
+        "pf": 0,
+        "pa": 0
+      },
+      "removedOpponents": [],
+      "headToHeadAffected": []
+    },
+    {
+      "manager": "Stew",
+      "archivedRegular": {
+        "games": 144,
+        "w": 68,
+        "l": 76,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 142,
+        "w": 67,
+        "l": 75,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "pf": 208.96,
+        "pa": 224.66
+      },
+      "removedOpponents": [
+        {
+          "year": 2020,
+          "week": 14,
+          "opponent": "Stilly",
+          "outcome": "L",
+          "points": 97.64,
+          "opponentPoints": 115.72
+        },
+        {
+          "year": 2021,
+          "week": 14,
+          "opponent": "Stilly",
+          "outcome": "W",
+          "points": 111.32,
+          "opponentPoints": 108.94
+        }
+      ],
+      "headToHeadAffected": [
+        {
+          "opponent": "Stilly",
+          "archived": {
+            "games": 20,
+            "w": 10,
+            "l": 10,
+            "t": 0
+          },
+          "projected": {
+            "games": 19,
+            "w": 10,
+            "l": 9,
+            "t": 0
+          }
+        },
+        {
+          "opponent": "Stilly",
+          "archived": {
+            "games": 20,
+            "w": 10,
+            "l": 10,
+            "t": 0
+          },
+          "projected": {
+            "games": 19,
+            "w": 9,
+            "l": 10,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "manager": "Stilly",
+      "archivedRegular": {
+        "games": 144,
+        "w": 67,
+        "l": 77,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 142,
+        "w": 66,
+        "l": 76,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "pf": 224.66,
+        "pa": 208.96
+      },
+      "removedOpponents": [
+        {
+          "year": 2020,
+          "week": 14,
+          "opponent": "Stew",
+          "outcome": "W",
+          "points": 115.72,
+          "opponentPoints": 97.64
+        },
+        {
+          "year": 2021,
+          "week": 14,
+          "opponent": "Stew",
+          "outcome": "L",
+          "points": 108.94,
+          "opponentPoints": 111.32
+        }
+      ],
+      "headToHeadAffected": [
+        {
+          "opponent": "Stew",
+          "archived": {
+            "games": 20,
+            "w": 10,
+            "l": 10,
+            "t": 0
+          },
+          "projected": {
+            "games": 19,
+            "w": 9,
+            "l": 10,
+            "t": 0
+          }
+        },
+        {
+          "opponent": "Stew",
+          "archived": {
+            "games": 20,
+            "w": 10,
+            "l": 10,
+            "t": 0
+          },
+          "projected": {
+            "games": 19,
+            "w": 10,
+            "l": 9,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "manager": "Stover",
+      "archivedRegular": {
+        "games": 144,
+        "w": 76,
+        "l": 68,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 142,
+        "w": 74,
+        "l": 68,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 2,
+        "w": 2,
+        "l": 0,
+        "t": 0,
+        "pf": 255.64,
+        "pa": 213.26
+      },
+      "removedOpponents": [
+        {
+          "year": 2020,
+          "week": 14,
+          "opponent": "Evans",
+          "outcome": "W",
+          "points": 110.84,
+          "opponentPoints": 108.72
+        },
+        {
+          "year": 2021,
+          "week": 14,
+          "opponent": "Thommy",
+          "outcome": "W",
+          "points": 144.8,
+          "opponentPoints": 104.54
+        }
+      ],
+      "headToHeadAffected": [
+        {
+          "opponent": "Evans",
+          "archived": {
+            "games": 14,
+            "w": 8,
+            "l": 6,
+            "t": 0
+          },
+          "projected": {
+            "games": 13,
+            "w": 7,
+            "l": 6,
+            "t": 0
+          }
+        },
+        {
+          "opponent": "Thommy",
+          "archived": {
+            "games": 16,
+            "w": 11,
+            "l": 5,
+            "t": 0
+          },
+          "projected": {
+            "games": 15,
+            "w": 10,
+            "l": 5,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "manager": "Thommy",
+      "archivedRegular": {
+        "games": 144,
+        "w": 67,
+        "l": 76,
+        "t": 1
+      },
+      "projectedRegular": {
+        "games": 142,
+        "w": 66,
+        "l": 75,
+        "t": 1
+      },
+      "removedStats": {
+        "games": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "pf": 255.86,
+        "pa": 270.36
+      },
+      "removedOpponents": [
+        {
+          "year": 2020,
+          "week": 14,
+          "opponent": "Tony",
+          "outcome": "W",
+          "points": 151.32,
+          "opponentPoints": 125.56
+        },
+        {
+          "year": 2021,
+          "week": 14,
+          "opponent": "Stover",
+          "outcome": "L",
+          "points": 104.54,
+          "opponentPoints": 144.8
+        }
+      ],
+      "headToHeadAffected": [
+        {
+          "opponent": "Tony",
+          "archived": {
+            "games": 16,
+            "w": 7,
+            "l": 9,
+            "t": 0
+          },
+          "projected": {
+            "games": 15,
+            "w": 6,
+            "l": 9,
+            "t": 0
+          }
+        },
+        {
+          "opponent": "Stover",
+          "archived": {
+            "games": 16,
+            "w": 5,
+            "l": 11,
+            "t": 0
+          },
+          "projected": {
+            "games": 15,
+            "w": 5,
+            "l": 10,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "manager": "Tony",
+      "archivedRegular": {
+        "games": 130,
+        "w": 73,
+        "l": 57,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 129,
+        "w": 73,
+        "l": 56,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 1,
+        "w": 0,
+        "l": 1,
+        "t": 0,
+        "pf": 125.56,
+        "pa": 151.32
+      },
+      "removedOpponents": [
+        {
+          "year": 2020,
+          "week": 14,
+          "opponent": "Thommy",
+          "outcome": "L",
+          "points": 125.56,
+          "opponentPoints": 151.32
+        }
+      ],
+      "headToHeadAffected": [
+        {
+          "opponent": "Thommy",
+          "archived": {
+            "games": 16,
+            "w": 9,
+            "l": 7,
+            "t": 0
+          },
+          "projected": {
+            "games": 15,
+            "w": 9,
+            "l": 6,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "manager": "Koble",
+      "archivedRegular": {
+        "games": 107,
+        "w": 49,
+        "l": 58,
+        "t": 0
+      },
+      "projectedRegular": {
+        "games": 105,
+        "w": 48,
+        "l": 57,
+        "t": 0
+      },
+      "removedStats": {
+        "games": 2,
+        "w": 1,
+        "l": 1,
+        "t": 0,
+        "pf": 223.3,
+        "pa": 227.66
+      },
+      "removedOpponents": [
+        {
+          "year": 2020,
+          "week": 14,
+          "opponent": "Kuhl",
+          "outcome": "W",
+          "points": 149.98,
+          "opponentPoints": 118.14
+        },
+        {
+          "year": 2021,
+          "week": 14,
+          "opponent": "Kuhl",
+          "outcome": "L",
+          "points": 73.32,
+          "opponentPoints": 109.52
+        }
+      ],
+      "headToHeadAffected": [
+        {
+          "opponent": "Kuhl",
+          "archived": {
+            "games": 12,
+            "w": 5,
+            "l": 7,
+            "t": 0
+          },
+          "projected": {
+            "games": 11,
+            "w": 4,
+            "l": 7,
+            "t": 0
+          }
+        },
+        {
+          "opponent": "Kuhl",
+          "archived": {
+            "games": 12,
+            "w": 5,
+            "l": 7,
+            "t": 0
+          },
+          "projected": {
+            "games": 11,
+            "w": 5,
+            "l": 6,
+            "t": 0
+          }
+        }
+      ]
+    }
+  ],
+  "gameReceipts": [
+    {
+      "year": 2020,
+      "week": 14,
+      "home": "Stilly",
+      "away": "Stew",
+      "homeScore": 115.72,
+      "awayScore": 97.64
+    },
+    {
+      "year": 2020,
+      "week": 14,
+      "home": "Evans",
+      "away": "Stover",
+      "homeScore": 108.72,
+      "awayScore": 110.84
+    },
+    {
+      "year": 2020,
+      "week": 14,
+      "home": "Thommy",
+      "away": "Tony",
+      "homeScore": 151.32,
+      "awayScore": 125.56
+    },
+    {
+      "year": 2020,
+      "week": 14,
+      "home": "Koble",
+      "away": "Kuhl",
+      "homeScore": 149.98,
+      "awayScore": 118.14
+    },
+    {
+      "year": 2021,
+      "week": 14,
+      "home": "Stilly",
+      "away": "Stew",
+      "homeScore": 108.94,
+      "awayScore": 111.32
+    },
+    {
+      "year": 2021,
+      "week": 14,
+      "home": "Evans",
+      "away": "Mitch",
+      "homeScore": 162.04,
+      "awayScore": 134.82
+    },
+    {
+      "year": 2021,
+      "week": 14,
+      "home": "Thommy",
+      "away": "Stover",
+      "homeScore": 104.54,
+      "awayScore": 144.8
+    },
+    {
+      "year": 2021,
+      "week": 14,
+      "home": "Koble",
+      "away": "Kuhl",
+      "homeScore": 73.32,
+      "awayScore": 109.52
+    }
+  ],
+  "migrationDependencies": [
+    "data/unified_record_book_2016_2026.json (stage/counts)",
+    "data/season_weekly_matchups_2016_2026_v1.json (stage/regularGames/standings/managerAnnual)",
+    "data/manager_record_books_2016_2026.json (career W/L and H2H)",
+    "data/career_core_generated.json (regenerate)",
+    "data/season_guide.json (regenerate)",
+    "data/league.json (shared manager records)",
+    "analytics/records.html and analytics/records-archive.html (fallback career data)",
+    "other generated records, season guide and biographical claims referring to 2020/2021 regular season"
+  ],
+  "cautions": [
+    "No real game score is erased; the issue is game category and resulting aggregates.",
+    "2020–2021 13-week all-play schedule luck already aligns to corrected regular weeks, so should remain untouched.",
+    "Cannot safely edit eight source stages without updating the listed canonical projections and checking all CI.",
+    "Consolation-specific classifications for four non-winners pairs remain uncertain."
+  ]
+}
