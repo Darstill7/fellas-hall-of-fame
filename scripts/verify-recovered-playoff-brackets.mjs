@@ -1,5 +1,5 @@
-// Preserve the five recovered Sleeper playoff games and the 2020 semifinalist discrepancy.
-// Does not mutate legacy canonical bracket data without separate source reconciliation.
+// Verify five recovered Sleeper games integrated into the Playoff Explorer.
+// Legacy weekly game classifications remain unchanged pending a standings audit.
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const get=p=>JSON.parse(fs.readFileSync(p,'utf8'));
@@ -20,7 +20,9 @@ for(const row of recovered.records){
  assert(row.winningMargin>0);
  const key=row.year+':'+row.week+':'+row.winner+':'+row.loser;
  assert(!keys.has(key),'Duplicate recovered fixture '+key);keys.add(key);
- assert(!legacy.find(x=>x.year===row.year).matches.some(x=>x.week===row.week&&x.winner===row.winner&&x.loser===row.loser));
+ const canonical=legacy.find(x=>x.year===row.year).matches.filter(x=>x.week===row.week&&x.winner===row.winner&&x.loser===row.loser);
+ assert.equal(canonical.length,1,'Recovered playoff fixture is not present in the canonical Explorer: '+key);
+ assert.equal(canonical[0].margin,row.winningMargin);
  const copied=tradeAudit.games.find(x=>x.year===row.year&&x.week===row.week&&x.winner===row.winner&&x.loser===row.loser);
  assert(copied,'Recovered matchup absent from expanded audit '+key);
  assert.equal(copied.winnerScore,row.winnerScore);assert.equal(copied.loserScore,row.loserScore);
@@ -38,8 +40,9 @@ const mitchOverStover=recovered.records.find(x=>x.year===2020&&x.round==='semifi
 assert(stoverOverEvans&&mitchOverStover);
 assert.equal(stoverOverEvans.winningMargin,2.12);
 assert.equal(mitchOverStover.winningMargin,28.82);
-assert.equal(recon.status,'source_verified_patch_proposal_not_applied_to_canonical');
+assert.equal(recon.status,'playoff_explorer_and_bracket_metadata_corrected_weekly_stage_classification_pending');
+assert.deepEqual(bracket.find(x=>x.year===2020).semifinalists,['Mitch','Stover','Birch','Koble']);
 const museum=fs.readFileSync('analytics/greatest-worst-trades.html','utf8');
 assert(museum.includes('30 verified championship-bracket games'));
 assert(museum.includes('recovered_winners_bracket_2020_2021_v1.json'));
-console.log('PASS playoff source recovery: five new 2020-21 winners-bracket fixtures; 30 of 30 2020-25 games in research; 2020 Stover/Evans canonical discrepancy explicitly quarantined.');
+console.log('PASS playoff source recovery: five new 2020-21 winners-bracket fixtures; 30 of 30 2020-25 games in research; 2020 Stover/Evans semifinalist metadata corrected; weekly classifications still pending audit.');
