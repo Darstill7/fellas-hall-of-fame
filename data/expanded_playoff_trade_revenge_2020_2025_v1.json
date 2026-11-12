@@ -7,7 +7,8 @@
     "data/trade_museum_stage66.json",
     "data/championship_player_boxscores_2020_2025_v1.json",
     "data/playoff_trade_revenge_2020_2025_v1.json",
-    "data/sleeper_2022_w15_mitch_stilly_trade_reunion_v1.json"
+    "data/sleeper_2022_w15_mitch_stilly_trade_reunion_v1.json",
+    "data/recovered_winners_bracket_2020_2021_v1.json"
   ],
   "coverage": {
     "seasons": [
@@ -18,26 +19,14 @@
       2024,
       2025
     ],
-    "verifiedWinnersBracketGames": 25,
-    "missingWinnerBracketGames": [
-      {
-        "year": 2020,
-        "reason": "2 opening-round winners-bracket matchups without a verified score"
-      },
-      {
-        "year": 2020,
-        "reason": "1 semifinal score not recovered"
-      },
-      {
-        "year": 2021,
-        "reason": "2 opening-round winners-bracket matchups without a verified score"
-      }
-    ],
+    "verifiedWinnersBracketGames": 30,
+    "missingWinnerBracketGames": [],
+    "newlyRecoveredBracketGames": 5,
     "directOpponentTradeCandidates": 4,
     "confirmedStartedAgainstFormerManagerTradeLinks": 4,
     "confirmedRevengeGames": 3,
     "unresolvedStarterCases": 0,
-    "scope": "Only verified winners-bracket games 2020–2025; confirmed starter receipts are limited to championship-winner box scores and separately recovered Mitch/Stilly Week 15 2022 Sleeper roster snapshots."
+    "scope": "All 30 independently verified winners-bracket games 2020–2025 (25 prior bracket explorer records plus five recovered Sleeper results); confirmed starter receipts are limited to championship-winner box scores and separately recovered Mitch/Stilly Week 15 2022 Sleeper roster snapshots."
   },
   "games": [
     {
@@ -62,6 +51,45 @@
       "winnerScore": 117.48,
       "loserScore": 99.42,
       "margin": 18.06,
+      "matchVerified": true,
+      "eligibleDirectTradeIds": [],
+      "status": "no_eligible_direct_trade_in_tracked_archive"
+    },
+    {
+      "year": 2020,
+      "round": "opening",
+      "week": 14,
+      "winner": "Koble",
+      "loser": "Kuhl",
+      "winnerScore": 149.98,
+      "loserScore": 118.14,
+      "margin": 31.84,
+      "matchVerified": true,
+      "eligibleDirectTradeIds": [],
+      "status": "no_eligible_direct_trade_in_tracked_archive"
+    },
+    {
+      "year": 2020,
+      "round": "opening",
+      "week": 14,
+      "winner": "Stover",
+      "loser": "Evans",
+      "winnerScore": 110.84,
+      "loserScore": 108.72,
+      "margin": 2.12,
+      "matchVerified": true,
+      "eligibleDirectTradeIds": [],
+      "status": "no_eligible_direct_trade_in_tracked_archive"
+    },
+    {
+      "year": 2020,
+      "round": "semifinal",
+      "week": 15,
+      "winner": "Mitch",
+      "loser": "Stover",
+      "winnerScore": 140.96,
+      "loserScore": 112.14,
+      "margin": 28.82,
       "matchVerified": true,
       "eligibleDirectTradeIds": [],
       "status": "no_eligible_direct_trade_in_tracked_archive"
@@ -101,6 +129,32 @@
       "winnerScore": 138.28,
       "loserScore": 133.98,
       "margin": 4.3,
+      "matchVerified": true,
+      "eligibleDirectTradeIds": [],
+      "status": "no_eligible_direct_trade_in_tracked_archive"
+    },
+    {
+      "year": 2021,
+      "round": "opening",
+      "week": 14,
+      "winner": "Evans",
+      "loser": "Mitch",
+      "winnerScore": 162.04,
+      "loserScore": 134.82,
+      "margin": 27.22,
+      "matchVerified": true,
+      "eligibleDirectTradeIds": [],
+      "status": "no_eligible_direct_trade_in_tracked_archive"
+    },
+    {
+      "year": 2021,
+      "round": "opening",
+      "week": 14,
+      "winner": "Stover",
+      "loser": "Thommy",
+      "winnerScore": 144.8,
+      "loserScore": 104.54,
+      "margin": 40.26,
       "matchVerified": true,
       "eligibleDirectTradeIds": [],
       "status": "no_eligible_direct_trade_in_tracked_archive"
@@ -571,22 +625,16 @@
   ],
   "pendingStarterVerification": [],
   "methodology": [
+    "Five 2020–2021 winner-bracket results were recovered from Sleeper historical matchups and matched to bracket participants; the source playoff explorer is not silently altered.",
     "2022 Week 15 Mitch vs Stilly is independently confirmed from two archived Sleeper lineups; those starters sum to the verified 127.90–94.92 playoff score.",
     "An eligible candidate requires a verified winners-bracket game and a two-manager transaction in the tracked museum before that playoff week in which the winner received assets from the loser.",
     "An award requires exact matching player names in the winner’s verified starting lineup, not aggregate season production or roster possession.",
     "A game with no candidate means none in the tracked museum, not proof that no trade occurred.",
-    "2020–2021 verified bracket data has missing opening rounds; playoff seasons 2016–2019 lack comparable starter receipts.",
+    "The original 2020–2021 playoff explorer has five missing matchups, now recovered in a separate source registry; playoff seasons 2016–2019 lack comparable starter receipts.",
     "Two or more transactions in one game can aggregate for the combined record; a single trade must remain its own category.",
     "Winning margin comparisons are purely descriptive; a hypothetical roster without the trade could score differently."
   ],
   "missingResearch": [
-    {
-      "years": [
-        2020,
-        2021
-      ],
-      "why": "Recover the specifically missing winners-bracket results before claiming full bracket coverage."
-    },
     {
       "years": [
         2016,
@@ -597,5 +645,5 @@
       "why": "Acquire ESPN-era trade receipts plus original playoff player starts before admitting records."
     }
   ],
-  "recordPolicy": "Existing 48.60 two-trade combined and 44.98 single-trade honors remain leaders within the expanded 25-game bracket audit; the newly verified Mitch/Stilly 2022 trade produced 32.10 from two starters in the 32.98-point opening-round victory."
+  "recordPolicy": "Existing 48.60 two-trade combined and 44.98 single-trade honors remain leaders within the expanded 30-game bracket audit; the newly verified Mitch/Stilly 2022 trade produced 32.10 from two starters in the 32.98-point opening-round victory."
 }
