@@ -5,6 +5,7 @@ const html=read('shitter/2026-week-10/index.html');
 const archive=read('shitter/index.html');
 const home=read('index.html');
 const cover=read('shitter/cover-week10.svg');
+const socialCover=readFileSync(new URL('../shitter/cover-week10.png',import.meta.url));
 const data=JSON.parse(read('shitter/2026-week-10/projection-receipts.json'));
 const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
 assert.equal(data.week,10);
@@ -34,6 +35,10 @@ assert.ok(html.includes('published half-PPR player projections'),'Model methodol
 assert.ok(html.includes('provisional'),'Uncertified streaks must be labeled');
 assert.ok(html.includes('og:image')&&html.includes('src="../cover-week10.svg"'),'Cover and social preview');
 assert.ok(cover.includes('viewBox="0 0 1200 630"'),'1200x630 cover');
+assert.equal(socialCover.subarray(0,8).toString('hex'),'89504e470d0a1a0a','Valid PNG signature');
+assert.equal(socialCover.readUInt32BE(16),1200,'Social image width');
+assert.equal(socialCover.readUInt32BE(20),630,'Social image height');
+assert.ok(html.includes('shitter/cover-week10.png'),'Standard PNG social preview URL');
 assert.ok(archive.includes('src="cover-week10.svg"'),'Archive shows cover');
 assert.ok(home.includes('href="shitter/2026-week-10/"'),'Homepage promotes issue');
 assert.ok(!html.includes('Schermerhorn'),'No current Thommy/Schermerhorn confusion');
