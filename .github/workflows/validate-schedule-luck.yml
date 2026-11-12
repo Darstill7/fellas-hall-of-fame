@@ -5,7 +5,9 @@ on:
       - 'data/unified_record_book_2016_2026.json'
       - 'data/all_play_schedule_variance_2016_2026w8_v1.json'
       - 'data/schedule_luck_current_v1.json'
+      - 'data/luck_performance_profiles_2016_2026_v1.json'
       - 'scripts/build-schedule-luck.mjs'
+      - 'scripts/build-luck-performance-profiles.mjs'
       - 'scripts/apply-reviewed-sleeper-week.mjs'
       - '.github/workflows/validate-schedule-luck.yml'
   pull_request:
@@ -13,7 +15,9 @@ on:
       - 'data/unified_record_book_2016_2026.json'
       - 'data/all_play_schedule_variance_2016_2026w8_v1.json'
       - 'data/schedule_luck_current_v1.json'
+      - 'data/luck_performance_profiles_2016_2026_v1.json'
       - 'scripts/build-schedule-luck.mjs'
+      - 'scripts/build-luck-performance-profiles.mjs'
       - 'scripts/apply-reviewed-sleeper-week.mjs'
   workflow_dispatch:
 permissions:
@@ -29,7 +33,11 @@ jobs:
       - name: Syntax validation
         run: |
           node --check scripts/build-schedule-luck.mjs
+          node --check scripts/build-luck-performance-profiles.mjs
+          node --check assets/manager-luck-performance.mjs
           node --check scripts/apply-reviewed-sleeper-week.mjs
           node --check assets/manager-schedule-luck.mjs
       - name: Reject stale or inconsistent Schedule Luck
-        run: node scripts/build-schedule-luck.mjs --check
+        run: |
+          node scripts/build-schedule-luck.mjs --check
+          node scripts/build-luck-performance-profiles.mjs --check
