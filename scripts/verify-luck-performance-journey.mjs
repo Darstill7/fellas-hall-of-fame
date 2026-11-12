@@ -13,7 +13,7 @@ const required=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl',
 if(data.schema!=='fellas-luck-performance-profiles-v1'||data.managers.length!==14)throw Error('Unexpected Luck vs Performance dataset');
 for(const manager of required){
  const row=data.managers.find(x=>x.manager===manager);
- if(!row||!row.currentSeason||row.currentSeason.pairedWeeks!==schedule.currentThroughWeek)
+ if(!row||!row.currentSeason||row.currentSeason.pairedWeeks!==schedule.includedCurrentWeeks.length)
   throw Error('Missing manager or current-year data for '+manager);
  if(row.seasonHistory.some(x=>x.year===2026&&x.seasonStatus!=='provisional'))
   throw Error('2026 is not marked provisional: '+manager);
@@ -21,8 +21,8 @@ for(const manager of required){
  if(!canonical||Math.abs(row.completedScheduleLuckWins-canonical.scheduleLuckWins)>.002)
   throw Error('Career Schedule Luck conflict for '+manager);
 }
-if(data.currentThroughWeek!==schedule.currentThroughWeek||data.currentThroughWeek!==9)
- throw Error('Current week mismatch: expected audited Week 9 baseline');
+if(data.currentThroughWeek!==schedule.currentThroughWeek||data.currentThroughWeek===null)
+ throw Error('Current-year Schedule Luck and scoring datasets disagree');
 if(!['id="luck-plot"','id="luck-table"','id="scope"','id="include-short"','luck-performance-chart.mjs'].every(x=>html.includes(x)))
  throw Error('Chart is missing core accessible controls or script');
 if(!page.includes('role:\'button\'')||!page.includes('aria-label')||!page.includes("addEventListener('keydown'"))
