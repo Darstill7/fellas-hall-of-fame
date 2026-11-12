@@ -625,6 +625,16 @@ function mountManagerHomeHub(){
   grid.append(el);
  }
  hub.append(h,note,grid);
+ // One contextual research link, not another large navigation tile.
+ const tradeResearch=document.createElement('p');
+ tradeResearch.className='manager-home-trade-research';
+ tradeResearch.style.cssText='font-size:13px;line-height:1.6;margin:10px 0 0;color:#cbd9e0';
+ const tradeAnchor=document.createElement('a');
+ tradeAnchor.href='../../analytics/greatest-worst-trades.html?manager='+encodeURIComponent(who)+'#research-heading';
+ tradeAnchor.textContent='See '+who+' in the researched trade rankings →';
+ tradeAnchor.style.cssText='display:inline-flex;align-items:center;min-height:44px;color:#e5c780;font-weight:800;text-decoration:underline;text-underline-offset:3px';
+ tradeResearch.append(tradeAnchor);
+ hub.append(tradeResearch);
  // Place the personal hub beside the research archive, not inside the legacy shortcut card.
  quick.before(hub);
  quick.classList.add('manager-home-base');

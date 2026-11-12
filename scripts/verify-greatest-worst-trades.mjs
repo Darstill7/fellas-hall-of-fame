@@ -50,6 +50,14 @@ for(const manager of rankedManagers){
 for(const fragment of ["label.append(managerLink(side.manager))","managerLink(name)","encodeURIComponent(first.manager)","record-holders.html?manager=","../managers/birch/","../managers/tom/","../managers/stilly/","../managers/tony/"]){
  assert(page.includes(fragment),'Missing manager drilldown or historical headline link: '+fragment);
 }
+// A manager profile's single contextual link filters the verified ranked deals, never the source registry.
+const profileTabs=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
+for(const fragment of ['manager-home-trade-research','greatest-worst-trades.html?manager=','encodeURIComponent(who)']){
+ assert(profileTabs.includes(fragment),'Manager trade research link missing: '+fragment);
+}
+for(const fragment of ['new URLSearchParams(location.search)','knownManagers.has(canonicalManagerName)','r.betterReturn.manager===filteredManager','r.lowerReturn.manager===filteredManager','See all ten trades','does not appear among these ten qualifying trade outcomes']){
+ assert(page.includes(fragment),'Manager-scoped trade archive missing '+fragment);
+}
 assert(hall.includes('../analytics/greatest-worst-trades.html'),'Hall of Shame link missing');
 assert(trades.includes('href="greatest-worst-trades.html"'),'Trade history link missing');
 assert(!registry.awards.some(x=>x.transactionId==='1031121022772555776'),'Voided-pick governance not an award criterion');
