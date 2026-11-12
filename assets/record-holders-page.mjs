@@ -9,7 +9,7 @@ const toLabel=record=>{const n=Number(record.value);const value=Number.isFinite(
 const target=name=>'../managers/record-books.html?manager='+encodeURIComponent(name)+'#owned-records';
 const tag=(name,value,cls)=>{const e=document.createElement(name);if(cls)e.className=cls;if(value!==undefined)e.textContent=value;return e};
 const currentManagers=['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott'];
-let collectionWinners=[],managerRows=[],expandedData=null,fortuneRecord=null,scheduleLuckRows=[],championshipTradeRecord=null;
+let collectionWinners=[],managerRows=[],expandedData=null,fortuneRecord=null,scheduleLuckRows=[],championshipTradeRecord=null,tradeRevenge=null;
 function renderManagerFinder(){
  // Read the source snapshot as well as event updates; either module may load first.
  if(Array.isArray(document.__fellasVerifiedRecordOwners))collectionWinners=document.__fellasVerifiedRecordOwners;
@@ -47,6 +47,8 @@ function renderManagerFinder(){
  const collection=collectionWinners.filter(r=>r.manager===selected).map(r=>({label:r.label,group:r.family,value:r.value+(r.year?' · '+r.year:''),href:'#'+r.anchor}));
   if(selected==='Birch'&&fortuneRecord)collection.unshift({label:'Most favorable career schedule draw · Schedule Luck',group:'Career',value:'+'+fortuneRecord.winSurplus.toFixed(2)+' wins',href:'#schedule-luck-record'});
   if(championshipTradeRecord&&selected===championshipTradeRecord.holder)collection.unshift({label:'Most championship-run starter points from one trade · 2020–2025',group:'Postseason',value:championshipTradeRecord.value.toFixed(2)+' points · '+championshipTradeRecord.year,href:'#championship-trade-record'});
+  if(tradeRevenge?.recordA?.holder===selected)collection.unshift({label:'Former players scoring against their original manager · 2020–2025',group:'Postseason',value:tradeRevenge.recordA.points.toFixed(2)+' points · 2024',href:'#playoff-trade-revenge-records'});
+  if(tradeRevenge?.recordB?.holder===selected)collection.unshift({label:'Former-player playoff points from one direct trade · 2020–2025',group:'Postseason',value:tradeRevenge.recordB.points.toFixed(2)+' points · 2023',href:'#playoff-trade-revenge-records'});
  // A concept can appear in multiple historical catalogs; display a warning instead of adding counts.
  const sections=[['New historical collections',collection],['Expanded league records',expanded],['Established records',legacy]];
  const count=collection.length+expanded.length+legacy.length;
@@ -128,6 +130,7 @@ async function start(){
   managerRows=rows;expandedData=expanded;renderManagerFinder();
   fetch('../data/hall_of_fortune_2016_2026w9_v1.json').then(r=>{if(!r.ok)throw Error('Schedule Luck registry unavailable');return r.json()}).then(data=>{const ranks=data.careerScheduleSurplusNormalized||[];scheduleLuckRows=ranks;const leader=ranks[0];if(leader?.manager==='Birch'&&leader.winSurplus>0)fortuneRecord=leader;renderManagerFinder()}).catch(()=>{fortuneRecord=null});
   fetch('../data/championship_trade_awards_2020_2025_v1.json').then(response=>{if(!response.ok)throw Error('Championship trade awards unavailable');return response.json()}).then(data=>{const record=data.officialScopedRecord;if(data.schema==='fellas-championship-trade-awards-2020-2025-v1'&&record?.holder==='Stilly'&&record?.value===57.68){championshipTradeRecord=record;renderManagerFinder()}}).catch(()=>{championshipTradeRecord=null});
+  fetch('../data/playoff_trade_revenge_2020_2025_v1.json').then(r=>{if(!r.ok)throw Error('Trade revenge archive unavailable');return r.json()}).then(data=>{if(data.schema==='fellas-playoff-trade-revenge-2020-2025-v1'&&data.recordA?.holder==='Thommy'&&data.recordB?.holder==='Stilly'){tradeRevenge=data;renderManagerFinder()}}).catch(()=>{tradeRevenge=null});
   summary.textContent=expanded.categoryCount+' expanded categories + '+categories.length+' established categories · Tied first-place managers share credit · Some record concepts overlap.';
   list.replaceChildren();
   other.replaceChildren();
