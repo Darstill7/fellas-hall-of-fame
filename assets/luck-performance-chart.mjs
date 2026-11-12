@@ -2,9 +2,8 @@
 const source='../data/luck_performance_profiles_2016_2026_v1.json';
 const svgNS='http://www.w3.org/2000/svg';
 const svg=document.getElementById('luck-plot'),scope=document.getElementById('scope');
-const includeShort=document.getElementById('include-short'),status=document.getElementById('chart-status');
+const includeShort=document.getElementById('include-short'),managerChoice=document.getElementById('manager-choice'),status=document.getElementById('chart-status');
 const detail=document.getElementById('selected-manager'),tbody=document.querySelector('#luck-table tbody');
-const currentManagers=new Set(['Stilly','Stew','Thommy','Stover','Birch','Tony','Mitch','Kuhl','JMid','Scott']);
 let archive=null,selected=null,visible=[];
 const fmt=(value,decimals=2)=>(value>0?'+':'')+Number(value).toFixed(decimals);
 const display=name=>name==='Thommy'?'Tom':name;
@@ -23,6 +22,7 @@ function dataset(){
 function managerHref(m){return '../managers/'+(m==='Thommy'?'tom':m.toLowerCase())+'/'}
 function showSelected(name){
  selected=name;
+ if(managerChoice)managerChoice.value=name;
  const r=visible.find(x=>x.manager===name);
  detail.replaceChildren();
  if(!r)return;
@@ -32,6 +32,8 @@ function showSelected(name){
  const a=dom('a','detail-action','Explore '+display(name)+'’s profile →');a.href=managerHref(name);
  detail.append(title,line,info,a);
  for(const circle of svg.querySelectorAll('.point'))circle.classList.toggle('is-selected',circle.dataset.manager===name);
+ const activePoint=[...svg.querySelectorAll('.point')].find(circle=>circle.dataset.manager===name);
+ if(activePoint)svg.append(activePoint);
  for(const row of tbody.querySelectorAll('tr'))row.style.background=row.dataset.manager===name?'#243f4e':'';
 }
 function draw(){
@@ -65,7 +67,7 @@ function draw(){
  const axis=text(19,(top+height-bottom)/2,'SCHEDULE LUCK / 14 WEEKS','axis-title','middle');
  axis.setAttribute('transform','rotate(-90 19 '+((top+height-bottom)/2)+')');svg.append(axis);
  for(const m of visible){
-  const circle=node('circle',{cx:fx(m.scoring),cy:fy(m.per14),r:m.manager===selected?10:8,fill:m.short?'#7fb5da':'#e3bf75',class:'point',tabindex:0,role:'button','aria-label':display(m.manager)+': scoring strength '+m.scoring.toFixed(1)+' percent; Schedule Luck '+fmt(m.luck)+' wins; select'});
+  const circle=node('circle',{cx:fx(m.scoring),cy:fy(m.per14),r:13,fill:m.short?'#7fb5da':'#e3bf75',class:'point',tabindex:0,role:'button','aria-label':display(m.manager)+': scoring strength '+m.scoring.toFixed(1)+' percent; Schedule Luck '+fmt(m.luck)+' wins; select'});
   circle.dataset.manager=m.manager;
   circle.append(node('title'));circle.firstChild.textContent=display(m.manager)+': '+m.scoring.toFixed(1)+'% scoring · '+fmt(m.luck)+' wins of Schedule Luck';
   circle.addEventListener('click',()=>showSelected(m.manager));
@@ -74,14 +76,23 @@ function draw(){
  }
  const chosen=visible.find(x=>x.manager===selected);
  const labelX=fx(chosen.scoring),labelY=fy(chosen.per14);
+ // SVG draw order matters: selected overlapping marker is brought to the front.
+ const selectedCircle=[...svg.querySelectorAll('.point')].find(circle=>circle.dataset.manager===selected);
+ if(selectedCircle)svg.append(selectedCircle);
  svg.append(text(Math.max(left+25,Math.min(width-right-25,labelX)),Math.max(top+14,labelY-17),display(chosen.manager),'point-label','middle'));
+ // A full-size dropdown ensures even coincident or crowded dots remain discoverable.
+ managerChoice.replaceChildren();
+ for(const m of [...visible].sort((a,b)=>display(a.manager).localeCompare(display(b.manager)))){
+  const opt=dom('option',null,display(m.manager));opt.value=m.manager;managerChoice.append(opt);
+ }
+ managerChoice.value=selected;
  tbody.replaceChildren();
  const sorted=[...visible].sort((a,b)=>b.per14-a.per14||a.manager.localeCompare(b.manager));
  for(const m of sorted){
   const tr=dom('tr');tr.dataset.manager=m.manager;
   const first=dom('td'),btn=dom('button',null,display(m.manager));
   btn.type='button';btn.style.cssText='background:none;border:0;padding:10px 0;text-decoration:underline;color:#e8cc8d;font:inherit;font-weight:800;min-height:44px;cursor:pointer';
-  btn.addEventListener('click',()=>{showSelected(m.manager);svg.scrollIntoView({behavior:'smooth',block:'nearest'})});
+  btn.addEventListener('click',()=>{showSelected(m.manager);if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)svg.scrollIntoView({behavior:'smooth',block:'nearest'})});
   first.append(btn);tr.append(first);
   for(const value of [m.kind==='career'?m.seasons+' / '+m.weeks:'1 / '+m.weeks,m.scoring.toFixed(1)+'%',fmt(m.luck),fmt(m.per14)])tr.append(dom('td',null,value));
   tbody.append(tr);
@@ -97,7 +108,13 @@ async function start(){
   const query=new URLSearchParams(location.search);
   if(query.get('manager')){const raw=query.get('manager');selected=raw==='Tom'?'Thommy':raw}
   if([...scope.options].some(o=>o.value===query.get('season')))scope.value=query.get('season');
-  scope.addEventListener('change',draw);includeShort.addEventListener('change',draw);draw();
+  if(selected){
+   const target=archive.managers.find(m=>m.manager===selected);
+   if(scope.value==='career'&&target&&target.completedSeasons<8)includeShort.checked=true;
+  }
+  scope.addEventListener('change',draw);includeShort.addEventListener('change',draw);
+  managerChoice.addEventListener('change',()=>showSelected(managerChoice.value));
+  draw();
  }catch(error){status.textContent='Verified scoring comparison is temporarily unavailable.';tbody.replaceChildren(dom('tr',null,''));detail.textContent='The source data could not be loaded. The static Record Book remains available.';console.error(error)}
 }
 start();
