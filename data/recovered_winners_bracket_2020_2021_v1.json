@@ -1,0 +1,85 @@
+{
+  "schema": "fellas-recovered-winners-bracket-2020-2021-v1",
+  "retrievedOn": "2026-11-12",
+  "source": "Historical Sleeper matchups from connected Flaim Fantasy; exact week and team roster IDs independently tied to verified bracket participants and subsequent round transitions.",
+  "status": "verified_source_matchup_scores_bracket_roles_reconciled",
+  "records": [
+    {
+      "year": 2020,
+      "week": 14,
+      "round": "opening",
+      "winner": "Koble",
+      "loser": "Kuhl",
+      "winnerRosterId": 5,
+      "loserRosterId": 9,
+      "winnerScore": 149.98,
+      "loserScore": 118.14,
+      "providerMatchupId": 2,
+      "winningMargin": 31.84,
+      "sourceLeagueId": "561248176597610496"
+    },
+    {
+      "year": 2020,
+      "week": 14,
+      "round": "opening",
+      "winner": "Stover",
+      "loser": "Evans",
+      "winnerRosterId": 8,
+      "loserRosterId": 2,
+      "winnerScore": 110.84,
+      "loserScore": 108.72,
+      "providerMatchupId": 1,
+      "winningMargin": 2.12,
+      "sourceLeagueId": "561248176597610496"
+    },
+    {
+      "year": 2020,
+      "week": 15,
+      "round": "semifinal",
+      "winner": "Mitch",
+      "loser": "Stover",
+      "winnerRosterId": 6,
+      "loserRosterId": 8,
+      "winnerScore": 140.96,
+      "loserScore": 112.14,
+      "providerMatchupId": 1,
+      "winningMargin": 28.82,
+      "sourceLeagueId": "561248176597610496"
+    },
+    {
+      "year": 2021,
+      "week": 14,
+      "round": "opening",
+      "winner": "Evans",
+      "loser": "Mitch",
+      "winnerRosterId": 2,
+      "loserRosterId": 6,
+      "winnerScore": 162.04,
+      "loserScore": 134.82,
+      "providerMatchupId": 1,
+      "winningMargin": 27.22,
+      "sourceLeagueId": "668633299786244096"
+    },
+    {
+      "year": 2021,
+      "week": 14,
+      "round": "opening",
+      "winner": "Stover",
+      "loser": "Thommy",
+      "winnerRosterId": 8,
+      "loserRosterId": 3,
+      "winnerScore": 144.8,
+      "loserScore": 104.54,
+      "providerMatchupId": 2,
+      "winningMargin": 40.26,
+      "sourceLeagueId": "668633299786244096"
+    }
+  ],
+  "limitations": [
+    "Only these five winner-bracket fixtures are recovered; same-week Sleeper matchup lists also include consolation fixtures and nonpaired entries, which are not imported.",
+    "Opening-round byes are established by existing verified bracket seeds, not inferred from unpaired provider records.",
+    "The source reports final head-to-head scores, not starter details; playoff trade revenge still requires player-level lineup evidence.",
+    "Historical team-owner labels differ from modern manager names; owner matching uses recovered Sleeper league roster IDs and known bracket participants."
+  ],
+  "comparisonSource": "data/playoff_explorer_verified_2016_2025_v1.json"
+}
