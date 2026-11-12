@@ -42,4 +42,14 @@ for(const fragment of ['id="view-gains"','id="view-losses"','aria-pressed','data
 assert(hall.includes('../analytics/greatest-worst-trades.html'),'Hall of Shame link missing');
 assert(trades.includes('href="greatest-worst-trades.html"'),'Trade history link missing');
 assert(!registry.awards.some(x=>x.transactionId==='1031121022772555776'),'Voided-pick governance not an award criterion');
+const caseStudies=load('data/multiteam_keeper_trade_case_studies_v1.json');
+assert.equal(caseStudies.coverage.threeManagerTradeEvents,1);
+assert.equal(caseStudies.threeTeamCase.id,'1294402688213057536');
+assert.deepEqual(caseStudies.threeTeamCase.recordedReceived.map(x=>x.manager),['Stilly','JMid','Thommy']);
+assert.equal(caseStudies.threeTeamCase.knownDownstreamEvents[0].verifiedPointsThroughWeek8,113.5);
+assert.equal(caseStudies.repeatTradeIndex[0].player,"Ja'Marr Chase");
+assert.equal(caseStudies.repeatTradeIndex[0].trades,5);
+assert(caseStudies.identityAudit.warning.includes('JMid joined after the 2023 season'));
+assert(page.includes('id="three-team-trade"')&&page.includes('id="trade-lineage-records"'));
+assert(page.includes('113.50')&&page.includes('2023 JMid starter attribution'));
 console.log('PASS: 18 qualifying two-manager trades; top 10 derived from receipts, playoff exceptions preserved, no voided-pick awards, both archives linked.');
