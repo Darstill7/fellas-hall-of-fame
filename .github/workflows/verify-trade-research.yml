@@ -3,6 +3,9 @@ on:
   push:
     paths:
       - 'data/greatest_worst_trades_research_v1.json'
+      - 'data/championship_trade_impact_receipts_2020_2025_v1.json'
+      - 'data/championship_player_boxscores_2020_2025_v1.json'
+      - 'data/verified_sleeper_playoff_brackets_2020_2025.json'
       - 'data/multiteam_keeper_trade_case_studies_v1.json'
       - 'data/trade_winners_losers_research_2020_2025_v1.json'
       - 'data/trade_par_preview.json'
@@ -12,16 +15,21 @@ on:
       - 'analytics/trades.html'
       - 'hall/shame.html'
       - 'scripts/verify-greatest-worst-trades.mjs'
+      - 'scripts/verify-championship-trade-impact.mjs'
       - '.github/workflows/verify-trade-research.yml'
   pull_request:
     paths:
       - 'data/greatest_worst_trades_research_v1.json'
+      - 'data/championship_trade_impact_receipts_2020_2025_v1.json'
+      - 'data/championship_player_boxscores_2020_2025_v1.json'
+      - 'data/verified_sleeper_playoff_brackets_2020_2025.json'
       - 'data/multiteam_keeper_trade_case_studies_v1.json'
       - 'data/trade_par_preview.json'
       - 'data/trade_museum_stage66.json'
       - 'data/trade_lineage_v2.json'
       - 'analytics/greatest-worst-trades.html'
       - 'scripts/verify-greatest-worst-trades.mjs'
+      - 'scripts/verify-championship-trade-impact.mjs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -34,6 +42,10 @@ jobs:
         with:
           node-version: '22'
       - name: Check research test syntax
-        run: node --check scripts/verify-greatest-worst-trades.mjs
+        run: |
+          node --check scripts/verify-greatest-worst-trades.mjs
+          node --check scripts/verify-championship-trade-impact.mjs
       - name: Verify verified trades, multi-team lineage and championship caveats
-        run: node scripts/verify-greatest-worst-trades.mjs
+        run: |
+          node scripts/verify-greatest-worst-trades.mjs
+          node scripts/verify-championship-trade-impact.mjs
