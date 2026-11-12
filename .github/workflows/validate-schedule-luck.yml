@@ -35,6 +35,7 @@ jobs:
           node --check scripts/build-schedule-luck.mjs
           node --check scripts/build-luck-performance-profiles.mjs
           node --check assets/manager-luck-performance.mjs
+          node --check assets/luck-performance-chart.mjs
           node --check scripts/apply-reviewed-sleeper-week.mjs
           node --check assets/manager-schedule-luck.mjs
       - name: Reject stale or inconsistent Schedule Luck
