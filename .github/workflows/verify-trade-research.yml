@@ -11,6 +11,9 @@ on:
       - 'scripts/verify-playoff-trade-revenge.mjs'
       - 'data/season_weekly_matchups_2016_2026_v1.json'
       - 'data/playoff_trade_revenge_2020_2025_v1.json'
+      - 'scripts/build-expanded-playoff-trade-revenge.mjs'
+      - 'data/playoff_explorer_verified_2016_2025_v1.json'
+      - 'data/expanded_playoff_trade_revenge_2020_2025_v1.json'
       - 'scripts/verify-tony-2021-championship-trades.mjs'
       - 'analytics/tony-2021-four-trades-one-ring.html'
       - 'data/tony_2021_championship_trade_case_study_v1.json'
@@ -38,6 +41,9 @@ on:
       - 'scripts/verify-playoff-trade-revenge.mjs'
       - 'data/season_weekly_matchups_2016_2026_v1.json'
       - 'data/playoff_trade_revenge_2020_2025_v1.json'
+      - 'scripts/build-expanded-playoff-trade-revenge.mjs'
+      - 'data/playoff_explorer_verified_2016_2025_v1.json'
+      - 'data/expanded_playoff_trade_revenge_2020_2025_v1.json'
       - 'scripts/verify-tony-2021-championship-trades.mjs'
       - 'analytics/tony-2021-four-trades-one-ring.html'
       - 'data/tony_2021_championship_trade_case_study_v1.json'
@@ -67,9 +73,11 @@ jobs:
           node --check scripts/verify-championship-trade-impact.mjs
           node --check scripts/verify-tony-2021-championship-trades.mjs
           node --check scripts/verify-playoff-trade-revenge.mjs
+          node --check scripts/build-expanded-playoff-trade-revenge.mjs
       - name: Verify verified trades, multi-team lineage and championship caveats
         run: |
           node scripts/verify-greatest-worst-trades.mjs
           node scripts/verify-championship-trade-impact.mjs
           node scripts/verify-tony-2021-championship-trades.mjs
           node scripts/verify-playoff-trade-revenge.mjs
+          node scripts/build-expanded-playoff-trade-revenge.mjs --check
