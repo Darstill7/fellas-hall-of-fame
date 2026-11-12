@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a131b">
+<title>Luck vs. Performance | The Fellas</title>
+<meta name="description" content="The Fellas' historical fantasy scoring strength versus opponent-draw Schedule Luck, 2016–2026.">
+<style>
+:root{color-scheme:dark;--bg:#0a131b;--panel:#142837;--line:#415a69;--gold:#ead092;--muted:#c4d2da;--text:#f7f2e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);background:radial-gradient(ellipse at top,#1a3544,var(--bg) 65%);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--gold)}a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1160px;margin:auto;padding:0 clamp(16px,4vw,28px)}header{border-bottom:1px solid var(--line);background:#0b1822}header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;min-height:76px}nav{display:flex;flex-wrap:wrap;gap:16px}nav a{font-size:13px;font-weight:800;min-height:44px;display:inline-flex;align-items:center}
+.brand{font-weight:900;color:white;letter-spacing:.08em;text-decoration:none}.brand span{color:var(--gold)}
+main{padding-top:40px;padding-bottom:64px}h1{font-family:Georgia,serif;font-size:clamp(39px,6vw,73px);line-height:1.04;letter-spacing:-.045em;margin:12px 0}h2{font-family:Georgia,serif;font-size:clamp(24px,3vw,35px);line-height:1.2;margin:0 0 12px}p{margin:8px 0 17px;max-width:78ch}.muted{color:var(--muted)}.eyebrow{color:var(--gold);font-size:11px;font-weight:850;letter-spacing:.13em;text-transform:uppercase}
+.intro{font-size:clamp(16px,2vw,19px);color:#d2dce2}.panel{padding:clamp(18px,3vw,27px);background:var(--panel);border:1px solid var(--line);border-radius:16px;margin:24px 0}
+.controls{display:flex;gap:14px;align-items:end;flex-wrap:wrap;margin:18px 0 15px}
+.control{display:grid;gap:6px;min-width:190px}.control label{font-size:12px;font-weight:800;color:#e8d09c}select{width:100%;background:#0e202c;color:var(--text);border:1px solid #82949f;border-radius:8px;padding:11px;font-size:15px;min-height:44px}
+.toggle{display:inline-flex;align-items:center;gap:9px;font-size:13px;color:var(--muted);padding:12px 4px}.toggle input{width:19px;height:19px;accent-color:#e4c687}
+.viz{width:100%;height:auto;display:block;overflow:visible}.gridline{stroke:#536c7b;stroke-width:1;opacity:.48}.axisline{stroke:#9db0bb;stroke-width:1.2}.tick{fill:#d2dce2;font-size:12px}.axis-title{fill:#e8d09c;font-size:13px;font-weight:750}.zero{stroke:#ead092;stroke-width:1.5;stroke-dasharray:5 5;opacity:.82}.point{cursor:pointer;stroke:#12232d;stroke-width:2.8}.point:focus{stroke:#fff;stroke-width:4}.point.is-selected{stroke:#fff5d0;stroke-width:4}.point-label{fill:#fff3d2;font-size:12px;font-weight:850;paint-order:stroke;stroke:#10212c;stroke-width:4px}
+.legend{display:flex;flex-wrap:wrap;gap:15px;font-size:12px;color:#d3dce2}.legend span{display:inline-flex;align-items:center;gap:7px}.swatch{width:12px;height:12px;border-radius:50%;background:#e3bf75}.swatch.secondary{background:#7fb5da}.note{font-size:12px;color:#becdd6}
+#selected-manager{border-left:3px solid var(--gold);margin:22px 0 0;padding:12px 17px;background:#0d202c;min-height:108px;border-radius:6px}
+#selected-manager h3{margin:0 0 5px;font-size:20px}.detail-action{min-height:44px;display:inline-flex;align-items:center;font-weight:750}.sr-only{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0);overflow:hidden;white-space:nowrap}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:600px;font-variant-numeric:tabular-nums}th,td{padding:12px 9px;border-bottom:1px solid #445a68;text-align:right}th:first-child,td:first-child{text-align:left}th{font-size:12px;color:var(--gold)}td{font-size:14px}td a{font-weight:750}
+.foot{font-size:12px;color:#b9cad3;border-top:1px solid var(--line);padding:20px 0 40px}
+@media(max-width:650px){.controls{display:grid}.control{width:100%}.viz{min-height:300px}.panel{padding:14px}th,td{padding:11px 7px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<a class="sr-only" href="#main">Skip to chart</a>
+<header><div class="wrap"><a class="brand" href="../index.html">THE <span>FELLAS</span></a><nav aria-label="Site"><a href="../managers/">Managers</a><a href="record-holders.html">Record Holders</a><a href="records.html">Record Book</a></nav></div></header>
+<main class="wrap" id="main"><div class="eyebrow">The Fellas · Research Lab</div><h1>Luck vs.<br>Performance</h1>
+<p class="intro">The difference between being good at fantasy football and getting the right opponent. Compare weekly scoring strength against the wins a manager gained—or lost—because of the schedule draw.</p>
+<section class="panel" aria-labelledby="chart-title"><h2 id="chart-title">Every manager. Same measuring stick.</h2>
+<p class="muted">Right means stronger scoring. Up means a friendlier schedule. The career view compares <strong>Schedule Luck per 14 comparable weeks</strong>, so a ten-year manager doesn't automatically outweigh a two-year manager.</p>
+<div class="controls"><div class="control"><label for="scope">Compare</label><select id="scope"><option value="career">Career · completed seasons 2016–2025</option><option value="2026">2026 · provisional</option><optgroup label="Individual seasons"><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option></optgroup></select></div>
+<label class="toggle"><input type="checkbox" id="include-short"> Include managers with fewer than 8 completed seasons (career view)</label></div>
+<div class="legend"><span><i class="swatch"></i> Established careers (8+ seasons)</span><span><i class="swatch secondary"></i> Shorter tenure / season-only</span></div>
+<svg id="luck-plot" class="viz" viewBox="0 0 900 470" role="group" aria-label="Interactive chart of scoring strength versus Schedule Luck; use the table below for an accessible comparison"><title>Luck versus Performance plot</title></svg>
+<p id="chart-status" class="note" role="status">Loading verified results…</p>
+<div id="selected-manager" aria-live="polite"><p class="muted">Choose any manager on the chart or in the table to inspect their performance.</p></div>
+</section>
+<section class="panel" aria-labelledby="table-title"><h2 id="table-title">The numbers behind the chart</h2>
+<p class="muted">Select a manager name for their detailed comparison. All scores are relative to opponents in the <em>same week</em>, not raw scores compared across different scoring formats.</p>
+<div class="table-wrap"><table id="luck-table"><thead><tr><th>Manager</th><th>Seasons / weeks</th><th>Scoring strength</th><th>Schedule Luck</th><th>Luck per 14 weeks</th></tr></thead><tbody><tr><td colspan="5">Loading verified data…</td></tr></tbody></table></div></section>
+<section class="panel"><h2>How to read this</h2><p><strong>Scoring strength:</strong> the percentage of other teams you would have beaten each week. Fifty percent is average. <strong>Schedule Luck:</strong> your actual wins minus what those weekly scores would have produced against a randomly selected opponent.</p>
+<p><strong>Upper right:</strong> strong scoring plus favorable opponents. <strong>Lower right:</strong> strong scoring despite tougher opponents. <strong>Upper left:</strong> weaker scoring with favorable opponents. <strong>Lower left:</strong> weaker scoring with tougher opponents.</p>
+<p class="note">This is a schedule-draw statistic, not a judgment about skill, injuries, roster decisions or championships. The 2016 league had eight teams; later seasons had ten. Comparisons use same-week opponent results and exclude incomplete pairing weeks in 2020–2021. Current-year data is provisional. Historical career records exclude 2026.</p>
+<p><a href="../data/luck_performance_profiles_2016_2026_v1.json">Verified data and methodology</a> · <a href="record-holders.html#schedule-luck-leaderboard">Career Schedule Luck records</a></p></section></main>
+<footer class="wrap foot">The Fellas Hall of Fame · Same-week all-play comparisons · Updated from approved canonical history</footer>
+<script type="module" src="../assets/luck-performance-chart.mjs"></script>
+</body></html>
