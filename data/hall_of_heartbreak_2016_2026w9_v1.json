@@ -1,0 +1,524 @@
+{
+  "id": "hall-of-heartbreak",
+  "version": 1,
+  "updated": "2026-11-12",
+  "sources": [
+    "data/unified_record_book_2016_2026.json",
+    "data/all_play_schedule_variance_2016_2026w8_v1.json"
+  ],
+  "coverage": "2016–2025 completed seasons, 2026 through Week 9 for raw head-to-head records; all-play comparisons through Week 8",
+  "definitions": {
+    "closestDefeats": "Smallest absolute score margin in distinct decided regular-season head-to-head games.",
+    "pointsScoredInLosses": "Sum of a manager's own points in regular-season losses; unadjusted for tenure/season length, not a standalone schedule-luck metric.",
+    "secondHighestScoreLosses": "Losses in fully paired regular-season weeks when a manager beat every other team except the actual opponent. 2016 8 teams, later years 10.",
+    "scheduleShortfall": "All-play expected wins minus observed win credits over complete paired regular-season weeks. Describes schedule draw, not causal proof of luck."
+  },
+  "notes": [
+    "Raw ESPN and Sleeper scoring rules differ. 2026 is in progress.",
+    "All-play analysis excludes 2020 and 2021 Week 14 because the full league was not paired.",
+    "Cross-era raw career sums are descriptive; they systematically reward longer tenures and different scoring environments."
+  ],
+  "closestRegularSeasonLosses": [
+    {
+      "rank": 1,
+      "year": 2018,
+      "week": 7,
+      "winner": "Thommy",
+      "loser": "Stew",
+      "winnerScore": 142.92,
+      "loserScore": 142.76,
+      "margin": 0.16,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 2,
+      "year": 2024,
+      "week": 11,
+      "winner": "Tony",
+      "loser": "Stover",
+      "winnerScore": 131.68,
+      "loserScore": 131.44,
+      "margin": 0.24,
+      "source": "sleeper_matchups_2024"
+    },
+    {
+      "rank": 3,
+      "year": 2019,
+      "week": 5,
+      "winner": "Koble",
+      "loser": "Stover",
+      "winnerScore": 124.52,
+      "loserScore": 124.24,
+      "margin": 0.28,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 4,
+      "year": 2020,
+      "week": 1,
+      "winner": "Kuhl",
+      "loser": "Thommy",
+      "winnerScore": 129.16,
+      "loserScore": 128.88,
+      "margin": 0.28,
+      "source": "sleeper_matchups_2020"
+    },
+    {
+      "rank": 5,
+      "year": 2018,
+      "week": 7,
+      "winner": "Stover",
+      "loser": "Mitch",
+      "winnerScore": 96.98,
+      "loserScore": 96.32,
+      "margin": 0.66,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 6,
+      "year": 2026,
+      "week": 9,
+      "winner": "Stew",
+      "loser": "Thommy",
+      "winnerScore": 87.36,
+      "loserScore": 86.6,
+      "margin": 0.76,
+      "source": "sleeper_api_staged_week_9"
+    },
+    {
+      "rank": 7,
+      "year": 2019,
+      "week": 13,
+      "winner": "Birch",
+      "loser": "Mitch",
+      "winnerScore": 114.1,
+      "loserScore": 113.28,
+      "margin": 0.82,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 8,
+      "year": 2018,
+      "week": 6,
+      "winner": "Kuhl",
+      "loser": "Mitch",
+      "winnerScore": 127.6,
+      "loserScore": 126.72,
+      "margin": 0.88,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 9,
+      "year": 2020,
+      "week": 8,
+      "winner": "Stover",
+      "loser": "Tony",
+      "winnerScore": 84.34,
+      "loserScore": 83.42,
+      "margin": 0.92,
+      "source": "sleeper_matchups_2020"
+    },
+    {
+      "rank": 10,
+      "year": 2026,
+      "week": 7,
+      "winner": "Tony",
+      "loser": "Stover",
+      "winnerScore": 112.12,
+      "loserScore": 111.2,
+      "margin": 0.92,
+      "source": "league_2026_w1_7"
+    }
+  ],
+  "pointsScoredInLossesCareer": [
+    {
+      "rank": 1,
+      "manager": "Stilly",
+      "losses": 77,
+      "pointsScoredInLosses": 7374.32,
+      "lossesWith120Plus": 10,
+      "lossesWith130Plus": 4,
+      "averageScoreInLosses": 95.77
+    },
+    {
+      "rank": 2,
+      "manager": "Thommy",
+      "losses": 76,
+      "pointsScoredInLosses": 7300.72,
+      "lossesWith120Plus": 10,
+      "lossesWith130Plus": 3,
+      "averageScoreInLosses": 96.06
+    },
+    {
+      "rank": 3,
+      "manager": "Stew",
+      "losses": 76,
+      "pointsScoredInLosses": 7233.26,
+      "lossesWith120Plus": 8,
+      "lossesWith130Plus": 4,
+      "averageScoreInLosses": 95.17
+    },
+    {
+      "rank": 4,
+      "manager": "Kuhl",
+      "losses": 68,
+      "pointsScoredInLosses": 6604.36,
+      "lossesWith120Plus": 8,
+      "lossesWith130Plus": 2,
+      "averageScoreInLosses": 97.12
+    },
+    {
+      "rank": 5,
+      "manager": "Stover",
+      "losses": 68,
+      "pointsScoredInLosses": 6343.56,
+      "lossesWith120Plus": 5,
+      "lossesWith130Plus": 1,
+      "averageScoreInLosses": 93.29
+    },
+    {
+      "rank": 6,
+      "manager": "Tony",
+      "losses": 57,
+      "pointsScoredInLosses": 5544.38,
+      "lossesWith120Plus": 8,
+      "lossesWith130Plus": 1,
+      "averageScoreInLosses": 97.27
+    },
+    {
+      "rank": 7,
+      "manager": "Koble",
+      "losses": 58,
+      "pointsScoredInLosses": 5400.4,
+      "lossesWith120Plus": 3,
+      "lossesWith130Plus": 2,
+      "averageScoreInLosses": 93.11
+    },
+    {
+      "rank": 8,
+      "manager": "Birch",
+      "losses": 57,
+      "pointsScoredInLosses": 5252.84,
+      "lossesWith120Plus": 2,
+      "lossesWith130Plus": 0,
+      "averageScoreInLosses": 92.16
+    },
+    {
+      "rank": 9,
+      "manager": "Evans",
+      "losses": 55,
+      "pointsScoredInLosses": 5207.98,
+      "lossesWith120Plus": 2,
+      "lossesWith130Plus": 1,
+      "averageScoreInLosses": 94.69
+    },
+    {
+      "rank": 10,
+      "manager": "Mitch",
+      "losses": 47,
+      "pointsScoredInLosses": 4844,
+      "lossesWith120Plus": 9,
+      "lossesWith130Plus": 2,
+      "averageScoreInLosses": 103.06
+    },
+    {
+      "rank": 11,
+      "manager": "JMid",
+      "losses": 20,
+      "pointsScoredInLosses": 1967.24,
+      "lossesWith120Plus": 1,
+      "lossesWith130Plus": 0,
+      "averageScoreInLosses": 98.36
+    },
+    {
+      "rank": 12,
+      "manager": "Scott",
+      "losses": 20,
+      "pointsScoredInLosses": 1894.58,
+      "lossesWith120Plus": 2,
+      "lossesWith130Plus": 2,
+      "averageScoreInLosses": 94.73
+    },
+    {
+      "rank": 13,
+      "manager": "Schermerhorn",
+      "losses": 13,
+      "pointsScoredInLosses": 1146,
+      "lossesWith120Plus": 0,
+      "lossesWith130Plus": 0,
+      "averageScoreInLosses": 88.15
+    },
+    {
+      "rank": 14,
+      "manager": "Halderman",
+      "losses": 12,
+      "pointsScoredInLosses": 891,
+      "lossesWith120Plus": 0,
+      "lossesWith130Plus": 0,
+      "averageScoreInLosses": 74.25
+    }
+  ],
+  "secondHighestScoreLosses": [
+    {
+      "rank": 1,
+      "manager": "Stilly",
+      "count": 4,
+      "examples": [
+        {
+          "year": 2017,
+          "week": 3,
+          "points": 105
+        },
+        {
+          "year": 2019,
+          "week": 4,
+          "points": 121.8
+        },
+        {
+          "year": 2019,
+          "week": 8,
+          "points": 137.5
+        },
+        {
+          "year": 2022,
+          "week": 14,
+          "points": 134.66
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "manager": "Stew",
+      "count": 3,
+      "examples": [
+        {
+          "year": 2018,
+          "week": 7,
+          "points": 142.76
+        },
+        {
+          "year": 2024,
+          "week": 3,
+          "points": 121.58
+        },
+        {
+          "year": 2025,
+          "week": 10,
+          "points": 164.8
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "manager": "Koble",
+      "count": 2,
+      "examples": [
+        {
+          "year": 2016,
+          "week": 8,
+          "points": 100
+        },
+        {
+          "year": 2016,
+          "week": 12,
+          "points": 115
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "manager": "Thommy",
+      "count": 2,
+      "examples": [
+        {
+          "year": 2021,
+          "week": 6,
+          "points": 139.2
+        },
+        {
+          "year": 2025,
+          "week": 13,
+          "points": 124.64
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "manager": "Tony",
+      "count": 2,
+      "examples": [
+        {
+          "year": 2019,
+          "week": 13,
+          "points": 116.02
+        },
+        {
+          "year": 2025,
+          "week": 1,
+          "points": 122.96
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "manager": "Evans",
+      "count": 1,
+      "examples": [
+        {
+          "year": 2017,
+          "week": 4,
+          "points": 107
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "manager": "Scott",
+      "count": 1,
+      "examples": [
+        {
+          "year": 2025,
+          "week": 4,
+          "points": 130.74
+        }
+      ]
+    }
+  ],
+  "largestCompletedSeasonWinShortfalls": [
+    {
+      "rank": 1,
+      "year": 2020,
+      "manager": "Thommy",
+      "actualWinCredits": 4,
+      "expectedWins": 6.556,
+      "winShortfall": 2.556,
+      "weeks": 13
+    },
+    {
+      "rank": 2,
+      "year": 2019,
+      "manager": "Koble",
+      "actualWinCredits": 4,
+      "expectedWins": 6.333,
+      "winShortfall": 2.333,
+      "weeks": 13
+    },
+    {
+      "rank": 3,
+      "year": 2021,
+      "manager": "Kuhl",
+      "actualWinCredits": 4,
+      "expectedWins": 6.111,
+      "winShortfall": 2.111,
+      "weeks": 13
+    },
+    {
+      "rank": 4,
+      "year": 2020,
+      "manager": "Tony",
+      "actualWinCredits": 4,
+      "expectedWins": 6,
+      "winShortfall": 2,
+      "weeks": 13
+    },
+    {
+      "rank": 5,
+      "year": 2021,
+      "manager": "Stew",
+      "actualWinCredits": 2,
+      "expectedWins": 3.778,
+      "winShortfall": 1.778,
+      "weeks": 13
+    },
+    {
+      "rank": 6,
+      "year": 2022,
+      "manager": "Evans",
+      "actualWinCredits": 4,
+      "expectedWins": 5.778,
+      "winShortfall": 1.778,
+      "weeks": 14
+    },
+    {
+      "rank": 7,
+      "year": 2025,
+      "manager": "Stew",
+      "actualWinCredits": 6,
+      "expectedWins": 7.722,
+      "winShortfall": 1.722,
+      "weeks": 14
+    },
+    {
+      "rank": 8,
+      "year": 2019,
+      "manager": "Stover",
+      "actualWinCredits": 4,
+      "expectedWins": 5.667,
+      "winShortfall": 1.667,
+      "weeks": 13
+    },
+    {
+      "rank": 9,
+      "year": 2023,
+      "manager": "Mitch",
+      "actualWinCredits": 6,
+      "expectedWins": 7.667,
+      "winShortfall": 1.667,
+      "weeks": 14
+    },
+    {
+      "rank": 10,
+      "year": 2018,
+      "manager": "Mitch",
+      "actualWinCredits": 5,
+      "expectedWins": 6.444,
+      "winShortfall": 1.444,
+      "weeks": 13
+    },
+    {
+      "rank": 11,
+      "year": 2018,
+      "manager": "Birch",
+      "actualWinCredits": 6,
+      "expectedWins": 7.389,
+      "winShortfall": 1.389,
+      "weeks": 13
+    },
+    {
+      "rank": 12,
+      "year": 2019,
+      "manager": "Thommy",
+      "actualWinCredits": 2,
+      "expectedWins": 3.222,
+      "winShortfall": 1.222,
+      "weeks": 13
+    },
+    {
+      "rank": 13,
+      "year": 2021,
+      "manager": "Thommy",
+      "actualWinCredits": 5,
+      "expectedWins": 6.222,
+      "winShortfall": 1.222,
+      "weeks": 13
+    },
+    {
+      "rank": 14,
+      "year": 2023,
+      "manager": "Thommy",
+      "actualWinCredits": 6,
+      "expectedWins": 7.222,
+      "winShortfall": 1.222,
+      "weeks": 14
+    },
+    {
+      "rank": 15,
+      "year": 2016,
+      "manager": "Schermerhorn",
+      "actualWinCredits": 4,
+      "expectedWins": 5.214,
+      "winShortfall": 1.214,
+      "weeks": 13
+    }
+  ]
+}
