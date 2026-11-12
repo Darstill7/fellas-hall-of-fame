@@ -43,6 +43,8 @@ jobs:
         run: node scripts/verify-shame-trade-receipts.mjs
       - name: Verify archived metrics context and current navigation
         run: node scripts/verify-archived-metrics-navigation.mjs
+      - name: Verify Week 9 canonical rivalry receipts
+        run: node scripts/verify-rivalry-week9-v2.mjs
       - name: Capture desktop, tablet, phone and Safari first screens
         run: node scripts/visual-quality-gate.mjs
       - name: Publish visual audit and screenshots
