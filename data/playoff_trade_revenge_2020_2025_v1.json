@@ -1,0 +1,319 @@
+{
+  "schema": "fellas-playoff-trade-revenge-2020-2025-v1",
+  "asOf": "2026-11-12",
+  "status": "verified_matched_opponent_and_acquired_starter_scores_scoped",
+  "coverage": {
+    "championPlayoffGamesChecked": 12,
+    "confirmedFormerManagerReunions": 2,
+    "qualifiedTradeReceipts": 3,
+    "scope": "Sleeper 2020–2025 semifinal/final games played by eventual champions, with two-party transactions tracked in 51-event transaction museum",
+    "exclusions": [
+      "Loser-side starting lineups unavailable in this championship-winner box-score collection",
+      "Other playoff games not won by eventual champion unreviewed",
+      "Pre-2020 ESPN starter/trade receipts unavailable",
+      "Incomplete trade history and multi-party trades excluded",
+      "2026 season incomplete"
+    ]
+  },
+  "definitions": {
+    "opponentRevenge": "Champion started at least one player acquired that same season directly from the manager they defeated in a championship-path semifinal or final.",
+    "formerPlayerPoints": "Observed champion starter points scored by player(s) acquired from the opponent in source-recorded trades; excludes any nonstarted acquisition.",
+    "recordA": "Most combined points scored against former manager in a champion semifinal/final from one or more direct trades; per game.",
+    "recordB": "Most points scored against former manager in a champion semifinal/final from exactly one direct trade; per game."
+  },
+  "gamesReviewed": [
+    {
+      "season": 2020,
+      "round": "semifinal",
+      "week": 15,
+      "winningManager": "Koble",
+      "losingManager": "Birch",
+      "winnerScore": 130.42,
+      "loserScore": 82.82,
+      "margin": 47.6,
+      "formerPlayerTrades": [],
+      "formerPlayerPoints": 0
+    },
+    {
+      "season": 2020,
+      "round": "championship",
+      "week": 16,
+      "winningManager": "Koble",
+      "losingManager": "Mitch",
+      "winnerScore": 117.48,
+      "loserScore": 99.42,
+      "margin": 18.06,
+      "formerPlayerTrades": [],
+      "formerPlayerPoints": 0
+    },
+    {
+      "season": 2021,
+      "round": "semifinal",
+      "week": 15,
+      "winningManager": "Tony",
+      "losingManager": "Stover",
+      "winnerScore": 94.96,
+      "loserScore": 73.44,
+      "margin": 21.52,
+      "formerPlayerTrades": [],
+      "formerPlayerPoints": 0
+    },
+    {
+      "season": 2021,
+      "round": "championship",
+      "week": 16,
+      "winningManager": "Tony",
+      "losingManager": "Evans",
+      "winnerScore": 138.28,
+      "loserScore": 133.98,
+      "margin": 4.3,
+      "formerPlayerTrades": [],
+      "formerPlayerPoints": 0
+    },
+    {
+      "season": 2022,
+      "round": "semifinal",
+      "week": 16,
+      "winningManager": "Stover",
+      "losingManager": "Kuhl",
+      "winnerScore": 112.56,
+      "loserScore": 87.68,
+      "margin": 24.88,
+      "formerPlayerTrades": [],
+      "formerPlayerPoints": 0
+    },
+    {
+      "season": 2022,
+      "round": "championship",
+      "week": 17,
+      "winningManager": "Stover",
+      "losingManager": "Stew",
+      "winnerScore": 99.22,
+      "loserScore": 48.16,
+      "margin": 51.06,
+      "formerPlayerTrades": [],
+      "formerPlayerPoints": 0
+    },
+    {
+      "season": 2023,
+      "round": "semifinal",
+      "week": 16,
+      "winningManager": "Stilly",
+      "losingManager": "Tony",
+      "winnerScore": 141.66,
+      "loserScore": 108.58,
+      "margin": 33.08,
+      "formerPlayerTrades": [
+        {
+          "tradeId": "1023059879336013824",
+          "date": "2023-10-26",
+          "week": 8,
+          "assetsReceivedByWinner": "Mike Evans + Derrick Henry",
+          "assetsReceivedByLoser": "Cooper Kupp",
+          "scoringPlayers": [
+            {
+              "name": "Derrick Henry",
+              "points": 20.88
+            },
+            {
+              "name": "Mike Evans",
+              "points": 24.1
+            }
+          ],
+          "points": 44.98
+        }
+      ],
+      "formerPlayerPoints": 44.98
+    },
+    {
+      "season": 2023,
+      "round": "championship",
+      "week": 17,
+      "winningManager": "Stilly",
+      "losingManager": "Mitch",
+      "winnerScore": 104.96,
+      "loserScore": 90.18,
+      "margin": 14.78,
+      "formerPlayerTrades": [],
+      "formerPlayerPoints": 0
+    },
+    {
+      "season": 2024,
+      "round": "semifinal",
+      "week": 16,
+      "winningManager": "Thommy",
+      "losingManager": "JMid",
+      "winnerScore": 123.38,
+      "loserScore": 121.08,
+      "margin": 2.3,
+      "formerPlayerTrades": [],
+      "formerPlayerPoints": 0
+    },
+    {
+      "season": 2024,
+      "round": "championship",
+      "week": 17,
+      "winningManager": "Thommy",
+      "losingManager": "Stilly",
+      "winnerScore": 205.3,
+      "loserScore": 114.88,
+      "margin": 90.42,
+      "formerPlayerTrades": [
+        {
+          "tradeId": "1146947320588861440",
+          "date": "2024-10-02",
+          "week": 4,
+          "assetsReceivedByWinner": "Jordan Love",
+          "assetsReceivedByLoser": "Chase Brown",
+          "scoringPlayers": [
+            {
+              "name": "Jordan Love",
+              "points": 14
+            }
+          ],
+          "points": 14
+        },
+        {
+          "tradeId": "1144362000575840256",
+          "date": "2024-09-24",
+          "week": 3,
+          "assetsReceivedByWinner": "Christian McCaffrey + Diontae Johnson + Tee Higgins",
+          "assetsReceivedByLoser": "Terry McLaurin + De'Von Achane + Tank Dell",
+          "scoringPlayers": [
+            {
+              "name": "Tee Higgins",
+              "points": 34.6
+            }
+          ],
+          "points": 34.6
+        }
+      ],
+      "formerPlayerPoints": 48.6
+    },
+    {
+      "season": 2025,
+      "round": "semifinal",
+      "week": 16,
+      "winningManager": "Scott",
+      "losingManager": "Birch",
+      "winnerScore": 141.88,
+      "loserScore": 70.4,
+      "margin": 71.48,
+      "formerPlayerTrades": [],
+      "formerPlayerPoints": 0
+    },
+    {
+      "season": 2025,
+      "round": "championship",
+      "week": 17,
+      "winningManager": "Scott",
+      "losingManager": "Thommy",
+      "winnerScore": 156.32,
+      "loserScore": 86,
+      "margin": 70.32,
+      "formerPlayerTrades": [],
+      "formerPlayerPoints": 0
+    }
+  ],
+  "confirmedCases": [
+    {
+      "season": 2024,
+      "round": "championship",
+      "week": 17,
+      "winningManager": "Thommy",
+      "losingManager": "Stilly",
+      "winnerScore": 205.3,
+      "loserScore": 114.88,
+      "margin": 90.42,
+      "formerPlayerTrades": [
+        {
+          "tradeId": "1146947320588861440",
+          "date": "2024-10-02",
+          "week": 4,
+          "assetsReceivedByWinner": "Jordan Love",
+          "assetsReceivedByLoser": "Chase Brown",
+          "scoringPlayers": [
+            {
+              "name": "Jordan Love",
+              "points": 14
+            }
+          ],
+          "points": 14
+        },
+        {
+          "tradeId": "1144362000575840256",
+          "date": "2024-09-24",
+          "week": 3,
+          "assetsReceivedByWinner": "Christian McCaffrey + Diontae Johnson + Tee Higgins",
+          "assetsReceivedByLoser": "Terry McLaurin + De'Von Achane + Tank Dell",
+          "scoringPlayers": [
+            {
+              "name": "Tee Higgins",
+              "points": 34.6
+            }
+          ],
+          "points": 34.6
+        }
+      ],
+      "formerPlayerPoints": 48.6
+    },
+    {
+      "season": 2023,
+      "round": "semifinal",
+      "week": 16,
+      "winningManager": "Stilly",
+      "losingManager": "Tony",
+      "winnerScore": 141.66,
+      "loserScore": 108.58,
+      "margin": 33.08,
+      "formerPlayerTrades": [
+        {
+          "tradeId": "1023059879336013824",
+          "date": "2023-10-26",
+          "week": 8,
+          "assetsReceivedByWinner": "Mike Evans + Derrick Henry",
+          "assetsReceivedByLoser": "Cooper Kupp",
+          "scoringPlayers": [
+            {
+              "name": "Derrick Henry",
+              "points": 20.88
+            },
+            {
+              "name": "Mike Evans",
+              "points": 24.1
+            }
+          ],
+          "points": 44.98
+        }
+      ],
+      "formerPlayerPoints": 44.98
+    }
+  ],
+  "recordA": {
+    "holder": "Thommy",
+    "losingCounterparty": "Stilly",
+    "year": 2024,
+    "round": "championship",
+    "points": 48.6,
+    "tradeIds": [
+      "1146947320588861440",
+      "1144362000575840256"
+    ],
+    "qualifier": "Two separate direct trades supplied Jordan Love and Tee Higgins in the title game, whose actual margin was 90.42 points."
+  },
+  "recordB": {
+    "holder": "Stilly",
+    "losingCounterparty": "Tony",
+    "year": 2023,
+    "round": "semifinal",
+    "points": 44.98,
+    "tradeId": "1023059879336013824",
+    "qualifier": "Evans and Henry came in one direct exchange; Stilly won 141.66–108.58."
+  },
+  "causalityCaution": "Fantasy points are not replacement-adjusted values. Opponent would have had a different roster, possible alternative starters, and different lineup choices without these deals.",
+  "sources": [
+    "data/championship_player_boxscores_2020_2025_v1.json",
+    "data/season_weekly_matchups_2016_2026_v1.json",
+    "data/trade_museum_stage66.json"
+  ]
+}
