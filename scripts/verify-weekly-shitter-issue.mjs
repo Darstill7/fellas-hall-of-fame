@@ -33,13 +33,15 @@ for(const txt of ['STEW -1.5','STILLY -19.5','JMID -16.5','TONY -29.5','BIRCH -1
 assert.ok(html.includes('The football ends Monday night. The bullshit never does.'),'Final Flush sign-off');
 assert.ok(html.includes('published half-PPR player projections'),'Model methodology disclosed');
 assert.ok(html.includes('provisional'),'Uncertified streaks must be labeled');
-assert.ok(html.includes('og:image')&&html.includes('src="../cover-week10.svg"'),'Cover and social preview');
+assert.ok(html.includes('og:image')&&html.includes('background-image:url("../cover-week10.svg")'),'Cover and social preview');
+assert.ok(html.includes('aspect-ratio:1200/630')&&html.includes('class="cover-art" role="img"'),'iPhone cover uses constrained responsive frame');
+assert.ok(!html.includes('<img class="cover-art"'),'Avoid image intrinsic-sizing overflow in mobile Safari');
 assert.ok(cover.includes('viewBox="0 0 1200 630"'),'1200x630 cover');
 assert.equal(socialCover.subarray(0,8).toString('hex'),'89504e470d0a1a0a','Valid PNG signature');
 assert.equal(socialCover.readUInt32BE(16),1200,'Social image width');
 assert.equal(socialCover.readUInt32BE(20),630,'Social image height');
 assert.ok(html.includes('shitter/cover-week10.png'),'Standard PNG social preview URL');
-assert.ok(archive.includes('src="cover-week10.svg"'),'Archive shows cover');
+assert.ok(archive.includes('background:url("cover-week10.svg") center/contain no-repeat'),'Archive shows safely constrained cover');
 assert.ok(home.includes('href="shitter/2026-week-10/"'),'Homepage promotes issue');
 assert.ok(!html.includes('Schermerhorn'),'No current Thommy/Schermerhorn confusion');
 console.log('PASS: Weekly Shitter Week 10 issue, historical feature, projections and mobile links');
