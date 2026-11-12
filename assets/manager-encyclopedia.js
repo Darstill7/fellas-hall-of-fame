@@ -79,7 +79,7 @@
  detail.textContent='Checking the source-audited top-ten trade study…';
  detail.style.cssText='color:#cfdae2;font-size:14px;max-width:75ch';
  const link=document.createElement('a');
- link.href='../../analytics/greatest-worst-trades.html#research-heading';
+ link.href='../../analytics/greatest-worst-trades.html?manager='+encodeURIComponent(name)+'#research-heading';
  link.textContent='Explore the Greatest & Worst Trades archive →';
  link.style.cssText='display:inline-flex;align-items:center;min-height:44px;color:#f4d48f;font-weight:850;text-decoration:underline;text-underline-offset:3px';
  panel.append(kicker,title,detail,link);
@@ -96,7 +96,7 @@
    const other=higher?best.lowerReturn.manager:best.betterReturn.manager;
    title.textContent='#'+best.rank+' · '+name+' vs. '+other+' ('+best.year+')';
    detail.textContent=(higher?'Higher':'Lower')+' observed post-trade starter production · '+Number(best.observedPARGap).toFixed(2)+' position-relative points separated the two sides. '+name+' appears in '+entries.length+' of the ten ranked transactions. Regular-season production only; not a definitive best/worst trade verdict.';
-   link.href='../../analytics/greatest-worst-trades.html#research-heading';
+   link.href='../../analytics/greatest-worst-trades.html?manager='+encodeURIComponent(name)+'#research-heading';
   }else{
    title.textContent='Explore '+name+'\'s trade history';
    detail.textContent='No entry in the qualified top-ten observed PAR study. This is not a grade on every trade: the study covers 18 fully matched two-manager deals from 2020–2025, excludes ESPN-era comparisons and does not rank unfinished 2026 returns.';
