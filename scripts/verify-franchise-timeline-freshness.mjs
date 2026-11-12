@@ -57,4 +57,7 @@ for(const fragment of [
  "document.getElementById('jump-titles').addEventListener"
 ])assert(html.includes(fragment),'Missing editorial timeline feature: '+fragment);
 assert(html.includes('prefers-reduced-motion:reduce'),'Reduced-motion layout safeguard missing');
+for(const fragment of ['franchise-chapter-evidence-links','season-evidence-links','championship-stories.html?year=','record-holders.html?manager=','rivalries.html','../seasons/2026.html','season-evidence-links a:focus-visible']){
+ assert(html.includes(fragment),'Source-linked franchise chapter is missing '+fragment);
+}
 console.log('PASS: Franchise Timeline embedded archive and all 10 records / '+games.length+' game receipts agree through Week '+week);
