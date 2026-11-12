@@ -1457,10 +1457,10 @@ try{
         !((await coverage.innerText()).includes('Missing weekly player box scores')))
       errors.push(width+' all-time record book source limitations hidden or unavailable');
     }
-    const dataTable=page.locator('.records-table');
+    const dataTable=page.locator('#original-records .records-table');
     if(await dataTable.count()!==1||!await dataTable.isVisible())
      errors.push(width+' all-time record book main table unavailable');
-    const spacing=await page.locator('.records-table th').first().evaluate(el=>({
+    const spacing=await dataTable.locator('th').first().evaluate(el=>({
      line:parseFloat(getComputedStyle(el).lineHeight),
      pad:parseFloat(getComputedStyle(el).paddingTop)
     }));
@@ -1471,6 +1471,8 @@ try{
     await page.locator('#categories button[data-category="close"]').click();
     await page.waitForFunction(()=>document.querySelector('#scope')?.textContent.includes('Week 9')&&
      document.querySelector('#rows tr:first-child td:last-child')?.textContent==='0.16',null,{timeout:10000});
+    const categoryIsClose=await dataTable.getAttribute('data-category');
+    if(categoryIsClose!=='close') errors.push(width+' closest-game category applied to wrong table');
     const closestAudit=await page.locator('#rows tr').evaluateAll(trs=>trs.map(tr=>{
      const cells=[...tr.querySelectorAll('td')];
      return {year:cells[0]?.textContent,win:cells[1]?.textContent,loss:cells[2]?.textContent,
