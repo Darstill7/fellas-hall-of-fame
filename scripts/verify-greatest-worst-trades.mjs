@@ -41,7 +41,7 @@ for(const fragment of ['id="view-gains"','id="view-losses"','aria-pressed','data
  assert(page.includes(fragment),'Ranking UI or limitation missing '+fragment);
 // All ten current manager encyclopedia entrypoints use the same verified trade-legacy component.
 const encyclopedia=fs.readFileSync('assets/manager-encyclopedia.js','utf8');
-for(const fragment of ['data-trade-legacy','greatest_worst_trades_research_v1.json','rankedObservedPARAdvantage','fully matched two-manager deals','2020–2025','Unexpected research schema']){
+for(const fragment of ['data-trade-legacy','greatest_worst_trades_research_v1.json','rankedObservedPARAdvantage','greatest-worst-trades.html?manager=','encodeURIComponent(name)','fully matched two-manager deals','2020–2025','Unexpected research schema']){
  assert(encyclopedia.includes(fragment),'Missing sourced manager trade legacy guard: '+fragment);
 }
 for(const slug of ['birch','jmid','kuhl','mitch','scott','stew','stilly','stover','tom','tony']){
