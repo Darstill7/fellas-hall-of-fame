@@ -59,6 +59,10 @@ jobs:
         run: node scripts/verify-week14-stage-audit.mjs
       - name: Verify source-backed 2020–2021 corrected standings projection and championship editorial
         run: node scripts/verify-corrected-2020-2021-standings-projection.mjs
+      - name: Verify original Sleeper 2020–2021 Week 14 pairing provenance
+        run: node scripts/verify-week14-provider-pairings.mjs
+      - name: Guard the career and head-to-head change forecast before stage migration
+        run: node scripts/verify-week14-career-impact.mjs
       - name: Guard legitimate three-team trades in source-qualified Trade Museum
         run: node scripts/verify-trade-museum-scope.mjs
       - name: Verify generated career and H2H data
