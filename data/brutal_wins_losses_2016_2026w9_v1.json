@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "updated": "2026-11-12",
+  "source": "data/unified_record_book_2016_2026.json",
+  "coverage": "2016–2025 completed seasons; 2026 through Week 9",
+  "qualifyingGames": 784,
+  "methodology": "Head-to-head decisions with distinct final weekly scores. Multi-week ESPN playoff totals and 2019 cumulative consolation scores excluded; raw scores not normalized for scoring changes. Ties excluded.",
+  "highestScoringLosses": [
+    {
+      "rank": 1,
+      "year": 2025,
+      "week": 10,
+      "stage": "regular",
+      "winner": "Mitch",
+      "loser": "Stew",
+      "winnerScore": 167.82,
+      "loserScore": 164.8,
+      "margin": 3.02,
+      "source": "sleeper_matchups_2025"
+    },
+    {
+      "rank": 2,
+      "year": 2026,
+      "week": 1,
+      "stage": "regular",
+      "winner": "Mitch",
+      "loser": "Stew",
+      "winnerScore": 161.26,
+      "loserScore": 158.52,
+      "margin": 2.74,
+      "source": "league_2026_w1_7"
+    },
+    {
+      "rank": 3,
+      "year": 2021,
+      "week": 5,
+      "stage": "regular",
+      "winner": "Mitch",
+      "loser": "Tony",
+      "winnerScore": 163.1,
+      "loserScore": 143.9,
+      "margin": 19.2,
+      "source": "sleeper_matchups_2021"
+    },
+    {
+      "rank": 4,
+      "year": 2018,
+      "week": 7,
+      "stage": "regular",
+      "winner": "Thommy",
+      "loser": "Stew",
+      "winnerScore": 142.92,
+      "loserScore": 142.76,
+      "margin": 0.16,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 5,
+      "year": 2022,
+      "week": 8,
+      "stage": "regular",
+      "winner": "Stew",
+      "loser": "Koble",
+      "winnerScore": 146.6,
+      "loserScore": 141.6,
+      "margin": 5,
+      "source": "sleeper_matchups_2022"
+    },
+    {
+      "rank": 6,
+      "year": 2021,
+      "week": 1,
+      "stage": "regular",
+      "winner": "Stew",
+      "loser": "Thommy",
+      "winnerScore": 167.36,
+      "loserScore": 141.12,
+      "margin": 26.24,
+      "source": "sleeper_matchups_2021"
+    },
+    {
+      "rank": 7,
+      "year": 2023,
+      "week": 13,
+      "stage": "regular",
+      "winner": "Kuhl",
+      "loser": "Evans",
+      "winnerScore": 171.6,
+      "loserScore": 141.12,
+      "margin": 30.48,
+      "source": "sleeper_matchups_2023"
+    },
+    {
+      "rank": 8,
+      "year": 2019,
+      "week": 3,
+      "stage": "regular",
+      "winner": "Birch",
+      "loser": "Kuhl",
+      "winnerScore": 146.76,
+      "loserScore": 140.04,
+      "margin": 6.72,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 9,
+      "year": 2021,
+      "week": 6,
+      "stage": "regular",
+      "winner": "Tony",
+      "loser": "Thommy",
+      "winnerScore": 167.14,
+      "loserScore": 139.2,
+      "margin": 27.94,
+      "source": "sleeper_matchups_2021"
+    },
+    {
+      "rank": 10,
+      "year": 2020,
+      "week": 9,
+      "stage": "regular",
+      "winner": "Birch",
+      "loser": "Thommy",
+      "winnerScore": 144.8,
+      "loserScore": 138.9,
+      "margin": 5.9,
+      "source": "sleeper_matchups_2020"
+    }
+  ],
+  "lowestScoringWins": [
+    {
+      "rank": 1,
+      "year": 2017,
+      "week": 9,
+      "stage": "regular",
+      "winner": "Stilly",
+      "loser": "Tony",
+      "winnerScore": 64,
+      "loserScore": 63,
+      "margin": 1,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 2,
+      "year": 2018,
+      "week": 15,
+      "stage": "consolation",
+      "winner": "Kuhl",
+      "loser": "Stew",
+      "winnerScore": 66.42,
+      "loserScore": 48.14,
+      "margin": 18.28,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 3,
+      "year": 2020,
+      "week": 6,
+      "stage": "regular",
+      "winner": "Kuhl",
+      "loser": "Stover",
+      "winnerScore": 69.18,
+      "loserScore": 66.7,
+      "margin": 2.48,
+      "source": "sleeper_matchups_2020"
+    },
+    {
+      "rank": 4,
+      "year": 2017,
+      "week": 2,
+      "stage": "regular",
+      "winner": "Birch",
+      "loser": "Stover",
+      "winnerScore": 72,
+      "loserScore": 63,
+      "margin": 9,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 5,
+      "year": 2017,
+      "week": 4,
+      "stage": "regular",
+      "winner": "Stover",
+      "loser": "Halderman",
+      "winnerScore": 73,
+      "loserScore": 53,
+      "margin": 20,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 6,
+      "year": 2018,
+      "week": 13,
+      "stage": "regular",
+      "winner": "Stover",
+      "loser": "Kuhl",
+      "winnerScore": 73.64,
+      "loserScore": 65.18,
+      "margin": 8.46,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 7,
+      "year": 2017,
+      "week": 1,
+      "stage": "regular",
+      "winner": "Thommy",
+      "loser": "Tony",
+      "winnerScore": 75,
+      "loserScore": 44,
+      "margin": 31,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 8,
+      "year": 2017,
+      "week": 7,
+      "stage": "regular",
+      "winner": "Stew",
+      "loser": "Halderman",
+      "winnerScore": 76,
+      "loserScore": 49,
+      "margin": 27,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 9,
+      "year": 2017,
+      "week": 9,
+      "stage": "regular",
+      "winner": "Stew",
+      "loser": "Stover",
+      "winnerScore": 77,
+      "loserScore": 70,
+      "margin": 7,
+      "source": "espn_history_2016_2019"
+    },
+    {
+      "rank": 10,
+      "year": 2017,
+      "week": 12,
+      "stage": "regular",
+      "winner": "Evans",
+      "loser": "Halderman",
+      "winnerScore": 77,
+      "loserScore": 63,
+      "margin": 14,
+      "source": "espn_history_2016_2019"
+    }
+  ],
+  "editorialNote": {
+    "title": "The Full Spectrum",
+    "manager": "Stew",
+    "highestCombinedMatchup": {
+      "year": 2025,
+      "week": 10,
+      "total": 332.62,
+      "result": "LOSS",
+      "score": 164.8
+    },
+    "lowestCombinedMatchup": {
+      "year": 2018,
+      "week": 15,
+      "total": 114.56,
+      "result": "LOSS",
+      "score": 48.14
+    },
+    "note": "Stew was a participant on the losing side of both the highest and lowest combined-scoring single-week games in the archive. The 2018 contest was a consolation game in a nonstandard bracket."
+  }
+}
