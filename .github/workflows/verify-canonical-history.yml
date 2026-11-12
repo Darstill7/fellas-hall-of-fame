@@ -144,6 +144,8 @@ jobs:
         run: node scripts/verify-specialty-records.mjs
       - name: Verify ten editorial manager profiles and record-book deep links
         run: node scripts/verify-manager-profile-v2.mjs
+      - name: Ensure all ten Franchise Timelines reflect canonical current-season game results
+        run: node scripts/verify-franchise-timeline-freshness.mjs
       - name: Verify records across published pages
         run: node scripts/verify-canonical-history.mjs
       - name: Observe deployed GitHub Pages parity (deployment may lag CI)
