@@ -88,6 +88,7 @@
       "headToHeadAffected": [
         {
           "opponent": "Stover",
+          "removedGames": 1,
           "archived": {
             "games": 14,
             "w": 6,
@@ -103,6 +104,7 @@
         },
         {
           "opponent": "Mitch",
+          "removedGames": 1,
           "archived": {
             "games": 9,
             "w": 5,
@@ -211,6 +213,7 @@
       "headToHeadAffected": [
         {
           "opponent": "Koble",
+          "removedGames": 2,
           "archived": {
             "games": 12,
             "w": 7,
@@ -218,24 +221,9 @@
             "t": 0
           },
           "projected": {
-            "games": 11,
-            "w": 7,
-            "l": 4,
-            "t": 0
-          }
-        },
-        {
-          "opponent": "Koble",
-          "archived": {
-            "games": 12,
-            "w": 7,
-            "l": 5,
-            "t": 0
-          },
-          "projected": {
-            "games": 11,
+            "games": 10,
             "w": 6,
-            "l": 5,
+            "l": 4,
             "t": 0
           }
         }
@@ -276,6 +264,7 @@
       "headToHeadAffected": [
         {
           "opponent": "Evans",
+          "removedGames": 1,
           "archived": {
             "games": 9,
             "w": 4,
@@ -384,6 +373,7 @@
       "headToHeadAffected": [
         {
           "opponent": "Stilly",
+          "removedGames": 2,
           "archived": {
             "games": 20,
             "w": 10,
@@ -391,24 +381,9 @@
             "t": 0
           },
           "projected": {
-            "games": 19,
-            "w": 10,
-            "l": 9,
-            "t": 0
-          }
-        },
-        {
-          "opponent": "Stilly",
-          "archived": {
-            "games": 20,
-            "w": 10,
-            "l": 10,
-            "t": 0
-          },
-          "projected": {
-            "games": 19,
+            "games": 18,
             "w": 9,
-            "l": 10,
+            "l": 9,
             "t": 0
           }
         }
@@ -457,6 +432,7 @@
       "headToHeadAffected": [
         {
           "opponent": "Stew",
+          "removedGames": 2,
           "archived": {
             "games": 20,
             "w": 10,
@@ -464,23 +440,8 @@
             "t": 0
           },
           "projected": {
-            "games": 19,
+            "games": 18,
             "w": 9,
-            "l": 10,
-            "t": 0
-          }
-        },
-        {
-          "opponent": "Stew",
-          "archived": {
-            "games": 20,
-            "w": 10,
-            "l": 10,
-            "t": 0
-          },
-          "projected": {
-            "games": 19,
-            "w": 10,
             "l": 9,
             "t": 0
           }
@@ -530,6 +491,7 @@
       "headToHeadAffected": [
         {
           "opponent": "Evans",
+          "removedGames": 1,
           "archived": {
             "games": 14,
             "w": 8,
@@ -545,6 +507,7 @@
         },
         {
           "opponent": "Thommy",
+          "removedGames": 1,
           "archived": {
             "games": 16,
             "w": 11,
@@ -603,6 +566,7 @@
       "headToHeadAffected": [
         {
           "opponent": "Tony",
+          "removedGames": 1,
           "archived": {
             "games": 16,
             "w": 7,
@@ -618,6 +582,7 @@
         },
         {
           "opponent": "Stover",
+          "removedGames": 1,
           "archived": {
             "games": 16,
             "w": 5,
@@ -668,6 +633,7 @@
       "headToHeadAffected": [
         {
           "opponent": "Thommy",
+          "removedGames": 1,
           "archived": {
             "games": 16,
             "w": 9,
@@ -726,6 +692,7 @@
       "headToHeadAffected": [
         {
           "opponent": "Kuhl",
+          "removedGames": 2,
           "archived": {
             "games": 12,
             "w": 5,
@@ -733,23 +700,8 @@
             "t": 0
           },
           "projected": {
-            "games": 11,
+            "games": 10,
             "w": 4,
-            "l": 7,
-            "t": 0
-          }
-        },
-        {
-          "opponent": "Kuhl",
-          "archived": {
-            "games": 12,
-            "w": 5,
-            "l": 7,
-            "t": 0
-          },
-          "projected": {
-            "games": 11,
-            "w": 5,
             "l": 6,
             "t": 0
           }
@@ -838,5 +790,9 @@
     "2020–2021 13-week all-play schedule luck already aligns to corrected regular weeks, so should remain untouched.",
     "Cannot safely edit eight source stages without updating the listed canonical projections and checking all CI.",
     "Consolation-specific classifications for four non-winners pairs remain uncertain."
+  ],
+  "notes": [
+    "Repeat opponents across 2020 and 2021 must be aggregated before adjusting all-time H2H; Stilly/Stew and Koble/Kuhl each have two 2020–2021 Week 14 games.",
+    "All manager career totals and annual game count adjustments remain source-backed projections only."
   ]
 }
