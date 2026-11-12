@@ -55,6 +55,8 @@ jobs:
         run: node scripts/verify-postseason-records.mjs
       - name: Verify season-by-season playoff explorer against recovered winner-bracket scores
         run: node scripts/verify-playoff-history-explorer.mjs
+      - name: Guard 2020–2021 Week 14 classification and protect regular-season standings
+        run: node scripts/verify-week14-stage-audit.mjs
       - name: Guard legitimate three-team trades in source-qualified Trade Museum
         run: node scripts/verify-trade-museum-scope.mjs
       - name: Verify generated career and H2H data
