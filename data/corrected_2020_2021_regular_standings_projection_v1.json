@@ -1,0 +1,925 @@
+{
+  "schema": "fellas-2020-2021-corrected-regular-season-standings-projection-v1",
+  "generated": "2026-11-12",
+  "status": "verified_projection_not_applied_to_legacy_regular_season_ledger",
+  "definition": "Regular season ends after Week 13 in 2020–21. Only Weeks 1–13 count for these standings. Official seed ranks are preserved from Sleeper bracket source; no tiebreakers are independently inferred.",
+  "sourceFiles": [
+    "data/season_weekly_matchups_2016_2026_v1.json",
+    "data/verified_sleeper_playoff_brackets_2020_2025.json",
+    "data/all_play_schedule_variance_2016_2026w8_v1.json"
+  ],
+  "years": [
+    {
+      "year": 2020,
+      "regularSeasonGames": 65,
+      "archivedRegularLabeledGames": 69,
+      "reclassifiedWeek14Games": 4,
+      "rows": [
+        {
+          "manager": "Stilly",
+          "corrected": {
+            "manager": "Stilly",
+            "games": 13,
+            "w": 4,
+            "l": 9,
+            "t": 0,
+            "pf": 1293.28,
+            "pa": 1553.48
+          },
+          "archived": {
+            "games": 14,
+            "w": 5,
+            "l": 9,
+            "t": 0,
+            "pf": 1409,
+            "pa": 1651.12
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 1,
+            "l": 0,
+            "pf": 115.72,
+            "pa": 97.64
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 4,
+            "expectedWins": 4.111,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Mitch",
+          "officialSeed": 1,
+          "corrected": {
+            "manager": "Mitch",
+            "games": 13,
+            "w": 9,
+            "l": 4,
+            "t": 0,
+            "pf": 1650.42,
+            "pa": 1510.82
+          },
+          "archived": {
+            "games": 13,
+            "w": 9,
+            "l": 4,
+            "t": 0,
+            "pf": 1650.42,
+            "pa": 1510.82
+          },
+          "archivedExtra": {
+            "games": 0,
+            "w": 0,
+            "l": 0,
+            "pf": 0,
+            "pa": 0
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 9,
+            "expectedWins": 8.444,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Birch",
+          "officialSeed": 2,
+          "corrected": {
+            "manager": "Birch",
+            "games": 13,
+            "w": 9,
+            "l": 4,
+            "t": 0,
+            "pf": 1593.54,
+            "pa": 1373.44
+          },
+          "archived": {
+            "games": 13,
+            "w": 9,
+            "l": 4,
+            "t": 0,
+            "pf": 1593.54,
+            "pa": 1373.44
+          },
+          "archivedExtra": {
+            "games": 0,
+            "w": 0,
+            "l": 0,
+            "pf": 0,
+            "pa": 0
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 9,
+            "expectedWins": 8.222,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Kuhl",
+          "officialSeed": 3,
+          "corrected": {
+            "manager": "Kuhl",
+            "games": 13,
+            "w": 9,
+            "l": 4,
+            "t": 0,
+            "pf": 1415.58,
+            "pa": 1373.12
+          },
+          "archived": {
+            "games": 14,
+            "w": 9,
+            "l": 5,
+            "t": 0,
+            "pf": 1533.72,
+            "pa": 1523.1
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 0,
+            "l": 1,
+            "pf": 118.14,
+            "pa": 149.98
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 9,
+            "expectedWins": 6.667,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Evans",
+          "officialSeed": 4,
+          "corrected": {
+            "manager": "Evans",
+            "games": 13,
+            "w": 7,
+            "l": 6,
+            "t": 0,
+            "pf": 1549.54,
+            "pa": 1438.76
+          },
+          "archived": {
+            "games": 14,
+            "w": 7,
+            "l": 7,
+            "t": 0,
+            "pf": 1658.26,
+            "pa": 1549.6
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 0,
+            "l": 1,
+            "pf": 108.72,
+            "pa": 110.84
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 7,
+            "expectedWins": 7.556,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Stover",
+          "officialSeed": 5,
+          "corrected": {
+            "manager": "Stover",
+            "games": 13,
+            "w": 7,
+            "l": 6,
+            "t": 0,
+            "pf": 1439.16,
+            "pa": 1475.26
+          },
+          "archived": {
+            "games": 14,
+            "w": 8,
+            "l": 6,
+            "t": 0,
+            "pf": 1550,
+            "pa": 1583.98
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 1,
+            "l": 0,
+            "pf": 110.84,
+            "pa": 108.72
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 7,
+            "expectedWins": 6.778,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Thommy",
+          "corrected": {
+            "manager": "Thommy",
+            "games": 13,
+            "w": 4,
+            "l": 9,
+            "t": 0,
+            "pf": 1475.82,
+            "pa": 1598.84
+          },
+          "archived": {
+            "games": 14,
+            "w": 5,
+            "l": 9,
+            "t": 0,
+            "pf": 1627.14,
+            "pa": 1724.4
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 1,
+            "l": 0,
+            "pf": 151.32,
+            "pa": 125.56
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 4,
+            "expectedWins": 6.556,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Stew",
+          "corrected": {
+            "manager": "Stew",
+            "games": 13,
+            "w": 6,
+            "l": 7,
+            "t": 0,
+            "pf": 1361.42,
+            "pa": 1438.28
+          },
+          "archived": {
+            "games": 14,
+            "w": 6,
+            "l": 8,
+            "t": 0,
+            "pf": 1459.06,
+            "pa": 1554
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 0,
+            "l": 1,
+            "pf": 97.64,
+            "pa": 115.72
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 6,
+            "expectedWins": 5.111,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Koble",
+          "officialSeed": 6,
+          "corrected": {
+            "manager": "Koble",
+            "games": 13,
+            "w": 6,
+            "l": 7,
+            "t": 0,
+            "pf": 1403.32,
+            "pa": 1418.38
+          },
+          "archived": {
+            "games": 14,
+            "w": 7,
+            "l": 7,
+            "t": 0,
+            "pf": 1553.3,
+            "pa": 1536.52
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 1,
+            "l": 0,
+            "pf": 149.98,
+            "pa": 118.14
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 6,
+            "expectedWins": 5.556,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Tony",
+          "corrected": {
+            "manager": "Tony",
+            "games": 13,
+            "w": 4,
+            "l": 9,
+            "t": 0,
+            "pf": 1426.12,
+            "pa": 1427.82
+          },
+          "archived": {
+            "games": 14,
+            "w": 4,
+            "l": 10,
+            "t": 0,
+            "pf": 1551.68,
+            "pa": 1579.14
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 0,
+            "l": 1,
+            "pf": 125.56,
+            "pa": 151.32
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 4,
+            "expectedWins": 6,
+            "agreesWithCorrected": true
+          }
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "regularSeasonGames": 65,
+      "archivedRegularLabeledGames": 69,
+      "reclassifiedWeek14Games": 4,
+      "rows": [
+        {
+          "manager": "Stilly",
+          "corrected": {
+            "manager": "Stilly",
+            "games": 13,
+            "w": 5,
+            "l": 8,
+            "t": 0,
+            "pf": 1419.96,
+            "pa": 1553.34
+          },
+          "archived": {
+            "games": 14,
+            "w": 5,
+            "l": 9,
+            "t": 0,
+            "pf": 1528.9,
+            "pa": 1664.66
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 0,
+            "l": 1,
+            "pf": 108.94,
+            "pa": 111.32
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 5,
+            "expectedWins": 5.889,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Birch",
+          "officialSeed": 1,
+          "corrected": {
+            "manager": "Birch",
+            "games": 13,
+            "w": 11,
+            "l": 2,
+            "t": 0,
+            "pf": 1513.84,
+            "pa": 1332.62
+          },
+          "archived": {
+            "games": 13,
+            "w": 11,
+            "l": 2,
+            "t": 0,
+            "pf": 1513.84,
+            "pa": 1332.62
+          },
+          "archivedExtra": {
+            "games": 0,
+            "w": 0,
+            "l": 0,
+            "pf": 0,
+            "pa": 0
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 11,
+            "expectedWins": 7.444,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Tony",
+          "officialSeed": 2,
+          "corrected": {
+            "manager": "Tony",
+            "games": 13,
+            "w": 10,
+            "l": 3,
+            "t": 0,
+            "pf": 1708.6,
+            "pa": 1433.12
+          },
+          "archived": {
+            "games": 13,
+            "w": 10,
+            "l": 3,
+            "t": 0,
+            "pf": 1708.6,
+            "pa": 1433.12
+          },
+          "archivedExtra": {
+            "games": 0,
+            "w": 0,
+            "l": 0,
+            "pf": 0,
+            "pa": 0
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 10,
+            "expectedWins": 9.667,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Stover",
+          "officialSeed": 3,
+          "corrected": {
+            "manager": "Stover",
+            "games": 13,
+            "w": 10,
+            "l": 3,
+            "t": 0,
+            "pf": 1626.1,
+            "pa": 1340.78
+          },
+          "archived": {
+            "games": 14,
+            "w": 11,
+            "l": 3,
+            "t": 0,
+            "pf": 1770.9,
+            "pa": 1445.32
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 1,
+            "l": 0,
+            "pf": 144.8,
+            "pa": 104.54
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 10,
+            "expectedWins": 9.222,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Mitch",
+          "officialSeed": 4,
+          "corrected": {
+            "manager": "Mitch",
+            "games": 13,
+            "w": 8,
+            "l": 5,
+            "t": 0,
+            "pf": 1581.18,
+            "pa": 1453.16
+          },
+          "archived": {
+            "games": 14,
+            "w": 8,
+            "l": 6,
+            "t": 0,
+            "pf": 1716,
+            "pa": 1615.2
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 0,
+            "l": 1,
+            "pf": 134.82,
+            "pa": 162.04
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 8,
+            "expectedWins": 7.333,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Evans",
+          "officialSeed": 5,
+          "corrected": {
+            "manager": "Evans",
+            "games": 13,
+            "w": 6,
+            "l": 7,
+            "t": 0,
+            "pf": 1436.08,
+            "pa": 1430.14
+          },
+          "archived": {
+            "games": 14,
+            "w": 7,
+            "l": 7,
+            "t": 0,
+            "pf": 1598.12,
+            "pa": 1564.96
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 1,
+            "l": 0,
+            "pf": 162.04,
+            "pa": 134.82
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 6,
+            "expectedWins": 5.667,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Thommy",
+          "officialSeed": 6,
+          "corrected": {
+            "manager": "Thommy",
+            "games": 13,
+            "w": 5,
+            "l": 8,
+            "t": 0,
+            "pf": 1456.8,
+            "pa": 1621.2
+          },
+          "archived": {
+            "games": 14,
+            "w": 5,
+            "l": 9,
+            "t": 0,
+            "pf": 1561.34,
+            "pa": 1766
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 0,
+            "l": 1,
+            "pf": 104.54,
+            "pa": 144.8
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 5,
+            "expectedWins": 6.222,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Stew",
+          "corrected": {
+            "manager": "Stew",
+            "games": 13,
+            "w": 2,
+            "l": 11,
+            "t": 0,
+            "pf": 1320.74,
+            "pa": 1535.44
+          },
+          "archived": {
+            "games": 14,
+            "w": 3,
+            "l": 11,
+            "t": 0,
+            "pf": 1432.06,
+            "pa": 1644.38
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 1,
+            "l": 0,
+            "pf": 111.32,
+            "pa": 108.94
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 2,
+            "expectedWins": 3.778,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Koble",
+          "corrected": {
+            "manager": "Koble",
+            "games": 13,
+            "w": 4,
+            "l": 9,
+            "t": 0,
+            "pf": 1294.44,
+            "pa": 1567.06
+          },
+          "archived": {
+            "games": 14,
+            "w": 4,
+            "l": 10,
+            "t": 0,
+            "pf": 1367.76,
+            "pa": 1676.58
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 0,
+            "l": 1,
+            "pf": 73.32,
+            "pa": 109.52
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 4,
+            "expectedWins": 3.667,
+            "agreesWithCorrected": true
+          }
+        },
+        {
+          "manager": "Kuhl",
+          "corrected": {
+            "manager": "Kuhl",
+            "games": 13,
+            "w": 4,
+            "l": 9,
+            "t": 0,
+            "pf": 1436.32,
+            "pa": 1527.2
+          },
+          "archived": {
+            "games": 14,
+            "w": 5,
+            "l": 9,
+            "t": 0,
+            "pf": 1545.84,
+            "pa": 1600.52
+          },
+          "archivedExtra": {
+            "games": 1,
+            "w": 1,
+            "l": 0,
+            "pf": 109.52,
+            "pa": 73.32
+          },
+          "allPlayParity": {
+            "pairedWeeks": 13,
+            "actualWins": 4,
+            "expectedWins": 6.111,
+            "agreesWithCorrected": true
+          }
+        }
+      ]
+    }
+  ],
+  "impact": {
+    "affectedManagerSeasons": 16,
+    "reclassifiedWeek14Games": 8,
+    "removedWins": 8,
+    "removedLosses": 8,
+    "completeRegularSeasonMatchups": 130,
+    "allPlayWeeksAlreadyCorrect": true,
+    "rowsNeedingCorrection": [
+      {
+        "manager": "Stilly",
+        "year": 2020,
+        "archived": "5-9",
+        "corrected": "4-9",
+        "archivedExtra": {
+          "games": 1,
+          "w": 1,
+          "l": 0,
+          "pf": 115.72,
+          "pa": 97.64
+        }
+      },
+      {
+        "manager": "Kuhl",
+        "year": 2020,
+        "archived": "9-5",
+        "corrected": "9-4",
+        "archivedExtra": {
+          "games": 1,
+          "w": 0,
+          "l": 1,
+          "pf": 118.14,
+          "pa": 149.98
+        }
+      },
+      {
+        "manager": "Evans",
+        "year": 2020,
+        "archived": "7-7",
+        "corrected": "7-6",
+        "archivedExtra": {
+          "games": 1,
+          "w": 0,
+          "l": 1,
+          "pf": 108.72,
+          "pa": 110.84
+        }
+      },
+      {
+        "manager": "Stover",
+        "year": 2020,
+        "archived": "8-6",
+        "corrected": "7-6",
+        "archivedExtra": {
+          "games": 1,
+          "w": 1,
+          "l": 0,
+          "pf": 110.84,
+          "pa": 108.72
+        }
+      },
+      {
+        "manager": "Thommy",
+        "year": 2020,
+        "archived": "5-9",
+        "corrected": "4-9",
+        "archivedExtra": {
+          "games": 1,
+          "w": 1,
+          "l": 0,
+          "pf": 151.32,
+          "pa": 125.56
+        }
+      },
+      {
+        "manager": "Stew",
+        "year": 2020,
+        "archived": "6-8",
+        "corrected": "6-7",
+        "archivedExtra": {
+          "games": 1,
+          "w": 0,
+          "l": 1,
+          "pf": 97.64,
+          "pa": 115.72
+        }
+      },
+      {
+        "manager": "Koble",
+        "year": 2020,
+        "archived": "7-7",
+        "corrected": "6-7",
+        "archivedExtra": {
+          "games": 1,
+          "w": 1,
+          "l": 0,
+          "pf": 149.98,
+          "pa": 118.14
+        }
+      },
+      {
+        "manager": "Tony",
+        "year": 2020,
+        "archived": "4-10",
+        "corrected": "4-9",
+        "archivedExtra": {
+          "games": 1,
+          "w": 0,
+          "l": 1,
+          "pf": 125.56,
+          "pa": 151.32
+        }
+      },
+      {
+        "manager": "Stilly",
+        "year": 2021,
+        "archived": "5-9",
+        "corrected": "5-8",
+        "archivedExtra": {
+          "games": 1,
+          "w": 0,
+          "l": 1,
+          "pf": 108.94,
+          "pa": 111.32
+        }
+      },
+      {
+        "manager": "Stover",
+        "year": 2021,
+        "archived": "11-3",
+        "corrected": "10-3",
+        "archivedExtra": {
+          "games": 1,
+          "w": 1,
+          "l": 0,
+          "pf": 144.8,
+          "pa": 104.54
+        }
+      },
+      {
+        "manager": "Mitch",
+        "year": 2021,
+        "archived": "8-6",
+        "corrected": "8-5",
+        "archivedExtra": {
+          "games": 1,
+          "w": 0,
+          "l": 1,
+          "pf": 134.82,
+          "pa": 162.04
+        }
+      },
+      {
+        "manager": "Evans",
+        "year": 2021,
+        "archived": "7-7",
+        "corrected": "6-7",
+        "archivedExtra": {
+          "games": 1,
+          "w": 1,
+          "l": 0,
+          "pf": 162.04,
+          "pa": 134.82
+        }
+      },
+      {
+        "manager": "Thommy",
+        "year": 2021,
+        "archived": "5-9",
+        "corrected": "5-8",
+        "archivedExtra": {
+          "games": 1,
+          "w": 0,
+          "l": 1,
+          "pf": 104.54,
+          "pa": 144.8
+        }
+      },
+      {
+        "manager": "Stew",
+        "year": 2021,
+        "archived": "3-11",
+        "corrected": "2-11",
+        "archivedExtra": {
+          "games": 1,
+          "w": 1,
+          "l": 0,
+          "pf": 111.32,
+          "pa": 108.94
+        }
+      },
+      {
+        "manager": "Koble",
+        "year": 2021,
+        "archived": "4-10",
+        "corrected": "4-9",
+        "archivedExtra": {
+          "games": 1,
+          "w": 0,
+          "l": 1,
+          "pf": 73.32,
+          "pa": 109.52
+        }
+      },
+      {
+        "manager": "Kuhl",
+        "year": 2021,
+        "archived": "5-9",
+        "corrected": "4-9",
+        "archivedExtra": {
+          "games": 1,
+          "w": 1,
+          "l": 0,
+          "pf": 109.52,
+          "pa": 73.32
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Existing canonical season guide, manager records, career H2H and aggregate regular-season win-loss still include eight Week 14 postseason matchups.",
+    "Separate 2020–2021 Week 14 consolation fixture identification is required for source stage editing; not all eight matches are winners-bracket.",
+    "Recalculate downstream record panels and story text together with base stage changes.",
+    "This projection uses verified points and official playoff seeds but does not independently resolve standings tiebreak rules."
+  ]
+}
