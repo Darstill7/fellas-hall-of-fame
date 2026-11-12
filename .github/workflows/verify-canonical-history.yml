@@ -63,6 +63,8 @@ jobs:
         run: node scripts/verify-week14-provider-pairings.mjs
       - name: Guard the career and head-to-head change forecast before stage migration
         run: node scripts/verify-week14-career-impact.mjs
+      - name: Protect historically correct 2020–2021 season pages and quarantine PF differences
+        run: node scripts/verify-2020-2021-season-page-parity.mjs
       - name: Guard legitimate three-team trades in source-qualified Trade Museum
         run: node scripts/verify-trade-museum-scope.mjs
       - name: Verify generated career and H2H data
