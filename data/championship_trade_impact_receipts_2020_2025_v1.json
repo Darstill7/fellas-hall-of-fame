@@ -22,7 +22,8 @@
     "championPlayoffGamesReviewed": 12,
     "completedSleeperSeasons": 6,
     "verifiedChampionTradePlayerGameMatches": 16,
-    "greaterThanMarginCases": 9
+    "greaterThanMarginCases": 9,
+    "championshipAcquiredPlayerGameEntries": 9
   },
   "headlineCases": [
     {
@@ -634,6 +635,89 @@
     {
       "topic": "2025 three-team transaction",
       "blocker": "Postseason/keeper attribution for all three sides, future 2026 season unfinished, FAAB unconfirmed"
+    }
+  ],
+  "championshipAcquiredStarterLeaderboard": [
+    {
+      "rank": 1,
+      "year": 2024,
+      "champion": "Thommy",
+      "player": "Tee Higgins",
+      "points": 34.6,
+      "tradeId": "1144362000575840256",
+      "championshipMargin": 90.42
+    },
+    {
+      "rank": 2,
+      "year": 2021,
+      "champion": "Tony",
+      "player": "Joe Mixon",
+      "points": 29.5,
+      "tradeId": "751165345997402112",
+      "championshipMargin": 4.3
+    },
+    {
+      "rank": 3,
+      "year": 2024,
+      "champion": "Thommy",
+      "player": "Travis Kelce",
+      "points": 18.4,
+      "tradeId": "1152708228883660800",
+      "championshipMargin": 90.42
+    },
+    {
+      "rank": 4,
+      "year": 2024,
+      "champion": "Thommy",
+      "player": "Jordan Love",
+      "points": 14,
+      "tradeId": "1146947320588861440",
+      "championshipMargin": 90.42
+    },
+    {
+      "rank": 5,
+      "year": 2021,
+      "champion": "Tony",
+      "player": "Kyle Pitts Sr.",
+      "points": 13.2,
+      "tradeId": "759191673220775936",
+      "championshipMargin": 4.3
+    },
+    {
+      "rank": 6,
+      "year": 2021,
+      "champion": "Tony",
+      "player": "Jonathan Taylor",
+      "points": 11.8,
+      "tradeId": "737360507476066304",
+      "championshipMargin": 4.3
+    },
+    {
+      "rank": 7,
+      "year": 2023,
+      "champion": "Stilly",
+      "player": "Mike Evans",
+      "points": 8.5,
+      "tradeId": "1023059879336013824",
+      "championshipMargin": 14.78
+    },
+    {
+      "rank": 8,
+      "year": 2021,
+      "champion": "Tony",
+      "player": "CeeDee Lamb",
+      "points": 8.4,
+      "tradeId": "754017147822415872",
+      "championshipMargin": 4.3
+    },
+    {
+      "rank": 9,
+      "year": 2023,
+      "champion": "Stilly",
+      "player": "Derrick Henry",
+      "points": 4.2,
+      "tradeId": "1023059879336013824",
+      "championshipMargin": 14.78
     }
   ]
 }
