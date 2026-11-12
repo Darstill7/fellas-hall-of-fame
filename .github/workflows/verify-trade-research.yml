@@ -1,0 +1,39 @@
+name: Verify researched trade outcomes
+on:
+  push:
+    paths:
+      - 'data/greatest_worst_trades_research_v1.json'
+      - 'data/multiteam_keeper_trade_case_studies_v1.json'
+      - 'data/trade_winners_losers_research_2020_2025_v1.json'
+      - 'data/trade_par_preview.json'
+      - 'data/trade_museum_stage66.json'
+      - 'data/trade_lineage_v2.json'
+      - 'analytics/greatest-worst-trades.html'
+      - 'analytics/trades.html'
+      - 'hall/shame.html'
+      - 'scripts/verify-greatest-worst-trades.mjs'
+      - '.github/workflows/verify-trade-research.yml'
+  pull_request:
+    paths:
+      - 'data/greatest_worst_trades_research_v1.json'
+      - 'data/multiteam_keeper_trade_case_studies_v1.json'
+      - 'data/trade_par_preview.json'
+      - 'data/trade_museum_stage66.json'
+      - 'data/trade_lineage_v2.json'
+      - 'analytics/greatest-worst-trades.html'
+      - 'scripts/verify-greatest-worst-trades.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-trade-research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check research test syntax
+        run: node --check scripts/verify-greatest-worst-trades.mjs
+      - name: Verify verified trades, multi-team lineage and championship caveats
+        run: node scripts/verify-greatest-worst-trades.mjs
