@@ -4,6 +4,10 @@ on:
     paths:
       - 'data/greatest_worst_trades_research_v1.json'
       - 'data/championship_trade_impact_receipts_2020_2025_v1.json'
+      - 'assets/record-holders-page.mjs'
+      - 'analytics/records.html'
+      - 'analytics/record-holders.html'
+      - 'data/championship_trade_awards_2020_2025_v1.json'
       - 'scripts/verify-tony-2021-championship-trades.mjs'
       - 'analytics/tony-2021-four-trades-one-ring.html'
       - 'data/tony_2021_championship_trade_case_study_v1.json'
@@ -24,6 +28,10 @@ on:
     paths:
       - 'data/greatest_worst_trades_research_v1.json'
       - 'data/championship_trade_impact_receipts_2020_2025_v1.json'
+      - 'assets/record-holders-page.mjs'
+      - 'analytics/records.html'
+      - 'analytics/record-holders.html'
+      - 'data/championship_trade_awards_2020_2025_v1.json'
       - 'scripts/verify-tony-2021-championship-trades.mjs'
       - 'analytics/tony-2021-four-trades-one-ring.html'
       - 'data/tony_2021_championship_trade_case_study_v1.json'
