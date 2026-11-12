@@ -1,3 +1,4 @@
+import {mountManagerScheduleLuck} from './manager-schedule-luck.mjs';
 import {mountDraftTradeCareer} from './manager-draft-trade-career-page.mjs';
 import {mountManagerSeasonEvidence} from './manager-season-evidence.mjs';
 import {managerPersonas} from './manager-personas.mjs';
@@ -123,6 +124,8 @@ if(profileHero&&!profileHero.querySelector('[data-profile-career-snapshot]')){
   (lead||profileHero.querySelector('h1'))?.after(snapshot);
  }
 }
+// Matchup-derived career opponent-draw stat, shared across every active manager profile.
+mountManagerScheduleLuck(profileName,profileHero);
 // The first screen should tell one memorable, sourced story before the deep research.
 // Leave the detailed archive and existing canonical record widgets intact.
 async function mountVerifiedDefiningMoment(){
