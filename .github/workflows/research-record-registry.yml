@@ -1,0 +1,21 @@
+name: Research record registry deterministic gate
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/build-record-candidate-registry.mjs'
+      - 'scripts/verify-record-candidate-registry.mjs'
+      - 'data/unified_record_book_2016_2026.json'
+      - '.github/workflows/research-record-registry.yml'
+  workflow_dispatch:
+jobs:
+  registry:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Independently recompute candidate records from canonical scores
+        run: node scripts/verify-record-candidate-registry.mjs
