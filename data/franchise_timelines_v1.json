@@ -1,23 +1,23 @@
 {
-  "version": "9.9",
-  "coverage": "2016\u20132025 champions, 2020\u20132026 trades/draft board, 2026 Weeks 1\u20136 matchups. Historical per-season standings not available.",
+  "version": "9.10",
+  "coverage": "2016–2025 champions; 2020–2026 archived trades and draft boards; verified 2026 Weeks 1–9 regular-season matchups. Historical season-level records not included in this timeline snapshot.",
   "managers": [
     {
       "name": "Stilly",
       "info": {
         "owner": "Darstill",
         "team": "Harry Woody",
-        "record": "40\u201348",
+        "record": "40–48",
         "pf": 9605.42,
         "titles": 1,
-        "peak": "2023 champion \u00b7 2024 runner-up",
+        "peak": "2023 champion · 2024 runner-up",
         "dna": "The Portfolio Manager",
         "desc": "Constantly consolidates and repairs the roster in-season. Best when turning several good assets into one elite one, or escaping a draft mistake before the market fully collapses.",
-        "best": "2023 Cooper Kupp \u2192 Mike Evans + Derrick Henry; 2024 CMC escape + Chase Brown",
-        "scar": "2020 Shitter Bowl champion; Mitch owns the verified Sleeper series 9\u20131.",
+        "best": "2023 Cooper Kupp → Mike Evans + Derrick Henry; 2024 CMC escape + Chase Brown",
+        "scar": "2020 Shitter Bowl champion; Mitch owns the verified Sleeper series 9–1.",
         "draft": "Jayden Daniels at 14.140 in 2024; later became a 2026 keeper.",
         "rival": "Mitch",
-        "rival_record": "1\u20139"
+        "rival_record": "1–9"
       },
       "seasons": [
         {
@@ -407,37 +407,52 @@
           "moments": [
             {
               "week": 1,
-              "headline": "Stilly 107.94 \u2013 Scott 134.96",
-              "detail": "Loss \u00b7 margin 27.02"
+              "headline": "Stilly 107.94 – Scott 134.96",
+              "detail": "Loss · margin 27.02"
             },
             {
               "week": 2,
-              "headline": "Stilly 163.34 \u2013 Tom 63.00",
-              "detail": "Win \u00b7 margin 100.34"
+              "headline": "Stilly 163.34 – Thommy 63.00",
+              "detail": "Win · margin 100.34"
             },
             {
               "week": 3,
-              "headline": "Stilly 104.98 \u2013 JMid 152.58",
-              "detail": "Loss \u00b7 margin 47.60"
+              "headline": "Stilly 104.98 – JMid 152.58",
+              "detail": "Loss · margin 47.60"
             },
             {
               "week": 4,
-              "headline": "Stilly 124.62 \u2013 Stew 105.98",
-              "detail": "Win \u00b7 margin 18.64"
+              "headline": "Stilly 124.62 – Stew 105.98",
+              "detail": "Win · margin 18.64"
             },
             {
               "week": 5,
-              "headline": "Stilly 126.36 \u2013 Tony 115.44",
-              "detail": "Win \u00b7 margin 10.92"
+              "headline": "Stilly 126.36 – Tony 115.44",
+              "detail": "Win · margin 10.92"
             },
             {
               "week": 6,
-              "headline": "Stilly 71.30 \u2013 Stover 121.68",
-              "detail": "Loss \u00b7 margin 50.38"
+              "headline": "Stilly 71.30 – Stover 121.68",
+              "detail": "Loss · margin 50.38"
+            },
+            {
+              "week": 7,
+              "headline": "Stilly 115.12 – Mitch 119.98",
+              "detail": "Loss · margin 4.86"
+            },
+            {
+              "week": 8,
+              "headline": "Stilly 113.58 – Birch 96.90",
+              "detail": "Win · margin 16.68"
+            },
+            {
+              "week": 9,
+              "headline": "Stilly 116.66 – Kuhl 77.54",
+              "detail": "Win · margin 39.12"
             }
           ],
-          "season_record": "3\u20133",
-          "record_note": "Verified 2026 Weeks 1\u20136 only.",
+          "season_record": "5–4",
+          "record_note": "Verified 2026 regular season through Week 9 · 9 games · 1043.90 PF · 988.06 PA.",
           "draft_count": 15
         }
       ]
@@ -447,17 +462,17 @@
       "info": {
         "owner": "JMidd",
         "team": "Bengals Fan",
-        "record": "14\u201320",
+        "record": "14–20",
         "pf": 3780.02,
         "titles": 0,
-        "peak": "2024 \u00b7 8\u20136 \u00b7 league-high 1,730.22 PF",
+        "peak": "2024 · 8–6 · league-high 1,730.22 PF",
         "dna": "The Blockbuster Rebuilder",
-        "desc": "Frequently one major deal away from fixing the roster\u2014and the deal can create two new problems. Immediately showed elite scoring upside in the first full season in the current group.",
-        "best": "2024 James Cook \u2192 Kyren Williams + Calvin Ridley",
-        "scar": "2025: 5\u20139 with the lowest broad lineup-efficiency mark in the league.",
+        "desc": "Frequently one major deal away from fixing the roster—and the deal can create two new problems. Immediately showed elite scoring upside in the first full season in the current group.",
+        "best": "2024 James Cook → Kyren Williams + Calvin Ridley",
+        "scar": "2025: 5–9 with the lowest broad lineup-efficiency mark in the league.",
         "draft": "2024 Ladd McConkey at 9.87 and Chuba Hubbard at 12.114 stand out.",
         "rival": "Stew",
-        "rival_record": "3\u20132"
+        "rival_record": "3–2"
       },
       "seasons": [
         {
@@ -681,37 +696,52 @@
           "moments": [
             {
               "week": 1,
-              "headline": "JMid 73.56 \u2013 Tom 89.00",
-              "detail": "Loss \u00b7 margin 15.44"
+              "headline": "JMid 73.56 – Thommy 89.00",
+              "detail": "Loss · margin 15.44"
             },
             {
               "week": 2,
-              "headline": "JMid 94.38 \u2013 Stew 113.96",
-              "detail": "Loss \u00b7 margin 19.58"
+              "headline": "JMid 94.38 – Stew 113.96",
+              "detail": "Loss · margin 19.58"
             },
             {
               "week": 3,
-              "headline": "JMid 152.58 \u2013 Stilly 104.98",
-              "detail": "Win \u00b7 margin 47.60"
+              "headline": "JMid 152.58 – Stilly 104.98",
+              "detail": "Win · margin 47.60"
             },
             {
               "week": 4,
-              "headline": "JMid 106.12 \u2013 Tony 154.80",
-              "detail": "Loss \u00b7 margin 48.68"
+              "headline": "JMid 106.12 – Tony 154.80",
+              "detail": "Loss · margin 48.68"
             },
             {
               "week": 5,
-              "headline": "JMid 105.30 \u2013 Stover 113.94",
-              "detail": "Loss \u00b7 margin 8.64"
+              "headline": "JMid 105.30 – Stover 113.94",
+              "detail": "Loss · margin 8.64"
             },
             {
               "week": 6,
-              "headline": "JMid 89.16 \u2013 Mitch 129.20",
-              "detail": "Loss \u00b7 margin 40.04"
+              "headline": "JMid 89.16 – Mitch 129.20",
+              "detail": "Loss · margin 40.04"
+            },
+            {
+              "week": 7,
+              "headline": "JMid 127.28 – Birch 73.30",
+              "detail": "Win · margin 53.98"
+            },
+            {
+              "week": 8,
+              "headline": "JMid 141.68 – Kuhl 82.38",
+              "detail": "Win · margin 59.30"
+            },
+            {
+              "week": 9,
+              "headline": "JMid 148.74 – Scott 109.94",
+              "detail": "Win · margin 38.80"
             }
           ],
-          "season_record": "1\u20135",
-          "record_note": "Verified 2026 Weeks 1\u20136 only.",
+          "season_record": "4–5",
+          "record_note": "Verified 2026 regular season through Week 9 · 9 games · 1038.80 PF · 971.50 PA.",
           "draft_count": 15
         }
       ]
@@ -721,17 +751,17 @@
       "info": {
         "owner": "thommy",
         "team": "Green Bowl Packers",
-        "record": "41\u201347",
+        "record": "41–47",
         "pf": 9699.02,
         "titles": 4,
-        "peak": "2016\u201318 three-peat \u00b7 2024 champion",
+        "peak": "2016–18 three-peat · 2024 champion",
         "dna": "The Championship Standard",
-        "desc": "Old-school roster builder who can lose isolated trade grades and still assemble a team that wins when it matters. The league\u2019s benchmark because four titles are the only argument that really ends arguments.",
+        "desc": "Old-school roster builder who can lose isolated trade grades and still assemble a team that wins when it matters. The league’s benchmark because four titles are the only argument that really ends arguments.",
         "best": "2022 CeeDee + DK + DeVonta package; 2024 Andrews + Dowdle helped stabilize title run",
-        "scar": "Regular-season r\u00e9sum\u00e9 is less dominant than the trophy case suggests.",
+        "scar": "Regular-season résumé is less dominant than the trophy case suggests.",
         "draft": "2020 Josh Allen in Round 8; 2022 Garrett Wilson in Round 11; 2024 Chase Brown in Round 10.",
         "rival": "Kuhl",
-        "rival_record": "7\u20133"
+        "rival_record": "7–3"
       },
       "seasons": [
         {
@@ -1133,37 +1163,52 @@
           "moments": [
             {
               "week": 1,
-              "headline": "Tom 89.00 \u2013 JMid 73.56",
-              "detail": "Win \u00b7 margin 15.44"
+              "headline": "Thommy 89.00 – JMid 73.56",
+              "detail": "Win · margin 15.44"
             },
             {
               "week": 2,
-              "headline": "Tom 63.00 \u2013 Stilly 163.34",
-              "detail": "Loss \u00b7 margin 100.34"
+              "headline": "Thommy 63.00 – Stilly 163.34",
+              "detail": "Loss · margin 100.34"
             },
             {
               "week": 3,
-              "headline": "Tom 86.66 \u2013 Tony 92.44",
-              "detail": "Loss \u00b7 margin 5.78"
+              "headline": "Thommy 86.66 – Tony 92.44",
+              "detail": "Loss · margin 5.78"
             },
             {
               "week": 4,
-              "headline": "Tom 143.28 \u2013 Stover 110.48",
-              "detail": "Win \u00b7 margin 32.80"
+              "headline": "Thommy 143.28 – Stover 110.48",
+              "detail": "Win · margin 32.80"
             },
             {
               "week": 5,
-              "headline": "Tom 124.94 \u2013 Mitch 172.90",
-              "detail": "Loss \u00b7 margin 47.96"
+              "headline": "Thommy 124.94 – Mitch 172.90",
+              "detail": "Loss · margin 47.96"
             },
             {
               "week": 6,
-              "headline": "Tom 91.70 \u2013 Birch 98.88",
-              "detail": "Loss \u00b7 margin 7.18"
+              "headline": "Thommy 91.70 – Birch 98.88",
+              "detail": "Loss · margin 7.18"
+            },
+            {
+              "week": 7,
+              "headline": "Thommy 133.12 – Kuhl 100.30",
+              "detail": "Win · margin 32.82"
+            },
+            {
+              "week": 8,
+              "headline": "Thommy 106.34 – Scott 112.56",
+              "detail": "Loss · margin 6.22"
+            },
+            {
+              "week": 9,
+              "headline": "Thommy 86.60 – Stew 87.36",
+              "detail": "Loss · margin 0.76"
             }
           ],
-          "season_record": "2\u20134",
-          "record_note": "Verified 2026 Weeks 1\u20136 only.",
+          "season_record": "3–6",
+          "record_note": "Verified 2026 regular season through Week 9 · 9 games · 924.64 PF · 1011.82 PA.",
           "draft_count": 15
         }
       ]
@@ -1173,17 +1218,17 @@
       "info": {
         "owner": "Dsylvester9",
         "team": "Worst Team on Paper!",
-        "record": "37\u201351",
+        "record": "37–51",
         "pf": 9558.6,
         "titles": 0,
-        "peak": "2022 \u00b7 11\u20133 \u00b7 best record, PF and potential PF",
+        "peak": "2022 · 11–3 · best record, PF and potential PF",
         "dna": "The Day Trader",
-        "desc": "The league\u2019s highest-volume transaction personality. At his best, he manufactures elite rosters; at his worst, the extra move after the good move is the one that ends up in the museum.",
-        "best": "2022 Justin Jefferson and Ja\u2019Marr Chase acquisitions; Puka Nacua for $6 in 2023",
-        "scar": "2023 Jefferson + Josh Jacobs \u2192 Gabe Davis after the future first was voided.",
+        "desc": "The league’s highest-volume transaction personality. At his best, he manufactures elite rosters; at his worst, the extra move after the good move is the one that ends up in the museum.",
+        "best": "2022 Justin Jefferson and Ja’Marr Chase acquisitions; Puka Nacua for $6 in 2023",
+        "scar": "2023 Jefferson + Josh Jacobs → Gabe Davis after the future first was voided.",
         "draft": "2022 Kenneth Walker at 10.94; 2024 J.K. Dobbins at 13.124.",
         "rival": "Birch",
-        "rival_record": "6\u20133"
+        "rival_record": "6–3"
       },
       "seasons": [
         {
@@ -1639,37 +1684,52 @@
           "moments": [
             {
               "week": 1,
-              "headline": "Stew 158.52 \u2013 Mitch 161.26",
-              "detail": "Loss \u00b7 margin 2.74"
+              "headline": "Stew 158.52 – Mitch 161.26",
+              "detail": "Loss · margin 2.74"
             },
             {
               "week": 2,
-              "headline": "Stew 113.96 \u2013 JMid 94.38",
-              "detail": "Win \u00b7 margin 19.58"
+              "headline": "Stew 113.96 – JMid 94.38",
+              "detail": "Win · margin 19.58"
             },
             {
               "week": 3,
-              "headline": "Stew 123.22 \u2013 Birch 128.94",
-              "detail": "Loss \u00b7 margin 5.72"
+              "headline": "Stew 123.22 – Birch 128.94",
+              "detail": "Loss · margin 5.72"
             },
             {
               "week": 4,
-              "headline": "Stew 105.98 \u2013 Stilly 124.62",
-              "detail": "Loss \u00b7 margin 18.64"
+              "headline": "Stew 105.98 – Stilly 124.62",
+              "detail": "Loss · margin 18.64"
             },
             {
               "week": 5,
-              "headline": "Stew 142.56 \u2013 Kuhl 95.10",
-              "detail": "Win \u00b7 margin 47.46"
+              "headline": "Stew 142.56 – Kuhl 95.10",
+              "detail": "Win · margin 47.46"
             },
             {
               "week": 6,
-              "headline": "Stew 114.44 \u2013 Tony 74.72",
-              "detail": "Win \u00b7 margin 39.72"
+              "headline": "Stew 114.44 – Tony 74.72",
+              "detail": "Win · margin 39.72"
+            },
+            {
+              "week": 7,
+              "headline": "Stew 110.14 – Scott 105.22",
+              "detail": "Win · margin 4.92"
+            },
+            {
+              "week": 8,
+              "headline": "Stew 134.16 – Stover 79.10",
+              "detail": "Win · margin 55.06"
+            },
+            {
+              "week": 9,
+              "headline": "Stew 87.36 – Thommy 86.60",
+              "detail": "Win · margin 0.76"
             }
           ],
-          "season_record": "3\u20133",
-          "record_note": "Verified 2026 Weeks 1\u20136 only.",
+          "season_record": "6–3",
+          "record_note": "Verified 2026 regular season through Week 9 · 9 games · 1090.34 PF · 949.94 PA.",
           "draft_count": 15
         }
       ]
@@ -1679,17 +1739,17 @@
       "info": {
         "owner": "Sheffla",
         "team": "Team Sheffla",
-        "record": "16\u201318",
+        "record": "16–18",
         "pf": 3651.12,
         "titles": 1,
-        "peak": "2025 champion \u00b7 70.32-point title margin",
+        "peak": "2025 champion · 70.32-point title margin",
         "dna": "The Converter",
         "desc": "Smallest career sample among the current group, but already owns a title. The 2025 championship paired strong lineup efficiency with a postseason hammer.",
         "best": "2025 title run; ~92.5% lineup efficiency.",
         "scar": "2026 Week 2: 46.38, the lowest known Sleeper-era score.",
         "draft": "2024 Rashee Rice at 7.69; 2026 Bijan kept as a Round 1 foundation.",
         "rival": "Kuhl",
-        "rival_record": "3\u20131"
+        "rival_record": "3–1"
       },
       "seasons": [
         {
@@ -1874,37 +1934,52 @@
           "moments": [
             {
               "week": 1,
-              "headline": "Scott 134.96 \u2013 Stilly 107.94",
-              "detail": "Win \u00b7 margin 27.02"
+              "headline": "Scott 134.96 – Stilly 107.94",
+              "detail": "Win · margin 27.02"
             },
             {
               "week": 2,
-              "headline": "Scott 46.38 \u2013 Tony 84.32",
-              "detail": "Loss \u00b7 margin 37.94"
+              "headline": "Scott 46.38 – Tony 84.32",
+              "detail": "Loss · margin 37.94"
             },
             {
               "week": 3,
-              "headline": "Scott 120.60 \u2013 Stover 105.78",
-              "detail": "Win \u00b7 margin 14.82"
+              "headline": "Scott 120.60 – Stover 105.78",
+              "detail": "Win · margin 14.82"
             },
             {
               "week": 4,
-              "headline": "Scott 90.54 \u2013 Mitch 92.52",
-              "detail": "Loss \u00b7 margin 1.98"
+              "headline": "Scott 90.54 – Mitch 92.52",
+              "detail": "Loss · margin 1.98"
             },
             {
               "week": 5,
-              "headline": "Scott 66.22 \u2013 Birch 144.58",
-              "detail": "Loss \u00b7 margin 78.36"
+              "headline": "Scott 66.22 – Birch 144.58",
+              "detail": "Loss · margin 78.36"
             },
             {
               "week": 6,
-              "headline": "Scott 114.56 \u2013 Kuhl 101.82",
-              "detail": "Win \u00b7 margin 12.74"
+              "headline": "Scott 114.56 – Kuhl 101.82",
+              "detail": "Win · margin 12.74"
+            },
+            {
+              "week": 7,
+              "headline": "Scott 105.22 – Stew 110.14",
+              "detail": "Loss · margin 4.92"
+            },
+            {
+              "week": 8,
+              "headline": "Scott 112.56 – Thommy 106.34",
+              "detail": "Win · margin 6.22"
+            },
+            {
+              "week": 9,
+              "headline": "Scott 109.94 – JMid 148.74",
+              "detail": "Loss · margin 38.80"
             }
           ],
-          "season_record": "3\u20133",
-          "record_note": "Verified 2026 Weeks 1\u20136 only.",
+          "season_record": "4–5",
+          "record_note": "Verified 2026 regular season through Week 9 · 9 games · 900.98 PF · 1002.18 PA.",
           "draft_count": 15
         }
       ]
@@ -1914,17 +1989,17 @@
       "info": {
         "owner": "huppdawg80",
         "team": "Suck My Njigba",
-        "record": "55\u201333",
+        "record": "55–33",
         "pf": 10671.68,
         "titles": 0,
-        "peak": "2025 \u00b7 13\u20131 \u00b7 1,894.88 PF",
+        "peak": "2025 · 13–1 · 1,894.88 PF",
         "dna": "The Math Problem",
         "desc": "Builds teams that look like solvable equations: elite anchors, efficient lineup construction, and relentlessly high regular-season output. The missing championship is the only obvious hole.",
         "best": "2022 Saquon + Thielen for Jonathan Taylor; sustained elite regular-season construction",
         "scar": "2025 semifinal: MHJ 1.9 over Chris Rodriguez 13.4; exact lineup flip would have advanced him.",
         "draft": "2020 Antonio Gibson at 11.103; 2024 JSN in Round 9 became a 2025/26 core asset.",
         "rival": "Stilly",
-        "rival_record": "9\u20131"
+        "rival_record": "9–1"
       },
       "seasons": [
         {
@@ -2205,37 +2280,52 @@
           "moments": [
             {
               "week": 1,
-              "headline": "Mitch 161.26 \u2013 Stew 158.52",
-              "detail": "Win \u00b7 margin 2.74"
+              "headline": "Mitch 161.26 – Stew 158.52",
+              "detail": "Win · margin 2.74"
             },
             {
               "week": 2,
-              "headline": "Mitch 168.72 \u2013 Birch 99.70",
-              "detail": "Win \u00b7 margin 69.02"
+              "headline": "Mitch 168.72 – Birch 99.70",
+              "detail": "Win · margin 69.02"
             },
             {
               "week": 3,
-              "headline": "Mitch 91.62 \u2013 Kuhl 76.16",
-              "detail": "Win \u00b7 margin 15.46"
+              "headline": "Mitch 91.62 – Kuhl 76.16",
+              "detail": "Win · margin 15.46"
             },
             {
               "week": 4,
-              "headline": "Mitch 92.52 \u2013 Scott 90.54",
-              "detail": "Win \u00b7 margin 1.98"
+              "headline": "Mitch 92.52 – Scott 90.54",
+              "detail": "Win · margin 1.98"
             },
             {
               "week": 5,
-              "headline": "Mitch 172.90 \u2013 Tom 124.94",
-              "detail": "Win \u00b7 margin 47.96"
+              "headline": "Mitch 172.90 – Thommy 124.94",
+              "detail": "Win · margin 47.96"
             },
             {
               "week": 6,
-              "headline": "Mitch 129.20 \u2013 JMid 89.16",
-              "detail": "Win \u00b7 margin 40.04"
+              "headline": "Mitch 129.20 – JMid 89.16",
+              "detail": "Win · margin 40.04"
+            },
+            {
+              "week": 7,
+              "headline": "Mitch 119.98 – Stilly 115.12",
+              "detail": "Win · margin 4.86"
+            },
+            {
+              "week": 8,
+              "headline": "Mitch 123.16 – Tony 99.30",
+              "detail": "Win · margin 23.86"
+            },
+            {
+              "week": 9,
+              "headline": "Mitch 97.76 – Stover 102.58",
+              "detail": "Loss · margin 4.82"
             }
           ],
-          "season_record": "6\u20130",
-          "record_note": "Verified 2026 Weeks 1\u20136 only.",
+          "season_record": "8–1",
+          "record_note": "Verified 2026 regular season through Week 9 · 9 games · 1157.12 PF · 956.02 PA.",
           "draft_count": 15
         }
       ]
@@ -2245,17 +2335,17 @@
       "info": {
         "owner": "tsteg",
         "team": "Bowers Castle",
-        "record": "49\u201339",
+        "record": "49–39",
         "pf": 10124.66,
         "titles": 1,
-        "peak": "2021 champion \u00b7 10\u20133",
+        "peak": "2021 champion · 10–3",
         "dna": "The Quiet Poker Player",
-        "desc": "Often less noisy than Stew, but historically excellent at turning trades and waivers into usable points. Has one of the league\u2019s strongest title-season transaction r\u00e9sum\u00e9s.",
+        "desc": "Often less noisy than Stew, but historically excellent at turning trades and waivers into usable points. Has one of the league’s strongest title-season transaction résumés.",
         "best": "2021 Joe Mixon for James Robinson + Zack Moss; 2022 Kenneth Walker for $94 FAAB",
-        "scar": "2025 playoff loss by 0.72 with Tony Pollard\u2019s 17.7 on the bench over Kenneth Walker\u2019s 2.4.",
+        "scar": "2025 playoff loss by 0.72 with Tony Pollard’s 17.7 on the bench over Kenneth Walker’s 2.4.",
         "draft": "2020 Stefon Diggs at 7.61; 2023 Raheem Mostert at 14.131.",
         "rival": "Kuhl",
-        "rival_record": "8\u20132"
+        "rival_record": "8–2"
       },
       "seasons": [
         {
@@ -2601,37 +2691,52 @@
           "moments": [
             {
               "week": 1,
-              "headline": "Tony 153.86 \u2013 Kuhl 105.92",
-              "detail": "Win \u00b7 margin 47.94"
+              "headline": "Tony 153.86 – Kuhl 105.92",
+              "detail": "Win · margin 47.94"
             },
             {
               "week": 2,
-              "headline": "Tony 84.32 \u2013 Scott 46.38",
-              "detail": "Win \u00b7 margin 37.94"
+              "headline": "Tony 84.32 – Scott 46.38",
+              "detail": "Win · margin 37.94"
             },
             {
               "week": 3,
-              "headline": "Tony 92.44 \u2013 Tom 86.66",
-              "detail": "Win \u00b7 margin 5.78"
+              "headline": "Tony 92.44 – Thommy 86.66",
+              "detail": "Win · margin 5.78"
             },
             {
               "week": 4,
-              "headline": "Tony 154.80 \u2013 JMid 106.12",
-              "detail": "Win \u00b7 margin 48.68"
+              "headline": "Tony 154.80 – JMid 106.12",
+              "detail": "Win · margin 48.68"
             },
             {
               "week": 5,
-              "headline": "Tony 115.44 \u2013 Stilly 126.36",
-              "detail": "Loss \u00b7 margin 10.92"
+              "headline": "Tony 115.44 – Stilly 126.36",
+              "detail": "Loss · margin 10.92"
             },
             {
               "week": 6,
-              "headline": "Tony 74.72 \u2013 Stew 114.44",
-              "detail": "Loss \u00b7 margin 39.72"
+              "headline": "Tony 74.72 – Stew 114.44",
+              "detail": "Loss · margin 39.72"
+            },
+            {
+              "week": 7,
+              "headline": "Tony 112.12 – Stover 111.20",
+              "detail": "Win · margin 0.92"
+            },
+            {
+              "week": 8,
+              "headline": "Tony 99.30 – Mitch 123.16",
+              "detail": "Loss · margin 23.86"
+            },
+            {
+              "week": 9,
+              "headline": "Tony 116.30 – Birch 87.06",
+              "detail": "Win · margin 29.24"
             }
           ],
-          "season_record": "4\u20132",
-          "record_note": "Verified 2026 Weeks 1\u20136 only.",
+          "season_record": "6–3",
+          "record_note": "Verified 2026 regular season through Week 9 · 9 games · 1003.30 PF · 907.30 PA.",
           "draft_count": 15
         }
       ]
@@ -2641,17 +2746,17 @@
       "info": {
         "owner": "DillionPanthers15",
         "team": "Gurt",
-        "record": "50\u201338",
+        "record": "50–38",
         "pf": 9925.58,
         "titles": 1,
-        "peak": "2022 champion \u00b7 2024 10\u20134 best record",
+        "peak": "2022 champion · 2024 10–4 best record",
         "dna": "The Asset Vault",
-        "desc": "Often owns a roster that looks worth more than the weekly score. Strong overall r\u00e9sum\u00e9: a title, 50 Sleeper wins, and another season with the league\u2019s best record.",
+        "desc": "Often owns a roster that looks worth more than the weekly score. Strong overall résumé: a title, 50 Sleeper wins, and another season with the league’s best record.",
         "best": "2022 championship; 2023 Nico Collins for $33 FAAB",
         "scar": "2024 Malik Nabers-for-Davante outcome and the expensive Jauan Jennings claim.",
         "draft": "2024 Brian Thomas Jr. at 10.91 was one of the best value picks of that draft.",
         "rival": "Stew",
-        "rival_record": "5\u20131"
+        "rival_record": "5–1"
       },
       "seasons": [
         {
@@ -2961,37 +3066,52 @@
           "moments": [
             {
               "week": 1,
-              "headline": "Stover 70.80 \u2013 Birch 160.26",
-              "detail": "Loss \u00b7 margin 89.46"
+              "headline": "Stover 70.80 – Birch 160.26",
+              "detail": "Loss · margin 89.46"
             },
             {
               "week": 2,
-              "headline": "Stover 129.26 \u2013 Kuhl 56.32",
-              "detail": "Win \u00b7 margin 72.94"
+              "headline": "Stover 129.26 – Kuhl 56.32",
+              "detail": "Win · margin 72.94"
             },
             {
               "week": 3,
-              "headline": "Stover 105.78 \u2013 Scott 120.60",
-              "detail": "Loss \u00b7 margin 14.82"
+              "headline": "Stover 105.78 – Scott 120.60",
+              "detail": "Loss · margin 14.82"
             },
             {
               "week": 4,
-              "headline": "Stover 110.48 \u2013 Tom 143.28",
-              "detail": "Loss \u00b7 margin 32.80"
+              "headline": "Stover 110.48 – Thommy 143.28",
+              "detail": "Loss · margin 32.80"
             },
             {
               "week": 5,
-              "headline": "Stover 113.94 \u2013 JMid 105.30",
-              "detail": "Win \u00b7 margin 8.64"
+              "headline": "Stover 113.94 – JMid 105.30",
+              "detail": "Win · margin 8.64"
             },
             {
               "week": 6,
-              "headline": "Stover 121.68 \u2013 Stilly 71.30",
-              "detail": "Win \u00b7 margin 50.38"
+              "headline": "Stover 121.68 – Stilly 71.30",
+              "detail": "Win · margin 50.38"
+            },
+            {
+              "week": 7,
+              "headline": "Stover 111.20 – Tony 112.12",
+              "detail": "Loss · margin 0.92"
+            },
+            {
+              "week": 8,
+              "headline": "Stover 79.10 – Stew 134.16",
+              "detail": "Loss · margin 55.06"
+            },
+            {
+              "week": 9,
+              "headline": "Stover 102.58 – Mitch 97.76",
+              "detail": "Win · margin 4.82"
             }
           ],
-          "season_record": "3\u20133",
-          "record_note": "Verified 2026 Weeks 1\u20136 only.",
+          "season_record": "4–5",
+          "record_note": "Verified 2026 regular season through Week 9 · 9 games · 944.82 PF · 1001.10 PA.",
           "draft_count": 15
         }
       ]
@@ -3001,17 +3121,17 @@
       "info": {
         "owner": "ckuhl5",
         "team": "Kirko Chains",
-        "record": "36\u201352",
+        "record": "36–52",
         "pf": 9412.4,
         "titles": 0,
-        "peak": "2022 \u00b7 8\u20136 \u00b7 3rd",
+        "peak": "2022 · 8–6 · 3rd",
         "dna": "The Process / Results Paradox",
-        "desc": "Repeatedly makes useful acquisitions but has one of the league\u2019s weakest conversion records. The archive contains both sharp moves and catastrophic realized-value losses.",
+        "desc": "Repeatedly makes useful acquisitions but has one of the league’s weakest conversion records. The archive contains both sharp moves and catastrophic realized-value losses.",
         "best": "2023 Kyren Williams for $21; 2024 J.K. Dobbins acquisition",
-        "scar": "2023 Ja\u2019Marr Chase \u2192 Tyler Lockett after future picks were voided; repeated lineup-conversion misses.",
+        "scar": "2023 Ja’Marr Chase → Tyler Lockett after future picks were voided; repeated lineup-conversion misses.",
         "draft": "2023 Rashee Rice at 15.144; 2024 Xavier Worthy at 8.78.",
         "rival": "Tony",
-        "rival_record": "2\u20138"
+        "rival_record": "2–8"
       },
       "seasons": [
         {
@@ -3366,37 +3486,52 @@
           "moments": [
             {
               "week": 1,
-              "headline": "Kuhl 105.92 \u2013 Tony 153.86",
-              "detail": "Loss \u00b7 margin 47.94"
+              "headline": "Kuhl 105.92 – Tony 153.86",
+              "detail": "Loss · margin 47.94"
             },
             {
               "week": 2,
-              "headline": "Kuhl 56.32 \u2013 Stover 129.26",
-              "detail": "Loss \u00b7 margin 72.94"
+              "headline": "Kuhl 56.32 – Stover 129.26",
+              "detail": "Loss · margin 72.94"
             },
             {
               "week": 3,
-              "headline": "Kuhl 76.16 \u2013 Mitch 91.62",
-              "detail": "Loss \u00b7 margin 15.46"
+              "headline": "Kuhl 76.16 – Mitch 91.62",
+              "detail": "Loss · margin 15.46"
             },
             {
               "week": 4,
-              "headline": "Kuhl 71.32 \u2013 Birch 108.28",
-              "detail": "Loss \u00b7 margin 36.96"
+              "headline": "Kuhl 71.32 – Birch 108.28",
+              "detail": "Loss · margin 36.96"
             },
             {
               "week": 5,
-              "headline": "Kuhl 95.10 \u2013 Stew 142.56",
-              "detail": "Loss \u00b7 margin 47.46"
+              "headline": "Kuhl 95.10 – Stew 142.56",
+              "detail": "Loss · margin 47.46"
             },
             {
               "week": 6,
-              "headline": "Kuhl 101.82 \u2013 Scott 114.56",
-              "detail": "Loss \u00b7 margin 12.74"
+              "headline": "Kuhl 101.82 – Scott 114.56",
+              "detail": "Loss · margin 12.74"
+            },
+            {
+              "week": 7,
+              "headline": "Kuhl 100.30 – Thommy 133.12",
+              "detail": "Loss · margin 32.82"
+            },
+            {
+              "week": 8,
+              "headline": "Kuhl 82.38 – JMid 141.68",
+              "detail": "Loss · margin 59.30"
+            },
+            {
+              "week": 9,
+              "headline": "Kuhl 77.54 – Stilly 116.66",
+              "detail": "Loss · margin 39.12"
             }
           ],
-          "season_record": "0\u20136",
-          "record_note": "Verified 2026 Weeks 1\u20136 only.",
+          "season_record": "0–9",
+          "record_note": "Verified 2026 regular season through Week 9 · 9 games · 766.86 PF · 1131.60 PA.",
           "draft_count": 15
         }
       ]
@@ -3406,17 +3541,17 @@
       "info": {
         "owner": "birchhh",
         "team": "Nacua Matata",
-        "record": "50\u201338",
+        "record": "50–38",
         "pf": 9800.26,
         "titles": 1,
-        "peak": "2019 champion \u00b7 2021 11\u20132",
+        "peak": "2019 champion · 2021 11–2",
         "dna": "The Blackjack Player",
-        "desc": "Will hit on 17, draw a four, and then explain why it was the correct play. The r\u00e9sum\u00e9 has real wins behind the chaos: a title, 50 Sleeper wins, and several strong positional trades.",
+        "desc": "Will hit on 17, draw a four, and then explain why it was the correct play. The résumé has real wins behind the chaos: a title, 50 Sleeper wins, and several strong positional trades.",
         "best": "2021 Lamar + Mark Andrews + Josh Jacobs positional-advantage trade",
-        "scar": "2022 Ja\u2019Marr Chase \u2192 Patterson + Jeff Wilson + Claypool.",
+        "scar": "2022 Ja’Marr Chase → Patterson + Jeff Wilson + Claypool.",
         "draft": "2021 James Conner at 11.105; 2022 Brandon Aiyuk at 10.91.",
         "rival": "Tony",
-        "rival_record": "8\u20133"
+        "rival_record": "8–3"
       },
       "seasons": [
         {
@@ -3717,37 +3852,52 @@
           "moments": [
             {
               "week": 1,
-              "headline": "Birch 160.26 \u2013 Stover 70.80",
-              "detail": "Win \u00b7 margin 89.46"
+              "headline": "Birch 160.26 – Stover 70.80",
+              "detail": "Win · margin 89.46"
             },
             {
               "week": 2,
-              "headline": "Birch 99.70 \u2013 Mitch 168.72",
-              "detail": "Loss \u00b7 margin 69.02"
+              "headline": "Birch 99.70 – Mitch 168.72",
+              "detail": "Loss · margin 69.02"
             },
             {
               "week": 3,
-              "headline": "Birch 128.94 \u2013 Stew 123.22",
-              "detail": "Win \u00b7 margin 5.72"
+              "headline": "Birch 128.94 – Stew 123.22",
+              "detail": "Win · margin 5.72"
             },
             {
               "week": 4,
-              "headline": "Birch 108.28 \u2013 Kuhl 71.32",
-              "detail": "Win \u00b7 margin 36.96"
+              "headline": "Birch 108.28 – Kuhl 71.32",
+              "detail": "Win · margin 36.96"
             },
             {
               "week": 5,
-              "headline": "Birch 144.58 \u2013 Scott 66.22",
-              "detail": "Win \u00b7 margin 78.36"
+              "headline": "Birch 144.58 – Scott 66.22",
+              "detail": "Win · margin 78.36"
             },
             {
               "week": 6,
-              "headline": "Birch 98.88 \u2013 Tom 91.70",
-              "detail": "Win \u00b7 margin 7.18"
+              "headline": "Birch 98.88 – Thommy 91.70",
+              "detail": "Win · margin 7.18"
+            },
+            {
+              "week": 7,
+              "headline": "Birch 73.30 – JMid 127.28",
+              "detail": "Loss · margin 53.98"
+            },
+            {
+              "week": 8,
+              "headline": "Birch 96.90 – Stilly 113.58",
+              "detail": "Loss · margin 16.68"
+            },
+            {
+              "week": 9,
+              "headline": "Birch 87.06 – Tony 116.30",
+              "detail": "Loss · margin 29.24"
             }
           ],
-          "season_record": "5\u20131",
-          "record_note": "Verified 2026 Weeks 1\u20136 only.",
+          "season_record": "5–4",
+          "record_note": "Verified 2026 regular season through Week 9 · 9 games · 997.90 PF · 949.14 PA.",
           "draft_count": 15
         }
       ]
