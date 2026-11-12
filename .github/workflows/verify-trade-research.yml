@@ -4,6 +4,9 @@ on:
     paths:
       - 'data/greatest_worst_trades_research_v1.json'
       - 'data/championship_trade_impact_receipts_2020_2025_v1.json'
+      - 'scripts/verify-tony-2021-championship-trades.mjs'
+      - 'analytics/tony-2021-four-trades-one-ring.html'
+      - 'data/tony_2021_championship_trade_case_study_v1.json'
       - 'data/championship_player_boxscores_2020_2025_v1.json'
       - 'data/verified_sleeper_playoff_brackets_2020_2025.json'
       - 'data/multiteam_keeper_trade_case_studies_v1.json'
@@ -21,6 +24,9 @@ on:
     paths:
       - 'data/greatest_worst_trades_research_v1.json'
       - 'data/championship_trade_impact_receipts_2020_2025_v1.json'
+      - 'scripts/verify-tony-2021-championship-trades.mjs'
+      - 'analytics/tony-2021-four-trades-one-ring.html'
+      - 'data/tony_2021_championship_trade_case_study_v1.json'
       - 'data/championship_player_boxscores_2020_2025_v1.json'
       - 'data/verified_sleeper_playoff_brackets_2020_2025.json'
       - 'data/multiteam_keeper_trade_case_studies_v1.json'
@@ -45,7 +51,9 @@ jobs:
         run: |
           node --check scripts/verify-greatest-worst-trades.mjs
           node --check scripts/verify-championship-trade-impact.mjs
+          node --check scripts/verify-tony-2021-championship-trades.mjs
       - name: Verify verified trades, multi-team lineage and championship caveats
         run: |
           node scripts/verify-greatest-worst-trades.mjs
           node scripts/verify-championship-trade-impact.mjs
+          node scripts/verify-tony-2021-championship-trades.mjs
