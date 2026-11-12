@@ -1,0 +1,437 @@
+{
+  "title": "The Weekly Shitter Week 10 — independently sourced lineup projection receipts",
+  "asOf": "2026-11-12",
+  "season": 2026,
+  "week": 10,
+  "leagueId": "1340027406009761792",
+  "source": "https://www.rotoballer.com/fantasy-football-projections-for-week-10-rb-wr-qb-te-2026/1990444",
+  "sourceDescription": "RotoBaller's published 2026 Week 10 player-level half-PPR projections, transcribed for each current Sleeper starter",
+  "method": "Sum the nine listed projected starters per Sleeper roster. If a starting slot is empty, include zero. These are third-party estimates, not Sleeper projections or verified league-custom scoring. Quarterback, player injury and DST scoring can move before kickoff.",
+  "notes": [
+    "Stover had no started team defense at the November 12 roster snapshot; this includes 0 for that slot. The Rams defense was on his bench and the external model lists Rams DST at 9.9, but that is not included in the current-starting-lineup forecast.",
+    "Player playing-status / uncertainty not separately probabilistically adjusted; use injury updates before kickoff.",
+    "Seattle QB Sam Darnold is expected to miss Week 10; Drew Lock changes the uncertainty around Jaxon Smith-Njigba."
+  ],
+  "lineupProjections": {
+    "Stilly": {
+      "rosterId": 1,
+      "players": [
+        {
+          "player": "Jayden Daniels",
+          "halfPprProjection": 18.7
+        },
+        {
+          "player": "Tyler Allgeier",
+          "halfPprProjection": 8.6
+        },
+        {
+          "player": "Ollie Gordon II",
+          "halfPprProjection": 13.5
+        },
+        {
+          "player": "Amon-Ra St. Brown",
+          "halfPprProjection": 17.9
+        },
+        {
+          "player": "CeeDee Lamb",
+          "halfPprProjection": 19.5
+        },
+        {
+          "player": "Sam LaPorta",
+          "halfPprProjection": 10
+        },
+        {
+          "player": "Ja'Marr Chase",
+          "halfPprProjection": 18.3
+        },
+        {
+          "player": "Woody Marks",
+          "halfPprProjection": 9.5
+        },
+        {
+          "player": "Houston Texans",
+          "halfPprProjection": 8.2
+        }
+      ],
+      "totalHalfPpr": 124.2
+    },
+    "JMid": {
+      "rosterId": 2,
+      "players": [
+        {
+          "player": "Joe Burrow",
+          "halfPprProjection": 22.1
+        },
+        {
+          "player": "Kenneth Walker III",
+          "halfPprProjection": 20.1
+        },
+        {
+          "player": "Breece Hall",
+          "halfPprProjection": 10.4
+        },
+        {
+          "player": "Christian Watson",
+          "halfPprProjection": 13.4
+        },
+        {
+          "player": "Omar Cooper Jr.",
+          "halfPprProjection": 5.1
+        },
+        {
+          "player": "George Kittle",
+          "halfPprProjection": 14.6
+        },
+        {
+          "player": "Tony Pollard",
+          "halfPprProjection": 11.2
+        },
+        {
+          "player": "Zach Charbonnet",
+          "halfPprProjection": 12.2
+        },
+        {
+          "player": "Miami Dolphins",
+          "halfPprProjection": 7.2
+        }
+      ],
+      "totalHalfPpr": 116.3
+    },
+    "Thommy": {
+      "rosterId": 3,
+      "players": [
+        {
+          "player": "Jared Goff",
+          "halfPprProjection": 19
+        },
+        {
+          "player": "Quinshon Judkins",
+          "halfPprProjection": 10
+        },
+        {
+          "player": "Jordan Mason",
+          "halfPprProjection": 8.5
+        },
+        {
+          "player": "Malik Nabers",
+          "halfPprProjection": 14.6
+        },
+        {
+          "player": "Tee Higgins",
+          "halfPprProjection": 14.9
+        },
+        {
+          "player": "Juwan Johnson",
+          "halfPprProjection": 7
+        },
+        {
+          "player": "KC Concepcion Jr.",
+          "halfPprProjection": 9.5
+        },
+        {
+          "player": "Deebo Samuel Sr.",
+          "halfPprProjection": 8.8
+        },
+        {
+          "player": "Buffalo Bills",
+          "halfPprProjection": 7.6
+        }
+      ],
+      "totalHalfPpr": 99.9
+    },
+    "Stew": {
+      "rosterId": 4,
+      "players": [
+        {
+          "player": "Drake Maye",
+          "halfPprProjection": 21.7
+        },
+        {
+          "player": "Bhayshul Tuten",
+          "halfPprProjection": 14.3
+        },
+        {
+          "player": "Jahmyr Gibbs",
+          "halfPprProjection": 22.1
+        },
+        {
+          "player": "Zay Flowers",
+          "halfPprProjection": 13.5
+        },
+        {
+          "player": "Garrett Wilson",
+          "halfPprProjection": 11.8
+        },
+        {
+          "player": "Tucker Kraft",
+          "halfPprProjection": 8.3
+        },
+        {
+          "player": "Germie Bernard",
+          "halfPprProjection": 9.1
+        },
+        {
+          "player": "Chase Brown",
+          "halfPprProjection": 13
+        },
+        {
+          "player": "Baltimore Ravens",
+          "halfPprProjection": 8.2
+        }
+      ],
+      "totalHalfPpr": 122
+    },
+    "Scott": {
+      "rosterId": 5,
+      "players": [
+        {
+          "player": "Bryce Young",
+          "halfPprProjection": 17.9
+        },
+        {
+          "player": "Bijan Robinson",
+          "halfPprProjection": 19.5
+        },
+        {
+          "player": "Ashton Jeanty",
+          "halfPprProjection": 12.3
+        },
+        {
+          "player": "DJ Moore",
+          "halfPprProjection": 10.8
+        },
+        {
+          "player": "Denzel Boston",
+          "halfPprProjection": 9.6
+        },
+        {
+          "player": "Pat Freiermuth",
+          "halfPprProjection": 7.5
+        },
+        {
+          "player": "Corey Kiner",
+          "halfPprProjection": 10
+        },
+        {
+          "player": "Blake Corum",
+          "halfPprProjection": 10.6
+        },
+        {
+          "player": "Green Bay Packers",
+          "halfPprProjection": 6.4
+        }
+      ],
+      "totalHalfPpr": 104.6
+    },
+    "Mitch": {
+      "rosterId": 6,
+      "players": [
+        {
+          "player": "Josh Allen",
+          "halfPprProjection": 25
+        },
+        {
+          "player": "Jonathan Taylor",
+          "halfPprProjection": 15.3
+        },
+        {
+          "player": "Seth McGowan",
+          "halfPprProjection": 4.4
+        },
+        {
+          "player": "Jaxon Smith-Njigba",
+          "halfPprProjection": 18.5
+        },
+        {
+          "player": "Parker Washington",
+          "halfPprProjection": 13
+        },
+        {
+          "player": "Isaiah Likely",
+          "halfPprProjection": 10
+        },
+        {
+          "player": "Jalen Coker",
+          "halfPprProjection": 11.2
+        },
+        {
+          "player": "Drake London",
+          "halfPprProjection": 14.2
+        },
+        {
+          "player": "Jacksonville Jaguars",
+          "halfPprProjection": 8.9
+        }
+      ],
+      "totalHalfPpr": 120.5
+    },
+    "Tony": {
+      "rosterId": 7,
+      "players": [
+        {
+          "player": "Dak Prescott",
+          "halfPprProjection": 20.3
+        },
+        {
+          "player": "Javonte Williams",
+          "halfPprProjection": 15.9
+        },
+        {
+          "player": "Rachaad White",
+          "halfPprProjection": 9.6
+        },
+        {
+          "player": "Justin Jefferson",
+          "halfPprProjection": 14.9
+        },
+        {
+          "player": "Chris Olave",
+          "halfPprProjection": 14.2
+        },
+        {
+          "player": "Brock Bowers",
+          "halfPprProjection": 12.5
+        },
+        {
+          "player": "Tetairoa McMillan",
+          "halfPprProjection": 13.1
+        },
+        {
+          "player": "Jameson Williams",
+          "halfPprProjection": 10.7
+        },
+        {
+          "player": "Kansas City Chiefs",
+          "halfPprProjection": 7.4
+        }
+      ],
+      "totalHalfPpr": 118.6
+    },
+    "Stover": {
+      "rosterId": 8,
+      "players": [
+        {
+          "player": "Trevor Lawrence",
+          "halfPprProjection": 19.4
+        },
+        {
+          "player": "Kyren Williams",
+          "halfPprProjection": 15.3
+        },
+        {
+          "player": "Christian McCaffrey",
+          "halfPprProjection": 19.8
+        },
+        {
+          "player": "Carnell Tate",
+          "halfPprProjection": 10.6
+        },
+        {
+          "player": "Matthew Golden",
+          "halfPprProjection": 13.1
+        },
+        {
+          "player": "Dalton Kincaid",
+          "halfPprProjection": 8.8
+        },
+        {
+          "player": "Khalil Shakir",
+          "halfPprProjection": 8.6
+        },
+        {
+          "player": "Antonio Williams",
+          "halfPprProjection": 8.8
+        },
+        {
+          "player": "EMPTY DEF",
+          "halfPprProjection": 0
+        }
+      ],
+      "totalHalfPpr": 104.4
+    },
+    "Kuhl": {
+      "rosterId": 9,
+      "players": [
+        {
+          "player": "Kirk Cousins",
+          "halfPprProjection": 15.1
+        },
+        {
+          "player": "Jaylen Warren",
+          "halfPprProjection": 14.7
+        },
+        {
+          "player": "Audric Estime",
+          "halfPprProjection": 5.8
+        },
+        {
+          "player": "Nico Collins",
+          "halfPprProjection": 10.9
+        },
+        {
+          "player": "A.J. Brown",
+          "halfPprProjection": 8.1
+        },
+        {
+          "player": "T.J. Hockenson",
+          "halfPprProjection": 9.6
+        },
+        {
+          "player": "Tre Tucker",
+          "halfPprProjection": 7.1
+        },
+        {
+          "player": "Ladd McConkey",
+          "halfPprProjection": 7.7
+        },
+        {
+          "player": "Seattle Seahawks",
+          "halfPprProjection": 9.7
+        }
+      ],
+      "totalHalfPpr": 88.7
+    },
+    "Birch": {
+      "rosterId": 10,
+      "players": [
+        {
+          "player": "Patrick Mahomes",
+          "halfPprProjection": 18.7
+        },
+        {
+          "player": "Chuba Hubbard",
+          "halfPprProjection": 16.8
+        },
+        {
+          "player": "Derrick Henry",
+          "halfPprProjection": 16.1
+        },
+        {
+          "player": "Rashee Rice",
+          "halfPprProjection": 11.3
+        },
+        {
+          "player": "DK Metcalf",
+          "halfPprProjection": 10.2
+        },
+        {
+          "player": "Trey McBride",
+          "halfPprProjection": 12
+        },
+        {
+          "player": "James Cook III",
+          "halfPprProjection": 15.9
+        },
+        {
+          "player": "Cam Skattebo",
+          "halfPprProjection": 10.4
+        },
+        {
+          "player": "Indianapolis Colts",
+          "halfPprProjection": 7.3
+        }
+      ],
+      "totalHalfPpr": 118.7
+    }
+  }
+}
