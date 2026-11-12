@@ -1,0 +1,412 @@
+{
+  "schema": "fellas-2020-2021-static-season-page-parity-audit-v1",
+  "asOf": "2026-11-12",
+  "status": "win_loss_consistent_pf_differences_need_provider_validation",
+  "sourceFiles": [
+    "seasons/2020.html",
+    "seasons/2020/index.html",
+    "seasons/2021.html",
+    "seasons/2021/index.html",
+    "data/corrected_2020_2021_regular_standings_projection_v1.json"
+  ],
+  "years": [
+    {
+      "year": 2020,
+      "seasonPageRows": [
+        {
+          "rank": 1,
+          "manager": "Mitch",
+          "record": {
+            "w": 9,
+            "l": 4
+          },
+          "pointsFor": 1650.42,
+          "finish": "2",
+          "verified13WeekRecord": {
+            "w": 9,
+            "l": 4
+          },
+          "verified13WeekPF": 1650.42,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 2,
+          "manager": "Birch",
+          "record": {
+            "w": 9,
+            "l": 4
+          },
+          "pointsFor": 1593.54,
+          "finish": "3",
+          "verified13WeekRecord": {
+            "w": 9,
+            "l": 4
+          },
+          "verified13WeekPF": 1593.54,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 3,
+          "manager": "Kuhl",
+          "record": {
+            "w": 9,
+            "l": 4
+          },
+          "pointsFor": 1413.58,
+          "finish": "5",
+          "verified13WeekRecord": {
+            "w": 9,
+            "l": 4
+          },
+          "verified13WeekPF": 1415.58,
+          "recordParity": true,
+          "pointsForDifference": -2
+        },
+        {
+          "rank": 4,
+          "manager": "Evans",
+          "record": {
+            "w": 7,
+            "l": 6
+          },
+          "pointsFor": 1547.54,
+          "finish": "6",
+          "verified13WeekRecord": {
+            "w": 7,
+            "l": 6
+          },
+          "verified13WeekPF": 1549.54,
+          "recordParity": true,
+          "pointsForDifference": -2
+        },
+        {
+          "rank": 5,
+          "manager": "Stover",
+          "record": {
+            "w": 7,
+            "l": 6
+          },
+          "pointsFor": 1435.16,
+          "finish": "4",
+          "verified13WeekRecord": {
+            "w": 7,
+            "l": 6
+          },
+          "verified13WeekPF": 1439.16,
+          "recordParity": true,
+          "pointsForDifference": -4
+        },
+        {
+          "rank": 6,
+          "manager": "Koble",
+          "record": {
+            "w": 6,
+            "l": 7
+          },
+          "pointsFor": 1403.32,
+          "finish": "Champion",
+          "verified13WeekRecord": {
+            "w": 6,
+            "l": 7
+          },
+          "verified13WeekPF": 1403.32,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 7,
+          "manager": "Stew",
+          "record": {
+            "w": 6,
+            "l": 7
+          },
+          "pointsFor": 1359.42,
+          "finish": "—",
+          "verified13WeekRecord": {
+            "w": 6,
+            "l": 7
+          },
+          "verified13WeekPF": 1361.42,
+          "recordParity": true,
+          "pointsForDifference": -2
+        },
+        {
+          "rank": 8,
+          "manager": "Thommy",
+          "record": {
+            "w": 4,
+            "l": 9
+          },
+          "pointsFor": 1473.82,
+          "finish": "—",
+          "verified13WeekRecord": {
+            "w": 4,
+            "l": 9
+          },
+          "verified13WeekPF": 1475.82,
+          "recordParity": true,
+          "pointsForDifference": -2
+        },
+        {
+          "rank": 9,
+          "manager": "Tony",
+          "record": {
+            "w": 4,
+            "l": 9
+          },
+          "pointsFor": 1426.12,
+          "finish": "—",
+          "verified13WeekRecord": {
+            "w": 4,
+            "l": 9
+          },
+          "verified13WeekPF": 1426.12,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 10,
+          "manager": "Stilly",
+          "record": {
+            "w": 4,
+            "l": 9
+          },
+          "pointsFor": 1293.28,
+          "finish": "—",
+          "verified13WeekRecord": {
+            "w": 4,
+            "l": 9
+          },
+          "verified13WeekPF": 1293.28,
+          "recordParity": true,
+          "pointsForDifference": 0
+        }
+      ],
+      "allRecordsCorrect": true,
+      "pointsForDifferences": [
+        {
+          "manager": "Kuhl",
+          "seasonPagePoints": 1413.58,
+          "ledgerPoints": 1415.58,
+          "difference": -2
+        },
+        {
+          "manager": "Evans",
+          "seasonPagePoints": 1547.54,
+          "ledgerPoints": 1549.54,
+          "difference": -2
+        },
+        {
+          "manager": "Stover",
+          "seasonPagePoints": 1435.16,
+          "ledgerPoints": 1439.16,
+          "difference": -4
+        },
+        {
+          "manager": "Stew",
+          "seasonPagePoints": 1359.42,
+          "ledgerPoints": 1361.42,
+          "difference": -2
+        },
+        {
+          "manager": "Thommy",
+          "seasonPagePoints": 1473.82,
+          "ledgerPoints": 1475.82,
+          "difference": -2
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "seasonPageRows": [
+        {
+          "rank": 1,
+          "manager": "Birch",
+          "record": {
+            "w": 11,
+            "l": 2
+          },
+          "pointsFor": 1513.84,
+          "finish": "3",
+          "verified13WeekRecord": {
+            "w": 11,
+            "l": 2
+          },
+          "verified13WeekPF": 1513.84,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 2,
+          "manager": "Tony",
+          "record": {
+            "w": 10,
+            "l": 3
+          },
+          "pointsFor": 1708.6,
+          "finish": "Champion",
+          "verified13WeekRecord": {
+            "w": 10,
+            "l": 3
+          },
+          "verified13WeekPF": 1708.6,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 3,
+          "manager": "Stover",
+          "record": {
+            "w": 10,
+            "l": 3
+          },
+          "pointsFor": 1626.1,
+          "finish": "4",
+          "verified13WeekRecord": {
+            "w": 10,
+            "l": 3
+          },
+          "verified13WeekPF": 1626.1,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 4,
+          "manager": "Mitch",
+          "record": {
+            "w": 8,
+            "l": 5
+          },
+          "pointsFor": 1581.18,
+          "finish": "5",
+          "verified13WeekRecord": {
+            "w": 8,
+            "l": 5
+          },
+          "verified13WeekPF": 1581.18,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 5,
+          "manager": "Evans",
+          "record": {
+            "w": 6,
+            "l": 7
+          },
+          "pointsFor": 1436.08,
+          "finish": "2",
+          "verified13WeekRecord": {
+            "w": 6,
+            "l": 7
+          },
+          "verified13WeekPF": 1436.08,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 6,
+          "manager": "Thommy",
+          "record": {
+            "w": 5,
+            "l": 8
+          },
+          "pointsFor": 1456.8,
+          "finish": "6",
+          "verified13WeekRecord": {
+            "w": 5,
+            "l": 8
+          },
+          "verified13WeekPF": 1456.8,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 7,
+          "manager": "Stilly",
+          "record": {
+            "w": 5,
+            "l": 8
+          },
+          "pointsFor": 1419.96,
+          "finish": "—",
+          "verified13WeekRecord": {
+            "w": 5,
+            "l": 8
+          },
+          "verified13WeekPF": 1419.96,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 8,
+          "manager": "Kuhl",
+          "record": {
+            "w": 4,
+            "l": 9
+          },
+          "pointsFor": 1435.32,
+          "finish": "—",
+          "verified13WeekRecord": {
+            "w": 4,
+            "l": 9
+          },
+          "verified13WeekPF": 1436.32,
+          "recordParity": true,
+          "pointsForDifference": -1
+        },
+        {
+          "rank": 9,
+          "manager": "Koble",
+          "record": {
+            "w": 4,
+            "l": 9
+          },
+          "pointsFor": 1294.44,
+          "finish": "—",
+          "verified13WeekRecord": {
+            "w": 4,
+            "l": 9
+          },
+          "verified13WeekPF": 1294.44,
+          "recordParity": true,
+          "pointsForDifference": 0
+        },
+        {
+          "rank": 10,
+          "manager": "Stew",
+          "record": {
+            "w": 2,
+            "l": 11
+          },
+          "pointsFor": 1320.74,
+          "finish": "—",
+          "verified13WeekRecord": {
+            "w": 2,
+            "l": 11
+          },
+          "verified13WeekPF": 1320.74,
+          "recordParity": true,
+          "pointsForDifference": 0
+        }
+      ],
+      "allRecordsCorrect": true,
+      "pointsForDifferences": [
+        {
+          "manager": "Kuhl",
+          "seasonPagePoints": 1435.32,
+          "ledgerPoints": 1436.32,
+          "difference": -1
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "Both static URL variants agree and already use 13-game regular-season win-loss standings.",
+    "Shared legacy season guide and career aggregates still include eight Week 14 postseason games and must be migrated separately.",
+    "Several archived static season-page points-for totals differ slightly from summed weekly scores. The source of those revisions is not yet verified; do not overwrite them automatically."
+  ],
+  "policy": "Preserve displayed win-loss records. Quarantine points-for differences until individual Sleeper weekly score audits; do not infer stat corrections from display text alone."
+}
