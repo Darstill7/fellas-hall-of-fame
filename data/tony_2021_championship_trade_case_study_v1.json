@@ -1,0 +1,194 @@
+{
+  "schema": "fellas-tony-2021-championship-trade-case-study-v1",
+  "updated": "2026-11-12",
+  "status": "verified_transaction_and_postseason_receipts_no_counterfactual",
+  "title": "Four Trades, One Ring: Tony's 2021 Championship Roster",
+  "sources": [
+    "data/trade_museum_stage66.json",
+    "data/championship_player_boxscores_2020_2025_v1.json",
+    "data/championship_season_stories_2016_2025_v1.json"
+  ],
+  "preseasonRecordContext": {
+    "yearBefore": "2020: 4–10",
+    "regularSeason": "2021: 10–3, No. 2 seed, first-round bye",
+    "attribution": "data/championship_season_stories_2016_2025_v1.json"
+  },
+  "transactions": [
+    {
+      "tradeId": "737360507476066304",
+      "date": "2021-08-30",
+      "week": 1,
+      "partner": "Thommy",
+      "tonyReceived": "Corey Davis + A.J. Brown + Jonathan Taylor",
+      "partnerReceived": "Tyreek Hill + Josh Jacobs + Javonte Williams",
+      "featuredStarters": [
+        "Jonathan Taylor"
+      ],
+      "roundScores": {
+        "semifinal": [
+          {
+            "name": "Jonathan Taylor",
+            "points": 24
+          }
+        ],
+        "championship": [
+          {
+            "name": "Jonathan Taylor",
+            "points": 11.8
+          }
+        ]
+      }
+    },
+    {
+      "tradeId": "751165345997402112",
+      "date": "2021-10-05",
+      "week": 4,
+      "partner": "Koble",
+      "tonyReceived": "Joe Mixon",
+      "partnerReceived": "Zack Moss + James Robinson",
+      "featuredStarters": [
+        "Joe Mixon"
+      ],
+      "roundScores": {
+        "semifinal": [
+          {
+            "name": "Joe Mixon",
+            "points": 6.5
+          }
+        ],
+        "championship": [
+          {
+            "name": "Joe Mixon",
+            "points": 29.5
+          }
+        ]
+      }
+    },
+    {
+      "tradeId": "754017147822415872",
+      "date": "2021-10-13",
+      "week": 6,
+      "partner": "Stilly",
+      "tonyReceived": "CeeDee Lamb",
+      "partnerReceived": "Kareem Hunt",
+      "featuredStarters": [
+        "CeeDee Lamb"
+      ],
+      "roundScores": {
+        "semifinal": [
+          {
+            "name": "CeeDee Lamb",
+            "points": 8
+          }
+        ],
+        "championship": [
+          {
+            "name": "CeeDee Lamb",
+            "points": 8.4
+          }
+        ]
+      }
+    },
+    {
+      "tradeId": "759191673220775936",
+      "date": "2021-10-27",
+      "week": 8,
+      "partner": "Kuhl",
+      "tonyReceived": "Kyle Pitts Sr.",
+      "partnerReceived": "Jarvis Landry + George Kittle",
+      "featuredStarters": [
+        "Kyle Pitts Sr."
+      ],
+      "roundScores": {
+        "semifinal": [
+          {
+            "name": "Kyle Pitts Sr.",
+            "points": 10.7
+          }
+        ],
+        "championship": [
+          {
+            "name": "Kyle Pitts Sr.",
+            "points": 13.2
+          }
+        ]
+      }
+    }
+  ],
+  "playoffGames": [
+    {
+      "round": "semifinal",
+      "week": 15,
+      "tonyScore": 94.96,
+      "opponentScore": 73.44,
+      "margin": 21.52,
+      "acquiredStarters": [
+        {
+          "name": "Jonathan Taylor",
+          "points": 24,
+          "tradeId": "737360507476066304"
+        },
+        {
+          "name": "Joe Mixon",
+          "points": 6.5,
+          "tradeId": "751165345997402112"
+        },
+        {
+          "name": "CeeDee Lamb",
+          "points": 8,
+          "tradeId": "754017147822415872"
+        },
+        {
+          "name": "Kyle Pitts Sr.",
+          "points": 10.7,
+          "tradeId": "759191673220775936"
+        }
+      ],
+      "acquiredPoints": 49.2
+    },
+    {
+      "round": "championship",
+      "week": 16,
+      "tonyScore": 138.28,
+      "opponentScore": 133.98,
+      "margin": 4.3,
+      "acquiredStarters": [
+        {
+          "name": "Jonathan Taylor",
+          "points": 11.8,
+          "tradeId": "737360507476066304"
+        },
+        {
+          "name": "Joe Mixon",
+          "points": 29.5,
+          "tradeId": "751165345997402112"
+        },
+        {
+          "name": "CeeDee Lamb",
+          "points": 8.4,
+          "tradeId": "754017147822415872"
+        },
+        {
+          "name": "Kyle Pitts Sr.",
+          "points": 13.2,
+          "tradeId": "759191673220775936"
+        }
+      ],
+      "acquiredPoints": 62.9
+    }
+  ],
+  "totals": {
+    "uniqueDocumentedIncomingChampionshipStarters": 4,
+    "combinedSemifinalStarterPoints": 49.2,
+    "combinedChampionshipStarterPoints": 62.9,
+    "combinedTwoRoundStarterPoints": 112.1,
+    "championshipMargin": 4.3
+  },
+  "limitations": [
+    "Scores represent real lineup production from named received players, not points added compared with hypothetical replacement starters.",
+    "Receiving-side trade receipts are verified, but they are not independent trade-day valuation or full keeper/FAAB valuation.",
+    "Other players including Davante Adams, Tampa Bay defense and Matthew Stafford materially contributed; their points are not credited to these four trades.",
+    "Individual production exceeding the four-point final margin cannot establish that a specific trade was necessary for the championship.",
+    "2021 has exact Sleeper championship starter box scores; this is a documented-season story, not a verified all-time record across unverified ESPN-era trades."
+  ]
+}
