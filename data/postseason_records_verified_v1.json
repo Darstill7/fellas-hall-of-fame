@@ -1,12 +1,13 @@
 {
   "version": 1,
-  "asOf": "2026-11-06 — commissioner-corrected 2023 Evans ownership",
+  "asOf": "2026-11-12 · 2020 verified semifinalist corrected to Stover",
   "title": "Verified Fellas postseason records",
   "scope": "Completed seasons 2016–2025. 2026 postseason excluded.",
   "sources": [
     "data/verified_espn_playoff_brackets_2016_2019.json",
     "data/verified_sleeper_playoff_brackets_2020_2025.json",
-    "data/unified_record_book_2016_2026.json"
+    "data/unified_record_book_2016_2026.json",
+    "data/recovered_winners_bracket_2020_2021_v1.json"
   ],
   "rules": [
     "Playoff appearances, semifinals, finals, first-round byes and No. 1 seeds use verified championship bracket records only; consolation and third-place games do not create playoff berths or finals.",
@@ -289,6 +290,17 @@
         ]
       },
       {
+        "manager": "Stover",
+        "count": 5,
+        "years": [
+          2018,
+          2020,
+          2021,
+          2022,
+          2024
+        ]
+      },
+      {
         "manager": "Tom",
         "count": 5,
         "years": [
@@ -300,26 +312,6 @@
         ]
       },
       {
-        "manager": "Evans",
-        "count": 4,
-        "years": [
-          2016,
-          2017,
-          2020,
-          2021
-        ]
-      },
-      {
-        "manager": "Stover",
-        "count": 4,
-        "years": [
-          2018,
-          2021,
-          2022,
-          2024
-        ]
-      },
-      {
         "manager": "Tony",
         "count": 4,
         "years": [
@@ -327,6 +319,15 @@
           2019,
           2021,
           2023
+        ]
+      },
+      {
+        "manager": "Evans",
+        "count": 3,
+        "years": [
+          2016,
+          2017,
+          2021
         ]
       },
       {
@@ -1640,7 +1641,6 @@
       "semifinals": [
         2016,
         2017,
-        2020,
         2021
       ],
       "finals": [
@@ -2290,6 +2290,7 @@
       ],
       "semifinals": [
         2018,
+        2020,
         2021,
         2022,
         2024
@@ -2645,7 +2646,7 @@
       ],
       "semifinalists": [
         "Mitch",
-        "Evans",
+        "Stover",
         "Birch",
         "Koble"
       ],
