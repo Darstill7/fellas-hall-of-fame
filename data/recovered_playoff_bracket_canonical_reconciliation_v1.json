@@ -1,7 +1,7 @@
 {
   "schema": "fellas-2020-2021-playoff-canonical-reconciliation-v1",
   "asOf": "2026-11-12",
-  "status": "source_verified_patch_proposal_not_applied_to_canonical",
+  "status": "playoff_explorer_and_bracket_metadata_corrected_weekly_stage_classification_pending",
   "sources": [
     "data/recovered_winners_bracket_2020_2021_v1.json",
     "data/verified_sleeper_playoff_brackets_2020_2025.json",
@@ -41,7 +41,8 @@
         "loserScore": 112.14
       }
     ],
-    "risk": "Existing Playoff Explorer generator and validation derive matches from the unified weekly history; update the raw canonical weekly matches, bracket participant field, explorer data and downstream tests together in a controlled validation batch."
+    "risk": "Five confirmed 2020–2021 playoff fixtures include four games still labeled regular in the legacy weekly ledger. Reclassifying those rows impacts season standings and downstream all-play computations, so defer that source-level mutation pending an independent audit.",
+    "status": "corrected_in_verified_sleeper_playoff_brackets_2020_2025.json"
   },
   "recoveredMissingMatches": {
     "years": [
@@ -50,7 +51,12 @@
     ],
     "count": 5,
     "source": "data/recovered_winners_bracket_2020_2021_v1.json",
-    "status": "included_in_expanded_trade_revenge_research_only"
+    "status": "incorporated_in_canonical_playoff_explorer_2020_2025_brackets"
   },
-  "publicationRule": "Do not claim that the existing canonical Playoff Explorer itself has been upgraded until source reconciliation and CI both pass."
+  "publicationRule": "Playoff Explorer now includes all verified 2020–2025 winner-bracket matchups, supported by restored Sleeper receipts. Do not state that underlying weekly stage classifications or the whole GitHub CI suite are green until independently verified.",
+  "remainingWork": [
+    "Audit 2020–2021 Week 14 regular-season labels against original fantasy regular-season end and standings before modifying weekly ledger",
+    "Check all historical standings/all-play consumers for effects of correcting the misclassified playoff fixtures",
+    "Confirm live CI execution and published GitHub Pages rendering"
+  ]
 }
