@@ -6,7 +6,8 @@
   "sourceFiles": [
     "data/season_weekly_matchups_2016_2026_v1.json",
     "data/recovered_winners_bracket_2020_2021_v1.json",
-    "data/verified_sleeper_playoff_brackets_2020_2025.json"
+    "data/verified_sleeper_playoff_brackets_2020_2025.json",
+    "data/provider_week14_2020_2021_pairing_recovery_v1.json"
   ],
   "years": [
     {
@@ -216,10 +217,12 @@
     "otherWeek14PairedGames": 4,
     "canonicalPlayoffExplorer": "Corrected using independent Sleeper receipts, without reclassifying source weekly stage metadata.",
     "requiredBeforeStageRewrite": [
-      "Verify exact non-winners consolation positions for both seasons",
+      "Verify bottom-four consolation bracket placements or establish explicit lower-bracket stage provenance for all four non-winners pairs",
       "Recompute affected 2020–21 official regular-season standings and win-loss counts",
       "Audit regular season score/record/all-play and streak downstream consumers",
       "Change stage, total fields and expected source outputs together, then verify all canonical and browser gates"
-    ]
+    ],
+    "providerPairingRecovery": "All eight Week 14 head-to-head pairings and four singleton roster entries recovered from original Sleeper weeks in both years.",
+    "consolationClassification": "Four non-winners-bracket games remain inferred consolation/postseason based on bracket participants and provider pairings; matchup group IDs do not establish official consolation round."
   }
 }
