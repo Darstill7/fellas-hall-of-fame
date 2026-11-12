@@ -1,0 +1,414 @@
+{
+  "schema": "fellas-multiteam-keeper-lineage-case-studies-v1",
+  "asOf": "2026-11-12",
+  "status": "research_verified_receipts_editorial_no_trade_grade",
+  "sources": [
+    "data/trade_museum_stage66.json",
+    "data/featured_trade_storylines_v1.json",
+    "data/keeper_2026_website_research_v1.json",
+    "data/trade_lineage_v2.json"
+  ],
+  "coverage": {
+    "museumTradeEvents": 51,
+    "threeManagerTradeEvents": 1,
+    "distinctRepeatedAssetChains": 40,
+    "keeperThroughWeek": 8
+  },
+  "threeTeamCase": {
+    "id": "1294402688213057536",
+    "year": 2025,
+    "date": "2025-11-12",
+    "week": 11,
+    "recordedReceived": [
+      {
+        "manager": "Stilly",
+        "assets": "Amon-Ra St. Brown + Jordan Addison + Jared Goff",
+        "archivedStarterPointsOnReceivingSide": 199.72,
+        "archivedStartedGames": 13,
+        "sourceStatus": "VERIFIED_SOURCE"
+      },
+      {
+        "manager": "JMid",
+        "assets": "Ja'Marr Chase",
+        "archivedStarterPointsOnReceivingSide": 78.3,
+        "archivedStartedGames": 5,
+        "sourceStatus": "VERIFIED_SOURCE"
+      },
+      {
+        "manager": "Thommy",
+        "assets": "A.J. Brown",
+        "archivedStarterPointsOnReceivingSide": 98.6,
+        "archivedStartedGames": 6,
+        "sourceStatus": "VERIFIED_SOURCE"
+      }
+    ],
+    "knownDownstreamEvents": [
+      {
+        "year": 2026,
+        "type": "keeper",
+        "manager": "Stilly",
+        "player": "Amon-Ra St. Brown",
+        "round": 1,
+        "verifiedStartsThroughWeek8": 7,
+        "verifiedPointsThroughWeek8": 113.5,
+        "relativeToPositionMedians": 42.05
+      },
+      {
+        "year": 2026,
+        "date": "2026-10-07",
+        "type": "recorded_trade",
+        "id": "1413584172332654592",
+        "receivedByStilly": [
+          "Ja'Marr Chase",
+          "Devaughn Vele"
+        ],
+        "receivedByJMid": [
+          "Davante Adams",
+          "George Kittle",
+          "Breece Hall"
+        ],
+        "status": "2026 unfinished; 2026 player starts not completed-season grade"
+      }
+    ],
+    "limits": [
+      "Original three receiving sides verified, but the archive's 199.72/78.30/98.60 side starter scores are raw observations and not full trade return values.",
+      "Any FAAB components are unconfirmed in player-only receipts.",
+      "Keeper rights travel with players; no multi-season draft cost assigned to other sides without confirmed keeper receipts.",
+      "Do not infer outgoing ownership in a three-party trade from receiving-side asset lists.",
+      "2026 keeper values through Week 8 are snapshots, not completed-year verdicts.",
+      "Do not claim that all individual credited starter seasons in lineage constitute continuous ownership proof."
+    ]
+  },
+  "repeatTradeIndex": [
+    {
+      "player": "Ja'Marr Chase",
+      "trades": 5,
+      "from": "2022-11-10",
+      "to": "2026-10-07",
+      "managers": 6,
+      "ambiguous": 1
+    },
+    {
+      "player": "CeeDee Lamb",
+      "trades": 4,
+      "from": "2021-10-13",
+      "to": "2023-10-12",
+      "managers": 6,
+      "ambiguous": 0
+    },
+    {
+      "player": "A.J. Brown",
+      "trades": 3,
+      "from": "2021-08-30",
+      "to": "2025-11-12",
+      "managers": 3,
+      "ambiguous": 1
+    },
+    {
+      "player": "Amari Cooper",
+      "trades": 3,
+      "from": "2021-10-13",
+      "to": "2024-10-01",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Derrick Henry",
+      "trades": 3,
+      "from": "2023-10-26",
+      "to": "2025-11-13",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "George Kittle",
+      "trades": 3,
+      "from": "2020-11-03",
+      "to": "2026-10-07",
+      "managers": 4,
+      "ambiguous": 1
+    },
+    {
+      "player": "J.K. Dobbins",
+      "trades": 3,
+      "from": "2020-10-15",
+      "to": "2026-09-30",
+      "managers": 6,
+      "ambiguous": 0
+    },
+    {
+      "player": "James Robinson",
+      "trades": 3,
+      "from": "2021-10-05",
+      "to": "2022-10-12",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "Jordan Addison",
+      "trades": 3,
+      "from": "2023-11-08",
+      "to": "2025-11-12",
+      "managers": 5,
+      "ambiguous": 1
+    },
+    {
+      "player": "Josh Jacobs",
+      "trades": 3,
+      "from": "2021-08-30",
+      "to": "2023-11-17",
+      "managers": 5,
+      "ambiguous": 0
+    },
+    {
+      "player": "Leonard Fournette",
+      "trades": 3,
+      "from": "2021-09-27",
+      "to": "2022-09-30",
+      "managers": 5,
+      "ambiguous": 0
+    },
+    {
+      "player": "Alvin Kamara",
+      "trades": 2,
+      "from": "2022-09-30",
+      "to": "2022-10-12",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Antonio Gibson",
+      "trades": 2,
+      "from": "2021-08-31",
+      "to": "2021-10-13",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Brandon Aiyuk",
+      "trades": 2,
+      "from": "2021-09-27",
+      "to": "2024-10-17",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "Breece Hall",
+      "trades": 2,
+      "from": "2023-11-17",
+      "to": "2026-10-07",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "Chase Brown",
+      "trades": 2,
+      "from": "2024-10-02",
+      "to": "2025-09-23",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Christian Watson",
+      "trades": 2,
+      "from": "2026-09-30",
+      "to": "2026-09-30",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Clyde Edwards-Helaire",
+      "trades": 2,
+      "from": "2020-11-04",
+      "to": "2021-09-22",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Cooper Kupp",
+      "trades": 2,
+      "from": "2023-10-26",
+      "to": "2024-10-17",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Cordarrelle Patterson",
+      "trades": 2,
+      "from": "2022-09-27",
+      "to": "2022-11-10",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Davante Adams",
+      "trades": 2,
+      "from": "2024-09-12",
+      "to": "2026-10-07",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "De'Von Achane",
+      "trades": 2,
+      "from": "2023-09-27",
+      "to": "2024-09-24",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "DeVonta Smith",
+      "trades": 2,
+      "from": "2021-10-07",
+      "to": "2022-10-13",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "Gabe Davis",
+      "trades": 2,
+      "from": "2022-10-12",
+      "to": "2023-11-17",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "James Conner",
+      "trades": 2,
+      "from": "2022-09-27",
+      "to": "2023-09-27",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Joe Mixon",
+      "trades": 2,
+      "from": "2021-10-05",
+      "to": "2023-11-08",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "Jonathan Taylor",
+      "trades": 2,
+      "from": "2021-08-30",
+      "to": "2022-09-15",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "Justin Jefferson",
+      "trades": 2,
+      "from": "2022-09-27",
+      "to": "2023-11-17",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Kareem Hunt",
+      "trades": 2,
+      "from": "2021-10-13",
+      "to": "2024-10-17",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Keenan Allen",
+      "trades": 2,
+      "from": "2021-09-27",
+      "to": "2022-10-13",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "Ladd McConkey",
+      "trades": 2,
+      "from": "2026-09-01",
+      "to": "2026-09-30",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Lamar Jackson",
+      "trades": 2,
+      "from": "2020-10-15",
+      "to": "2021-08-31",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "Mark Andrews",
+      "trades": 2,
+      "from": "2021-08-31",
+      "to": "2024-10-01",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Mike Evans",
+      "trades": 2,
+      "from": "2023-10-26",
+      "to": "2025-09-24",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "Rico Dowdle",
+      "trades": 2,
+      "from": "2024-10-01",
+      "to": "2024-10-17",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Saquon Barkley",
+      "trades": 2,
+      "from": "2021-09-22",
+      "to": "2022-09-15",
+      "managers": 4,
+      "ambiguous": 0
+    },
+    {
+      "player": "Tank Dell",
+      "trades": 2,
+      "from": "2024-09-10",
+      "to": "2024-09-24",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Tee Higgins",
+      "trades": 2,
+      "from": "2022-10-13",
+      "to": "2024-09-24",
+      "managers": 2,
+      "ambiguous": 0
+    },
+    {
+      "player": "Travis Etienne Jr.",
+      "trades": 2,
+      "from": "2023-09-27",
+      "to": "2023-11-17",
+      "managers": 3,
+      "ambiguous": 0
+    },
+    {
+      "player": "Travis Kelce",
+      "trades": 2,
+      "from": "2020-09-30",
+      "to": "2024-10-17",
+      "managers": 3,
+      "ambiguous": 0
+    }
+  ],
+  "identityAudit": {
+    "warning": "Do not assign JMid participation to any 2023 league season: JMid joined after the 2023 season. Some raw player-lineage credited-starter rows have historical identity artifacts and require separate owner validation.",
+    "quarantinedExample": "Ja'Marr Chase lineage credits a 2023 JMid starter row, inconsistent with verified manager tenure.",
+    "policy": "Trade-event dates and incoming assets may be used; no credited 2023 JMid starts/production may be used for a trade award."
+  },
+  "awardEligibility": {
+    "threeTeamTrade": "FEATURE_CASE_STUDY_ONLY",
+    "chainCount": "COUNTED_TRADE_APPEARANCES_NOT_CONTINUOUS_OWNERSHIP",
+    "bestOrWorstOverall": "BLOCKED_UNTIL_MULTI_PARTY_KEEPER_FAAB_AND_POSTSEASON_COVERAGE_COMPLETE"
+  }
+}
