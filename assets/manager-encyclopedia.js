@@ -56,3 +56,55 @@
   root.dataset.encyclopediaUpdated='unavailable';
  }
 })();
+
+// A source-scoped top-ten trade spotlight for all current manager encyclopedia pages.
+// Keep this separate from the legacy trade highlight: the metrics and eligibility differ.
+(async()=>{
+ const root=document.querySelector('#franchise-encyclopedia[data-manager-encyclopedia]');
+ if(!root||root.querySelector('[data-trade-legacy]'))return;
+ const name=root.dataset.managerEncyclopedia==='Tom'?'Thommy':root.dataset.managerEncyclopedia;
+ const wrap=root.querySelector(':scope > .wrap');
+ if(!wrap)return;
+ const panel=document.createElement('section');
+ panel.setAttribute('data-trade-legacy','');
+ panel.setAttribute('aria-label','Researched trade legacy');
+ panel.style.cssText='margin:22px 0;padding:clamp(17px,3vw,24px);border:1px solid #5d6d72;border-top:3px solid #e3bd71;border-radius:12px;background:#142735';
+ const kicker=document.createElement('div');
+ kicker.textContent='TRADE LEGACY · COMPLETED 2020–2025 SEASONS';
+ kicker.style.cssText='font-size:11px;letter-spacing:.11em;color:#e3bd71;font-weight:850';
+ const title=document.createElement('h3');
+ title.textContent='Researched historical trades';
+ title.style.cssText='font:600 clamp(21px,3vw,28px)/1.25 Georgia,serif;margin:9px 0';
+ const detail=document.createElement('p');
+ detail.textContent='Checking the source-audited top-ten trade study…';
+ detail.style.cssText='color:#cfdae2;font-size:14px;max-width:75ch';
+ const link=document.createElement('a');
+ link.href='../../analytics/greatest-worst-trades.html?manager='+encodeURIComponent(name)+'#research-heading';
+ link.textContent='Explore the Greatest & Worst Trades archive →';
+ link.style.cssText='display:inline-flex;align-items:center;min-height:44px;color:#f4d48f;font-weight:850;text-decoration:underline;text-underline-offset:3px';
+ panel.append(kicker,title,detail,link);
+ wrap.append(panel);
+ try{
+  const response=await fetch('../../data/greatest_worst_trades_research_v1.json',{cache:'no-store'});
+  if(!response.ok)throw Error('Trade legacy feed unavailable');
+  const data=await response.json();
+  if(data.schema!=='fellas-greatest-worst-trades-research-v1'||data.rankedObservedPARAdvantage?.length!==10)throw Error('Unexpected research schema');
+  const entries=data.rankedObservedPARAdvantage.filter(row=>row.betterReturn?.manager===name||row.lowerReturn?.manager===name);
+  if(entries.length){
+   const best=entries[0]; // Source is already ordered by observed PAR gap.
+   const higher=best.betterReturn.manager===name;
+   const other=higher?best.lowerReturn.manager:best.betterReturn.manager;
+   title.textContent='#'+best.rank+' · '+name+' vs. '+other+' ('+best.year+')';
+   detail.textContent=(higher?'Higher':'Lower')+' observed post-trade starter production · '+Number(best.observedPARGap).toFixed(2)+' position-relative points separated the two sides. '+name+' appears in '+entries.length+' of the ten ranked transactions. Regular-season production only; not a definitive best/worst trade verdict.';
+   link.href='../../analytics/greatest-worst-trades.html?manager='+encodeURIComponent(name)+'#research-heading';
+  }else{
+   title.textContent='Explore '+name+'\'s trade history';
+   detail.textContent='No entry in the qualified top-ten observed PAR study. This is not a grade on every trade: the study covers 18 fully matched two-manager deals from 2020–2025, excludes ESPN-era comparisons and does not rank unfinished 2026 returns.';
+  }
+  panel.dataset.tradeLegacy='verified';
+ }catch{
+  title.textContent='Trade research archive';
+  detail.textContent='The ranked research data could not be verified right now. Browse the source-audited archive for the latest available cases.';
+  panel.dataset.tradeLegacy='unavailable';
+ }
+})();
