@@ -1,0 +1,24 @@
+name: Verify complete manager record portfolios
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'assets/full-manager-record-portfolios.mjs'
+      - 'assets/expanded-records.mjs'
+      - 'scripts/verify-complete-manager-record-portfolios.mjs'
+      - 'data/expanded_records_verified_v1.json'
+      - 'data/unified_record_book_2016_2026.json'
+      - 'data/fellas_final_placements_2016_2025_verified.json'
+      - '.github/workflows/verify-complete-manager-portfolios.yml'
+  workflow_dispatch:
+jobs:
+  full-rankings:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify all source category entries and complete manager best marks
+        run: node scripts/verify-complete-manager-record-portfolios.mjs
