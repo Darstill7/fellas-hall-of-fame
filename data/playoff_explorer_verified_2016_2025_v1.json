@@ -1,13 +1,14 @@
 {
   "version": 1,
   "scope": "Verified winners-bracket matchups, 2016–2025 completed seasons",
-  "asOf": "2026-11-08",
+  "asOf": "2026-11-12",
   "sources": [
     "data/season_weekly_matchups_2016_2026_v1.json",
     "data/verified_espn_playoff_brackets_2016_2019.json",
-    "data/verified_sleeper_playoff_brackets_2020_2025.json"
+    "data/verified_sleeper_playoff_brackets_2020_2025.json",
+    "data/recovered_winners_bracket_2020_2021_v1.json"
   ],
-  "coverageNote": "Consolation fixtures excluded. ESPN 2016–17 finals and semifinals cover two NFL weeks. Some Sleeper 2020–21 opening-round scores are not fully recovered.",
+  "coverageNote": "Consolation fixtures excluded. ESPN 2016–2017 finals and semifinals cover two NFL weeks. All 30 2020–2025 Sleeper winners-bracket fixtures are verified; some original Week 14 rows in the legacy weekly ledger remain tagged regular season and require a separate standings-classification audit.",
   "seasons": [
     {
       "year": 2016,
@@ -566,6 +567,60 @@
       ],
       "matches": [
         {
+          "round": "opening",
+          "week": 14,
+          "weeksCovered": [
+            14
+          ],
+          "home": "Evans",
+          "away": "Stover",
+          "homeSeed": 4,
+          "awaySeed": 5,
+          "homeScore": 108.72,
+          "awayScore": 110.84,
+          "winner": "Stover",
+          "loser": "Evans",
+          "margin": 2.12,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "opening",
+          "week": 14,
+          "weeksCovered": [
+            14
+          ],
+          "home": "Koble",
+          "away": "Kuhl",
+          "homeSeed": 6,
+          "awaySeed": 3,
+          "homeScore": 149.98,
+          "awayScore": 118.14,
+          "winner": "Koble",
+          "loser": "Kuhl",
+          "margin": 31.84,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "semifinal",
+          "week": 15,
+          "weeksCovered": [
+            15
+          ],
+          "home": "Mitch",
+          "away": "Stover",
+          "homeSeed": 1,
+          "awaySeed": 5,
+          "homeScore": 140.96,
+          "awayScore": 112.14,
+          "winner": "Mitch",
+          "loser": "Stover",
+          "margin": 28.82,
+          "aggregate": false,
+          "seedUpset": false
+        },
+        {
           "round": "semifinal",
           "week": 15,
           "weeksCovered": [
@@ -603,24 +658,21 @@
         }
       ],
       "coverage": {
-        "verifiedMatches": 2,
+        "verifiedMatches": 5,
         "verifiedRounds": {
-          "opening": 0,
-          "semifinal": 1,
+          "opening": 2,
+          "semifinal": 2,
           "final": 1
         },
-        "missing": [
-          "2 opening-round winners-bracket matchups without a verified score",
-          "1 semifinal score not recovered"
-        ],
+        "missing": [],
         "scoreFormat": "One-week fantasy scores",
-        "specialNote": null
+        "specialNote": "2020–2021 opening-round and 2020 semifinal receipts recovered from archived Sleeper matchups; legacy weekly classification of some Week 14 games remains under audit."
       },
       "closestGame": {
-        "round": "final",
-        "margin": 18.06,
-        "winner": "Koble",
-        "loser": "Mitch"
+        "round": "opening",
+        "margin": 2.12,
+        "winner": "Stover",
+        "loser": "Evans"
       },
       "seedUpset": {
         "round": "final",
@@ -668,6 +720,42 @@
         }
       ],
       "matches": [
+        {
+          "round": "opening",
+          "week": 14,
+          "weeksCovered": [
+            14
+          ],
+          "home": "Evans",
+          "away": "Mitch",
+          "homeSeed": 5,
+          "awaySeed": 4,
+          "homeScore": 162.04,
+          "awayScore": 134.82,
+          "winner": "Evans",
+          "loser": "Mitch",
+          "margin": 27.22,
+          "aggregate": false,
+          "seedUpset": true
+        },
+        {
+          "round": "opening",
+          "week": 14,
+          "weeksCovered": [
+            14
+          ],
+          "home": "Thommy",
+          "away": "Stover",
+          "homeSeed": 6,
+          "awaySeed": 3,
+          "homeScore": 104.54,
+          "awayScore": 144.8,
+          "winner": "Stover",
+          "loser": "Thommy",
+          "margin": 40.26,
+          "aggregate": false,
+          "seedUpset": false
+        },
         {
           "round": "semifinal",
           "week": 15,
@@ -724,17 +812,15 @@
         }
       ],
       "coverage": {
-        "verifiedMatches": 3,
+        "verifiedMatches": 5,
         "verifiedRounds": {
-          "opening": 0,
+          "opening": 2,
           "semifinal": 2,
           "final": 1
         },
-        "missing": [
-          "2 opening-round winners-bracket matchups without a verified score"
-        ],
+        "missing": [],
         "scoreFormat": "One-week fantasy scores",
-        "specialNote": null
+        "specialNote": "2020–2021 opening-round and 2020 semifinal receipts recovered from archived Sleeper matchups; legacy weekly classification of some Week 14 games remains under audit."
       },
       "closestGame": {
         "round": "final",
