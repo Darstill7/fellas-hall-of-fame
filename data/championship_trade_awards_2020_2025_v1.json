@@ -1,0 +1,372 @@
+{
+  "schema": "fellas-championship-trade-awards-2020-2025-v1",
+  "asOf": "2026-11-12",
+  "status": "scoped_verifiable_awards_no_counterfactual_winners",
+  "coverage": {
+    "seasons": "2020–2025 completed Sleeper seasons",
+    "winnerSemifinalAndFinalBoxScoresReviewed": 12,
+    "matchedTradePlayerGameReceipts": 16,
+    "distinctRecipientTrades": 8,
+    "unmatchedTradeYears": [
+      2020,
+      2022,
+      2025
+    ],
+    "excludedESPNYears": [
+      2016,
+      2017,
+      2018,
+      2019
+    ]
+  },
+  "awardDefinitions": {
+    "largestCombinedPostseasonAcquiredStarterContribution": "Largest combined verified fantasy points from started players received together in a single archived trade, counting the champion's semifinal and championship only.",
+    "tightestSemifinalSpotlight": "Editorial distinction for an acquired player's documented contribution in a narrow championship-path semifinal; not a model-derived causal win.",
+    "highestAcquiredPlayerScoreInCloseFinal": "Highest verified traded-in player score in an actual championship game with a victory margin of 5 or fewer points, among this six-season archive."
+  },
+  "officialScopedRecord": {
+    "title": "Most championship-run started points from one trade",
+    "holder": "Stilly",
+    "year": 2023,
+    "tradeId": "1023059879336013824",
+    "value": 57.68,
+    "semifinalPoints": 44.98,
+    "championshipPoints": 12.7,
+    "players": [
+      "Derrick Henry",
+      "Mike Evans"
+    ],
+    "scope": "Verified 2020–2025 Sleeper champions' semifinal and final starting lineups, based on 51 transaction museum events",
+    "note": "Descriptive acquired-player starter production, not replacement-adjusted points, full asset ROI or proof the trade caused a title"
+  },
+  "honorableDistinctions": [
+    {
+      "title": "Narrow-semifinal acquisition spotlight",
+      "manager": "Thommy",
+      "year": 2024,
+      "tradeId": "1144362000575840256",
+      "player": "Tee Higgins",
+      "semifinalPoints": 15.8,
+      "semifinalWinningMargin": 2.3,
+      "championshipPoints": 34.6,
+      "combinedPoints": 50.4,
+      "qualification": "Documented player contributed 15.80 in 2.30 semifinal victory and 34.60 in the final; not a proven replacement-adjusted swing"
+    },
+    {
+      "title": "Close-title-game traded-in scoring standout",
+      "manager": "Tony",
+      "year": 2021,
+      "tradeId": "751165345997402112",
+      "player": "Joe Mixon",
+      "championshipPoints": 29.5,
+      "championshipWinningMargin": 4.3,
+      "combinedPoints": 36,
+      "qualification": "Highest traded-in individual final starter score among recorded champion title games won by five or fewer points"
+    }
+  ],
+  "eligibleRanking": [
+    {
+      "rank": 1,
+      "tradeId": "1023059879336013824",
+      "year": 2023,
+      "date": "2023-10-26",
+      "receivingManager": "Stilly",
+      "playersReceived": "Mike Evans + Derrick Henry",
+      "playoffRoundScores": {
+        "semifinal": {
+          "week": 16,
+          "points": 44.98,
+          "winningMargin": 33.08,
+          "playerPoints": [
+            {
+              "name": "Derrick Henry",
+              "position": "RB",
+              "points": 20.88
+            },
+            {
+              "name": "Mike Evans",
+              "position": "WR",
+              "points": 24.1
+            }
+          ]
+        },
+        "championship": {
+          "week": 17,
+          "points": 12.7,
+          "winningMargin": 14.78,
+          "playerPoints": [
+            {
+              "name": "Derrick Henry",
+              "position": "RB",
+              "points": 4.2
+            },
+            {
+              "name": "Mike Evans",
+              "position": "WR",
+              "points": 8.5
+            }
+          ]
+        }
+      },
+      "totalPlayoffStarterPoints": 57.68
+    },
+    {
+      "rank": 2,
+      "tradeId": "1144362000575840256",
+      "year": 2024,
+      "date": "2024-09-24",
+      "receivingManager": "Thommy",
+      "playersReceived": "Christian McCaffrey + Diontae Johnson + Tee Higgins",
+      "playoffRoundScores": {
+        "semifinal": {
+          "week": 16,
+          "points": 15.8,
+          "winningMargin": 2.3,
+          "playerPoints": [
+            {
+              "name": "Tee Higgins",
+              "position": "WR",
+              "points": 15.8
+            }
+          ]
+        },
+        "championship": {
+          "week": 17,
+          "points": 34.6,
+          "winningMargin": 90.42,
+          "playerPoints": [
+            {
+              "name": "Tee Higgins",
+              "position": "WR",
+              "points": 34.6
+            }
+          ]
+        }
+      },
+      "totalPlayoffStarterPoints": 50.4
+    },
+    {
+      "rank": 3,
+      "tradeId": "751165345997402112",
+      "year": 2021,
+      "date": "2021-10-05",
+      "receivingManager": "Tony",
+      "playersReceived": "Joe Mixon",
+      "playoffRoundScores": {
+        "semifinal": {
+          "week": 15,
+          "points": 6.5,
+          "winningMargin": 21.52,
+          "playerPoints": [
+            {
+              "name": "Joe Mixon",
+              "position": "RB",
+              "points": 6.5
+            }
+          ]
+        },
+        "championship": {
+          "week": 16,
+          "points": 29.5,
+          "winningMargin": 4.3,
+          "playerPoints": [
+            {
+              "name": "Joe Mixon",
+              "position": "RB",
+              "points": 29.5
+            }
+          ]
+        }
+      },
+      "totalPlayoffStarterPoints": 36
+    },
+    {
+      "rank": 4,
+      "tradeId": "737360507476066304",
+      "year": 2021,
+      "date": "2021-08-30",
+      "receivingManager": "Tony",
+      "playersReceived": "Corey Davis + A.J. Brown + Jonathan Taylor",
+      "playoffRoundScores": {
+        "semifinal": {
+          "week": 15,
+          "points": 24,
+          "winningMargin": 21.52,
+          "playerPoints": [
+            {
+              "name": "Jonathan Taylor",
+              "position": "RB",
+              "points": 24
+            }
+          ]
+        },
+        "championship": {
+          "week": 16,
+          "points": 11.8,
+          "winningMargin": 4.3,
+          "playerPoints": [
+            {
+              "name": "Jonathan Taylor",
+              "position": "RB",
+              "points": 11.8
+            }
+          ]
+        }
+      },
+      "totalPlayoffStarterPoints": 35.8
+    },
+    {
+      "rank": 5,
+      "tradeId": "1146947320588861440",
+      "year": 2024,
+      "date": "2024-10-02",
+      "receivingManager": "Thommy",
+      "playersReceived": "Jordan Love",
+      "playoffRoundScores": {
+        "semifinal": {
+          "week": 16,
+          "points": 11.48,
+          "winningMargin": 2.3,
+          "playerPoints": [
+            {
+              "name": "Jordan Love",
+              "position": "QB",
+              "points": 11.48
+            }
+          ]
+        },
+        "championship": {
+          "week": 17,
+          "points": 14,
+          "winningMargin": 90.42,
+          "playerPoints": [
+            {
+              "name": "Jordan Love",
+              "position": "QB",
+              "points": 14
+            }
+          ]
+        }
+      },
+      "totalPlayoffStarterPoints": 25.48
+    },
+    {
+      "rank": 6,
+      "tradeId": "759191673220775936",
+      "year": 2021,
+      "date": "2021-10-27",
+      "receivingManager": "Tony",
+      "playersReceived": "Kyle Pitts Sr.",
+      "playoffRoundScores": {
+        "semifinal": {
+          "week": 15,
+          "points": 10.7,
+          "winningMargin": 21.52,
+          "playerPoints": [
+            {
+              "name": "Kyle Pitts Sr.",
+              "position": "TE",
+              "points": 10.7
+            }
+          ]
+        },
+        "championship": {
+          "week": 16,
+          "points": 13.2,
+          "winningMargin": 4.3,
+          "playerPoints": [
+            {
+              "name": "Kyle Pitts Sr.",
+              "position": "TE",
+              "points": 13.2
+            }
+          ]
+        }
+      },
+      "totalPlayoffStarterPoints": 23.9
+    },
+    {
+      "rank": 7,
+      "tradeId": "1152708228883660800",
+      "year": 2024,
+      "date": "2024-10-17",
+      "receivingManager": "Thommy",
+      "playersReceived": "Travis Kelce + Brandon Aiyuk",
+      "playoffRoundScores": {
+        "semifinal": {
+          "week": 16,
+          "points": 5.5,
+          "winningMargin": 2.3,
+          "playerPoints": [
+            {
+              "name": "Travis Kelce",
+              "position": "TE",
+              "points": 5.5
+            }
+          ]
+        },
+        "championship": {
+          "week": 17,
+          "points": 18.4,
+          "winningMargin": 90.42,
+          "playerPoints": [
+            {
+              "name": "Travis Kelce",
+              "position": "TE",
+              "points": 18.4
+            }
+          ]
+        }
+      },
+      "totalPlayoffStarterPoints": 23.9
+    },
+    {
+      "rank": 8,
+      "tradeId": "754017147822415872",
+      "year": 2021,
+      "date": "2021-10-13",
+      "receivingManager": "Tony",
+      "playersReceived": "CeeDee Lamb",
+      "playoffRoundScores": {
+        "semifinal": {
+          "week": 15,
+          "points": 8,
+          "winningMargin": 21.52,
+          "playerPoints": [
+            {
+              "name": "CeeDee Lamb",
+              "position": "WR",
+              "points": 8
+            }
+          ]
+        },
+        "championship": {
+          "week": 16,
+          "points": 8.4,
+          "winningMargin": 4.3,
+          "playerPoints": [
+            {
+              "name": "CeeDee Lamb",
+              "position": "WR",
+              "points": 8.4
+            }
+          ]
+        }
+      },
+      "totalPlayoffStarterPoints": 16.4
+    }
+  ],
+  "methodology": [
+    "A trade is eligible only where its championship-winning receiving manager's acquired player(s) appear as actual starters in the archived semifinal and/or final after the transaction.",
+    "Score each trade by total acquired-player fantasy points in the two champion playoff box scores; do not mix with full-season starter PAR.",
+    "Use actual winning margins only for editorial context. A substitute or untraded roster has unknown production and might still win.",
+    "These scores do not establish ex-ante fair value, the other side's playoff return, FAAB, keeper costs, or whether the trade was indispensable.",
+    "Multiple players from one trade are aggregated. A single player may contribute in both playoff rounds; those are two distinct recorded starts.",
+    "Not a definitive 2016–2025 all-league award: ESPN starter/transaction coverage and incomplete trade receipts block broader claims."
+  ],
+  "sources": [
+    "data/championship_trade_impact_receipts_2020_2025_v1.json",
+    "data/trade_museum_stage66.json",
+    "data/verified_sleeper_playoff_brackets_2020_2025.json"
+  ]
+}
