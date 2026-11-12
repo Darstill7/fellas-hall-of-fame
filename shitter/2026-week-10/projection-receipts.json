@@ -433,5 +433,81 @@
       ],
       "totalHalfPpr": 118.7
     }
+  },
+  "revisedMatchup": {
+    "matchup": "Birch vs. Stover",
+    "asOf": "2026-11-12",
+    "reason": "Stover filled Rams DST starting slot and replaced Carnell Tate/Antonio Williams with George Pickens/Jakobi Meyers",
+    "originalSnapshot": {
+      "birch": 118.7,
+      "stover": 104.4,
+      "spread": "Birch -14.5",
+      "total": 223.5,
+      "prediction": "Birch 119, Stover 104"
+    },
+    "updatedSnapshot": {
+      "birch": 118.7,
+      "stover": 115.3,
+      "spread": "Birch -3.5",
+      "total": 234,
+      "prediction": "Birch 119, Stover 115",
+      "stoverCurrentStarters": [
+        {
+          "player": "Trevor Lawrence",
+          "halfPprProjection": 19.4
+        },
+        {
+          "player": "Kyren Williams",
+          "halfPprProjection": 15.3
+        },
+        {
+          "player": "Christian McCaffrey",
+          "halfPprProjection": 19.8
+        },
+        {
+          "player": "George Pickens",
+          "halfPprProjection": 10.3
+        },
+        {
+          "player": "Matthew Golden",
+          "halfPprProjection": 13.1
+        },
+        {
+          "player": "Dalton Kincaid",
+          "halfPprProjection": 8.8
+        },
+        {
+          "player": "Khalil Shakir",
+          "halfPprProjection": 8.6
+        },
+        {
+          "player": "Jakobi Meyers",
+          "halfPprProjection": 10.1
+        },
+        {
+          "player": "Los Angeles Rams",
+          "halfPprProjection": 9.9
+        }
+      ]
+    },
+    "newlyEstimatedProjections": [
+      {
+        "player": "George Pickens",
+        "halfPprProjection": 10.3,
+        "source": "https://fortifiedfantasy.com/start-sit/this-week/half/george-pickens-22963-vs-jakobi-meyers-18598/",
+        "note": "Questionable; availability not assured"
+      },
+      {
+        "player": "Jakobi Meyers",
+        "halfPprProjection": 10.1,
+        "source": "https://fortifiedfantasy.com/start-sit/this-week/half/george-pickens-22963-vs-jakobi-meyers-18598/"
+      },
+      {
+        "player": "Los Angeles Rams",
+        "halfPprProjection": 9.9,
+        "source": "Original Week 10 model estimate documented in previous research"
+      }
+    ],
+    "method": "Retain unchanged seven player projections from original ledger; remove Carnell Tate 10.6, Antonio Williams 8.8, and EMPTY DEF 0; insert Pickens 10.3, Meyers 10.1, Rams DST 9.9. Birch starter total remains 118.7. Updated Stover 115.3. Spread Birch by 3.4, rounded to nearest half point 3.5; combined total 234.0. Blended editorial estimate, not official Sleeper or a single-provider projection."
   }
 }
