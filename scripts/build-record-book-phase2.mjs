@@ -125,7 +125,9 @@ for(const [pair,games] of rivalries){
    near++;close.push({year:g.year,week:g.week,pointsA:fromCents(g.sa),pointsB:fromCents(g.sb)});
   }
  }
+ // Both opponents own the same rivalry-level result; one-sided attribution would hide a manager's history.
  push('rival-one-point',a,near,close,{opponent:b});
+ push('rival-one-point',b,near,close,{opponent:a});
 }
 const out=[];
 for(const c of records.values()){
@@ -137,8 +139,15 @@ for(const c of records.values()){
  const leaders=rows.filter(r=>r.rank<=5);
  // All tied top marks are retained; no arbitrary truncation at first place.
  const holders=rows.filter(r=>r.rank===1);
+ // Crucial for manager dossiers: top-five alone cannot supply a full personal-best index.
+ const bestByManager=new Map();
+ for(const row of rows){
+  const previous=bestByManager.get(row.manager);
+  if(!previous||row.rank<previous.rank)bestByManager.set(row.manager,row);
+ }
+ const managerBest=[...bestByManager.values()].sort((a,b)=>a.rank-b.rank||a.manager.localeCompare(b.manager));
  out.push({id:c.id,title:c.title,scope:c.scope,unit:c.unit,direction,
-  count:rows.length,leaders,holders});
+  count:rows.length,leaders,holders,managerBest});
 }
 const schema={schema:'fellas-phase2-record-research-v1',status:'provisional-not-published',
  source,sourceUpdated:ledger.updated,updated:'2026-11-11',
