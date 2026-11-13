@@ -52,8 +52,8 @@ assert.equal(careers.summary.impactedManagers,9);
 assert.equal(careers.summary.totalRemovedWinCredits,8);
 assert.equal(careers.summary.totalRemovedLossCredits,8);
 // Simulate paired source updates in memory and verify their invariants before touching data files.
-const simulatedLedger=structuredClone(ledger);
-const simulatedWeekly=structuredClone(weekly);
+const simulatedLedger=JSON.parse(JSON.stringify(ledger));
+const simulatedWeekly=JSON.parse(JSON.stringify(weekly));
 for(const change of proposed){
  const original=simulatedLedger.games.filter(x=>scoreKey(x)===change.key&&x.stage==='regular');
  const annual=simulatedWeekly.bySeason[change.year].games.filter(x=>scoreKey({...x,year:change.year})===change.key&&x.stage==='regular');
