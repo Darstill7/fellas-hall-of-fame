@@ -1,0 +1,39 @@
+name: Research 21 Truncated Record Rankings
+on:
+  push:
+    branches: ['research/record-book-2-audit-20261113']
+    paths:
+      - 'scripts/reconstruct-expanded-record-rankings.mjs'
+      - '.github/workflows/research-reconstruct-expanded.yml'
+  pull_request:
+    paths:
+      - 'scripts/reconstruct-expanded-record-rankings.mjs'
+      - '.github/workflows/research-reconstruct-expanded.yml'
+permissions:
+  contents: read
+jobs:
+  reconstruction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reconstruct all 21 category leaderboards and source coverage
+        run: |
+          node scripts/reconstruct-expanded-record-rankings.mjs > /tmp/full-expanded.json
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const d=JSON.parse(fs.readFileSync('/tmp/full-expanded.json','utf8'));
+          console.log(JSON.stringify({coverage:d.coverage,discrepancies:d.discrepancies},null,2));
+          assert.equal(d.coverage.categories,21);
+          assert.equal(d.coverage.regularGames,705);
+          assert.equal(d.coverage.teamGameRows,1410);
+          assert.equal(d.categories.length,new Set(d.categories.map(x=>x.id)).size);
+          for(const c of d.categories){
+            assert(c.rankedRows.length>=c.managerBest.length);
+            assert(c.managerBest.every(e=>c.rankedRows.some(x=>x.manager===e.manager&&x.rank===e.rank)));
+          }
+          JS
