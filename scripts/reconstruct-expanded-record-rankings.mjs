@@ -118,11 +118,32 @@ const mismatches=output.filter(c=>!c.sourceCoverageMatches||!c.sourceTopValueMat
   value:c.sourceTopValueMatches,manager:c.sourceTopManagerMatches,
   expected:c.sourceDeclaredEntries,got:c.generatedRows,
   sourceTop:c.sourceTop,recalcTop:c.recalculatedTop}));
+// Each of the original top-20 entries must remain identifiable with the same competition
+// rank after the complete reconstruction, not just the #1 leader.
+const storedRowDiscrepancies=[];
+for(const c of truncated){
+ const rebuilt=output.find(x=>x.id===c.key);
+ for(const original of c.leaders){
+  const y=original.year??original.evidence?.year??null;
+  const w=original.week??original.evidence?.week??null;
+  const opponent=original.evidence?.opponent??null;
+  const fromYear=original.evidence?.fromYear??null;
+  const candidates=rebuilt.rankedRows.filter(x=>x.manager===N(original.manager)&&
+   x.value===original.value&&(y===null||x.year===y)&&
+   (w===null||x.week===w)&&
+   (opponent===null||x.evidence?.opponent===N(opponent))&&
+   (fromYear===null||x.evidence?.fromYear===fromYear));
+  if(!candidates.some(x=>x.rank===original.rank))
+   storedRowDiscrepancies.push({id:c.key,manager:N(original.manager),
+    value:original.value,rank:original.rank,year:y,week:w,opponent,fromYear,
+    matchedRanks:candidates.map(x=>x.rank)});
+ }
+}
 const result={schema:'fellas-reconstructed-expanded-records-v1',status:'research-only',
  generatedFrom:'data/unified_record_book_2016_2026.json',
  completionScope:'21 truncated expanded record categories',
  coverage:{regularGames:games.length,teamGameRows:teamWeeks.length,
   categories:output.length,fullyReconstructed:output.filter(x=>x.completeManagerRanking).length,
-  mismatches:mismatches.length},
- discrepancies:mismatches,categories:output};
+  mismatches:mismatches.length,storedTop20Discrepancies:storedRowDiscrepancies.length},
+ discrepancies:mismatches,storedRowDiscrepancies,categories:output};
 console.log(JSON.stringify(result,null,2));
