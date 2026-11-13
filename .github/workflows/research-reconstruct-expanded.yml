@@ -27,7 +27,7 @@ jobs:
           import fs from 'node:fs';
           import assert from 'node:assert/strict';
           const d=JSON.parse(fs.readFileSync('/tmp/full-expanded.json','utf8'));
-          console.log(JSON.stringify({coverage:d.coverage,discrepancies:d.discrepancies},null,2));
+          console.log(JSON.stringify({coverage:d.coverage,discrepancies:d.discrepancies,storedRowDiscrepancies:d.storedRowDiscrepancies},null,2));
           assert.equal(d.coverage.categories,21);
           assert.equal(d.coverage.regularGames,705);
           assert.equal(d.coverage.teamGameRows,1410);
