@@ -1,0 +1,60 @@
+name: Research Record Book 2.0 Registry
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/build-record-book-2-registry.mjs'
+      - 'scripts/verify-record-book-2-deep-research.mjs'
+      - 'scripts/build-record-book-phase2.mjs'
+      - 'scripts/build-record-taxonomy-crosswalk.mjs'
+      - 'data/expanded_records_verified_v1.json'
+      - 'data/legendary_records_2016_2025_v1.json'
+      - 'data/postseason_records_verified_v1.json'
+      - 'data/unified_record_book_2016_2026.json'
+      - '.github/workflows/research-record-book-2-registry.yml'
+  push:
+    branches:
+      - 'research/record-book-2-audit-20261113'
+    paths:
+      - 'scripts/build-record-book-2-registry.mjs'
+      - 'scripts/verify-record-book-2-deep-research.mjs'
+      - '.github/workflows/research-record-book-2-registry.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify independent historical records
+        run: node scripts/verify-record-book-2-deep-research.mjs
+      - name: Generate research-only registry and validate manager cross-links
+        run: |
+          node scripts/build-record-book-2-registry.mjs > /tmp/record-book-2.json
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const d=JSON.parse(fs.readFileSync('/tmp/record-book-2.json','utf8'));
+          assert.equal(d.status,'research-only-no-production-writes');
+          assert.equal(d.coverage.expanded,44);
+          assert.equal(d.coverage.legendary,19);
+          assert.equal(d.coverage.phase2Proposals,23);
+          assert.equal(d.coverage.postseasonGroups,7);
+          assert.equal(d.coverage.managers,14);
+          assert(d.coverage.incompleteRankingCategories>0);
+          assert.equal(d.records.length,new Set(d.records.map(x=>x.record_id)).size);
+          for(const [manager,p] of Object.entries(d.profiles)){
+            assert.equal(p.manager,manager);
+            for(const x of p.recordPlacements){
+              const c=d.records.find(z=>z.record_id===x.record_id);
+              assert(c&&c.managerBest.some(y=>y.manager===manager));
+              if(c.status==='candidate-awaiting-certification')
+                assert.equal(c.publication,'research-only');
+            }
+          }
+          console.log(JSON.stringify(d.coverage,null,2));
+          JS
