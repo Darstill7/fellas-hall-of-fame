@@ -93,13 +93,17 @@ for(const [key,title] of postseasonGroups){
   knownLeaders:rows.filter(x=>x.rank===1),displayRows:rows,managerBest:rows,
   notes:[]});
 }
+// Curated editorial policy: lowlights and opponent/schedule adversity are not positive trophy titles.
+const nonTrophyExpanded=new Set(['lowest-score','highest-score-loss','lowest-score-win',
+ 'biggest-defeat','narrowest-defeat','points-against','wins-below-100',
+ 'high-score-losses','one-score-drama']);
 const profiles={};
 for(const manager of [...fullManagers].sort()){
  const items=records.flatMap(c=>c.managerBest.filter(x=>x.manager===manager).map(x=>({
   record_id:c.record_id,title:c.title,family:c.family,status:c.status,
   leagueRank:x.rank,value:x.value??c.metricDisplay??null,year:x.year??null,
   positiveTrophyEligible:c.status==='existing-source-preserved'&&c.family!=='Legendary'&&
-    c.family!=='Postseason'&&c.direction==='high'&&x.rank===1,
+    c.family!=='Postseason'&&c.direction==='high'&&x.rank===1&&!nonTrophyExpanded.has(c.record_id),
   completeness:c.completeManagerRanking?'complete-source-ranking':'limited-source-ranking'
  })));
  const absent=records.filter(c=>!c.completeManagerRanking&&!c.managerBest.some(x=>x.manager===manager)).length;
