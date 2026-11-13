@@ -51,6 +51,40 @@ assert.equal(new Set(proposed.map(x=>x.key)).size,8);
 assert.equal(careers.summary.impactedManagers,9);
 assert.equal(careers.summary.totalRemovedWinCredits,8);
 assert.equal(careers.summary.totalRemovedLossCredits,8);
+// Simulate paired source updates in memory and verify their invariants before touching data files.
+const simulatedLedger=structuredClone(ledger);
+const simulatedWeekly=structuredClone(weekly);
+for(const change of proposed){
+ const original=simulatedLedger.games.filter(x=>scoreKey(x)===change.key&&x.stage==='regular');
+ const annual=simulatedWeekly.bySeason[change.year].games.filter(x=>scoreKey({...x,year:change.year})===change.key&&x.stage==='regular');
+ assert.equal(original.length,1,'Unified ledger target not unique '+change.key);
+ assert.equal(annual.length,1,'Annual ledger target not unique '+change.key);
+ original[0].stage=change.to;annual[0].stage=change.to;
+}
+for(const year of [2020,2021]){
+ const annual=simulatedWeekly.bySeason[year];
+ simulatedLedger.counts[year].regular=simulatedLedger.games.filter(g=>g.year===year&&g.stage==='regular').length;
+ simulatedLedger.counts[year].postseason=simulatedLedger.games.filter(g=>g.year===year&&g.stage!=='regular').length;
+ annual.regularGames=annual.games.filter(g=>g.stage==='regular').length;
+ annual.postseasonGames=annual.games.filter(g=>g.stage!=='regular').length;
+ assert.equal(simulatedLedger.counts[year].regular,65);
+ assert.equal(annual.regularGames,65);
+ assert.equal(simulatedLedger.counts[year].regular,annual.regularGames);
+ assert.equal(simulatedLedger.counts[year].postseason,annual.postseasonGames);
+ const expected=standings.find(x=>x.year===year);
+ for(const x of expected.rows){
+  const row=annual.standings.find(r=>r.manager===x.manager);
+  assert(row,'Annual standings manager missing '+year+' '+x.manager);
+  for(const field of ['games','w','l','t','pf','pa'])row[field]=x.corrected[field];
+  const managerYear=simulatedWeekly.managerAnnual[x.manager]?.find(y=>y.year===year);
+  assert(managerYear,'Manager annual record missing '+year+' '+x.manager);
+  for(const field of ['games','w','l','t','pf','pa'])if(field in managerYear)managerYear[field]=x.corrected[field];
+ }
+ assert.equal(annual.standings.filter(x=>x.games!==13).length,0);
+ assert.equal(annual.games.length,weekly.bySeason[year].games.length,'No games may be dropped during migration');
+}
+assert.deepEqual(simulatedLedger.games.map(g=>scoreKey(g)),ledger.games.map(g=>scoreKey(g)),'No game score, manager or week may be modified');
+assert.deepEqual(simulatedWeekly.seasonYears,weekly.seasonYears,'Season coverage may not change');
 const before=ledger.games.filter(x=>[2020,2021].includes(x.year)&&x.stage==='regular').length;
 const after=before-proposed.length;
 assert.equal(before,138);assert.equal(after,130);
