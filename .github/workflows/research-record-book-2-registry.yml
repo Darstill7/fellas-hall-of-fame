@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'scripts/build-record-book-2-registry.mjs'
+      - 'scripts/reconstruct-expanded-record-rankings.mjs'
+      - 'scripts/reconstruct-expanded-record-rankings.mjs'
       - 'scripts/verify-record-book-2-deep-research.mjs'
       - 'scripts/build-record-book-phase2.mjs'
       - 'scripts/build-record-taxonomy-crosswalk.mjs'
@@ -45,7 +47,14 @@ jobs:
           assert.equal(d.coverage.phase2Proposals,23);
           assert.equal(d.coverage.postseasonGroups,7);
           assert.equal(d.coverage.managers,14);
-          assert(d.coverage.incompleteRankingCategories>0);
+          assert.equal(d.coverage.completeRankingCategories,74);
+          assert.equal(d.coverage.incompleteRankingCategories,19);
+          assert(d.records.filter(c=>c.family!=='Legendary').every(c=>c.completeManagerRanking));
+          assert(d.records.filter(c=>c.family==='Legendary').every(c=>!c.completeManagerRanking));
+          for(const c of d.records.filter(c=>c.source==='scripts/reconstruct-expanded-record-rankings.mjs')){
+            assert.equal(c.sourceStoredCount,c.sourceEntryCount);
+            assert(c.managerBest.length>0);
+          }
           assert.equal(d.records.length,new Set(d.records.map(x=>x.record_id)).size);
           for(const [manager,p] of Object.entries(d.profiles)){
             assert.equal(p.manager,manager);
