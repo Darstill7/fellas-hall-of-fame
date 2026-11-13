@@ -68,8 +68,10 @@ for(const c of phase2.categories){
   coverage:'2016–2026 W9 regular season; season entries 2016–2025',
   eligibility:'See phase2 research generator and missing full-week exclusions',
   source:'scripts/build-record-book-phase2.mjs',proposalAliases:[c.id,...sourceAliases.filter(x=>x!==c.id)],
-  completeManagerRanking:true,sourceEntryCount:c.count,sourceStoredCount:c.count,
-  knownLeaders:rows.filter(x=>x.rank===1),displayRows:rows,
+  completeManagerRanking:true,sourceEntryCount:c.count,sourceStoredCount:rows.length,
+  knownLeaders:c.holders.map(e=>({manager:norm(e.manager),year:e.year??null,week:e.week??null,
+   value:e.value,rank:e.rank,opponent:e.opponent??null,evidence:e.evidence??null})),
+  displayRows:rows,
   managerBest:personal,notes:['Full personal-best index from all eligible Phase 2 rows; status remains provisional pending original-provider certification.']});
 }
 // Postseason leader series are kept separate from the published expanded 44 categories.
