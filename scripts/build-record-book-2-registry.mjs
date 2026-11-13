@@ -61,15 +61,16 @@ for(const c of phase2.categories){
  }
  const rows=c.leaders.map(e=>({manager:norm(e.manager),year:e.year??null,week:e.week??null,
   value:e.value,rank:e.rank,opponent:e.opponent??null,evidence:e.evidence??null}));
- const personal=bestPerManager(rows);
+ const personal=bestPerManager(c.managerBest.map(e=>({manager:norm(e.manager),year:e.year??null,week:e.week??null,
+  value:e.value,rank:e.rank,opponent:e.opponent??null,evidence:e.evidence??null})));
  add({record_id:id,title:c.title,family:c.scope,direction:c.direction,unit:c.unit,
   status:'candidate-awaiting-certification',publication:'research-only',
   coverage:'2016–2026 W9 regular season; season entries 2016–2025',
   eligibility:'See phase2 research generator and missing full-week exclusions',
   source:'scripts/build-record-book-phase2.mjs',proposalAliases:[c.id,...sourceAliases.filter(x=>x!==c.id)],
-  completeManagerRanking:false,sourceEntryCount:c.count,sourceStoredCount:rows.length,
+  completeManagerRanking:true,sourceEntryCount:c.count,sourceStoredCount:c.count,
   knownLeaders:rows.filter(x=>x.rank===1),displayRows:rows,
-  managerBest:personal,notes:['Only source top-five ranking and top-holders are materialized; other managers may have unshown personal bests.']});
+  managerBest:personal,notes:['Full personal-best index from all eligible Phase 2 rows; status remains provisional pending original-provider certification.']});
 }
 // Postseason leader series are kept separate from the published expanded 44 categories.
 const postseasonGroups=[['playoffBerths','Playoff appearances'],['finals','Championship game appearances'],
