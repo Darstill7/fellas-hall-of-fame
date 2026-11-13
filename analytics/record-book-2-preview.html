@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1822"><title>Record Book 2.0 Preview | The Fellas</title>
+<link rel="stylesheet" href="../assets/record-book-2-preview.css"></head>
+<body>
+<a class="skip" href="#record-main">Skip to record book</a>
+<nav class="topbar" aria-label="Preview navigation"><div class="shell nav-inner">
+ <a href="../" class="brand">🏆 THE FELLAS</a>
+ <div class="nav-links"><a href="expanded-records.html">Current Record Book</a><a href="../managers/">Managers</a><a href="../hall/">The Hall</a></div>
+ </div></nav>
+<main class="shell" id="record-main">
+ <header class="masthead"><div class="eyebrow">THE FELLAS / ARCHIVES / REVIEW EDITION</div>
+ <div class="hero-eyebrow"><span>2016—2026</span><span class="state">Research preview · Not published</span></div>
+ <h1>The <em>Record</em> Book.</h1>
+ <p class="dek">A decade of absurd scores, improbable wins, historic failures, and the names behind them. Start with a franchise. Then uncover the evidence.</p>
+ <div class="scope" id="scope">Loading research ledger…</div>
+ </header>
+ <section class="folio" aria-labelledby="folio-title">
+ <div class="chapter"><span>01 / THE FRANCHISE DOSSIER</span><span>Records, personal bests &amp; lowlights</span></div>
+ <div class="folio-heading"><div><h2 id="folio-title">Choose your manager.</h2><p>Every current and former manager receives a complete statistical portfolio, where the underlying historical data supports it.</p></div>
+  <label class="field"><span>Manager</span><select id="manager-picker" aria-label="Choose a manager"><option>Loading…</option></select></label></div>
+ <div id="manager-summary" aria-live="polite" class="loading">Loading manager portfolio…</div>
+ <div class="filterrow" id="manager-filters" role="group" aria-label="Portfolio record types">
+  <button type="button" data-pf="all" aria-pressed="true">All categories</button>
+  <button type="button" data-pf="first" aria-pressed="false">First place</button>
+  <button type="button" data-pf="top3" aria-pressed="false">Top three</button>
+  <button type="button" data-pf="research" aria-pressed="false">Research only</button>
+ </div>
+ <div id="manager-results" aria-live="polite"></div>
+ </section>
+ <section class="catalog" aria-labelledby="catalog-title">
+ <div class="chapter"><span>02 / THE COMPLETE INDEX</span><span>Records and source receipts</span></div>
+ <h2 id="catalog-title">Browse the archive.</h2><p class="catalog-intro">Search by achievement, manager, or category. Tied holders retain their place; narrative exhibits and provisional records are clearly labeled.</p>
+ <div class="search-tools">
+ <label class="field search"><span>Find a record</span><input id="record-search" type="search" autocomplete="off" placeholder="Try: weekly scoring, rivalry, comeback…" /></label>
+ <label class="field"><span>Category</span><select id="family-picker"><option value="all">All categories</option></select></label>
+ <label class="field"><span>Evidence status</span><select id="status-picker"><option value="all">All statuses</option><option value="existing">Existing source</option><option value="research">Research only</option></select></label>
+ </div>
+ <div class="result-count" id="results-count" role="status"></div>
+ <div class="record-grid" id="record-catalog" aria-live="polite"></div>
+ </section>
+ <footer class="footer"><p>Historical records use original-era scoring and rounding. ESPN's 2016 eight-team field and 2016–2017 two-week playoff aggregate rounds are not normalized to Sleeper. 2026 remains an unfinished season. Source and completion status are provided per record.</p><p>Preview generated from the dedicated Record Book research branch. <a href="expanded-records.html">Return to published records</a>.</p></footer>
+</main>
+<script type="module" src="../assets/record-book-2-preview.mjs"></script>
+</body></html>
