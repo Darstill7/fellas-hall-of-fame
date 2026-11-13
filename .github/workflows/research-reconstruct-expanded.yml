@@ -29,6 +29,9 @@ jobs:
           const d=JSON.parse(fs.readFileSync('/tmp/full-expanded.json','utf8'));
           console.log(JSON.stringify({coverage:d.coverage,discrepancies:d.discrepancies,storedRowDiscrepancies:d.storedRowDiscrepancies},null,2));
           assert.equal(d.coverage.categories,21);
+          assert.equal(d.coverage.fullyReconstructed,21);
+          assert.equal(d.coverage.mismatches,0);
+          assert.equal(d.coverage.storedTop20Discrepancies,0);
           assert.equal(d.coverage.regularGames,705);
           assert.equal(d.coverage.teamGameRows,1410);
           assert.equal(d.categories.length,new Set(d.categories.map(x=>x.id)).size);
