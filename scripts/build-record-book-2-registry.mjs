@@ -9,8 +9,12 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const expanded=read('data/expanded_records_verified_v1.json');
 const legendary=read('data/legendary_records_2016_2025_v1.json');
 const postseason=read('data/postseason_records_verified_v1.json');
-const taxonomy=JSON.parse(execFileSync('node',['scripts/build-record-taxonomy-crosswalk.mjs'],{encoding:'utf8',maxBuffer:10*1024*1024}));
+const taxonomy=JSON.parse(execFileSync('node',['scripts/build-record-taxonomy-crosswalk.mjs','scripts/reconstruct-expanded-record-rankings.mjs'],{encoding:'utf8',maxBuffer:10*1024*1024}));
 const phase2=JSON.parse(execFileSync('node',['scripts/build-record-book-phase2.mjs'],{encoding:'utf8',maxBuffer:10*1024*1024}));
+const reconstructed=JSON.parse(execFileSync('node',['scripts/reconstruct-expanded-record-rankings.mjs'],{encoding:'utf8',maxBuffer:32*1024*1024}));
+assert.equal(reconstructed.coverage.categories,21);
+assert.equal(reconstructed.coverage.mismatches,0,'Complete ranking reconstruction differs from published incumbents');
+const fullExpandedIndex=new Map(reconstructed.categories.map(x=>[x.id,x]));
 const norm=x=>x==='Tom'?'Thommy':x;
 const normalize=id=>{let seen=new Set();while(taxonomy.aliasRules[id]){assert(!seen.has(id));seen.add(id);id=taxonomy.aliasRules[id]}return id};
 const records=[],ids=new Set();
@@ -26,15 +30,23 @@ const bestPerManager=rows=>{
 // Those categories may yield an INCOMPLETE manager-best index. This builder refuses to hide that limitation.
 for(const c of expanded.categories){
  const rows=c.leaders.map(simplify);
- const personal=bestPerManager(rows),truncated=c.entries>c.leaders.length;
+ const truncated=c.entries>c.leaders.length;
+ const restored=truncated?fullExpandedIndex.get(c.key):null;
+ assert(!truncated||restored,'Missing restored category '+c.key);
+ const personal=restored?bestPerManager(restored.managerBest.map(e=>({
+  manager:norm(e.manager),rank:e.rank,value:e.value,year:e.year,week:e.week,
+  opponent:e.evidence?.opponent??null,evidence:e.evidence}))):bestPerManager(rows);
  for(const e of personal)fullManagers.add(e.manager);
  add({record_id:c.key,title:c.label,family:c.group,direction:c.direction,unit:c.unit,
   status:'existing-source-preserved',publication:'existing-only-no-new-certification',
   coverage:'2016–2026 W9 regular season; completed season awards through 2025',
-  eligibility:c.qualifier??null,source:'data/expanded_records_verified_v1.json',
-  completeManagerRanking:!truncated,sourceEntryCount:c.entries,sourceStoredCount:rows.length,
-  knownLeaders:rows.filter(e=>e.rank===1),displayRows:rows.slice(0,20),
-  managerBest:personal,notes:truncated?['Rankings are truncated at source: do not assert an absent manager has no personal record.']:[]});
+  eligibility:c.qualifier??null,source:restored?'scripts/reconstruct-expanded-record-rankings.mjs':'data/expanded_records_verified_v1.json',
+  originalPublishedSource:'data/expanded_records_verified_v1.json',
+  completeManagerRanking:true,sourceEntryCount:c.entries,
+  sourceStoredCount:restored?restored.generatedRows:rows.length,
+  knownLeaders:restored?restored.holders.map(simplify):rows.filter(e=>e.rank===1),
+  displayRows:rows.slice(0,20),managerBest:personal,
+  notes:restored?['Complete candidate manager index independently rebuilt from 705 regular-season game receipts; existing published leaders unchanged.']:[]});
 }
 // Legendary exhibits have qualitative metrics: do not invent a numeric rank or count their owner as a new score trophy.
 const duplicateLegendary={'highest-score-in-loss':'highest-score-loss'};
