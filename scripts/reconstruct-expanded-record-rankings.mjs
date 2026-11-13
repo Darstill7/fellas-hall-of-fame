@@ -51,7 +51,9 @@ for(const [key,rows] of seasons){
  const evidence={year,games,wins,losses,ties,points:pf,against:pa};
  for(const [id,v] of [
   ['season-points',pf],['season-average',pf/games],
-  ['season-wins',wins],['season-win-rate',100*(wins+0.5*ties)/games],
+  ['season-wins',wins],
+  // Historical published rule uses wins/games; a 2016 tie is not half a win in this category.
+  ['season-win-rate',100*wins/games],
   ['season-point-diff',pf-pa],
   ['season-140-club',rows.filter(x=>x.score>=14000).length]]){
   add(mk(id,v,manager,evidence,year));
