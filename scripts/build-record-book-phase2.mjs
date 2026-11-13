@@ -106,8 +106,11 @@ for(const [id,side] of [['high-streak','top'],['low-streak','bottom']]){
 for(const g of games){
  const a=norm(g.home),b=norm(g.away),sum=fromCents(cents(g.homeScore)+cents(g.awayScore));
  const ev={year:g.year,week:g.week,home:a,away:b,homeScore:g.homeScore,awayScore:g.awayScore};
- push('combined-high',a,sum,ev,{opponent:b,year:g.year,week:g.week});
- push('combined-low',a,sum,ev,{opponent:b,year:g.year,week:g.week});
+ // Both participants share the event in their manager-specific history; the physical game is still one matchup.
+ for(const [manager,opponent] of [[a,b],[b,a]]){
+  push('combined-high',manager,sum,ev,{opponent,year:g.year,week:g.week});
+  push('combined-low',manager,sum,ev,{opponent,year:g.year,week:g.week});
+ }
 }
 for(const [pair,games] of rivalries){
  const [a,b]=pair.split('|');
