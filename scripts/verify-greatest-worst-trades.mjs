@@ -58,6 +58,15 @@ for(const fragment of ['manager-home-trade-research','greatest-worst-trades.html
 for(const fragment of ['new URLSearchParams(location.search)','knownManagers.has(canonicalManagerName)','r.betterReturn.manager===filteredManager','r.lowerReturn.manager===filteredManager','See all ten trades','does not appear among these ten qualifying trade outcomes']){
  assert(page.includes(fragment),'Manager-scoped trade archive missing '+fragment);
 }
+// All ten current manager encyclopedia entrypoints use the same verified trade-legacy component.
+const encyclopedia=fs.readFileSync('assets/manager-encyclopedia.js','utf8');
+for(const fragment of ['data-trade-legacy','greatest_worst_trades_research_v1.json','rankedObservedPARAdvantage','greatest-worst-trades.html?manager=','encodeURIComponent(name)','fully matched two-manager deals','2020–2025','Unexpected research schema']){
+ assert(encyclopedia.includes(fragment),'Missing sourced manager trade legacy guard: '+fragment);
+}
+for(const slug of ['birch','jmid','kuhl','mitch','scott','stew','stilly','stover','tom','tony']){
+ const managerPage=fs.readFileSync('managers/'+slug+'/index.html','utf8');
+ assert(managerPage.includes('assets/manager-encyclopedia.js'),'Manager '+slug+' missing shared legacy renderer');
+}
 assert(hall.includes('../analytics/greatest-worst-trades.html'),'Hall of Shame link missing');
 assert(trades.includes('href="greatest-worst-trades.html"'),'Trade history link missing');
 assert(!registry.awards.some(x=>x.transactionId==='1031121022772555776'),'Voided-pick governance not an award criterion');
