@@ -1,0 +1,47 @@
+name: Heartbreak & Misfortune Record Research
+on:
+  push:
+    branches: ['research/record-book-2-audit-20261113']
+    paths:
+      - 'scripts/build-heartbreak-records.mjs'
+      - '.github/workflows/research-heartbreak-records.yml'
+  pull_request:
+    paths:
+      - 'scripts/build-heartbreak-records.mjs'
+      - '.github/workflows/research-heartbreak-records.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify source games and every proposed leaderboard
+        run: |
+          node scripts/build-heartbreak-records.mjs > /tmp/heartbreak-research.json
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const d=JSON.parse(fs.readFileSync('/tmp/heartbreak-research.json','utf8'));
+          assert.equal(d.coverage.games,705);
+          assert.equal(d.coverage.appearances,1410);
+          assert.equal(d.coverage.managers,14);
+          assert.equal(d.categoryCount,15);
+          assert.equal(d.seasonCategoryCount,2);
+          for(const c of d.categories){
+            assert.equal(c.ranked.length,14);
+            assert(c.leaders.length>0);
+            assert(c.leaders.every(x=>x.rank===1&&x.value>0));
+            for(const row of c.ranked){
+              assert.equal(row.evidence.length,row.value);
+              assert(row.evidence.every(g=>g.score<g.against));
+            }
+          }
+          for(const c of d.seasonRecords)assert(c.rows.every(x=>x.year<=2025));
+          console.log('PASS 15 heartbreak categories, two completed-season categories; all holders, ranks and game evidence verified');
+          console.log(d.categories.map(x=>x.id+': '+x.leaders.map(y=>y.manager+' '+y.value).join(' / ')).join('\n'));
+          JS
