@@ -60,6 +60,30 @@ for(const t of [110,125]){
  rule:'Strictly above '+t+'; one completed season only, 2016–2025; 2026 excluded',rows,
  leaders:rows.filter(x=>x.rank===1)});
 }
+const rivalryRecords=[];
+for(const t of [100,110,125,140,150]){
+ const rows=[];
+ for(const victim of names)for(const opponent of names){
+  if(victim===opponent)continue;
+  const evidence=losses.filter(x=>x.manager===victim&&x.opponent===opponent&&Math.round(x.score*100)>t*100)
+   .map(proof).sort((a,b)=>a.year-b.year||a.week-b.week);
+  if(evidence.length)rows.push({manager:victim,opponent,value:evidence.length,evidence});
+ }
+ rows.sort((a,b)=>b.value-a.value||a.manager.localeCompare(b.manager)||a.opponent.localeCompare(b.opponent));
+ let rank=0,prior;
+ for(let i=0;i<rows.length;i++){if(i===0||rows[i].value!==prior)rank=i+1;prior=rows[i].value;rows[i].rank=rank}
+ rivalryRecords.push({id:'rivalry-loss-over-'+t,
+  label:'Most losses against one opponent despite scoring over '+t,
+  unit:'games',rule:'Directed rivalry: losing manager score strictly above '+t+'; opponent-specific; recovered regular seasons only',
+  leaders:rows.filter(x=>x.rank===1),rows});
+}
+const getRivalry=id=>rivalryRecords.find(c=>c.id===id);
+assert(getRivalry('rivalry-loss-over-100').leaders.some(x=>x.manager==='Stilly'&&x.opponent==='Stover'&&x.value===8));
+assert(getRivalry('rivalry-loss-over-110').leaders.some(x=>x.manager==='Stilly'&&x.opponent==='Stover'&&x.value===5));
+assert(getRivalry('rivalry-loss-over-125').leaders.some(x=>x.manager==='Stew'&&x.opponent==='Mitch'&&x.value===3));
+assert(getRivalry('rivalry-loss-over-125').leaders.some(x=>x.manager==='Tony'&&x.opponent==='Mitch'&&x.value===3));
+assert(getRivalry('rivalry-loss-over-150').leaders.length===1);
+assert(getRivalry('rivalry-loss-over-150').leaders[0].manager==='Stew'&&getRivalry('rivalry-loss-over-150').leaders[0].opponent==='Mitch'&&getRivalry('rivalry-loss-over-150').leaders[0].value===2);
 const top=(id)=>categories.find(c=>c.id===id).leaders;
 const assertTop=(id,name,count)=>assert(top(id).some(x=>x.manager===name&&x.value===count),id+' '+name+' '+count);
 assertTop('loss-over-100','Stilly',34);
@@ -92,8 +116,8 @@ const result={schema:'fellas-heartbreak-candidates-v1',
   '2016 eight-team league; rank all 14 historical manager identities without rate normalization.',
   'Counts are descriptive and exposure-dependent; manager tenure differs.',
   'Proposed categories may overlap existing 120+ point losses and close-game records: crosswalk before publication.'],
- categoryCount:categories.length,seasonCategoryCount:seasonRecords.length,
- categories,seasonRecords,byManager};
-assert.equal(categories.length,15);assert.equal(seasonRecords.length,2);
+ categoryCount:categories.length,seasonCategoryCount:seasonRecords.length,rivalryCategoryCount:rivalryRecords.length,
+ categories,seasonRecords,rivalryRecords,byManager};
+assert.equal(categories.length,15);assert.equal(seasonRecords.length,2);assert.equal(rivalryRecords.length,5);
 assert.equal(new Set(categories.map(x=>x.id)).size,categories.length);
 console.log(JSON.stringify(result,null,2));
