@@ -33,6 +33,11 @@
 .home-premium .home-now{border-top:1px solid #465c68;padding-top:29px}
 .home-premium #home-manager-title{scroll-margin-top:76px}
 @media(max-width:900px){.home-premium .discovery-card{grid-column:span 6;min-height:190px}.home-premium .discovery-card.adventure-feature{grid-column:span 6;min-height:220px}.home-premium .home-find-franchise{grid-template-columns:1fr}.home-premium .home-franchise-links{grid-template-columns:repeat(5,minmax(0,1fr))}}
+/* Override the retired phone-only flex order that forced manager ratings
+   above the adventure choices. Source order is intentional and accessible. */
+@media(max-width:650px){
+ body.home-premium main#main-content{display:block!important}
+}
 @media(max-width:650px){
  body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy .actions{display:flex!important;width:100%;margin:12px 0 0!important}
  body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy .actions a{display:none!important}
