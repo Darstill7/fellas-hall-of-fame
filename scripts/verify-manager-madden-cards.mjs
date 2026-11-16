@@ -110,7 +110,11 @@ for(const [tab,label] of [['overview','Career'],['seasons','Each Year'],['rivalr
 if(!stoverProfile.includes('class="profile-chapters')||!stoverProfile.includes('manager-profile-tabs.mjs'))
  throw Error('Stover does not load shared four-tab manager navigation');
 if(!stoverProfile.includes('manager-profile-tabs.mjs')||!stoverProfile.includes('.section[hidden]{display:none!important}'))throw Error('Stover profile tab presentation incomplete');
-if(stoverProfile.includes('verified title season is 2023')||!stoverProfile.includes('Stover won the league championship in 2022'))throw Error('Stover title narrative regressed');
+if(stoverProfile.includes('verified title season is 2023')||
+ !stoverProfile.includes('<h1>Stover</h1>')||
+ !stoverProfile.includes('2022 champion')||
+ !stoverProfile.includes('<strong>2022</strong><small>Year he won</small>'))
+ throw Error('Stover profile must show sourced 2022 title in its opening career snapshot');
 for(const anchor of ['franchise-story','season-history','head-to-head','franchise-encyclopedia','verified-history-panel','weekly-game-log'])if(!stoverProfile.includes('id="'+anchor+'"'))throw Error('Stover archival profile section missing '+anchor);
 console.log('Stover four-tab profile structure and title historical correction PASS');
 
