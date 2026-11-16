@@ -92,10 +92,14 @@ for(const path of ['assets/manager-season-resume.mjs','assets/manager-madden-car
 console.log('Runner-up results distinguished from champion finishes PASS');
 
 const homePage=fs.readFileSync('index.html','utf8');
-const primaryManagerSection=homePage.indexOf('<section class="manager-showcase shell"');
-const seasonRecordsSection=homePage.indexOf('<section class="section shell" aria-labelledby="season-records-home"');
-if(primaryManagerSection<0||seasonRecordsSection<0||primaryManagerSection>=seasonRecordsSection)throw Error('Manager cards must precede season records on homepage');
-if(!homePage.includes('id="home-manager-title">Find Your Manager')||!homePage.includes('id="home-manager-cards"'))throw Error('Manager-first homepage missing accessible primary cards');
+const primaryManagerSection=homePage.indexOf('<section class="manager-showcase shell home-manager-refined"');
+const seasonRecordsSection=homePage.indexOf('<section class="section shell home-deep-archives"');
+if(primaryManagerSection<0||seasonRecordsSection<0||primaryManagerSection>=seasonRecordsSection)
+ throw Error('Manager discovery must precede advanced season ratings on homepage');
+if(!homePage.includes('id="home-manager-title">Find a Fella')||
+ !homePage.includes('id="home-manager-cards"')||
+ !homePage.includes('class="home-advanced-managers"'))
+ throw Error('Homepage must preserve manager finder and expandable ratings without dominating the first screen');
 console.log('Homepage manager-first hierarchy PASS');
 
 const stoverProfile=fs.readFileSync('managers/stover/index.html','utf8');
@@ -149,7 +153,7 @@ if(!mobileHome.includes('id="home-manager-mobile"')||!mobileHome.includes('home-
 if(!mobileRenderer.includes('class="mobile-manager-row')||!mobileRenderer.includes('managerCardTier(r)')||!mobileRenderer.includes('maddenOvr(r.score)')||!mobileRenderer.includes('mobile-manager-link'))throw Error('Mobile list lost canonical OVR, expandable rows, or profile links');
 console.log('Mobile manager directory uses canonical ratings and expandable tier-color rows PASS');
 
-for(const token of ['id="home-manager-search"','id="home-manager-clear"','id="home-manager-empty"','Find Your Manager','manager-mobile-first'])if(!mobileHome.includes(token))throw Error('Mobile manager-first finder missing '+token);
+for(const token of ['id="home-manager-search"','id="home-manager-clear"','id="home-manager-empty"','Find a Fella','manager-mobile-first'])if(!mobileHome.includes(token))throw Error('Mobile manager-first finder missing '+token);
 for(const token of ['data-manager-name','finder.addEventListener(\'input\',filter)','row.hidden=!match','row.open=false'])if(!mobileRenderer.includes(token))throw Error('Mobile manager search behavior missing '+token);
 console.log('Mobile manager finder search and no-results state wired PASS');
 
