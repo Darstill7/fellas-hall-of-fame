@@ -1,0 +1,217 @@
+{
+  "schema": "fellas-trade-counterfactual-second-two-cases-v1",
+  "asOf": "2026-11-16",
+  "status": "research_only_noncausal",
+  "method": "Retrospective QB RB RB WR WR TE FLEX FLEX DEF optimal lineups actual historical rosters versus single-trade rollback using opposing player's same-week roster snapshot; zero or omitted weekly score is treated only according to provided Sleeper roster field. Does not model subsequent trade chains, FAAB, keeper consequences, potential roster moves, or decision-making. No differential if any surrendered asset absent.",
+  "sampledRows": [
+    {
+      "year": 2024,
+      "week": 4,
+      "tradeId": "1144362000575840256",
+      "manager": "Stilly",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 128.36,
+      "hypotheticalOptimal": 131.26,
+      "delta": -2.9,
+      "actualStarterPoints": 116.72
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "tradeId": "1144362000575840256",
+      "manager": "Thommy",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 134.14,
+      "hypotheticalOptimal": 131.04,
+      "delta": 3.1,
+      "actualStarterPoints": 116.94
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "tradeId": "1144362000575840256",
+      "manager": "Stilly",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 155.26,
+      "hypotheticalOptimal": 136.86,
+      "delta": 18.4,
+      "actualStarterPoints": 148.66
+    },
+    {
+      "year": 2024,
+      "week": 8,
+      "tradeId": "1144362000575840256",
+      "manager": "Thommy",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 125.92,
+      "hypotheticalOptimal": 148.22,
+      "delta": -22.3,
+      "actualStarterPoints": 111.44
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "tradeId": "1144362000575840256",
+      "manager": "Stilly",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Diontae Johnson"
+      ],
+      "actualOptimal": 164.9,
+      "hypotheticalOptimal": 133.3,
+      "delta": null,
+      "actualStarterPoints": 140.5
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "tradeId": "1144362000575840256",
+      "manager": "Thommy",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 95.72,
+      "hypotheticalOptimal": 122.82,
+      "delta": -27.1,
+      "actualStarterPoints": 82.62
+    },
+    {
+      "year": 2024,
+      "week": 16,
+      "tradeId": "1144362000575840256",
+      "manager": "Stilly",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Christian McCaffrey",
+        "Diontae Johnson"
+      ],
+      "actualOptimal": 195.92,
+      "hypotheticalOptimal": 167.72,
+      "delta": null,
+      "actualStarterPoints": 174.82
+    },
+    {
+      "year": 2024,
+      "week": 16,
+      "tradeId": "1144362000575840256",
+      "manager": "Thommy",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 129.68,
+      "hypotheticalOptimal": 155.28,
+      "delta": -25.6,
+      "actualStarterPoints": 123.38
+    },
+    {
+      "year": 2021,
+      "week": 2,
+      "tradeId": "737360507476066304",
+      "manager": "Thommy",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 111.98,
+      "hypotheticalOptimal": 110.38,
+      "delta": 1.6,
+      "actualStarterPoints": 85.88
+    },
+    {
+      "year": 2021,
+      "week": 2,
+      "tradeId": "737360507476066304",
+      "manager": "Tony",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Josh Jacobs"
+      ],
+      "actualOptimal": 88.72,
+      "hypotheticalOptimal": 89.52,
+      "delta": null,
+      "actualStarterPoints": 76.62
+    },
+    {
+      "year": 2021,
+      "week": 6,
+      "tradeId": "737360507476066304",
+      "manager": "Thommy",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 140.1,
+      "hypotheticalOptimal": 155.6,
+      "delta": -15.5,
+      "actualStarterPoints": 139.2
+    },
+    {
+      "year": 2021,
+      "week": 6,
+      "tradeId": "737360507476066304",
+      "manager": "Tony",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Josh Jacobs"
+      ],
+      "actualOptimal": 179.24,
+      "hypotheticalOptimal": 167.34,
+      "delta": null,
+      "actualStarterPoints": 167.14
+    },
+    {
+      "year": 2021,
+      "week": 10,
+      "tradeId": "737360507476066304",
+      "manager": "Thommy",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Corey Davis"
+      ],
+      "actualOptimal": 101.14,
+      "hypotheticalOptimal": 99.54,
+      "delta": null,
+      "actualStarterPoints": 92.74
+    },
+    {
+      "year": 2021,
+      "week": 10,
+      "tradeId": "737360507476066304",
+      "manager": "Tony",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Josh Jacobs"
+      ],
+      "actualOptimal": 98.32,
+      "hypotheticalOptimal": 101.22,
+      "delta": null,
+      "actualStarterPoints": 96.62
+    },
+    {
+      "year": 2021,
+      "week": 14,
+      "tradeId": "737360507476066304",
+      "manager": "Thommy",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Corey Davis"
+      ],
+      "actualOptimal": 113.64,
+      "hypotheticalOptimal": 91.74,
+      "delta": null,
+      "actualStarterPoints": 104.54
+    },
+    {
+      "year": 2021,
+      "week": 14,
+      "tradeId": "737360507476066304",
+      "manager": "Tony",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Josh Jacobs"
+      ],
+      "actualOptimal": 119.08,
+      "hypotheticalOptimal": 132.38,
+      "delta": null,
+      "actualStarterPoints": 119.08
+    }
+  ]
+}
