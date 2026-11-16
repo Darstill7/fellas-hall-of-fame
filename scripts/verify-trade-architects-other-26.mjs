@@ -180,4 +180,24 @@ assert(activeDoc.includes('data-integrity/trade-architects-2026-week10-current-m
 for(const m of Object.keys(current.activeManagerSummary))
  assert(activeDoc.includes('| '+m+' ')||activeDoc.includes('| '+m+' |')||activeDoc.includes('| '+m+' ('),'manager omitted from active-focused summary: '+m);
 
+
+const passports=fs.readFileSync('docs/greatest-trade-architects-manager-passports-2026-11-16.md','utf8');
+const activeManagers=['Stilly','Stew','Thommy','Mitch','Scott','Tony','Stover','Kuhl','JMid','Birch'];
+for(const name of activeManagers){
+ const offset=passports.indexOf('\\n## '+name);
+ assert(offset>=0,'missing passport '+name);
+ const end=passports.indexOf('\\n## ',offset+4);
+ const section=passports.slice(offset,end<0?passports.length:end);
+ const hist=all44.transactions.filter(tr=>tr.sides.some(s=>s.manager===name));
+ const present=current.transactions.filter(tr=>tr.sides.some(s=>s.manager===name));
+ for(const trade of hist) assert(section.includes(trade.transactionId),'missing historic passport receipt '+name+' '+trade.transactionId);
+ for(const trade of present) assert(section.includes(trade.id),'missing current passport receipt '+name+' '+trade.id);
+ const actualHist=hist.filter(tr=>tr.shape==='two_manager').reduce((total,tr)=>total+tr.sides.find(s=>s.manager===name).observedStartedPoints,0);
+ assert(section.includes(actualHist.toFixed(2)),'missing historic received point sum '+name);
+ assert(section.includes(current.activeManagerSummary[name].receivedStartedPoints.toFixed(2)),'missing current received point sum '+name);
+}
+assert(passports.includes('Hupp = **Mitch**'),'Sleeper historical display identity unresolved');
+assert(passports.includes('Sheffla = **Scott**'));
+assert(passports.includes('Gurt = **Stover**'));
+
 console.log('Trade architects: all 26 previously excluded transactions reconciled to source ids, weeks and started scores. PAR NOT CERTIFIED.');
