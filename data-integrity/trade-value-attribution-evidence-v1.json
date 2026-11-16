@@ -1,0 +1,321 @@
+{
+  "schema": "fellas-trade-value-attribution-evidence-v1",
+  "asOf": "2026-11-16",
+  "classification": "audit_only_not_causal_or_live_week_final",
+  "completeWeekCutoff": 9,
+  "verification": "Historical and 2026 original completed Sleeper trade receipts; 2021/2025/2026 lineup roster snapshots; verified 2026 draft keeper picks. 2026 Week 10 in progress and not included in completed-week totals.",
+  "principles": {
+    "separate": "Direct scored starter points; marginal lineup improvement; downstream acquisition proceeds; keeper opportunity; playoff outcome all separate. Null means unestimated, never zero.",
+    "production": "Count each player-manager-week starting production once; never add an original trade's full downstream package as distinct realized points.",
+    "multiAsset": "For package-for-package deals, return per-player observed started points; do not imply a uniquely attributable fraction of a received package without market evidence or a validated marginal contribution model.",
+    "keeper": "Keeper exercise has both player value and draft-round opportunity cost; not a free positive bonus.",
+    "noTrade": "Actual vs alternate decision branch requires all roster and transaction dependencies, not simply replacing traded assets in the same later lineup.",
+    "score": "0–100 manager rating withheld until replacement, keeper and downstream opportunity costs are calibrated against peers, with 50 neutral."
+  },
+  "chains": [
+    {
+      "key": "2021-josh-jacobs",
+      "transactionIds": [
+        "737360507476066304",
+        "738428315181928448"
+      ],
+      "events": [
+        {
+          "date": "2021-08-30",
+          "from": "Tony",
+          "to": "Thommy",
+          "asset": "Josh Jacobs",
+          "tradeId": "737360507476066304",
+          "receivedPackageThommy": [
+            "Tyreek Hill",
+            "Josh Jacobs",
+            "Javonte Williams"
+          ],
+          "paidPackageThommy": [
+            "Corey Davis",
+            "A.J. Brown",
+            "Jonathan Taylor"
+          ]
+        },
+        {
+          "date": "2021-08-31",
+          "from": "Thommy",
+          "to": "Birch",
+          "asset": "Josh Jacobs",
+          "tradeId": "738428315181928448",
+          "receivedPackageThommy": [
+            "Dak Prescott",
+            "Noah Fant",
+            "Antonio Gibson"
+          ],
+          "paidPackageThommy": [
+            "Lamar Jackson",
+            "Mark Andrews",
+            "Josh Jacobs"
+          ]
+        }
+      ],
+      "receipts": [
+        {
+          "manager": "Thommy",
+          "asset": "Josh Jacobs",
+          "strictPostTradeStarterPointsThroughWeek14": 0,
+          "starts": 0,
+          "interpretation": "Traded before regular-season week 1, so no credited starting production for Thommy; economic proceeds of the second trade not zero."
+        },
+        {
+          "manager": "Birch",
+          "asset": "Josh Jacobs",
+          "strictPostTradeStarterPointsThroughWeek14": 115.1,
+          "starts": 9,
+          "positionMedianSurplus": 3.9,
+          "interpretation": "Scored for Birch after second trade, not Thommy."
+        },
+        {
+          "manager": "Birch",
+          "asset": "Mark Andrews",
+          "strictPostTradeStarterPointsThroughWeek14": 166.6,
+          "starts": 12,
+          "positionMedianSurplus": 73.25
+        },
+        {
+          "manager": "Birch",
+          "asset": "Lamar Jackson",
+          "strictPostTradeStarterPointsThroughWeek14": 219.98,
+          "starts": 11,
+          "positionMedianSurplus": 0.47
+        }
+      ],
+      "attribution": {
+        "jacobsOnlyShareOfSecondTradeReturn": null,
+        "valuationReason": "Jacobs was bundled with Lamar Jackson and Mark Andrews and actual 2021 intermediate market value is not independently observable.",
+        "tradedBeforeFirstRegularSeasonStart": true,
+        "secondTradeIsSeparateDecision": true,
+        "doNotAssignEntirePrescottFantGibsonPackageToJacobs": true
+      }
+    },
+    {
+      "key": "2025-2026-jamarr-chase",
+      "transactionIds": [
+        "1276026193660899328",
+        "1294402688213057536",
+        "1413584172332654592"
+      ],
+      "events": [
+        {
+          "date": "2025-09-23",
+          "from": "Stew",
+          "to": "Stilly",
+          "asset": "Ja'Marr Chase",
+          "tradeId": "1276026193660899328",
+          "receivedPackageStilly": [
+            "Ja'Marr Chase",
+            "Chase Brown"
+          ],
+          "paidPackageStilly": [
+            "Jahmyr Gibbs",
+            "RJ Harvey"
+          ]
+        },
+        {
+          "date": "2025-11-12",
+          "from": "Stilly",
+          "to": "JMid",
+          "asset": "Ja'Marr Chase",
+          "tradeId": "1294402688213057536",
+          "receivedPackageStilly": [
+            "Amon-Ra St. Brown",
+            "Jordan Addison",
+            "Jared Goff"
+          ],
+          "alsoPaidByStilly": [
+            "A.J. Brown"
+          ],
+          "receivedPackageJMid": [
+            "Ja'Marr Chase"
+          ],
+          "receivedPackageThommy": [
+            "A.J. Brown"
+          ]
+        },
+        {
+          "date": "2026-10-07",
+          "from": "JMid",
+          "to": "Stilly",
+          "asset": "Ja'Marr Chase",
+          "tradeId": "1413584172332654592",
+          "receivedPackageStilly": [
+            "Ja'Marr Chase",
+            "Devaughn Vele"
+          ],
+          "paidPackageStilly": [
+            "Davante Adams",
+            "George Kittle",
+            "Breece Hall"
+          ]
+        }
+      ],
+      "keeperExercise": [
+        {
+          "season": 2026,
+          "manager": "JMid",
+          "asset": "Ja'Marr Chase",
+          "overallPick": 4,
+          "round": 1,
+          "keeper": true,
+          "costCategory": "first-round draft slot"
+        },
+        {
+          "season": 2026,
+          "manager": "Stilly",
+          "asset": "Amon-Ra St. Brown",
+          "overallPick": 8,
+          "round": 1,
+          "keeper": true,
+          "costCategory": "first-round draft slot"
+        }
+      ],
+      "strict2025PostTradeStarterPoints": [
+        {
+          "tradeId": "1276026193660899328",
+          "manager": "Stilly",
+          "player": "Ja'Marr Chase",
+          "points": 111.2,
+          "starts": 6,
+          "positionMedianSurplus": 47.2
+        },
+        {
+          "tradeId": "1294402688213057536",
+          "manager": "JMid",
+          "player": "Ja'Marr Chase",
+          "points": 23.2,
+          "starts": 2,
+          "positionMedianSurplus": 3.35
+        }
+      ],
+      "observed2026AfterOctoberTrade": {
+        "window": "weeks 5–9 only (complete weeks); same-week post-trade starts included",
+        "weekRows": [
+          {
+            "week": 5,
+            "status": "final_archive",
+            "stilly": {
+              "chase": 17.7,
+              "vele": 0
+            },
+            "jmid": {
+              "adams": 19.6,
+              "kittle": 4.9,
+              "hall": 0
+            }
+          },
+          {
+            "week": 6,
+            "status": "final_archive",
+            "stilly": {
+              "chase": 0,
+              "vele": 5.7
+            },
+            "jmid": {
+              "adams": 5.4,
+              "kittle": 15.4,
+              "hall": 0
+            }
+          },
+          {
+            "week": 7,
+            "status": "final_archive",
+            "stilly": {
+              "chase": 14.7,
+              "vele": 0
+            },
+            "jmid": {
+              "adams": 0,
+              "kittle": 10.8,
+              "hall": 0
+            }
+          },
+          {
+            "week": 8,
+            "status": "final_archive",
+            "stilly": {
+              "chase": 25.6,
+              "vele": 0
+            },
+            "jmid": {
+              "adams": 0,
+              "kittle": 0,
+              "hall": 0
+            }
+          },
+          {
+            "week": 9,
+            "status": "final_archive",
+            "stilly": {
+              "chase": 27.5,
+              "vele": 0
+            },
+            "jmid": {
+              "adams": 0,
+              "kittle": 7.8,
+              "hall": 10.2
+            }
+          }
+        ],
+        "stillyPlayerPoints": {
+          "chase": 85.5,
+          "vele": 5.7
+        },
+        "jmidPlayerPoints": {
+          "adams": 25,
+          "kittle": 38.9,
+          "hall": 10.2
+        },
+        "stillyStarterTotal": 91.2,
+        "jmidStarterTotal": 74.1,
+        "rawStarterPointDifference": 17.1,
+        "week10": {
+          "status": "in_progress",
+          "snapshotOnly": {
+            "week": 10,
+            "status": "in_progress_2026_11_16",
+            "stilly": {
+              "chase": 29.6,
+              "vele": null
+            },
+            "jmid": {
+              "adams": 0,
+              "kittle": 10.4,
+              "hall": 12.8
+            }
+          },
+          "excludedFromCompleteTotals": true
+        }
+      },
+      "attribution": {
+        "marginalBenefitOfOctoberTradeToStilly": null,
+        "marginalBenefitOfOctoberTradeToJMid": null,
+        "distinct2025ChaseAnd2026KeeperReceipt": true,
+        "jmidProceedsOfChase2026Trade": [
+          "Davante Adams",
+          "George Kittle",
+          "Breece Hall"
+        ],
+        "stillyAdditionalConsideration": "Devaughn Vele",
+        "caution": "Do not credit all three JMid acquisitions to a player as realized net gain; Chase was given up, player positions differ, and keeper cost and alternative draft decisions matter."
+      }
+    }
+  ],
+  "qualityChecks": {
+    "observed2026Weeks": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "completeWeekStarterTotalsMatch": true,
+    "noWeek10FinalClaim": true,
+    "proceedsAllocationUnestimated": true
+  }
+}
