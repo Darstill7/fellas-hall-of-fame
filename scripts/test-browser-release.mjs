@@ -264,6 +264,13 @@ try{
     if(!noPartialGrade)errors.push(width+' 2026 partial keeper season leaked completed season grade');
    }
    if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
+    if(await page.locator('.franchise-chapter-break').count()!==5)
+     errors.push(width+' '+route+' should have five numbered content chapters');
+    if(await page.locator('.profile-chapters .chapter-reading-status').count()!==1)
+     errors.push(width+' '+route+' current chapter orientation missing');
+    const chapterNames=await page.locator('.franchise-chapter-break .chapter-name').allTextContents();
+    if(chapterNames.join(' | ')!=='The Franchise Story | Rivalries & Head-to-Head | Seasons, Records & Legacy | Franchise Legends & Game Logs | Drafts, Trades & Deep Research')
+     errors.push(width+' '+route+' franchise chapter sequence changed');
     const managerName=route.split('/')[1]==='tom'?'Tom':route.split('/')[1].charAt(0).toUpperCase()+route.split('/')[1].slice(1);
     const recordLink=page.locator('main .hero .buttons a[href*="record-holders.html?manager="]');
     if(await recordLink.count()!==1)errors.push(width+' '+route+' no direct Records action on manager hero');
@@ -1334,6 +1341,12 @@ try{
      errors.push(width+' manager decisions evidence limitation missing');
    }
    if(route==='managers/trade-explorer.html'){
+    if(await page.locator('.explorer-map a').count()!==3)
+     errors.push(width+' Trade Explorer chapter navigation missing');
+    if(await page.locator('.explorer-chapter-title').count()!==1||
+       await page.locator('.case-chapter-heading').count()!==1||
+       await page.locator('.case-aftermath-heading').count()!==1)
+     errors.push(width+' Trade Explorer find/receipt/aftermath headings incomplete');
     await page.waitForFunction(()=>document.querySelectorAll('#results button.trade-tile').length>0,null,{timeout:10000}).catch(()=>{});
     if((await page.locator('#count-historic').textContent())!=='48')
      errors.push(width+' trade explorer historical census failed to load');
