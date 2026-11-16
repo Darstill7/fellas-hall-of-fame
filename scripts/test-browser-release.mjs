@@ -1341,6 +1341,7 @@ try{
      errors.push(width+' bilateral trade flow lacks two manager lanes');
     if(!await page.locator('#trade-flow').innerText().then(t=>t.includes('CeeDee Lamb')&&t.includes('Tony Pollard')))
      errors.push(width+' Lamb-Pollard trade asset flow missing');
+    await page.waitForFunction(()=>document.querySelector('#context-title')?.textContent.includes('Lamb moved to Birch'),null,{timeout:10000}).catch(()=>{});
     if(!await page.locator('#context-title').innerText().then(t=>t.includes('Lamb moved to Birch')))
      errors.push(width+' verified 2023 trade context did not load');
     if(await page.locator('#detail-body a.record-link[href*="record-books.html?manager="]').count()!==2)
