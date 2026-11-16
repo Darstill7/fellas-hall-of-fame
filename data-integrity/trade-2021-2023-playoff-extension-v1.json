@@ -2,7 +2,7 @@
   "schema": "fellas-two-key-trades-playoff-starter-extension-v1",
   "asOf": "2026-11-16",
   "classification": "observed_starter_points_only_not_incremental_trade_value",
-  "method": "Direct historical Sleeper Week 15-17 starter rosters for 2021 Birch/Thommy and 2023 Birch/Stew, plus strictly-later-to-Week14 starter reconstruction in earlier ledger. Week 15-17 values include all games played by each actual team, not only active winners bracket; final postseason bracket placement must be separately verified. Excludes any acquired asset not actually started. Does not infer alternate team record from acquired player totals.",
+  "method": "Direct historical Sleeper Week 15-17 starter rosters for 2021 Birch/Thommy and 2023 Birch/Stew, plus strictly-later-to-Week14 starter reconstruction in earlier ledger. Week 15-17 values include all games played by each actual team, not only active winners bracket; final postseason bracket placement must be separately verified. Excludes any acquired asset not actually started. Does not infer alternate team record from acquired player totals. Player IDs cross-checked against exact completed Sleeper trade receipts on 2021 Week 1 and 2023 Week 6; corrected draft placeholders before this research checkpoint completed.",
   "cases": [
     {
       "tradeId": "1018289561511682048",
@@ -19,7 +19,7 @@
             },
             {
               "name": "Kenny Gainwell",
-              "id": "8138"
+              "id": "7567"
             }
           ],
           "playoffWeeks": [
@@ -66,7 +66,7 @@
             },
             {
               "name": "Jaxon Smith-Njigba",
-              "id": "9473"
+              "id": "9488"
             }
           ],
           "playoffWeeks": [
@@ -174,7 +174,7 @@
             },
             {
               "name": "Noah Fant",
-              "id": "5844"
+              "id": "5857"
             },
             {
               "name": "Antonio Gibson",
