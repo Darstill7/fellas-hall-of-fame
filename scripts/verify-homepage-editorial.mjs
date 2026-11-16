@@ -13,7 +13,16 @@ assert(html.includes('href="#home-manager-title"'),'Manager discovery shortcut m
 assert(html.includes('id="home-manager-title"'),'Manager search destination missing');
 assert(html.includes('id="home-season-snapshot"'),'Live season ledger surface missing');
 assert(html.includes('id="home-manager-mobile"'),'Mobile manager finder missing');
-assert.equal((html.match(/class="card home-featured-card"/g)||[]).length,2,'Hall and Records featured portals must remain');
+// The homepage now keeps both featured destinations in the compact editorial
+// story rail, while the six-way discovery hub handles general navigation.
+assert.equal((html.match(/class="discovery-card"/g)||[]).length,6,'Six essential destinations must remain');
+const storyRail=html.match(/<section class="section shell home-featured-editorial"[\\s\\S]*?<\\/section>/)?.[0]||'';
+assert(storyRail.includes('href="hall/championship-stories.html"'),'Championship anthology link missing from story rail');
+assert(storyRail.includes('href="analytics/record-stories.html?record=highest"'),'Historic matchup story missing from story rail');
+const sequence=['id="home-now-heading"','id="explore-the-league"','aria-label="Latest Weekly Shitter issue"','id="home-manager-title"','id="home-featured-heading"','id="season-records-home"'].map(marker=>html.indexOf(marker));
+assert(sequence.every((position,index)=>position>=0&&(index===0||position>sequence[index-1])),'Homepage section ordering must prioritize 2026, discovery, editorial issue, managers, stories, then research');
+assert(html.includes('class="home-advanced-managers"'),'Full manager ratings explorer must remain opt-in');
+assert(html.includes('id="home-manager-search"'),'Advanced manager search must remain functional');
 assert.equal(html.split('<h1').length-1,1,'Homepage must have one h1');
 assert.equal(html.split('<section').length-1,html.split('</section>').length-1,'Homepage sections must be balanced');
 assert(css.includes('@media(max-width:650px)'),'First-screen manager-first mobile layout missing');
