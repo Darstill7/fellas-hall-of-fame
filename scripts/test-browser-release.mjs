@@ -266,6 +266,8 @@ try{
    if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
     if(await page.locator('.franchise-chapter-break').count()!==5)
      errors.push(width+' '+route+' should have five numbered content chapters');
+    if(!await page.evaluate(()=>!!document.querySelector('script[src*="franchise-chapter-system.js"]')))
+     errors.push(width+' '+route+' missing chapter position script');
     if(await page.locator('.profile-chapters .chapter-reading-status').count()!==1)
      errors.push(width+' '+route+' current chapter orientation missing');
     const chapterNames=await page.locator('.franchise-chapter-break .chapter-name').allTextContents();
