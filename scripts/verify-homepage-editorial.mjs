@@ -16,7 +16,9 @@ assert(html.includes('id="home-manager-mobile"'),'Mobile manager finder missing'
 // The homepage now keeps both featured destinations in the compact editorial
 // story rail, while the six-way discovery hub handles general navigation.
 assert.equal((html.match(/class="discovery-card"/g)||[]).length,6,'Six essential destinations must remain');
-const storyRail=html.match(/<section class="section shell home-featured-editorial"[\\s\\S]*?<\\/section>/)?.[0]||'';
+const storyRailStart=html.indexOf('<section class="section shell home-featured-editorial"');
+const storyRailEnd=html.indexOf('</section>',storyRailStart);
+const storyRail=storyRailStart>=0&&storyRailEnd>storyRailStart?html.slice(storyRailStart,storyRailEnd):'';
 assert(storyRail.includes('href="hall/championship-stories.html"'),'Championship anthology link missing from story rail');
 assert(storyRail.includes('href="analytics/record-stories.html?record=highest"'),'Historic matchup story missing from story rail');
 const sequence=['id="home-now-heading"','id="explore-the-league"','aria-label="Latest Weekly Shitter issue"','id="home-manager-title"','id="home-featured-heading"','id="season-records-home"'].map(marker=>html.indexOf(marker));
