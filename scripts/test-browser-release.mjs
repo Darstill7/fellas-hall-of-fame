@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','hall/','hall/championship-stories.html','seasons/weekly-matchup-archive.html','managers/index.html','managers/trade-portfolios.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','hall/','hall/championship-stories.html','seasons/weekly-matchup-archive.html','managers/index.html','managers/trade-portfolios.html','managers/trade-explorer.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -100,7 +100,7 @@ try{
    if(captureVisuals&&(
     route===''||route==='analytics/records.html'||route==='analytics/power-ratings.html'||
     route==='analytics/manager-report-cards.html'||route==='analytics/rivalries.html'||
-    route==='managers/record-books.html'||route==='managers/trade-portfolios.html'||route==='rivalries/stilly-vs-jmid.html'||
+    route==='managers/record-books.html'||route==='managers/trade-portfolios.html'||route==='managers/trade-explorer.html'||route==='rivalries/stilly-vs-jmid.html'||
     (route.startsWith('managers/')&&route.endsWith('/')&&
      ['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'].includes(route.split('/')[1])))){
     const slug=(route||'index.html').replace(/[^a-z0-9-]+/gi,'_');
@@ -1307,6 +1307,41 @@ try{
     const warning=await page.locator('.notice').innerText();
     if(!warning.includes('not a complete ranking of manager skill'))
      errors.push(width+' manager decisions evidence limitation missing');
+   }
+   if(route==='managers/trade-explorer.html'){
+    await page.waitForFunction(()=>document.querySelectorAll('#results button.trade-tile').length>0,null,{timeout:10000}).catch(()=>{});
+    if((await page.locator('#count-historic').textContent())!=='48')
+     errors.push(width+' trade explorer historical census failed to load');
+    if((await page.locator('#count-current').textContent())!=='9')
+     errors.push(width+' trade explorer current census failed to load');
+    const filter=page.locator('#search');await filter.fill('CeeDee Lamb');
+    const matches=await page.locator('#results button.trade-tile').count();
+    if(matches<2)errors.push(width+' player trade search missing linked receipts');
+    if(matches>0){
+     await page.locator('#results button.trade-tile').first().click();
+     const asset=page.locator('#detail-body button.asset').filter({hasText:'CeeDee Lamb'}).first();
+     if(await asset.count()===1){
+      await asset.click();
+      if(await page.locator('#journey-entries .journey-item').count()<2)
+       errors.push(width+' CeeDee Lamb player journey should show multiple trades');
+     }else errors.push(width+' trade inspector missing clickable player');
+    }
+    if(width===390){
+     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);
+     if(overflow)errors.push(width+' trade explorer has horizontal overflow');
+    }
+    const caseId='1018289561511682048';
+    await page.goto(baseUrl+'managers/trade-explorer.html?trade='+caseId);
+    await page.waitForFunction(()=>document.querySelector('#detail-meta')&&document.querySelector('#detail-meta').textContent.includes('2023'),null,{timeout:10000}).catch(()=>{});
+    if(!page.url().includes(caseId))
+     errors.push(width+' deep-linked trade case failed to load');
+    if(await page.locator('#detail-body .participant').count()!==2)
+     errors.push(width+' trade receipt participants not displayed');
+    if(captureVisuals){
+     const focusPath=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width),'trade-explorer-lamb-case.png');
+     await fs.mkdir(path.dirname(focusPath),{recursive:true});
+     await page.screenshot({path:focusPath,animations:'disabled',fullPage:false});
+    }
    }
    if(route==='managers/trade-portfolios.html'){
     // The 48 historic trade events and nine 2026 transactions must load in a
