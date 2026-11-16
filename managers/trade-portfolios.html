@@ -7,19 +7,19 @@
 </style></head><body>
 <header class="top"><div class="wrap"><a class="brand" href="../index.html">THE FELLAS / RESEARCH</a><nav><a href="./">Managers</a><a href="../analytics/trade-museum.html">Trade Museum</a><a href="../index.html">Home</a></nav></div></header>
 <main class="wrap"><div class="eyebrow">Manager Intelligence · Archive</div><h1>Trading Portfolios</h1><p class="lead">A verified history of manager-to-manager deals. Explore every recorded exchange, trading partners, acquired-player starter production and the evidence behind each portfolio.</p>
-<div class="notice"><b>Historical research preview.</b> Covers 2020–2025 Sleeper transactions. Trade volume is not trading skill; received-player points are not net trade gain. FAAB-only deals count as activity but not player performance. Ratings remain withheld.</div>
+<div class="notice"><b>Historical research preview.</b> Historical 2020–2025 Sleeper records plus a separate 2026 in-progress season layer. Trade volume is not trading skill; received-player points are not net trade gain. FAAB-only deals count as activity but not player performance. Ratings remain withheld.</div>
 <div class="stats" aria-label="Census totals"><div class="stat"><strong id="total-events">—</strong><span>Completed events</span></div><div class="stat"><strong id="total-player">—</strong><span>Player-bearing deals</span></div><div class="stat"><strong id="total-faab">—</strong><span>FAAB-only events</span></div><div class="stat"><strong id="total-managers">—</strong><span>Manager portfolios</span></div></div>
 <section><h2>Explore by manager</h2><div class="controls"><label>Search managers or aliases<input id="query" type="search" placeholder="Stilly, Stew, Gurt…" autocomplete="off"></label><label>Membership<select id="membership"><option value="all">Everyone</option><option value="current_2026">Current managers</option><option value="historical_member">Historical managers</option></select></label></div><div class="grid" id="picks"></div><p id="status" class="small" role="status">Loading research portfolios…</p></section>
 <section class="profile" id="profile" hidden><div class="profile-header"><div><div id="member-status" class="eyebrow"></div><h2 id="manager-name"></h2><p id="aliases" class="small"></p></div><a id="franchise" href="./">View franchise profile</a></div>
 <div class="metrics"><article class="panel"><h3>Trades recorded</h3><span id="trade-count" class="big">—</span><p id="trade-mix"></p></article><article class="panel"><h3>Acquired-player starter points</h3><span id="received-points" class="big">—</span><p>Actual regular season starter points through Week 14, not net trade impact.</p></article><article class="panel"><h3>Trade Rating</h3><span class="big" style="font-size:23px">Not yet rated</span><p>Counterfactual value, FAAB and keeper opportunity costs are not calibrated.</p></article></div>
 <div class="detail-grid"><article class="panel"><h3>Counterparties</h3><div id="partners"></div></article><article class="panel"><h3>Activity by season</h3><div id="years"></div></article></div>
 <div class="panel" style="margin-top:12px"><h3>Documented trade-chain highlights</h3><div id="chains"></div></div>
-<div class="toolbar"><h2>Historical transaction log</h2><label class="small">Filter year <select id="season"><option value="all">All seasons</option><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option></select></label></div><div id="trades" class="log"></div></section></main>
-<footer><div class="wrap">The Fellas Research · Historical evidence, not official trade rankings · 2026 season excluded</div></footer>
+<section class="panel" id="current2026" style="margin-top:18px" aria-labelledby="current2026-title"><div class="eyebrow">Current Season / 2026</div><h2 id="current2026-title">2026 trading activity</h2><p class="small">Completed trade receipts through Week 10. Credited starter points are measured only from finalized weeks strictly later than the trade, through Week 9. Week 10 scoring is unfinished.</p><div id="current2026-summary" class="big" style="font-size:24px">Loading…</div><div id="current2026-trades" class="log" style="margin-top:13px"></div></section><div class="toolbar"><h2>Historical transaction log</h2><label class="small">Filter year <select id="season"><option value="all">All seasons</option><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option></select></label></div><div id="trades" class="log"></div></section></main>
+<footer><div class="wrap">The Fellas Research · Historical evidence, not official trade rankings · 2026 trade receipts through Week 10; only Weeks 1–9 starter scoring finalized</div></footer>
 <script>
 (function(){
 "use strict";
-var store=null,chosen=null,links={Stilly:"stilly",Stew:"stew",Thommy:"tom",Tony:"tony",Kuhl:"kuhl",Stover:"stover",Birch:"birch",Mitch:"mitch",JMid:"jmid",Scott:"scott"};
+var store=null,chosen=null,current2026=null,links={Stilly:"stilly",Stew:"stew",Thommy:"tom",Tony:"tony",Kuhl:"kuhl",Stover:"stover",Birch:"birch",Mitch:"mitch",JMid:"jmid",Scott:"scott"};
 function el(id){return document.getElementById(id)}
 function text(id,val){el(id).textContent=String(val)}
 function mk(tag,content,cls){var n=document.createElement(tag);if(cls)n.className=cls;if(content!==undefined)n.textContent=String(content);return n}
@@ -30,13 +30,37 @@ function activate(name){chosen=store.profiles.find(function(x){return x.manager=
 chips(el("partners"),chosen.header.partnersByEncounterCount.map(function(x){return x.manager+" · "+x.count}));
 chips(el("years"),Object.entries(chosen.header.bySeason).sort(function(a,b){return Number(a[0])-Number(b[0])}).map(function(x){return x[0]+" · "+x[1]}));
 el("chains").replaceChildren();if(!chosen.tradeChainHighlights.length)el("chains").appendChild(mk("p","No repeated-trade chain in the researched subset.","small"));chosen.tradeChainHighlights.forEach(function(c){el("chains").appendChild(mk("p",c.season+" · "+c.player+" · Weeks "+c.firstTradeWeek+"–"+c.nextTradeWeek+" · "+fmt(c.interveningStartedPoints)+" recorded starter points","small"))});
-el("franchise").hidden=!links[name];el("franchise").href=links[name]?"./"+links[name]+"/":"./";el("season").value="all";render();try{history.replaceState(null,"","#"+encodeURIComponent(name.toLowerCase()))}catch(e){}
+el("franchise").hidden=!links[name];el("franchise").href=links[name]?"./"+links[name]+"/":"./";el("season").value="all";render();render2026();try{history.replaceState(null,"","#"+encodeURIComponent(name.toLowerCase()))}catch(e){}
+}
+function render2026(){
+if(!chosen)return;
+var summary=el("current2026-summary"),host=el("current2026-trades");host.replaceChildren();
+if(!current2026){summary.textContent="Current-year dataset not loaded";return;}
+var p=current2026.profiles.find(function(x){return x.manager===chosen.manager});
+if(!p){summary.textContent="Historical member; no 2026 trade portfolio";return;}
+summary.textContent=p.tradesCompleted+" completed "+(p.tradesCompleted===1?"trade":"trades")+" · "+fmt(p.observedStrictlyLaterStarterPoints)+" strictly-later starter pts";
+if(p.awaitingLaterScoring)host.appendChild(mk("p",p.awaitingLaterScoring+" recent trade receipt(s) have no finalized later weeks. Their scoring is pending, not zero.","small"));
+if(!p.transactions.length){host.appendChild(mk("p","No completed 2026 trades through Week 10.","small"));return;}
+p.transactions.forEach(function(t){
+var d=mk("details",undefined,"trade"),h=mk("summary",t.date+" · "+t.partners.join(" + "));
+h.appendChild(mk("small","2026 W"+t.week+" · Completed · "+t.transactionId));d.appendChild(h);
+var body=mk("div",undefined,"trade-body"),a=mk("div"),b=mk("div");
+a.appendChild(mk("strong","Received"));a.appendChild(mk("p",t.receivedPlayers.join(", ")));
+a.appendChild(mk("strong","Sent"));a.appendChild(mk("p",t.sentPlayers.join(", ")));
+b.appendChild(mk("strong","Finished later-week starts"));
+b.appendChild(mk("p",t.postTradeScoringStatus==="no_finalized_week_after_transaction_yet"?"Pending — no later completed weeks":fmt(t.strictlyLaterStartedPoints)+" pts · "+t.strictlyLaterStarts+" starts"));
+b.appendChild(mk("p","Strictly after trade week through Week 9. Same-week scores excluded.","small"));
+t.receivedPlayerReceipts.forEach(function(p){b.appendChild(mk("p",p.name+": "+(p.startedPointsInCompletedStrictlyLaterWeeks===null?"Pending":fmt(p.startedPointsInCompletedStrictlyLaterWeeks)+" points"),"small"))});
+if(t.noteworthyTiming)b.appendChild(mk("p",t.noteworthyTiming,"small"));
+b.appendChild(mk("p","Net trade benefit and winner: not established.","small"));body.append(a,b);d.appendChild(body);host.appendChild(d);
+});
 }
 function render(){el("trades").replaceChildren();if(!chosen)return;var rows=chosen.historicalTradeTimeline.filter(function(t){return el("season").value==="all"||String(t.season)===el("season").value}).slice().sort(function(a,b){return b.date.localeCompare(a.date)||b.transactionId.localeCompare(a.transactionId)});if(!rows.length){el("trades").appendChild(mk("p","No trade recorded for this year.","small"));return}
 rows.forEach(function(t){var d=mk("details",undefined,"trade"),s=mk("summary",t.date+" · "+t.partners.join(" + "));s.appendChild(mk("small",t.exchangeType.replaceAll("_"," ")+" · Week "+t.week+" · "+t.transactionId));d.appendChild(s);var body=mk("div",undefined,"trade-body"),a=mk("div"),b=mk("div");a.appendChild(mk("strong","Received"));a.appendChild(mk("p",t.receivedPlayers.length?t.receivedPlayers.join(", "):"No player asset"));
 if(t.faab){var f=t.faab.received===1?"+1 FAAB":t.faab.sent===1?"−1 FAAB":t.faab.received===5?"+5 FAAB":t.faab.sent===5?"−5 FAAB":"FAAB direction unassigned to this transaction ID";a.appendChild(mk("p",f,"small"));if(t.faab.note)a.appendChild(mk("p",t.faab.note,"small"))}
 b.appendChild(mk("strong","Recorded contribution"));b.appendChild(mk("p",t.exchangeType==="faab_only"?"No player scoring (FAAB-only)":t.production.complete?fmt(t.production.startedPoints)+" starter points · "+t.production.starts+" starts":"Scoring not yet established"));if(t.sentPlayers&&t.sentPlayers.length)b.appendChild(mk("p","Sent: "+t.sentPlayers.join(", "),"small"));if(t.playoffStartedPoints!==null)b.appendChild(mk("p","Additional W15–17 starts: "+fmt(t.playoffStartedPoints)+" points","small"));b.appendChild(mk("p","Benefit rating: not yet established.","small"));body.append(a,b);d.appendChild(body);el("trades").appendChild(d)})
 }
+fetch("../data-integrity/trade-manager-portfolios-2026-current-v1.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(function(d){if(d.counts.completedTradeEvents!==9||d.counts.finalizedRegularWeeksThrough!==9)throw Error("Unexpected season dataset");current2026=d;render2026()}).catch(function(e){el("current2026-summary").textContent="2026 research data unavailable: "+e.message});
 el("query").addEventListener("input",filter);el("membership").addEventListener("change",filter);el("season").addEventListener("change",render);
 fetch("../data-integrity/trade-manager-portfolios-48-event-v1.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(function(d){store=d;if(store.counts.providerEvents!==48||!Array.isArray(store.profiles))throw Error("Unexpected dataset");text("total-events",store.counts.providerEvents);text("total-player",store.counts.playerBearing);text("total-faab",store.counts.faabOnly);text("total-managers",store.counts.distinctManagers);store.profiles.forEach(function(p){var b=mk("button",undefined,"pick");b.type="button";b.dataset.key=p.manager;b.setAttribute("aria-pressed","false");b.appendChild(mk("b",p.manager));b.appendChild(mk("small",p.header.documentedTradeInvolvements+" documented trades"));b.addEventListener("click",function(){activate(p.manager)});el("picks").appendChild(b)});filter();var hash=decodeURIComponent(location.hash.substring(1)).toLowerCase(),first=store.profiles.find(function(p){return p.manager.toLowerCase()===hash})||store.profiles[0];if(first)activate(first.manager)}).catch(function(e){text("status","Research dataset unavailable: "+e.message)});
 })();
