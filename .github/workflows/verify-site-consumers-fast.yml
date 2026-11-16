@@ -22,5 +22,7 @@ jobs:
         run: node scripts/verify-current-week-website.mjs
       - name: Verify ten personal manager profile destinations
         run: node scripts/verify-manager-profile-v2.mjs
+      - name: Verify evidence-backed Madden ratings and modern homepage manager discovery
+        run: node scripts/verify-manager-madden-cards.mjs
       - name: Verify documented three-team trade archive scope
         run: node scripts/verify-trade-museum-scope.mjs
