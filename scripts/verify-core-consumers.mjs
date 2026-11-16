@@ -273,7 +273,7 @@ const warRoom=read('analytics/rivalry-war-room.html');
 assert(recordsPage.includes("fetch('../data/career_core_generated.json')"),'Primary career board must use generated records');
 assert(recordsPage.includes("fetch('../data/unified_record_book_2016_2026.json')"),'Records board weekly extremes must use canonical ledger');
 assert(!recordsPage.includes("fetch('../data/season_weekly_matchups_2016_2026_v1.json')"),'Records board still fetches duplicated weekly archive');
-assert(warRoom.includes("fetch('../data/unified_record_book_2016_2026.json')"),'Rivalry war room must use canonical game ledger');
+assert(/fetch\(['"]\.\.\/data\/unified_record_book_2016_2026\.json['"](?:\s*,|\s*\))/.test(warRoom),'Rivalry war room must use canonical game ledger (optional fetch cache settings allowed)');
 assert(!warRoom.includes("fetch('../data/all_rivalry_matchups_v3.json')"),'Rivalry war room still fetches legacy archive');
 
 for(const [slug,id] of Object.entries(managers)){
