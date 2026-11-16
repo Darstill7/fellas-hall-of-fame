@@ -60,4 +60,39 @@ const doc=fs.readFileSync('docs/greatest-trade-architects-other-26-audit-2026-11
 for(const trade of main.transactions)if(trade.shape==='two_manager'){
  assert(doc.includes(trade.sides[0].tradeAssets.join(' + ')),'appendix missing received assets '+trade.transactionId);
 }
+const all44=load('data-integrity/trade-architects-2020-2025-all44-raw-starter-reconstruction-v1.json');
+assert.equal(all44.transactions.length,44);
+assert.equal(all44.counts.bilateral,41);
+assert.equal(all44.counts.threeManager,1);
+assert.equal(all44.counts.oneAssetSide,2);
+for(const trade of all44.transactions){
+ const source=historical.filter(s=>s.trade_id===trade.transactionId);
+ assert.equal(source.length,trade.sides.length);
+ for(const side of trade.sides){
+  const original=source.find(s=>String(s.team_id)===String(side.rosterId));
+  assert(original,'all44 side missing source '+trade.transactionId);
+  assert.deepEqual(original.assets,side.assets);
+  const wk=years[trade.year].weeks.filter(w=>w.week>trade.week&&w.week<=14);
+  for(const player of side.players){
+    const scored=[];
+    for(const row of wk){
+      const team=row.teams.find(t=>String(t.roster)===String(side.rosterId));
+      assert(team,'missing roster in all44');
+      for(const entry of team.players.filter(p=>norm(p[1])===norm(player.asset)))scored.push({week:row.week,points:entry[3]});
+    }
+    assert.equal(player.points,cents(scored.reduce((sum,p)=>sum+p.points,0)));
+    assert.equal(player.starts,scored.length);
+    assert.deepEqual(player.weeks,scored.map(p=>p.week));
+  }
+  assert.equal(side.observedStartedPoints,cents(side.players.reduce((sum,p)=>sum+p.points,0)));
+ }
+ if(trade.shape==='two_manager'){
+  assert.equal(trade.sides.length,2);
+  assert.equal(trade.rawPointGap,cents(trade.sides[0].observedStartedPoints-trade.sides[1].observedStartedPoints));
+ }
+}
+const net=all44.bilateralRawLeaderboard.reduce((sum,x)=>sum+x.sumRawPointGap,0);
+assert(Math.abs(net)<0.01,'league net raw bilateral gaps must zero sum');
+assert.equal(all44.bilateralRawLeaderboard.reduce((sum,x)=>sum+x.bilateralDeals,0),82,'two-manager events have two sides');
+
 console.log('Trade architects: all 26 previously excluded transactions reconciled to source ids, weeks and started scores. PAR NOT CERTIFIED.');
