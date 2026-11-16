@@ -93,7 +93,19 @@ try{
  for(const manager of ['stilly','stew','tom','mitch','jmid','scott','stover','kuhl','tony','birch']){
   await go('managers/'+manager+'/');
   const pulse=page.locator('#profile-season-pulse');
-  await pulse.locator('.profile-season-pulse-stats:not([hidden]) .profile-season-pulse-stat').first().waitFor({state:'visible',timeout:15000});
+  try{
+   await pulse.locator('.profile-season-pulse-stats:not([hidden]) .profile-season-pulse-stat').first().waitFor({state:'visible',timeout:15000});
+  }catch(error){
+   const debug=await page.evaluate(()=>({
+    loaded:!!document.getElementById('profile-season-pulse'),
+    status:document.querySelector('.profile-season-pulse-status')?.textContent,
+    display:document.querySelector('#profile-season-pulse')?getComputedStyle(document.querySelector('#profile-season-pulse')).display:null,
+    stats:document.querySelector('.profile-season-pulse-stats')?.outerHTML.slice(0,500),
+    hasTabs:!!document.querySelector('.profile-tabs'),
+    heroChildren:[...document.querySelector('main .hero')?.children||[]].map(el=>el.className||el.tagName).slice(0,12)
+   }));
+   throw new Error('Manager mobile pulse did not load for '+manager+': '+JSON.stringify(debug)+'; page errors: '+errors.slice(-4).join(' | '),{cause:error});
+  }
   const status=await pulse.locator('.profile-season-pulse-status').innerText();
   assert.match(status,/Verified through Week \d+/,'Season cut-off missing for '+manager);
   assert.equal(await page.locator('main .hero .profile-schedule-luck, main .hero .fellas-luck-performance').count(),0,'Advanced analytics leaked into the hero for '+manager);
