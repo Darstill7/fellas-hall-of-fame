@@ -121,6 +121,29 @@ The historical 2023 manager slot belongs to **Evans**, not JMid. Scott has no 20
 - **Stew** appears in 19 bilateral deals: more than any other manager in the historical engine. He has a positive raw-return count (10 of 19), yet the sum of raw differences is −220.64; those two facts can coexist when loss magnitudes are larger than wins. His celebrated 2026 Maye chain is a separate, current-season chapter.
 - **Thommy** has the lowest sum of raw receipt differences (−544.40) but this is **not** a historical skill verdict. Among others, his 2024 title-winning acquisition of Tee Higgins demonstrates why postseason and keeper context can reverse a regular-season narrative.
 
+## Position-adjusted sensitivity check: why a definitive winner remains premature
+**A third, explicitly experimental metric** applies the same formula to every recorded bilateral trade from 2020–2025: for each acquired player's *post-trade regular-season start*, subtract the actual **median starter score at that position in that week** (QB, RB, WR, TE, DEF). Add the differences for the recipient, then compare the two recipients' totals. This **position-median surplus** is **not** the existing 18-deal PAR formula and is not a market-value or manager-skill model. It helps test how much the raw result depends on position and number of acquired starts.
+
+| Rank by experimental net position-median gap | Manager | Bilateral events | Net gap |
+|---:|---|---:|---:|
+| 1 | Birch | 4 | +166.76 |
+| 2 | Tony | 10 | +99.41 |
+| 3 | Mitch | 3 | +48.15 |
+| 4 | Stover | 5 | +44.41 |
+| 5 | JMid | 2 | +20.60 |
+| 6 | Evans | 6 | +17.29 |
+| 7 | Stilly | 10 | +7.49 |
+| 8 | Stew | 19 | −50.24 |
+| 9 | Kuhl | 10 | −78.01 |
+| 10 | Koble | 1 | −112.15 |
+| 11 | Thommy | 12 | −163.71 |
+
+**What changes:** Kuhl leads the 18 *qualified-PAR* deals by +243.62, but he does not lead the full 41-deal *position-median* exercise. The datasets have different populations and different definitions. Calling the first “Kuhl's career success rate” or the second “Kuhl is a terrible trader” would be indefensible. The larger study reveals prominent previously excluded trades, such as Stover's 2021 Leonard Fournette deal, and moves Tony considerably upward under the new metric. This illustrates genuine sensitivity to methodology, not a contradiction requiring one result to be erased.
+
+**Next scientific step:** use one specified, pre-registered source-to-ID, owner-to-roster, week-by-week position-adjusted production formula for all 41 recorded bilateral trades, and assess missing assets, time in possession, legal replacement starters, keeper costs, FAAB and postseason separately. Include the 2025 three-manager case in its own outcome framework. No new all-time official “Greatest Architect” honor is authorized yet.
+
+**Source:** [full 44-trade position-median sensitivity research with each scored week and comparator](../data-integrity/trade-architects-all44-position-median-sensitivity-2026-11-16.json).
+
 ## Three-team and championship cases (not ranked bilaterally)
 - **November 12, 2025 (Stilly / JMid / Thommy):** documented received-side totals of 199.72 started points for Stilly (Amon-Ra St. Brown + Jordan Addison + Jared Goff), 78.30 for JMid (Ja'Marr Chase), and 98.60 for Thommy (A.J. Brown). This must never be reduced to one binary trade margin. The Amon-Ra 2026 keeper consequences require their own sourced valuation.
 - **2023 Stilly / Tony:** Mike Evans + Derrick Henry vs Cooper Kupp, +104.99 observed regular-season PAR for Stilly. Evans and Henry combined for 44.98 semifinal points against Tony; they were part of Stilly's championship season. No causal proof that the title required the deal.
