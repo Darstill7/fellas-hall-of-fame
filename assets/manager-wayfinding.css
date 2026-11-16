@@ -41,3 +41,8 @@ html{scroll-padding-top:96px}
 .profile-chapters a:hover{background:#24465a;border-color:#efcb86}
 .profile-chapters a:focus-visible{outline:3px solid #efcb86;outline-offset:2px}
 @media(max-width:580px){.profile-chapters{padding:10px;gap:7px}.profile-chapters-caption{flex-basis:100%}.profile-chapters a{flex:1 1 42%;justify-content:center;text-align:center}}
+
+.manager-trade-filter-link{margin:10px 0 18px}
+.manager-trade-filter-link a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;border:1px solid #637b8a;background:#1d3948;border-radius:9px;color:#f0d18d;text-decoration:none;font-weight:850;font-size:13px;line-height:1.5}
+.manager-trade-filter-link a:hover{border-color:#efd18a;background:#264758}
+.manager-trade-filter-link a:focus-visible{outline:3px solid #f0d18d;outline-offset:3px}
