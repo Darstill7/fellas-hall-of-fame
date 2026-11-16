@@ -1,0 +1,13 @@
+/* Record Book chapter guide: presentation-only, no scoring or record changes */
+.records-reading-map{display:flex;gap:8px;overflow-x:auto;flex-wrap:nowrap;border-bottom:1px solid #647580;padding:12px 0 15px;margin:24px 0 27px;scrollbar-width:thin;scrollbar-color:#ab9364 #1b3442}
+.records-reading-map a{flex:none;display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 14px;background:#203846;border:1px solid #627782;border-radius:4px;color:#efdab1;text-decoration:none;font-size:12px;font-weight:850}
+.records-reading-map a:hover,.records-reading-map a:focus-visible{background:#385361;color:#ffedc7}
+.records-reading-map a:focus-visible{outline:3px solid #e6c784;outline-offset:3px}
+.records-reading-break{display:grid;grid-template-columns:minmax(64px,105px) minmax(0,1fr);gap:clamp(12px,3vw,25px);align-items:center;margin:clamp(35px,5vw,60px) 0 20px;padding:clamp(17px,2.7vw,28px);background:linear-gradient(115deg,#244252,#152d3b 70%,#0d1e2a);border:1px solid #8c7954;border-top:3px solid #e4c88d;border-radius:4px}
+.records-reading-break:before{content:attr(data-chapter);font:400 clamp(45px,6vw,75px)/1 Georgia,serif;color:#f2daaa;letter-spacing:-.06em;text-align:center}
+.records-reading-break>div{min-width:0}
+.records-reading-break .reading-kicker{display:block;font-size:11px;font-weight:900;color:#ebc988;letter-spacing:.15em;text-transform:uppercase}
+.records-reading-break .reading-title{display:block;font:400 clamp(23px,3.3vw,36px)/1.18 Georgia,serif;color:#fff2dc;margin:7px 0}
+.records-reading-break .reading-description{font-size:13px;color:#ccdae0;line-height:1.7;max-width:66ch;margin:0}
+.records-reading-break,#manager-record-finder,#browse-all-records,#complete-record-index,#playoff-trade-revenge-records{scroll-margin-top:30px}
+@media(max-width:600px){.records-reading-break{grid-template-columns:49px minmax(0,1fr);gap:11px;padding:17px 12px}.records-reading-break:before{font-size:45px}.records-reading-break .reading-title{font-size:24px}}
