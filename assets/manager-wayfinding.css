@@ -31,3 +31,13 @@ html{scroll-padding-top:96px}
 .franchise-deep-preview-content{padding:16px}
 .franchise-deep-preview>summary:focus-visible{outline:3px solid #efd092;outline-offset:3px}
 .franchise-deep-preview[open]>summary span{transform:rotate(45deg)}
+
+/* The initial chapter links remain useful when JavaScript is unavailable;
+   manager-profile-tabs.mjs replaces them with the interactive explorer. */
+.profile-context-trail{margin:8px 0 2px;padding:3px 0}
+.profile-chapters{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:8px 0 20px;padding:12px 14px;background:#112838;border:1px solid #465f72;border-radius:12px}
+.profile-chapters-caption{font-size:12px;font-weight:900;color:#e8c681;margin-right:8px}
+.profile-chapters a{display:inline-flex;align-items:center;min-height:44px;padding:9px 12px;border:1px solid #506c7d;border-radius:9px;background:#1b3343;color:#f5d28e;text-decoration:none;font-size:12px;font-weight:800}
+.profile-chapters a:hover{background:#24465a;border-color:#efcb86}
+.profile-chapters a:focus-visible{outline:3px solid #efcb86;outline-offset:2px}
+@media(max-width:580px){.profile-chapters{padding:10px;gap:7px}.profile-chapters-caption{flex-basis:100%}.profile-chapters a{flex:1 1 42%;justify-content:center;text-align:center}}
