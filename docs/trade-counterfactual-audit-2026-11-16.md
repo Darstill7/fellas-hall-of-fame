@@ -25,12 +25,12 @@ For each sampled manager-week:
 |---|---:|---:|---:|
 | 2025 Stilly–Stew (Chase/Brown ↔ Gibbs/Harvey) | 8 | 6 | 2 |
 | 2024 Stilly–Thommy (McLaurin/Achane/Dell ↔ CMC/Diontae/Higgins) | 8 | 6 | 2 |
-| 2023 Stew–Birch (Pollard/JSN ↔ Lamb/Gainwell) | 8 | 4 | 4 |
+| 2023 Stew–Birch (Pollard/JSN ↔ Lamb/Gainwell) | 8 | 3 | 5 |
 | 2021 Tony–Thommy (three players per side) | 8 | 2 | 6 |
 | 2025 Stilly–JMid–Thommy three-way | 12 | 12 | 0 |
-| **Total** | **44** | **30** | **14** |
+| **Total** | **44** | **29** | **15** |
 
-**Reconciliation note:** counts above must be checked against the three machine-readable sampledRows sources before presenting as official. Use the auto-recomputed totals from source, not manually entered summary rows, if a mismatch exists.
+**Reconciliation:** summary counts were checked against the three machine-readable sampledRows sources: 44 observations = 29 illustrative complete-snapshot rows + 15 withheld rows.
 
 ## Highlighted measured cases (hindsight ceilings, points)
 
@@ -45,7 +45,7 @@ Stilly received Chase + Chase Brown; Stew received Gibbs + RJ Harvey. Sampled **
 **Do not conclude** the deal is win-win or that the Week 12 delta would have happened in a no-trade universe: Chase's subsequent November three-team trade changes ownership chains.
 
 ### 2023 Stew vs Birch: October 12 CeeDee Lamb exchange
-Week 7: Stew **+6.70**, Birch **+0.90**. Week 9: Birch **+9.30**, Stew withheld because Gainwell not observed on Birch's same-week roster. Weeks 11 and 14 have additional missing counterpart assets. Under a conservative rule, **four of eight manager-week observations were withheld**. The strong starter-only Lamb positional surplus is a lead, **not** a completed counterfactual verdict.
+Week 7: Stew **+6.70**, Birch **+0.90**. Week 9: Birch **+9.30**, Stew withheld because Gainwell not observed on Birch's same-week roster. Weeks 11 and 14 have additional missing counterpart assets. Under a conservative rule, **five of eight manager-week observations were withheld**. The strong starter-only Lamb positional surplus is a lead, **not** a completed counterfactual verdict.
 
 ### 2024 Stilly vs Thommy: September 24 trade
 Week 4: Stilly **−2.90**, Thommy **+3.10**. Week 8: Stilly **+18.40**, Thommy **−22.30**. Week 12: Stilly withheld missing Diontae; Thommy **−27.10**. Week 16: Stilly withheld missing CMC and Diontae; Thommy **−25.60**. Thommy's **actual 2024 title** and previously documented Higgins championship-game production must remain a separate realized playoff storyline; a hindsight lineup ceiling is not the championship counterfactual.
