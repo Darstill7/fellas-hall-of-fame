@@ -1,0 +1,20 @@
+name: Fast site consumer regression
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  source-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify core website consumers and manager identity contracts
+        run: node scripts/verify-core-consumers.mjs
+      - name: Verify homepage editorial discovery
+        run: node scripts/verify-homepage-editorial.mjs
+      - name: Verify documented three-team trade archive scope
+        run: node scripts/verify-trade-museum-scope.mjs
