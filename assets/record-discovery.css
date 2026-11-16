@@ -20,3 +20,20 @@ html{scroll-padding-top:90px}
 @media(max-width:760px){.records-pathfinder .pathfinder-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.records-pathfinder .pathfinder-item{min-height:170px;padding:15px}}
 @media(max-width:410px){.records-pathfinder .pathfinder-grid{gap:8px}.records-pathfinder .pathfinder-item{padding:12px;min-height:185px}.records-pathfinder .pathfinder-item strong{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.records-pathfinder .pathfinder-item{transition:none}}
+
+/* Progressive research collections: all evidence stays in the document. */
+.record-collection-fold{border:1px solid #415a6a;border-radius:15px;background:#122534;margin:22px 0;overflow:clip}
+.record-collection-fold[open]{border-color:#a58d61;background:#10212f}
+.record-collection-fold>summary{list-style:none;cursor:pointer;padding:18px 21px;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:82px}
+.record-collection-fold>summary::-webkit-details-marker{display:none}
+.record-collection-fold>summary .collection-summary-copy{display:flex;flex-direction:column;gap:5px}
+.record-collection-fold>summary strong{font-size:clamp(18px,2.4vw,24px);line-height:1.25;color:#fff}
+.record-collection-fold>summary small{font-size:12px;color:#bed0dc;line-height:1.55}
+.record-collection-fold>summary .collection-toggle{color:#efce8b;font-weight:850;font-size:12px;white-space:nowrap}
+.record-collection-fold[open]>summary .collection-toggle{font-size:0}
+.record-collection-fold[open]>summary .collection-toggle::after{content:"Close collection ↑";font-size:12px}
+.record-collection-fold>.section{margin:0!important;padding:22px!important;border-top:1px solid #455a6c!important}
+.record-collection-fold>summary:focus-visible{outline:3px solid #f8dba5;outline-offset:-4px}
+.record-collection-fold .section h2{margin-bottom:12px}
+.record-collection-fold .section p{line-height:1.75}
+@media(max-width:540px){.record-collection-fold>summary{padding:15px;align-items:flex-start;flex-direction:column;gap:8px}.record-collection-fold>.section{padding:15px!important}}
