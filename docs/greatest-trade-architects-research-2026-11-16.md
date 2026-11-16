@@ -80,10 +80,10 @@ These four transactions explain his qualified-sample lead, not comprehensive car
 | 4 | JMid, Watson + J.K. Dobbins: 110.30 | Stew, Jeremiyah Love: 10.50 | JMid +99.80 |
 | 5 | Stilly, Ja'Marr Chase + Devaughn Vele: 120.80 | JMid, Adams + Kittle + Hall: 97.30 | Stilly +23.50 |
 | 5 | Birch, Vikings DST: 32.00 | Thommy, Deebo Samuel: 25.40 | Birch +6.60 |
-| 9 | Stew, Adonai Mitchell: 0.00 | Hupp, Vikings DST: 0.00 | Tied |
+| 9 | Stew, Adonai Mitchell: 0.00 | Mitch (Sleeper handle Hupp), Vikings DST: 0.00 | Tied |
 | 10 | Stew, Nico Collins: 19.90 | Kuhl, Drake Maye: 3.02 | Stew +16.88 |
 
-2026 raw net advantage by manager (sum of bilateral differences; **not a normalized skill score**): JMid +76.30 (2 deals); Stover +36.12 (1); Stilly +35.80 (2); Scott +26.80 (1); Birch +6.60 (1); Hupp 0.00 (1); Stew −38.22 (5); Thommy −55.02 (3); Kuhl −88.38 (2). Tony has zero 2026 completed trade involvements in this time window.
+2026 raw net advantage by manager (sum of bilateral differences; **not a normalized skill score**): JMid +76.30 (2 deals); Stover +36.12 (1); Stilly +35.80 (2); Scott +26.80 (1); Birch +6.60 (1); Mitch (Sleeper handle Hupp) 0.00 (1); Stew −38.22 (5); Thommy −55.02 (3); Kuhl −88.38 (2). Tony has zero 2026 completed trade involvements in this time window.
 
 **Stew's Maye/Watson chain:** 106.62 Maye starter points during his tenure, then Watson flips to JMid and contributes 100.70 started points there; Love produces 10.50 for Stew. Maye returns to Kuhl, contributes 3.02 starter points in an injury-shortened first game, while Nico Collins contributes 19.90 to Stew. The second trade has only a partial week of realized evidence and retained keeper value is unresolved.
 
