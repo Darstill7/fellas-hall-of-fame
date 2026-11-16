@@ -62,3 +62,7 @@
 }
 @media(max-width:340px){.home-premium .discovery-card:not(.adventure-feature) strong{font-size:18px}.home-premium .discovery-card:not(.adventure-feature){padding:11px;min-height:198px}.home-premium .home-franchise-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.home-premium .discovery-card{transition:none}.home-premium .discovery-card:hover{transform:none}}
+
+.home-premium .home-personal-records-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-top:14px;padding:10px 13px;border-radius:9px;border:1px solid #b99d67;background:#283d46;color:#f3d394;text-decoration:none;font-weight:850;font-size:12px;line-height:1.45}
+.home-premium .home-personal-records-link:hover{background:#365462;border-color:#f1d38e}
+.home-premium .home-personal-records-link:focus-visible{outline:3px solid #f3d394;outline-offset:3px}
