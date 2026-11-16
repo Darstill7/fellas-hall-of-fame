@@ -16,7 +16,7 @@ const server=http.createServer(async (req,res)=>{
  if(!filename.startsWith(root+path.sep)){res.writeHead(403);res.end();return}
  try{
   const bytes=await fs.readFile(filename);
-  res.writeHead(200,{'Content-Type':filename.endsWith('.json')?'application/json':/\\.m?js$/.test(filename)?'text/javascript':filename.endsWith('.css')?'text/css':'text/html'});
+  res.writeHead(200,{'Content-Type':filename.endsWith('.json')?'application/json':/\.m?js$/.test(filename)?'text/javascript':filename.endsWith('.css')?'text/css':'text/html'});
   res.end(bytes);
  }catch{res.writeHead(404);res.end()}
 });
