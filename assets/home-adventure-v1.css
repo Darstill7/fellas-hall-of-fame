@@ -1,0 +1,59 @@
+/* THE FELLAS | HOME: Choose your own adventure (mobile first).
+   One useful front door, six distinct destinations, direct manager access. */
+.home-premium .home-hero-proof{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 0}
+.home-premium .home-hero-proof span{display:inline-flex;align-items:center;gap:6px;border-left:2px solid #c6a874;padding:4px 9px;font-size:11px;color:#cbd8e0}
+.home-premium .home-hero-proof strong{color:#efd69d;font-size:15px;font-variant-numeric:tabular-nums}
+.home-premium #explore-the-league{padding-top:clamp(20px,3vw,38px);padding-bottom:25px;border-top:2px solid #b39660;scroll-margin-top:75px}
+.home-premium #explore-the-league .section-head{margin-bottom:18px}
+.home-premium #explore-the-league .section-intro{max-width:610px}
+.home-premium .discovery-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}
+.home-premium .discovery-card{grid-column:span 3;min-width:0;min-height:206px;padding:20px;gap:9px;border-radius:12px;text-decoration:none;isolation:isolate;background:linear-gradient(154deg,#213c4d 0%,#102534 84%);border:1px solid #536d80;box-shadow:0 5px 17px #0003}
+.home-premium .discovery-card.adventure-feature{grid-column:span 6;min-height:250px;padding:clamp(21px,3vw,33px);border-top:3px solid #ddbe7e}
+.home-premium .discovery-card.adventure-managers{background:radial-gradient(ellipse at 90% 8%,#9a795331,transparent 58%),linear-gradient(140deg,#30423d,#152e38)}
+.home-premium .discovery-card.adventure-live{background:radial-gradient(ellipse at 90% 8%,#3a7c9442,transparent 55%),linear-gradient(135deg,#213a51,#102431)}
+.home-premium .discovery-card.adventure-records{border-top:2px solid #a2bed0}
+.home-premium .discovery-card.adventure-history{border-top:2px solid #dfc482}
+.home-premium .discovery-card.adventure-rivalries{border-top:2px solid #d59186}
+.home-premium .discovery-card.adventure-trades{border-top:2px solid #92c6b2}
+.home-premium .discovery-card .discovery-icon{display:flex;align-items:center;justify-content:center;width:46px;height:46px;font-size:25px;line-height:1;border:1px solid #8c8d7c;border-radius:10px;background:#0f2430cc}
+.home-premium .discovery-card .adventure-number{color:#e5c68b!important;font-size:10px!important;font-weight:900;letter-spacing:.1em;line-height:1.25!important}
+.home-premium .discovery-card strong{font-family:Georgia,'Iowan Old Style',serif;font-size:clamp(19px,2.2vw,29px);font-weight:600;line-height:1.17;letter-spacing:-.035em;color:#fff4df}
+.home-premium .discovery-card.adventure-feature strong{font-size:clamp(29px,3.2vw,39px)}
+.home-premium .discovery-card>span:not(.discovery-icon):not(.adventure-number){font-size:13px;line-height:1.5;color:#d3dfe6}
+.home-premium .discovery-card b{display:block;border-top:1px solid #ffffff30;margin-top:auto;padding-top:13px;color:#f7d99b;font-size:12px;line-height:1.45}
+.home-premium .discovery-card:focus-visible{outline:3px solid #ffe4a8;outline-offset:3px}
+.home-premium .home-find-franchise{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:18px;align-items:center;border:1px solid #5d7582;border-radius:12px;background:linear-gradient(125deg,#1d3442,#132633);padding:20px;margin:17px 0 0}
+.home-premium .home-quick-kicker{font-size:10px;font-weight:900;letter-spacing:.12em;color:#e9cc90}
+.home-premium .home-find-franchise h3{font:400 clamp(22px,2.6vw,30px)/1.15 Georgia,serif;margin:7px 0;color:#fff4df}
+.home-premium .home-find-franchise p{font-size:12px;line-height:1.5;color:#bfd0d9;margin:0}
+.home-premium .home-franchise-links{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.home-premium .home-franchise-links a{display:flex;align-items:center;justify-content:center;min-height:44px;min-width:0;border-radius:8px;border:1px solid #566e7e;background:#132a39;color:#f2e5ca;font-size:12px;font-weight:800;text-decoration:none;padding:8px 6px}
+.home-premium .home-franchise-links a:hover{background:#2b4b5f;border-color:#e8c989;color:#fff}
+.home-premium .home-franchise-links a:focus-visible{outline:3px solid #f3d89f;outline-offset:2px}
+.home-premium .home-now{border-top:1px solid #465c68;padding-top:29px}
+.home-premium #home-manager-title{scroll-margin-top:76px}
+@media(max-width:900px){.home-premium .discovery-card{grid-column:span 6;min-height:190px}.home-premium .discovery-card.adventure-feature{grid-column:span 6;min-height:220px}.home-premium .home-find-franchise{grid-template-columns:1fr}.home-premium .home-franchise-links{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:650px){
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy .actions{display:flex!important;width:100%;margin:12px 0 0!important}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy .actions a{display:none!important}
+ body.home-premium main#main-content>.home-editorial-hero .home-editorial-copy .actions a.primary{display:inline-flex!important;width:auto!important;min-height:44px;padding:10px 15px;font-size:12px}
+ .home-premium .home-hero-proof{gap:3px;margin:10px 0 2px}
+ .home-premium .home-hero-proof span{padding:4px 7px;font-size:10px}
+ .home-premium .home-hero-proof strong{font-size:12px}
+ .home-premium .discovery-grid{gap:10px}
+ .home-premium .discovery-card.adventure-feature{grid-column:span 12;min-height:166px;padding:17px 19px}
+ .home-premium .discovery-card.adventure-feature strong{font-size:26px}
+ .home-premium .discovery-card:not(.adventure-feature){grid-column:span 6;min-height:198px;padding:13px}
+ .home-premium .discovery-card:not(.adventure-feature) strong{font-size:20px}
+ .home-premium .discovery-card .discovery-icon{width:34px;height:34px;font-size:19px}
+ .home-premium .discovery-card .adventure-number{font-size:9px!important}
+ .home-premium .discovery-card>span:not(.discovery-icon):not(.adventure-number){font-size:11px;line-height:1.45}
+ .home-premium .discovery-card b{font-size:11px;padding-top:9px}
+ .home-premium .home-find-franchise{padding:16px}
+ .home-premium .home-franchise-links{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .home-premium .home-franchise-links a{font-size:12px}
+ .home-premium #explore-the-league{padding-top:19px}
+ .home-premium #explore-the-league .section-head{margin-bottom:14px}
+}
+@media(max-width:340px){.home-premium .discovery-card:not(.adventure-feature) strong{font-size:18px}.home-premium .discovery-card:not(.adventure-feature){padding:11px;min-height:198px}.home-premium .home-franchise-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.home-premium .discovery-card{transition:none}.home-premium .discovery-card:hover{transform:none}}
