@@ -18,7 +18,8 @@
     "All explicit FAAB-side consideration is unknown, unless independent receipts specify otherwise.",
     "The 2020–2025 48-event dataset remains separate; this is a current-season overlay, not a historical overwrite.",
     "Player name Jonathon Brooks preserved per provider (not Jonathan Brooks).",
-    "Week4 Watson went from Kuhl to Stew then to JMid in two completed trades about 10 minutes apart."
+    "Week4 Watson went from Kuhl to Stew then to JMid in two completed trades about 10 minutes apart.",
+    "A null scoring figure for a trade at Week 9 or 10 means no strictly later completed week exists through the Week9 cutoff; it does not mean a player failed to score."
   ],
   "transactions": [
     {
@@ -69,7 +70,9 @@
           ],
           "strictlyLaterStartedPoints": 8.6,
           "strictlyLaterStarts": 2,
-          "sameWeekRecordedPoints": 3.7
+          "sameWeekRecordedPoints": 3.7,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         },
         {
           "manager": "Thommy",
@@ -94,7 +97,9 @@
           ],
           "strictlyLaterStartedPoints": 0,
           "strictlyLaterStarts": 0,
-          "sameWeekRecordedPoints": 0
+          "sameWeekRecordedPoints": 0,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         }
       ],
       "receiptsVerification": "team and player multiset matched completed Sleeper trade; directions confirmed by adjacent weekly roster membership; Week4 Watson sequential ownership corroborated by trade timestamps",
@@ -148,7 +153,9 @@
           ],
           "strictlyLaterStartedPoints": 13.6,
           "strictlyLaterStarts": 2,
-          "sameWeekRecordedPoints": 16.7
+          "sameWeekRecordedPoints": 16.7,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         },
         {
           "manager": "Scott",
@@ -204,7 +211,9 @@
           ],
           "strictlyLaterStartedPoints": 48.3,
           "strictlyLaterStarts": 5,
-          "sameWeekRecordedPoints": 8.8
+          "sameWeekRecordedPoints": 8.8,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         }
       ],
       "receiptsVerification": "team and player multiset matched completed Sleeper trade; directions confirmed by adjacent weekly roster membership; Week4 Watson sequential ownership corroborated by trade timestamps",
@@ -282,7 +291,9 @@
           ],
           "strictlyLaterStartedPoints": 67.8,
           "strictlyLaterStarts": 6,
-          "sameWeekRecordedPoints": 0
+          "sameWeekRecordedPoints": 0,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         },
         {
           "manager": "Stover",
@@ -338,7 +349,9 @@
           ],
           "strictlyLaterStartedPoints": 85.58,
           "strictlyLaterStarts": 5,
-          "sameWeekRecordedPoints": 6.16
+          "sameWeekRecordedPoints": 6.16,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         }
       ],
       "receiptsVerification": "team and player multiset matched completed Sleeper trade; directions confirmed by adjacent weekly roster membership; Week4 Watson sequential ownership corroborated by trade timestamps",
@@ -416,7 +429,9 @@
           ],
           "strictlyLaterStartedPoints": 106.62,
           "strictlyLaterStarts": 4,
-          "sameWeekRecordedPoints": 0
+          "sameWeekRecordedPoints": 0,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         },
         {
           "manager": "Kuhl",
@@ -473,7 +488,9 @@
           ],
           "strictlyLaterStartedPoints": 22.6,
           "strictlyLaterStarts": 3,
-          "sameWeekRecordedPoints": 12.52
+          "sameWeekRecordedPoints": 12.52,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         }
       ],
       "receiptsVerification": "team and player multiset matched completed Sleeper trade; directions confirmed by adjacent weekly roster membership; Week4 Watson sequential ownership corroborated by trade timestamps",
@@ -528,7 +545,9 @@
           ],
           "strictlyLaterStartedPoints": 4.5,
           "strictlyLaterStarts": 2,
-          "sameWeekRecordedPoints": 6
+          "sameWeekRecordedPoints": 6,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         },
         {
           "manager": "JMid",
@@ -608,7 +627,9 @@
           ],
           "strictlyLaterStartedPoints": 98.9,
           "strictlyLaterStarts": 7,
-          "sameWeekRecordedPoints": 6.2
+          "sameWeekRecordedPoints": 6.2,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         }
       ],
       "receiptsVerification": "team and player multiset matched completed Sleeper trade; directions confirmed by adjacent weekly roster membership; Week4 Watson sequential ownership corroborated by trade timestamps",
@@ -688,7 +709,9 @@
           ],
           "strictlyLaterStartedPoints": 73.5,
           "strictlyLaterStarts": 4,
-          "sameWeekRecordedPoints": 17.7
+          "sameWeekRecordedPoints": 17.7,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         },
         {
           "manager": "JMid",
@@ -769,7 +792,9 @@
           ],
           "strictlyLaterStartedPoints": 49.6,
           "strictlyLaterStarts": 5,
-          "sameWeekRecordedPoints": 24.5
+          "sameWeekRecordedPoints": 24.5,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         }
       ],
       "receiptsVerification": "team and player multiset matched completed Sleeper trade; directions confirmed by adjacent weekly roster membership; Week4 Watson sequential ownership corroborated by trade timestamps",
@@ -810,7 +835,9 @@
           ],
           "strictlyLaterStartedPoints": 0,
           "strictlyLaterStarts": 0,
-          "sameWeekRecordedPoints": 0
+          "sameWeekRecordedPoints": 0,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         },
         {
           "manager": "Birch",
@@ -848,7 +875,9 @@
           ],
           "strictlyLaterStartedPoints": 20,
           "strictlyLaterStarts": 2,
-          "sameWeekRecordedPoints": 12
+          "sameWeekRecordedPoints": 12,
+          "strictlyLaterScoringWindowAvailable": true,
+          "postTradeScoringStatus": "completed_later_weeks_observed"
         }
       ],
       "receiptsVerification": "team and player multiset matched completed Sleeper trade; directions confirmed by adjacent weekly roster membership; Week4 Watson sequential ownership corroborated by trade timestamps",
@@ -880,16 +909,18 @@
               "name": "Adonai Mitchell",
               "playerId": "11625",
               "position": "WR",
-              "strictlyLaterStartedPoints": 0,
-              "strictlyLaterStarts": 0,
+              "strictlyLaterStartedPoints": null,
+              "strictlyLaterStarts": null,
               "sameWeekRecordedStarts": 1,
               "sameWeekRecordedPoints": 0,
               "strictlyLaterWeekEntries": []
             }
           ],
-          "strictlyLaterStartedPoints": 0,
-          "strictlyLaterStarts": 0,
-          "sameWeekRecordedPoints": 0
+          "strictlyLaterStartedPoints": null,
+          "strictlyLaterStarts": null,
+          "sameWeekRecordedPoints": 0,
+          "strictlyLaterScoringWindowAvailable": false,
+          "postTradeScoringStatus": "no_finalized_week_after_transaction_yet"
         },
         {
           "manager": "Mitch",
@@ -905,16 +936,18 @@
               "name": "Minnesota Vikings",
               "playerId": "MIN",
               "position": "DEF",
-              "strictlyLaterStartedPoints": 0,
-              "strictlyLaterStarts": 0,
+              "strictlyLaterStartedPoints": null,
+              "strictlyLaterStarts": null,
               "sameWeekRecordedStarts": 0,
               "sameWeekRecordedPoints": 0,
               "strictlyLaterWeekEntries": []
             }
           ],
-          "strictlyLaterStartedPoints": 0,
-          "strictlyLaterStarts": 0,
-          "sameWeekRecordedPoints": 0
+          "strictlyLaterStartedPoints": null,
+          "strictlyLaterStarts": null,
+          "sameWeekRecordedPoints": 0,
+          "strictlyLaterScoringWindowAvailable": false,
+          "postTradeScoringStatus": "no_finalized_week_after_transaction_yet"
         }
       ],
       "receiptsVerification": "team and player multiset matched completed Sleeper trade; directions confirmed by adjacent weekly roster membership; Week4 Watson sequential ownership corroborated by trade timestamps",
@@ -946,16 +979,18 @@
               "name": "Nico Collins",
               "playerId": "7569",
               "position": "WR",
-              "strictlyLaterStartedPoints": 0,
-              "strictlyLaterStarts": 0,
+              "strictlyLaterStartedPoints": null,
+              "strictlyLaterStarts": null,
               "sameWeekRecordedStarts": 0,
               "sameWeekRecordedPoints": 0,
               "strictlyLaterWeekEntries": []
             }
           ],
-          "strictlyLaterStartedPoints": 0,
-          "strictlyLaterStarts": 0,
-          "sameWeekRecordedPoints": 0
+          "strictlyLaterStartedPoints": null,
+          "strictlyLaterStarts": null,
+          "sameWeekRecordedPoints": 0,
+          "strictlyLaterScoringWindowAvailable": false,
+          "postTradeScoringStatus": "no_finalized_week_after_transaction_yet"
         },
         {
           "manager": "Kuhl",
@@ -971,20 +1006,23 @@
               "name": "Drake Maye",
               "playerId": "11564",
               "position": "QB",
-              "strictlyLaterStartedPoints": 0,
-              "strictlyLaterStarts": 0,
+              "strictlyLaterStartedPoints": null,
+              "strictlyLaterStarts": null,
               "sameWeekRecordedStarts": 0,
               "sameWeekRecordedPoints": 0,
               "strictlyLaterWeekEntries": []
             }
           ],
-          "strictlyLaterStartedPoints": 0,
-          "strictlyLaterStarts": 0,
-          "sameWeekRecordedPoints": 0
+          "strictlyLaterStartedPoints": null,
+          "strictlyLaterStarts": null,
+          "sameWeekRecordedPoints": 0,
+          "strictlyLaterScoringWindowAvailable": false,
+          "postTradeScoringStatus": "no_finalized_week_after_transaction_yet"
         }
       ],
       "receiptsVerification": "team and player multiset matched completed Sleeper trade; directions confirmed by adjacent weekly roster membership; Week4 Watson sequential ownership corroborated by trade timestamps",
-      "isScoringFinalized": false
+      "isScoringFinalized": false,
+      "finalization": "Week 10 ongoing as of Nov 16, 2026"
     }
   ]
 }
