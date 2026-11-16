@@ -95,16 +95,18 @@ try{
          const core=[...hub?.querySelectorAll('.discovery-grid a.discovery-card')||[]].map(a=>a.getAttribute('href'));
          const advanced=hub?.querySelector('details.discovery-expander');
          const stories=[...document.querySelectorAll('.home-featured-editorial .home-spotlight>a')].map(a=>a.getAttribute('href'));
-         const order=['home-now-heading','explore-the-league','home-manager-title','home-featured-heading']
+         const order=['explore-the-league','home-now-heading','home-manager-title','home-featured-heading']
           .map(id=>document.getElementById(id)?.getBoundingClientRect().top+scrollY);
          const ratingPanel=document.querySelector('details.home-advanced-managers');
          return {core,advancedCount:advanced?.querySelectorAll('a').length||0,
           advancedCollapsed:!!advanced&&!advanced.open,stories,
+          directManagers:[...document.querySelectorAll('.home-franchise-links a')].map(a=>a.getAttribute('href')),
+          firstAdventure:hub?.querySelector('.discovery-card')?.textContent?.trim(),
           ratingPanelCollapsed:!!ratingPanel&&!ratingPanel.open,
           orderCorrect:order.every((v,i)=>Number.isFinite(v)&&(i===0||v>order[i-1]))};
         });
-        if(JSON.stringify(discovery.core)!==JSON.stringify(['managers/','seasons/','analytics/record-holders.html','analytics/trade-museum.html','analytics/rivalry-war-room.html','seasons/2026.html'])||
-           discovery.advancedCount!==5||!discovery.advancedCollapsed||
+        if(JSON.stringify(discovery.core)!==JSON.stringify(['managers/','seasons/2026.html','analytics/record-holders.html','seasons/','analytics/rivalry-war-room.html','analytics/trade-museum.html'])||
+           discovery.advancedCount!==5||!discovery.advancedCollapsed||discovery.directManagers.length!==10||!discovery.firstAdventure?.includes('Meet the Fellas')||
            JSON.stringify(discovery.stories)!==JSON.stringify(['hall/championship-stories.html','analytics/record-stories.html?record=highest'])||
            !discovery.ratingPanelCollapsed||!discovery.orderCorrect)
          findings.push(engine+' '+width+' '+key+' homepage progressive-discovery failure '+JSON.stringify(discovery));
