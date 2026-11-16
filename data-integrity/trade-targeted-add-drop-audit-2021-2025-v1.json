@@ -1,0 +1,609 @@
+{
+  "schema": "fellas-targeted-transaction-waiver-audit-2021-2025-v1",
+  "asOf": "2026-11-16",
+  "method": "League-wide public-week Sleeper completed transaction reads, 100-per-week request, search selected asset names in players_added and players_dropped across trade, add, drop, waiver. Failed waiver bids excluded. No event in returned week is not proof of continuously held ownership on other weeks or of provider archival completeness.",
+  "targets": [
+    {
+      "year": 2021,
+      "league": "668633299786244096",
+      "start": 1,
+      "end": 6,
+      "names": [
+        "Josh Jacobs",
+        "Antonio Gibson",
+        "Leonard Fournette"
+      ]
+    },
+    {
+      "year": 2025,
+      "league": "1181421235163095040",
+      "start": 2,
+      "end": 11,
+      "names": [
+        "Derrick Henry",
+        "Ja'Marr Chase",
+        "Jordan Addison"
+      ]
+    }
+  ],
+  "weeklyScans": [
+    {
+      "year": 2021,
+      "week": 1,
+      "returnedRows": 47,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          1
+        ],
+        "returned_rows": 47
+      },
+      "scanTermCount": 3,
+      "targetEvents": [
+        {
+          "transactionId": "738428315181928448",
+          "date": "2021-08-31",
+          "timestamp": 1630440158693,
+          "week": 1,
+          "type": "trade",
+          "status": "complete",
+          "teamIds": [
+            "3",
+            "10"
+          ],
+          "added": [
+            {
+              "id": "5850",
+              "name": "Josh Jacobs"
+            },
+            {
+              "id": "6945",
+              "name": "Antonio Gibson"
+            }
+          ],
+          "dropped": [
+            {
+              "id": "5850",
+              "name": "Josh Jacobs"
+            },
+            {
+              "id": "6945",
+              "name": "Antonio Gibson"
+            }
+          ],
+          "allAdded": [
+            "Dak Prescott",
+            "Lamar Jackson",
+            "Mark Andrews",
+            "Josh Jacobs",
+            "Noah Fant",
+            "Antonio Gibson"
+          ]
+        },
+        {
+          "transactionId": "737360507476066304",
+          "date": "2021-08-30",
+          "timestamp": 1630336326433,
+          "week": 1,
+          "type": "trade",
+          "status": "complete",
+          "teamIds": [
+            "3",
+            "7"
+          ],
+          "added": [
+            {
+              "id": "5850",
+              "name": "Josh Jacobs"
+            }
+          ],
+          "dropped": [
+            {
+              "id": "5850",
+              "name": "Josh Jacobs"
+            }
+          ],
+          "allAdded": [
+            "Tyreek Hill",
+            "Corey Davis",
+            "Josh Jacobs",
+            "A.J. Brown",
+            "Jonathan Taylor",
+            "Javonte Williams"
+          ]
+        }
+      ],
+      "scanComplete": true
+    },
+    {
+      "year": 2021,
+      "week": 2,
+      "returnedRows": 32,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          2
+        ],
+        "returned_rows": 32
+      },
+      "scanTermCount": 3,
+      "targetEvents": [],
+      "scanComplete": true
+    },
+    {
+      "year": 2021,
+      "week": 3,
+      "returnedRows": 23,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          3
+        ],
+        "returned_rows": 23
+      },
+      "scanTermCount": 3,
+      "targetEvents": [
+        {
+          "transactionId": "748312121284149248",
+          "date": "2021-09-27",
+          "timestamp": 1632774337157,
+          "week": 3,
+          "type": "trade",
+          "status": "complete",
+          "teamIds": [
+            "2",
+            "9"
+          ],
+          "added": [
+            {
+              "id": "3969",
+              "name": "Leonard Fournette"
+            }
+          ],
+          "dropped": [
+            {
+              "id": "3969",
+              "name": "Leonard Fournette"
+            }
+          ],
+          "allAdded": [
+            "Aaron Rodgers",
+            "Keenan Allen",
+            "Leonard Fournette",
+            "Patrick Mahomes",
+            "Brandon Aiyuk"
+          ]
+        }
+      ],
+      "scanComplete": true
+    },
+    {
+      "year": 2021,
+      "week": 4,
+      "returnedRows": 30,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          4
+        ],
+        "returned_rows": 30
+      },
+      "scanTermCount": 3,
+      "targetEvents": [],
+      "scanComplete": true
+    },
+    {
+      "year": 2021,
+      "week": 5,
+      "returnedRows": 21,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          5
+        ],
+        "returned_rows": 21
+      },
+      "scanTermCount": 3,
+      "targetEvents": [
+        {
+          "transactionId": "751504917667168256",
+          "date": "2021-10-07",
+          "timestamp": 1633571058087,
+          "week": 5,
+          "type": "trade",
+          "status": "complete",
+          "teamIds": [
+            "8",
+            "9"
+          ],
+          "added": [
+            {
+              "id": "3969",
+              "name": "Leonard Fournette"
+            }
+          ],
+          "dropped": [
+            {
+              "id": "3969",
+              "name": "Leonard Fournette"
+            }
+          ],
+          "allAdded": [
+            "Leonard Fournette",
+            "DeVonta Smith"
+          ]
+        }
+      ],
+      "scanComplete": true
+    },
+    {
+      "year": 2021,
+      "week": 6,
+      "returnedRows": 34,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          6
+        ],
+        "returned_rows": 34
+      },
+      "scanTermCount": 3,
+      "targetEvents": [
+        {
+          "transactionId": "754024908207583232",
+          "date": "2021-10-13",
+          "timestamp": 1634136227162,
+          "week": 6,
+          "type": "trade",
+          "status": "complete",
+          "teamIds": [
+            "3",
+            "4"
+          ],
+          "added": [
+            {
+              "id": "6945",
+              "name": "Antonio Gibson"
+            }
+          ],
+          "dropped": [
+            {
+              "id": "6945",
+              "name": "Antonio Gibson"
+            }
+          ],
+          "allAdded": [
+            "Amari Cooper",
+            "Antonio Gibson"
+          ]
+        }
+      ],
+      "scanComplete": true
+    },
+    {
+      "year": 2025,
+      "week": 2,
+      "returnedRows": 30,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          2
+        ],
+        "returned_rows": 30
+      },
+      "scanTermCount": 3,
+      "targetEvents": [
+        {
+          "transactionId": "1273856224776962053",
+          "date": "2025-09-17",
+          "timestamp": 1758073619734,
+          "week": 2,
+          "type": "trade",
+          "status": "complete",
+          "teamIds": [
+            "4",
+            "9"
+          ],
+          "added": [
+            {
+              "id": "3198",
+              "name": "Derrick Henry"
+            }
+          ],
+          "dropped": [
+            {
+              "id": "3198",
+              "name": "Derrick Henry"
+            }
+          ],
+          "allAdded": [
+            "Derrick Henry",
+            "Nico Collins"
+          ]
+        }
+      ],
+      "scanComplete": true
+    },
+    {
+      "year": 2025,
+      "week": 3,
+      "returnedRows": 43,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          3
+        ],
+        "returned_rows": 43
+      },
+      "scanTermCount": 3,
+      "targetEvents": [
+        {
+          "transactionId": "1276326233327570944",
+          "date": "2025-09-24",
+          "timestamp": 1758675766247,
+          "week": 3,
+          "type": "trade",
+          "status": "complete",
+          "teamIds": [
+            "3",
+            "8"
+          ],
+          "added": [
+            {
+              "id": "9756",
+              "name": "Jordan Addison"
+            }
+          ],
+          "dropped": [
+            {
+              "id": "9756",
+              "name": "Jordan Addison"
+            }
+          ],
+          "allAdded": [
+            "Mike Evans",
+            "Jordan Addison"
+          ]
+        },
+        {
+          "transactionId": "1276026193660899328",
+          "date": "2025-09-23",
+          "timestamp": 1758629617199,
+          "week": 3,
+          "type": "trade",
+          "status": "complete",
+          "teamIds": [
+            "1",
+            "4"
+          ],
+          "added": [
+            {
+              "id": "7564",
+              "name": "Ja'Marr Chase"
+            }
+          ],
+          "dropped": [
+            {
+              "id": "7564",
+              "name": "Ja'Marr Chase"
+            }
+          ],
+          "allAdded": [
+            "Ja'Marr Chase",
+            "Jahmyr Gibbs",
+            "Chase Brown",
+            "RJ Harvey"
+          ]
+        }
+      ],
+      "scanComplete": true
+    },
+    {
+      "year": 2025,
+      "week": 4,
+      "returnedRows": 12,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          4
+        ],
+        "returned_rows": 12
+      },
+      "scanTermCount": 3,
+      "targetEvents": [],
+      "scanComplete": true
+    },
+    {
+      "year": 2025,
+      "week": 5,
+      "returnedRows": 34,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          5
+        ],
+        "returned_rows": 34
+      },
+      "scanTermCount": 3,
+      "targetEvents": [],
+      "scanComplete": true
+    },
+    {
+      "year": 2025,
+      "week": 6,
+      "returnedRows": 17,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          6
+        ],
+        "returned_rows": 17
+      },
+      "scanTermCount": 3,
+      "targetEvents": [],
+      "scanComplete": true
+    },
+    {
+      "year": 2025,
+      "week": 7,
+      "returnedRows": 29,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          7
+        ],
+        "returned_rows": 29
+      },
+      "scanTermCount": 3,
+      "targetEvents": [],
+      "scanComplete": true
+    },
+    {
+      "year": 2025,
+      "week": 8,
+      "returnedRows": 21,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          8
+        ],
+        "returned_rows": 21
+      },
+      "scanTermCount": 3,
+      "targetEvents": [],
+      "scanComplete": true
+    },
+    {
+      "year": 2025,
+      "week": 9,
+      "returnedRows": 34,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          9
+        ],
+        "returned_rows": 34
+      },
+      "scanTermCount": 3,
+      "targetEvents": [],
+      "scanComplete": true
+    },
+    {
+      "year": 2025,
+      "week": 10,
+      "returnedRows": 11,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          10
+        ],
+        "returned_rows": 11
+      },
+      "scanTermCount": 3,
+      "targetEvents": [],
+      "scanComplete": true
+    },
+    {
+      "year": 2025,
+      "week": 11,
+      "returnedRows": 26,
+      "upstreamOrWindowLimit": null,
+      "window": {
+        "mode": "explicit_week",
+        "weeks": [
+          11
+        ],
+        "returned_rows": 26
+      },
+      "scanTermCount": 3,
+      "targetEvents": [
+        {
+          "transactionId": "1294724519813988352",
+          "date": "2025-11-13",
+          "timestamp": 1763049569406,
+          "week": 11,
+          "type": "trade",
+          "status": "complete",
+          "teamIds": [
+            "4",
+            "9"
+          ],
+          "added": [
+            {
+              "id": "3198",
+              "name": "Derrick Henry"
+            }
+          ],
+          "dropped": [
+            {
+              "id": "3198",
+              "name": "Derrick Henry"
+            }
+          ],
+          "allAdded": [
+            "Zach Ertz",
+            "Derrick Henry",
+            "Jake Ferguson",
+            "Jaylen Warren"
+          ]
+        },
+        {
+          "transactionId": "1294402688213057536",
+          "date": "2025-11-12",
+          "timestamp": 1762981428712,
+          "week": 11,
+          "type": "trade",
+          "status": "complete",
+          "teamIds": [
+            "1",
+            "2",
+            "3"
+          ],
+          "added": [
+            {
+              "id": "7564",
+              "name": "Ja'Marr Chase"
+            },
+            {
+              "id": "9756",
+              "name": "Jordan Addison"
+            }
+          ],
+          "dropped": [
+            {
+              "id": "7564",
+              "name": "Ja'Marr Chase"
+            },
+            {
+              "id": "9756",
+              "name": "Jordan Addison"
+            }
+          ],
+          "allAdded": [
+            "Jared Goff",
+            "A.J. Brown",
+            "Amon-Ra St. Brown",
+            "Ja'Marr Chase",
+            "Jordan Addison"
+          ]
+        }
+      ],
+      "scanComplete": true
+    }
+  ]
+}
