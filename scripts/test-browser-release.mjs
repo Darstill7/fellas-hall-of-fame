@@ -1354,6 +1354,14 @@ try{
      errors.push(width+' verified 2025 three-party outgoing/received asset flow incomplete');
     if(await page.locator('#context-keepers .keeper-chip').count()!==2)
      errors.push(width+' documented 2026 first-round keeper receipts not shown');
+    await page.waitForFunction(()=>document.querySelector('#playoff-impact')&&!document.querySelector('#playoff-impact').hidden,null,{timeout:10000}).catch(()=>{});
+    const week15Impact=await page.locator('#playoff-impact-body').innerText();
+    if(!week15Impact.includes('122.12')||!week15Impact.includes('122.00')||!week15Impact.includes('61.42'))
+     errors.push(width+' Stilly 2025 0.12-point Week15 result and acquired-player production missing');
+    await page.goto(baseUrl+'managers/trade-explorer.html?trade=1018289561511682048');
+    await page.waitForFunction(()=>document.querySelector('#playoff-impact')&&!document.querySelector('#playoff-impact').hidden,null,{timeout:10000}).catch(()=>{});
+    if(!await page.locator('#playoff-impact-body').innerText().then(t=>t.includes('105.06')&&t.includes('146.36')&&t.includes('15.10')))
+     errors.push(width+' Birch 2023 Week15 lost pairing was misrepresented or missing');
     await page.goto(baseUrl+'managers/trade-explorer.html?trade=1427488044335788032');
     await page.waitForFunction(()=>document.querySelectorAll('#keeper-trail-entries .journey-item').length>=2,null,{timeout:10000}).catch(()=>{});
     const keeperText=await page.locator('#keeper-trail-entries').innerText();
