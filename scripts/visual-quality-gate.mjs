@@ -251,11 +251,11 @@ try{
        }
        if(route===''&&width===390){
         const headline=await page.locator('.hero h1').textContent();
-        if(!/The history\.\s+The legends\.\s+The Fellas\./.test(headline||''))
+        if(!/Ten managers\.[\s\S]*Eleven seasons\.[\s\S]*One story\./.test(headline||''))
          findings.push(engine+' '+width+' mobile homepage headline words run together');
        }
        if(route===''&&width===390){
-        const quick=page.locator('.home-manager-quick a[href="managers/record-books.html"]');
+        const quick=page.locator('.home-find-franchise a[href="managers/record-books.html"]');
         if(!await quick.count())throw Error('Homepage personal records path missing');
         const managerPanel=page.locator('details.home-advanced-managers');
         if(await managerPanel.evaluate(el=>el.open))throw Error('Advanced manager ratings should start collapsed');
@@ -276,9 +276,14 @@ try{
         // Check the canonical link in the original HTML, then verify destination behavior
         // separately rather than assuming an archived link stays mounted after hydration.
         const source=await page.evaluate(async()=>{const r=await fetch(location.pathname);return r.text()});
-        const expectedLink='manager-draft-report-cards.html?manager='+expected;
-        const links=[...source.matchAll(/href="[^"]*manager-draft-report-cards\.html[^"]*"/g)].map(m=>m[0]);
-        if(links.length!==1||!links[0].includes(expectedLink))
+        const links=[...source.matchAll(/href="([^"]*manager-draft-report-cards\.html[^"]*)"/g)].map(m=>m[1]);
+        const expectedManager=slug==='tom'?'Thommy':slug;
+        const correct=links.filter(link=>{
+         const path=new URL(link,location.href);
+         return path.pathname.endsWith('/analytics/manager-draft-report-cards.html')&&
+          path.searchParams.get('manager')?.toLowerCase()===expectedManager.toLowerCase();
+        });
+        if(links.length!==1||correct.length!==1)
          throw Error('Manager profile source lost clean draft report destination: '+slug+' '+JSON.stringify(links));
        }
        if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
