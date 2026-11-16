@@ -9,7 +9,7 @@ assert(html.includes('id="homepage-editorial-title"'),'Homepage first-screen hea
 assert(html.includes('class="home-editorial-lead"'),'Featured championship lead missing');
 assert(html.includes('href="hall/championship-stories.html?year=2025"'),'Featured story must lead to correct championship');
 assert(html.includes('href="analytics/record-holders.html"'),'Manager-first Record Book destination missing');
-assert(html.includes('href="#home-manager-title"'),'Manager discovery shortcut missing');
+assert(html.includes('href="#home-direct-franchise-title"'),'Hero shortcut must lead to the direct manager finder');
 assert(html.includes('id="home-manager-title"'),'Manager search destination missing');
 assert(html.includes('id="home-season-snapshot"'),'Live season ledger surface missing');
 assert(html.includes('id="home-manager-mobile"'),'Mobile manager finder missing');
