@@ -177,6 +177,12 @@ try{
     if(await page.locator('body.profile-landing').count()===1&&await divisions.filter({visible:true}).count()!==0)
      errors.push(width+' '+route+' chapter dividers must be hidden on the short profile landing');
    }
+   if(route==='analytics/record-holders.html'){
+    if(await page.locator('.records-reading-break').count()!==4)
+     errors.push(width+' Record Book four chapter transitions missing');
+    if(await page.locator('.records-reading-map a').count()!==4)
+     errors.push(width+' Record Book chapter navigation incomplete');
+   }
    if(route==='managers/trade-portfolios.html'){
     if(await page.locator('.reading-divider').count()!==5)
      errors.push(width+' portfolio chapters missing');
