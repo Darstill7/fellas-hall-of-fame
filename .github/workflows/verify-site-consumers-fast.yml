@@ -16,5 +16,7 @@ jobs:
         run: node scripts/verify-core-consumers.mjs
       - name: Verify homepage editorial discovery
         run: node scripts/verify-homepage-editorial.mjs
+      - name: Verify current and completed-season navigation
+        run: node scripts/verify-production-editorial-navigation.mjs
       - name: Verify documented three-team trade archive scope
         run: node scripts/verify-trade-museum-scope.mjs
