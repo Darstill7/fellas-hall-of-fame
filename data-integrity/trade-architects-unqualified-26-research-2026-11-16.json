@@ -2,7 +2,7 @@
   "schema": "fellas-trade-architects-previously-unqualified-audit-v1",
   "asOf": "2026-11-16",
   "classification": "research_only_no_position_adjusted_or_definitive_trade_winner_grades",
-  "method": "For all 26 historical 2020–2025 trade events not in the 18 complete two-sided preview comparisons: join each recorded trade asset to that receiving team roster's same-name starter records in data/player_starts_YEAR.json for weeks strictly greater than transaction week through regular-season week 14. The name-normalization step removes punctuation and trailing Roman II, e.g. DJ Moore and Allen Robinson II; the joined record retains source player IDs, manager roster numbers, week and points. These are *observed actual started points*, not PAR or counterfactual gains. Original historical engine starts may have a different date/season scope, and its differences are retained rather than overwritten. Player never starting after the deal results in observed zero, not automatically a bad trade; missing source player identity requires separate recovery. Historical 2023 team slot 2 belongs to Evans. Multi-manager deals are not pairwise contests. Kenny Gainwell has no starting-lineup entry in the 2023 season archive but is independently identified as provider player ID 7567 in the completed Week 6 transaction receipt; no fabricated start is added.",
+  "method": "For all 26 historical 2020–2025 trade events not in the 18 complete two-sided preview comparisons: join each recorded trade asset to that receiving team roster's same-name starter records in data/player_starts_YEAR.json for weeks strictly greater than transaction week through regular-season week 14. The name-normalization step removes punctuation and trailing Roman II, e.g. DJ Moore and Allen Robinson II; the joined record retains source player IDs, manager roster numbers, week and points. These are *observed actual started points*, not PAR or counterfactual gains. Original historical engine starts may have a different date/season scope, and its differences are retained rather than overwritten. Player never starting after the deal results in observed zero, not automatically a bad trade; missing source player identity requires separate recovery. Historical 2023 team slot 2 belongs to Evans. Multi-manager deals are not pairwise contests. Kenny Gainwell has no starting-lineup entry in the 2023 season archive but is independently identified as provider player ID 7567 in the completed Week 6 transaction receipt; no fabricated start is added. Two source-engine one-sided events have their second team identity confirmed by completed Sleeper provider receipts (Stilly–Stew in 2020; Stilly–Hupp in 2021), but the other asset/FAAB leg remains undocumented. They are two-team events with one evidenced player-side, not proof of a one-team transaction.",
   "summary": {
     "total": 26,
     "bilateral": 23,
@@ -373,7 +373,13 @@
           "delta": -11.2
         }
       ],
-      "classification": "counterparty_missing"
+      "classification": "two_teams_confirmed_one_asset_side_missing",
+      "knownCounterpartyFromProvider": "Stew",
+      "providerTeams": [
+        "1",
+        "4"
+      ],
+      "counterpartyReceivedAssets": "unavailable_in_provider_trade_receipt"
     },
     {
       "year": 2020,
@@ -1113,7 +1119,13 @@
           "delta": -17.1
         }
       ],
-      "classification": "counterparty_missing"
+      "classification": "two_teams_confirmed_one_asset_side_missing",
+      "knownCounterpartyFromProvider": "Hupp",
+      "providerTeams": [
+        "1",
+        "6"
+      ],
+      "counterpartyReceivedAssets": "unavailable_in_provider_trade_receipt"
     },
     {
       "year": 2021,
@@ -3438,6 +3450,8 @@
     "data/player_starts_2024.json",
     "data/player_starts_2025.json",
     "data-integrity/COMMISSIONER_OWNERSHIP_AND_TRADE_RULES_2026-11-06.md",
-    "data-integrity/provider-recovered-transactions-2023-week6.json"
+    "data-integrity/provider-recovered-transactions-2023-week6.json",
+    "data-integrity/provider-recovered-transactions-2020-week8.json",
+    "data-integrity/provider-recovered-transactions-2021-week3.json"
   ]
 }
