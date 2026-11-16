@@ -1311,7 +1311,7 @@ try{
    if(route==='managers/trade-portfolios.html'){
     // The 48 historic trade events and nine 2026 transactions must load in a
     // real browser; source-only syntax tests cannot establish this.
-    await page.waitForFunction(()=>document.querySelectorAll('#picks button.pick').length===12,{timeout:10000}).catch(()=>{});
+    await page.waitForFunction(()=>document.querySelectorAll('#picks button.pick').length===12,null,{timeout:10000}).catch(()=>{});
     if(await page.locator('#picks button.pick').count()!==12)
      errors.push(width+' portfolio selector did not render 12 managers');
     if(await page.locator('#total-events').textContent()!=='48')
@@ -1327,7 +1327,7 @@ try{
       errors.push(width+' Scott 2026 first trade not shown');
      if(!await page.locator('#editorial-copy').textContent().then(t=>t.includes('Emeka Egbuka')))
       errors.push(width+' Scott evidence-backed editorial story missing');
-     const scroll=await page.evaluate(()=>({top:document.querySelector('#profile').getBoundingClientRect().top,viewport:innerHeight}));
+     if(width===390)await page.waitForTimeout(650); const scroll=await page.evaluate(()=>({top:document.querySelector('#profile').getBoundingClientRect().top,viewport:innerHeight}));
      if(width===390&&scroll.top>scroll.viewport)
       errors.push(width+' selected portfolio not brought into view on mobile');
     }
