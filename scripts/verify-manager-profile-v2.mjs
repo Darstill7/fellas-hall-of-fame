@@ -9,6 +9,10 @@ const latestCss=readFileSync(new URL('../assets/manager-profile-editorial-v3.css
 assert(interactive.includes('const managerRecordBookUrl='),'Interactive profile routes must use the manager-first Record Book');
 assert(!interactive.includes('expanded-records.html?manager='),'Primary profile record links must not revert to the old research archive');
 assert(latestCss.includes('@media(max-width:700px)'),'Responsive editorial layout missing');
+const mobileCss=readFileSync(new URL('../assets/manager-profile-mobile-v3.css',import.meta.url),'utf8');
+assert(mobileCss.includes('profile-season-pulse-stats')&&mobileCss.includes('grid-template-columns:repeat(2,minmax(0,1fr))'),'Manager 3.0 mobile season summary and two-column career highlights missing');
+assert(interactive.includes('mountManagerSeasonPulse()')&&interactive.includes('mountOptionalManagerAnalysis()'),'Mobile-first current-season and deferred analytics mounts missing');
+assert(!interactive.includes('mountManagerScheduleLuck(profileName,profileHero);')&&!interactive.includes('mountManagerLuckPerformance(profileName,profileHero);'),'Advanced opponent-draw panels must not mount directly in the hero');
 assert(interactive.includes("source.className='hof-career-source-note'"),'Biography source note missing');
 assert(interactive.includes('see the latest verified 2026 scores and standings'),'Live 2026 crosslink missing');
 for(const name of names){
@@ -17,6 +21,7 @@ for(const name of names){
  const href='../../managers/record-books.html?manager='+encodeURIComponent(manager)+'#career-first';
  assert(html.includes('manager-profile-editorial-v2.css'),name+' missing shared design system');
  assert(html.includes('manager-profile-editorial-v3.css'),name+' missing shared editorial finish');
+ assert(html.includes('manager-profile-mobile-v3.css'),name+' missing shared mobile-first system');
  assert(html.includes('property="og:title"')&&html.includes('property="og:description"'),name+' missing social title/description');
  assert(html.includes('property="og:url" content="https://darstill7.github.io/fellas-hall-of-fame/managers/'+name+'/"'),name+' missing direct profile share URL');
  assert(html.includes(href),name+' missing canonical manager-specific personal record book');
