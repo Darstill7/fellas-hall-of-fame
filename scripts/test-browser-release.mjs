@@ -1354,6 +1354,13 @@ try{
      errors.push(width+' verified 2025 three-party outgoing/received asset flow incomplete');
     if(await page.locator('#context-keepers .keeper-chip').count()!==2)
      errors.push(width+' documented 2026 first-round keeper receipts not shown');
+    await page.goto(baseUrl+'managers/trade-explorer.html?trade=1427488044335788032');
+    await page.waitForFunction(()=>document.querySelectorAll('#keeper-trail-entries .journey-item').length>=2,null,{timeout:10000}).catch(()=>{});
+    const keeperText=await page.locator('#keeper-trail-entries').innerText();
+    if(!keeperText.includes('Drake Maye')||!keeperText.includes('Round 14')||!keeperText.includes('Nico Collins')||!keeperText.includes('Round 3'))
+     errors.push(width+' original 2026 keeper costs missing for Maye/Collins return trade');
+    if(!keeperText.includes('Kuhl → Stew')||!keeperText.includes('Stew → Kuhl'))
+     errors.push(width+' Maye keeper round-trip evidence missing');
     await page.goto(baseUrl+'managers/trade-explorer.html?trade='+caseId);
     if(captureVisuals){
      const focusPath=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width),'trade-explorer-lamb-case.png');
