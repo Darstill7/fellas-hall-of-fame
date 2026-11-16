@@ -1337,6 +1337,21 @@ try{
      errors.push(width+' deep-linked trade case failed to load');
     if(await page.locator('#detail-body .participant').count()!==2)
      errors.push(width+' trade receipt participants not displayed');
+    if(await page.locator('#trade-flow .flow-lane').count()!==2)
+     errors.push(width+' bilateral trade flow lacks two manager lanes');
+    if(!await page.locator('#trade-flow').innerText().then(t=>t.includes('CeeDee Lamb')&&t.includes('Tony Pollard')))
+     errors.push(width+' Lamb-Pollard trade asset flow missing');
+    if(!await page.locator('#context-title').innerText().then(t=>t.includes('Lamb moved to Birch')))
+     errors.push(width+' verified 2023 trade context did not load');
+    if(await page.locator('#detail-body a.record-link[href*="record-books.html?manager="]').count()!==2)
+     errors.push(width+' trade case missing manager record book links');
+    await page.goto(baseUrl+'managers/trade-explorer.html?trade=1294402688213057536');
+    await page.waitForFunction(()=>!document.querySelector('#context-panel').hidden,null,{timeout:10000}).catch(()=>{});
+    if(await page.locator('#trade-flow .flow-lane').count()!==3)
+     errors.push(width+' 2025 triple trade missing three receipt lanes');
+    if(await page.locator('#context-keepers .keeper-chip').count()!==2)
+     errors.push(width+' documented 2026 first-round keeper receipts not shown');
+    await page.goto(baseUrl+'managers/trade-explorer.html?trade='+caseId);
     if(captureVisuals){
      const focusPath=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width),'trade-explorer-lamb-case.png');
      await fs.mkdir(path.dirname(focusPath),{recursive:true});
