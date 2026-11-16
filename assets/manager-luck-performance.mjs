@@ -1,6 +1,6 @@
 // Visual scoring-strength vs opponent-draw summary for every verified manager.
-export async function mountManagerLuckPerformance(profileName,hero){
- if(!hero||!profileName||hero.querySelector('[data-luck-performance]'))return;
+export async function mountManagerLuckPerformance(profileName,hero,mountTarget=null){
+ if(!hero||!profileName||(mountTarget||hero).querySelector('[data-luck-performance]'))return;
  const manager=profileName==='Tom'?'Thommy':profileName;
  try{
   const response=await fetch('../../data/luck_performance_profiles_2016_2026_v1.json',{cache:'no-store'});
@@ -83,6 +83,7 @@ export async function mountManagerLuckPerformance(profileName,hero){
 `;
   section.prepend(style);
   const snapshot=hero.querySelector('[data-profile-career-snapshot]');
-  (snapshot||hero.querySelector(':scope > .lead')||hero.querySelector('h1'))?.after(section);
+  if(mountTarget)mountTarget.append(section);
+  else (snapshot||hero.querySelector(':scope > .lead')||hero.querySelector('h1'))?.after(section);
  }catch(error){console.warn('Luck versus performance temporarily unavailable',error)}
 }
