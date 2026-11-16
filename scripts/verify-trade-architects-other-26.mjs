@@ -172,10 +172,10 @@ assert.equal(current.activeManagerSummary.Tony.completedTrades,0,'Tony has no co
 assert.equal(current.activeManagerSummary.Stew.netRawSideGap,-38.22);
 assert.equal(current.activeManagerSummary.Kuhl.netRawSideGap,-88.38);
 assert.equal(current.activeManagerSummary.JMid.netRawSideGap,76.3);
-assert.equal(current.transactions.find(t=>t.id==='1427488044335788032').localDate,'11/14/2026','Maye trade occurred Saturday local time');
+assert.equal(current.transactions.find(t=>t.id==='1427488044335788032').localDate,'2026-11-14','Maye trade occurred Saturday local time');
 const activeDoc=fs.readFileSync('docs/greatest-trade-architects-current-managers-2026-11-16.md','utf8');
-assert(activeDoc.includes('**Mitch (Sleeper handle huppdawg80 / “Hupp”)'));
-assert(activeDoc.includes('**Scott (Sleeper handle Sheffla)'));
+assert(activeDoc.includes('Mitch (Sleeper handle huppdawg80 / “Hupp”)'));
+assert(activeDoc.includes('Scott (Sleeper handle Sheffla)'));
 assert(activeDoc.includes('data-integrity/trade-architects-2026-week10-current-manager-receipts.json')||activeDoc.includes('2026 connected Sleeper'),'missing current season source note');
 for(const m of Object.keys(current.activeManagerSummary))
  assert(activeDoc.includes('| '+m+' ')||activeDoc.includes('| '+m+' |')||activeDoc.includes('| '+m+' ('),'manager omitted from active-focused summary: '+m);
