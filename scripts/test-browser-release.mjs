@@ -1354,6 +1354,15 @@ try{
      errors.push(width+' verified 2025 three-party outgoing/received asset flow incomplete');
     if(await page.locator('#context-keepers .keeper-chip').count()!==2)
      errors.push(width+' documented 2026 first-round keeper receipts not shown');
+    await page.waitForFunction(()=>document.querySelectorAll('#timeline-steps .timeline-step').length===6,null,{timeout:10000}).catch(()=>{});
+    if(await page.locator('#timeline-steps .timeline-step').count()!==6)
+     errors.push(width+' Chase-to-playoff timeline must contain six historical milestones');
+    const timelineText=await page.locator('#trade-timeline').innerText();
+    if(!timelineText.includes('122.12')||!timelineText.includes('126.76')||!timelineText.includes('2026 R1 #8')||!timelineText.includes('2026 R1 #4'))
+     errors.push(width+' trade timeline missing 2025 playoff results or 2026 first-round keeper costs');
+    if(await page.locator('#timeline-steps a[href*="trade=1413584172332654592"]').count()!==1)
+     errors.push(width+' trade timeline must connect the 2026 Chase return case');
+
     await page.waitForFunction(()=>document.querySelector('#playoff-impact')&&!document.querySelector('#playoff-impact').hidden,null,{timeout:10000}).catch(()=>{});
     const week15Impact=await page.locator('#playoff-impact-body').innerText();
     if(!week15Impact.includes('122.12')||!week15Impact.includes('122.00')||!week15Impact.includes('61.42'))
