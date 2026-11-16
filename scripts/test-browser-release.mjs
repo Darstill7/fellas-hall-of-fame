@@ -1358,6 +1358,17 @@ try{
      if(geometry.length!==2||geometry[0].bottom>geometry[1].top-4||geometry.some(g=>g.left<0||g.right>390))
       errors.push(width+' mobile portfolio search and membership labels overlap or overflow');
     }
+    if(await page.locator('#compare-a option').count()!==12||await page.locator('#compare-b option').count()!==12)
+     errors.push(width+' manager comparison options missing');
+    await page.locator('#compare-a').selectOption('Stew');
+    await page.locator('#compare-b').selectOption('Stilly');
+    const comparison=await page.locator('#compare-result').innerText();
+    if(!comparison.includes('23 historic events')||!comparison.includes('17 historic events'))
+     errors.push(width+' manager comparison records missing Stew/Stilly counts');
+    await page.locator('#compare-b').selectOption('Stew');
+    if(!await page.locator('#compare-result').innerText().then(t=>t.includes('two different managers')))
+     errors.push(width+' manager comparison duplicate selection invalid');
+    await page.locator('#compare-b').selectOption('Stilly');
     const scott=page.locator('#picks button[data-key="Scott"]');
     if(await scott.count()===1){
      await scott.click();
