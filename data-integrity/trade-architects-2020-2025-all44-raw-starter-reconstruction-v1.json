@@ -1,0 +1,3301 @@
+{
+  "schema": "fellas-trade-architects-all-recorded-historical-raw-starts-v1",
+  "asOf": "2026-11-16",
+  "status": "research_only_not_trade_skill_or_position_adjusted",
+  "description": "All 44 trade events represented in historical engine 2020–2025. For every received player name, match their starter contributions for recipient team roster in weeks strictly after trade week through regular-season week 14. Same-week production intentionally excluded. Names stripped of punctuation/trailing Roman II for clear alias parity. Receiver acquisitions may be retraded; this metric is not position/PAR normalized and cannot price FAAB, keeper rights or draft picks. 2023 manager Evans not JMid. Raw gap not evidence of causal manager trade skill.",
+  "counts": {
+    "all": 44,
+    "bilateral": 41,
+    "threeManager": 1,
+    "oneAssetSide": 2
+  },
+  "bilateralRawLeaderboard": [
+    {
+      "manager": "Evans",
+      "bilateralDeals": 6,
+      "observedReceivedStartedPoints": 806.3,
+      "observedStarts": 57,
+      "sumRawPointGap": 276.26,
+      "higherRawReturn": 4,
+      "lowerRawReturn": 1,
+      "equalRawReturn": 1
+    },
+    {
+      "manager": "Birch",
+      "bilateralDeals": 4,
+      "observedReceivedStartedPoints": 697.88,
+      "observedStarts": 45,
+      "sumRawPointGap": 224.06,
+      "higherRawReturn": 2,
+      "lowerRawReturn": 2,
+      "equalRawReturn": 0
+    },
+    {
+      "manager": "Mitch",
+      "bilateralDeals": 3,
+      "observedReceivedStartedPoints": 270.2,
+      "observedStarts": 21,
+      "sumRawPointGap": 131.1,
+      "higherRawReturn": 2,
+      "lowerRawReturn": 1,
+      "equalRawReturn": 0
+    },
+    {
+      "manager": "Kuhl",
+      "bilateralDeals": 10,
+      "observedReceivedStartedPoints": 989.38,
+      "observedStarts": 75,
+      "sumRawPointGap": 92.18,
+      "higherRawReturn": 5,
+      "lowerRawReturn": 4,
+      "equalRawReturn": 1
+    },
+    {
+      "manager": "Stover",
+      "bilateralDeals": 5,
+      "observedReceivedStartedPoints": 317.1,
+      "observedStarts": 25,
+      "sumRawPointGap": 69.8,
+      "higherRawReturn": 3,
+      "lowerRawReturn": 2,
+      "equalRawReturn": 0
+    },
+    {
+      "manager": "Stilly",
+      "bilateralDeals": 10,
+      "observedReceivedStartedPoints": 1643.74,
+      "observedStarts": 117,
+      "sumRawPointGap": 39.8,
+      "higherRawReturn": 4,
+      "lowerRawReturn": 6,
+      "equalRawReturn": 0
+    },
+    {
+      "manager": "Tony",
+      "bilateralDeals": 10,
+      "observedReceivedStartedPoints": 1219.86,
+      "observedStarts": 82,
+      "sumRawPointGap": -8.86,
+      "higherRawReturn": 5,
+      "lowerRawReturn": 5,
+      "equalRawReturn": 0
+    },
+    {
+      "manager": "JMid",
+      "bilateralDeals": 2,
+      "observedReceivedStartedPoints": 215.4,
+      "observedStarts": 15,
+      "sumRawPointGap": -22.5,
+      "higherRawReturn": 1,
+      "lowerRawReturn": 1,
+      "equalRawReturn": 0
+    },
+    {
+      "manager": "Koble",
+      "bilateralDeals": 1,
+      "observedReceivedStartedPoints": 120.3,
+      "observedStarts": 13,
+      "sumRawPointGap": -36.8,
+      "higherRawReturn": 0,
+      "lowerRawReturn": 1,
+      "equalRawReturn": 0
+    },
+    {
+      "manager": "Stew",
+      "bilateralDeals": 19,
+      "observedReceivedStartedPoints": 1595.06,
+      "observedStarts": 122,
+      "sumRawPointGap": -220.64,
+      "higherRawReturn": 10,
+      "lowerRawReturn": 9,
+      "equalRawReturn": 0
+    },
+    {
+      "manager": "Thommy",
+      "bilateralDeals": 12,
+      "observedReceivedStartedPoints": 1669.9,
+      "observedStarts": 129,
+      "sumRawPointGap": -544.4,
+      "higherRawReturn": 4,
+      "lowerRawReturn": 8,
+      "equalRawReturn": 0
+    }
+  ],
+  "transactions": [
+    {
+      "transactionId": "614849640176623616",
+      "year": 2020,
+      "week": 3,
+      "date": "2020-09-24",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "assets": [
+            "Ronald Jones"
+          ],
+          "players": [
+            {
+              "asset": "Ronald Jones",
+              "points": 82.4,
+              "starts": 6,
+              "weeks": [
+                6,
+                7,
+                8,
+                10,
+                11,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 82.4,
+          "observedStarts": 6
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "A.J. Green"
+          ],
+          "players": [
+            {
+              "asset": "A.J. Green",
+              "points": 2.9,
+              "starts": 1,
+              "weeks": [
+                8
+              ]
+            }
+          ],
+          "observedStartedPoints": 2.9,
+          "observedStarts": 1
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 79.5
+    },
+    {
+      "transactionId": "616864423201554432",
+      "year": 2020,
+      "week": 3,
+      "date": "2020-09-30",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "DeSean Jackson",
+            "Travis Kelce",
+            "Marquise Brown"
+          ],
+          "players": [
+            {
+              "asset": "DeSean Jackson",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            },
+            {
+              "asset": "Travis Kelce",
+              "points": 178.96,
+              "starts": 10,
+              "weeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Marquise Brown",
+              "points": 62.6,
+              "starts": 7,
+              "weeks": [
+                4,
+                5,
+                6,
+                8,
+                9,
+                10,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 241.56,
+          "observedStarts": 17
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "Allen Robinson II",
+            "Tyler Higbee",
+            "D'Andre Swift"
+          ],
+          "players": [
+            {
+              "asset": "Allen Robinson II",
+              "points": 144.7,
+              "starts": 10,
+              "weeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Tyler Higbee",
+              "points": 5.7,
+              "starts": 2,
+              "weeks": [
+                4,
+                5
+              ]
+            },
+            {
+              "asset": "D'Andre Swift",
+              "points": 63.2,
+              "starts": 5,
+              "weeks": [
+                7,
+                8,
+                9,
+                10,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 213.6,
+          "observedStarts": 17
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 27.96
+    },
+    {
+      "transactionId": "622492390107738112",
+      "year": 2020,
+      "week": 6,
+      "date": "2020-10-15",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "Lamar Jackson",
+            "J.K. Dobbins"
+          ],
+          "players": [
+            {
+              "asset": "Lamar Jackson",
+              "points": 131.02,
+              "starts": 6,
+              "weeks": [
+                8,
+                9,
+                10,
+                11,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "J.K. Dobbins",
+              "points": 57.4,
+              "starts": 5,
+              "weeks": [
+                8,
+                10,
+                11,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 188.42,
+          "observedStarts": 11
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "assets": [
+            "Kyler Murray"
+          ],
+          "players": [
+            {
+              "asset": "Kyler Murray",
+              "points": 163.96,
+              "starts": 7,
+              "weeks": [
+                7,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 163.96,
+          "observedStarts": 7
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 24.46
+    },
+    {
+      "transactionId": "629416763662086144",
+      "year": 2020,
+      "week": 8,
+      "date": "2020-11-03",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "George Kittle"
+          ],
+          "players": [
+            {
+              "asset": "George Kittle",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            }
+          ],
+          "observedStartedPoints": 0,
+          "observedStarts": 0
+        }
+      ],
+      "shape": "one_asset_side"
+    },
+    {
+      "transactionId": "629818920752209920",
+      "year": 2020,
+      "week": 9,
+      "date": "2020-11-04",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Michael Thomas"
+          ],
+          "players": [
+            {
+              "asset": "Michael Thomas",
+              "points": 53.1,
+              "starts": 5,
+              "weeks": [
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 53.1,
+          "observedStarts": 5
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "assets": [
+            "D.J. Moore",
+            "Clyde Edwards-Helaire"
+          ],
+          "players": [
+            {
+              "asset": "D.J. Moore",
+              "points": 45,
+              "starts": 3,
+              "weeks": [
+                10,
+                11,
+                12
+              ]
+            },
+            {
+              "asset": "Clyde Edwards-Helaire",
+              "points": 36.2,
+              "starts": 4,
+              "weeks": [
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 81.2,
+          "observedStarts": 7
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -28.1
+    },
+    {
+      "transactionId": "737360507476066304",
+      "year": 2021,
+      "week": 1,
+      "date": "2021-08-30",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "Tyreek Hill",
+            "Josh Jacobs",
+            "Javonte Williams"
+          ],
+          "players": [
+            {
+              "asset": "Tyreek Hill",
+              "points": 171.8,
+              "starts": 12,
+              "weeks": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Josh Jacobs",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            },
+            {
+              "asset": "Javonte Williams",
+              "points": 111.5,
+              "starts": 8,
+              "weeks": [
+                6,
+                7,
+                8,
+                9,
+                10,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 283.3,
+          "observedStarts": 20
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "assets": [
+            "Corey Davis",
+            "A.J. Brown",
+            "Jonathan Taylor"
+          ],
+          "players": [
+            {
+              "asset": "Corey Davis",
+              "points": 8.3,
+              "starts": 2,
+              "weeks": [
+                2,
+                5
+              ]
+            },
+            {
+              "asset": "A.J. Brown",
+              "points": 92.6,
+              "starts": 9,
+              "weeks": [
+                2,
+                3,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "asset": "Jonathan Taylor",
+              "points": 277.8,
+              "starts": 12,
+              "weeks": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ]
+            }
+          ],
+          "observedStartedPoints": 378.7,
+          "observedStarts": 23
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -95.4
+    },
+    {
+      "transactionId": "738428315181928448",
+      "year": 2021,
+      "week": 1,
+      "date": "2021-08-31",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "Dak Prescott",
+            "Noah Fant",
+            "Antonio Gibson"
+          ],
+          "players": [
+            {
+              "asset": "Dak Prescott",
+              "points": 192.42,
+              "starts": 11,
+              "weeks": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Noah Fant",
+              "points": 70.4,
+              "starts": 9,
+              "weeks": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                10,
+                12
+              ]
+            },
+            {
+              "asset": "Antonio Gibson",
+              "points": 60.9,
+              "starts": 4,
+              "weeks": [
+                2,
+                3,
+                4,
+                5
+              ]
+            }
+          ],
+          "observedStartedPoints": 323.72,
+          "observedStarts": 24
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "assets": [
+            "Lamar Jackson",
+            "Mark Andrews",
+            "Josh Jacobs"
+          ],
+          "players": [
+            {
+              "asset": "Lamar Jackson",
+              "points": 219.98,
+              "starts": 11,
+              "weeks": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                9,
+                10,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Mark Andrews",
+              "points": 166.6,
+              "starts": 12,
+              "weeks": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Josh Jacobs",
+              "points": 115.1,
+              "starts": 9,
+              "weeks": [
+                5,
+                6,
+                7,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 501.68,
+          "observedStarts": 32
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -177.96
+    },
+    {
+      "transactionId": "746234454665732096",
+      "year": 2021,
+      "week": 2,
+      "date": "2021-09-22",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Kenyan Drake",
+            "Saquon Barkley"
+          ],
+          "players": [
+            {
+              "asset": "Kenyan Drake",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            },
+            {
+              "asset": "Saquon Barkley",
+              "points": 89.7,
+              "starts": 7,
+              "weeks": [
+                3,
+                4,
+                5,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 89.7,
+          "observedStarts": 7
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "assets": [
+            "Nyheim Miller-Hines",
+            "Clyde Edwards-Helaire",
+            "Ty'Son Williams"
+          ],
+          "players": [
+            {
+              "asset": "Nyheim Miller-Hines",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            },
+            {
+              "asset": "Clyde Edwards-Helaire",
+              "points": 64.6,
+              "starts": 5,
+              "weeks": [
+                3,
+                4,
+                5,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Ty'Son Williams",
+              "points": 2.2,
+              "starts": 1,
+              "weeks": [
+                3
+              ]
+            }
+          ],
+          "observedStartedPoints": 66.8,
+          "observedStarts": 6
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 22.9
+    },
+    {
+      "transactionId": "748312121284149248",
+      "year": 2021,
+      "week": 3,
+      "date": "2021-09-27",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "assets": [
+            "Aaron Rodgers",
+            "Keenan Allen"
+          ],
+          "players": [
+            {
+              "asset": "Aaron Rodgers",
+              "points": 204.8,
+              "starts": 9,
+              "weeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                10,
+                11,
+                12,
+                14
+              ]
+            },
+            {
+              "asset": "Keenan Allen",
+              "points": 120.6,
+              "starts": 9,
+              "weeks": [
+                4,
+                5,
+                6,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ]
+            }
+          ],
+          "observedStartedPoints": 325.4,
+          "observedStarts": 18
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "assets": [
+            "Leonard Fournette",
+            "Patrick Mahomes",
+            "Brandon Aiyuk"
+          ],
+          "players": [
+            {
+              "asset": "Leonard Fournette",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            },
+            {
+              "asset": "Patrick Mahomes",
+              "points": 178.48,
+              "starts": 10,
+              "weeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Brandon Aiyuk",
+              "points": 2,
+              "starts": 1,
+              "weeks": [
+                4
+              ]
+            }
+          ],
+          "observedStartedPoints": 180.48,
+          "observedStarts": 11
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 144.92
+    },
+    {
+      "transactionId": "748585137259884544",
+      "year": 2021,
+      "week": 3,
+      "date": "2021-09-28",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "AJ Dillon"
+          ],
+          "players": [
+            {
+              "asset": "AJ Dillon",
+              "points": 37.3,
+              "starts": 3,
+              "weeks": [
+                11,
+                12,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 37.3,
+          "observedStarts": 3
+        }
+      ],
+      "shape": "one_asset_side"
+    },
+    {
+      "transactionId": "751165345997402112",
+      "year": 2021,
+      "week": 4,
+      "date": "2021-10-05",
+      "sides": [
+        {
+          "manager": "Koble",
+          "rosterId": "5",
+          "assets": [
+            "Zack Moss",
+            "James Robinson"
+          ],
+          "players": [
+            {
+              "asset": "Zack Moss",
+              "points": 35.5,
+              "starts": 5,
+              "weeks": [
+                5,
+                6,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "asset": "James Robinson",
+              "points": 84.8,
+              "starts": 8,
+              "weeks": [
+                5,
+                6,
+                8,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 120.3,
+          "observedStarts": 13
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "assets": [
+            "Joe Mixon"
+          ],
+          "players": [
+            {
+              "asset": "Joe Mixon",
+              "points": 157.1,
+              "starts": 8,
+              "weeks": [
+                6,
+                7,
+                8,
+                9,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 157.1,
+          "observedStarts": 8
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -36.8
+    },
+    {
+      "transactionId": "751504917667168256",
+      "year": 2021,
+      "week": 5,
+      "date": "2021-10-07",
+      "sides": [
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "assets": [
+            "Leonard Fournette"
+          ],
+          "players": [
+            {
+              "asset": "Leonard Fournette",
+              "points": 154.6,
+              "starts": 8,
+              "weeks": [
+                6,
+                7,
+                8,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 154.6,
+          "observedStarts": 8
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "assets": [
+            "DeVonta Smith"
+          ],
+          "players": [
+            {
+              "asset": "DeVonta Smith",
+              "points": 46.1,
+              "starts": 6,
+              "weeks": [
+                6,
+                7,
+                8,
+                9,
+                11,
+                12
+              ]
+            }
+          ],
+          "observedStartedPoints": 46.1,
+          "observedStarts": 6
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 108.5
+    },
+    {
+      "transactionId": "754017147822415872",
+      "year": 2021,
+      "week": 6,
+      "date": "2021-10-13",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "Kareem Hunt"
+          ],
+          "players": [
+            {
+              "asset": "Kareem Hunt",
+              "points": 2.8,
+              "starts": 1,
+              "weeks": [
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 2.8,
+          "observedStarts": 1
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "assets": [
+            "CeeDee Lamb"
+          ],
+          "players": [
+            {
+              "asset": "CeeDee Lamb",
+              "points": 72.8,
+              "starts": 6,
+              "weeks": [
+                8,
+                9,
+                10,
+                11,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 72.8,
+          "observedStarts": 6
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -70
+    },
+    {
+      "transactionId": "754024908207583232",
+      "year": 2021,
+      "week": 6,
+      "date": "2021-10-13",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "Amari Cooper"
+          ],
+          "players": [
+            {
+              "asset": "Amari Cooper",
+              "points": 52.7,
+              "starts": 5,
+              "weeks": [
+                8,
+                9,
+                10,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 52.7,
+          "observedStarts": 5
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Antonio Gibson"
+          ],
+          "players": [
+            {
+              "asset": "Antonio Gibson",
+              "points": 62.8,
+              "starts": 6,
+              "weeks": [
+                7,
+                8,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 62.8,
+          "observedStarts": 6
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -10.1
+    },
+    {
+      "transactionId": "759191673220775936",
+      "year": 2021,
+      "week": 8,
+      "date": "2021-10-27",
+      "sides": [
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "assets": [
+            "Kyle Pitts Sr."
+          ],
+          "players": [
+            {
+              "asset": "Kyle Pitts Sr.",
+              "points": 39.1,
+              "starts": 6,
+              "weeks": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 39.1,
+          "observedStarts": 6
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "assets": [
+            "Jarvis Landry",
+            "George Kittle"
+          ],
+          "players": [
+            {
+              "asset": "Jarvis Landry",
+              "points": 12.6,
+              "starts": 1,
+              "weeks": [
+                14
+              ]
+            },
+            {
+              "asset": "George Kittle",
+              "points": 90.4,
+              "starts": 5,
+              "weeks": [
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 103,
+          "observedStarts": 6
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -63.9
+    },
+    {
+      "transactionId": "875965138744864768",
+      "year": 2022,
+      "week": 2,
+      "date": "2022-09-15",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "Jonathan Taylor"
+          ],
+          "players": [
+            {
+              "asset": "Jonathan Taylor",
+              "points": 99.3,
+              "starts": 8,
+              "weeks": [
+                3,
+                4,
+                7,
+                8,
+                10,
+                11,
+                12,
+                13
+              ]
+            }
+          ],
+          "observedStartedPoints": 99.3,
+          "observedStarts": 8
+        },
+        {
+          "manager": "Mitch",
+          "rosterId": "6",
+          "assets": [
+            "Adam Thielen",
+            "Saquon Barkley"
+          ],
+          "players": [
+            {
+              "asset": "Adam Thielen",
+              "points": 72.3,
+              "starts": 7,
+              "weeks": [
+                3,
+                4,
+                5,
+                6,
+                9,
+                11,
+                14
+              ]
+            },
+            {
+              "asset": "Saquon Barkley",
+              "points": 166.7,
+              "starts": 11,
+              "weeks": [
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 239,
+          "observedStarts": 18
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -139.7
+    },
+    {
+      "transactionId": "880505837758652416",
+      "year": 2022,
+      "week": 3,
+      "date": "2022-09-27",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "assets": [
+            "Mike Williams",
+            "James Conner",
+            "James Robinson"
+          ],
+          "players": [
+            {
+              "asset": "Mike Williams",
+              "points": 79.3,
+              "starts": 6,
+              "weeks": [
+                4,
+                5,
+                6,
+                7,
+                11,
+                14
+              ]
+            },
+            {
+              "asset": "James Conner",
+              "points": 98.3,
+              "starts": 7,
+              "weeks": [
+                4,
+                5,
+                9,
+                10,
+                11,
+                12,
+                14
+              ]
+            },
+            {
+              "asset": "James Robinson",
+              "points": 6.8,
+              "starts": 2,
+              "weeks": [
+                4,
+                5
+              ]
+            }
+          ],
+          "observedStartedPoints": 184.4,
+          "observedStarts": 15
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Cordarrelle Patterson",
+            "Justin Jefferson"
+          ],
+          "players": [
+            {
+              "asset": "Cordarrelle Patterson",
+              "points": 9.8,
+              "starts": 1,
+              "weeks": [
+                4
+              ]
+            },
+            {
+              "asset": "Justin Jefferson",
+              "points": 206.66,
+              "starts": 10,
+              "weeks": [
+                4,
+                5,
+                6,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 216.46,
+          "observedStarts": 11
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -32.06
+    },
+    {
+      "transactionId": "881580705233195008",
+      "year": 2022,
+      "week": 4,
+      "date": "2022-09-30",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "Leonard Fournette"
+          ],
+          "players": [
+            {
+              "asset": "Leonard Fournette",
+              "points": 85.7,
+              "starts": 6,
+              "weeks": [
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            }
+          ],
+          "observedStartedPoints": 85.7,
+          "observedStarts": 6
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "assets": [
+            "Alvin Kamara"
+          ],
+          "players": [
+            {
+              "asset": "Alvin Kamara",
+              "points": 21.4,
+              "starts": 1,
+              "weeks": [
+                5
+              ]
+            }
+          ],
+          "observedStartedPoints": 21.4,
+          "observedStarts": 1
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 64.3
+    },
+    {
+      "transactionId": "885980047650119680",
+      "year": 2022,
+      "week": 6,
+      "date": "2022-10-12",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "assets": [
+            "Alvin Kamara",
+            "Gabe Davis"
+          ],
+          "players": [
+            {
+              "asset": "Alvin Kamara",
+              "points": 85.6,
+              "starts": 7,
+              "weeks": [
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ]
+            },
+            {
+              "asset": "Gabe Davis",
+              "points": 55.3,
+              "starts": 7,
+              "weeks": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 140.9,
+          "observedStarts": 14
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "assets": [
+            "A.J. Brown",
+            "James Robinson"
+          ],
+          "players": [
+            {
+              "asset": "A.J. Brown",
+              "points": 113.7,
+              "starts": 7,
+              "weeks": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "James Robinson",
+              "points": 0,
+              "starts": 1,
+              "weeks": [
+                7
+              ]
+            }
+          ],
+          "observedStartedPoints": 113.7,
+          "observedStarts": 8
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 27.2
+    },
+    {
+      "transactionId": "886267215865982976",
+      "year": 2022,
+      "week": 6,
+      "date": "2022-10-13",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "Keenan Allen",
+            "Tee Higgins",
+            "Najee Harris"
+          ],
+          "players": [
+            {
+              "asset": "Keenan Allen",
+              "points": 48.5,
+              "starts": 4,
+              "weeks": [
+                7,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Tee Higgins",
+              "points": 85.9,
+              "starts": 7,
+              "weeks": [
+                7,
+                8,
+                9,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Najee Harris",
+              "points": 85.06,
+              "starts": 7,
+              "weeks": [
+                7,
+                8,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 219.46,
+          "observedStarts": 18
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "DK Metcalf",
+            "CeeDee Lamb",
+            "DeVonta Smith"
+          ],
+          "players": [
+            {
+              "asset": "DK Metcalf",
+              "points": 77.8,
+              "starts": 6,
+              "weeks": [
+                7,
+                9,
+                10,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "CeeDee Lamb",
+              "points": 102.8,
+              "starts": 7,
+              "weeks": [
+                7,
+                8,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "DeVonta Smith",
+              "points": 60.4,
+              "starts": 6,
+              "weeks": [
+                8,
+                9,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 241,
+          "observedStarts": 19
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -21.54
+    },
+    {
+      "transactionId": "896468742987522048",
+      "year": 2022,
+      "week": 10,
+      "date": "2022-11-10",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Ja'Marr Chase"
+          ],
+          "players": [
+            {
+              "asset": "Ja'Marr Chase",
+              "points": 37.7,
+              "starts": 2,
+              "weeks": [
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 37.7,
+          "observedStarts": 2
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "assets": [
+            "Cordarrelle Patterson",
+            "Jeff Wilson",
+            "Chase Claypool"
+          ],
+          "players": [
+            {
+              "asset": "Cordarrelle Patterson",
+              "points": 19.5,
+              "starts": 3,
+              "weeks": [
+                11,
+                12,
+                13
+              ]
+            },
+            {
+              "asset": "Jeff Wilson",
+              "points": 13.6,
+              "starts": 3,
+              "weeks": [
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Chase Claypool",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            }
+          ],
+          "observedStartedPoints": 33.1,
+          "observedStarts": 6
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 4.6
+    },
+    {
+      "transactionId": "1012571602774532096",
+      "year": 2023,
+      "week": 3,
+      "date": "2023-09-27",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "CeeDee Lamb",
+            "Travis Etienne Jr."
+          ],
+          "players": [
+            {
+              "asset": "CeeDee Lamb",
+              "points": 19.7,
+              "starts": 2,
+              "weeks": [
+                4,
+                5
+              ]
+            },
+            {
+              "asset": "Travis Etienne Jr.",
+              "points": 116.9,
+              "starts": 6,
+              "weeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                10
+              ]
+            }
+          ],
+          "observedStartedPoints": 136.6,
+          "observedStarts": 8
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "assets": [
+            "James Conner",
+            "De'Von Achane",
+            "Puka Nacua"
+          ],
+          "players": [
+            {
+              "asset": "James Conner",
+              "points": 53,
+              "starts": 6,
+              "weeks": [
+                4,
+                5,
+                10,
+                11,
+                12,
+                13
+              ]
+            },
+            {
+              "asset": "De'Von Achane",
+              "points": 82.9,
+              "starts": 5,
+              "weeks": [
+                4,
+                5,
+                11,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Puka Nacua",
+              "points": 132.2,
+              "starts": 10,
+              "weeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 268.1,
+          "observedStarts": 21
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -131.5
+    },
+    {
+      "transactionId": "1018289561511682048",
+      "year": 2023,
+      "week": 6,
+      "date": "2023-10-12",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Tony Pollard",
+            "Jaxon Smith-Njigba"
+          ],
+          "players": [
+            {
+              "asset": "Tony Pollard",
+              "points": 13.8,
+              "starts": 2,
+              "weeks": [
+                8,
+                9
+              ]
+            },
+            {
+              "asset": "Jaxon Smith-Njigba",
+              "points": 34.1,
+              "starts": 5,
+              "weeks": [
+                9,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 47.9,
+          "observedStarts": 7
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "assets": [
+            "CeeDee Lamb",
+            "Kenny Gainwell"
+          ],
+          "players": [
+            {
+              "asset": "CeeDee Lamb",
+              "points": 163.1,
+              "starts": 7,
+              "weeks": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Kenny Gainwell",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            }
+          ],
+          "observedStartedPoints": 163.1,
+          "observedStarts": 7
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -115.2
+    },
+    {
+      "transactionId": "1023059879336013824",
+      "year": 2023,
+      "week": 8,
+      "date": "2023-10-26",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "Mike Evans",
+            "Derrick Henry"
+          ],
+          "players": [
+            {
+              "asset": "Mike Evans",
+              "points": 99.8,
+              "starts": 6,
+              "weeks": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Derrick Henry",
+              "points": 87.3,
+              "starts": 6,
+              "weeks": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 187.1,
+          "observedStarts": 12
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "assets": [
+            "Cooper Kupp"
+          ],
+          "players": [
+            {
+              "asset": "Cooper Kupp",
+              "points": 45.1,
+              "starts": 5,
+              "weeks": [
+                9,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 45.1,
+          "observedStarts": 5
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 142
+    },
+    {
+      "transactionId": "1028065885325508608",
+      "year": 2023,
+      "week": 10,
+      "date": "2023-11-08",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "assets": [
+            "Joe Mixon"
+          ],
+          "players": [
+            {
+              "asset": "Joe Mixon",
+              "points": 73.2,
+              "starts": 4,
+              "weeks": [
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 73.2,
+          "observedStarts": 4
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Jordan Addison"
+          ],
+          "players": [
+            {
+              "asset": "Jordan Addison",
+              "points": 16.5,
+              "starts": 3,
+              "weeks": [
+                11,
+                12,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 16.5,
+          "observedStarts": 3
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 56.7
+    },
+    {
+      "transactionId": "1031121022772555776",
+      "year": 2023,
+      "week": 11,
+      "date": "2023-11-17",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Gabe Davis"
+          ],
+          "players": [
+            {
+              "asset": "Gabe Davis",
+              "points": 0,
+              "starts": 1,
+              "weeks": [
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 0,
+          "observedStarts": 1
+        },
+        {
+          "manager": "Mitch",
+          "rosterId": "6",
+          "assets": [
+            "Justin Jefferson",
+            "Josh Jacobs"
+          ],
+          "players": [
+            {
+              "asset": "Justin Jefferson",
+              "points": 3.7,
+              "starts": 1,
+              "weeks": [
+                14
+              ]
+            },
+            {
+              "asset": "Josh Jacobs",
+              "points": 27.5,
+              "starts": 2,
+              "weeks": [
+                12,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 31.2,
+          "observedStarts": 3
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -31.2
+    },
+    {
+      "transactionId": "1031251467312775168",
+      "year": 2023,
+      "week": 11,
+      "date": "2023-11-17",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Breece Hall"
+          ],
+          "players": [
+            {
+              "asset": "Breece Hall",
+              "points": 38.5,
+              "starts": 3,
+              "weeks": [
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 38.5,
+          "observedStarts": 3
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "assets": [
+            "Amari Cooper",
+            "Travis Etienne Jr."
+          ],
+          "players": [
+            {
+              "asset": "Amari Cooper",
+              "points": 7.5,
+              "starts": 2,
+              "weeks": [
+                12,
+                13
+              ]
+            },
+            {
+              "asset": "Travis Etienne Jr.",
+              "points": 41.7,
+              "starts": 3,
+              "weeks": [
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 49.2,
+          "observedStarts": 5
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -10.7
+    },
+    {
+      "transactionId": "1038099277249245184",
+      "year": 2023,
+      "week": 14,
+      "date": "2023-12-06",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "assets": [
+            "Ja'Marr Chase"
+          ],
+          "players": [
+            {
+              "asset": "Ja'Marr Chase",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            }
+          ],
+          "observedStartedPoints": 0,
+          "observedStarts": 0
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "assets": [
+            "Tyler Lockett"
+          ],
+          "players": [
+            {
+              "asset": "Tyler Lockett",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            }
+          ],
+          "observedStartedPoints": 0,
+          "observedStarts": 0
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 0
+    },
+    {
+      "transactionId": "1139340571111256064",
+      "year": 2024,
+      "week": 1,
+      "date": "2024-09-10",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "Tank Dell"
+          ],
+          "players": [
+            {
+              "asset": "Tank Dell",
+              "points": 10.5,
+              "starts": 2,
+              "weeks": [
+                2,
+                3
+              ]
+            }
+          ],
+          "observedStartedPoints": 10.5,
+          "observedStarts": 2
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "assets": [
+            "J.K. Dobbins"
+          ],
+          "players": [
+            {
+              "asset": "J.K. Dobbins",
+              "points": 93.8,
+              "starts": 8,
+              "weeks": [
+                3,
+                4,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12
+              ]
+            }
+          ],
+          "observedStartedPoints": 93.8,
+          "observedStarts": 8
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -83.3
+    },
+    {
+      "transactionId": "1140082401968836608",
+      "year": 2024,
+      "week": 2,
+      "date": "2024-09-12",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Malik Nabers"
+          ],
+          "players": [
+            {
+              "asset": "Malik Nabers",
+              "points": 108.3,
+              "starts": 9,
+              "weeks": [
+                3,
+                4,
+                7,
+                8,
+                9,
+                10,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 108.3,
+          "observedStarts": 9
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "assets": [
+            "Davante Adams"
+          ],
+          "players": [
+            {
+              "asset": "Davante Adams",
+              "points": 74.2,
+              "starts": 7,
+              "weeks": [
+                3,
+                7,
+                8,
+                9,
+                10,
+                11,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 74.2,
+          "observedStarts": 7
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 34.1
+    },
+    {
+      "transactionId": "1141777905656143872",
+      "year": 2024,
+      "week": 2,
+      "date": "2024-09-17",
+      "sides": [
+        {
+          "manager": "JMid",
+          "rosterId": "2",
+          "assets": [
+            "Calvin Ridley",
+            "Kyren Williams"
+          ],
+          "players": [
+            {
+              "asset": "Calvin Ridley",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            },
+            {
+              "asset": "Kyren Williams",
+              "points": 180.7,
+              "starts": 11,
+              "weeks": [
+                3,
+                4,
+                5,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 180.7,
+          "observedStarts": 11
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "James Cook III"
+          ],
+          "players": [
+            {
+              "asset": "James Cook III",
+              "points": 139.9,
+              "starts": 11,
+              "weeks": [
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 139.9,
+          "observedStarts": 11
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 40.8
+    },
+    {
+      "transactionId": "1144362000575840256",
+      "year": 2024,
+      "week": 3,
+      "date": "2024-09-24",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "Terry McLaurin",
+            "De'Von Achane",
+            "Tank Dell"
+          ],
+          "players": [
+            {
+              "asset": "Terry McLaurin",
+              "points": 150.4,
+              "starts": 10,
+              "weeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ]
+            },
+            {
+              "asset": "De'Von Achane",
+              "points": 147.1,
+              "starts": 10,
+              "weeks": [
+                4,
+                5,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Tank Dell",
+              "points": 73.7,
+              "starts": 9,
+              "weeks": [
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ]
+            }
+          ],
+          "observedStartedPoints": 371.2,
+          "observedStarts": 29
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "Christian McCaffrey",
+            "Diontae Johnson",
+            "Tee Higgins"
+          ],
+          "players": [
+            {
+              "asset": "Christian McCaffrey",
+              "points": 40.3,
+              "starts": 4,
+              "weeks": [
+                10,
+                11,
+                12,
+                13
+              ]
+            },
+            {
+              "asset": "Diontae Johnson",
+              "points": 41.2,
+              "starts": 4,
+              "weeks": [
+                4,
+                5,
+                6,
+                7
+              ]
+            },
+            {
+              "asset": "Tee Higgins",
+              "points": 106.2,
+              "starts": 7,
+              "weeks": [
+                4,
+                5,
+                6,
+                7,
+                11,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 187.7,
+          "observedStarts": 15
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 183.5
+    },
+    {
+      "transactionId": "1146946436173623296",
+      "year": 2024,
+      "week": 4,
+      "date": "2024-10-01",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "Mark Andrews",
+            "Rico Dowdle"
+          ],
+          "players": [
+            {
+              "asset": "Mark Andrews",
+              "points": 21.6,
+              "starts": 2,
+              "weeks": [
+                5,
+                6
+              ]
+            },
+            {
+              "asset": "Rico Dowdle",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            }
+          ],
+          "observedStartedPoints": 21.6,
+          "observedStarts": 2
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Amari Cooper"
+          ],
+          "players": [
+            {
+              "asset": "Amari Cooper",
+              "points": 38.8,
+              "starts": 6,
+              "weeks": [
+                5,
+                6,
+                7,
+                8,
+                11,
+                13
+              ]
+            }
+          ],
+          "observedStartedPoints": 38.8,
+          "observedStarts": 6
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -17.2
+    },
+    {
+      "transactionId": "1146947320588861440",
+      "year": 2024,
+      "week": 4,
+      "date": "2024-10-02",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "Chase Brown"
+          ],
+          "players": [
+            {
+              "asset": "Chase Brown",
+              "points": 106.1,
+              "starts": 7,
+              "weeks": [
+                5,
+                7,
+                8,
+                10,
+                11,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 106.1,
+          "observedStarts": 7
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "Jordan Love"
+          ],
+          "players": [
+            {
+              "asset": "Jordan Love",
+              "points": 131.58,
+              "starts": 8,
+              "weeks": [
+                5,
+                6,
+                7,
+                8,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 131.58,
+          "observedStarts": 8
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -25.48
+    },
+    {
+      "transactionId": "1152708228883660800",
+      "year": 2024,
+      "week": 7,
+      "date": "2024-10-17",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "Travis Kelce",
+            "Brandon Aiyuk"
+          ],
+          "players": [
+            {
+              "asset": "Travis Kelce",
+              "points": 78.7,
+              "starts": 7,
+              "weeks": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Brandon Aiyuk",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            }
+          ],
+          "observedStartedPoints": 78.7,
+          "observedStarts": 7
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "assets": [
+            "Cooper Kupp",
+            "Kareem Hunt",
+            "Rico Dowdle"
+          ],
+          "players": [
+            {
+              "asset": "Cooper Kupp",
+              "points": 103.5,
+              "starts": 7,
+              "weeks": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Kareem Hunt",
+              "points": 60.7,
+              "starts": 5,
+              "weeks": [
+                8,
+                9,
+                10,
+                11,
+                12
+              ]
+            },
+            {
+              "asset": "Rico Dowdle",
+              "points": 14.6,
+              "starts": 1,
+              "weeks": [
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 178.8,
+          "observedStarts": 13
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -100.1
+    },
+    {
+      "transactionId": "1159892809005076480",
+      "year": 2024,
+      "week": 10,
+      "date": "2024-11-09",
+      "sides": [
+        {
+          "manager": "Mitch",
+          "rosterId": "6",
+          "assets": [
+            "Raheem Mostert"
+          ],
+          "players": [
+            {
+              "asset": "Raheem Mostert",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            }
+          ],
+          "observedStartedPoints": 0,
+          "observedStarts": 0
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "assets": [
+            "Nick Chubb"
+          ],
+          "players": [
+            {
+              "asset": "Nick Chubb",
+              "points": 39.8,
+              "starts": 4,
+              "weeks": [
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 39.8,
+          "observedStarts": 4
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -39.8
+    },
+    {
+      "transactionId": "1273856224776962053",
+      "year": 2025,
+      "week": 2,
+      "date": "2025-09-17",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Derrick Henry"
+          ],
+          "players": [
+            {
+              "asset": "Derrick Henry",
+              "points": 81.4,
+              "starts": 7,
+              "weeks": [
+                3,
+                4,
+                5,
+                6,
+                8,
+                9,
+                10
+              ]
+            }
+          ],
+          "observedStartedPoints": 81.4,
+          "observedStarts": 7
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "assets": [
+            "Nico Collins"
+          ],
+          "players": [
+            {
+              "asset": "Nico Collins",
+              "points": 140.9,
+              "starts": 10,
+              "weeks": [
+                3,
+                4,
+                5,
+                7,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 140.9,
+          "observedStarts": 10
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -59.5
+    },
+    {
+      "transactionId": "1274473433362604032",
+      "year": 2025,
+      "week": 3,
+      "date": "2025-09-21",
+      "sides": [
+        {
+          "manager": "JMid",
+          "rosterId": "2",
+          "assets": [
+            "Aaron Jones Sr.",
+            "Zach Charbonnet"
+          ],
+          "players": [
+            {
+              "asset": "Aaron Jones Sr.",
+              "points": 23.4,
+              "starts": 3,
+              "weeks": [
+                11,
+                12,
+                14
+              ]
+            },
+            {
+              "asset": "Zach Charbonnet",
+              "points": 11.3,
+              "starts": 1,
+              "weeks": [
+                5
+              ]
+            }
+          ],
+          "observedStartedPoints": 34.7,
+          "observedStarts": 4
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "TreVeyon Henderson"
+          ],
+          "players": [
+            {
+              "asset": "TreVeyon Henderson",
+              "points": 98,
+              "starts": 8,
+              "weeks": [
+                5,
+                6,
+                7,
+                9,
+                10,
+                11,
+                12,
+                13
+              ]
+            }
+          ],
+          "observedStartedPoints": 98,
+          "observedStarts": 8
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -63.3
+    },
+    {
+      "transactionId": "1276026193660899328",
+      "year": 2025,
+      "week": 3,
+      "date": "2025-09-23",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "Ja'Marr Chase",
+            "Chase Brown"
+          ],
+          "players": [
+            {
+              "asset": "Ja'Marr Chase",
+              "points": 111.2,
+              "starts": 6,
+              "weeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ]
+            },
+            {
+              "asset": "Chase Brown",
+              "points": 116.6,
+              "starts": 8,
+              "weeks": [
+                4,
+                5,
+                8,
+                9,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 227.8,
+          "observedStarts": 14
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Jahmyr Gibbs",
+            "RJ Harvey"
+          ],
+          "players": [
+            {
+              "asset": "Jahmyr Gibbs",
+              "points": 232.3,
+              "starts": 10,
+              "weeks": [
+                4,
+                5,
+                6,
+                7,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "RJ Harvey",
+              "points": 69.8,
+              "starts": 4,
+              "weeks": [
+                8,
+                11,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 302.1,
+          "observedStarts": 14
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -74.3
+    },
+    {
+      "transactionId": "1276326233327570944",
+      "year": 2025,
+      "week": 3,
+      "date": "2025-09-24",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "Jordan Addison"
+          ],
+          "players": [
+            {
+              "asset": "Jordan Addison",
+              "points": 39.8,
+              "starts": 4,
+              "weeks": [
+                7,
+                8,
+                9,
+                10
+              ]
+            }
+          ],
+          "observedStartedPoints": 39.8,
+          "observedStarts": 4
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "assets": [
+            "Mike Evans"
+          ],
+          "players": [
+            {
+              "asset": "Mike Evans",
+              "points": 0,
+              "starts": 1,
+              "weeks": [
+                7
+              ]
+            }
+          ],
+          "observedStartedPoints": 0,
+          "observedStarts": 1
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 39.8
+    },
+    {
+      "transactionId": "1276373761972527104",
+      "year": 2025,
+      "week": 3,
+      "date": "2025-09-24",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Quentin Johnston"
+          ],
+          "players": [
+            {
+              "asset": "Quentin Johnston",
+              "points": 64.5,
+              "starts": 7,
+              "weeks": [
+                4,
+                5,
+                7,
+                8,
+                9,
+                10,
+                13
+              ]
+            }
+          ],
+          "observedStartedPoints": 64.5,
+          "observedStarts": 7
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "assets": [
+            "Bhayshul Tuten"
+          ],
+          "players": [
+            {
+              "asset": "Bhayshul Tuten",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            }
+          ],
+          "observedStartedPoints": 0,
+          "observedStarts": 0
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 64.5
+    },
+    {
+      "transactionId": "1294402688213057536",
+      "year": 2025,
+      "week": 11,
+      "date": "2025-11-12",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "Amon-Ra St. Brown",
+            "Jordan Addison",
+            "Jared Goff"
+          ],
+          "players": [
+            {
+              "asset": "Amon-Ra St. Brown",
+              "points": 37.6,
+              "starts": 3,
+              "weeks": [
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Jordan Addison",
+              "points": 0,
+              "starts": 1,
+              "weeks": [
+                12
+              ]
+            },
+            {
+              "asset": "Jared Goff",
+              "points": 53.96,
+              "starts": 3,
+              "weeks": [
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 91.56,
+          "observedStarts": 7
+        },
+        {
+          "manager": "JMid",
+          "rosterId": "2",
+          "assets": [
+            "Ja'Marr Chase"
+          ],
+          "players": [
+            {
+              "asset": "Ja'Marr Chase",
+              "points": 23.2,
+              "starts": 2,
+              "weeks": [
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 23.2,
+          "observedStarts": 2
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "assets": [
+            "A.J. Brown"
+          ],
+          "players": [
+            {
+              "asset": "A.J. Brown",
+              "points": 64.2,
+              "starts": 3,
+              "weeks": [
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 64.2,
+          "observedStarts": 3
+        }
+      ],
+      "shape": "three_manager"
+    },
+    {
+      "transactionId": "1294424036499025920",
+      "year": 2025,
+      "week": 11,
+      "date": "2025-11-12",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "assets": [
+            "Brian Thomas Jr."
+          ],
+          "players": [
+            {
+              "asset": "Brian Thomas Jr.",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            }
+          ],
+          "observedStartedPoints": 0,
+          "observedStarts": 0
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "assets": [
+            "Stefon Diggs"
+          ],
+          "players": [
+            {
+              "asset": "Stefon Diggs",
+              "points": 7.1,
+              "starts": 2,
+              "weeks": [
+                12,
+                13
+              ]
+            }
+          ],
+          "observedStartedPoints": 7.1,
+          "observedStarts": 2
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": -7.1
+    },
+    {
+      "transactionId": "1294724519813988352",
+      "year": 2025,
+      "week": 11,
+      "date": "2025-11-13",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "assets": [
+            "Jake Ferguson",
+            "Jaylen Warren"
+          ],
+          "players": [
+            {
+              "asset": "Jake Ferguson",
+              "points": 22,
+              "starts": 3,
+              "weeks": [
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "asset": "Jaylen Warren",
+              "points": 37.9,
+              "starts": 3,
+              "weeks": [
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 59.9,
+          "observedStarts": 6
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "assets": [
+            "Zach Ertz",
+            "Derrick Henry"
+          ],
+          "players": [
+            {
+              "asset": "Zach Ertz",
+              "points": 0,
+              "starts": 0,
+              "weeks": []
+            },
+            {
+              "asset": "Derrick Henry",
+              "points": 50.4,
+              "starts": 3,
+              "weeks": [
+                12,
+                13,
+                14
+              ]
+            }
+          ],
+          "observedStartedPoints": 50.4,
+          "observedStarts": 3
+        }
+      ],
+      "shape": "two_manager",
+      "rawPointGap": 9.5
+    }
+  ],
+  "sources": [
+    "data/v9_trade_engine.json",
+    "data/player_starts_2020.json",
+    "data/player_starts_2021.json",
+    "data/player_starts_2022.json",
+    "data/player_starts_2023.json",
+    "data/player_starts_2024.json",
+    "data/player_starts_2025.json"
+  ]
+}
