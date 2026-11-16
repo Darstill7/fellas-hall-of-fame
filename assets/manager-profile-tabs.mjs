@@ -9,7 +9,7 @@ import {mountManagerChampionshipStories} from './manager-championship-stories.mj
 // Upgrade the older seven-link chapter navigator without discarding existing archive sections.
 const profileName=document.querySelector('main .hero h1')?.textContent?.trim();
 // Canonical manager-first Record Book; retain individual evidence views as research links.
-const managerRecordBookUrl=manager=>'../../analytics/record-holders.html?manager='+encodeURIComponent(manager==='Tom'?'Thommy':manager)+'#manager-record-finder';
+const managerRecordBookUrl=manager=>'../../managers/record-books.html?manager='+encodeURIComponent(manager==='Tom'?'Thommy':manager)+'#career-first';
 const persona=managerPersonas[profileName]||managerPersonas[profileName==='Tom'?'Thommy':profileName];
 const profileHero=document.querySelector('main .hero');
 // A compact site menu preserves the five primary destinations without
