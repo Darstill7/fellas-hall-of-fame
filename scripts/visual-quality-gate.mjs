@@ -614,14 +614,22 @@ try{
         mobileJourneys.push({engine,manager:canonical,topics:5,postseasonSeasons:10,recordsDestination:['stilly','tom','stover'].includes(slug)});
        }
        if(width===390&&route==='analytics/record-holders.html'){
+        const finder=page.locator('#manager-record-finder');
+        if(!await finder.count())throw Error('Manager-first record finder missing');
         const first=page.locator('#record-leaders a.leader-card').first();
-        if(!await first.isVisible())throw Error('Record-holder cards not rendered');
-        const aboveFold=await first.evaluate(el=>el.getBoundingClientRect().top<innerHeight);
-        if(!aboveFold)throw Error('Record-holder list starts below first mobile viewport');
+        await first.waitFor({state:'attached',timeout:14000});
+        const priority=await page.evaluate(()=>({
+         finder:document.getElementById('manager-record-finder')?.getBoundingClientRect().top+scrollY,
+         specialty:document.getElementById('schedule-luck-record')?.getBoundingClientRect().top+scrollY,
+         main:document.getElementById('browse-all-records')?.getBoundingClientRect().top+scrollY
+        }));
+        if(!Number.isFinite(priority.finder)||!Number.isFinite(priority.specialty)||
+           !(priority.finder<priority.main&&priority.main<priority.specialty))
+         throw Error('Record Book manager-first hierarchy regressed: '+JSON.stringify(priority));
         const help=page.locator('details.scope-guide');
         await help.locator('summary').click();
         if(!await help.evaluate(el=>el.open))throw Error('Record coverage explanation did not open');
-        mobileJourneys.push({engine,page:'record-holders',firstRecordAboveFold:true,scopeExpandable:true});
+        mobileJourneys.push({engine,page:'record-holders',managerFirst:true,scopeExpandable:true});
        }
        if(route==='hall/championship-stories.html'){
         const feature=page.locator('#championship-feature .feature');
