@@ -95,4 +95,46 @@ const net=all44.bilateralRawLeaderboard.reduce((sum,x)=>sum+x.sumRawPointGap,0);
 assert(Math.abs(net)<0.01,'league net raw bilateral gaps must zero sum');
 assert.equal(all44.bilateralRawLeaderboard.reduce((sum,x)=>sum+x.bilateralDeals,0),82,'two-manager events have two sides');
 
+const medianResearch=load('data-integrity/trade-architects-all44-position-median-sensitivity-2026-11-16.json');
+assert.equal(medianResearch.transactions.length,44);
+assert.equal(medianResearch.counts.bilateral,41);
+const sortedMedian=values=>{const a=[...values].sort((x,y)=>x-y);return a.length%2?a[(a.length-1)/2]:(a[a.length/2-1]+a[a.length/2])/2};
+for(const [y,yearData] of Object.entries(years))for(const wk of yearData.weeks){
+ const cohorts={};
+ for(const team of wk.teams)for(const p of team.players)(cohorts[p[2]]??=[]).push(p[3]);
+ const expected=Object.fromEntries(Object.entries(cohorts).map(([pos,points])=>[pos,cents(sortedMedian(points))]));
+ for(const [pos,val] of Object.entries(expected))
+  assert.equal(medianResearch.weeklyPositionMedians[y+'-W'+wk.week][pos].median,val,'position median mismatch '+y+' week '+wk.week+' '+pos);
+}
+for(const tr of medianResearch.transactions){
+ const source=all44.transactions.find(t=>t.transactionId===tr.id);
+ assert(source,'median source record missing');
+ assert.equal(source.sides.length,tr.sides.length);
+ for(const side of tr.sides){
+  const original=source.sides.find(s=>s.manager===side.manager&&s.rosterId===side.rosterId);
+  assert(original,'median source side missing');
+  let sum=0,starts=0;
+  for(const player of side.players){
+    const raw=original.players.find(p=>p.asset===player.asset);
+    assert(raw,'median source asset missing');
+    assert.equal(raw.starts,player.observedStarts);
+    assert.equal(raw.points,player.observedPoints);
+    assert.equal(player.starts.length,player.observedStarts);
+    for(const st of player.starts){
+      const median=medianResearch.weeklyPositionMedians[tr.year+'-W'+st.week][st.position].median;
+      assert.equal(st.positionMedian,median);
+      assert.equal(st.surplus,cents(st.points-median));
+    }
+    assert.equal(player.positionMedianSurplus,cents(player.starts.reduce((sum,x)=>sum+x.surplus,0)));
+    sum+=player.positionMedianSurplus;
+    starts+=player.observedStarts;
+  }
+  assert.equal(side.positionMedianSurplus,cents(sum));
+  assert.equal(side.observedStarts,starts);
+ }
+ if(tr.shape==='two_manager')
+  assert.equal(tr.positionMedianGap,cents(tr.sides[0].positionMedianSurplus-tr.sides[1].positionMedianSurplus));
+}
+assert(Math.abs(medianResearch.bilateralSensitivityStandings.reduce((sum,x)=>sum+x.netPositionMedianGap,0))<0.01);
+
 console.log('Trade architects: all 26 previously excluded transactions reconciled to source ids, weeks and started scores. PAR NOT CERTIFIED.');
