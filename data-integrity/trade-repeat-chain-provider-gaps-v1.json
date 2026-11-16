@@ -1,0 +1,726 @@
+{
+  "schema": "fellas-repeat-trade-provider-transaction-gap-audit-v1",
+  "asOf": "2026-11-16",
+  "status": "research_only_provider_scan_not_causal_valuation",
+  "coverage": {
+    "distinctSeasonWeeks": 40,
+    "seasonWeekCounts": {
+      "2021": 6,
+      "2022": 8,
+      "2023": 9,
+      "2024": 7,
+      "2025": 10
+    },
+    "fullyReturnedBelowCountLimit": true,
+    "assetChainsWithMatchedEndpoints": 13,
+    "matchedPlayerIds": true,
+    "interveningCompletedNontradeMatches": 0
+  },
+  "method": "For all 13 repeat-transacted player-season assets in the 44-trade research dataset, scan every Sleeper week from first trade through next trade inclusive. Retrieve up to 100 raw transactions per week, check successful response and <100 returned, and inspect completed transactions of any type matching that player name. Verify stable Sleeper player ID at both completed trade receipts, exact transaction IDs and chronological timestamps. Intervening add/drop/waiver event is defined as a completed nontrade transaction between those timestamps. Do not claim all provider history is exhaustive or use no intervening event as affirmative proof of continuous ownership.",
+  "sourceFiles": [
+    "data-integrity/trade-repeat-asset-index-v1.json",
+    "data-integrity/trade-targeted-add-drop-audit-2021-2025-v1.json",
+    "data-integrity/trade-targeted-add-drop-audit-2022-2023-v1.json",
+    "data-integrity/trade-targeted-add-drop-audit-2022-2024-corrected-v1.json",
+    "2022 Sleeper league ID 857125408712310784 verified from connected historical league chain"
+  ],
+  "limitations": [
+    "The 2022 initial exploratory scan in trade-targeted-add-drop-audit-2022-2023-v1.json used an invalid 2022 league ID; ignore its 2022 rows. Corrected scans live in trade-targeted-add-drop-audit-2022-2024-corrected-v1.json.",
+    "The 2023 historical team slot 2 requires commissioner-level Evans ownership correction; no manager attribution should be drawn from raw user-name roster labels alone.",
+    "Provider transaction absence is not proof of an impossible waiver, hidden transaction, or precise lock-time rights.",
+    "Stable player ID and chronological transaction receipts do not independently document every intervening weekly roster state.",
+    "Does not model actual counterfactual replacement, playoff opportunity, keeper cost or FAAB."
+  ],
+  "chains": [
+    {
+      "season": 2021,
+      "player": "Josh Jacobs",
+      "playerId": "5850",
+      "start": {
+        "transactionId": "737360507476066304",
+        "week": 1,
+        "date": "2021-08-30",
+        "recipient": "Thommy",
+        "providerTimestamp": 1630336326433
+      },
+      "next": {
+        "transactionId": "738428315181928448",
+        "week": 1,
+        "date": "2021-08-31",
+        "recipient": "Birch",
+        "providerTimestamp": 1630440158693
+      },
+      "weeksScanned": [
+        {
+          "week": 1,
+          "returnedRecords": 47,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2021,
+      "player": "Antonio Gibson",
+      "playerId": "6945",
+      "start": {
+        "transactionId": "738428315181928448",
+        "week": 1,
+        "date": "2021-08-31",
+        "recipient": "Thommy",
+        "providerTimestamp": 1630440158693
+      },
+      "next": {
+        "transactionId": "754024908207583232",
+        "week": 6,
+        "date": "2021-10-13",
+        "recipient": "Stew",
+        "providerTimestamp": 1634136227162
+      },
+      "weeksScanned": [
+        {
+          "week": 1,
+          "returnedRecords": 47,
+          "scanCompleted": true
+        },
+        {
+          "week": 2,
+          "returnedRecords": 32,
+          "scanCompleted": true
+        },
+        {
+          "week": 3,
+          "returnedRecords": 23,
+          "scanCompleted": true
+        },
+        {
+          "week": 4,
+          "returnedRecords": 30,
+          "scanCompleted": true
+        },
+        {
+          "week": 5,
+          "returnedRecords": 21,
+          "scanCompleted": true
+        },
+        {
+          "week": 6,
+          "returnedRecords": 34,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2021,
+      "player": "Leonard Fournette",
+      "playerId": "3969",
+      "start": {
+        "transactionId": "748312121284149248",
+        "week": 3,
+        "date": "2021-09-27",
+        "recipient": "Kuhl",
+        "providerTimestamp": 1632774337157
+      },
+      "next": {
+        "transactionId": "751504917667168256",
+        "week": 5,
+        "date": "2021-10-07",
+        "recipient": "Stover",
+        "providerTimestamp": 1633571058087
+      },
+      "weeksScanned": [
+        {
+          "week": 3,
+          "returnedRecords": 23,
+          "scanCompleted": true
+        },
+        {
+          "week": 4,
+          "returnedRecords": 30,
+          "scanCompleted": true
+        },
+        {
+          "week": 5,
+          "returnedRecords": 21,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2022,
+      "player": "James Robinson",
+      "playerId": "6955",
+      "start": {
+        "transactionId": "880505837758652416",
+        "week": 3,
+        "date": "2022-09-27",
+        "recipient": "Evans",
+        "providerTimestamp": 1664291637734
+      },
+      "next": {
+        "transactionId": "885980047650119680",
+        "week": 6,
+        "date": "2022-10-12",
+        "recipient": "Tony",
+        "providerTimestamp": 1665597582411
+      },
+      "weeksScanned": [
+        {
+          "week": 3,
+          "returnedRecords": 27,
+          "scanCompleted": true
+        },
+        {
+          "week": 4,
+          "returnedRecords": 27,
+          "scanCompleted": true
+        },
+        {
+          "week": 5,
+          "returnedRecords": 27,
+          "scanCompleted": true
+        },
+        {
+          "week": 6,
+          "returnedRecords": 27,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2022,
+      "player": "Cordarrelle Patterson",
+      "playerId": "1535",
+      "start": {
+        "transactionId": "880505837758652416",
+        "week": 3,
+        "date": "2022-09-27",
+        "recipient": "Stew",
+        "providerTimestamp": 1664291637734
+      },
+      "next": {
+        "transactionId": "896468742987522048",
+        "week": 10,
+        "date": "2022-11-10",
+        "recipient": "Birch",
+        "providerTimestamp": 1668098019043
+      },
+      "weeksScanned": [
+        {
+          "week": 3,
+          "returnedRecords": 27,
+          "scanCompleted": true
+        },
+        {
+          "week": 4,
+          "returnedRecords": 27,
+          "scanCompleted": true
+        },
+        {
+          "week": 5,
+          "returnedRecords": 27,
+          "scanCompleted": true
+        },
+        {
+          "week": 6,
+          "returnedRecords": 27,
+          "scanCompleted": true
+        },
+        {
+          "week": 7,
+          "returnedRecords": 32,
+          "scanCompleted": true
+        },
+        {
+          "week": 8,
+          "returnedRecords": 25,
+          "scanCompleted": true
+        },
+        {
+          "week": 9,
+          "returnedRecords": 33,
+          "scanCompleted": true
+        },
+        {
+          "week": 10,
+          "returnedRecords": 42,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2022,
+      "player": "Alvin Kamara",
+      "playerId": "4035",
+      "start": {
+        "transactionId": "881580705233195008",
+        "week": 4,
+        "date": "2022-09-30",
+        "recipient": "Tony",
+        "providerTimestamp": 1664549235667
+      },
+      "next": {
+        "transactionId": "885980047650119680",
+        "week": 6,
+        "date": "2022-10-12",
+        "recipient": "Evans",
+        "providerTimestamp": 1665597582411
+      },
+      "weeksScanned": [
+        {
+          "week": 4,
+          "returnedRecords": 27,
+          "scanCompleted": true
+        },
+        {
+          "week": 5,
+          "returnedRecords": 27,
+          "scanCompleted": true
+        },
+        {
+          "week": 6,
+          "returnedRecords": 27,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2023,
+      "player": "CeeDee Lamb",
+      "playerId": "6786",
+      "start": {
+        "transactionId": "1012571602774532096",
+        "week": 3,
+        "date": "2023-09-27",
+        "recipient": "Stew",
+        "providerTimestamp": 1695778528592
+      },
+      "next": {
+        "transactionId": "1018289561511682048",
+        "week": 6,
+        "date": "2023-10-12",
+        "recipient": "Birch",
+        "providerTimestamp": 1697143410205
+      },
+      "weeksScanned": [
+        {
+          "week": 3,
+          "returnedRecords": 31,
+          "scanCompleted": true
+        },
+        {
+          "week": 4,
+          "returnedRecords": 19,
+          "scanCompleted": true
+        },
+        {
+          "week": 5,
+          "returnedRecords": 16,
+          "scanCompleted": true
+        },
+        {
+          "week": 6,
+          "returnedRecords": 35,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2023,
+      "player": "Travis Etienne Jr.",
+      "playerId": "7543",
+      "start": {
+        "transactionId": "1012571602774532096",
+        "week": 3,
+        "date": "2023-09-27",
+        "recipient": "Stew",
+        "providerTimestamp": 1695778528592
+      },
+      "next": {
+        "transactionId": "1031251467312775168",
+        "week": 11,
+        "date": "2023-11-17",
+        "recipient": "Tony",
+        "providerTimestamp": 1700263493067
+      },
+      "weeksScanned": [
+        {
+          "week": 3,
+          "returnedRecords": 31,
+          "scanCompleted": true
+        },
+        {
+          "week": 4,
+          "returnedRecords": 19,
+          "scanCompleted": true
+        },
+        {
+          "week": 5,
+          "returnedRecords": 16,
+          "scanCompleted": true
+        },
+        {
+          "week": 6,
+          "returnedRecords": 35,
+          "scanCompleted": true
+        },
+        {
+          "week": 7,
+          "returnedRecords": 15,
+          "scanCompleted": true
+        },
+        {
+          "week": 8,
+          "returnedRecords": 23,
+          "scanCompleted": true
+        },
+        {
+          "week": 9,
+          "returnedRecords": 24,
+          "scanCompleted": true
+        },
+        {
+          "week": 10,
+          "returnedRecords": 23,
+          "scanCompleted": true
+        },
+        {
+          "week": 11,
+          "returnedRecords": 22,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2024,
+      "player": "Tank Dell",
+      "playerId": "9502",
+      "start": {
+        "transactionId": "1139340571111256064",
+        "week": 1,
+        "date": "2024-09-10",
+        "recipient": "Thommy",
+        "providerTimestamp": 1726003333548
+      },
+      "next": {
+        "transactionId": "1144362000575840256",
+        "week": 3,
+        "date": "2024-09-24",
+        "recipient": "Stilly",
+        "providerTimestamp": 1727221199690
+      },
+      "weeksScanned": [
+        {
+          "week": 1,
+          "returnedRecords": 24,
+          "scanCompleted": true
+        },
+        {
+          "week": 2,
+          "returnedRecords": 31,
+          "scanCompleted": true
+        },
+        {
+          "week": 3,
+          "returnedRecords": 31,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2024,
+      "player": "Rico Dowdle",
+      "playerId": "7021",
+      "start": {
+        "transactionId": "1146946436173623296",
+        "week": 4,
+        "date": "2024-10-01",
+        "recipient": "Thommy",
+        "providerTimestamp": 1727819396936
+      },
+      "next": {
+        "transactionId": "1152708228883660800",
+        "week": 7,
+        "date": "2024-10-17",
+        "recipient": "Tony",
+        "providerTimestamp": 1729197433617
+      },
+      "weeksScanned": [
+        {
+          "week": 4,
+          "returnedRecords": 29,
+          "scanCompleted": true
+        },
+        {
+          "week": 5,
+          "returnedRecords": 26,
+          "scanCompleted": true
+        },
+        {
+          "week": 6,
+          "returnedRecords": 26,
+          "scanCompleted": true
+        },
+        {
+          "week": 7,
+          "returnedRecords": 37,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2025,
+      "player": "Derrick Henry",
+      "playerId": "3198",
+      "start": {
+        "transactionId": "1273856224776962053",
+        "week": 2,
+        "date": "2025-09-17",
+        "recipient": "Stew",
+        "providerTimestamp": 1758073619734
+      },
+      "next": {
+        "transactionId": "1294724519813988352",
+        "week": 11,
+        "date": "2025-11-13",
+        "recipient": "Kuhl",
+        "providerTimestamp": 1763049569406
+      },
+      "weeksScanned": [
+        {
+          "week": 2,
+          "returnedRecords": 30,
+          "scanCompleted": true
+        },
+        {
+          "week": 3,
+          "returnedRecords": 43,
+          "scanCompleted": true
+        },
+        {
+          "week": 4,
+          "returnedRecords": 12,
+          "scanCompleted": true
+        },
+        {
+          "week": 5,
+          "returnedRecords": 34,
+          "scanCompleted": true
+        },
+        {
+          "week": 6,
+          "returnedRecords": 17,
+          "scanCompleted": true
+        },
+        {
+          "week": 7,
+          "returnedRecords": 29,
+          "scanCompleted": true
+        },
+        {
+          "week": 8,
+          "returnedRecords": 21,
+          "scanCompleted": true
+        },
+        {
+          "week": 9,
+          "returnedRecords": 34,
+          "scanCompleted": true
+        },
+        {
+          "week": 10,
+          "returnedRecords": 11,
+          "scanCompleted": true
+        },
+        {
+          "week": 11,
+          "returnedRecords": 26,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2025,
+      "player": "Ja'Marr Chase",
+      "playerId": "7564",
+      "start": {
+        "transactionId": "1276026193660899328",
+        "week": 3,
+        "date": "2025-09-23",
+        "recipient": "Stilly",
+        "providerTimestamp": 1758629617199
+      },
+      "next": {
+        "transactionId": "1294402688213057536",
+        "week": 11,
+        "date": "2025-11-12",
+        "recipient": "JMid",
+        "providerTimestamp": 1762981428712
+      },
+      "weeksScanned": [
+        {
+          "week": 3,
+          "returnedRecords": 43,
+          "scanCompleted": true
+        },
+        {
+          "week": 4,
+          "returnedRecords": 12,
+          "scanCompleted": true
+        },
+        {
+          "week": 5,
+          "returnedRecords": 34,
+          "scanCompleted": true
+        },
+        {
+          "week": 6,
+          "returnedRecords": 17,
+          "scanCompleted": true
+        },
+        {
+          "week": 7,
+          "returnedRecords": 29,
+          "scanCompleted": true
+        },
+        {
+          "week": 8,
+          "returnedRecords": 21,
+          "scanCompleted": true
+        },
+        {
+          "week": 9,
+          "returnedRecords": 34,
+          "scanCompleted": true
+        },
+        {
+          "week": 10,
+          "returnedRecords": 11,
+          "scanCompleted": true
+        },
+        {
+          "week": 11,
+          "returnedRecords": 26,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    },
+    {
+      "season": 2025,
+      "player": "Jordan Addison",
+      "playerId": "9756",
+      "start": {
+        "transactionId": "1276326233327570944",
+        "week": 3,
+        "date": "2025-09-24",
+        "recipient": "Thommy",
+        "providerTimestamp": 1758675766247
+      },
+      "next": {
+        "transactionId": "1294402688213057536",
+        "week": 11,
+        "date": "2025-11-12",
+        "recipient": "Stilly",
+        "providerTimestamp": 1762981428712
+      },
+      "weeksScanned": [
+        {
+          "week": 3,
+          "returnedRecords": 43,
+          "scanCompleted": true
+        },
+        {
+          "week": 4,
+          "returnedRecords": 12,
+          "scanCompleted": true
+        },
+        {
+          "week": 5,
+          "returnedRecords": 34,
+          "scanCompleted": true
+        },
+        {
+          "week": 6,
+          "returnedRecords": 17,
+          "scanCompleted": true
+        },
+        {
+          "week": 7,
+          "returnedRecords": 29,
+          "scanCompleted": true
+        },
+        {
+          "week": 8,
+          "returnedRecords": 21,
+          "scanCompleted": true
+        },
+        {
+          "week": 9,
+          "returnedRecords": 34,
+          "scanCompleted": true
+        },
+        {
+          "week": 10,
+          "returnedRecords": 11,
+          "scanCompleted": true
+        },
+        {
+          "week": 11,
+          "returnedRecords": 26,
+          "scanCompleted": true
+        }
+      ],
+      "interveningCompletedAddDropOrWaiverEvents": [],
+      "providerTransactionIdAndPlayerIdCheck": "passed",
+      "confidence": "same_person_stable_provider_id_two_verified_trades_and_no_intervening_completed_nontrade_events_in_scanned_windows",
+      "notes": "Not proof of uninterrupted ownership; unknown provider omissions or unrepresented player asset activity remain possible."
+    }
+  ]
+}
