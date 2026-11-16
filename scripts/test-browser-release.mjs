@@ -1335,6 +1335,11 @@ try{
      if(width===390)await page.waitForTimeout(650); const scroll=await page.evaluate(()=>({top:document.querySelector('#profile').getBoundingClientRect().top,viewport:innerHeight}));
      if(width===390&&scroll.top>scroll.viewport)
       errors.push(width+' selected portfolio not brought into view on mobile');
+     // Show the actual opened, populated portfolio in the visual artifact,
+     // not only the initial route's above-the-fold hero.
+     const focused=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width),'trade-portfolios-scott-focused.png');
+     await fs.mkdir(path.dirname(focused),{recursive:true});
+     await page.screenshot({path:focused,animations:'disabled',fullPage:false});
     }
     const jq=page.locator('#query');await jq.fill('Gurt');
     if(await page.locator('#picks button.pick:visible').count()!==1)
