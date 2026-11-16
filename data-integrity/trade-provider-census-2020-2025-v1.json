@@ -1,0 +1,361 @@
+{
+  "schema": "fellas-sleeper-2020-2025-completed-trade-census-v1",
+  "asOf": "2026-11-16",
+  "scope": "Sleeper The Fellas league chain seasons 2020-2025, weeks 1-17, status=complete and type=trade",
+  "leagueIds": {
+    "2020": "561248176597610496",
+    "2021": "668633299786244096",
+    "2022": "857125408712310784",
+    "2023": "946275261279055872",
+    "2024": "1134248931308802048",
+    "2025": "1181421235163095040"
+  },
+  "seasons": [
+    {
+      "year": 2020,
+      "completedProviderTradeEvents": 8,
+      "previousResearchEvents": 5,
+      "transactions": [
+        {
+          "id": "616864423201554432",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "614849640176623616",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "614536176472264704",
+          "previouslyReconstructed": false,
+          "status": "provider_complete_but_zero_player_or_draft_assets_exposed",
+          "notes": "Original provider completed trade lists both managers but no player names/draft picks or FAAB bid; consideration unknown. Do not call free or invalid."
+        },
+        {
+          "id": "622492390107738112",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "625903284296683520",
+          "previouslyReconstructed": false,
+          "status": "provider_complete_but_zero_player_or_draft_assets_exposed",
+          "notes": "Original provider completed trade lists both managers but no player names/draft picks or FAAB bid; consideration unknown. Do not call free or invalid."
+        },
+        {
+          "id": "625902992721264640",
+          "previouslyReconstructed": false,
+          "status": "provider_complete_but_zero_player_or_draft_assets_exposed",
+          "notes": "Original provider completed trade lists both managers but no player names/draft picks or FAAB bid; consideration unknown. Do not call free or invalid."
+        },
+        {
+          "id": "629416763662086144",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "629818920752209920",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "completedProviderTradeEvents": 10,
+      "previousResearchEvents": 10,
+      "transactions": [
+        {
+          "id": "738428315181928448",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "737360507476066304",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "746234454665732096",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "748585137259884544",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "748312121284149248",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "751165345997402112",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "751504917667168256",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "754024908207583232",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "754017147822415872",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "759191673220775936",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "completedProviderTradeEvents": 6,
+      "previousResearchEvents": 6,
+      "transactions": [
+        {
+          "id": "875965138744864768",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "880505837758652416",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "881580705233195008",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "886267215865982976",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "885980047650119680",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "896468742987522048",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "completedProviderTradeEvents": 8,
+      "previousResearchEvents": 7,
+      "transactions": [
+        {
+          "id": "1012571602774532096",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1018289561511682048",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1023059879336013824",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1028065885325508608",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1028057686711058432",
+          "previouslyReconstructed": false,
+          "status": "new_player_bearing_event",
+          "notes": "2023 Nov8 Stilly/Thommy/Stew nine-player 3-party transaction; directions separately reconstructed"
+        },
+        {
+          "id": "1031251467312775168",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1031121022772555776",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1038099277249245184",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "completedProviderTradeEvents": 8,
+      "previousResearchEvents": 8,
+      "transactions": [
+        {
+          "id": "1139340571111256064",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1141777905656143872",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1140082401968836608",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1144362000575840256",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1146947320588861440",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1146946436173623296",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1152708228883660800",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1159892809005076480",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "completedProviderTradeEvents": 8,
+      "previousResearchEvents": 8,
+      "transactions": [
+        {
+          "id": "1273856224776962053",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1276326233327570944",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1276373761972527104",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1276026193660899328",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1274473433362604032",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1294724519813988352",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1294402688213057536",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        },
+        {
+          "id": "1294424036499025920",
+          "previouslyReconstructed": true,
+          "status": "represented_old44"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "providerCompletedTradeEvents": 48,
+    "oldResearchRepresented": 44,
+    "newlyIdentifiedCompletedEvents": 4,
+    "newPlayerBearingTrade": "1028057686711058432",
+    "totalKnownPlayerBearingEvents": 45,
+    "unknownConsideration2020Events": 3
+  },
+  "unrepresentedEvents": [
+    {
+      "year": 2023,
+      "id": "1028057686711058432",
+      "participants": [
+        "Stilly",
+        "Thommy",
+        "Stew"
+      ],
+      "status": "nine_player_three_party_verified"
+    },
+    {
+      "year": 2020,
+      "id": "614536176472264704",
+      "participants": [
+        "roster 1",
+        "roster 7"
+      ],
+      "status": "provider_complete_no_assets_exposed"
+    },
+    {
+      "year": 2020,
+      "id": "625903284296683520",
+      "participants": [
+        "roster 1",
+        "roster 4"
+      ],
+      "status": "provider_complete_no_assets_exposed"
+    },
+    {
+      "year": 2020,
+      "id": "625902992721264640",
+      "participants": [
+        "roster 1",
+        "roster 4"
+      ],
+      "status": "provider_complete_no_assets_exposed"
+    }
+  ],
+  "quality": {
+    "yearsChecked": 6,
+    "weeksCheckedPerSeason": 17,
+    "allQueriesReturnedSuccess": true,
+    "matchedPreviouslyRepresentedIds": 44,
+    "noPreviousIdsAbsentFromProvider": true
+  },
+  "cautions": [
+    "The connector exposes 48 completed trade events, but three 2020 trade entries have zero player/draft assets in its summary; cannot establish consideration or even substantive economic exchange from this source alone.",
+    "The 2023 three-way deal is confirmed and should be integrated into research before totals, all-time title labels, and 0–100 scores are published.",
+    "44 historical research transactions is no longer a complete 2020-25 census, and earlier 44-derived statistics and 89 manager-involvement count must be relabeled as subset-only.",
+    "2016–2019 ESPN history and ongoing 2026 Sleeper transactions are outside these counts."
+  ]
+}
