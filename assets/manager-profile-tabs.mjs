@@ -125,9 +125,7 @@ if(profileHero&&!profileHero.querySelector('[data-profile-career-snapshot]')){
   (lead||profileHero.querySelector('h1'))?.after(snapshot);
  }
 }
-// Matchup-derived career opponent-draw stat, shared across every active manager profile.
-mountManagerScheduleLuck(profileName,profileHero);
-mountManagerLuckPerformance(profileName,profileHero);
+// Specialized opponent-draw research mounts in the optional advanced section below.
 // The first screen should tell one memorable, sourced story before the deep research.
 // Leave the detailed archive and existing canonical record widgets intact.
 async function mountVerifiedDefiningMoment(){
@@ -713,6 +711,66 @@ function mountCareerExhibit(){
   .catch(()=>{/* Keep the source-backed franchise overview available offline. */});
 }
 mountCareerExhibit();
+// Mobile-first manager season snapshot. Only fully archived 2026 games count.
+function mountManagerSeasonPulse(){
+ const hero=document.querySelector('main .hero');
+ if(!hero||document.querySelector('#profile-season-pulse'))return;
+ const name=profileName==='Tom'?'Thommy':profileName;
+ const pulse=document.createElement('section');
+ pulse.id='profile-season-pulse';
+ pulse.className='profile-season-pulse';
+ pulse.setAttribute('aria-labelledby','profile-season-pulse-heading');
+ pulse.innerHTML='<div class="profile-season-pulse-head"><div><span class="profile-pulse-eyebrow">2026 / THIS SEASON</span><h2 id="profile-season-pulse-heading">This season</h2></div><a href="../../seasons/2026.html">Season center →</a></div><p class="profile-season-pulse-status" role="status">Loading verified season results…</p><div class="profile-season-pulse-stats" hidden></div><p class="profile-season-pulse-footnote"></p>';
+ const exhibit=document.querySelector('.hof-career-exhibit');
+ const hub=document.querySelector('.manager-home-hub');
+ if(exhibit)exhibit.before(pulse);else if(hub)hub.before(pulse);else hero.after(pulse);
+ fetch('../../data/season_guide.json',{cache:'no-store'}).then(response=>{
+  if(!response.ok)throw Error('Season guide unavailable');
+  return response.json();
+ }).then(seasons=>{
+  const season=seasons['2026'],standing=season?.standings?.find(row=>row.name===name);
+  if(!standing||!Number.isFinite(standing.w)||!Number.isFinite(standing.l))throw Error('Current-season record unavailable');
+  const stats=pulse.querySelector('.profile-season-pulse-stats');
+  const fmt=value=>Number(value).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const data=[['Record',standing.w+'–'+standing.l+(standing.t?'–'+standing.t:'')],['Points for',fmt(standing.pf)],['Points against',fmt(standing.pa)]];
+  for(const [label,value] of data){
+   const card=document.createElement('div');card.className='profile-season-pulse-stat';
+   const number=document.createElement('strong');number.textContent=value;
+   const title=document.createElement('span');title.textContent=label;
+   card.append(number,title);stats.append(card);
+  }
+  stats.hidden=false;
+  const match=String(season.summary||'').match(/Week\s+(\d+)/);
+  const week=match?.[1]||'—';
+  pulse.querySelector('.profile-season-pulse-status').textContent='Verified through Week '+week+' · Regular season in progress';
+  pulse.querySelector('.profile-season-pulse-footnote').textContent='Reconstructed regular-season standings; not official playoff seeding. Incomplete weeks are excluded.';
+ }).catch(()=>{
+  pulse.querySelector('.profile-season-pulse-status').textContent='The current season snapshot is temporarily unavailable.';
+  pulse.querySelector('.profile-season-pulse-footnote').textContent='See the season center for the latest verified results.';
+ });
+}
+function mountOptionalManagerAnalysis(){
+ const quick=document.querySelector('main .profile-quickstart');
+ if(!quick||document.querySelector('#profile-advanced-analytics'))return;
+ const advanced=document.createElement('details');
+ advanced.id='profile-advanced-analytics';
+ advanced.className='profile-advanced-analytics';
+ const heading=document.createElement('summary');
+ heading.textContent='Advanced analytics · Schedule luck & scoring strength';
+ const contents=document.createElement('div');
+ contents.className='profile-advanced-analytics-content';
+ advanced.append(heading,contents);
+ const more=quick.querySelector('details.manager-home-more');
+ if(more)more.after(advanced);else quick.append(advanced);
+ mountManagerScheduleLuck(profileName,profileHero,contents);
+ mountManagerLuckPerformance(profileName,profileHero,contents);
+ if(location.hash==='#profile-advanced-analytics'){
+  advanced.open=true;
+  more?.setAttribute('open','');
+ }
+}
+mountManagerSeasonPulse();
+mountOptionalManagerAnalysis();
 // Gold trophy treatment is earned, never applied to a zero-championship card.
 const championshipHighlight=document.querySelector('main .profile-career-highlight:first-child');
 const championshipCount=championshipHighlight?.querySelector('strong');
