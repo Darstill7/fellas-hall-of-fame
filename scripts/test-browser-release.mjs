@@ -1318,6 +1318,11 @@ try{
      errors.push(width+' historical trade count did not load');
     if(await page.locator('#total-player').textContent()!=='45')
      errors.push(width+' historical player-bearing count did not load');
+    if(width===390){
+     const geometry=await page.locator('.controls label').evaluateAll(nodes=>nodes.map(el=>{const r=el.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width}}));
+     if(geometry.length!==2||geometry[0].bottom>geometry[1].top-4||geometry.some(g=>g.left<0||g.right>390))
+      errors.push(width+' mobile portfolio search and membership labels overlap or overflow');
+    }
     const scott=page.locator('#picks button[data-key="Scott"]');
     if(await scott.count()===1){
      await scott.click();
