@@ -753,7 +753,7 @@ document.head.append(hofSwitcherStyle);
 // Remove only these two identified promotional sections; preserve all data-backed sections.
 // Preserve the old encyclopedia URL for archival links, but one profile is the
 // public entrypoint: remove its competing cross-profile teaser.
-document.getElementById('full-franchise-dossier')?.remove();
+// Keep the full historical dossier link in the Advanced archive rather than deleting it.
 const duplicateHeadings=new Set(['More from the archive']);
 for(const section of document.querySelectorAll('main > section.section:not([id])')){
  const heading=section.querySelector('h2')?.textContent?.trim()||'';
