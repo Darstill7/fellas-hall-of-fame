@@ -90,6 +90,37 @@ These four transactions explain his qualified-sample lead, not comprehensive car
 ## Most frequent bilateral trade rivalry: Stew vs Kuhl
 The historical trade engine records **four** completed Stew–Kuhl trade events from 2020–2025: September 22, 2021 (Kenyan Drake + Saquon Barkley for Nyheim Hines + Clyde Edwards-Helaire + Ty'Son Williams), September 27, 2023 (CeeDee Lamb + Travis Etienne Jr. for James Conner + De'Von Achane + Puka Nacua), September 17, 2025 (Derrick Henry for Nico Collins), and November 13, 2025 (Jake Ferguson + Jaylen Warren for Zach Ertz + Derrick Henry). Two further completed 2026 events are documented: September 30 (Drake Maye + Watson for Hurts + McConkey) and November 15 (Nico Collins for Drake Maye). **Six recorded trades as a pair**. Do not treat a mixture of historical raw started-point deltas, strict PAR and 2026 partial results as one lifetime head-to-head win/loss record. Note that Nico Collins and Drake Maye both made round-trip journeys between the two managers across these deals.
 
+## Every represented historical trade — new comprehensive layer
+**Source:** [all 44 events, player by player](../data-integrity/trade-architects-2020-2025-all44-raw-starter-reconstruction-v1.json); [deep dive on the 26 outside the original PAR cohort](greatest-trade-architects-other-26-audit-2026-11-16.md).
+
+We reconstructed **44** historical trade receipts from 2020–2025: **41 bilateral trades**, **one three-manager transaction**, and **two with one recorded incoming-asset side**. On each trade asset, the audit joins the credited player and receiving roster's **strictly subsequent** regular-season starts through Week 14. Thus we now have a common point-counting scope across both the original 18 PAR-comparable deals and the other 26; this does **not** make them all position-adjusted comparators.
+
+### 41 bilateral receipts: descriptive raw starting-point differences
+These sums are not comparable with the 18-deal position-adjusted PAR sample and are **not a trader-skill leaderboard**. Multi-player packages, positional scoring, time of trade, injuries and later transfers distort raw points. “Higher” means the receiving manager had the higher started-point return, not that the deal was wise or caused wins.
+
+| Manager | Two-manager trade involvements | Higher–lower–equal raw returns | Starter points received | Sum of raw point differences |
+|---|---:|---:|---:|---:|
+| Evans | 6 | 4–1–1 | 806.30 | +276.26 |
+| Birch | 4 | 2–2–0 | 697.88 | +224.06 |
+| Mitch | 3 | 2–1–0 | 270.20 | +131.10 |
+| Kuhl | 10 | 5–4–1 | 989.38 | +92.18 |
+| Stover | 5 | 3–2–0 | 317.10 | +69.80 |
+| Stilly | 10 | 4–6–0 | 1,643.74 | +39.80 |
+| Tony | 10 | 5–5–0 | 1,219.86 | −8.86 |
+| JMid | 2 | 1–1–0 | 215.40 | −22.50 |
+| Koble | 1 | 0–1–0 | 120.30 | −36.80 |
+| Stew | 19 | 10–9–0 | 1,595.06 | −220.64 |
+| Thommy | 12 | 4–8–0 | 1,669.90 | −544.40 |
+
+The historical 2023 manager slot belongs to **Evans**, not JMid. Scott has no 2020–2025 bilateral trade event in the represented engine. The 2025 Stilly/JMid/Thommy three-manager transaction is excluded from this bilateral comparison, but remains fully represented as a separate receipt.
+
+### Interpretation: a substantial shift, not a new definitive ranking
+- **Kuhl** remains the strongest of the 18 fully PAR-comparable historical transactions at +243.62, but the comprehensive raw layer now shows his ten represented bilateral trades had a +92.18 raw started-point difference overall. These are two separate measures, not a contradiction.
+- **Evans** wasn't eligible for the initial 18-deal ranking, but the recovered bilateral receipts show a substantial +276.26 raw started-point gap across six deals. He deserves a thorough PAR rebuild rather than an arbitrary absence from the “Trade Architects” feature.
+- **Stover** was likewise missing from the initial qualified leaderboard despite five bilateral trades; raw starter receipts are now reconstructed, including the 2021 Leonard Fournette / DeVonta Smith deal.
+- **Stew** appears in 19 bilateral deals: more than any other manager in the historical engine. He has a positive raw-return count (10 of 19), yet the sum of raw differences is −220.64; those two facts can coexist when loss magnitudes are larger than wins. His celebrated 2026 Maye chain is a separate, current-season chapter.
+- **Thommy** has the lowest sum of raw receipt differences (−544.40) but this is **not** a historical skill verdict. Among others, his 2024 title-winning acquisition of Tee Higgins demonstrates why postseason and keeper context can reverse a regular-season narrative.
+
 ## Three-team and championship cases (not ranked bilaterally)
 - **November 12, 2025 (Stilly / JMid / Thommy):** documented received-side totals of 199.72 started points for Stilly (Amon-Ra St. Brown + Jordan Addison + Jared Goff), 78.30 for JMid (Ja'Marr Chase), and 98.60 for Thommy (A.J. Brown). This must never be reduced to one binary trade margin. The Amon-Ra 2026 keeper consequences require their own sourced valuation.
 - **2023 Stilly / Tony:** Mike Evans + Derrick Henry vs Cooper Kupp, +104.99 observed regular-season PAR for Stilly. Evans and Henry combined for 44.98 semifinal points against Tony; they were part of Stilly's championship season. No causal proof that the title required the deal.
