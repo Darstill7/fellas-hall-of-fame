@@ -51,3 +51,8 @@ html{scroll-padding-top:96px}
 .manager-rivalry-deep-link a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;border:1px solid #657a89;border-radius:9px;color:#f1d28d;background:#1c394a;text-decoration:none;font-size:13px;font-weight:850}
 .manager-rivalry-deep-link a:hover{border-color:#e9cc8b;background:#274657}
 .manager-rivalry-deep-link a:focus-visible{outline:3px solid #e9cc8b;outline-offset:3px}
+
+.manager-original-draft-link{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;margin:12px 0 18px}
+.manager-original-draft-link a{display:inline-flex;align-items:center;min-height:44px;border-radius:9px;border:1px solid #6e8595;background:#233e4d;color:#efd08c;padding:10px 14px;font-size:12px;font-weight:900;text-decoration:none}
+.manager-original-draft-link a:focus-visible{outline:3px solid #efd08c;outline-offset:3px}
+.manager-original-draft-link span{font-size:11px;color:#c0d0db;line-height:1.65;max-width:480px;padding:7px 0}
