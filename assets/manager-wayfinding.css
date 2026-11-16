@@ -56,3 +56,9 @@ html{scroll-padding-top:96px}
 .manager-original-draft-link a{display:inline-flex;align-items:center;min-height:44px;border-radius:9px;border:1px solid #6e8595;background:#233e4d;color:#efd08c;padding:10px 14px;font-size:12px;font-weight:900;text-decoration:none}
 .manager-original-draft-link a:focus-visible{outline:3px solid #efd08c;outline-offset:3px}
 .manager-original-draft-link span{font-size:11px;color:#c0d0db;line-height:1.65;max-width:480px;padding:7px 0}
+
+.manager-draft-report-link{margin:12px 0 16px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.manager-draft-report-link a{min-height:44px;display:inline-flex;align-items:center;border:1px solid #667e8c;background:#203d4e;border-radius:9px;padding:10px 14px;color:#f1d18e;text-decoration:none;font-size:13px;font-weight:850}
+.manager-draft-report-link a:hover{background:#2b4b5c;border-color:#ebce91}
+.manager-draft-report-link a:focus-visible{outline:3px solid #ebce91;outline-offset:3px}
+.manager-draft-report-link span{font-size:11px;color:#c0cfda;line-height:1.6}
