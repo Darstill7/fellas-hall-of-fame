@@ -119,8 +119,10 @@ for(const [slug,id] of Object.entries(managers)){
   'Intro should be a readable summary, not a duplicated full biography: '+slug);
  assert(!/archived regular-season record is|over \d+ games/.test(story),
   'Profile intro contains hard-coded, potentially stale career stats: '+slug);
- assert(html.includes('class="profile-chapters wrap"'),
-  'All ten managers must share an accessible static chapter navigator: '+slug);
+ assert(html.includes('class="profile-chapters" aria-label=')&&
+  html.includes('href="#franchise-story"')&&html.includes('href="#season-history"')&&
+  html.includes('href="#head-to-head"')&&html.includes('record-books.html?manager='),
+  'Each manager must retain a keyboard-accessible career, seasons, rivals and personal-records chapter navigator: '+slug);
  const franchiseOverview=html.match(/<section class="section" id="franchise-story">([\s\S]*?)<\/section>/)?.[1]||'';
  assert(franchiseOverview.includes('<p class="lead">')&&
   !/data-canonical-manager-(?:record|games)|class="story-facts"|class="story-detail"/.test(franchiseOverview),
