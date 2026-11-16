@@ -1350,6 +1350,8 @@ try{
     await page.waitForFunction(()=>!document.querySelector('#context-panel').hidden,null,{timeout:10000}).catch(()=>{});
     if(await page.locator('#trade-flow .flow-lane').count()!==3)
      errors.push(width+' 2025 triple trade missing three receipt lanes');
+    if(!await page.locator('#trade-flow').innerText().then(t=>t.includes('Ja\'Marr Chase')&&t.includes('A.J. Brown')&&t.includes('Amon-Ra St. Brown')))
+     errors.push(width+' verified 2025 three-party outgoing/received asset flow incomplete');
     if(await page.locator('#context-keepers .keeper-chip').count()!==2)
      errors.push(width+' documented 2026 first-round keeper receipts not shown');
     await page.goto(baseUrl+'managers/trade-explorer.html?trade='+caseId);
