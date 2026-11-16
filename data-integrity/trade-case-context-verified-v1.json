@@ -1,0 +1,91 @@
+{
+  "schema": "fellas-trade-case-context-v1",
+  "asOf": "2026-11-16",
+  "status": "verified_receipts_context_not_causal_trade_score",
+  "notes": "Source-grounded selected trade story footnotes. Years 2016–19 ESPN excluded. No model guesses keeper rights for other transactions.",
+  "cases": [
+    {
+      "transactionId": "738428315181928448",
+      "eyebrow": "2021 · Rapid asset conversion",
+      "headline": "Jacobs changed hands in back-to-back deals",
+      "facts": [
+        "Thommy received Josh Jacobs from Tony on August 30, then sent Jacobs to Birch alongside Lamar Jackson and Mark Andrews on August 31.",
+        "Birch's acquired trio recorded 501.68 started points strictly after the trade through Week 14, plus 103.80 in Weeks 15–17.",
+        "Birch lost the recorded Week 15 matchup. These starts are not proof the trade won a championship."
+      ],
+      "relatedTradeIds": [
+        "737360507476066304"
+      ],
+      "evidence": "data-integrity/trade-asset-chain-jacobs-chase-2026-11-16.json and data-integrity/trade-2021-2023-playoff-extension-v1.json",
+      "keeper": null
+    },
+    {
+      "transactionId": "1018289561511682048",
+      "eyebrow": "2023 · Receiving value and re-trades",
+      "headline": "Lamb moved to Birch; Pollard moved again",
+      "facts": [
+        "Birch received CeeDee Lamb and Kenny Gainwell from Stew; Stew received Tony Pollard and Jaxon Smith-Njigba.",
+        "Lamb produced 73.00 observed starting points in fantasy Weeks 15–17, but Birch lost the Week 15 matchup.",
+        "Stew later included Pollard in the November 8 nine-player three-manager trade. That downstream move prevents a simple full-season no-trade comparison."
+      ],
+      "relatedTradeIds": [
+        "1028057686711058432"
+      ],
+      "evidence": "data-integrity/trade-2021-2023-playoff-extension-v1.json and data-integrity/trade-discovered-2023-w10-three-way-v1.json",
+      "keeper": null
+    },
+    {
+      "transactionId": "1294402688213057536",
+      "eyebrow": "2025–26 · Keeper lineage",
+      "headline": "Three managers, then two first-round keepers",
+      "facts": [
+        "The November 2025 trade sent Amon-Ra St. Brown, Jared Goff and Jordan Addison to Stilly; Ja'Marr Chase to JMid; and A.J. Brown to Thommy.",
+        "In 2026, Stilly kept Amon-Ra St. Brown in Round 1 (pick 8), and JMid kept Ja'Marr Chase in Round 1 (pick 4).",
+        "JMid subsequently traded Chase to Stilly in the October 7, 2026 transaction. The keeper receipts are factual, not proof of multi-season trade profit."
+      ],
+      "relatedTradeIds": [
+        "1413584172332654592"
+      ],
+      "evidence": "data-integrity/trade-asset-chain-jacobs-chase-2026-11-16.json and data/multiteam_keeper_trade_case_studies_v1.json",
+      "keeper": [
+        {
+          "manager": "Stilly",
+          "player": "Amon-Ra St. Brown",
+          "season": 2026,
+          "round": 1,
+          "overall": 8
+        },
+        {
+          "manager": "JMid",
+          "player": "Ja'Marr Chase",
+          "season": 2026,
+          "round": 1,
+          "overall": 4
+        }
+      ]
+    },
+    {
+      "transactionId": "1413584172332654592",
+      "eyebrow": "2026 · A keeper becomes a trade asset",
+      "headline": "Chase returns to Stilly",
+      "facts": [
+        "Stilly received Ja'Marr Chase and Devaughn Vele from JMid for Davante Adams, George Kittle and Breece Hall on October 7, 2026.",
+        "JMid had kept Chase in the first round of the 2026 draft (overall pick 4) after receiving him in the 2025 three-manager trade.",
+        "Only completed weeks strictly after the trade through Week 9 are eligible for the current 2026 post-trade starter metric; Week 10 remains unfinished."
+      ],
+      "relatedTradeIds": [
+        "1294402688213057536"
+      ],
+      "evidence": "data-integrity/trade-asset-chain-jacobs-chase-2026-11-16.json and data-integrity/trade-2026-current-receipts-week9-final-v1.json",
+      "keeper": [
+        {
+          "manager": "JMid",
+          "player": "Ja'Marr Chase",
+          "season": 2026,
+          "round": 1,
+          "overall": 4
+        }
+      ]
+    }
+  ]
+}
