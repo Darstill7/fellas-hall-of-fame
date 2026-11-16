@@ -14,14 +14,21 @@ assert(interactive.includes('see the latest verified 2026 scores and standings')
 for(const name of names){
  const html=readFileSync(new URL('../managers/'+name+'/index.html',import.meta.url),'utf8');
  const manager=canonical(name);
- const href='../../analytics/record-holders.html?manager='+encodeURIComponent(manager)+'#manager-record-finder';
+ const href='../../managers/record-books.html?manager='+encodeURIComponent(manager)+'#career-first';
  assert(html.includes('manager-profile-editorial-v2.css'),name+' missing shared design system');
  assert(html.includes('manager-profile-editorial-v3.css'),name+' missing shared editorial finish');
  assert(html.includes('property="og:title"')&&html.includes('property="og:description"'),name+' missing social title/description');
  assert(html.includes('property="og:url" content="https://darstill7.github.io/fellas-hall-of-fame/managers/'+name+'/"'),name+' missing direct profile share URL');
- assert(html.includes('manager-records-spotlight'),name+' missing record feature');
- assert(html.includes(href),name+' missing manager-specific record deep link');
- assert(html.includes('manager-records-spotlight'),name+' missing personal record feature');
+ assert(html.includes(href),name+' missing canonical manager-specific personal record book');
+ assert(html.includes('class="profile-chapters"')&&
+  html.includes('href="#franchise-story"')&&
+  html.includes('href="#season-history"')&&
+  html.includes('href="#head-to-head"'),
+  name+' missing clearly ordered career, seasons and rivalry navigation');
+ assert(html.includes('class="franchise-deep-preview"'),
+  name+' must preserve advanced records without duplicating them in the opening hero');
+ assert(!html.includes('manager-records-spotlight'),
+  name+' still contains redundant old record spotlight');
  for(const target of ['../../index.html','../../managers/','../../hall/','../../seasons/2026.html'])
   assert(html.includes('href="'+target+'"'),name+' missing primary navigation: '+target);
  assert(html.includes('id="franchise-story"'),name+' missing franchise story');
