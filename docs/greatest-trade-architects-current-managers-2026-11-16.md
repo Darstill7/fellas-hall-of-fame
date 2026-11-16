@@ -86,6 +86,7 @@ Week 10 is not final. A raw head-to-head gap is not a position-adjusted trade sk
 5. Only after exact method reproduction and keeper/position validation should the site award career titles or change official manager ratings.
 
 ## Sources
+- [2026 active-manager completed-trade source snapshot](../data-integrity/trade-architects-2026-week10-current-manager-receipts.json)
 - [Canonical active manager and historical identity map](../data/manager_identity_map_v1.json)
 - [44-trade strict weekly started-point reconstruction](../data-integrity/trade-architects-2020-2025-all44-raw-starter-reconstruction-v1.json)
 - [41-deal position-median sensitivity](../data-integrity/trade-architects-all44-position-median-sensitivity-2026-11-16.json)
