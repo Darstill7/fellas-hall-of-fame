@@ -87,3 +87,14 @@ body.premium-franchise .franchise-chapter-break:target{
 @media(prefers-reduced-motion:reduce){
  body.premium-franchise .profile-chapters .buttons{scroll-behavior:auto}
 }
+
+/* The franchise tabs module replaces the legacy chapter navigation and hides
+   section.section elements by selected tab. Dividers must never remain
+   visible for content in another tab or on the short profile landing. */
+body.premium-franchise.profile-landing .franchise-chapter-break,
+body.premium-franchise.profile-feature-focused .franchise-chapter-break{display:none!important}
+body.premium-franchise .franchise-chapter-break:has(+ section.section[hidden]){display:none!important}
+body.premium-franchise .franchise-chapter-break:has(+ section.section[style*="display: none"]){display:none!important}
+body.premium-franchise .profile-tabs .profile-location-label{
+  font-size:12px;letter-spacing:.08em;color:#e9d19c;font-weight:850
+}
