@@ -2,13 +2,13 @@
   "schema": "fellas-trade-architects-previously-unqualified-audit-v1",
   "asOf": "2026-11-16",
   "classification": "research_only_no_position_adjusted_or_definitive_trade_winner_grades",
-  "method": "For all 26 historical 2020–2025 trade events not in the 18 complete two-sided preview comparisons: join each recorded trade asset to that receiving team roster's same-name starter records in data/player_starts_YEAR.json for weeks strictly greater than transaction week through regular-season week 14. The name-normalization step removes punctuation and trailing Roman II, e.g. DJ Moore and Allen Robinson II; the joined record retains source player IDs, manager roster numbers, week and points. These are *observed actual started points*, not PAR or counterfactual gains. Original historical engine starts may have a different date/season scope, and its differences are retained rather than overwritten. Player never starting after the deal results in observed zero, not automatically a bad trade; missing source player identity requires separate recovery. Historical 2023 team slot 2 belongs to Evans. Multi-manager deals are not pairwise contests.",
+  "method": "For all 26 historical 2020–2025 trade events not in the 18 complete two-sided preview comparisons: join each recorded trade asset to that receiving team roster's same-name starter records in data/player_starts_YEAR.json for weeks strictly greater than transaction week through regular-season week 14. The name-normalization step removes punctuation and trailing Roman II, e.g. DJ Moore and Allen Robinson II; the joined record retains source player IDs, manager roster numbers, week and points. These are *observed actual started points*, not PAR or counterfactual gains. Original historical engine starts may have a different date/season scope, and its differences are retained rather than overwritten. Player never starting after the deal results in observed zero, not automatically a bad trade; missing source player identity requires separate recovery. Historical 2023 team slot 2 belongs to Evans. Multi-manager deals are not pairwise contests. Kenny Gainwell has no starting-lineup entry in the 2023 season archive but is independently identified as provider player ID 7567 in the completed Week 6 transaction receipt; no fabricated start is added.",
   "summary": {
     "total": 26,
     "bilateral": 23,
     "threeManager": 1,
     "oneSided": 2,
-    "withMissingYearStarterIdentity": 1,
+    "withMissingYearStarterIdentity": 0,
     "seasonCounts": {
       "2020": 4,
       "2021": 6,
@@ -1967,7 +1967,8 @@
               "postTradeStarts": 0,
               "postTradeStartedWeeks": [],
               "postTradeStarterPlayerIds": [],
-              "identityCoverage": "no_season_starter_identity_found"
+              "identityCoverage": "provider_trade_id_confirmed_no_season_starts",
+              "providerTradePlayerId": "7567"
             }
           ],
           "sourceSideConfidence": "verified"
@@ -1975,9 +1976,7 @@
       ],
       "originalEngineRawGap": -158.6,
       "strictRegularSeasonGap": -115.2,
-      "unresolvedIdentityFromYearlyStarterEvidence": [
-        "Birch: Kenny Gainwell"
-      ],
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
       "olderVsStrictScopeDifferences": [
         {
           "manager": "Stew",
@@ -1988,7 +1987,7 @@
           "delta": -73
         }
       ],
-      "classification": "two_sides_observed_identity_gap"
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
     },
     {
       "year": 2023,
@@ -3438,6 +3437,7 @@
     "data/player_starts_2023.json",
     "data/player_starts_2024.json",
     "data/player_starts_2025.json",
-    "data-integrity/COMMISSIONER_OWNERSHIP_AND_TRADE_RULES_2026-11-06.md"
+    "data-integrity/COMMISSIONER_OWNERSHIP_AND_TRADE_RULES_2026-11-06.md",
+    "data-integrity/provider-recovered-transactions-2023-week6.json"
   ]
 }
