@@ -44,7 +44,7 @@ try{
     height:innerHeight,heroActionVisible:cta?getComputedStyle(cta).display!=='none':false,
     managers:document.querySelectorAll('.home-franchise-links a').length,
     overflow:document.documentElement.scrollWidth-innerWidth,
-    choiceBeforeStandings:document.getElementById('explore-the-league')?.offsetTop<document.getElementById('home-now-heading')?.offsetTop};
+    choiceBeforeStandings:document.getElementById('explore-the-league')?.getBoundingClientRect().top<document.querySelector('main .home-now')?.getBoundingClientRect().top};
  });
  assert(homeEntry.heading?.includes('Ten managers'),'The homepage must immediately explain The Fellas');
  assert(homeEntry.firstChoiceTop<homeEntry.height*.9,'Adventure choices are buried below the first phone screen: '+JSON.stringify(homeEntry));
