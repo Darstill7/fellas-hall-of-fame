@@ -137,4 +137,47 @@ for(const tr of medianResearch.transactions){
 }
 assert(Math.abs(medianResearch.bilateralSensitivityStandings.reduce((sum,x)=>sum+x.netPositionMedianGap,0))<0.01);
 
+
+const current=load('data-integrity/trade-architects-2026-week10-current-manager-receipts.json');
+assert.equal(current.transactions.length,9);
+assert.equal(new Set(current.transactions.map(t=>t.id)).size,9);
+assert.equal(current.week10Status??current.status,'research_only_week10_in_progress');
+const identity=load('data/manager_identity_map_v1.json');
+assert.equal(identity.additionalVerifiedManagers.find(x=>x.canonical==='Mitch').sleeper,'huppdawg80');
+assert(identity.verifiedSleeperHistoricalHandleAliases.some(x=>x.handle==='Sheffla'&&x.manager==='Scott'));
+assert(identity.managers.Stover.aliases.includes('Gurt'));
+assert.equal(current.managerByRosterId['6'],'Mitch','Hupp is a handle for Mitch');
+assert.equal(current.managerByRosterId['5'],'Scott','Sheffla is a handle for Scott');
+assert.equal(current.managerByRosterId['8'],'Stover','Gurt is Stover');
+assert.deepEqual(Object.values(current.managerByRosterId).sort(),['Birch','JMid','Kuhl','Mitch','Scott','Stew','Stilly','Stover','Thommy','Tony'].sort());
+const next={};
+for(const trade of current.transactions){
+ assert.equal(trade.sides.length,2);
+ assert.equal(trade.rawStarterPointsGap,cents(trade.sides[0].startedPoints-trade.sides[1].startedPoints));
+ for(const side of trade.sides){
+  assert.equal(side.manager,current.managerByRosterId[side.rosterId]);
+  assert.equal(side.startedPoints,cents(side.players.reduce((sum,p)=>sum+p.startedPoints,0)));
+  const x=next[side.manager]??={count:0,total:0,net:0};
+  x.count++;x.total+=side.startedPoints;
+  x.net+=cents(side.startedPoints-trade.sides.find(s=>s!==side).startedPoints);
+ }
+}
+for(const [manager,v] of Object.entries(next)){
+ const snap=current.activeManagerSummary[manager];
+ assert.equal(snap.completedTrades,v.count);
+ assert.equal(snap.receivedStartedPoints,cents(v.total));
+ assert.equal(snap.netRawSideGap,cents(v.net));
+}
+assert.equal(current.activeManagerSummary.Tony.completedTrades,0,'Tony has no confirmed 2026 trades');
+assert.equal(current.activeManagerSummary.Stew.netRawSideGap,-38.22);
+assert.equal(current.activeManagerSummary.Kuhl.netRawSideGap,-88.38);
+assert.equal(current.activeManagerSummary.JMid.netRawSideGap,76.3);
+assert.equal(current.transactions.find(t=>t.id==='1427488044335788032').localDate,'11/14/2026','Maye trade occurred Saturday local time');
+const activeDoc=fs.readFileSync('docs/greatest-trade-architects-current-managers-2026-11-16.md','utf8');
+assert(activeDoc.includes('**Mitch (Sleeper handle huppdawg80 / “Hupp”)'));
+assert(activeDoc.includes('**Scott (Sleeper handle Sheffla)'));
+assert(activeDoc.includes('data-integrity/trade-architects-2026-week10-current-manager-receipts.json')||activeDoc.includes('2026 connected Sleeper'),'missing current season source note');
+for(const m of Object.keys(current.activeManagerSummary))
+ assert(activeDoc.includes('| '+m+' ')||activeDoc.includes('| '+m+' |')||activeDoc.includes('| '+m+' ('),'manager omitted from active-focused summary: '+m);
+
 console.log('Trade architects: all 26 previously excluded transactions reconciled to source ids, weeks and started scores. PAR NOT CERTIFIED.');
