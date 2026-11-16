@@ -1,0 +1,1919 @@
+{
+  "schema": "fellas-complete-2020-2025-trade-flow-directions-v1",
+  "asOf": "2026-11-16",
+  "status": "verified_or_explicitly_derived_asset_directions_keep_unknown_faab_pair",
+  "scope": "48 completed Sleeper trades 2020-2025; source of outgoing side is other recipient for two-party deals; outgoing owner verified for 2023/2025 three-way deals",
+  "metrics": {
+    "tradeEvents": 48,
+    "participantSides": 98,
+    "playerBearingEvents": 45,
+    "assetBalancedEvents": 48,
+    "unresolvedEventSpecificFaabDirections": 2
+  },
+  "cautions": [
+    "Cross-party incoming receipts determine outgoing player names in two-party deals but do not establish absence of supplemental FAAB or draft rights.",
+    "October 25, 2020 two $1 FAAB deals are directionally confirmed only as a pair, not assigned to individual trade IDs.",
+    "No counterfactual value, keeper economics, or winner/loss rating inferred.",
+    "Three-manager exchanges preserve original sending owner rather than treating every received player as from each other participant."
+  ],
+  "transactions": [
+    {
+      "transactionId": "614536176472264704",
+      "season": 2020,
+      "week": 3,
+      "date": "2020-09-23",
+      "exchangeType": "faab_only",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [],
+          "sentPlayers": [],
+          "receivedFaab": 1,
+          "sentFaab": null,
+          "sourceTier": "screenshot_one_direction"
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [],
+          "sentPlayers": [],
+          "receivedFaab": null,
+          "sentFaab": 1,
+          "sourceTier": "screenshot_one_direction"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "614849640176623616",
+      "season": 2020,
+      "week": 3,
+      "date": "2020-09-24",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Ronald Jones"
+          ],
+          "sentPlayers": [
+            "A.J. Green"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "A.J. Green"
+          ],
+          "sentPlayers": [
+            "Ronald Jones"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "616864423201554432",
+      "season": 2020,
+      "week": 3,
+      "date": "2020-09-30",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "DeSean Jackson",
+            "Travis Kelce",
+            "Marquise Brown"
+          ],
+          "sentPlayers": [
+            "Allen Robinson II",
+            "Tyler Higbee",
+            "D'Andre Swift"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Allen Robinson II",
+            "Tyler Higbee",
+            "D'Andre Swift"
+          ],
+          "sentPlayers": [
+            "DeSean Jackson",
+            "Travis Kelce",
+            "Marquise Brown"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "622492390107738112",
+      "season": 2020,
+      "week": 6,
+      "date": "2020-10-15",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Lamar Jackson",
+            "J.K. Dobbins"
+          ],
+          "sentPlayers": [
+            "Kyler Murray"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Kyler Murray"
+          ],
+          "sentPlayers": [
+            "Lamar Jackson",
+            "J.K. Dobbins"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "625902992721264640",
+      "season": 2020,
+      "week": 7,
+      "date": "2020-10-25",
+      "exchangeType": "faab_only",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [],
+          "sentPlayers": [],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "screenshot_opposite_directions_pair_mapping_unknown"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [],
+          "sentPlayers": [],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "screenshot_opposite_directions_pair_mapping_unknown"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": "Two opposite-direction $1 FAAB trades confirmed; event-specific direction unknown"
+    },
+    {
+      "transactionId": "625903284296683520",
+      "season": 2020,
+      "week": 7,
+      "date": "2020-10-25",
+      "exchangeType": "faab_only",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [],
+          "sentPlayers": [],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "screenshot_opposite_directions_pair_mapping_unknown"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [],
+          "sentPlayers": [],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "screenshot_opposite_directions_pair_mapping_unknown"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": "Two opposite-direction $1 FAAB trades confirmed; event-specific direction unknown"
+    },
+    {
+      "transactionId": "629416763662086144",
+      "season": 2020,
+      "week": 8,
+      "date": "2020-11-03",
+      "exchangeType": "player_for_faab",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "George Kittle"
+          ],
+          "sentPlayers": [],
+          "receivedFaab": null,
+          "sentFaab": 5,
+          "sourceTier": "screenshot_confirmed_player_for_5_faab"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [],
+          "sentPlayers": [
+            "George Kittle"
+          ],
+          "receivedFaab": 5,
+          "sentFaab": null,
+          "sourceTier": "screenshot_confirmed_player_for_5_faab"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "629818920752209920",
+      "season": 2020,
+      "week": 9,
+      "date": "2020-11-04",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Michael Thomas"
+          ],
+          "sentPlayers": [
+            "D.J. Moore",
+            "Clyde Edwards-Helaire"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "receivedPlayers": [
+            "D.J. Moore",
+            "Clyde Edwards-Helaire"
+          ],
+          "sentPlayers": [
+            "Michael Thomas"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "737360507476066304",
+      "season": 2021,
+      "week": 1,
+      "date": "2021-08-30",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Tyreek Hill",
+            "Josh Jacobs",
+            "Javonte Williams"
+          ],
+          "sentPlayers": [
+            "Corey Davis",
+            "A.J. Brown",
+            "Jonathan Taylor"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Corey Davis",
+            "A.J. Brown",
+            "Jonathan Taylor"
+          ],
+          "sentPlayers": [
+            "Tyreek Hill",
+            "Josh Jacobs",
+            "Javonte Williams"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "738428315181928448",
+      "season": 2021,
+      "week": 1,
+      "date": "2021-08-31",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Dak Prescott",
+            "Noah Fant",
+            "Antonio Gibson"
+          ],
+          "sentPlayers": [
+            "Lamar Jackson",
+            "Mark Andrews",
+            "Josh Jacobs"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "receivedPlayers": [
+            "Lamar Jackson",
+            "Mark Andrews",
+            "Josh Jacobs"
+          ],
+          "sentPlayers": [
+            "Dak Prescott",
+            "Noah Fant",
+            "Antonio Gibson"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "746234454665732096",
+      "season": 2021,
+      "week": 2,
+      "date": "2021-09-22",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Kenyan Drake",
+            "Saquon Barkley"
+          ],
+          "sentPlayers": [
+            "Nyheim Miller-Hines",
+            "Clyde Edwards-Helaire",
+            "Ty'Son Williams"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Nyheim Miller-Hines",
+            "Clyde Edwards-Helaire",
+            "Ty'Son Williams"
+          ],
+          "sentPlayers": [
+            "Kenyan Drake",
+            "Saquon Barkley"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "748312121284149248",
+      "season": 2021,
+      "week": 3,
+      "date": "2021-09-27",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Aaron Rodgers",
+            "Keenan Allen"
+          ],
+          "sentPlayers": [
+            "Leonard Fournette",
+            "Patrick Mahomes",
+            "Brandon Aiyuk"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Leonard Fournette",
+            "Patrick Mahomes",
+            "Brandon Aiyuk"
+          ],
+          "sentPlayers": [
+            "Aaron Rodgers",
+            "Keenan Allen"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "748585137259884544",
+      "season": 2021,
+      "week": 3,
+      "date": "2021-09-28",
+      "exchangeType": "player_for_faab",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "AJ Dillon"
+          ],
+          "sentPlayers": [],
+          "receivedFaab": null,
+          "sentFaab": 5,
+          "sourceTier": "screenshot_confirmed_player_for_5_faab"
+        },
+        {
+          "manager": "Mitch",
+          "rosterId": "6",
+          "receivedPlayers": [],
+          "sentPlayers": [
+            "AJ Dillon"
+          ],
+          "receivedFaab": 5,
+          "sentFaab": null,
+          "sourceTier": "screenshot_confirmed_player_for_5_faab"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "751165345997402112",
+      "season": 2021,
+      "week": 4,
+      "date": "2021-10-05",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Koble",
+          "rosterId": "5",
+          "receivedPlayers": [
+            "Zack Moss",
+            "James Robinson"
+          ],
+          "sentPlayers": [
+            "Joe Mixon"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Joe Mixon"
+          ],
+          "sentPlayers": [
+            "Zack Moss",
+            "James Robinson"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "751504917667168256",
+      "season": 2021,
+      "week": 5,
+      "date": "2021-10-07",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "receivedPlayers": [
+            "Leonard Fournette"
+          ],
+          "sentPlayers": [
+            "DeVonta Smith"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "DeVonta Smith"
+          ],
+          "sentPlayers": [
+            "Leonard Fournette"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "754017147822415872",
+      "season": 2021,
+      "week": 6,
+      "date": "2021-10-13",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Kareem Hunt"
+          ],
+          "sentPlayers": [
+            "CeeDee Lamb"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "CeeDee Lamb"
+          ],
+          "sentPlayers": [
+            "Kareem Hunt"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "754024908207583232",
+      "season": 2021,
+      "week": 6,
+      "date": "2021-10-13",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Amari Cooper"
+          ],
+          "sentPlayers": [
+            "Antonio Gibson"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Antonio Gibson"
+          ],
+          "sentPlayers": [
+            "Amari Cooper"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "759191673220775936",
+      "season": 2021,
+      "week": 8,
+      "date": "2021-10-27",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Kyle Pitts Sr."
+          ],
+          "sentPlayers": [
+            "Jarvis Landry",
+            "George Kittle"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Jarvis Landry",
+            "George Kittle"
+          ],
+          "sentPlayers": [
+            "Kyle Pitts Sr."
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "875965138744864768",
+      "season": 2022,
+      "week": 2,
+      "date": "2022-09-15",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Jonathan Taylor"
+          ],
+          "sentPlayers": [
+            "Adam Thielen",
+            "Saquon Barkley"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Mitch",
+          "rosterId": "6",
+          "receivedPlayers": [
+            "Adam Thielen",
+            "Saquon Barkley"
+          ],
+          "sentPlayers": [
+            "Jonathan Taylor"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "880505837758652416",
+      "season": 2022,
+      "week": 3,
+      "date": "2022-09-27",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Mike Williams",
+            "James Conner",
+            "James Robinson"
+          ],
+          "sentPlayers": [
+            "Cordarrelle Patterson",
+            "Justin Jefferson"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Cordarrelle Patterson",
+            "Justin Jefferson"
+          ],
+          "sentPlayers": [
+            "Mike Williams",
+            "James Conner",
+            "James Robinson"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "881580705233195008",
+      "season": 2022,
+      "week": 4,
+      "date": "2022-09-30",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Leonard Fournette"
+          ],
+          "sentPlayers": [
+            "Alvin Kamara"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Alvin Kamara"
+          ],
+          "sentPlayers": [
+            "Leonard Fournette"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "885980047650119680",
+      "season": 2022,
+      "week": 6,
+      "date": "2022-10-12",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Alvin Kamara",
+            "Gabe Davis"
+          ],
+          "sentPlayers": [
+            "A.J. Brown",
+            "James Robinson"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "A.J. Brown",
+            "James Robinson"
+          ],
+          "sentPlayers": [
+            "Alvin Kamara",
+            "Gabe Davis"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "886267215865982976",
+      "season": 2022,
+      "week": 6,
+      "date": "2022-10-13",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Keenan Allen",
+            "Tee Higgins",
+            "Najee Harris"
+          ],
+          "sentPlayers": [
+            "DK Metcalf",
+            "CeeDee Lamb",
+            "DeVonta Smith"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "DK Metcalf",
+            "CeeDee Lamb",
+            "DeVonta Smith"
+          ],
+          "sentPlayers": [
+            "Keenan Allen",
+            "Tee Higgins",
+            "Najee Harris"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "896468742987522048",
+      "season": 2022,
+      "week": 10,
+      "date": "2022-11-10",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Ja'Marr Chase"
+          ],
+          "sentPlayers": [
+            "Cordarrelle Patterson",
+            "Jeff Wilson",
+            "Chase Claypool"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "receivedPlayers": [
+            "Cordarrelle Patterson",
+            "Jeff Wilson",
+            "Chase Claypool"
+          ],
+          "sentPlayers": [
+            "Ja'Marr Chase"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1012571602774532096",
+      "season": 2023,
+      "week": 3,
+      "date": "2023-09-27",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "CeeDee Lamb",
+            "Travis Etienne Jr."
+          ],
+          "sentPlayers": [
+            "James Conner",
+            "De'Von Achane",
+            "Puka Nacua"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "James Conner",
+            "De'Von Achane",
+            "Puka Nacua"
+          ],
+          "sentPlayers": [
+            "CeeDee Lamb",
+            "Travis Etienne Jr."
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1018289561511682048",
+      "season": 2023,
+      "week": 6,
+      "date": "2023-10-12",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Tony Pollard",
+            "Jaxon Smith-Njigba"
+          ],
+          "sentPlayers": [
+            "CeeDee Lamb",
+            "Kenny Gainwell"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "receivedPlayers": [
+            "CeeDee Lamb",
+            "Kenny Gainwell"
+          ],
+          "sentPlayers": [
+            "Tony Pollard",
+            "Jaxon Smith-Njigba"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1023059879336013824",
+      "season": 2023,
+      "week": 8,
+      "date": "2023-10-26",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Mike Evans",
+            "Derrick Henry"
+          ],
+          "sentPlayers": [
+            "Cooper Kupp"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Cooper Kupp"
+          ],
+          "sentPlayers": [
+            "Mike Evans",
+            "Derrick Henry"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1028057686711058432",
+      "season": 2023,
+      "week": 10,
+      "date": "2023-11-08",
+      "exchangeType": "three_manager",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "David Montgomery",
+            "Courtland Sutton",
+            "Jaylen Waddle"
+          ],
+          "sentPlayers": [
+            "Josh Jacobs",
+            "DeAndre Hopkins",
+            "Gus Edwards"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "verified_week9_week10_roster_ownership"
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Tony Pollard",
+            "Davante Adams",
+            "Gus Edwards"
+          ],
+          "sentPlayers": [
+            "Jaylen Waddle",
+            "Amari Cooper",
+            "David Montgomery"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "verified_week9_week10_roster_ownership"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Josh Jacobs",
+            "Amari Cooper",
+            "DeAndre Hopkins"
+          ],
+          "sentPlayers": [
+            "Tony Pollard",
+            "Davante Adams",
+            "Courtland Sutton"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "verified_week9_week10_roster_ownership"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1028065885325508608",
+      "season": 2023,
+      "week": 10,
+      "date": "2023-11-08",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Joe Mixon"
+          ],
+          "sentPlayers": [
+            "Jordan Addison"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Jordan Addison"
+          ],
+          "sentPlayers": [
+            "Joe Mixon"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1031121022772555776",
+      "season": 2023,
+      "week": 11,
+      "date": "2023-11-17",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Gabe Davis"
+          ],
+          "sentPlayers": [
+            "Justin Jefferson",
+            "Josh Jacobs"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Mitch",
+          "rosterId": "6",
+          "receivedPlayers": [
+            "Justin Jefferson",
+            "Josh Jacobs"
+          ],
+          "sentPlayers": [
+            "Gabe Davis"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1031251467312775168",
+      "season": 2023,
+      "week": 11,
+      "date": "2023-11-17",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Breece Hall"
+          ],
+          "sentPlayers": [
+            "Amari Cooper",
+            "Travis Etienne Jr."
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Amari Cooper",
+            "Travis Etienne Jr."
+          ],
+          "sentPlayers": [
+            "Breece Hall"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1038099277249245184",
+      "season": 2023,
+      "week": 14,
+      "date": "2023-12-06",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Ja'Marr Chase"
+          ],
+          "sentPlayers": [
+            "Tyler Lockett"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Tyler Lockett"
+          ],
+          "sentPlayers": [
+            "Ja'Marr Chase"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1139340571111256064",
+      "season": 2024,
+      "week": 1,
+      "date": "2024-09-10",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Tank Dell"
+          ],
+          "sentPlayers": [
+            "J.K. Dobbins"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "J.K. Dobbins"
+          ],
+          "sentPlayers": [
+            "Tank Dell"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1140082401968836608",
+      "season": 2024,
+      "week": 2,
+      "date": "2024-09-12",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Malik Nabers"
+          ],
+          "sentPlayers": [
+            "Davante Adams"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "receivedPlayers": [
+            "Davante Adams"
+          ],
+          "sentPlayers": [
+            "Malik Nabers"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1141777905656143872",
+      "season": 2024,
+      "week": 2,
+      "date": "2024-09-17",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "JMid",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Calvin Ridley",
+            "Kyren Williams"
+          ],
+          "sentPlayers": [
+            "James Cook III"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "James Cook III"
+          ],
+          "sentPlayers": [
+            "Calvin Ridley",
+            "Kyren Williams"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1144362000575840256",
+      "season": 2024,
+      "week": 3,
+      "date": "2024-09-24",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Terry McLaurin",
+            "De'Von Achane",
+            "Tank Dell"
+          ],
+          "sentPlayers": [
+            "Christian McCaffrey",
+            "Diontae Johnson",
+            "Tee Higgins"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Christian McCaffrey",
+            "Diontae Johnson",
+            "Tee Higgins"
+          ],
+          "sentPlayers": [
+            "Terry McLaurin",
+            "De'Von Achane",
+            "Tank Dell"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1146946436173623296",
+      "season": 2024,
+      "week": 4,
+      "date": "2024-10-01",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Mark Andrews",
+            "Rico Dowdle"
+          ],
+          "sentPlayers": [
+            "Amari Cooper"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Amari Cooper"
+          ],
+          "sentPlayers": [
+            "Mark Andrews",
+            "Rico Dowdle"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1146947320588861440",
+      "season": 2024,
+      "week": 4,
+      "date": "2024-10-02",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Chase Brown"
+          ],
+          "sentPlayers": [
+            "Jordan Love"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Jordan Love"
+          ],
+          "sentPlayers": [
+            "Chase Brown"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1152708228883660800",
+      "season": 2024,
+      "week": 7,
+      "date": "2024-10-17",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Travis Kelce",
+            "Brandon Aiyuk"
+          ],
+          "sentPlayers": [
+            "Cooper Kupp",
+            "Kareem Hunt",
+            "Rico Dowdle"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Cooper Kupp",
+            "Kareem Hunt",
+            "Rico Dowdle"
+          ],
+          "sentPlayers": [
+            "Travis Kelce",
+            "Brandon Aiyuk"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1159892809005076480",
+      "season": 2024,
+      "week": 10,
+      "date": "2024-11-09",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Mitch",
+          "rosterId": "6",
+          "receivedPlayers": [
+            "Raheem Mostert"
+          ],
+          "sentPlayers": [
+            "Nick Chubb"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Nick Chubb"
+          ],
+          "sentPlayers": [
+            "Raheem Mostert"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1273856224776962053",
+      "season": 2025,
+      "week": 2,
+      "date": "2025-09-17",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Derrick Henry"
+          ],
+          "sentPlayers": [
+            "Nico Collins"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Nico Collins"
+          ],
+          "sentPlayers": [
+            "Derrick Henry"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1274473433362604032",
+      "season": 2025,
+      "week": 3,
+      "date": "2025-09-21",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "JMid",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Aaron Jones Sr.",
+            "Zach Charbonnet"
+          ],
+          "sentPlayers": [
+            "TreVeyon Henderson"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "TreVeyon Henderson"
+          ],
+          "sentPlayers": [
+            "Aaron Jones Sr.",
+            "Zach Charbonnet"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1276026193660899328",
+      "season": 2025,
+      "week": 3,
+      "date": "2025-09-23",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Ja'Marr Chase",
+            "Chase Brown"
+          ],
+          "sentPlayers": [
+            "Jahmyr Gibbs",
+            "RJ Harvey"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Jahmyr Gibbs",
+            "RJ Harvey"
+          ],
+          "sentPlayers": [
+            "Ja'Marr Chase",
+            "Chase Brown"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1276326233327570944",
+      "season": 2025,
+      "week": 3,
+      "date": "2025-09-24",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Jordan Addison"
+          ],
+          "sentPlayers": [
+            "Mike Evans"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "receivedPlayers": [
+            "Mike Evans"
+          ],
+          "sentPlayers": [
+            "Jordan Addison"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1276373761972527104",
+      "season": 2025,
+      "week": 3,
+      "date": "2025-09-24",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Quentin Johnston"
+          ],
+          "sentPlayers": [
+            "Bhayshul Tuten"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "receivedPlayers": [
+            "Bhayshul Tuten"
+          ],
+          "sentPlayers": [
+            "Quentin Johnston"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1294402688213057536",
+      "season": 2025,
+      "week": 11,
+      "date": "2025-11-12",
+      "exchangeType": "three_manager",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Amon-Ra St. Brown",
+            "Jordan Addison",
+            "Jared Goff"
+          ],
+          "sentPlayers": [
+            "Ja'Marr Chase",
+            "A.J. Brown"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "verified_week10_source_roster_reconstruction"
+        },
+        {
+          "manager": "JMid",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Ja'Marr Chase"
+          ],
+          "sentPlayers": [
+            "Amon-Ra St. Brown"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "verified_week10_source_roster_reconstruction"
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "A.J. Brown"
+          ],
+          "sentPlayers": [
+            "Jared Goff",
+            "Jordan Addison"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "verified_week10_source_roster_reconstruction"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1294424036499025920",
+      "season": 2025,
+      "week": 11,
+      "date": "2025-11-12",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Brian Thomas Jr."
+          ],
+          "sentPlayers": [
+            "Stefon Diggs"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "receivedPlayers": [
+            "Stefon Diggs"
+          ],
+          "sentPlayers": [
+            "Brian Thomas Jr."
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    },
+    {
+      "transactionId": "1294724519813988352",
+      "season": 2025,
+      "week": 11,
+      "date": "2025-11-13",
+      "exchangeType": "player_for_player",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Jake Ferguson",
+            "Jaylen Warren"
+          ],
+          "sentPlayers": [
+            "Zach Ertz",
+            "Derrick Henry"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Zach Ertz",
+            "Derrick Henry"
+          ],
+          "sentPlayers": [
+            "Jake Ferguson",
+            "Jaylen Warren"
+          ],
+          "receivedFaab": null,
+          "sentFaab": null,
+          "sourceTier": "derived_from_opposite_receiving_receipt"
+        }
+      ],
+      "playerMultisetBalanced": true,
+      "uncertainty": null
+    }
+  ]
+}
