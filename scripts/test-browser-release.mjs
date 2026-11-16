@@ -1411,6 +1411,11 @@ try{
     if(!await page.locator('#compare-result').innerText().then(t=>t.includes('two different managers')))
      errors.push(width+' manager comparison duplicate selection invalid');
     await page.locator('#compare-b').selectOption('Stilly');
+    await page.locator('#picks button[data-key="Stilly"]').click();
+    if(!await page.locator('#trade-playoff-story-link').isVisible())
+     errors.push(width+' Stilly trade-to-playoff timeline feature link missing');
+    if(!await page.locator('#trade-playoff-story-link').getAttribute('href').then(t=>t.includes('1294402688213057536')))
+     errors.push(width+' Stilly timeline link points to wrong transaction');
     const scott=page.locator('#picks button[data-key="Scott"]');
     if(await scott.count()===1){
      await scott.click();
