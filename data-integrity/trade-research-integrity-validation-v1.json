@@ -1,0 +1,36 @@
+{
+  "schema": "fellas-trade-research-integrity-validation-v1",
+  "asOf": "2026-11-16",
+  "scope": "internal consistency checks for research inputs in PR234",
+  "status": "research_only",
+  "checks": {
+    "unique44": true,
+    "shape41_2_1": true,
+    "all89Sides": true,
+    "noFakePlayersOnFaabSide": true,
+    "repeated13": true,
+    "stew20": true,
+    "mitch4": true,
+    "scottUnranked": true,
+    "completed2026WeeksOnly": true,
+    "stilly91_2": true,
+    "jmid74_1": true,
+    "prelimGate25": true,
+    "zeroCausal": true
+  },
+  "passed": 13,
+  "total": 13,
+  "limitations": [
+    "Passing tests checks internal arithmetic and bookkeeping, not source-system completeness or correctness.",
+    "The archive represents only 2020–2025 trades, not 2016–2019.",
+    "Full waiver chains and counterfactual causal valuations are not yet established.",
+    "Do not use checks as deployment or CI approval."
+  ],
+  "sources": [
+    "data-integrity/trade-benefit-evidence-ledger-2026-11-16.json",
+    "data-integrity/trade-repeat-asset-index-v1.json",
+    "data-integrity/trade-manager-activity-corrected-v1.json",
+    "data-integrity/trade-value-attribution-evidence-v1.json",
+    "data-integrity/trade-ownership-breakpoint-audit-v1.json"
+  ]
+}
