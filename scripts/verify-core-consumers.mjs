@@ -98,7 +98,7 @@ for(const [slug,id] of Object.entries(managers)){
  assert(typeof biography==='string'&&biography.length>=650,
   'Missing substantial manager biography: '+slug);
  assert(!/AI-Written Biography/.test(html),'Generic AI biography title in profile: '+slug);
- const hero=html.match(/<section class="hero">([\s\S]*?)<\/section>/)?.[1];
+ const hero=html.match(/<section class="hero"(?:\s+[^>]*)?>([\s\S]*?)<\/section>/)?.[1];
  assert(hero,'Manager hero missing: '+slug);
  assert(hero.includes('<h1>'+id+'</h1>'),'Public manager display name must match canonical nickname, including Thommy: '+slug);
  const heroButtons=hero.match(/<div class="buttons">([\s\S]*?)<\/div>/)?.[1]||'';
