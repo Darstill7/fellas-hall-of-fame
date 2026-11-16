@@ -96,10 +96,13 @@ const primaryManagerSection=homePage.indexOf('<section class="manager-showcase s
 const seasonRecordsSection=homePage.indexOf('<section class="section shell home-deep-archives"');
 if(primaryManagerSection<0||seasonRecordsSection<0||primaryManagerSection>=seasonRecordsSection)
  throw Error('Manager discovery must precede advanced season ratings on homepage');
-if(!homePage.includes('id="home-manager-title">Find a Fella')||
+if(!homePage.includes('id="home-manager-title">Compare the franchises')||
  !homePage.includes('id="home-manager-cards"')||
- !homePage.includes('class="home-advanced-managers"'))
- throw Error('Homepage must preserve manager finder and expandable ratings without dominating the first screen');
+ !homePage.includes('class="home-advanced-managers"')||
+ !homePage.includes('id="home-direct-franchise-title"')||
+ !homePage.includes('href="managers/stover/"')||
+ !(homePage.indexOf('id="explore-the-league"')<primaryManagerSection))
+ throw Error('Homepage must offer direct manager discovery before optional career ratings and season-OVR research');
 console.log('Homepage manager-first hierarchy PASS');
 
 const stoverProfile=fs.readFileSync('managers/stover/index.html','utf8');
