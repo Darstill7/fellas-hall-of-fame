@@ -167,10 +167,15 @@ try{
     const chapterTitles=await divisions.locator('.chapter-name').allTextContents();
     if(!chapterTitles.includes('The Franchise Story')||!chapterTitles.includes('Drafts, Trades & Deep Research'))
      errors.push(width+' '+route+' franchise chapter labels incomplete');
-    if(await page.locator('nav.profile-chapters .chapter-reading-status strong').count()!==1)
-     errors.push(width+' '+route+' missing current-reading chapter status');
-    const chapterLinks=await page.locator('nav.profile-chapters a[href^="#"]').count();
-    if(chapterLinks<6)errors.push(width+' '+route+' missing chapter wayfinding links');
+    // Existing franchise JS replaces the legacy link rail with accessible
+    // Career / Each Year / Head-to-Head / Deep Stats tabs.
+    await page.waitForFunction(()=>!!document.querySelector('nav.profile-tabs .profile-location-label'),null,{timeout:10000}).catch(()=>{});
+    if(await page.locator('nav.profile-tabs [data-profile-tab]').count()!==4)
+     errors.push(width+' '+route+' existing four-tab chapter navigator missing');
+    if(await page.locator('nav.profile-tabs .profile-location-label').count()!==1)
+     errors.push(width+' '+route+' missing native current-section context label');
+    if(await page.locator('body.profile-landing').count()===1&&await divisions.filter({visible:true}).count()!==0)
+     errors.push(width+' '+route+' chapter dividers must be hidden on the short profile landing');
    }
    if(route==='managers/trade-portfolios.html'){
     if(await page.locator('.reading-divider').count()!==5)
