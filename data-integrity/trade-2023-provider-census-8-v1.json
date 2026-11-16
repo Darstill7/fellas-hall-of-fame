@@ -1,0 +1,68 @@
+{
+  "schema": "fellas-2023-full-sleeper-trade-census-v1",
+  "asOf": "2026-11-16",
+  "year": 2023,
+  "leagueId": "946275261279055872",
+  "window": "Sleeper Weeks1–17, completed trade transactions",
+  "totalConfirmed": 8,
+  "previousRepresented": 7,
+  "missingFromRepresented": [
+    "1028057686711058432"
+  ],
+  "ids": [
+    {
+      "id": "1012571602774532096",
+      "week": 3,
+      "teamCount": 2
+    },
+    {
+      "id": "1018289561511682048",
+      "week": 6,
+      "teamCount": 2
+    },
+    {
+      "id": "1023059879336013824",
+      "week": 8,
+      "teamCount": 2
+    },
+    {
+      "id": "1028065885325508608",
+      "week": 10,
+      "teamCount": 2
+    },
+    {
+      "id": "1028057686711058432",
+      "week": 10,
+      "teamCount": 3
+    },
+    {
+      "id": "1031251467312775168",
+      "week": 11,
+      "teamCount": 2
+    },
+    {
+      "id": "1031121022772555776",
+      "week": 11,
+      "teamCount": 2
+    },
+    {
+      "id": "1038099277249245184",
+      "week": 14,
+      "teamCount": 2
+    }
+  ],
+  "checks": {
+    "weekQueries": 17,
+    "succeeded": 17,
+    "uniqueIds": 8,
+    "unmatchedCount": 1
+  },
+  "limitations": [
+    "Provider history scoped to selected Sleeper league and season, not ESPN 2016–2019.",
+    "2020–22 and 2024–25 not yet exhaustively reconciled; at least 45 total represented events now evidenced, not guaranteed exact."
+  ],
+  "sources": [
+    "Sleeper Week 1–17 type trade",
+    "Old PR234 44-event ledger"
+  ]
+}
