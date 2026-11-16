@@ -35,6 +35,25 @@ async function go(route){
 try{
  // 1. Homepage: real discovery path through the manager directory.
  await go('');
+ // First visit on a 390px phone: explain the league and show a real choice promptly.
+ const homeEntry=await page.evaluate(()=>{
+  const hero=document.getElementById('homepage-editorial-title');
+  const first=document.querySelector('#explore-the-league .discovery-card');
+  const cta=document.querySelector('.home-editorial-copy .actions a.primary');
+  return {heading:hero?.innerText,firstChoiceTop:first?.getBoundingClientRect().top,
+    height:innerHeight,heroActionVisible:cta?getComputedStyle(cta).display!=='none':false,
+    managers:document.querySelectorAll('.home-franchise-links a').length,
+    overflow:document.documentElement.scrollWidth-innerWidth,
+    choiceBeforeStandings:document.getElementById('explore-the-league')?.offsetTop<document.getElementById('home-now-heading')?.offsetTop};
+ });
+ assert(homeEntry.heading?.includes('Ten managers'),'The homepage must immediately explain The Fellas');
+ assert(homeEntry.firstChoiceTop<homeEntry.height*.9,'Adventure choices are buried below the first phone screen: '+JSON.stringify(homeEntry));
+ assert(homeEntry.heroActionVisible,'Choose your adventure hero action is hidden on mobile');
+ assert.equal(homeEntry.managers,10,'All ten managers need direct routes');
+ assert(homeEntry.overflow<=3,'Homepage horizontal overflow on 390px phone');
+ assert(homeEntry.choiceBeforeStandings,'First visit must offer adventure choices before standings');
+ await page.locator('.home-editorial-copy .actions a.primary').click();
+ assert.equal(new URL(page.url()).hash,'#explore-the-league','Hero launch does not reach adventure hub');
  const destinations=await page.locator('#explore-the-league a.discovery-card').count();
  assert.equal(destinations,6,'Homepage must offer six primary destinations');
  await page.locator('#explore-the-league a.discovery-card[href="managers/"]').click();
