@@ -1,0 +1,56 @@
+/* The Fellas — Manager Profile 3.0, mobile-first first-screen system.
+   Retains the canonical stats and deeper archive; makes 2026 and identity primary. */
+:root{--mp3-ink:#f6ede0;--mp3-muted:#c5d0d7;--mp3-gold:#ebce91;--mp3-bg:#122732;--mp3-line:#536979}
+body.premium-franchise main#main-content{width:min(100%,1160px);min-width:0}
+body.premium-franchise main>.hero{padding:19px 17px 17px!important;margin:7px 0 9px!important;border-radius:12px!important}
+body.premium-franchise main>.hero h1{font-size:clamp(44px,11vw,72px)!important;margin:7px 0 9px;line-height:1.04!important}
+body.premium-franchise main>.hero>.lead{font-size:14px!important;line-height:1.5!important;margin:9px 0 11px!important}
+body.premium-franchise .profile-career-snapshot{margin:12px 0 10px!important}
+body.premium-franchise .profile-career-snapshot .profile-snapshot-heading{font-size:10px}
+body.premium-franchise .profile-career-highlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px!important}
+body.premium-franchise .profile-career-highlight{min-width:0;padding:12px!important;border:1px solid var(--mp3-line)!important;border-radius:9px!important;background:#19313f!important}
+body.premium-franchise .profile-career-highlight strong{display:block;font-size:clamp(22px,6vw,34px);line-height:1.2;font-variant-numeric:tabular-nums}
+body.premium-franchise .profile-career-highlight-label{display:block;font-size:10px;line-height:1.35}
+body.premium-franchise .profile-honors-line{margin:10px 0 4px!important;font-size:12px!important}
+body.premium-franchise main>.hero .buttons{display:flex;flex-wrap:wrap;gap:8px}
+body.premium-franchise main>.hero .buttons .btn{min-height:44px;padding:10px 14px;font-size:12px}
+body.premium-franchise .hof-manager-switcher{margin:6px 0 13px!important}
+body.premium-franchise .profile-season-pulse{box-sizing:border-box;padding:19px 16px;margin:10px 0 15px;background:linear-gradient(150deg,#193748,#122834);border:1px solid #7a795e;border-top:3px solid #e7c88a;border-radius:11px;scroll-margin-top:70px}
+.profile-season-pulse-head{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.profile-season-pulse-head h2{font:400 clamp(25px,5vw,34px)/1.15 Georgia,serif;margin:5px 0 0;letter-spacing:-.045em}
+.profile-pulse-eyebrow{font-size:10px;letter-spacing:.13em;font-weight:900;color:#ebce91}
+.profile-season-pulse-head a{font-size:11px;font-weight:850;color:#f1d392;min-height:44px;display:inline-flex;align-items:center;text-decoration:none}
+.profile-season-pulse-status{font-size:12px;font-weight:750;color:#d2dce1;margin:11px 0}
+.profile-season-pulse-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.profile-season-pulse-stats[hidden]{display:none}
+.profile-season-pulse-stat{min-width:0;display:flex;flex-direction:column;gap:5px;border:1px solid #547082;border-radius:9px;background:#132936;padding:13px 10px}
+.profile-season-pulse-stat strong{font-size:clamp(17px,4.8vw,25px);font-weight:900;line-height:1.15;font-variant-numeric:tabular-nums;letter-spacing:-.04em;overflow-wrap:anywhere}
+.profile-season-pulse-stat span{font-size:10px;color:var(--mp3-muted);line-height:1.35}
+.profile-season-pulse-footnote{font-size:10px;line-height:1.55;color:#aebfc9;margin:11px 0 0}
+body.premium-franchise .hof-career-exhibit{margin:12px 0 16px!important;border-top-width:1px;padding:18px 17px!important;border-radius:11px!important}
+body.premium-franchise .hof-career-exhibit h2{font-size:clamp(25px,5vw,32px)!important;margin:7px 0}
+body.premium-franchise .hof-career-intro{font-size:15px!important;line-height:1.6!important}
+body.premium-franchise .hof-career-source-note{font-size:11px!important}
+body.premium-franchise .manager-home-hub{border-radius:11px!important;margin:10px 0 16px!important;padding:16px!important}
+body.premium-franchise .manager-home-hub h2{font-size:clamp(25px,5vw,32px)!important}
+body.premium-franchise .manager-home-hub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+body.premium-franchise .manager-home-hub-tile{border-radius:10px!important;min-height:88px;align-items:flex-start}
+body.premium-franchise .manager-home-hub-copy strong{font-size:13px}
+body.premium-franchise .manager-home-hub-copy small{font-size:11px}
+.profile-advanced-analytics{margin:18px 0 8px;background:#102432;border:1px solid #506778;border-radius:11px;scroll-margin-top:88px}
+.profile-advanced-analytics>summary{cursor:pointer;list-style:none;min-height:53px;display:flex;align-items:center;padding:14px 17px;font-size:13px;font-weight:850;color:var(--mp3-gold)}
+.profile-advanced-analytics>summary::-webkit-details-marker{display:none}
+.profile-advanced-analytics[open]>summary{border-bottom:1px solid #506778}
+.profile-advanced-analytics-content{padding:12px}
+.profile-advanced-analytics-content .profile-schedule-luck,.profile-advanced-analytics-content .fellas-luck-performance{margin:8px 0 14px!important}
+.profile-season-pulse :is(a,button):focus-visible,.profile-advanced-analytics>summary:focus-visible{outline:3px solid #f3d694;outline-offset:3px}
+@media(min-width:700px){
+body.premium-franchise main>.hero{padding:30px 35px!important}
+body.premium-franchise main>.hero h1{font-size:clamp(58px,6.6vw,86px)!important}
+body.premium-franchise .profile-season-pulse{padding:23px 27px}
+body.premium-franchise .profile-season-pulse-stats{max-width:730px}
+body.premium-franchise .profile-season-pulse-stat{padding:17px 20px}
+body.premium-franchise .manager-home-hub-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:385px){.profile-season-pulse-stat{padding:11px 7px}.profile-season-pulse-stat strong{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.profile-season-pulse,.profile-advanced-analytics{scroll-behavior:auto}}
