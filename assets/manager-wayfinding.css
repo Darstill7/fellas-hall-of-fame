@@ -62,3 +62,9 @@ html{scroll-padding-top:96px}
 .manager-draft-report-link a:hover{background:#2b4b5c;border-color:#ebce91}
 .manager-draft-report-link a:focus-visible{outline:3px solid #ebce91;outline-offset:3px}
 .manager-draft-report-link span{font-size:11px;color:#c0cfda;line-height:1.6}
+
+.manager-legacy-rankings-link{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:13px 0 20px}
+.manager-legacy-rankings-link a{display:inline-flex;align-items:center;min-height:44px;padding:11px 14px;border-radius:9px;border:1px solid #b39862;background:#233f4d;color:#f1d18c;font-size:13px;font-weight:850;text-decoration:none}
+.manager-legacy-rankings-link a:hover{border-color:#eacd91;background:#2d4d5b}
+.manager-legacy-rankings-link a:focus-visible{outline:3px solid #eacd91;outline-offset:3px}
+.manager-legacy-rankings-link span{font-size:11px;line-height:1.5;color:#c3d3da}
