@@ -184,9 +184,9 @@ for(const m of Object.keys(current.activeManagerSummary))
 const passports=fs.readFileSync('docs/greatest-trade-architects-manager-passports-2026-11-16.md','utf8');
 const activeManagers=['Stilly','Stew','Thommy','Mitch','Scott','Tony','Stover','Kuhl','JMid','Birch'];
 for(const name of activeManagers){
- const offset=passports.indexOf('\\n## '+name);
+ const offset=passports.indexOf(String.fromCharCode(10)+'## '+name);
  assert(offset>=0,'missing passport '+name);
- const end=passports.indexOf('\\n## ',offset+4);
+ const end=passports.indexOf(String.fromCharCode(10)+'## ',offset+4);
  const section=passports.slice(offset,end<0?passports.length:end);
  const hist=all44.transactions.filter(tr=>tr.sides.some(s=>s.manager===name));
  const present=current.transactions.filter(tr=>tr.sides.some(s=>s.manager===name));
