@@ -46,3 +46,8 @@ html{scroll-padding-top:96px}
 .manager-trade-filter-link a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;border:1px solid #637b8a;background:#1d3948;border-radius:9px;color:#f0d18d;text-decoration:none;font-weight:850;font-size:13px;line-height:1.5}
 .manager-trade-filter-link a:hover{border-color:#efd18a;background:#264758}
 .manager-trade-filter-link a:focus-visible{outline:3px solid #f0d18d;outline-offset:3px}
+
+.manager-rivalry-deep-link{margin:10px 0 16px}
+.manager-rivalry-deep-link a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;border:1px solid #657a89;border-radius:9px;color:#f1d28d;background:#1c394a;text-decoration:none;font-size:13px;font-weight:850}
+.manager-rivalry-deep-link a:hover{border-color:#e9cc8b;background:#274657}
+.manager-rivalry-deep-link a:focus-visible{outline:3px solid #e9cc8b;outline-offset:3px}
