@@ -160,6 +160,26 @@ try{
       errors.push(width+' '+route+' mobile-only manager menu exposed on desktop');
     }
    }
+   if(isCurrentProfile){
+    const divisions=page.locator('.franchise-chapter-break');
+    if(await divisions.count()!==5)
+     errors.push(width+' '+route+' needs five distinct editorial chapter dividers');
+    const chapterTitles=await divisions.locator('.chapter-name').allTextContents();
+    if(!chapterTitles.includes('The Franchise Story')||!chapterTitles.includes('Drafts, Trades & Deep Research'))
+     errors.push(width+' '+route+' franchise chapter labels incomplete');
+    if(await page.locator('nav.profile-chapters .chapter-reading-status strong').count()!==1)
+     errors.push(width+' '+route+' missing current-reading chapter status');
+    const chapterLinks=await page.locator('nav.profile-chapters a[href^="#"]').count();
+    if(chapterLinks<6)errors.push(width+' '+route+' missing chapter wayfinding links');
+   }
+   if(route==='managers/trade-portfolios.html'){
+    if(await page.locator('.reading-divider').count()!==5)
+     errors.push(width+' portfolio chapters missing');
+    if(await page.locator('.portfolio-reading-map a').count()!==5)
+     errors.push(width+' portfolio jump map incomplete');
+    const chooser=await page.locator('#choose-managers').evaluate(el=>el.compareDocumentPosition(document.querySelector('.compare-panel'))&Node.DOCUMENT_POSITION_FOLLOWING);
+    if(!chooser)errors.push(width+' compare panel should follow choose-manager section');
+   }
    if(state.body<80)errors.push(width+' '+route+' blank or very little content');
    const exposedNames=await page.evaluate(()=>{
     const text=document.body?.innerText||'';
