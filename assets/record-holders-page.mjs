@@ -45,28 +45,18 @@ function renderManagerFinder(){
  });
  const legacy=row.records.map(r=>({label:r.label,group:'Established records',value:toLabel(r),href:target(selected)}));
  const collection=collectionWinners.filter(r=>r.manager===selected).map(r=>({label:r.label,group:r.family,value:r.value+(r.year?' · '+r.year:''),href:'#'+r.anchor}));
-  if(selected==='Birch'&&fortuneRecord)collection.unshift({label:'Most favorable career schedule draw · Schedule Luck',group:'Career',value:'+'+fortuneRecord.winSurplus.toFixed(2)+' wins',href:'#schedule-luck-record'});
-  if(championshipTradeRecord&&selected===championshipTradeRecord.holder)collection.unshift({label:'Most championship-run starter points from one trade · 2020–2025',group:'Postseason',value:championshipTradeRecord.value.toFixed(2)+' points · '+championshipTradeRecord.year,href:'#championship-trade-record'});
-  if(tradeRevenge?.recordA?.holder===selected)collection.unshift({label:'Former players scoring against their original manager · 2020–2025',group:'Postseason',value:tradeRevenge.recordA.points.toFixed(2)+' points · 2024',href:'#playoff-trade-revenge-records'});
-  if(tradeRevenge?.recordB?.holder===selected)collection.unshift({label:'Former-player playoff points from one direct trade · 2020–2025',group:'Postseason',value:tradeRevenge.recordB.points.toFixed(2)+' points · 2023',href:'#playoff-trade-revenge-records'});
+  if(selected==='Birch'&&fortuneRecord)collection.push({label:'Most favorable career schedule draw · Schedule Luck',group:'Career',value:'+'+fortuneRecord.winSurplus.toFixed(2)+' wins',href:'#schedule-luck-record'});
+  if(championshipTradeRecord&&selected===championshipTradeRecord.holder)collection.push({label:'Most championship-run starter points from one trade · 2020–2025',group:'Postseason',value:championshipTradeRecord.value.toFixed(2)+' points · '+championshipTradeRecord.year,href:'#championship-trade-record'});
+  if(tradeRevenge?.recordA?.holder===selected)collection.push({label:'Former players scoring against their original manager · 2020–2025',group:'Postseason',value:tradeRevenge.recordA.points.toFixed(2)+' points · 2024',href:'#playoff-trade-revenge-records'});
+  if(tradeRevenge?.recordB?.holder===selected)collection.push({label:'Former-player playoff points from one direct trade · 2020–2025',group:'Postseason',value:tradeRevenge.recordB.points.toFixed(2)+' points · 2023',href:'#playoff-trade-revenge-records'});
  // A concept can appear in multiple historical catalogs; display a warning instead of adding counts.
- const sections=[['New historical collections',collection],['Expanded league records',expanded],['Established records',legacy]];
+ const sections=[['Expanded league records',expanded],['Established records',legacy],['Specialty historical collections',collection]];
  const count=collection.length+expanded.length+legacy.length;
  selectedLabel.textContent=selected+' · '+count+' first-place category entries';
  results.replaceChildren();
  const warning=tag('p','These are first-place category entries, not '+count+' necessarily distinct records. Overlapping concepts across collections are retained for transparency. Ties share first place. Ongoing 2026 season watchlists are excluded.','muted');
  results.append(warning);
  const luck=scheduleLuckRows.find(r=>displayName(r.manager)===selected);
- if(luck){
-  const metric=tag('section',undefined,'record-finder-section');
-  const title=tag('h3','Career Schedule Luck · Statistical profile (not record count)');
-  const signed=(x,d=2)=>(x>0?'+':'')+x.toFixed(d);
-  const value=tag('strong',signed(luck.winSurplus)+' wins above expectation');
-  const explanation=tag('p',luck.actualWinCredits+' actual win credits vs '+luck.expectedWins.toFixed(2)+' expected across '+luck.seasons+' completed seasons ('+luck.pairedWeeks+' paired weeks). Per-week differential: '+signed(luck.surplusPerWeek,4)+'.','muted');
-  const source=tag('a','Compare every manager →');source.href='#schedule-luck-leaderboard';
-  metric.append(title,value,explanation,source);
-  results.append(metric);
- }
  for(const [heading,items] of sections){
   const section=tag('section',undefined,'record-finder-section');
   const h=tag('h3',heading+' · '+items.length);section.append(h);
@@ -81,6 +71,16 @@ function renderManagerFinder(){
    section.append(grid);
   }
   results.append(section);
+ }
+ if(luck){
+  const metric=tag('details',undefined,'record-finder-section');
+  const title=tag('summary','Advanced metric · Career Schedule Luck');
+  const signed=(x,d=2)=>(x>0?'+':'')+x.toFixed(d);
+  const value=tag('strong',signed(luck.winSurplus)+' wins above expectation');
+  const explanation=tag('p',luck.actualWinCredits+' actual win credits vs '+luck.expectedWins.toFixed(2)+' expected across '+luck.seasons+' completed seasons ('+luck.pairedWeeks+' paired weeks). Per-week differential: '+signed(luck.surplusPerWeek,4)+'. This describes schedule fortune, not a championship or a league record.','muted');
+  const source=tag('a','Compare every manager →');source.href='#schedule-luck-leaderboard';
+  metric.append(title,value,explanation,source);
+  results.append(metric);
  }
  const more=tag('a','See '+selected+'’s full personal record book →','record-finder-more');
  more.href=target(selected);results.append(more);
