@@ -1,0 +1,158 @@
+{
+  "schema": "fellas-postseason-acquired-starter-case-files-v1",
+  "asOf": "2026-11-16",
+  "classification": "actual_final_pairings_and_starter_points_only_not_trade_caused_wins",
+  "sources": [
+    "Original Sleeper get_matchups 2021/2023/2025 Week15",
+    "Original Sleeper get_roster Week15 named manager rosters",
+    "Reconstructed 48-event historical trade ledger"
+  ],
+  "method": "Each case joins a completed historical trade's received-player IDs to a recorded Week15 starting roster and a final paired team matchup. Raw acquired-player points are presented against actual final matchup result; no no-trade lineup or substitution is assumed.",
+  "counts": {
+    "caseStudies": 4,
+    "verifiedWins": 2,
+    "verifiedLosses": 2
+  },
+  "limitations": [
+    "A Week15 final paired matchup is verified; specific playoff-bracket stage/status is not asserted without its bracket metadata.",
+    "Scoring by players acquired in a trade is not the incremental contribution caused by that trade. Results must not be reclassified as trade wins/losses.",
+    "Data only includes these four cases, not all 2020–25 completed trades, and excludes unfinished 2026 Week10.",
+    "An acquired asset appearing on an owner's starting roster does not establish that they would have used the same lineup without the original transaction.",
+    "Postseason 2021 Week17 and several other weeks have unpaired or unpublished matchup records; no result inferred for those."
+  ],
+  "cases": [
+    {
+      "transactionId": "1294402688213057536",
+      "season": 2025,
+      "week": 15,
+      "manager": "Stilly",
+      "managerRosterId": "1",
+      "opponent": "Kuhl",
+      "opponentRosterId": "9",
+      "finalScore": 122.12,
+      "opponentFinalScore": 122,
+      "result": "win",
+      "matchupMargin": 0.12,
+      "verifiedAcquiredStarters": [
+        {
+          "player": "Amon-Ra St. Brown",
+          "points": 35.9
+        },
+        {
+          "player": "Jared Goff",
+          "points": 25.52
+        }
+      ],
+      "totalAcquiredStarterPoints": 61.42,
+      "teamStarterContributionPct": 50.3,
+      "recordType": "postseason_paired_matchup_no_bracket_assumed",
+      "weekContext": "Week 15 of 2025; next week Stilly beat JMid 126.76–100.46",
+      "narrative": "Stilly won a verified 122.12–122.00 paired Week 15 matchup against Kuhl while acquired players St. Brown and Goff contributed 61.42 starting points. The result establishes actual participation, not a counterfactual win caused by the trade.",
+      "sources": [
+        "Sleeper 2025 week15 get_matchups",
+        "Sleeper 2025 week15 Stilly roster1 starters",
+        "2025 three-party transaction 1294402688213057536"
+      ]
+    },
+    {
+      "transactionId": "738428315181928448",
+      "season": 2021,
+      "week": 15,
+      "manager": "Birch",
+      "managerRosterId": "10",
+      "opponent": "roster 2",
+      "opponentRosterId": "2",
+      "finalScore": 96.28,
+      "opponentFinalScore": 109.02,
+      "result": "loss",
+      "matchupMargin": -12.74,
+      "verifiedAcquiredStarters": [
+        {
+          "player": "Mark Andrews",
+          "points": 31.6
+        },
+        {
+          "player": "Josh Jacobs",
+          "points": 10.9
+        }
+      ],
+      "totalAcquiredStarterPoints": 42.5,
+      "teamStarterContributionPct": 44.1,
+      "recordType": "postseason_paired_matchup_no_bracket_assumed",
+      "weekContext": "2021 Week 15; recorded loss despite two acquired starters totaling 42.50",
+      "narrative": "Birch's acquired Andrews and Jacobs started for 42.50 points, but the team lost the final recorded Week 15 pairing 96.28–109.02. This is a strong production case, not a trade-created win.",
+      "sources": [
+        "Sleeper 2021 week15 get_matchups",
+        "Sleeper 2021 week15 Birch roster10 starters",
+        "2021 trade 738428315181928448"
+      ]
+    },
+    {
+      "transactionId": "1018289561511682048",
+      "season": 2023,
+      "week": 15,
+      "manager": "Birch",
+      "managerRosterId": "10",
+      "opponent": "Stilly",
+      "opponentRosterId": "1",
+      "finalScore": 105.06,
+      "opponentFinalScore": 146.36,
+      "result": "loss",
+      "matchupMargin": -41.3,
+      "verifiedAcquiredStarters": [
+        {
+          "player": "CeeDee Lamb",
+          "points": 15.1
+        }
+      ],
+      "totalAcquiredStarterPoints": 15.1,
+      "teamStarterContributionPct": 14.4,
+      "recordType": "postseason_paired_matchup_no_bracket_assumed",
+      "weekContext": "Birch lost the 2023 Week15 paired matchup despite starting Lamb",
+      "narrative": "Birch started Lamb for 15.10 points in a Week 15 loss to Stilly, 105.06–146.36. Lamb later had 23.20 and 34.70 observed points in Weeks 16 and 17, but later bracket meaning has not been assigned.",
+      "sources": [
+        "Sleeper 2023 week15 get_matchups",
+        "Sleeper 2023 week15 Birch roster10 starters",
+        "2023 trade 1018289561511682048",
+        "data-integrity/trade-2021-2023-playoff-extension-v1.json"
+      ]
+    },
+    {
+      "transactionId": "1028057686711058432",
+      "season": 2023,
+      "week": 15,
+      "manager": "Thommy",
+      "managerRosterId": "3",
+      "opponent": "Stew",
+      "opponentRosterId": "4",
+      "finalScore": 128.42,
+      "opponentFinalScore": 72.14,
+      "result": "win",
+      "matchupMargin": 56.28,
+      "verifiedAcquiredStarters": [
+        {
+          "player": "Davante Adams",
+          "points": 20.1
+        },
+        {
+          "player": "Gus Edwards",
+          "points": 13.4
+        },
+        {
+          "player": "Tony Pollard",
+          "points": 6.7
+        }
+      ],
+      "totalAcquiredStarterPoints": 40.2,
+      "teamStarterContributionPct": 31.3,
+      "recordType": "postseason_paired_matchup_no_bracket_assumed",
+      "weekContext": "Two participants from the November 2023 three-manager trade met in Week 15",
+      "narrative": "Thommy beat Stew in their recorded Week 15 pairing, 128.42–72.14. Three players received by Thommy in the recovered nine-player, three-manager trade started and produced 40.20 points combined. The margin and players are verified, but the result is not a causal trade rating.",
+      "sources": [
+        "Sleeper 2023 week15 get_matchups",
+        "Sleeper 2023 week15 Thommy roster3 starters",
+        "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json"
+      ]
+    }
+  ]
+}
