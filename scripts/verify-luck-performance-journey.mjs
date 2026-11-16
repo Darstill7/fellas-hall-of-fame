@@ -31,8 +31,11 @@ if(!page.includes("managerChoice.addEventListener('change'")||!page.includes('sv
  throw Error('Selection controls cannot resolve overlapping points or short-tenure deep links');
 if(!page.includes('role:\'button\'')||!page.includes('aria-label')||!page.includes("addEventListener('keydown'"))
  throw Error('Interactive chart is not keyboard selectable');
-if(!profiles.includes('mountManagerLuckPerformance(profileName,profileHero)')||!component.includes('luck-vs-performance.html?manager='))
- throw Error('Manager profile navigation is disconnected');
+if(!profiles.includes('mountManagerLuckPerformance(profileName,profileHero,contents)')||
+ !profiles.includes("advanced.id='profile-advanced-analytics'")||
+ profiles.includes('mountManagerLuckPerformance(profileName,profileHero);')||
+ !component.includes('luck-vs-performance.html?manager='))
+ throw Error('Manager profile must expose Luck vs Performance inside optional advanced analytics, not the opening hero');
 if(!holders.includes('luck-vs-performance.html')||!records.includes('luck-vs-performance.html'))
  throw Error('Record Book entry points missing');
 console.log('LUCK vs PERFORMANCE JOURNEY VERIFIED: 14 managers, 10 current profiles, complete-season records, current Week '+data.currentThroughWeek+' provisional, chart controls and navigation.');
