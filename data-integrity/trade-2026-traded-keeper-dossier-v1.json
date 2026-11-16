@@ -1,0 +1,149 @@
+{
+  "schema": "fellas-2026-traded-keeper-ownership-dossier-v1",
+  "asOf": "2026-11-16",
+  "status": "keeper_draft_rounds_verified_current_season_only_no_2027_rounds_inferred",
+  "scope": "2026 two-keeper selections from archived Week1-8 research and completed 2026 Sleeper trades through Week10; Week10 player performance unfinished",
+  "keeperSource": "data/keeper_2026_website_research_v1.json",
+  "tradeSource": "data-integrity/trade-2026-current-receipts-week9-final-v1.json",
+  "counts": {
+    "keepersSelected": 20,
+    "keepersAppearingInTrades": 5,
+    "distinctCompletedTradesWithKeeperAsset": 4,
+    "keeperAssetTransfers": 7
+  },
+  "keepers": [
+    {
+      "manager": "Stew",
+      "player": "Emeka Egbuka",
+      "round": 6,
+      "position": "WR",
+      "originalManagerStarterPointsThroughWeek8": 0,
+      "originalManagerStartsThroughWeek8": 0,
+      "originalKeeperTransferredByWeek8": true,
+      "path": [
+        {
+          "tradeId": "1400522174271340544",
+          "date": "2026-09-01",
+          "week": 1,
+          "from": "Stew",
+          "to": "Scott",
+          "sourcePlayerId": "12514",
+          "completedTrade": true
+        }
+      ],
+      "moved": true
+    },
+    {
+      "manager": "Scott",
+      "player": "Ladd McConkey",
+      "round": 8,
+      "position": "WR",
+      "originalManagerStarterPointsThroughWeek8": 0,
+      "originalManagerStartsThroughWeek8": 0,
+      "originalKeeperTransferredByWeek8": true,
+      "path": [
+        {
+          "tradeId": "1400522174271340544",
+          "date": "2026-09-01",
+          "week": 1,
+          "from": "Scott",
+          "to": "Stew",
+          "sourcePlayerId": "11635",
+          "completedTrade": true
+        },
+        {
+          "tradeId": "1411009536306733056",
+          "date": "2026-09-30",
+          "week": 4,
+          "from": "Stew",
+          "to": "Kuhl",
+          "sourcePlayerId": "11635",
+          "completedTrade": true
+        }
+      ],
+      "moved": true
+    },
+    {
+      "manager": "Kuhl",
+      "player": "Nico Collins",
+      "round": 3,
+      "position": "WR",
+      "originalManagerStarterPointsThroughWeek8": 66.1,
+      "originalManagerStartsThroughWeek8": 5,
+      "originalKeeperTransferredByWeek8": false,
+      "path": [
+        {
+          "tradeId": "1427488044335788032",
+          "date": "2026-11-15",
+          "week": 10,
+          "from": "Kuhl",
+          "to": "Stew",
+          "sourcePlayerId": "7569",
+          "completedTrade": true
+        }
+      ],
+      "moved": true
+    },
+    {
+      "manager": "Kuhl",
+      "player": "Drake Maye",
+      "round": 14,
+      "position": "QB",
+      "originalManagerStarterPointsThroughWeek8": 20.6,
+      "originalManagerStartsThroughWeek8": 3,
+      "originalKeeperTransferredByWeek8": true,
+      "path": [
+        {
+          "tradeId": "1411009536306733056",
+          "date": "2026-09-30",
+          "week": 4,
+          "from": "Kuhl",
+          "to": "Stew",
+          "sourcePlayerId": "11564",
+          "completedTrade": true
+        },
+        {
+          "tradeId": "1427488044335788032",
+          "date": "2026-11-15",
+          "week": 10,
+          "from": "Stew",
+          "to": "Kuhl",
+          "sourcePlayerId": "11564",
+          "completedTrade": true
+        }
+      ],
+      "moved": true
+    },
+    {
+      "manager": "JMid",
+      "player": "Ja'Marr Chase",
+      "round": 1,
+      "position": "WR",
+      "originalManagerStarterPointsThroughWeek8": 49.7,
+      "originalManagerStartsThroughWeek8": 4,
+      "originalKeeperTransferredByWeek8": true,
+      "path": [
+        {
+          "tradeId": "1413584172332654592",
+          "date": "2026-10-07",
+          "week": 5,
+          "from": "JMid",
+          "to": "Stilly",
+          "sourcePlayerId": "7564",
+          "completedTrade": true
+        }
+      ],
+      "moved": true
+    }
+  ],
+  "certaintyRules": [
+    "Draft round is the original manager's verified 2026 keeper selection cost; it is not a 2027 eligible round or a 2027 keeper price.",
+    "Transferring during the same season does not retroactively change the original drafter's incurred 2026 round expense.",
+    "2026 Week10 trade is completed but player points and ensuing roster production still pending.",
+    "The original keeper source's transferredDuringSeason flag ends at Week8 and cannot be used to deny moves in Week9/10; Nico's Week10 transfer is a documented example.",
+    "A player moving multiple times is counted once in selections and once per completed outgoing trade leg; do not give every prior owner credit for future starts.",
+    "Additional FAAB, non-player rights, eligibility restrictions, and 2027 keeper conditions are not established by these source records."
+  ],
+  "verifiedRoundReference": "original 2026 keeper round, not a market value measure",
+  "navigation": "Trade Explorer case details; historical 2025 precursor Chase/Amon-Ra trade separately documented"
+}
