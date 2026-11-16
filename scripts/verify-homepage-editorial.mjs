@@ -19,7 +19,9 @@ assert.equal((html.match(/class="discovery-card adventure-/g)||[]).length,6,'Six
 assert(html.includes('What brings you to The Fellas?'),'Homepage must explain the first adventure decision');
 assert(html.includes('Choose your adventure'),'Homepage must include a clear hero launch action');
 assert.equal((html.match(/class="discovery-card adventure-/g)||[]).length,6,'All six adventure choices must have distinct categories');
-const directLinks=html.match(/class="home-franchise-links"[\\s\\S]*?<\\/div>/)?.[0]||'';
+const managerNavStart=html.indexOf('class="home-franchise-links"');
+const managerNavEnd=html.indexOf('</div>',managerNavStart);
+const directLinks=managerNavStart>=0&&managerNavEnd>managerNavStart?html.slice(managerNavStart,managerNavEnd):'';
 for(const slug of ['stilly','stew','tom','mitch','jmid','scott','stover','kuhl','tony','birch'])
  assert(directLinks.includes('href="managers/'+slug+'/"'),'Missing one-tap manager route: '+slug);
 assert(html.indexOf('id="explore-the-league"')<html.indexOf('id="home-now-heading"'),'First-time exploration must precede standings');
