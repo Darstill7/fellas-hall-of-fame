@@ -78,7 +78,7 @@ try{
  assert.match(await page.locator('#verdict').innerText(),/10–10/,'Verified Stew–Stilly series must remain tied at 10–10');
  assert.equal(await page.locator('#a').inputValue(),'Stew');
  assert.equal(await page.locator('#b').inputValue(),'Stilly');
- const count=Number((await page.locator('#total').innerText()).match(/\\d+/)?.[0]);
+ const count=Number((await page.locator('#total').innerText()).match(/\d+/)?.[0]);
  assert(count>0,'Verified rivalry has no meetings');
  await page.locator('#swap').click();
  assert.equal(await page.locator('#a').inputValue(),'Stilly');
