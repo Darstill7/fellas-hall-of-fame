@@ -1,0 +1,3881 @@
+{
+  "schema": "fellas-manager-trade-portfolios-v1",
+  "asOf": "2026-11-16",
+  "status": "draft_research_2020_2025_not_live_website",
+  "scope": "48 completed Sleeper transaction events 2020–2025; 2016–2019 ESPN and 2026 current season excluded",
+  "metrics": "Activity counts include all confirmed FAAB-only and multi-manager events. Raw acquired-player points only in strict posttrade to W14 windows. Legacy 44 raw receiver metrics plus separately measured recovered 2023 triple deal. FAAB-only has null player points. All trade skills and benefit grades intentionally null.",
+  "counts": {
+    "providerEvents": 48,
+    "playerBearing": 45,
+    "faabOnly": 3,
+    "managerEventInvolvements": 98,
+    "distinctManagers": 12,
+    "active2026ManagerPortfolios": 10,
+    "historicalOnlyManagerPortfolios": 2
+  },
+  "idScopedFaabCaveat": "Oct 25 2020 Stilly-Stew two $1 transfers opposite directions; exact ID-level pairing unknown, and per-manager net across pair is zero.",
+  "profiles": [
+    {
+      "manager": "Stew",
+      "status": "current_2026",
+      "aliases": [
+        "Dsylvester9"
+      ],
+      "header": {
+        "documentedTradeInvolvements": 23,
+        "playerReceivingTrades": 20,
+        "faabOnlyEvents": 2,
+        "byType": {
+          "player_for_player": 19,
+          "faab_only": 2,
+          "player_for_faab": 1,
+          "three_manager": 1
+        },
+        "bySeason": {
+          "2020": 5,
+          "2021": 2,
+          "2022": 2,
+          "2023": 6,
+          "2024": 3,
+          "2025": 5
+        },
+        "partnersByEncounterCount": [
+          {
+            "manager": "Stilly",
+            "count": 5
+          },
+          {
+            "manager": "Kuhl",
+            "count": 4
+          },
+          {
+            "manager": "Birch",
+            "count": 3
+          },
+          {
+            "manager": "Evans",
+            "count": 3
+          },
+          {
+            "manager": "Thommy",
+            "count": 3
+          },
+          {
+            "manager": "JMid",
+            "count": 2
+          },
+          {
+            "manager": "Stover",
+            "count": 2
+          },
+          {
+            "manager": "Mitch",
+            "count": 1
+          },
+          {
+            "manager": "Tony",
+            "count": 1
+          }
+        ],
+        "observedRegularSeasonReceivedStarterPoints": 1655.66,
+        "observedStarts": 126,
+        "measuredReceivingLegs": 20,
+        "positionMedianLegsMeasured": 19,
+        "positionMedianLegsWithheld": 4
+      },
+      "historicalTradeTimeline": [
+        {
+          "transactionId": "614849640176623616",
+          "season": 2020,
+          "week": 3,
+          "date": "2020-09-24",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Evans"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "A.J. Green"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 2.9,
+            "starts": 1,
+            "positionMedianSurplus": -7.5,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "625902992721264640",
+          "season": 2020,
+          "week": 7,
+          "date": "2020-10-25",
+          "exchangeType": "faab_only",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [],
+          "sentPlayers": null,
+          "faab": {
+            "received": null,
+            "sent": null,
+            "note": "Across both Oct 25 transactions Stilly and Stew each sent and received 1 FAAB; individual event direction unverified"
+          },
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": null,
+            "starts": null,
+            "positionMedianSurplus": null,
+            "complete": false,
+            "notes": "FAAB-only; player metrics null"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_completed_trade",
+            "user_screenshot_FAAB"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "625903284296683520",
+          "season": 2020,
+          "week": 7,
+          "date": "2020-10-25",
+          "exchangeType": "faab_only",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [],
+          "sentPlayers": null,
+          "faab": {
+            "received": null,
+            "sent": null,
+            "note": "Across both Oct 25 transactions Stilly and Stew each sent and received 1 FAAB; individual event direction unverified"
+          },
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": null,
+            "starts": null,
+            "positionMedianSurplus": null,
+            "complete": false,
+            "notes": "FAAB-only; player metrics null"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_completed_trade",
+            "user_screenshot_FAAB"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "629416763662086144",
+          "season": 2020,
+          "week": 8,
+          "date": "2020-11-03",
+          "exchangeType": "player_for_faab",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [],
+          "sentPlayers": null,
+          "faab": {
+            "received": 5,
+            "sent": null,
+            "note": "Only fields explicitly proved by prior screenshot receipts shown; no inference from blank fields"
+          },
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": null,
+            "starts": null,
+            "positionMedianSurplus": null,
+            "complete": false,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "629818920752209920",
+          "season": 2020,
+          "week": 9,
+          "date": "2020-11-04",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stover"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Michael Thomas"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 53.1,
+            "starts": 5,
+            "positionMedianSurplus": 1.95,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "746234454665732096",
+          "season": 2021,
+          "week": 2,
+          "date": "2021-09-22",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Kuhl"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Kenyan Drake",
+            "Saquon Barkley"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 89.7,
+            "starts": 7,
+            "positionMedianSurplus": 0.55,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "754024908207583232",
+          "season": 2021,
+          "week": 6,
+          "date": "2021-10-13",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Antonio Gibson"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 62.8,
+            "starts": 6,
+            "positionMedianSurplus": -6.9,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "880505837758652416",
+          "season": 2022,
+          "week": 3,
+          "date": "2022-09-27",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Evans"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Cordarrelle Patterson",
+            "Justin Jefferson"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 216.46,
+            "starts": 11,
+            "positionMedianSurplus": 98.91,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "896468742987522048",
+          "season": 2022,
+          "week": 10,
+          "date": "2022-11-10",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Birch"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Ja'Marr Chase"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 37.7,
+            "starts": 2,
+            "positionMedianSurplus": 13.9,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1012571602774532096",
+          "season": 2023,
+          "week": 3,
+          "date": "2023-09-27",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Kuhl"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "CeeDee Lamb",
+            "Travis Etienne Jr."
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 136.6,
+            "starts": 8,
+            "positionMedianSurplus": 46.4,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1018289561511682048",
+          "season": 2023,
+          "week": 6,
+          "date": "2023-10-12",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Birch"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Tony Pollard",
+            "Jaxon Smith-Njigba"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 47.9,
+            "starts": 7,
+            "positionMedianSurplus": -25.15,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1028057686711058432",
+          "season": 2023,
+          "week": 10,
+          "date": "2023-11-08",
+          "exchangeType": "three_manager",
+          "partners": [
+            "Stilly",
+            "Thommy"
+          ],
+          "otherManagerCount": 2,
+          "receivedPlayers": [
+            "Josh Jacobs",
+            "Amari Cooper",
+            "DeAndre Hopkins"
+          ],
+          "sentPlayers": [
+            "Tony Pollard",
+            "Davante Adams",
+            "Courtland Sutton"
+          ],
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 60.6,
+            "starts": 4,
+            "positionMedianSurplus": null,
+            "complete": true,
+            "notes": "2023 recovered Week10 three-manager deal: Weeks11-14 observed starters, cross-case positional baseline not computed"
+          },
+          "playoffStartedPoints": 16.8,
+          "evidence": [
+            "provider_receipt",
+            "2023_w9_w10_rosters",
+            "2023_starter_ledger"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1028065885325508608",
+          "season": 2023,
+          "week": 10,
+          "date": "2023-11-08",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Evans"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Jordan Addison"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 16.5,
+            "starts": 3,
+            "positionMedianSurplus": -14.35,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1031121022772555776",
+          "season": 2023,
+          "week": 11,
+          "date": "2023-11-17",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Mitch"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Gabe Davis"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 0,
+            "starts": 1,
+            "positionMedianSurplus": -9.8,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1031251467312775168",
+          "season": 2023,
+          "week": 11,
+          "date": "2023-11-17",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Tony"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Breece Hall"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 38.5,
+            "starts": 3,
+            "positionMedianSurplus": 1.4,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1140082401968836608",
+          "season": 2024,
+          "week": 2,
+          "date": "2024-09-12",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stover"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Malik Nabers"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 108.3,
+            "starts": 9,
+            "positionMedianSurplus": 18.6,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1141777905656143872",
+          "season": 2024,
+          "week": 2,
+          "date": "2024-09-17",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "JMid"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "James Cook III"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 139.9,
+            "starts": 11,
+            "positionMedianSurplus": -8.75,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1146946436173623296",
+          "season": 2024,
+          "week": 4,
+          "date": "2024-10-01",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Amari Cooper"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 38.8,
+            "starts": 6,
+            "positionMedianSurplus": -22.5,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1273856224776962053",
+          "season": 2025,
+          "week": 2,
+          "date": "2025-09-17",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Kuhl"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Derrick Henry"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 81.4,
+            "starts": 7,
+            "positionMedianSurplus": -3.1,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1274473433362604032",
+          "season": 2025,
+          "week": 3,
+          "date": "2025-09-21",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "JMid"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "TreVeyon Henderson"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 98,
+            "starts": 8,
+            "positionMedianSurplus": 6.7,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1276026193660899328",
+          "season": 2025,
+          "week": 3,
+          "date": "2025-09-23",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Jahmyr Gibbs",
+            "RJ Harvey"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 302.1,
+            "starts": 14,
+            "positionMedianSurplus": 134.5,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1276373761972527104",
+          "season": 2025,
+          "week": 3,
+          "date": "2025-09-24",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Birch"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Quentin Johnston"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 64.5,
+            "starts": 7,
+            "positionMedianSurplus": -11.3,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1294724519813988352",
+          "season": 2025,
+          "week": 11,
+          "date": "2025-11-13",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Kuhl"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Jake Ferguson",
+            "Jaylen Warren"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 59.9,
+            "starts": 6,
+            "positionMedianSurplus": -2.3,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        }
+      ],
+      "tradeChainHighlights": [
+        {
+          "season": 2022,
+          "player": "Cordarrelle Patterson",
+          "playerId": "1535",
+          "firstTradeWeek": 3,
+          "nextTradeWeek": 10,
+          "interveningStarts": 1,
+          "interveningStartedPoints": 9.8
+        },
+        {
+          "season": 2023,
+          "player": "CeeDee Lamb",
+          "playerId": "6786",
+          "firstTradeWeek": 3,
+          "nextTradeWeek": 6,
+          "interveningStarts": 2,
+          "interveningStartedPoints": 19.7
+        },
+        {
+          "season": 2023,
+          "player": "Travis Etienne Jr.",
+          "playerId": "7543",
+          "firstTradeWeek": 3,
+          "nextTradeWeek": 11,
+          "interveningStarts": 6,
+          "interveningStartedPoints": 116.9
+        },
+        {
+          "season": 2025,
+          "player": "Derrick Henry",
+          "playerId": "3198",
+          "firstTradeWeek": 2,
+          "nextTradeWeek": 11,
+          "interveningStarts": 7,
+          "interveningStartedPoints": 81.4
+        }
+      ],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    },
+    {
+      "manager": "Stilly",
+      "status": "current_2026",
+      "aliases": [
+        "Darstill",
+        "Harry Woody"
+      ],
+      "header": {
+        "documentedTradeInvolvements": 17,
+        "playerReceivingTrades": 14,
+        "faabOnlyEvents": 3,
+        "byType": {
+          "faab_only": 3,
+          "player_for_player": 10,
+          "player_for_faab": 2,
+          "three_manager": 2
+        },
+        "bySeason": {
+          "2020": 6,
+          "2021": 2,
+          "2022": 2,
+          "2023": 2,
+          "2024": 2,
+          "2025": 3
+        },
+        "partnersByEncounterCount": [
+          {
+            "manager": "Thommy",
+            "count": 6
+          },
+          {
+            "manager": "Stew",
+            "count": 5
+          },
+          {
+            "manager": "Tony",
+            "count": 4
+          },
+          {
+            "manager": "Mitch",
+            "count": 2
+          },
+          {
+            "manager": "JMid",
+            "count": 1
+          },
+          {
+            "manager": "Stover",
+            "count": 1
+          }
+        ],
+        "observedRegularSeasonReceivedStarterPoints": 1868,
+        "observedStarts": 135,
+        "measuredReceivingLegs": 14,
+        "positionMedianLegsMeasured": 13,
+        "positionMedianLegsWithheld": 4
+      },
+      "historicalTradeTimeline": [
+        {
+          "transactionId": "614536176472264704",
+          "season": 2020,
+          "week": 3,
+          "date": "2020-09-23",
+          "exchangeType": "faab_only",
+          "partners": [
+            "Tony"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [],
+          "sentPlayers": null,
+          "faab": {
+            "received": 1,
+            "sent": 0
+          },
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": null,
+            "starts": null,
+            "positionMedianSurplus": null,
+            "complete": false,
+            "notes": "FAAB-only; player metrics null"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_completed_trade",
+            "user_screenshot_FAAB"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "616864423201554432",
+          "season": 2020,
+          "week": 3,
+          "date": "2020-09-30",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "DeSean Jackson",
+            "Travis Kelce",
+            "Marquise Brown"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 241.56,
+            "starts": 17,
+            "positionMedianSurplus": 77.76,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "622492390107738112",
+          "season": 2020,
+          "week": 6,
+          "date": "2020-10-15",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Tony"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Lamar Jackson",
+            "J.K. Dobbins"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 188.42,
+            "starts": 11,
+            "positionMedianSurplus": 15.2,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "625902992721264640",
+          "season": 2020,
+          "week": 7,
+          "date": "2020-10-25",
+          "exchangeType": "faab_only",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [],
+          "sentPlayers": null,
+          "faab": {
+            "received": null,
+            "sent": null,
+            "note": "Across both Oct 25 transactions Stilly and Stew each sent and received 1 FAAB; individual event direction unverified"
+          },
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": null,
+            "starts": null,
+            "positionMedianSurplus": null,
+            "complete": false,
+            "notes": "FAAB-only; player metrics null"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_completed_trade",
+            "user_screenshot_FAAB"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "625903284296683520",
+          "season": 2020,
+          "week": 7,
+          "date": "2020-10-25",
+          "exchangeType": "faab_only",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [],
+          "sentPlayers": null,
+          "faab": {
+            "received": null,
+            "sent": null,
+            "note": "Across both Oct 25 transactions Stilly and Stew each sent and received 1 FAAB; individual event direction unverified"
+          },
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": null,
+            "starts": null,
+            "positionMedianSurplus": null,
+            "complete": false,
+            "notes": "FAAB-only; player metrics null"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_completed_trade",
+            "user_screenshot_FAAB"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "629416763662086144",
+          "season": 2020,
+          "week": 8,
+          "date": "2020-11-03",
+          "exchangeType": "player_for_faab",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "George Kittle"
+          ],
+          "sentPlayers": null,
+          "faab": {
+            "received": null,
+            "sent": null,
+            "note": "Only fields explicitly proved by prior screenshot receipts shown; no inference from blank fields"
+          },
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 0,
+            "starts": 0,
+            "positionMedianSurplus": 0,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "748585137259884544",
+          "season": 2021,
+          "week": 3,
+          "date": "2021-09-28",
+          "exchangeType": "player_for_faab",
+          "partners": [
+            "Mitch"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "AJ Dillon"
+          ],
+          "sentPlayers": null,
+          "faab": {
+            "received": null,
+            "sent": null,
+            "note": "Only fields explicitly proved by prior screenshot receipts shown; no inference from blank fields"
+          },
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 37.3,
+            "starts": 3,
+            "positionMedianSurplus": 5.9,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "754017147822415872",
+          "season": 2021,
+          "week": 6,
+          "date": "2021-10-13",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Tony"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Kareem Hunt"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 2.8,
+            "starts": 1,
+            "positionMedianSurplus": -6.9,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "875965138744864768",
+          "season": 2022,
+          "week": 2,
+          "date": "2022-09-15",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Mitch"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Jonathan Taylor"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 99.3,
+            "starts": 8,
+            "positionMedianSurplus": 4.7,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "886267215865982976",
+          "season": 2022,
+          "week": 6,
+          "date": "2022-10-13",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Keenan Allen",
+            "Tee Higgins",
+            "Najee Harris"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 219.46,
+            "starts": 18,
+            "positionMedianSurplus": 18.76,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1023059879336013824",
+          "season": 2023,
+          "week": 8,
+          "date": "2023-10-26",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Tony"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Mike Evans",
+            "Derrick Henry"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 187.1,
+            "starts": 12,
+            "positionMedianSurplus": 54.55,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1028057686711058432",
+          "season": 2023,
+          "week": 10,
+          "date": "2023-11-08",
+          "exchangeType": "three_manager",
+          "partners": [
+            "Thommy",
+            "Stew"
+          ],
+          "otherManagerCount": 2,
+          "receivedPlayers": [
+            "David Montgomery",
+            "Courtland Sutton",
+            "Jaylen Waddle"
+          ],
+          "sentPlayers": [
+            "Josh Jacobs",
+            "DeAndre Hopkins",
+            "Gus Edwards"
+          ],
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 95.4,
+            "starts": 8,
+            "positionMedianSurplus": null,
+            "complete": true,
+            "notes": "2023 recovered Week10 three-manager deal: Weeks11-14 observed starters, cross-case positional baseline not computed"
+          },
+          "playoffStartedPoints": 67.5,
+          "evidence": [
+            "provider_receipt",
+            "2023_w9_w10_rosters",
+            "2023_starter_ledger"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1144362000575840256",
+          "season": 2024,
+          "week": 3,
+          "date": "2024-09-24",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Terry McLaurin",
+            "De'Von Achane",
+            "Tank Dell"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 371.2,
+            "starts": 29,
+            "positionMedianSurplus": 41.9,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1146947320588861440",
+          "season": 2024,
+          "week": 4,
+          "date": "2024-10-02",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Chase Brown"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 106.1,
+            "starts": 7,
+            "positionMedianSurplus": 8.5,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1276026193660899328",
+          "season": 2025,
+          "week": 3,
+          "date": "2025-09-23",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Ja'Marr Chase",
+            "Chase Brown"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 227.8,
+            "starts": 14,
+            "positionMedianSurplus": 63.25,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1294402688213057536",
+          "season": 2025,
+          "week": 11,
+          "date": "2025-11-12",
+          "exchangeType": "three_manager",
+          "partners": [
+            "JMid",
+            "Thommy"
+          ],
+          "otherManagerCount": 2,
+          "receivedPlayers": [
+            "Amon-Ra St. Brown",
+            "Jordan Addison",
+            "Jared Goff"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 91.56,
+            "starts": 7,
+            "positionMedianSurplus": -2.93,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1294424036499025920",
+          "season": 2025,
+          "week": 11,
+          "date": "2025-11-12",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stover"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Brian Thomas Jr."
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 0,
+            "starts": 0,
+            "positionMedianSurplus": 0,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        }
+      ],
+      "tradeChainHighlights": [
+        {
+          "season": 2025,
+          "player": "Ja'Marr Chase",
+          "playerId": "7564",
+          "firstTradeWeek": 3,
+          "nextTradeWeek": 11,
+          "interveningStarts": 6,
+          "interveningStartedPoints": 111.2
+        }
+      ],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    },
+    {
+      "manager": "Thommy",
+      "status": "current_2026",
+      "aliases": [
+        "thommy",
+        "Zach"
+      ],
+      "header": {
+        "documentedTradeInvolvements": 14,
+        "playerReceivingTrades": 14,
+        "faabOnlyEvents": 0,
+        "byType": {
+          "player_for_player": 12,
+          "three_manager": 2
+        },
+        "bySeason": {
+          "2020": 1,
+          "2021": 3,
+          "2022": 2,
+          "2023": 1,
+          "2024": 5,
+          "2025": 2
+        },
+        "partnersByEncounterCount": [
+          {
+            "manager": "Stilly",
+            "count": 6
+          },
+          {
+            "manager": "Stew",
+            "count": 3
+          },
+          {
+            "manager": "Tony",
+            "count": 3
+          },
+          {
+            "manager": "Birch",
+            "count": 1
+          },
+          {
+            "manager": "JMid",
+            "count": 1
+          },
+          {
+            "manager": "Kuhl",
+            "count": 1
+          },
+          {
+            "manager": "Stover",
+            "count": 1
+          }
+        ],
+        "observedRegularSeasonReceivedStarterPoints": 1840.3,
+        "observedStarts": 141,
+        "measuredReceivingLegs": 14,
+        "positionMedianLegsMeasured": 13,
+        "positionMedianLegsWithheld": 1
+      },
+      "historicalTradeTimeline": [
+        {
+          "transactionId": "616864423201554432",
+          "season": 2020,
+          "week": 3,
+          "date": "2020-09-30",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Allen Robinson II",
+            "Tyler Higbee",
+            "D'Andre Swift"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 213.6,
+            "starts": 17,
+            "positionMedianSurplus": 39.25,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "737360507476066304",
+          "season": 2021,
+          "week": 1,
+          "date": "2021-08-30",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Tony"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Tyreek Hill",
+            "Josh Jacobs",
+            "Javonte Williams"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 283.3,
+            "starts": 20,
+            "positionMedianSurplus": 59.55,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "738428315181928448",
+          "season": 2021,
+          "week": 1,
+          "date": "2021-08-31",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Birch"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Dak Prescott",
+            "Noah Fant",
+            "Antonio Gibson"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 323.72,
+            "starts": 24,
+            "positionMedianSurplus": -12.39,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "754024908207583232",
+          "season": 2021,
+          "week": 6,
+          "date": "2021-10-13",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Amari Cooper"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 52.7,
+            "starts": 5,
+            "positionMedianSurplus": 3.7,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "881580705233195008",
+          "season": 2022,
+          "week": 4,
+          "date": "2022-09-30",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Tony"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Leonard Fournette"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 85.7,
+            "starts": 6,
+            "positionMedianSurplus": 8.9,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "886267215865982976",
+          "season": 2022,
+          "week": 6,
+          "date": "2022-10-13",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "DK Metcalf",
+            "CeeDee Lamb",
+            "DeVonta Smith"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 241,
+            "starts": 19,
+            "positionMedianSurplus": 38.15,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1028057686711058432",
+          "season": 2023,
+          "week": 10,
+          "date": "2023-11-08",
+          "exchangeType": "three_manager",
+          "partners": [
+            "Stilly",
+            "Stew"
+          ],
+          "otherManagerCount": 2,
+          "receivedPlayers": [
+            "Tony Pollard",
+            "Davante Adams",
+            "Gus Edwards"
+          ],
+          "sentPlayers": [
+            "Jaylen Waddle",
+            "Amari Cooper",
+            "David Montgomery"
+          ],
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 106.2,
+            "starts": 9,
+            "positionMedianSurplus": null,
+            "complete": true,
+            "notes": "2023 recovered Week10 three-manager deal: Weeks11-14 observed starters, cross-case positional baseline not computed"
+          },
+          "playoffStartedPoints": 106.7,
+          "evidence": [
+            "provider_receipt",
+            "2023_w9_w10_rosters",
+            "2023_starter_ledger"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1139340571111256064",
+          "season": 2024,
+          "week": 1,
+          "date": "2024-09-10",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Kuhl"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Tank Dell"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 10.5,
+            "starts": 2,
+            "positionMedianSurplus": -10.9,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1144362000575840256",
+          "season": 2024,
+          "week": 3,
+          "date": "2024-09-24",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Christian McCaffrey",
+            "Diontae Johnson",
+            "Tee Higgins"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 187.7,
+            "starts": 15,
+            "positionMedianSurplus": 24.3,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1146946436173623296",
+          "season": 2024,
+          "week": 4,
+          "date": "2024-10-01",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Mark Andrews",
+            "Rico Dowdle"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 21.6,
+            "starts": 2,
+            "positionMedianSurplus": 0.85,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1146947320588861440",
+          "season": 2024,
+          "week": 4,
+          "date": "2024-10-02",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Jordan Love"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 131.58,
+            "starts": 8,
+            "positionMedianSurplus": -21.13,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1152708228883660800",
+          "season": 2024,
+          "week": 7,
+          "date": "2024-10-17",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Tony"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Travis Kelce",
+            "Brandon Aiyuk"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 78.7,
+            "starts": 7,
+            "positionMedianSurplus": 16.75,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1276326233327570944",
+          "season": 2025,
+          "week": 3,
+          "date": "2025-09-24",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stover"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Jordan Addison"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 39.8,
+            "starts": 4,
+            "positionMedianSurplus": -4,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1294402688213057536",
+          "season": 2025,
+          "week": 11,
+          "date": "2025-11-12",
+          "exchangeType": "three_manager",
+          "partners": [
+            "Stilly",
+            "JMid"
+          ],
+          "otherManagerCount": 2,
+          "receivedPlayers": [
+            "A.J. Brown"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 64.2,
+            "starts": 3,
+            "positionMedianSurplus": 33.5,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        }
+      ],
+      "tradeChainHighlights": [
+        {
+          "season": 2021,
+          "player": "Josh Jacobs",
+          "playerId": "5850",
+          "firstTradeWeek": 1,
+          "nextTradeWeek": 1,
+          "interveningStarts": 0,
+          "interveningStartedPoints": 0
+        },
+        {
+          "season": 2021,
+          "player": "Antonio Gibson",
+          "playerId": "6945",
+          "firstTradeWeek": 1,
+          "nextTradeWeek": 6,
+          "interveningStarts": 4,
+          "interveningStartedPoints": 60.9
+        },
+        {
+          "season": 2024,
+          "player": "Tank Dell",
+          "playerId": "9502",
+          "firstTradeWeek": 1,
+          "nextTradeWeek": 3,
+          "interveningStarts": 1,
+          "interveningStartedPoints": 1.8
+        },
+        {
+          "season": 2024,
+          "player": "Rico Dowdle",
+          "playerId": "7021",
+          "firstTradeWeek": 4,
+          "nextTradeWeek": 7,
+          "interveningStarts": 0,
+          "interveningStartedPoints": 0
+        },
+        {
+          "season": 2025,
+          "player": "Jordan Addison",
+          "playerId": "9756",
+          "firstTradeWeek": 3,
+          "nextTradeWeek": 11,
+          "interveningStarts": 4,
+          "interveningStartedPoints": 39.8
+        }
+      ],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    },
+    {
+      "manager": "Tony",
+      "status": "current_2026",
+      "aliases": [
+        "tsteg (2020)"
+      ],
+      "header": {
+        "documentedTradeInvolvements": 11,
+        "playerReceivingTrades": 10,
+        "faabOnlyEvents": 1,
+        "byType": {
+          "faab_only": 1,
+          "player_for_player": 10
+        },
+        "bySeason": {
+          "2020": 2,
+          "2021": 4,
+          "2022": 2,
+          "2023": 2,
+          "2024": 1
+        },
+        "partnersByEncounterCount": [
+          {
+            "manager": "Stilly",
+            "count": 4
+          },
+          {
+            "manager": "Thommy",
+            "count": 3
+          },
+          {
+            "manager": "Evans",
+            "count": 1
+          },
+          {
+            "manager": "Koble",
+            "count": 1
+          },
+          {
+            "manager": "Kuhl",
+            "count": 1
+          },
+          {
+            "manager": "Stew",
+            "count": 1
+          }
+        ],
+        "observedRegularSeasonReceivedStarterPoints": 1219.86,
+        "observedStarts": 82,
+        "measuredReceivingLegs": 10,
+        "positionMedianLegsMeasured": 10,
+        "positionMedianLegsWithheld": 1
+      },
+      "historicalTradeTimeline": [
+        {
+          "transactionId": "614536176472264704",
+          "season": 2020,
+          "week": 3,
+          "date": "2020-09-23",
+          "exchangeType": "faab_only",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [],
+          "sentPlayers": null,
+          "faab": {
+            "received": 0,
+            "sent": 1
+          },
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": null,
+            "starts": null,
+            "positionMedianSurplus": null,
+            "complete": false,
+            "notes": "FAAB-only; player metrics null"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_completed_trade",
+            "user_screenshot_FAAB"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "622492390107738112",
+          "season": 2020,
+          "week": 6,
+          "date": "2020-10-15",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Kyler Murray"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 163.96,
+            "starts": 7,
+            "positionMedianSurplus": 30.61,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "737360507476066304",
+          "season": 2021,
+          "week": 1,
+          "date": "2021-08-30",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Corey Davis",
+            "A.J. Brown",
+            "Jonathan Taylor"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 378.7,
+            "starts": 23,
+            "positionMedianSurplus": 102.4,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "751165345997402112",
+          "season": 2021,
+          "week": 4,
+          "date": "2021-10-05",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Koble"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Joe Mixon"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 157.1,
+            "starts": 8,
+            "positionMedianSurplus": 61,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "754017147822415872",
+          "season": 2021,
+          "week": 6,
+          "date": "2021-10-13",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "CeeDee Lamb"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 72.8,
+            "starts": 6,
+            "positionMedianSurplus": 11.3,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "759191673220775936",
+          "season": 2021,
+          "week": 8,
+          "date": "2021-10-27",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Kuhl"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Kyle Pitts Sr."
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 39.1,
+            "starts": 6,
+            "positionMedianSurplus": -3.6,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "881580705233195008",
+          "season": 2022,
+          "week": 4,
+          "date": "2022-09-30",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Alvin Kamara"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 21.4,
+            "starts": 1,
+            "positionMedianSurplus": 5.1,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "885980047650119680",
+          "season": 2022,
+          "week": 6,
+          "date": "2022-10-12",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Evans"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "A.J. Brown",
+            "James Robinson"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 113.7,
+            "starts": 8,
+            "positionMedianSurplus": 24.05,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1023059879336013824",
+          "season": 2023,
+          "week": 8,
+          "date": "2023-10-26",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Cooper Kupp"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 45.1,
+            "starts": 5,
+            "positionMedianSurplus": -7.25,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1031251467312775168",
+          "season": 2023,
+          "week": 11,
+          "date": "2023-11-17",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Amari Cooper",
+            "Travis Etienne Jr."
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 49.2,
+            "starts": 5,
+            "positionMedianSurplus": -13.5,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1152708228883660800",
+          "season": 2024,
+          "week": 7,
+          "date": "2024-10-17",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Cooper Kupp",
+            "Kareem Hunt",
+            "Rico Dowdle"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 178.8,
+            "starts": 13,
+            "positionMedianSurplus": 27.35,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        }
+      ],
+      "tradeChainHighlights": [
+        {
+          "season": 2022,
+          "player": "Alvin Kamara",
+          "playerId": "4035",
+          "firstTradeWeek": 4,
+          "nextTradeWeek": 6,
+          "interveningStarts": 1,
+          "interveningStartedPoints": 21.4
+        }
+      ],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    },
+    {
+      "manager": "Kuhl",
+      "status": "current_2026",
+      "aliases": [],
+      "header": {
+        "documentedTradeInvolvements": 10,
+        "playerReceivingTrades": 10,
+        "faabOnlyEvents": 0,
+        "byType": {
+          "player_for_player": 10
+        },
+        "bySeason": {
+          "2021": 4,
+          "2023": 2,
+          "2024": 2,
+          "2025": 2
+        },
+        "partnersByEncounterCount": [
+          {
+            "manager": "Stew",
+            "count": 4
+          },
+          {
+            "manager": "Evans",
+            "count": 2
+          },
+          {
+            "manager": "Mitch",
+            "count": 1
+          },
+          {
+            "manager": "Stover",
+            "count": 1
+          },
+          {
+            "manager": "Thommy",
+            "count": 1
+          },
+          {
+            "manager": "Tony",
+            "count": 1
+          }
+        ],
+        "observedRegularSeasonReceivedStarterPoints": 989.38,
+        "observedStarts": 75,
+        "measuredReceivingLegs": 10,
+        "positionMedianLegsMeasured": 10,
+        "positionMedianLegsWithheld": 0
+      },
+      "historicalTradeTimeline": [
+        {
+          "transactionId": "746234454665732096",
+          "season": 2021,
+          "week": 2,
+          "date": "2021-09-22",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Nyheim Miller-Hines",
+            "Clyde Edwards-Helaire",
+            "Ty'Son Williams"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 66.8,
+            "starts": 6,
+            "positionMedianSurplus": -15.85,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "748312121284149248",
+          "season": 2021,
+          "week": 3,
+          "date": "2021-09-27",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Evans"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Leonard Fournette",
+            "Patrick Mahomes",
+            "Brandon Aiyuk"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 180.48,
+            "starts": 11,
+            "positionMedianSurplus": -18.33,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "751504917667168256",
+          "season": 2021,
+          "week": 5,
+          "date": "2021-10-07",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stover"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "DeVonta Smith"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 46.1,
+            "starts": 6,
+            "positionMedianSurplus": -18.76,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "759191673220775936",
+          "season": 2021,
+          "week": 8,
+          "date": "2021-10-27",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Tony"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Jarvis Landry",
+            "George Kittle"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 103,
+            "starts": 6,
+            "positionMedianSurplus": 56.4,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1012571602774532096",
+          "season": 2023,
+          "week": 3,
+          "date": "2023-09-27",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "James Conner",
+            "De'Von Achane",
+            "Puka Nacua"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 268.1,
+            "starts": 21,
+            "positionMedianSurplus": 39.45,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1038099277249245184",
+          "season": 2023,
+          "week": 14,
+          "date": "2023-12-06",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Evans"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Tyler Lockett"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 0,
+            "starts": 0,
+            "positionMedianSurplus": 0,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1139340571111256064",
+          "season": 2024,
+          "week": 1,
+          "date": "2024-09-10",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "J.K. Dobbins"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 93.8,
+            "starts": 8,
+            "positionMedianSurplus": -12.05,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1159892809005076480",
+          "season": 2024,
+          "week": 10,
+          "date": "2024-11-09",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Mitch"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Nick Chubb"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 39.8,
+            "starts": 4,
+            "positionMedianSurplus": -12.7,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1273856224776962053",
+          "season": 2025,
+          "week": 2,
+          "date": "2025-09-17",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Nico Collins"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 140.9,
+            "starts": 10,
+            "positionMedianSurplus": 36.2,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1294724519813988352",
+          "season": 2025,
+          "week": 11,
+          "date": "2025-11-13",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Zach Ertz",
+            "Derrick Henry"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 50.4,
+            "starts": 3,
+            "positionMedianSurplus": 11.2,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        }
+      ],
+      "tradeChainHighlights": [
+        {
+          "season": 2021,
+          "player": "Leonard Fournette",
+          "playerId": "3969",
+          "firstTradeWeek": 3,
+          "nextTradeWeek": 5,
+          "interveningStarts": 0,
+          "interveningStartedPoints": 0
+        }
+      ],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    },
+    {
+      "manager": "Evans",
+      "status": "historical_member",
+      "aliases": [],
+      "header": {
+        "documentedTradeInvolvements": 6,
+        "playerReceivingTrades": 6,
+        "faabOnlyEvents": 0,
+        "byType": {
+          "player_for_player": 6
+        },
+        "bySeason": {
+          "2020": 1,
+          "2021": 1,
+          "2022": 2,
+          "2023": 2
+        },
+        "partnersByEncounterCount": [
+          {
+            "manager": "Stew",
+            "count": 3
+          },
+          {
+            "manager": "Kuhl",
+            "count": 2
+          },
+          {
+            "manager": "Tony",
+            "count": 1
+          }
+        ],
+        "observedRegularSeasonReceivedStarterPoints": 806.3,
+        "observedStarts": 57,
+        "measuredReceivingLegs": 6,
+        "positionMedianLegsMeasured": 6,
+        "positionMedianLegsWithheld": 0
+      },
+      "historicalTradeTimeline": [
+        {
+          "transactionId": "614849640176623616",
+          "season": 2020,
+          "week": 3,
+          "date": "2020-09-24",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Ronald Jones"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 82.4,
+            "starts": 6,
+            "positionMedianSurplus": 14.85,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "748312121284149248",
+          "season": 2021,
+          "week": 3,
+          "date": "2021-09-27",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Kuhl"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Aaron Rodgers",
+            "Keenan Allen"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 325.4,
+            "starts": 18,
+            "positionMedianSurplus": 60.12,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "880505837758652416",
+          "season": 2022,
+          "week": 3,
+          "date": "2022-09-27",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Mike Williams",
+            "James Conner",
+            "James Robinson"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 184.4,
+            "starts": 15,
+            "positionMedianSurplus": 15.45,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "885980047650119680",
+          "season": 2022,
+          "week": 6,
+          "date": "2022-10-12",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Tony"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Alvin Kamara",
+            "Gabe Davis"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 140.9,
+            "starts": 14,
+            "positionMedianSurplus": -16.65,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1028065885325508608",
+          "season": 2023,
+          "week": 10,
+          "date": "2023-11-08",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Joe Mixon"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 73.2,
+            "starts": 4,
+            "positionMedianSurplus": 26.3,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1038099277249245184",
+          "season": 2023,
+          "week": 14,
+          "date": "2023-12-06",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Kuhl"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Ja'Marr Chase"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 0,
+            "starts": 0,
+            "positionMedianSurplus": 0,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        }
+      ],
+      "tradeChainHighlights": [
+        {
+          "season": 2022,
+          "player": "James Robinson",
+          "playerId": "6955",
+          "firstTradeWeek": 3,
+          "nextTradeWeek": 6,
+          "interveningStarts": 2,
+          "interveningStartedPoints": 6.8
+        }
+      ],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    },
+    {
+      "manager": "Stover",
+      "status": "current_2026",
+      "aliases": [
+        "Gurt"
+      ],
+      "header": {
+        "documentedTradeInvolvements": 5,
+        "playerReceivingTrades": 5,
+        "faabOnlyEvents": 0,
+        "byType": {
+          "player_for_player": 5
+        },
+        "bySeason": {
+          "2020": 1,
+          "2021": 1,
+          "2024": 1,
+          "2025": 2
+        },
+        "partnersByEncounterCount": [
+          {
+            "manager": "Stew",
+            "count": 2
+          },
+          {
+            "manager": "Kuhl",
+            "count": 1
+          },
+          {
+            "manager": "Stilly",
+            "count": 1
+          },
+          {
+            "manager": "Thommy",
+            "count": 1
+          }
+        ],
+        "observedRegularSeasonReceivedStarterPoints": 317.1,
+        "observedStarts": 25,
+        "measuredReceivingLegs": 5,
+        "positionMedianLegsMeasured": 5,
+        "positionMedianLegsWithheld": 0
+      },
+      "historicalTradeTimeline": [
+        {
+          "transactionId": "629818920752209920",
+          "season": 2020,
+          "week": 9,
+          "date": "2020-11-04",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "D.J. Moore",
+            "Clyde Edwards-Helaire"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 81.2,
+            "starts": 7,
+            "positionMedianSurplus": 5.05,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "751504917667168256",
+          "season": 2021,
+          "week": 5,
+          "date": "2021-10-07",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Kuhl"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Leonard Fournette"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 154.6,
+            "starts": 8,
+            "positionMedianSurplus": 56.4,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1140082401968836608",
+          "season": 2024,
+          "week": 2,
+          "date": "2024-09-12",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Davante Adams"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 74.2,
+            "starts": 7,
+            "positionMedianSurplus": 5.7,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1276326233327570944",
+          "season": 2025,
+          "week": 3,
+          "date": "2025-09-24",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Mike Evans"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 0,
+            "starts": 1,
+            "positionMedianSurplus": -11.2,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1294424036499025920",
+          "season": 2025,
+          "week": 11,
+          "date": "2025-11-12",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Stefon Diggs"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 7.1,
+            "starts": 2,
+            "positionMedianSurplus": -13.75,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        }
+      ],
+      "tradeChainHighlights": [],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    },
+    {
+      "manager": "Birch",
+      "status": "current_2026",
+      "aliases": [],
+      "header": {
+        "documentedTradeInvolvements": 4,
+        "playerReceivingTrades": 4,
+        "faabOnlyEvents": 0,
+        "byType": {
+          "player_for_player": 4
+        },
+        "bySeason": {
+          "2021": 1,
+          "2022": 1,
+          "2023": 1,
+          "2025": 1
+        },
+        "partnersByEncounterCount": [
+          {
+            "manager": "Stew",
+            "count": 3
+          },
+          {
+            "manager": "Thommy",
+            "count": 1
+          }
+        ],
+        "observedRegularSeasonReceivedStarterPoints": 697.88,
+        "observedStarts": 45,
+        "measuredReceivingLegs": 4,
+        "positionMedianLegsMeasured": 4,
+        "positionMedianLegsWithheld": 0
+      },
+      "historicalTradeTimeline": [
+        {
+          "transactionId": "738428315181928448",
+          "season": 2021,
+          "week": 1,
+          "date": "2021-08-31",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Thommy"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Lamar Jackson",
+            "Mark Andrews",
+            "Josh Jacobs"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 501.68,
+            "starts": 32,
+            "positionMedianSurplus": 77.62,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "896468742987522048",
+          "season": 2022,
+          "week": 10,
+          "date": "2022-11-10",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Cordarrelle Patterson",
+            "Jeff Wilson",
+            "Chase Claypool"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 33.1,
+            "starts": 6,
+            "positionMedianSurplus": -32.7,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1018289561511682048",
+          "season": 2023,
+          "week": 6,
+          "date": "2023-10-12",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "CeeDee Lamb",
+            "Kenny Gainwell"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 163.1,
+            "starts": 7,
+            "positionMedianSurplus": 86.9,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1276373761972527104",
+          "season": 2025,
+          "week": 3,
+          "date": "2025-09-24",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Bhayshul Tuten"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 0,
+            "starts": 0,
+            "positionMedianSurplus": 0,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        }
+      ],
+      "tradeChainHighlights": [],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    },
+    {
+      "manager": "Mitch",
+      "status": "current_2026",
+      "aliases": [],
+      "header": {
+        "documentedTradeInvolvements": 4,
+        "playerReceivingTrades": 3,
+        "faabOnlyEvents": 0,
+        "byType": {
+          "player_for_faab": 1,
+          "player_for_player": 3
+        },
+        "bySeason": {
+          "2021": 1,
+          "2022": 1,
+          "2023": 1,
+          "2024": 1
+        },
+        "partnersByEncounterCount": [
+          {
+            "manager": "Stilly",
+            "count": 2
+          },
+          {
+            "manager": "Kuhl",
+            "count": 1
+          },
+          {
+            "manager": "Stew",
+            "count": 1
+          }
+        ],
+        "observedRegularSeasonReceivedStarterPoints": 270.2,
+        "observedStarts": 21,
+        "measuredReceivingLegs": 3,
+        "positionMedianLegsMeasured": 3,
+        "positionMedianLegsWithheld": 1
+      },
+      "historicalTradeTimeline": [
+        {
+          "transactionId": "748585137259884544",
+          "season": 2021,
+          "week": 3,
+          "date": "2021-09-28",
+          "exchangeType": "player_for_faab",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [],
+          "sentPlayers": null,
+          "faab": {
+            "received": 5,
+            "sent": null,
+            "note": "Only fields explicitly proved by prior screenshot receipts shown; no inference from blank fields"
+          },
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": null,
+            "starts": null,
+            "positionMedianSurplus": null,
+            "complete": false,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "875965138744864768",
+          "season": 2022,
+          "week": 2,
+          "date": "2022-09-15",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stilly"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Adam Thielen",
+            "Saquon Barkley"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 239,
+            "starts": 18,
+            "positionMedianSurplus": 34.25,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1031121022772555776",
+          "season": 2023,
+          "week": 11,
+          "date": "2023-11-17",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Justin Jefferson",
+            "Josh Jacobs"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 31.2,
+            "starts": 3,
+            "positionMedianSurplus": -3.9,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1159892809005076480",
+          "season": 2024,
+          "week": 10,
+          "date": "2024-11-09",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Kuhl"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Raheem Mostert"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 0,
+            "starts": 0,
+            "positionMedianSurplus": 0,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        }
+      ],
+      "tradeChainHighlights": [],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    },
+    {
+      "manager": "JMid",
+      "status": "current_2026",
+      "aliases": [],
+      "header": {
+        "documentedTradeInvolvements": 3,
+        "playerReceivingTrades": 3,
+        "faabOnlyEvents": 0,
+        "byType": {
+          "player_for_player": 2,
+          "three_manager": 1
+        },
+        "bySeason": {
+          "2024": 1,
+          "2025": 2
+        },
+        "partnersByEncounterCount": [
+          {
+            "manager": "Stew",
+            "count": 2
+          },
+          {
+            "manager": "Stilly",
+            "count": 1
+          },
+          {
+            "manager": "Thommy",
+            "count": 1
+          }
+        ],
+        "observedRegularSeasonReceivedStarterPoints": 238.6,
+        "observedStarts": 17,
+        "measuredReceivingLegs": 3,
+        "positionMedianLegsMeasured": 3,
+        "positionMedianLegsWithheld": 0
+      },
+      "historicalTradeTimeline": [
+        {
+          "transactionId": "1141777905656143872",
+          "season": 2024,
+          "week": 2,
+          "date": "2024-09-17",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Calvin Ridley",
+            "Kyren Williams"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 180.7,
+            "starts": 11,
+            "positionMedianSurplus": 32.65,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1274473433362604032",
+          "season": 2025,
+          "week": 3,
+          "date": "2025-09-21",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Stew"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Aaron Jones Sr.",
+            "Zach Charbonnet"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 34.7,
+            "starts": 4,
+            "positionMedianSurplus": -14.1,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        },
+        {
+          "transactionId": "1294402688213057536",
+          "season": 2025,
+          "week": 11,
+          "date": "2025-11-12",
+          "exchangeType": "three_manager",
+          "partners": [
+            "Stilly",
+            "Thommy"
+          ],
+          "otherManagerCount": 2,
+          "receivedPlayers": [
+            "Ja'Marr Chase"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 23.2,
+            "starts": 2,
+            "positionMedianSurplus": 3.35,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        }
+      ],
+      "tradeChainHighlights": [],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    },
+    {
+      "manager": "Koble",
+      "status": "historical_member",
+      "aliases": [],
+      "header": {
+        "documentedTradeInvolvements": 1,
+        "playerReceivingTrades": 1,
+        "faabOnlyEvents": 0,
+        "byType": {
+          "player_for_player": 1
+        },
+        "bySeason": {
+          "2021": 1
+        },
+        "partnersByEncounterCount": [
+          {
+            "manager": "Tony",
+            "count": 1
+          }
+        ],
+        "observedRegularSeasonReceivedStarterPoints": 120.3,
+        "observedStarts": 13,
+        "measuredReceivingLegs": 1,
+        "positionMedianLegsMeasured": 1,
+        "positionMedianLegsWithheld": 0
+      },
+      "historicalTradeTimeline": [
+        {
+          "transactionId": "751165345997402112",
+          "season": 2021,
+          "week": 4,
+          "date": "2021-10-05",
+          "exchangeType": "player_for_player",
+          "partners": [
+            "Tony"
+          ],
+          "otherManagerCount": 1,
+          "receivedPlayers": [
+            "Zack Moss",
+            "James Robinson"
+          ],
+          "sentPlayers": null,
+          "faab": null,
+          "production": {
+            "metric": "received_players_starts_strictly_after_week_through_regular_season_week14",
+            "startedPoints": 120.3,
+            "starts": 13,
+            "positionMedianSurplus": -51.15,
+            "complete": true,
+            "notes": "Weeks strictly after trade through Week 14"
+          },
+          "playoffStartedPoints": null,
+          "evidence": [
+            "provider_corroborated_prior_research"
+          ],
+          "tradeRating": null,
+          "tradeRatingReason": "Uncalibrated causal trade benefit; no winner or loser assigned"
+        }
+      ],
+      "tradeChainHighlights": [],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    },
+    {
+      "manager": "Scott",
+      "status": "current_2026",
+      "aliases": [],
+      "header": {
+        "documentedTradeInvolvements": 0,
+        "playerReceivingTrades": 0,
+        "faabOnlyEvents": 0,
+        "byType": {},
+        "bySeason": {},
+        "partnersByEncounterCount": [],
+        "observedRegularSeasonReceivedStarterPoints": 0,
+        "observedStarts": 0,
+        "measuredReceivingLegs": 0,
+        "positionMedianLegsMeasured": 0,
+        "positionMedianLegsWithheld": 0
+      },
+      "historicalTradeTimeline": [],
+      "tradeChainHighlights": [],
+      "careerTradeRating": null,
+      "careerTradeRatingReason": "No coherent causal counterfactual or peer-calibrated rating; 50 not imputed",
+      "mostSuccessfulTradeId": null,
+      "worstTradeId": null,
+      "tradeAwards": [],
+      "provenance": {
+        "canonicalInput": "data-integrity/trade-receipts-2020-2025-48-events-v2.json",
+        "recoveredThreeManagerPoints": "data-integrity/trade-2023-missing-three-way-starter-returns-v1.json",
+        "repeatChainSource": "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+      }
+    }
+  ]
+}
