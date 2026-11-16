@@ -1308,6 +1308,34 @@ try{
     if(!warning.includes('not a complete ranking of manager skill'))
      errors.push(width+' manager decisions evidence limitation missing');
    }
+   if(route==='managers/trade-portfolios.html'){
+    // The 48 historic trade events and nine 2026 transactions must load in a
+    // real browser; source-only syntax tests cannot establish this.
+    await page.waitForFunction(()=>document.querySelectorAll('#picks button.pick').length===12,{timeout:10000}).catch(()=>{});
+    if(await page.locator('#picks button.pick').count()!==12)
+     errors.push(width+' portfolio selector did not render 12 managers');
+    if(await page.locator('#total-events').textContent()!=='48')
+     errors.push(width+' historical trade count did not load');
+    if(await page.locator('#total-player').textContent()!=='45')
+     errors.push(width+' historical player-bearing count did not load');
+    const scott=page.locator('#picks button[data-key="Scott"]');
+    if(await scott.count()===1){
+     await scott.click();
+     if((await page.locator('#manager-name').textContent())!=='Scott')
+      errors.push(width+' selecting Scott did not update manager profile');
+     if(!await page.locator('#current2026-summary').textContent().then(t=>t.includes('1 completed trade')))
+      errors.push(width+' Scott 2026 first trade not shown');
+     if(!await page.locator('#editorial-copy').textContent().then(t=>t.includes('Emeka Egbuka')))
+      errors.push(width+' Scott evidence-backed editorial story missing');
+     const scroll=await page.evaluate(()=>({top:document.querySelector('#profile').getBoundingClientRect().top,viewport:innerHeight}));
+     if(width===390&&scroll.top>scroll.viewport)
+      errors.push(width+' selected portfolio not brought into view on mobile');
+    }
+    const jq=page.locator('#query');await jq.fill('Gurt');
+    if(await page.locator('#picks button.pick:visible').count()!==1)
+     errors.push(width+' manager alias search should resolve Gurt to Stover');
+    await jq.fill('');
+   }
    if(route==='managers/index.html'){
     const directoryStyle=page.locator('#manager-directory-readability');
     if(await directoryStyle.count()!==1)
