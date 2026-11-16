@@ -74,7 +74,8 @@ try{
  assert.equal(await page.locator('dialog#detail').evaluate(node=>node.open),false,'Trade receipt did not close');
  // 3. Rivalry series result, shareable pairing and progressive ledger.
  await go('analytics/rivalry-war-room.html?a=Stew&b=Stilly');
- await page.waitForFunction(()=>document.querySelector('#verdict strong')?.textContent?.includes('series'),{timeout:14000});
+ await page.waitForFunction(()=>/series/i.test(document.querySelector('#verdict strong')?.textContent||''),null,{timeout:14000});
+ assert.match(await page.locator('#verdict').innerText(),/10–10/,'Verified Stew–Stilly series must remain tied at 10–10');
  assert.equal(await page.locator('#a').inputValue(),'Stew');
  assert.equal(await page.locator('#b').inputValue(),'Stilly');
  const count=Number((await page.locator('#total').innerText()).match(/\\d+/)?.[0]);
