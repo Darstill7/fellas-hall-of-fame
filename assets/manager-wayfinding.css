@@ -23,3 +23,11 @@ html{scroll-padding-top:96px}
 @media(max-width:720px){.profile-paths{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-wayfinding{padding:15px}.profile-path{padding:13px;min-height:124px}}
 @media(max-width:380px){.profile-paths{grid-template-columns:1fr}.profile-path{min-height:auto}.profile-tools a{flex:1;justify-content:center}}
 @media(prefers-reduced-motion:reduce){.profile-path{transition:none}}
+
+.franchise-deep-preview{margin:16px 0 33px;border:1px solid #445e70;border-radius:13px;background:#102331}
+.franchise-deep-preview>summary{cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center;min-height:52px;padding:14px 17px;color:#efd092;font-size:13px;font-weight:850;list-style:none}
+.franchise-deep-preview>summary::-webkit-details-marker{display:none}
+.franchise-deep-preview[open]>summary{border-bottom:1px solid #445e70}
+.franchise-deep-preview-content{padding:16px}
+.franchise-deep-preview>summary:focus-visible{outline:3px solid #efd092;outline-offset:3px}
+.franchise-deep-preview[open]>summary span{transform:rotate(45deg)}
