@@ -1,0 +1,388 @@
+{
+  "schema": "fellas-manager-signature-receipts-v1",
+  "asOf": "2026-11-16",
+  "status": "evidence_labeled_editorial_candidates_not_official_awards",
+  "method": "For each manager, show the most starter points *received* from one historical transaction in reconstructed strictly later-to-week14 window; these raw package points vary by trade timing and player count and are not a measure of trade skill. Show a separate maximal observed interior repeated asset chain when available. For 2026 show a distinct largest strictly later Week9-scored received package only if later completed weeks exist; weeks9/10 recent acquisitions marked pending. No all-time greatest or worst trade awards.",
+  "sources": [
+    "data-integrity/trade-manager-portfolios-48-event-v1.json",
+    "data-integrity/trade-manager-portfolios-2026-current-v1.json",
+    "data-integrity/trade-repeat-chain-interior-starter-points-v1.json"
+  ],
+  "profiles": [
+    {
+      "manager": "Stew",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": 2025,
+        "week": 3,
+        "transactionId": "1276026193660899328",
+        "receivedPlayers": [
+          "Jahmyr Gibbs",
+          "RJ Harvey"
+        ],
+        "observedStarterPoints": 302.1,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "observed_not_incremental"
+      },
+      "repeatAsset": {
+        "year": 2023,
+        "player": "Travis Etienne Jr.",
+        "strictlyInteriorStartedPoints": 116.9,
+        "starts": 6,
+        "classification": "trade_receipt_chain_no_causal_proceeds"
+      },
+      "currentSeason": {
+        "trades": 5,
+        "largestStrictlyLaterScoringAcquisition": {
+          "transactionId": "1411009536306733056",
+          "receivedPlayers": [
+            "Christian Watson",
+            "Drake Maye"
+          ],
+          "starterPoints": 106.62,
+          "starts": 4
+        },
+        "noCausalWinLoss": true,
+        "scoringThroughCompletedWeek": 9
+      },
+      "signatureSkillGrade": null
+    },
+    {
+      "manager": "Stilly",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": 2024,
+        "week": 3,
+        "transactionId": "1144362000575840256",
+        "receivedPlayers": [
+          "Terry McLaurin",
+          "De'Von Achane",
+          "Tank Dell"
+        ],
+        "observedStarterPoints": 371.2,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "observed_not_incremental"
+      },
+      "repeatAsset": {
+        "year": 2025,
+        "player": "Ja'Marr Chase",
+        "strictlyInteriorStartedPoints": 111.2,
+        "starts": 6,
+        "classification": "trade_receipt_chain_no_causal_proceeds"
+      },
+      "currentSeason": {
+        "trades": 2,
+        "largestStrictlyLaterScoringAcquisition": {
+          "transactionId": "1413584172332654592",
+          "receivedPlayers": [
+            "Ja'Marr Chase",
+            "Devaughn Vele"
+          ],
+          "starterPoints": 73.5,
+          "starts": 4
+        },
+        "noCausalWinLoss": true,
+        "scoringThroughCompletedWeek": 9
+      },
+      "signatureSkillGrade": null
+    },
+    {
+      "manager": "Thommy",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": 2021,
+        "week": 1,
+        "transactionId": "738428315181928448",
+        "receivedPlayers": [
+          "Dak Prescott",
+          "Noah Fant",
+          "Antonio Gibson"
+        ],
+        "observedStarterPoints": 323.72,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "observed_not_incremental"
+      },
+      "repeatAsset": {
+        "year": 2021,
+        "player": "Antonio Gibson",
+        "strictlyInteriorStartedPoints": 60.9,
+        "starts": 4,
+        "classification": "trade_receipt_chain_no_causal_proceeds"
+      },
+      "currentSeason": {
+        "trades": 3,
+        "largestStrictlyLaterScoringAcquisition": {
+          "transactionId": "1405999320708268032",
+          "receivedPlayers": [
+            "Quinshon Judkins"
+          ],
+          "starterPoints": 67.8,
+          "starts": 6
+        },
+        "noCausalWinLoss": true,
+        "scoringThroughCompletedWeek": 9
+      },
+      "signatureSkillGrade": null
+    },
+    {
+      "manager": "Tony",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": 2021,
+        "week": 1,
+        "transactionId": "737360507476066304",
+        "receivedPlayers": [
+          "Corey Davis",
+          "A.J. Brown",
+          "Jonathan Taylor"
+        ],
+        "observedStarterPoints": 378.7,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "observed_not_incremental"
+      },
+      "repeatAsset": {
+        "year": 2022,
+        "player": "Alvin Kamara",
+        "strictlyInteriorStartedPoints": 21.4,
+        "starts": 1,
+        "classification": "trade_receipt_chain_no_causal_proceeds"
+      },
+      "currentSeason": {
+        "trades": 0,
+        "largestStrictlyLaterScoringAcquisition": null,
+        "noCausalWinLoss": true,
+        "scoringThroughCompletedWeek": 9
+      },
+      "signatureSkillGrade": null
+    },
+    {
+      "manager": "Kuhl",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": 2023,
+        "week": 3,
+        "transactionId": "1012571602774532096",
+        "receivedPlayers": [
+          "James Conner",
+          "De'Von Achane",
+          "Puka Nacua"
+        ],
+        "observedStarterPoints": 268.1,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "observed_not_incremental"
+      },
+      "repeatAsset": {
+        "year": 2021,
+        "player": "Leonard Fournette",
+        "strictlyInteriorStartedPoints": 0,
+        "starts": 0,
+        "classification": "trade_receipt_chain_no_causal_proceeds"
+      },
+      "currentSeason": {
+        "trades": 2,
+        "largestStrictlyLaterScoringAcquisition": {
+          "transactionId": "1411009536306733056",
+          "receivedPlayers": [
+            "Jalen Hurts",
+            "Ladd McConkey"
+          ],
+          "starterPoints": 22.6,
+          "starts": 3
+        },
+        "noCausalWinLoss": true,
+        "scoringThroughCompletedWeek": 9
+      },
+      "signatureSkillGrade": null
+    },
+    {
+      "manager": "Evans",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": 2021,
+        "week": 3,
+        "transactionId": "748312121284149248",
+        "receivedPlayers": [
+          "Aaron Rodgers",
+          "Keenan Allen"
+        ],
+        "observedStarterPoints": 325.4,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "observed_not_incremental"
+      },
+      "repeatAsset": {
+        "year": 2022,
+        "player": "James Robinson",
+        "strictlyInteriorStartedPoints": 6.8,
+        "starts": 2,
+        "classification": "trade_receipt_chain_no_causal_proceeds"
+      },
+      "currentSeason": null,
+      "signatureSkillGrade": null
+    },
+    {
+      "manager": "Stover",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": 2021,
+        "week": 5,
+        "transactionId": "751504917667168256",
+        "receivedPlayers": [
+          "Leonard Fournette"
+        ],
+        "observedStarterPoints": 154.6,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "observed_not_incremental"
+      },
+      "repeatAsset": null,
+      "currentSeason": {
+        "trades": 1,
+        "largestStrictlyLaterScoringAcquisition": {
+          "transactionId": "1405999320708268032",
+          "receivedPlayers": [
+            "Trevor Lawrence"
+          ],
+          "starterPoints": 85.58,
+          "starts": 5
+        },
+        "noCausalWinLoss": true,
+        "scoringThroughCompletedWeek": 9
+      },
+      "signatureSkillGrade": null
+    },
+    {
+      "manager": "Birch",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": 2021,
+        "week": 1,
+        "transactionId": "738428315181928448",
+        "receivedPlayers": [
+          "Lamar Jackson",
+          "Mark Andrews",
+          "Josh Jacobs"
+        ],
+        "observedStarterPoints": 501.68,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "observed_not_incremental"
+      },
+      "repeatAsset": null,
+      "currentSeason": {
+        "trades": 1,
+        "largestStrictlyLaterScoringAcquisition": {
+          "transactionId": "1414340723225976832",
+          "receivedPlayers": [
+            "Minnesota Vikings"
+          ],
+          "starterPoints": 20,
+          "starts": 2
+        },
+        "noCausalWinLoss": true,
+        "scoringThroughCompletedWeek": 9
+      },
+      "signatureSkillGrade": null
+    },
+    {
+      "manager": "Mitch",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": 2022,
+        "week": 2,
+        "transactionId": "875965138744864768",
+        "receivedPlayers": [
+          "Adam Thielen",
+          "Saquon Barkley"
+        ],
+        "observedStarterPoints": 239,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "observed_not_incremental"
+      },
+      "repeatAsset": null,
+      "currentSeason": {
+        "trades": 1,
+        "largestStrictlyLaterScoringAcquisition": null,
+        "noCausalWinLoss": true,
+        "scoringThroughCompletedWeek": 9
+      },
+      "signatureSkillGrade": null
+    },
+    {
+      "manager": "JMid",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": 2024,
+        "week": 2,
+        "transactionId": "1141777905656143872",
+        "receivedPlayers": [
+          "Calvin Ridley",
+          "Kyren Williams"
+        ],
+        "observedStarterPoints": 180.7,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "observed_not_incremental"
+      },
+      "repeatAsset": null,
+      "currentSeason": {
+        "trades": 2,
+        "largestStrictlyLaterScoringAcquisition": {
+          "transactionId": "1411012593170010112",
+          "receivedPlayers": [
+            "J.K. Dobbins",
+            "Christian Watson"
+          ],
+          "starterPoints": 98.9,
+          "starts": 7
+        },
+        "noCausalWinLoss": true,
+        "scoringThroughCompletedWeek": 9
+      },
+      "signatureSkillGrade": null
+    },
+    {
+      "manager": "Koble",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": 2021,
+        "week": 4,
+        "transactionId": "751165345997402112",
+        "receivedPlayers": [
+          "Zack Moss",
+          "James Robinson"
+        ],
+        "observedStarterPoints": 120.3,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "observed_not_incremental"
+      },
+      "repeatAsset": null,
+      "currentSeason": null,
+      "signatureSkillGrade": null
+    },
+    {
+      "manager": "Scott",
+      "historical": {
+        "label": "Largest recorded acquired-player starter total in a single transaction",
+        "year": null,
+        "week": null,
+        "transactionId": null,
+        "receivedPlayers": [],
+        "observedStarterPoints": null,
+        "metric": "posttrade weeks strictly later through week14, acquisition-side only",
+        "classification": "no_historical_player_trade_record"
+      },
+      "repeatAsset": null,
+      "currentSeason": {
+        "trades": 1,
+        "largestStrictlyLaterScoringAcquisition": {
+          "transactionId": "1400522174271340544",
+          "receivedPlayers": [
+            "Emeka Egbuka"
+          ],
+          "starterPoints": 48.3,
+          "starts": 5
+        },
+        "noCausalWinLoss": true,
+        "scoringThroughCompletedWeek": 9
+      },
+      "signatureSkillGrade": null
+    }
+  ]
+}

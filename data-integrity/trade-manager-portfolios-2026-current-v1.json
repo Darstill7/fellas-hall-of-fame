@@ -1,0 +1,778 @@
+{
+  "schema": "fellas-current-season-trade-portfolio-overlay-v1",
+  "asOf": "2026-11-16",
+  "status": "draft_research_current_year_week10_unfinished",
+  "counts": {
+    "year": 2026,
+    "completedTradeEvents": 9,
+    "managerEventInvolvements": 18,
+    "finalizedRegularWeeksThrough": 9,
+    "liveWeek": 10,
+    "currentManagers": 10
+  },
+  "method": "Distinct complete Sleeper trade receipt IDs through Week10; side mapping corroborated by recorded rosters. Acquired-player starts measured only strictly after the trade week through FINALIZED Week9, not same-week. Players in Week9 and Week10 trades have NO eligible completed strictly later weeks, so their scores are null pending, not 0. Week10 actual matchup and player scoring not used. Current-year records kept separate from 2020–2025 48-event archive.",
+  "cautions": [
+    "These are recipient starter points, not net trade benefits.",
+    "A player with zero starts over a nonempty completed later-week interval genuinely has zero credited starts, but may still have bench, trade or keeper option value.",
+    "Current-season transaction counts are as-of only; future completed trades will require another import.",
+    "No 0–100 ratings or trade winners scored.",
+    "No overnight scoring refresh or backend automation is implied."
+  ],
+  "profiles": [
+    {
+      "manager": "Stew",
+      "tradesCompleted": 5,
+      "scoredTrades": 3,
+      "awaitingLaterScoring": 2,
+      "observedStrictlyLaterStarterPoints": 124.72,
+      "observedStrictlyLaterStarts": 8,
+      "highlighted2026TradeId": "1411009536306733056",
+      "transactions": [
+        {
+          "transactionId": "1427488044335788032",
+          "date": "2026-11-15",
+          "week": 10,
+          "manager": "Stew",
+          "partners": [
+            "Kuhl"
+          ],
+          "receivedPlayers": [
+            "Nico Collins"
+          ],
+          "sentPlayers": [
+            "Drake Maye"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Nico Collins",
+              "playerId": "7569",
+              "position": "WR",
+              "startedPointsInCompletedStrictlyLaterWeeks": null,
+              "starts": null,
+              "acquisitionWeekStartedPointsObserved": 0
+            }
+          ],
+          "strictlyLaterStartedPoints": null,
+          "strictlyLaterStarts": null,
+          "postTradeScoringStatus": "no_finalized_week_after_transaction_yet",
+          "acquisitionWeekStartedPointsObserved": 0,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": "Week10 trade is complete but scoring not final"
+        },
+        {
+          "transactionId": "1424524291990450196",
+          "date": "2026-11-06",
+          "week": 9,
+          "manager": "Stew",
+          "partners": [
+            "Mitch"
+          ],
+          "receivedPlayers": [
+            "Adonai Mitchell"
+          ],
+          "sentPlayers": [
+            "Minnesota Vikings"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Adonai Mitchell",
+              "playerId": "11625",
+              "position": "WR",
+              "startedPointsInCompletedStrictlyLaterWeeks": null,
+              "starts": null,
+              "acquisitionWeekStartedPointsObserved": 0
+            }
+          ],
+          "strictlyLaterStartedPoints": null,
+          "strictlyLaterStarts": null,
+          "postTradeScoringStatus": "no_finalized_week_after_transaction_yet",
+          "acquisitionWeekStartedPointsObserved": 0,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        },
+        {
+          "transactionId": "1411012593170010112",
+          "date": "2026-09-30",
+          "week": 4,
+          "manager": "Stew",
+          "partners": [
+            "JMid"
+          ],
+          "receivedPlayers": [
+            "Jeremiyah Love"
+          ],
+          "sentPlayers": [
+            "J.K. Dobbins",
+            "Christian Watson"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Jeremiyah Love",
+              "playerId": "13287",
+              "position": "RB",
+              "startedPointsInCompletedStrictlyLaterWeeks": 4.5,
+              "starts": 2,
+              "acquisitionWeekStartedPointsObserved": 6
+            }
+          ],
+          "strictlyLaterStartedPoints": 4.5,
+          "strictlyLaterStarts": 2,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 6,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": "Watson transferred twice on September 30; intermediary Stew held the asset for approximately ten minutes"
+        },
+        {
+          "transactionId": "1411009536306733056",
+          "date": "2026-09-30",
+          "week": 4,
+          "manager": "Stew",
+          "partners": [
+            "Kuhl"
+          ],
+          "receivedPlayers": [
+            "Christian Watson",
+            "Drake Maye"
+          ],
+          "sentPlayers": [
+            "Jalen Hurts",
+            "Ladd McConkey"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Christian Watson",
+              "playerId": "8167",
+              "position": "WR",
+              "startedPointsInCompletedStrictlyLaterWeeks": 0,
+              "starts": 0,
+              "acquisitionWeekStartedPointsObserved": 0
+            },
+            {
+              "name": "Drake Maye",
+              "playerId": "11564",
+              "position": "QB",
+              "startedPointsInCompletedStrictlyLaterWeeks": 106.62,
+              "starts": 4,
+              "acquisitionWeekStartedPointsObserved": 0
+            }
+          ],
+          "strictlyLaterStartedPoints": 106.62,
+          "strictlyLaterStarts": 4,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 0,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": "Watson transferred twice on September 30; intermediary Stew held the asset for approximately ten minutes"
+        },
+        {
+          "transactionId": "1400522174271340544",
+          "date": "2026-09-01",
+          "week": 1,
+          "manager": "Stew",
+          "partners": [
+            "Scott"
+          ],
+          "receivedPlayers": [
+            "Ladd McConkey"
+          ],
+          "sentPlayers": [
+            "Emeka Egbuka"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Ladd McConkey",
+              "playerId": "11635",
+              "position": "WR",
+              "startedPointsInCompletedStrictlyLaterWeeks": 13.6,
+              "starts": 2,
+              "acquisitionWeekStartedPointsObserved": 16.7
+            }
+          ],
+          "strictlyLaterStartedPoints": 13.6,
+          "strictlyLaterStarts": 2,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 16.7,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        }
+      ],
+      "skillRating": null
+    },
+    {
+      "manager": "Stilly",
+      "tradesCompleted": 2,
+      "scoredTrades": 2,
+      "awaitingLaterScoring": 0,
+      "observedStrictlyLaterStarterPoints": 82.1,
+      "observedStrictlyLaterStarts": 6,
+      "highlighted2026TradeId": "1413584172332654592",
+      "transactions": [
+        {
+          "transactionId": "1413584172332654592",
+          "date": "2026-10-07",
+          "week": 5,
+          "manager": "Stilly",
+          "partners": [
+            "JMid"
+          ],
+          "receivedPlayers": [
+            "Ja'Marr Chase",
+            "Devaughn Vele"
+          ],
+          "sentPlayers": [
+            "Davante Adams",
+            "George Kittle",
+            "Breece Hall"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Ja'Marr Chase",
+              "playerId": "7564",
+              "position": "WR",
+              "startedPointsInCompletedStrictlyLaterWeeks": 67.8,
+              "starts": 3,
+              "acquisitionWeekStartedPointsObserved": 17.7
+            },
+            {
+              "name": "Devaughn Vele",
+              "playerId": "11834",
+              "position": "WR",
+              "startedPointsInCompletedStrictlyLaterWeeks": 5.7,
+              "starts": 1,
+              "acquisitionWeekStartedPointsObserved": 0
+            }
+          ],
+          "strictlyLaterStartedPoints": 73.5,
+          "strictlyLaterStarts": 4,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 17.7,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        },
+        {
+          "transactionId": "1399889389147979776",
+          "date": "2026-08-31",
+          "week": 1,
+          "manager": "Stilly",
+          "partners": [
+            "Thommy"
+          ],
+          "receivedPlayers": [
+            "MarShawn Lloyd"
+          ],
+          "sentPlayers": [
+            "Jonathon Brooks"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "MarShawn Lloyd",
+              "playerId": "11581",
+              "position": "RB",
+              "startedPointsInCompletedStrictlyLaterWeeks": 8.6,
+              "starts": 2,
+              "acquisitionWeekStartedPointsObserved": 3.7
+            }
+          ],
+          "strictlyLaterStartedPoints": 8.6,
+          "strictlyLaterStarts": 2,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 3.7,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        }
+      ],
+      "skillRating": null
+    },
+    {
+      "manager": "Thommy",
+      "tradesCompleted": 3,
+      "scoredTrades": 3,
+      "awaitingLaterScoring": 0,
+      "observedStrictlyLaterStarterPoints": 67.8,
+      "observedStrictlyLaterStarts": 6,
+      "highlighted2026TradeId": null,
+      "transactions": [
+        {
+          "transactionId": "1414340723225976832",
+          "date": "2026-10-09",
+          "week": 5,
+          "manager": "Thommy",
+          "partners": [
+            "Birch"
+          ],
+          "receivedPlayers": [
+            "Deebo Samuel Sr."
+          ],
+          "sentPlayers": [
+            "Minnesota Vikings"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Deebo Samuel Sr.",
+              "playerId": "5872",
+              "position": "WR",
+              "startedPointsInCompletedStrictlyLaterWeeks": 0,
+              "starts": 0,
+              "acquisitionWeekStartedPointsObserved": 0
+            }
+          ],
+          "strictlyLaterStartedPoints": 0,
+          "strictlyLaterStarts": 0,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 0,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        },
+        {
+          "transactionId": "1405999320708268032",
+          "date": "2026-09-16",
+          "week": 2,
+          "manager": "Thommy",
+          "partners": [
+            "Stover"
+          ],
+          "receivedPlayers": [
+            "Quinshon Judkins"
+          ],
+          "sentPlayers": [
+            "Trevor Lawrence"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Quinshon Judkins",
+              "playerId": "12512",
+              "position": "RB",
+              "startedPointsInCompletedStrictlyLaterWeeks": 67.8,
+              "starts": 6,
+              "acquisitionWeekStartedPointsObserved": 0
+            }
+          ],
+          "strictlyLaterStartedPoints": 67.8,
+          "strictlyLaterStarts": 6,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 0,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        },
+        {
+          "transactionId": "1399889389147979776",
+          "date": "2026-08-31",
+          "week": 1,
+          "manager": "Thommy",
+          "partners": [
+            "Stilly"
+          ],
+          "receivedPlayers": [
+            "Jonathon Brooks"
+          ],
+          "sentPlayers": [
+            "MarShawn Lloyd"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Jonathon Brooks",
+              "playerId": "11583",
+              "position": "RB",
+              "startedPointsInCompletedStrictlyLaterWeeks": 0,
+              "starts": 0,
+              "acquisitionWeekStartedPointsObserved": 0
+            }
+          ],
+          "strictlyLaterStartedPoints": 0,
+          "strictlyLaterStarts": 0,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 0,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        }
+      ],
+      "skillRating": null
+    },
+    {
+      "manager": "Tony",
+      "tradesCompleted": 0,
+      "scoredTrades": 0,
+      "awaitingLaterScoring": 0,
+      "observedStrictlyLaterStarterPoints": 0,
+      "observedStrictlyLaterStarts": 0,
+      "highlighted2026TradeId": null,
+      "transactions": [],
+      "skillRating": null
+    },
+    {
+      "manager": "Kuhl",
+      "tradesCompleted": 2,
+      "scoredTrades": 1,
+      "awaitingLaterScoring": 1,
+      "observedStrictlyLaterStarterPoints": 22.6,
+      "observedStrictlyLaterStarts": 3,
+      "highlighted2026TradeId": "1411009536306733056",
+      "transactions": [
+        {
+          "transactionId": "1427488044335788032",
+          "date": "2026-11-15",
+          "week": 10,
+          "manager": "Kuhl",
+          "partners": [
+            "Stew"
+          ],
+          "receivedPlayers": [
+            "Drake Maye"
+          ],
+          "sentPlayers": [
+            "Nico Collins"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Drake Maye",
+              "playerId": "11564",
+              "position": "QB",
+              "startedPointsInCompletedStrictlyLaterWeeks": null,
+              "starts": null,
+              "acquisitionWeekStartedPointsObserved": 0
+            }
+          ],
+          "strictlyLaterStartedPoints": null,
+          "strictlyLaterStarts": null,
+          "postTradeScoringStatus": "no_finalized_week_after_transaction_yet",
+          "acquisitionWeekStartedPointsObserved": 0,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": "Week10 trade is complete but scoring not final"
+        },
+        {
+          "transactionId": "1411009536306733056",
+          "date": "2026-09-30",
+          "week": 4,
+          "manager": "Kuhl",
+          "partners": [
+            "Stew"
+          ],
+          "receivedPlayers": [
+            "Jalen Hurts",
+            "Ladd McConkey"
+          ],
+          "sentPlayers": [
+            "Christian Watson",
+            "Drake Maye"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Jalen Hurts",
+              "playerId": "6904",
+              "position": "QB",
+              "startedPointsInCompletedStrictlyLaterWeeks": 11,
+              "starts": 1,
+              "acquisitionWeekStartedPointsObserved": 12.52
+            },
+            {
+              "name": "Ladd McConkey",
+              "playerId": "11635",
+              "position": "WR",
+              "startedPointsInCompletedStrictlyLaterWeeks": 11.6,
+              "starts": 2,
+              "acquisitionWeekStartedPointsObserved": 0
+            }
+          ],
+          "strictlyLaterStartedPoints": 22.6,
+          "strictlyLaterStarts": 3,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 12.52,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": "Watson transferred twice on September 30; intermediary Stew held the asset for approximately ten minutes"
+        }
+      ],
+      "skillRating": null
+    },
+    {
+      "manager": "Stover",
+      "tradesCompleted": 1,
+      "scoredTrades": 1,
+      "awaitingLaterScoring": 0,
+      "observedStrictlyLaterStarterPoints": 85.58,
+      "observedStrictlyLaterStarts": 5,
+      "highlighted2026TradeId": null,
+      "transactions": [
+        {
+          "transactionId": "1405999320708268032",
+          "date": "2026-09-16",
+          "week": 2,
+          "manager": "Stover",
+          "partners": [
+            "Thommy"
+          ],
+          "receivedPlayers": [
+            "Trevor Lawrence"
+          ],
+          "sentPlayers": [
+            "Quinshon Judkins"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Trevor Lawrence",
+              "playerId": "7523",
+              "position": "QB",
+              "startedPointsInCompletedStrictlyLaterWeeks": 85.58,
+              "starts": 5,
+              "acquisitionWeekStartedPointsObserved": 6.16
+            }
+          ],
+          "strictlyLaterStartedPoints": 85.58,
+          "strictlyLaterStarts": 5,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 6.16,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        }
+      ],
+      "skillRating": null
+    },
+    {
+      "manager": "Birch",
+      "tradesCompleted": 1,
+      "scoredTrades": 1,
+      "awaitingLaterScoring": 0,
+      "observedStrictlyLaterStarterPoints": 20,
+      "observedStrictlyLaterStarts": 2,
+      "highlighted2026TradeId": null,
+      "transactions": [
+        {
+          "transactionId": "1414340723225976832",
+          "date": "2026-10-09",
+          "week": 5,
+          "manager": "Birch",
+          "partners": [
+            "Thommy"
+          ],
+          "receivedPlayers": [
+            "Minnesota Vikings"
+          ],
+          "sentPlayers": [
+            "Deebo Samuel Sr."
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Minnesota Vikings",
+              "playerId": "MIN",
+              "position": "DEF",
+              "startedPointsInCompletedStrictlyLaterWeeks": 20,
+              "starts": 2,
+              "acquisitionWeekStartedPointsObserved": 12
+            }
+          ],
+          "strictlyLaterStartedPoints": 20,
+          "strictlyLaterStarts": 2,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 12,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        }
+      ],
+      "skillRating": null
+    },
+    {
+      "manager": "Mitch",
+      "tradesCompleted": 1,
+      "scoredTrades": 0,
+      "awaitingLaterScoring": 1,
+      "observedStrictlyLaterStarterPoints": 0,
+      "observedStrictlyLaterStarts": 0,
+      "highlighted2026TradeId": null,
+      "transactions": [
+        {
+          "transactionId": "1424524291990450196",
+          "date": "2026-11-06",
+          "week": 9,
+          "manager": "Mitch",
+          "partners": [
+            "Stew"
+          ],
+          "receivedPlayers": [
+            "Minnesota Vikings"
+          ],
+          "sentPlayers": [
+            "Adonai Mitchell"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Minnesota Vikings",
+              "playerId": "MIN",
+              "position": "DEF",
+              "startedPointsInCompletedStrictlyLaterWeeks": null,
+              "starts": null,
+              "acquisitionWeekStartedPointsObserved": 0
+            }
+          ],
+          "strictlyLaterStartedPoints": null,
+          "strictlyLaterStarts": null,
+          "postTradeScoringStatus": "no_finalized_week_after_transaction_yet",
+          "acquisitionWeekStartedPointsObserved": 0,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        }
+      ],
+      "skillRating": null
+    },
+    {
+      "manager": "JMid",
+      "tradesCompleted": 2,
+      "scoredTrades": 2,
+      "awaitingLaterScoring": 0,
+      "observedStrictlyLaterStarterPoints": 148.5,
+      "observedStrictlyLaterStarts": 12,
+      "highlighted2026TradeId": "1413584172332654592",
+      "transactions": [
+        {
+          "transactionId": "1413584172332654592",
+          "date": "2026-10-07",
+          "week": 5,
+          "manager": "JMid",
+          "partners": [
+            "Stilly"
+          ],
+          "receivedPlayers": [
+            "Davante Adams",
+            "George Kittle",
+            "Breece Hall"
+          ],
+          "sentPlayers": [
+            "Ja'Marr Chase",
+            "Devaughn Vele"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Davante Adams",
+              "playerId": "2133",
+              "position": "WR",
+              "startedPointsInCompletedStrictlyLaterWeeks": 5.4,
+              "starts": 1,
+              "acquisitionWeekStartedPointsObserved": 19.6
+            },
+            {
+              "name": "George Kittle",
+              "playerId": "4217",
+              "position": "TE",
+              "startedPointsInCompletedStrictlyLaterWeeks": 34,
+              "starts": 3,
+              "acquisitionWeekStartedPointsObserved": 4.9
+            },
+            {
+              "name": "Breece Hall",
+              "playerId": "8155",
+              "position": "RB",
+              "startedPointsInCompletedStrictlyLaterWeeks": 10.2,
+              "starts": 1,
+              "acquisitionWeekStartedPointsObserved": 0
+            }
+          ],
+          "strictlyLaterStartedPoints": 49.6,
+          "strictlyLaterStarts": 5,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 24.5,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        },
+        {
+          "transactionId": "1411012593170010112",
+          "date": "2026-09-30",
+          "week": 4,
+          "manager": "JMid",
+          "partners": [
+            "Stew"
+          ],
+          "receivedPlayers": [
+            "J.K. Dobbins",
+            "Christian Watson"
+          ],
+          "sentPlayers": [
+            "Jeremiyah Love"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "J.K. Dobbins",
+              "playerId": "6806",
+              "position": "RB",
+              "startedPointsInCompletedStrictlyLaterWeeks": 9.6,
+              "starts": 2,
+              "acquisitionWeekStartedPointsObserved": 0
+            },
+            {
+              "name": "Christian Watson",
+              "playerId": "8167",
+              "position": "WR",
+              "startedPointsInCompletedStrictlyLaterWeeks": 89.3,
+              "starts": 5,
+              "acquisitionWeekStartedPointsObserved": 6.2
+            }
+          ],
+          "strictlyLaterStartedPoints": 98.9,
+          "strictlyLaterStarts": 7,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 6.2,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": "Watson transferred twice on September 30; intermediary Stew held the asset for approximately ten minutes"
+        }
+      ],
+      "skillRating": null
+    },
+    {
+      "manager": "Scott",
+      "tradesCompleted": 1,
+      "scoredTrades": 1,
+      "awaitingLaterScoring": 0,
+      "observedStrictlyLaterStarterPoints": 48.3,
+      "observedStrictlyLaterStarts": 5,
+      "highlighted2026TradeId": null,
+      "transactions": [
+        {
+          "transactionId": "1400522174271340544",
+          "date": "2026-09-01",
+          "week": 1,
+          "manager": "Scott",
+          "partners": [
+            "Stew"
+          ],
+          "receivedPlayers": [
+            "Emeka Egbuka"
+          ],
+          "sentPlayers": [
+            "Ladd McConkey"
+          ],
+          "receivedPlayerReceipts": [
+            {
+              "name": "Emeka Egbuka",
+              "playerId": "12514",
+              "position": "WR",
+              "startedPointsInCompletedStrictlyLaterWeeks": 48.3,
+              "starts": 5,
+              "acquisitionWeekStartedPointsObserved": 8.8
+            }
+          ],
+          "strictlyLaterStartedPoints": 48.3,
+          "strictlyLaterStarts": 5,
+          "postTradeScoringStatus": "completed_later_weeks_observed",
+          "acquisitionWeekStartedPointsObserved": 8.8,
+          "tradeRating": null,
+          "tradeWinner": null,
+          "noteworthyTiming": null
+        }
+      ],
+      "skillRating": null
+    }
+  ]
+}

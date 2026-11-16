@@ -1,0 +1,221 @@
+{
+  "schema": "fellas-two-key-trades-playoff-starter-extension-v1",
+  "asOf": "2026-11-16",
+  "classification": "observed_starter_points_only_not_incremental_trade_value",
+  "method": "Direct historical Sleeper Week 15-17 starter rosters for 2021 Birch/Thommy and 2023 Birch/Stew, plus strictly-later-to-Week14 starter reconstruction in earlier ledger. Week 15-17 values include all games played by each actual team, not only active winners bracket; final postseason bracket placement must be separately verified. Excludes any acquired asset not actually started. Does not infer alternate team record from acquired player totals. Player IDs cross-checked against exact completed Sleeper trade receipts on 2021 Week 1 and 2023 Week 6; corrected draft placeholders before this research checkpoint completed.",
+  "cases": [
+    {
+      "tradeId": "1018289561511682048",
+      "year": 2023,
+      "week": 6,
+      "participants": [
+        {
+          "manager": "Birch",
+          "rosterId": 10,
+          "assets": [
+            {
+              "name": "CeeDee Lamb",
+              "id": "6786"
+            },
+            {
+              "name": "Kenny Gainwell",
+              "id": "7567"
+            }
+          ],
+          "playoffWeeks": [
+            {
+              "week": 15,
+              "points": 15.1,
+              "starter": [
+                "CeeDee Lamb"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            },
+            {
+              "week": 16,
+              "points": 23.2,
+              "starter": [
+                "CeeDee Lamb"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            },
+            {
+              "week": 17,
+              "points": 34.7,
+              "starter": [
+                "CeeDee Lamb"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            }
+          ],
+          "strictPostTradeThroughWeek14": {
+            "starterPoints": 163.1,
+            "starts": 7,
+            "surplus": 86.9
+          },
+          "playoffStarterPoints": 73,
+          "combinedObservedStarterPoints": 236.1
+        },
+        {
+          "manager": "Stew",
+          "rosterId": 4,
+          "assets": [
+            {
+              "name": "Tony Pollard",
+              "id": "5967"
+            },
+            {
+              "name": "Jaxon Smith-Njigba",
+              "id": "9488"
+            }
+          ],
+          "playoffWeeks": [
+            {
+              "week": 15,
+              "points": 12.8,
+              "starter": [
+                "Jaxon Smith-Njigba"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            },
+            {
+              "week": 16,
+              "points": 9.1,
+              "starter": [
+                "Jaxon Smith-Njigba"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            },
+            {
+              "week": 17,
+              "points": 7.7,
+              "starter": [
+                "Jaxon Smith-Njigba"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            }
+          ],
+          "strictPostTradeThroughWeek14": {
+            "starterPoints": 47.9,
+            "starts": 7,
+            "surplus": -25.15
+          },
+          "playoffStarterPoints": 29.6,
+          "combinedObservedStarterPoints": 77.5
+        }
+      ]
+    },
+    {
+      "tradeId": "738428315181928448",
+      "year": 2021,
+      "week": 1,
+      "participants": [
+        {
+          "manager": "Birch",
+          "rosterId": 10,
+          "assets": [
+            {
+              "name": "Lamar Jackson",
+              "id": "4881"
+            },
+            {
+              "name": "Mark Andrews",
+              "id": "5012"
+            },
+            {
+              "name": "Josh Jacobs",
+              "id": "5850"
+            }
+          ],
+          "playoffWeeks": [
+            {
+              "week": 15,
+              "points": 42.5,
+              "starter": [
+                "Mark Andrews",
+                "Josh Jacobs"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            },
+            {
+              "week": 16,
+              "points": 33.4,
+              "starter": [
+                "Mark Andrews",
+                "Josh Jacobs"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            },
+            {
+              "week": 17,
+              "points": 27.9,
+              "starter": [
+                "Mark Andrews",
+                "Josh Jacobs"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            }
+          ],
+          "strictPostTradeThroughWeek14": {
+            "starterPoints": 501.68,
+            "starts": 32,
+            "surplus": 77.62
+          },
+          "playoffStarterPoints": 103.8,
+          "combinedObservedStarterPoints": 605.48
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": 3,
+          "assets": [
+            {
+              "name": "Dak Prescott",
+              "id": "3294"
+            },
+            {
+              "name": "Noah Fant",
+              "id": "5857"
+            },
+            {
+              "name": "Antonio Gibson",
+              "id": "6945"
+            }
+          ],
+          "playoffWeeks": [
+            {
+              "week": 15,
+              "points": 10.58,
+              "starter": [
+                "Dak Prescott"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            },
+            {
+              "week": 16,
+              "points": 30.3,
+              "starter": [
+                "Dak Prescott"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            },
+            {
+              "week": 17,
+              "points": 21.04,
+              "starter": [
+                "Dak Prescott"
+              ],
+              "note": "verified observed starting scores from historical Sleeper rosters"
+            }
+          ],
+          "strictPostTradeThroughWeek14": {
+            "starterPoints": 323.72,
+            "starts": 24,
+            "surplus": -12.39
+          },
+          "playoffStarterPoints": 61.92,
+          "combinedObservedStarterPoints": 385.64
+        }
+      ]
+    }
+  ]
+}

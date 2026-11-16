@@ -1,0 +1,152 @@
+{
+  "schema": "fellas-2023-w10-omitted-trade-starter-production-v1",
+  "asOf": "2026-11-16",
+  "transactionId": "1028057686711058432",
+  "status": "source_supported_observed_credited_starts_no_net_benefit",
+  "method": "Week 11–14 completed regular-season starter ledger from data/player_starts_2023.json joined with provider week9/10 receipt and roster identity; Weeks 15–17 manually reconciled against Sleeper starter rosters. Does not include week 10 same-week starts, bench, or any theoretical no-trade substitutions. This is team-recipient starter production, not causal advantage.",
+  "sides": [
+    {
+      "manager": "Stilly",
+      "rosterId": "1",
+      "received": [
+        "David Montgomery",
+        "Courtland Sutton",
+        "Jaylen Waddle"
+      ],
+      "sent": [
+        "Josh Jacobs",
+        "DeAndre Hopkins",
+        "Gus Edwards"
+      ],
+      "reg": {
+        "weeks": [
+          11,
+          12,
+          13,
+          14
+        ],
+        "starts": 8,
+        "points": 95.4
+      },
+      "post": {
+        "weeks": [
+          15,
+          16,
+          17
+        ],
+        "points": [
+          34.4,
+          20.6,
+          12.5
+        ],
+        "total": 67.5
+      },
+      "observedStartingPointsWeeks11to17": 162.9
+    },
+    {
+      "manager": "Thommy",
+      "rosterId": "3",
+      "received": [
+        "Tony Pollard",
+        "Davante Adams",
+        "Gus Edwards"
+      ],
+      "sent": [
+        "Jaylen Waddle",
+        "Amari Cooper",
+        "David Montgomery"
+      ],
+      "reg": {
+        "weeks": [
+          11,
+          12,
+          13,
+          14
+        ],
+        "starts": 9,
+        "points": 106.2
+      },
+      "post": {
+        "weeks": [
+          15,
+          16,
+          17
+        ],
+        "points": [
+          40.2,
+          19.2,
+          47.3
+        ],
+        "total": 106.7
+      },
+      "observedStartingPointsWeeks11to17": 212.9
+    },
+    {
+      "manager": "Stew",
+      "rosterId": "4",
+      "received": [
+        "Josh Jacobs",
+        "Amari Cooper",
+        "DeAndre Hopkins"
+      ],
+      "sent": [
+        "Tony Pollard",
+        "Davante Adams",
+        "Courtland Sutton"
+      ],
+      "reg": {
+        "weeks": [
+          11,
+          12,
+          13,
+          14
+        ],
+        "starts": 4,
+        "points": 60.6
+      },
+      "post": {
+        "weeks": [
+          15,
+          16,
+          17
+        ],
+        "points": [
+          3.1,
+          3,
+          10.7
+        ],
+        "total": 16.8
+      },
+      "observedStartingPointsWeeks11to17": 77.4
+    }
+  ],
+  "playoffFacts": [
+    {
+      "week": 15,
+      "home": "Thommy",
+      "away": "Stew",
+      "homeScore": 128.42,
+      "awayScore": 72.14,
+      "status": "final"
+    },
+    {
+      "week": 16,
+      "home": "Thommy",
+      "away": "roster 8",
+      "homeScore": 110.82,
+      "awayScore": 72.84,
+      "status": "final"
+    }
+  ],
+  "links": {
+    "pollardFromOriginalBirchStew": "1018289561511682048",
+    "pollardTransferToThommy": "1028057686711058432",
+    "stillyJoshJacobsToStew": "1028057686711058432"
+  },
+  "limitations": [
+    "2023 postseason has various bracket assignments: Week 15–17 credited points cannot automatically be called championship-winning production.",
+    "Stew re-traded Jacobs and Amari Cooper in subsequent Week 11 trade records; no season-long direct return assumptions.",
+    "No position median or counterfactual lineup profit calculated.",
+    "The original 44 archive and derived aggregate manager histories must be regenerated after a full census."
+  ]
+}

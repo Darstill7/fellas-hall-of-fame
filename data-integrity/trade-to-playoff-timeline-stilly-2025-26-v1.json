@@ -1,0 +1,199 @@
+{
+  "schema": "fellas-trade-to-playoff-timeline-v1",
+  "asOf": "2026-11-16",
+  "status": "source_verified_observed_trade_keeper_and_matchup_chain_no_causal_win_ratings",
+  "series": [
+    {
+      "id": "stilly-chase-2025-26",
+      "title": "From Chase to Amon-Ra—and Back Again",
+      "subtitle": "Stilly's 2025–2026 trade, playoff-week and keeper sequence",
+      "manager": "Stilly",
+      "sourceTradeIds": [
+        "1276026193660899328",
+        "1294402688213057536",
+        "1413584172332654592"
+      ],
+      "scope": "2025 through 2026 Week10 research checkpoint",
+      "milestones": [
+        {
+          "order": 1,
+          "key": "2025-september-acquisition",
+          "label": "2025 · September 23",
+          "year": 2025,
+          "week": 3,
+          "type": "trade",
+          "headline": "Stilly acquires Chase and Chase Brown",
+          "description": "Stilly received Ja'Marr Chase and Chase Brown from Stew, sending Jahmyr Gibbs and RJ Harvey. This is the beginning of the documented Chase asset path, not a claim that all later value came from this first transaction.",
+          "transactionId": "1276026193660899328",
+          "manager": "Stilly",
+          "players": [
+            "Ja'Marr Chase",
+            "Chase Brown"
+          ],
+          "outcome": null
+        },
+        {
+          "order": 2,
+          "key": "2025-november-conversion",
+          "label": "2025 · November 12",
+          "year": 2025,
+          "week": 11,
+          "type": "three_manager_trade",
+          "headline": "Chase changes hands in a three-manager deal",
+          "description": "Stilly transferred Chase to JMid and A.J. Brown to Thommy; Stilly received Amon-Ra St. Brown from JMid and Jared Goff plus Jordan Addison from Thommy. The exchange involved three separate receiving sides.",
+          "transactionId": "1294402688213057536",
+          "manager": "Stilly",
+          "players": [
+            "Ja'Marr Chase",
+            "Amon-Ra St. Brown",
+            "Jared Goff",
+            "Jordan Addison",
+            "A.J. Brown"
+          ],
+          "outcome": null
+        },
+        {
+          "order": 3,
+          "key": "2025-week15",
+          "label": "2025 · Week 15",
+          "year": 2025,
+          "week": 15,
+          "type": "final_paired_matchup",
+          "headline": "A 0.12-point win with 61.42 acquired starter points",
+          "description": "Stilly beat Kuhl 122.12–122.00. St. Brown scored 35.90 and Goff 25.52 in Stilly's actual starting lineup. No no-trade winner can be determined.",
+          "transactionId": "1294402688213057536",
+          "manager": "Stilly",
+          "players": [
+            "Amon-Ra St. Brown",
+            "Jared Goff"
+          ],
+          "outcome": {
+            "result": "win",
+            "opponent": "Kuhl",
+            "scoreFor": 122.12,
+            "scoreAgainst": 122,
+            "margin": 0.12,
+            "acquiredStarterPoints": 61.42,
+            "starters": [
+              {
+                "name": "Amon-Ra St. Brown",
+                "points": 35.9
+              },
+              {
+                "name": "Jared Goff",
+                "points": 25.52
+              }
+            ]
+          }
+        },
+        {
+          "order": 4,
+          "key": "2025-week16",
+          "label": "2025 · Week 16",
+          "year": 2025,
+          "week": 16,
+          "type": "final_paired_matchup",
+          "headline": "Another win against JMid",
+          "description": "Stilly beat JMid 126.76–100.46. Goff scored 26.46 and St. Brown 7.40 in Stilly's starting lineup, combining for 33.86 points. The matchup and starter contributions are observed, not a counterfactual trade effect.",
+          "transactionId": "1294402688213057536",
+          "manager": "Stilly",
+          "players": [
+            "Amon-Ra St. Brown",
+            "Jared Goff"
+          ],
+          "outcome": {
+            "result": "win",
+            "opponent": "JMid",
+            "scoreFor": 126.76,
+            "scoreAgainst": 100.46,
+            "margin": 26.3,
+            "acquiredStarterPoints": 33.86,
+            "starters": [
+              {
+                "name": "Amon-Ra St. Brown",
+                "points": 7.4
+              },
+              {
+                "name": "Jared Goff",
+                "points": 26.46
+              }
+            ]
+          }
+        },
+        {
+          "order": 5,
+          "key": "2026-keeper-selections",
+          "label": "2026 · Draft",
+          "year": 2026,
+          "week": null,
+          "type": "keeper_receipt",
+          "headline": "Both centerpiece receivers cost first-round picks",
+          "description": "Stilly kept Amon-Ra St. Brown using Round 1 pick 8; JMid kept Ja'Marr Chase using Round 1 pick 4. These are documented 2026 selection costs, not free retained value or confirmed 2027 costs.",
+          "transactionId": null,
+          "manager": null,
+          "players": [
+            "Amon-Ra St. Brown",
+            "Ja'Marr Chase"
+          ],
+          "keeperReceipts": [
+            {
+              "manager": "Stilly",
+              "player": "Amon-Ra St. Brown",
+              "round": 1,
+              "overall": 8
+            },
+            {
+              "manager": "JMid",
+              "player": "Ja'Marr Chase",
+              "round": 1,
+              "overall": 4
+            }
+          ],
+          "outcome": null
+        },
+        {
+          "order": 6,
+          "key": "2026-october-return",
+          "label": "2026 · October 7",
+          "year": 2026,
+          "week": 5,
+          "type": "trade",
+          "headline": "Chase returns to Stilly",
+          "description": "JMid sent Ja'Marr Chase and Devaughn Vele to Stilly. Stilly sent Davante Adams, George Kittle and Breece Hall to JMid. The 2026 season remained incomplete at this research checkpoint; no final trade result is assigned.",
+          "transactionId": "1413584172332654592",
+          "manager": "Stilly",
+          "players": [
+            "Ja'Marr Chase",
+            "Devaughn Vele",
+            "Davante Adams",
+            "George Kittle",
+            "Breece Hall"
+          ],
+          "outcome": null
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "series": 1,
+    "steps": 6,
+    "trades": 3,
+    "finalPairedMatchups": 2,
+    "keeperSelections": 2
+  },
+  "sources": [
+    "data-integrity/trade-asset-chain-jacobs-chase-2026-11-16.json",
+    "data-integrity/trade-postseason-starter-impact-four-cases-v1.json",
+    "data/keeper_2026_website_research_v1.json",
+    "data-integrity/trade-2026-current-receipts-week9-final-v1.json",
+    "Original Sleeper 2025 Week16 final paired matchup and Stilly starting roster, verified during November 16 research"
+  ],
+  "limitations": [
+    "These are documented events on an asset chain, not proof that an earlier trade caused later transactions or wins.",
+    "The September 2025 initial Chase deal and November three-manager deal involved different additional assets; no full package-level economic attribution is calculated.",
+    "Week15/16 are final paired matchups. No bracket-stage designation is inferred from pairings alone.",
+    "2026 keeper rounds record incurred draft selection cost and do not establish 2027 eligibility or cost.",
+    "The 2026 season is incomplete; no final season grade or Week10 result is asserted.",
+    "After September 2025 Stilly did not retain Chase continuously; the sequence explicitly marks the November move to JMid and October 2026 return."
+  ]
+}

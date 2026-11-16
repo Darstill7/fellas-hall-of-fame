@@ -1,0 +1,92 @@
+{
+  "schema": "fellas-fixed-core-conditional-matchup-sensitivity-v1",
+  "asOf": "2026-11-16",
+  "status": "illustrative_counterfactual_no_verified_alternative_result",
+  "method": "Take observed completed matchup score and subtract original fixed-core hindsight acquired-starter-minus-surrendered-available substitute difference from the lineup replacement dataset. The opponent score and every other starter remain fixed. This is a scenario result, not a claim about real no-trade outcomes, since possession and all other decisions are assumed unchanged. 2023 roster 2 manager identity not assumed; original records have an Evans/JMid correction.",
+  "scenarios": [
+    {
+      "year": 2023,
+      "week": 8,
+      "team": "Birch",
+      "actual": 138.16,
+      "opponent": "Mitch",
+      "against": 119.32,
+      "delta": 22.5,
+      "scenarioReversed": 115.66,
+      "actualWin": true,
+      "scenarioWin": false,
+      "flips": true,
+      "interpretation": "stylized fixed-core hindsight only, no outcome causation"
+    },
+    {
+      "year": 2023,
+      "week": 8,
+      "team": "Stew",
+      "actual": 99.16,
+      "opponent": "2023 roster 8",
+      "against": 105.76,
+      "delta": -29,
+      "scenarioReversed": 128.16,
+      "actualWin": false,
+      "scenarioWin": true,
+      "flips": true,
+      "interpretation": "stylized fixed-core hindsight only, no outcome causation"
+    },
+    {
+      "year": 2023,
+      "week": 9,
+      "team": "Birch",
+      "actual": 95.66,
+      "opponent": "2023 roster 2",
+      "against": 108.08,
+      "delta": 4.1,
+      "scenarioReversed": 91.56,
+      "actualWin": false,
+      "scenarioWin": false,
+      "flips": false,
+      "interpretation": "stylized fixed-core hindsight only, no outcome causation"
+    },
+    {
+      "year": 2021,
+      "week": 2,
+      "team": "Birch",
+      "actual": 147.76,
+      "opponent": "Kuhl",
+      "against": 137.6,
+      "delta": 18.88,
+      "scenarioReversed": 128.88,
+      "actualWin": true,
+      "scenarioWin": false,
+      "flips": true,
+      "interpretation": "stylized fixed-core hindsight only, no outcome causation"
+    },
+    {
+      "year": 2021,
+      "week": 5,
+      "team": "Birch",
+      "actual": 167.28,
+      "opponent": "Stilly",
+      "against": 85.58,
+      "delta": 41.7,
+      "scenarioReversed": 125.58,
+      "actualWin": true,
+      "scenarioWin": true,
+      "flips": false,
+      "interpretation": "stylized fixed-core hindsight only, no outcome causation"
+    },
+    {
+      "year": 2021,
+      "week": 5,
+      "team": "Thommy",
+      "actual": 105.28,
+      "opponent": "2021 roster 8",
+      "against": 178.82,
+      "delta": -48.4,
+      "scenarioReversed": 153.68,
+      "actualWin": false,
+      "scenarioWin": false,
+      "flips": false,
+      "interpretation": "stylized fixed-core hindsight only, no outcome causation"
+    }
+  ]
+}

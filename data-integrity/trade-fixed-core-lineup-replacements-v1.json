@@ -1,0 +1,685 @@
+{
+  "schema": "fellas-fixed-core-lineup-replacement-v1",
+  "asOf": "2026-11-16",
+  "status": "research_only_stylized_hindsight_not_causal",
+  "rules": "Keep all non-acquired actual starters fixed in their original positions. Only vacancies made by starting acquired players may be filled; optimize bench choices from same historical weekly roster, with originally surrendered players added to candidate pool for stylized trade rollback only when all original surrendered assets appear on opposite manager week roster. Roster slots inferred from Sleeper 2021/2023 ordered starters QB RB RB WR WR TE FLEX FLEX DEF. Player slots in flex eligible RB/WR/TE. No globally reoptimized lineup. The model is hindsight-biased and does not replay missing draft/waiver decisions, roster limits, players sent in later deals or IR rules. If no acquired players started, no inference about value.",
+  "cases": [
+    {
+      "year": 2023,
+      "period": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "managers": [
+        "Birch",
+        "Stew"
+      ]
+    },
+    {
+      "year": 2021,
+      "period": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "managers": [
+        "Birch",
+        "Thommy"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "year": 2023,
+      "week": 7,
+      "manager": "Birch",
+      "actualTotal": 64.68,
+      "receivedStartingPoints": 0,
+      "nonAcquiredFixedPoints": 64.68,
+      "removedStarted": [],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": {
+        "points": 0,
+        "added": []
+      },
+      "tradeReversalReplacements": {
+        "points": 0,
+        "added": []
+      },
+      "fixedCoreHindsightDifferential": null,
+      "status": "no_received_player_started"
+    },
+    {
+      "year": 2023,
+      "week": 7,
+      "manager": "Stew",
+      "actualTotal": 109.42,
+      "receivedStartingPoints": 0,
+      "nonAcquiredFixedPoints": 109.42,
+      "removedStarted": [],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": {
+        "points": 0,
+        "added": []
+      },
+      "tradeReversalReplacements": {
+        "points": 0,
+        "added": []
+      },
+      "fixedCoreHindsightDifferential": null,
+      "status": "no_received_player_started"
+    },
+    {
+      "year": 2023,
+      "week": 8,
+      "manager": "Birch",
+      "actualTotal": 138.16,
+      "receivedStartingPoints": 35,
+      "nonAcquiredFixedPoints": 103.16,
+      "removedStarted": [
+        {
+          "name": "CeeDee Lamb",
+          "slot": "WR",
+          "points": 35
+        }
+      ],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": {
+        "points": 12.5,
+        "added": [
+          {
+            "slot": "WR",
+            "name": "Diontae Johnson",
+            "points": 12.5
+          }
+        ]
+      },
+      "tradeReversalReplacements": {
+        "points": 12.5,
+        "added": [
+          {
+            "slot": "WR",
+            "name": "Diontae Johnson",
+            "points": 12.5
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": 22.5,
+      "status": "illustrative_fixed_core_sensitivity"
+    },
+    {
+      "year": 2023,
+      "week": 8,
+      "manager": "Stew",
+      "actualTotal": 99.16,
+      "receivedStartingPoints": 6,
+      "nonAcquiredFixedPoints": 93.16,
+      "removedStarted": [
+        {
+          "name": "Tony Pollard",
+          "slot": "FLEX",
+          "points": 6
+        }
+      ],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": {
+        "points": 21.96,
+        "added": [
+          {
+            "slot": "FLEX",
+            "name": "Taysom Hill",
+            "points": 21.96
+          }
+        ]
+      },
+      "tradeReversalReplacements": {
+        "points": 35,
+        "added": [
+          {
+            "slot": "FLEX",
+            "name": "CeeDee Lamb",
+            "points": 35
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": -29,
+      "status": "illustrative_fixed_core_sensitivity"
+    },
+    {
+      "year": 2023,
+      "week": 9,
+      "manager": "Birch",
+      "actualTotal": 95.66,
+      "receivedStartingPoints": 22.6,
+      "nonAcquiredFixedPoints": 73.06,
+      "removedStarted": [
+        {
+          "name": "CeeDee Lamb",
+          "slot": "WR",
+          "points": 22.6
+        }
+      ],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": {
+        "points": 18.5,
+        "added": [
+          {
+            "slot": "WR",
+            "name": "Diontae Johnson",
+            "points": 18.5
+          }
+        ]
+      },
+      "tradeReversalReplacements": {
+        "points": 18.5,
+        "added": [
+          {
+            "slot": "WR",
+            "name": "Diontae Johnson",
+            "points": 18.5
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": 4.1,
+      "status": "illustrative_fixed_core_sensitivity"
+    },
+    {
+      "year": 2023,
+      "week": 9,
+      "manager": "Stew",
+      "actualTotal": 113.32,
+      "receivedStartingPoints": 17.1,
+      "nonAcquiredFixedPoints": 96.22,
+      "removedStarted": [
+        {
+          "name": "Tony Pollard",
+          "slot": "RB",
+          "points": 7.8
+        },
+        {
+          "name": "Jaxon Smith-Njigba",
+          "slot": "WR",
+          "points": 9.3
+        }
+      ],
+      "fullRetainedAssetCoverage": false,
+      "missingSurrendered": [
+        "Kenny Gainwell"
+      ],
+      "actualBenchReplacements": {
+        "points": 4,
+        "added": [
+          {
+            "slot": "RB",
+            "name": "Justice Hill",
+            "points": 4
+          },
+          {
+            "slot": "WR",
+            "name": "Courtland Sutton",
+            "points": 0
+          }
+        ]
+      },
+      "tradeReversalReplacements": {
+        "points": 26.6,
+        "added": [
+          {
+            "slot": "RB",
+            "name": "Justice Hill",
+            "points": 4
+          },
+          {
+            "slot": "WR",
+            "name": "CeeDee Lamb",
+            "points": 22.6
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": null,
+      "status": "incomplete_counterparty_assets"
+    },
+    {
+      "year": 2023,
+      "week": 10,
+      "manager": "Birch",
+      "actualTotal": 170.26,
+      "receivedStartingPoints": 34,
+      "nonAcquiredFixedPoints": 136.26,
+      "removedStarted": [
+        {
+          "name": "CeeDee Lamb",
+          "slot": "WR",
+          "points": 34
+        }
+      ],
+      "fullRetainedAssetCoverage": false,
+      "missingSurrendered": [
+        "Tony Pollard"
+      ],
+      "actualBenchReplacements": {
+        "points": 2.2,
+        "added": [
+          {
+            "slot": "WR",
+            "name": "Diontae Johnson",
+            "points": 2.2
+          }
+        ]
+      },
+      "tradeReversalReplacements": {
+        "points": 7.3,
+        "added": [
+          {
+            "slot": "WR",
+            "name": "Jaxon Smith-Njigba",
+            "points": 7.3
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": null,
+      "status": "incomplete_counterparty_assets"
+    },
+    {
+      "year": 2023,
+      "week": 10,
+      "manager": "Stew",
+      "actualTotal": 85.04,
+      "receivedStartingPoints": 0,
+      "nonAcquiredFixedPoints": 85.04,
+      "removedStarted": [],
+      "fullRetainedAssetCoverage": false,
+      "missingSurrendered": [
+        "Kenny Gainwell"
+      ],
+      "actualBenchReplacements": {
+        "points": 0,
+        "added": []
+      },
+      "tradeReversalReplacements": {
+        "points": 0,
+        "added": []
+      },
+      "fixedCoreHindsightDifferential": null,
+      "status": "incomplete_counterparty_assets"
+    },
+    {
+      "year": 2021,
+      "week": 2,
+      "manager": "Birch",
+      "actualTotal": 147.76,
+      "receivedStartingPoints": 40.46,
+      "nonAcquiredFixedPoints": 107.3,
+      "removedStarted": [
+        {
+          "name": "Lamar Jackson",
+          "slot": "QB",
+          "points": 32.26
+        },
+        {
+          "name": "Mark Andrews",
+          "slot": "TE",
+          "points": 8.2
+        }
+      ],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": null,
+      "tradeReversalReplacements": {
+        "points": 21.58,
+        "added": [
+          {
+            "slot": "QB",
+            "name": "Joe Burrow",
+            "points": 10.28
+          },
+          {
+            "slot": "TE",
+            "name": "Noah Fant",
+            "points": 11.3
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": 18.88,
+      "status": "illustrative_fixed_core_sensitivity"
+    },
+    {
+      "year": 2021,
+      "week": 2,
+      "manager": "Thommy",
+      "actualTotal": 85.88,
+      "receivedStartingPoints": 26.08,
+      "nonAcquiredFixedPoints": 59.8,
+      "removedStarted": [
+        {
+          "name": "Dak Prescott",
+          "slot": "QB",
+          "points": 6.48
+        },
+        {
+          "name": "Antonio Gibson",
+          "slot": "RB",
+          "points": 8.3
+        },
+        {
+          "name": "Noah Fant",
+          "slot": "TE",
+          "points": 11.3
+        }
+      ],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": null,
+      "tradeReversalReplacements": {
+        "points": 56.56,
+        "added": [
+          {
+            "slot": "QB",
+            "name": "Lamar Jackson",
+            "points": 32.26
+          },
+          {
+            "slot": "RB",
+            "name": "Devin Singletary",
+            "points": 16.1
+          },
+          {
+            "slot": "TE",
+            "name": "Mark Andrews",
+            "points": 8.2
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": -30.48,
+      "status": "illustrative_fixed_core_sensitivity"
+    },
+    {
+      "year": 2021,
+      "week": 3,
+      "manager": "Birch",
+      "actualTotal": 131.98,
+      "receivedStartingPoints": 32.68,
+      "nonAcquiredFixedPoints": 99.3,
+      "removedStarted": [
+        {
+          "name": "Lamar Jackson",
+          "slot": "QB",
+          "points": 18.28
+        },
+        {
+          "name": "Mark Andrews",
+          "slot": "TE",
+          "points": 14.4
+        }
+      ],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": null,
+      "tradeReversalReplacements": {
+        "points": 21.62,
+        "added": [
+          {
+            "slot": "QB",
+            "name": "Dak Prescott",
+            "points": 19.12
+          },
+          {
+            "slot": "TE",
+            "name": "Noah Fant",
+            "points": 2.5
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": 11.06,
+      "status": "illustrative_fixed_core_sensitivity"
+    },
+    {
+      "year": 2021,
+      "week": 3,
+      "manager": "Thommy",
+      "actualTotal": 93.72,
+      "receivedStartingPoints": 39.52,
+      "nonAcquiredFixedPoints": 54.2,
+      "removedStarted": [
+        {
+          "name": "Dak Prescott",
+          "slot": "QB",
+          "points": 19.12
+        },
+        {
+          "name": "Antonio Gibson",
+          "slot": "RB",
+          "points": 17.9
+        },
+        {
+          "name": "Noah Fant",
+          "slot": "TE",
+          "points": 2.5
+        }
+      ],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": null,
+      "tradeReversalReplacements": {
+        "points": 44.38,
+        "added": [
+          {
+            "slot": "QB",
+            "name": "Lamar Jackson",
+            "points": 18.28
+          },
+          {
+            "slot": "RB",
+            "name": "Javonte Williams",
+            "points": 11.7
+          },
+          {
+            "slot": "TE",
+            "name": "Mark Andrews",
+            "points": 14.4
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": -4.86,
+      "status": "illustrative_fixed_core_sensitivity"
+    },
+    {
+      "year": 2021,
+      "week": 4,
+      "manager": "Birch",
+      "actualTotal": 109.84,
+      "receivedStartingPoints": 28.64,
+      "nonAcquiredFixedPoints": 81.2,
+      "removedStarted": [
+        {
+          "name": "Lamar Jackson",
+          "slot": "QB",
+          "points": 19.44
+        },
+        {
+          "name": "Mark Andrews",
+          "slot": "TE",
+          "points": 9.2
+        }
+      ],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": null,
+      "tradeReversalReplacements": {
+        "points": 40.62,
+        "added": [
+          {
+            "slot": "QB",
+            "name": "Dak Prescott",
+            "points": 27.02
+          },
+          {
+            "slot": "TE",
+            "name": "Noah Fant",
+            "points": 13.6
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": -11.98,
+      "status": "illustrative_fixed_core_sensitivity"
+    },
+    {
+      "year": 2021,
+      "week": 4,
+      "manager": "Thommy",
+      "actualTotal": 154.52,
+      "receivedStartingPoints": 55.12,
+      "nonAcquiredFixedPoints": 99.4,
+      "removedStarted": [
+        {
+          "name": "Dak Prescott",
+          "slot": "QB",
+          "points": 27.02
+        },
+        {
+          "name": "Antonio Gibson",
+          "slot": "RB",
+          "points": 14.5
+        },
+        {
+          "name": "Noah Fant",
+          "slot": "TE",
+          "points": 13.6
+        }
+      ],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": null,
+      "tradeReversalReplacements": {
+        "points": 37.54,
+        "added": [
+          {
+            "slot": "QB",
+            "name": "Lamar Jackson",
+            "points": 19.44
+          },
+          {
+            "slot": "RB",
+            "name": "Trey Sermon",
+            "points": 8.9
+          },
+          {
+            "slot": "TE",
+            "name": "Mark Andrews",
+            "points": 9.2
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": 17.58,
+      "status": "illustrative_fixed_core_sensitivity"
+    },
+    {
+      "year": 2021,
+      "week": 5,
+      "manager": "Birch",
+      "actualTotal": 167.28,
+      "receivedStartingPoints": 92.78,
+      "nonAcquiredFixedPoints": 74.5,
+      "removedStarted": [
+        {
+          "name": "Lamar Jackson",
+          "slot": "QB",
+          "points": 41.88
+        },
+        {
+          "name": "Josh Jacobs",
+          "slot": "RB",
+          "points": 14.7
+        },
+        {
+          "name": "Mark Andrews",
+          "slot": "TE",
+          "points": 36.2
+        }
+      ],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": null,
+      "tradeReversalReplacements": {
+        "points": 51.08,
+        "added": [
+          {
+            "slot": "QB",
+            "name": "Dak Prescott",
+            "points": 20.68
+          },
+          {
+            "slot": "RB",
+            "name": "Myles Gaskin",
+            "points": 26.9
+          },
+          {
+            "slot": "TE",
+            "name": "Noah Fant",
+            "points": 3.5
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": 41.7,
+      "status": "illustrative_fixed_core_sensitivity"
+    },
+    {
+      "year": 2021,
+      "week": 5,
+      "manager": "Thommy",
+      "actualTotal": 105.28,
+      "receivedStartingPoints": 44.38,
+      "nonAcquiredFixedPoints": 60.9,
+      "removedStarted": [
+        {
+          "name": "Dak Prescott",
+          "slot": "QB",
+          "points": 20.68
+        },
+        {
+          "name": "Antonio Gibson",
+          "slot": "RB",
+          "points": 20.2
+        },
+        {
+          "name": "Noah Fant",
+          "slot": "TE",
+          "points": 3.5
+        }
+      ],
+      "fullRetainedAssetCoverage": true,
+      "missingSurrendered": [],
+      "actualBenchReplacements": null,
+      "tradeReversalReplacements": {
+        "points": 92.78,
+        "added": [
+          {
+            "slot": "QB",
+            "name": "Lamar Jackson",
+            "points": 41.88
+          },
+          {
+            "slot": "RB",
+            "name": "Josh Jacobs",
+            "points": 14.7
+          },
+          {
+            "slot": "TE",
+            "name": "Mark Andrews",
+            "points": 36.2
+          }
+        ]
+      },
+      "fixedCoreHindsightDifferential": -48.4,
+      "status": "illustrative_fixed_core_sensitivity"
+    }
+  ]
+}

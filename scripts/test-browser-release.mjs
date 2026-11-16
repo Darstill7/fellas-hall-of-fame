@@ -25,7 +25,7 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','hall/','hall/championship-stories.html','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const routes=['','seasons/','hall/','hall/championship-stories.html','seasons/weekly-matchup-archive.html','managers/index.html','managers/trade-portfolios.html','managers/trade-explorer.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
 const errors=[];
@@ -100,7 +100,7 @@ try{
    if(captureVisuals&&(
     route===''||route==='analytics/records.html'||route==='analytics/power-ratings.html'||
     route==='analytics/manager-report-cards.html'||route==='analytics/rivalries.html'||
-    route==='managers/record-books.html'||route==='rivalries/stilly-vs-jmid.html'||
+    route==='managers/record-books.html'||route==='managers/trade-portfolios.html'||route==='managers/trade-explorer.html'||route==='rivalries/stilly-vs-jmid.html'||
     (route.startsWith('managers/')&&route.endsWith('/')&&
      ['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'].includes(route.split('/')[1])))){
     const slug=(route||'index.html').replace(/[^a-z0-9-]+/gi,'_');
@@ -159,6 +159,37 @@ try{
      }else if(await mobileMenu.isVisible())
       errors.push(width+' '+route+' mobile-only manager menu exposed on desktop');
     }
+   }
+   if(isCurrentProfile){
+    const divisions=page.locator('.franchise-chapter-break');
+    if(await divisions.count()!==5)
+     errors.push(width+' '+route+' needs five distinct editorial chapter dividers');
+    const chapterTitles=await divisions.locator('.chapter-name').allTextContents();
+    if(!chapterTitles.includes('The Franchise Story')||!chapterTitles.includes('Drafts, Trades & Deep Research'))
+     errors.push(width+' '+route+' franchise chapter labels incomplete');
+    // Existing franchise JS replaces the legacy link rail with accessible
+    // Career / Each Year / Head-to-Head / Deep Stats tabs.
+    await page.waitForFunction(()=>!!document.querySelector('nav.profile-tabs .profile-location-label'),null,{timeout:10000}).catch(()=>{});
+    if(await page.locator('nav.profile-tabs [data-profile-tab]').count()!==4)
+     errors.push(width+' '+route+' existing four-tab chapter navigator missing');
+    if(await page.locator('nav.profile-tabs .profile-location-label').count()!==1)
+     errors.push(width+' '+route+' missing native current-section context label');
+    if(await page.locator('body.profile-landing').count()===1&&await divisions.filter({visible:true}).count()!==0)
+     errors.push(width+' '+route+' chapter dividers must be hidden on the short profile landing');
+   }
+   if(route==='analytics/record-holders.html'){
+    if(await page.locator('.records-reading-break').count()!==4)
+     errors.push(width+' Record Book four chapter transitions missing');
+    if(await page.locator('.records-reading-map a').count()!==4)
+     errors.push(width+' Record Book chapter navigation incomplete');
+   }
+   if(route==='managers/trade-portfolios.html'){
+    if(await page.locator('.reading-divider').count()!==5)
+     errors.push(width+' portfolio chapters missing');
+    if(await page.locator('.portfolio-reading-map a').count()!==5)
+     errors.push(width+' portfolio jump map incomplete');
+    const chooser=await page.locator('#choose-managers').evaluate(el=>el.compareDocumentPosition(document.querySelector('.compare-panel'))&Node.DOCUMENT_POSITION_FOLLOWING);
+    if(!chooser)errors.push(width+' compare panel should follow choose-manager section');
    }
    if(state.body<80)errors.push(width+' '+route+' blank or very little content');
    const exposedNames=await page.evaluate(()=>{
@@ -239,6 +270,15 @@ try{
     if(!noPartialGrade)errors.push(width+' 2026 partial keeper season leaked completed season grade');
    }
    if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
+    if(await page.locator('.franchise-chapter-break').count()!==5)
+     errors.push(width+' '+route+' should have five numbered content chapters');
+    if(!await page.evaluate(()=>!!document.querySelector('script[src*="franchise-chapter-system.js"]')))
+     errors.push(width+' '+route+' missing chapter position script');
+    if(await page.locator('.profile-chapters .chapter-reading-status').count()!==1)
+     errors.push(width+' '+route+' current chapter orientation missing');
+    const chapterNames=await page.locator('.franchise-chapter-break .chapter-name').allTextContents();
+    if(chapterNames.join(' | ')!=='The Franchise Story | Rivalries & Head-to-Head | Seasons, Records & Legacy | Franchise Legends & Game Logs | Drafts, Trades & Deep Research')
+     errors.push(width+' '+route+' franchise chapter sequence changed');
     const managerName=route.split('/')[1]==='tom'?'Tom':route.split('/')[1].charAt(0).toUpperCase()+route.split('/')[1].slice(1);
     const recordLink=page.locator('main .hero .buttons a[href*="record-holders.html?manager="]');
     if(await recordLink.count()!==1)errors.push(width+' '+route+' no direct Records action on manager hero');
@@ -1307,6 +1347,143 @@ try{
     const warning=await page.locator('.notice').innerText();
     if(!warning.includes('not a complete ranking of manager skill'))
      errors.push(width+' manager decisions evidence limitation missing');
+   }
+   if(route==='managers/trade-explorer.html'){
+    if(await page.locator('.explorer-map a').count()!==3)
+     errors.push(width+' Trade Explorer chapter navigation missing');
+    if(await page.locator('.explorer-chapter-title').count()!==1||
+       await page.locator('.case-chapter-heading').count()!==1||
+       await page.locator('.case-aftermath-heading').count()!==1)
+     errors.push(width+' Trade Explorer find/receipt/aftermath headings incomplete');
+    await page.waitForFunction(()=>document.querySelectorAll('#results button.trade-tile').length>0,null,{timeout:10000}).catch(()=>{});
+    if((await page.locator('#count-historic').textContent())!=='48')
+     errors.push(width+' trade explorer historical census failed to load');
+    if((await page.locator('#count-current').textContent())!=='9')
+     errors.push(width+' trade explorer current census failed to load');
+    const filter=page.locator('#search');await filter.fill('CeeDee Lamb');
+    const matches=await page.locator('#results button.trade-tile').count();
+    if(matches<2)errors.push(width+' player trade search missing linked receipts');
+    if(matches>0){
+     await page.locator('#results button.trade-tile').first().click();
+     const asset=page.locator('#detail-body button.asset').filter({hasText:'CeeDee Lamb'}).first();
+     if(await asset.count()===1){
+      await asset.click();
+      if(await page.locator('#journey-entries .journey-item').count()<2)
+       errors.push(width+' CeeDee Lamb player journey should show multiple trades');
+     }else errors.push(width+' trade inspector missing clickable player');
+    }
+    if(width===390){
+     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);
+     if(overflow)errors.push(width+' trade explorer has horizontal overflow');
+    }
+    const caseId='1018289561511682048';
+    await page.goto(baseUrl+'managers/trade-explorer.html?trade='+caseId);
+    await page.waitForFunction(()=>document.querySelector('#detail-meta')&&document.querySelector('#detail-meta').textContent.includes('2023'),null,{timeout:10000}).catch(()=>{});
+    if(!page.url().includes(caseId))
+     errors.push(width+' deep-linked trade case failed to load');
+    if(await page.locator('#detail-body .participant').count()!==2)
+     errors.push(width+' trade receipt participants not displayed');
+    if(await page.locator('#trade-flow .flow-lane').count()!==2)
+     errors.push(width+' bilateral trade flow lacks two manager lanes');
+    if(!await page.locator('#trade-flow').innerText().then(t=>t.includes('CeeDee Lamb')&&t.includes('Tony Pollard')))
+     errors.push(width+' Lamb-Pollard trade asset flow missing');
+    await page.waitForFunction(()=>document.querySelector('#context-title')?.textContent.includes('Lamb moved to Birch'),null,{timeout:10000}).catch(()=>{});
+    if(!await page.locator('#context-title').innerText().then(t=>t.includes('Lamb moved to Birch')))
+     errors.push(width+' verified 2023 trade context did not load');
+    if(await page.locator('#detail-body a.record-link[href*="record-books.html?manager="]').count()!==2)
+     errors.push(width+' trade case missing manager record book links');
+    await page.goto(baseUrl+'managers/trade-explorer.html?trade=1294402688213057536');
+    await page.waitForFunction(()=>!document.querySelector('#context-panel').hidden,null,{timeout:10000}).catch(()=>{});
+    if(await page.locator('#trade-flow .flow-lane').count()!==3)
+     errors.push(width+' 2025 triple trade missing three receipt lanes');
+    if(!await page.locator('#trade-flow').innerText().then(t=>t.includes('Ja\'Marr Chase')&&t.includes('A.J. Brown')&&t.includes('Amon-Ra St. Brown')))
+     errors.push(width+' verified 2025 three-party outgoing/received asset flow incomplete');
+    if(await page.locator('#context-keepers .keeper-chip').count()!==2)
+     errors.push(width+' documented 2026 first-round keeper receipts not shown');
+    await page.waitForFunction(()=>document.querySelectorAll('#timeline-steps .timeline-step').length===6,null,{timeout:10000}).catch(()=>{});
+    if(await page.locator('#timeline-steps .timeline-step').count()!==6)
+     errors.push(width+' Chase-to-playoff timeline must contain six historical milestones');
+    const timelineText=await page.locator('#trade-timeline').innerText();
+    if(!timelineText.includes('122.12')||!timelineText.includes('126.76')||!timelineText.includes('2026 R1 #8')||!timelineText.includes('2026 R1 #4'))
+     errors.push(width+' trade timeline missing 2025 playoff results or 2026 first-round keeper costs');
+    if(await page.locator('#timeline-steps a[href*="trade=1413584172332654592"]').count()!==1)
+     errors.push(width+' trade timeline must connect the 2026 Chase return case');
+
+    await page.waitForFunction(()=>document.querySelector('#playoff-impact')&&!document.querySelector('#playoff-impact').hidden,null,{timeout:10000}).catch(()=>{});
+    const week15Impact=await page.locator('#playoff-impact-body').innerText();
+    if(!week15Impact.includes('122.12')||!week15Impact.includes('122.00')||!week15Impact.includes('61.42'))
+     errors.push(width+' Stilly 2025 0.12-point Week15 result and acquired-player production missing');
+    await page.goto(baseUrl+'managers/trade-explorer.html?trade=1018289561511682048');
+    await page.waitForFunction(()=>document.querySelector('#playoff-impact')&&!document.querySelector('#playoff-impact').hidden,null,{timeout:10000}).catch(()=>{});
+    if(!await page.locator('#playoff-impact-body').innerText().then(t=>t.includes('105.06')&&t.includes('146.36')&&t.includes('15.10')))
+     errors.push(width+' Birch 2023 Week15 lost pairing was misrepresented or missing');
+    await page.goto(baseUrl+'managers/trade-explorer.html?trade=1427488044335788032');
+    await page.waitForFunction(()=>document.querySelectorAll('#keeper-trail-entries .journey-item').length>=2,null,{timeout:10000}).catch(()=>{});
+    const keeperText=await page.locator('#keeper-trail-entries').innerText();
+    if(!keeperText.includes('Drake Maye')||!keeperText.includes('Round 14')||!keeperText.includes('Nico Collins')||!keeperText.includes('Round 3'))
+     errors.push(width+' original 2026 keeper costs missing for Maye/Collins return trade');
+    if(!keeperText.includes('Kuhl → Stew')||!keeperText.includes('Stew → Kuhl'))
+     errors.push(width+' Maye keeper round-trip evidence missing');
+    await page.goto(baseUrl+'managers/trade-explorer.html?trade='+caseId);
+    if(captureVisuals){
+     const focusPath=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width),'trade-explorer-lamb-case.png');
+     await fs.mkdir(path.dirname(focusPath),{recursive:true});
+     await page.screenshot({path:focusPath,animations:'disabled',fullPage:false});
+    }
+   }
+   if(route==='managers/trade-portfolios.html'){
+    // The 48 historic trade events and nine 2026 transactions must load in a
+    // real browser; source-only syntax tests cannot establish this.
+    await page.waitForFunction(()=>document.querySelectorAll('#picks button.pick').length===12,null,{timeout:10000}).catch(()=>{});
+    if(await page.locator('#picks button.pick').count()!==12)
+     errors.push(width+' portfolio selector did not render 12 managers');
+    if(await page.locator('#total-events').textContent()!=='48')
+     errors.push(width+' historical trade count did not load');
+    if(await page.locator('#total-player').textContent()!=='45')
+     errors.push(width+' historical player-bearing count did not load');
+    if(width===390){
+     const geometry=await page.locator('.controls label').evaluateAll(nodes=>nodes.map(el=>{const r=el.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width}}));
+     if(geometry.length!==2||geometry[0].bottom>geometry[1].top-4||geometry.some(g=>g.left<0||g.right>390))
+      errors.push(width+' mobile portfolio search and membership labels overlap or overflow');
+    }
+    if(await page.locator('#compare-a option').count()!==12||await page.locator('#compare-b option').count()!==12)
+     errors.push(width+' manager comparison options missing');
+    await page.locator('#compare-a').selectOption('Stew');
+    await page.locator('#compare-b').selectOption('Stilly');
+    const comparison=await page.locator('#compare-result').innerText();
+    if(!comparison.includes('23 historic events')||!comparison.includes('17 historic events'))
+     errors.push(width+' manager comparison records missing Stew/Stilly counts');
+    await page.locator('#compare-b').selectOption('Stew');
+    if(!await page.locator('#compare-result').innerText().then(t=>t.includes('two different managers')))
+     errors.push(width+' manager comparison duplicate selection invalid');
+    await page.locator('#compare-b').selectOption('Stilly');
+    await page.locator('#picks button[data-key="Stilly"]').click();
+    if(!await page.locator('#trade-playoff-story-link').isVisible())
+     errors.push(width+' Stilly trade-to-playoff timeline feature link missing');
+    if(!await page.locator('#trade-playoff-story-link').getAttribute('href').then(t=>t.includes('1294402688213057536')))
+     errors.push(width+' Stilly timeline link points to wrong transaction');
+    const scott=page.locator('#picks button[data-key="Scott"]');
+    if(await scott.count()===1){
+     await scott.click();
+     if((await page.locator('#manager-name').textContent())!=='Scott')
+      errors.push(width+' selecting Scott did not update manager profile');
+     if(!await page.locator('#current2026-summary').textContent().then(t=>t.includes('1 completed trade')))
+      errors.push(width+' Scott 2026 first trade not shown');
+     if(!await page.locator('#editorial-copy').textContent().then(t=>t.includes('Emeka Egbuka')))
+      errors.push(width+' Scott evidence-backed editorial story missing');
+     if(width===390)await page.waitForTimeout(650); const scroll=await page.evaluate(()=>({top:document.querySelector('#profile').getBoundingClientRect().top,viewport:innerHeight}));
+     if(width===390&&scroll.top>scroll.viewport)
+      errors.push(width+' selected portfolio not brought into view on mobile');
+     // Show the actual opened, populated portfolio in the visual artifact,
+     // not only the initial route's above-the-fold hero.
+     const focused=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width),'trade-portfolios-scott-focused.png');
+     await fs.mkdir(path.dirname(focused),{recursive:true});
+     await page.screenshot({path:focused,animations:'disabled',fullPage:false});
+    }
+    const jq=page.locator('#query');await jq.fill('Gurt');
+    if(await page.locator('#picks button.pick:visible').count()!==1)
+     errors.push(width+' manager alias search should resolve Gurt to Stover');
+    await jq.fill('');
    }
    if(route==='managers/index.html'){
     const directoryStyle=page.locator('#manager-directory-readability');

@@ -1,0 +1,256 @@
+{
+  "schema": "fellas-targeted-transaction-2022-2023-v1",
+  "asOf": "2026-11-16",
+  "targets": [
+    {
+      "year": 2022,
+      "league": "853425115274678272",
+      "start": 3,
+      "end": 10,
+      "names": [
+        "James Robinson",
+        "Cordarrelle Patterson",
+        "Alvin Kamara"
+      ]
+    },
+    {
+      "year": 2023,
+      "league": "946275261279055872",
+      "start": 3,
+      "end": 11,
+      "names": [
+        "CeeDee Lamb",
+        "Travis Etienne Jr."
+      ]
+    }
+  ],
+  "method": "Scan complete and incomplete Sleeper transactions by public week; retain only completed transactions matching named assets. Must verify authoritative 2022 league ID: if no results or errors, do NOT claim scan complete.",
+  "rows": [
+    {
+      "season": 2022,
+      "week": 3,
+      "returned": 0,
+      "complete": false,
+      "limitations": null,
+      "error": "INVALID_ARGUMENT: Error code: INVALID_ARGUMENT; Error: RuntimeException: Error calling MCP tool: [TextContent(type='text', text='SLEEPER_LEAGUE_NOT_CONNECTED: This Sleeper league is not connected to your Flaim account. Refresh your Sleeper leagues in Flaim, then use a league from get_user_session or get_ancient_history.', annotations=None, meta=None)]",
+      "events": []
+    },
+    {
+      "season": 2022,
+      "week": 4,
+      "returned": 0,
+      "complete": false,
+      "limitations": null,
+      "error": "INVALID_ARGUMENT: Error code: INVALID_ARGUMENT; Error: RuntimeException: Error calling MCP tool: [TextContent(type='text', text='SLEEPER_LEAGUE_NOT_CONNECTED: This Sleeper league is not connected to your Flaim account. Refresh your Sleeper leagues in Flaim, then use a league from get_user_session or get_ancient_history.', annotations=None, meta=None)]",
+      "events": []
+    },
+    {
+      "season": 2022,
+      "week": 5,
+      "returned": 0,
+      "complete": false,
+      "limitations": null,
+      "error": "INVALID_ARGUMENT: Error code: INVALID_ARGUMENT; Error: RuntimeException: Error calling MCP tool: [TextContent(type='text', text='SLEEPER_LEAGUE_NOT_CONNECTED: This Sleeper league is not connected to your Flaim account. Refresh your Sleeper leagues in Flaim, then use a league from get_user_session or get_ancient_history.', annotations=None, meta=None)]",
+      "events": []
+    },
+    {
+      "season": 2022,
+      "week": 6,
+      "returned": 0,
+      "complete": false,
+      "limitations": null,
+      "error": "INVALID_ARGUMENT: Error code: INVALID_ARGUMENT; Error: RuntimeException: Error calling MCP tool: [TextContent(type='text', text='SLEEPER_LEAGUE_NOT_CONNECTED: This Sleeper league is not connected to your Flaim account. Refresh your Sleeper leagues in Flaim, then use a league from get_user_session or get_ancient_history.', annotations=None, meta=None)]",
+      "events": []
+    },
+    {
+      "season": 2022,
+      "week": 7,
+      "returned": 0,
+      "complete": false,
+      "limitations": null,
+      "error": "INVALID_ARGUMENT: Error code: INVALID_ARGUMENT; Error: RuntimeException: Error calling MCP tool: [TextContent(type='text', text='SLEEPER_LEAGUE_NOT_CONNECTED: This Sleeper league is not connected to your Flaim account. Refresh your Sleeper leagues in Flaim, then use a league from get_user_session or get_ancient_history.', annotations=None, meta=None)]",
+      "events": []
+    },
+    {
+      "season": 2022,
+      "week": 8,
+      "returned": 0,
+      "complete": false,
+      "limitations": null,
+      "error": "INVALID_ARGUMENT: Error code: INVALID_ARGUMENT; Error: RuntimeException: Error calling MCP tool: [TextContent(type='text', text='SLEEPER_LEAGUE_NOT_CONNECTED: This Sleeper league is not connected to your Flaim account. Refresh your Sleeper leagues in Flaim, then use a league from get_user_session or get_ancient_history.', annotations=None, meta=None)]",
+      "events": []
+    },
+    {
+      "season": 2022,
+      "week": 9,
+      "returned": 0,
+      "complete": false,
+      "limitations": null,
+      "error": "INVALID_ARGUMENT: Error code: INVALID_ARGUMENT; Error: RuntimeException: Error calling MCP tool: [TextContent(type='text', text='SLEEPER_LEAGUE_NOT_CONNECTED: This Sleeper league is not connected to your Flaim account. Refresh your Sleeper leagues in Flaim, then use a league from get_user_session or get_ancient_history.', annotations=None, meta=None)]",
+      "events": []
+    },
+    {
+      "season": 2022,
+      "week": 10,
+      "returned": 0,
+      "complete": false,
+      "limitations": null,
+      "error": "INVALID_ARGUMENT: Error code: INVALID_ARGUMENT; Error: RuntimeException: Error calling MCP tool: [TextContent(type='text', text='SLEEPER_LEAGUE_NOT_CONNECTED: This Sleeper league is not connected to your Flaim account. Refresh your Sleeper leagues in Flaim, then use a league from get_user_session or get_ancient_history.', annotations=None, meta=None)]",
+      "events": []
+    },
+    {
+      "season": 2023,
+      "week": 3,
+      "returned": 31,
+      "complete": true,
+      "limitations": null,
+      "error": null,
+      "events": [
+        {
+          "id": "1012571602774532096",
+          "type": "trade",
+          "date": "2023-09-27",
+          "timestamp": 1695778528592,
+          "teams": [
+            "4",
+            "9"
+          ],
+          "assets": [
+            {
+              "id": "6786",
+              "name": "CeeDee Lamb"
+            },
+            {
+              "id": "7543",
+              "name": "Travis Etienne Jr."
+            }
+          ],
+          "other": [
+            "James Conner",
+            "CeeDee Lamb",
+            "Travis Etienne Jr.",
+            "De'Von Achane",
+            "Puka Nacua"
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "week": 4,
+      "returned": 19,
+      "complete": true,
+      "limitations": null,
+      "error": null,
+      "events": []
+    },
+    {
+      "season": 2023,
+      "week": 5,
+      "returned": 16,
+      "complete": true,
+      "limitations": null,
+      "error": null,
+      "events": []
+    },
+    {
+      "season": 2023,
+      "week": 6,
+      "returned": 35,
+      "complete": true,
+      "limitations": null,
+      "error": null,
+      "events": [
+        {
+          "id": "1018289561511682048",
+          "type": "trade",
+          "date": "2023-10-12",
+          "timestamp": 1697143410205,
+          "teams": [
+            "4",
+            "10"
+          ],
+          "assets": [
+            {
+              "id": "6786",
+              "name": "CeeDee Lamb"
+            }
+          ],
+          "other": [
+            "Tony Pollard",
+            "CeeDee Lamb",
+            "Kenny Gainwell",
+            "Jaxon Smith-Njigba"
+          ]
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "week": 7,
+      "returned": 15,
+      "complete": true,
+      "limitations": null,
+      "error": null,
+      "events": []
+    },
+    {
+      "season": 2023,
+      "week": 8,
+      "returned": 23,
+      "complete": true,
+      "limitations": null,
+      "error": null,
+      "events": []
+    },
+    {
+      "season": 2023,
+      "week": 9,
+      "returned": 24,
+      "complete": true,
+      "limitations": null,
+      "error": null,
+      "events": []
+    },
+    {
+      "season": 2023,
+      "week": 10,
+      "returned": 23,
+      "complete": true,
+      "limitations": null,
+      "error": null,
+      "events": []
+    },
+    {
+      "season": 2023,
+      "week": 11,
+      "returned": 22,
+      "complete": true,
+      "limitations": null,
+      "error": null,
+      "events": [
+        {
+          "id": "1031251467312775168",
+          "type": "trade",
+          "date": "2023-11-17",
+          "timestamp": 1700263493067,
+          "teams": [
+            "4",
+            "7"
+          ],
+          "assets": [
+            {
+              "id": "7543",
+              "name": "Travis Etienne Jr."
+            }
+          ],
+          "other": [
+            "Amari Cooper",
+            "Travis Etienne Jr.",
+            "Breece Hall"
+          ]
+        }
+      ]
+    }
+  ]
+}

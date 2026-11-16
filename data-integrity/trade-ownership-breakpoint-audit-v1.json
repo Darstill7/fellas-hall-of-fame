@@ -1,0 +1,686 @@
+{
+  "schema": "fellas-trade-ownership-breakpoint-audit-v1",
+  "asOf": "2026-11-16",
+  "classification": "research_only_not_ownership_proof_or_causal_ratings",
+  "method": "For 5 already sampled transactions, match all received assets with recorded subsequent trade events in data/trade_lineage_v2.json; flag sampled weekly lineup reversals occurring after any known same-season asset re-trade, while preserving old numerical hindsight ceilings as noncausal archive observations. Missing trade events do not verify continuous ownership. Dates are trade archival dates, not complete transactions ledger for adds/drops/FAAB.",
+  "counts": {
+    "trades": 5,
+    "sampledManagerWeeks": 44,
+    "postKnownSameSeasonAssetRetrade": 12,
+    "notPostKnownRetrade": 32,
+    "notPostKnownRetradeAndFullCounterpartyCoverage": 25,
+    "notPromotableToCausalScore": 44
+  },
+  "cautions": [
+    "Trade lineage covers recorded trades but not all player releases, injured reserve moves, waivers, lineup timing or keeper alternatives.",
+    "Ownership after a retrade cannot be reconstructed by simply swapping the original asset onto a later roster.",
+    "No validated alternative pregame lineup or keeper/FAAB markets.",
+    "2021 first trade Josh Jacobs moved the next day; entire sampled 2021 case is after another recorded trade.",
+    "2025 Chase moved in the three-team exchange on November 12, 2025; 2025 Weeks 12 and 16 samples postdate it."
+  ],
+  "cases": [
+    {
+      "tradeId": "737360507476066304",
+      "season": 2021,
+      "tradeWeek": 1,
+      "originalDate": "2021-08-30",
+      "assets": [
+        "Tyreek Hill",
+        "Josh Jacobs",
+        "Javonte Williams",
+        "Corey Davis",
+        "A.J. Brown",
+        "Jonathan Taylor"
+      ],
+      "subsequentRecordedAssetTrades": [
+        {
+          "asset": "Josh Jacobs",
+          "date": "2021-08-31",
+          "transactionId": "738428315181928448",
+          "from": "Tom",
+          "to": "Birch",
+          "confidence": "inferred_two_team"
+        },
+        {
+          "asset": "Jonathan Taylor",
+          "date": "2022-09-15",
+          "transactionId": "875965138744864768",
+          "from": "Mitch",
+          "to": "Stilly",
+          "confidence": "inferred_two_team"
+        },
+        {
+          "asset": "A.J. Brown",
+          "date": "2022-10-12",
+          "transactionId": "885980047650119680",
+          "from": "EvansBrandon",
+          "to": "Tony",
+          "confidence": "inferred_two_team"
+        },
+        {
+          "asset": "Josh Jacobs",
+          "date": "2023-11-17",
+          "transactionId": "1031121022772555776",
+          "from": "Stew",
+          "to": "Mitch",
+          "confidence": "inferred_two_team"
+        },
+        {
+          "asset": "A.J. Brown",
+          "date": "2025-11-12",
+          "transactionId": "1294402688213057536",
+          "from": null,
+          "to": "Tom",
+          "confidence": "ambiguous_multi_team"
+        }
+      ],
+      "firstRecordedSubsequentAssetTrade": {
+        "asset": "Josh Jacobs",
+        "date": "2021-08-31",
+        "transactionId": "738428315181928448",
+        "from": "Tom",
+        "to": "Birch",
+        "confidence": "inferred_two_team"
+      },
+      "withinSeasonBreak": {
+        "asset": "Josh Jacobs",
+        "date": "2021-08-31",
+        "transactionId": "738428315181928448",
+        "from": "Tom",
+        "to": "Birch",
+        "confidence": "inferred_two_team"
+      },
+      "rows": [
+        {
+          "week": 2,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 1.6,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        },
+        {
+          "week": 2,
+          "manager": "Tony",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Josh Jacobs"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        },
+        {
+          "week": 6,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -15.5,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        },
+        {
+          "week": 6,
+          "manager": "Tony",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Josh Jacobs"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        },
+        {
+          "week": 10,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Corey Davis"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        },
+        {
+          "week": 10,
+          "manager": "Tony",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Josh Jacobs"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        },
+        {
+          "week": 14,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Corey Davis"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        },
+        {
+          "week": 14,
+          "manager": "Tony",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Josh Jacobs"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        }
+      ]
+    },
+    {
+      "tradeId": "1018289561511682048",
+      "season": 2023,
+      "tradeWeek": 6,
+      "originalDate": "2023-10-12",
+      "assets": [
+        "Tony Pollard",
+        "Jaxon Smith-Njigba",
+        "CeeDee Lamb",
+        "Kenny Gainwell"
+      ],
+      "subsequentRecordedAssetTrades": [],
+      "firstRecordedSubsequentAssetTrade": null,
+      "withinSeasonBreak": null,
+      "rows": [
+        {
+          "week": 7,
+          "manager": "Stew",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 6.7,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 7,
+          "manager": "Birch",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 0.9,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 9,
+          "manager": "Stew",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Kenny Gainwell"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 9,
+          "manager": "Birch",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 9.3,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 11,
+          "manager": "Stew",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Kenny Gainwell"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 11,
+          "manager": "Birch",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Tony Pollard"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 14,
+          "manager": "Stew",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Kenny Gainwell"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 14,
+          "manager": "Birch",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Tony Pollard"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        }
+      ]
+    },
+    {
+      "tradeId": "1144362000575840256",
+      "season": 2024,
+      "tradeWeek": 3,
+      "originalDate": "2024-09-24",
+      "assets": [
+        "Terry McLaurin",
+        "De'Von Achane",
+        "Tank Dell",
+        "Christian McCaffrey",
+        "Diontae Johnson",
+        "Tee Higgins"
+      ],
+      "subsequentRecordedAssetTrades": [],
+      "firstRecordedSubsequentAssetTrade": null,
+      "withinSeasonBreak": null,
+      "rows": [
+        {
+          "week": 4,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -2.9,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 4,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 3.1,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 8,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 18.4,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 8,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -22.3,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 12,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Diontae Johnson"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 12,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -27.1,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 16,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Christian McCaffrey",
+            "Diontae Johnson"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 16,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -25.6,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        }
+      ]
+    },
+    {
+      "tradeId": "1276026193660899328",
+      "season": 2025,
+      "tradeWeek": 3,
+      "originalDate": "2025-09-23",
+      "assets": [
+        "Ja'Marr Chase",
+        "Chase Brown",
+        "Jahmyr Gibbs",
+        "RJ Harvey"
+      ],
+      "subsequentRecordedAssetTrades": [
+        {
+          "asset": "Ja'Marr Chase",
+          "date": "2025-11-12",
+          "transactionId": "1294402688213057536",
+          "from": null,
+          "to": "JMid",
+          "confidence": "ambiguous_multi_team"
+        },
+        {
+          "asset": "Ja'Marr Chase",
+          "date": "2026-10-07",
+          "transactionId": "1413584172332654592",
+          "from": "JMid",
+          "to": "Stilly",
+          "confidence": "inferred_two_team"
+        }
+      ],
+      "firstRecordedSubsequentAssetTrade": {
+        "asset": "Ja'Marr Chase",
+        "date": "2025-11-12",
+        "transactionId": "1294402688213057536",
+        "from": null,
+        "to": "JMid",
+        "confidence": "ambiguous_multi_team"
+      },
+      "withinSeasonBreak": {
+        "asset": "Ja'Marr Chase",
+        "date": "2025-11-12",
+        "transactionId": "1294402688213057536",
+        "from": null,
+        "to": "JMid",
+        "confidence": "ambiguous_multi_team"
+      },
+      "rows": [
+        {
+          "week": 4,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -11.9,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 4,
+          "manager": "Stew",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 19.1,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 8,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 11.3,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 8,
+          "manager": "Stew",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -9,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 12,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -38.9,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        },
+        {
+          "week": 12,
+          "manager": "Stew",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Ja'Marr Chase"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        },
+        {
+          "week": 16,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 2,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        },
+        {
+          "week": 16,
+          "manager": "Stew",
+          "originalSnapshotStatus": "incomplete_asset_coverage",
+          "missingOutboundAssets": [
+            "Ja'Marr Chase"
+          ],
+          "hindsightDelta": null,
+          "postRecordedRetrade": true,
+          "eligibleForUnchangedTradeSensitivity": false,
+          "warning": "Asset was re-traded before this sampled week; original-trade-only counterfactual may be incoherent."
+        }
+      ]
+    },
+    {
+      "tradeId": "1294402688213057536",
+      "season": 2025,
+      "tradeWeek": 11,
+      "originalDate": "2025-11-12",
+      "assets": [
+        "Amon-Ra St. Brown",
+        "Jordan Addison",
+        "Jared Goff",
+        "Ja'Marr Chase",
+        "A.J. Brown"
+      ],
+      "subsequentRecordedAssetTrades": [
+        {
+          "asset": "Ja'Marr Chase",
+          "date": "2026-10-07",
+          "transactionId": "1413584172332654592",
+          "from": "JMid",
+          "to": "Stilly",
+          "confidence": "inferred_two_team"
+        }
+      ],
+      "firstRecordedSubsequentAssetTrade": {
+        "asset": "Ja'Marr Chase",
+        "date": "2026-10-07",
+        "transactionId": "1413584172332654592",
+        "from": "JMid",
+        "to": "Stilly",
+        "confidence": "inferred_two_team"
+      },
+      "withinSeasonBreak": null,
+      "rows": [
+        {
+          "week": 12,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 21.56,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 12,
+          "manager": "JMid",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -18.2,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 12,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 17.62,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 14,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 12.64,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 14,
+          "manager": "JMid",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -4.5,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 14,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -10.36,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 15,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 40.72,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 15,
+          "manager": "JMid",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -17.7,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 15,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -11.06,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 16,
+          "manager": "Stilly",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 9.46,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 16,
+          "manager": "JMid",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": 8,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        },
+        {
+          "week": 16,
+          "manager": "Thommy",
+          "originalSnapshotStatus": "illustrative_complete_snapshot",
+          "missingOutboundAssets": [],
+          "hindsightDelta": -2.16,
+          "postRecordedRetrade": false,
+          "eligibleForUnchangedTradeSensitivity": true,
+          "warning": "No post-original trade found in tracked trade index before this week; NOT verified continuous ownership."
+        }
+      ]
+    }
+  ]
+}

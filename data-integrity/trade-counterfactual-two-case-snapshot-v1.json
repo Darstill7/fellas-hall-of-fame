@@ -1,0 +1,215 @@
+{
+  "schema": "fellas-trade-counterfactual-two-case-snapshots-v1",
+  "asOf": "2026-11-16",
+  "status": "research_only_noncausal",
+  "source": "Sleeper historical weekly roster snapshots (starters and bench) retrieved through connected fantasy data; corroborated trade receipts in PR #234",
+  "method": "Retrospective highest scoring legal lineup for real weekly roster vs stylized no-trade roster (remove received players, add surrendered assets only when available in counterparty's corresponding weekly roster). QB RB RB WR WR TE FLEX FLEX DEF; use actual weekly points known in hindsight. Does not reconstruct ownership after further trades or waiver activity; does not prove would-have-won outcomes. Withheld difference if surrendered assets not found in current counterparty roster.",
+  "sampledRows": [
+    {
+      "year": 2025,
+      "week": 4,
+      "tradeId": "1276026193660899328",
+      "manager": "Stilly",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 137.58,
+      "hypotheticalOptimal": 149.48,
+      "delta": -11.9,
+      "actualStarterPoints": 108.98
+    },
+    {
+      "year": 2025,
+      "week": 4,
+      "tradeId": "1276026193660899328",
+      "manager": "Stew",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 140.62,
+      "hypotheticalOptimal": 121.52,
+      "delta": 19.1,
+      "actualStarterPoints": 121.02
+    },
+    {
+      "year": 2025,
+      "week": 8,
+      "tradeId": "1276026193660899328",
+      "manager": "Stilly",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 109.32,
+      "hypotheticalOptimal": 98.02,
+      "delta": 11.3,
+      "actualStarterPoints": 108.02
+    },
+    {
+      "year": 2025,
+      "week": 8,
+      "tradeId": "1276026193660899328",
+      "manager": "Stew",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 162.58,
+      "hypotheticalOptimal": 171.58,
+      "delta": -9,
+      "actualStarterPoints": 137.18
+    },
+    {
+      "year": 2025,
+      "week": 12,
+      "tradeId": "1276026193660899328",
+      "manager": "Stilly",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 112.76,
+      "hypotheticalOptimal": 151.66,
+      "delta": -38.9,
+      "actualStarterPoints": 103.36
+    },
+    {
+      "year": 2025,
+      "week": 12,
+      "tradeId": "1276026193660899328",
+      "manager": "Stew",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Ja'Marr Chase"
+      ],
+      "actualOptimal": 127.96,
+      "hypotheticalOptimal": 89.06,
+      "delta": null,
+      "actualStarterPoints": 127.96
+    },
+    {
+      "year": 2025,
+      "week": 16,
+      "tradeId": "1276026193660899328",
+      "manager": "Stilly",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 132.56,
+      "hypotheticalOptimal": 130.56,
+      "delta": 2,
+      "actualStarterPoints": 126.76
+    },
+    {
+      "year": 2025,
+      "week": 16,
+      "tradeId": "1276026193660899328",
+      "manager": "Stew",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Ja'Marr Chase"
+      ],
+      "actualOptimal": 171.06,
+      "hypotheticalOptimal": 169.26,
+      "delta": null,
+      "actualStarterPoints": 114
+    },
+    {
+      "year": 2023,
+      "week": 7,
+      "tradeId": "1018289561511682048",
+      "manager": "Stew",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 129.42,
+      "hypotheticalOptimal": 122.72,
+      "delta": 6.7,
+      "actualStarterPoints": 109.42
+    },
+    {
+      "year": 2023,
+      "week": 7,
+      "tradeId": "1018289561511682048",
+      "manager": "Birch",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 75.48,
+      "hypotheticalOptimal": 74.58,
+      "delta": 0.9,
+      "actualStarterPoints": 64.68
+    },
+    {
+      "year": 2023,
+      "week": 9,
+      "tradeId": "1018289561511682048",
+      "manager": "Stew",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Kenny Gainwell"
+      ],
+      "actualOptimal": 120.32,
+      "hypotheticalOptimal": 129.82,
+      "delta": null,
+      "actualStarterPoints": 113.32
+    },
+    {
+      "year": 2023,
+      "week": 9,
+      "tradeId": "1018289561511682048",
+      "manager": "Birch",
+      "status": "illustrative_complete_snapshot",
+      "missing": [],
+      "actualOptimal": 132.66,
+      "hypotheticalOptimal": 123.36,
+      "delta": 9.3,
+      "actualStarterPoints": 95.66
+    },
+    {
+      "year": 2023,
+      "week": 11,
+      "tradeId": "1018289561511682048",
+      "manager": "Stew",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Kenny Gainwell"
+      ],
+      "actualOptimal": 87.56,
+      "hypotheticalOptimal": 95.56,
+      "delta": null,
+      "actualStarterPoints": 72.94
+    },
+    {
+      "year": 2023,
+      "week": 11,
+      "tradeId": "1018289561511682048",
+      "manager": "Birch",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Tony Pollard"
+      ],
+      "actualOptimal": 113.62,
+      "hypotheticalOptimal": 105.62,
+      "delta": null,
+      "actualStarterPoints": 96.66
+    },
+    {
+      "year": 2023,
+      "week": 14,
+      "tradeId": "1018289561511682048",
+      "manager": "Stew",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Kenny Gainwell"
+      ],
+      "actualOptimal": 105.42,
+      "hypotheticalOptimal": 117.02,
+      "delta": null,
+      "actualStarterPoints": 71.54
+    },
+    {
+      "year": 2023,
+      "week": 14,
+      "tradeId": "1018289561511682048",
+      "manager": "Birch",
+      "status": "incomplete_asset_coverage",
+      "missing": [
+        "Tony Pollard"
+      ],
+      "actualOptimal": 114.32,
+      "hypotheticalOptimal": 106.02,
+      "delta": null,
+      "actualStarterPoints": 105.44
+    }
+  ]
+}

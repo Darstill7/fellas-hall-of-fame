@@ -1,0 +1,498 @@
+{
+  "schema": "fellas-repeat-trade-holding-window-starts-v1",
+  "asOf": "2026-11-16",
+  "status": "observed_strict_interior_week_starts_only",
+  "method": "Join stable Sleeper player ID and original trade recipient roster ID to archived 2021-2025 regular-season starter ledger. Count ONLY weeks strictly between original acquisition week and subsequent trade week (both trade weeks excluded to avoid lock/timing ambiguity). A zero means zero credited starts in included interior weeks, not zero asset value or not rostered. Because the annual starter ledger ends Week 14, that is the effective upper bound.",
+  "checks": {
+    "assetChains": 13,
+    "stableIds": true,
+    "weeklySourceYears": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "interiorWeeksExcludeTradeWeeks": true,
+    "seasonEndWeek14": true
+  },
+  "rows": [
+    {
+      "season": 2021,
+      "player": "Josh Jacobs",
+      "playerId": "5850",
+      "initialRecipient": "Thommy",
+      "rosterId": "3",
+      "firstTradeWeek": 1,
+      "nextTradeWeek": 1,
+      "interiorWeeksEvaluated": [],
+      "creditedStarterStarts": 0,
+      "creditedStarterPoints": 0,
+      "credited": []
+    },
+    {
+      "season": 2021,
+      "player": "Antonio Gibson",
+      "playerId": "6945",
+      "initialRecipient": "Thommy",
+      "rosterId": "3",
+      "firstTradeWeek": 1,
+      "nextTradeWeek": 6,
+      "interiorWeeksEvaluated": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "creditedStarterStarts": 4,
+      "creditedStarterPoints": 60.9,
+      "credited": [
+        {
+          "week": 2,
+          "playerId": "6945",
+          "name": "Antonio Gibson",
+          "position": "RB",
+          "points": 8.3
+        },
+        {
+          "week": 3,
+          "playerId": "6945",
+          "name": "Antonio Gibson",
+          "position": "RB",
+          "points": 17.9
+        },
+        {
+          "week": 4,
+          "playerId": "6945",
+          "name": "Antonio Gibson",
+          "position": "RB",
+          "points": 14.5
+        },
+        {
+          "week": 5,
+          "playerId": "6945",
+          "name": "Antonio Gibson",
+          "position": "RB",
+          "points": 20.2
+        }
+      ]
+    },
+    {
+      "season": 2021,
+      "player": "Leonard Fournette",
+      "playerId": "3969",
+      "initialRecipient": "Kuhl",
+      "rosterId": "9",
+      "firstTradeWeek": 3,
+      "nextTradeWeek": 5,
+      "interiorWeeksEvaluated": [
+        4
+      ],
+      "creditedStarterStarts": 0,
+      "creditedStarterPoints": 0,
+      "credited": []
+    },
+    {
+      "season": 2022,
+      "player": "James Robinson",
+      "playerId": "6955",
+      "initialRecipient": "Evans",
+      "rosterId": "2",
+      "firstTradeWeek": 3,
+      "nextTradeWeek": 6,
+      "interiorWeeksEvaluated": [
+        4,
+        5
+      ],
+      "creditedStarterStarts": 2,
+      "creditedStarterPoints": 6.8,
+      "credited": [
+        {
+          "week": 4,
+          "playerId": "6955",
+          "name": "James Robinson",
+          "position": "RB",
+          "points": 1.9
+        },
+        {
+          "week": 5,
+          "playerId": "6955",
+          "name": "James Robinson",
+          "position": "RB",
+          "points": 4.9
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "player": "Cordarrelle Patterson",
+      "playerId": "1535",
+      "initialRecipient": "Stew",
+      "rosterId": "4",
+      "firstTradeWeek": 3,
+      "nextTradeWeek": 10,
+      "interiorWeeksEvaluated": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "creditedStarterStarts": 1,
+      "creditedStarterPoints": 9.8,
+      "credited": [
+        {
+          "week": 4,
+          "playerId": "1535",
+          "name": "Cordarrelle Patterson",
+          "position": "RB",
+          "points": 9.8
+        }
+      ]
+    },
+    {
+      "season": 2022,
+      "player": "Alvin Kamara",
+      "playerId": "4035",
+      "initialRecipient": "Tony",
+      "rosterId": "7",
+      "firstTradeWeek": 4,
+      "nextTradeWeek": 6,
+      "interiorWeeksEvaluated": [
+        5
+      ],
+      "creditedStarterStarts": 1,
+      "creditedStarterPoints": 21.4,
+      "credited": [
+        {
+          "week": 5,
+          "playerId": "4035",
+          "name": "Alvin Kamara",
+          "position": "RB",
+          "points": 21.4
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "player": "CeeDee Lamb",
+      "playerId": "6786",
+      "initialRecipient": "Stew",
+      "rosterId": "4",
+      "firstTradeWeek": 3,
+      "nextTradeWeek": 6,
+      "interiorWeeksEvaluated": [
+        4,
+        5
+      ],
+      "creditedStarterStarts": 2,
+      "creditedStarterPoints": 19.7,
+      "credited": [
+        {
+          "week": 4,
+          "playerId": "6786",
+          "name": "CeeDee Lamb",
+          "position": "WR",
+          "points": 12.8
+        },
+        {
+          "week": 5,
+          "playerId": "6786",
+          "name": "CeeDee Lamb",
+          "position": "WR",
+          "points": 6.9
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "player": "Travis Etienne Jr.",
+      "playerId": "7543",
+      "initialRecipient": "Stew",
+      "rosterId": "4",
+      "firstTradeWeek": 3,
+      "nextTradeWeek": 11,
+      "interiorWeeksEvaluated": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "creditedStarterStarts": 6,
+      "creditedStarterPoints": 116.9,
+      "credited": [
+        {
+          "week": 4,
+          "playerId": "7543",
+          "name": "Travis Etienne Jr.",
+          "position": "RB",
+          "points": 8.7
+        },
+        {
+          "week": 5,
+          "playerId": "7543",
+          "name": "Travis Etienne Jr.",
+          "position": "RB",
+          "points": 34.4
+        },
+        {
+          "week": 6,
+          "playerId": "7543",
+          "name": "Travis Etienne Jr.",
+          "position": "RB",
+          "points": 21.8
+        },
+        {
+          "week": 7,
+          "playerId": "7543",
+          "name": "Travis Etienne Jr.",
+          "position": "RB",
+          "points": 21.2
+        },
+        {
+          "week": 8,
+          "playerId": "7543",
+          "name": "Travis Etienne Jr.",
+          "position": "RB",
+          "points": 25.4
+        },
+        {
+          "week": 10,
+          "playerId": "7543",
+          "name": "Travis Etienne Jr.",
+          "position": "RB",
+          "points": 5.4
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "player": "Tank Dell",
+      "playerId": "9502",
+      "initialRecipient": "Thommy",
+      "rosterId": "3",
+      "firstTradeWeek": 1,
+      "nextTradeWeek": 3,
+      "interiorWeeksEvaluated": [
+        2
+      ],
+      "creditedStarterStarts": 1,
+      "creditedStarterPoints": 1.8,
+      "credited": [
+        {
+          "week": 2,
+          "playerId": "9502",
+          "name": "Tank Dell",
+          "position": "WR",
+          "points": 1.8
+        }
+      ]
+    },
+    {
+      "season": 2024,
+      "player": "Rico Dowdle",
+      "playerId": "7021",
+      "initialRecipient": "Thommy",
+      "rosterId": "3",
+      "firstTradeWeek": 4,
+      "nextTradeWeek": 7,
+      "interiorWeeksEvaluated": [
+        5,
+        6
+      ],
+      "creditedStarterStarts": 0,
+      "creditedStarterPoints": 0,
+      "credited": []
+    },
+    {
+      "season": 2025,
+      "player": "Derrick Henry",
+      "playerId": "3198",
+      "initialRecipient": "Stew",
+      "rosterId": "4",
+      "firstTradeWeek": 2,
+      "nextTradeWeek": 11,
+      "interiorWeeksEvaluated": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "creditedStarterStarts": 7,
+      "creditedStarterPoints": 81.4,
+      "credited": [
+        {
+          "week": 3,
+          "playerId": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 10.2
+        },
+        {
+          "week": 4,
+          "playerId": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 6.8
+        },
+        {
+          "week": 5,
+          "playerId": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 9.3
+        },
+        {
+          "week": 6,
+          "playerId": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 13.5
+        },
+        {
+          "week": 8,
+          "playerId": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 19.1
+        },
+        {
+          "week": 9,
+          "playerId": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 12.6
+        },
+        {
+          "week": 10,
+          "playerId": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 9.9
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "player": "Ja'Marr Chase",
+      "playerId": "7564",
+      "initialRecipient": "Stilly",
+      "rosterId": "1",
+      "firstTradeWeek": 3,
+      "nextTradeWeek": 11,
+      "interiorWeeksEvaluated": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "creditedStarterStarts": 6,
+      "creditedStarterPoints": 111.2,
+      "credited": [
+        {
+          "week": 4,
+          "playerId": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "points": 4.8
+        },
+        {
+          "week": 5,
+          "playerId": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "points": 27
+        },
+        {
+          "week": 6,
+          "playerId": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "points": 20.1
+        },
+        {
+          "week": 7,
+          "playerId": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "points": 30.1
+        },
+        {
+          "week": 8,
+          "playerId": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "points": 15.1
+        },
+        {
+          "week": 9,
+          "playerId": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "points": 14.1
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "player": "Jordan Addison",
+      "playerId": "9756",
+      "initialRecipient": "Thommy",
+      "rosterId": "3",
+      "firstTradeWeek": 3,
+      "nextTradeWeek": 11,
+      "interiorWeeksEvaluated": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "creditedStarterStarts": 4,
+      "creditedStarterPoints": 39.8,
+      "credited": [
+        {
+          "week": 7,
+          "playerId": "9756",
+          "name": "Jordan Addison",
+          "position": "WR",
+          "points": 17.3
+        },
+        {
+          "week": 8,
+          "playerId": "9756",
+          "name": "Jordan Addison",
+          "position": "WR",
+          "points": 10.1
+        },
+        {
+          "week": 9,
+          "playerId": "9756",
+          "name": "Jordan Addison",
+          "position": "WR",
+          "points": 7.4
+        },
+        {
+          "week": 10,
+          "playerId": "9756",
+          "name": "Jordan Addison",
+          "position": "WR",
+          "points": 5
+        }
+      ]
+    }
+  ]
+}

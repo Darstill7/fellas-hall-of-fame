@@ -1,0 +1,73 @@
+{
+  "schema": "fellas-2023-three-manager-omission-v1",
+  "asOf": "2026-11-16",
+  "season": 2023,
+  "week": 10,
+  "date": "2023-11-08",
+  "transactionId": "1028057686711058432",
+  "status": "complete",
+  "evidence": "completed 2023 Week10 Sleeper trade; before/after Week9 and Week10 roster positions for all nine players and three teams",
+  "sides": [
+    {
+      "manager": "Stilly",
+      "rosterId": "1",
+      "sent": [
+        "Josh Jacobs",
+        "DeAndre Hopkins",
+        "Gus Edwards"
+      ],
+      "received": [
+        "David Montgomery",
+        "Courtland Sutton",
+        "Jaylen Waddle"
+      ]
+    },
+    {
+      "manager": "Thommy",
+      "rosterId": "3",
+      "sent": [
+        "Jaylen Waddle",
+        "Amari Cooper",
+        "David Montgomery"
+      ],
+      "received": [
+        "Tony Pollard",
+        "Davante Adams",
+        "Gus Edwards"
+      ]
+    },
+    {
+      "manager": "Stew",
+      "rosterId": "4",
+      "sent": [
+        "Tony Pollard",
+        "Davante Adams",
+        "Courtland Sutton"
+      ],
+      "received": [
+        "Josh Jacobs",
+        "Amari Cooper",
+        "DeAndre Hopkins"
+      ]
+    }
+  ],
+  "priorArchive": {
+    "hadTransaction": false,
+    "represented2023Trades": 7,
+    "provider2023Trades": 8,
+    "representedAllSeasons": 44
+  },
+  "impact": {
+    "formerTrade": "1018289561511682048",
+    "player": "Tony Pollard",
+    "wentFrom": "Stew",
+    "wentTo": "Thommy",
+    "analysisNote": "The Week10 trade breaks any Week10 onward counterfactual assuming Stew retains Pollard."
+  },
+  "cautions": [
+    "2023 provider census confirms at least one omission in prior 44-event inventory. Full 2020-25 census still needed.",
+    "A separate same-day Stew/Evans trade for Mixon/Addison exists and is already indexed.",
+    "No starting points or benefit grade calculated for this new transaction.",
+    "Team/week snapshots not provider timestamped roster state. Exact event sequence from transaction timestamps where applicable."
+  ]
+}

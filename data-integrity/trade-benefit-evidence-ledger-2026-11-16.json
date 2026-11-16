@@ -1,0 +1,1550 @@
+{
+  "schema": "fellas-trade-benefit-evidence-ledger-v0-research",
+  "asOf": "2026-11-16",
+  "status": "research_only_not_public_grades",
+  "scope": "44 represented 2020-2025 Sleeper trade events, not entire 2016-2026 league",
+  "method": "Copy recorded post-trade receiving player sides and audited per-start position-median surplus from PR #233 research. Add screenshot-verified $5 FAAB recipient side for each formerly one-sided asset record. Same-week and playoff stats and keeper assets remain separate; no scores or trade verdicts inferred from receiving side totals.",
+  "source": [
+    "PR #233: data-integrity/trade-architects-all44-position-median-sensitivity-2026-11-16.json",
+    "User-provided Sleeper accepted trade screenshots: 2020 Kittle-for-$5 and 2021 AJ Dillon-for-$5",
+    "Flaim 2020 and 2021 roster and league-owner records"
+  ],
+  "counts": {
+    "total": 44,
+    "playerForPlayer": 41,
+    "playerForFaab": 2,
+    "threeManager": 1,
+    "positionMedianPatterns": {
+      "both_above_median": 13,
+      "split_positive_negative": 21,
+      "both_below_median": 3,
+      "zero_involved": 4,
+      "multi_party": 1,
+      "faab_only": 2
+    }
+  },
+  "integrity": {
+    "allTradeIdsUnique": true,
+    "doNotCompareFaabInPlayerStarterMedianGap": true,
+    "zeroStartsDoesNotImplyZeroAssetValue": true,
+    "all2016To2019TradesUnknown": true
+  },
+  "transactions": [
+    {
+      "transactionId": "614849640176623616",
+      "season": 2020,
+      "week": 3,
+      "date": "2020-09-24",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Ronald Jones"
+          ],
+          "postTradeRegSeasonStarterPoints": 82.4,
+          "postTradeRegSeasonStarts": 6,
+          "positionMedianSurplus": 14.85
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "A.J. Green"
+          ],
+          "postTradeRegSeasonStarterPoints": 2.9,
+          "postTradeRegSeasonStarts": 1,
+          "positionMedianSurplus": -7.5
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "614849640176623616"
+    },
+    {
+      "transactionId": "616864423201554432",
+      "season": 2020,
+      "week": 3,
+      "date": "2020-09-30",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "DeSean Jackson",
+            "Travis Kelce",
+            "Marquise Brown"
+          ],
+          "postTradeRegSeasonStarterPoints": 241.56,
+          "postTradeRegSeasonStarts": 17,
+          "positionMedianSurplus": 77.76
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Allen Robinson II",
+            "Tyler Higbee",
+            "D'Andre Swift"
+          ],
+          "postTradeRegSeasonStarterPoints": 213.6,
+          "postTradeRegSeasonStarts": 17,
+          "positionMedianSurplus": 39.25
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "616864423201554432"
+    },
+    {
+      "transactionId": "622492390107738112",
+      "season": 2020,
+      "week": 6,
+      "date": "2020-10-15",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Lamar Jackson",
+            "J.K. Dobbins"
+          ],
+          "postTradeRegSeasonStarterPoints": 188.42,
+          "postTradeRegSeasonStarts": 11,
+          "positionMedianSurplus": 15.2
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Kyler Murray"
+          ],
+          "postTradeRegSeasonStarterPoints": 163.96,
+          "postTradeRegSeasonStarts": 7,
+          "positionMedianSurplus": 30.61
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "622492390107738112"
+    },
+    {
+      "transactionId": "629416763662086144",
+      "season": 2020,
+      "week": 8,
+      "date": "2020-11-03",
+      "exchangeType": "player_for_faab",
+      "observedPositionMedianPattern": "faab_only",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "George Kittle"
+          ],
+          "postTradeRegSeasonStarterPoints": 0,
+          "postTradeRegSeasonStarts": 0,
+          "positionMedianSurplus": 0
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [],
+          "receivedFaab": 5,
+          "faabCurrency": "USD auction budget",
+          "screenshotConfirmed": true
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "player and $5 FAAB consideration supported by user-provided accepted Sleeper screenshot; no valuation assigned",
+      "sourceTransactionId": "629416763662086144"
+    },
+    {
+      "transactionId": "629818920752209920",
+      "season": 2020,
+      "week": 9,
+      "date": "2020-11-04",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Michael Thomas"
+          ],
+          "postTradeRegSeasonStarterPoints": 53.1,
+          "postTradeRegSeasonStarts": 5,
+          "positionMedianSurplus": 1.95
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "receivedPlayers": [
+            "D.J. Moore",
+            "Clyde Edwards-Helaire"
+          ],
+          "postTradeRegSeasonStarterPoints": 81.2,
+          "postTradeRegSeasonStarts": 7,
+          "positionMedianSurplus": 5.05
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "629818920752209920"
+    },
+    {
+      "transactionId": "737360507476066304",
+      "season": 2021,
+      "week": 1,
+      "date": "2021-08-30",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Tyreek Hill",
+            "Josh Jacobs",
+            "Javonte Williams"
+          ],
+          "postTradeRegSeasonStarterPoints": 283.3,
+          "postTradeRegSeasonStarts": 20,
+          "positionMedianSurplus": 59.55
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Corey Davis",
+            "A.J. Brown",
+            "Jonathan Taylor"
+          ],
+          "postTradeRegSeasonStarterPoints": 378.7,
+          "postTradeRegSeasonStarts": 23,
+          "positionMedianSurplus": 102.4
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "737360507476066304"
+    },
+    {
+      "transactionId": "738428315181928448",
+      "season": 2021,
+      "week": 1,
+      "date": "2021-08-31",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Dak Prescott",
+            "Noah Fant",
+            "Antonio Gibson"
+          ],
+          "postTradeRegSeasonStarterPoints": 323.72,
+          "postTradeRegSeasonStarts": 24,
+          "positionMedianSurplus": -12.39
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "receivedPlayers": [
+            "Lamar Jackson",
+            "Mark Andrews",
+            "Josh Jacobs"
+          ],
+          "postTradeRegSeasonStarterPoints": 501.68,
+          "postTradeRegSeasonStarts": 32,
+          "positionMedianSurplus": 77.62
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "738428315181928448"
+    },
+    {
+      "transactionId": "746234454665732096",
+      "season": 2021,
+      "week": 2,
+      "date": "2021-09-22",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Kenyan Drake",
+            "Saquon Barkley"
+          ],
+          "postTradeRegSeasonStarterPoints": 89.7,
+          "postTradeRegSeasonStarts": 7,
+          "positionMedianSurplus": 0.55
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Nyheim Miller-Hines",
+            "Clyde Edwards-Helaire",
+            "Ty'Son Williams"
+          ],
+          "postTradeRegSeasonStarterPoints": 66.8,
+          "postTradeRegSeasonStarts": 6,
+          "positionMedianSurplus": -15.85
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "746234454665732096"
+    },
+    {
+      "transactionId": "748312121284149248",
+      "season": 2021,
+      "week": 3,
+      "date": "2021-09-27",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Aaron Rodgers",
+            "Keenan Allen"
+          ],
+          "postTradeRegSeasonStarterPoints": 325.4,
+          "postTradeRegSeasonStarts": 18,
+          "positionMedianSurplus": 60.12
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Leonard Fournette",
+            "Patrick Mahomes",
+            "Brandon Aiyuk"
+          ],
+          "postTradeRegSeasonStarterPoints": 180.48,
+          "postTradeRegSeasonStarts": 11,
+          "positionMedianSurplus": -18.33
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "748312121284149248"
+    },
+    {
+      "transactionId": "748585137259884544",
+      "season": 2021,
+      "week": 3,
+      "date": "2021-09-28",
+      "exchangeType": "player_for_faab",
+      "observedPositionMedianPattern": "faab_only",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "AJ Dillon"
+          ],
+          "postTradeRegSeasonStarterPoints": 37.3,
+          "postTradeRegSeasonStarts": 3,
+          "positionMedianSurplus": 5.9
+        },
+        {
+          "manager": "Mitch",
+          "rosterId": "6",
+          "receivedPlayers": [],
+          "receivedFaab": 5,
+          "faabCurrency": "USD auction budget",
+          "screenshotConfirmed": true
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "player and $5 FAAB consideration supported by user-provided accepted Sleeper screenshot; no valuation assigned",
+      "sourceTransactionId": "748585137259884544"
+    },
+    {
+      "transactionId": "751165345997402112",
+      "season": 2021,
+      "week": 4,
+      "date": "2021-10-05",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Koble",
+          "rosterId": "5",
+          "receivedPlayers": [
+            "Zack Moss",
+            "James Robinson"
+          ],
+          "postTradeRegSeasonStarterPoints": 120.3,
+          "postTradeRegSeasonStarts": 13,
+          "positionMedianSurplus": -51.15
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Joe Mixon"
+          ],
+          "postTradeRegSeasonStarterPoints": 157.1,
+          "postTradeRegSeasonStarts": 8,
+          "positionMedianSurplus": 61
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "751165345997402112"
+    },
+    {
+      "transactionId": "751504917667168256",
+      "season": 2021,
+      "week": 5,
+      "date": "2021-10-07",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "receivedPlayers": [
+            "Leonard Fournette"
+          ],
+          "postTradeRegSeasonStarterPoints": 154.6,
+          "postTradeRegSeasonStarts": 8,
+          "positionMedianSurplus": 56.4
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "DeVonta Smith"
+          ],
+          "postTradeRegSeasonStarterPoints": 46.1,
+          "postTradeRegSeasonStarts": 6,
+          "positionMedianSurplus": -18.76
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "751504917667168256"
+    },
+    {
+      "transactionId": "754017147822415872",
+      "season": 2021,
+      "week": 6,
+      "date": "2021-10-13",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Kareem Hunt"
+          ],
+          "postTradeRegSeasonStarterPoints": 2.8,
+          "postTradeRegSeasonStarts": 1,
+          "positionMedianSurplus": -6.9
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "CeeDee Lamb"
+          ],
+          "postTradeRegSeasonStarterPoints": 72.8,
+          "postTradeRegSeasonStarts": 6,
+          "positionMedianSurplus": 11.3
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "754017147822415872"
+    },
+    {
+      "transactionId": "754024908207583232",
+      "season": 2021,
+      "week": 6,
+      "date": "2021-10-13",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Amari Cooper"
+          ],
+          "postTradeRegSeasonStarterPoints": 52.7,
+          "postTradeRegSeasonStarts": 5,
+          "positionMedianSurplus": 3.7
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Antonio Gibson"
+          ],
+          "postTradeRegSeasonStarterPoints": 62.8,
+          "postTradeRegSeasonStarts": 6,
+          "positionMedianSurplus": -6.9
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "754024908207583232"
+    },
+    {
+      "transactionId": "759191673220775936",
+      "season": 2021,
+      "week": 8,
+      "date": "2021-10-27",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Kyle Pitts Sr."
+          ],
+          "postTradeRegSeasonStarterPoints": 39.1,
+          "postTradeRegSeasonStarts": 6,
+          "positionMedianSurplus": -3.6
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Jarvis Landry",
+            "George Kittle"
+          ],
+          "postTradeRegSeasonStarterPoints": 103,
+          "postTradeRegSeasonStarts": 6,
+          "positionMedianSurplus": 56.4
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "759191673220775936"
+    },
+    {
+      "transactionId": "875965138744864768",
+      "season": 2022,
+      "week": 2,
+      "date": "2022-09-15",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Jonathan Taylor"
+          ],
+          "postTradeRegSeasonStarterPoints": 99.3,
+          "postTradeRegSeasonStarts": 8,
+          "positionMedianSurplus": 4.7
+        },
+        {
+          "manager": "Mitch",
+          "rosterId": "6",
+          "receivedPlayers": [
+            "Adam Thielen",
+            "Saquon Barkley"
+          ],
+          "postTradeRegSeasonStarterPoints": 239,
+          "postTradeRegSeasonStarts": 18,
+          "positionMedianSurplus": 34.25
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "875965138744864768"
+    },
+    {
+      "transactionId": "880505837758652416",
+      "season": 2022,
+      "week": 3,
+      "date": "2022-09-27",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Mike Williams",
+            "James Conner",
+            "James Robinson"
+          ],
+          "postTradeRegSeasonStarterPoints": 184.4,
+          "postTradeRegSeasonStarts": 15,
+          "positionMedianSurplus": 15.45
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Cordarrelle Patterson",
+            "Justin Jefferson"
+          ],
+          "postTradeRegSeasonStarterPoints": 216.46,
+          "postTradeRegSeasonStarts": 11,
+          "positionMedianSurplus": 98.91
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "880505837758652416"
+    },
+    {
+      "transactionId": "881580705233195008",
+      "season": 2022,
+      "week": 4,
+      "date": "2022-09-30",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Leonard Fournette"
+          ],
+          "postTradeRegSeasonStarterPoints": 85.7,
+          "postTradeRegSeasonStarts": 6,
+          "positionMedianSurplus": 8.9
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Alvin Kamara"
+          ],
+          "postTradeRegSeasonStarterPoints": 21.4,
+          "postTradeRegSeasonStarts": 1,
+          "positionMedianSurplus": 5.1
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "881580705233195008"
+    },
+    {
+      "transactionId": "885980047650119680",
+      "season": 2022,
+      "week": 6,
+      "date": "2022-10-12",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Alvin Kamara",
+            "Gabe Davis"
+          ],
+          "postTradeRegSeasonStarterPoints": 140.9,
+          "postTradeRegSeasonStarts": 14,
+          "positionMedianSurplus": -16.65
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "A.J. Brown",
+            "James Robinson"
+          ],
+          "postTradeRegSeasonStarterPoints": 113.7,
+          "postTradeRegSeasonStarts": 8,
+          "positionMedianSurplus": 24.05
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "885980047650119680"
+    },
+    {
+      "transactionId": "886267215865982976",
+      "season": 2022,
+      "week": 6,
+      "date": "2022-10-13",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Keenan Allen",
+            "Tee Higgins",
+            "Najee Harris"
+          ],
+          "postTradeRegSeasonStarterPoints": 219.46,
+          "postTradeRegSeasonStarts": 18,
+          "positionMedianSurplus": 18.76
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "DK Metcalf",
+            "CeeDee Lamb",
+            "DeVonta Smith"
+          ],
+          "postTradeRegSeasonStarterPoints": 241,
+          "postTradeRegSeasonStarts": 19,
+          "positionMedianSurplus": 38.15
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "886267215865982976"
+    },
+    {
+      "transactionId": "896468742987522048",
+      "season": 2022,
+      "week": 10,
+      "date": "2022-11-10",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Ja'Marr Chase"
+          ],
+          "postTradeRegSeasonStarterPoints": 37.7,
+          "postTradeRegSeasonStarts": 2,
+          "positionMedianSurplus": 13.9
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "receivedPlayers": [
+            "Cordarrelle Patterson",
+            "Jeff Wilson",
+            "Chase Claypool"
+          ],
+          "postTradeRegSeasonStarterPoints": 33.1,
+          "postTradeRegSeasonStarts": 6,
+          "positionMedianSurplus": -32.7
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "896468742987522048"
+    },
+    {
+      "transactionId": "1012571602774532096",
+      "season": 2023,
+      "week": 3,
+      "date": "2023-09-27",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "CeeDee Lamb",
+            "Travis Etienne Jr."
+          ],
+          "postTradeRegSeasonStarterPoints": 136.6,
+          "postTradeRegSeasonStarts": 8,
+          "positionMedianSurplus": 46.4
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "James Conner",
+            "De'Von Achane",
+            "Puka Nacua"
+          ],
+          "postTradeRegSeasonStarterPoints": 268.1,
+          "postTradeRegSeasonStarts": 21,
+          "positionMedianSurplus": 39.45
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1012571602774532096"
+    },
+    {
+      "transactionId": "1018289561511682048",
+      "season": 2023,
+      "week": 6,
+      "date": "2023-10-12",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Tony Pollard",
+            "Jaxon Smith-Njigba"
+          ],
+          "postTradeRegSeasonStarterPoints": 47.9,
+          "postTradeRegSeasonStarts": 7,
+          "positionMedianSurplus": -25.15
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "receivedPlayers": [
+            "CeeDee Lamb",
+            "Kenny Gainwell"
+          ],
+          "postTradeRegSeasonStarterPoints": 163.1,
+          "postTradeRegSeasonStarts": 7,
+          "positionMedianSurplus": 86.9
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1018289561511682048"
+    },
+    {
+      "transactionId": "1023059879336013824",
+      "season": 2023,
+      "week": 8,
+      "date": "2023-10-26",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Mike Evans",
+            "Derrick Henry"
+          ],
+          "postTradeRegSeasonStarterPoints": 187.1,
+          "postTradeRegSeasonStarts": 12,
+          "positionMedianSurplus": 54.55
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Cooper Kupp"
+          ],
+          "postTradeRegSeasonStarterPoints": 45.1,
+          "postTradeRegSeasonStarts": 5,
+          "positionMedianSurplus": -7.25
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1023059879336013824"
+    },
+    {
+      "transactionId": "1028065885325508608",
+      "season": 2023,
+      "week": 10,
+      "date": "2023-11-08",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Joe Mixon"
+          ],
+          "postTradeRegSeasonStarterPoints": 73.2,
+          "postTradeRegSeasonStarts": 4,
+          "positionMedianSurplus": 26.3
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Jordan Addison"
+          ],
+          "postTradeRegSeasonStarterPoints": 16.5,
+          "postTradeRegSeasonStarts": 3,
+          "positionMedianSurplus": -14.35
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1028065885325508608"
+    },
+    {
+      "transactionId": "1031121022772555776",
+      "season": 2023,
+      "week": 11,
+      "date": "2023-11-17",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_below_median",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Gabe Davis"
+          ],
+          "postTradeRegSeasonStarterPoints": 0,
+          "postTradeRegSeasonStarts": 1,
+          "positionMedianSurplus": -9.8
+        },
+        {
+          "manager": "Mitch",
+          "rosterId": "6",
+          "receivedPlayers": [
+            "Justin Jefferson",
+            "Josh Jacobs"
+          ],
+          "postTradeRegSeasonStarterPoints": 31.2,
+          "postTradeRegSeasonStarts": 3,
+          "positionMedianSurplus": -3.9
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1031121022772555776"
+    },
+    {
+      "transactionId": "1031251467312775168",
+      "season": 2023,
+      "week": 11,
+      "date": "2023-11-17",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Breece Hall"
+          ],
+          "postTradeRegSeasonStarterPoints": 38.5,
+          "postTradeRegSeasonStarts": 3,
+          "positionMedianSurplus": 1.4
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Amari Cooper",
+            "Travis Etienne Jr."
+          ],
+          "postTradeRegSeasonStarterPoints": 49.2,
+          "postTradeRegSeasonStarts": 5,
+          "positionMedianSurplus": -13.5
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1031251467312775168"
+    },
+    {
+      "transactionId": "1038099277249245184",
+      "season": 2023,
+      "week": 14,
+      "date": "2023-12-06",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "zero_involved",
+      "sides": [
+        {
+          "manager": "Evans",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Ja'Marr Chase"
+          ],
+          "postTradeRegSeasonStarterPoints": 0,
+          "postTradeRegSeasonStarts": 0,
+          "positionMedianSurplus": 0
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Tyler Lockett"
+          ],
+          "postTradeRegSeasonStarterPoints": 0,
+          "postTradeRegSeasonStarts": 0,
+          "positionMedianSurplus": 0
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1038099277249245184"
+    },
+    {
+      "transactionId": "1139340571111256064",
+      "season": 2024,
+      "week": 1,
+      "date": "2024-09-10",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_below_median",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Tank Dell"
+          ],
+          "postTradeRegSeasonStarterPoints": 10.5,
+          "postTradeRegSeasonStarts": 2,
+          "positionMedianSurplus": -10.9
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "J.K. Dobbins"
+          ],
+          "postTradeRegSeasonStarterPoints": 93.8,
+          "postTradeRegSeasonStarts": 8,
+          "positionMedianSurplus": -12.05
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1139340571111256064"
+    },
+    {
+      "transactionId": "1140082401968836608",
+      "season": 2024,
+      "week": 2,
+      "date": "2024-09-12",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Malik Nabers"
+          ],
+          "postTradeRegSeasonStarterPoints": 108.3,
+          "postTradeRegSeasonStarts": 9,
+          "positionMedianSurplus": 18.6
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "receivedPlayers": [
+            "Davante Adams"
+          ],
+          "postTradeRegSeasonStarterPoints": 74.2,
+          "postTradeRegSeasonStarts": 7,
+          "positionMedianSurplus": 5.7
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1140082401968836608"
+    },
+    {
+      "transactionId": "1141777905656143872",
+      "season": 2024,
+      "week": 2,
+      "date": "2024-09-17",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "JMid",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Calvin Ridley",
+            "Kyren Williams"
+          ],
+          "postTradeRegSeasonStarterPoints": 180.7,
+          "postTradeRegSeasonStarts": 11,
+          "positionMedianSurplus": 32.65
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "James Cook III"
+          ],
+          "postTradeRegSeasonStarterPoints": 139.9,
+          "postTradeRegSeasonStarts": 11,
+          "positionMedianSurplus": -8.75
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1141777905656143872"
+    },
+    {
+      "transactionId": "1144362000575840256",
+      "season": 2024,
+      "week": 3,
+      "date": "2024-09-24",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Terry McLaurin",
+            "De'Von Achane",
+            "Tank Dell"
+          ],
+          "postTradeRegSeasonStarterPoints": 371.2,
+          "postTradeRegSeasonStarts": 29,
+          "positionMedianSurplus": 41.9
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Christian McCaffrey",
+            "Diontae Johnson",
+            "Tee Higgins"
+          ],
+          "postTradeRegSeasonStarterPoints": 187.7,
+          "postTradeRegSeasonStarts": 15,
+          "positionMedianSurplus": 24.3
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1144362000575840256"
+    },
+    {
+      "transactionId": "1146946436173623296",
+      "season": 2024,
+      "week": 4,
+      "date": "2024-10-01",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Mark Andrews",
+            "Rico Dowdle"
+          ],
+          "postTradeRegSeasonStarterPoints": 21.6,
+          "postTradeRegSeasonStarts": 2,
+          "positionMedianSurplus": 0.85
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Amari Cooper"
+          ],
+          "postTradeRegSeasonStarterPoints": 38.8,
+          "postTradeRegSeasonStarts": 6,
+          "positionMedianSurplus": -22.5
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1146946436173623296"
+    },
+    {
+      "transactionId": "1146947320588861440",
+      "season": 2024,
+      "week": 4,
+      "date": "2024-10-02",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Chase Brown"
+          ],
+          "postTradeRegSeasonStarterPoints": 106.1,
+          "postTradeRegSeasonStarts": 7,
+          "positionMedianSurplus": 8.5
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Jordan Love"
+          ],
+          "postTradeRegSeasonStarterPoints": 131.58,
+          "postTradeRegSeasonStarts": 8,
+          "positionMedianSurplus": -21.13
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1146947320588861440"
+    },
+    {
+      "transactionId": "1152708228883660800",
+      "season": 2024,
+      "week": 7,
+      "date": "2024-10-17",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Travis Kelce",
+            "Brandon Aiyuk"
+          ],
+          "postTradeRegSeasonStarterPoints": 78.7,
+          "postTradeRegSeasonStarts": 7,
+          "positionMedianSurplus": 16.75
+        },
+        {
+          "manager": "Tony",
+          "rosterId": "7",
+          "receivedPlayers": [
+            "Cooper Kupp",
+            "Kareem Hunt",
+            "Rico Dowdle"
+          ],
+          "postTradeRegSeasonStarterPoints": 178.8,
+          "postTradeRegSeasonStarts": 13,
+          "positionMedianSurplus": 27.35
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1152708228883660800"
+    },
+    {
+      "transactionId": "1159892809005076480",
+      "season": 2024,
+      "week": 10,
+      "date": "2024-11-09",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "zero_involved",
+      "sides": [
+        {
+          "manager": "Mitch",
+          "rosterId": "6",
+          "receivedPlayers": [
+            "Raheem Mostert"
+          ],
+          "postTradeRegSeasonStarterPoints": 0,
+          "postTradeRegSeasonStarts": 0,
+          "positionMedianSurplus": 0
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Nick Chubb"
+          ],
+          "postTradeRegSeasonStarterPoints": 39.8,
+          "postTradeRegSeasonStarts": 4,
+          "positionMedianSurplus": -12.7
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1159892809005076480"
+    },
+    {
+      "transactionId": "1273856224776962053",
+      "season": 2025,
+      "week": 2,
+      "date": "2025-09-17",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Derrick Henry"
+          ],
+          "postTradeRegSeasonStarterPoints": 81.4,
+          "postTradeRegSeasonStarts": 7,
+          "positionMedianSurplus": -3.1
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Nico Collins"
+          ],
+          "postTradeRegSeasonStarterPoints": 140.9,
+          "postTradeRegSeasonStarts": 10,
+          "positionMedianSurplus": 36.2
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1273856224776962053"
+    },
+    {
+      "transactionId": "1274473433362604032",
+      "season": 2025,
+      "week": 3,
+      "date": "2025-09-21",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "JMid",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Aaron Jones Sr.",
+            "Zach Charbonnet"
+          ],
+          "postTradeRegSeasonStarterPoints": 34.7,
+          "postTradeRegSeasonStarts": 4,
+          "positionMedianSurplus": -14.1
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "TreVeyon Henderson"
+          ],
+          "postTradeRegSeasonStarterPoints": 98,
+          "postTradeRegSeasonStarts": 8,
+          "positionMedianSurplus": 6.7
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1274473433362604032"
+    },
+    {
+      "transactionId": "1276026193660899328",
+      "season": 2025,
+      "week": 3,
+      "date": "2025-09-23",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_above_median",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Ja'Marr Chase",
+            "Chase Brown"
+          ],
+          "postTradeRegSeasonStarterPoints": 227.8,
+          "postTradeRegSeasonStarts": 14,
+          "positionMedianSurplus": 63.25
+        },
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Jahmyr Gibbs",
+            "RJ Harvey"
+          ],
+          "postTradeRegSeasonStarterPoints": 302.1,
+          "postTradeRegSeasonStarts": 14,
+          "positionMedianSurplus": 134.5
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1276026193660899328"
+    },
+    {
+      "transactionId": "1276373761972527104",
+      "season": 2025,
+      "week": 3,
+      "date": "2025-09-24",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "zero_involved",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Quentin Johnston"
+          ],
+          "postTradeRegSeasonStarterPoints": 64.5,
+          "postTradeRegSeasonStarts": 7,
+          "positionMedianSurplus": -11.3
+        },
+        {
+          "manager": "Birch",
+          "rosterId": "10",
+          "receivedPlayers": [
+            "Bhayshul Tuten"
+          ],
+          "postTradeRegSeasonStarterPoints": 0,
+          "postTradeRegSeasonStarts": 0,
+          "positionMedianSurplus": 0
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1276373761972527104"
+    },
+    {
+      "transactionId": "1276326233327570944",
+      "season": 2025,
+      "week": 3,
+      "date": "2025-09-24",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "both_below_median",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "Jordan Addison"
+          ],
+          "postTradeRegSeasonStarterPoints": 39.8,
+          "postTradeRegSeasonStarts": 4,
+          "positionMedianSurplus": -4
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "receivedPlayers": [
+            "Mike Evans"
+          ],
+          "postTradeRegSeasonStarterPoints": 0,
+          "postTradeRegSeasonStarts": 1,
+          "positionMedianSurplus": -11.2
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1276326233327570944"
+    },
+    {
+      "transactionId": "1294424036499025920",
+      "season": 2025,
+      "week": 11,
+      "date": "2025-11-12",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "zero_involved",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Brian Thomas Jr."
+          ],
+          "postTradeRegSeasonStarterPoints": 0,
+          "postTradeRegSeasonStarts": 0,
+          "positionMedianSurplus": 0
+        },
+        {
+          "manager": "Stover",
+          "rosterId": "8",
+          "receivedPlayers": [
+            "Stefon Diggs"
+          ],
+          "postTradeRegSeasonStarterPoints": 7.1,
+          "postTradeRegSeasonStarts": 2,
+          "positionMedianSurplus": -13.75
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1294424036499025920"
+    },
+    {
+      "transactionId": "1294402688213057536",
+      "season": 2025,
+      "week": 11,
+      "date": "2025-11-12",
+      "exchangeType": "three_manager",
+      "observedPositionMedianPattern": "multi_party",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "rosterId": "1",
+          "receivedPlayers": [
+            "Amon-Ra St. Brown",
+            "Jordan Addison",
+            "Jared Goff"
+          ],
+          "postTradeRegSeasonStarterPoints": 91.56,
+          "postTradeRegSeasonStarts": 7,
+          "positionMedianSurplus": -2.93
+        },
+        {
+          "manager": "JMid",
+          "rosterId": "2",
+          "receivedPlayers": [
+            "Ja'Marr Chase"
+          ],
+          "postTradeRegSeasonStarterPoints": 23.2,
+          "postTradeRegSeasonStarts": 2,
+          "positionMedianSurplus": 3.35
+        },
+        {
+          "manager": "Thommy",
+          "rosterId": "3",
+          "receivedPlayers": [
+            "A.J. Brown"
+          ],
+          "postTradeRegSeasonStarterPoints": 64.2,
+          "postTradeRegSeasonStarts": 3,
+          "positionMedianSurplus": 33.5
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "complete three-recipient player exchange; no binary winner",
+      "sourceTransactionId": "1294402688213057536"
+    },
+    {
+      "transactionId": "1294724519813988352",
+      "season": 2025,
+      "week": 11,
+      "date": "2025-11-13",
+      "exchangeType": "player_for_player",
+      "observedPositionMedianPattern": "split_positive_negative",
+      "sides": [
+        {
+          "manager": "Stew",
+          "rosterId": "4",
+          "receivedPlayers": [
+            "Jake Ferguson",
+            "Jaylen Warren"
+          ],
+          "postTradeRegSeasonStarterPoints": 59.9,
+          "postTradeRegSeasonStarts": 6,
+          "positionMedianSurplus": -2.3
+        },
+        {
+          "manager": "Kuhl",
+          "rosterId": "9",
+          "receivedPlayers": [
+            "Zach Ertz",
+            "Derrick Henry"
+          ],
+          "postTradeRegSeasonStarterPoints": 50.4,
+          "postTradeRegSeasonStarts": 3,
+          "positionMedianSurplus": 11.2
+        }
+      ],
+      "scoringWindow": "Weeks strictly after trade through Week 14",
+      "status": "observed posttrade starters only, not causal no-trade valuation",
+      "sourceTransactionId": "1294724519813988352"
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "schema": "fellas-trade-repeat-asset-index-v1",
+  "asOf": "2026-11-16",
+  "classification": "historical_sleeper_2020_2025_research_only_name_match_no_continuity_proof",
+  "method": "Group 2020-2025 historical trade recipient assets by season and normalized player name, then retain names received in two or more distinct trade events. This DOES NOT prove continuous ownership or a direct link between events, especially where waivers/adds/drops or player-identity aliases could intervene; provider player IDs and precise transaction ordering remain further validation gates.",
+  "counts": {
+    "historicalTradeEvents": 44,
+    "distinctAssetSeasonNamePairs": 132,
+    "repeatTradedAssetSeasonPairs": 13
+  },
+  "repeats": [
+    {
+      "name": "Josh Jacobs",
+      "season": 2021,
+      "events": [
+        {
+          "transactionId": "737360507476066304",
+          "season": 2021,
+          "week": 1,
+          "date": "2021-08-30",
+          "recipient": "Thommy",
+          "asset": "Josh Jacobs"
+        },
+        {
+          "transactionId": "738428315181928448",
+          "season": 2021,
+          "week": 1,
+          "date": "2021-08-31",
+          "recipient": "Birch",
+          "asset": "Josh Jacobs"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "Antonio Gibson",
+      "season": 2021,
+      "events": [
+        {
+          "transactionId": "738428315181928448",
+          "season": 2021,
+          "week": 1,
+          "date": "2021-08-31",
+          "recipient": "Thommy",
+          "asset": "Antonio Gibson"
+        },
+        {
+          "transactionId": "754024908207583232",
+          "season": 2021,
+          "week": 6,
+          "date": "2021-10-13",
+          "recipient": "Stew",
+          "asset": "Antonio Gibson"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "Leonard Fournette",
+      "season": 2021,
+      "events": [
+        {
+          "transactionId": "748312121284149248",
+          "season": 2021,
+          "week": 3,
+          "date": "2021-09-27",
+          "recipient": "Kuhl",
+          "asset": "Leonard Fournette"
+        },
+        {
+          "transactionId": "751504917667168256",
+          "season": 2021,
+          "week": 5,
+          "date": "2021-10-07",
+          "recipient": "Stover",
+          "asset": "Leonard Fournette"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "James Robinson",
+      "season": 2022,
+      "events": [
+        {
+          "transactionId": "880505837758652416",
+          "season": 2022,
+          "week": 3,
+          "date": "2022-09-27",
+          "recipient": "Evans",
+          "asset": "James Robinson"
+        },
+        {
+          "transactionId": "885980047650119680",
+          "season": 2022,
+          "week": 6,
+          "date": "2022-10-12",
+          "recipient": "Tony",
+          "asset": "James Robinson"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "Cordarrelle Patterson",
+      "season": 2022,
+      "events": [
+        {
+          "transactionId": "880505837758652416",
+          "season": 2022,
+          "week": 3,
+          "date": "2022-09-27",
+          "recipient": "Stew",
+          "asset": "Cordarrelle Patterson"
+        },
+        {
+          "transactionId": "896468742987522048",
+          "season": 2022,
+          "week": 10,
+          "date": "2022-11-10",
+          "recipient": "Birch",
+          "asset": "Cordarrelle Patterson"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "Alvin Kamara",
+      "season": 2022,
+      "events": [
+        {
+          "transactionId": "881580705233195008",
+          "season": 2022,
+          "week": 4,
+          "date": "2022-09-30",
+          "recipient": "Tony",
+          "asset": "Alvin Kamara"
+        },
+        {
+          "transactionId": "885980047650119680",
+          "season": 2022,
+          "week": 6,
+          "date": "2022-10-12",
+          "recipient": "Evans",
+          "asset": "Alvin Kamara"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "CeeDee Lamb",
+      "season": 2023,
+      "events": [
+        {
+          "transactionId": "1012571602774532096",
+          "season": 2023,
+          "week": 3,
+          "date": "2023-09-27",
+          "recipient": "Stew",
+          "asset": "CeeDee Lamb"
+        },
+        {
+          "transactionId": "1018289561511682048",
+          "season": 2023,
+          "week": 6,
+          "date": "2023-10-12",
+          "recipient": "Birch",
+          "asset": "CeeDee Lamb"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "Travis Etienne Jr.",
+      "season": 2023,
+      "events": [
+        {
+          "transactionId": "1012571602774532096",
+          "season": 2023,
+          "week": 3,
+          "date": "2023-09-27",
+          "recipient": "Stew",
+          "asset": "Travis Etienne Jr."
+        },
+        {
+          "transactionId": "1031251467312775168",
+          "season": 2023,
+          "week": 11,
+          "date": "2023-11-17",
+          "recipient": "Tony",
+          "asset": "Travis Etienne Jr."
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "Tank Dell",
+      "season": 2024,
+      "events": [
+        {
+          "transactionId": "1139340571111256064",
+          "season": 2024,
+          "week": 1,
+          "date": "2024-09-10",
+          "recipient": "Thommy",
+          "asset": "Tank Dell"
+        },
+        {
+          "transactionId": "1144362000575840256",
+          "season": 2024,
+          "week": 3,
+          "date": "2024-09-24",
+          "recipient": "Stilly",
+          "asset": "Tank Dell"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "Rico Dowdle",
+      "season": 2024,
+      "events": [
+        {
+          "transactionId": "1146946436173623296",
+          "season": 2024,
+          "week": 4,
+          "date": "2024-10-01",
+          "recipient": "Thommy",
+          "asset": "Rico Dowdle"
+        },
+        {
+          "transactionId": "1152708228883660800",
+          "season": 2024,
+          "week": 7,
+          "date": "2024-10-17",
+          "recipient": "Tony",
+          "asset": "Rico Dowdle"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "Derrick Henry",
+      "season": 2025,
+      "events": [
+        {
+          "transactionId": "1273856224776962053",
+          "season": 2025,
+          "week": 2,
+          "date": "2025-09-17",
+          "recipient": "Stew",
+          "asset": "Derrick Henry"
+        },
+        {
+          "transactionId": "1294724519813988352",
+          "season": 2025,
+          "week": 11,
+          "date": "2025-11-13",
+          "recipient": "Kuhl",
+          "asset": "Derrick Henry"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "Ja'Marr Chase",
+      "season": 2025,
+      "events": [
+        {
+          "transactionId": "1276026193660899328",
+          "season": 2025,
+          "week": 3,
+          "date": "2025-09-23",
+          "recipient": "Stilly",
+          "asset": "Ja'Marr Chase"
+        },
+        {
+          "transactionId": "1294402688213057536",
+          "season": 2025,
+          "week": 11,
+          "date": "2025-11-12",
+          "recipient": "JMid",
+          "asset": "Ja'Marr Chase"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    },
+    {
+      "name": "Jordan Addison",
+      "season": 2025,
+      "events": [
+        {
+          "transactionId": "1276326233327570944",
+          "season": 2025,
+          "week": 3,
+          "date": "2025-09-24",
+          "recipient": "Thommy",
+          "asset": "Jordan Addison"
+        },
+        {
+          "transactionId": "1294402688213057536",
+          "season": 2025,
+          "week": 11,
+          "date": "2025-11-12",
+          "recipient": "Stilly",
+          "asset": "Jordan Addison"
+        }
+      ],
+      "chainStatus": "repeated same-name trade receipts; direction of transfer implied by recipient, but intervening ownership not verified"
+    }
+  ]
+}

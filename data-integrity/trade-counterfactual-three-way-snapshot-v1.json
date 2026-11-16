@@ -1,0 +1,172 @@
+{
+  "schema": "fellas-three-way-counterfactual-snapshot-v1",
+  "asOf": "2026-11-16",
+  "status": "research_only",
+  "case": {
+    "year": 2025,
+    "week": 11,
+    "transactionId": "1294402688213057536",
+    "teams": [
+      {
+        "name": "Stilly",
+        "roster": "1",
+        "received": [
+          "Amon-Ra St. Brown",
+          "Jordan Addison",
+          "Jared Goff"
+        ],
+        "surrendered": [
+          {
+            "name": "Ja'Marr Chase",
+            "source": "2"
+          },
+          {
+            "name": "A.J. Brown",
+            "source": "3"
+          }
+        ]
+      },
+      {
+        "name": "JMid",
+        "roster": "2",
+        "received": [
+          "Ja'Marr Chase"
+        ],
+        "surrendered": [
+          {
+            "name": "Amon-Ra St. Brown",
+            "source": "1"
+          }
+        ]
+      },
+      {
+        "name": "Thommy",
+        "roster": "3",
+        "received": [
+          "A.J. Brown"
+        ],
+        "surrendered": [
+          {
+            "name": "Jordan Addison",
+            "source": "1"
+          },
+          {
+            "name": "Jared Goff",
+            "source": "1"
+          }
+        ]
+      }
+    ]
+  },
+  "method": "Retrospective 9-slot optimal lineup from weekly Sleeper starters+bench, compared to stylized undo of the original 3-way exchange using player scores from opposite receiving rosters where still available. All three original outbound paths are supported by Week 10 team rosters plus completed transaction. Withhold any point differential if any surrendered player cannot be located, especially after 2026 transfer chains. This cannot model true no-trade counterfactual, prospective decision making, missing replacement moves, waiver budget or keeper market prices.",
+  "rows": [
+    {
+      "week": 12,
+      "manager": "Stilly",
+      "missingSurrendered": [],
+      "actualOptimal": 112.76,
+      "rolledBackOptimal": 91.2,
+      "delta": 21.56,
+      "status": "illustrative_complete_snapshot"
+    },
+    {
+      "week": 12,
+      "manager": "JMid",
+      "missingSurrendered": [],
+      "actualOptimal": 121.48,
+      "rolledBackOptimal": 139.68,
+      "delta": -18.2,
+      "status": "illustrative_complete_snapshot"
+    },
+    {
+      "week": 12,
+      "manager": "Thommy",
+      "missingSurrendered": [],
+      "actualOptimal": 109.78,
+      "rolledBackOptimal": 92.16,
+      "delta": 17.62,
+      "status": "illustrative_complete_snapshot"
+    },
+    {
+      "week": 14,
+      "manager": "Stilly",
+      "missingSurrendered": [],
+      "actualOptimal": 113.66,
+      "rolledBackOptimal": 101.02,
+      "delta": 12.64,
+      "status": "illustrative_complete_snapshot"
+    },
+    {
+      "week": 14,
+      "manager": "JMid",
+      "missingSurrendered": [],
+      "actualOptimal": 109.56,
+      "rolledBackOptimal": 114.06,
+      "delta": -4.5,
+      "status": "illustrative_complete_snapshot"
+    },
+    {
+      "week": 14,
+      "manager": "Thommy",
+      "missingSurrendered": [],
+      "actualOptimal": 146.1,
+      "rolledBackOptimal": 156.46,
+      "delta": -10.36,
+      "status": "illustrative_complete_snapshot"
+    },
+    {
+      "week": 15,
+      "manager": "Stilly",
+      "missingSurrendered": [],
+      "actualOptimal": 138.62,
+      "rolledBackOptimal": 97.9,
+      "delta": 40.72,
+      "status": "illustrative_complete_snapshot"
+    },
+    {
+      "week": 15,
+      "manager": "JMid",
+      "missingSurrendered": [],
+      "actualOptimal": 152,
+      "rolledBackOptimal": 169.7,
+      "delta": -17.7,
+      "status": "illustrative_complete_snapshot"
+    },
+    {
+      "week": 15,
+      "manager": "Thommy",
+      "missingSurrendered": [],
+      "actualOptimal": 167.96,
+      "rolledBackOptimal": 179.02,
+      "delta": -11.06,
+      "status": "illustrative_complete_snapshot"
+    },
+    {
+      "week": 16,
+      "manager": "Stilly",
+      "missingSurrendered": [],
+      "actualOptimal": 132.56,
+      "rolledBackOptimal": 123.1,
+      "delta": 9.46,
+      "status": "illustrative_complete_snapshot"
+    },
+    {
+      "week": 16,
+      "manager": "JMid",
+      "missingSurrendered": [],
+      "actualOptimal": 117.66,
+      "rolledBackOptimal": 109.66,
+      "delta": 8,
+      "status": "illustrative_complete_snapshot"
+    },
+    {
+      "week": 16,
+      "manager": "Thommy",
+      "missingSurrendered": [],
+      "actualOptimal": 172.3,
+      "rolledBackOptimal": 174.46,
+      "delta": -2.16,
+      "status": "illustrative_complete_snapshot"
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "schema": "fellas-asset-retrade-chain-dossier-v1",
+  "asOf": "2026-11-16",
+  "status": "research_verified_transaction_receipts_partial_economic_attribution",
+  "cases": [
+    {
+      "key": "2021-jacobs",
+      "initial": {
+        "transactionId": "737360507476066304",
+        "date": "2021-08-30",
+        "season": 2021,
+        "week": 1,
+        "receipts": [
+          {
+            "manager": "Thommy",
+            "players": [
+              "Tyreek Hill",
+              "Josh Jacobs",
+              "Javonte Williams"
+            ]
+          },
+          {
+            "manager": "Tony",
+            "players": [
+              "Corey Davis",
+              "A.J. Brown",
+              "Jonathan Taylor"
+            ]
+          }
+        ]
+      },
+      "downstream": [
+        {
+          "transactionId": "738428315181928448",
+          "date": "2021-08-31",
+          "season": 2021,
+          "week": 1,
+          "receipts": [
+            {
+              "manager": "Birch",
+              "players": [
+                "Lamar Jackson",
+                "Mark Andrews",
+                "Josh Jacobs"
+              ]
+            },
+            {
+              "manager": "Thommy",
+              "players": [
+                "Dak Prescott",
+                "Noah Fant",
+                "Antonio Gibson"
+              ]
+            }
+          ],
+          "JacobsRole": "one_of_three_assets_sent_by_Thommy; cannot attribute all acquired package to Jacobs"
+        }
+      ],
+      "sampledOwnership": [
+        {
+          "season": 2021,
+          "week": 1,
+          "manager": "Birch",
+          "player": "Josh Jacobs",
+          "slot": "starter",
+          "points": 16.5
+        },
+        {
+          "season": 2021,
+          "week": 1,
+          "manager": "Thommy",
+          "players": [
+            "Dak Prescott",
+            "Noah Fant",
+            "Antonio Gibson"
+          ],
+          "slot": "starter"
+        }
+      ],
+      "valuationFlags": [
+        "Second exchange occurred the next day before regular season; no first-trade standalone starting value for Jacobs on Thommy.",
+        "First trade best/worst evaluation must not sum full effects of follow-up trade independently as if they were separate initial assets.",
+        "Multi-player second trade imposes allocation uncertainty; use package and marginal asset methods, not unjustified Jacbos-only attribution."
+      ],
+      "sourceStatus": "verified_completed_sleeper_trades_and_week1_rosters"
+    },
+    {
+      "key": "2025-chase",
+      "initial": {
+        "transactionId": "1276026193660899328",
+        "date": "2025-09-23",
+        "season": 2025,
+        "week": 3,
+        "receipts": [
+          {
+            "manager": "Stilly",
+            "players": [
+              "Ja'Marr Chase",
+              "Chase Brown"
+            ]
+          },
+          {
+            "manager": "Stew",
+            "players": [
+              "Jahmyr Gibbs",
+              "RJ Harvey"
+            ]
+          }
+        ]
+      },
+      "downstream": [
+        {
+          "transactionId": "1294402688213057536",
+          "date": "2025-11-12",
+          "season": 2025,
+          "week": 11,
+          "receipts": [
+            {
+              "manager": "Stilly",
+              "players": [
+                "Amon-Ra St. Brown",
+                "Jordan Addison",
+                "Jared Goff"
+              ]
+            },
+            {
+              "manager": "JMid",
+              "players": [
+                "Ja'Marr Chase"
+              ]
+            },
+            {
+              "manager": "Thommy",
+              "players": [
+                "A.J. Brown"
+              ]
+            }
+          ],
+          "note": "three-party deal; outgoing-player sources individually established by Week 10 snapshots, not by trade listing alone"
+        },
+        {
+          "transactionId": "1413584172332654592",
+          "date": "2026-10-07",
+          "season": 2026,
+          "week": 5,
+          "receipts": [
+            {
+              "manager": "Stilly",
+              "players": [
+                "Ja'Marr Chase",
+                "Devaughn Vele"
+              ]
+            },
+            {
+              "manager": "JMid",
+              "players": [
+                "Davante Adams",
+                "George Kittle",
+                "Breece Hall"
+              ]
+            }
+          ]
+        }
+      ],
+      "keeperReceipts": [
+        {
+          "season": 2026,
+          "manager": "JMid",
+          "player": "Ja'Marr Chase",
+          "draftRound": 1,
+          "overall": 4,
+          "isKeeper": true
+        },
+        {
+          "season": 2026,
+          "manager": "Stilly",
+          "player": "Amon-Ra St. Brown",
+          "draftRound": 1,
+          "overall": 8,
+          "isKeeper": true
+        }
+      ],
+      "sampledOwnership": [
+        {
+          "season": 2025,
+          "week": 10,
+          "manager": "Stilly",
+          "player": "Ja'Marr Chase",
+          "slot": "bench",
+          "points": 0
+        },
+        {
+          "season": 2025,
+          "week": 10,
+          "manager": "JMid",
+          "player": "Amon-Ra St. Brown",
+          "slot": "starter",
+          "points": 14.3
+        },
+        {
+          "season": 2025,
+          "week": 10,
+          "manager": "Thommy",
+          "players": [
+            "Jordan Addison",
+            "Jared Goff"
+          ],
+          "slot": "starter"
+        },
+        {
+          "season": 2025,
+          "week": 12,
+          "manager": "Stilly",
+          "players": [
+            "Amon-Ra St. Brown",
+            "Jordan Addison",
+            "Jared Goff"
+          ],
+          "slot": "starter"
+        },
+        {
+          "season": 2025,
+          "week": 12,
+          "manager": "JMid",
+          "player": "Ja'Marr Chase",
+          "slot": "bench",
+          "points": 0
+        },
+        {
+          "season": 2025,
+          "week": 12,
+          "manager": "Thommy",
+          "player": "A.J. Brown",
+          "slot": "starter",
+          "points": 21
+        },
+        {
+          "season": 2026,
+          "week": 4,
+          "manager": "JMid",
+          "player": "Ja'Marr Chase",
+          "slot": "starter",
+          "points": 4.2
+        },
+        {
+          "season": 2026,
+          "week": 6,
+          "manager": "Stilly",
+          "player": "Ja'Marr Chase",
+          "slot": "bench",
+          "points": 0
+        }
+      ],
+      "valuationFlags": [
+        "Traded-player value cannot be awarded twice to the parent deal and downstream deal.",
+        "2026 keeper cost is a first-round pick; does not mean free extra season of Chase.",
+        "2026 still underway at time of research; no full 2026 realized outcome.",
+        "Subsequent trade is package-for-package, not a guaranteed even exchange of Chase alone for all three return players.",
+        "Use original transaction rights, season timing, and playoff outcomes as separate ledgers."
+      ],
+      "sourceStatus": "verified_completed_sleeper_trades_roster_checkpoints_and_2026_draft_receipts"
+    }
+  ],
+  "methodology": {
+    "assetFlow": "Original trade is a parent decision; later acquisition is a new decision funded partly by assets acquired previously. Link transactions in directed acyclic asset flow where event IDs are unique.",
+    "noDoubleCounting": "Count player production once at team-week level and realized keeper opportunity once per season; second trade outcomes may be shown downstream but not credited in full to every parent.",
+    "allocation": "For multi-player packages where no separate market or counterfactual value exists, assign fractional causal attribution UNKNOWN rather than proportional shares guessed from raw points.",
+    "nullMeans": "not established, never zero",
+    "limit": "Provider trade records confirm trade participation and full player list but transaction output by itself does not include directional mapping; reconstructed receiving sides are corroborated by archived case ledger and before/after rosters."
+  }
+}
