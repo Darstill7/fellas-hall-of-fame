@@ -43,8 +43,9 @@ try{
  await page.locator('#manager-directory-cards a.manager[href="stew/"]').click();
  await page.waitForURL(url=>url.pathname.endsWith('/managers/stew/'),{timeout:12000});
  visited.push('managers/stew/');
- await page.locator('main .hero .buttons a[href*="record-books.html"]').first().waitFor({state:'visible',timeout:12000});
- await page.locator('main .hero .buttons a[href*="record-books.html"]').first().click();
+ const personalRecords=page.locator('.manager-home-hub-grid a[href*="record-books.html"]').first();
+ await personalRecords.waitFor({state:'visible',timeout:12000});
+ await personalRecords.click();
  await page.waitForURL(url=>url.pathname.endsWith('/managers/record-books.html'),{timeout:12000});
  visited.push('managers/record-books.html');
  await page.locator('#profile .cards .card').first().waitFor({state:'visible',timeout:14000});
