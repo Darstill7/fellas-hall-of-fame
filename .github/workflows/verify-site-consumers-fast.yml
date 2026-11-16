@@ -18,5 +18,7 @@ jobs:
         run: node scripts/verify-homepage-editorial.mjs
       - name: Verify current and completed-season navigation
         run: node scripts/verify-production-editorial-navigation.mjs
+      - name: Verify latest completed 2026 week is consistent sitewide
+        run: node scripts/verify-current-week-website.mjs
       - name: Verify documented three-team trade archive scope
         run: node scripts/verify-trade-museum-scope.mjs
