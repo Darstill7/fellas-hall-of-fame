@@ -89,6 +89,24 @@ try{
   await show.click();
   assert(await page.locator('#games .game').count()>5,'Rivalry game list did not expand');
  }
+ // 4. Mobile-first Manager Profile 3.0 across all ten franchises.
+ for(const manager of ['stilly','stew','tom','mitch','jmid','scott','stover','kuhl','tony','birch']){
+  await go('managers/'+manager+'/');
+  const pulse=page.locator('#profile-season-pulse');
+  await pulse.locator('.profile-season-pulse-stats:not([hidden]) .profile-season-pulse-stat').first().waitFor({state:'visible',timeout:15000});
+  const status=await pulse.locator('.profile-season-pulse-status').innerText();
+  assert.match(status,/Verified through Week \d+/,'Season cut-off missing for '+manager);
+  assert.equal(await page.locator('main .hero .profile-schedule-luck, main .hero .fellas-luck-performance').count(),0,'Advanced analytics leaked into the hero for '+manager);
+  const analytics=page.locator('#profile-advanced-analytics');
+  assert(await analytics.count(),'Advanced analytics section missing for '+manager);
+  assert.equal(await analytics.evaluate(node=>node.open),false,'Advanced analytics unexpectedly expanded for '+manager);
+  const measurements=await page.evaluate(()=>({
+   overflow:document.documentElement.scrollWidth-innerWidth,
+   pulseWidth:document.querySelector('#profile-season-pulse')?.getBoundingClientRect().width,
+   width:innerWidth
+  }));
+  assert(measurements.overflow<=3,'Horizontal mobile viewport overflow on '+manager+': '+JSON.stringify(measurements));
+ }
  assert.equal(errors.length,0,'Browser runtime errors: '+errors.join(' | '));
  console.log('PASS: mobile journeys '+visited.join(' → ')+'; manager records, verified record story, filtered trade receipts and rivalry comparison');
 }finally{await page.close();await browser.close();await new Promise(resolve=>server.close(resolve))}
