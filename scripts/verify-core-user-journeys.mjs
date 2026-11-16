@@ -43,7 +43,9 @@ try{
  await page.locator('#manager-directory-cards a.manager[href="stew/"]').click();
  await page.waitForURL(url=>url.pathname.endsWith('/managers/stew/'),{timeout:12000});
  visited.push('managers/stew/');
- const personalRecords=page.locator('.manager-home-hub-grid a[href*="record-books.html"]').first();
+ // Prefer the interactive hub; the accessible static chapter link is an
+ // intentional no-JS fallback. Either must lead to this manager's record book.
+ const personalRecords=page.locator('.manager-home-hub-grid a[href*="record-books.html"]:visible, nav.profile-chapters a[href*="record-books.html"]:visible, header a[href*="record-books.html"]:visible').first();
  await personalRecords.waitFor({state:'visible',timeout:12000});
  await personalRecords.click();
  await page.waitForURL(url=>url.pathname.endsWith('/managers/record-books.html'),{timeout:12000});
