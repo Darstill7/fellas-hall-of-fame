@@ -30,7 +30,7 @@
 
 - Aug 30 Tony->Thommy: Hill/Jacobs/Javonte to Thommy; Corey Davis/A.J. Brown/Jonathan Taylor to Tony.
 - Aug 31 Thommy->Birch: Lamar Jackson/Mark Andrews/Jacobs to Birch; Prescott/Fant/Antonio Gibson to Thommy.
-- Strict Week 1–14 *recipient-started* values of original acquisition: Thommy Tyreek Hill **171.80** (12 starts), Javonte **111.50** (8 starts), Josh Jacobs **0.00** (0 starts). The zero says he was never started before his next-day re-trade; it does **not** mean zero economic value.
+- Strictly post-Week-1 through Week-14 *recipient-started* values of original acquisition: Thommy Tyreek Hill **171.80** (12 starts), Javonte **111.50** (8 starts), Josh Jacobs **0.00** (0 starts). The zero says he was never started before his next-day re-trade; it does **not** mean zero economic value.
 - Birch's strictly later acquired-player starter returns from second deal: Lamar **219.98** (11 starts), Mark Andrews **166.60** (12), Jacobs **115.10** (9). Jacobs' share of the 501.68 credited package is **115.10 points**, but that is **not** the contribution of Jacobs to the trade's negotiations or to Thommy's downstream receipts.
 - No causal allocator can legitimately credit the complete Prescott/Fant/Gibson return to Jacobs alone; the second transaction also required Lamar and Andrews. Mark contribution fraction as **unknown**.
 
@@ -59,7 +59,7 @@ A transaction with all participants above 50 is win-win (or win-win-win). If all
 
 Titles are grounded in observed *patterns*, not in leaderboard rank, and should never imply a verified skill rating without evidence.
 
-- **Stew: “The Deal Machine” (proposed frequency title)** is supported by **19 recorded 2020–2025 involvements** in the represented archive, but not proof of trading advantage.
+- **Stew: “The Deal Machine” (proposed frequency title)** is supported by **20 recorded 2020–2025 involvements** (19 player-receiving legs and one $5 FAAB receipt) in the represented archive, but not proof of trading advantage.
 - **Thommy: “The Quick-Flip Artist” (proposed transaction-behavior title)** has the verified next-day 2021 Jacobs transfer; this title describes behavior, not outcome.
 - **JMid: “The Asset Recycler” (proposed transaction-behavior title)** is supported by holding Chase as a first-round 2026 keeper before converting him into Adams/Kittle/Hall. This title does not imply that the resulting deal was net-positive.
 - Titles for other managers and all official 0–100 scores remain unassigned.
@@ -76,3 +76,7 @@ The historical all44 reconstructed recipient ledger contains **13 player–seaso
 - Historic 44 evidence ledger: `data-integrity/trade-benefit-evidence-ledger-2026-11-16.json`.
 - The 2021 and 2025 transaction chains were additionally checked with original Sleeper completed transaction summaries and nearby weekly roster snapshots; 2026 keeper picks from confirmed draft board.
 - Do not merge public frontend, print a “Top 10 Worst Trades” ranking, or fill manager rating numerals until all source/integration quality gates pass. Published editorial copy may describe verified transactions and observed weekly starter points with explicit time windows and without causal language.
+
+## Bookkeeping correction from restored screenshots
+
+The 44-event set has **89 manager involvement sides**: 41 two-manager player exchanges contribute 82, two player-for-FAAB exchanges contribute four, and one three-manager exchange contributes three. Prior manager-frequency totals omitted the FAAB *recipient* legs, giving Stew 19 instead of **20** and Mitch 3 instead of **4**. Record both as participating managers, but do **not** invent player points or a 0 surplus for a side that received only FAAB. See [corrected manager activity ledger](../data-integrity/trade-manager-activity-corrected-v1.json).
