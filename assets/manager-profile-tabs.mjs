@@ -896,9 +896,16 @@ if(main&&tabs){
  const focusSummary=document.createElement('p');
  focusSummary.className='profile-focus-summary';
  focusIntro.append(focusKicker,focusName,focusSummary);
+ const focusActions=document.createElement('div');
+ focusActions.className='profile-focus-actions';
+ const focusRecords=document.createElement('a');
+ focusRecords.className='profile-focus-records-link';
+ focusRecords.href=managerRecordBookUrl(profileName==='Tom'?'Thommy':profileName);
+ focusRecords.textContent='Personal Record Book →';
  const focusBack=document.createElement('button');
  focusBack.type='button';focusBack.textContent='← All chapters';
- featureToolbar.append(focusIntro,focusBack);
+ focusActions.append(focusBack,focusRecords);
+ featureToolbar.append(focusIntro,focusActions);
  featureDirectory?.querySelector('.profile-feature-groups')?.before(featureToolbar);
  let lastProfileFeatureTrigger=null;
  function clearFeatureFocus(){
