@@ -483,3 +483,107 @@ body.premium-franchise .profile-focus-toolbar button:focus-visible{
    overflow-wrap:break-word
  }
 }
+
+
+/* Phase 1.8 — source-qualified transaction file, phone-first. */
+body.premium-franchise .career-transaction-lead{
+  margin:14px 15px 20px;padding:20px 18px;
+  background:linear-gradient(140deg,#263d49,#122a38);
+  border:1px solid #718395;border-top:4px solid #d8b778;
+  border-radius:12px
+}
+body.premium-franchise .career-transaction-eyebrow,
+body.premium-franchise .career-transaction-section-label{
+  display:block;color:#e8cb91;font-size:10px;font-weight:900;
+  letter-spacing:.12em;line-height:1.5
+}
+body.premium-franchise .career-transaction-lead h3{
+  margin:8px 0 10px;font:500 clamp(25px,3.8vw,34px)/1.15 Georgia,serif;
+  letter-spacing:-.04em;color:#fff5df;text-wrap:balance
+}
+body.premium-franchise .career-transaction-description{
+  max-width:62ch;margin:0 0 14px;font-size:14px;
+  line-height:1.65;color:#e1e9ed
+}
+body.premium-franchise .career-transaction-scope{
+  margin:0;padding-top:12px;border-top:1px solid #61747e;
+  font-size:11px;line-height:1.55;font-weight:650;color:#cdd8dd
+}
+body.premium-franchise .career-transaction-section-label{
+  margin:20px 16px 11px
+}
+body.premium-franchise .career-resume-metrics{
+  gap:10px
+}
+body.premium-franchise .career-resume-metric{
+  border:1px solid #6c8291;
+  border-top:2px solid #bdad86;
+  border-radius:10px;background:#193748
+}
+body.premium-franchise .career-research-topics{
+  margin:16px 15px;padding:17px;
+  border:1px solid #617e8c;border-radius:12px;
+  background:#162f3f
+}
+body.premium-franchise .career-research-topics .career-transaction-section-label{
+  margin:0 0 8px
+}
+body.premium-franchise .career-research-topics-title{
+  margin:0 0 6px;font:500 clamp(22px,3vw,28px)/1.2 Georgia,serif;color:#fff5df
+}
+body.premium-franchise .career-research-topics-description{
+  margin:0 0 15px;max-width:60ch;font-size:13px;line-height:1.55;color:#c6d7df
+}
+body.premium-franchise .career-research-topics-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px
+}
+body.premium-franchise .career-research-topic-button{
+  min-height:52px;padding:10px 12px;border:1px solid #708b9b;
+  border-radius:9px;background:#1b3b4e;color:#f8f1e5;
+  font-size:13px;font-weight:850;line-height:1.4;text-align:left;
+  cursor:pointer
+}
+body.premium-franchise .career-research-topic-button:hover,
+body.premium-franchise .career-research-topic-button[aria-expanded="true"]{
+  background:#2b5060;border-color:#efd095;color:#fff
+}
+body.premium-franchise .career-research-topic-button:focus-visible,
+body.premium-franchise .career-transaction-full-archive:focus-visible{
+  outline:3px solid #ffe3a5;outline-offset:3px
+}
+body.premium-franchise .career-resume-trade{
+  border-left:3px solid #d0b37d;
+  padding:15px;margin:12px 0;background:#1b3a4a;
+  border-radius:10px
+}
+body.premium-franchise .career-resume-trade strong{
+  display:block;color:#f5d598;font-size:13px;line-height:1.5
+}
+body.premium-franchise .career-resume-trade p{
+  font-size:13px;line-height:1.6;color:#dce7eb
+}
+body.premium-franchise .career-transaction-proof{
+  margin:8px 0 15px;font-size:12px;line-height:1.6;color:#c6d5dc
+}
+body.premium-franchise .career-transaction-full-archive{
+  display:inline-flex;align-items:center;min-height:48px;
+  margin:12px 0 6px;padding:11px 14px;border:1px solid #d6bb83;
+  border-radius:9px;color:#f5d89e;text-decoration:none;
+  background:#213d4d;font-size:13px;font-weight:850
+}
+body.premium-franchise .career-transaction-full-archive:hover{
+  background:#315466
+}
+@media(max-width:650px){
+ body.premium-franchise .career-transaction-lead{margin:12px 10px 16px;padding:17px 15px}
+ body.premium-franchise .career-transaction-description{font-size:14px}
+ body.premium-franchise .career-transaction-section-label{margin:16px 12px 10px}
+ body.premium-franchise .career-research-topics{margin:13px 10px;padding:14px}
+ body.premium-franchise .career-research-topics-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ body.premium-franchise .career-research-topic-button{min-height:52px}
+ body.premium-franchise .career-resume-trade{padding:13px}
+ body.premium-franchise .career-transaction-full-archive{width:100%;justify-content:center}
+}
+@media(max-width:355px){
+ body.premium-franchise .career-research-topics-grid{grid-template-columns:1fr}
+}
