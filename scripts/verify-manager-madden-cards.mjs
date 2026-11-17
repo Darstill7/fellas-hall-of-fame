@@ -175,7 +175,7 @@ if(!mobileRenderer.includes('managerPersonas[r.name]')||!mobileRenderer.includes
 console.log('Ten editorial manager identities and history explanations PASS');
 
 const seasonAccordion=fs.readFileSync('assets/manager-season-history.js','utf8');
-for(const token of ['season-accordion','season-entry','<details class="season-entry"','@media(max-width:650px)'])if(!seasonAccordion.includes(token))throw Error('Missing expandable mobile season history '+token);
+for(const token of ['season-accordion','season-entry','<details class="season-entry '+finishClass(x)+'"','season-entry-outcome','@media(max-width:650px)'])if(!seasonAccordion.includes(token))throw Error('Missing expandable mobile season history '+token);
 console.log('Verified season data supports in-place mobile expansion PASS');
 
 const stickyTabs=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');
