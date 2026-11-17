@@ -1,0 +1,76 @@
+{
+  "status": "REVIEW_REQUIRED",
+  "league": "1340027406009761792",
+  "year": 2026,
+  "week": 10,
+  "source": "Sleeper connected league final scores (2026-11-17); all five paired and owner handles matched canonical roster map",
+  "matchupCount": 5,
+  "reason": "Source-verified candidate only; human approval, all downstream generators, complete cross-page freshness and full CI required before canonical import or publication",
+  "games": [
+    {
+      "year": 2026,
+      "week": 10,
+      "home": "JMid",
+      "away": "Thommy",
+      "homeScore": 119.46,
+      "awayScore": 107.32,
+      "winner": "HOME",
+      "margin": 12.14,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_10"
+    },
+    {
+      "year": 2026,
+      "week": 10,
+      "home": "Stew",
+      "away": "Mitch",
+      "homeScore": 161.4,
+      "awayScore": 134.04,
+      "winner": "HOME",
+      "margin": 27.36,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_10"
+    },
+    {
+      "year": 2026,
+      "week": 10,
+      "home": "Stilly",
+      "away": "Scott",
+      "homeScore": 122.86,
+      "awayScore": 88.1,
+      "winner": "HOME",
+      "margin": 34.76,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_10"
+    },
+    {
+      "year": 2026,
+      "week": 10,
+      "home": "Stover",
+      "away": "Birch",
+      "homeScore": 163.98,
+      "awayScore": 178.32,
+      "winner": "AWAY",
+      "margin": 14.34,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_10"
+    },
+    {
+      "year": 2026,
+      "week": 10,
+      "home": "Tony",
+      "away": "Kuhl",
+      "homeScore": 89.52,
+      "awayScore": 48.92,
+      "winner": "HOME",
+      "margin": 40.6,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_10"
+    }
+  ]
+}
