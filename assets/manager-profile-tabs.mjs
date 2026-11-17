@@ -599,6 +599,8 @@ function mountManagerHomeHub(){
  if(!who)return;
  const hub=document.createElement('section');hub.className='manager-home-hub';
  hub.setAttribute('aria-label',who+' personal league hub');
+ const chapterLabel=document.createElement('p');chapterLabel.className='manager-home-kicker';
+ chapterLabel.textContent='FRANCHISE GUIDE / SIX WAYS IN';
  const h=document.createElement('h2');h.textContent='Explore '+who+'’s career';
  const note=document.createElement('p');note.textContent='Choose a chapter below. Detailed game logs, ratings and research remain in the expandable archive.';
  note.className='manager-home-hub-note';
@@ -639,7 +641,7 @@ function mountManagerHomeHub(){
   }
   grid.append(el);
  }
- hub.append(h,note,grid);
+ hub.append(chapterLabel,h,note,grid);
  // One contextual research link, not another large navigation tile.
  const tradeResearch=document.createElement('p');
  tradeResearch.className='manager-home-trade-research';
