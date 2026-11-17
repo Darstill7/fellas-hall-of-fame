@@ -117,6 +117,21 @@ for(const fragment of [
  '.profile-focus-records-link'
 ])check(chapterStyle.includes(fragment),'Missing shared chapter styling or record-book exit: '+fragment);
 
+// The record-story handoff keeps the originating manager visible and
+// preserves that origin when choosing another historical leaderboard rank.
+const story=read('analytics/record-stories.html');
+for(const fragment of [
+ 'id="story-return"',
+ "canonicalManager=fromManager==='Tom'?'Thommy':fromManager",
+ 'returnNav.hidden=!returnTo',
+ "returnTo?'&manager='+encodeURIComponent(canonicalManager)",
+ 'record-books.html?manager=',
+ "params.get('rank')",
+ 'aria-label="Return to originating manager records"'
+])check(story.includes(fragment),'Missing matchup story origin/return contract: '+fragment);
+check(read('scripts/verify-core-user-journeys.mjs').includes("Switching matchup ranking lost the originating manager"),
+ 'Phone regression must exercise the ranked-story return journey');
+
 // Personal records: per-manager selection and routes back to source profiles.
 for(const fragment of [
  'id="record-book-title"',
