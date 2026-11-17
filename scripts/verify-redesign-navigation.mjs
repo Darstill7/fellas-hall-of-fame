@@ -84,6 +84,26 @@ for(const fragment of [
  'h2h-game-loss'
 ])check(rivalry.includes(fragment),'Missing manager rivalry chapter behavior: '+fragment);
 
+// Draft/trade dossier must preserve source limits and a reversible topic flow.
+const transactions=read('assets/manager-draft-trade-career-page.mjs');
+for(const fragment of [
+ 'manager_draft_trade_profile_evidence_v1.json',
+ 'research_only_no_draft_or_trade_skill_grades',
+ 'career-transaction-lead',
+ 'career-transaction-scope',
+ 'career-research-topics-grid',
+ 'career-resume-trade',
+ "event.complete&&event.managers.includes(manager)&&event.year<=2025",
+ 'career-transaction-full-archive',
+ 'career-research-return'
+])check(transactions.includes(fragment),'Missing source-qualified transaction dossier: '+fragment);
+for(const fragment of [
+ '.career-transaction-lead',
+ '.career-research-topics-grid',
+ '.career-resume-trade',
+ '.career-transaction-proof'
+])check(chapterStyle.includes(fragment),'Missing mobile transaction design: '+fragment);
+
 // Personal records: per-manager selection and routes back to source profiles.
 for(const fragment of [
  'id="record-book-title"',
