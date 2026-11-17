@@ -247,7 +247,7 @@ try{
      errors.push(width+' '+route+' missing accessible personal Records chapter action');
     const recordOverview=page.locator('[data-expanded-records-profile] .records-profile-summary');
     await recordOverview.waitFor({state:'attached',timeout:12000}).catch(()=>{});
-    if(await recordOverview.count()!==1||!((await recordOverview.innerText()).includes('first-place categories')))
+    if(await recordOverview.count()!==1||!((await recordOverview.textContent()).includes('first-place categories')))
      errors.push(width+' '+route+' lacks an embedded verified record résumé');
     const archiveSwitcher=page.locator('details.profile-section-switcher');
     if(await archiveSwitcher.count()===1&&width===390){
@@ -307,12 +307,13 @@ try{
       try{
        await visitor.goto(baseUrl+route,{waitUntil:'domcontentloaded',timeout:15000});
        await visitor.locator('.manager-home-hub-tile').filter({hasText:'My records'}).click();
-       await visitor.waitForURL(url=>url.pathname.endsWith('/analytics/record-holders.html')&&url.searchParams.has('manager'),{timeout:15000});
        const expectedManager=managerSlug==='tom'?'Thommy':'JMid';
-       await visitor.waitForFunction(name=>document.querySelector('#record-manager-selected')?.textContent?.startsWith(name+' ·'),expectedManager,{timeout:16000});
-       const selected=await visitor.locator('#record-manager-selected').innerText();
-       if(!selected.includes('first-place category entries'))
-        errors.push(width+' '+route+' Record Book did not render selected manager records');
+       await visitor.waitForURL(url=>url.pathname.endsWith('/managers/record-books.html')&&
+        url.searchParams.get('manager')===expectedManager,{timeout:15000});
+       await visitor.waitForFunction(name=>document.querySelector('#record-book-title')?.textContent===name+'’s record book',expectedManager,{timeout:16000});
+       await visitor.locator('#expanded-manager-records .records-lab-tile').first().waitFor({state:'attached',timeout:16000});
+       if(await visitor.locator('#record-book-title').innerText()!==expectedManager+'’s record book')
+        errors.push(width+' '+route+' personal Record Book rendered incorrect manager');
       }finally{await visitor.close()}
      }
      if(width===390){
@@ -325,7 +326,7 @@ try{
     // The public landing must be an editorial Hall of Fame exhibit, not a dashboard wall.
     const careerExhibit=page.locator('main > .hof-career-exhibit');
     if(await careerExhibit.count()!==1||!await careerExhibit.isVisible()||
-       !(await careerExhibit.locator('h2').innerText()).includes('Behind the résumé')||
+       !(await careerExhibit.locator('h2').innerText()).includes('The story behind the numbers')||
        await careerExhibit.locator('p.hof-career-intro').innerText().then(x=>x.trim().length)<65||
        await careerExhibit.locator('button.hof-career-read').count()!==1)
      errors.push(width+' '+route+' missing readable Hall of Fame career exhibit');
@@ -572,12 +573,17 @@ try{
      // The sole featured Records shortcut must use the canonical manager name;
      // never restore the obsolete duplicate under expandable topics.
      const recordsEntries=await page.locator('#profile-features a[href*="record-books.html"]').evaluateAll(nodes=>nodes.map(a=>a.getAttribute('href')));
-     const expectedRecords='../../managers/record-books.html?manager='+encodeURIComponent(name)+'#career-first';
-     // The featured record action and the contextual directory heading can both
-     // link to the same verified portfolio. Duplicate destinations are harmless;
-     // duplicate or incorrect manager identities are not.
-     if(recordsEntries.length<1||recordsEntries.some(href=>href!==expectedRecords))
-      errors.push(width+' '+route+' featured Records shortcut is duplicated or uses stale manager identity');
+     // Focused chapters and the directory can link to different sections of
+     // the same verified manager book; identity and valid destination matter.
+     const validRecordDestination=href=>{
+      if(!href)return false;
+      const url=new URL(href,baseUrl+route);
+      return url.pathname.endsWith('/managers/record-books.html')&&
+       url.searchParams.get('manager')===name&&
+       ['#career-first','#owned-records'].includes(url.hash);
+     };
+     if(recordsEntries.length<1||recordsEntries.some(href=>!validRecordDestination(href)))
+      errors.push(width+' '+route+' featured Records link has incorrect manager scope or destination');
      // Canonical pages must also remain compact when visitors follow a
      // direct Explore link with the feature-directory hash.
      if(['stilly','tom','stover'].includes(slug)){
@@ -605,7 +611,7 @@ try{
       if(required.some(x=>!history.includes(x)))
        errors.push(width+' '+slug+' recovered ESPN finishing places missing from visible season archive');
       if(slug==='stilly'){
-       const seasons=await page.locator('#season-history details.season-entry').evaluateAll(nodes=>nodes.map(node=>({text:node.textContent,year:node.querySelector('summary strong')?.textContent,award:node.querySelector('.season-award-label')?.textContent})));
+       const seasons=await page.locator('#season-history details.season-entry').evaluateAll(nodes=>nodes.map(node=>({text:node.textContent,year:node.querySelector('.season-entry-year')?.textContent,award:node.querySelector('.season-award-label')?.textContent})));
        const awards=seasons.filter(x=>x.award==='Shitter of the Year').map(x=>Number(x.year)).sort((a,b)=>a-b);
        if(JSON.stringify(awards)!==JSON.stringify([2018,2021]))
         errors.push(width+' Stilly awards should cover verified 2018 and 2021, not 2016');
@@ -1817,11 +1823,12 @@ try{
      errors.push(width+' homepage initial manager search status remains stale');
     const snapshot=await page.locator('#home-season-snapshot').innerText();
     if(!/Canonical results through Week [1-9][0-9]*\b/.test(snapshot)||!snapshot.includes('reconstructed'))errors.push(width+' homepage canonical 2026 snapshot inaccurate');
-    const archivedFeature=page.locator('.feature-panel').filter({has:page.locator('a[href="analytics/sportscenter.html"]')});
-    const archiveLabel=await archivedFeature.locator('.kicker').textContent();
-    const archiveStatus=await archivedFeature.locator('.status').textContent();
-    const archiveDescription=await archivedFeature.locator('p').first().textContent();
-    if(await archivedFeature.count()!==1||!archiveLabel?.includes('Updated from verified season data')||!archiveStatus?.includes('Both views now read the verified season ledger')||!archiveDescription?.includes('latest final scores'))errors.push(width+' homepage does not clearly identify up-to-date 2026 season features');
+    // The old SportsCenter feature panel was replaced by the editorial
+    // discovery hub. Verify the canonical season snapshot and live route.
+    const sportscenter=page.locator('a[href="analytics/sportscenter.html"]');
+    if(await sportscenter.count()<1||!snapshot.includes('Canonical results through Week')||
+       !snapshot.includes('reconstructed'))
+     errors.push(width+' homepage is missing its current season evidence or SportsCenter path');
     const search=page.locator('#home-manager-search');
     if(width===390){
      if(!await search.isVisible())errors.push(width+' mobile manager finder missing');
