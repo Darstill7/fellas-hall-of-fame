@@ -66,3 +66,27 @@
 .home-premium .home-personal-records-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-top:14px;padding:10px 13px;border-radius:9px;border:1px solid #b99d67;background:#283d46;color:#f3d394;text-decoration:none;font-weight:850;font-size:12px;line-height:1.45}
 .home-premium .home-personal-records-link:hover{background:#365462;border-color:#f1d38e}
 .home-premium .home-personal-records-link:focus-visible{outline:3px solid #f3d394;outline-offset:3px}
+
+/* Phase 1.1: small-phone reading pass. At 320–390px, a two-column
+   card grid squeezed titles/descriptions into unreadable fragments.
+   Use full-width chapter choices and stronger visible click affordances. */
+@media(max-width:390px){
+ .home-premium .discovery-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+ .home-premium .discovery-card,
+ .home-premium .discovery-card.adventure-feature,
+ .home-premium .discovery-card:not(.adventure-feature){
+   grid-column:1/-1;min-height:0;padding:16px 18px;gap:7px
+ }
+ .home-premium .discovery-card strong,
+ .home-premium .discovery-card.adventure-feature strong,
+ .home-premium .discovery-card:not(.adventure-feature) strong{
+   font-size:clamp(23px,6.5vw,27px);line-height:1.2
+ }
+ .home-premium .discovery-card>span:not(.discovery-icon):not(.adventure-number){
+   font-size:14px;line-height:1.5
+ }
+ .home-premium .discovery-card b{
+   font-size:13px;margin-top:5px;padding-top:10px
+ }
+ .home-premium .home-franchise-links{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
