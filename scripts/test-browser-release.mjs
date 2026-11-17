@@ -240,8 +240,11 @@ try{
    }
    if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
     const managerName=route.split('/')[1]==='tom'?'Tom':route.split('/')[1].charAt(0).toUpperCase()+route.split('/')[1].slice(1);
-    const recordLink=page.locator('nav.profile-chapters a[href*="record-books.html?manager="]');
-    if(await recordLink.count()!==1)errors.push(width+' '+route+' missing accessible personal Records chapter action');
+    // The legacy chapter nav was replaced with a clearer hero action.
+    // Check the visible canonical Records route rather than the removed menu.
+    const recordLink=page.locator('main .hero .buttons a[href*="record-books.html?manager="]');
+    if(await recordLink.count()!==1||!await recordLink.isVisible())
+     errors.push(width+' '+route+' missing accessible personal Records chapter action');
     const recordOverview=page.locator('[data-expanded-records-profile] .records-profile-summary');
     await recordOverview.waitFor({state:'attached',timeout:12000}).catch(()=>{});
     if(await recordOverview.count()!==1||!((await recordOverview.innerText()).includes('first-place categories')))
