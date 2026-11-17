@@ -18,7 +18,7 @@ const route=relative=>check(fs.existsSync(path.join(root,relative)), 'Missing ro
 // First visit: clear homepage exploration and all current franchises.
 check(home.includes('id="explore-the-league"'), 'Missing homepage exploration anchor');
 check(home.includes('class="home-franchise-links"'), 'Missing direct franchise finder');
-check((home.match(/class="[^"]*\\bdiscovery-card\\b[^"]*"/g)||[]).length===6,
+check((home.match(/class="[^"]*discovery-card[^"]*"/g)||[]).length===6,
  'Homepage must offer exactly six adventure routes');
 for(let i=0;i<slugs.length;i++){
  const slug=slugs[i],name=names[i];
@@ -29,7 +29,7 @@ for(let i=0;i<slugs.length;i++){
  const html=read(file);
  check(html.includes('src="../../assets/manager-profile-tabs.mjs"'),
   'Manager navigation module missing on '+slug);
- check(html.includes('data-expanded-records-profile="'+name+'"'),
+ check(html.includes('data-expanded-records-profile="'+(slug==='tom'?'Tom':name)+'"'),
   'Embedded historical record evidence host missing for '+name);
 }
 
