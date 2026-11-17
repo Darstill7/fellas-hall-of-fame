@@ -8,6 +8,7 @@ const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid'
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/schedule-draw-all-play.html','analytics/regular-season-close-calls.html','analytics/scoring-consistency.html','analytics/postseason-moments.html',
  'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','hall/playoff-heroes.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/manager-draft-report-cards.html','analytics/draft-legends.html','analytics/keeper-tracker.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
+ 'analytics/record-stories.html?record=highest&rank=1&manager=Stew',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
 const server=http.createServer(async(req,res)=>{
@@ -513,6 +514,15 @@ try{
         const shame=page.locator('#shitter-year-history');
         if(await shame.locator('a.placement-shame-row').count()!==6)
          findings.push(engine+' '+width+' all-time Toilet Bowl history missing or incomplete');
+       }
+       if(route.startsWith('analytics/record-stories.html?')&&width===390){
+        const returnPath=await page.locator('#story-return a').first().getAttribute('href');
+        if(!returnPath||!returnPath.includes('manager=Stew')||
+           !await page.locator('#story-return a').first().isVisible())
+         findings.push(engine+' '+width+' matchup story lacks visible personal Record Book return');
+        const rankLinks=await page.locator('#ranking-body a[href*="rank="]').evaluateAll(nodes=>nodes.map(a=>a.getAttribute('href')));
+        if(rankLinks.length!==10||rankLinks.some(href=>!href.includes('manager=Stew')))
+         findings.push(engine+' '+width+' ranked matchup links lose manager origin');
        }
        const dir=path.join(output,'screens',engine,String(width));
        await fs.mkdir(dir,{recursive:true});
