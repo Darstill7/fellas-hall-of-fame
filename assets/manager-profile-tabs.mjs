@@ -599,8 +599,8 @@ function mountManagerHomeHub(){
  if(!who)return;
  const hub=document.createElement('section');hub.className='manager-home-hub';
  hub.setAttribute('aria-label',who+' personal league hub');
- const h=document.createElement('h2');h.textContent=who+' · Your Fellas history';
- const note=document.createElement('p');note.textContent='Your career, your records, your rivalries. Start anywhere.';
+ const h=document.createElement('h2');h.textContent='Explore '+who+'’s career';
+ const note=document.createElement('p');note.textContent='Choose a chapter below. Detailed game logs, ratings and research remain in the expandable archive.';
  note.className='manager-home-hub-note';
  const grid=document.createElement('nav');grid.className='manager-home-hub-grid';grid.setAttribute('aria-label','Primary manager destinations');
  const routes=[
@@ -609,7 +609,7 @@ function mountManagerHomeHub(){
   {label:'Every season',detail:'Year-by-year results',icon:'📅',tab:'seasons'},
   {label:'Rivalries',detail:'Head-to-head history',icon:'⚔️',tab:'rivalries'},
   {label:'Report card',detail:'Career ratings and grades',icon:'📊',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(who)},
-  {label:'Trades & pickups',detail:'How the roster was built',icon:'🔄',tab:'advanced'}
+  {label:'Drafts & trades',detail:'The roster-building résumé',icon:'🔄',action:'front-office'}
  ];
  for(const route of routes){
   const el=document.createElement(route.href?'a':'button');
@@ -622,6 +622,21 @@ function mountManagerHomeHub(){
   const desc=document.createElement('small');desc.textContent=route.detail;
   words.append(name,desc);el.append(icon,words);
   if(route.action==='story')el.addEventListener('click',()=>quick.querySelector('button.profile-biography-entry')?.click());
+  if(route.action==='front-office'){
+   el.addEventListener('click',()=>{
+    // Open the actual draft/trade résumé, not the generic Advanced tab.
+    // Reuse the existing feature controller for history, focus and receipts.
+    const topic=quick.querySelector('button[data-profile-feature][data-feature-target=".profile-career-resume"]');
+    if(topic){
+     quick.querySelector('details.manager-home-more')?.setAttribute('open','');
+     topic.closest('details.profile-feature-group')?.setAttribute('open','');
+     topic.click();
+    }else{
+     // A missing optional research module must not silently do nothing.
+     window.location.href='../../analytics/trade-museum.html';
+    }
+   });
+  }
   grid.append(el);
  }
  hub.append(h,note,grid);
