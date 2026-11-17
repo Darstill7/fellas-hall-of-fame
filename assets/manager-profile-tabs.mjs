@@ -685,8 +685,8 @@ function mountCareerExhibit(){
  const feature=document.createElement('section');
  feature.className='hof-career-exhibit';
  feature.setAttribute('aria-label',slug+' Hall of Fame career story');
- const kicker=document.createElement('span');kicker.className='hof-career-kicker';kicker.textContent='THE CAREER STORY';
- const h=document.createElement('h2');h.textContent='Behind the résumé';
+ const kicker=document.createElement('span');kicker.className='hof-career-kicker';kicker.textContent='02 / THE CAREER STORY';
+ const h=document.createElement('h2');h.textContent='The story behind the numbers';
  const intro=document.createElement('p');intro.className='hof-career-intro';
  const sourceIntro=document.querySelector('#franchise-story .lead');
  intro.textContent=sourceIntro?.textContent?.trim()||'Explore the archived seasons, title results and defining roster decisions.';
@@ -714,9 +714,17 @@ function mountCareerExhibit(){
  if(profileSwitcher)hero.after(profileSwitcher);
  hub.classList.add('hof-nav-curated');
  const hubHeading=hub.querySelector('h2');
- if(hubHeading)hubHeading.textContent='Explore the legacy';
+ if(hubHeading){
+  hubHeading.textContent='Choose your next chapter';
+  if(!hub.querySelector('.manager-home-chapter-label')){
+   const chapter=document.createElement('span');
+   chapter.className='manager-home-chapter-label';
+   chapter.textContent='03 / EXPLORE THIS FRANCHISE';
+   hubHeading.before(chapter);
+  }
+ }
  const hubNote=hub.querySelector('.manager-home-hub-note');
- if(hubNote)hubNote.textContent='Six ways into the archive. Choose what matters to you.';
+ if(hubNote)hubNote.textContent='Follow the career story, investigate the records or open a deeper chapter.';
  // Preview the exact opening sentences of the verified editorial biography.
  fetch('../../data/manager_biographies_awards.json',{cache:'no-store'})
   .then(response=>{if(!response.ok)throw Error('Biography unavailable');return response.json()})
@@ -739,7 +747,7 @@ function mountManagerSeasonPulse(){
  pulse.id='profile-season-pulse';
  pulse.className='profile-season-pulse';
  pulse.setAttribute('aria-labelledby','profile-season-pulse-heading');
- pulse.innerHTML='<div class="profile-season-pulse-head"><div><span class="profile-pulse-eyebrow">2026 / THIS SEASON</span><h2 id="profile-season-pulse-heading">This season</h2></div><a href="../../seasons/2026.html">Season center →</a></div><p class="profile-season-pulse-status" role="status">Loading verified season results…</p><div class="profile-season-pulse-stats" hidden></div><p class="profile-season-pulse-footnote"></p>';
+ pulse.innerHTML='<div class="profile-season-pulse-head"><div><span class="profile-pulse-eyebrow">01 / 2026 SEASON SNAPSHOT</span><h2 id="profile-season-pulse-heading">This season</h2></div><a href="../../seasons/2026.html">Season center →</a></div><p class="profile-season-pulse-status" role="status">Loading verified season results…</p><div class="profile-season-pulse-stats" hidden></div><p class="profile-season-pulse-footnote"></p>';
  const exhibit=document.querySelector('.hof-career-exhibit');
  const hub=document.querySelector('.manager-home-hub');
  if(exhibit)exhibit.before(pulse);else if(hub)hub.before(pulse);else hero.after(pulse);
