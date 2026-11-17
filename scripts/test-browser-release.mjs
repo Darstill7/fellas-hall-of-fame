@@ -138,7 +138,7 @@ try{
      const destinations=await page.locator('header nav.navlinks[aria-label="Main"] a').evaluateAll(nodes=>
       nodes.map(a=>a.getAttribute('href')));
      const expected=['../../index.html','../../managers/','../../hall/',
-      '../../analytics/record-holders.html?manager='+encodeURIComponent(slug==='tom'?'Thommy':slug==='jmid'?'JMid':slug[0].toUpperCase()+slug.slice(1))+'#manager-record-finder','../../seasons/2026.html'];
+      '../../managers/record-books.html?manager='+encodeURIComponent(slug==='tom'?'Thommy':slug==='jmid'?'JMid':slug[0].toUpperCase()+slug.slice(1))+'#career-first','../../seasons/2026.html'];
      if(JSON.stringify(destinations)!==JSON.stringify(expected))
       errors.push(width+' '+route+' manager primary navigation must match five key sections');
      const mobileMenu=page.locator('header.nav details.fellas-mobile-site-menu');
@@ -240,8 +240,8 @@ try{
    }
    if(route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
     const managerName=route.split('/')[1]==='tom'?'Tom':route.split('/')[1].charAt(0).toUpperCase()+route.split('/')[1].slice(1);
-    const recordLink=page.locator('main .hero .buttons a[href*="record-holders.html?manager="]');
-    if(await recordLink.count()!==1)errors.push(width+' '+route+' no direct Records action on manager hero');
+    const recordLink=page.locator('nav.profile-chapters a[href*="record-books.html?manager="]');
+    if(await recordLink.count()!==1)errors.push(width+' '+route+' missing accessible personal Records chapter action');
     const recordOverview=page.locator('[data-expanded-records-profile] .records-profile-summary');
     await recordOverview.waitFor({state:'attached',timeout:12000}).catch(()=>{});
     if(await recordOverview.count()!==1||!((await recordOverview.innerText()).includes('first-place categories')))
@@ -335,7 +335,7 @@ try{
        featureBottom:feature?.getBoundingClientRect().bottom||0};
      });
      if(layout.featureRight>width+2||layout.cards.some(c=>c.right>width+2||c.height<60)||
-        layout.cards.some((c,i)=>i&&c.left!==layout.cards[0].left)||
+        layout.cards.some(c=>c.right-c.left<135)||
         layout.hubTop<layout.featureBottom-2)
       errors.push(width+' '+route+' mobile Hall of Fame exhibit must precede six full-width readable destinations: '+JSON.stringify(layout));
     }
@@ -569,7 +569,7 @@ try{
      // The sole featured Records shortcut must use the canonical manager name;
      // never restore the obsolete duplicate under expandable topics.
      const recordsEntries=await page.locator('#profile-features a[href*="record-books.html"]').evaluateAll(nodes=>nodes.map(a=>a.getAttribute('href')));
-     const expectedRecords='../record-books.html?manager='+encodeURIComponent(name)+'#owned-records';
+     const expectedRecords='../../managers/record-books.html?manager='+encodeURIComponent(name)+'#career-first';
      if(recordsEntries.length!==1||recordsEntries[0]!==expectedRecords)
       errors.push(width+' '+route+' featured Records shortcut is duplicated or uses stale manager identity');
      // Canonical pages must also remain compact when visitors follow a
@@ -589,7 +589,8 @@ try{
       errors.push(width+' '+route+' manager hero must show the canonical public nickname');
      const heroActions=page.locator('main .hero > .buttons > a');
      if(await heroActions.count()!==2||
-        !((await heroActions.first().getAttribute('href'))?.includes('record-holders.html?manager=')))
+        await heroActions.first().getAttribute('href')!=='#franchise-story'||
+        await heroActions.nth(1).getAttribute('href')!=='../' )
       errors.push(width+' '+route+' hero still shows legacy multi-link navigation');
      if(['stilly','tom','stover','birch'].includes(slug)){
       await page.waitForFunction(()=>document.querySelector('#season-history .season-accordion')!==null,null,{timeout:8000}).catch(()=>{});
@@ -1989,12 +1990,12 @@ try{
       errors.push(width+' '+slug+' primary feature directory missing stable deep-link anchor');
      if(!await page.locator('details.profile-feature-group').first().evaluate(el=>el.open))
       errors.push(width+' '+slug+' career results should expand on first visit');
-     if(await page.locator('#full-franchise-dossier').count())
-      errors.push(width+' '+slug+' competing older franchise-profile promo still visible');
+     if(!await page.locator('#full-franchise-dossier').count())
+      errors.push(width+' '+slug+' source-qualified historical dossier destination missing');
      const heroActions=page.locator('main .hero .buttons a');
      if(await heroActions.count()!==2||
-        !(await heroActions.first().getAttribute('href'))?.includes('record-holders.html?manager=')||
-        await heroActions.nth(1).getAttribute('href')!=='#profile-features')
+        await heroActions.first().getAttribute('href')!=='#franchise-story'||
+        await heroActions.nth(1).getAttribute('href')!=='../')
       errors.push(width+' '+slug+' hero has duplicate or misleading navigation links');
      // The shared readability stylesheet must be loaded on each manager route.
      const readability=page.locator('link[href="../../assets/manager-profile-readability.css"]');
@@ -2444,7 +2445,7 @@ try{
     // The modern profile is the single main experience. Keep the historic
     // encyclopedia URL and deep chapter links, without a duplicate teaser.
     const dossierLink=page.locator('a[href="../'+slug+'.html"]');
-    if(await dossierLink.count())errors.push(width+' '+route+' competing full-dossier teaser still visible');
+    if(await page.locator('main .hero a[href="../'+slug+'.html"]').count())errors.push(width+' '+route+' historical dossier must not compete in opening hero');
     const dossierResponse=await page.request.get(new URL('../'+slug+'.html',baseUrl+route).toString());
     if(dossierResponse.status()!==200)errors.push(width+' '+route+' historical franchise dossier URL unavailable');
    }
