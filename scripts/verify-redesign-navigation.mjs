@@ -55,6 +55,19 @@ for(const fragment of [
  '.profile-focus-intro','.profile-focus-kicker','.profile-focus-summary'
 ])check(chapterStyle.includes(fragment),'Missing focused chapter presentation: '+fragment);
 
+// Season cards retain original evidence, distinguish finishes and navigate
+// only to real season pages; the ESPN era uses its existing origins archive.
+const seasons=read('assets/manager-season-history.js');
+for(const fragment of [
+ 'data-season-history','career_core_generated.json',
+ 'manager_verified_season_endings_v1.json',
+ 'season-entry-record','season-entry-outcome','season-entry-archive',
+ 'season-finish-champion','season-finish-finalist',
+ 'Explore the ESPN origins archive'
+])check(seasons.includes(fragment),'Missing verified annual timeline contract: '+fragment);
+for(let year=2020;year<=2026;year++)route('seasons/'+year+'.html');
+route('seasons/espn-origins.html');
+
 // Personal records: per-manager selection and routes back to source profiles.
 for(const fragment of [
  'id="record-book-title"',
