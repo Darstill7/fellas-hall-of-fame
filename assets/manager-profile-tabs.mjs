@@ -324,12 +324,14 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.id='profile-features';
  shell.setAttribute('aria-label','Manager features');
  shell.dataset.profileFeatureMenu='';
- shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a topic below or open the verified record portfolio.</p><a class="profile-records-link" href="'+managerRecordBookUrl(name)+'">View '+name+'\'s records and rankings →</a>';
+ shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Start with the career story, seasons and rivals. Records have their own book; ratings, roster decisions and keeper research are available below.</p><a class="profile-records-link" href="'+managerRecordBookUrl(name)+'">View '+name+'\'s records and rankings →</a>';
+ // Order by visitor intent, not by underlying model complexity.
+ // Every previous feature index appears exactly once; no historical panel is removed.
  const groups=[
   {title:'Career & Results',help:'Championships, playoffs and every season',items:[0,1,10]},
-  {title:'Ratings & Legacy',help:'Career Legacy OVR and individual season ratings',items:[3,4]},
-  {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7]},
   {title:'Rivals & Matchups',help:'Head-to-head records and memorable games',items:[2]},
+  {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7]},
+  {title:'Ratings & Legacy',help:'Career Legacy OVR and individual season ratings',items:[3,4]},
   {title:'Lineups & Keepers',help:'Start/Sit accuracy and keeper research',items:[8,9]}
  ];
  const groupHosts=new Map();
