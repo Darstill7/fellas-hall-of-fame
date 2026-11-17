@@ -274,8 +274,19 @@ try{
      errors.push(width+' '+route+' should have five numbered content chapters');
     if(!await page.evaluate(()=>!!document.querySelector('script[src*="franchise-chapter-system.js"]')))
      errors.push(width+' '+route+' missing chapter position script');
-    if(await page.locator('.profile-chapters .chapter-reading-status').count()!==1)
+    // Some manager pages upgrade the original anchor strip into an accessible
+    // four-tab navigator. Accept either rendered navigation model, but require
+    // a clear selected section and usable orientation in both browsers.
+    const hasTabNavigation=await page.locator('nav.profile-tabs[data-manager-profile-tabs]').count()===1;
+    if(hasTabNavigation){
+     const tabs=page.locator('nav.profile-tabs [role="tab"][data-profile-tab]');
+     const selected=page.locator('nav.profile-tabs [role="tab"][aria-selected="true"]');
+     const guide=page.locator('nav.profile-tabs [data-profile-tab-description]');
+     if(await tabs.count()!==4||await selected.count()!==1||await guide.count()!==1)
+      errors.push(width+' '+route+' accessible profile tabs or selected-section description missing');
+    }else if(await page.locator('.profile-chapters .chapter-reading-status').count()!==1){
      errors.push(width+' '+route+' current chapter orientation missing');
+    }
     const chapterNames=await page.locator('.franchise-chapter-break .chapter-name').allTextContents();
     if(chapterNames.join(' | ')!=='The Franchise Story | Rivalries & Head-to-Head | Seasons, Records & Legacy | Franchise Legends & Game Logs | Drafts, Trades & Deep Research')
      errors.push(width+' '+route+' franchise chapter sequence changed');
