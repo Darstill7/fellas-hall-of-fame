@@ -1,0 +1,56 @@
+name: Build and inspect Record Book 2.0 preview
+on:
+  push:
+    branches: ['feature/record-book-2-preview-20261113']
+    paths:
+      - 'analytics/record-book-2-preview.html'
+      - 'assets/record-book-2-preview.*'
+      - 'scripts/write-record-book-2-preview.mjs'
+      - 'scripts/test-record-book-2-preview.mjs'
+      - '.github/workflows/build-record-book-2-preview.yml'
+permissions:
+  contents: write
+jobs:
+  preview:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build static, explicitly research-only preview data
+        run: |
+          node scripts/verify-record-book-2-deep-research.mjs
+          node scripts/verify-record-book-phase2.mjs
+          node scripts/write-record-book-2-preview.mjs
+          node --check assets/record-book-2-preview.mjs
+          node --check scripts/test-record-book-2-preview.mjs
+      - name: Install independent Chromium and WebKit
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Run real mobile / desktop interactions and screenshot previews
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/record-2-server.log 2>&1 &
+          node scripts/test-record-book-2-preview.mjs
+      - name: Attach preview screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: record-book-2-review-screenshots
+          path: data-integrity/record-book-2-visual/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Commit generated review-data projection to the preview branch
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/record_book_2_preview.json
+          if ! git diff --cached --quiet; then
+            git commit -m "build: refresh review-only Record Book 2.0 data [skip ci]"
+            git push origin HEAD:feature/record-book-2-preview-20261113
+          fi
