@@ -593,9 +593,13 @@ try{
         if(await factors.locator('.profile-rating-factor').count()!==8)
          throw Error('All eight official career rating factors must be available');
         // Exercise an in-page feature button, not just a destination URL.
-        const rivalryCategory=menu.locator('details.profile-feature-group').nth(3);
-        await rivalryCategory.locator(':scope > summary').click();
-        const rivalryButton=rivalryCategory.locator('button[data-feature-target="#head-to-head"]');
+        // Locate the actual rivalry control rather than hard-coding a category
+        // index; the editorial order may change without removing the feature.
+        const rivalryButton=menu.locator('details.profile-feature-group button[data-feature-target="#head-to-head"]');
+        const rivalryCategory=rivalryButton.locator('xpath=ancestor::details[contains(@class,"profile-feature-group")]');
+        if(await rivalryCategory.count()!==1)throw Error('Rivalry chapter missing');
+        if(!await rivalryCategory.evaluate(el=>el.open))
+         await rivalryCategory.locator(':scope > summary').click();
         if(await rivalryButton.count()!==1)throw Error('Head-to-head feature control missing');
         await rivalryButton.click();
         if(!await page.locator('#head-to-head').isVisible()||
