@@ -82,6 +82,37 @@ try{
  assert(await page.locator('#ranking-body tr').count()>=10,'Historical record top-ten results missing');
  const returnLink=page.locator('#featured-links a[href*="record-books.html"]');
  assert(await returnLink.count()>0,'Record story lacks manager return navigation');
+ // Round trip: the origin must stay legible above the story, survive ranking
+ // exploration, and lead back to the same personal book rather than Stilly.
+ const origin=page.locator('#story-return a[href*="record-books.html"]');
+ await origin.waitFor({state:'visible',timeout:10000});
+ assert.equal(new URL(origin.first().getAttribute('href'),page.url()).searchParams.get('manager'),'Stew',
+  'Record story top return does not preserve the manager');
+ const initialRank=new URL(page.url()).searchParams.get('rank');
+ const alternative=page.locator('#ranking-body a[href*="rank="]').filter({hasNotText:'#'+initialRank}).first();
+ if(await alternative.count()){
+  await alternative.click();
+  await page.waitForLoadState('networkidle',{timeout:10000}).catch(()=>{});
+  assert.equal(new URL(page.url()).searchParams.get('manager'),'Stew',
+   'Switching matchup ranking lost the originating manager');
+  assert.notEqual(new URL(page.url()).searchParams.get('rank'),initialRank,
+   'Selecting another ranked game did not change the record');
+  await page.locator('#story-return a').waitFor({state:'visible',timeout:10000});
+ }
+ const storyOverflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
+ assert(storyOverflow<=3,'Historical matchup story overflows 390px phone');
+ await page.locator('#story-return a').click();
+ await page.waitForURL(url=>url.pathname.endsWith('/managers/record-books.html')&&url.searchParams.get('manager')==='Stew',{timeout:12000});
+ assert.equal(new URL(page.url()).hash,'#notable-matchups',
+  'Record story return should restore the historical-games section');
+ assert.equal(await page.locator('#record-book-title').innerText(),'Stew’s record book',
+  'Return journey switched managers');
+ const bookOverflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
+ assert(bookOverflow<=3,'Personal Record Book overflows 390px phone');
+ await page.locator('#manager-destination a[href="./stew/"]').click();
+ await page.waitForURL(url=>url.pathname.endsWith('/managers/stew/'),{timeout:12000});
+ await page.locator('.manager-home-hub').waitFor({state:'visible',timeout:10000});
+ visited.push('managers/stew/ (round-trip return)');
  // 2. Trade Museum deep-link filtering and the full receipt dialog.
  await go('analytics/trade-museum.html?manager=Stew');
  assert.equal(await page.locator('#q').inputValue(),'Stew','Trade Museum did not pre-filter manager');
