@@ -183,3 +183,109 @@ body.premium-franchise .manager-home-trade-research{
 @media(prefers-reduced-motion:reduce){
   body.premium-franchise .manager-home-hub-tile{transition:none}
 }
+
+
+/* Phase 1.3 — franchise hub reading hierarchy.
+   Two primary actions lead the visitor; secondary chapters stay compact.
+   These rules affect layout only, not the tab controller or canonical data. */
+body.premium-franchise .manager-home-hub{
+  border-top:3px solid #dfbd79!important;
+  background:linear-gradient(160deg,#203b4b 0%,#102633 85%)!important;
+  box-shadow:0 9px 26px #0003
+}
+body.premium-franchise .manager-home-hub>h2{
+  font-family:Georgia,'Iowan Old Style',serif!important;
+  font-weight:500!important;
+  letter-spacing:-.045em!important;
+  line-height:1.16!important;
+  text-wrap:balance
+}
+body.premium-franchise .manager-home-hub-note{
+  max-width:52ch;
+  line-height:1.55!important;
+  color:#cbd8df!important
+}
+body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile{
+  position:relative;
+  border-color:#5c7786!important;
+  background:linear-gradient(145deg,#1a3648,#112a38)!important;
+  transition:border-color .15s,background .15s,transform .15s
+}
+body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:is(:first-child,:nth-child(2)){
+  border-top:2px solid #e4c282!important;
+  background:linear-gradient(145deg,#2a4651,#173543)!important
+}
+body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:hover{
+  border-color:#f3d28d!important
+}
+body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:focus-visible{
+  outline:3px solid #ffe4a5!important;
+  outline-offset:3px
+}
+@media(min-width:701px){
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:hover{
+   transform:translateY(-2px)
+ }
+}
+@media(max-width:650px){
+ body.premium-franchise .manager-home-hub{
+   box-sizing:border-box;
+   width:100%!important;
+   max-width:100%!important;
+   min-width:0!important;
+   margin:12px 0 18px!important;
+   padding:17px 14px!important;
+   border-radius:12px!important
+ }
+ body.premium-franchise .manager-home-hub h2{
+   font-size:clamp(25px,7.4vw,31px)!important
+ }
+ body.premium-franchise .manager-home-hub-grid{
+   display:grid;
+   grid-template-columns:repeat(2,minmax(0,1fr));
+   gap:9px!important
+ }
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile{
+   box-sizing:border-box;
+   min-width:0;
+   min-height:80px!important;
+   padding:12px 10px!important;
+   align-items:flex-start!important;
+   gap:9px
+ }
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:is(:first-child,:nth-child(2)){
+   min-height:94px!important
+ }
+ body.premium-franchise .manager-home-hub-copy strong{
+   font-size:13px!important;
+   line-height:1.3!important;
+   overflow-wrap:break-word
+ }
+ body.premium-franchise .manager-home-hub-copy small{
+   font-size:11px!important;
+   line-height:1.45!important;
+   overflow-wrap:break-word
+ }
+ body.premium-franchise .manager-home-hub-icon{
+   font-size:20px;
+   line-height:1.3
+ }
+}
+@media(max-width:365px){
+ body.premium-franchise .manager-home-hub-grid{
+   grid-template-columns:minmax(0,1fr)
+ }
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile{
+   min-height:68px!important;
+   flex-direction:row!important;
+   align-items:center!important
+ }
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:is(:first-child,:nth-child(2)){
+   min-height:74px!important
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile{
+   transition:none!important
+ }
+}
