@@ -1172,17 +1172,17 @@ try{
     const research=await context.newPage();
     try{
      await research.goto(baseUrl,{waitUntil:'networkidle',timeout:30000});
-     const more=research.locator('details.home-explore-more');
-     const core=research.locator('main .section.shell').filter({has:research.getByRole('heading',{name:'Explore the league'})}).locator(':scope > .cards > a.card');
+     const more=research.locator('details.discovery-expander');
+     const core=research.locator('#explore-the-league .discovery-grid a.discovery-card');
      if(await more.count()!==1||await more.evaluate(el=>el.open)||
-        await core.count()!==4)
-      errors.push(width+' homepage research discovery should start with four core destinations');
+        await core.count()!==6)
+      errors.push(width+' homepage research discovery must expose six clear adventure choices');
      await more.locator(':scope > summary').focus();
      await research.keyboard.press('Enter');
      if(!await more.evaluate(el=>el.open)||
-        await more.locator('a.card').count()!==5)
-      errors.push(width+' homepage Explore more did not open with keyboard');
-     const target=more.locator('a.card[href="analytics/historical-spreads.html"]');
+        await more.locator('.discovery-archive a').count()!==5)
+      errors.push(width+' homepage deeper archives did not open with keyboard');
+     const target=more.locator('.discovery-archive a[href="analytics/historical-spreads.html"]');
      if(!await target.isVisible())errors.push(width+' homepage historical spreads not reachable when expanded');
      else{
       await target.click();
