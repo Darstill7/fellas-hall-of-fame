@@ -86,7 +86,7 @@ try{
  // exploration, and lead back to the same personal book rather than Stilly.
  const origin=page.locator('#story-return a[href*="record-books.html"]');
  await origin.waitFor({state:'visible',timeout:10000});
- assert.equal(new URL(origin.first().getAttribute('href'),page.url()).searchParams.get('manager'),'Stew',
+ assert.equal(new URL(await origin.first().getAttribute('href'),page.url()).searchParams.get('manager'),'Stew',
   'Record story top return does not preserve the manager');
  const initialRank=new URL(page.url()).searchParams.get('rank');
  const alternative=page.locator('#ranking-body a[href*="rank="]').filter({hasNotText:'#'+initialRank}).first();
