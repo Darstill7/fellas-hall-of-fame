@@ -51,8 +51,17 @@ export async function mountDraftTradeCareer(host,manager){
   const related=tradeEvents(trade).filter(event=>
    event.complete&&event.managers.includes(manager)&&event.year<=2025).slice(0,3);
   box.replaceChildren(summary);
-  box.append(elt('p','muted career-resume-intro',
-   'Recorded draft picks and trades across available seasons. These counts are evidence, not drafting or trading grades.'));
+  const lead=elt('header','career-transaction-lead');
+  lead.append(elt('span','career-transaction-eyebrow','FRANCHISE TRANSACTION FILE'));
+  lead.append(elt('h3',null,'How this roster was built'));
+  lead.append(elt('p','career-transaction-description',
+   'Follow documented draft selections, trades and keeper history through the available evidence. Pick a research topic to examine individual receipts.'));
+  const scope=elt('p','career-transaction-scope',
+   'RESEARCH COVERAGE · Draft and trade source summary through 2026 Week 8. Completed trade examples below stop at 2025. Observed transactions are not skill grades.');
+  lead.append(scope);
+  box.append(lead);
+  const metricLabel=elt('p','career-transaction-section-label','01 / VERIFIED ACTIVITY');
+  box.append(metricLabel);
   const metrics=elt('div','career-resume-metrics');
   for(const [value,label] of [
    [career.seasons,'Draft seasons · '+career.firstYear+'–'+career.lastYear],
@@ -210,6 +219,12 @@ export async function mountDraftTradeCareer(host,manager){
    item.append(deepLink(trade.year,manager));
    tradeSection.append(item);
   }
+  const tradeNote=elt('p','career-transaction-proof',
+   'These examples are limited to completed, fully represented events in the archived trade model through 2025. They show the assets attributed to this manager, not both sides of every deal, FAAB completeness, or who won.');
+  tradeSection.insertBefore(tradeNote,tradeSection.children[1]||null);
+  const fullTradeArchive=elt('a','career-transaction-full-archive','Explore the complete trade museum →');
+  fullTradeArchive.href=root+'analytics/trade-museum.html';
+  tradeSection.append(fullTradeArchive);
   details.append(tradeSection);
   // One-click topic navigation: open the research disclosure, scroll to the
   // selected subsection, and move keyboard focus to its heading.
@@ -220,7 +235,10 @@ export async function mountDraftTradeCareer(host,manager){
   ];
   const topicNav=elt('nav','career-research-topics');
   topicNav.setAttribute('aria-label','Drafting and trading research topics');
-  topicNav.append(elt('p','career-research-topics-title','Choose what to explore'));
+  topicNav.append(elt('p','career-transaction-section-label','02 / INVESTIGATE THE EVIDENCE'));
+  topicNav.append(elt('p','career-research-topics-title','Choose your research chapter'));
+  topicNav.append(elt('p','career-research-topics-description',
+   'Open one topic at a time. Every figure comes from the named archives, with source limitations shown in context.'));
   const topicGrid=elt('div','career-research-topics-grid');
   const topicHint=elt('p','muted career-research-prompt',
    'Select a topic above to open that research by itself. The full source coverage remains available here.');
