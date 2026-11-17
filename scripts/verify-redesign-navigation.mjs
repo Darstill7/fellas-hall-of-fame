@@ -44,6 +44,17 @@ for(const fragment of [
  "title:'Drafts, Trades & Pickups'"
 ])check(profiles.includes(fragment),'Missing profile navigation feature: '+fragment);
 
+// The topic selector must expose an identifiable, reversible reading chapter.
+const chapterStyle=read('assets/manager-profile-mobile-v3.css');
+for(const fragment of [
+ 'profile-focus-intro','profile-focus-kicker','profile-focus-title',
+ 'profile-focus-summary','← All chapters','returnToFeatureDirectory'
+])check(profiles.includes(fragment),'Missing focused chapter behavior: '+fragment);
+for(const fragment of [
+ 'body.premium-franchise.profile-feature-focused .profile-focus-toolbar',
+ '.profile-focus-intro','.profile-focus-kicker','.profile-focus-summary'
+])check(chapterStyle.includes(fragment),'Missing focused chapter presentation: '+fragment);
+
 // Personal records: per-manager selection and routes back to source profiles.
 for(const fragment of [
  'id="record-book-title"',
