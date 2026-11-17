@@ -1151,21 +1151,21 @@ try{
       errors.push(width+' homepage mobile hero must have one visible Choose your Adventure action');
      if(!await mobileNav.isVisible()||await desktopNav.isVisible())errors.push(width+' homepage mobile navigation visibility wrong');
      await mobileNav.locator(':scope > summary').click();
-     for(const href of ['index.html','managers/','hall/','analytics/record-holders.html','seasons/2026.html'])
+     for(const href of ['index.html','managers/','seasons/','analytics/record-holders.html','analytics/trade-museum.html','analytics/rivalry-war-room.html'])
       if(!await mobileNav.locator('nav.menu-links > a[href="'+href+'"]').isVisible())errors.push(width+' mobile main navigation missing '+href);
      const extra=mobileNav.locator('details.home-mobile-explore');
      if(await extra.count()!==1||await extra.evaluate(el=>el.open))
       errors.push(width+' mobile advanced navigation must start collapsed');
      await extra.locator(':scope > summary').click();
-     for(const href of ['analytics/manager-report-cards.html','analytics/rivalries.html','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
+     for(const href of ['hall/','seasons/2026.html','analytics/sportscenter.html','analytics/manager-report-cards.html','analytics/search.html','analytics/keeper-tracker.html'])
       if(!await extra.locator('a[href="'+href+'"]').isVisible())errors.push(width+' mobile Explore destination missing '+href);
      await mobileNav.locator(':scope > summary').click();
     }else{
-     if(await desktopNav.locator(':scope > a').count()!==5)errors.push(width+' homepage must show five primary destinations plus Explore');
+     if(await desktopNav.locator(':scope > a').count()!==6)errors.push(width+' homepage must show six primary destinations plus More');
      const more=desktopNav.locator('details.home-nav-more');
      if(await more.count()!==1||await more.evaluate(el=>el.open))errors.push(width+' desktop extra navigation should begin collapsed');
      await more.locator(':scope > summary').click();
-     for(const href of ['analytics/manager-report-cards.html','analytics/rivalries.html','analytics/power-ratings.html','analytics/sportscenter.html','seasons/','analytics/search.html'])
+     for(const href of ['hall/','seasons/2026.html','analytics/sportscenter.html','analytics/search.html','analytics/keeper-tracker.html','analytics/manager-report-cards.html'])
       if(!await more.locator('a[href="'+href+'"]').isVisible())errors.push(width+' desktop extra navigation missing '+href);
      await more.locator(':scope > summary').click();
     }
@@ -1208,18 +1208,12 @@ try{
     const visitor=await context.newPage();
     try{
      await visitor.goto(baseUrl,{waitUntil:'networkidle',timeout:30000});
-     if(width===390){
-      const row=visitor.locator('#home-manager-mobile details[data-manager-name^="stilly"]');
-      if(await row.count()!==1)errors.push(width+' first-visit Stilly manager row is missing');
-      else{
-       await row.locator(':scope > summary').click();
-       await row.locator('a.mobile-manager-link').click();
-      }
-     }else{
-      const card=visitor.locator('#home-manager-cards a[href="managers/stilly/"]');
-      if(await card.count()!==1)errors.push(width+' first-visit Stilly manager card is missing');
-      else await card.click();
-     }
+     // The redesigned home offers one direct franchise list on all widths.
+     // Test the visible Stilly link rather than a retired rating-card list.
+     const directManager=visitor.locator('.home-franchise-links a[href="managers/stilly/"]');
+     if(await directManager.count()!==1||!await directManager.isVisible())
+      errors.push(width+' first-visit direct Stilly link missing');
+     else await directManager.click();
      await visitor.waitForURL('**/managers/stilly/',{timeout:10000});
      await visitor.locator('.manager-home-hub').waitFor({state:'visible',timeout:10000});
      if(!(await visitor.locator('main .hero h1').innerText()).includes('Stilly')||
