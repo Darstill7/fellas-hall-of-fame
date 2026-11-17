@@ -14,6 +14,8 @@ jobs:
           node-version: '22'
       - name: Verify core website consumers and manager identity contracts
         run: node scripts/verify-core-consumers.mjs
+      - name: Verify redesigned homepage, manager and record-book paths
+        run: node scripts/verify-redesign-navigation.mjs
       - name: Verify homepage editorial discovery
         run: node scripts/verify-homepage-editorial.mjs
       - name: Verify current and completed-season navigation
