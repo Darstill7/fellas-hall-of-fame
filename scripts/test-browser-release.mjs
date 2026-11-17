@@ -1856,12 +1856,25 @@ try{
       const shortcuts=await stover.locator('.mobile-manager-shortcuts a').evaluateAll(links=>
        links.map(link=>({label:link.textContent.trim(),href:link.getAttribute('href')})));
       const expectedShortcuts=[
-       {label:'Career',href:'managers/stover/#overview'},
-       {label:'Each Year',href:'managers/stover/#seasons'},
-       {label:'Rivalries',href:'managers/stover/#rivalries'}
+       {label:'Career',href:'managers/stover/#franchise-story'},
+       {label:'Each Year',href:'managers/stover/#season-history'},
+       {label:'Rivalries',href:'managers/stover/#head-to-head'}
       ];
       if(JSON.stringify(shortcuts)!==JSON.stringify(expectedShortcuts))
        errors.push(width+' homepage manager shortcuts missing or misrouted');
+      else{
+       // Verify each destination is a real manager chapter, not merely a
+       // correct-looking URL. These are anchored sections, not obsolete tabs.
+       const targetPage=await context.newPage();
+       try{
+        const response=await targetPage.goto(baseUrl+'managers/stover/',{waitUntil:'domcontentloaded',timeout:15000});
+        if(!response?.ok())errors.push(width+' homepage shortcut destination returned HTTP '+response?.status());
+        const ids=['franchise-story','season-history','head-to-head'];
+        const found=await targetPage.evaluate(ids=>ids.map(id=>!!document.getElementById(id)),ids);
+        if(found.some(value=>!value))
+         errors.push(width+' homepage manager shortcuts target missing profile chapters');
+       }finally{await targetPage.close()}
+      }
       if(await page.locator('#home-manager-mobile .mobile-manager-shortcuts').count()!==10)
        errors.push(width+' homepage shortcuts should cover ten managers');
       await search.fill('not-a-manager');
