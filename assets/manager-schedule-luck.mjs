@@ -1,7 +1,7 @@
 // Schedule Luck: regular-season opponent-draw differential, completed seasons only.
 // Source: Hall of Fortune registry, itself derived from fully paired all-play weeks.
-export async function mountManagerScheduleLuck(profileName,hero){
- if(!hero||!profileName||hero.querySelector('[data-schedule-luck]'))return;
+export async function mountManagerScheduleLuck(profileName,hero,mountTarget=null){
+ if(!hero||!profileName||(mountTarget||hero).querySelector('[data-schedule-luck]'))return;
  const name=profileName==='Tom'?'Thommy':profileName;
  try{
   const response=await fetch('../../data/hall_of_fortune_2016_2026w9_v1.json',{cache:'no-store'});
@@ -55,7 +55,8 @@ export async function mountManagerScheduleLuck(profileName,hero){
    block.insertBefore(holder,link);
   }
   const snapshot=hero.querySelector('[data-profile-career-snapshot]');
-  (snapshot||hero.querySelector(':scope > .lead')||hero.querySelector('h1'))?.after(block);
+  if(mountTarget)mountTarget.append(block);
+  else (snapshot||hero.querySelector(':scope > .lead')||hero.querySelector('h1'))?.after(block);
  }catch(error){
   // Do not show an invented default score when the registry is unavailable.
   console.warn('Schedule Luck temporarily unavailable',error);

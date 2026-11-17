@@ -1,0 +1,785 @@
+/* The Fellas — Manager Profile 3.0, mobile-first first-screen system.
+   Retains the canonical stats and deeper archive; makes 2026 and identity primary. */
+:root{--mp3-ink:#f6ede0;--mp3-muted:#c5d0d7;--mp3-gold:#ebce91;--mp3-bg:#122732;--mp3-line:#536979}
+body.premium-franchise main#main-content{width:min(100%,1160px);min-width:0}
+body.premium-franchise main>.hero{padding:19px 17px 17px!important;margin:7px 0 9px!important;border-radius:12px!important}
+body.premium-franchise main>.hero h1{font-size:clamp(44px,11vw,72px)!important;margin:7px 0 9px;line-height:1.04!important}
+body.premium-franchise main>.hero>.lead{font-size:14px!important;line-height:1.5!important;margin:9px 0 11px!important}
+body.premium-franchise .profile-career-snapshot{margin:12px 0 10px!important}
+body.premium-franchise .profile-career-snapshot .profile-snapshot-heading{font-size:10px}
+body.premium-franchise .profile-career-highlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px!important}
+body.premium-franchise .profile-career-highlight{min-width:0;padding:12px!important;border:1px solid var(--mp3-line)!important;border-radius:9px!important;background:#19313f!important}
+body.premium-franchise .profile-career-highlight strong{display:block;font-size:clamp(22px,6vw,34px);line-height:1.2;font-variant-numeric:tabular-nums}
+body.premium-franchise .profile-career-highlight-label{display:block;font-size:10px;line-height:1.35}
+body.premium-franchise .profile-honors-line{margin:10px 0 4px!important;font-size:12px!important}
+body.premium-franchise main>.hero .buttons{display:flex;flex-wrap:wrap;gap:8px}
+body.premium-franchise main>.hero .buttons .btn{min-height:44px;padding:10px 14px;font-size:12px}
+body.premium-franchise .hof-manager-switcher{margin:6px 0 13px!important}
+body.premium-franchise .profile-season-pulse{box-sizing:border-box;padding:19px 16px;margin:10px 0 15px;background:linear-gradient(150deg,#193748,#122834);border:1px solid #7a795e;border-top:3px solid #e7c88a;border-radius:11px;scroll-margin-top:70px}
+.profile-season-pulse-head{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.profile-season-pulse-head h2{font:400 clamp(25px,5vw,34px)/1.15 Georgia,serif;margin:5px 0 0;letter-spacing:-.045em}
+.profile-pulse-eyebrow{font-size:10px;letter-spacing:.13em;font-weight:900;color:#ebce91}
+.profile-season-pulse-head a{font-size:11px;font-weight:850;color:#f1d392;min-height:44px;display:inline-flex;align-items:center;text-decoration:none}
+.profile-season-pulse-status{font-size:12px;font-weight:750;color:#d2dce1;margin:11px 0}
+.profile-season-pulse-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.profile-season-pulse-stats[hidden]{display:none}
+.profile-season-pulse-stat{min-width:0;display:flex;flex-direction:column;gap:5px;border:1px solid #547082;border-radius:9px;background:#132936;padding:13px 10px}
+.profile-season-pulse-stat strong{font-size:clamp(17px,4.8vw,25px);font-weight:900;line-height:1.15;font-variant-numeric:tabular-nums;letter-spacing:-.04em;overflow-wrap:anywhere}
+.profile-season-pulse-stat span{font-size:10px;color:var(--mp3-muted);line-height:1.35}
+.profile-season-pulse-footnote{font-size:10px;line-height:1.55;color:#aebfc9;margin:11px 0 0}
+body.premium-franchise .hof-career-exhibit{margin:12px 0 16px!important;border-top-width:1px;padding:18px 17px!important;border-radius:11px!important}
+body.premium-franchise .hof-career-exhibit h2{font-size:clamp(25px,5vw,32px)!important;margin:7px 0}
+body.premium-franchise .hof-career-intro{font-size:15px!important;line-height:1.6!important}
+body.premium-franchise .hof-career-source-note{font-size:11px!important}
+body.premium-franchise .manager-home-hub{border-radius:11px!important;margin:10px 0 16px!important;padding:16px!important}
+body.premium-franchise .manager-home-hub h2{font-size:clamp(25px,5vw,32px)!important}
+body.premium-franchise .manager-home-hub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+body.premium-franchise .manager-home-hub-tile{border-radius:10px!important;min-height:88px;align-items:flex-start}
+body.premium-franchise .manager-home-hub-copy strong{font-size:13px}
+body.premium-franchise .manager-home-hub-copy small{font-size:11px}
+.profile-advanced-analytics{margin:18px 0 8px;background:#102432;border:1px solid #506778;border-radius:11px;scroll-margin-top:88px}
+.profile-advanced-analytics>summary{cursor:pointer;list-style:none;min-height:53px;display:flex;align-items:center;padding:14px 17px;font-size:13px;font-weight:850;color:var(--mp3-gold)}
+.profile-advanced-analytics>summary::-webkit-details-marker{display:none}
+.profile-advanced-analytics[open]>summary{border-bottom:1px solid #506778}
+.profile-advanced-analytics-content{padding:12px}
+.profile-advanced-analytics-content .profile-schedule-luck,.profile-advanced-analytics-content .fellas-luck-performance{margin:8px 0 14px!important}
+.profile-season-pulse :is(a,button):focus-visible,.profile-advanced-analytics>summary:focus-visible{outline:3px solid #f3d694;outline-offset:3px}
+@media(min-width:700px){
+body.premium-franchise main>.hero{padding:30px 35px!important}
+body.premium-franchise main>.hero h1{font-size:clamp(58px,6.6vw,86px)!important}
+body.premium-franchise .profile-season-pulse{padding:23px 27px}
+body.premium-franchise .profile-season-pulse-stats{max-width:730px}
+body.premium-franchise .profile-season-pulse-stat{padding:17px 20px}
+body.premium-franchise .manager-home-hub-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:385px){.profile-season-pulse-stat{padding:11px 7px}.profile-season-pulse-stat strong{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.profile-season-pulse,.profile-advanced-analytics{scroll-behavior:auto}}
+
+/* Phase 1.2 — manager scoreboard hierarchy, phone-first.
+   Record gets the headline row; PF/PA remain independently readable.
+   No source values or season-completion rules are changed. */
+@media(max-width:650px){
+ body.premium-franchise .profile-season-pulse-stats{
+   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px
+ }
+ body.premium-franchise .profile-season-pulse-stats[hidden]{display:none}
+ body.premium-franchise .profile-season-pulse-stat:first-child{
+   grid-column:1/-1;padding:14px 15px;background:#1d3b4b;
+   border-color:#c2a66b
+ }
+ body.premium-franchise .profile-season-pulse-stat:first-child strong{
+   font-size:clamp(27px,8vw,37px);letter-spacing:-.045em
+ }
+ body.premium-franchise .profile-season-pulse-stat:first-child span{font-size:12px}
+ body.premium-franchise .profile-season-pulse-stat:not(:first-child){
+   padding:12px 11px;gap:6px
+ }
+ body.premium-franchise .profile-season-pulse-stat:not(:first-child) strong{
+   font-size:clamp(18px,5.5vw,24px);overflow-wrap:normal
+ }
+ body.premium-franchise .profile-season-pulse-stat:not(:first-child) span{
+   font-size:11px
+ }
+ body.premium-franchise .profile-season-pulse-head{align-items:flex-start}
+ body.premium-franchise .profile-season-pulse-head a{
+   flex-shrink:0;text-align:right;max-width:110px;line-height:1.3
+ }
+ body.premium-franchise .profile-advanced-analytics>summary{
+   min-height:52px;line-height:1.45
+ }
+ body.premium-franchise .profile-advanced-analytics-content{padding:10px}
+}
+@media(max-width:360px){
+ body.premium-franchise .profile-season-pulse-stats{
+   grid-template-columns:minmax(0,1fr)
+ }
+ body.premium-franchise .profile-season-pulse-stat:first-child{
+   grid-column:1
+ }
+}
+
+/* Phase 1.3 — franchise guide as an editorial entry point.
+   The first two journeys are primary, the remaining four are supporting
+   chapters. This is presentation-only: every destination remains intact. */
+body.premium-franchise .manager-home-hub{
+  position:relative;isolation:isolate;
+  background:linear-gradient(160deg,#193a4b 0%,#102834 48%,#0c202b 100%)!important;
+  border:1px solid #647483!important;
+  border-top:3px solid #e2bd77!important;
+  box-shadow:0 13px 28px #0003;
+}
+body.premium-franchise .manager-home-kicker{
+  margin:0 0 8px!important;color:#f0d29a;
+  font-size:10px!important;font-weight:900;
+  letter-spacing:.145em;line-height:1.4;
+}
+body.premium-franchise .manager-home-hub>h2{
+  margin:0 0 7px!important;letter-spacing:-.04em!important;
+  line-height:1.14!important;text-wrap:balance;
+}
+body.premium-franchise .manager-home-hub-note{
+  max-width:48ch;margin:0 0 18px!important;
+  font-size:13px!important;line-height:1.6!important;
+}
+body.premium-franchise .manager-home-hub-grid{gap:9px}
+body.premium-franchise .manager-home-hub-tile{
+  position:relative;overflow:hidden;
+  background:#102b3a!important;border:1px solid #526e7c!important;
+  transition:background .16s ease,border-color .16s ease,transform .16s ease;
+}
+body.premium-franchise .manager-home-hub-tile:hover{
+  background:#1f4557!important;border-color:#e9c787!important;
+}
+body.premium-franchise .manager-home-hub-tile:focus-visible{
+  outline:3px solid #ffe2a1!important;outline-offset:3px;
+}
+body.premium-franchise .manager-home-hub-tile:nth-child(-n+2){
+  background:linear-gradient(120deg,#284c5d,#163442)!important;
+  border-color:#9c8b67!important;
+}
+body.premium-franchise .manager-home-hub-tile:nth-child(-n+2) .manager-home-hub-copy strong{
+  font-size:clamp(16px,2vw,20px)!important;
+}
+body.premium-franchise .manager-home-hub-copy small{
+  color:#c5d5dd!important;line-height:1.45!important;
+}
+body.premium-franchise .manager-home-trade-research{
+  padding-top:11px;border-top:1px solid #405b69;
+}
+@media(min-width:700px){
+  body.premium-franchise .manager-home-hub{padding:24px 27px!important}
+  body.premium-franchise .manager-home-hub-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))
+  }
+  body.premium-franchise .manager-home-hub-tile{
+    min-height:96px;align-items:center;padding:16px!important
+  }
+}
+@media(max-width:699px){
+  body.premium-franchise .manager-home-hub-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;
+  }
+  body.premium-franchise .manager-home-hub-tile:nth-child(-n+2){
+    grid-column:1/-1;min-height:76px!important;
+    flex-direction:row;align-items:center;padding:14px 16px!important;
+  }
+  body.premium-franchise .manager-home-hub-tile:nth-child(n+3){
+    min-height:88px!important;padding:12px!important;
+  }
+  body.premium-franchise .manager-home-hub-tile:nth-child(n+3) .manager-home-hub-copy strong{
+    font-size:13px!important;line-height:1.35!important;
+  }
+  body.premium-franchise .manager-home-hub-icon{font-size:21px!important}
+  body.premium-franchise .manager-home-hub-copy small{font-size:11px!important}
+}
+@media(max-width:355px){
+  body.premium-franchise .manager-home-hub-tile:nth-child(n+3){
+    flex-direction:column;align-items:flex-start;gap:7px;
+  }
+  body.premium-franchise .manager-home-hub-tile:nth-child(-n+2){
+    padding:12px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  body.premium-franchise .manager-home-hub-tile{transition:none}
+}
+
+
+/* Phase 1.3 — franchise hub reading hierarchy.
+   Two primary actions lead the visitor; secondary chapters stay compact.
+   These rules affect layout only, not the tab controller or canonical data. */
+body.premium-franchise .manager-home-hub{
+  border-top:3px solid #dfbd79!important;
+  background:linear-gradient(160deg,#203b4b 0%,#102633 85%)!important;
+  box-shadow:0 9px 26px #0003
+}
+body.premium-franchise .manager-home-hub>h2{
+  font-family:Georgia,'Iowan Old Style',serif!important;
+  font-weight:500!important;
+  letter-spacing:-.045em!important;
+  line-height:1.16!important;
+  text-wrap:balance
+}
+body.premium-franchise .manager-home-hub-note{
+  max-width:52ch;
+  line-height:1.55!important;
+  color:#cbd8df!important
+}
+body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile{
+  position:relative;
+  border-color:#5c7786!important;
+  background:linear-gradient(145deg,#1a3648,#112a38)!important;
+  transition:border-color .15s,background .15s,transform .15s
+}
+body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:is(:first-child,:nth-child(2)){
+  border-top:2px solid #e4c282!important;
+  background:linear-gradient(145deg,#2a4651,#173543)!important
+}
+body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:hover{
+  border-color:#f3d28d!important
+}
+body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:focus-visible{
+  outline:3px solid #ffe4a5!important;
+  outline-offset:3px
+}
+@media(min-width:701px){
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:hover{
+   transform:translateY(-2px)
+ }
+}
+@media(max-width:650px){
+ body.premium-franchise .manager-home-hub{
+   box-sizing:border-box;
+   width:100%!important;
+   max-width:100%!important;
+   min-width:0!important;
+   margin:12px 0 18px!important;
+   padding:17px 14px!important;
+   border-radius:12px!important
+ }
+ body.premium-franchise .manager-home-hub h2{
+   font-size:clamp(25px,7.4vw,31px)!important
+ }
+ body.premium-franchise .manager-home-hub-grid{
+   display:grid;
+   grid-template-columns:repeat(2,minmax(0,1fr));
+   gap:9px!important
+ }
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile{
+   box-sizing:border-box;
+   min-width:0;
+   min-height:80px!important;
+   padding:12px 10px!important;
+   align-items:flex-start!important;
+   gap:9px
+ }
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:is(:first-child,:nth-child(2)){
+   min-height:94px!important
+ }
+ body.premium-franchise .manager-home-hub-copy strong{
+   font-size:13px!important;
+   line-height:1.3!important;
+   overflow-wrap:break-word
+ }
+ body.premium-franchise .manager-home-hub-copy small{
+   font-size:11px!important;
+   line-height:1.45!important;
+   overflow-wrap:break-word
+ }
+ body.premium-franchise .manager-home-hub-icon{
+   font-size:20px;
+   line-height:1.3
+ }
+}
+@media(max-width:365px){
+ body.premium-franchise .manager-home-hub-grid{
+   grid-template-columns:minmax(0,1fr)
+ }
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile{
+   min-height:68px!important;
+   flex-direction:row!important;
+   align-items:center!important
+ }
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:is(:first-child,:nth-child(2)){
+   min-height:74px!important
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile{
+   transition:none!important
+ }
+}
+
+
+/* Phase 1.4 — a readable three-chapter mobile profile.
+   The live scoreboard, long-form story and archive choices should each
+   look and behave like a different kind of content. */
+body.premium-franchise .profile-season-pulse,
+body.premium-franchise .hof-career-exhibit,
+body.premium-franchise .manager-home-hub{
+  min-width:0;
+  scroll-margin-top:88px;
+}
+body.premium-franchise .profile-season-pulse{
+  border-top:4px solid #8bb9c9!important;
+  background:linear-gradient(155deg,#1b3b4b,#102632)!important;
+  box-shadow:0 8px 22px #0002;
+}
+body.premium-franchise .profile-pulse-eyebrow,
+body.premium-franchise .hof-career-kicker,
+body.premium-franchise .manager-home-chapter-label{
+  display:block;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.13em;
+  line-height:1.4;
+  text-transform:uppercase;
+}
+body.premium-franchise .profile-pulse-eyebrow{color:#b4dfec}
+body.premium-franchise .hof-career-exhibit{
+  border:1px solid #6c6251!important;
+  border-top:4px solid #e2c080!important;
+  background:linear-gradient(145deg,#29343b,#142733 75%)!important;
+  box-shadow:0 9px 25px #0003
+}
+body.premium-franchise .hof-career-exhibit .hof-career-kicker{color:#f4d79a}
+body.premium-franchise .hof-career-exhibit h2{
+  font-family:Georgia,'Iowan Old Style',serif!important;
+  font-weight:500!important;
+  line-height:1.17!important;
+  letter-spacing:-.04em!important;
+  text-wrap:balance;
+}
+body.premium-franchise .hof-career-intro{
+  max-width:62ch;
+  line-height:1.68!important;
+  color:#ebedf0!important;
+}
+body.premium-franchise .hof-career-source-note{
+  padding-top:12px;
+  border-top:1px solid #5a5e60;
+}
+body.premium-franchise .manager-home-chapter-label{
+  margin:0 0 8px;
+  color:#ead099
+}
+body.premium-franchise .manager-home-hub{
+  border-top:4px solid #d5b476!important;
+  background:linear-gradient(160deg,#1c3543,#0e2330 82%)!important;
+}
+body.premium-franchise .manager-home-hub .manager-home-hub-note{
+  margin:6px 0 18px!important;
+  max-width:58ch;
+  font-size:13px!important;
+  line-height:1.6!important;
+}
+@media(max-width:650px){
+ body.premium-franchise .profile-season-pulse,
+ body.premium-franchise .hof-career-exhibit,
+ body.premium-franchise .manager-home-hub{
+   box-sizing:border-box;
+   width:100%!important;
+   max-width:100%!important;
+   margin-block:12px 18px!important;
+   padding:19px 16px!important;
+   border-radius:13px!important;
+ }
+ body.premium-franchise .profile-season-pulse-head h2,
+ body.premium-franchise .hof-career-exhibit h2,
+ body.premium-franchise .manager-home-hub h2{
+   font-size:clamp(25px,7vw,31px)!important;
+   line-height:1.17!important;
+ }
+ body.premium-franchise .hof-career-intro{
+   font-size:15px!important;
+   line-height:1.7!important;
+   margin-bottom:16px!important;
+ }
+ body.premium-franchise .hof-career-read{
+   width:100%;
+   justify-content:space-between;
+   min-height:48px;
+   text-align:left
+ }
+ body.premium-franchise .profile-season-pulse-status{
+   margin:12px 0!important;
+   line-height:1.5!important
+ }
+ body.premium-franchise .profile-season-pulse-footnote{
+   margin-top:12px!important;
+   padding-top:10px;
+   border-top:1px solid #4e6877;
+   line-height:1.55!important
+ }
+ body.premium-franchise .manager-home-hub-grid{
+   gap:10px!important
+ }
+}
+
+
+/* Phase 1.5 — focused archival chapter masthead.
+   A selected subject looks like a distinct article, not a hidden panel.
+   The original source sections and navigation mechanics remain unchanged. */
+body.premium-franchise.profile-feature-focused .profile-focus-toolbar{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:14px;
+  margin:13px 0 18px!important;
+  padding:20px 21px!important;
+  border:1px solid #658092!important;
+  border-top:4px solid #dfbf83!important;
+  border-radius:13px!important;
+  background:linear-gradient(135deg,#203e50,#102632)!important;
+  box-shadow:0 9px 25px #0003
+}
+body.premium-franchise .profile-focus-intro{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:5px
+}
+body.premium-franchise .profile-focus-kicker{
+  color:#eacc91;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.11em;
+  line-height:1.4
+}
+body.premium-franchise .profile-focus-title{
+  display:block;
+  width:100%;
+  margin:0;
+  font-family:Georgia,'Iowan Old Style',serif;
+  font-size:clamp(23px,3vw,32px)!important;
+  font-weight:500;
+  line-height:1.2;
+  letter-spacing:-.035em;
+  color:#fff4e2;
+  overflow-wrap:break-word
+}
+body.premium-franchise .profile-focus-summary{
+  max-width:58ch;
+  margin:0;
+  font-size:13px;
+  line-height:1.55;
+  color:#cbdce6
+}
+body.premium-franchise .profile-focus-toolbar button{
+  align-self:center;
+  min-height:48px!important;
+  padding:12px 16px!important;
+  flex:none;
+  white-space:normal;
+  text-align:center;
+  border:1px solid #e2c17f!important;
+  border-radius:9px!important;
+  font-size:13px!important
+}
+body.premium-franchise .profile-focus-toolbar button:focus-visible{
+  outline:3px solid #fff2ca;
+  outline-offset:3px
+}
+@media(max-width:650px){
+ body.premium-franchise.profile-feature-focused .profile-focus-toolbar{
+   grid-template-columns:minmax(0,1fr)!important;
+   margin:10px 0 16px!important;
+   padding:17px 15px!important;
+   gap:14px!important
+ }
+ body.premium-franchise .profile-focus-title{
+   font-size:clamp(24px,7vw,30px)!important
+ }
+ body.premium-franchise .profile-focus-toolbar button{
+   width:100%;
+   justify-content:center;
+   align-self:stretch;
+   min-height:48px!important
+ }
+ body.premium-franchise.profile-feature-focused main>.section.profile-selected-section,
+ body.premium-franchise.profile-feature-focused .profile-research-shelf-body{
+   min-width:0;
+   overflow-wrap:break-word
+ }
+}
+
+
+/* Phase 1.8 — source-qualified transaction file, phone-first. */
+body.premium-franchise .career-transaction-lead{
+  margin:14px 15px 20px;padding:20px 18px;
+  background:linear-gradient(140deg,#263d49,#122a38);
+  border:1px solid #718395;border-top:4px solid #d8b778;
+  border-radius:12px
+}
+body.premium-franchise .career-transaction-eyebrow,
+body.premium-franchise .career-transaction-section-label{
+  display:block;color:#e8cb91;font-size:10px;font-weight:900;
+  letter-spacing:.12em;line-height:1.5
+}
+body.premium-franchise .career-transaction-lead h3{
+  margin:8px 0 10px;font:500 clamp(25px,3.8vw,34px)/1.15 Georgia,serif;
+  letter-spacing:-.04em;color:#fff5df;text-wrap:balance
+}
+body.premium-franchise .career-transaction-description{
+  max-width:62ch;margin:0 0 14px;font-size:14px;
+  line-height:1.65;color:#e1e9ed
+}
+body.premium-franchise .career-transaction-scope{
+  margin:0;padding-top:12px;border-top:1px solid #61747e;
+  font-size:11px;line-height:1.55;font-weight:650;color:#cdd8dd
+}
+body.premium-franchise .career-transaction-section-label{
+  margin:20px 16px 11px
+}
+body.premium-franchise .career-resume-metrics{
+  gap:10px
+}
+body.premium-franchise .career-resume-metric{
+  border:1px solid #6c8291;
+  border-top:2px solid #bdad86;
+  border-radius:10px;background:#193748
+}
+body.premium-franchise .career-research-topics{
+  margin:16px 15px;padding:17px;
+  border:1px solid #617e8c;border-radius:12px;
+  background:#162f3f
+}
+body.premium-franchise .career-research-topics .career-transaction-section-label{
+  margin:0 0 8px
+}
+body.premium-franchise .career-research-topics-title{
+  margin:0 0 6px;font:500 clamp(22px,3vw,28px)/1.2 Georgia,serif;color:#fff5df
+}
+body.premium-franchise .career-research-topics-description{
+  margin:0 0 15px;max-width:60ch;font-size:13px;line-height:1.55;color:#c6d7df
+}
+body.premium-franchise .career-research-topics-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px
+}
+body.premium-franchise .career-research-topic-button{
+  min-height:52px;padding:10px 12px;border:1px solid #708b9b;
+  border-radius:9px;background:#1b3b4e;color:#f8f1e5;
+  font-size:13px;font-weight:850;line-height:1.4;text-align:left;
+  cursor:pointer
+}
+body.premium-franchise .career-research-topic-button:hover,
+body.premium-franchise .career-research-topic-button[aria-expanded="true"]{
+  background:#2b5060;border-color:#efd095;color:#fff
+}
+body.premium-franchise .career-research-topic-button:focus-visible,
+body.premium-franchise .career-transaction-full-archive:focus-visible{
+  outline:3px solid #ffe3a5;outline-offset:3px
+}
+body.premium-franchise .career-resume-trade{
+  border-left:3px solid #d0b37d;
+  padding:15px;margin:12px 0;background:#1b3a4a;
+  border-radius:10px
+}
+body.premium-franchise .career-resume-trade strong{
+  display:block;color:#f5d598;font-size:13px;line-height:1.5
+}
+body.premium-franchise .career-resume-trade p{
+  font-size:13px;line-height:1.6;color:#dce7eb
+}
+body.premium-franchise .career-transaction-proof{
+  margin:8px 0 15px;font-size:12px;line-height:1.6;color:#c6d5dc
+}
+body.premium-franchise .career-transaction-full-archive{
+  display:inline-flex;align-items:center;min-height:48px;
+  margin:12px 0 6px;padding:11px 14px;border:1px solid #d6bb83;
+  border-radius:9px;color:#f5d89e;text-decoration:none;
+  background:#213d4d;font-size:13px;font-weight:850
+}
+body.premium-franchise .career-transaction-full-archive:hover{
+  background:#315466
+}
+@media(max-width:650px){
+ body.premium-franchise .career-transaction-lead{margin:12px 10px 16px;padding:17px 15px}
+ body.premium-franchise .career-transaction-description{font-size:14px}
+ body.premium-franchise .career-transaction-section-label{margin:16px 12px 10px}
+ body.premium-franchise .career-research-topics{margin:13px 10px;padding:14px}
+ body.premium-franchise .career-research-topics-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ body.premium-franchise .career-research-topic-button{min-height:52px}
+ body.premium-franchise .career-resume-trade{padding:13px}
+ body.premium-franchise .career-transaction-full-archive{width:100%;justify-content:center}
+}
+@media(max-width:355px){
+ body.premium-franchise .career-research-topics-grid{grid-template-columns:1fr}
+}
+
+
+/* Phase 1.9 — shared research-chapter design language.
+   Use one rhythm for seasons, matchups, transactions and owned-record previews.
+   All statistics and existing module interactions remain source-controlled. */
+body.premium-franchise{
+ --fellas-research-paper:#f8f1e5;
+ --fellas-research-gold:#e7ca91;
+ --fellas-research-rule:#5b7585;
+ --fellas-research-ink:#cddbe3;
+}
+body.premium-franchise :is(
+ #season-history .season-history-guide,
+ #head-to-head [data-h2h-explorer] > .muted,
+ .career-transaction-scope,
+ .career-resume-caveat,
+ [data-expanded-records-profile] .records-lab-intro
+){
+ color:var(--fellas-research-ink)!important;
+ font-size:12px!important;
+ line-height:1.65!important;
+ max-width:70ch;
+}
+body.premium-franchise :is(
+ #season-history .stats,
+ #head-to-head [data-summary] .stats,
+ .career-resume-metrics,
+ [data-expanded-records-profile] .records-lab-grid
+){
+ gap:10px!important;
+ min-width:0;
+}
+body.premium-franchise :is(
+ #season-history .stats .stat,
+ #head-to-head [data-summary] .stats .stat
+){
+ min-width:0;
+ border:1px solid var(--fellas-research-rule)!important;
+ border-radius:10px!important;
+ background:#173443!important;
+ padding:13px!important;
+}
+body.premium-franchise :is(
+ #season-history .stats .stat strong,
+ #head-to-head [data-summary] .stats .stat strong
+){
+ display:block;
+ font-variant-numeric:tabular-nums;
+ color:var(--fellas-research-paper);
+ font-size:clamp(19px,3vw,27px);
+ line-height:1.2;
+ overflow-wrap:anywhere;
+}
+body.premium-franchise :is(
+ #season-history .stats .stat small,
+ #head-to-head [data-summary] .stats .stat small
+){
+ display:block;
+ color:var(--fellas-research-ink);
+ font-size:11px;
+ line-height:1.45;
+}
+body.premium-franchise :is(
+ #season-history .season-entry,
+ #head-to-head .h2h-spotlight-card,
+ .career-resume-trade
+){
+ box-shadow:0 4px 14px #0002;
+}
+body.premium-franchise :is(
+ #season-history .season-entry summary,
+ #head-to-head .h2h-spotlight-card,
+ .career-research-topic-button,
+ .career-resume-receipts > summary
+){
+ -webkit-tap-highlight-color:transparent;
+}
+body.premium-franchise :is(
+ #season-history .season-entry summary,
+ .career-resume-receipts > summary
+):focus-visible{
+ outline:3px solid #f5d594;
+ outline-offset:-3px;
+}
+body.premium-franchise :is(
+ #season-history .season-entry-detail,
+ .career-resume-section,
+ .profile-season-evidence-row,
+ #head-to-head .h2h-spotlight
+){
+ overflow-wrap:break-word;
+}
+body.premium-franchise .profile-focus-toolbar + :is(
+ .profile-selected-section,
+ .profile-selected-madden,
+ .profile-research-shelf
+){
+ scroll-margin-top:100px;
+}
+@media(max-width:650px){
+ body.premium-franchise :is(
+  #season-history .stats,
+  #head-to-head [data-summary] .stats
+ ){
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:9px!important;
+ }
+ body.premium-franchise :is(
+  #season-history .stats .stat:first-child,
+  #head-to-head [data-summary] .stats .stat:first-child
+ ){
+  grid-column:1/-1;
+  border-top:2px solid var(--fellas-research-gold)!important;
+ }
+ body.premium-franchise :is(
+  #season-history .stats .stat strong,
+  #head-to-head [data-summary] .stats .stat strong
+ ){
+  font-size:clamp(21px,6vw,28px);
+ }
+ body.premium-franchise .profile-focus-toolbar + :is(
+  .profile-selected-section,
+  .profile-selected-madden,
+  .profile-research-shelf
+ ){
+  margin-top:12px;
+ }
+}
+@media(max-width:350px){
+ body.premium-franchise :is(
+  #season-history .stats,
+  #head-to-head [data-summary] .stats
+ ){
+  grid-template-columns:minmax(0,1fr)!important;
+ }
+ body.premium-franchise :is(
+  #season-history .stats .stat:first-child,
+  #head-to-head [data-summary] .stats .stat:first-child
+ ){grid-column:1}
+}
+
+
+/* A consistent exit from focused research: return to chapters or open records. */
+body.premium-franchise .profile-focus-actions{
+ display:flex;
+ flex-direction:column;
+ gap:9px;
+ min-width:155px;
+}
+body.premium-franchise .profile-focus-actions button{
+ width:100%;
+}
+body.premium-franchise .profile-focus-records-link{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ min-height:48px;
+ padding:10px 13px;
+ color:#f4d596;
+ border:1px solid #758fa0;
+ background:#173647;
+ border-radius:9px;
+ text-decoration:none;
+ text-align:center;
+ font-size:12px;
+ font-weight:850;
+ line-height:1.4;
+}
+body.premium-franchise .profile-focus-records-link:hover{
+ border-color:#f2d390;
+ background:#2a4b5d;
+}
+body.premium-franchise .profile-focus-records-link:focus-visible{
+ outline:3px solid #ffe2a5;
+ outline-offset:3px;
+}
+@media(max-width:650px){
+ body.premium-franchise .profile-focus-actions{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  min-width:0;
+ }
+ body.premium-franchise .profile-focus-actions > *{
+  min-width:0;
+  width:100%;
+  min-height:48px!important;
+  box-sizing:border-box;
+ }
+}
+@media(max-width:350px){
+ body.premium-franchise .profile-focus-actions{
+  grid-template-columns:minmax(0,1fr);
+ }
+}

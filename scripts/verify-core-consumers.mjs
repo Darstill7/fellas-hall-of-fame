@@ -98,7 +98,7 @@ for(const [slug,id] of Object.entries(managers)){
  assert(typeof biography==='string'&&biography.length>=650,
   'Missing substantial manager biography: '+slug);
  assert(!/AI-Written Biography/.test(html),'Generic AI biography title in profile: '+slug);
- const hero=html.match(/<section class="hero">([\s\S]*?)<\/section>/)?.[1];
+ const hero=html.match(/<section class="hero"(?:\s+[^>]*)?>([\s\S]*?)<\/section>/)?.[1];
  assert(hero,'Manager hero missing: '+slug);
  assert(hero.includes('<h1>'+id+'</h1>'),'Public manager display name must match canonical nickname, including Thommy: '+slug);
  const heroButtons=hero.match(/<div class="buttons">([\s\S]*?)<\/div>/)?.[1]||'';
@@ -119,8 +119,10 @@ for(const [slug,id] of Object.entries(managers)){
   'Intro should be a readable summary, not a duplicated full biography: '+slug);
  assert(!/archived regular-season record is|over \d+ games/.test(story),
   'Profile intro contains hard-coded, potentially stale career stats: '+slug);
- assert(html.includes('class="profile-chapters wrap"'),
-  'All ten managers must share an accessible static chapter navigator: '+slug);
+ assert(html.includes('class="profile-chapters" aria-label=')&&
+  html.includes('href="#franchise-story"')&&html.includes('href="#season-history"')&&
+  html.includes('href="#head-to-head"')&&html.includes('record-books.html?manager='),
+  'Each manager must retain a keyboard-accessible career, seasons, rivals and personal-records chapter navigator: '+slug);
  const franchiseOverview=html.match(/<section class="section" id="franchise-story">([\s\S]*?)<\/section>/)?.[1]||'';
  assert(franchiseOverview.includes('<p class="lead">')&&
   !/data-canonical-manager-(?:record|games)|class="story-facts"|class="story-detail"/.test(franchiseOverview),
@@ -271,7 +273,7 @@ const warRoom=read('analytics/rivalry-war-room.html');
 assert(recordsPage.includes("fetch('../data/career_core_generated.json')"),'Primary career board must use generated records');
 assert(recordsPage.includes("fetch('../data/unified_record_book_2016_2026.json')"),'Records board weekly extremes must use canonical ledger');
 assert(!recordsPage.includes("fetch('../data/season_weekly_matchups_2016_2026_v1.json')"),'Records board still fetches duplicated weekly archive');
-assert(warRoom.includes("fetch('../data/unified_record_book_2016_2026.json')"),'Rivalry war room must use canonical game ledger');
+assert(/fetch\(['"]\.\.\/data\/unified_record_book_2016_2026\.json['"](?:\s*,|\s*\))/.test(warRoom),'Rivalry war room must use canonical game ledger (optional fetch cache settings allowed)');
 assert(!warRoom.includes("fetch('../data/all_rivalry_matchups_v3.json')"),'Rivalry war room still fetches legacy archive');
 
 for(const [slug,id] of Object.entries(managers)){

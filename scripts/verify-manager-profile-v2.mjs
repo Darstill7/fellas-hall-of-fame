@@ -9,19 +9,31 @@ const latestCss=readFileSync(new URL('../assets/manager-profile-editorial-v3.css
 assert(interactive.includes('const managerRecordBookUrl='),'Interactive profile routes must use the manager-first Record Book');
 assert(!interactive.includes('expanded-records.html?manager='),'Primary profile record links must not revert to the old research archive');
 assert(latestCss.includes('@media(max-width:700px)'),'Responsive editorial layout missing');
+const mobileCss=readFileSync(new URL('../assets/manager-profile-mobile-v3.css',import.meta.url),'utf8');
+assert(mobileCss.includes('profile-season-pulse-stats')&&mobileCss.includes('grid-template-columns:repeat(2,minmax(0,1fr))'),'Manager 3.0 mobile season summary and two-column career highlights missing');
+assert(interactive.includes('mountManagerSeasonPulse()')&&interactive.includes('mountOptionalManagerAnalysis()'),'Mobile-first current-season and deferred analytics mounts missing');
+assert(!interactive.includes('mountManagerScheduleLuck(profileName,profileHero);')&&!interactive.includes('mountManagerLuckPerformance(profileName,profileHero);'),'Advanced opponent-draw panels must not mount directly in the hero');
 assert(interactive.includes("source.className='hof-career-source-note'"),'Biography source note missing');
 assert(interactive.includes('see the latest verified 2026 scores and standings'),'Live 2026 crosslink missing');
 for(const name of names){
  const html=readFileSync(new URL('../managers/'+name+'/index.html',import.meta.url),'utf8');
  const manager=canonical(name);
- const href='../../analytics/record-holders.html?manager='+encodeURIComponent(manager)+'#manager-record-finder';
+ const href='../../managers/record-books.html?manager='+encodeURIComponent(manager)+'#career-first';
  assert(html.includes('manager-profile-editorial-v2.css'),name+' missing shared design system');
  assert(html.includes('manager-profile-editorial-v3.css'),name+' missing shared editorial finish');
+ assert(html.includes('manager-profile-mobile-v3.css'),name+' missing shared mobile-first system');
  assert(html.includes('property="og:title"')&&html.includes('property="og:description"'),name+' missing social title/description');
  assert(html.includes('property="og:url" content="https://darstill7.github.io/fellas-hall-of-fame/managers/'+name+'/"'),name+' missing direct profile share URL');
- assert(html.includes('manager-records-spotlight'),name+' missing record feature');
- assert(html.includes(href),name+' missing manager-specific record deep link');
- assert(html.includes('manager-records-spotlight'),name+' missing personal record feature');
+ assert(html.includes(href),name+' missing canonical manager-specific personal record book');
+ assert(html.includes('class="profile-chapters"')&&
+  html.includes('href="#franchise-story"')&&
+  html.includes('href="#season-history"')&&
+  html.includes('href="#head-to-head"'),
+  name+' missing clearly ordered career, seasons and rivalry navigation');
+ assert(html.includes('class="franchise-deep-preview"'),
+  name+' must preserve advanced records without duplicating them in the opening hero');
+ assert(!html.includes('manager-records-spotlight'),
+  name+' still contains redundant old record spotlight');
  for(const target of ['../../index.html','../../managers/','../../hall/','../../seasons/2026.html'])
   assert(html.includes('href="'+target+'"'),name+' missing primary navigation: '+target);
  assert(html.includes('id="franchise-story"'),name+' missing franchise story');

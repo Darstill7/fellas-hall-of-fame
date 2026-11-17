@@ -39,8 +39,11 @@ for(const [path,source] of Object.entries(sourceRoutes)){
 }
 const homepage=fs.readFileSync('index.html','utf8');
 if(homepage.includes('Both linked features are archived at Week 7')||
- !homepage.includes('Both views now read the verified season ledger'))
- throw Error('Homepage still points visitors to stale weekly media or descriptions');
+ !homepage.includes('href="analytics/sportscenter.html"')||
+ !homepage.includes('href="analytics/playoff-race.html"')||
+ !homepage.includes('id="home-season-snapshot"')||
+ !homepage.includes('Standings are sourced from the verified season guide'))
+ throw Error('Homepage must expose fresh SportsCenter, playoff race and verified season standings without stale Week 7 labels');
 for(const archive of ['seasons/2026-week7-archive.html','analytics/sportscenter-week7-archive.html'])
  if(!fs.existsSync(archive))throw Error('Historical Week 7 snapshots must remain available');
 const update=fs.readFileSync('scripts/apply-reviewed-sleeper-week.mjs','utf8');

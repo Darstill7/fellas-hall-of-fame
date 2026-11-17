@@ -92,10 +92,17 @@ for(const path of ['assets/manager-season-resume.mjs','assets/manager-madden-car
 console.log('Runner-up results distinguished from champion finishes PASS');
 
 const homePage=fs.readFileSync('index.html','utf8');
-const primaryManagerSection=homePage.indexOf('<section class="manager-showcase shell"');
-const seasonRecordsSection=homePage.indexOf('<section class="section shell" aria-labelledby="season-records-home"');
-if(primaryManagerSection<0||seasonRecordsSection<0||primaryManagerSection>=seasonRecordsSection)throw Error('Manager cards must precede season records on homepage');
-if(!homePage.includes('id="home-manager-title">Find Your Manager')||!homePage.includes('id="home-manager-cards"'))throw Error('Manager-first homepage missing accessible primary cards');
+const primaryManagerSection=homePage.indexOf('<section class="manager-showcase shell home-manager-refined"');
+const seasonRecordsSection=homePage.indexOf('<section class="section shell home-deep-archives"');
+if(primaryManagerSection<0||seasonRecordsSection<0||primaryManagerSection>=seasonRecordsSection)
+ throw Error('Manager discovery must precede advanced season ratings on homepage');
+if(!homePage.includes('id="home-manager-title">Compare the franchises')||
+ !homePage.includes('id="home-manager-cards"')||
+ !homePage.includes('class="home-advanced-managers"')||
+ !homePage.includes('id="home-direct-franchise-title"')||
+ !homePage.includes('href="managers/stover/"')||
+ !(homePage.indexOf('id="explore-the-league"')<primaryManagerSection))
+ throw Error('Homepage must offer direct manager discovery before optional career ratings and season-OVR research');
 console.log('Homepage manager-first hierarchy PASS');
 
 const stoverProfile=fs.readFileSync('managers/stover/index.html','utf8');
@@ -106,7 +113,11 @@ for(const [tab,label] of [['overview','Career'],['seasons','Each Year'],['rivalr
 if(!stoverProfile.includes('class="profile-chapters')||!stoverProfile.includes('manager-profile-tabs.mjs'))
  throw Error('Stover does not load shared four-tab manager navigation');
 if(!stoverProfile.includes('manager-profile-tabs.mjs')||!stoverProfile.includes('.section[hidden]{display:none!important}'))throw Error('Stover profile tab presentation incomplete');
-if(stoverProfile.includes('verified title season is 2023')||!stoverProfile.includes('Stover won the league championship in 2022'))throw Error('Stover title narrative regressed');
+if(stoverProfile.includes('verified title season is 2023')||
+ !stoverProfile.includes('<h1>Stover</h1>')||
+ !stoverProfile.includes('2022 champion')||
+ !stoverProfile.includes('<strong>2022</strong><small>Year he won</small>'))
+ throw Error('Stover profile must show sourced 2022 title in its opening career snapshot');
 for(const anchor of ['franchise-story','season-history','head-to-head','franchise-encyclopedia','verified-history-panel','weekly-game-log'])if(!stoverProfile.includes('id="'+anchor+'"'))throw Error('Stover archival profile section missing '+anchor);
 console.log('Stover four-tab profile structure and title historical correction PASS');
 
@@ -149,7 +160,7 @@ if(!mobileHome.includes('id="home-manager-mobile"')||!mobileHome.includes('home-
 if(!mobileRenderer.includes('class="mobile-manager-row')||!mobileRenderer.includes('managerCardTier(r)')||!mobileRenderer.includes('maddenOvr(r.score)')||!mobileRenderer.includes('mobile-manager-link'))throw Error('Mobile list lost canonical OVR, expandable rows, or profile links');
 console.log('Mobile manager directory uses canonical ratings and expandable tier-color rows PASS');
 
-for(const token of ['id="home-manager-search"','id="home-manager-clear"','id="home-manager-empty"','Find Your Manager','manager-mobile-first'])if(!mobileHome.includes(token))throw Error('Mobile manager-first finder missing '+token);
+for(const token of ['id="home-manager-search"','id="home-manager-clear"','id="home-manager-empty"','id="home-direct-franchise-title"','manager-mobile-first'])if(!mobileHome.includes(token))throw Error('Mobile manager finder or direct franchise hub missing '+token);
 for(const token of ['data-manager-name','finder.addEventListener(\'input\',filter)','row.hidden=!match','row.open=false'])if(!mobileRenderer.includes(token))throw Error('Mobile manager search behavior missing '+token);
 console.log('Mobile manager finder search and no-results state wired PASS');
 
@@ -164,7 +175,7 @@ if(!mobileRenderer.includes('managerPersonas[r.name]')||!mobileRenderer.includes
 console.log('Ten editorial manager identities and history explanations PASS');
 
 const seasonAccordion=fs.readFileSync('assets/manager-season-history.js','utf8');
-for(const token of ['season-accordion','season-entry','<details class="season-entry"','@media(max-width:650px)'])if(!seasonAccordion.includes(token))throw Error('Missing expandable mobile season history '+token);
+for(const token of ['season-accordion','season-entry','<details class="season-entry ', 'finishClass(x)','season-entry-outcome','@media(max-width:650px)'])if(!seasonAccordion.includes(token))throw Error('Missing expandable mobile season history '+token);
 console.log('Verified season data supports in-place mobile expansion PASS');
 
 const stickyTabs=fs.readFileSync('assets/manager-profile-tabs.mjs','utf8');

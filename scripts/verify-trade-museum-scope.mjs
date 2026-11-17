@@ -52,5 +52,6 @@ for(const id of [first.tradeId,last.tradeId]){
 }
 assert.ok(profile.includes('keeper-decision-research.html'));
 assert.ok(html.includes("new URLSearchParams(window.location.search).get('trade')"));
-assert.ok(html.includes("if(t)openTrade(t.id)"));
+assert.ok(html.includes("if(t){$('scope').value=completeSides(t)?'main':'research';render();openTrade(t.id)}"),
+ 'Deep links must open verified complete or incomplete receipts in their correct collection');
 console.log('PASS: 49 main multi-manager receipts including the 2025 three-way, 2 incomplete research receipts.');

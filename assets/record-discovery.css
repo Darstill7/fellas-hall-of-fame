@@ -1,0 +1,39 @@
+/* The Fellas Record Book — discovery design v1 */
+html{scroll-padding-top:90px}
+.records-pathfinder{margin:24px 0 34px;padding:clamp(17px,3vw,29px);border:1px solid #516577;border-radius:17px;background:linear-gradient(145deg,#182f3d,#10202d);color:#f6f1e8}
+.records-pathfinder *{box-sizing:border-box}
+.records-pathfinder .pathfinder-kicker{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:900;color:#e9c47e;margin:0 0 6px}
+.records-pathfinder h2{font-size:clamp(23px,3.4vw,34px);line-height:1.2;letter-spacing:-.035em;margin:0 0 9px;color:#fff}
+.records-pathfinder .pathfinder-intro{color:#bacbd5;font-size:14px;line-height:1.65;margin:0 0 22px;max-width:68ch}
+.records-pathfinder .pathfinder-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.records-pathfinder .pathfinder-item{display:flex;flex-direction:column;gap:9px;min-width:0;min-height:174px;padding:18px 16px;border:1px solid #3b586c;border-radius:12px;background:#102636;color:#f7f1e5;text-decoration:none;transition:border-color .15s,background .15s}
+.records-pathfinder .pathfinder-item:hover,.records-pathfinder .pathfinder-item:focus-visible{border-color:#f3cd7f;background:#213d4d;color:#fff}
+.records-pathfinder .pathfinder-item .pathfinder-icon{font-size:24px;line-height:1.2}
+.records-pathfinder .pathfinder-item strong{font-size:19px;line-height:1.2;letter-spacing:-.02em}
+.records-pathfinder .pathfinder-item .pathfinder-description{font-size:12px;color:#bed0db;line-height:1.55}
+.records-pathfinder .pathfinder-item .pathfinder-action{color:#f1ce88;font-size:12px;font-weight:850;margin-top:auto}
+.records-pathfinder .pathfinder-bottom{display:flex;gap:9px;flex-wrap:wrap;border-top:1px solid #435a69;padding-top:17px;margin-top:20px}
+.records-pathfinder .pathfinder-bottom a{display:inline-flex;align-items:center;min-height:44px;padding:9px 13px;border:1px solid #557083;border-radius:9px;color:#f1d498;text-decoration:none;background:#1b3443;font-size:12px;font-weight:850}
+.records-pathfinder a:focus-visible{outline:3px solid #f6d58b;outline-offset:3px}
+.record-recovery{position:fixed;z-index:24;right:16px;bottom:17px;border:1px solid #f2d99c;background:#e7c57d;color:#10202c!important;border-radius:99px;min-height:44px;display:inline-flex;align-items:center;padding:11px 15px;text-decoration:none;font-size:12px;font-weight:850;box-shadow:0 6px 16px #0008}
+.record-recovery:hover{background:#f4dfa5}
+@media(max-width:760px){.records-pathfinder .pathfinder-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.records-pathfinder .pathfinder-item{min-height:170px;padding:15px}}
+@media(max-width:410px){.records-pathfinder .pathfinder-grid{gap:8px}.records-pathfinder .pathfinder-item{padding:12px;min-height:185px}.records-pathfinder .pathfinder-item strong{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.records-pathfinder .pathfinder-item{transition:none}}
+
+/* Progressive research collections: all evidence stays in the document. */
+.record-collection-fold{border:1px solid #415a6a;border-radius:15px;background:#122534;margin:22px 0;overflow:clip}
+.record-collection-fold[open]{border-color:#a58d61;background:#10212f}
+.record-collection-fold>summary{list-style:none;cursor:pointer;padding:18px 21px;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:82px}
+.record-collection-fold>summary::-webkit-details-marker{display:none}
+.record-collection-fold>summary .collection-summary-copy{display:flex;flex-direction:column;gap:5px}
+.record-collection-fold>summary strong{font-size:clamp(18px,2.4vw,24px);line-height:1.25;color:#fff}
+.record-collection-fold>summary small{font-size:12px;color:#bed0dc;line-height:1.55}
+.record-collection-fold>summary .collection-toggle{color:#efce8b;font-weight:850;font-size:12px;white-space:nowrap}
+.record-collection-fold[open]>summary .collection-toggle{font-size:0}
+.record-collection-fold[open]>summary .collection-toggle::after{content:"Close collection ↑";font-size:12px}
+.record-collection-fold>.section{margin:0!important;padding:22px!important;border-top:1px solid #455a6c!important}
+.record-collection-fold>summary:focus-visible{outline:3px solid #f8dba5;outline-offset:-4px}
+.record-collection-fold .section h2{margin-bottom:12px}
+.record-collection-fold .section p{line-height:1.75}
+@media(max-width:540px){.record-collection-fold>summary{padding:15px;align-items:flex-start;flex-direction:column;gap:8px}.record-collection-fold>.section{padding:15px!important}}

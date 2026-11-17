@@ -1,0 +1,30 @@
+name: Fast site consumer regression
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  source-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify core website consumers and manager identity contracts
+        run: node scripts/verify-core-consumers.mjs
+      - name: Verify redesigned homepage, manager and record-book paths
+        run: node scripts/verify-redesign-navigation.mjs
+      - name: Verify homepage editorial discovery
+        run: node scripts/verify-homepage-editorial.mjs
+      - name: Verify current and completed-season navigation
+        run: node scripts/verify-production-editorial-navigation.mjs
+      - name: Verify latest completed 2026 week is consistent sitewide
+        run: node scripts/verify-current-week-website.mjs
+      - name: Verify ten personal manager profile destinations
+        run: node scripts/verify-manager-profile-v2.mjs
+      - name: Verify evidence-backed Madden ratings and modern homepage manager discovery
+        run: node scripts/verify-manager-madden-cards.mjs
+      - name: Verify documented three-team trade archive scope
+        run: node scripts/verify-trade-museum-scope.mjs

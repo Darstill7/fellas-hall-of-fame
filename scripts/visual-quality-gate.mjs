@@ -8,6 +8,7 @@ const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid'
 const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/schedule-draw-all-play.html','analytics/regular-season-close-calls.html','analytics/scoring-consistency.html','analytics/postseason-moments.html',
  'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','hall/playoff-heroes.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/manager-draft-report-cards.html','analytics/draft-legends.html','analytics/keeper-tracker.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
+ 'analytics/record-stories.html?record=highest&rank=1&manager=Stew',
  'seasons/2020.html','seasons/2021.html','seasons/2022.html','seasons/2023.html','seasons/2024.html','seasons/2025.html',
  ...slugs.map(s=>'managers/'+s+'/'),'rivalries/stilly-vs-jmid.html'];
 const server=http.createServer(async(req,res)=>{
@@ -89,26 +90,27 @@ try{
        if(audit.loading)
         findings.push(engine+' '+width+' '+key+' first-screen content remains in a loading state');
        if(route===''){
-        const featured=await page.locator('main .section .cards .home-featured-card').evaluateAll(nodes=>nodes.map(n=>({
-         link:n.getAttribute('href'),height:n.getBoundingClientRect().height,
-         contrast:getComputedStyle(n).borderColor
-        })));
-        if(featured.length!==2||featured[0].link!=='hall/'||featured[1].link!=='analytics/record-holders.html'||
-           featured.some(card=>card.height<120))
-         findings.push(engine+' '+width+' homepage champions and records feature hierarchy missing');
-       }
-       if(route===''){
+        // Modern homepage: league now, six destinations and two editorial stories.
         const discovery=await page.evaluate(()=>{
-         const sections=[...document.querySelectorAll('main .section.shell')];
-         const explore=sections.find(section=>section.querySelector('h2')?.textContent?.trim()==='Explore the league');
-         const core=[...explore?.querySelectorAll(':scope > .cards > a.card')||[]].map(a=>a.getAttribute('href'));
-         const advanced=explore?.querySelector('details.home-explore-more');
-         return {core,advancedCount:advanced?.querySelectorAll('a.card').length||0,
-          advancedCollapsed:advanced&&!advanced.open};
+         const hub=document.querySelector('#explore-the-league');
+         const core=[...hub?.querySelectorAll('.discovery-grid a.discovery-card')||[]].map(a=>a.getAttribute('href'));
+         const advanced=hub?.querySelector('details.discovery-expander');
+         const stories=[...document.querySelectorAll('.home-featured-editorial .home-spotlight>a')].map(a=>a.getAttribute('href'));
+         const order=['explore-the-league','home-now-heading','home-manager-title','home-featured-heading']
+          .map(id=>document.getElementById(id)?.getBoundingClientRect().top+scrollY);
+         const ratingPanel=document.querySelector('details.home-advanced-managers');
+         return {core,advancedCount:advanced?.querySelectorAll('a').length||0,
+          advancedCollapsed:!!advanced&&!advanced.open,stories,
+          directManagers:[...document.querySelectorAll('.home-franchise-links a')].map(a=>a.getAttribute('href')),
+          firstAdventure:hub?.querySelector('.discovery-card')?.textContent?.trim(),
+          ratingPanelCollapsed:!!ratingPanel&&!ratingPanel.open,
+          orderCorrect:order.every((v,i)=>Number.isFinite(v)&&(i===0||v>order[i-1]))};
         });
-        if(JSON.stringify(discovery.core)!==JSON.stringify(['hall/','analytics/record-holders.html','managers/','seasons/'])||
-           discovery.advancedCount!==5||!discovery.advancedCollapsed)
-         findings.push(engine+' '+width+' '+key+' homepage discovery hierarchy '+JSON.stringify(discovery));
+        if(JSON.stringify(discovery.core)!==JSON.stringify(['managers/','seasons/2026.html','analytics/record-holders.html','seasons/','analytics/rivalry-war-room.html','analytics/trade-museum.html'])||
+           discovery.advancedCount!==5||!discovery.advancedCollapsed||discovery.directManagers.length!==10||!discovery.firstAdventure?.includes('Meet the Fellas')||
+           JSON.stringify(discovery.stories)!==JSON.stringify(['hall/championship-stories.html','analytics/record-stories.html?record=highest'])||
+           !discovery.ratingPanelCollapsed||!discovery.orderCorrect)
+         findings.push(engine+' '+width+' '+key+' homepage progressive-discovery failure '+JSON.stringify(discovery));
        }
        if(route==='hall/'||route==='analytics/records.html'){
         const hierarchy=await page.evaluate(()=>{
@@ -250,14 +252,17 @@ try{
        }
        if(route===''&&width===390){
         const headline=await page.locator('.hero h1').textContent();
-        if(!/The history\.\s+The legends\.\s+The Fellas\./.test(headline||''))
+        if(!/Ten managers\.[\s\S]*Eleven seasons\.[\s\S]*One story\./.test(headline||''))
          findings.push(engine+' '+width+' mobile homepage headline words run together');
        }
        if(route===''&&width===390){
-        const firstManager=await page.locator('#home-manager-mobile .mobile-manager-row').first().evaluate(el=>el.getBoundingClientRect().top);
-        if(firstManager>844*.82)findings.push(engine+' '+width+' manager choices start too far below first screen: '+Math.round(firstManager)+'px');
-        if(await page.locator('main .hero .actions .button:visible').count())
-         findings.push(engine+' '+width+' duplicate homepage hero buttons crowd out manager discovery');
+        const quick=page.locator('.home-find-franchise a[href="managers/record-books.html"]');
+        if(!await quick.count())throw Error('Homepage personal records path missing');
+        const managerPanel=page.locator('details.home-advanced-managers');
+        if(await managerPanel.evaluate(el=>el.open))throw Error('Advanced manager ratings should start collapsed');
+        await managerPanel.locator(':scope > summary').click();
+        await page.locator('#home-manager-mobile .mobile-manager-row').first().waitFor({state:'attached',timeout:12000});
+        if(!await managerPanel.evaluate(el=>el.open))throw Error('Manager ratings disclosure did not open');
        }
        if(width===390&&route.startsWith('managers/')&&slugs.includes(route.split('/')[1])&&route.endsWith('/')){
         const slug=route.split('/')[1];
@@ -272,9 +277,14 @@ try{
         // Check the canonical link in the original HTML, then verify destination behavior
         // separately rather than assuming an archived link stays mounted after hydration.
         const source=await page.evaluate(async()=>{const r=await fetch(location.pathname);return r.text()});
-        const expectedLink='manager-draft-report-cards.html?manager='+expected;
-        const links=[...source.matchAll(/href="[^"]*manager-draft-report-cards\.html[^"]*"/g)].map(m=>m[0]);
-        if(links.length!==1||!links[0].includes(expectedLink))
+        const links=[...source.matchAll(/href="([^"]*manager-draft-report-cards\.html[^"]*)"/g)].map(m=>m[1]);
+        const expectedManager=slug==='tom'?'Thommy':slug;
+        const correct=links.filter(link=>{
+         const path=new URL(link,page.url());
+         return path.pathname.endsWith('/analytics/manager-draft-report-cards.html')&&
+          path.searchParams.get('manager')?.toLowerCase()===expectedManager.toLowerCase();
+        });
+        if(links.length!==1||correct.length!==1)
          throw Error('Manager profile source lost clean draft report destination: '+slug+' '+JSON.stringify(links));
        }
        if(route.startsWith('managers/')&&route.endsWith('/')&&route!=='managers/'){
@@ -505,6 +515,15 @@ try{
         if(await shame.locator('a.placement-shame-row').count()!==6)
          findings.push(engine+' '+width+' all-time Toilet Bowl history missing or incomplete');
        }
+       if(route.startsWith('analytics/record-stories.html?')&&width===390){
+        const returnPath=await page.locator('#story-return a').first().getAttribute('href');
+        if(!returnPath||!returnPath.includes('manager=Stew')||
+           !await page.locator('#story-return a').first().isVisible())
+         findings.push(engine+' '+width+' matchup story lacks visible personal Record Book return');
+        const rankLinks=await page.locator('#ranking-body a[href*="rank="]').evaluateAll(nodes=>nodes.map(a=>a.getAttribute('href')));
+        if(rankLinks.length!==10||rankLinks.some(href=>!href.includes('manager=Stew')))
+         findings.push(engine+' '+width+' ranked matchup links lose manager origin');
+       }
        const dir=path.join(output,'screens',engine,String(width));
        await fs.mkdir(dir,{recursive:true});
        await page.screenshot({path:path.join(dir,name+'.png'),animations:'disabled',fullPage:false});
@@ -584,9 +603,13 @@ try{
         if(await factors.locator('.profile-rating-factor').count()!==8)
          throw Error('All eight official career rating factors must be available');
         // Exercise an in-page feature button, not just a destination URL.
-        const rivalryCategory=menu.locator('details.profile-feature-group').nth(3);
-        await rivalryCategory.locator(':scope > summary').click();
-        const rivalryButton=rivalryCategory.locator('button[data-feature-target="#head-to-head"]');
+        // Locate the actual rivalry control rather than hard-coding a category
+        // index; the editorial order may change without removing the feature.
+        const rivalryButton=menu.locator('details.profile-feature-group button[data-feature-target="#head-to-head"]');
+        const rivalryCategory=rivalryButton.locator('xpath=ancestor::details[contains(@class,"profile-feature-group")]');
+        if(await rivalryCategory.count()!==1)throw Error('Rivalry chapter missing');
+        if(!await rivalryCategory.evaluate(el=>el.open))
+         await rivalryCategory.locator(':scope > summary').click();
         if(await rivalryButton.count()!==1)throw Error('Head-to-head feature control missing');
         await rivalryButton.click();
         if(!await page.locator('#head-to-head').isVisible()||
@@ -612,14 +635,22 @@ try{
         mobileJourneys.push({engine,manager:canonical,topics:5,postseasonSeasons:10,recordsDestination:['stilly','tom','stover'].includes(slug)});
        }
        if(width===390&&route==='analytics/record-holders.html'){
+        const finder=page.locator('#manager-record-finder');
+        if(!await finder.count())throw Error('Manager-first record finder missing');
         const first=page.locator('#record-leaders a.leader-card').first();
-        if(!await first.isVisible())throw Error('Record-holder cards not rendered');
-        const aboveFold=await first.evaluate(el=>el.getBoundingClientRect().top<innerHeight);
-        if(!aboveFold)throw Error('Record-holder list starts below first mobile viewport');
+        await first.waitFor({state:'attached',timeout:14000});
+        const priority=await page.evaluate(()=>({
+         finder:document.getElementById('manager-record-finder')?.getBoundingClientRect().top+scrollY,
+         specialty:document.getElementById('schedule-luck-record')?.getBoundingClientRect().top+scrollY,
+         main:document.getElementById('browse-all-records')?.getBoundingClientRect().top+scrollY
+        }));
+        if(!Number.isFinite(priority.finder)||!Number.isFinite(priority.specialty)||
+           !(priority.finder<priority.main&&priority.main<priority.specialty))
+         throw Error('Record Book manager-first hierarchy regressed: '+JSON.stringify(priority));
         const help=page.locator('details.scope-guide');
         await help.locator('summary').click();
         if(!await help.evaluate(el=>el.open))throw Error('Record coverage explanation did not open');
-        mobileJourneys.push({engine,page:'record-holders',firstRecordAboveFold:true,scopeExpandable:true});
+        mobileJourneys.push({engine,page:'record-holders',managerFirst:true,scopeExpandable:true});
        }
        if(route==='hall/championship-stories.html'){
         const feature=page.locator('#championship-feature .feature');
@@ -726,11 +757,8 @@ try{
         const journey=await context.newPage();
         try{
          await journey.goto(baseUrl,{waitUntil:'domcontentloaded',timeout:15000});
-         await journey.locator('main .home-featured-card[href="hall/"]').click();
-         await journey.waitForURL(url=>url.pathname.endsWith('/hall/'),{timeout:12000});
-         if(!await journey.getByRole('heading',{name:/Hall of Fame/i}).count())
-          throw Error('Homepage Hall of Fame card failed to reach the museum');
-         await journey.locator('a[href="championship-stories.html"]').first().click();
+         await journey.locator('.home-featured-editorial a[href="hall/championship-stories.html"]').click();
+
          await journey.waitForURL(url=>url.pathname.endsWith('/hall/championship-stories.html'),{timeout:12000});
          await journey.locator('#championship-feature .feature').waitFor({timeout:15000});
          await journey.locator('#chapters a[href*="year=2023"]').click();
@@ -739,7 +767,7 @@ try{
           throw Error('Championship year link failed to open verified article');
 
          await journey.goto(baseUrl,{waitUntil:'domcontentloaded',timeout:15000});
-         await journey.locator('main .card[href="managers/"]').first().click();
+         await journey.locator('.discovery-grid a.discovery-card[href="managers/"]').click();
          await journey.waitForURL(url=>url.pathname.endsWith('/managers/'),{timeout:12000});
          await journey.locator('#manager-directory-cards a.manager[href="stilly/"]').click();
          await journey.waitForURL(url=>url.pathname.endsWith('/managers/stilly/'),{timeout:12000});
@@ -747,13 +775,11 @@ try{
          if(arrivedAtTop>24)throw Error('Manager profile navigation must start at page top: '+arrivedAtTop);
          if(!await journey.locator('#franchise-story').count())
           throw Error('Manager card failed to open franchise story');
-         const mobile=journey.locator('header.nav details.fellas-mobile-site-menu');
-         await mobile.locator(':scope > summary').click();
-         await mobile.locator('nav a[href*="analytics/record-holders.html"]').click();
-         await journey.waitForURL(url=>url.pathname.endsWith('/analytics/record-holders.html'),{timeout:12000});
-         if(!await journey.locator('#record-leaders').count())
-          throw Error('Manager-to-Records navigation did not open full record archive');
-         mobileJourneys.push({engine,width,page:'cross-page-reading-journey',path:'Home → Hall → 2023 story; Home → Stilly → Records',verified:true});
+         await journey.locator('main .hero .buttons a[href*="record-books.html"]').first().click();
+         await journey.waitForURL(url=>url.pathname.endsWith('/managers/record-books.html'),{timeout:12000});
+         if(!await journey.locator('#career-first').count())
+          throw Error('Manager-to-Records navigation did not open personal career-first record book');
+         mobileJourneys.push({engine,width,page:'cross-page-reading-journey',path:'Home → Championship story; Home → Stilly → Personal records',verified:true});
         }finally{await journey.close();}
        }
        // New page visits should never inherit an old manager card reading position.
@@ -764,6 +790,8 @@ try{
          const home=baseUrl,profile=baseUrl+'managers/stilly/';
          const openStilly=async()=>{
           await visitor.goto(home,{waitUntil:'domcontentloaded',timeout:15000});
+          const drawer=visitor.locator('details.home-advanced-managers');
+          await drawer.locator(':scope > summary').click();
           const row=visitor.locator('details.mobile-manager-row:has(a.mobile-manager-link[href="managers/stilly/"])');
           await row.waitFor({state:'visible',timeout:15000});
           await row.locator(':scope > summary').click();

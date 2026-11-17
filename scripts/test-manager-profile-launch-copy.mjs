@@ -10,7 +10,7 @@ for(const slug of managers){
  const html=fs.readFileSync(path,'utf8');
  if(obsolete.test(html))throw Error('Outdated public build label remains on '+path);
  if(!html.includes('Career records and player histories are drawn from documented league results. Coverage varies by season.'))throw Error('Manager history disclaimer missing on '+path);
- if(!html.includes('href="../managers/index.html"'))throw Error('Manager directory return link missing on '+path);
+ if(!html.includes('href="../managers/"')&&!html.includes('href="../managers/index.html"'))throw Error('Manager directory return link missing on '+path);
 }
 const playoffEspn=JSON.parse(fs.readFileSync('data/verified_espn_playoff_brackets_2016_2019.json','utf8'));
 const playoffSleeper=JSON.parse(fs.readFileSync('data/verified_sleeper_playoff_brackets_2020_2025.json','utf8'));

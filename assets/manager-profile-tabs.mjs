@@ -9,7 +9,7 @@ import {mountManagerChampionshipStories} from './manager-championship-stories.mj
 // Upgrade the older seven-link chapter navigator without discarding existing archive sections.
 const profileName=document.querySelector('main .hero h1')?.textContent?.trim();
 // Canonical manager-first Record Book; retain individual evidence views as research links.
-const managerRecordBookUrl=manager=>'../../analytics/record-holders.html?manager='+encodeURIComponent(manager==='Tom'?'Thommy':manager)+'#manager-record-finder';
+const managerRecordBookUrl=manager=>'../../managers/record-books.html?manager='+encodeURIComponent(manager==='Tom'?'Thommy':manager)+'#career-first';
 const persona=managerPersonas[profileName]||managerPersonas[profileName==='Tom'?'Thommy':profileName];
 const profileHero=document.querySelector('main .hero');
 // A compact site menu preserves the five primary destinations without
@@ -125,9 +125,7 @@ if(profileHero&&!profileHero.querySelector('[data-profile-career-snapshot]')){
   (lead||profileHero.querySelector('h1'))?.after(snapshot);
  }
 }
-// Matchup-derived career opponent-draw stat, shared across every active manager profile.
-mountManagerScheduleLuck(profileName,profileHero);
-mountManagerLuckPerformance(profileName,profileHero);
+// Specialized opponent-draw research mounts in the optional advanced section below.
 // The first screen should tell one memorable, sourced story before the deep research.
 // Leave the detailed archive and existing canonical record widgets intact.
 async function mountVerifiedDefiningMoment(){
@@ -326,12 +324,14 @@ function mountProfileFeatureDirectory(quick,manager){
  shell.id='profile-features';
  shell.setAttribute('aria-label','Manager features');
  shell.dataset.profileFeatureMenu='';
- shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Choose a topic below or open the verified record portfolio.</p><a class="profile-records-link" href="'+managerRecordBookUrl(name)+'">View '+name+'\'s records and rankings →</a>';
+ shell.innerHTML='<h2>Explore '+name+'\'s profile</h2><p class="muted">Start with the career story, seasons and rivals. Records have their own book; ratings, roster decisions and keeper research are available below.</p><a class="profile-records-link" href="'+managerRecordBookUrl(name)+'">View '+name+'\'s records and rankings →</a>';
+ // Order by visitor intent, not by underlying model complexity.
+ // Every previous feature index appears exactly once; no historical panel is removed.
  const groups=[
   {title:'Career & Results',help:'Championships, playoffs and every season',items:[0,1,10]},
-  {title:'Ratings & Legacy',help:'Career Legacy OVR and individual season ratings',items:[3,4]},
-  {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7]},
   {title:'Rivals & Matchups',help:'Head-to-head records and memorable games',items:[2]},
+  {title:'Drafts, Trades & Pickups',help:'Documented player and roster decisions',items:[5,6,7]},
+  {title:'Ratings & Legacy',help:'Career Legacy OVR and individual season ratings',items:[3,4]},
   {title:'Lineups & Keepers',help:'Start/Sit accuracy and keeper research',items:[8,9]}
  ];
  const groupHosts=new Map();
@@ -599,8 +599,10 @@ function mountManagerHomeHub(){
  if(!who)return;
  const hub=document.createElement('section');hub.className='manager-home-hub';
  hub.setAttribute('aria-label',who+' personal league hub');
- const h=document.createElement('h2');h.textContent=who+' · Your Fellas history';
- const note=document.createElement('p');note.textContent='Your career, your records, your rivalries. Start anywhere.';
+ const chapterLabel=document.createElement('p');chapterLabel.className='manager-home-kicker';
+ chapterLabel.textContent='FRANCHISE GUIDE / SIX WAYS IN';
+ const h=document.createElement('h2');h.textContent='Explore '+who+'’s career';
+ const note=document.createElement('p');note.textContent='Choose a chapter below. Detailed game logs, ratings and research remain in the expandable archive.';
  note.className='manager-home-hub-note';
  const grid=document.createElement('nav');grid.className='manager-home-hub-grid';grid.setAttribute('aria-label','Primary manager destinations');
  const routes=[
@@ -609,7 +611,7 @@ function mountManagerHomeHub(){
   {label:'Every season',detail:'Year-by-year results',icon:'📅',tab:'seasons'},
   {label:'Rivalries',detail:'Head-to-head history',icon:'⚔️',tab:'rivalries'},
   {label:'Report card',detail:'Career ratings and grades',icon:'📊',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(who)},
-  {label:'Trades & pickups',detail:'How the roster was built',icon:'🔄',tab:'advanced'}
+  {label:'Drafts & trades',detail:'The roster-building résumé',icon:'🔄',action:'front-office'}
  ];
  for(const route of routes){
   const el=document.createElement(route.href?'a':'button');
@@ -622,9 +624,24 @@ function mountManagerHomeHub(){
   const desc=document.createElement('small');desc.textContent=route.detail;
   words.append(name,desc);el.append(icon,words);
   if(route.action==='story')el.addEventListener('click',()=>quick.querySelector('button.profile-biography-entry')?.click());
+  if(route.action==='front-office'){
+   el.addEventListener('click',()=>{
+    // Open the actual draft/trade résumé, not the generic Advanced tab.
+    // Reuse the existing feature controller for history, focus and receipts.
+    const topic=quick.querySelector('button[data-profile-feature][data-feature-target=".profile-career-resume"]');
+    if(topic){
+     quick.querySelector('details.manager-home-more')?.setAttribute('open','');
+     topic.closest('details.profile-feature-group')?.setAttribute('open','');
+     topic.click();
+    }else{
+     // A missing optional research module must not silently do nothing.
+     window.location.href='../../analytics/trade-museum.html';
+    }
+   });
+  }
   grid.append(el);
  }
- hub.append(h,note,grid);
+ hub.append(chapterLabel,h,note,grid);
  // One contextual research link, not another large navigation tile.
  const tradeResearch=document.createElement('p');
  tradeResearch.className='manager-home-trade-research';
@@ -668,8 +685,8 @@ function mountCareerExhibit(){
  const feature=document.createElement('section');
  feature.className='hof-career-exhibit';
  feature.setAttribute('aria-label',slug+' Hall of Fame career story');
- const kicker=document.createElement('span');kicker.className='hof-career-kicker';kicker.textContent='THE CAREER STORY';
- const h=document.createElement('h2');h.textContent='Behind the résumé';
+ const kicker=document.createElement('span');kicker.className='hof-career-kicker';kicker.textContent='02 / THE CAREER STORY';
+ const h=document.createElement('h2');h.textContent='The story behind the numbers';
  const intro=document.createElement('p');intro.className='hof-career-intro';
  const sourceIntro=document.querySelector('#franchise-story .lead');
  intro.textContent=sourceIntro?.textContent?.trim()||'Explore the archived seasons, title results and defining roster decisions.';
@@ -697,9 +714,17 @@ function mountCareerExhibit(){
  if(profileSwitcher)hero.after(profileSwitcher);
  hub.classList.add('hof-nav-curated');
  const hubHeading=hub.querySelector('h2');
- if(hubHeading)hubHeading.textContent='Explore the legacy';
+ if(hubHeading){
+  hubHeading.textContent='Choose your next chapter';
+  if(!hub.querySelector('.manager-home-chapter-label')){
+   const chapter=document.createElement('span');
+   chapter.className='manager-home-chapter-label';
+   chapter.textContent='03 / EXPLORE THIS FRANCHISE';
+   hubHeading.before(chapter);
+  }
+ }
  const hubNote=hub.querySelector('.manager-home-hub-note');
- if(hubNote)hubNote.textContent='Six ways into the archive. Choose what matters to you.';
+ if(hubNote)hubNote.textContent='Follow the career story, investigate the records or open a deeper chapter.';
  // Preview the exact opening sentences of the verified editorial biography.
  fetch('../../data/manager_biographies_awards.json',{cache:'no-store'})
   .then(response=>{if(!response.ok)throw Error('Biography unavailable');return response.json()})
@@ -713,6 +738,66 @@ function mountCareerExhibit(){
   .catch(()=>{/* Keep the source-backed franchise overview available offline. */});
 }
 mountCareerExhibit();
+// Mobile-first manager season snapshot. Only fully archived 2026 games count.
+function mountManagerSeasonPulse(){
+ const hero=document.querySelector('main .hero');
+ if(!hero||document.querySelector('#profile-season-pulse'))return;
+ const name=profileName==='Tom'?'Thommy':profileName;
+ const pulse=document.createElement('section');
+ pulse.id='profile-season-pulse';
+ pulse.className='profile-season-pulse';
+ pulse.setAttribute('aria-labelledby','profile-season-pulse-heading');
+ pulse.innerHTML='<div class="profile-season-pulse-head"><div><span class="profile-pulse-eyebrow">01 / 2026 SEASON SNAPSHOT</span><h2 id="profile-season-pulse-heading">This season</h2></div><a href="../../seasons/2026.html">Season center →</a></div><p class="profile-season-pulse-status" role="status">Loading verified season results…</p><div class="profile-season-pulse-stats" hidden></div><p class="profile-season-pulse-footnote"></p>';
+ const exhibit=document.querySelector('.hof-career-exhibit');
+ const hub=document.querySelector('.manager-home-hub');
+ if(exhibit)exhibit.before(pulse);else if(hub)hub.before(pulse);else hero.after(pulse);
+ fetch('../../data/season_guide.json',{cache:'no-store'}).then(response=>{
+  if(!response.ok)throw Error('Season guide unavailable');
+  return response.json();
+ }).then(seasons=>{
+  const season=seasons['2026'],standing=season?.standings?.find(row=>row.name===name);
+  if(!standing||!Number.isFinite(standing.w)||!Number.isFinite(standing.l))throw Error('Current-season record unavailable');
+  const stats=pulse.querySelector('.profile-season-pulse-stats');
+  const fmt=value=>Number(value).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const data=[['Record',standing.w+'–'+standing.l+(standing.t?'–'+standing.t:'')],['Points for',fmt(standing.pf)],['Points against',fmt(standing.pa)]];
+  for(const [label,value] of data){
+   const card=document.createElement('div');card.className='profile-season-pulse-stat';
+   const number=document.createElement('strong');number.textContent=value;
+   const title=document.createElement('span');title.textContent=label;
+   card.append(number,title);stats.append(card);
+  }
+  stats.hidden=false;
+  const match=String(season.summary||'').match(/Week\s+(\d+)/);
+  const week=match?.[1]||'—';
+  pulse.querySelector('.profile-season-pulse-status').textContent='Verified through Week '+week+' · Regular season in progress';
+  pulse.querySelector('.profile-season-pulse-footnote').textContent='Reconstructed regular-season standings; not official playoff seeding. Incomplete weeks are excluded.';
+ }).catch(()=>{
+  pulse.querySelector('.profile-season-pulse-status').textContent='The current season snapshot is temporarily unavailable.';
+  pulse.querySelector('.profile-season-pulse-footnote').textContent='See the season center for the latest verified results.';
+ });
+}
+function mountOptionalManagerAnalysis(){
+ const quick=document.querySelector('main .profile-quickstart');
+ if(!quick||document.querySelector('#profile-advanced-analytics'))return;
+ const advanced=document.createElement('details');
+ advanced.id='profile-advanced-analytics';
+ advanced.className='profile-advanced-analytics';
+ const heading=document.createElement('summary');
+ heading.textContent='Advanced analytics · Schedule luck & scoring strength';
+ const contents=document.createElement('div');
+ contents.className='profile-advanced-analytics-content';
+ advanced.append(heading,contents);
+ const more=quick.querySelector('details.manager-home-more');
+ if(more)more.after(advanced);else quick.append(advanced);
+ mountManagerScheduleLuck(profileName,profileHero,contents);
+ mountManagerLuckPerformance(profileName,profileHero,contents);
+ if(location.hash==='#profile-advanced-analytics'){
+  advanced.open=true;
+  more?.setAttribute('open','');
+ }
+}
+mountManagerSeasonPulse();
+mountOptionalManagerAnalysis();
 // Gold trophy treatment is earned, never applied to a zero-championship card.
 const championshipHighlight=document.querySelector('main .profile-career-highlight:first-child');
 const championshipCount=championshipHighlight?.querySelector('strong');
@@ -753,7 +838,7 @@ document.head.append(hofSwitcherStyle);
 // Remove only these two identified promotional sections; preserve all data-backed sections.
 // Preserve the old encyclopedia URL for archival links, but one profile is the
 // public entrypoint: remove its competing cross-profile teaser.
-document.getElementById('full-franchise-dossier')?.remove();
+// Keep the full historical dossier link in the Advanced archive rather than deleting it.
 const duplicateHeadings=new Set(['More from the archive']);
 for(const section of document.querySelectorAll('main > section.section:not([id])')){
  const heading=section.querySelector('h2')?.textContent?.trim()||'';
@@ -798,13 +883,29 @@ if(main&&tabs){
  `;
  document.head.append(focusStyle);
  const featureDirectory=document.getElementById('profile-features');
- const featureToolbar=document.createElement('div');
+ const featureToolbar=document.createElement('nav');
  featureToolbar.className='profile-focus-toolbar';
- featureToolbar.setAttribute('role','status');
+ featureToolbar.setAttribute('aria-label','Selected manager research chapter');
+ const focusIntro=document.createElement('div');
+ focusIntro.className='profile-focus-intro';
+ const focusKicker=document.createElement('span');
+ focusKicker.className='profile-focus-kicker';
+ focusKicker.textContent='THE FELLAS / MANAGER ARCHIVE';
  const focusName=document.createElement('strong');
+ focusName.className='profile-focus-title';
+ const focusSummary=document.createElement('p');
+ focusSummary.className='profile-focus-summary';
+ focusIntro.append(focusKicker,focusName,focusSummary);
+ const focusActions=document.createElement('div');
+ focusActions.className='profile-focus-actions';
+ const focusRecords=document.createElement('a');
+ focusRecords.className='profile-focus-records-link';
+ focusRecords.href=managerRecordBookUrl(profileName==='Tom'?'Thommy':profileName);
+ focusRecords.textContent='Personal Record Book →';
  const focusBack=document.createElement('button');
- focusBack.type='button';focusBack.textContent='← Back to all features';
- featureToolbar.append(focusName,focusBack);
+ focusBack.type='button';focusBack.textContent='← All chapters';
+ focusActions.append(focusBack,focusRecords);
+ featureToolbar.append(focusIntro,focusActions);
  featureDirectory?.querySelector('.profile-feature-groups')?.before(featureToolbar);
  let lastProfileFeatureTrigger=null;
  function clearFeatureFocus(){
@@ -871,6 +972,9 @@ if(main&&tabs){
    for(const child of shelfBody.children)if(child!==selected)child.classList.add('profile-focus-excluded');
   }
   focusName.textContent=button.querySelector('strong')?.textContent||'Selected feature';
+  focusSummary.textContent=button.querySelector('small')?.textContent||
+   'Verified franchise history and supporting evidence.';
+  focusKicker.textContent='THE FELLAS / '+(profileName==='Tom'?'Thommy':profileName).toUpperCase()+' / RESEARCH CHAPTER';
   // Put the single Back control beside the selected content, not above a
   // lengthy directory that the reader has already left behind.
   const anchor=section||destination.closest('details.profile-research-shelf')||(
