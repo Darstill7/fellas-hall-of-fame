@@ -587,3 +587,144 @@ body.premium-franchise .career-transaction-full-archive:hover{
 @media(max-width:355px){
  body.premium-franchise .career-research-topics-grid{grid-template-columns:1fr}
 }
+
+
+/* Phase 1.9 — shared research-chapter design language.
+   Use one rhythm for seasons, matchups, transactions and owned-record previews.
+   All statistics and existing module interactions remain source-controlled. */
+body.premium-franchise{
+ --fellas-research-paper:#f8f1e5;
+ --fellas-research-gold:#e7ca91;
+ --fellas-research-rule:#5b7585;
+ --fellas-research-ink:#cddbe3;
+}
+body.premium-franchise :is(
+ #season-history .season-history-guide,
+ #head-to-head [data-h2h-explorer] > .muted,
+ .career-transaction-scope,
+ .career-resume-caveat,
+ [data-expanded-records-profile] .records-lab-intro
+){
+ color:var(--fellas-research-ink)!important;
+ font-size:12px!important;
+ line-height:1.65!important;
+ max-width:70ch;
+}
+body.premium-franchise :is(
+ #season-history .stats,
+ #head-to-head [data-summary] .stats,
+ .career-resume-metrics,
+ [data-expanded-records-profile] .records-lab-grid
+){
+ gap:10px!important;
+ min-width:0;
+}
+body.premium-franchise :is(
+ #season-history .stats .stat,
+ #head-to-head [data-summary] .stats .stat
+){
+ min-width:0;
+ border:1px solid var(--fellas-research-rule)!important;
+ border-radius:10px!important;
+ background:#173443!important;
+ padding:13px!important;
+}
+body.premium-franchise :is(
+ #season-history .stats .stat strong,
+ #head-to-head [data-summary] .stats .stat strong
+){
+ display:block;
+ font-variant-numeric:tabular-nums;
+ color:var(--fellas-research-paper);
+ font-size:clamp(19px,3vw,27px);
+ line-height:1.2;
+ overflow-wrap:anywhere;
+}
+body.premium-franchise :is(
+ #season-history .stats .stat small,
+ #head-to-head [data-summary] .stats .stat small
+){
+ display:block;
+ color:var(--fellas-research-ink);
+ font-size:11px;
+ line-height:1.45;
+}
+body.premium-franchise :is(
+ #season-history .season-entry,
+ #head-to-head .h2h-spotlight-card,
+ .career-resume-trade
+){
+ box-shadow:0 4px 14px #0002;
+}
+body.premium-franchise :is(
+ #season-history .season-entry summary,
+ #head-to-head .h2h-spotlight-card,
+ .career-research-topic-button,
+ .career-resume-receipts > summary
+){
+ -webkit-tap-highlight-color:transparent;
+}
+body.premium-franchise :is(
+ #season-history .season-entry summary,
+ .career-resume-receipts > summary
+):focus-visible{
+ outline:3px solid #f5d594;
+ outline-offset:-3px;
+}
+body.premium-franchise :is(
+ #season-history .season-entry-detail,
+ .career-resume-section,
+ .profile-season-evidence-row,
+ #head-to-head .h2h-spotlight
+){
+ overflow-wrap:break-word;
+}
+body.premium-franchise .profile-focus-toolbar + :is(
+ .profile-selected-section,
+ .profile-selected-madden,
+ .profile-research-shelf
+){
+ scroll-margin-top:100px;
+}
+@media(max-width:650px){
+ body.premium-franchise :is(
+  #season-history .stats,
+  #head-to-head [data-summary] .stats
+ ){
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:9px!important;
+ }
+ body.premium-franchise :is(
+  #season-history .stats .stat:first-child,
+  #head-to-head [data-summary] .stats .stat:first-child
+ ){
+  grid-column:1/-1;
+  border-top:2px solid var(--fellas-research-gold)!important;
+ }
+ body.premium-franchise :is(
+  #season-history .stats .stat strong,
+  #head-to-head [data-summary] .stats .stat strong
+ ){
+  font-size:clamp(21px,6vw,28px);
+ }
+ body.premium-franchise .profile-focus-toolbar + :is(
+  .profile-selected-section,
+  .profile-selected-madden,
+  .profile-research-shelf
+ ){
+  margin-top:12px;
+ }
+}
+@media(max-width:350px){
+ body.premium-franchise :is(
+  #season-history .stats,
+  #head-to-head [data-summary] .stats
+ ){
+  grid-template-columns:minmax(0,1fr)!important;
+ }
+ body.premium-franchise :is(
+  #season-history .stats .stat:first-child,
+  #head-to-head [data-summary] .stats .stat:first-child
+ ){grid-column:1}
+}
