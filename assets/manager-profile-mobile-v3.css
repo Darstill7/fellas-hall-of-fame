@@ -289,3 +289,109 @@ body.premium-franchise .manager-home-hub-grid>.manager-home-hub-tile:focus-visib
    transition:none!important
  }
 }
+
+
+/* Phase 1.4 — a readable three-chapter mobile profile.
+   The live scoreboard, long-form story and archive choices should each
+   look and behave like a different kind of content. */
+body.premium-franchise .profile-season-pulse,
+body.premium-franchise .hof-career-exhibit,
+body.premium-franchise .manager-home-hub{
+  min-width:0;
+  scroll-margin-top:88px;
+}
+body.premium-franchise .profile-season-pulse{
+  border-top:4px solid #8bb9c9!important;
+  background:linear-gradient(155deg,#1b3b4b,#102632)!important;
+  box-shadow:0 8px 22px #0002;
+}
+body.premium-franchise .profile-pulse-eyebrow,
+body.premium-franchise .hof-career-kicker,
+body.premium-franchise .manager-home-chapter-label{
+  display:block;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.13em;
+  line-height:1.4;
+  text-transform:uppercase;
+}
+body.premium-franchise .profile-pulse-eyebrow{color:#b4dfec}
+body.premium-franchise .hof-career-exhibit{
+  border:1px solid #6c6251!important;
+  border-top:4px solid #e2c080!important;
+  background:linear-gradient(145deg,#29343b,#142733 75%)!important;
+  box-shadow:0 9px 25px #0003
+}
+body.premium-franchise .hof-career-exhibit .hof-career-kicker{color:#f4d79a}
+body.premium-franchise .hof-career-exhibit h2{
+  font-family:Georgia,'Iowan Old Style',serif!important;
+  font-weight:500!important;
+  line-height:1.17!important;
+  letter-spacing:-.04em!important;
+  text-wrap:balance;
+}
+body.premium-franchise .hof-career-intro{
+  max-width:62ch;
+  line-height:1.68!important;
+  color:#ebedf0!important;
+}
+body.premium-franchise .hof-career-source-note{
+  padding-top:12px;
+  border-top:1px solid #5a5e60;
+}
+body.premium-franchise .manager-home-chapter-label{
+  margin:0 0 8px;
+  color:#ead099
+}
+body.premium-franchise .manager-home-hub{
+  border-top:4px solid #d5b476!important;
+  background:linear-gradient(160deg,#1c3543,#0e2330 82%)!important;
+}
+body.premium-franchise .manager-home-hub .manager-home-hub-note{
+  margin:6px 0 18px!important;
+  max-width:58ch;
+  font-size:13px!important;
+  line-height:1.6!important;
+}
+@media(max-width:650px){
+ body.premium-franchise .profile-season-pulse,
+ body.premium-franchise .hof-career-exhibit,
+ body.premium-franchise .manager-home-hub{
+   box-sizing:border-box;
+   width:100%!important;
+   max-width:100%!important;
+   margin-block:12px 18px!important;
+   padding:19px 16px!important;
+   border-radius:13px!important;
+ }
+ body.premium-franchise .profile-season-pulse-head h2,
+ body.premium-franchise .hof-career-exhibit h2,
+ body.premium-franchise .manager-home-hub h2{
+   font-size:clamp(25px,7vw,31px)!important;
+   line-height:1.17!important;
+ }
+ body.premium-franchise .hof-career-intro{
+   font-size:15px!important;
+   line-height:1.7!important;
+   margin-bottom:16px!important;
+ }
+ body.premium-franchise .hof-career-read{
+   width:100%;
+   justify-content:space-between;
+   min-height:48px;
+   text-align:left
+ }
+ body.premium-franchise .profile-season-pulse-status{
+   margin:12px 0!important;
+   line-height:1.5!important
+ }
+ body.premium-franchise .profile-season-pulse-footnote{
+   margin-top:12px!important;
+   padding-top:10px;
+   border-top:1px solid #4e6877;
+   line-height:1.55!important
+ }
+ body.premium-franchise .manager-home-hub-grid{
+   gap:10px!important
+ }
+}
