@@ -2578,6 +2578,10 @@ try{
      const urls=await page.locator('#manager-destination a').evaluateAll(nodes=>nodes.map(node=>node.getAttribute('href')));
      if(urls.length!==2||urls[0]!=='./'+slug+'/'||urls[1]!=='../analytics/manager-report-cards.html?manager='+encodeURIComponent(name))
       errors.push(width+' '+name+' missing correct profile/report-card record-book shortcuts');
+     const returnLabel=await page.locator('#manager-destination a').first().innerText();
+     const title=await page.locator('#record-book-title').innerText();
+     if(title!==name+'’s record book'||!returnLabel.includes('Back to '+name+'’s profile'))
+      errors.push(width+' '+name+' manager identity or return link missing from personal record book');
     }
     await page.locator('#manager').selectOption('Stilly');
     const sig=page.locator('#expanded-manager-records');
