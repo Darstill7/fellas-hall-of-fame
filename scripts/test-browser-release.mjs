@@ -1131,6 +1131,9 @@ try{
     if(await ratingGuide.count()!==1||await ratingGuide.evaluate(el=>el.open))
      errors.push(width+' home Legacy OVR glossary should begin collapsed');
     else{
+     const ratingsPanel=page.locator('details.home-advanced-managers');
+     if(await ratingsPanel.count()===1&&!await ratingsPanel.evaluate(el=>el.open))
+      await ratingsPanel.locator(':scope > summary').click();
      await ratingGuide.locator('summary').click();
      const guideText=await ratingGuide.innerText();
      if(!guideText.includes('Season OVR')||!guideText.includes('Report-card scores'))
@@ -1139,8 +1142,9 @@ try{
     const desktopNav=page.locator('.main-nav');
     const mobileNav=page.locator('details.mobile-menu');
     if(width===390){
-     if(await page.locator('main .hero .actions .button:visible').count())
-      errors.push(width+' duplicate hero actions compete with the immediately available manager finder');
+     const adventureAction=page.locator('main .home-editorial-copy .actions a.primary[href="#explore-the-league"]');
+     if(await adventureAction.count()!==1||!await adventureAction.isVisible())
+      errors.push(width+' homepage mobile hero must have one visible Choose your Adventure action');
      if(!await mobileNav.isVisible()||await desktopNav.isVisible())errors.push(width+' homepage mobile navigation visibility wrong');
      await mobileNav.locator(':scope > summary').click();
      for(const href of ['index.html','managers/','hall/','analytics/record-holders.html','seasons/2026.html'])
@@ -2552,7 +2556,7 @@ try{
      if(tinyTargets.length)errors.push(width+' Manager Record Books links too small to tap: '+tinyTargets.join(', '));
     }
     const recordJump=page.locator('nav.record-jump-nav');
-    const targets=['#profile','#owned-records','#expanded-manager-records','#postseason-manager-panel','#opponents','#seasons'];
+    const targets=['#career-first','#notable-matchups','#owned-records','#expanded-manager-records','#postseason-manager-panel','#opponents','#seasons'];
     // Personal record sections load from canonical JSON after the static nav
     // mounts. Let the target exist before judging a navigable anchor.
     await page.locator('#opponents').waitFor({state:'attached',timeout:7000}).catch(()=>{});
