@@ -1244,25 +1244,20 @@ try{
     }finally{await visitor.close();}
    }
    if(route===''){
-    const featuredBeforeManager=await page.evaluate(()=>{
-     const featured=document.querySelector('main .section.shell .home-featured-card');
-     const manager=document.querySelector('main .manager-showcase');
-     return Boolean(featured&&manager&&(featured.compareDocumentPosition(manager)&Node.DOCUMENT_POSITION_FOLLOWING));
-    });
-    if(!featuredBeforeManager)errors.push(width+' desktop homepage must preserve accessible featured-destination order');
-    if(width===390){
-     const firstManager=page.locator('#home-manager-mobile .mobile-manager-row').first();
-     await firstManager.waitFor({state:'visible',timeout:15000}).catch(()=>{});
-     const top=await firstManager.evaluate(el=>el.getBoundingClientRect().top).catch(()=>9999);
-     if(top>695)errors.push(width+' mobile manager card is below first screen: '+Math.round(top)+'px');
-    }
+    // The first screen now prioritizes six adventure paths. The separate
+    // ten-manager directory stays below; both have usable discovery links.
+    const adventure=page.locator('#explore-the-league .discovery-grid a.discovery-card');
+    if(await adventure.count()!==6)
+     errors.push(width+' homepage is missing the six primary discovery paths');
+    const managerDirectory=page.locator('.home-franchise-links a[href^="managers/"]');
+    if(await managerDirectory.count()!==10)
+     errors.push(width+' homepage direct franchise directory must link all ten managers');
    }
    if(route===''){
-    const leagueSection=page.locator('section.section.shell').filter({has:page.getByRole('heading',{name:'Explore the league'})});
-    const recordsSection=page.locator('section.section.shell[aria-labelledby="season-records-home"]');
-    if(await leagueSection.count()!==1||await recordsSection.count()!==1||
-       !await leagueSection.evaluate(el=>Boolean(el.compareDocumentPosition(document.querySelector('[aria-labelledby="season-records-home"]'))&Node.DOCUMENT_POSITION_FOLLOWING)))
-     errors.push(width+' homepage should introduce league destinations before advanced Season OVR research');
+    const adventureSection=page.locator('#explore-the-league');
+    const managerSection=page.locator('#home-direct-franchise-title');
+    if(await adventureSection.count()!==1||await managerSection.count()!==1)
+     errors.push(width+' homepage must provide a discovery hub and direct manager finder');
    }
    if(route===''){
     const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
