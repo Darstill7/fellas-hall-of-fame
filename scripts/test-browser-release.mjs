@@ -2639,9 +2639,10 @@ try{
      // Linked records should retain the requested manager on initial page load.
      await page.goto(baseUrl+'managers/record-books.html?manager=Birch#owned-records',{waitUntil:'networkidle'});
      if(await page.locator('#manager').inputValue()!=='Birch'||
-        !(await page.locator('#manager-destination').innerText()).includes('Manager profile')||
-        !(await page.locator('#manager-destination').innerText()).includes('Report card'))
-      errors.push(width+' Birch deep-linked record book did not select correct manager');
+        (await page.locator('#record-book-title').innerText())!=='Birch’s record book'||
+        !(await page.locator('#manager-destination').innerText()).includes('Back to Birch’s profile')||
+        !(await page.locator('#manager-destination').innerText()).includes('View report card'))
+      errors.push(width+' Birch deep-linked record book did not select correct manager and return path');
     }
    }
    if(route==='managers/stilly/'){
