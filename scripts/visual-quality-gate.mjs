@@ -279,7 +279,7 @@ try{
         const links=[...source.matchAll(/href="([^"]*manager-draft-report-cards\.html[^"]*)"/g)].map(m=>m[1]);
         const expectedManager=slug==='tom'?'Thommy':slug;
         const correct=links.filter(link=>{
-         const path=new URL(link,location.href);
+         const path=new URL(link,page.url());
          return path.pathname.endsWith('/analytics/manager-draft-report-cards.html')&&
           path.searchParams.get('manager')?.toLowerCase()===expectedManager.toLowerCase();
         });
