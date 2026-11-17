@@ -68,6 +68,22 @@ for(const fragment of [
 for(let year=2020;year<=2026;year++)route('seasons/'+year+'.html');
 route('seasons/espn-origins.html');
 
+// The matchup chapter must derive the spotlight and game log from the
+// same canonical regular-season game set. No independently typed W/L numbers.
+const rivalry=read('assets/manager-h2h-explorer.js');
+for(const fragment of [
+ 'unified_record_book_2016_2026.json',
+ "g.stage==='regular'",
+ 'h2h-spotlight',
+ 'data-rivalry-spotlight',
+ 'data-spotlight-opponent',
+ "series.filter(x=>x.games>=3)",
+ "card.dataset.spotlightOpponent===op.value",
+ "season.value='all'",
+ 'h2h-game-win',
+ 'h2h-game-loss'
+])check(rivalry.includes(fragment),'Missing manager rivalry chapter behavior: '+fragment);
+
 // Personal records: per-manager selection and routes back to source profiles.
 for(const fragment of [
  'id="record-book-title"',
