@@ -48,7 +48,9 @@ for(const fragment of [
 const chapterStyle=read('assets/manager-profile-mobile-v3.css');
 for(const fragment of [
  'profile-focus-intro','profile-focus-kicker','profile-focus-title',
- 'profile-focus-summary','← All chapters','returnToFeatureDirectory'
+ 'profile-focus-summary','← All chapters','returnToFeatureDirectory',
+ 'profile-focus-records-link','focusActions.append(focusBack,focusRecords)',
+ "managerRecordBookUrl(profileName==='Tom'?'Thommy':profileName)"
 ])check(profiles.includes(fragment),'Missing focused chapter behavior: '+fragment);
 for(const fragment of [
  'body.premium-franchise.profile-feature-focused .profile-focus-toolbar',
@@ -103,6 +105,17 @@ for(const fragment of [
  '.career-resume-trade',
  '.career-transaction-proof'
 ])check(chapterStyle.includes(fragment),'Missing mobile transaction design: '+fragment);
+
+// Four source-backed research experiences share one mobile reading rhythm.
+for(const fragment of [
+ '--fellas-research-paper',
+ '#season-history .season-history-guide',
+ '#head-to-head [data-summary] .stats',
+ '.career-resume-metrics',
+ '[data-expanded-records-profile] .records-lab-grid',
+ '.profile-focus-actions',
+ '.profile-focus-records-link'
+])check(chapterStyle.includes(fragment),'Missing shared chapter styling or record-book exit: '+fragment);
 
 // Personal records: per-manager selection and routes back to source profiles.
 for(const fragment of [
