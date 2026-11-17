@@ -728,3 +728,58 @@ body.premium-franchise .profile-focus-toolbar + :is(
   #head-to-head [data-summary] .stats .stat:first-child
  ){grid-column:1}
 }
+
+
+/* A consistent exit from focused research: return to chapters or open records. */
+body.premium-franchise .profile-focus-actions{
+ display:flex;
+ flex-direction:column;
+ gap:9px;
+ min-width:155px;
+}
+body.premium-franchise .profile-focus-actions button{
+ width:100%;
+}
+body.premium-franchise .profile-focus-records-link{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ min-height:48px;
+ padding:10px 13px;
+ color:#f4d596;
+ border:1px solid #758fa0;
+ background:#173647;
+ border-radius:9px;
+ text-decoration:none;
+ text-align:center;
+ font-size:12px;
+ font-weight:850;
+ line-height:1.4;
+}
+body.premium-franchise .profile-focus-records-link:hover{
+ border-color:#f2d390;
+ background:#2a4b5d;
+}
+body.premium-franchise .profile-focus-records-link:focus-visible{
+ outline:3px solid #ffe2a5;
+ outline-offset:3px;
+}
+@media(max-width:650px){
+ body.premium-franchise .profile-focus-actions{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  min-width:0;
+ }
+ body.premium-franchise .profile-focus-actions > *{
+  min-width:0;
+  width:100%;
+  min-height:48px!important;
+  box-sizing:border-box;
+ }
+}
+@media(max-width:350px){
+ body.premium-franchise .profile-focus-actions{
+  grid-template-columns:minmax(0,1fr);
+ }
+}
