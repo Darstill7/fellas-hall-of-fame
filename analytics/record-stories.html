@@ -23,11 +23,21 @@ a{color:var(--gold)}a:hover{color:#fff}a:focus-visible,button:focus-visible,sele
 [hidden]{display:none!important}
 @media(max-width:640px){.mast nav a:last-child{display:none}.stats{grid-template-columns:1fr 1fr}.evidence dl{grid-template-columns:1fr;gap:2px}.evidence dd{margin:0 0 12px}.score-feature{padding:17px}.score-team{font-size:16px}.score-team strong{font-size:23px}}
 @media(max-width:380px){.stats{grid-template-columns:1fr}}
+
+/* Keep a personal-record journey recognizable when opening a matchup story. */
+.story-return{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:14px 0 1px;padding:13px 15px;border:1px solid #668090;border-left:4px solid #e5c17e;border-radius:10px;background:#152f3e}
+.story-return[hidden]{display:none!important}
+.story-return span{color:#d0dce3;font-size:10px;letter-spacing:.09em;font-weight:850}
+.story-return a{min-height:48px;display:inline-flex;align-items:center;padding:9px 13px;border-radius:8px;background:#284759;color:#f7d99d;font-size:13px;font-weight:850;text-decoration:none}
+.story-return a:hover{background:#365669}
+.story-return a:focus-visible{outline:3px solid #ffe1a0;outline-offset:2px}
+@media(max-width:640px){.story-return{align-items:stretch;flex-direction:column;gap:7px}.story-return a{justify-content:center;text-align:center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style></head>
 <body><a href="#main-content" style="position:absolute;left:-9999px" onfocus="this.style.left='8px'" onblur="this.style.left='-9999px'">Skip to content</a>
 <header class="mast"><div class="wrap"><a class="brand" href="../index.html">THE <span>FELLAS</span></a><nav aria-label="Main navigation"><a href="record-holders.html">Records</a><a href="../managers/">Managers</a><a href="../index.html">Home</a></nav></div></header>
 <main id="main-content" class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>›</span><a href="record-holders.html">Record Book</a><span>›</span><span>Matchup records</span></nav>
+<nav id="story-return" class="story-return" aria-label="Return to originating manager records" hidden></nav>
 <section class="hero"><div class="eyebrow">The Fellas / Records that tell a story</div><h1 id="story-title">The games that made history.</h1><p class="lead" id="story-intro">From record-breaking shootouts to unforgettable scoring droughts, explore the result before you dive into the ledger.</p>
 <div class="picker"><label for="record-choice">Choose a matchup collection</label><select id="record-choice"><option value="highest">Highest combined scores</option><option value="lowest">Lowest combined scores</option></select></div></section>
 <div id="data-status" role="status" aria-live="polite" class="section-intro">Loading verified record registry…</div>
@@ -54,8 +64,8 @@ $('record-season').textContent=top.year+' · Week '+top.week+' · '+(top.stage==
 $('record-total').innerHTML=number(top.combinedScore)+'<small>combined points · #'+top.rank+' in the '+(key==='highest'?'highest':'lowest')+'-scoring top ten</small>';
 $('record-scoreboard').innerHTML='<div class="score-team"><span>'+manager(top.winner)+' <small>W</small></span><strong>'+number(top.winnerScore)+'</strong></div><div class="score-team"><span>'+manager(top.loser)+' <small>L</small></span><strong>'+number(top.loserScore)+'</strong></div><div class="scoreboard-note">'+e(top.year)+' · Week '+e(top.week)+' · '+e(top.stage.replaceAll('_',' '))+'</div>';
 $('record-feature-label').textContent='Rank #'+top.rank+' / '+(key==='highest'?'Highest':'Lowest')+'-scoring matchup archive';$('record-editorial').textContent=top.rank===1?info.summary:'A verified #'+top.rank+' finish in the all-time '+(key==='highest'?'highest':'lowest')+' combined-scoring list. '+top.winner+' defeated '+top.loser+' in '+top.year+' Week '+top.week+'; the margin was '+number(top.winnerScore-top.loserScore)+' points.';
-var fromManager=params.get('manager'),back=fromManager&&Object.hasOwn(slug,fromManager)?'<a href="../managers/record-books.html?manager='+encodeURIComponent(fromManager)+'#notable-matchups">← Back to '+e(fromManager)+' records</a>':'';$('featured-links').innerHTML=back+'<a href="'+info.archive+'">Full matchup collection ↗</a><a href="../managers/">Browse franchises ↗</a>';
-$('ranking-body').innerHTML=rows.map(function(r){return '<tr'+(r.rank===top.rank?' aria-current="true"':'')+'><td><a href="?record='+key+'&rank='+r.rank+'">#'+e(r.rank)+'</a></td><td>'+manager(r.winner)+' <strong>'+number(r.winnerScore)+'</strong></td><td>'+manager(r.loser)+' '+number(r.loserScore)+'</td><td>'+e(r.year)+' · W'+e(r.week)+'</td><td class="num">'+number(r.combinedScore)+'</td></tr>'}).join('');
+var fromManager=params.get('manager'),canonicalManager=fromManager==='Tom'?'Thommy':fromManager,returnTo=canonicalManager&&Object.hasOwn(slug,canonicalManager)?'../managers/record-books.html?manager='+encodeURIComponent(canonicalManager)+'#notable-matchups':null;var back=returnTo?'<a href="'+returnTo+'">← Back to '+e(canonicalManager)+' records</a>':'';var returnNav=$('story-return');returnNav.hidden=!returnTo;returnNav.innerHTML=returnTo?'<span>FROM THE PERSONAL RECORD BOOK</span><a href="'+returnTo+'">← Return to '+e(canonicalManager)+'’s records</a>':'';$('featured-links').innerHTML=back+'<a href="'+info.archive+'">Full matchup collection ↗</a><a href="../managers/">Browse franchises ↗</a>';
+$('ranking-body').innerHTML=rows.map(function(r){return '<tr'+(r.rank===top.rank?' aria-current="true"':'')+'><td><a href="?record='+key+'&rank='+r.rank+(returnTo?'&manager='+encodeURIComponent(canonicalManager):'')+'">#'+e(r.rank)+'</a></td><td>'+manager(r.winner)+' <strong>'+number(r.winnerScore)+'</strong></td><td>'+manager(r.loser)+' '+number(r.loserScore)+'</td><td>'+e(r.year)+' · W'+e(r.week)+'</td><td class="num">'+number(r.combinedScore)+'</td></tr>'}).join('');
 $('record-margin').textContent=number(top.winningMargin==null?top.winnerScore-top.loserScore:top.winningMargin);
 $('record-count').textContent=data.eligibleMatchups==null?'See source':Number(data.eligibleMatchups).toLocaleString('en-US');
 $('record-coverage').textContent=key==='highest'?'2026 W9':'2026 W9';
