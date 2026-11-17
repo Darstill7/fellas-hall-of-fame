@@ -883,13 +883,22 @@ if(main&&tabs){
  `;
  document.head.append(focusStyle);
  const featureDirectory=document.getElementById('profile-features');
- const featureToolbar=document.createElement('div');
+ const featureToolbar=document.createElement('nav');
  featureToolbar.className='profile-focus-toolbar';
- featureToolbar.setAttribute('role','status');
+ featureToolbar.setAttribute('aria-label','Selected manager research chapter');
+ const focusIntro=document.createElement('div');
+ focusIntro.className='profile-focus-intro';
+ const focusKicker=document.createElement('span');
+ focusKicker.className='profile-focus-kicker';
+ focusKicker.textContent='THE FELLAS / MANAGER ARCHIVE';
  const focusName=document.createElement('strong');
+ focusName.className='profile-focus-title';
+ const focusSummary=document.createElement('p');
+ focusSummary.className='profile-focus-summary';
+ focusIntro.append(focusKicker,focusName,focusSummary);
  const focusBack=document.createElement('button');
- focusBack.type='button';focusBack.textContent='← Back to all features';
- featureToolbar.append(focusName,focusBack);
+ focusBack.type='button';focusBack.textContent='← All chapters';
+ featureToolbar.append(focusIntro,focusBack);
  featureDirectory?.querySelector('.profile-feature-groups')?.before(featureToolbar);
  let lastProfileFeatureTrigger=null;
  function clearFeatureFocus(){
@@ -956,6 +965,9 @@ if(main&&tabs){
    for(const child of shelfBody.children)if(child!==selected)child.classList.add('profile-focus-excluded');
   }
   focusName.textContent=button.querySelector('strong')?.textContent||'Selected feature';
+  focusSummary.textContent=button.querySelector('small')?.textContent||
+   'Verified franchise history and supporting evidence.';
+  focusKicker.textContent='THE FELLAS / '+(profileName==='Tom'?'Thommy':profileName).toUpperCase()+' / RESEARCH CHAPTER';
   // Put the single Back control beside the selected content, not above a
   // lengthy directory that the reader has already left behind.
   const anchor=section||destination.closest('details.profile-research-shelf')||(
