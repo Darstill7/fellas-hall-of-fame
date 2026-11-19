@@ -45,6 +45,8 @@ jobs:
         run: node scripts/verify-archived-metrics-navigation.mjs
       - name: Test mobile archive navigation and interactions
         run: node scripts/verify-core-user-journeys.mjs
+      - name: Audit Weekly Shitter on iPhone Safari, mobile Chrome and desktop
+        run: node scripts/verify-weekly-shitter-visual.mjs
       - name: Capture desktop, tablet, phone and Safari first screens
         run: node scripts/visual-quality-gate.mjs
       - name: Publish visual audit and screenshots

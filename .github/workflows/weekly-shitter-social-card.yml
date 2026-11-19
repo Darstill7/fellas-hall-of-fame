@@ -1,0 +1,45 @@
+name: Build Weekly Shitter social card
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'weekly-shitter/assets/issue-02-newsroom.svg'
+      - 'weekly-shitter/issue-02.html'
+      - 'scripts/build-weekly-shitter-social.py'
+      - '.github/workflows/weekly-shitter-social-card.yml'
+  pull_request:
+    paths:
+      - 'weekly-shitter/assets/issue-02-newsroom.svg'
+      - 'weekly-shitter/issue-02.html'
+      - 'scripts/build-weekly-shitter-social.py'
+      - '.github/workflows/weekly-shitter-social-card.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: weekly-shitter-social-card-main
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image render dependencies
+        run: python -m pip install 'Pillow>=10,<13' 'CairoSVG>=2.7,<3'
+      - name: Build and inspect social image
+        run: python scripts/build-weekly-shitter-social.py
+      - name: Commit updated social image
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git add weekly-shitter/assets/issue-02-social.jpg
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Weekly Shitter issue 02 JPEG preview"
+            git push origin HEAD:main
+          fi
