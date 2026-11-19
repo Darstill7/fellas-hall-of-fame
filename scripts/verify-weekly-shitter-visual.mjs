@@ -40,7 +40,11 @@ try{
           matchCards:document.querySelectorAll('.match-card').length,
           finalFlush:document.querySelector('#closing')?.innerText,
           masthead:document.querySelector('.mast-title')?.innerText,
-          sponsor:document.querySelector('.sponsor')?.innerText};
+          sponsor:document.querySelector('.sponsor')?.innerText,
+          navItems:[...document.querySelectorAll('.story-nav a')].map(x=>({label:x.textContent.trim(),left:Math.round(x.getBoundingClientRect().left),top:Math.round(x.getBoundingClientRect().top),width:Math.round(x.getBoundingClientRect().width)})),
+          sponsorHeight:Math.round(document.querySelector('.sponsor')?.getBoundingClientRect().height||0),
+          dropcapFloat:getComputedStyle(document.querySelector('.drop'),'::first-letter').float,
+          writerLedger:document.querySelector('.ledger')?.innerText};
       });
       const checks=[
         [report.h1Count===1,'exactly one headline'],
@@ -50,7 +54,15 @@ try{
         [report.matchCards===5,'five separate game cards'],
         [report.finalFlush==='The Final Flush','Final Flush is the closing section'],
         [report.masthead?.includes('SHITTER'),'publication masthead visible'],
-        [report.sponsor?.includes('Fictional parody'),'sponsorship disclosed']
+        [report.sponsor?.includes('Fictional parody'),'sponsorship disclosed'],
+        [!report.writerLedger?.includes('Provisional'),'unaudited prediction record not presented as certified'],
+        [width>=500||(
+          report.navItems.length===4 &&
+          new Set(report.navItems.map(x=>x.top)).size===2 &&
+          report.navItems.every(x=>x.width>140 && x.width<width/2)
+        ),'two-row mobile section navigation'],
+        [width>=500||report.dropcapFloat==='none','no detached mobile drop cap'],
+        [width>=500||report.sponsorHeight<145,'compact mobile sponsor block']
       ];
       for(const [ok,label] of checks)if(!ok)errors.push(name+': '+label+' '+JSON.stringify(report));
       await page.screenshot({path:path.join(out,'weekly-shitter-'+name+'.png'),fullPage:true});
