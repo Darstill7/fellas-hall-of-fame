@@ -61,5 +61,32 @@ assert.ok(currentIssue.includes("<h1>Everybody's a Genius <em>Until Sunday.</em>
 assert.ok(currentIssue.includes('class="mast-editorial"') && currentIssue.includes('class="mast-ticker"'),'Premium publication nameplate and deadline ticker present');
 assert.ok(currentIssue.includes('class="feature-line"') && currentIssue.includes('class="editorial-cover"') && !currentIssue.includes('issue-02-newsroom.svg'),'Article has headline-first visual hierarchy');
 assert.ok(currentIssue.includes('id="closing"')&&currentIssue.includes('The Final Flush'),'Final Flush remains closing section');
+const gradedPicks=JSON.parse(read('weekly-shitter/issue-01-verified-picks.json'));
+assert.equal(gradedPicks.games.length,5,'Exactly five published Week 10 predictions');
+assert.equal(gradedPicks.record.straightUp.wins,5);
+assert.equal(gradedPicks.record.againstSpread.wins,4);
+assert.equal(gradedPicks.record.againstSpread.losses,1);
+const archivedScores=['THE PICK: STEW 122, MITCH 121','THE PICK: STILLY 124, SCOTT 105','THE PICK: JMID 116, THOMMY 100','THE PICK: TONY 119, KUHL 89','UPDATED PICK: BIRCH 119, STOVER 115'];
+for(const pick of archivedScores)assert.ok(html.includes(pick),'Missing original issue pick: '+pick);
+let su=0,ats=0;
+for(const entry of gradedPicks.games){
+ const names=Object.keys(entry.actual),opponent=names.find(x=>x!==entry.favorite);
+ assert.ok(opponent,'Missing opponent '+entry.matchup);
+ const margin=+(entry.actual[entry.favorite]-entry.actual[opponent]).toFixed(2);
+ const total=+(entry.actual[names[0]]+entry.actual[names[1]]).toFixed(2);
+ assert.equal(entry.actualMargin,margin,'Point margin must reconcile with final scores');
+ assert.equal(entry.actualTotal,total,'Total must reconcile with final scores');
+ assert.equal(entry.winnerCorrect,margin>0,'Winner grading must reconcile');
+ assert.equal(entry.favoriteCovered,margin>-entry.line,'Spread must reconcile');
+ assert.equal(entry.totalPick,'not explicitly published','Do not invent over/under wagers');
+ su+=Number(margin>0);ats+=Number(margin>-entry.line);
+}
+assert.equal(su,5,'All five original winner picks were correct');
+assert.equal(ats,4,'Four original published favorites covered');
+for(const marker of ['5–0','4–1','Stew 122, Mitch 121','119–115','119–89','issue-01-verified-picks.json'])
+ assert.ok(currentIssue.includes(marker),'Issue 02 writer receipts missing '+marker);
+assert.ok(!currentIssue.includes('picked Mitch over Stew'),'Remove false writer-prediction retrospective');
+assert.ok(!currentIssue.includes('Pending audit'),'No unaudited ledger after completion');
+
 assert.ok(!html.includes('Schermerhorn'),'No current Thommy/Schermerhorn confusion');
 console.log('PASS: Weekly Shitter Week 10 issue, historical feature, projections and mobile links');
