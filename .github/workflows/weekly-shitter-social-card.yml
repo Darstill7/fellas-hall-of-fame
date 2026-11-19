@@ -7,6 +7,12 @@ on:
       - 'weekly-shitter/issue-02.html'
       - 'scripts/build-weekly-shitter-social.py'
       - '.github/workflows/weekly-shitter-social-card.yml'
+  pull_request:
+    paths:
+      - 'weekly-shitter/assets/issue-02-newsroom.svg'
+      - 'weekly-shitter/issue-02.html'
+      - 'scripts/build-weekly-shitter-social.py'
+      - '.github/workflows/weekly-shitter-social-card.yml'
   workflow_dispatch:
 permissions:
   contents: write
@@ -15,7 +21,6 @@ concurrency:
   cancel-in-progress: false
 jobs:
   generate:
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -29,6 +34,7 @@ jobs:
       - name: Build and inspect social image
         run: python scripts/build-weekly-shitter-social.py
       - name: Commit updated social image
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           git add weekly-shitter/assets/issue-02-social.jpg
           git config user.name "github-actions[bot]"
