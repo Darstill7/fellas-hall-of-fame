@@ -31,10 +31,10 @@ try{
       await page.goto(url,{waitUntil:'networkidle'});
       const report=await page.evaluate(()=>{
         const heading=document.querySelector('h1');
-        const img=document.querySelector('.hero-figure img');
+        const cover=document.querySelector('.editorial-cover');
         const box=heading?.getBoundingClientRect();
         return {title:heading?.innerText||'',h1Count:document.querySelectorAll('h1').length,
-          heroLoaded:img?.complete&&img?.naturalWidth>0,heroWidth:img?.naturalWidth,
+          coverPresent:!!cover&&cover.getBoundingClientRect().height>250,coverTitle:cover?.querySelector('.cover-left>strong')?.innerText,hasClipArt:!!document.querySelector('.hero-figure img'),
           bodyWidth:document.documentElement.scrollWidth,viewport:innerWidth,
           headlineBounds:box?{left:box.left,right:box.right,width:box.width}:null,
           matchCards:document.querySelectorAll('.match-card').length,
@@ -49,7 +49,8 @@ try{
       const checks=[
         [report.h1Count===1,'exactly one headline'],
         [report.title.includes("Everybody's a Genius"),'approved article headline'],
-        [report.heroLoaded,'hero illustration loaded'],
+        [report.coverPresent&&report.coverTitle?.includes('HELL'),'typographic cover rendered'],
+        [!report.hasClipArt,'old AI illustration removed'],
         [report.bodyWidth<=width+3,'no horizontal overflow'],
         [report.matchCards===5,'five separate game cards'],
         [report.finalFlush==='The Final Flush','Final Flush is the closing section'],
