@@ -51,6 +51,13 @@ assert.equal(socialCover.subarray(-2).toString('hex'),'ffd9','Valid JPEG closing
 assert.ok(socialCover.length>10000,'Approved cover preview has real image data');
 assert.ok(html.includes('shitter/cover-week10-approved.jpg'),'Standard PNG social preview URL');
 assert.ok(archive.includes('background:url("cover-week10-approved.avif") center/contain no-repeat'),'Archive shows safely constrained cover');
-assert.ok(home.includes('href="shitter/2026-week-10/"'),'Homepage promotes issue');
+const currentIssue=read('weekly-shitter/issue-02.html');
+const currentArchive=read('weekly-shitter/index.html');
+assert.ok(home.includes('href="weekly-shitter/issue-02.html"'),'Homepage promotes current Issue 02');
+assert.ok(home.includes('href="weekly-shitter/"'),'Homepage links to current issue archive');
+assert.ok(currentArchive.includes('href="issue-02.html"'),'Archive features current issue');
+assert.ok(currentArchive.includes('href="../shitter/2026-week-10/"'),'Archive retains previous issue');
+assert.ok(currentIssue.includes('<h1>Everybody\'s a Genius Until Sunday</h1>'),'Current issue has approved headline');
+assert.ok(currentIssue.includes('id="closing"')&&currentIssue.includes('The Final Flush'),'Final Flush remains closing section');
 assert.ok(!html.includes('Schermerhorn'),'No current Thommy/Schermerhorn confusion');
 console.log('PASS: Weekly Shitter Week 10 issue, historical feature, projections and mobile links');
