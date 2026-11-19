@@ -83,6 +83,11 @@ for(const entry of gradedPicks.games){
 }
 assert.equal(su,5,'All five original winner picks were correct');
 assert.equal(ats,4,'Four original published favorites covered');
+assert.equal((currentIssue.match(/class="receipt-game"/g)||[]).length,5,'Show all five graded Week 10 games');
+assert.equal((currentIssue.match(/class="receipt-win"/g)||[]).length,4,'Four covering teams shown');
+assert.equal((currentIssue.match(/class="receipt-loss"/g)||[]).length,1,'One non-cover shown');
+assert.ok(currentIssue.includes('THE WEEK 10 RECEIPTS'),'On-page archival receipts visible');
+
 for(const marker of ['5–0','4–1','Stew 122, Mitch 121','119–115','119–89','issue-01-verified-picks.json'])
  assert.ok(currentIssue.includes(marker),'Issue 02 writer receipts missing '+marker);
 assert.ok(!currentIssue.includes('picked Mitch over Stew'),'Remove false writer-prediction retrospective');
