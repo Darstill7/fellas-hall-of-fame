@@ -44,7 +44,7 @@ try{
       });
       const checks=[
         [report.h1Count===1,'exactly one headline'],
-        [report.title.replace(/\\s+/g,' ').includes("Everybody's a Genius"),'approved article headline'],
+        [report.title.includes("Everybody's a Genius"),'approved article headline'],
         [report.heroLoaded,'hero illustration loaded'],
         [report.bodyWidth<=width+3,'no horizontal overflow'],
         [report.matchCards===5,'five separate game cards'],
