@@ -93,5 +93,25 @@ for(const marker of ['5–0','4–1','Stew 122, Mitch 121','119–115','119–89
 assert.ok(!currentIssue.includes('picked Mitch over Stew'),'Remove false writer-prediction retrospective');
 assert.ok(!currentIssue.includes('Pending audit'),'No unaudited ledger after completion');
 
+const week11Lines=[
+ {match:'Stilly',fav:'Stilly',spread:-10.5,total:219.5,predicted:{Stilly:118,Thommy:105},totalPick:'Over'},
+ {match:'Stew',fav:'JMid',spread:-1.5,total:228.5,predicted:{JMid:118,Stew:114},totalPick:'Over'},
+ {match:'Tony',fav:'Tony',spread:-12.5,total:207.5,predicted:{Tony:110,Sheffla:94},totalPick:'Under'},
+ {match:'Mitch',fav:'Birch',spread:-1.5,total:235.5,predicted:{Birch:121,Mitch:118},totalPick:'Over'},
+ {match:'Stover',fav:'Stover',spread:-25.5,total:202.5,predicted:{Stover:115,Kuhl:86},totalPick:'Under'}
+];
+for(const line of week11Lines){
+ const entries=Object.entries(line.predicted),other=entries.find(([n])=>n!==line.fav)[0];
+ const scoreTotal=entries.reduce((total,[,pts])=>total+pts,0);
+ const margin=line.predicted[line.fav]-line.predicted[other];
+ assert.ok(margin+line.spread>0,'Week 11 forecast must support the published favorite: '+line.match);
+ assert.ok(line.totalPick==='Over'?scoreTotal>line.total:scoreTotal<line.total,'Week 11 forecast must support published total selection: '+line.match);
+ assert.ok(currentIssue.includes(line.fav+' '+line.spread+' / '+line.total),'Original line missing: '+line.match);
+}
+assert.ok(currentIssue.includes('THURSDAY NIGHT · FIRST LINEUP LOCK'),'Thursday kickoff audit must be included');
+assert.ok(currentIssue.includes('Josh Jacobs is on Green Bay'), 'Bye week made explicit for Jacobs');
+assert.ok(currentIssue.includes('THE WEEK 10 RECEIPTS'),'Verified issue one receipts preserved');
+
+
 assert.ok(!html.includes('Schermerhorn'),'No current Thommy/Schermerhorn confusion');
 console.log('PASS: Weekly Shitter Week 10 issue, historical feature, projections and mobile links');
