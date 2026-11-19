@@ -59,7 +59,7 @@ assert.ok(currentArchive.includes('href="issue-02.html"'),'Archive features curr
 assert.ok(currentArchive.includes('href="../shitter/2026-week-10/"'),'Archive retains previous issue');
 assert.ok(currentIssue.includes("<h1>Everybody's a Genius <em>Until Sunday.</em></h1>"),'Current issue preserves approved headline in magazine styling');
 assert.ok(currentIssue.includes('class="mast-editorial"') && currentIssue.includes('class="mast-ticker"'),'Premium publication nameplate and deadline ticker present');
-assert.ok(currentIssue.includes('class="feature-line"') && currentIssue.includes('class="hero-figure"'),'Article has headline-first visual hierarchy');
+assert.ok(currentIssue.includes('class="feature-line"') && currentIssue.includes('class="editorial-cover"') && !currentIssue.includes('issue-02-newsroom.svg'),'Article has headline-first visual hierarchy');
 assert.ok(currentIssue.includes('id="closing"')&&currentIssue.includes('The Final Flush'),'Final Flush remains closing section');
 assert.ok(!html.includes('Schermerhorn'),'No current Thommy/Schermerhorn confusion');
 console.log('PASS: Weekly Shitter Week 10 issue, historical feature, projections and mobile links');
