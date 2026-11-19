@@ -1,0 +1,124 @@
+{
+  "publication": "The Weekly Shitter",
+  "issue": "Issue 01",
+  "week": 10,
+  "season": 2026,
+  "originalIssue": "shitter/2026-week-10/index.html",
+  "modelReceipt": "shitter/2026-week-10/projection-receipts.json",
+  "finalScoreSource": "Sleeper 2026 week 10, league 1340027406009761792, verified with connected Flaim Fantasy get_matchups on 2026-11-19",
+  "methodology": "Winner picks are explicit THE PICK/UPDATED PICK scorelines in the archived issue. ATS cover grades the favorite designated by its published spread against final score. Week 10 updated Birch -3.5 line supersedes earlier -14.5. Totals were published as lines but the article did not explicitly make over or under bets, so there is no totals selection record.",
+  "record": {
+    "straightUp": {
+      "wins": 5,
+      "losses": 0
+    },
+    "againstSpread": {
+      "wins": 4,
+      "losses": 1
+    },
+    "totals": "not graded: no explicit picks"
+  },
+  "games": [
+    {
+      "matchup": "Stew vs Mitch",
+      "favorite": "Stew",
+      "line": -1.5,
+      "total": 242.5,
+      "scorePick": {
+        "Stew": 122,
+        "Mitch": 121
+      },
+      "actual": {
+        "Stew": 161.4,
+        "Mitch": 134.04
+      },
+      "actualTotal": 295.44,
+      "actualMargin": 27.36,
+      "winnerCorrect": true,
+      "favoriteCovered": true,
+      "totalOutcome": "over",
+      "totalPick": "not explicitly published"
+    },
+    {
+      "matchup": "Stilly vs Scott/Sheffla",
+      "favorite": "Stilly",
+      "line": -19.5,
+      "total": 228.5,
+      "scorePick": {
+        "Stilly": 124,
+        "Sheffla": 105
+      },
+      "actual": {
+        "Stilly": 122.86,
+        "Sheffla": 88.1
+      },
+      "actualTotal": 210.96,
+      "actualMargin": 34.76,
+      "winnerCorrect": true,
+      "favoriteCovered": true,
+      "totalOutcome": "under",
+      "totalPick": "not explicitly published"
+    },
+    {
+      "matchup": "JMid vs Thommy",
+      "favorite": "JMid",
+      "line": -16.5,
+      "total": 216.5,
+      "scorePick": {
+        "JMid": 116,
+        "Thommy": 100
+      },
+      "actual": {
+        "JMid": 119.46,
+        "Thommy": 107.32
+      },
+      "actualTotal": 226.78,
+      "actualMargin": 12.14,
+      "winnerCorrect": true,
+      "favoriteCovered": false,
+      "totalOutcome": "over",
+      "totalPick": "not explicitly published"
+    },
+    {
+      "matchup": "Tony vs Kuhl",
+      "favorite": "Tony",
+      "line": -29.5,
+      "total": 207.5,
+      "scorePick": {
+        "Tony": 119,
+        "Kuhl": 89
+      },
+      "actual": {
+        "Tony": 89.52,
+        "Kuhl": 48.92
+      },
+      "actualTotal": 138.44,
+      "actualMargin": 40.6,
+      "winnerCorrect": true,
+      "favoriteCovered": true,
+      "totalOutcome": "under",
+      "totalPick": "not explicitly published"
+    },
+    {
+      "matchup": "Birch vs Stover",
+      "favorite": "Birch",
+      "line": -3.5,
+      "total": 234,
+      "scorePick": {
+        "Birch": 119,
+        "Stover": 115
+      },
+      "actual": {
+        "Birch": 178.32,
+        "Stover": 163.98
+      },
+      "note": "Use updated Birch -3.5 / 119–115, not original -14.5 / 119–104; published revised issue clearly labels updated pick.",
+      "actualTotal": 342.3,
+      "actualMargin": 14.34,
+      "winnerCorrect": true,
+      "favoriteCovered": true,
+      "totalOutcome": "over",
+      "totalPick": "not explicitly published"
+    }
+  ]
+}
