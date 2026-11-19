@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 590" role="img" aria-labelledby="title desc">
+<title id="title">The Fellas trade deadline newsroom</title><desc id="desc">Editorial artwork of a football helmet, football, five confirmed league trades and a Week 11 injury board.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#16181d"/><stop offset=".57" stop-color="#24252a"/><stop offset="1" stop-color="#101114"/></linearGradient>
+<linearGradient id="helmet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4dfd2"/><stop offset=".55" stop-color="#827d76"/><stop offset="1" stop-color="#46474a"/></linearGradient>
+<linearGradient id="paper" x1="0" y1="0" x2=".1" y2="1"><stop stop-color="#dfd7c7"/><stop offset="1" stop-color="#b4ac9e"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#833631" stop-opacity=".6"/><stop offset="1" stop-color="#131518" stop-opacity="0"/></radialGradient>
+<pattern id="grain" width="37" height="43" patternUnits="userSpaceOnUse"><path d="M3 17h1m19 5h2M15 39h1" stroke="#fff" opacity=".07"/></pattern>
+<filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="8" dy="13" stdDeviation="9" flood-color="#000" flood-opacity=".6"/></filter>
+</defs>
+<rect width="1200" height="590" fill="url(#bg)"/><rect width="1200" height="590" fill="url(#grain)"/><ellipse cx="870" cy="200" rx="500" ry="330" fill="url(#glow)"/>
+<path d="M0 477Q220 448 420 477T850 468T1200 473V590H0Z" fill="#101012"/><path d="M0 481H1200" stroke="#57504a" stroke-width="4"/>
+<g opacity=".23"><circle cx="78" cy="40" r="9" fill="#f6e8c0"/><circle cx="118" cy="40" r="9" fill="#f6e8c0"/><circle cx="158" cy="40" r="9" fill="#f6e8c0"/><circle cx="78" cy="76" r="9" fill="#f6e8c0"/><circle cx="118" cy="76" r="9" fill="#f6e8c0"/><circle cx="158" cy="76" r="9" fill="#f6e8c0"/></g>
+<g transform="translate(60 169)" filter="url(#shadow)">
+<path d="M43 209Q-4 122 56 49Q103-6 202 7Q283 22 300 104L273 204L230 205L228 153L113 162L103 240L48 239Z" fill="url(#helmet)" stroke="#27252a" stroke-width="9"/>
+<path d="M67 90Q159 31 269 92" fill="none" stroke="#e84140" stroke-width="21"/><path d="M92 65Q166 33 233 68" fill="none" stroke="#9a302d" stroke-width="5"/>
+<path d="M116 168L289 150L309 197L278 216L180 208L119 244" fill="none" stroke="#c3bbb0" stroke-width="12"/><path d="M115 170L167 244M221 159L221 224M275 153L270 211" fill="none" stroke="#bbb9b1" stroke-width="9"/>
+<path d="M119 159l-3 74M189 166l6 67" stroke="#313338" stroke-width="6"/>
+<circle cx="207" cy="124" r="41" fill="#111318" stroke="#d5b66f" stroke-width="5"/><path d="M196 141h25v10h-25Zm-8-16q0-12 11-12h20q11 0 11 12" stroke="#e8e5dd" stroke-width="5" fill="none"/><path d="M191 106l6-13 10 8 10-8 7 13" stroke="#d5b66f" stroke-width="4" fill="none"/>
+</g>
+<g transform="translate(403 62) rotate(-3 225 205)" filter="url(#shadow)">
+<rect x="0" y="0" width="468" height="416" rx="9" fill="url(#paper)" stroke="#655a50" stroke-width="10"/>
+<text x="27" y="53" fill="#262427" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="32" letter-spacing="1">THE TRADE DEADLINE</text>
+<path d="M27 69H437" stroke="#d83e38" stroke-width="7"/><text x="28" y="112" fill="#4b4946" font-family="Arial,sans-serif" font-size="20" font-weight="700">FIVE CONFIRMED DEALS</text>
+<g fill="#202124" font-family="Arial,sans-serif" font-size="25" font-weight="700">
+<text x="67" y="173">Stilly  ↔  Birch</text><text x="67" y="224">Tony  ↔  Mitch</text><text x="67" y="275">Stew  ↔  Kuhl</text><text x="67" y="326">Stew  ↔  JMid</text><text x="67" y="377">Stover  ↔  Stew</text></g>
+<g stroke="#cf3535" stroke-width="6" fill="none"><path d="M26 154l13 13 24-29M26 205l13 13 24-29M26 256l13 13 24-29M26 307l13 13 24-29M26 358l13 13 24-29"/></g>
+</g>
+<g transform="translate(916 77) rotate(4 126 178)" filter="url(#shadow)"><rect width="253" height="357" rx="5" fill="#12151b" stroke="#76716e" stroke-width="7"/><path d="M15 76H238" stroke="#e3423c" stroke-width="5"/><text x="19" y="39" fill="#f0eee9" font-size="28" font-weight="900" font-family="Arial,sans-serif">WEEK 11</text><text x="19" y="69" fill="#ff625d" font-size="22" font-weight="900" font-family="Arial,sans-serif">INJURY WATCH</text><g fill="#e9e4dc" font-family="Arial,sans-serif" font-weight="700" font-size="19"><text x="19" y="120">KENNETH WALKER</text><text x="19" y="179">BROCK BOWERS</text><text x="19" y="238">DALTON KINCAID</text></g><g fill="#f06560" font-size="27" font-weight="900" font-family="Arial,sans-serif"><text x="201" y="151">Q</text><text x="201" y="210">Q</text><text x="201" y="269">Q</text></g><path d="M18 158H235M18 217H235M18 276H235" stroke="#515257" stroke-width="2"/><text x="21" y="320" font-family="Arial,sans-serif" fill="#a6a7a8" font-size="13" letter-spacing="1">PRE-KICKOFF STATUS</text></g>
+<g transform="translate(778 428) rotate(-11)" filter="url(#shadow)"><ellipse cx="126" cy="73" rx="138" ry="67" fill="#6e3225" stroke="#bb7f54" stroke-width="8"/><path d="M23 51Q126 82 227 49" fill="none" stroke="#e0d3b9" stroke-width="5"/><path d="M94 70h75M107 59v23m13-23v23m14-23v23m13-23v23m13-23v23" stroke="#efe4cd" stroke-width="5"/></g>
+<path d="M0 573H1200" stroke="#e13a38" stroke-width="11"/>
+</svg>
