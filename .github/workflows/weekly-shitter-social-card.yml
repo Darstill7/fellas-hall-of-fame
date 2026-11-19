@@ -30,12 +30,10 @@ jobs:
         run: python scripts/build-weekly-shitter-social.py
       - name: Commit updated social image
         run: |
-          if ! git diff --quiet -- weekly-shitter/assets/issue-02-social.jpg || [ ! -f weekly-shitter/assets/issue-02-social.jpg ]; then
-            git add weekly-shitter/assets/issue-02-social.jpg
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            if ! git diff --cached --quiet; then
-              git commit -m "Update Weekly Shitter issue 02 JPEG preview"
-              git push origin HEAD:main
-            fi
+          git add weekly-shitter/assets/issue-02-social.jpg
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Weekly Shitter issue 02 JPEG preview"
+            git push origin HEAD:main
           fi
