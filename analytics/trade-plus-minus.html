@@ -55,9 +55,11 @@ function aggregate(trades){
 }
 function render(){
  const manager=$('managerFilter').value,year=$('seasonFilter').value;
+ const partner=new URL(window.location.href).searchParams.get('partner');
+ const validPartner=manager!=='all'&&partner&&partner!==manager?partner:null;
  const subset=qualified.filter(t=>year==='all'||String(t.year)===year);
  const agg=aggregate(subset);
- const pairs=agg.pairs.filter(p=>manager==='all'||p.a===manager||p.b===manager).sort((x,y)=>Math.abs(y.net)-Math.abs(x.net)||x.a.localeCompare(y.a));
+ const pairs=agg.pairs.filter(p=>(manager==='all'||p.a===manager||p.b===manager)&&(!validPartner||p.a===validPartner||p.b===validPartner)).sort((x,y)=>Math.abs(y.net)-Math.abs(x.net)||x.a.localeCompare(y.a));
  $('pairRows').innerHTML=pairs.length?pairs.map(p=>{
   const lead=p.net>=0?p.a:p.b,other=p.net>=0?p.b:p.a;
   const view=manager==='all'?Math.abs(p.net):manager===p.a?p.net:-p.net;
@@ -72,17 +74,17 @@ function render(){
   const key=[row,col].sort().join('|'),pair=matrixByPair.get(key);
   if(!pair)return '<td class="na" title="Not measured">—</td>';
   const net=row===pair.a?pair.net:-pair.net;
-  return '<td class="'+classFor(net)+'"><a href="?manager='+encodeURIComponent(row)+'" title="'+esc(row)+' vs '+esc(col)+'; '+pair.n+' measured trades">'+signed(net)+'</a></td>';
+  return '<td class="'+classFor(net)+'"><a href="?manager='+encodeURIComponent(row)+'&partner='+encodeURIComponent(col)+'" title="'+esc(row)+' vs '+esc(col)+'; '+pair.n+' measured trades">'+signed(net)+'</a></td>';
  }).join('')+'</tr>').join('');
  const managerRows=agg.managers.filter(m=>manager==='all'||m.manager===manager).sort((a,b)=>b.net-a.net);
  $('managerRows').innerHTML=managerRows.map(m=>'<tr><td><a href="trade-portfolios.html?manager='+encodeURIComponent(m.manager)+'">'+esc(m.manager)+'</a></td><td class="num '+classFor(m.net)+'">'+signed(m.net)+'</td><td class="num">'+m.n+'</td><td class="num">'+m.wins+'</td><td class="num">'+m.losses+'</td></tr>').join('')||'<tr><td colspan="5">No qualifying sample for this manager.</td></tr>';
- const selected=qualified.filter(t=>(year==='all'||String(t.year)===year)&&(manager==='all'||t.sides.some(s=>canon(s.manager)===manager))).sort((a,b)=>b.date.localeCompare(a.date));
+ const selected=qualified.filter(t=>(year==='all'||String(t.year)===year)&&(manager==='all'||t.sides.some(s=>canon(s.manager)===manager))&&(!validPartner||t.sides.some(s=>canon(s.manager)===validPartner))).sort((a,b)=>b.date.localeCompare(a.date));
  $('tradeRows').innerHTML=selected.map(t=>{
   const [a,b]=t.sides;const gap=a.postTradePAR-b.postTradePAR;const lead=gap>=0?a:b,low=gap>=0?b:a;
   return '<article class="deal"><div class="eyebrow">'+esc(t.year)+' · Week '+esc(t.week)+' · '+esc(t.date)+'</div><h3>'+esc(canon(lead.manager))+' vs '+esc(canon(low.manager))+'</h3><p class="'+classFor(Math.abs(gap))+'">+'+Math.abs(gap).toFixed(2)+' observed PAR for '+esc(canon(lead.manager))+'</p><p>'+esc(canon(a.manager))+': '+esc(a.assets)+' ('+a.postTradePAR.toFixed(2)+' PAR)</p><p>'+esc(canon(b.manager))+': '+esc(b.assets)+' ('+b.postTradePAR.toFixed(2)+' PAR)</p><a href="trade-museum.html?trade='+encodeURIComponent(String(t.id))+'">Inspect source receipt →</a></article>';
  }).join('')||'<p class="no-data">No qualifying measured trades for this selection.</p>';
  const url=new URL(window.location.href);
- if(manager==='all')url.searchParams.delete('manager');else url.searchParams.set('manager',manager);
+ if(manager==='all'){url.searchParams.delete('manager');url.searchParams.delete('partner')}else url.searchParams.set('manager',manager);
  if(year==='all')url.searchParams.delete('season');else url.searchParams.set('season',year);
  window.history.replaceState(null,'',url);
 }
@@ -104,7 +106,7 @@ try{
  const selected=managers.find(m=>m.toLowerCase()===String(query.get('manager')||'').toLowerCase());
  if(selected)$('managerFilter').value=selected;
  if(years.some(y=>String(y)===query.get('season')))$('seasonFilter').value=query.get('season');
- $('managerFilter').addEventListener('change',render);$('seasonFilter').addEventListener('change',render);
+ $('managerFilter').addEventListener('change',()=>{const url=new URL(window.location.href);url.searchParams.delete('partner');history.replaceState(null,'',url);render()});$('seasonFilter').addEventListener('change',render);
  $('scoreboard').hidden=false;
  $('status').textContent='Research-scoped sample: '+qualified.length+' qualified deals out of '+data.records.length+' reviewed transactions. Updated only when the audited PAR source changes.';
  render();
