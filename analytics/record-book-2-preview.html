@@ -15,7 +15,12 @@
  <p class="dek">A decade of absurd scores, improbable wins, historic failures, and the names behind them. Start with a franchise. Then uncover the evidence.</p>
  <div class="scope" id="scope">Loading research ledger…</div>
  </header>
- <section class="folio" aria-labelledby="folio-title">
+ <nav class="record-journeys" aria-label="Explore the Record Book">
+ <a href="#franchise-dossier"><strong>01 / Manager dossiers</strong><span>Open a franchise's career marks and lowlights</span></a>
+ <a href="#manager-comparison"><strong>02 / Compare managers</strong><span>See two franchises across identical records</span></a>
+ <a href="#record-catalog-section"><strong>03 / Browse every record</strong><span>Search the complete indexed research archive</span></a>
+ </nav>
+ <section class="folio" id="franchise-dossier" aria-labelledby="folio-title">
  <div class="chapter"><span>01 / THE FRANCHISE DOSSIER</span><span>Records, personal bests &amp; lowlights</span></div>
  <div class="folio-heading"><div><h2 id="folio-title">Choose your manager.</h2><p>Every current and former manager receives a complete statistical portfolio, where the underlying historical data supports it.</p></div>
   <label class="field"><span>Manager</span><select id="manager-picker" aria-label="Choose a manager"><option>Loading…</option></select></label></div>
@@ -27,6 +32,7 @@
   <button type="button" data-pf="research" aria-pressed="false">Research only</button>
  </div>
  <div id="manager-results" aria-live="polite"></div>
+ <a class="compare-this-manager" href="#manager-comparison" id="compare-selected">Compare this manager with another →</a>
  </section>
  <section class="compare" aria-labelledby="compare-title" id="manager-comparison">
  <div class="chapter"><span>02 / HEAD-TO-HEAD RECORD DOSSIER</span><span>Same categories, different franchises</span></div>
@@ -45,7 +51,7 @@
  <div id="compare-summary" class="scope" role="status" aria-live="polite">Select managers to compare their archived placements.</div>
  <div id="compare-results" class="compare-results"></div>
  </section>
- <section class="catalog" aria-labelledby="catalog-title">
+ <section class="catalog" id="record-catalog-section" aria-labelledby="catalog-title">
  <div class="chapter"><span>03 / THE COMPLETE INDEX</span><span>Records and source receipts</span></div>
  <h2 id="catalog-title">Browse the archive.</h2><p class="catalog-intro">Search by achievement, manager, or category. Tied holders retain their place; narrative exhibits and provisional records are clearly labeled.</p>
  <div class="search-tools">
