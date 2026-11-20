@@ -111,7 +111,9 @@ try{
    await clickable.click();
    const direct=new URL(page.url());
    assert.ok(direct.searchParams.get('manager')&&direct.searchParams.get('partner'),'Matrix cells must link to specific trading pairs');
-   assert.ok(await page.locator('#pairRows tr').count()>0,'Clicked pair should show measured comparison');
+   await page.locator('#scoreboard:not([hidden])').waitFor();
+   await page.locator('#pairRows tr').first().waitFor();
+   assert.ok((await page.locator('#pairRows').innerText()).includes(' / '),'Clicked pair should show measured comparison coverage');
    await page.goto(plusUrl+'?manager=Tom&season=2024',{waitUntil:'load'});
    await page.locator('#scoreboard:not([hidden])').waitFor();
    assert.equal(await page.locator('#managerFilter').inputValue(),'Tom','Comparison manager deep link must restore');
