@@ -1,0 +1,18 @@
+name: Record Book 2.0 entryway
+on:
+  pull_request:
+    paths:
+      - 'analytics/records.html'
+      - 'scripts/test-record-book-entryway.mjs'
+      - '.github/workflows/record-book-entryway.yml'
+  workflow_dispatch:
+jobs:
+  record-book-entryway:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify front door and source continuity
+        run: node scripts/test-record-book-entryway.mjs
