@@ -93,6 +93,13 @@ try{
    const subsetRows=await page.locator('#pairRows tr').count();
    assert.ok(subsetRows>0,'Stilly counterpart filter should show measured trades');
    assert.equal(new URL(page.url()).searchParams.get('manager'),'Stilly','Trade +/- manager selection must be deep-linkable');
+   assert.ok(await page.locator('#matrixBody tr').count()>0,'Head-to-head matrix should have manager rows');
+   const clickable=page.locator('#matrixBody a[href*="partner="]').first();
+   const pairHref=await clickable.getAttribute('href');
+   await clickable.click();
+   const direct=new URL(page.url());
+   assert.ok(direct.searchParams.get('manager')&&direct.searchParams.get('partner'),'Matrix cells must link to specific trading pairs');
+   assert.ok(await page.locator('#pairRows tr').count()>0,'Clicked pair should show measured comparison');
    await page.goto(plusUrl+'?manager=Tom&season=2024',{waitUntil:'load'});
    await page.locator('#scoreboard:not([hidden])').waitFor();
    assert.equal(await page.locator('#managerFilter').inputValue(),'Tom','Comparison manager deep link must restore');
