@@ -49,6 +49,31 @@ try{
    await input.fill('Stew');
    const filteredCount=await page.locator('#expanded-record-categories>.category-card').count();
    if(filteredCount>categoryCount)errors.push(engine+': keyword search escaped active family filter');
+   // Side-by-side comparison uses the *same* 44-category owner receipts.
+   const left=page.locator('#record-compare-left');
+   const right=page.locator('#record-compare-right');
+   await page.waitForFunction(()=>{
+    const score=document.querySelector('.record-compare-scoreboard');
+    return score?.querySelectorAll('.record-compare-stat').length===3;
+   },null,{timeout:20000});
+   await left.selectOption('Mitch');
+   await right.selectOption('Stew');
+   const compare=await page.evaluate(()=>{
+    const stats=[...document.querySelectorAll('.record-compare-stat strong')].map(el=>Number(el.textContent));
+    const sections=[...document.querySelectorAll('.record-compare-evidence>div')];
+    return {stats,visible:sections.map(s=>s.querySelectorAll('a').length),
+      evidence:sections.flatMap(s=>[...s.querySelectorAll('a')].map(a=>a.getAttribute('href')))};
+   });
+   if(compare.stats.length!==3||compare.stats.some(v=>!Number.isInteger(v)||v<0)||
+      compare.visible[0]+compare.stats[1]!==compare.stats[0]||
+      compare.visible[2]+compare.stats[1]!==compare.stats[2]||
+      compare.visible[1]!==compare.stats[1]||
+      compare.evidence.some(h=>!h?.includes('expanded-records.html?group=')))
+    errors.push(engine+': comparison tally or ranked evidence link mismatch '+JSON.stringify(compare));
+   await right.selectOption('Mitch');
+   if(!(await page.locator('#record-compare-results').innerText()).includes('Choose two different managers'))
+    errors.push(engine+': same-manager choice did not produce clear instruction');
+   await right.selectOption('Stew');
    const layout=await page.evaluate(()=>({
     overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,
     inputHeight:document.querySelector('#record-category-query')?.getBoundingClientRect().height||0
