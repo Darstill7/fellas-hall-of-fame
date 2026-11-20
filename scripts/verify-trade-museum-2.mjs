@@ -45,6 +45,25 @@ assert.ok(!portfolio.includes('id="archive-data"'),'Portfolio must not duplicate
 for(const phrase of ['Research receipt · incomplete evidence','Latest dated receipt','?manager=','trade-museum.html?trade=']){
  assert.ok(portfolio.includes(phrase),'Missing portfolio source scope or deep link: '+phrase);
 }
+const championship=JSON.parse(readFileSync(new URL('../data/championship_trade_impact_receipts_2020_2025_v1.json',import.meta.url),'utf8'));
+assert.equal(championship.schema,'fellas-championship-trade-impact-receipts-v1','Unexpected research provenance');
+assert.ok(Array.isArray(championship.qualifiedPlayoffReceipts),'Missing verified champion playoff evidence');
+for(const evidence of championship.qualifiedPlayoffReceipts){
+ const receipt=trades.find(t=>String(t.id)===String(evidence.tradeId));
+ assert.ok(receipt,'Championship research references a missing trade: '+evidence.tradeId);
+ assert.ok(complete(receipt),'Championship showcase must never be backed by research-only trade '+evidence.tradeId);
+ const champion=String(evidence.champion).toLowerCase()==='thommy'?'tom':String(evidence.champion).toLowerCase();
+ assert.ok(receipt.sides.some(side=>String(side.manager).toLowerCase()===champion),'Championship credit belongs to a recorded receiving manager for '+evidence.tradeId);
+ assert.ok([2020,2021,2022,2023,2024,2025].includes(evidence.year),'Never attribute unfinished-season playoff impact');
+ assert.ok(['semifinal','championship'].includes(evidence.round),'Unexpected postseason stage');
+ assert.ok(evidence.players.length>0&&evidence.players.every(p=>Number.isFinite(p.points)),'All shown contribution points must be verified');
+ assert.ok(Math.abs(evidence.players.reduce((n,p)=>n+p.points,0)-evidence.totalAcquiredStarterPoints)<0.011,'Starter points must sum to the certified total');
+}
+assert.ok(portfolio.includes('qualifiedPlayoffReceipts'),'Portfolio must reference independently verified game-level playoff evidence');
+assert.ok(portfolio.includes('No qualifying acquired-player championship playoff starter matches'),'Missing evidence must not imply a manager has zero impact');
+assert.ok(portfolio.includes('replacement lineups were not established'),'No trade-result counterfactual claims');
+assert.ok(portfolio.includes("canonical(name)==='stilly'"),'Keeper feature must be restricted to verified named manager');
+assert.ok(html.includes('Amon-Ra as a 2026 keeper'),'Keeper note must be grounded in published museum narrative');
 const moduleScripts=[...portfolio.matchAll(/<script type="module">([\s\S]*?)<\/script>/gi)];
 assert.equal(moduleScripts.length,1,'Manager portfolios require one self-contained browser module');
 new Function('return (async()=>{'+moduleScripts[0][1]+'})');
