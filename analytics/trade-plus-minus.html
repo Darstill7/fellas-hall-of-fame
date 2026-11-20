@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a131b">
+<title>Trade +/- Scoreboard | The Fellas</title><meta name="description" content="Evidence-scoped historical trade performance matrix: observed post-trade PAR between managers in fully matched 2020–2025 trades.">
+<style>
+:root{color-scheme:dark;--bg:#0a131b;--panel:#142734;--line:#3c5263;--gold:#e6c784;--text:#f6f2e9;--muted:#b8c9d2;--gain:#b8ddb4;--loss:#ffd0bf}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#223745,#0a131b 60%);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}a{color:var(--gold)}a:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.site-nav{background:#0d1b26;border-bottom:1px solid var(--line);padding:15px max(16px,calc((100% - 1080px)/2));display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.site-nav strong{color:var(--gold);font-size:14px;letter-spacing:.11em}.site-nav nav{display:flex;gap:15px;flex-wrap:wrap}.site-nav nav a{font-weight:750;min-height:44px;display:inline-flex;align-items:center;font-size:13px}
+main{max-width:1080px;margin:auto;padding:32px 16px 80px}h1{font:700 clamp(37px,6.5vw,68px)/1.07 Georgia,serif;letter-spacing:-.04em;margin:12px 0}h2{font:700 clamp(24px,4vw,36px)/1.2 Georgia,serif;margin:9px 0 14px}.eyebrow{font-size:11px;font-weight:850;color:var(--gold);letter-spacing:.14em;text-transform:uppercase}.lead{color:#d2dfe7;max-width:75ch;font-size:17px}.notice{margin:18px 0 24px;padding:15px;border-left:4px solid var(--gold);border-radius:11px;background:#1a2e3b;line-height:1.7}.notice strong{color:#f5da9c}
+.status{color:var(--muted);font-size:13px;min-height:25px}.controls{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin:23px 0}.controls label{display:grid;gap:7px;color:var(--gold);font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.07em}.controls select{min-height:46px;background:#112734;color:var(--text);border:1px solid #647989;border-radius:9px;padding:10px;font:inherit;min-width:185px;max-width:100%}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:24px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}.stat strong{color:var(--gold);font-size:clamp(23px,3.5vw,35px);display:block;line-height:1.2;font-variant-numeric:tabular-nums}.stat span{font-size:12px;color:var(--muted)}.section{border-top:1px solid var(--line);margin-top:24px;padding-top:24px}
+.table-scroll{overflow-x:auto;max-width:100%;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:590px;font-variant-numeric:tabular-nums}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #334c5b}th{background:#182b37;font-size:12px;color:#dfeced}tr:last-child td{border-bottom:0}tbody tr:hover{background:#182c38}td.num,th.num{text-align:right;white-space:nowrap}.gain{color:var(--gain);font-weight:850}.loss{color:var(--loss);font-weight:850}.zero{color:var(--muted)}.sub{font-size:12px;color:var(--muted)}.small{font-size:13px;color:var(--muted);line-height:1.7}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.deal{padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;min-width:0}.deal h3{font-size:18px;margin:7px 0}.deal p{margin:6px 0;overflow-wrap:anywhere}.deal a{display:inline-flex;min-height:44px;align-items:center;font-weight:800;font-size:13px}.no-data{padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+@media(max-width:650px){.detail-grid{grid-template-columns:1fr}.controls{display:grid}.controls select{width:100%}.stats{gap:7px}.stat{padding:10px}.stat strong{font-size:23px}}
+@media(max-width:350px){.stats{grid-template-columns:1fr}}
+</style></head><body>
+<header class="site-nav"><strong>THE FELLAS</strong><nav aria-label="Primary"><a href="../index.html">Home</a><a href="trade-museum.html">Trade Museum</a><a href="trade-portfolios.html">Manager Portfolios</a><a href="greatest-worst-trades.html">Greatest &amp; Worst</a></nav></header>
+<main><div class="eyebrow">Trade Museum · Research scoreboard</div><h1>Who got the better<br>of whom?</h1>
+<p class="lead">A directional trade +/- between managers, based on position-relative fantasy starter production after each fully audited two-manager trade. Every number is traceable to the original archived research, not a judgment about anyone's negotiating ability.</p>
+<div class="notice"><strong>Measured trade advantage, not total trade value.</strong> This is the qualifying 2020–2025 sample, not an exhaustive all-time history. Only trades where both acquired sides were fully matched are included. The measure excludes 2016–2019, 2026, incomplete and three-manager receipts, postseason results, keeper rights, FAAB, and roster counterfactuals. A missing pairing means <em>not measured</em>, not a draw or zero.</div>
+<p id="status" class="status" role="status">Loading source-qualified PAR research…</p>
+<div id="scoreboard" hidden>
+<div class="stats"><div class="stat"><strong id="qualified">—</strong><span>Qualified two-manager trades</span></div><div class="stat"><strong id="pairCount">—</strong><span>Distinct measured manager pairs</span></div><div class="stat"><strong id="excluded">—</strong><span>Unqualified preview receipts</span></div></div>
+<section class="section" aria-labelledby="matrixTitle"><div class="eyebrow">01 · Directional scoreboard</div><h2 id="matrixTitle">Net PAR by trading partner</h2>
+<div class="controls"><label for="managerFilter">Manager<select id="managerFilter"><option value="all">All managers</option></select></label><label for="seasonFilter">Completed season<select id="seasonFilter"><option value="all">2020–2025 combined</option></select></label></div>
+<p class="small">A positive number means the first listed manager's received players generated more observed post-trade PAR than the counterpart's received players. Negative values mean the opposite. Repeated qualified trades are added together. No value is assigned for unqualified trades.</p>
+<div class="table-scroll"><table><thead><tr><th>Manager ahead / pair</th><th class="num">Net +/- PAR</th><th class="num">Measured trades</th><th class="num">Per trade</th></tr></thead><tbody id="pairRows"></tbody></table></div></section>
+<section class="section" aria-labelledby="careerTitle"><div class="eyebrow">02 · Qualified-sample returns</div><h2 id="careerTitle">Managers by observed net trade PAR</h2><p class="small">This leaderboard sums only eligible pairwise comparisons, including losses. It is zero-sum across the qualifying set; it is not a complete manager trading record.</p>
+<div class="table-scroll"><table><thead><tr><th>Manager</th><th class="num">Net +/- PAR</th><th class="num">Measured trades</th><th class="num">Higher return</th><th class="num">Lower return</th></tr></thead><tbody id="managerRows"></tbody></table></div></section>
+<section class="section" aria-labelledby="dealTitle"><div class="eyebrow">03 · Audit trail</div><h2 id="dealTitle">Every trade behind the number</h2><div id="tradeRows" class="detail-grid"></div></section>
+<p class="small">Method: each eligible transaction contributes <em>side A postTradePAR − side B postTradePAR</em>, with the sign reversed for side B. PAR measures strictly later regular-season starter utility relative to position, through Week 14. The same trade is counted once per pair and once per manager; no component is counted twice. The data is research-scoped and may be superseded when more source receipts are certified.</p>
+</div></main>
+<script type="module">
+const $=id=>document.getElementById(id);
+const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\u0027':'&#39;'}[ch]));
+const canon=name=>String(name)==='Thommy'?'Tom':String(name);
+const signed=n=>(n>0?'+':'')+n.toFixed(2);
+const classFor=n=>n>0.005?'gain':n<-.005?'loss':'zero';
+const eligible=t=>t.year>=2020&&t.year<=2025&&t.complete===true&&t.sides.length===2&&t.sides.every(s=>s.fullyMatched===true&&Number.isFinite(s.postTradePAR));
+let qualified=[];
+function aggregate(trades){
+ const pairs=new Map(),managers=new Map();
+ for(const trade of trades){
+  const sides=trade.sides.map(s=>({...s,manager:canon(s.manager)}));
+  if(sides[0].manager===sides[1].manager)continue;
+  sides.sort((a,b)=>a.manager.localeCompare(b.manager));
+  const [a,b]=sides,gap=a.postTradePAR-b.postTradePAR,key=a.manager+'|'+b.manager;
+  const pair=pairs.get(key)||{a:a.manager,b:b.manager,net:0,n:0,trades:[]};
+  pair.net+=gap;pair.n++;pair.trades.push({trade,gap,a,b});pairs.set(key,pair);
+  for(const [manager,net] of [[a.manager,gap],[b.manager,-gap]]){
+   const row=managers.get(manager)||{manager,net:0,n:0,wins:0,losses:0};
+   row.net+=net;row.n++;row.wins+=net>0.005?1:0;row.losses+=net<-.005?1:0;managers.set(manager,row);
+  }
+ }
+ return {pairs:[...pairs.values()],managers:[...managers.values()]};
+}
+function render(){
+ const manager=$('managerFilter').value,year=$('seasonFilter').value;
+ const subset=qualified.filter(t=>year==='all'||String(t.year)===year);
+ const agg=aggregate(subset);
+ const pairs=agg.pairs.filter(p=>manager==='all'||p.a===manager||p.b===manager).sort((x,y)=>Math.abs(y.net)-Math.abs(x.net)||x.a.localeCompare(y.a));
+ $('pairRows').innerHTML=pairs.length?pairs.map(p=>{
+  const lead=p.net>=0?p.a:p.b,other=p.net>=0?p.b:p.a;
+  const view=manager==='all'?Math.abs(p.net):manager===p.a?p.net:-p.net;
+  const name=manager==='all'?esc(lead)+' vs '+esc(other):esc(manager)+' vs '+esc(manager===p.a?p.b:p.a);
+  return '<tr><td><strong>'+name+'</strong><div class="sub">'+(manager==='all'?'Leading manager first':'Selected manager perspective')+'</div></td><td class="num '+classFor(view)+'">'+signed(view)+'</td><td class="num">'+p.n+'</td><td class="num">'+signed(view/p.n)+'</td></tr>';
+ }).join(''):'<tr><td colspan="4">No qualified two-manager trade measurements for this selection.</td></tr>';
+ const managerRows=agg.managers.filter(m=>manager==='all'||m.manager===manager).sort((a,b)=>b.net-a.net);
+ $('managerRows').innerHTML=managerRows.map(m=>'<tr><td><a href="trade-portfolios.html?manager='+encodeURIComponent(m.manager)+'">'+esc(m.manager)+'</a></td><td class="num '+classFor(m.net)+'">'+signed(m.net)+'</td><td class="num">'+m.n+'</td><td class="num">'+m.wins+'</td><td class="num">'+m.losses+'</td></tr>').join('')||'<tr><td colspan="5">No qualifying sample for this manager.</td></tr>';
+ const selected=qualified.filter(t=>(year==='all'||String(t.year)===year)&&(manager==='all'||t.sides.some(s=>canon(s.manager)===manager))).sort((a,b)=>b.date.localeCompare(a.date));
+ $('tradeRows').innerHTML=selected.map(t=>{
+  const [a,b]=t.sides;const gap=a.postTradePAR-b.postTradePAR;const lead=gap>=0?a:b,low=gap>=0?b:a;
+  return '<article class="deal"><div class="eyebrow">'+esc(t.year)+' · Week '+esc(t.week)+' · '+esc(t.date)+'</div><h3>'+esc(canon(lead.manager))+' vs '+esc(canon(low.manager))+'</h3><p class="'+classFor(Math.abs(gap))+'">+'+Math.abs(gap).toFixed(2)+' observed PAR for '+esc(canon(lead.manager))+'</p><p>'+esc(canon(a.manager))+': '+esc(a.assets)+' ('+a.postTradePAR.toFixed(2)+' PAR)</p><p>'+esc(canon(b.manager))+': '+esc(b.assets)+' ('+b.postTradePAR.toFixed(2)+' PAR)</p><a href="trade-museum.html?trade='+encodeURIComponent(String(t.id))+'">Inspect source receipt →</a></article>';
+ }).join('')||'<p class="no-data">No qualifying measured trades for this selection.</p>';
+ const url=new URL(window.location.href);
+ if(manager==='all')url.searchParams.delete('manager');else url.searchParams.set('manager',manager);
+ if(year==='all')url.searchParams.delete('season');else url.searchParams.set('season',year);
+ window.history.replaceState(null,'',url);
+}
+try{
+ const response=await fetch('../data/trade_par_preview.json',{cache:'no-store'});if(!response.ok)throw Error('Research data unavailable');
+ const data=await response.json();if(!Array.isArray(data.records))throw Error('Invalid research format');
+ qualified=data.records.filter(eligible);
+ if(!qualified.length)throw Error('No fully matched transactions');
+ const pairStats=aggregate(qualified);
+ if(Math.abs(pairStats.managers.reduce((sum,m)=>sum+m.net,0))>.001)throw Error('Non-zero-sum comparison detected');
+ $('qualified').textContent=qualified.length.toLocaleString();
+ $('pairCount').textContent=pairStats.pairs.length.toLocaleString();
+ $('excluded').textContent=(data.records.length-qualified.length).toLocaleString();
+ const managers=[...new Set(qualified.flatMap(t=>t.sides.map(s=>canon(s.manager))))].sort();
+ $('managerFilter').innerHTML='<option value="all">All managers</option>'+managers.map(m=>'<option value="'+esc(m)+'">'+esc(m)+'</option>').join('');
+ const years=[...new Set(qualified.map(t=>t.year))].sort((a,b)=>b-a);
+ $('seasonFilter').innerHTML='<option value="all">2020–2025 combined</option>'+years.map(y=>'<option value="'+y+'">'+y+'</option>').join('');
+ const query=new URL(window.location.href).searchParams;
+ const selected=managers.find(m=>m.toLowerCase()===String(query.get('manager')||'').toLowerCase());
+ if(selected)$('managerFilter').value=selected;
+ if(years.some(y=>String(y)===query.get('season')))$('seasonFilter').value=query.get('season');
+ $('managerFilter').addEventListener('change',render);$('seasonFilter').addEventListener('change',render);
+ $('scoreboard').hidden=false;
+ $('status').textContent='Research-scoped sample: '+qualified.length+' qualified deals out of '+data.records.length+' reviewed transactions. Updated only when the audited PAR source changes.';
+ render();
+}catch(error){$('status').textContent='The verified comparison data is unavailable: '+error.message+'. No rankings were estimated.'}
+</script></body></html>
