@@ -8,6 +8,7 @@ assert.equal(count(/<section class="records-pathfinder"/g),1,'Only one primary d
 assert.equal(count(/<nav class="records-entry-paths"/g),0,'No competing hero menu');
 assert.equal(count(/<a class="record-book-discover-link"/g),1,'One primary hero destination');
 assert(html.includes('href="#records-discover-title"'),'Hero CTA leads to discovery section');
+assert(html.includes('<a href="records.html" aria-current="page">Records</a>'),'Current-page Records nav must link to the canonical entrance');
 const discovery=match(/<section class="records-pathfinder"[\s\S]*?<\/section>/,'Discovery section absent');
 assert.equal((discovery.match(/class="pathfinder-item"/g)||[]).length,6,'Six curated category paths');
 for(const href of ['#highest-scoring-matchups','#hall-of-heartbreak','#postseason-records',
