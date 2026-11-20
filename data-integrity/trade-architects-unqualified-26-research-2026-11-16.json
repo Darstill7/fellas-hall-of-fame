@@ -1,0 +1,3457 @@
+{
+  "schema": "fellas-trade-architects-previously-unqualified-audit-v1",
+  "asOf": "2026-11-16",
+  "classification": "research_only_no_position_adjusted_or_definitive_trade_winner_grades",
+  "method": "For all 26 historical 2020–2025 trade events not in the 18 complete two-sided preview comparisons: join each recorded trade asset to that receiving team roster's same-name starter records in data/player_starts_YEAR.json for weeks strictly greater than transaction week through regular-season week 14. The name-normalization step removes punctuation and trailing Roman II, e.g. DJ Moore and Allen Robinson II; the joined record retains source player IDs, manager roster numbers, week and points. These are *observed actual started points*, not PAR or counterfactual gains. Original historical engine starts may have a different date/season scope, and its differences are retained rather than overwritten. Player never starting after the deal results in observed zero, not automatically a bad trade; missing source player identity requires separate recovery. Historical 2023 team slot 2 belongs to Evans. Multi-manager deals are not pairwise contests. Kenny Gainwell has no starting-lineup entry in the 2023 season archive but is independently identified as provider player ID 7567 in the completed Week 6 transaction receipt; no fabricated start is added. Two source-engine one-sided events have their second team identity confirmed by completed Sleeper provider receipts (Stilly–Stew in 2020; Stilly–Hupp in 2021), but the other asset/FAAB leg remains undocumented. They are two-team events with one evidenced player-side, not proof of a one-team transaction.",
+  "summary": {
+    "total": 26,
+    "bilateral": 23,
+    "threeManager": 1,
+    "oneSided": 2,
+    "withMissingYearStarterIdentity": 0,
+    "seasonCounts": {
+      "2020": 4,
+      "2021": 6,
+      "2022": 3,
+      "2023": 3,
+      "2024": 5,
+      "2025": 5
+    }
+  },
+  "transactions": [
+    {
+      "year": 2020,
+      "week": 3,
+      "date": "2020-09-24",
+      "transactionId": "614849640176623616",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Evans",
+          "teamId": "2",
+          "tradeAssets": [
+            "Ronald Jones"
+          ],
+          "originalEngineStartedPoints": 82.4,
+          "originalEngineStarts": 6,
+          "strictRegularSeasonPostTradeStartedPoints": 82.4,
+          "strictRegularSeasonPostTradeStarts": 6,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Ronald Jones"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Ronald Jones",
+              "resolvedSeasonNames": [
+                "Ronald Jones"
+              ],
+              "observedSeasonPlayerIds": [
+                "5052"
+              ],
+              "postTradeStartedPoints": 82.4,
+              "postTradeStarts": 6,
+              "postTradeStartedWeeks": [
+                6,
+                7,
+                8,
+                10,
+                11,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "5052"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "partial"
+        },
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "A.J. Green"
+          ],
+          "originalEngineStartedPoints": 2.9,
+          "originalEngineStarts": 1,
+          "strictRegularSeasonPostTradeStartedPoints": 2.9,
+          "strictRegularSeasonPostTradeStarts": 1,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": -0.93,
+            "partialPoints": 2.9,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "A.J. Green",
+              "resolvedSeasonNames": [
+                "A.J. Green"
+              ],
+              "observedSeasonPlayerIds": [
+                "830"
+              ],
+              "postTradeStartedPoints": 2.9,
+              "postTradeStarts": 1,
+              "postTradeStartedWeeks": [
+                8
+              ],
+              "postTradeStarterPlayerIds": [
+                "830"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "partial"
+        }
+      ],
+      "originalEngineRawGap": 79.5,
+      "strictRegularSeasonGap": 79.5,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2020,
+      "week": 3,
+      "date": "2020-09-30",
+      "transactionId": "616864423201554432",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "teamId": "1",
+          "tradeAssets": [
+            "DeSean Jackson",
+            "Travis Kelce",
+            "Marquise Brown"
+          ],
+          "originalEngineStartedPoints": 290.16,
+          "originalEngineStarts": 20,
+          "strictRegularSeasonPostTradeStartedPoints": 241.56,
+          "strictRegularSeasonPostTradeStarts": 17,
+          "differenceFromOlderEngine": -48.6,
+          "oldPARPreview": {
+            "partialPAR": 173.4,
+            "partialPoints": 241.56,
+            "unresolved": [
+              "DeSean Jackson"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "DeSean Jackson",
+              "resolvedSeasonNames": [
+                "DeSean Jackson"
+              ],
+              "observedSeasonPlayerIds": [
+                "147"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Travis Kelce",
+              "resolvedSeasonNames": [
+                "Travis Kelce"
+              ],
+              "observedSeasonPlayerIds": [
+                "1466"
+              ],
+              "postTradeStartedPoints": 178.96,
+              "postTradeStarts": 10,
+              "postTradeStartedWeeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "1466"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Marquise Brown",
+              "resolvedSeasonNames": [
+                "Marquise Brown"
+              ],
+              "observedSeasonPlayerIds": [
+                "5848"
+              ],
+              "postTradeStartedPoints": 62.6,
+              "postTradeStarts": 7,
+              "postTradeStartedWeeks": [
+                4,
+                5,
+                6,
+                8,
+                9,
+                10,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "5848"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Thommy",
+          "teamId": "3",
+          "tradeAssets": [
+            "Allen Robinson II",
+            "Tyler Higbee",
+            "D'Andre Swift"
+          ],
+          "originalEngineStartedPoints": 266.4,
+          "originalEngineStarts": 21,
+          "strictRegularSeasonPostTradeStartedPoints": 213.6,
+          "strictRegularSeasonPostTradeStarts": 17,
+          "differenceFromOlderEngine": -52.8,
+          "oldPARPreview": {
+            "partialPAR": 43.03,
+            "partialPoints": 68.9,
+            "unresolved": [
+              "Allen Robinson II"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Allen Robinson II",
+              "resolvedSeasonNames": [
+                "Allen Robinson"
+              ],
+              "observedSeasonPlayerIds": [
+                "1992"
+              ],
+              "postTradeStartedPoints": 144.7,
+              "postTradeStarts": 10,
+              "postTradeStartedWeeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "1992"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Tyler Higbee",
+              "resolvedSeasonNames": [
+                "Tyler Higbee"
+              ],
+              "observedSeasonPlayerIds": [
+                "3271"
+              ],
+              "postTradeStartedPoints": 5.7,
+              "postTradeStarts": 2,
+              "postTradeStartedWeeks": [
+                4,
+                5
+              ],
+              "postTradeStarterPlayerIds": [
+                "3271"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "D'Andre Swift",
+              "resolvedSeasonNames": [
+                "D'Andre Swift"
+              ],
+              "observedSeasonPlayerIds": [
+                "6790"
+              ],
+              "postTradeStartedPoints": 63.2,
+              "postTradeStarts": 5,
+              "postTradeStartedWeeks": [
+                7,
+                8,
+                9,
+                10,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "6790"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "source-verified-reconciliation"
+        }
+      ],
+      "originalEngineRawGap": 23.76,
+      "strictRegularSeasonGap": 27.96,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stilly",
+          "delta": -48.6
+        },
+        {
+          "manager": "Thommy",
+          "delta": -52.8
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2020,
+      "week": 8,
+      "date": "2020-11-03",
+      "transactionId": "629416763662086144",
+      "shape": "one_sided",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "teamId": "1",
+          "tradeAssets": [
+            "George Kittle"
+          ],
+          "originalEngineStartedPoints": 11.2,
+          "originalEngineStarts": 1,
+          "strictRegularSeasonPostTradeStartedPoints": 0,
+          "strictRegularSeasonPostTradeStarts": 0,
+          "differenceFromOlderEngine": -11.2,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "George Kittle"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "George Kittle",
+              "resolvedSeasonNames": [
+                "George Kittle"
+              ],
+              "observedSeasonPlayerIds": [
+                "4217"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "partial"
+        }
+      ],
+      "originalEngineRawGap": null,
+      "strictRegularSeasonGap": null,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stilly",
+          "delta": -11.2
+        }
+      ],
+      "classification": "two_teams_confirmed_one_asset_side_missing",
+      "knownCounterpartyFromProvider": "Stew",
+      "providerTeams": [
+        "1",
+        "4"
+      ],
+      "counterpartyReceivedAssets": "unavailable_in_provider_trade_receipt"
+    },
+    {
+      "year": 2020,
+      "week": 9,
+      "date": "2020-11-04",
+      "transactionId": "629818920752209920",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "Michael Thomas"
+          ],
+          "originalEngineStartedPoints": 53.1,
+          "originalEngineStarts": 5,
+          "strictRegularSeasonPostTradeStartedPoints": 53.1,
+          "strictRegularSeasonPostTradeStarts": 5,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": 32.97,
+            "partialPoints": 53.1,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Michael Thomas",
+              "resolvedSeasonNames": [
+                "Michael Thomas"
+              ],
+              "observedSeasonPlayerIds": [
+                "3199"
+              ],
+              "postTradeStartedPoints": 53.1,
+              "postTradeStarts": 5,
+              "postTradeStartedWeeks": [
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "3199"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Stover",
+          "teamId": "8",
+          "tradeAssets": [
+            "D.J. Moore",
+            "Clyde Edwards-Helaire"
+          ],
+          "originalEngineStartedPoints": 45,
+          "originalEngineStarts": 6,
+          "strictRegularSeasonPostTradeStartedPoints": 81.2,
+          "strictRegularSeasonPostTradeStarts": 7,
+          "differenceFromOlderEngine": 36.2,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "D.J. Moore",
+              "Clyde Edwards-Helaire"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "D.J. Moore",
+              "resolvedSeasonNames": [
+                "DJ Moore"
+              ],
+              "observedSeasonPlayerIds": [
+                "4983"
+              ],
+              "postTradeStartedPoints": 45,
+              "postTradeStarts": 3,
+              "postTradeStartedWeeks": [
+                10,
+                11,
+                12
+              ],
+              "postTradeStarterPlayerIds": [
+                "4983"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Clyde Edwards-Helaire",
+              "resolvedSeasonNames": [
+                "Clyde Edwards-Helaire"
+              ],
+              "observedSeasonPlayerIds": [
+                "6820"
+              ],
+              "postTradeStartedPoints": 36.2,
+              "postTradeStarts": 4,
+              "postTradeStartedWeeks": [
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "6820"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": 8.1,
+      "strictRegularSeasonGap": -28.1,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stover",
+          "delta": 36.2
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2021,
+      "week": 1,
+      "date": "2021-08-30",
+      "transactionId": "737360507476066304",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "teamId": "3",
+          "tradeAssets": [
+            "Tyreek Hill",
+            "Josh Jacobs",
+            "Javonte Williams"
+          ],
+          "originalEngineStartedPoints": 333.1,
+          "originalEngineStarts": 24,
+          "strictRegularSeasonPostTradeStartedPoints": 283.3,
+          "strictRegularSeasonPostTradeStarts": 20,
+          "differenceFromOlderEngine": -49.8,
+          "oldPARPreview": {
+            "partialPAR": 190.47,
+            "partialPoints": 283.3,
+            "unresolved": [
+              "Josh Jacobs"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Tyreek Hill",
+              "resolvedSeasonNames": [
+                "Tyreek Hill"
+              ],
+              "observedSeasonPlayerIds": [
+                "3321"
+              ],
+              "postTradeStartedPoints": 171.8,
+              "postTradeStarts": 12,
+              "postTradeStartedWeeks": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "3321"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Josh Jacobs",
+              "resolvedSeasonNames": [
+                "Josh Jacobs"
+              ],
+              "observedSeasonPlayerIds": [
+                "5850"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Javonte Williams",
+              "resolvedSeasonNames": [
+                "Javonte Williams"
+              ],
+              "observedSeasonPlayerIds": [
+                "7588"
+              ],
+              "postTradeStartedPoints": 111.5,
+              "postTradeStarts": 8,
+              "postTradeStartedWeeks": [
+                6,
+                7,
+                8,
+                9,
+                10,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "7588"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Tony",
+          "teamId": "7",
+          "tradeAssets": [
+            "Corey Davis",
+            "A.J. Brown",
+            "Jonathan Taylor"
+          ],
+          "originalEngineStartedPoints": 414.5,
+          "originalEngineStarts": 25,
+          "strictRegularSeasonPostTradeStartedPoints": 378.7,
+          "strictRegularSeasonPostTradeStarts": 23,
+          "differenceFromOlderEngine": -35.8,
+          "oldPARPreview": {
+            "partialPAR": 262.49,
+            "partialPoints": 378.7,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Corey Davis",
+              "resolvedSeasonNames": [
+                "Corey Davis"
+              ],
+              "observedSeasonPlayerIds": [
+                "4036"
+              ],
+              "postTradeStartedPoints": 8.3,
+              "postTradeStarts": 2,
+              "postTradeStartedWeeks": [
+                2,
+                5
+              ],
+              "postTradeStarterPlayerIds": [
+                "4036"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "A.J. Brown",
+              "resolvedSeasonNames": [
+                "A.J. Brown"
+              ],
+              "observedSeasonPlayerIds": [
+                "5859"
+              ],
+              "postTradeStartedPoints": 92.6,
+              "postTradeStarts": 9,
+              "postTradeStartedWeeks": [
+                2,
+                3,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              "postTradeStarterPlayerIds": [
+                "5859"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Jonathan Taylor",
+              "resolvedSeasonNames": [
+                "Jonathan Taylor"
+              ],
+              "observedSeasonPlayerIds": [
+                "6813"
+              ],
+              "postTradeStartedPoints": 277.8,
+              "postTradeStarts": 12,
+              "postTradeStartedWeeks": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "postTradeStarterPlayerIds": [
+                "6813"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": -81.4,
+      "strictRegularSeasonGap": -95.4,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Thommy",
+          "delta": -49.8
+        },
+        {
+          "manager": "Tony",
+          "delta": -35.8
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2021,
+      "week": 2,
+      "date": "2021-09-22",
+      "transactionId": "746234454665732096",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "Kenyan Drake",
+            "Saquon Barkley"
+          ],
+          "originalEngineStartedPoints": 100.4,
+          "originalEngineStarts": 9,
+          "strictRegularSeasonPostTradeStartedPoints": 89.7,
+          "strictRegularSeasonPostTradeStarts": 7,
+          "differenceFromOlderEngine": -10.7,
+          "oldPARPreview": {
+            "partialPAR": 49.13,
+            "partialPoints": 89.7,
+            "unresolved": [
+              "Kenyan Drake"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Kenyan Drake",
+              "resolvedSeasonNames": [
+                "Kenyan Drake"
+              ],
+              "observedSeasonPlayerIds": [
+                "3242"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Saquon Barkley",
+              "resolvedSeasonNames": [
+                "Saquon Barkley"
+              ],
+              "observedSeasonPlayerIds": [
+                "4866"
+              ],
+              "postTradeStartedPoints": 89.7,
+              "postTradeStarts": 7,
+              "postTradeStartedWeeks": [
+                3,
+                4,
+                5,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "4866"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Kuhl",
+          "teamId": "9",
+          "tradeAssets": [
+            "Nyheim Miller-Hines",
+            "Clyde Edwards-Helaire",
+            "Ty'Son Williams"
+          ],
+          "originalEngineStartedPoints": 84.4,
+          "originalEngineStarts": 8,
+          "strictRegularSeasonPostTradeStartedPoints": 66.8,
+          "strictRegularSeasonPostTradeStarts": 6,
+          "differenceFromOlderEngine": -17.6,
+          "oldPARPreview": {
+            "partialPAR": 28.9,
+            "partialPoints": 66.8,
+            "unresolved": [
+              "Nyheim Miller-Hines"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Nyheim Miller-Hines",
+              "resolvedSeasonNames": [
+                "Nyheim Miller-Hines"
+              ],
+              "observedSeasonPlayerIds": [
+                "5347"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Clyde Edwards-Helaire",
+              "resolvedSeasonNames": [
+                "Clyde Edwards-Helaire"
+              ],
+              "observedSeasonPlayerIds": [
+                "6820"
+              ],
+              "postTradeStartedPoints": 64.6,
+              "postTradeStarts": 5,
+              "postTradeStartedWeeks": [
+                3,
+                4,
+                5,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "6820"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Ty'Son Williams",
+              "resolvedSeasonNames": [
+                "Ty'Son Williams"
+              ],
+              "observedSeasonPlayerIds": [
+                "7098"
+              ],
+              "postTradeStartedPoints": 2.2,
+              "postTradeStarts": 1,
+              "postTradeStartedWeeks": [
+                3
+              ],
+              "postTradeStarterPlayerIds": [
+                "7098"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": 16,
+      "strictRegularSeasonGap": 22.9,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stew",
+          "delta": -10.7
+        },
+        {
+          "manager": "Kuhl",
+          "delta": -17.6
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2021,
+      "week": 3,
+      "date": "2021-09-27",
+      "transactionId": "748312121284149248",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Evans",
+          "teamId": "2",
+          "tradeAssets": [
+            "Aaron Rodgers",
+            "Keenan Allen"
+          ],
+          "originalEngineStartedPoints": 391.5,
+          "originalEngineStarts": 22,
+          "strictRegularSeasonPostTradeStartedPoints": 325.4,
+          "strictRegularSeasonPostTradeStarts": 18,
+          "differenceFromOlderEngine": -66.1,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Aaron Rodgers",
+              "Keenan Allen"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Aaron Rodgers",
+              "resolvedSeasonNames": [
+                "Aaron Rodgers"
+              ],
+              "observedSeasonPlayerIds": [
+                "96"
+              ],
+              "postTradeStartedPoints": 204.8,
+              "postTradeStarts": 9,
+              "postTradeStartedWeeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                10,
+                11,
+                12,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "96"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Keenan Allen",
+              "resolvedSeasonNames": [
+                "Keenan Allen"
+              ],
+              "observedSeasonPlayerIds": [
+                "1479"
+              ],
+              "postTradeStartedPoints": 120.6,
+              "postTradeStarts": 9,
+              "postTradeStartedWeeks": [
+                4,
+                5,
+                6,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "postTradeStarterPlayerIds": [
+                "1479"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Kuhl",
+          "teamId": "9",
+          "tradeAssets": [
+            "Leonard Fournette",
+            "Patrick Mahomes",
+            "Brandon Aiyuk"
+          ],
+          "originalEngineStartedPoints": 231.4,
+          "originalEngineStarts": 13,
+          "strictRegularSeasonPostTradeStartedPoints": 180.48,
+          "strictRegularSeasonPostTradeStarts": 11,
+          "differenceFromOlderEngine": -50.92,
+          "oldPARPreview": {
+            "partialPAR": 60.79,
+            "partialPoints": 180.48,
+            "unresolved": [
+              "Leonard Fournette"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Leonard Fournette",
+              "resolvedSeasonNames": [
+                "Leonard Fournette"
+              ],
+              "observedSeasonPlayerIds": [
+                "3969"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Patrick Mahomes",
+              "resolvedSeasonNames": [
+                "Patrick Mahomes"
+              ],
+              "observedSeasonPlayerIds": [
+                "4046"
+              ],
+              "postTradeStartedPoints": 178.48,
+              "postTradeStarts": 10,
+              "postTradeStartedWeeks": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "4046"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Brandon Aiyuk",
+              "resolvedSeasonNames": [
+                "Brandon Aiyuk"
+              ],
+              "observedSeasonPlayerIds": [
+                "6803"
+              ],
+              "postTradeStartedPoints": 2,
+              "postTradeStarts": 1,
+              "postTradeStartedWeeks": [
+                4
+              ],
+              "postTradeStarterPlayerIds": [
+                "6803"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": 160.1,
+      "strictRegularSeasonGap": 144.92,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Evans",
+          "delta": -66.1
+        },
+        {
+          "manager": "Kuhl",
+          "delta": -50.92
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2021,
+      "week": 3,
+      "date": "2021-09-28",
+      "transactionId": "748585137259884544",
+      "shape": "one_sided",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "teamId": "1",
+          "tradeAssets": [
+            "AJ Dillon"
+          ],
+          "originalEngineStartedPoints": 54.4,
+          "originalEngineStarts": 5,
+          "strictRegularSeasonPostTradeStartedPoints": 37.3,
+          "strictRegularSeasonPostTradeStarts": 3,
+          "differenceFromOlderEngine": -17.1,
+          "oldPARPreview": {
+            "partialPAR": 22.62,
+            "partialPoints": 37.3,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "AJ Dillon",
+              "resolvedSeasonNames": [
+                "AJ Dillon"
+              ],
+              "observedSeasonPlayerIds": [
+                "6828"
+              ],
+              "postTradeStartedPoints": 37.3,
+              "postTradeStarts": 3,
+              "postTradeStartedWeeks": [
+                11,
+                12,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "6828"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "partial"
+        }
+      ],
+      "originalEngineRawGap": null,
+      "strictRegularSeasonGap": null,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stilly",
+          "delta": -17.1
+        }
+      ],
+      "classification": "two_teams_confirmed_one_asset_side_missing",
+      "knownCounterpartyFromProvider": "Hupp",
+      "providerTeams": [
+        "1",
+        "6"
+      ],
+      "counterpartyReceivedAssets": "unavailable_in_provider_trade_receipt"
+    },
+    {
+      "year": 2021,
+      "week": 4,
+      "date": "2021-10-05",
+      "transactionId": "751165345997402112",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Koble",
+          "teamId": "5",
+          "tradeAssets": [
+            "Zack Moss",
+            "James Robinson"
+          ],
+          "originalEngineStartedPoints": 137.6,
+          "originalEngineStarts": 15,
+          "strictRegularSeasonPostTradeStartedPoints": 120.3,
+          "strictRegularSeasonPostTradeStarts": 13,
+          "differenceFromOlderEngine": -17.3,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Zack Moss",
+              "James Robinson"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Zack Moss",
+              "resolvedSeasonNames": [
+                "Zack Moss"
+              ],
+              "observedSeasonPlayerIds": [
+                "6845"
+              ],
+              "postTradeStartedPoints": 35.5,
+              "postTradeStarts": 5,
+              "postTradeStartedWeeks": [
+                5,
+                6,
+                8,
+                9,
+                10
+              ],
+              "postTradeStarterPlayerIds": [
+                "6845"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "James Robinson",
+              "resolvedSeasonNames": [
+                "James Robinson"
+              ],
+              "observedSeasonPlayerIds": [
+                "6955"
+              ],
+              "postTradeStartedPoints": 84.8,
+              "postTradeStarts": 8,
+              "postTradeStartedWeeks": [
+                5,
+                6,
+                8,
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "6955"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Tony",
+          "teamId": "7",
+          "tradeAssets": [
+            "Joe Mixon"
+          ],
+          "originalEngineStartedPoints": 193.1,
+          "originalEngineStarts": 10,
+          "strictRegularSeasonPostTradeStartedPoints": 157.1,
+          "strictRegularSeasonPostTradeStarts": 8,
+          "differenceFromOlderEngine": -36,
+          "oldPARPreview": {
+            "partialPAR": 114.44,
+            "partialPoints": 157.1,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Joe Mixon",
+              "resolvedSeasonNames": [
+                "Joe Mixon"
+              ],
+              "observedSeasonPlayerIds": [
+                "4018"
+              ],
+              "postTradeStartedPoints": 157.1,
+              "postTradeStarts": 8,
+              "postTradeStartedWeeks": [
+                6,
+                7,
+                8,
+                9,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "4018"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": -55.5,
+      "strictRegularSeasonGap": -36.8,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Koble",
+          "delta": -17.3
+        },
+        {
+          "manager": "Tony",
+          "delta": -36
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2021,
+      "week": 5,
+      "date": "2021-10-07",
+      "transactionId": "751504917667168256",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Stover",
+          "teamId": "8",
+          "tradeAssets": [
+            "Leonard Fournette"
+          ],
+          "originalEngineStartedPoints": 164.8,
+          "originalEngineStarts": 9,
+          "strictRegularSeasonPostTradeStartedPoints": 154.6,
+          "strictRegularSeasonPostTradeStarts": 8,
+          "differenceFromOlderEngine": -10.2,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Leonard Fournette"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Leonard Fournette",
+              "resolvedSeasonNames": [
+                "Leonard Fournette"
+              ],
+              "observedSeasonPlayerIds": [
+                "3969"
+              ],
+              "postTradeStartedPoints": 154.6,
+              "postTradeStarts": 8,
+              "postTradeStartedWeeks": [
+                6,
+                7,
+                8,
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "3969"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Kuhl",
+          "teamId": "9",
+          "tradeAssets": [
+            "DeVonta Smith"
+          ],
+          "originalEngineStartedPoints": 69.1,
+          "originalEngineStarts": 8,
+          "strictRegularSeasonPostTradeStartedPoints": 46.1,
+          "strictRegularSeasonPostTradeStarts": 6,
+          "differenceFromOlderEngine": -23,
+          "oldPARPreview": {
+            "partialPAR": 20.54,
+            "partialPoints": 46.1,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "DeVonta Smith",
+              "resolvedSeasonNames": [
+                "DeVonta Smith"
+              ],
+              "observedSeasonPlayerIds": [
+                "7525"
+              ],
+              "postTradeStartedPoints": 46.1,
+              "postTradeStarts": 6,
+              "postTradeStartedWeeks": [
+                6,
+                7,
+                8,
+                9,
+                11,
+                12
+              ],
+              "postTradeStarterPlayerIds": [
+                "7525"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": 95.7,
+      "strictRegularSeasonGap": 108.5,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stover",
+          "delta": -10.2
+        },
+        {
+          "manager": "Kuhl",
+          "delta": -23
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2022,
+      "week": 3,
+      "date": "2022-09-27",
+      "transactionId": "880505837758652416",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Evans",
+          "teamId": "2",
+          "tradeAssets": [
+            "Mike Williams",
+            "James Conner",
+            "James Robinson"
+          ],
+          "originalEngineStartedPoints": 266.2,
+          "originalEngineStarts": 21,
+          "strictRegularSeasonPostTradeStartedPoints": 184.4,
+          "strictRegularSeasonPostTradeStarts": 15,
+          "differenceFromOlderEngine": -81.8,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Mike Williams",
+              "James Conner",
+              "James Robinson"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Mike Williams",
+              "resolvedSeasonNames": [
+                "Mike Williams"
+              ],
+              "observedSeasonPlayerIds": [
+                "4068"
+              ],
+              "postTradeStartedPoints": 79.3,
+              "postTradeStarts": 6,
+              "postTradeStartedWeeks": [
+                4,
+                5,
+                6,
+                7,
+                11,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "4068"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "James Conner",
+              "resolvedSeasonNames": [
+                "James Conner"
+              ],
+              "observedSeasonPlayerIds": [
+                "4137"
+              ],
+              "postTradeStartedPoints": 98.3,
+              "postTradeStarts": 7,
+              "postTradeStartedWeeks": [
+                4,
+                5,
+                9,
+                10,
+                11,
+                12,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "4137"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "James Robinson",
+              "resolvedSeasonNames": [
+                "James Robinson"
+              ],
+              "observedSeasonPlayerIds": [
+                "6955"
+              ],
+              "postTradeStartedPoints": 6.8,
+              "postTradeStarts": 2,
+              "postTradeStartedWeeks": [
+                4,
+                5
+              ],
+              "postTradeStarterPlayerIds": [
+                "6955"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "Cordarrelle Patterson",
+            "Justin Jefferson"
+          ],
+          "originalEngineStartedPoints": 268.06,
+          "originalEngineStarts": 14,
+          "strictRegularSeasonPostTradeStartedPoints": 216.46,
+          "strictRegularSeasonPostTradeStarts": 11,
+          "differenceFromOlderEngine": -51.6,
+          "oldPARPreview": {
+            "partialPAR": 168.53,
+            "partialPoints": 216.46,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Cordarrelle Patterson",
+              "resolvedSeasonNames": [
+                "Cordarrelle Patterson"
+              ],
+              "observedSeasonPlayerIds": [
+                "1535"
+              ],
+              "postTradeStartedPoints": 9.8,
+              "postTradeStarts": 1,
+              "postTradeStartedWeeks": [
+                4
+              ],
+              "postTradeStarterPlayerIds": [
+                "1535"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Justin Jefferson",
+              "resolvedSeasonNames": [
+                "Justin Jefferson"
+              ],
+              "observedSeasonPlayerIds": [
+                "6794"
+              ],
+              "postTradeStartedPoints": 206.66,
+              "postTradeStarts": 10,
+              "postTradeStartedWeeks": [
+                4,
+                5,
+                6,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "6794"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": -1.86,
+      "strictRegularSeasonGap": -32.06,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Evans",
+          "delta": -81.8
+        },
+        {
+          "manager": "Stew",
+          "delta": -51.6
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2022,
+      "week": 6,
+      "date": "2022-10-12",
+      "transactionId": "885980047650119680",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Evans",
+          "teamId": "2",
+          "tradeAssets": [
+            "Alvin Kamara",
+            "Gabe Davis"
+          ],
+          "originalEngineStartedPoints": 178.8,
+          "originalEngineStarts": 17,
+          "strictRegularSeasonPostTradeStartedPoints": 140.9,
+          "strictRegularSeasonPostTradeStarts": 14,
+          "differenceFromOlderEngine": -37.9,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Alvin Kamara",
+              "Gabe Davis"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Alvin Kamara",
+              "resolvedSeasonNames": [
+                "Alvin Kamara"
+              ],
+              "observedSeasonPlayerIds": [
+                "4035"
+              ],
+              "postTradeStartedPoints": 85.6,
+              "postTradeStarts": 7,
+              "postTradeStartedWeeks": [
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "postTradeStarterPlayerIds": [
+                "4035"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Gabe Davis",
+              "resolvedSeasonNames": [
+                "Gabe Davis"
+              ],
+              "observedSeasonPlayerIds": [
+                "6943"
+              ],
+              "postTradeStartedPoints": 55.3,
+              "postTradeStarts": 7,
+              "postTradeStartedWeeks": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "6943"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Tony",
+          "teamId": "7",
+          "tradeAssets": [
+            "A.J. Brown",
+            "James Robinson"
+          ],
+          "originalEngineStartedPoints": 170.3,
+          "originalEngineStarts": 11,
+          "strictRegularSeasonPostTradeStartedPoints": 113.7,
+          "strictRegularSeasonPostTradeStarts": 8,
+          "differenceFromOlderEngine": -56.6,
+          "oldPARPreview": {
+            "partialPAR": 76.86,
+            "partialPoints": 113.7,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "A.J. Brown",
+              "resolvedSeasonNames": [
+                "A.J. Brown"
+              ],
+              "observedSeasonPlayerIds": [
+                "5859"
+              ],
+              "postTradeStartedPoints": 113.7,
+              "postTradeStarts": 7,
+              "postTradeStartedWeeks": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "5859"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "James Robinson",
+              "resolvedSeasonNames": [
+                "James Robinson"
+              ],
+              "observedSeasonPlayerIds": [
+                "6955"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 1,
+              "postTradeStartedWeeks": [
+                7
+              ],
+              "postTradeStarterPlayerIds": [
+                "6955"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": 8.5,
+      "strictRegularSeasonGap": 27.2,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Evans",
+          "delta": -37.9
+        },
+        {
+          "manager": "Tony",
+          "delta": -56.6
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2022,
+      "week": 10,
+      "date": "2022-11-10",
+      "transactionId": "896468742987522048",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "Ja'Marr Chase"
+          ],
+          "originalEngineStartedPoints": 63.1,
+          "originalEngineStarts": 5,
+          "strictRegularSeasonPostTradeStartedPoints": 37.7,
+          "strictRegularSeasonPostTradeStarts": 2,
+          "differenceFromOlderEngine": -25.4,
+          "oldPARPreview": {
+            "partialPAR": 26.63,
+            "partialPoints": 37.7,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Ja'Marr Chase",
+              "resolvedSeasonNames": [
+                "Ja'Marr Chase"
+              ],
+              "observedSeasonPlayerIds": [
+                "7564"
+              ],
+              "postTradeStartedPoints": 37.7,
+              "postTradeStarts": 2,
+              "postTradeStartedWeeks": [
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "7564"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-recordbook"
+        },
+        {
+          "manager": "Birch",
+          "teamId": "10",
+          "tradeAssets": [
+            "Cordarrelle Patterson",
+            "Jeff Wilson",
+            "Chase Claypool"
+          ],
+          "originalEngineStartedPoints": 52.7,
+          "originalEngineStarts": 9,
+          "strictRegularSeasonPostTradeStartedPoints": 33.1,
+          "strictRegularSeasonPostTradeStarts": 6,
+          "differenceFromOlderEngine": -19.6,
+          "oldPARPreview": {
+            "partialPAR": 4.18,
+            "partialPoints": 33.1,
+            "unresolved": [
+              "Chase Claypool"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Cordarrelle Patterson",
+              "resolvedSeasonNames": [
+                "Cordarrelle Patterson"
+              ],
+              "observedSeasonPlayerIds": [
+                "1535"
+              ],
+              "postTradeStartedPoints": 19.5,
+              "postTradeStarts": 3,
+              "postTradeStartedWeeks": [
+                11,
+                12,
+                13
+              ],
+              "postTradeStarterPlayerIds": [
+                "1535"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Jeff Wilson",
+              "resolvedSeasonNames": [
+                "Jeff Wilson"
+              ],
+              "observedSeasonPlayerIds": [
+                "5284"
+              ],
+              "postTradeStartedPoints": 13.6,
+              "postTradeStarts": 3,
+              "postTradeStartedWeeks": [
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "5284"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Chase Claypool",
+              "resolvedSeasonNames": [
+                "Chase Claypool"
+              ],
+              "observedSeasonPlayerIds": [
+                "6886"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-recordbook"
+        }
+      ],
+      "originalEngineRawGap": 10.4,
+      "strictRegularSeasonGap": 4.6,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stew",
+          "delta": -25.4
+        },
+        {
+          "manager": "Birch",
+          "delta": -19.6
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2023,
+      "week": 6,
+      "date": "2023-10-12",
+      "transactionId": "1018289561511682048",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "Tony Pollard",
+            "Jaxon Smith-Njigba"
+          ],
+          "originalEngineStartedPoints": 77.5,
+          "originalEngineStarts": 10,
+          "strictRegularSeasonPostTradeStartedPoints": 47.9,
+          "strictRegularSeasonPostTradeStarts": 7,
+          "differenceFromOlderEngine": -29.6,
+          "oldPARPreview": {
+            "partialPAR": 20.64,
+            "partialPoints": 47.9,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Tony Pollard",
+              "resolvedSeasonNames": [
+                "Tony Pollard"
+              ],
+              "observedSeasonPlayerIds": [
+                "5967"
+              ],
+              "postTradeStartedPoints": 13.8,
+              "postTradeStarts": 2,
+              "postTradeStartedWeeks": [
+                8,
+                9
+              ],
+              "postTradeStarterPlayerIds": [
+                "5967"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Jaxon Smith-Njigba",
+              "resolvedSeasonNames": [
+                "Jaxon Smith-Njigba"
+              ],
+              "observedSeasonPlayerIds": [
+                "9488"
+              ],
+              "postTradeStartedPoints": 34.1,
+              "postTradeStarts": 5,
+              "postTradeStartedWeeks": [
+                9,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "9488"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Birch",
+          "teamId": "10",
+          "tradeAssets": [
+            "CeeDee Lamb",
+            "Kenny Gainwell"
+          ],
+          "originalEngineStartedPoints": 236.1,
+          "originalEngineStarts": 10,
+          "strictRegularSeasonPostTradeStartedPoints": 163.1,
+          "strictRegularSeasonPostTradeStarts": 7,
+          "differenceFromOlderEngine": -73,
+          "oldPARPreview": {
+            "partialPAR": 134.55,
+            "partialPoints": 163.1,
+            "unresolved": [
+              "Kenny Gainwell"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "CeeDee Lamb",
+              "resolvedSeasonNames": [
+                "CeeDee Lamb"
+              ],
+              "observedSeasonPlayerIds": [
+                "6786"
+              ],
+              "postTradeStartedPoints": 163.1,
+              "postTradeStarts": 7,
+              "postTradeStartedWeeks": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "6786"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Kenny Gainwell",
+              "resolvedSeasonNames": [],
+              "observedSeasonPlayerIds": [],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "provider_trade_id_confirmed_no_season_starts",
+              "providerTradePlayerId": "7567"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": -158.6,
+      "strictRegularSeasonGap": -115.2,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stew",
+          "delta": -29.6
+        },
+        {
+          "manager": "Birch",
+          "delta": -73
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2023,
+      "week": 10,
+      "date": "2023-11-08",
+      "transactionId": "1028065885325508608",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Evans",
+          "teamId": "2",
+          "tradeAssets": [
+            "Joe Mixon"
+          ],
+          "originalEngineStartedPoints": 111.5,
+          "originalEngineStarts": 7,
+          "strictRegularSeasonPostTradeStartedPoints": 73.2,
+          "strictRegularSeasonPostTradeStarts": 4,
+          "differenceFromOlderEngine": -38.3,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Joe Mixon"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Joe Mixon",
+              "resolvedSeasonNames": [
+                "Joe Mixon"
+              ],
+              "observedSeasonPlayerIds": [
+                "4018"
+              ],
+              "postTradeStartedPoints": 73.2,
+              "postTradeStarts": 4,
+              "postTradeStartedWeeks": [
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "4018"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-tenure"
+        },
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "Jordan Addison"
+          ],
+          "originalEngineStartedPoints": 47.6,
+          "originalEngineStarts": 6,
+          "strictRegularSeasonPostTradeStartedPoints": 16.5,
+          "strictRegularSeasonPostTradeStarts": 3,
+          "differenceFromOlderEngine": -31.1,
+          "oldPARPreview": {
+            "partialPAR": 4.67,
+            "partialPoints": 16.5,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Jordan Addison",
+              "resolvedSeasonNames": [
+                "Jordan Addison"
+              ],
+              "observedSeasonPlayerIds": [
+                "9756"
+              ],
+              "postTradeStartedPoints": 16.5,
+              "postTradeStarts": 3,
+              "postTradeStartedWeeks": [
+                11,
+                12,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "9756"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-tenure"
+        }
+      ],
+      "originalEngineRawGap": 63.9,
+      "strictRegularSeasonGap": 56.7,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Evans",
+          "delta": -38.3
+        },
+        {
+          "manager": "Stew",
+          "delta": -31.1
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2023,
+      "week": 14,
+      "date": "2023-12-06",
+      "transactionId": "1038099277249245184",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Evans",
+          "teamId": "2",
+          "tradeAssets": [
+            "Ja'Marr Chase"
+          ],
+          "originalEngineStartedPoints": 14,
+          "originalEngineStarts": 3,
+          "strictRegularSeasonPostTradeStartedPoints": 0,
+          "strictRegularSeasonPostTradeStarts": 0,
+          "differenceFromOlderEngine": -14,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Ja'Marr Chase"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Ja'Marr Chase",
+              "resolvedSeasonNames": [
+                "Ja'Marr Chase"
+              ],
+              "observedSeasonPlayerIds": [
+                "7564"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-tenure"
+        },
+        {
+          "manager": "Kuhl",
+          "teamId": "9",
+          "tradeAssets": [
+            "Tyler Lockett"
+          ],
+          "originalEngineStartedPoints": 15.7,
+          "originalEngineStarts": 2,
+          "strictRegularSeasonPostTradeStartedPoints": 0,
+          "strictRegularSeasonPostTradeStarts": 0,
+          "differenceFromOlderEngine": -15.7,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Tyler Lockett"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Tyler Lockett",
+              "resolvedSeasonNames": [
+                "Tyler Lockett"
+              ],
+              "observedSeasonPlayerIds": [
+                "2374"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-tenure"
+        }
+      ],
+      "originalEngineRawGap": -1.7,
+      "strictRegularSeasonGap": 0,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Evans",
+          "delta": -14
+        },
+        {
+          "manager": "Kuhl",
+          "delta": -15.7
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "date": "2024-09-12",
+      "transactionId": "1140082401968836608",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "Malik Nabers"
+          ],
+          "originalEngineStartedPoints": 171.4,
+          "originalEngineStarts": 12,
+          "strictRegularSeasonPostTradeStartedPoints": 108.3,
+          "strictRegularSeasonPostTradeStarts": 9,
+          "differenceFromOlderEngine": -63.1,
+          "oldPARPreview": {
+            "partialPAR": 68.8,
+            "partialPoints": 108.3,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Malik Nabers",
+              "resolvedSeasonNames": [
+                "Malik Nabers"
+              ],
+              "observedSeasonPlayerIds": [
+                "11632"
+              ],
+              "postTradeStartedPoints": 108.3,
+              "postTradeStarts": 9,
+              "postTradeStartedWeeks": [
+                3,
+                4,
+                7,
+                8,
+                9,
+                10,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "11632"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Stover",
+          "teamId": "8",
+          "tradeAssets": [
+            "Davante Adams"
+          ],
+          "originalEngineStartedPoints": 139,
+          "originalEngineStarts": 10,
+          "strictRegularSeasonPostTradeStartedPoints": 74.2,
+          "strictRegularSeasonPostTradeStarts": 7,
+          "differenceFromOlderEngine": -64.8,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Davante Adams"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Davante Adams",
+              "resolvedSeasonNames": [
+                "Davante Adams"
+              ],
+              "observedSeasonPlayerIds": [
+                "2133"
+              ],
+              "postTradeStartedPoints": 74.2,
+              "postTradeStarts": 7,
+              "postTradeStartedWeeks": [
+                3,
+                7,
+                8,
+                9,
+                10,
+                11,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "2133"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": 32.4,
+      "strictRegularSeasonGap": 34.1,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stew",
+          "delta": -63.1
+        },
+        {
+          "manager": "Stover",
+          "delta": -64.8
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2024,
+      "week": 2,
+      "date": "2024-09-17",
+      "transactionId": "1141777905656143872",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "JMid",
+          "teamId": "2",
+          "tradeAssets": [
+            "Calvin Ridley",
+            "Kyren Williams"
+          ],
+          "originalEngineStartedPoints": 227,
+          "originalEngineStarts": 14,
+          "strictRegularSeasonPostTradeStartedPoints": 180.7,
+          "strictRegularSeasonPostTradeStarts": 11,
+          "differenceFromOlderEngine": -46.3,
+          "oldPARPreview": {
+            "partialPAR": 108.77,
+            "partialPoints": 180.7,
+            "unresolved": [
+              "Calvin Ridley"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Calvin Ridley",
+              "resolvedSeasonNames": [
+                "Calvin Ridley"
+              ],
+              "observedSeasonPlayerIds": [
+                "4981"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Kyren Williams",
+              "resolvedSeasonNames": [
+                "Kyren Williams"
+              ],
+              "observedSeasonPlayerIds": [
+                "8150"
+              ],
+              "postTradeStartedPoints": 180.7,
+              "postTradeStarts": 11,
+              "postTradeStartedWeeks": [
+                3,
+                4,
+                5,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "8150"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "James Cook III"
+          ],
+          "originalEngineStartedPoints": 204.1,
+          "originalEngineStarts": 14,
+          "strictRegularSeasonPostTradeStartedPoints": 139.9,
+          "strictRegularSeasonPostTradeStarts": 11,
+          "differenceFromOlderEngine": -64.2,
+          "oldPARPreview": {
+            "partialPAR": 70.31,
+            "partialPoints": 139.9,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "James Cook III",
+              "resolvedSeasonNames": [
+                "James Cook III"
+              ],
+              "observedSeasonPlayerIds": [
+                "8138"
+              ],
+              "postTradeStartedPoints": 139.9,
+              "postTradeStarts": 11,
+              "postTradeStartedWeeks": [
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "8138"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": 22.9,
+      "strictRegularSeasonGap": 40.8,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "JMid",
+          "delta": -46.3
+        },
+        {
+          "manager": "Stew",
+          "delta": -64.2
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2024,
+      "week": 4,
+      "date": "2024-10-01",
+      "transactionId": "1146946436173623296",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "teamId": "3",
+          "tradeAssets": [
+            "Mark Andrews",
+            "Rico Dowdle"
+          ],
+          "originalEngineStartedPoints": 21.6,
+          "originalEngineStarts": 2,
+          "strictRegularSeasonPostTradeStartedPoints": 21.6,
+          "strictRegularSeasonPostTradeStarts": 2,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": 12.5,
+            "partialPoints": 21.6,
+            "unresolved": [
+              "Rico Dowdle"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Mark Andrews",
+              "resolvedSeasonNames": [
+                "Mark Andrews"
+              ],
+              "observedSeasonPlayerIds": [
+                "5012"
+              ],
+              "postTradeStartedPoints": 21.6,
+              "postTradeStarts": 2,
+              "postTradeStartedWeeks": [
+                5,
+                6
+              ],
+              "postTradeStarterPlayerIds": [
+                "5012"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Rico Dowdle",
+              "resolvedSeasonNames": [
+                "Rico Dowdle"
+              ],
+              "observedSeasonPlayerIds": [
+                "7021"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "Amari Cooper"
+          ],
+          "originalEngineStartedPoints": 53.4,
+          "originalEngineStarts": 9,
+          "strictRegularSeasonPostTradeStartedPoints": 38.8,
+          "strictRegularSeasonPostTradeStarts": 6,
+          "differenceFromOlderEngine": -14.6,
+          "oldPARPreview": {
+            "partialPAR": 13.96,
+            "partialPoints": 38.8,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Amari Cooper",
+              "resolvedSeasonNames": [
+                "Amari Cooper"
+              ],
+              "observedSeasonPlayerIds": [
+                "2309"
+              ],
+              "postTradeStartedPoints": 38.8,
+              "postTradeStarts": 6,
+              "postTradeStartedWeeks": [
+                5,
+                6,
+                7,
+                8,
+                11,
+                13
+              ],
+              "postTradeStarterPlayerIds": [
+                "2309"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": -31.8,
+      "strictRegularSeasonGap": -17.2,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stew",
+          "delta": -14.6
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2024,
+      "week": 7,
+      "date": "2024-10-17",
+      "transactionId": "1152708228883660800",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "teamId": "3",
+          "tradeAssets": [
+            "Travis Kelce",
+            "Brandon Aiyuk"
+          ],
+          "originalEngineStartedPoints": 107.3,
+          "originalEngineStarts": 10,
+          "strictRegularSeasonPostTradeStartedPoints": 78.7,
+          "strictRegularSeasonPostTradeStarts": 7,
+          "differenceFromOlderEngine": -28.6,
+          "oldPARPreview": {
+            "partialPAR": 49.55,
+            "partialPoints": 78.7,
+            "unresolved": [
+              "Brandon Aiyuk"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Travis Kelce",
+              "resolvedSeasonNames": [
+                "Travis Kelce"
+              ],
+              "observedSeasonPlayerIds": [
+                "1466"
+              ],
+              "postTradeStartedPoints": 78.7,
+              "postTradeStarts": 7,
+              "postTradeStartedWeeks": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "1466"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Brandon Aiyuk",
+              "resolvedSeasonNames": [
+                "Brandon Aiyuk"
+              ],
+              "observedSeasonPlayerIds": [
+                "6803"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-recordbook"
+        },
+        {
+          "manager": "Tony",
+          "teamId": "7",
+          "tradeAssets": [
+            "Cooper Kupp",
+            "Kareem Hunt",
+            "Rico Dowdle"
+          ],
+          "originalEngineStartedPoints": 216.9,
+          "originalEngineStarts": 19,
+          "strictRegularSeasonPostTradeStartedPoints": 178.8,
+          "strictRegularSeasonPostTradeStarts": 13,
+          "differenceFromOlderEngine": -38.1,
+          "oldPARPreview": {
+            "partialPAR": 102.44,
+            "partialPoints": 178.8,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Cooper Kupp",
+              "resolvedSeasonNames": [
+                "Cooper Kupp"
+              ],
+              "observedSeasonPlayerIds": [
+                "4039"
+              ],
+              "postTradeStartedPoints": 103.5,
+              "postTradeStarts": 7,
+              "postTradeStartedWeeks": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "4039"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Kareem Hunt",
+              "resolvedSeasonNames": [
+                "Kareem Hunt"
+              ],
+              "observedSeasonPlayerIds": [
+                "4098"
+              ],
+              "postTradeStartedPoints": 60.7,
+              "postTradeStarts": 5,
+              "postTradeStartedWeeks": [
+                8,
+                9,
+                10,
+                11,
+                12
+              ],
+              "postTradeStarterPlayerIds": [
+                "4098"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Rico Dowdle",
+              "resolvedSeasonNames": [
+                "Rico Dowdle"
+              ],
+              "observedSeasonPlayerIds": [
+                "7021"
+              ],
+              "postTradeStartedPoints": 14.6,
+              "postTradeStarts": 1,
+              "postTradeStartedWeeks": [
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "7021"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-recordbook"
+        }
+      ],
+      "originalEngineRawGap": -109.6,
+      "strictRegularSeasonGap": -100.1,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Thommy",
+          "delta": -28.6
+        },
+        {
+          "manager": "Tony",
+          "delta": -38.1
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2024,
+      "week": 10,
+      "date": "2024-11-09",
+      "transactionId": "1159892809005076480",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Mitch",
+          "teamId": "6",
+          "tradeAssets": [
+            "Raheem Mostert"
+          ],
+          "originalEngineStartedPoints": 0,
+          "originalEngineStarts": 0,
+          "strictRegularSeasonPostTradeStartedPoints": 0,
+          "strictRegularSeasonPostTradeStarts": 0,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Raheem Mostert"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Raheem Mostert",
+              "resolvedSeasonNames": [
+                "Raheem Mostert"
+              ],
+              "observedSeasonPlayerIds": [
+                "2749"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Kuhl",
+          "teamId": "9",
+          "tradeAssets": [
+            "Nick Chubb"
+          ],
+          "originalEngineStartedPoints": 39.8,
+          "originalEngineStarts": 4,
+          "strictRegularSeasonPostTradeStartedPoints": 39.8,
+          "strictRegularSeasonPostTradeStarts": 4,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": 14.47,
+            "partialPoints": 39.8,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Nick Chubb",
+              "resolvedSeasonNames": [
+                "Nick Chubb"
+              ],
+              "observedSeasonPlayerIds": [
+                "4988"
+              ],
+              "postTradeStartedPoints": 39.8,
+              "postTradeStarts": 4,
+              "postTradeStartedWeeks": [
+                11,
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "4988"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": -39.8,
+      "strictRegularSeasonGap": -39.8,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2025,
+      "week": 3,
+      "date": "2025-09-24",
+      "transactionId": "1276326233327570944",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "teamId": "3",
+          "tradeAssets": [
+            "Jordan Addison"
+          ],
+          "originalEngineStartedPoints": 39.8,
+          "originalEngineStarts": 4,
+          "strictRegularSeasonPostTradeStartedPoints": 39.8,
+          "strictRegularSeasonPostTradeStarts": 4,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": 21.13,
+            "partialPoints": 39.8,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Jordan Addison",
+              "resolvedSeasonNames": [
+                "Jordan Addison"
+              ],
+              "observedSeasonPlayerIds": [
+                "9756"
+              ],
+              "postTradeStartedPoints": 39.8,
+              "postTradeStarts": 4,
+              "postTradeStartedWeeks": [
+                7,
+                8,
+                9,
+                10
+              ],
+              "postTradeStarterPlayerIds": [
+                "9756"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Stover",
+          "teamId": "8",
+          "tradeAssets": [
+            "Mike Evans"
+          ],
+          "originalEngineStartedPoints": 0,
+          "originalEngineStarts": 1,
+          "strictRegularSeasonPostTradeStartedPoints": 0,
+          "strictRegularSeasonPostTradeStarts": 1,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Mike Evans"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Mike Evans",
+              "resolvedSeasonNames": [
+                "Mike Evans"
+              ],
+              "observedSeasonPlayerIds": [
+                "2216"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 1,
+              "postTradeStartedWeeks": [
+                7
+              ],
+              "postTradeStarterPlayerIds": [
+                "2216"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": 39.8,
+      "strictRegularSeasonGap": 39.8,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2025,
+      "week": 3,
+      "date": "2025-09-24",
+      "transactionId": "1276373761972527104",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "Quentin Johnston"
+          ],
+          "originalEngineStartedPoints": 64.5,
+          "originalEngineStarts": 7,
+          "strictRegularSeasonPostTradeStartedPoints": 64.5,
+          "strictRegularSeasonPostTradeStarts": 7,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": 34.01,
+            "partialPoints": 64.5,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Quentin Johnston",
+              "resolvedSeasonNames": [
+                "Quentin Johnston"
+              ],
+              "observedSeasonPlayerIds": [
+                "9754"
+              ],
+              "postTradeStartedPoints": 64.5,
+              "postTradeStarts": 7,
+              "postTradeStartedWeeks": [
+                4,
+                5,
+                7,
+                8,
+                9,
+                10,
+                13
+              ],
+              "postTradeStarterPlayerIds": [
+                "9754"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-recordbook"
+        },
+        {
+          "manager": "Birch",
+          "teamId": "10",
+          "tradeAssets": [
+            "Bhayshul Tuten"
+          ],
+          "originalEngineStartedPoints": 0,
+          "originalEngineStarts": 0,
+          "strictRegularSeasonPostTradeStartedPoints": 0,
+          "strictRegularSeasonPostTradeStarts": 0,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Bhayshul Tuten"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Bhayshul Tuten",
+              "resolvedSeasonNames": [
+                "Bhayshul Tuten"
+              ],
+              "observedSeasonPlayerIds": [
+                "12490"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-recordbook"
+        }
+      ],
+      "originalEngineRawGap": 64.5,
+      "strictRegularSeasonGap": 64.5,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2025,
+      "week": 11,
+      "date": "2025-11-12",
+      "transactionId": "1294402688213057536",
+      "shape": "three_manager",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "teamId": "1",
+          "tradeAssets": [
+            "Amon-Ra St. Brown",
+            "Jordan Addison",
+            "Jared Goff"
+          ],
+          "originalEngineStartedPoints": 199.72,
+          "originalEngineStarts": 13,
+          "strictRegularSeasonPostTradeStartedPoints": 91.56,
+          "strictRegularSeasonPostTradeStarts": 7,
+          "differenceFromOlderEngine": -108.16,
+          "oldPARPreview": {
+            "partialPAR": 47.44,
+            "partialPoints": 91.56,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Amon-Ra St. Brown",
+              "resolvedSeasonNames": [
+                "Amon-Ra St. Brown"
+              ],
+              "observedSeasonPlayerIds": [
+                "7547"
+              ],
+              "postTradeStartedPoints": 37.6,
+              "postTradeStarts": 3,
+              "postTradeStartedWeeks": [
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "7547"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Jordan Addison",
+              "resolvedSeasonNames": [
+                "Jordan Addison"
+              ],
+              "observedSeasonPlayerIds": [
+                "9756"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 1,
+              "postTradeStartedWeeks": [
+                12
+              ],
+              "postTradeStarterPlayerIds": [
+                "9756"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Jared Goff",
+              "resolvedSeasonNames": [
+                "Jared Goff"
+              ],
+              "observedSeasonPlayerIds": [
+                "3163"
+              ],
+              "postTradeStartedPoints": 53.96,
+              "postTradeStarts": 3,
+              "postTradeStartedWeeks": [
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "3163"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-recordbook"
+        },
+        {
+          "manager": "JMid",
+          "teamId": "2",
+          "tradeAssets": [
+            "Ja'Marr Chase"
+          ],
+          "originalEngineStartedPoints": 78.3,
+          "originalEngineStarts": 5,
+          "strictRegularSeasonPostTradeStartedPoints": 23.2,
+          "strictRegularSeasonPostTradeStarts": 2,
+          "differenceFromOlderEngine": -55.1,
+          "oldPARPreview": {
+            "partialPAR": 16.64,
+            "partialPoints": 23.2,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Ja'Marr Chase",
+              "resolvedSeasonNames": [
+                "Ja'Marr Chase"
+              ],
+              "observedSeasonPlayerIds": [
+                "7564"
+              ],
+              "postTradeStartedPoints": 23.2,
+              "postTradeStarts": 2,
+              "postTradeStartedWeeks": [
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "7564"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-recordbook"
+        },
+        {
+          "manager": "Thommy",
+          "teamId": "3",
+          "tradeAssets": [
+            "A.J. Brown"
+          ],
+          "originalEngineStartedPoints": 98.6,
+          "originalEngineStarts": 6,
+          "strictRegularSeasonPostTradeStartedPoints": 64.2,
+          "strictRegularSeasonPostTradeStarts": 3,
+          "differenceFromOlderEngine": -34.4,
+          "oldPARPreview": {
+            "partialPAR": 53.76,
+            "partialPoints": 64.2,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "A.J. Brown",
+              "resolvedSeasonNames": [
+                "A.J. Brown"
+              ],
+              "observedSeasonPlayerIds": [
+                "5859"
+              ],
+              "postTradeStartedPoints": 64.2,
+              "postTradeStarts": 3,
+              "postTradeStartedWeeks": [
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "5859"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified-recordbook"
+        }
+      ],
+      "originalEngineRawGap": null,
+      "strictRegularSeasonGap": null,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stilly",
+          "delta": -108.16
+        },
+        {
+          "manager": "JMid",
+          "delta": -55.1
+        },
+        {
+          "manager": "Thommy",
+          "delta": -34.4
+        }
+      ],
+      "classification": "multi_manager_requires_separate_method"
+    },
+    {
+      "year": 2025,
+      "week": 11,
+      "date": "2025-11-12",
+      "transactionId": "1294424036499025920",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "teamId": "1",
+          "tradeAssets": [
+            "Brian Thomas Jr."
+          ],
+          "originalEngineStartedPoints": 0,
+          "originalEngineStarts": 0,
+          "strictRegularSeasonPostTradeStartedPoints": 0,
+          "strictRegularSeasonPostTradeStarts": 0,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Brian Thomas Jr."
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Brian Thomas Jr.",
+              "resolvedSeasonNames": [
+                "Brian Thomas Jr."
+              ],
+              "observedSeasonPlayerIds": [
+                "11631"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Stover",
+          "teamId": "8",
+          "tradeAssets": [
+            "Stefon Diggs"
+          ],
+          "originalEngineStartedPoints": 7.1,
+          "originalEngineStarts": 2,
+          "strictRegularSeasonPostTradeStartedPoints": 7.1,
+          "strictRegularSeasonPostTradeStarts": 2,
+          "differenceFromOlderEngine": 0,
+          "oldPARPreview": {
+            "partialPAR": 0,
+            "partialPoints": 0,
+            "unresolved": [
+              "Stefon Diggs"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Stefon Diggs",
+              "resolvedSeasonNames": [
+                "Stefon Diggs"
+              ],
+              "observedSeasonPlayerIds": [
+                "2449"
+              ],
+              "postTradeStartedPoints": 7.1,
+              "postTradeStarts": 2,
+              "postTradeStartedWeeks": [
+                12,
+                13
+              ],
+              "postTradeStarterPlayerIds": [
+                "2449"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": -7.1,
+      "strictRegularSeasonGap": -7.1,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    },
+    {
+      "year": 2025,
+      "week": 11,
+      "date": "2025-11-13",
+      "transactionId": "1294724519813988352",
+      "shape": "two_manager",
+      "sides": [
+        {
+          "manager": "Stew",
+          "teamId": "4",
+          "tradeAssets": [
+            "Jake Ferguson",
+            "Jaylen Warren"
+          ],
+          "originalEngineStartedPoints": 114.8,
+          "originalEngineStarts": 12,
+          "strictRegularSeasonPostTradeStartedPoints": 59.9,
+          "strictRegularSeasonPostTradeStarts": 6,
+          "differenceFromOlderEngine": -54.9,
+          "oldPARPreview": {
+            "partialPAR": 29.29,
+            "partialPoints": 59.9,
+            "unresolved": []
+          },
+          "players": [
+            {
+              "tradeAsset": "Jake Ferguson",
+              "resolvedSeasonNames": [
+                "Jake Ferguson"
+              ],
+              "observedSeasonPlayerIds": [
+                "8110"
+              ],
+              "postTradeStartedPoints": 22,
+              "postTradeStarts": 3,
+              "postTradeStartedWeeks": [
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "8110"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Jaylen Warren",
+              "resolvedSeasonNames": [
+                "Jaylen Warren"
+              ],
+              "observedSeasonPlayerIds": [
+                "8228"
+              ],
+              "postTradeStartedPoints": 37.9,
+              "postTradeStarts": 3,
+              "postTradeStartedWeeks": [
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "8228"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        },
+        {
+          "manager": "Kuhl",
+          "teamId": "9",
+          "tradeAssets": [
+            "Zach Ertz",
+            "Derrick Henry"
+          ],
+          "originalEngineStartedPoints": 128.8,
+          "originalEngineStarts": 6,
+          "strictRegularSeasonPostTradeStartedPoints": 50.4,
+          "strictRegularSeasonPostTradeStarts": 3,
+          "differenceFromOlderEngine": -78.4,
+          "oldPARPreview": {
+            "partialPAR": 31.39,
+            "partialPoints": 50.4,
+            "unresolved": [
+              "Zach Ertz"
+            ]
+          },
+          "players": [
+            {
+              "tradeAsset": "Zach Ertz",
+              "resolvedSeasonNames": [
+                "Zach Ertz"
+              ],
+              "observedSeasonPlayerIds": [
+                "1339"
+              ],
+              "postTradeStartedPoints": 0,
+              "postTradeStarts": 0,
+              "postTradeStartedWeeks": [],
+              "postTradeStarterPlayerIds": [],
+              "identityCoverage": "season_player_id_observed"
+            },
+            {
+              "tradeAsset": "Derrick Henry",
+              "resolvedSeasonNames": [
+                "Derrick Henry"
+              ],
+              "observedSeasonPlayerIds": [
+                "3198"
+              ],
+              "postTradeStartedPoints": 50.4,
+              "postTradeStarts": 3,
+              "postTradeStartedWeeks": [
+                12,
+                13,
+                14
+              ],
+              "postTradeStarterPlayerIds": [
+                "3198"
+              ],
+              "identityCoverage": "season_player_id_observed"
+            }
+          ],
+          "sourceSideConfidence": "verified"
+        }
+      ],
+      "originalEngineRawGap": -14,
+      "strictRegularSeasonGap": 9.5,
+      "unresolvedIdentityFromYearlyStarterEvidence": [],
+      "olderVsStrictScopeDifferences": [
+        {
+          "manager": "Stew",
+          "delta": -54.9
+        },
+        {
+          "manager": "Kuhl",
+          "delta": -78.4
+        }
+      ],
+      "classification": "two_sides_regular_season_started_points_rebuilt_not_par_certified"
+    }
+  ],
+  "sources": [
+    "data/v9_trade_engine.json",
+    "data/trade_par_preview.json",
+    "data/player_starts_2020.json",
+    "data/player_starts_2021.json",
+    "data/player_starts_2022.json",
+    "data/player_starts_2023.json",
+    "data/player_starts_2024.json",
+    "data/player_starts_2025.json",
+    "data-integrity/COMMISSIONER_OWNERSHIP_AND_TRADE_RULES_2026-11-06.md",
+    "data-integrity/provider-recovered-transactions-2023-week6.json",
+    "data-integrity/provider-recovered-transactions-2020-week8.json",
+    "data-integrity/provider-recovered-transactions-2021-week3.json"
+  ]
+}

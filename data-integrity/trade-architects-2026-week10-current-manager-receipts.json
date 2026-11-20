@@ -1,0 +1,443 @@
+{
+  "schema": "fellas-active-manager-2026-week10-trade-receipts-v1",
+  "asOf": "2026-11-16",
+  "status": "research_only_week10_in_progress",
+  "managerByRosterId": {
+    "1": "Stilly",
+    "2": "JMid",
+    "3": "Thommy",
+    "4": "Stew",
+    "5": "Scott",
+    "6": "Mitch",
+    "7": "Tony",
+    "8": "Stover",
+    "9": "Kuhl",
+    "10": "Birch"
+  },
+  "method": "Current 2026 Sleeper completed trade receipts and credited fantasy points in receiving manager starting lineups through ongoing Week 10. Same-week credited starts included when applicable. Player and transaction IDs reflect Sleeper; canonical managers mapped by data/manager_identity_map_v1.json. These results are not position-adjusted PAR or a counterfactual value. Week 10 not final.",
+  "transactions": [
+    {
+      "id": "1399889389147979776",
+      "week": 1,
+      "stamp": 1788134446345,
+      "sides": [
+        {
+          "rosterId": 1,
+          "manager": "Stilly",
+          "players": [
+            {
+              "playerId": "11581",
+              "name": "MarShawn Lloyd",
+              "startedPoints": 12.3
+            }
+          ],
+          "startedPoints": 12.3
+        },
+        {
+          "rosterId": 3,
+          "manager": "Thommy",
+          "players": [
+            {
+              "playerId": "11583",
+              "name": "Jonathon Brooks",
+              "startedPoints": 0
+            }
+          ],
+          "startedPoints": 0
+        }
+      ],
+      "utcTimestamp": "2026-08-31T00:00:46.345Z",
+      "localDate": "2026-08-30",
+      "rawStarterPointsGap": 12.3
+    },
+    {
+      "id": "1400522174271340544",
+      "week": 1,
+      "stamp": 1788273615700,
+      "sides": [
+        {
+          "rosterId": 5,
+          "manager": "Scott",
+          "players": [
+            {
+              "playerId": "12514",
+              "name": "Emeka Egbuka",
+              "startedPoints": 57.1
+            }
+          ],
+          "startedPoints": 57.1
+        },
+        {
+          "rosterId": 4,
+          "manager": "Stew",
+          "players": [
+            {
+              "playerId": "11635",
+              "name": "Ladd McConkey",
+              "startedPoints": 30.3
+            }
+          ],
+          "startedPoints": 30.3
+        }
+      ],
+      "utcTimestamp": "2026-09-01T14:40:15.700Z",
+      "localDate": "2026-09-01",
+      "rawStarterPointsGap": 26.8
+    },
+    {
+      "id": "1405999320708268032",
+      "week": 2,
+      "stamp": 1789584648836,
+      "sides": [
+        {
+          "rosterId": 8,
+          "manager": "Stover",
+          "players": [
+            {
+              "playerId": "7523",
+              "name": "Trevor Lawrence",
+              "startedPoints": 118.52
+            }
+          ],
+          "startedPoints": 118.52
+        },
+        {
+          "rosterId": 3,
+          "manager": "Thommy",
+          "players": [
+            {
+              "playerId": "12512",
+              "name": "Quinshon Judkins",
+              "startedPoints": 82.4
+            }
+          ],
+          "startedPoints": 82.4
+        }
+      ],
+      "utcTimestamp": "2026-09-16T18:50:48.836Z",
+      "localDate": "2026-09-16",
+      "rawStarterPointsGap": 36.12
+    },
+    {
+      "id": "1411009536306733056",
+      "week": 4,
+      "stamp": 1790774035083,
+      "sides": [
+        {
+          "rosterId": 4,
+          "manager": "Stew",
+          "players": [
+            {
+              "playerId": "11564",
+              "name": "Drake Maye",
+              "startedPoints": 106.62
+            },
+            {
+              "playerId": "8167",
+              "name": "Christian Watson",
+              "startedPoints": 0
+            }
+          ],
+          "startedPoints": 106.62
+        },
+        {
+          "rosterId": 9,
+          "manager": "Kuhl",
+          "players": [
+            {
+              "playerId": "6904",
+              "name": "Jalen Hurts",
+              "startedPoints": 23.52
+            },
+            {
+              "playerId": "11635",
+              "name": "Ladd McConkey",
+              "startedPoints": 11.6
+            }
+          ],
+          "startedPoints": 35.12
+        }
+      ],
+      "utcTimestamp": "2026-09-30T13:13:55.083Z",
+      "localDate": "2026-09-30",
+      "rawStarterPointsGap": 71.5
+    },
+    {
+      "id": "1411012593170010112",
+      "week": 4,
+      "stamp": 1790774641323,
+      "sides": [
+        {
+          "rosterId": 2,
+          "manager": "JMid",
+          "players": [
+            {
+              "playerId": "8167",
+              "name": "Christian Watson",
+              "startedPoints": 100.7
+            },
+            {
+              "playerId": "6806",
+              "name": "J.K. Dobbins",
+              "startedPoints": 9.6
+            }
+          ],
+          "startedPoints": 110.3
+        },
+        {
+          "rosterId": 4,
+          "manager": "Stew",
+          "players": [
+            {
+              "playerId": "13287",
+              "name": "Jeremiyah Love",
+              "startedPoints": 10.5
+            }
+          ],
+          "startedPoints": 10.5
+        }
+      ],
+      "utcTimestamp": "2026-09-30T13:24:01.323Z",
+      "localDate": "2026-09-30",
+      "rawStarterPointsGap": 99.8
+    },
+    {
+      "id": "1413584172332654592",
+      "week": 5,
+      "stamp": 1791390897874,
+      "sides": [
+        {
+          "rosterId": 1,
+          "manager": "Stilly",
+          "players": [
+            {
+              "playerId": "7564",
+              "name": "Ja'Marr Chase",
+              "startedPoints": 115.1
+            },
+            {
+              "playerId": "11834",
+              "name": "Devaughn Vele",
+              "startedPoints": 5.7
+            }
+          ],
+          "startedPoints": 120.8
+        },
+        {
+          "rosterId": 2,
+          "manager": "JMid",
+          "players": [
+            {
+              "playerId": "2133",
+              "name": "Davante Adams",
+              "startedPoints": 25
+            },
+            {
+              "playerId": "4217",
+              "name": "George Kittle",
+              "startedPoints": 49.3
+            },
+            {
+              "playerId": "8155",
+              "name": "Breece Hall",
+              "startedPoints": 23
+            }
+          ],
+          "startedPoints": 97.3
+        }
+      ],
+      "utcTimestamp": "2026-10-07T16:34:57.874Z",
+      "localDate": "2026-10-07",
+      "rawStarterPointsGap": 23.5
+    },
+    {
+      "id": "1414340723225976832",
+      "week": 5,
+      "stamp": 1791567805762,
+      "sides": [
+        {
+          "rosterId": 10,
+          "manager": "Birch",
+          "players": [
+            {
+              "playerId": "MIN",
+              "name": "Minnesota Vikings DEF",
+              "startedPoints": 32
+            }
+          ],
+          "startedPoints": 32
+        },
+        {
+          "rosterId": 3,
+          "manager": "Thommy",
+          "players": [
+            {
+              "playerId": "5872",
+              "name": "Deebo Samuel Sr.",
+              "startedPoints": 25.4
+            }
+          ],
+          "startedPoints": 25.4
+        }
+      ],
+      "utcTimestamp": "2026-10-09T17:43:25.762Z",
+      "localDate": "2026-10-09",
+      "rawStarterPointsGap": 6.6
+    },
+    {
+      "id": "1424524291990450196",
+      "week": 9,
+      "stamp": 1793995628259,
+      "sides": [
+        {
+          "rosterId": 4,
+          "manager": "Stew",
+          "players": [
+            {
+              "playerId": "11625",
+              "name": "Adonai Mitchell",
+              "startedPoints": 0
+            }
+          ],
+          "startedPoints": 0
+        },
+        {
+          "rosterId": 6,
+          "manager": "Mitch",
+          "players": [
+            {
+              "playerId": "MIN",
+              "name": "Minnesota Vikings DEF",
+              "startedPoints": 0
+            }
+          ],
+          "startedPoints": 0
+        }
+      ],
+      "utcTimestamp": "2026-11-06T20:07:08.259Z",
+      "localDate": "2026-11-06",
+      "rawStarterPointsGap": 0
+    },
+    {
+      "id": "1427488044335788032",
+      "week": 10,
+      "stamp": 1794706462308,
+      "sides": [
+        {
+          "rosterId": 4,
+          "manager": "Stew",
+          "players": [
+            {
+              "playerId": "7569",
+              "name": "Nico Collins",
+              "startedPoints": 19.9
+            }
+          ],
+          "startedPoints": 19.9
+        },
+        {
+          "rosterId": 9,
+          "manager": "Kuhl",
+          "players": [
+            {
+              "playerId": "11564",
+              "name": "Drake Maye",
+              "startedPoints": 3.02
+            }
+          ],
+          "startedPoints": 3.02
+        }
+      ],
+      "utcTimestamp": "2026-11-15T01:34:22.308Z",
+      "localDate": "2026-11-14",
+      "rawStarterPointsGap": 16.88
+    }
+  ],
+  "activeManagerSummary": {
+    "Stilly": {
+      "completedTrades": 2,
+      "receivedStartedPoints": 133.1,
+      "netRawSideGap": 35.8,
+      "higher": 2,
+      "lower": 0,
+      "tied": 0
+    },
+    "Thommy": {
+      "completedTrades": 3,
+      "receivedStartedPoints": 107.8,
+      "netRawSideGap": -55.02,
+      "higher": 0,
+      "lower": 3,
+      "tied": 0
+    },
+    "Scott": {
+      "completedTrades": 1,
+      "receivedStartedPoints": 57.1,
+      "netRawSideGap": 26.8,
+      "higher": 1,
+      "lower": 0,
+      "tied": 0
+    },
+    "Stew": {
+      "completedTrades": 5,
+      "receivedStartedPoints": 167.32,
+      "netRawSideGap": -38.22,
+      "higher": 2,
+      "lower": 2,
+      "tied": 1
+    },
+    "Stover": {
+      "completedTrades": 1,
+      "receivedStartedPoints": 118.52,
+      "netRawSideGap": 36.12,
+      "higher": 1,
+      "lower": 0,
+      "tied": 0
+    },
+    "Kuhl": {
+      "completedTrades": 2,
+      "receivedStartedPoints": 38.14,
+      "netRawSideGap": -88.38,
+      "higher": 0,
+      "lower": 2,
+      "tied": 0
+    },
+    "JMid": {
+      "completedTrades": 2,
+      "receivedStartedPoints": 207.6,
+      "netRawSideGap": 76.3,
+      "higher": 1,
+      "lower": 1,
+      "tied": 0
+    },
+    "Birch": {
+      "completedTrades": 1,
+      "receivedStartedPoints": 32,
+      "netRawSideGap": 6.6,
+      "higher": 1,
+      "lower": 0,
+      "tied": 0
+    },
+    "Mitch": {
+      "completedTrades": 1,
+      "receivedStartedPoints": 0,
+      "netRawSideGap": 0,
+      "higher": 0,
+      "lower": 0,
+      "tied": 1
+    },
+    "Tony": {
+      "completedTrades": 0,
+      "receivedStartedPoints": 0,
+      "netRawSideGap": 0,
+      "higher": 0,
+      "lower": 0,
+      "tied": 0
+    }
+  },
+  "sources": [
+    "Connected Sleeper completed trade transactions Weeks 1–10 on 2026-11-16",
+    "Connected Sleeper matchups and credited starting lineups Weeks 1–10 on 2026-11-16",
+    "data/manager_identity_map_v1.json"
+  ]
+}
