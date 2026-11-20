@@ -6,6 +6,7 @@ on:
       - 'assets/record-holders-page.mjs'
       - 'scripts/test-record-holder-search.mjs'
       - 'scripts/test-record-holder-search-browser.mjs'
+      - 'scripts/test-record-holder-comparison.mjs'
       - '.github/workflows/record-holder-search.yml'
   workflow_dispatch:
 jobs:
@@ -22,6 +23,7 @@ jobs:
           node --check assets/record-holders-page.mjs
           node --check scripts/test-record-holder-search-browser.mjs
           node scripts/test-record-holder-search.mjs
+          node scripts/test-record-holder-comparison.mjs
       - name: Install browser runtime
         run: |
           npm install --no-save playwright@1.56.1
