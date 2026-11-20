@@ -48,6 +48,12 @@ jobs:
           node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync(process.argv[1]));if(x.year!==2026||x.week!==Number(process.argv[2])||x.status!=='REVIEW_REQUIRED'||x.matchupCount!==5||x.games?.length!==5)process.exit(1)" "$CANDIDATE" "$REVIEWED_WEEK"
           echo "CANDIDATE=$CANDIDATE" >> "$GITHUB_ENV"
           echo "REVIEWED_WEEK=$REVIEWED_WEEK" >> "$GITHUB_ENV"
+      - name: Preserve prior published values for the commissioner's before/after review
+        run: |
+          mkdir -p /tmp/fellas-week-before
+          for source in unified_record_book_2016_2026.json playoff_race_v1.json current_2026_records_v1.json alltime_game_records_live_v1.json alltime_career_records_live_v1.json ledger_milestones_live_v1.json; do
+            cp "data/$source" "/tmp/fellas-week-before/$source"
+          done
       - name: Recalculate approved games, standings, playoff odds, luck and 2026 records
         env:
           FELLAS_APPROVE_WEEKLY_IMPORT: 'YES'
@@ -62,6 +68,11 @@ jobs:
           node scripts/verify-weekly-ledger-parity.mjs
           node scripts/verify-current-week-website.mjs
           node scripts/audit-weekly-publication.mjs "--expected-week=$REVIEWED_WEEK"
+          node scripts/build-weekly-commissioner-review.mjs \
+            "--candidate=$CANDIDATE" \
+            "--before=/tmp/fellas-week-before" \
+            "--output=/tmp/fellas-weekly-review.md" \
+            "--staging-commit=$STAGING_COMMIT"
           echo "Reviewed Week $REVIEWED_WEEK regenerated from staged commit $STAGING_COMMIT" >> "$GITHUB_STEP_SUMMARY"
           rm -f "$CANDIDATE" # don't mix staging evidence into the publication PR
       - name: Build one reviewable weekly release PR; never merge automatically
@@ -71,14 +82,7 @@ jobs:
           delete-branch: false
           commit-message: 'Refresh approved 2026 league projections through Week ${{ inputs.completed_week }}'
           title: 'Publish reviewed 2026 Week ${{ inputs.completed_week }} standings, odds and current-season records'
-          body: |
-            Prepared from an explicitly APPROVED Sleeper candidate with five final matchups and ten verified manager identities.
-
-            Rebuilt canonical scores, league standings, season guide, career projections, all-play, schedule luck, playoff simulations, and 2026 score-based records.
-            **Trade Museum has NOT been silently altered.** Raw trade candidates require separate commissioner asset verification; old points are historical snapshots.
-            **Before merging:** review all score pairs and aliases; check current-season records and playoff probabilities; run canonical CI and mobile tests; review any warnings from the weekly publication audit. Confirm no outstanding Week 10/data PR conflicts. After merge, confirm Pages data and files match the approved release commit.
-
-            Merging this PR (not starting the workflow) is the publication approval. No autonomous merges occur.
+          body-path: /tmp/fellas-weekly-review.md
           add-paths: |
             data/*.json
             index.html
