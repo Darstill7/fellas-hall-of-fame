@@ -17,6 +17,10 @@ html{scroll-padding-top:90px}
 .records-pathfinder a:focus-visible{outline:3px solid #f6d58b;outline-offset:3px}
 .record-recovery{position:fixed;z-index:24;right:16px;bottom:17px;border:1px solid #f2d99c;background:#e7c57d;color:#10202c!important;border-radius:99px;min-height:44px;display:inline-flex;align-items:center;padding:11px 15px;text-decoration:none;font-size:12px;font-weight:850;box-shadow:0 6px 16px #0008}
 .record-recovery:hover{background:#f4dfa5}
+.record-recovery{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s ease}
+.record-recovery.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.record-recovery:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.record-recovery{transition:none}}
 @media(max-width:760px){.records-pathfinder .pathfinder-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.records-pathfinder .pathfinder-item{min-height:170px;padding:15px}}
 @media(max-width:410px){.records-pathfinder .pathfinder-grid{gap:8px}.records-pathfinder .pathfinder-item{padding:12px;min-height:185px}.records-pathfinder .pathfinder-item strong{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.records-pathfinder .pathfinder-item{transition:none}}

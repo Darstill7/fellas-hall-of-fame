@@ -1,0 +1,40 @@
+name: Full mobile visitor journey audit
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'managers/index.html'
+      - 'scripts/audit-mobile-journey.mjs'
+      - '.github/workflows/mobile-journey-audit.yml'
+  workflow_dispatch:
+jobs:
+  mobile-journey:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate mobile visitor journey test syntax
+        run: node --check scripts/audit-mobile-journey.mjs
+      - name: Install Chromium and WebKit browser engines
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Audit seven user journeys on three phone widths in two browser engines
+        run: node scripts/audit-mobile-journey.mjs
+      - name: Save mobile report and annotated first-screen inventory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-visitor-journey-audit
+          path: data-integrity/mobile-journey/
+          if-no-files-found: warn
+          retention-days: 21
+      - name: Publish audit summary
+        if: always()
+        run: |
+          if [ -f data-integrity/mobile-journey/summary.md ]; then
+            cat data-integrity/mobile-journey/summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi

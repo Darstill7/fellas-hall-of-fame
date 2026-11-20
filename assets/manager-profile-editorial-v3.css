@@ -4,7 +4,7 @@
 body.premium-franchise{background:#0b1620}
 body.premium-franchise main#main-content{max-width:1160px}
 body.premium-franchise main>.hero{box-shadow:none!important;border-radius:3px!important;background:#142833!important;border:1px solid #62717a!important;padding:clamp(24px,4vw,44px)!important}
-body.premium-franchise main>.hero::before{height:2px;background:#dbc189}
+body.premium-franchise main>.hero::before{height:auto;background:transparent;color:#d5e3e9;border-bottom:0;padding-bottom:12px}
 body.premium-franchise main>.hero h1{font:400 clamp(48px,7.2vw,86px)/1.12 Georgia,'Times New Roman',serif!important;letter-spacing:-.06em!important;color:#f5ecdb;text-wrap:balance}
 body.premium-franchise main>.hero .lead{color:#d0dce0;line-height:1.65;max-width:60ch}
 body.premium-franchise main>.hero .profile-snapshot-heading{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#e3c88f}

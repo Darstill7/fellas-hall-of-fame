@@ -1253,7 +1253,7 @@ try{
       errors.push(width+' homepage mobile hero must have one visible Choose your Adventure action');
      if(!await mobileNav.isVisible()||await desktopNav.isVisible())errors.push(width+' homepage mobile navigation visibility wrong');
      await mobileNav.locator(':scope > summary').click();
-     for(const href of ['index.html','managers/','seasons/','analytics/record-holders.html','analytics/trade-museum.html','analytics/rivalry-war-room.html'])
+     for(const href of ['index.html','managers/','seasons/','analytics/records.html','analytics/trade-museum.html','analytics/rivalry-war-room.html'])
       if(!await mobileNav.locator('nav.menu-links > a[href="'+href+'"]').isVisible())errors.push(width+' mobile main navigation missing '+href);
      const extra=mobileNav.locator('details.home-mobile-explore');
      if(await extra.count()!==1||await extra.evaluate(el=>el.open))
