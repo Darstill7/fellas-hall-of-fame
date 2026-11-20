@@ -39,7 +39,10 @@ const details=config.sections.map(meta=>{
    status='ERROR';
   else status=verifiedThroughWeek===week?'CURRENT':verifiedThroughWeek<week?'STALE':'ERROR';
  }else if(meta.cadence==='event-reviewed'){
-  status=verifiedThroughWeek===null?'REVIEW_REQUIRED':verifiedThroughWeek<week?'REVIEW_REQUIRED':'EVENT_AUDITED';
+  // A latest event date proves only that this receipt exists. Even a trade in
+  // the newest week cannot prove every earlier trade was discovered/certified.
+  // Only a separately verified transaction-coverage checkpoint could clear it.
+  status='REVIEW_REQUIRED';
  }else if(meta.cadence==='archival')status='ARCHIVED';
  else throw Error('Unknown update cadence '+meta.cadence);
  return {
@@ -65,6 +68,25 @@ const stagedWeek=stagedArgument?Number(stagedArgument.split('=')[1]):null;
 if(stagedArgument&&(!Number.isInteger(stagedWeek)||stagedWeek<1||stagedWeek>14))
  throw Error('Staged review week must be an integer from 1 to 14');
 const pendingReviewWeek=stagedWeek!==null&&stagedWeek>week?stagedWeek:null;
+const expectedArg=mode.find(x=>x.startsWith('--expected-week='));
+const expectedWeek=expectedArg?Number(expectedArg.split('=')[1]):null;
+if(expectedArg&&(!Number.isInteger(expectedWeek)||expectedWeek<1||expectedWeek>14))
+ throw Error('Expected approved week must be an integer from 1 to 14');
+const gate=mode.includes('--release-gate');
+if(gate){
+ const reasons=[];
+ if(expectedWeek===null)reasons.push('Release gate requires --expected-week=N');
+ else if(week!==expectedWeek)reasons.push('Canonical approved Week '+week+' differs from release Week '+expectedWeek);
+ if(errors.length)reasons.push('Blocking weekly feeds differ from canonical week: '+errors.map(x=>x.id+':'+x.verifiedThroughWeek).join(', '));
+ for(const section of details)if(!fs.existsSync(section.consumer))reasons.push('Missing user-visible page '+section.consumer);
+ if(!fs.existsSync(snapshotPath))reasons.push('Missing checked-in freshness source manifest');
+ else if(fs.readFileSync(snapshotPath,'utf8')!==output)reasons.push('Freshness manifest hashes do not match regenerated source files');
+ const message='FELLAS RELEASE GATE '+(reasons.length?'FAIL':'PASS')+': canonical Week '+week+'; '+details.length+' source sections; '+reviews.length+' event-review flags.';
+ console.log(message);
+ if(reasons.length)throw Error('WEEKLY PUBLICATION BLOCKED: '+reasons.join(' | '));
+ console.log('Trade receipts and archival exhibits remain separately reviewed, NEVER certified merely because the score release passed.');
+ if(process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,'\n## '+message+'\nTrade Museum: '+reviews.length+' source-review flag(s). Source-based score release does not certify missing transactions.\n');
+}
 if(mode.includes('--write')){
  fs.writeFileSync(snapshotPath,output);console.log('Wrote '+snapshotPath+'; '+details.length+' monitored sections, '+errors.length+' blocking stale');
 }else if(mode.includes('--check')){
