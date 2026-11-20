@@ -23,8 +23,8 @@ main{max-width:1080px;margin:auto;padding:32px 16px 80px}h1{font:700 clamp(37px,
 <section class="section" aria-labelledby="coverageTitle"><div class="coverage-heading"><div><div class="eyebrow">00 · Research completeness</div><h2 id="coverageTitle">What has and hasn't been measured?</h2></div></div><p class="small">Coverage refers only to recorded 2020–2025 museum transactions, not every exchange that occurred in the league. Incomplete or one-sided transactions, multi-manager trades and unresolved player identities are not scored. Counts below are source-derived and update when the archive or measurement research changes.</p><div class="table-scroll"><table class="coverage-table"><thead><tr><th>Season</th><th class="num">Recorded receipts</th><th class="num">Comparable +/-</th><th class="num">Not graded</th><th>Coverage</th></tr></thead><tbody id="coverageRows"></tbody></table></div></section>
 <section class="section" aria-labelledby="matrixTitle"><div class="eyebrow">01 · Directional scoreboard</div><h2 id="matrixTitle">Net PAR by trading partner</h2>
 <div class="controls"><label for="managerFilter">Manager<select id="managerFilter"><option value="all">All managers</option></select></label><label for="seasonFilter">Completed season<select id="seasonFilter"><option value="all">2020–2025 combined</option></select></label></div>
-<p class="small">A positive number means the first listed manager's received players generated more observed post-trade PAR than the counterpart's received players. Negative values mean the opposite. Repeated qualified trades are added together. No value is assigned for unqualified trades.</p>
-<div class="table-scroll"><table><thead><tr><th>Manager ahead / pair</th><th class="num">Net +/- PAR</th><th class="num">Measured trades</th><th class="num">Per trade</th></tr></thead><tbody id="pairRows"></tbody></table></div></section>
+<p class="small">A positive number means the first listed manager's received players generated more observed post-trade PAR than the counterpart's received players. Negative values mean the opposite. Repeated qualified trades are added together. “Measured / archived” reveals the source-coverage gap for that pair, including incomplete and three-manager deals in the archive. No value is assigned for unqualified trades.</p>
+<div class="table-scroll"><table><thead><tr><th>Manager ahead / pair</th><th class="num">Net +/- PAR</th><th class="num">Measured / archived</th><th class="num">Per measured trade</th></tr></thead><tbody id="pairRows"></tbody></table></div></section>
 <section class="section" aria-labelledby="matrixGridTitle"><div class="eyebrow">02 · Head-to-head matrix</div><h2 id="matrixGridTitle">Every measured trading relationship</h2><p class="small">Read across each manager's row. Positive values favor the row manager, negative values favor the column manager, and a dash means no comparable qualified transaction. Tap a measured cell to filter the pair.</p><div class="matrix-scroll"><table aria-label="Directional PAR advantage matrix between fantasy managers"><thead id="matrixHeader"></thead><tbody id="matrixBody"></tbody></table></div></section>
 <section class="section" aria-labelledby="careerTitle"><div class="eyebrow">03 · Qualified-sample returns</div><h2 id="careerTitle">Managers by observed net trade PAR</h2><p class="small">This leaderboard sums only eligible pairwise comparisons, including losses. It is zero-sum across the qualifying set; it is not a complete manager trading record.</p>
 <div class="table-scroll"><table><thead><tr><th>Manager</th><th class="num">Net +/- PAR</th><th class="num">Measured trades</th><th class="num">Higher return</th><th class="num">Lower return</th></tr></thead><tbody id="managerRows"></tbody></table></div></section>
@@ -37,6 +37,7 @@ const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt
 const canon=name=>String(name)==='Thommy'?'Tom':String(name);
 const signed=n=>(n>0?'+':'')+n.toFixed(2);
 const classFor=n=>n>0.005?'gain':n<-.005?'loss':'zero';
+const documentedPairCount=(a,b,year)=>archiveRecords.filter(t=>(year==='all'||String(t.year)===year)&&t.year>=2020&&t.year<=2025&&t.sides.some(s=>canon(s.manager)===a)&&t.sides.some(s=>canon(s.manager)===b)).length;
 const eligible=t=>t.year>=2020&&t.year<=2025&&t.complete===true&&t.sides.length===2&&t.sides.every(s=>s.fullyMatched===true&&Number.isFinite(s.postTradePAR));
 let qualified=[];
 let archiveRecords=[];
@@ -82,7 +83,8 @@ function render(){
   const lead=p.net>=0?p.a:p.b,other=p.net>=0?p.b:p.a;
   const view=manager==='all'?Math.abs(p.net):manager===p.a?p.net:-p.net;
   const name=manager==='all'?esc(lead)+' vs '+esc(other):esc(manager)+' vs '+esc(manager===p.a?p.b:p.a);
-  return '<tr><td><strong>'+name+'</strong><div class="sub">'+(manager==='all'?'Leading manager first':'Selected manager perspective')+'</div></td><td class="num '+classFor(view)+'">'+signed(view)+'</td><td class="num">'+p.n+'</td><td class="num">'+signed(view/p.n)+'</td></tr>';
+  const documented=documentedPairCount(p.a,p.b,year);
+  return '<tr><td><strong>'+name+'</strong><div class="sub">'+(manager==='all'?'Leading manager first':'Selected manager perspective')+'</div></td><td class="num '+classFor(view)+'">'+signed(view)+'</td><td class="num">'+p.n+' / '+documented+'</td><td class="num">'+signed(view/p.n)+'</td></tr>';
  }).join(''):'<tr><td colspan="4">No qualified two-manager trade measurements for this selection.</td></tr>';
  const matrixNames=[...new Set(qualified.flatMap(t=>t.sides.map(s=>canon(s.manager))))].sort((a,b)=>a.localeCompare(b));
  const matrixByPair=new Map(agg.pairs.map(p=>[[p.a,p.b].join('|'),p]));
