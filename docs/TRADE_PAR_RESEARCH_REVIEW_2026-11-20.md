@@ -40,7 +40,17 @@ The `data/trade_par_preview.json` dataset is marked **experimental, source cover
 
 In particular, the 2025 Mike Evans and Stefon Diggs examples demonstrate why a zero or low-scoring starter can contribute *negative* position-relative value. A fixed zero for those missing starts would bias trade rankings. These cases remain blocked pending verified benchmark weeks.
 
-## 5. Requirements to promote or label an all-time ranking
+## 5. Why the inherited PAR baseline cannot be reverse-engineered uniquely
+
+A direct source-level constraint audit of all **110 matched asset groups** finds **205 distinct season × week × position replacement values** touched by their starter weeks. If we generously assume that every starter at the same position in the same season/week shared an identical baseline (a simpler assumption than the proposed slot-aware FLEX method), those 110 aggregate asset deductions supply only **102 linearly independent constraints**. That leaves **103 unconstrained baseline degrees of freedom**. The eight dependent equations are internally consistent within rounding, but that does not prove the assumed baseline model was used.
+
+**Conclusion:** Published asset PAR values can be consistent with infinitely many distinct weekly replacement schedules. Back-solving a convenient value for Mike Evans's 2025 Week 7 start, or the Stefon Diggs Week 12–13 starts, would be a guess, not a replication. We must establish the original benchmark definition, pool, positional/slot treatment, and actual weekly values or adopt a transparent new method and recompute every relevant trade consistently. Do not mix an old PAR trade with scores from an unrelated WAR/bench method.
+
+This result is enforced by `scripts/audit-trade-par-baseline-identifiability.mjs` and appended to the Trade Museum GitHub Actions summary whenever the research source changes.
+
+---
+
+## 6. Requirements to promote or label an all-time ranking
 
 1. Confirm the specific season's scoring rules and exact lineup slots including FLEX treatment; establish whether the baseline is league-wide, waiver replacement, actual same-roster bench, or another model.
 2. For each started player and week, attach stable provider player ID, owner/roster ID, position and lineup slot, the fantasy points scored, specific replacement peer set, eligible substitute points, benchmark methodology/version, and source receipt.
@@ -55,6 +65,7 @@ In particular, the 2025 Mike Evans and Stefon Diggs examples demonstrate why a z
 - `scripts/verify-trade-par-roster-proofs.mjs` — seven zero-start received assets and complete week-by-week source trail.
 - `scripts/audit-trade-par-promotion-candidates.mjs` — six optional research-only bilateral comparisons.
 - `scripts/audit-trade-par-baseline-provenance.mjs` — explicit warning that no week-specific replacement benchmark is independently reproduced.
+- `scripts/audit-trade-par-baseline-identifiability.mjs` — independent linear constraint audit: 205 position-week unknowns, rank 102, 103 not determined by inherited aggregate asset PAR.
 - `scripts/verify-trade-museum-2.mjs` and the Chromium/WebKit browser tests — source integrity, opt-in preview on/off and shareable pair navigation.
 
 **Disposition:** Maintain PR #276 as a draft. The evidence is strong enough for a clearly labeled research preview, but not yet for a fully certified, all-time trading-skill leaderboard.
