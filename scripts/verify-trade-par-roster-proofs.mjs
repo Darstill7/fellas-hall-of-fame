@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 const base=process.cwd();
 const preview=JSON.parse(fs.readFileSync(path.join(base,'data/trade_par_preview.json'),'utf8')).records;
 const files=fs.readdirSync(path.join(base,'data')).filter(f=>/^trade_par_recovery_\d{4}_[a-z0-9_-]+_source_v1\.json$/.test(f)).sort();
-assert.ok(files.length>=4,'Expected historical roster audit evidence for four source-researched assets');
+assert.equal(files.length,7,'Seven historically sourced zero-start player observations expected; reassess if list changes');
 let totalWeeks=0;
 const rows=[];
 for(const file of files){
@@ -34,6 +34,7 @@ for(const file of files){
  rows.push({asset:d.player.name,manager:d.manager,trade:d.tradeId,weeks:weeks.length,bench:weeks.filter(x=>x.slot==='bench').length,absent:weeks.filter(x=>x.slot==='absent_from_roster_snapshot').length});
 }
 assert.equal(new Set(rows.map(r=>r.trade)).size,rows.length,'Duplicate source proofs for the same unresolved case need an explicit multi-asset model');
+assert.equal(rows.filter(r=>r.trade==='1294424036499025920').length,1,'Brian Thomas proof must remain distinct from Diggs baseline exception');
 const summary='Historical PAR starter-proof audit: '+rows.length+' distinct source-backed zero-start cases across '+totalWeeks+' later-week roster snapshots; NONE promoted to qualified trade +/-.\n'+rows.map(r=>r.asset+' / '+r.manager+' / '+r.weeks+' checked / '+r.bench+' bench / '+r.absent+' absent').join('\n');
 console.log(summary);
 if(process.argv.includes('--github-summary')&&process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,'\n### Historical player-starter proof\n\n'+summary.replaceAll('\n','  \n')+'\n');
