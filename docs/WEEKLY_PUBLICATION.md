@@ -104,6 +104,16 @@ Both Week 10 candidates (public Sleeper staging branch and connected league sour
 
 A newer Git file commit does not certify a newer fantasy week. An old Trade Museum event date means later transactions need *verification*, not that there were definitely no trades. The archival Record Book is marked ARCHIVED rather than misleadingly passing as a weekly-refresh source.
 
+## Unified release-health report — the one place to check status
+
+Open GitHub Actions → **Fellas unified release health** → latest completed run → **Job summary**. The same read-only report is available as the `fellas-release-health` artifact containing Markdown and JSON; it can be scanned by another GitHub process or reviewed in ChatGPT.
+
+The report reads the **current `main` commit and Week N from the canonical ledger at that exact SHA**. It reads the development branch's data-freshness Week N **separately**, the latest final-shaped staging candidate on `automation/sleeper-weekly-stage`, the source approval PRs #268/#271/#272/#273, and their actual workflows for their **exact head SHAs**. It checks whether both Pages deployment and the parity verifier passed on the exact production `main` SHA. It flags unknown/missing CI as NOT_REPORTED, not green.
+
+The report lists specific blockers: draft approval, pending/failing CI, staged week not yet published, branch data mismatch, Trade Museum receipt-review gaps, missing staging source and incomplete deployment verification. No GitHub checks are launched or modified by the report. The scheduled Tue/Wed scanner only makes a read-only snapshot; it **never approves, merges, changes source records or deploys**. This report is diagnostic rather than a substitute for the required branch protections.
+
+**CLI contract test:** `node scripts/test-release-health-report.mjs` exercises missing workflow checks, mismatched deployment SHA, pending staged weeks, draft PRs, stale sources and the distinction between main and development coverage. As GitHub workflows can be delayed or skipped, an absent CI check remains visibly unverified.
+
 ## Safety
 
 - No auto-merge, no publishing unreviewed scores, no invented trades, no inferred FAAB/keeper/draft assets.
