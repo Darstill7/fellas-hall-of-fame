@@ -33,6 +33,24 @@ for(const [engine,name,width] of [[chromium,'chromium-320',320],[chromium,'chrom
   assert((await page.locator('#compare-summary').innerText()).includes('two different managers'));
   await page.locator('#compare-second').selectOption('Stew');
   assert((await page.locator('.compare-card').count())>0);
+  const sharedURL=new URL(page.url());
+  assert.equal(sharedURL.searchParams.get('compareA'),'Stilly');
+  assert.equal(sharedURL.searchParams.get('compareB'),'Stew');
+  // A clicked comparison record must remain reachable after a restrictive archive filter.
+  await page.locator('#record-search').fill('unlikely-never-exists-query');
+  assert.equal(await page.locator('.record-card').count(),0);
+  await page.locator('.compare-card .compare-record a').first().click();
+  assert.equal(await page.locator('#record-search').inputValue(),'');
+  assert.equal(await page.locator('#status-picker').inputValue(),'all');
+  const anchoredRecord=await page.evaluate(()=>decodeURIComponent(location.hash.slice(1)));
+  assert(anchoredRecord.startsWith('record-'));
+  assert.equal(await page.locator('[id="'+anchoredRecord+'"]').count(),1);
+  assert.equal(await page.locator('[id="'+anchoredRecord+'"] details').getAttribute('open'),'');
+  // Deep-linked comparisons must restore the selected pair on reload.
+  await page.reload({waitUntil:'networkidle'});
+  await page.locator('#manager-summary .summary').waitFor();
+  assert.equal(await page.locator('#compare-first').inputValue(),'Stilly');
+  assert.equal(await page.locator('#compare-second').inputValue(),'Stew');
   await page.locator('#manager-picker').selectOption('Birch');
   assert((await page.locator('#manager-summary').innerText()).includes('Birch'));
   assert((await page.locator('#manager-results .portfolio-record').count())>0);
