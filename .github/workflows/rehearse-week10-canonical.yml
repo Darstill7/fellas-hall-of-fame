@@ -37,6 +37,14 @@ jobs:
           git status --short > data-integrity/week10-preview/changed-files.txt
           git diff --stat > data-integrity/week10-preview/diff-summary.txt
           git diff -- data/unified_record_book_2016_2026.json data/season_weekly_matchups_2016_2026_v1.json data/all_time_luck_ratings_v1.json > data-integrity/week10-preview/canonical-preview.diff
+          git diff --binary > data-integrity/week10-preview/full-release-preview.patch
+          mkdir -p data-integrity/week10-preview/generated
+          while IFS= read -r -d '' changed; do
+            mkdir -p "data-integrity/week10-preview/generated/$(dirname "$changed")"
+            cp "$changed" "data-integrity/week10-preview/generated/$changed"
+          done < <(git diff --name-only -z)
+          (cd data-integrity/week10-preview/generated && find . -type f -print0 | sort -z | xargs -0 -r sha256sum) > data-integrity/week10-preview/generated-sha256.txt
+          test "$(find data-integrity/week10-preview/generated -type f | wc -l)" -ge 8
           echo 'Disposable Week 10 source and downstream generation completed. This job does not publish or commit any files.'
       - name: Inspect source coverage and downstream projections for unreviewed changes
         if: steps.rebuild.outcome == 'success'
