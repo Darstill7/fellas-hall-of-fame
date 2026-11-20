@@ -85,6 +85,14 @@ try{
    await page.goto(plusUrl,{waitUntil:'load'});
    await page.locator('#scoreboard:not([hidden])').waitFor();
    assert.equal(await page.locator('#qualified').innerText(),'18','Only 18 verified complete two-manager trades qualify');
+   assert.equal(await page.locator('#recoveryRows .recovery-card').count(),23,'Every incomplete two-manager receipt must appear in audit queue');
+   await page.locator('#recoveryFilter').selectOption('one');
+   assert.equal(await page.locator('#recoveryRows .recovery-card').count(),18,'One-side audit bucket must contain 18 receipts');
+   await page.locator('#recoveryFilter').selectOption('none');
+   assert.equal(await page.locator('#recoveryRows .recovery-card').count(),5,'Neither-side audit bucket must contain 5 receipts');
+   await page.locator('#recoveryFilter').selectOption('all');
+   assert.ok((await page.locator('#recoveryRows .recovery-card a[href*="trade-museum.html?trade="]').count())===23,'Each incomplete trade must link to original museum receipt');
+
    await page.locator('#coverageRows tr').first().waitFor();
    assert.equal(await page.locator('#coverageRows tr').count(),7,'Coverage should show six completed seasons plus total');
    assert.ok((await page.locator('#coverageRows tr').last().innerText()).includes('44'),'Qualified sample must be compared with all 2020–2025 archived receipts');
