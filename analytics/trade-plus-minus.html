@@ -225,7 +225,7 @@ try{
  });
  $('managerFilter').addEventListener('change',()=>{const url=new URL(window.location.href);url.searchParams.delete('partner');history.replaceState(null,'',url);render()});$('seasonFilter').addEventListener('change',render);
  $('scoreboard').hidden=false;
- $('status').textContent='Fully matched research sample: '+qualified.length+' two-manager deals out of +data.records.length+' reviewed transactions. Six additional source-backed comparisons are available only in the opt-in research preview.';
+ $('status').textContent='Fully matched research sample: '+qualified.length+' two-manager deals out of '+data.records.length+' reviewed transactions. Six additional source-backed comparisons are available only in the opt-in research preview.';
  render();
 }catch(error){$('status').textContent='The verified comparison data is unavailable: '+error.message+'. No rankings were estimated.'}
 </script></body></html>
