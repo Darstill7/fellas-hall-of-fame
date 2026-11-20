@@ -12,6 +12,12 @@ const write=(p,x)=>fs.writeFileSync(p,JSON.stringify(x,null,2)+'\n');
 const path='data/unified_record_book_2016_2026.json',mirrorPath='data/season_weekly_matchups_2016_2026_v1.json',luckPath='data/all_time_luck_ratings_v1.json';
 const candidate=read(candidatePath),ledger=read(path),mirror=read(mirrorPath),luck=read(luckPath);
 if(candidate.status!=='REVIEW_REQUIRED'||candidate.year!==2026||candidate.matchupCount!==5||candidate.games?.length!==5||candidate.league!=='1340027406009761792')throw Error('Unverified candidate format');
+const rehearsalOnly=process.env.FELLAS_SYNTHETIC_REHEARSAL==='YES'&&
+ process.env.GITHUB_WORKFLOW==='Rehearse approved weekly data release (synthetic; never publish)';
+const stagedEvidence=candidate.source==='Sleeper public API'&&candidate.games.every(g=>g.source==='sleeper_api_staged_week_'+candidate.week);
+const syntheticEvidence=rehearsalOnly&&candidate.source==='SYNTHETIC_CI_TEST_DO_NOT_PUBLISH'&&candidate.games.every(g=>g.source===candidate.source);
+if(!stagedEvidence&&!syntheticEvidence)throw Error('Unsupported or synthetic Sleeper source evidence; publication refused');
+
 const prior=ledger.games.filter(g=>g.year===2026&&g.stage==='regular');
 const last=Math.max(0,...prior.map(g=>g.week));
 if(candidate.week!==last+1||candidate.week>14)throw Error('Noncontiguous or postseason week');
