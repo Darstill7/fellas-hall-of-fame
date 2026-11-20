@@ -6,9 +6,9 @@ const result=JSON.parse(execFileSync(process.execPath,['scripts/build-record-boo
 assert.equal(result.status,'provisional-not-published');
 assert.equal(result.categoryCount,23);
 assert.equal(result.categories.length,23);
-assert.equal(result.coverage.games,705);
-assert.equal(result.coverage.weeklyScoringSets,142);
-assert.equal(result.coverage.latest2026Week,9);
+assert.equal(result.coverage.games,660+result.coverage.latest2026Week*5);
+assert.equal(result.coverage.weeklyScoringSets,133+result.coverage.latest2026Week);
+assert.equal(result.coverage.latest2026Week,10);
 assert.deepEqual(result.coverage.excludedPartialWeeks,[
  {year:2020,week:14,scoredTeams:8},{year:2021,week:14,scoredTeams:8}
 ]);
@@ -58,4 +58,4 @@ for(const category of result.categories){
   assert(!category.leaders.some(x=>x.year===2026),'Incomplete 2026 in completed-season record: '+category.id);
  }
 }
-console.log('PASS Phase 2: 23 deterministic provisional categories; 705 games; 142 scored weeks; tie, source and ranking guards.');
+console.log('PASS Phase 2: 23 deterministic provisional categories; '+result.coverage.games+' games; '+result.coverage.weeklyScoringSets+' scored weeks; tie, source and ranking guards.');
