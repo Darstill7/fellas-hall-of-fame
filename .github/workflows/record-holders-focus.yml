@@ -1,0 +1,18 @@
+name: Record Holders manager-first experience
+on:
+  pull_request:
+    paths:
+      - 'analytics/record-holders.html'
+      - 'scripts/test-record-holders-focus.mjs'
+      - '.github/workflows/record-holders-focus.yml'
+  workflow_dispatch:
+jobs:
+  record-holders-focus:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify manager-first layout, source scope and links
+        run: node scripts/test-record-holders-focus.mjs
