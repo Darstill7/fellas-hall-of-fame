@@ -68,6 +68,14 @@ Then use **Actions → Prepare commissioner-approved Trade Museum release**, ent
 
 **Pending engineering:** verify raw player/roster IDs and transfer directions for each new trade; commissioner's review and source certification are required before museum import. Beyond the 26 rebuilt ledger-derived all-time records (8 single-game + 11 career + 3 documented streaks + 4 completed-season categories), other season records, rivalry awards, postseason records and narrative exhibits still require provenance-specific rebuilds. Verify deployed Pages commit parity. Make these release gates before calling the **entire** website current.
 
+## Nonpublishing end-to-end rehearsal and deployed Pages verification
+
+The CI workflow `.github/workflows/rehearse-weekly-release.yml` copies the repository into a disposable runner workspace, generates clearly marked **synthetic** scores for the next scheduled week, and proves the approval gate blocks unauthorized imports. With an explicit test-only flag, it then exercises the same canonical importer, standings, playoff simulation, luck, season guide, and all 26 matchup-derived historical records. It verifies all generated sources against the synthetic canonical week. **No synthetic game is ever committed, opened as a release PR, merged or deployed.** The production importer refuses any synthetic source outside the named rehearsal workflow.
+
+After an actual reviewed weekly release PR is merged, the pre-existing `.github/workflows/pages-release-parity.yml` checks the successfully deployed GitHub Pages commit. Its SHA256 checks now include the underlying canonical ledger, season mirror, Playoff Race source, Trade Museum JSON/HTML and new record feeds—not just the homepage. A mismatch remains a release failure until CDN parity catches up or needs repair.
+
+**Latest rehearsal result:** synthetic Week 10 release completed successfully as a disposable CI rehearsal. This does **not** establish that the real Week 10 scores or trades are approved or published.
+
 ## Safety
 
 - No auto-merge, no publishing unreviewed scores, no invented trades, no inferred FAAB/keeper/draft assets.
