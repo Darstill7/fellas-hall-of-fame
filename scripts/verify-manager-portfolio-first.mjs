@@ -19,5 +19,5 @@ assert(js.includes('requestedManager==="Thommy"?"Tom":"Stilly"'),'Thommy identit
 assert(js.includes('manager.addEventListener("change"'),'Manager picker must trigger an updated portfolio');
 assert(js.includes('managerLeagueHolders(data,selectedManager)'),'Portfolio must use verified rankings');
 assert(js.includes('group.addEventListener("change"')&&js.includes('category.addEventListener("change"'),'Expanded Lab filters must remain usable');
-assert(html.includes('2026 through Week 8'),'Archived 2026 coverage must be transparent');
+assert(html.includes('2026 through Week 9'),'Archived 2026 coverage must be transparent');
 console.log('PASS: manager portfolio leads, manager deep links hydrate, lab filters and source limits remain intact');
