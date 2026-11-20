@@ -28,7 +28,9 @@ function recent(runs,name){
 export function derive(input){
  if(input.schema!=='fellas-release-health-input-v1'||!input.mainSha||!input.freshness||!Array.isArray(input.prs))
   throw Error('Missing release health provenance and source coverage');
- const canonicalWeek=input.freshness.canonicalVerifiedThroughWeek;
+ const developmentWeek=input.freshness.canonicalVerifiedThroughWeek;
+ const canonicalWeek=input.mainCanonicalWeek;
+ if(!Number.isInteger(developmentWeek)||developmentWeek<1||developmentWeek>14)throw Error('Unsupported development snapshot week');
  if(!Number.isInteger(canonicalWeek)||canonicalWeek<1||canonicalWeek>14)throw Error('Unsupported current canonical week');
  const stagedWeek=input.staging?.candidateWeek??null;
  const stagedNewer=Number.isInteger(stagedWeek)&&stagedWeek>canonicalWeek;
@@ -63,6 +65,7 @@ export function derive(input){
  const upstream=prs.find(p=>p.number===271);
  const blockers=[];
  if(blockingFreshness.length)blockers.push('Data source coverage mismatch: '+blockingFreshness.map(x=>x.title||x.id).join(', '));
+ if(developmentWeek!==canonicalWeek)blockers.push('Development branch data covers Week '+developmentWeek+' while deployed main contains approved Week '+canonicalWeek+'; reconcile before calling either current');
  if(upstream&&!upstream.merged)blockers.push('Base weekly automation PR #271 not merged');
  if(stagedNewer)blockers.push('Week '+stagedWeek+' is staged but not approved in the published canonical ledger (Week '+canonicalWeek+')');
  if(stagingStatus==='SOURCE_UNAVAILABLE'||stagingStatus==='UNKNOWN')blockers.push('Sleeper staging source could not be verified; no assertion that all weeks are collected');
@@ -75,7 +78,7 @@ export function derive(input){
  if(!deployment.verified)blockers.push('Live Pages and parity not both verified for exact current main commit');
  const report={
   schema:'fellas-release-health-v1',observedAt:input.observedAt??null,mainSha:input.mainSha,
-  canonicalWeek,stagedWeek,stagedNewer,stagingStatus,
+  canonicalWeek,developmentWeek,stagedWeek,stagedNewer,stagingStatus,
   freshness:{criticalIssues:blockingFreshness.length,tradeMuseum:trade?.status??'NOT_SCANNED',tradeMuseumLatestEvent:trade?.latestEventDate??null},
   deployment,prs,blockers,
   overall:blockers.length?'ACTION_REQUIRED':'VERIFIED_NO_OUTSTANDING_GATES',
@@ -88,7 +91,7 @@ export function toMarkdown(report){
  const rows=[
  '# The Fellas — Release health',
  'Checked: '+iso(report.observedAt)+' · main `'+esc(report.mainSha.slice(0,12))+'`',
- '**Canonical approved Week '+report.canonicalWeek+'**'+(report.stagedNewer?' · **Week '+report.stagedWeek+' staged, awaiting approval**':' · No newer verified-shape staging candidate reported'),
+ '**Production main approved Week '+report.canonicalWeek+'** · Development branch source Week '+report.developmentWeek+(report.stagedNewer?' · **Week '+report.stagedWeek+' staged, awaiting approval**':' · No newer verified-shape staging candidate reported'),
  '**Overall: '+report.overall+'**','',
  '## Production deployment',
  '| Pages build | Exact-main parity | Deployed main SHA confirmed |',
