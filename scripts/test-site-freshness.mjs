@@ -18,7 +18,7 @@ for(const key of ['canonical','standings','playoff-race','schedule-luck','season
 const tradeLatest=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json','utf8')).filter(x=>x.year===2026).sort((a,b)=>b.date.localeCompare(a.date))[0];
 assert.equal(by['trade-museum'].latestEventDate,tradeLatest.date);
 assert.equal(by['trade-museum'].verifiedThroughWeek,tradeLatest.week);
-assert.equal(by['trade-museum'].status,tradeLatest.week<canonicalWeek?'REVIEW_REQUIRED':'EVENT_AUDITED');
+assert.equal(by['trade-museum'].status,'REVIEW_REQUIRED','Latest trade date never certifies complete transaction coverage');
 assert.equal(by['expanded-records'].status,'ARCHIVED');
 for(const row of report.sections){
  assert(fs.existsSync(row.consumer),'Broken page linked from freshness dashboard: '+row.consumer);
@@ -35,4 +35,19 @@ if(canonicalWeek<14){
 const human=execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--strict'],{encoding:'utf8'});
 assert.match(human,/Trade Museum/);
 assert.match(human,/Last Git file change/);
+// Exercise the actual publication gate, including intentionally corrupting the
+// manifest. Every test restores or removes the manifest before returning.
+const snapshot='data/site_freshness_report_v1.json';
+const prior=fs.existsSync(snapshot)?fs.readFileSync(snapshot):null;
+try{
+ execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--write'],{encoding:'utf8'});
+ const pass=execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--release-gate','--expected-week='+canonicalWeek],{encoding:'utf8'});
+ assert.match(pass,/FELLAS RELEASE GATE PASS/);
+ if(canonicalWeek<14)assert.throws(()=>execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--release-gate','--expected-week='+(canonicalWeek+1)],{encoding:'utf8',stdio:'pipe'}),/Command failed/,'Future week must not publish');
+ fs.writeFileSync(snapshot,'{"corrupt":"never publish"}\n');
+ assert.throws(()=>execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--release-gate','--expected-week='+canonicalWeek],{encoding:'utf8',stdio:'pipe'}),/Command failed/,'Unverifiable source fingerprints must block publication');
+}finally{
+ if(prior!==null)fs.writeFileSync(snapshot,prior);
+ else fs.rmSync(snapshot,{force:true});
+}
 console.log('PASS freshness registry: source weeks, trade-review caveats, archive scope, Git timestamps and JSON artifacts');
