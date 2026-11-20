@@ -7,6 +7,7 @@ const mirror=read('data/season_weekly_matchups_2016_2026_v1.json');
 const race=read('data/playoff_race_v1.json');
 const currentRecords=read('data/current_2026_records_v1.json');
 const alltimeGames=read('data/alltime_game_records_live_v1.json');
+const alltimeCareer=read('data/alltime_career_records_live_v1.json');
 const guide=read('data/season_guide.json');
 const luck=read('data/all_time_luck_ratings_v1.json');
 const games=canonical.games.filter(x=>x.year===2026&&x.stage==='regular');
@@ -17,9 +18,13 @@ for(let w=1;w<=week;w++)if(games.filter(g=>g.week===w).length!==5)
 if(race.verified_through_week!==week)throw Error('Playoff forecast out of date: '+race.verified_through_week+' vs '+week);
 if(alltimeGames.schema!=='fellas-ledger-alltime-single-game-v1'||alltimeGames.verified2026ThroughWeek!==week||alltimeGames.sourceGames!==canonical.games.filter(g=>g.stage==='regular').length||alltimeGames.records?.length!==8)
  throw Error('All-time single-game record snapshot stale or invalid through Week '+week);
+if(alltimeCareer.schema!=='fellas-ledger-career-records-v1'||alltimeCareer.verified2026ThroughWeek!==week||alltimeCareer.sourceRegularGames!==canonical.games.filter(g=>g.stage==='regular').length||alltimeCareer.records?.length!==11)
+ throw Error('Career scoring and threshold records stale vs approved Week '+week);
 if(currentRecords.schema!=='fellas-current-season-records-v1'||currentRecords.verified_through_week!==week||currentRecords.number_of_games!==games.length)
  throw Error('Current 2026 record pulse is stale versus approved Week '+week);
 const recordsHTML=fs.readFileSync('analytics/records.html','utf8');
+if(!recordsHTML.includes('../assets/alltime-career-records.mjs')||!recordsHTML.includes('id="ledger-career-records"'))
+ throw Error('Record Book missing 11 live career scoring records');
 if(!recordsHTML.includes('../assets/alltime-game-records.mjs')||!recordsHTML.includes('id="ledger-alltime-records"'))
  throw Error('Record Book is missing canonical all-time game records');
 if(!recordsHTML.includes('../assets/current-season-records.mjs')||!recordsHTML.includes('id="current-season-records"'))
