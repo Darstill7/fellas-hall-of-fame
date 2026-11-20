@@ -5,7 +5,7 @@ const sha='a'.repeat(40),other='b'.repeat(40);
 const names=['Validate canonical Fellas records','Rehearse approved weekly data release (synthetic; never publish)','Scan website freshness registry','Visual first-screen quality gate','Full mobile visitor journey audit'];
 const goodRuns=names.map((name,i)=>({name,status:'completed',conclusion:'success',head_sha:sha,id:i+1,created_at:'2026-11-20T21:00:00Z'}));
 const base={
- schema:'fellas-release-health-input-v1',mainSha:sha,observedAt:'2026-11-20T21:00:00Z',
+ schema:'fellas-release-health-input-v1',mainSha:sha,mainCanonicalWeek:9,observedAt:'2026-11-20T21:00:00Z',
  staging:{candidateWeek:10,status:'REVIEW_CANDIDATE'},
  freshness:{canonicalVerifiedThroughWeek:9,sections:[
   {id:'canonical',title:'Canonical matchup ledger',severity:'block',status:'CURRENT'},
@@ -38,6 +38,14 @@ missing.prs[0].runs=goodRuns.slice(0,2);
 r=derive(missing);
 assert.equal(r.prs[0].checks.find(x=>x.key==='freshness').state,'NOT_REPORTED');
 assert.equal(r.prs[0].stage,'CHECKS_PENDING');
+const differentMain=clone(base);
+differentMain.mainCanonicalWeek=10;
+differentMain.staging={candidateWeek:10,status:'REVIEW_CANDIDATE'};
+r=derive(differentMain);
+assert.equal(r.canonicalWeek,10);
+assert.equal(r.developmentWeek,9);
+assert.equal(r.stagedNewer,false);
+assert(r.blockers.some(x=>x.includes('Development branch data covers Week 9')));
 const wrongSha=clone(base);
 wrongSha.mainRuns[1].head_sha=other;
 r=derive(wrongSha);
