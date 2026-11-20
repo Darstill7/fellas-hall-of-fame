@@ -5,9 +5,48 @@ import http from 'node:http';
 import path from 'node:path';
 const root=process.cwd(),prefix='/fellas-hall-of-fame/';
 const targets=[
- ['managers/','Mobile manager directory navigation',['../index.html','./','../hall/','../analytics/records.html','../seasons/2026.html','../analytics/manager-report-cards.html','../analytics/rivalries.html','../analytics/power-ratings.html','../seasons/','../analytics/trade-museum.html','../analytics/keeper-tracker.html','../analytics/keeper-decision-research.html']],
- ['analytics/records.html','Mobile Record Book navigation',['../index.html','../managers/','records.html','record-holders.html','../managers/record-books.html','../hall/','../seasons/2026.html']],
- ['managers/record-books.html','Mobile personal record navigation',['../index.html','../managers/','../analytics/records.html','../analytics/record-holders.html','../analytics/manager-report-cards.html']]
+  [
+    "managers/",
+    "Mobile manager directory navigation",
+    [
+      "../index.html",
+      "./",
+      "../hall/",
+      "../analytics/records.html",
+      "../seasons/2026.html",
+      "../analytics/manager-report-cards.html",
+      "../analytics/rivalries.html",
+      "../analytics/power-ratings.html",
+      "../seasons/",
+      "../analytics/trade-museum.html",
+      "../analytics/keeper-tracker.html",
+      "../analytics/keeper-decision-research.html"
+    ]
+  ],
+  [
+    "analytics/records.html",
+    "Mobile Record Book navigation",
+    [
+      "../index.html",
+      "../managers/",
+      "records.html",
+      "record-holders.html",
+      "../managers/record-books.html",
+      "../hall/",
+      "../seasons/2026.html"
+    ]
+  ],
+  [
+    "managers/record-books.html",
+    "Mobile personal record navigation",
+    [
+      "../index.html",
+      "../managers/",
+      "../analytics/records.html",
+      "../analytics/record-holders.html",
+      "../analytics/manager-report-cards.html"
+    ]
+  ]
 ];
 const errs=[];
 const server=http.createServer(async(req,res)=>{
