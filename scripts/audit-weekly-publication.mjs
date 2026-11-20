@@ -18,6 +18,7 @@ const browserMuseum = JSON.parse(embedded[1]);
 assert.ok(Array.isArray(museum) && Array.isArray(browserMuseum));
 assert.deepEqual(browserMuseum,museum,'Trade Museum embedded source differs from audited source JSON; rebuild the museum before publishing');
 assert.ok(raceHTML.includes("../data/playoff_race_v1.json"),'Playoff Race must fetch the canonical projection file');
+assert.ok(museumHTML.includes('id="tm-audit-cutoff"') && museumHTML.includes('latest2026Trade'),'Trade Museum must display its actual audited cutoff');
 for(let week=1;week<=canonicalWeek;week++) {
   assert.equal(games.filter(g=>g.week===week).length,5,'Canonical week '+week+' is incomplete');
 }
