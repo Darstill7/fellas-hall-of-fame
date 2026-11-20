@@ -1,0 +1,23 @@
+name: Verify playoff upsets and eliminations
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/build-playoff-upsets-records.mjs'
+      - 'scripts/verify-playoff-upsets-records.mjs'
+      - 'data/verified_espn_playoff_brackets_2016_2019.json'
+      - 'data/verified_sleeper_playoff_brackets_2020_2025.json'
+      - 'data/postseason_winners_bracket_record_receipts_2016_2025_v1.json'
+      - '.github/workflows/research-playoff-upsets.yml'
+  workflow_dispatch:
+jobs:
+  playoff-upsets:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify 41 seeded bracket games and ten record categories
+        run: node scripts/verify-playoff-upsets-records.mjs
