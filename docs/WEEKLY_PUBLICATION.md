@@ -61,11 +61,12 @@ Then use **Actions → Prepare commissioner-approved Trade Museum release**, ent
 | All-play / schedule luck / manager career | Canonical games | Rebuilt on approval |
 | Current-season records | `data/current_2026_records_v1.json` derived from canonical games | Week-by-week highest / lowest team scores, largest / closest / highest-total games, weekly scoring titles |
 | All-time single-game records | `data/alltime_game_records_live_v1.json` from every approved regular-season matchup | Eight categories regenerate weekly, preserve tied holders and source-game receipts; linked in Record Book |
-| Career scoring and counting records | `data/alltime_career_records_live_v1.json` from approved regular-season games | Eleven additional categories regenerate weekly, including career points, wins, scoring thresholds and 40-game-minimum PPG | 
+| Career scoring and counting records | `data/alltime_career_records_live_v1.json` from approved regular-season games | Eleven additional categories regenerate weekly, including career points, wins, scoring thresholds and 40-game-minimum PPG |
+| Documented streak and completed-season milestones | `data/ledger_milestones_live_v1.json` derived from approved games | Three streaks count documented consecutive appearances; four finished-season records exclude ongoing 2026; audited against archived leaders | 
 | Historical multi-season and narrative research | Separate 2016–2026 provenance-backed record registry | **Not yet fully regenerated**; season awards, rivalry thresholds and editorial exhibits remain archival |
 | Trade Museum | `data/trade_museum_stage66.json` verified receipts and embedded HTML | **Not yet automatically rebuilt**. Updated raw Sleeper transactions are staged, never blindly published. Museum shows its actual cutoff. Starter points remain historical audit snapshots |
 
-**Pending engineering:** verify raw player/roster IDs and transfer directions for each new trade; commissioner's review and source certification are required before museum import. Beyond the 19 rebuilt ledger-derived all-time records (8 single-game + 11 career), season records, streaks, rivalry awards and narrative exhibits still require provenance-specific rebuilds. Verify deployed Pages commit parity. Make these release gates before calling the **entire** website current.
+**Pending engineering:** verify raw player/roster IDs and transfer directions for each new trade; commissioner's review and source certification are required before museum import. Beyond the 26 rebuilt ledger-derived all-time records (8 single-game + 11 career + 3 documented streaks + 4 completed-season categories), other season records, rivalry awards, postseason records and narrative exhibits still require provenance-specific rebuilds. Verify deployed Pages commit parity. Make these release gates before calling the **entire** website current.
 
 ## Safety
 
