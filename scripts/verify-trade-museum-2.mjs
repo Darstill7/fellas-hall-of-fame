@@ -119,6 +119,18 @@ assert.ok(proofWeeks.every(w=>w.slot==='bench'),'No starter production may be in
 const proofTrade=parData.records.find(t=>String(t.id)===ertzProof.tradeId);
 assert.ok(proofTrade&&!parEligible.includes(proofTrade),'This is staged recovery evidence, not yet a leaderboard promotion');
 assert.ok(proofTrade.sides.some(s=>s.manager==='Kuhl'&&s.unresolved.includes(ertzProof.player.name)),'Evidence must match unresolved asset and recorded receiving side');
+const mostertProof=JSON.parse(readFileSync(new URL('../data/trade_par_recovery_2024_mostert_source_v1.json',import.meta.url),'utf8'));
+assert.equal(mostertProof.status,'source_checked_pending_integration');
+assert.equal(mostertProof.tradeId,'1159892809005076480');
+assert.equal(mostertProof.player.sleeperPlayerId,'2749');
+assert.equal(mostertProof.evidence.verifiedPostTradeStarts,0);
+const mostertWeeks=mostertProof.evidence.weeklyRosterObservations.filter(w=>w.week>mostertProof.tradeWeek);
+assert.deepEqual(mostertWeeks.map(w=>w.week),[11,12,13,14],'No missing 2024 Mostert review weeks');
+assert.deepEqual(mostertWeeks.map(w=>w.slot),['bench','bench','absent_from_roster_snapshot','absent_from_roster_snapshot'],'Never label absence as a bench appearance');
+const mostertTrade=parData.records.find(t=>String(t.id)===mostertProof.tradeId);
+assert.ok(mostertTrade&&!parEligible.includes(mostertTrade),'Mostert evidence remains an ungraded candidate');
+assert.ok(mostertTrade.sides.some(s=>s.manager==='Mitch'&&s.unresolved.includes(mostertProof.player.name)),'Mostert original receiving side and historical proof must match');
+
 const crosswalkScript=readFileSync(new URL('audit-trade-par-historical-crosswalk.mjs',import.meta.url),'utf8');
 assert.ok(crosswalkScript.includes('No incomplete trade may enter +/-'),'Historical snapshot evidence cannot automatically promote a trade');
 assert.ok(crosswalkScript.includes('singleRows.length,14'),'Crosswalk single-asset source coverage must be verified');
