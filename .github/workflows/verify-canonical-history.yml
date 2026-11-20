@@ -65,6 +65,8 @@ jobs:
         run: node scripts/verify-week14-career-impact.mjs
       - name: Protect historically correct 2020–2021 season pages and quarantine PF differences
         run: node scripts/verify-2020-2021-season-page-parity.mjs
+      - name: Preflight the guarded Week 14 source migration without mutating records
+        run: node scripts/plan-2020-2021-week14-migration.mjs
       - name: Guard legitimate three-team trades in source-qualified Trade Museum
         run: node scripts/verify-trade-museum-scope.mjs
       - name: Verify generated career and H2H data
