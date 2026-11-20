@@ -17,6 +17,22 @@ for(const [engine,name,width] of [[chromium,'chromium-320',320],[chromium,'chrom
   await page.locator('#manager-summary .summary').waitFor();
   assert.equal(await page.locator('#manager-picker option').count(),14);
   assert.equal(await page.locator('.record-card').count(),93);
+  // Manager comparison must stay source-backed, keyboard-selectable and separate from game results.
+  assert.equal(await page.locator('#compare-first option').count(),14);
+  assert.equal(await page.locator('#compare-second option').count(),14);
+  await page.locator('#compare-first').selectOption('Stilly');
+  await page.locator('#compare-second').selectOption('Stew');
+  const comparisonCount=await page.locator('.compare-card').count();
+  assert(comparisonCount>0,'Expected common ranked categories in manager comparison');
+  assert((await page.locator('#compare-summary').innerText()).includes('shared ranked categories'));
+  await page.locator('#compare-status').selectOption('all');
+  assert((await page.locator('.compare-card').count())>=comparisonCount);
+  await page.locator('#compare-status').selectOption('existing');
+  await page.locator('#compare-second').selectOption('Stilly');
+  assert.equal(await page.locator('.compare-card').count(),0);
+  assert((await page.locator('#compare-summary').innerText()).includes('two different managers'));
+  await page.locator('#compare-second').selectOption('Stew');
+  assert((await page.locator('.compare-card').count())>0);
   await page.locator('#manager-picker').selectOption('Birch');
   assert((await page.locator('#manager-summary').innerText()).includes('Birch'));
   assert((await page.locator('#manager-results .portfolio-record').count())>0);
