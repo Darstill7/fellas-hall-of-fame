@@ -32,7 +32,7 @@ leader('season-weekly-highs','Mitch',5,2025);
 leader('season-weekly-lows','Thommy',6,2019);
 leader('high-streak','Evans',3,2016);
 leader('low-streak','Stew',4,2023);
-leader('combined-high','Stew',332.62,2025,10);
+leader('combined-high','Stover',342.30,2026,10);
 leader('combined-low','Thommy',119,2017,1);
 const rivalry=get('rival-win-run');
 assert.equal(rivalry.holders[0].value,6);
