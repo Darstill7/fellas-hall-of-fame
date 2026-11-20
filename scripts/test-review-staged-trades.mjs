@@ -27,7 +27,7 @@ try{
  assert.equal(report.review_queue[0].roster_ids.length,3);
  assert(report.review_queue[0].issues.some(x=>x.includes('FAAB')));
  assert(report.review_queue[0].issues.some(x=>x.includes('Draft-pick')));
- assert(!stdout.includes('approved for publication'));
+ assert(stdout.includes('None of these raw transactions are approved for publication'));
  assert.equal(report.status,'REVIEW_REQUIRED');
  fixture.trades.push({...fixture.trades[1]});
  fs.writeFileSync(candidate,JSON.stringify(fixture));
