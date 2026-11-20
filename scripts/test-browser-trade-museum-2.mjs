@@ -81,6 +81,22 @@ try{
    assert.equal(await page.locator('#impactGrid .impact-case').count(),0,'Unproven impact must not be invented');
    assert.ok((await page.locator('#impactStatus').innerText()).includes('No qualifying acquired-player'),'Missing data should have a scope explanation');
 
+   const plusUrl=base.replace('trade-museum.html','trade-plus-minus.html');
+   await page.goto(plusUrl,{waitUntil:'load'});
+   await page.locator('#scoreboard:not([hidden])').waitFor();
+   assert.equal(await page.locator('#qualified').innerText(),'18','Only 18 verified complete two-manager trades qualify');
+   assert.ok(await page.locator('#pairRows tr').count()>0,'Manager-pair PAR rows must render');
+   assert.ok(await page.locator('#managerRows tr').count()>0,'Manager +/- totals must render');
+   assert.ok(await page.locator('#tradeRows .deal').count()>0,'Underlying source receipts must render');
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'Trade +/- page must not overflow viewport');
+   await page.locator('#managerFilter').selectOption('Stilly');
+   const subsetRows=await page.locator('#pairRows tr').count();
+   assert.ok(subsetRows>0,'Stilly counterpart filter should show measured trades');
+   assert.equal(new URL(page.url()).searchParams.get('manager'),'Stilly','Trade +/- manager selection must be deep-linkable');
+   await page.goto(plusUrl+'?manager=Tom&season=2024',{waitUntil:'load'});
+   await page.locator('#scoreboard:not([hidden])').waitFor();
+   assert.equal(await page.locator('#managerFilter').inputValue(),'Tom','Comparison manager deep link must restore');
+   assert.equal(await page.locator('#seasonFilter').inputValue(),'2024','Comparison season deep link must restore');
    assert.equal(errors.length,0,'Unexpected page JS errors: '+errors.join('; '));
    await page.close();
    console.log(testCase.engine+' '+testCase.width+'px: museum journey passed');
