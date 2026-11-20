@@ -85,6 +85,10 @@ try{
    await page.goto(plusUrl,{waitUntil:'load'});
    await page.locator('#scoreboard:not([hidden])').waitFor();
    assert.equal(await page.locator('#qualified').innerText(),'18','Only 18 verified complete two-manager trades qualify');
+   await page.locator('#coverageRows tr').first().waitFor();
+   assert.equal(await page.locator('#coverageRows tr').count(),7,'Coverage should show six completed seasons plus total');
+   assert.ok((await page.locator('#coverageRows tr').last().innerText()).includes('44'),'Qualified sample must be compared with all 2020–2025 archived receipts');
+
    assert.ok(await page.locator('#pairRows tr').count()>0,'Manager-pair PAR rows must render');
    assert.ok(await page.locator('#managerRows tr').count()>0,'Manager +/- totals must render');
    assert.ok(await page.locator('#tradeRows .deal').count()>0,'Underlying source receipts must render');
