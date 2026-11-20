@@ -78,6 +78,8 @@ execFileSync(process.execPath,['scripts/rebuild-playoff-race.mjs'],{stdio:'inher
 execFileSync(process.execPath,['scripts/build-current-2026-records.mjs'],{stdio:'inherit'});
 // Independently rebuild the eight canonical-ledger single-game all-time records.
 execFileSync(process.execPath,['scripts/build-alltime-game-records.mjs'],{stdio:'inherit'});
+// Rebuild all auditable career regular-season scoring and threshold marks.
+execFileSync(process.execPath,['scripts/build-alltime-career-records.mjs'],{stdio:'inherit'});
 for(const script of ['verify-weekly-ledger-parity.mjs','verify-manager-madden-cards.mjs','verify-fellas-rating.mjs','test-playoff-race-archive.mjs'])
  execFileSync(process.execPath,['scripts/'+script],{stdio:'inherit'});
 console.log('Review regenerated files and full CI before merging. Source-dependent pages must pass their freshness audits before release; archival snapshots remain labeled.');
