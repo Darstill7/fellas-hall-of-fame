@@ -1,0 +1,48 @@
+{
+  "schema": "fellas-par-starter-baseline-required-v1",
+  "status": "source_checked_requires_scoring_baseline",
+  "sourcePlatform": "Sleeper",
+  "accessMethod": "Flaim Fantasy historical Sleeper roster",
+  "season": 2025,
+  "leagueId": "1181421235163095040",
+  "rosterId": "8",
+  "rosterOwner": "yogurtslinger15",
+  "manager": "Stover",
+  "tradeId": "1294424036499025920",
+  "tradeWeek": 11,
+  "tradeDate": "2025-11-12",
+  "player": {
+    "name": "Stefon Diggs",
+    "sleeperPlayerId": "2449",
+    "position": "WR"
+  },
+  "evidence": {
+    "scope": "Regular-season Weeks 12–14, strictly after trade Week 11",
+    "weeklyRosterObservations": [
+      {
+        "week": 12,
+        "slot": "starter",
+        "points": 3
+      },
+      {
+        "week": 13,
+        "slot": "starter",
+        "points": 4.1
+      },
+      {
+        "week": 14,
+        "slot": "bench",
+        "points": 0
+      }
+    ],
+    "postTradeLineupStarts": 2,
+    "postTradeStarterPoints": 7.1
+  },
+  "requiredReview": "Determine the verified position-relative WR replacement baseline for 2025 Weeks 12 and 13; reconcile 3.0 and 4.1 starter fantasy points to weekly PAR, both manager-side asset identities, exact source lineup ownership, and then compute the two-manager margin. Historical source does not provide a validated per-week replacement baseline.",
+  "notes": [
+    "Stover started Diggs Weeks 12 and 13, but Week 14 was a bench week.",
+    "These are two low-scoring starts, not two zero-start weeks; weekly replacement baselines may imply negative PAR.",
+    "Counterparty Brian Thomas Jr. has a separately staged zero-start proof for Weeks 12–14, but the full trade remains ungraded.",
+    "This is an evidence receipt, not a trade ranking or lineup alternative."
+  ]
+}
