@@ -62,6 +62,15 @@ try{
    assert.ok((await page.locator('#impactStatus').innerText()).includes('verified playoff game/trade matches'),'Stilly championship impact must be evidenced');
    assert.ok(await page.locator('#impactGrid .impact-case').count()>0,'Verified championship-run impact panels visible');
    assert.ok(await page.locator('#keeperStory').isVisible(),'Verified keeper-era story should show for Stilly');
+   await page.locator('#tradePartner').selectOption('Tom');
+   assert.ok(Number(await page.locator('#sharedTrades').innerText())>0,'Stilly and Tom have documented shared receipts');
+   assert.ok((await page.locator('#rivalryLedger .receipt').count())>0,'Shared exchange receipts are visible');
+   assert.ok((await page.locator('#rivalryLedger .receipt a[href*="trade-museum.html?trade="]').count())>0,'Rivalry receipts link to sources');
+   assert.equal(new URL(page.url()).searchParams.get('partner'),'Tom','Partner selection is linkable');
+   await page.goto(portfolioUrl+'?manager=stilly&partner=Tom',{waitUntil:'load'});
+   await page.locator('#portfolio:not([hidden])').waitFor();
+   assert.equal(await page.locator('#tradePartner').inputValue(),'Tom','Shared-pair deep links restore selection');
+   assert.ok(await page.locator('#rivalryStats').isVisible(),'Shared pair summary is visible');
    await page.goto(portfolioUrl+'?manager=thommy',{waitUntil:'load'});
    await page.locator('#portfolio:not([hidden])').waitFor();
    assert.equal((await page.locator('#manager').inputValue()).toLowerCase(),'tom','Historical Thommy alias must map to Tom portfolio');
