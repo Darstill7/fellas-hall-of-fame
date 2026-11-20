@@ -326,7 +326,7 @@ try{
     // The public landing must be an editorial Hall of Fame exhibit, not a dashboard wall.
     const careerExhibit=page.locator('main > .hof-career-exhibit');
     if(await careerExhibit.count()!==1||!await careerExhibit.isVisible()||
-       !(await careerExhibit.locator('h2').innerText()).includes('The story behind the numbers')||
+       !(await careerExhibit.locator('h2').innerText()).includes('The story behind the record')||
        await careerExhibit.locator('p.hof-career-intro').innerText().then(x=>x.trim().length)<65||
        await careerExhibit.locator('button.hof-career-read').count()!==1)
      errors.push(width+' '+route+' missing readable Hall of Fame career exhibit');
@@ -341,7 +341,24 @@ try{
      if(layout.featureRight>width+2||layout.cards.some(c=>c.right>width+2||c.height<60)||
         layout.cards.some(c=>c.right-c.left<135)||
         layout.hubTop<layout.featureBottom-2)
-      errors.push(width+' '+route+' mobile Hall of Fame exhibit must precede six full-width readable destinations: '+JSON.stringify(layout));
+      errors.push(width+' '+route+' story must precede six readable franchise destinations: '+JSON.stringify(layout));
+     const editorialOrder=await page.evaluate(()=>{
+      const season=document.querySelector('#profile-season-pulse');
+      const story=document.querySelector('.hof-career-exhibit');
+      const hub=document.querySelector('.manager-home-hub');
+      const grid=hub?.querySelector('.manager-home-hub-grid');
+      return {validOrder:!!season&&!!story&&!!hub&&
+        !!(season.compareDocumentPosition(story)&Node.DOCUMENT_POSITION_FOLLOWING)&&
+        !!(story.compareDocumentPosition(hub)&Node.DOCUMENT_POSITION_FOLLOWING),
+        labels:[season?.querySelector('.profile-pulse-eyebrow')?.textContent?.trim(),
+          story?.querySelector('.hof-career-kicker')?.textContent?.trim(),
+          hub?.querySelector('.manager-home-kicker')?.textContent?.trim()],
+        columns:grid?getComputedStyle(grid).gridTemplateColumns.split(' ').length:0};
+     });
+     if(!editorialOrder.validOrder||!editorialOrder.labels[0].startsWith('01 /')||
+        !editorialOrder.labels[1].startsWith('02 /')||!editorialOrder.labels[2].startsWith('03 /')||
+        editorialOrder.columns!==2)
+      errors.push(width+' '+route+' season/story/guide hierarchy or mobile columns incorrect: '+JSON.stringify(editorialOrder));
     }
     // Real first-visit journeys: curated destinations must show their content,
     // not leave the selected section suppressed by the short landing mode.
