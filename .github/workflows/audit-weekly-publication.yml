@@ -11,6 +11,7 @@ on:
       - 'scripts/build-alltime-game-records.mjs'
       - 'scripts/build-alltime-career-records.mjs'
       - 'scripts/build-ledger-milestone-records.mjs'
+      - 'scripts/verify-ledger-milestones-history.mjs'
       - 'data/ledger_milestones_live_v1.json'
       - 'assets/ledger-milestones.mjs'
       - 'data/alltime_career_records_live_v1.json'
@@ -71,6 +72,7 @@ jobs:
           node --check scripts/build-ledger-milestone-records.mjs
           node --check assets/ledger-milestones.mjs
           node scripts/build-ledger-milestone-records.mjs --check
+          node scripts/verify-ledger-milestones-history.mjs
           node scripts/verify-current-week-website.mjs
           if [ -n "$EXPECTED_WEEK" ]; then
             node scripts/audit-weekly-publication.mjs "--expected-week=$EXPECTED_WEEK"
