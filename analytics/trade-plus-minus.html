@@ -20,7 +20,7 @@ main{max-width:1080px;margin:auto;padding:32px 16px 80px}h1{font:700 clamp(37px,
 <p id="status" class="status" role="status">Loading source-qualified PAR research…</p>
 <div id="scoreboard" hidden>
 <div class="stats"><div class="stat"><strong id="qualified">—</strong><span>Qualified two-manager trades</span></div><div class="stat"><strong id="pairCount">—</strong><span>Distinct measured manager pairs</span></div><div class="stat"><strong id="excluded">—</strong><span>Unqualified preview receipts</span></div></div>
-<section class="section" aria-labelledby="coverageTitle"><div class="coverage-heading"><div><div class="eyebrow">00 · Research completeness</div><h2 id="coverageTitle">What has and hasn't been measured?</h2></div></div><p class="small">Coverage refers only to recorded 2020–2025 museum transactions, not every exchange that occurred in the league. Incomplete or one-sided transactions, multi-manager trades and unresolved player identities are not scored. Counts below are source-derived and update when the archive or measurement research changes.</p><div class="table-scroll"><table class="coverage-table"><thead><tr><th>Season</th><th class="num">Recorded receipts</th><th class="num">Comparable +/-</th><th class="num">Not graded</th><th>Coverage</th></tr></thead><tbody id="coverageRows"></tbody></table></div></section>
+<section class="section" aria-labelledby="coverageTitle"><div class="coverage-heading"><div><div class="eyebrow">00 · Research completeness</div><h2 id="coverageTitle">What has and hasn't been measured?</h2></div></div><p class="small">Coverage refers only to recorded 2020–2025 museum transactions, not every exchange that occurred in the league. Incomplete or one-sided transactions, multi-manager trades and unresolved player identities are not scored. Counts below are source-derived and update when the archive or measurement research changes.</p><p class="small" id="exclusionReasons"></p><div class="table-scroll"><table class="coverage-table"><thead><tr><th>Season</th><th class="num">Recorded receipts</th><th class="num">Comparable +/-</th><th class="num">Not graded</th><th>Coverage</th></tr></thead><tbody id="coverageRows"></tbody></table></div></section>
 <section class="section" aria-labelledby="matrixTitle"><div class="eyebrow">01 · Directional scoreboard</div><h2 id="matrixTitle">Net PAR by trading partner</h2>
 <div class="controls"><label for="managerFilter">Manager<select id="managerFilter"><option value="all">All managers</option></select></label><label for="seasonFilter">Completed season<select id="seasonFilter"><option value="all">2020–2025 combined</option></select></label></div>
 <p class="small">A positive number means the first listed manager's received players generated more observed post-trade PAR than the counterpart's received players. Negative values mean the opposite. Repeated qualified trades are added together. “Measured / archived” reveals the source-coverage gap for that pair, including incomplete and three-manager deals in the archive. No value is assigned for unqualified trades.</p>
@@ -111,6 +111,12 @@ function render(){
 try{
  const response=await fetch('../data/trade_par_preview.json',{cache:'no-store'});if(!response.ok)throw Error('Research data unavailable');
  const data=await response.json();if(!Array.isArray(data.records))throw Error('Invalid research format');
+ const completeEra=data.records.filter(t=>t.year>=2020&&t.year<=2025);
+ const partialTwo=completeEra.filter(t=>t.sides.length===2&&!eligible(t)).length;
+ const single=completeEra.filter(t=>t.sides.length===1).length;
+ const multi=completeEra.filter(t=>t.sides.length>2).length;
+ if(partialTwo+single+multi+completeEra.filter(eligible).length!==completeEra.length)throw Error('Unclassified PAR coverage gap');
+ $('exclusionReasons').textContent='Among 2020–2025 recorded trades: '+partialTwo+' two-manager exchanges lack a fully matched receiving side, '+single+' have just one documented receiving side, and '+multi+' involve three or more managers. These do not receive a +/- grade. The unfinished 2026 season is excluded separately.';
  const archiveResponse=await fetch('trade-museum.html',{cache:'no-store'});
  if(!archiveResponse.ok)throw Error('Museum evidence unavailable');
  const archiveDoc=new DOMParser().parseFromString(await archiveResponse.text(),'text/html');
