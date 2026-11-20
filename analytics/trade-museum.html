@@ -83,15 +83,16 @@ document.getElementById('tm-audit-cutoff').textContent=latest2026Trade
  : 'No verified 2026 trades in this museum snapshot. New transactions require source review before publication.';
 const completeSides=t=>t.sides.length>=2&&new Set(t.sides.map(s=>s.manager)).size===t.sides.length&&t.sides.every(s=>s.source_status==='VERIFIED_SOURCE'&&typeof s.assets==='string'&&s.assets.trim().length>0);
 const curated=trades.filter(completeSides);
-const threeTeamGallery=curated.filter(t=>t.sides.length>=3).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,3);
-document.getElementById('tm-gallery-items').innerHTML=threeTeamGallery.length
- ? threeTeamGallery.map(t=>`<a class="tm-gallery-item" href="?trade=${encodeURIComponent(t.id)}"><span class="tm-eyebrow">${esc(t.year)} · Week ${esc(t.week??'?')} · ${t.sides.length} managers</span><strong>${t.sides.map(side=>esc(side.manager)).join(' · ')}</strong><small>${t.sides.map(side=>esc(side.manager)+': '+esc(side.assets)).join('<br>')}</small><span class="tm-gallery-link">View source-backed receipt →</span></a>`).join('')
- : '<p class="tm-gallery-none">No complete three-manager receipts are available in this archive snapshot.</p>';
+
 const incomplete=trades.filter(t=>!completeSides(t));
 document.getElementById('tradeTotal').textContent=curated.length;
 document.getElementById('auditedSides').textContent=trades.reduce((sum,t)=>sum+t.sides.length,0);
 const managerPortfolioUrl=name=>{const key=String(name).toLowerCase();const active=new Set(['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott']);if(active.has(key))return '../managers/'+encodeURIComponent(key)+'/';const historical=key==='evansbrandon'?'Evans':name;return '../managers/record-books.html?manager='+encodeURIComponent(historical)};
 const $=x=>document.getElementById(x);const esc=s=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const threeTeamGallery=curated.filter(t=>t.sides.length>=3).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,3);
+document.getElementById('tm-gallery-items').innerHTML=threeTeamGallery.length
+ ? threeTeamGallery.map(t=>`<a class="tm-gallery-item" href="?trade=${encodeURIComponent(t.id)}"><span class="tm-eyebrow">${esc(t.year)} · Week ${esc(t.week??'?')} · ${t.sides.length} managers</span><strong>${t.sides.map(side=>esc(side.manager)).join(' · ')}</strong><small>${t.sides.map(side=>esc(side.manager)+': '+esc(side.assets)).join('<br>')}</small><span class="tm-gallery-link">View source-backed receipt →</span></a>`).join('')
+ : '<p class="tm-gallery-none">No complete three-manager receipts are available in this archive snapshot.</p>';
 const fullyAudited=t=>t.sides.every(s=>Number.isFinite(s.raw_starter_points));
 const points=t=>fullyAudited(t)?t.sides.reduce((a,s)=>a+s.raw_starter_points,0):-Infinity;
 const gap=t=>fullyAudited(t)?Math.max(...t.sides.map(s=>s.raw_starter_points))-Math.min(...t.sides.map(s=>s.raw_starter_points)):-Infinity;
