@@ -11,6 +11,8 @@ on:
       - 'data/current_2026_records_v1.json'
       - 'assets/current-season-records.*'
       - 'analytics/records.html'
+      - 'analytics/trade-museum.html'
+      - 'scripts/apply-reviewed-sleeper-week.mjs'
       - 'scripts/verify-current-week-website.mjs'
       - '.github/workflows/prepare-approved-weekly-release.yml'
       - '.github/workflows/audit-weekly-publication.yml'
