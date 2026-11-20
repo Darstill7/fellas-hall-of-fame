@@ -10,6 +10,8 @@ on:
       - '.github/workflows/rehearse-weekly-release.yml'
       - '.github/workflows/prepare-approved-weekly-release.yml'
       - 'scripts/build-weekly-commissioner-review.mjs'
+      - 'scripts/scan-site-freshness.mjs'
+      - 'data/site_freshness_config_v1.json'
   workflow_dispatch:
 permissions:
   contents: read
@@ -66,6 +68,8 @@ jobs:
           node scripts/build-ledger-milestone-records.mjs --check
           node scripts/verify-ledger-milestones-history.mjs
           node scripts/audit-weekly-publication.mjs
+          EXPECTED_WEEK=$(node -e "const x=require('./data/unified_record_book_2016_2026.json');console.log(Math.max(...x.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week)))")
+          node scripts/scan-site-freshness.mjs --release-gate "--expected-week=$EXPECTED_WEEK"
           node scripts/build-weekly-commissioner-review.mjs \
             "--candidate=$CANDIDATE" \
             "--before=$RUNNER_TEMP/fellas-before" \
