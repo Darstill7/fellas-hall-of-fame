@@ -27,6 +27,15 @@ assert.equal(evans.evidence.postTradeLineupStarts,1);
 assert.equal(evans.evidence.postTradeStarterPoints,0);
 assert.equal(diggs.evidence.postTradeLineupStarts,2);
 assert.equal(diggs.evidence.postTradeStarterPoints,7.1);
+const ledger2025=read('data/player_starts_2025.json');
+for(const [week,id,name,score] of [[7,'2216','Mike Evans',0],[12,'2449','Stefon Diggs',3],[13,'2449','Stefon Diggs',4.1]]){
+ const team=ledger2025.weeks.find(row=>row.week===week)?.teams.find(t=>String(t.roster)==='8');
+ assert.ok(team&&team.owner==='yogurtslinger15','Incorrect owner on historical WR start');
+ const rows=team.players.filter(p=>String(p[0])===id&&p[1]===name&&p[2]==='WR');
+ assert.equal(rows.length,1,'Zero-point/low-score WR source start not uniquely found');
+ assert.equal(rows[0][3],score,'Historical starter score differs from staged source proof');
+}
+
 assert.ok(explicitWeeklyBaselines===0,'Per-week baseline evidence has appeared: independently audit its definition before certification');
 const method=fs.readFileSync(path.join(root,'FELLAS_WAR_METHOD.md'),'utf8');
 assert.ok(method.includes('no WAR player or manager scores are certified yet'),'WAR method must remain separate from existing experimental trade PAR');
