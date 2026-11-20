@@ -37,6 +37,11 @@
  <label class="field"><span>Second manager</span><select id="compare-second" aria-label="Second manager for record comparison"><option>Loading…</option></select></label>
  <label class="field"><span>Record coverage</span><select id="compare-status"><option value="existing">Existing source only</option><option value="all">Include provisional research</option></select></label>
  </div>
+ <div class="compare-filterbar">
+ <label class="field"><span>Filter record category</span><select id="compare-family" aria-label="Filter compared records by category"><option value="all">All categories</option></select></label>
+ <label class="field"><span>Sort comparison</span><select id="compare-sort"><option value="best">Highest listed ranks first</option><option value="gap">Largest rank differences first</option><option value="name">Record name A–Z</option></select></label>
+ <button type="button" class="compare-swap" id="compare-swap">Swap managers</button>
+ </div>
  <div id="compare-summary" class="scope" role="status" aria-live="polite">Select managers to compare their archived placements.</div>
  <div id="compare-results" class="compare-results"></div>
  </section>
