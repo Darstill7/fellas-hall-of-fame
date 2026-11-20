@@ -326,7 +326,7 @@ try{
     // The public landing must be an editorial Hall of Fame exhibit, not a dashboard wall.
     const careerExhibit=page.locator('main > .hof-career-exhibit');
     if(await careerExhibit.count()!==1||!await careerExhibit.isVisible()||
-       !(await careerExhibit.locator('h2').innerText()).includes('The story behind the numbers')||
+       !(await careerExhibit.locator('h2').innerText()).includes('The story behind the record')||
        await careerExhibit.locator('p.hof-career-intro').innerText().then(x=>x.trim().length)<65||
        await careerExhibit.locator('button.hof-career-read').count()!==1)
      errors.push(width+' '+route+' missing readable Hall of Fame career exhibit');
@@ -341,7 +341,27 @@ try{
      if(layout.featureRight>width+2||layout.cards.some(c=>c.right>width+2||c.height<60)||
         layout.cards.some(c=>c.right-c.left<135)||
         layout.hubTop<layout.featureBottom-2)
-      errors.push(width+' '+route+' mobile Hall of Fame exhibit must precede six full-width readable destinations: '+JSON.stringify(layout));
+      errors.push(width+' '+route+' story must precede six readable franchise destinations: '+JSON.stringify(layout));
+     const editorialOrder=await page.evaluate(()=>{
+      const season=document.querySelector('#profile-season-pulse');
+      const story=document.querySelector('.hof-career-exhibit');
+      const hub=document.querySelector('.manager-home-hub');
+      const grid=hub?.querySelector('.manager-home-hub-grid');
+      return {validOrder:!!season&&!!story&&!!hub&&
+        !!(season.compareDocumentPosition(story)&Node.DOCUMENT_POSITION_FOLLOWING)&&
+        !!(story.compareDocumentPosition(hub)&Node.DOCUMENT_POSITION_FOLLOWING),
+        labels:[season?.querySelector('.profile-pulse-eyebrow')?.textContent?.trim(),
+          story?.querySelector('.hof-career-kicker')?.textContent?.trim(),
+          hub?.querySelector('.manager-home-kicker')?.textContent?.trim()],
+        columns:grid?getComputedStyle(grid).gridTemplateColumns.split(' ').length:0,
+        guideLabels:hub?.querySelectorAll('.manager-home-kicker,.manager-home-chapter-label').length||0,
+        guideDescription:hub?.querySelector('.manager-home-hub-note')?.textContent?.trim()||''};
+     });
+     if(!editorialOrder.validOrder||!editorialOrder.labels[0].startsWith('01 /')||
+        !editorialOrder.labels[1].startsWith('02 /')||!editorialOrder.labels[2].startsWith('03 /')||
+        editorialOrder.columns!==2||editorialOrder.guideLabels!==1||
+        !editorialOrder.guideDescription.includes('The remaining paths lead to seasons'))
+      errors.push(width+' '+route+' season/story/guide hierarchy or mobile columns incorrect: '+JSON.stringify(editorialOrder));
     }
     // Real first-visit journeys: curated destinations must show their content,
     // not leave the selected section suppressed by the short landing mode.
@@ -378,6 +398,59 @@ try{
     if(await moreResearch.count()!==1||await moreResearch.evaluate(el=>el.open))
      errors.push(width+' '+route+' advanced research menu must initially be collapsed');
     else await moreResearch.locator(':scope > summary').click();
+
+    // Phase 2: verify the actual five-chapter layout in Chromium and WebKit.
+    // The chapter design enhances existing disclosures; it must not remove
+    // source sections, create horizontal overflow, or shrink touch targets.
+    const chapterLayout=await page.evaluate(()=>{
+     const menu=document.querySelector('#profile-features .profile-feature-groups');
+     if(!menu)return null;
+     const groups=[...menu.querySelectorAll(':scope > details.profile-feature-group')];
+     const summaries=groups.map(g=>g.querySelector(':scope > summary'));
+     const first=summaries[0];
+     return {count:groups.length,
+      names:summaries.map(s=>s?.querySelector('strong')?.textContent?.trim()),
+      firstOpen:groups[0]?.open===true,
+      counterStyle:getComputedStyle(menu).counterReset,
+      numberStyle:first?getComputedStyle(first,'::before').content:'',
+      grid:first?getComputedStyle(first).display:'',
+      touchHeights:summaries.map(s=>Math.round(s?.getBoundingClientRect().height||0)),
+      overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};
+    });
+    const chapterNames=['Career & Results','Rivals & Matchups','Drafts, Trades & Pickups','Ratings & Legacy','Lineups & Keepers'];
+    if(!chapterLayout||chapterLayout.count!==5||
+       JSON.stringify(chapterLayout.names)!==JSON.stringify(chapterNames)||
+       !chapterLayout.firstOpen||chapterLayout.grid!=='grid'||
+       !chapterLayout.counterStyle.includes('fellas-profile-chapter')||
+       !chapterLayout.numberStyle.includes('counter(')||
+       chapterLayout.touchHeights.some(h=>h<44)||chapterLayout.overflow>2)
+     errors.push(width+' '+route+' Phase 2 mobile chapter hierarchy failed: '+JSON.stringify(chapterLayout));
+    // Real visitor action: keyboard-open a second chapter and verify that
+    // the accordion swaps topics without leaving two sections expanded.
+    if(width===390&&route==='managers/stilly/'){
+     const summaries=page.locator('#profile-features details.profile-feature-group > summary');
+     await summaries.nth(1).focus();
+     await page.keyboard.press('Enter');
+     await page.waitForFunction(()=>{
+      const groups=[...document.querySelectorAll('#profile-features details.profile-feature-group')];
+      return groups[1]?.open===true&&groups[0]?.open===false;
+     },null,{timeout:4000}).catch(()=>{});
+     const state=await page.locator('#profile-features details.profile-feature-group').evaluateAll(
+      groups=>groups.map(g=>g.open));
+     if(state.length!==5||state.filter(Boolean).length!==1||!state[1])
+      errors.push(width+' '+route+' keyboard chapter switch failed: '+JSON.stringify(state));
+     await summaries.first().focus();
+     await page.keyboard.press('Enter');
+     await page.waitForFunction(()=>{
+      const groups=[...document.querySelectorAll('#profile-features details.profile-feature-group')];
+      return groups[0]?.open===true&&groups[1]?.open===false;
+     },null,{timeout:4000}).catch(()=>{});
+    }
+    if(captureVisuals&&width===390&&route==='managers/stilly/'){
+     const screenshot=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width),'stilly_research_chapters.png');
+     await fs.mkdir(path.dirname(screenshot),{recursive:true});
+     await page.locator('#profile-features').screenshot({path:screenshot,animations:'disabled'});
+    }
 
     const panel=page.locator('#profile-playoff-resume');
     await panel.waitFor({state:'visible',timeout:10000});
@@ -493,6 +566,26 @@ try{
        !!(snapshot.compareDocumentPosition(actions)&Node.DOCUMENT_POSITION_FOLLOWING);
      });
      if(!heroOrder)errors.push(width+' '+route+' hierarchy must be title, verified career snapshot, then navigation');
+     // Source-driven first-screen season cue: never substitute projections
+     // or hide a failed data request behind a fabricated standing.
+     const seasonCue=page.locator('main .hero [data-profile-firstscreen-season]');
+     if(await seasonCue.count()!==1)
+      errors.push(width+' '+route+' first-screen verified 2026 cue missing');
+     else{
+      await page.waitForFunction(()=>{
+       const el=document.querySelector('[data-profile-firstscreen-season]');
+       return el&&!el.textContent.includes('Checking verified results');
+      },null,{timeout:10000}).catch(()=>{});
+      const cue=await seasonCue.evaluate(el=>{
+       const r=el.getBoundingClientRect(),hero=el.closest('.hero');
+       const snapshot=hero?.querySelector('[data-profile-career-snapshot]');
+       return {text:el.textContent.trim(),right:r.right,height:r.height,
+        beforeSnapshot:!!snapshot&&!!(el.compareDocumentPosition(snapshot)&Node.DOCUMENT_POSITION_FOLLOWING)};
+      });
+      if(!(/2026 · \d+–\d+/.test(cue.text)||cue.text.includes('results unavailable'))||
+         !cue.beforeSnapshot||cue.right>width+2||cue.height<35)
+       errors.push(width+' '+route+' first-screen season identity or mobile fit failed: '+JSON.stringify(cue));
+     }
      const honors=page.locator('main .hero .profile-honors-line');
      if(await honors.count()!==1||!await honors.isVisible()||
         !/Championship season|Still chasing a first championship/.test(await honors.innerText()))

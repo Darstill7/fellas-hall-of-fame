@@ -600,9 +600,9 @@ function mountManagerHomeHub(){
  const hub=document.createElement('section');hub.className='manager-home-hub';
  hub.setAttribute('aria-label',who+' personal league hub');
  const chapterLabel=document.createElement('p');chapterLabel.className='manager-home-kicker';
- chapterLabel.textContent='FRANCHISE GUIDE / SIX WAYS IN';
+ chapterLabel.textContent='03 / EXPLORE THE FRANCHISE';
  const h=document.createElement('h2');h.textContent='Explore '+who+'’s career';
- const note=document.createElement('p');note.textContent='Choose a chapter below. Detailed game logs, ratings and research remain in the expandable archive.';
+ const note=document.createElement('p');note.textContent='Start with the story or your record book. The remaining paths lead to seasons, rivalries, report cards and roster decisions.';
  note.className='manager-home-hub-note';
  const grid=document.createElement('nav');grid.className='manager-home-hub-grid';grid.setAttribute('aria-label','Primary manager destinations');
  const routes=[
@@ -686,7 +686,7 @@ function mountCareerExhibit(){
  feature.className='hof-career-exhibit';
  feature.setAttribute('aria-label',slug+' Hall of Fame career story');
  const kicker=document.createElement('span');kicker.className='hof-career-kicker';kicker.textContent='02 / THE CAREER STORY';
- const h=document.createElement('h2');h.textContent='The story behind the numbers';
+ const h=document.createElement('h2');h.textContent='The story behind the record';
  const intro=document.createElement('p');intro.className='hof-career-intro';
  const sourceIntro=document.querySelector('#franchise-story .lead');
  intro.textContent=sourceIntro?.textContent?.trim()||'Explore the archived seasons, title results and defining roster decisions.';
@@ -713,18 +713,11 @@ function mountCareerExhibit(){
  const profileSwitcher=document.querySelector('.hof-manager-switcher');
  if(profileSwitcher)hero.after(profileSwitcher);
  hub.classList.add('hof-nav-curated');
+ // Keep one, consistent chapter label and one useful guide description.
+ // The guide already owns the 03 kicker; adding a second one makes the
+ // mobile reading hierarchy repetitive and pushes destinations downward.
  const hubHeading=hub.querySelector('h2');
- if(hubHeading){
-  hubHeading.textContent='Choose your next chapter';
-  if(!hub.querySelector('.manager-home-chapter-label')){
-   const chapter=document.createElement('span');
-   chapter.className='manager-home-chapter-label';
-   chapter.textContent='03 / EXPLORE THIS FRANCHISE';
-   hubHeading.before(chapter);
-  }
- }
- const hubNote=hub.querySelector('.manager-home-hub-note');
- if(hubNote)hubNote.textContent='Follow the career story, investigate the records or open a deeper chapter.';
+ if(hubHeading)hubHeading.textContent='Choose your next chapter';
  // Preview the exact opening sentences of the verified editorial biography.
  fetch('../../data/manager_biographies_awards.json',{cache:'no-store'})
   .then(response=>{if(!response.ok)throw Error('Biography unavailable');return response.json()})
@@ -743,6 +736,16 @@ function mountManagerSeasonPulse(){
  const hero=document.querySelector('main .hero');
  if(!hero||document.querySelector('#profile-season-pulse'))return;
  const name=profileName==='Tom'?'Thommy':profileName;
+ // A compact, source-linked season result belongs beside the career identity.
+ // Do not invent a live rank or duplicate the full standings panel.
+ const firstScreenSeason=document.createElement('p');
+ firstScreenSeason.className='profile-firstscreen-season';
+ firstScreenSeason.dataset.profileFirstscreenSeason='';
+ firstScreenSeason.setAttribute('aria-label','2026 verified season record');
+ firstScreenSeason.textContent='2026 season · Checking verified results…';
+ const lead=hero.querySelector(':scope > .lead');
+ if(lead)lead.after(firstScreenSeason);
+ else hero.querySelector('h1')?.after(firstScreenSeason);
  const pulse=document.createElement('section');
  pulse.id='profile-season-pulse';
  pulse.className='profile-season-pulse';
@@ -769,9 +772,12 @@ function mountManagerSeasonPulse(){
   stats.hidden=false;
   const match=String(season.summary||'').match(/Week\s+(\d+)/);
   const week=match?.[1]||'—';
+  const verifiedRecord=standing.w+'–'+standing.l+(standing.t?'–'+standing.t:'');
+  firstScreenSeason.textContent='2026 · '+verifiedRecord+' · Verified through Week '+week;
   pulse.querySelector('.profile-season-pulse-status').textContent='Verified through Week '+week+' · Regular season in progress';
   pulse.querySelector('.profile-season-pulse-footnote').textContent='Reconstructed regular-season standings; not official playoff seeding. Incomplete weeks are excluded.';
  }).catch(()=>{
+  firstScreenSeason.textContent='2026 results unavailable · View season center';
   pulse.querySelector('.profile-season-pulse-status').textContent='The current season snapshot is temporarily unavailable.';
   pulse.querySelector('.profile-season-pulse-footnote').textContent='See the season center for the latest verified results.';
  });

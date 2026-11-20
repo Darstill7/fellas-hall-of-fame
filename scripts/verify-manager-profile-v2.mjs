@@ -12,6 +12,13 @@ assert(latestCss.includes('@media(max-width:700px)'),'Responsive editorial layou
 const mobileCss=readFileSync(new URL('../assets/manager-profile-mobile-v3.css',import.meta.url),'utf8');
 assert(mobileCss.includes('profile-season-pulse-stats')&&mobileCss.includes('grid-template-columns:repeat(2,minmax(0,1fr))'),'Manager 3.0 mobile season summary and two-column career highlights missing');
 assert(interactive.includes('mountManagerSeasonPulse()')&&interactive.includes('mountOptionalManagerAnalysis()'),'Mobile-first current-season and deferred analytics mounts missing');
+assert(interactive.includes("firstScreenSeason.dataset.profileFirstscreenSeason=''"),'Verified 2026 first-screen cue missing');
+assert(interactive.includes("firstScreenSeason.textContent='2026 · '+verifiedRecord"),'First-screen record must derive from the canonical 2026 standings');
+assert(interactive.includes("firstScreenSeason.textContent='2026 results unavailable"),'Missing seasonal data must show an honest fallback');
+assert(mobileCss.includes('Phase 2 · Franchise first screen v4')&&mobileCss.includes('.profile-firstscreen-season'),'New responsive identity treatment missing');
+const scoreboardInset=mobileCss.match(/body\.premium-franchise main>\.hero \.profile-career-snapshot\s*\{([^}]+)\}/);
+assert(scoreboardInset&&/padding:\s*(?:1[2-9]|[2-9]\d)px/.test(scoreboardInset[1]),
+ 'Condensed career scoreboard must retain at least 12px panel inset at desktop widths');
 assert(!interactive.includes('mountManagerScheduleLuck(profileName,profileHero);')&&!interactive.includes('mountManagerLuckPerformance(profileName,profileHero);'),'Advanced opponent-draw panels must not mount directly in the hero');
 assert(interactive.includes("source.className='hof-career-source-note'"),'Biography source note missing');
 assert(interactive.includes('see the latest verified 2026 scores and standings'),'Live 2026 crosslink missing');

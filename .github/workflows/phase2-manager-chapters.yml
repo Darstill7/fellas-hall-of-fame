@@ -1,0 +1,22 @@
+name: Phase 2 manager chapter structure
+on:
+  pull_request:
+    paths:
+      - 'assets/manager-profile-mobile-v3.css'
+      - 'assets/manager-profile-tabs.mjs'
+      - 'managers/**/index.html'
+      - 'scripts/test-phase2-profile-chapters.mjs'
+      - '.github/workflows/phase2-manager-chapters.yml'
+  workflow_dispatch:
+jobs:
+  structural-chapters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check test syntax
+        run: node --check scripts/test-phase2-profile-chapters.mjs
+      - name: Validate existing ten-profile chapter contract
+        run: node scripts/test-phase2-profile-chapters.mjs
