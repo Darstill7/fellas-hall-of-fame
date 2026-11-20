@@ -783,3 +783,157 @@ body.premium-franchise .profile-focus-records-link:focus-visible{
   grid-template-columns:minmax(0,1fr);
  }
 }
+
+
+/* Phase 2 · Franchise first screen v4.
+ * A clear identity, a verified current-year cue, two career facts, two actions.
+ * Existing source notes, trophy details and archival routes remain reachable. */
+body.premium-franchise main>.hero{
+  position:relative;
+  background:linear-gradient(142deg,#1c3848 0%,#102632 60%,#0e202b 100%)!important;
+  border:1px solid #637889!important;
+  border-top:3px solid #dcbf80!important;
+  box-shadow:0 15px 32px rgba(0,0,0,.20);
+}
+body.premium-franchise main>.hero>.eyebrow{
+  display:inline-block;
+  margin:0 0 7px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.135em;
+  color:#edce8c;
+}
+body.premium-franchise main>.hero h1{
+  color:#fff7e7;
+  text-wrap:balance;
+  letter-spacing:-.055em;
+}
+body.premium-franchise main>.hero>.lead{
+  max-width:52ch;
+  color:#d3e0e7;
+}
+body.premium-franchise .profile-firstscreen-season{
+  display:inline-flex;
+  align-items:center;
+  flex-wrap:wrap;
+  max-width:100%;
+  min-height:36px;
+  margin:5px 0 3px;
+  padding:7px 12px;
+  border:1px solid #8e966b;
+  border-left:3px solid #ebce91;
+  border-radius:5px;
+  background:#1a3541;
+  color:#f8e7bf;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.5;
+  letter-spacing:.012em;
+  font-variant-numeric:tabular-nums;
+}
+body.premium-franchise main>.hero .profile-career-snapshot{
+  padding:0;
+  margin:11px 0 7px!important;
+}
+body.premium-franchise main>.hero .profile-career-highlights{
+  margin:9px 0 5px!important;
+  gap:10px!important;
+}
+body.premium-franchise main>.hero .profile-career-highlight{
+  background:#102531!important;
+  border:1px solid #647888!important;
+  box-shadow:none;
+}
+body.premium-franchise main>.hero .profile-career-highlight.hof-has-title{
+  border-color:#d9b974!important;
+  box-shadow:inset 3px 0 #e6bd75;
+  background:linear-gradient(125deg,#37301f,#122935)!important;
+}
+body.premium-franchise main>.hero .profile-career-highlight-label{
+  color:#d4e1e7;
+  letter-spacing:.015em;
+}
+body.premium-franchise main>.hero .buttons{
+  margin:11px 0 6px!important;
+}
+body.premium-franchise main>.hero .buttons .btn:first-child{
+  background:#edcd8e;
+  color:#142531;
+}
+body.premium-franchise main>.hero .buttons .btn:focus-visible,
+body.premium-franchise .profile-firstscreen-season:focus-visible{
+  outline:3px solid #ffe2a3;
+  outline-offset:3px;
+}
+/* Preserve optional nickname and evidence without letting those panels
+   dominate the franchise's opening scoreboard. */
+body.premium-franchise main>.hero .manager-nickname-origin{
+  margin:4px 0 9px!important;
+  padding:5px 10px!important;
+  border-left-width:2px!important;
+  background:#162f3b!important;
+}
+body.premium-franchise main>.hero .manager-nickname-origin>summary{
+  min-height:44px;
+  font-size:12px!important;
+}
+body.premium-franchise main>.hero .profile-snapshot-receipts{
+  margin:6px 0 0!important;
+  background:#142b37!important;
+}
+@media(min-width:780px){
+  body.premium-franchise main>.hero{
+    padding:29px 35px!important;
+  }
+  body.premium-franchise main>.hero .profile-career-highlights{
+    max-width:670px;
+  }
+  body.premium-franchise .profile-firstscreen-season{
+    font-size:13px;
+    min-height:38px;
+  }
+}
+@media(max-width:650px){
+  body.premium-franchise main>.hero{
+    padding:18px 15px 15px!important;
+    margin:7px 0 11px!important;
+  }
+  body.premium-franchise main>.hero h1{
+    font-size:clamp(39px,10.5vw,52px)!important;
+    line-height:1.07!important;
+    margin:3px 0 5px!important;
+  }
+  body.premium-franchise main>.hero>.lead{
+    margin:6px 0 5px!important;
+    font-size:13px!important;
+    line-height:1.46!important;
+  }
+  body.premium-franchise .profile-firstscreen-season{
+    font-size:11px;
+    min-height:35px;
+    padding:6px 9px;
+  }
+  body.premium-franchise main>.hero .profile-career-highlight{
+    padding:11px 12px!important;
+    gap:3px!important;
+  }
+  body.premium-franchise main>.hero .profile-career-highlight strong{
+    font-size:clamp(24px,7.5vw,34px)!important;
+    line-height:1.13;
+  }
+  body.premium-franchise main>.hero .buttons .btn{
+    min-height:46px;
+    flex:1 1 auto;
+    justify-content:center;
+  }
+  body.premium-franchise main>.hero .profile-honors-line{
+    margin:4px 0 5px!important;
+    padding:5px 9px;
+    font-size:11px!important;
+  }
+}
+@media(max-width:360px){
+  body.premium-franchise main>.hero .buttons{display:grid;grid-template-columns:1fr}
+  body.premium-franchise main>.hero .profile-career-highlights{gap:7px!important}
+  body.premium-franchise main>.hero .profile-career-highlight{padding:10px 8px!important}
+}
