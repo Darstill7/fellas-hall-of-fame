@@ -85,6 +85,16 @@ try{
    await page.goto(plusUrl,{waitUntil:'load'});
    await page.locator('#scoreboard:not([hidden])').waitFor();
    assert.equal(await page.locator('#qualified').innerText(),'18','Only 18 verified complete two-manager trades qualify');
+   assert.equal(await page.locator('#includeRecovery').isChecked(),false,'Research preview must be opt-in');
+   await page.locator('#includeRecovery').check();
+   assert.ok((await page.locator('#previewState').innerText()).includes('22 trades'),'Proof-qualified preview should show 22 trades');
+   assert.ok((await page.locator('#coverageRows tr').last().innerText()).includes('22'),'Coverage should show 22 in preview');
+   await page.locator('#seasonFilter').selectOption('2025');
+   assert.ok((await page.locator('#tradeRows .deal .preview-label').count())>=1,'Expanded sample marks research-only trade cards');
+   await page.locator('#includeRecovery').uncheck();
+   assert.ok((await page.locator('#coverageRows tr').last().innerText()).includes('18'),'Unchecking reverts original measured sample');
+   await page.locator('#seasonFilter').selectOption('all');
+
    assert.equal(await page.locator('#recoveryRows .recovery-card').count(),23,'Every incomplete two-manager receipt must appear in audit queue');
    await page.locator('#recoveryFilter').selectOption('one');
    assert.equal(await page.locator('#recoveryRows .recovery-card').count(),18,'One-side audit bucket must contain 18 receipts');
