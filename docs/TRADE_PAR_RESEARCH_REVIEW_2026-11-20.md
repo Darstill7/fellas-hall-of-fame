@@ -1,0 +1,60 @@
+# The Fellas Trade +/- — research and release audit
+**Research checkpoint:** November 20, 2026  
+**Pull request:** #276 (draft; unmerged)  
+**Interpretation:** Observed post-trade starter production relative to a proposed replacement baseline. NOT trade decision quality or all-time franchise value.
+
+## 1. What has independently passed
+
+The existing 2020–2025 `data/trade_par_preview.json` matched asset starter fields were compared by year, week, manager's historical roster ID, player name/ID and fantasy score with six immutable `data/player_starts_YYYY.json` files. Every one of **611 starting-lineup observations** was found. The **110 asset-in-trade point totals** equal their component starter points within rounding tolerance. The same player start was not counted against two different trades. This source reconciliation is now reproduced by `scripts/verify-trade-par-start-ledger-parity.mjs` on Trade Museum CI.
+
+This verifies **starter point attribution**, not the underlying PAR replacement deductions, causal wins from trading, or every historical league trade.
+
+## 2. Coverage and scope
+
+- Museum currently records 44 trades from completed Sleeper seasons 2020–2025, plus seven 2026 trades in the older preview. This is not necessarily the full league-history archive.
+- 18 of those 44 transactions have complete, two-manager, name-matched received sides in the inherited PAR preview. Their research scores are the default.
+- 23 additional completed-season two-manager trades are incompletely matched, with one completed-season three-manager and two one-sided recorded trades left out of bilateral PAR grading.
+- Seven specific missing player assets now have complete, direct historical roster-source **zero-post-trade-start evidence**: Zach Ertz (2025 Kuhl); Raheem Mostert (2024 Mitch); Brandon Aiyuk (2024 Tom); Bhayshul Tuten (2025 Birch); Rico Dowdle (2024 Tom); Calvin Ridley (2024 JMid); Brian Thomas Jr. (2025 Stilly).
+- Six of those seven are the only unresolved asset in their two-manager exchange, allowing a strictly opt-in **24-trade research comparison** (18 + six). Brian Thomas Jr. is NOT eligible for that preview because the opposing Stefon Diggs received side still lacks weekly replacement-level PAR for two verified starts.
+- The two completed-season zero-point/low-score starter exceptions are **Mike Evans (Stover, 2025 Week 7: 0.0 points in a starting lineup slot)** and **Stefon Diggs (Stover, 2025 Weeks 12–13: 3.0 and 4.1 points in starting lineup slots)**. Neither should be treated as zero starts or automatically given zero PAR.
+- ESPN-era 2016–2019 transactions and the unfinished 2026 season are outside current comparable PAR scope. Multi-manager transactions are excluded from bilateral PAR, not artificially allocated among pairs.
+
+## 3. Research-only expanded comparison
+
+| Acquiring manager with greater candidate observed PAR | Counterparty | Candidate advantage | Trade ID |
+|---|---|---:|---|
+| Kuhl | Stew | +2.10 | 1294724519813988352 |
+| Kuhl | Mitch | +14.47 | 1159892809005076480 |
+| Tony | Tom | +52.89 | 1152708228883660800 |
+| Stew | Birch | +34.01 | 1276373761972527104 |
+| Stew | Tom | +1.46 | 1146946436173623296 |
+| JMid | Stew | +38.46 | 1141777905656143872 |
+
+These differences use previously matched receiving-asset PAR plus a **zero additional credited starter contribution** for the independently source-checked, missing asset. They do not price a player's opportunity cost, playoff results, injury risk, keeper rights, FAAB or alternative trade choices. The inferred PAR model remains unvalidated, so do not publish as certified talent evaluation.
+
+The opt-in 24-trade research scenario is zero-sum and has the following net manager values: Kuhl +260.19; Mitch +101.97; Birch +97.78; Stilly +18.21; JMid −2.66; Stew −58.64; Tony −114.30; Tom −302.55. The 18-trade default values remain unchanged.
+
+## 4. What the PAR model still cannot prove
+
+The `data/trade_par_preview.json` dataset is marked **experimental, source coverage partial**. Its 110 matched asset entries have aggregate `points`, `par`, `starts`, and `sourceWeeks`, but no source-identified **weekly, slot-eligible replacement points** or benchmark-version receipts. Their implied deductions (`points − par`) cannot uniquely determine the week-specific model. The `FELLAS_WAR_METHOD.md` proposal discusses a different bench/lineup-based counterfactual and explicitly does not certify WAR results. **Do not mix those WAR substitutes with inherited PAR values.**
+
+In particular, the 2025 Mike Evans and Stefon Diggs examples demonstrate why a zero or low-scoring starter can contribute *negative* position-relative value. A fixed zero for those missing starts would bias trade rankings. These cases remain blocked pending verified benchmark weeks.
+
+## 5. Requirements to promote or label an all-time ranking
+
+1. Confirm the specific season's scoring rules and exact lineup slots including FLEX treatment; establish whether the baseline is league-wide, waiver replacement, actual same-roster bench, or another model.
+2. For each started player and week, attach stable provider player ID, owner/roster ID, position and lineup slot, the fantasy points scored, specific replacement peer set, eligible substitute points, benchmark methodology/version, and source receipt.
+3. Reproduce **per-week** player PAR, then aggregate it into trade-received assets; prove all starts occurred strictly after the relevant transaction week while credited to the receiving owner.
+4. Preserve zero-start versus zero-point-start distinction, and retain negative PAR where the consistent methodology calls for it.
+5. Reconcile both receiving sides, identify incomplete/three-manager/FAAB/keeper assets as excluded or separately modeled, and require the trade-level/matrix totals to remain zero-sum without duplicated starts.
+6. Maintain source freshness, commissioner review and CI pass before any approved ranking changes. **Never automatically promote a research candidate because a trade-card review proof exists.**
+
+## Automated checks
+
+- `scripts/verify-trade-par-start-ledger-parity.mjs` — all 611 matched starters and 110 aggregate point groups, with no duplicate-start attribution.
+- `scripts/verify-trade-par-roster-proofs.mjs` — seven zero-start received assets and complete week-by-week source trail.
+- `scripts/audit-trade-par-promotion-candidates.mjs` — six optional research-only bilateral comparisons.
+- `scripts/audit-trade-par-baseline-provenance.mjs` — explicit warning that no week-specific replacement benchmark is independently reproduced.
+- `scripts/verify-trade-museum-2.mjs` and the Chromium/WebKit browser tests — source integrity, opt-in preview on/off and shareable pair navigation.
+
+**Disposition:** Maintain PR #276 as a draft. The evidence is strong enough for a clearly labeled research preview, but not yet for a fully certified, all-time trading-skill leaderboard.
