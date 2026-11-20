@@ -353,11 +353,14 @@ try{
         labels:[season?.querySelector('.profile-pulse-eyebrow')?.textContent?.trim(),
           story?.querySelector('.hof-career-kicker')?.textContent?.trim(),
           hub?.querySelector('.manager-home-kicker')?.textContent?.trim()],
-        columns:grid?getComputedStyle(grid).gridTemplateColumns.split(' ').length:0};
+        columns:grid?getComputedStyle(grid).gridTemplateColumns.split(' ').length:0,
+        guideLabels:hub?.querySelectorAll('.manager-home-kicker,.manager-home-chapter-label').length||0,
+        guideDescription:hub?.querySelector('.manager-home-hub-note')?.textContent?.trim()||''};
      });
      if(!editorialOrder.validOrder||!editorialOrder.labels[0].startsWith('01 /')||
         !editorialOrder.labels[1].startsWith('02 /')||!editorialOrder.labels[2].startsWith('03 /')||
-        editorialOrder.columns!==2)
+        editorialOrder.columns!==2||editorialOrder.guideLabels!==1||
+        !editorialOrder.guideDescription.includes('The remaining paths lead to seasons'))
       errors.push(width+' '+route+' season/story/guide hierarchy or mobile columns incorrect: '+JSON.stringify(editorialOrder));
     }
     // Real first-visit journeys: curated destinations must show their content,
