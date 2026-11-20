@@ -108,6 +108,17 @@ assert.equal(historicalKeys.size,historical.sides.length,'Historical trade recei
 for(const t of incompleteTwo)for(const side of t.sides.filter(s=>!s.fullyMatched)){
  assert.ok(historicalKeys.has(String(t.id)+'|'+side.manager),'Missing source side in historical crosswalk');
 }
+const ertzProof=JSON.parse(readFileSync(new URL('../data/trade_par_recovery_2025_ertz_source_v1.json',import.meta.url),'utf8'));
+assert.equal(ertzProof.status,'source_checked_pending_integration');
+assert.equal(ertzProof.tradeId,'1294724519813988352');
+assert.equal(ertzProof.player.sleeperPlayerId,'1339');
+assert.equal(ertzProof.evidence.verifiedPostTradeStarts,0);
+const proofWeeks=ertzProof.evidence.weeklyRosterObservations.filter(w=>w.week>ertzProof.tradeWeek);
+assert.deepEqual(proofWeeks.map(w=>w.week),[12,13,14],'No missing weeks in Ertz qualifying window');
+assert.ok(proofWeeks.every(w=>w.slot==='bench'),'No starter production may be inferred from bench weeks');
+const proofTrade=parData.records.find(t=>String(t.id)===ertzProof.tradeId);
+assert.ok(proofTrade&&!parEligible.includes(proofTrade),'This is staged recovery evidence, not yet a leaderboard promotion');
+assert.ok(proofTrade.sides.some(s=>s.manager==='Kuhl'&&s.unresolved.includes(ertzProof.player.name)),'Evidence must match unresolved asset and recorded receiving side');
 const crosswalkScript=readFileSync(new URL('audit-trade-par-historical-crosswalk.mjs',import.meta.url),'utf8');
 assert.ok(crosswalkScript.includes('No incomplete trade may enter +/-'),'Historical snapshot evidence cannot automatically promote a trade');
 assert.ok(crosswalkScript.includes('singleRows.length,14'),'Crosswalk single-asset source coverage must be verified');
