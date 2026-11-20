@@ -13,6 +13,8 @@ on:
       - 'analytics/records.html'
       - 'analytics/trade-museum.html'
       - 'scripts/apply-reviewed-sleeper-week.mjs'
+      - 'scripts/review-staged-trades.mjs'
+      - 'scripts/test-review-staged-trades.mjs'
       - 'scripts/verify-current-week-website.mjs'
       - '.github/workflows/prepare-approved-weekly-release.yml'
       - '.github/workflows/audit-weekly-publication.yml'
@@ -41,6 +43,9 @@ jobs:
           node --check scripts/audit-weekly-publication.mjs
           node --check scripts/build-current-2026-records.mjs
           node --check scripts/stage-sleeper-trades.mjs
+          node --check scripts/review-staged-trades.mjs
+          node --check scripts/test-review-staged-trades.mjs
+          node scripts/test-review-staged-trades.mjs
           node scripts/build-current-2026-records.mjs --check
           node scripts/verify-current-week-website.mjs
           if [ -n "$EXPECTED_WEEK" ]; then
