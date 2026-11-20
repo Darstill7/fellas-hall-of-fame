@@ -13,7 +13,17 @@ h1{font:700 clamp(37px,7vw,68px)/1.06 Georgia,serif;letter-spacing:-.04em;margin
 .controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:28px 0 16px}.controls label{display:grid;gap:6px;font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--gold);text-transform:uppercase}.controls select{background:#132938;color:var(--text);border:1px solid #5e798b;padding:11px 14px;border-radius:10px;font:inherit;min-width:min(270px,calc(100vw - 32px));min-height:48px}.controls a{display:inline-flex;align-items:center;min-height:48px}
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 20px}.stat{padding:17px;background:var(--panel);border:1px solid var(--line);border-radius:13px}.stat strong{display:block;font-size:clamp(25px,4vw,36px);color:var(--gold);font-variant-numeric:tabular-nums}.stat span{font-size:12px;color:var(--muted)}
 .section-head{border-top:1px solid var(--line);padding-top:25px;margin-top:27px}.timeline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.receipt{background:linear-gradient(140deg,#1c3342,#11232f);border:1px solid #455d6e;border-radius:14px;padding:18px;min-width:0}.receipt .tag{color:var(--gold);font-size:11px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.receipt h3{font-size:20px;margin:8px 0}.receipt p{margin:8px 0;overflow-wrap:anywhere}.receipt .received{background:#0e202a;border-left:3px solid var(--gold);padding:10px 12px}.receipt .actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:13px;font-weight:800}.receipt .actions a{min-height:44px;display:inline-flex;align-items:center}.empty{background:var(--panel);padding:20px;border:1px solid var(--line);border-radius:12px}
-#status{font-size:14px}.all-managers{margin-top:30px}.manager-links{display:flex;flex-wrap:wrap;gap:8px}.manager-links a{border:1px solid #526878;background:#162b39;border-radius:9px;padding:9px 12px;text-decoration:none;min-height:44px}.manager-links a[aria-current="page"]{border-color:var(--gold);color:#fff0be}
+#status{font-size:14px}.impact-head{border-top:1px solid var(--line);padding-top:25px;margin-top:28px}
+.impact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.impact-case{border:1px solid #596b69;background:linear-gradient(145deg,#213746,#10212c);border-radius:14px;padding:17px;min-width:0}
+.impact-case h3{margin:8px 0;font-size:20px;line-height:1.25}
+.impact-case p{margin:8px 0}
+.impact-metric{color:var(--gold);font-size:24px;font-weight:850;font-variant-numeric:tabular-nums}
+.impact-case small{display:block;color:var(--muted);line-height:1.5}
+.impact-case a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;font-weight:800;margin-top:8px}
+.impact-note{font-size:13px;color:var(--muted);line-height:1.65;margin-top:16px}
+@media(max-width:650px){.impact-grid{grid-template-columns:1fr}}
+.all-managers{margin-top:30px}.manager-links{display:flex;flex-wrap:wrap;gap:8px}.manager-links a{border:1px solid #526878;background:#162b39;border-radius:9px;padding:9px 12px;text-decoration:none;min-height:44px}.manager-links a[aria-current="page"]{border-color:var(--gold);color:#fff0be}
 @media(max-width:650px){.timeline{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stat{padding:11px}.stat strong{font-size:24px}.controls{display:grid}.controls select{width:100%}}
 @media(max-width:350px){.stats{grid-template-columns:1fr}}
 </style></head>
@@ -23,6 +33,7 @@ h1{font:700 clamp(37px,7vw,68px)/1.06 Georgia,serif;letter-spacing:-.04em;margin
 <div class="controls"><label for="manager">Choose a franchise<select id="manager" aria-label="Choose manager trade portfolio"><option value="">Loading documented managers…</option></select></label><a id="franchiseLink" href="../managers/">View franchise profile →</a></div>
 <p id="status" role="status" aria-live="polite" class="muted">Reading verified museum receipts…</p>
 <div id="portfolio" hidden><div class="eyebrow" id="managerName"></div><div class="stats"><div class="stat"><strong id="total"></strong><span>Archived trades involving manager</span></div><div class="stat"><strong id="complete"></strong><span>Complete verified receipts</span></div><div class="stat"><strong id="seasons"></strong><span>Seasons represented</span></div></div>
+<section class="impact-head" aria-labelledby="impactHeading"><div class="eyebrow">Verified playoff evidence · 2020–2025</div><h2 id="impactHeading">Impact &amp; legacy</h2><p class="muted">Selected championship-run starter appearances traced to received players and verified playoff box scores. Not a trade-win ranking, keeper valuation, or an estimate of what would have happened without the deal.</p><div id="impactGrid" class="impact-grid"></div><p id="impactStatus" class="impact-note" role="status">Loading independently verified playoff evidence…</p></section>
 <section class="section-head" aria-labelledby="historyHeading"><div class="eyebrow">The transaction ledger</div><h2 id="historyHeading">Documented acquisitions</h2><p class="muted" id="coverage"></p><div class="timeline" id="timeline"></div></section></div>
 <section class="all-managers section-head" aria-label="Other manager trade portfolios"><div class="eyebrow">Continue exploring</div><h2>Another franchise's history</h2><div class="manager-links" id="managerLinks"></div></section>
 </main>
@@ -34,6 +45,25 @@ const complete=trade=>trade.sides.length>=2&&new Set(trade.sides.map(s=>s.manage
 const active=new Set(['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott']);
 const profileUrl=name=>active.has(canonical(name))?'../managers/'+encodeURIComponent(canonical(name))+'/':'record-books.html?manager='+encodeURIComponent(name==='EvansBrandon'?'Evans':name);
 let archive=[];
+let impactSource=null;
+const showImpact=(name,trades)=>{
+ const container=$('impactGrid'),status=$('impactStatus');
+ const ids=new Set(trades.filter(complete).map(t=>String(t.id)));
+ const evidence=Array.isArray(impactSource?.qualifiedPlayoffReceipts)?impactSource.qualifiedPlayoffReceipts:[];
+ const matched=evidence.filter(r=>canonical(r.champion)===canonical(name)&&ids.has(String(r.tradeId)))
+ .sort((a,b)=>b.year-a.year||(a.round==='championship'?-1:1));
+ if(!impactSource){container.innerHTML='';status.textContent='Independent playoff evidence is currently unavailable. No impact values have been estimated.';return}
+ container.innerHTML=matched.map(r=>{
+  const players=r.players.map(p=>escapeHtml(p.name)+' ('+Number(p.points).toFixed(2)+' pts)').join(', ');
+  const scored=Number(r.totalAcquiredStarterPoints).toFixed(2);
+  const margin=Number(r.margin).toFixed(2);
+  return '<article class="impact-case"><div class="eyebrow">'+escapeHtml(r.year)+' · '+escapeHtml(r.round)+' · Week '+escapeHtml(r.week)+'</div><h3>'+escapeHtml(r.received)+'</h3><div class="impact-metric">'+scored+' observed starter pts</div><p>Documented acquiring champion: '+escapeHtml(r.champion)+'</p><p>Verified starters: '+players+'</p><small>Winning margin: '+margin+' points. Exceeding the margin does not prove the trade caused the win; replacement lineups were not established.</small><a href="trade-museum.html?trade='+encodeURIComponent(String(r.tradeId))+'">Open verified trade receipt →</a></article>';
+ }).join('');
+ status.textContent=matched.length
+  ? matched.length+' verified playoff game/trade matches for this acquiring champion in completed 2020–2025 seasons. A trade can appear twice if its players started both the semifinal and championship; these are not unique trades.'
+  : 'No qualifying acquired-player championship playoff starter matches are established for this manager in the current research scope. This does not mean their trades had no effect.';
+};
+
 function render(name){
  const selected=archive.find(t=>t.sides.some(s=>canonical(s.manager)===canonical(name)));
  const options=[...$('manager').options];
@@ -44,6 +74,7 @@ function render(name){
  const verified=trades.filter(complete),years=new Set(trades.map(t=>t.year));
  $('portfolio').hidden=false;$('managerName').textContent=name+' · Museum portfolio';$('total').textContent=trades.length.toLocaleString();$('complete').textContent=verified.length.toLocaleString();$('seasons').textContent=years.size.toLocaleString();$('franchiseLink').href=profileUrl(name);
  $('status').textContent='Viewing '+name+' · '+trades.length+' documented receipts in this archived collection.';
+ showImpact(name,trades);
  $('coverage').textContent=trades.length?'Recorded seasons: '+[...years].sort().join(', ')+'. Latest dated receipt: '+trades[0].date+'. These figures describe only available museum records.':'No available transactions in this snapshot.';
  $('timeline').innerHTML=trades.length?trades.map(t=>{
  const own=t.sides.find(s=>canonical(s.manager)===canonical(name));
@@ -60,6 +91,14 @@ try{
  const html=await response.text();const doc=new DOMParser().parseFromString(html,'text/html');
  const node=doc.querySelector('#archive-data');if(!node)throw Error('Archived transaction source is unavailable');
  archive=JSON.parse(node.textContent);if(!Array.isArray(archive))throw Error('Invalid archive source');
+ try{
+  const evidenceResponse=await fetch('../data/championship_trade_impact_receipts_2020_2025_v1.json',{cache:'no-store'});
+  if(!evidenceResponse.ok)throw Error('Impact research unavailable');
+  const candidate=await evidenceResponse.json();
+  if(candidate.schema!=='fellas-championship-trade-impact-receipts-v1'||!Array.isArray(candidate.qualifiedPlayoffReceipts))throw Error('Impact research schema mismatch');
+  impactSource=candidate;
+ }catch{impactSource=null}
+
  const names=[...new Set(archive.flatMap(t=>t.sides.map(s=>s.manager)))].sort((a,b)=>a.localeCompare(b));
  $('manager').innerHTML=names.map(n=>'<option value="'+escapeHtml(n)+'">'+escapeHtml(n)+'</option>').join('');
  $('manager').addEventListener('change',()=>render($('manager').value));
