@@ -1,0 +1,106 @@
+{
+  "schema": "fellas-site-freshness-config-v1",
+  "policy": "A source's Git commit date is its last file update, NOT its latest verified league week. Trade Museum latest event does not establish complete coverage.",
+  "season": 2026,
+  "sections": [
+    {
+      "id": "canonical",
+      "title": "Canonical matchup ledger",
+      "path": "data/unified_record_book_2016_2026.json",
+      "cadence": "weekly-final",
+      "page": "seasons/2026.html",
+      "scope": "approved-2026-games",
+      "severity": "block"
+    },
+    {
+      "id": "standings",
+      "title": "Standings and season guide",
+      "path": "data/season_guide.json",
+      "cadence": "weekly-final",
+      "page": "seasons/2026.html",
+      "scope": "season-guide-2026",
+      "severity": "block"
+    },
+    {
+      "id": "playoff-race",
+      "title": "Playoff Race",
+      "path": "data/playoff_race_v1.json",
+      "cadence": "weekly-final",
+      "page": "analytics/playoff-race.html",
+      "scope": "verified_through_week",
+      "severity": "block"
+    },
+    {
+      "id": "schedule-luck",
+      "title": "Schedule Luck",
+      "path": "data/schedule_luck_current_v1.json",
+      "cadence": "weekly-final",
+      "page": "analytics/schedule-luck.html",
+      "scope": "currentThroughWeek",
+      "severity": "block"
+    },
+    {
+      "id": "season-records",
+      "title": "2026 record watch",
+      "path": "data/current_2026_records_v1.json",
+      "cadence": "weekly-final",
+      "page": "analytics/records.html",
+      "scope": "verified_through_week",
+      "severity": "block"
+    },
+    {
+      "id": "alltime-game",
+      "title": "All-time single-game records",
+      "path": "data/alltime_game_records_live_v1.json",
+      "cadence": "weekly-final",
+      "page": "analytics/records.html",
+      "scope": "verified2026ThroughWeek",
+      "severity": "block"
+    },
+    {
+      "id": "alltime-career",
+      "title": "Career record leaders",
+      "path": "data/alltime_career_records_live_v1.json",
+      "cadence": "weekly-final",
+      "page": "analytics/records.html",
+      "scope": "verified2026ThroughWeek",
+      "severity": "block"
+    },
+    {
+      "id": "milestones",
+      "title": "Streaks and season milestones",
+      "path": "data/ledger_milestones_live_v1.json",
+      "cadence": "weekly-final",
+      "page": "analytics/records.html",
+      "scope": "verified2026ThroughWeek",
+      "severity": "block"
+    },
+    {
+      "id": "trade-museum",
+      "title": "Trade Museum",
+      "path": "data/trade_museum_stage66.json",
+      "cadence": "event-reviewed",
+      "page": "analytics/trade-museum.html",
+      "scope": "latest-reviewed-event",
+      "severity": "review"
+    },
+    {
+      "id": "expanded-records",
+      "title": "Research Record Book archive",
+      "path": "data/expanded_records_verified_v1.json",
+      "cadence": "archival",
+      "page": "analytics/records.html",
+      "scope": "archived-as-of",
+      "severity": "info"
+    },
+    {
+      "id": "manager-portfolio",
+      "title": "Manager record portfolios",
+      "path": "data/manager_record_books_2016_2026.json",
+      "cadence": "archival",
+      "page": "managers/record-books.html",
+      "scope": "archived-as-of",
+      "severity": "info"
+    }
+  ]
+}
