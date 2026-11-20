@@ -1,0 +1,33 @@
+name: Audit Tuesday website publication freshness
+on:
+  schedule:
+    # Tuesday post-MNF check; Wednesday safety check for delayed NFL finalization.
+    - cron: '30 16 * * 2'
+    - cron: '30 16 * * 3'
+  workflow_dispatch:
+    inputs:
+      expected_final_week:
+        description: 'Optional independently verified finalized 2026 week (1-14); leave empty to audit approved repository coverage only'
+        required: false
+        type: string
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit public source coverage and embedded museum parity
+        env:
+          EXPECTED_WEEK: ${{ inputs.expected_final_week }}
+        run: |
+          node --check scripts/audit-weekly-publication.mjs
+          if [ -n "$EXPECTED_WEEK" ]; then
+            node scripts/audit-weekly-publication.mjs "--expected-week=$EXPECTED_WEEK"
+          else
+            node scripts/audit-weekly-publication.mjs
+          fi
