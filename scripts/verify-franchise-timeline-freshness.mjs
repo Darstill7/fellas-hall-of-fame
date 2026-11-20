@@ -39,4 +39,22 @@ for(const m of archive.managers){
   assert.equal(moment.detail,(score>opp?'Win':score<opp?'Loss':'Tie')+' · margin '+Math.abs(score-opp).toFixed(2),'Incorrect sourced result for '+id);
  }
 }
+// Presentation gate: the redesign must retain accessible controls and sourced season evidence.
+for(const fragment of [
+ 'franchise-timeline-premium-v2',
+ 'id="timeline-feature"',
+ 'id="jump-current"',
+ 'id="jump-titles"',
+ '<option value="titles">',
+ 'class="archive-chapters-heading"',
+ "years.value==='titles'",
+ "season-champion",
+ "season-current",
+ "encodeURIComponent(m.name.toLowerCase())",
+ "if(req&&req.toLowerCase()==='thommy')req='Tom'",
+ "current.moments.at(-1)?.week",
+ "document.getElementById('jump-current').addEventListener",
+ "document.getElementById('jump-titles').addEventListener"
+])assert(html.includes(fragment),'Missing editorial timeline feature: '+fragment);
+assert(html.includes('prefers-reduced-motion:reduce'),'Reduced-motion layout safeguard missing');
 console.log('PASS: Franchise Timeline embedded archive and all 10 records / '+games.length+' game receipts agree through Week '+week);
