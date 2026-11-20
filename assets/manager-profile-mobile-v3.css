@@ -1153,3 +1153,8 @@ body.premium-franchise .profile-feature-directory .profile-feature-group[open]>.
   body.premium-franchise .profile-feature-directory .profile-feature-group>summary::before{font-size:27px}
   body.premium-franchise .profile-feature-directory .profile-feature-group>summary span{font-size:11px}
 }
+
+/* Mobile audit: one clean franchise eyebrow, not two colliding labels. */
+@media(max-width:650px){
+ body.premium-franchise main>.hero>.eyebrow{display:none!important}
+}
