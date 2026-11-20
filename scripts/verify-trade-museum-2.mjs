@@ -32,6 +32,11 @@ for(const val of ['value="all"','value="two"','value="multi"']){
 for(const phrase of ['Not live · review newer transactions','Point totals are audit snapshots','Incomplete research receipts','Direct receipt URL','id="copyTradeLink"']){
  assert.ok(html.includes(phrase),'Missing evidence/share disclosure: '+phrase);
 }
+const editorial=readFileSync(new URL('../analytics/greatest-worst-trades.html',import.meta.url),'utf8');
+const sourceLinks=[...editorial.matchAll(/href="trade-museum\\.html\\?trade=(\\d+)"/g)].map(match=>match[1]);
+assert.ok(sourceLinks.length>=3,'Featured greatest/worst editorial needs direct source receipts');
+for(const id of sourceLinks)assert.ok(ids.includes(id),'Editorial source link must resolve to a documented museum receipt: '+id);
+assert.ok(editorial.includes('Browse the source-backed Trade Museum receipts'),'Editorial page must link to Trade Museum');
 const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)].map(x=>x[1]).filter(Boolean);
 assert.ok(scripts.length>=1,'Missing browser script');
 for(const [i,src] of scripts.entries())new Script(src,{filename:'inline-trade-museum-'+i+'.js'});
