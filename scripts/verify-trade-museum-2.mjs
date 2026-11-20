@@ -102,6 +102,8 @@ assert.ok(plusMinus.includes('Never substitute zeros or partial PAR'),'Unmatched
 assert.ok(plusMinus.includes("side.fullyMatched===true"),'Recovery queue must classify receiving-side evidence');
 const incompleteTwo=parData.records.filter(t=>t.year>=2020&&t.year<=2025&&t.sides.length===2&&!parEligible.some(q=>String(q.id)===String(t.id)));
 assert.equal(incompleteTwo.length,23,'Audit queue coverage changed; verify reconciliation to eligible PAR source');
+assert.equal(incompleteTwo.filter(t=>t.sides.reduce((n,s)=>n+(s.unresolved||[]).length,0)===1).length,14,'Single-asset prioritization count changed');
+assert.ok(plusMinus.includes('value="single"'),'Research queue must permit single unresolved asset prioritization');
 const triageScript=readFileSync(new URL('audit-trade-par-recovery.mjs',import.meta.url),'utf8');
 assert.ok(triageScript.includes("assert.equal(eligible.length+queue.length"),'Source-review audit must reconcile complete-era counts');
 assert.ok(triageScript.includes("others=(evidence.get(t.year"),'Same-year player-name hints must be labeled as review leads');
