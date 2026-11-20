@@ -39,11 +39,15 @@ jobs:
             exit 1
           fi
           git fetch origin refs/heads/automation/sleeper-weekly-stage:refs/remotes/origin/automation/sleeper-weekly-stage
+          SOURCE_COMMIT=$(git rev-parse refs/remotes/origin/automation/sleeper-weekly-stage)
+          echo "Candidate staging commit: $SOURCE_COMMIT" >> "$GITHUB_STEP_SUMMARY"
+          echo "STAGING_COMMIT=$SOURCE_COMMIT" >> "$GITHUB_ENV"
           CANDIDATE="data-integrity/sleeper-sync-candidates/2026-week${REVIEWED_WEEK}.json"
           mkdir -p data-integrity/sleeper-sync-candidates
           git show "origin/automation/sleeper-weekly-stage:${CANDIDATE}" > "$CANDIDATE"
           node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync(process.argv[1]));if(x.year!==2026||x.week!==Number(process.argv[2])||x.status!=='REVIEW_REQUIRED'||x.matchupCount!==5||x.games?.length!==5)process.exit(1)" "$CANDIDATE" "$REVIEWED_WEEK"
           echo "CANDIDATE=$CANDIDATE" >> "$GITHUB_ENV"
+          echo "REVIEWED_WEEK=$REVIEWED_WEEK" >> "$GITHUB_ENV"
       - name: Recalculate approved games, standings, playoff odds, luck and 2026 records
         env:
           FELLAS_APPROVE_WEEKLY_IMPORT: 'YES'
@@ -51,9 +55,14 @@ jobs:
           set -euo pipefail
           node scripts/apply-reviewed-sleeper-week.mjs "$CANDIDATE"
           node scripts/build-current-2026-records.mjs --check
+          node scripts/build-alltime-game-records.mjs --check
+          node scripts/build-alltime-career-records.mjs --check
+          node scripts/build-ledger-milestone-records.mjs --check
+          node scripts/verify-ledger-milestones-history.mjs
           node scripts/verify-weekly-ledger-parity.mjs
           node scripts/verify-current-week-website.mjs
-          node scripts/audit-weekly-publication.mjs "--expected-week=${{ inputs.completed_week }}"
+          node scripts/audit-weekly-publication.mjs "--expected-week=$REVIEWED_WEEK"
+          echo "Reviewed Week $REVIEWED_WEEK regenerated from staged commit $STAGING_COMMIT" >> "$GITHUB_STEP_SUMMARY"
           rm -f "$CANDIDATE" # don't mix staging evidence into the publication PR
       - name: Build one reviewable weekly release PR; never merge automatically
         uses: peter-evans/create-pull-request@v7
