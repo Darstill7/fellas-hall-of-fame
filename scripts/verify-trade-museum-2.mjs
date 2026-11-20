@@ -97,6 +97,7 @@ assert.ok(Math.abs([...parManagerNet.values()].reduce((sum,n)=>sum+n,0))<0.001,'
 assert.ok(plusMinus.includes('id="pairRows"')&&plusMinus.includes('id="managerRows"')&&plusMinus.includes('id="tradeRows"'),'Trade +/- view must include pair, manager and source evidence views');
 assert.ok(plusMinus.includes('id="matrixHeader"')&&plusMinus.includes('id="matrixBody"'),'Trade +/- must include directional head-to-head matrix');
 assert.ok(plusMinus.includes('id="coverageRows"')&&plusMinus.includes('renderCoverage()'),'Trade +/- must report yearly source coverage');
+assert.ok(plusMinus.includes("id=\"exclusionReasons\"")&&plusMinus.includes('Unclassified PAR coverage gap'),'Research exclusions must be classified and checked for completeness');
 assert.ok(plusMinus.includes('documentedPairCount(p.a,p.b,year)'),'Measured pairs must disclose comparison coverage');
 assert.ok(plusMinus.includes("t.sides.some(s=>canon(s.manager)===a)"),'Pair coverage must derive from recorded counterparties');
 
