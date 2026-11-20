@@ -5,9 +5,9 @@ import http from 'node:http';
 import path from 'node:path';
 const root=process.cwd(),prefix='/fellas-hall-of-fame/';
 const targets=[
- ['managers/','Mobile manager directory navigation','../analytics/records.html'],
- ['analytics/records.html','Mobile Record Book navigation','record-holders.html'],
- ['managers/record-books.html','Mobile personal record navigation','../analytics/records.html']
+ ['managers/','Mobile manager directory navigation',['../index.html','./','../hall/','../analytics/records.html','../seasons/2026.html','../analytics/manager-report-cards.html','../analytics/rivalries.html','../analytics/power-ratings.html','../seasons/','../analytics/trade-museum.html','../analytics/keeper-tracker.html','../analytics/keeper-decision-research.html']],
+ ['analytics/records.html','Mobile Record Book navigation',['../index.html','../managers/','records.html','record-holders.html','../managers/record-books.html','../hall/','../seasons/2026.html']],
+ ['managers/record-books.html','Mobile personal record navigation',['../index.html','../managers/','../analytics/records.html','../analytics/record-holders.html','../analytics/manager-report-cards.html']]
 ];
 const errs=[];
 const server=http.createServer(async(req,res)=>{
@@ -25,7 +25,7 @@ try{
    for(const width of [320,390,768]){
     const page=await browser.newPage({viewport:{width,height:844},isMobile:width<650,hasTouch:width<650});
     try{
-     for(const [route,label,dest] of targets){
+     for(const [route,label,destinations] of targets){
       await page.goto(base+route,{waitUntil:'domcontentloaded'});
       const compact=page.locator('header details.compact-secondary-nav');
       const visible=await compact.isVisible();
@@ -38,10 +38,15 @@ try{
        if(!(await compact.evaluate(e=>e.open)))errs.push(name+' '+width+' '+route+' menu did not open');
        const links=compact.locator('nav a');
        const count=await links.count();
-       if(count<5)errs.push(name+' '+width+' '+route+' menu lost destinations');
-       const exact=compact.locator('nav a[href="'+dest+'"]');
-       if(!(await exact.count()))errs.push(name+' '+width+' '+route+' expected destination missing '+dest);
-       else if((await exact.first().boundingBox())?.height<44)errs.push(name+' '+width+' '+route+' nav link too small');
+       if(count!==destinations.length)errs.push(name+' '+width+' '+route+' menu destination count '+count+' expected '+destinations.length);
+       for(const dest of destinations){
+        const exact=compact.locator('nav a[href="'+dest+'"]');
+        if((await exact.count())!==1)errs.push(name+' '+width+' '+route+' expected one destination '+dest);
+        else {
+         const box=await exact.first().boundingBox();
+         if(!box||box.height<44||box.width<44)errs.push(name+' '+width+' '+route+' nav link too small '+dest);
+        }
+       }
        await summary.click();
        if(await compact.evaluate(e=>e.open))errs.push(name+' '+width+' '+route+' disclosure failed to close');
       }
