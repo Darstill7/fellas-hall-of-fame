@@ -18,6 +18,7 @@ on:
       - 'data/trade_par_recovery_2025_tuten_source_v1.json'
       - 'scripts/verify-trade-par-roster-proofs.mjs'
       - 'scripts/audit-trade-par-promotion-candidates.mjs'
+      - 'data/trade_par_exception_2025_evans_zero_point_start_v1.json'
       - 'scripts/test-browser-trade-museum-2.mjs'
       - '.github/workflows/verify-trade-museum-2.yml'
   workflow_dispatch:
