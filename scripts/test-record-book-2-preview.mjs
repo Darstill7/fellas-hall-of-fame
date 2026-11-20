@@ -24,6 +24,21 @@ for(const [engine,name,width] of [[chromium,'chromium-320',320],[chromium,'chrom
   await page.locator('#compare-second').selectOption('Stew');
   const comparisonCount=await page.locator('.compare-card').count();
   assert(comparisonCount>0,'Expected common ranked categories in manager comparison');
+  // Filtering and sorting preserve the underlying registry and provide useful mobile discovery.
+  const family=await page.locator('#compare-family option').nth(1).getAttribute('value');
+  await page.locator('#compare-family').selectOption(family);
+  const narrowed=await page.locator('.compare-card').count();
+  assert(narrowed<=comparisonCount);
+  await page.locator('#compare-sort').selectOption('gap');
+  assert.equal(await page.locator('.compare-card').count(),narrowed);
+  await page.locator('#compare-family').selectOption('all');
+  assert.equal(await page.locator('.compare-card').count(),comparisonCount);
+  await page.locator('#compare-swap').click();
+  assert.equal(await page.locator('#compare-first').inputValue(),'Stew');
+  assert.equal(await page.locator('#compare-second').inputValue(),'Stilly');
+  await page.locator('#compare-swap').click();
+  assert.equal(await page.locator('#compare-first').inputValue(),'Stilly');
+  assert.equal(await page.locator('#compare-second').inputValue(),'Stew');
   assert((await page.locator('#compare-summary').innerText()).includes('shared ranked categories'));
   await page.locator('#compare-status').selectOption('all');
   assert((await page.locator('.compare-card').count())>=comparisonCount);
