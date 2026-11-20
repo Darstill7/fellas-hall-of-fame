@@ -1075,3 +1075,81 @@ body.premium-franchise.profile-landing .manager-home-hub-grid .manager-home-hub-
     align-items:center;
   }
 }
+
+/* Phase 2 — chapter hierarchy for the CURRENT interactive profile directory.
+ * Uses the existing five accessible <details> groups. No duplicate navigator,
+ * hidden archival data, DOM relocation, or canonical data modification. */
+body.premium-franchise .profile-feature-directory .profile-feature-groups{
+  counter-reset:fellas-profile-chapter;
+  gap:clamp(12px,2vw,18px);
+}
+body.premium-franchise .profile-feature-directory .profile-feature-group{
+  border:1px solid #587084;
+  border-top:2px solid #8e8062;
+  background:linear-gradient(145deg,#1b3544,#102631);
+  box-shadow:0 8px 18px rgba(0,0,0,.14);
+}
+body.premium-franchise .profile-feature-directory .profile-feature-group[open]{
+  border-color:#d7ba7c;
+  border-top-color:#e7cc90;
+}
+body.premium-franchise .profile-feature-directory .profile-feature-group>summary{
+  display:grid;
+  grid-template-columns:clamp(39px,9vw,56px) minmax(0,1fr) 26px;
+  grid-template-rows:auto auto;
+  align-items:center;
+  gap:3px 11px;
+  min-height:76px;
+  padding:14px 17px;
+  padding-right:17px;
+}
+body.premium-franchise .profile-feature-directory .profile-feature-group>summary::before{
+  counter-increment:fellas-profile-chapter;
+  content:counter(fellas-profile-chapter,decimal-leading-zero);
+  grid-column:1;
+  grid-row:1/3;
+  color:#f0d49d;
+  font:400 clamp(27px,6.5vw,39px)/1 Georgia,serif;
+  letter-spacing:-.05em;
+  align-self:center;
+}
+body.premium-franchise .profile-feature-directory .profile-feature-group>summary strong{
+  grid-column:2;
+  grid-row:1;
+  font-size:clamp(15px,3.7vw,18px);
+  line-height:1.28;
+}
+body.premium-franchise .profile-feature-directory .profile-feature-group>summary span{
+  grid-column:2;
+  grid-row:2;
+  padding:0;
+  font-size:12px;
+  line-height:1.45;
+}
+body.premium-franchise .profile-feature-directory .profile-feature-group>summary::after{
+  grid-column:3;
+  grid-row:1/3;
+  position:static;
+  transform:none;
+  justify-self:end;
+  align-self:center;
+  font-size:23px;
+}
+body.premium-franchise .profile-feature-directory .profile-feature-group>summary:focus-visible{
+  outline:3px solid #f6d694;
+  outline-offset:-4px;
+  border-radius:12px;
+}
+body.premium-franchise .profile-feature-directory .profile-feature-group[open]>.profile-feature-list{
+  border-top:1px solid #385566;
+  padding-top:12px;
+}
+@media(max-width:380px){
+  body.premium-franchise .profile-feature-directory .profile-feature-group>summary{
+    grid-template-columns:37px minmax(0,1fr) 23px;
+    padding:13px 12px;
+    column-gap:9px;
+  }
+  body.premium-franchise .profile-feature-directory .profile-feature-group>summary::before{font-size:27px}
+  body.premium-franchise .profile-feature-directory .profile-feature-group>summary span{font-size:11px}
+}
