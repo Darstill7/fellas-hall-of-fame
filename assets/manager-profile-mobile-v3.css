@@ -937,3 +937,134 @@ body.premium-franchise main>.hero .profile-snapshot-receipts{
   body.premium-franchise main>.hero .profile-career-highlights{gap:7px!important}
   body.premium-franchise main>.hero .profile-career-highlight{padding:10px 8px!important}
 }
+
+
+/* Phase 2 · The franchise reading journey: 01 season / 02 story / 03 guide.
+ * Visually separate data, narrative and navigation without hiding any source. */
+body.premium-franchise.profile-landing #profile-season-pulse{
+  border-top:3px solid #d9be7f;
+  background:linear-gradient(140deg,#172f3e,#102633);
+  margin-bottom:18px!important;
+}
+body.premium-franchise.profile-landing .hof-career-exhibit{
+  position:relative;
+  border:1px solid #586d7a;
+  border-left:4px solid #d5b474;
+  background:linear-gradient(125deg,#26333b 0%,#172733 57%,#101f2b 100%);
+  margin-top:0!important;
+  margin-bottom:20px!important;
+  box-shadow:0 10px 25px rgba(0,0,0,.14);
+}
+body.premium-franchise.profile-landing .hof-career-exhibit .hof-career-kicker{
+  font-size:10px;
+  letter-spacing:.17em;
+  color:#f3d49c;
+}
+body.premium-franchise.profile-landing .hof-career-exhibit .hof-career-intro{
+  max-width:61ch;
+  font-size:clamp(15px,2vw,18px)!important;
+  line-height:1.68!important;
+  color:#e2eaf0;
+}
+body.premium-franchise.profile-landing .hof-career-exhibit .hof-career-actions{
+  margin-top:11px;
+}
+body.premium-franchise.profile-landing .hof-career-exhibit .hof-career-source-note{
+  border-top:1px solid #405361;
+  margin-top:18px;
+  padding-top:12px;
+  max-width:68ch;
+  line-height:1.6;
+}
+body.premium-franchise.profile-landing .manager-home-hub.hof-nav-curated{
+  border:1px solid #465d6c!important;
+  border-top:3px solid #8da4ae!important;
+  border-radius:13px!important;
+  background:linear-gradient(160deg,#142c39,#0c202b)!important;
+  padding:clamp(16px,3vw,25px)!important;
+  margin:0 auto 21px!important;
+}
+body.premium-franchise.profile-landing .manager-home-hub .manager-home-kicker{
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.15em;
+  color:#edd19a;
+  margin-bottom:7px!important;
+}
+body.premium-franchise.profile-landing .manager-home-hub .manager-home-hub-note{
+  max-width:68ch;
+  color:#c1d0d9;
+  line-height:1.6!important;
+}
+body.premium-franchise.profile-landing .manager-home-hub-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+body.premium-franchise.profile-landing .manager-home-hub-grid>.manager-home-hub-tile{
+  min-width:0;
+  min-height:90px;
+  padding:13px 14px!important;
+  border:1px solid #536e80;
+  border-radius:10px!important;
+  background:#102936;
+  align-items:center;
+}
+body.premium-franchise.profile-landing .manager-home-hub-grid>.manager-home-hub-tile:nth-child(-n+2){
+  grid-column:span 2;
+  min-height:105px;
+  border-color:#ac925b!important;
+  background:linear-gradient(135deg,#263e4b,#152b36)!important;
+}
+body.premium-franchise.profile-landing .manager-home-hub-grid>.manager-home-hub-tile:hover,
+body.premium-franchise.profile-landing .manager-home-hub-grid>.manager-home-hub-tile:focus-visible{
+  background:#224457!important;
+  border-color:#f4d79f!important;
+}
+body.premium-franchise.profile-landing .manager-home-hub-grid .manager-home-hub-copy{
+  min-width:0;
+}
+body.premium-franchise.profile-landing .manager-home-hub-grid .manager-home-hub-copy strong{
+  font-size:14px!important;
+  line-height:1.3!important;
+  overflow-wrap:break-word;
+}
+body.premium-franchise.profile-landing .manager-home-hub-grid .manager-home-hub-copy small{
+  font-size:11px!important;
+  line-height:1.4!important;
+  overflow-wrap:break-word;
+}
+@media(max-width:700px){
+  body.premium-franchise.profile-landing .manager-home-hub-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+  body.premium-franchise.profile-landing .manager-home-hub-grid>.manager-home-hub-tile{
+    min-height:93px;
+    padding:11px!important;
+    gap:9px!important;
+    align-items:flex-start;
+  }
+  body.premium-franchise.profile-landing .manager-home-hub-grid>.manager-home-hub-tile:nth-child(-n+2){
+    grid-column:span 1;
+    min-height:110px;
+  }
+  body.premium-franchise.profile-landing .manager-home-hub-grid .manager-home-hub-icon{
+    font-size:19px;
+  }
+  body.premium-franchise.profile-landing .hof-career-exhibit{
+    padding:19px 16px!important;
+  }
+}
+@media(max-width:370px){
+  body.premium-franchise.profile-landing .manager-home-hub-grid{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  body.premium-franchise.profile-landing .manager-home-hub-grid>.manager-home-hub-tile:nth-child(-n+2){
+    grid-column:1;
+  }
+  body.premium-franchise.profile-landing .manager-home-hub-grid>.manager-home-hub-tile{
+    min-height:68px;
+    align-items:center;
+  }
+}
