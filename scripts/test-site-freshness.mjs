@@ -21,6 +21,7 @@ assert.equal(by['trade-museum'].verifiedThroughWeek,tradeLatest.week);
 assert.equal(by['trade-museum'].status,tradeLatest.week<canonicalWeek?'REVIEW_REQUIRED':'EVENT_AUDITED');
 assert.equal(by['expanded-records'].status,'ARCHIVED');
 for(const row of report.sections){
+ assert(fs.existsSync(row.consumer),'Broken page linked from freshness dashboard: '+row.consumer);
  assert.match(row.sha256,/^[0-9a-f]{64}$/);
  assert(row.lastGitChange?.at&&row.lastGitChange?.commit,'Missing file history '+row.id);
 }
