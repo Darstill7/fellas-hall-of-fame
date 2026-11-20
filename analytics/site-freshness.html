@@ -45,7 +45,7 @@ try{
    else if(s.scope==='latest-reviewed-event'){const sorted=v.filter(t=>t.year===2026&&t.date).sort((a,b)=>b.date.localeCompare(a.date));w=sorted[0]?.week??null;lastDate=sorted[0]?.date??null}
    else if(s.scope==='archived-as-of')lastDate=v.asOf||null;
    if(s.cadence==='weekly-final')status=Number.isInteger(w)&&w===current?'CURRENT':'STALE';
-   else if(s.cadence==='event-reviewed')status=w<current?'REVIEW_REQUIRED':'EVENT_AUDITED';
+   else if(s.cadence==='event-reviewed')status='REVIEW_REQUIRED'; // An event date alone never certifies complete trade coverage
    else status='ARCHIVED';
    const coverage=s.cadence==='archival'?'As of '+(lastDate||'not dated'):s.cadence==='event-reviewed'?'Last documented trade: '+(lastDate||'unknown')+' · Week '+(w??'?'):'2026 Week '+(w??'?');
    return {meta:s,coverage,status};
