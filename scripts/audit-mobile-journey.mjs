@@ -50,6 +50,19 @@ try{
      expect(status.scroll<=status.viewport+6,'Horizontal page overflow',{engine,width,route,overflow:status.overflow,extra:status.scroll-status.viewport});
      if(status.unlabelled.length)warn('Visible form controls missing accessible labels',{engine,width,route,controls:status.unlabelled});
      if(!status.skip)warn('No skip-to-content navigation',{engine,width,route});
+     if(/^managers\/(?!$)[^/]+\/$/.test(route)){
+      const contrast=await page.evaluate(()=>{
+       const hero=document.querySelector('main>.hero');
+       if(!hero)return null;
+       const fg=getComputedStyle(hero,'::before').color;
+       const bg=getComputedStyle(hero).backgroundColor;
+       const rgb=c=>(c.match(/\d+(?:\.\d+)?/g)||[]).slice(0,3).map(Number);
+       const lum=arr=>{if(arr.length<3)return 0;const a=arr.map(v=>{v/=255;return v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4});return a[0]*.2126+a[1]*.7152+a[2]*.0722};
+       const a=lum(rgb(fg)),b=lum(rgb(bg));
+       return {ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05),fg,bg};
+      });
+      if(contrast)expect(contrast.ratio>=4.5,'Franchise Archives ribbon fails readable text contrast',{engine,width,route,contrast});
+     }
      const name=(route||'home').replace(/[^a-z0-9]+/gi,'-').replace(/-$/,'');
      if(['','managers/','managers/stilly/','managers/record-books.html?manager=Stilly#career-first','analytics/records.html','analytics/record-holders.html'].includes(route)){
       const file=engine+'-'+width+'-'+name+'.png';
@@ -59,6 +72,11 @@ try{
      steps.push({engine,width,route,title:status.title,scroll:status.scroll,viewport:status.viewport});
     }
     for(const route of routes)await visit(route);
+    // Audit every active franchise, not just two representative managers.
+    if(width===390){
+     for(const slug of ['stew','stover','birch','tony','mitch','kuhl','jmid','scott'])
+      await visit('managers/'+slug+'/');
+    }
     // Visual-review regression: fixed Top control must not cover first-screen CTA.
     for(const route of ['analytics/records.html','analytics/record-holders.html']){
      await visit(route);
