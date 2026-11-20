@@ -90,6 +90,8 @@ try{
    assert.equal(await page.locator('#recoveryRows .recovery-card').count(),18,'One-side audit bucket must contain 18 receipts');
    await page.locator('#recoveryFilter').selectOption('none');
    assert.equal(await page.locator('#recoveryRows .recovery-card').count(),5,'Neither-side audit bucket must contain 5 receipts');
+   await page.locator('#recoveryFilter').selectOption('all');   await page.locator('#recoveryFilter').selectOption('single');
+   assert.equal(await page.locator('#recoveryRows .recovery-card').count(),14,'Single-asset research priority bucket should list 14 cases');
    await page.locator('#recoveryFilter').selectOption('all');
    assert.ok((await page.locator('#recoveryRows .recovery-card a[href*="trade-museum.html?trade="]').count())===23,'Each incomplete trade must link to original museum receipt');
 
