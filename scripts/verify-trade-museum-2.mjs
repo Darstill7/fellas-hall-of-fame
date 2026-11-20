@@ -80,6 +80,27 @@ for(const trade of curated){
   pairIds.add(unique);
  }
 }
+const plusMinus=readFileSync(new URL('../analytics/trade-plus-minus.html',import.meta.url),'utf8');
+const parData=JSON.parse(readFileSync(new URL('../data/trade_par_preview.json',import.meta.url),'utf8'));
+const parEligible=parData.records.filter(t=>t.year>=2020&&t.year<=2025&&t.complete===true&&t.sides.length===2&&t.sides.every(side=>side.fullyMatched===true&&Number.isFinite(side.postTradePAR)));
+assert.equal(parEligible.length,18,'Research-based PAR eligibility expected from reviewed 2020–2025 sample; investigate any changed source');
+const parManagerNet=new Map();
+for(const t of parEligible){
+ const [a,b]=t.sides;
+ assert.ok(ids.includes(String(t.id)),'PAR winner claims must trace to museum trade receipt: '+t.id);
+ const gap=a.postTradePAR-b.postTradePAR;
+ const left=a.manager==='Thommy'?'Tom':a.manager,right=b.manager==='Thommy'?'Tom':b.manager;
+ parManagerNet.set(left,(parManagerNet.get(left)||0)+gap);
+ parManagerNet.set(right,(parManagerNet.get(right)||0)-gap);
+}
+assert.ok(Math.abs([...parManagerNet.values()].reduce((sum,n)=>sum+n,0))<0.001,'Pairwise +/- must be zero sum');
+assert.ok(plusMinus.includes('id="pairRows"')&&plusMinus.includes('id="managerRows"')&&plusMinus.includes('id="tradeRows"'),'Trade +/- view must include pair, manager and source evidence views');
+assert.ok(plusMinus.includes("t.sides.length===2")&&plusMinus.includes("s.fullyMatched===true"),'Unqualified trade receipts must not be graded');
+assert.ok(plusMinus.includes("2016–2019")&&plusMinus.includes("three-manager receipts"),'Historical coverage omissions must stay visible');
+assert.ok(html.includes('href="trade-plus-minus.html"')&&portfolio.includes('href="trade-plus-minus.html"'),'Trade +/- must be discoverable from museum and franchise pages');
+const plusModule=[...plusMinus.matchAll(/<script type="module">([\\s\\S]*?)<\\/script>/gi)];
+assert.equal(plusModule.length,1,'Trade +/- view must have one module');
+new Function('return (async()=>{'+plusModule[0][1]+'})');
 const moduleScripts=[...portfolio.matchAll(/<script type="module">([\s\S]*?)<\/script>/gi)];
 assert.equal(moduleScripts.length,1,'Manager portfolios require one self-contained browser module');
 new Function('return (async()=>{'+moduleScripts[0][1]+'})');
