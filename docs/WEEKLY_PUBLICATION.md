@@ -76,6 +76,14 @@ After an actual reviewed weekly release PR is merged, the pre-existing `.github/
 
 **Latest rehearsal result:** synthetic Week 10 release completed successfully as a disposable CI rehearsal. This does **not** establish that the real Week 10 scores or trades are approved or published.
 
+## Week 10 transition / conflicting release branches (2026-11-20)
+
+Draft #268 independently regenerates Week 10 canonical matchups, mirror, season guide, luck, playoffs, and manager page values. Draft #271 introduces the repeatable Tuesday publisher and new dynamically rebuilt record feeds, currently seeded through canonical Week 9. **Do not merge both Week 10 payloads independently**: they touch the same canonical files and could reintroduce obsolete projections depending on merge order.
+
+Recommended reconciliation order: (1) complete all exact-head checks on #271 and review the new approval workflows; (2) independently review the five Week 10 Sleeper source receipts on the staging branch and #268, then choose ONE Week 10 canonical source release (not both); (3) once the Tuesday importer and 26 derived record generators are on `main`, execute the Week 10 approval workflow against the reviewed staging commit to make one complete Week 10 release PR; (4) verify all 2026 standings, playoffs, records and Pages byte parity after approval and merge; (5) retire or supersede the older Week 10 release candidate only after parity is proven. Do not publish unaudited trade awards with the score release.
+
+Both Week 10 candidates (public Sleeper staging branch and connected league source) currently agree on all five final matchup score pairs. That agreement is valuable verification but is not itself a publication approval. The manual release workflow records the exact staging source commit in its GitHub Actions summary; the generated historical record feeds are checked before it creates any PR.
+
 ## Safety
 
 - No auto-merge, no publishing unreviewed scores, no invented trades, no inferred FAAB/keeper/draft assets.
