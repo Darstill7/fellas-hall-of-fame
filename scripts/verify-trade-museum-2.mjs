@@ -102,6 +102,16 @@ assert.ok(plusMinus.includes('Never substitute zeros or partial PAR'),'Unmatched
 assert.ok(plusMinus.includes("side.fullyMatched===true"),'Recovery queue must classify receiving-side evidence');
 const incompleteTwo=parData.records.filter(t=>t.year>=2020&&t.year<=2025&&t.sides.length===2&&!parEligible.some(q=>String(q.id)===String(t.id)));
 assert.equal(incompleteTwo.length,23,'Audit queue coverage changed; verify reconciliation to eligible PAR source');
+const historical=JSON.parse(readFileSync(new URL('../data/v9_trade_engine.json',import.meta.url),'utf8'));
+const historicalKeys=new Set(historical.sides.map(s=>String(s.trade_id)+'|'+s.manager));
+assert.equal(historicalKeys.size,historical.sides.length,'Historical trade receiving sides must be unique');
+for(const t of incompleteTwo)for(const side of t.sides.filter(s=>!s.fullyMatched)){
+ assert.ok(historicalKeys.has(String(t.id)+'|'+side.manager),'Missing source side in historical crosswalk');
+}
+const crosswalkScript=readFileSync(new URL('audit-trade-par-historical-crosswalk.mjs',import.meta.url),'utf8');
+assert.ok(crosswalkScript.includes('No incomplete trade may enter +/-'),'Historical snapshot evidence cannot automatically promote a trade');
+assert.ok(crosswalkScript.includes('singleRows.length,14'),'Crosswalk single-asset source coverage must be verified');
+
 assert.equal(incompleteTwo.filter(t=>t.sides.reduce((n,s)=>n+(s.unresolved||[]).length,0)===1).length,14,'Single-asset prioritization count changed');
 assert.ok(plusMinus.includes('value="single"'),'Research queue must permit single unresolved asset prioritization');
 const triageScript=readFileSync(new URL('audit-trade-par-recovery.mjs',import.meta.url),'utf8');
