@@ -422,6 +422,27 @@ try{
        !chapterLayout.numberStyle.includes('counter(')||
        chapterLayout.touchHeights.some(h=>h<44)||chapterLayout.overflow>2)
      errors.push(width+' '+route+' Phase 2 mobile chapter hierarchy failed: '+JSON.stringify(chapterLayout));
+    // Real visitor action: keyboard-open a second chapter and verify that
+    // the accordion swaps topics without leaving two sections expanded.
+    if(width===390&&route==='managers/stilly/'){
+     const summaries=page.locator('#profile-features details.profile-feature-group > summary');
+     await summaries.nth(1).focus();
+     await page.keyboard.press('Enter');
+     await page.waitForFunction(()=>{
+      const groups=[...document.querySelectorAll('#profile-features details.profile-feature-group')];
+      return groups[1]?.open===true&&groups[0]?.open===false;
+     },null,{timeout:4000}).catch(()=>{});
+     const state=await page.locator('#profile-features details.profile-feature-group').evaluateAll(
+      groups=>groups.map(g=>g.open));
+     if(state.length!==5||state.filter(Boolean).length!==1||!state[1])
+      errors.push(width+' '+route+' keyboard chapter switch failed: '+JSON.stringify(state));
+     await summaries.first().focus();
+     await page.keyboard.press('Enter');
+     await page.waitForFunction(()=>{
+      const groups=[...document.querySelectorAll('#profile-features details.profile-feature-group')];
+      return groups[0]?.open===true&&groups[1]?.open===false;
+     },null,{timeout:4000}).catch(()=>{});
+    }
     if(captureVisuals&&width===390&&route==='managers/stilly/'){
      const screenshot=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width),'stilly_research_chapters.png');
      await fs.mkdir(path.dirname(screenshot),{recursive:true});
