@@ -4,6 +4,11 @@ on:
     # Tuesday post-MNF check; Wednesday safety check for delayed NFL finalization.
     - cron: '30 16 * * 2'
     - cron: '30 16 * * 3'
+  pull_request:
+    paths:
+      - 'scripts/audit-weekly-publication.mjs'
+      - '.github/workflows/audit-weekly-publication.yml'
+      - '.github/workflows/stage-sleeper-week.yml'
   workflow_dispatch:
     inputs:
       expected_final_week:
