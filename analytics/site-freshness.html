@@ -31,7 +31,7 @@ const clean=String;
 const tr=(...values)=>{const row=document.createElement('tr');for(const value of values){const cell=document.createElement('td');if(typeof value==='string')cell.textContent=value;else cell.append(value);row.append(cell)}return row};
 const badge=value=>{const b=document.createElement('span');b.className='status '+(value==='CURRENT'?'current':value==='ARCHIVED'?'archive':value==='STALE'||value==='ERROR'?'stale':'review');b.textContent=value.replaceAll('_',' ');return b};
 const src=(p)=>fetch('../'+p,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(p+': HTTP '+r.status);return r.json()});
-try{
+(async()=>{try{
  const config=await src('data/site_freshness_config_v1.json');
  const ledger=await src('data/unified_record_book_2016_2026.json');
  if(config.schema!=='fellas-site-freshness-config-v1'||!Array.isArray(ledger.games))throw Error('Unexpected site freshness schema');
@@ -63,4 +63,5 @@ try{
  }
  el('scan-status').textContent=results.length+' sources checked against approved Week '+current+'. GitHub file history is linked per source.';
 }catch(err){el('scan-status').textContent='Unable to verify data sources: '+String(err.message||err);el('freshness-rows').replaceChildren(tr('Freshness unavailable','Do not assume the site is current','ERROR','Check GitHub Actions'))}
+})();
 </script></body></html>
