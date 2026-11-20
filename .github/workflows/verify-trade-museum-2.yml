@@ -12,6 +12,7 @@ on:
       - 'scripts/audit-trade-par-historical-crosswalk.mjs'
       - 'scripts/audit-inline-js.mjs'
       - 'data/v9_trade_engine.json'
+      - 'data/trade_par_recovery_2025_ertz_source_v1.json'
       - 'scripts/test-browser-trade-museum-2.mjs'
       - '.github/workflows/verify-trade-museum-2.yml'
   workflow_dispatch:
