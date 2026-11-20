@@ -19,6 +19,9 @@ on:
       - 'scripts/verify-trade-par-roster-proofs.mjs'
       - 'scripts/verify-trade-par-start-ledger-parity.mjs'
       - 'scripts/audit-trade-par-baseline-identifiability.mjs'
+      - 'scripts/audit-trade-par-bench-source-readiness.mjs'
+      - 'data/sleeper_roster_snapshots_20*.json'
+      - 'data/war_rosters_2025_week7.json'
       - 'scripts/audit-trade-par-baseline-provenance.mjs'
       - 'FELLAS_WAR_METHOD.md'
       - 'data/player_starts_20*.json'
@@ -57,6 +60,8 @@ jobs:
         run: node scripts/audit-trade-par-baseline-provenance.mjs --github-summary
       - name: Show replacement-baseline identifiability constraints
         run: node scripts/audit-trade-par-baseline-identifiability.mjs --github-summary
+      - name: Audit manager-bench snapshot evidence before independent PAR design
+        run: node scripts/audit-trade-par-bench-source-readiness.mjs --github-summary
       - name: Install browser runtime for mobile museum checks
         run: |
           npm install --no-save playwright@1.56.1
