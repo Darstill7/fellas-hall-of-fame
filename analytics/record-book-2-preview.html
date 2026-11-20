@@ -28,8 +28,20 @@
  </div>
  <div id="manager-results" aria-live="polite"></div>
  </section>
+ <section class="compare" aria-labelledby="compare-title" id="manager-comparison">
+ <div class="chapter"><span>02 / HEAD-TO-HEAD RECORD DOSSIER</span><span>Same categories, different franchises</span></div>
+ <h2 id="compare-title">Compare two managers.</h2>
+ <p class="catalog-intro">Inspect their standings across identical historical record categories. These are statistical placements—not head-to-head game results or an overall franchise grade.</p>
+ <div class="compare-controls">
+ <label class="field"><span>First manager</span><select id="compare-first" aria-label="First manager for record comparison"><option>Loading…</option></select></label>
+ <label class="field"><span>Second manager</span><select id="compare-second" aria-label="Second manager for record comparison"><option>Loading…</option></select></label>
+ <label class="field"><span>Record coverage</span><select id="compare-status"><option value="existing">Existing source only</option><option value="all">Include provisional research</option></select></label>
+ </div>
+ <div id="compare-summary" class="scope" role="status" aria-live="polite">Select managers to compare their archived placements.</div>
+ <div id="compare-results" class="compare-results"></div>
+ </section>
  <section class="catalog" aria-labelledby="catalog-title">
- <div class="chapter"><span>02 / THE COMPLETE INDEX</span><span>Records and source receipts</span></div>
+ <div class="chapter"><span>03 / THE COMPLETE INDEX</span><span>Records and source receipts</span></div>
  <h2 id="catalog-title">Browse the archive.</h2><p class="catalog-intro">Search by achievement, manager, or category. Tied holders retain their place; narrative exhibits and provisional records are clearly labeled.</p>
  <div class="search-tools">
  <label class="field search"><span>Find a record</span><input id="record-search" type="search" autocomplete="off" placeholder="Try: weekly scoring, rivalry, comeback…" /></label>
