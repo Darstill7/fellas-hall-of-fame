@@ -41,3 +41,8 @@
 .compare-this-manager:hover{background:#fff;color:#10202c}
 #franchise-dossier,#manager-comparison,#record-catalog-section{scroll-margin-top:18px}
 @media(max-width:750px){.record-journeys{grid-template-columns:1fr;gap:8px}.record-journeys a{min-height:64px;padding:11px 14px}}
+
+/* Keep canonical public pages unmistakable from review-only research. */
+.summary-destinations{display:flex;flex-direction:column;gap:7px;align-items:flex-start;min-width:0}
+.summary-destinations .summary-link{max-width:100%;overflow-wrap:anywhere}
+@media(max-width:750px){.summary-destinations{width:100%;border-top:1px solid #5f7887;padding-top:10px}}
