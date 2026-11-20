@@ -30,3 +30,14 @@
 .compare-swap:hover{background:#2a4756}.compare-swap:focus-visible{outline:3px solid #f5d78c;outline-offset:3px}
 @media(max-width:750px){.compare-filterbar{grid-template-columns:repeat(2,minmax(0,1fr))}.compare-swap{grid-column:1/-1}}
 @media(max-width:440px){.compare-filterbar{grid-template-columns:1fr}.compare-swap{grid-column:1}}
+
+/* Record Book journey index: three short routes instead of another long text menu. */
+.record-journeys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;padding:22px 0 26px}
+.record-journeys a{min-height:90px;display:flex;flex-direction:column;justify-content:center;gap:7px;padding:16px;background:#132a38;border:1px solid #557182;border-radius:11px;color:var(--ink);text-decoration:none}
+.record-journeys a:hover{border-color:var(--gold);background:#213b4a}
+.record-journeys strong{font-size:14px;color:var(--gold);line-height:1.35}
+.record-journeys span{font-size:12px;color:var(--muted);line-height:1.45}
+.compare-this-manager{display:inline-flex;align-items:center;min-height:46px;padding:10px 14px;margin-top:18px;background:#e9cb91;color:#10202c;border-radius:9px;font-size:13px;font-weight:800;text-decoration:none}
+.compare-this-manager:hover{background:#fff;color:#10202c}
+#franchise-dossier,#manager-comparison,#record-catalog-section{scroll-margin-top:18px}
+@media(max-width:750px){.record-journeys{grid-template-columns:1fr;gap:8px}.record-journeys a{min-height:64px;padding:11px 14px}}
