@@ -1,0 +1,119 @@
+{
+  "schema": "fellas-current-season-records-v1",
+  "year": 2026,
+  "verified_through_week": 9,
+  "scope": "2026 approved regular-season scores only; excludes postseason and all-time historical rankings",
+  "source": "data/unified_record_book_2016_2026.json",
+  "number_of_games": 45,
+  "records": {
+    "highest_team_score": {
+      "manager": "Mitch",
+      "opponent": "Thommy",
+      "points": 172.9,
+      "opponentPoints": 124.94,
+      "week": 5
+    },
+    "lowest_team_score": {
+      "manager": "Scott",
+      "opponent": "Tony",
+      "points": 46.38,
+      "opponentPoints": 84.32,
+      "week": 2
+    },
+    "highest_matchup_total": {
+      "week": 1,
+      "home": "Mitch",
+      "away": "Stew",
+      "homeScore": 161.26,
+      "awayScore": 158.52,
+      "total": 319.78,
+      "margin": 2.74
+    },
+    "closest_matchup": {
+      "week": 9,
+      "home": "Thommy",
+      "away": "Stew",
+      "homeScore": 86.6,
+      "awayScore": 87.36,
+      "total": 173.96,
+      "margin": 0.76
+    },
+    "widest_margin": {
+      "week": 2,
+      "home": "Stilly",
+      "away": "Thommy",
+      "homeScore": 163.34,
+      "awayScore": 63,
+      "total": 226.34,
+      "margin": 100.34
+    }
+  },
+  "weeklyScoringTitles": [
+    {
+      "week": 1,
+      "manager": "Mitch",
+      "points": 161.26,
+      "tied": false
+    },
+    {
+      "week": 2,
+      "manager": "Mitch",
+      "points": 168.72,
+      "tied": false
+    },
+    {
+      "week": 3,
+      "manager": "JMid",
+      "points": 152.58,
+      "tied": false
+    },
+    {
+      "week": 4,
+      "manager": "Tony",
+      "points": 154.8,
+      "tied": false
+    },
+    {
+      "week": 5,
+      "manager": "Mitch",
+      "points": 172.9,
+      "tied": false
+    },
+    {
+      "week": 6,
+      "manager": "Mitch",
+      "points": 129.2,
+      "tied": false
+    },
+    {
+      "week": 7,
+      "manager": "Thommy",
+      "points": 133.12,
+      "tied": false
+    },
+    {
+      "week": 8,
+      "manager": "JMid",
+      "points": 141.68,
+      "tied": false
+    },
+    {
+      "week": 9,
+      "manager": "JMid",
+      "points": 148.74,
+      "tied": false
+    }
+  ],
+  "weeklyScoringTitleCounts": {
+    "Birch": 0,
+    "JMid": 3,
+    "Kuhl": 0,
+    "Mitch": 4,
+    "Scott": 0,
+    "Stew": 0,
+    "Stilly": 0,
+    "Stover": 0,
+    "Thommy": 1,
+    "Tony": 1
+  }
+}

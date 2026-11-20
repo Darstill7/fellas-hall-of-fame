@@ -1,0 +1,12 @@
+/* Current 2026 records pulse; explicitly separate from certified all-time marks. */
+.current-records-pulse{padding:25px 0 35px;border-top:1px solid #435d6a;scroll-margin-top:65px}
+.current-records-pulse .current-records-heading{display:flex;justify-content:space-between;align-items:end;gap:14px;flex-wrap:wrap}
+.current-records-pulse h2{margin:5px 0;font-size:clamp(24px,3.2vw,32px)}
+.current-records-pulse .current-record-scope{font-size:12px;color:#e3c789;margin:4px 0 14px}
+.current-records-pulse .current-record-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:10px}
+.current-records-pulse .current-record-card{background:#132a39;border:1px solid #4d6a7a;border-radius:11px;min-width:0;padding:16px}
+.current-records-pulse .current-record-card strong{font-size:clamp(21px,3vw,27px);color:#edca84;font-variant-numeric:tabular-nums;display:block;line-height:1.25}
+.current-records-pulse .current-record-card small{display:block;font-size:11px;color:#cfdae1;letter-spacing:.04em}
+.current-records-pulse .current-record-card p{font-size:12px;color:#bdcdd7;line-height:1.5;overflow-wrap:anywhere;margin:7px 0 0}
+@media(max-width:650px){.current-records-pulse .current-record-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:350px){.current-records-pulse .current-record-grid{grid-template-columns:1fr}}

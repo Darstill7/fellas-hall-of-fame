@@ -1,0 +1,81 @@
+name: Audit Tuesday website publication freshness
+on:
+  schedule:
+    # Tuesday post-MNF check; Wednesday safety check for delayed NFL finalization.
+    - cron: '30 16 * * 2'
+    - cron: '30 16 * * 3'
+  pull_request:
+    paths:
+      - 'scripts/audit-weekly-publication.mjs'
+      - 'scripts/build-current-2026-records.mjs'
+      - 'scripts/build-alltime-game-records.mjs'
+      - 'scripts/build-alltime-career-records.mjs'
+      - 'scripts/build-ledger-milestone-records.mjs'
+      - 'scripts/verify-ledger-milestones-history.mjs'
+      - 'data/ledger_milestones_live_v1.json'
+      - 'assets/ledger-milestones.mjs'
+      - 'data/alltime_career_records_live_v1.json'
+      - 'assets/alltime-career-records.mjs'
+      - 'data/alltime_game_records_live_v1.json'
+      - 'assets/alltime-game-records.mjs'
+      - 'data/current_2026_records_v1.json'
+      - 'assets/current-season-records.*'
+      - 'analytics/records.html'
+      - 'analytics/trade-museum.html'
+      - 'scripts/apply-reviewed-sleeper-week.mjs'
+      - 'scripts/review-staged-trades.mjs'
+      - 'scripts/test-review-staged-trades.mjs'
+      - 'scripts/import-reviewed-trade-museum.mjs'
+      - 'scripts/test-import-reviewed-trade-museum.mjs'
+      - 'scripts/verify-trade-museum-scope.mjs'
+      - 'scripts/verify-current-week-website.mjs'
+      - '.github/workflows/prepare-approved-weekly-release.yml'
+      - '.github/workflows/audit-weekly-publication.yml'
+      - '.github/workflows/stage-sleeper-week.yml'
+  workflow_dispatch:
+    inputs:
+      expected_final_week:
+        description: 'Optional independently verified finalized 2026 week (1-14); leave empty to audit approved repository coverage only'
+        required: false
+        type: string
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit public source coverage and embedded museum parity
+        env:
+          EXPECTED_WEEK: ${{ inputs.expected_final_week }}
+        run: |
+          node --check scripts/audit-weekly-publication.mjs
+          node --check scripts/build-current-2026-records.mjs
+          node --check scripts/stage-sleeper-trades.mjs
+          node --check scripts/review-staged-trades.mjs
+          node --check scripts/test-review-staged-trades.mjs
+          node scripts/test-review-staged-trades.mjs
+          node --check scripts/import-reviewed-trade-museum.mjs
+          node --check scripts/test-import-reviewed-trade-museum.mjs
+          node scripts/test-import-reviewed-trade-museum.mjs
+          node scripts/build-current-2026-records.mjs --check
+          node --check scripts/build-alltime-game-records.mjs
+          node --check assets/alltime-game-records.mjs
+          node scripts/build-alltime-game-records.mjs --check
+          node --check scripts/build-alltime-career-records.mjs
+          node --check assets/alltime-career-records.mjs
+          node scripts/build-alltime-career-records.mjs --check
+          node --check scripts/build-ledger-milestone-records.mjs
+          node --check assets/ledger-milestones.mjs
+          node scripts/build-ledger-milestone-records.mjs --check
+          node scripts/verify-ledger-milestones-history.mjs
+          node scripts/verify-current-week-website.mjs
+          if [ -n "$EXPECTED_WEEK" ]; then
+            node scripts/audit-weekly-publication.mjs "--expected-week=$EXPECTED_WEEK"
+          else
+            node scripts/audit-weekly-publication.mjs
+          fi

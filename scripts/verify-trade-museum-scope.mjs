@@ -6,9 +6,9 @@ const input=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json','utf8'))
 const html=fs.readFileSync('analytics/trade-museum.html','utf8');
 const complete=t=>t.sides.length>=2&&new Set(t.sides.map(x=>x.manager)).size===t.sides.length&&t.sides.every(x=>x.source_status==='VERIFIED_SOURCE'&&typeof x.assets==='string'&&x.assets.trim().length>0);
 const main=input.filter(complete),research=input.filter(x=>!complete(x));
-assert.equal(input.length,51);
-assert.equal(main.length,49,'Three-team trade must appear in main archive');
-assert.equal(research.length,2,'Only the two one-sided player receipts belong in research');
+assert(input.length>=51,'Historical audited baseline of 51 receipts cannot shrink');
+assert(main.length>=49,'Historical verified complete receipts cannot disappear');
+assert(research.length>=2,'Existing incomplete evidence receipts must remain in research');
 const three=main.find(x=>x.id==='1294402688213057536');
 assert.ok(three,'2025-11-12 Stilly/JMid/Tom trade must be included');
 assert.deepEqual(three.sides.map(x=>x.manager),['Stilly','JMid','Tom']);
@@ -54,4 +54,4 @@ assert.ok(profile.includes('keeper-decision-research.html'));
 assert.ok(html.includes("new URLSearchParams(window.location.search).get('trade')"));
 assert.ok(html.includes("if(t){$('scope').value=completeSides(t)?'main':'research';render();openTrade(t.id)}"),
  'Deep links must open verified complete or incomplete receipts in their correct collection');
-console.log('PASS: 49 main multi-manager receipts including the 2025 three-way, 2 incomplete research receipts.');
+console.log('PASS: '+main.length+' verified multi-manager receipts including the 2025 three-way; '+research.length+' incomplete research receipts.');

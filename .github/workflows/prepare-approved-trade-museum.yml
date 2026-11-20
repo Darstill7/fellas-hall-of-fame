@@ -1,0 +1,76 @@
+name: Prepare commissioner-approved Trade Museum release
+on:
+  workflow_dispatch:
+    inputs:
+      certification_week:
+        description: 'Week containing the reviewed trade certification file (1-14)'
+        required: true
+        type: string
+      confirmation:
+        description: 'Type APPROVE_TRADES after manually verifying transaction IDs, roster ownership, all received assets and FAAB'
+        required: true
+        type: string
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: fellas-reviewed-trade-museum
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: ${{ inputs.confirmation == 'APPROVE_TRADES' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Retrieve independently reviewed trade certification and provider source
+        env:
+          CERT_WEEK: ${{ inputs.certification_week }}
+        run: |
+          set -euo pipefail
+          if ! [[ "$CERT_WEEK" =~ ^([1-9]|1[0-4])$ ]]; then
+            echo '::error::Certification must target Week 1–14'
+            exit 1
+          fi
+          git fetch origin refs/heads/automation/sleeper-weekly-stage:refs/remotes/origin/automation/sleeper-weekly-stage
+          CERT="data-integrity/trade-certifications/2026-week${CERT_WEEK}.json"
+          RAW="data-integrity/sleeper-sync-candidates/2026-trades-through-week${CERT_WEEK}.json"
+          mkdir -p data-integrity/trade-certifications data-integrity/sleeper-sync-candidates
+          git show "origin/automation/sleeper-weekly-stage:${CERT}" > "$CERT"
+          git show "origin/automation/sleeper-weekly-stage:${RAW}" > "$RAW"
+          echo "CERT=$CERT" >> "$GITHUB_ENV"
+          echo "RAW=$RAW" >> "$GITHUB_ENV"
+      - name: Run approved import and deterministic source integrity checks
+        env:
+          FELLAS_APPROVE_TRADE_MUSEUM: 'YES'
+        run: |
+          set -euo pipefail
+          node --check scripts/import-reviewed-trade-museum.mjs
+          node scripts/import-reviewed-trade-museum.mjs "$CERT" --dry-run
+          node scripts/import-reviewed-trade-museum.mjs "$CERT"
+          node scripts/verify-trade-museum-scope.mjs
+          node scripts/audit-weekly-publication.mjs
+          rm -f "$CERT" "$RAW"
+      - name: Open review PR; never merge or deploy trades automatically
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: release/approved-2026-trades
+          delete-branch: false
+          title: 'Publish commissioner-certified 2026 trade receipts through Week ${{ inputs.certification_week }}'
+          commit-message: 'Update reviewed 2026 Trade Museum receipts through Week ${{ inputs.certification_week }}'
+          body: |
+            Only commissioner-certified transaction IDs and asset directions were imported.
+            New transactions are marked **ungraded** with starter production **not yet audited**.
+            No historical trade points were rewritten.
+            Verify the reviewed staging certificate and provider receipts, Trade Museum 2/3-team participation, all manager links, any FAAB and the latest cutoff date.
+            Full canonical, mobile and visual checks must pass before human merge. Review deployment parity after merge.
+            **No auto-merge or production publication from this workflow.**
+          add-paths: |
+            data/trade_museum_stage66.json
+            analytics/trade-museum.html

@@ -1,0 +1,145 @@
+{
+  "schema": "fellas-ledger-milestones-v1",
+  "source": "data/unified_record_book_2016_2026.json",
+  "verified2026ThroughWeek": 9,
+  "sourceGames": 705,
+  "records": [
+    {
+      "key": "winning-streak",
+      "title": "Longest regular-season winning streak",
+      "value": 20,
+      "unit": "consecutive documented games",
+      "holders": [
+        {
+          "manager": "Mitch",
+          "value": 20,
+          "endingYear": 2026,
+          "endingWeek": 8,
+          "endingOpponent": "Tony"
+        }
+      ],
+      "holderCount": 1
+    },
+    {
+      "key": "scoring-streak-100",
+      "title": "Longest consecutive documented 100+ scoring appearances",
+      "value": 15,
+      "unit": "consecutive documented games",
+      "holders": [
+        {
+          "manager": "Mitch",
+          "value": 15,
+          "endingYear": 2021,
+          "endingWeek": 8,
+          "endingOpponent": "Stover"
+        }
+      ],
+      "holderCount": 1
+    },
+    {
+      "key": "scoring-streak-120",
+      "title": "Longest consecutive documented 120+ scoring appearances",
+      "value": 7,
+      "unit": "consecutive documented games",
+      "holders": [
+        {
+          "manager": "Tony",
+          "value": 7,
+          "endingYear": 2023,
+          "endingWeek": 8,
+          "endingOpponent": "Evans"
+        }
+      ],
+      "holderCount": 1
+    },
+    {
+      "key": "season-points",
+      "title": "Most points in a completed regular season",
+      "value": 1894.88,
+      "unit": "points",
+      "holders": [
+        {
+          "manager": "Mitch",
+          "year": 2025,
+          "games": 14,
+          "value": 1894.88
+        }
+      ],
+      "holderCount": 1,
+      "seasonClosedOnly": true
+    },
+    {
+      "key": "season-wins",
+      "title": "Most wins in a completed regular season",
+      "value": 13,
+      "unit": "wins",
+      "holders": [
+        {
+          "manager": "Mitch",
+          "year": 2025,
+          "games": 14,
+          "value": 13
+        }
+      ],
+      "holderCount": 1,
+      "seasonClosedOnly": true
+    },
+    {
+      "key": "season-differential",
+      "title": "Largest point differential in a completed regular season",
+      "value": 345.12,
+      "unit": "points",
+      "holders": [
+        {
+          "manager": "Birch",
+          "year": 2019,
+          "games": 13,
+          "value": 345.12
+        }
+      ],
+      "holderCount": 1,
+      "seasonClosedOnly": true
+    },
+    {
+      "key": "season-140-club",
+      "title": "Most 140+ weeks in a completed regular season",
+      "value": 5,
+      "unit": "weeks",
+      "holders": [
+        {
+          "manager": "Birch",
+          "year": 2019,
+          "games": 13,
+          "value": 5
+        },
+        {
+          "manager": "Mitch",
+          "year": 2020,
+          "games": 13,
+          "value": 5
+        },
+        {
+          "manager": "Tony",
+          "year": 2021,
+          "games": 13,
+          "value": 5
+        },
+        {
+          "manager": "Mitch",
+          "year": 2025,
+          "games": 14,
+          "value": 5
+        }
+      ],
+      "holderCount": 4,
+      "seasonClosedOnly": true
+    }
+  ],
+  "scope": "Regular-season matchup evidence only; completed-season awards exclude ongoing 2026",
+  "caveats": [
+    "Streaks count consecutive DOCUMENTED manager appearances, not necessarily consecutive NFL weeks; missing games must not be inferred.",
+    "ESPN pre-2019 integer-rounded scores and historical PPR variations are not normalized.",
+    "Season awards are restricted to completed seasons through 2025; 2026 ongoing totals never compete with full seasons.",
+    "Ties and equal values preserve all historical record holders."
+  ]
+}

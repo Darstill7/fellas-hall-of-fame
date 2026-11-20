@@ -16,7 +16,24 @@ export const checkedPaths=[
  'analytics/record-holders.html',
  'data/career_core_generated.json',
  'data/manager_biographies_awards.json',
- 'assets/manager-encyclopedia.js'
+ 'assets/manager-encyclopedia.js',
+ // Approved Tuesday updates must be visible as deployed bytes, not only checked-in data.
+ 'data/unified_record_book_2016_2026.json',
+ 'data/season_weekly_matchups_2016_2026_v1.json',
+ 'data/season_guide.json',
+ 'data/playoff_race_v1.json',
+ 'data/current_2026_records_v1.json',
+ 'data/alltime_game_records_live_v1.json',
+ 'data/alltime_career_records_live_v1.json',
+ 'data/ledger_milestones_live_v1.json',
+ 'data/schedule_luck_current_v1.json',
+ 'data/trade_museum_stage66.json',
+ 'analytics/playoff-race.html',
+ 'analytics/trade-museum.html',
+ 'assets/current-season-records.mjs',
+ 'assets/alltime-game-records.mjs',
+ 'assets/alltime-career-records.mjs',
+ 'assets/ledger-milestones.mjs'
 ];
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
