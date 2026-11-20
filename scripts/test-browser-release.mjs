@@ -493,6 +493,26 @@ try{
        !!(snapshot.compareDocumentPosition(actions)&Node.DOCUMENT_POSITION_FOLLOWING);
      });
      if(!heroOrder)errors.push(width+' '+route+' hierarchy must be title, verified career snapshot, then navigation');
+     // Source-driven first-screen season cue: never substitute projections
+     // or hide a failed data request behind a fabricated standing.
+     const seasonCue=page.locator('main .hero [data-profile-firstscreen-season]');
+     if(await seasonCue.count()!==1)
+      errors.push(width+' '+route+' first-screen verified 2026 cue missing');
+     else{
+      await page.waitForFunction(()=>{
+       const el=document.querySelector('[data-profile-firstscreen-season]');
+       return el&&!el.textContent.includes('Checking verified results');
+      },null,{timeout:10000}).catch(()=>{});
+      const cue=await seasonCue.evaluate(el=>{
+       const r=el.getBoundingClientRect(),hero=el.closest('.hero');
+       const snapshot=hero?.querySelector('[data-profile-career-snapshot]');
+       return {text:el.textContent.trim(),right:r.right,height:r.height,
+        beforeSnapshot:!!snapshot&&!!(el.compareDocumentPosition(snapshot)&Node.DOCUMENT_POSITION_FOLLOWING)};
+      });
+      if(!(/2026 · \d+–\d+/.test(cue.text)||cue.text.includes('results unavailable'))||
+         !cue.beforeSnapshot||cue.right>width+2||cue.height<35)
+       errors.push(width+' '+route+' first-screen season identity or mobile fit failed: '+JSON.stringify(cue));
+     }
      const honors=page.locator('main .hero .profile-honors-line');
      if(await honors.count()!==1||!await honors.isVisible()||
         !/Championship season|Still chasing a first championship/.test(await honors.innerText()))
