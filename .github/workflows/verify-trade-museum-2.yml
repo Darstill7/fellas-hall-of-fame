@@ -9,6 +9,9 @@ on:
       - 'analytics/greatest-worst-trades.html'
       - 'scripts/verify-trade-museum-2.mjs'
       - 'scripts/audit-trade-par-recovery.mjs'
+      - 'scripts/audit-trade-par-historical-crosswalk.mjs'
+      - 'scripts/audit-inline-js.mjs'
+      - 'data/v9_trade_engine.json'
       - 'scripts/test-browser-trade-museum-2.mjs'
       - '.github/workflows/verify-trade-museum-2.yml'
   workflow_dispatch:
@@ -26,6 +29,8 @@ jobs:
         run: node scripts/verify-trade-museum-2.mjs
       - name: Publish incomplete trade PAR research audit
         run: node scripts/audit-trade-par-recovery.mjs --github-summary
+      - name: Audit historical starter-point evidence without grading
+        run: node scripts/audit-trade-par-historical-crosswalk.mjs --github-summary
       - name: Install browser runtime for mobile museum checks
         run: |
           npm install --no-save playwright@1.56.1
