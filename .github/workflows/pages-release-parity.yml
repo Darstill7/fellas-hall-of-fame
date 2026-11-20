@@ -29,7 +29,7 @@ jobs:
 
   deployed-pages-byte-parity:
     if: >-
-      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main') ||
       (github.event_name == 'workflow_run' &&
        github.event.workflow_run.conclusion == 'success' &&
        github.event.workflow_run.head_branch == 'main' &&
@@ -39,10 +39,10 @@ jobs:
       contents: read
     timeout-minutes: 10
     steps:
-      - name: Checkout exactly the successful Pages deployment SHA
+      - name: Checkout the exact main commit for published-byte verification
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'push' && github.sha || github.event.workflow_run.head_sha }}
+          ref: ${{ github.event_name != 'workflow_run' && github.sha || github.event.workflow_run.head_sha }}
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
