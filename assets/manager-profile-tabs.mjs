@@ -713,18 +713,11 @@ function mountCareerExhibit(){
  const profileSwitcher=document.querySelector('.hof-manager-switcher');
  if(profileSwitcher)hero.after(profileSwitcher);
  hub.classList.add('hof-nav-curated');
+ // Keep one, consistent chapter label and one useful guide description.
+ // The guide already owns the 03 kicker; adding a second one makes the
+ // mobile reading hierarchy repetitive and pushes destinations downward.
  const hubHeading=hub.querySelector('h2');
- if(hubHeading){
-  hubHeading.textContent='Choose your next chapter';
-  if(!hub.querySelector('.manager-home-chapter-label')){
-   const chapter=document.createElement('span');
-   chapter.className='manager-home-chapter-label';
-   chapter.textContent='03 / EXPLORE THIS FRANCHISE';
-   hubHeading.before(chapter);
-  }
- }
- const hubNote=hub.querySelector('.manager-home-hub-note');
- if(hubNote)hubNote.textContent='Follow the career story, investigate the records or open a deeper chapter.';
+ if(hubHeading)hubHeading.textContent='Choose your next chapter';
  // Preview the exact opening sentences of the verified editorial biography.
  fetch('../../data/manager_biographies_awards.json',{cache:'no-store'})
   .then(response=>{if(!response.ok)throw Error('Biography unavailable');return response.json()})
