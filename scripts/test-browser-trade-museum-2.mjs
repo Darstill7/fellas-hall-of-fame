@@ -49,6 +49,18 @@ try{
    assert.equal((await page.locator('#manager').inputValue()).toLowerCase(),'tom','Thommy deep link maps to Tom');
    await page.goto(base+'?trade=1294402688213057536',{waitUntil:'load'});
    assert.ok(await page.locator('#detail').evaluate(element=>element.open),'Historical three-team deep link opens exact receipt');
+   const portfolioUrl=base.replace('trade-museum.html','trade-portfolios.html');
+   await page.goto(portfolioUrl+'?manager=stilly',{waitUntil:'load'});
+   await page.locator('#portfolio:not([hidden])').waitFor();
+   assert.equal(await page.locator('#manager').inputValue(),'Stilly','Portfolio deep link must select Stilly');
+   assert.ok(Number(await page.locator('#total').innerText())>0,'Portfolio reads archived source receipts');
+   assert.ok(await page.locator('#timeline .receipt').count()>0,'Portfolio displays transaction chronology');
+   assert.ok((await page.locator('#timeline .receipt a[href*="trade-museum.html?trade="]').count())>0,'Portfolio receipt deep links resolve to museum');
+   const portfolioOverflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+1);
+   assert.equal(portfolioOverflow,false,testCase.engine+' '+testCase.width+'px portfolio horizontal overflow');
+   await page.goto(portfolioUrl+'?manager=thommy',{waitUntil:'load'});
+   await page.locator('#portfolio:not([hidden])').waitFor();
+   assert.equal((await page.locator('#manager').inputValue()).toLowerCase(),'tom','Historical Thommy alias must map to Tom portfolio');
    assert.equal(errors.length,0,'Unexpected page JS errors: '+errors.join('; '));
    await page.close();
    console.log(testCase.engine+' '+testCase.width+'px: museum journey passed');
