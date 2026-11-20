@@ -119,6 +119,18 @@ assert.ok(proofWeeks.every(w=>w.slot==='bench'),'No starter production may be in
 const proofTrade=parData.records.find(t=>String(t.id)===ertzProof.tradeId);
 assert.ok(proofTrade&&!parEligible.includes(proofTrade),'This is staged recovery evidence, not yet a leaderboard promotion');
 assert.ok(proofTrade.sides.some(s=>s.manager==='Kuhl'&&s.unresolved.includes(ertzProof.player.name)),'Evidence must match unresolved asset and recorded receiving side');
+const evansException=JSON.parse(readFileSync(new URL('../data/trade_par_exception_2025_evans_zero_point_start_v1.json',import.meta.url),'utf8'));
+assert.equal(evansException.status,'source_checked_requires_scoring_baseline');
+assert.equal(evansException.player.sleeperPlayerId,'2216');
+assert.equal(evansException.tradeId,'1276326233327570944');
+const evansSourceTrade=parData.records.find(t=>String(t.id)===evansException.tradeId);
+assert.ok(evansSourceTrade&&!parEligible.includes(evansSourceTrade),'Unreconciled Evans start cannot be promoted as completed trade PAR');
+assert.ok(evansSourceTrade.sides.some(s=>s.manager==='Stover'&&s.unresolved.includes(evansException.player.name)),'Exception must match ungraded incoming asset');
+const evansWeeks=evansException.evidence.weeklyRosterObservations;
+assert.deepEqual(evansWeeks.map(w=>w.week),[4,5,6,7,8,9,10,11,12,13,14]);
+assert.equal(evansWeeks.filter(w=>w.slot==='starter').length,1,'Zero-point start must not be confused with zero starts');
+assert.equal(evansWeeks.find(w=>w.slot==='starter').points,0,'Zero fantasy points, but not a zero-start record');
+assert.ok(evansException.requiredReview.includes('replacement baseline'),'Zero-point starter requires position-relative baseline');
 const mostertProof=JSON.parse(readFileSync(new URL('../data/trade_par_recovery_2024_mostert_source_v1.json',import.meta.url),'utf8'));
 assert.equal(mostertProof.status,'source_checked_pending_integration');
 assert.equal(mostertProof.tradeId,'1159892809005076480');
