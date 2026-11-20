@@ -89,6 +89,9 @@ execFileSync(process.execPath,['scripts/build-alltime-game-records.mjs'],{stdio:
 execFileSync(process.execPath,['scripts/build-alltime-career-records.mjs'],{stdio:'inherit'});
 // Milestones maintain documented-streak and completed-season-only eligibility.
 execFileSync(process.execPath,['scripts/build-ledger-milestone-records.mjs'],{stdio:'inherit'});
+// Keep one machine-readable freshness registry in sync with every approved data release.
+execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--write'],{stdio:'inherit'});
+execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--check'],{stdio:'inherit'});
 for(const script of ['verify-weekly-ledger-parity.mjs','verify-manager-madden-cards.mjs','verify-fellas-rating.mjs','test-playoff-race-archive.mjs'])
  execFileSync(process.execPath,['scripts/'+script],{stdio:'inherit'});
 console.log('Review regenerated files and full CI before merging. Source-dependent pages must pass their freshness audits before release; archival snapshots remain labeled.');
