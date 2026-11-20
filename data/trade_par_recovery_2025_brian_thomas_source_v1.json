@@ -1,0 +1,45 @@
+{
+  "schema": "fellas-par-missing-starter-evidence-v1",
+  "status": "source_checked_pending_integration",
+  "sourcePlatform": "Sleeper",
+  "accessMethod": "Flaim Fantasy historical Sleeper roster",
+  "season": 2025,
+  "leagueId": "1181421235163095040",
+  "rosterId": "1",
+  "rosterOwner": "Darstill",
+  "manager": "Stilly",
+  "tradeId": "1294424036499025920",
+  "tradeWeek": 11,
+  "tradeDate": "2025-11-12",
+  "player": {
+    "name": "Brian Thomas Jr.",
+    "sleeperPlayerId": "11631"
+  },
+  "evidence": {
+    "scope": "Regular-season Weeks 12–14, strictly after trade Week 11",
+    "weeklyRosterObservations": [
+      {
+        "week": 12,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 13,
+        "slot": "bench",
+        "points": 3.8
+      },
+      {
+        "week": 14,
+        "slot": "bench",
+        "points": 10.2
+      }
+    ],
+    "verifiedPostTradeStarts": 0,
+    "verifiedPostTradeStarterPoints": 0
+  },
+  "notes": [
+    "Weeks 12–14 confirmed bench. Three bench fantasy scores must not be credited as starting production.",
+    "Other incoming side (Stefon Diggs / Stover) has two verified starts requiring weekly WR replacement baseline, so this entire trade stays ungraded.",
+    "This proof cannot by itself qualify a two-manager trade with another unresolved received asset."
+  ]
+}
