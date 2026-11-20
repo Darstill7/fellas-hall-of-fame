@@ -16,8 +16,8 @@ assert(interactive.includes("firstScreenSeason.dataset.profileFirstscreenSeason=
 assert(interactive.includes("firstScreenSeason.textContent='2026 · '+verifiedRecord"),'First-screen record must derive from the canonical 2026 standings');
 assert(interactive.includes("firstScreenSeason.textContent='2026 results unavailable"),'Missing seasonal data must show an honest fallback');
 assert(mobileCss.includes('Phase 2 · Franchise first screen v4')&&mobileCss.includes('.profile-firstscreen-season'),'New responsive identity treatment missing');
-const scoreboardInset=mobileCss.match(/body\\.premium-franchise main>\\.hero \\.profile-career-snapshot\\s*\\{([^}]+)\\}/);
-assert(scoreboardInset&&/padding:\\s*(?:1[2-9]|[2-9]\\d)px/.test(scoreboardInset[1]),
+const scoreboardInset=mobileCss.match(/body\.premium-franchise main>\.hero \.profile-career-snapshot\s*\{([^}]+)\}/);
+assert(scoreboardInset&&/padding:\s*(?:1[2-9]|[2-9]\d)px/.test(scoreboardInset[1]),
  'Condensed career scoreboard must retain at least 12px panel inset at desktop widths');
 assert(!interactive.includes('mountManagerScheduleLuck(profileName,profileHero);')&&!interactive.includes('mountManagerLuckPerformance(profileName,profileHero);'),'Advanced opponent-draw panels must not mount directly in the hero');
 assert(interactive.includes("source.className='hof-career-source-note'"),'Biography source note missing');
