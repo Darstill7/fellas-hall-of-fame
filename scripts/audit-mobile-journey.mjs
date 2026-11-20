@@ -80,7 +80,7 @@ try{
     if(await manager.count()===1){
      await manager.click();
      expect(new URL(page.url()).pathname.endsWith('/managers/stilly/'),'Manager profile tap failed',{engine,width});
-     const career=page.locator('a[href*="record-books.html?manager=Stilly#career-first"]').first();
+     const career=page.locator('main a[href*="record-books.html?manager=Stilly#career-first"]').first();
      expect(await career.count()>=1,'Manager profile does not reach personal records',{engine,width});
      if(await career.count()){await career.click();expect(new URL(page.url()).pathname.endsWith('/managers/record-books.html'),'Personal record tap failed',{engine,width})}
     }
