@@ -11,7 +11,7 @@ const canonicalRegular=unified.games.filter(g=>g.stage==="regular"&&Number.isFin
 // This exhibit is a historical research SNAPSHOT, not a weekly projection.
 // Verify its exact declared scope instead of pretending its 44 independently
 // curated record categories were recalculated when canonical Week 10 landed.
-const archivedWeekMatch=String(data.scope||'').match(/2026 Week (\\d+)/);
+const archivedWeekMatch=String(data.scope||'').match(/2026 Week ([0-9]+)/);
 assert.ok(archivedWeekMatch,'Expanded Record Book must declare an exact 2026 archival cutoff');
 const archivedWeek=Number(archivedWeekMatch[1]);
 const currentWeek=Math.max(...canonicalRegular.filter(g=>g.year===2026).map(g=>g.week));
