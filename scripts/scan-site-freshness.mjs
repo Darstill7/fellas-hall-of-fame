@@ -56,6 +56,9 @@ const report={
  sections:details
 };
 const output=JSON.stringify(report,null,2)+'\n';
+const scanGit=p=>{
+ try{const raw=execFileSync('git',['log','-1','--format=%cI|%h','--',p],{encoding:'utf8'}).trim();const [at,commit]=raw.split('|');return {at:at||'unknown',commit:commit||'unknown'};}catch{return {at:'unavailable',commit:'unavailable'}}
+};
 const mode=process.argv.slice(2);
 if(mode.includes('--write')){
  fs.writeFileSync(snapshotPath,output);console.log('Wrote '+snapshotPath+'; '+details.length+' monitored sections, '+errors.length+' blocking stale');
@@ -64,14 +67,11 @@ if(mode.includes('--write')){
   throw Error('Site freshness registry stale relative to canonical source files; run --write after reviewed import');
  if(errors.length)throw Error('Blocking data freshness mismatch: '+errors.map(x=>x.id+' Week '+x.verifiedThroughWeek+' vs '+week).join(', '));
  console.log('SITE FRESHNESS PARITY PASS: '+details.length+' sections at canonical Week '+week+'; '+reviews.length+' source-review flags');
-}else if(mode.includes('--json'))console.log(output);
+}else if(mode.includes('--json')){
+ const enriched={...report,sections:details.map(d=>({...d,lastGitChange:scanGit(d.source)}))};
+ console.log(JSON.stringify(enriched,null,2));
+}
 else {
- const scanGit=p=>{
-  try{
-   const row=execFileSync('git',['log','-1','--format=%cI|%h','--',p],{encoding:'utf8'}).trim();
-   const [at,commit]=row.split('|');return {at:at||'unknown',commit:commit||'unknown'};
-  }catch{return {at:'unavailable',commit:'unavailable'}}
- };
  const lines=['## The Fellas — Website freshness scan','Canonical verified week: **'+week+'**','Critical stale: **'+errors.length+'** · Event review required: **'+reviews.length+'**','',
   '| Section | Verified coverage | Last Git file change | Status |','| --- | --- | --- | --- |'];
  for(const r of details){
