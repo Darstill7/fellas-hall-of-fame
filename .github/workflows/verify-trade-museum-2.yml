@@ -17,6 +17,7 @@ on:
       - 'data/trade_par_recovery_2024_aiyuk_source_v1.json'
       - 'data/trade_par_recovery_2025_tuten_source_v1.json'
       - 'scripts/verify-trade-par-roster-proofs.mjs'
+      - 'scripts/audit-trade-par-promotion-candidates.mjs'
       - 'scripts/test-browser-trade-museum-2.mjs'
       - '.github/workflows/verify-trade-museum-2.yml'
   workflow_dispatch:
@@ -38,6 +39,8 @@ jobs:
         run: node scripts/audit-trade-par-historical-crosswalk.mjs --github-summary
       - name: Validate historical roster proof windows and provenance
         run: node scripts/verify-trade-par-roster-proofs.mjs --github-summary
+      - name: Preflight four zero-start candidate PAR comparisons without publication
+        run: node scripts/audit-trade-par-promotion-candidates.mjs --github-summary
       - name: Install browser runtime for mobile museum checks
         run: |
           npm install --no-save playwright@1.56.1
