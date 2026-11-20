@@ -119,14 +119,14 @@ function renderComparison(){
  const ties=common.filter(x=>x.a.rank===x.b.rank).length;
  const aAhead=common.filter(x=>x.a.rank<x.b.rank).length;
  const bAhead=common.filter(x=>x.b.rank<x.a.rank).length;
- $('#compare-summary').textContent=common.length+' shared ranked categories · '+a+' ranks higher in '+aAhead+' · '+b+' ranks higher in '+bAhead+' · '+ties+' tied ranks. Missing categories are excluded, not counted as losses.';
+ $('#compare-summary').textContent=common.length+' shared ranked categories · '+a+' has the earlier listed rank in '+aAhead+' · '+b+' in '+bAhead+' · '+ties+' tied ranks. Records include unwanted outcomes, so an earlier rank is not necessarily a better performance. Missing categories are excluded.';
  $('#compare-results').innerHTML=common.length?'<div class="compare-list">'+common.map(x=>{
   const status=isResearch(x.record)?' · Provisional research':'';
-  const better=x.a.rank===x.b.rank?'Same rank':x.a.rank<x.b.rank?a+' higher':b+' higher';
+  const rankContext=x.a.rank===x.b.rank?'Same listed rank':x.a.rank<x.b.rank?a+' listed first':b+' listed first';
   return '<article class="compare-card"><div class="compare-record"><a href="'+esc(link(x.id))+'">'+esc(x.record.title)+'</a><span>'+esc(x.record.family+status)+'</span></div>'
    +'<div class="compare-marks"><div><small>'+esc(a)+'</small><strong>#'+esc(x.a.rank)+'</strong><span>'+esc(fmt(x.a.value,x.record.unit))+'</span></div>'
    +'<div><small>'+esc(b)+'</small><strong>#'+esc(x.b.rank)+'</strong><span>'+esc(fmt(x.b.value,x.record.unit))+'</span></div></div>'
-   +'<p class="compare-outcome">'+esc(better)+' · '+esc(x.record.coverage||'Coverage specified in research ledger')+'</p></article>';
+   +'<p class="compare-outcome">'+esc(rankContext)+' · '+esc(x.record.coverage||'Coverage specified in research ledger')+'</p></article>';
  }).join('')+'</div>':'<div class="empty">No shared ranked categories for this selection and coverage. Try other managers or include provisional research.</div>';
 }
 
@@ -156,7 +156,38 @@ async function start(){
   $('#compare-second').innerHTML=managerOptions;
   $('#compare-first').value=selectedManager;
   $('#compare-second').value=managers.find(m=>m!==selectedManager)||selectedManager;
-  for(const id of ['#compare-first','#compare-second','#compare-status'])$(id).addEventListener('change',renderComparison);
+  // Preserve comparison selections in a shareable URL, without changing canonical data.
+  const comparedA=urlParam.searchParams.get('compareA'),comparedB=urlParam.searchParams.get('compareB');
+  if(managers.includes(comparedA))$('#compare-first').value=comparedA;
+  if(managers.includes(comparedB))$('#compare-second').value=comparedB;
+  for(const id of ['#compare-first','#compare-second','#compare-status'])$(id).addEventListener('change',()=>{
+    const url=new URL(location.href);
+    url.searchParams.set('compareA',$('#compare-first').value);
+    url.searchParams.set('compareB',$('#compare-second').value);
+    history.replaceState(null,'',url);
+    renderComparison();
+  });
+  // Portfolio and comparison links must expose their record even after archive filters hide it.
+  $('#record-main').addEventListener('click',event=>{
+    const anchor=event.target.closest('a[href^="#record-"]');
+    if(!anchor)return;
+    const id=decodeURIComponent(anchor.getAttribute('href').slice('#record-'.length));
+    if(!recordsById.has(id))return;
+    $('#record-search').value='';
+    $('#family-picker').value='all';
+    $('#status-picker').value='all';
+    renderCatalog();
+    const target=document.getElementById('record-'+id);
+    if(target){
+      event.preventDefault();
+      history.replaceState(null,'',anchor.getAttribute('href'));
+      target.scrollIntoView({block:'start',behavior:'instant'});
+      const disclosure=target.querySelector('details');
+      if(disclosure)disclosure.open=true;
+      target.setAttribute('tabindex','-1');
+      target.focus({preventScroll:true});
+    }
+  });
   $('#manager-picker').addEventListener('change',e=>{selectedManager=e.target.value;syncManager()});
   $('#manager-filters').addEventListener('click',e=>{
    const btn=e.target.closest('button[data-pf]');if(!btn)return;
