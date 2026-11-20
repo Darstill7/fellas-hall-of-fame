@@ -60,6 +60,11 @@ const scanGit=p=>{
  try{const raw=execFileSync('git',['log','-1','--format=%cI|%h','--',p],{encoding:'utf8'}).trim();const [at,commit]=raw.split('|');return {at:at||'unknown',commit:commit||'unknown'};}catch{return {at:'unavailable',commit:'unavailable'}}
 };
 const mode=process.argv.slice(2);
+const stagedArgument=mode.find(x=>x.startsWith('--staged-week='));
+const stagedWeek=stagedArgument?Number(stagedArgument.split('=')[1]):null;
+if(stagedArgument&&(!Number.isInteger(stagedWeek)||stagedWeek<1||stagedWeek>14))
+ throw Error('Staged review week must be an integer from 1 to 14');
+const pendingReviewWeek=stagedWeek!==null&&stagedWeek>week?stagedWeek:null;
 if(mode.includes('--write')){
  fs.writeFileSync(snapshotPath,output);console.log('Wrote '+snapshotPath+'; '+details.length+' monitored sections, '+errors.length+' blocking stale');
 }else if(mode.includes('--check')){
@@ -68,11 +73,11 @@ if(mode.includes('--write')){
  if(errors.length)throw Error('Blocking data freshness mismatch: '+errors.map(x=>x.id+' Week '+x.verifiedThroughWeek+' vs '+week).join(', '));
  console.log('SITE FRESHNESS PARITY PASS: '+details.length+' sections at canonical Week '+week+'; '+reviews.length+' source-review flags');
 }else if(mode.includes('--json')){
- const enriched={...report,sections:details.map(d=>({...d,lastGitChange:scanGit(d.source)}))};
+ const enriched={...report,staging:{candidateWeek:stagedWeek,awaitingApproval:pendingReviewWeek!==null},sections:details.map(d=>({...d,lastGitChange:scanGit(d.source)}))};
  console.log(JSON.stringify(enriched,null,2));
 }
 else {
- const lines=['## The Fellas — Website freshness scan','Canonical verified week: **'+week+'**','Critical stale: **'+errors.length+'** · Event review required: **'+reviews.length+'**','',
+ const lines=['## The Fellas — Website freshness scan','Canonical verified week: **'+week+'**','Critical stale: **'+errors.length+'** · Event review required: **'+reviews.length+'**',pendingReviewWeek!==null?'**PENDING COMMISSIONER REVIEW:** Week '+pendingReviewWeek+' staged; the site is still published through Week '+week+'.':(stagedWeek!==null?'Latest staged candidate: Week '+stagedWeek+' (not newer than canonical)':'Staging branch not checked by this run.'),'',
   '| Section | Verified coverage | Last Git file change | Status |','| --- | --- | --- | --- |'];
  for(const r of details){
   const git=scanGit(r.source),coverage=r.cadence==='archival'?'Archived as of '+(r.latestEventDate||'undated'):r.cadence==='event-reviewed'?'Last trade '+(r.latestEventDate||'unverified')+' / Week '+(r.verifiedThroughWeek??'?'):'Week '+r.verifiedThroughWeek;
