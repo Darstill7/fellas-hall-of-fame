@@ -1,7 +1,8 @@
 name: Stage completed Sleeper week for review
 on:
   schedule:
-    - cron: '30 14 * * 3'
+    - cron: '30 16 * * 2' # Tuesday after Monday Night Football; staged review only
+    - cron: '30 14 * * 3' # Wednesday fallback if source results finalize late
   workflow_dispatch:
 permissions:
   contents: write
