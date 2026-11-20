@@ -112,7 +112,16 @@ for(const file of proofFiles){
  assert.ok(!recoveredIds.has(String(trade.id)),'No duplicate preview trades');
  recoveredIds.add(String(trade.id));
 }
-assert.equal(parEligible.length+recoveredIds.size,24,'Expanded research-only comparison count must stay independently audited');
+const verifiedBrackets=JSON.parse(readFileSync(new URL('../data/playoff_explorer_verified_2016_2025_v1.json',import.meta.url),'utf8'));
+const startsByYear=Object.fromEntries(verifiedBrackets.seasons.filter(y=>y.year>=2020&&y.year<=2025).map(y=>[y.year,Math.min(...y.matches.filter(m=>m.round==='opening').map(m=>m.week))]));
+assert.equal(startsByYear[2020],14);
+assert.equal(startsByYear[2021],14);
+for(const year of [2022,2023,2024,2025])assert.equal(startsByYear[year],15);
+const regularOnly=parEligible.filter(t=>t.sides.every(s=>s.matched.every(p=>p.sourceWeeks.every(w=>w<startsByYear[t.year]))));
+assert.equal(regularOnly.length,13,'Five fully matched trades contain verified 2020–2021 opening playoff starts');
+assert.equal(regularOnly.length+recoveredIds.size,19,'Season-boundary-clean expanded preview must not include the contaminated five');
+assert.ok(plusMinus.includes('id="scopeRows"')&&plusMinus.includes('playoffStartByYear[2020]!==14'),'Scoreboard must expose the Week 14 postseason scope leak');
+assert.ok(plusMinus.includes('qualified=inheritedMatched.filter(cleanPeriod)'),'Scope-contaminated trades must be excluded by default');
 const diggsProof=JSON.parse(readFileSync(new URL('../data/trade_par_exception_2025_diggs_baseline_v1.json',import.meta.url),'utf8'));
 assert.equal(diggsProof.status,'source_checked_requires_scoring_baseline');
 assert.equal(diggsProof.evidence.postTradeLineupStarts,2);
