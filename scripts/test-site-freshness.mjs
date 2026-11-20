@@ -24,6 +24,13 @@ for(const row of report.sections){
  assert.match(row.sha256,/^[0-9a-f]{64}$/);
  assert(row.lastGitChange?.at&&row.lastGitChange?.commit,'Missing file history '+row.id);
 }
+if(canonicalWeek<14){
+ const staged=JSON.parse(execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--json','--staged-week='+(canonicalWeek+1)],{encoding:'utf8'}));
+ assert.equal(staged.staging.candidateWeek,canonicalWeek+1);
+ assert.equal(staged.staging.awaitingApproval,true);
+ const stagedSummary=execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--markdown','--staged-week='+(canonicalWeek+1)],{encoding:'utf8'});
+ assert.match(stagedSummary,/PENDING COMMISSIONER REVIEW/);
+}
 const human=execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--strict'],{encoding:'utf8'});
 assert.match(human,/Trade Museum/);
 assert.match(human,/Last Git file change/);
