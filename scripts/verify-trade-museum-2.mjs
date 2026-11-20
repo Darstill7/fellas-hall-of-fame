@@ -64,6 +64,22 @@ assert.ok(portfolio.includes('No qualifying acquired-player championship playoff
 assert.ok(portfolio.includes('replacement lineups were not established'),'No trade-result counterfactual claims');
 assert.ok(portfolio.includes("canonical(name)==='stilly'"),'Keeper feature must be restricted to verified named manager');
 assert.ok(html.includes('Amon-Ra as a 2026 keeper'),'Keeper note must be grounded in published museum narrative');
+assert.ok(portfolio.includes('id="tradePartner"'),'Rivalry comparison selector must exist');
+assert.ok(portfolio.includes('id="rivalryLedger"'),'Rivalry transaction ledger must exist');
+assert.ok(portfolio.includes("url.searchParams.set('partner',partner)"),'Pair selection must preserve deep links');
+assert.ok(portfolio.includes("partnerTrades.filter(complete)"),'Verified rivalry counts must use complete receipts');
+assert.ok(portfolio.includes("t.sides.length>=3"),'Three-team deals must be identified');
+assert.ok(portfolio.includes("This is not a win/loss record"),'Rivalry volume must not imply winners');
+const pairIds=new Set();
+for(const trade of curated){
+ const managers=trade.sides.map(side=>side.manager);
+ for(let i=0;i<managers.length;i++)for(let j=i+1;j<managers.length;j++){
+  const pair=[managers[i],managers[j]].sort().join('|');
+  const unique=pair+'|'+trade.id;
+  assert.ok(!pairIds.has(unique),'A trade must be counted once per manager pair: '+unique);
+  pairIds.add(unique);
+ }
+}
 const moduleScripts=[...portfolio.matchAll(/<script type="module">([\s\S]*?)<\/script>/gi)];
 assert.equal(moduleScripts.length,1,'Manager portfolios require one self-contained browser module');
 new Function('return (async()=>{'+moduleScripts[0][1]+'})');
