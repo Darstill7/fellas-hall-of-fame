@@ -832,8 +832,15 @@ body.premium-franchise .profile-firstscreen-season{
   font-variant-numeric:tabular-nums;
 }
 body.premium-franchise main>.hero .profile-career-snapshot{
-  padding:0;
+  /* Preserve the condensed scoreboard panel's inset; zero padding caused
+     fifty browser-visual failures across all managers and viewports. */
+  padding:14px 16px!important;
   margin:11px 0 7px!important;
+}
+@media(max-width:650px){
+  body.premium-franchise main>.hero .profile-career-snapshot{
+    padding:12px!important;
+  }
 }
 body.premium-franchise main>.hero .profile-career-highlights{
   margin:9px 0 5px!important;
