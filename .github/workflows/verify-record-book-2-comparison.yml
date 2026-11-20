@@ -1,0 +1,49 @@
+name: Verify Record Book 2.0 manager comparisons
+on:
+  push:
+    branches: ['feature/record-book-2-comparison-20261120']
+    paths:
+      - 'analytics/record-book-2-preview.html'
+      - 'assets/record-book-2-preview.*'
+      - 'scripts/test-record-book-2-preview.mjs'
+      - '.github/workflows/verify-record-book-2-comparison.yml'
+  pull_request:
+    paths:
+      - 'analytics/record-book-2-preview.html'
+      - 'assets/record-book-2-preview.*'
+      - 'scripts/test-record-book-2-preview.mjs'
+      - '.github/workflows/verify-record-book-2-comparison.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify research source and generate temporary preview registry
+        run: |
+          node scripts/verify-record-book-2-deep-research.mjs
+          node scripts/verify-record-book-phase2.mjs
+          node scripts/write-record-book-2-preview.mjs
+          node --check assets/record-book-2-preview.mjs
+          node --check scripts/test-record-book-2-preview.mjs
+      - name: Install Chromium and WebKit
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Exercise comparisons, record deep links and mobile layouts
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/record-2-server.log 2>&1 &
+          node scripts/test-record-book-2-preview.mjs
+      - name: Upload screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: record-book-2-comparison-screenshots
+          path: data-integrity/record-book-2-visual/
+          if-no-files-found: warn
+          retention-days: 14

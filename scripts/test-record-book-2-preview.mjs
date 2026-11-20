@@ -16,9 +16,70 @@ for(const [engine,name,width] of [[chromium,'chromium-320',320],[chromium,'chrom
   await page.goto(base,{waitUntil:'networkidle'});
   await page.locator('#manager-summary .summary').waitFor();
   assert.equal(await page.locator('#manager-picker option').count(),14);
+  assert.equal(await page.locator('#manager-summary .summary-destinations a').first().getAttribute('href'),'../managers/record-books.html?manager=Stilly');
+
   assert.equal(await page.locator('.record-card').count(),93);
+  // Manager comparison must stay source-backed, keyboard-selectable and separate from game results.
+  assert.equal(await page.locator('#compare-first option').count(),14);
+  assert.equal(await page.locator('#compare-second option').count(),14);
+  assert.equal(await page.locator('.nav-links a').first().getAttribute('href'),'records.html');
+  assert.equal(await page.locator('.record-journeys a').count(),3);
+  for(const href of ['#franchise-dossier','#manager-comparison','#record-catalog-section'])
+    assert.equal(await page.locator(href).count(),1);
+  await page.locator('#manager-picker').selectOption('Birch');
+  await page.locator('#compare-selected').click();
+  assert.equal(await page.locator('#compare-first').inputValue(),'Birch');
+  await page.locator('#compare-first').selectOption('Stilly');
+  await page.locator('#compare-second').selectOption('Stew');
+  const comparisonCount=await page.locator('.compare-card').count();
+  assert(comparisonCount>0,'Expected common ranked categories in manager comparison');
+  // Filtering and sorting preserve the underlying registry and provide useful mobile discovery.
+  const family=await page.locator('#compare-family option').nth(1).getAttribute('value');
+  await page.locator('#compare-family').selectOption(family);
+  const narrowed=await page.locator('.compare-card').count();
+  assert(narrowed<=comparisonCount);
+  await page.locator('#compare-sort').selectOption('gap');
+  assert.equal(await page.locator('.compare-card').count(),narrowed);
+  await page.locator('#compare-family').selectOption('all');
+  assert.equal(await page.locator('.compare-card').count(),comparisonCount);
+  await page.locator('#compare-swap').click();
+  assert.equal(await page.locator('#compare-first').inputValue(),'Stew');
+  assert.equal(await page.locator('#compare-second').inputValue(),'Stilly');
+  await page.locator('#compare-swap').click();
+  assert.equal(await page.locator('#compare-first').inputValue(),'Stilly');
+  assert.equal(await page.locator('#compare-second').inputValue(),'Stew');
+  assert((await page.locator('#compare-summary').innerText()).includes('shared ranked categories'));
+  await page.locator('#compare-status').selectOption('all');
+  assert((await page.locator('.compare-card').count())>=comparisonCount);
+  await page.locator('#compare-status').selectOption('existing');
+  await page.locator('#compare-second').selectOption('Stilly');
+  assert.equal(await page.locator('.compare-card').count(),0);
+  assert((await page.locator('#compare-summary').innerText()).includes('two different managers'));
+  await page.locator('#compare-second').selectOption('Stew');
+  assert((await page.locator('.compare-card').count())>0);
+  const sharedURL=new URL(page.url());
+  assert.equal(sharedURL.searchParams.get('compareA'),'Stilly');
+  assert.equal(sharedURL.searchParams.get('compareB'),'Stew');
+  // A clicked comparison record must remain reachable after a restrictive archive filter.
+  await page.locator('#record-search').fill('unlikely-never-exists-query');
+  assert.equal(await page.locator('.record-card').count(),0);
+  await page.locator('.compare-card .compare-record a').first().click();
+  assert.equal(await page.locator('#record-search').inputValue(),'');
+  assert.equal(await page.locator('#status-picker').inputValue(),'all');
+  const anchoredRecord=await page.evaluate(()=>decodeURIComponent(location.hash.slice(1)));
+  assert(anchoredRecord.startsWith('record-'));
+  assert.equal(await page.locator('[id="'+anchoredRecord+'"]').count(),1);
+  assert.equal(await page.locator('[id="'+anchoredRecord+'"] details').getAttribute('open'),'');
+  // Deep-linked comparisons must restore the selected pair on reload.
+  await page.reload({waitUntil:'networkidle'});
+  await page.locator('#manager-summary .summary').waitFor();
+  assert.equal(await page.locator('[id="'+anchoredRecord+'"] details').getAttribute('open'),'');
+  assert.equal(await page.locator('#record-search').inputValue(),'');
+  assert.equal(await page.locator('#compare-first').inputValue(),'Stilly');
+  assert.equal(await page.locator('#compare-second').inputValue(),'Stew');
   await page.locator('#manager-picker').selectOption('Birch');
   assert((await page.locator('#manager-summary').innerText()).includes('Birch'));
+  assert.equal(await page.locator('#manager-summary .summary-destinations a').first().getAttribute('href'),'../managers/record-books.html?manager=Birch');
   assert((await page.locator('#manager-results .portfolio-record').count())>0);
   const currentURL=new URL(page.url());
   assert.equal(currentURL.searchParams.get('manager'),'Birch');

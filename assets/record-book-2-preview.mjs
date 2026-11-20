@@ -42,9 +42,11 @@ function buildSummary(person){
     recordsById.get(x.id)?.family!=='Legendary').length;
  const slug=person.manager==='Thommy'?'tom':person.manager.toLowerCase();
  const isCurrent=dataset.currentManagers.includes(person.manager);
+ const officialPortfolio='../managers/record-books.html?manager='+encodeURIComponent(person.manager);
  return '<div class="summary"><div class="summary-head"><div><div class="eyebrow">Franchise record dossier</div>'
  +'<h3>'+esc(displayName(person.manager))+'</h3><p>All known category placements are generated from the same record registry as the league archive. First-place counts include historical lowlights and ties; they are not championship totals.</p></div>'
- +(isCurrent?'<a class="summary-link" href="../managers/'+encodeURIComponent(slug)+'/">Manager biography ↗</a>':'<span class="label">Historical manager</span>')
+ +'<div class="summary-destinations"><a class="summary-link" href="'+esc(officialPortfolio)+'">Published personal record book ↗</a>'
+ +(isCurrent?'<a class="summary-link" href="../managers/'+encodeURIComponent(slug)+'/">Manager biography ↗</a>':'<span class="label">Historical manager</span>')+'</div>'
  +'</div><div class="stat-row"><div class="stat"><strong>'+rows.length+'</strong><span>Known placements</span></div>'
  +'<div class="stat"><strong>'+first+'</strong><span>No. 1 ranks (all types)</span></div>'
  +'<div class="stat"><strong>'+top3+'</strong><span>Top-three marks</span></div></div>'
@@ -102,6 +104,38 @@ function renderCatalog(){
  $('#results-count').textContent=filtered.length+' of '+dataset.records.length+' record and exhibit IDs in view. Research candidates are not certified public records.';
  $('#record-catalog').innerHTML=filtered.length?filtered.map(renderRecord).join(''):'<div class="empty">No records match. Try a broader search.</div>';
 }
+
+function renderComparison(){
+ const a=$('#compare-first').value,b=$('#compare-second').value,includeResearch=$('#compare-status').value==='all';
+ if(!dataset||!a||!b)return;
+ if(a===b){$('#compare-summary').textContent='Choose two different managers for a meaningful comparison.';$('#compare-results').innerHTML='';return;}
+ const family=$('#compare-family').value,sort=$('#compare-sort').value;
+ const first=dataset.managers.find(p=>p.manager===a),second=dataset.managers.find(p=>p.manager===b);
+ if(!first||!second)return;
+ const left=new Map(first.recordPlacements.map(p=>[p.id,p]));
+ const right=new Map(second.recordPlacements.map(p=>[p.id,p]));
+ // Do not treat absent rankings as a last-place result. Compare only the intersection.
+ const common=[...left.keys()].filter(id=>right.has(id)).map(id=>({
+  id,record:recordsById.get(id),a:left.get(id),b:right.get(id)
+ })).filter(x=>x.record&&x.record.family!=='Legendary'&&(includeResearch||!isResearch(x.record))&&(family==='all'||x.record.family===family));
+ const byName=(x,y)=>x.record.title.localeCompare(y.record.title);
+ if(sort==='name')common.sort(byName);
+ else if(sort==='gap')common.sort((x,y)=>Math.abs(y.a.rank-y.b.rank)-Math.abs(x.a.rank-x.b.rank)||byName(x,y));
+ else common.sort((x,y)=>Math.min(x.a.rank,x.b.rank)-Math.min(y.a.rank,y.b.rank)||byName(x,y));
+ const ties=common.filter(x=>x.a.rank===x.b.rank).length;
+ const aAhead=common.filter(x=>x.a.rank<x.b.rank).length;
+ const bAhead=common.filter(x=>x.b.rank<x.a.rank).length;
+ $('#compare-summary').textContent=common.length+' shared ranked categories · '+a+' has the earlier listed rank in '+aAhead+' · '+b+' in '+bAhead+' · '+ties+' tied ranks. Records include unwanted outcomes, so an earlier rank is not necessarily a better performance. Missing categories are excluded.';
+ $('#compare-results').innerHTML=common.length?'<div class="compare-list">'+common.map(x=>{
+  const status=isResearch(x.record)?' · Provisional research':'';
+  const rankContext=x.a.rank===x.b.rank?'Same listed rank':x.a.rank<x.b.rank?a+' listed first':b+' listed first';
+  return '<article class="compare-card"><div class="compare-record"><a href="'+esc(link(x.id))+'">'+esc(x.record.title)+'</a><span>'+esc(x.record.family+status)+'</span></div>'
+   +'<div class="compare-marks"><div><small>'+esc(a)+'</small><strong>#'+esc(x.a.rank)+'</strong><span>'+esc(fmt(x.a.value,x.record.unit))+'</span></div>'
+   +'<div><small>'+esc(b)+'</small><strong>#'+esc(x.b.rank)+'</strong><span>'+esc(fmt(x.b.value,x.record.unit))+'</span></div></div>'
+   +'<p class="compare-outcome">'+esc(rankContext)+' · '+esc(x.record.coverage||'Coverage specified in research ledger')+'</p></article>';
+ }).join('')+'</div>':'<div class="empty">No shared ranked categories for this selection and coverage. Try other managers or include provisional research.</div>';
+}
+
 function syncManager(){
  const u=new URL(location.href);u.searchParams.set('manager',selectedManager);
  history.replaceState(null,'',u);
@@ -121,8 +155,82 @@ async function start(){
   $('#manager-picker').value=selectedManager;
   const groups=[...new Set(dataset.records.map(r=>r.family))].sort();
   $('#family-picker').innerHTML='<option value="all">All categories</option>'+groups.map(g=>'<option value="'+esc(g)+'">'+esc(g)+'</option>').join('');
+  $('#compare-family').innerHTML='<option value="all">All categories</option>'+groups.filter(g=>g!=='Legendary').map(g=>'<option value="'+esc(g)+'">'+esc(g)+'</option>').join('');
   $('#scope').textContent=dataset.records.length+' indexed records and exhibits · '+dataset.coverage.completeRankingCategories+
     ' complete statistical indexes · '+dataset.managers.length+' manager dossiers · '+dataset.cutoff;
+  const managerOptions=managers.map(m=>'<option value="'+esc(m)+'">'+esc(m)+'</option>').join('');
+  $('#compare-first').innerHTML=managerOptions;
+  $('#compare-second').innerHTML=managerOptions;
+  $('#compare-first').value=selectedManager;
+  $('#compare-second').value=managers.find(m=>m!==selectedManager)||selectedManager;
+  // Preserve comparison selections in a shareable URL, without changing canonical data.
+  const comparedA=urlParam.searchParams.get('compareA'),comparedB=urlParam.searchParams.get('compareB');
+  if(managers.includes(comparedA))$('#compare-first').value=comparedA;
+  if(managers.includes(comparedB))$('#compare-second').value=comparedB;
+  for(const id of ['#compare-first','#compare-second','#compare-status','#compare-family','#compare-sort'])$(id).addEventListener('change',()=>{
+    const url=new URL(location.href);
+    url.searchParams.set('compareA',$('#compare-first').value);
+    url.searchParams.set('compareB',$('#compare-second').value);
+    history.replaceState(null,'',url);
+    renderComparison();
+  });
+  $('#compare-swap').addEventListener('click',()=>{
+    const first=$('#compare-first').value;
+    $('#compare-first').value=$('#compare-second').value;
+    $('#compare-second').value=first;
+    const url=new URL(location.href);
+    url.searchParams.set('compareA',$('#compare-first').value);
+    url.searchParams.set('compareB',$('#compare-second').value);
+    history.replaceState(null,'',url);
+    renderComparison();
+  });
+  // A record URL should work both on click and when loaded directly from a group chat.
+  function revealRecord(id,{updateHash=false}={}){
+    if(!recordsById.has(id))return false;
+    $('#record-search').value='';
+    $('#family-picker').value='all';
+    $('#status-picker').value='all';
+    renderCatalog();
+    const target=document.getElementById('record-'+id);
+    if(!target)return false;
+    if(updateHash){
+      const u=new URL(location.href);
+      u.hash=link(id);
+      history.replaceState(null,'',u);
+    }
+    const disclosure=target.querySelector('details');
+    if(disclosure)disclosure.open=true;
+    target.setAttribute('tabindex','-1');
+    target.scrollIntoView({block:'start',behavior:'instant'});
+    target.focus({preventScroll:true});
+    return true;
+  }
+  function revealLocationRecord(){
+    if(!location.hash.startsWith('#record-'))return;
+    try{revealRecord(decodeURIComponent(location.hash.slice('#record-'.length)));}
+    catch{ /* malformed fragments should not block the archive */ }
+  }
+  // Portfolio and comparison links must expose their record even after archive filters hide it.
+  $('#record-main').addEventListener('click',event=>{
+    const anchor=event.target.closest('a[href^="#record-"]');
+    if(!anchor)return;
+    const id=decodeURIComponent(anchor.getAttribute('href').slice('#record-'.length));
+    if(recordsById.has(id)){
+      event.preventDefault();
+      revealRecord(id,{updateHash:true});
+    }
+  });
+  $('#compare-selected').addEventListener('click',()=>{
+    $('#compare-first').value=selectedManager;
+    if($('#compare-second').value===selectedManager){
+      $('#compare-second').value=managers.find(m=>m!==selectedManager)||selectedManager;
+    }
+    const url=new URL(location.href);
+    url.searchParams.set('compareA',$('#compare-first').value);
+    url.searchParams.set('compareB',$('#compare-second').value);
+    history.replaceState(null,'',url);
+    renderComparison();
+  });
   $('#manager-picker').addEventListener('change',e=>{selectedManager=e.target.value;syncManager()});
   $('#manager-filters').addEventListener('click',e=>{
    const btn=e.target.closest('button[data-pf]');if(!btn)return;
@@ -132,7 +240,9 @@ async function start(){
   });
   for(const s of ['#record-search','#family-picker','#status-picker'])
    $(s).addEventListener(s==='#record-search'?'input':'change',renderCatalog);
-  renderManager();renderCatalog();
+  renderManager();renderComparison();renderCatalog();
+  revealLocationRecord();
+  window.addEventListener('hashchange',revealLocationRecord);
  }catch(err){
   const m='Preview data unavailable: '+err.message+'. Run the review-only registry build before using this page.';
   $('#manager-summary').textContent=m;$('#manager-results').textContent='';
