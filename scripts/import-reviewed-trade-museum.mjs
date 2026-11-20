@@ -11,7 +11,7 @@ const cert=read(certPath);
 if(cert.schema!=='fellas-trade-museum-certification-v1'||cert.status!=='COMMISSIONER_APPROVED'||
  cert.year!==2026||!Number.isInteger(cert.through_week)||cert.through_week<1||cert.through_week>14||
  !Array.isArray(cert.trades)||!cert.trades.length||typeof cert.raw_candidate!=='string'||
- !cert.raw_candidate.endsWith('/2026-trades-through-week'+cert.through_week+'.json'))
+ cert.raw_candidate!=='data-integrity/sleeper-sync-candidates/2026-trades-through-week'+cert.through_week+'.json')
  throw Error('Invalid or incomplete commissioner certification');
 const raw=read(cert.raw_candidate);
 if(raw.schema!=='fellas-sleeper-raw-trade-review-v1'||raw.status!=='REVIEW_REQUIRED'||
