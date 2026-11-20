@@ -2720,10 +2720,13 @@ try{
     const sig=page.locator('#expanded-manager-records');
     await sig.locator('.records-lab-tile').first().waitFor({timeout:12000});
     const sigText=await sig.innerText();
-    // This research-only signature archive is intentionally still scoped to Week 9.
-    // Do not compare its frozen career-point ranks to the refreshed Week 10
-    // career core; those complete totals are checked on #profile below.
-    if(sigText.includes('undefined')||sigText.includes('NaN')||!sigText.includes('Research snapshot:')||!sigText.includes('Week 9')||
+    // Signature portfolio research is a separately dated archive. Check the
+    // displayed disclosure against the file's actual source coverage, never
+    // conflate it with the independently refreshed canonical career core.
+    const archiveResponse=await page.request.get(baseUrl+'data/expanded_records_verified_v1.json');
+    if(!archiveResponse.ok())errors.push(width+' expanded signature research source unavailable');
+    const researchScope=archiveResponse.ok()?(await archiveResponse.json()).scope:'';
+    if(sigText.includes('undefined')||sigText.includes('NaN')||!sigText.includes('Research snapshot:')||!sigText.includes(researchScope)||
        !sigText.includes('2017 · Week 9 vs Tony · Win')||
        !sigText.includes('2017 (3rd) · 2023 (1st) · 2024 (2nd)')||
        !sigText.includes('11 wins'))
