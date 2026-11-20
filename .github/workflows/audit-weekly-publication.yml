@@ -10,6 +10,9 @@ on:
       - 'scripts/build-current-2026-records.mjs'
       - 'scripts/build-alltime-game-records.mjs'
       - 'scripts/build-alltime-career-records.mjs'
+      - 'scripts/build-ledger-milestone-records.mjs'
+      - 'data/ledger_milestones_live_v1.json'
+      - 'assets/ledger-milestones.mjs'
       - 'data/alltime_career_records_live_v1.json'
       - 'assets/alltime-career-records.mjs'
       - 'data/alltime_game_records_live_v1.json'
@@ -65,6 +68,9 @@ jobs:
           node --check scripts/build-alltime-career-records.mjs
           node --check assets/alltime-career-records.mjs
           node scripts/build-alltime-career-records.mjs --check
+          node --check scripts/build-ledger-milestone-records.mjs
+          node --check assets/ledger-milestones.mjs
+          node scripts/build-ledger-milestone-records.mjs --check
           node scripts/verify-current-week-website.mjs
           if [ -n "$EXPECTED_WEEK" ]; then
             node scripts/audit-weekly-publication.mjs "--expected-week=$EXPECTED_WEEK"
