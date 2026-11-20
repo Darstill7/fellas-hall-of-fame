@@ -1,0 +1,49 @@
+name: Fellas unified release health
+on:
+  schedule:
+    - cron: '15 18 * * 2'
+    - cron: '15 18 * * 3'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/build-release-health-report.mjs'
+      - 'scripts/collect-release-health.mjs'
+      - 'scripts/test-release-health-report.mjs'
+      - '.github/workflows/release-health-report.yml'
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+jobs:
+  report:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate exact-SHA interpretation and missing-check safeguards
+        run: |
+          node --check scripts/collect-release-health.mjs
+          node --check scripts/build-release-health-report.mjs
+          node --check scripts/test-release-health-report.mjs
+          node scripts/test-release-health-report.mjs
+      - name: Collect read-only GitHub state and freshness evidence
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/collect-release-health.mjs /tmp/fellas-release-health-input.json
+          node scripts/build-release-health-report.mjs /tmp/fellas-release-health-input.json /tmp/fellas-release-health.json /tmp/fellas-release-health.md
+      - name: Save report for commissioner and connected automation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fellas-release-health
+          path: |
+            /tmp/fellas-release-health.json
+            /tmp/fellas-release-health.md
+          if-no-files-found: warn
+          retention-days: 30
