@@ -85,6 +85,62 @@ function renderManagerFinder(){
  const more=tag('a','See '+selected+'’s full personal record book →','record-finder-more');
  more.href=target(selected);results.append(more);
 }
+// Compare canonical expanded-category *ownership* only. The 16 legacy and
+// specialty catalogs overlap with these records and must not be summed here.
+function renderManagerComparison(){
+ if(!expandedData||!managerRows.length)return;
+ const left=document.getElementById('record-compare-left');
+ const right=document.getElementById('record-compare-right');
+ const results=document.getElementById('record-compare-results');
+ if(!left||!right||!results)return;
+ const names=[...new Set(managerRows.map(row=>row.name))];
+ const requested=new URLSearchParams(location.search).get('manager');
+ const first=names.includes(left.value)?left.value:names.includes(requested)?requested:names.includes('Stilly')?'Stilly':names[0];
+ const second=names.includes(right.value)&&right.value!==first?right.value:
+  (names.includes('Stew')&&first!=='Stew'?'Stew':names.find(n=>n!==first));
+ const populate=(select,chosen)=>{
+  select.replaceChildren();
+  for(const name of names){const option=tag('option',name);option.value=name;select.append(option)}
+  select.value=chosen;
+ };
+ populate(left,first);populate(right,second);
+ const recordMap=name=>expandedData.categories.filter(c=>
+  c.leaders.some(record=>record.rank===1&&displayName(record.manager)===name));
+ const draw=()=>{
+  results.replaceChildren();
+  if(!left.value||!right.value||left.value===right.value){
+   results.append(tag('p','Choose two different managers to compare verified record ownership.','muted'));return;
+  }
+  const a=recordMap(left.value),b=recordMap(right.value);
+  const keysA=new Set(a.map(c=>c.key)),keysB=new Set(b.map(c=>c.key));
+  const shared=a.filter(c=>keysB.has(c.key));
+  const firstOnly=a.filter(c=>!keysB.has(c.key));
+  const secondOnly=b.filter(c=>!keysA.has(c.key));
+  const scoreboard=tag('div',undefined,'record-compare-scoreboard');
+  for(const [value,label] of [[a.length,left.value+' leads'],[shared.length,'Shared first-place categories'],[b.length,right.value+' leads']]){
+   const stat=tag('div',undefined,'record-compare-stat');
+   stat.append(tag('strong',String(value)),tag('span',label));
+   scoreboard.append(stat);
+  }
+  results.append(scoreboard);
+  const board=tag('div',undefined,'record-compare-evidence');
+  const groups=[[left.value+' only',firstOnly],['Shared leads',shared],[right.value+' only',secondOnly]];
+  for(const [label,categoriesOwned] of groups){
+   const section=tag('div');
+   section.append(tag('h3',label+' · '+categoriesOwned.length));
+   if(!categoriesOwned.length)section.append(tag('p','No categories in this group.'));
+   for(const category of categoriesOwned){
+    const link=tag('a',category.label+' →');
+    link.href='expanded-records.html?group='+encodeURIComponent(category.group)+
+     '&category='+encodeURIComponent(category.key);
+    section.append(link);
+   }
+   board.append(section);
+  }
+  results.append(board);
+ };
+ left.onchange=draw;right.onchange=draw;draw();
+}
 function chooseManager(name){
  const url=new URL(location.href);url.searchParams.set('manager',name);
  history.replaceState(null,'',url);
@@ -127,7 +183,7 @@ async function start(){
    .sort((a,b)=>b.expandedRecords.length-a.expandedRecords.length||b.records.length-a.records.length||a.name.localeCompare(b.name));
   for(const [name,records] of leadersByManager)if(!rows.some(row=>expandedName(row.name)===name))rows.push({name,records:[],expandedRecords:records});
   rows.sort((a,b)=>b.expandedRecords.length-a.expandedRecords.length||b.records.length-a.records.length||a.name.localeCompare(b.name));
-  managerRows=rows;expandedData=expanded;renderManagerFinder();
+  managerRows=rows;expandedData=expanded;renderManagerFinder();renderManagerComparison();
   fetch('../data/hall_of_fortune_2016_2026w9_v1.json').then(r=>{if(!r.ok)throw Error('Schedule Luck registry unavailable');return r.json()}).then(data=>{const ranks=data.careerScheduleSurplusNormalized||[];scheduleLuckRows=ranks;const leader=ranks[0];if(leader?.manager==='Birch'&&leader.winSurplus>0)fortuneRecord=leader;renderManagerFinder()}).catch(()=>{fortuneRecord=null});
   fetch('../data/championship_trade_awards_2020_2025_v1.json').then(response=>{if(!response.ok)throw Error('Championship trade awards unavailable');return response.json()}).then(data=>{const record=data.officialScopedRecord;if(data.schema==='fellas-championship-trade-awards-2020-2025-v1'&&record?.holder==='Stilly'&&record?.value===57.68){championshipTradeRecord=record;renderManagerFinder()}}).catch(()=>{championshipTradeRecord=null});
   fetch('../data/playoff_trade_revenge_2020_2025_v1.json').then(r=>{if(!r.ok)throw Error('Trade revenge archive unavailable');return r.json()}).then(data=>{if(data.schema==='fellas-playoff-trade-revenge-2020-2025-v1'&&data.recordA?.holder==='Thommy'&&data.recordB?.holder==='Stilly'){tradeRevenge=data;renderManagerFinder()}}).catch(()=>{tradeRevenge=null});
