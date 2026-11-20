@@ -8,6 +8,8 @@ The scheduled `.github/workflows/stage-sleeper-week.yml` checks Sleeper Tuesday 
 
 On a successful score stage, `scripts/stage-sleeper-trades.mjs` also gathers completed raw 2026 Sleeper trades into a separate `2026-trades-through-weekN.json` review candidate. These entries are **not** trade grades, verified player-name mappings, or proof of any keeper/FAAB effect.
 
+After raw receipts are staged, `scripts/review-staged-trades.mjs` compares completed provider trade IDs with the 51 audited museum receipts. It writes `2026-trade-review-through-weekN.json`, listing **new source IDs requiring commissioner review** and explicit issues for FAAB, draft-pick fields, and unmatched asset movements. A new ID is *not* an approved trade. The staging PR includes both raw receipts and this review queue. The offline contract test `scripts/test-review-staged-trades.mjs` validates known/new ID matching, three-party flags, and duplicate refusal.
+
 The read-only `audit-weekly-publication.yml` runs Tuesday/Wednesday and on relevant PRs. It reports canonical week, playoff-model week, the Trade Museum's latest documented 2026 trade and frozen starter-point methodology. It never publishes.
 
 ## Commissioner approval → complete reviewable release
@@ -35,5 +37,5 @@ The read-only `audit-weekly-publication.yml` runs Tuesday/Wednesday and on relev
 
 - No auto-merge, no publishing unreviewed scores, no invented trades, no inferred FAAB/keeper/draft assets.
 - In a missed Tuesday finalization, the Wednesday run retries; no guessed partial matchup totals.
-- The score staging candidate, release PR and historical research PRs must not be indiscriminately merged into each other.
+- The score staging candidate, trade review queue, release PR and historical research PRs must not be indiscriminately merged into each other.
 - The current workflow is scoped to the 2026 regular season. Postseason and 2027 rollover require explicitly reviewed adapters.
