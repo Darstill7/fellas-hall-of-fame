@@ -16,8 +16,7 @@ const embedded = museumHTML.match(/<script id="archive-data" type="application\/
 assert.ok(embedded,'Trade Museum must contain the embedded audit snapshot');
 const browserMuseum = JSON.parse(embedded[1]);
 assert.ok(Array.isArray(museum) && Array.isArray(browserMuseum));
-const ids = rows => rows.map(t=>String(t.id)).sort();
-assert.deepEqual(ids(browserMuseum),ids(museum),'Trade Museum browser snapshot differs from its source JSON');
+assert.deepEqual(browserMuseum,museum,'Trade Museum embedded source differs from audited source JSON; rebuild the museum before publishing');
 assert.ok(raceHTML.includes("../data/playoff_race_v1.json"),'Playoff Race must fetch the canonical projection file');
 for(let week=1;week<=canonicalWeek;week++) {
   assert.equal(games.filter(g=>g.week===week).length,5,'Canonical week '+week+' is incomplete');
