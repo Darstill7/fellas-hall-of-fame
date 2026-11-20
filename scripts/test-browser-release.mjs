@@ -2838,6 +2838,12 @@ try{
      await intercepted.fulfill({response:original,json});
     });
     await missingType.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
+    // Safari can finish network-idle before the async encyclopedia renderer settles.
+    // Inspect the completed state rather than a transient "loading" placeholder.
+    await missingType.waitForFunction(()=>{
+     const state=document.querySelector('#franchise-encyclopedia')?.getAttribute('data-encyclopedia-updated');
+     return state==='unavailable'||state==='yes';
+    },null,{timeout:12000});
     const missingTypeStatus=await missingType.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
     const missingTypeText=await missingType.locator('#franchise-encyclopedia').innerText();
     if(missingTypeStatus!=='unavailable'||!missingTypeText.includes('Pickup history unavailable'))
@@ -2855,6 +2861,10 @@ try{
      await intercepted.fulfill({response:original,json});
     });
     await corruptTrade.goto(baseUrl+route,{waitUntil:'networkidle',timeout:30000});
+    await corruptTrade.waitForFunction(()=>{
+     const state=document.querySelector('#franchise-encyclopedia')?.getAttribute('data-encyclopedia-updated');
+     return state==='unavailable'||state==='yes';
+    },null,{timeout:12000});
     const badTradeStatus=await corruptTrade.locator('#franchise-encyclopedia').getAttribute('data-encyclopedia-updated');
     const badTradeText=await corruptTrade.locator('#franchise-encyclopedia').innerText();
     if(badTradeStatus!=='unavailable'||!badTradeText.includes('Trade history unavailable')||!badTradeText.includes('Pickup history unavailable'))
