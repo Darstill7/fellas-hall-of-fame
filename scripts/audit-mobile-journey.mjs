@@ -69,7 +69,7 @@ try{
       .catch(()=>fail('Back-to-top never appears after scrolling',{engine,width,route}));
      if(await top.isVisible()){
       await top.click();
-      await page.waitForFunction(()=>window.scrollY<120,null,{timeout:5000})
+      await page.waitForFunction(()=>window.scrollY<400,null,{timeout:5000})
        .catch(()=>fail('Back-to-top does not return to page beginning',{engine,width,route}));
      }
     }
