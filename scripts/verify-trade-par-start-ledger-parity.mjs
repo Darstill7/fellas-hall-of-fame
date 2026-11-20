@@ -76,7 +76,7 @@ const report=[
  '|---|---:|---:|',
  ...[2020,2021,2022,2023,2024,2025].map(y=>'| '+y+' | '+(perYear.get(y)?.groups||0)+' | '+(perYear.get(y)?.starts||0)+' |'),
  '| **Total** | **'+playerGroups+'** | **'+starts+'** |','',
- '- All matched asset points equal the sum of their original owner/roster's lineup scoring on qualifying later weeks.',
+ '- All matched asset points equal the sum of their original receiving roster lineup scoring on qualifying later weeks.',
  '- Every record has a unique player identity on its lineup and no start is counted by two trades.',
  '- '+zeroPointStarts+' included starter observations had zero fantasy points; zero-point starters are NOT zero starts and could have negative position-relative PAR.',
  '- The position/slot-eligible weekly replacement benchmark is not supplied by this source audit and remains independently unverified.',
