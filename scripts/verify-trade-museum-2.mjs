@@ -45,9 +45,9 @@ assert.ok(!portfolio.includes('id="archive-data"'),'Portfolio must not duplicate
 for(const phrase of ['Research receipt · incomplete evidence','Latest dated receipt','?manager=','trade-museum.html?trade=']){
  assert.ok(portfolio.includes(phrase),'Missing portfolio source scope or deep link: '+phrase);
 }
-const moduleScripts=[...portfolio.matchAll(/<script type="module">([\\s\\S]*?)<\\/script>/gi)];
+const moduleScripts=[...portfolio.matchAll(/<script type="module">([\s\S]*?)<\/script>/gi)];
 assert.equal(moduleScripts.length,1,'Manager portfolios require one self-contained browser module');
-new Script(moduleScripts[0][1],{filename:'trade-portfolios-module.js'});
+new Function('return (async()=>{'+moduleScripts[0][1]+'})');
 const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)].map(x=>x[1]).filter(Boolean);
 assert.ok(scripts.length>=1,'Missing browser script');
 for(const [i,src] of scripts.entries())new Script(src,{filename:'inline-trade-museum-'+i+'.js'});
