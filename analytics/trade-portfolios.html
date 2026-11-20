@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a131b"><title>Manager Trade Portfolios | The Fellas</title>
+<meta name="description" content="Source-backed manager trade portfolios from The Fellas Trade Museum archive.">
+<style>
+:root{color-scheme:dark;--bg:#0a131b;--panel:#142734;--line:#395366;--gold:#e9c982;--text:#f5f0e8;--muted:#b5c8d2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#213849,#0a131b 60%);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--gold)}a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+header{border-bottom:1px solid var(--line);background:#0d1a25}header .bar{max-width:1080px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:16px;flex-wrap:wrap}header strong{color:var(--gold);letter-spacing:.1em}header nav{display:flex;gap:15px;flex-wrap:wrap}header nav a{min-height:44px;display:inline-flex;align-items:center;font-size:13px;font-weight:750}
+main{max-width:1080px;margin:auto;padding:34px 16px 90px}.eyebrow{text-transform:uppercase;font-size:11px;color:var(--gold);letter-spacing:.16em;font-weight:900}
+h1{font:700 clamp(37px,7vw,68px)/1.06 Georgia,serif;letter-spacing:-.04em;margin:10px 0 13px}h2{font:700 clamp(25px,4vw,38px)/1.2 Georgia,serif;margin:6px 0 13px}p{max-width:74ch}
+.lead{font-size:17px;color:#d0dee4}.muted{color:var(--muted)}.notice{padding:15px 18px;border:1px solid #826e4c;border-left:4px solid var(--gold);border-radius:12px;background:#182a35;line-height:1.65}
+.controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:28px 0 16px}.controls label{display:grid;gap:6px;font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--gold);text-transform:uppercase}.controls select{background:#132938;color:var(--text);border:1px solid #5e798b;padding:11px 14px;border-radius:10px;font:inherit;min-width:min(270px,calc(100vw - 32px));min-height:48px}.controls a{display:inline-flex;align-items:center;min-height:48px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 20px}.stat{padding:17px;background:var(--panel);border:1px solid var(--line);border-radius:13px}.stat strong{display:block;font-size:clamp(25px,4vw,36px);color:var(--gold);font-variant-numeric:tabular-nums}.stat span{font-size:12px;color:var(--muted)}
+.section-head{border-top:1px solid var(--line);padding-top:25px;margin-top:27px}.timeline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.receipt{background:linear-gradient(140deg,#1c3342,#11232f);border:1px solid #455d6e;border-radius:14px;padding:18px;min-width:0}.receipt .tag{color:var(--gold);font-size:11px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.receipt h3{font-size:20px;margin:8px 0}.receipt p{margin:8px 0;overflow-wrap:anywhere}.receipt .received{background:#0e202a;border-left:3px solid var(--gold);padding:10px 12px}.receipt .actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:13px;font-weight:800}.receipt .actions a{min-height:44px;display:inline-flex;align-items:center}.empty{background:var(--panel);padding:20px;border:1px solid var(--line);border-radius:12px}
+#status{font-size:14px}.all-managers{margin-top:30px}.manager-links{display:flex;flex-wrap:wrap;gap:8px}.manager-links a{border:1px solid #526878;background:#162b39;border-radius:9px;padding:9px 12px;text-decoration:none;min-height:44px}.manager-links a[aria-current="page"]{border-color:var(--gold);color:#fff0be}
+@media(max-width:650px){.timeline{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stat{padding:11px}.stat strong{font-size:24px}.controls{display:grid}.controls select{width:100%}}
+@media(max-width:350px){.stats{grid-template-columns:1fr}}
+</style></head>
+<body><header><div class="bar"><strong>THE FELLAS</strong><nav aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../managers/">Managers</a><a href="trade-museum.html">Trade Museum</a><a href="greatest-worst-trades.html">Greatest & Worst</a></nav></div></header>
+<main><div class="eyebrow">Trade Museum · Franchise archive</div><h1>Manager Trade<br>Portfolios</h1><p class="lead">Every documented deal has a story. Follow the players a franchise received, who else was involved, and which receipts are confirmed. This is transaction history, not a verdict on who won.</p>
+<div class="notice">Coverage is limited to the Trade Museum's current archived receipts. The latest dated transaction does <strong>not</strong> prove complete season coverage. Starter-point snapshots, where available, are historical audit checkpoints—not live production or keeper-value rankings.</div>
+<div class="controls"><label for="manager">Choose a franchise<select id="manager" aria-label="Choose manager trade portfolio"><option value="">Loading documented managers…</option></select></label><a id="franchiseLink" href="../managers/">View franchise profile →</a></div>
+<p id="status" role="status" aria-live="polite" class="muted">Reading verified museum receipts…</p>
+<div id="portfolio" hidden><div class="eyebrow" id="managerName"></div><div class="stats"><div class="stat"><strong id="total"></strong><span>Archived trades involving manager</span></div><div class="stat"><strong id="complete"></strong><span>Complete verified receipts</span></div><div class="stat"><strong id="seasons"></strong><span>Seasons represented</span></div></div>
+<section class="section-head" aria-labelledby="historyHeading"><div class="eyebrow">The transaction ledger</div><h2 id="historyHeading">Documented acquisitions</h2><p class="muted" id="coverage"></p><div class="timeline" id="timeline"></div></section></div>
+<section class="all-managers section-head" aria-label="Other manager trade portfolios"><div class="eyebrow">Continue exploring</div><h2>Another franchise's history</h2><div class="manager-links" id="managerLinks"></div></section>
+</main>
+<script type="module">
+const $=id=>document.getElementById(id);
+const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const canonical=name=>String(name||'').toLowerCase()==='thommy'?'tom':String(name||'').toLowerCase();
+const complete=trade=>trade.sides.length>=2&&new Set(trade.sides.map(s=>s.manager)).size===trade.sides.length&&trade.sides.every(s=>s.source_status==='VERIFIED_SOURCE'&&typeof s.assets==='string'&&s.assets.trim());
+const active=new Set(['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott']);
+const profileUrl=name=>active.has(canonical(name))?'../managers/'+encodeURIComponent(canonical(name))+'/':'record-books.html?manager='+encodeURIComponent(name==='EvansBrandon'?'Evans':name);
+let archive=[];
+function render(name){
+ const selected=archive.find(t=>t.sides.some(s=>canonical(s.manager)===canonical(name)));
+ const options=[...$('manager').options];
+ const option=options.find(o=>canonical(o.value)===canonical(name));
+ if(!option){$('status').textContent='No archived receipts found for that manager. Choose another franchise.';$('portfolio').hidden=true;return}
+ name=option.value;$('manager').value=name;
+ const trades=archive.filter(t=>t.sides.some(s=>canonical(s.manager)===canonical(name))).sort((a,b)=>b.date.localeCompare(a.date));
+ const verified=trades.filter(complete),years=new Set(trades.map(t=>t.year));
+ $('portfolio').hidden=false;$('managerName').textContent=name+' · Museum portfolio';$('total').textContent=trades.length.toLocaleString();$('complete').textContent=verified.length.toLocaleString();$('seasons').textContent=years.size.toLocaleString();$('franchiseLink').href=profileUrl(name);
+ $('status').textContent='Viewing '+name+' · '+trades.length+' documented receipts in this archived collection.';
+ $('coverage').textContent=trades.length?'Recorded seasons: '+[...years].sort().join(', ')+'. Latest dated receipt: '+trades[0].date+'. These figures describe only available museum records.':'No available transactions in this snapshot.';
+ $('timeline').innerHTML=trades.length?trades.map(t=>{
+ const own=t.sides.find(s=>canonical(s.manager)===canonical(name));
+ const others=t.sides.filter(s=>canonical(s.manager)!==canonical(name)).map(s=>s.manager).join(' · ');
+ const raw=own.raw_starter_points==null?'Not audited':Number(own.raw_starter_points).toFixed(2)+' audit-snapshot starter points';
+ const status=complete(t)?'Documented complete exchange':'Research receipt · incomplete evidence';
+ return '<article class="receipt"><div class="tag">'+escapeHtml(t.year)+' · Week '+escapeHtml(t.week??'?')+' · '+escapeHtml(status)+'</div><h3>'+escapeHtml(t.date)+'</h3><p class="muted">With '+escapeHtml(others||'unconfirmed counterparty')+'</p><p class="received"><strong>Received</strong><br>'+escapeHtml(own.assets||'Assets not established')+'</p><p class="muted">'+escapeHtml(raw)+'</p><div class="actions"><a href="trade-museum.html?trade='+encodeURIComponent(String(t.id))+'">Open source receipt →</a><a href="'+escapeHtml(profileUrl(name))+'">Franchise profile →</a></div></article>';
+ }).join(''):'<p class="empty">No documented exchanges for this manager.</p>';
+ $('managerLinks').innerHTML=options.filter(o=>o.value).map(o=>'<a '+(o.value===name?'aria-current="page" ':'')+'href="?manager='+encodeURIComponent(o.value)+'">'+escapeHtml(o.value)+'</a>').join('');
+ const url=new URL(window.location.href);url.searchParams.set('manager',name);window.history.replaceState(null,'',url);
+}
+try{
+ const response=await fetch('trade-museum.html',{cache:'no-store'});if(!response.ok)throw Error('Archive could not be read (HTTP '+response.status+')');
+ const html=await response.text();const doc=new DOMParser().parseFromString(html,'text/html');
+ const node=doc.querySelector('#archive-data');if(!node)throw Error('Archived transaction source is unavailable');
+ archive=JSON.parse(node.textContent);if(!Array.isArray(archive))throw Error('Invalid archive source');
+ const names=[...new Set(archive.flatMap(t=>t.sides.map(s=>s.manager)))].sort((a,b)=>a.localeCompare(b));
+ $('manager').innerHTML=names.map(n=>'<option value="'+escapeHtml(n)+'">'+escapeHtml(n)+'</option>').join('');
+ $('manager').addEventListener('change',()=>render($('manager').value));
+ const requested=new URL(window.location.href).searchParams.get('manager');
+ render(names.find(n=>canonical(n)===canonical(requested))||names.find(n=>canonical(n)==='stilly')||names[0]);
+}catch(error){$('status').textContent='Museum receipts are unavailable right now; no portfolio totals have been estimated. '+error.message;$('portfolio').hidden=true}
+</script></body></html>
