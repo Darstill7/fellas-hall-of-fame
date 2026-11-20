@@ -182,25 +182,40 @@ async function start(){
     history.replaceState(null,'',url);
     renderComparison();
   });
-  // Portfolio and comparison links must expose their record even after archive filters hide it.
-  $('#record-main').addEventListener('click',event=>{
-    const anchor=event.target.closest('a[href^="#record-"]');
-    if(!anchor)return;
-    const id=decodeURIComponent(anchor.getAttribute('href').slice('#record-'.length));
-    if(!recordsById.has(id))return;
+  // A record URL should work both on click and when loaded directly from a group chat.
+  function revealRecord(id,{updateHash=false}={}){
+    if(!recordsById.has(id))return false;
     $('#record-search').value='';
     $('#family-picker').value='all';
     $('#status-picker').value='all';
     renderCatalog();
     const target=document.getElementById('record-'+id);
-    if(target){
+    if(!target)return false;
+    if(updateHash){
+      const u=new URL(location.href);
+      u.hash=link(id);
+      history.replaceState(null,'',u);
+    }
+    const disclosure=target.querySelector('details');
+    if(disclosure)disclosure.open=true;
+    target.setAttribute('tabindex','-1');
+    target.scrollIntoView({block:'start',behavior:'instant'});
+    target.focus({preventScroll:true});
+    return true;
+  }
+  function revealLocationRecord(){
+    if(!location.hash.startsWith('#record-'))return;
+    try{revealRecord(decodeURIComponent(location.hash.slice('#record-'.length)));}
+    catch{ /* malformed fragments should not block the archive */ }
+  }
+  // Portfolio and comparison links must expose their record even after archive filters hide it.
+  $('#record-main').addEventListener('click',event=>{
+    const anchor=event.target.closest('a[href^="#record-"]');
+    if(!anchor)return;
+    const id=decodeURIComponent(anchor.getAttribute('href').slice('#record-'.length));
+    if(recordsById.has(id)){
       event.preventDefault();
-      history.replaceState(null,'',anchor.getAttribute('href'));
-      target.scrollIntoView({block:'start',behavior:'instant'});
-      const disclosure=target.querySelector('details');
-      if(disclosure)disclosure.open=true;
-      target.setAttribute('tabindex','-1');
-      target.focus({preventScroll:true});
+      revealRecord(id,{updateHash:true});
     }
   });
   $('#compare-selected').addEventListener('click',()=>{
@@ -224,6 +239,8 @@ async function start(){
   for(const s of ['#record-search','#family-picker','#status-picker'])
    $(s).addEventListener(s==='#record-search'?'input':'change',renderCatalog);
   renderManager();renderComparison();renderCatalog();
+  revealLocationRecord();
+  window.addEventListener('hashchange',revealLocationRecord);
  }catch(err){
   const m='Preview data unavailable: '+err.message+'. Run the review-only registry build before using this page.';
   $('#manager-summary').textContent=m;$('#manager-results').textContent='';
