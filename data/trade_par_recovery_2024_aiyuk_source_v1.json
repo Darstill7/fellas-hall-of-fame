@@ -1,0 +1,72 @@
+{
+  "schema": "fellas-par-missing-starter-evidence-v1",
+  "status": "source_checked_pending_integration",
+  "sourcePlatform": "Sleeper",
+  "accessMethod": "Flaim Fantasy historical Sleeper roster",
+  "season": 2024,
+  "leagueId": "1134248931308802048",
+  "rosterId": "3",
+  "rosterOwner": "thommy",
+  "manager": "Tom",
+  "tradeId": "1152708228883660800",
+  "tradeWeek": 7,
+  "tradeDate": "2024-10-22",
+  "player": {
+    "name": "Brandon Aiyuk",
+    "sleeperPlayerId": "6803"
+  },
+  "evidence": {
+    "scope": "Regular-season Weeks 8–14, strictly after trade Week 7",
+    "weeklyRosterObservations": [
+      {
+        "week": 7,
+        "slot": "present_on_roster_snapshot",
+        "points": 3.3,
+        "excludedReason": "Transaction week is outside the later-week PAR window"
+      },
+      {
+        "week": 8,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 9,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 10,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 11,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 12,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 13,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 14,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      }
+    ],
+    "verifiedPostTradeStarts": 0,
+    "verifiedPostTradeStarterPoints": 0
+  },
+  "notes": [
+    "Weeks 8–14 snapshots for Tom roster 3 do not show Brandon Aiyuk among starters, bench, reserve or taxi.",
+    "Absence from Tom's historical roster snapshot does not establish drop date or another owner.",
+    "Week 7 roster observation is excluded by strictly later-week PAR rule.",
+    "Status remains pending full source audit; no +/- score is changed."
+  ]
+}
