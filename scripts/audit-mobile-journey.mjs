@@ -62,6 +62,7 @@ try{
        return {ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05),fg,bg};
       });
       if(contrast)expect(contrast.ratio>=4.5,'Franchise Archives ribbon fails readable text contrast',{engine,width,route,contrast});
+      expect(!(await page.locator('main>.hero>.eyebrow').isVisible()),'Redundant franchise label collides with archive eyebrow',{engine,width,route});
      }
      const name=(route||'home').replace(/[^a-z0-9]+/gi,'-').replace(/-$/,'');
      if(['','managers/','managers/stilly/','managers/record-books.html?manager=Stilly#career-first','analytics/records.html','analytics/record-holders.html'].includes(route)){
