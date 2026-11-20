@@ -113,6 +113,11 @@ for(const file of proofFiles){
  recoveredIds.add(String(trade.id));
 }
 assert.equal(parEligible.length+recoveredIds.size,24,'Expanded research-only comparison count must stay independently audited');
+const diggsProof=JSON.parse(readFileSync(new URL('../data/trade_par_exception_2025_diggs_baseline_v1.json',import.meta.url),'utf8'));
+assert.equal(diggsProof.status,'source_checked_requires_scoring_baseline');
+assert.equal(diggsProof.evidence.postTradeLineupStarts,2);
+assert.equal(diggsProof.evidence.postTradeStarterPoints,7.1);
+assert.ok(!recoveredIds.has(diggsProof.tradeId),'Unresolved Diggs weekly replacement baseline must not be included in expanded preview');
 
 assert.ok(plusMinus.includes('id="coverageRows"')&&plusMinus.includes('renderCoverage()'),'Trade +/- must report yearly source coverage');
 assert.ok(plusMinus.includes('id="recoveryRows"')&&plusMinus.includes('renderRecovery()'),'Unmatched trade research queue must remain discoverable');
