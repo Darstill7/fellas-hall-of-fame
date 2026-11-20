@@ -17,6 +17,8 @@ on:
       - 'data/trade_par_recovery_2024_aiyuk_source_v1.json'
       - 'data/trade_par_recovery_2025_tuten_source_v1.json'
       - 'scripts/verify-trade-par-roster-proofs.mjs'
+      - 'scripts/verify-trade-par-start-ledger-parity.mjs'
+      - 'data/player_starts_20*.json'
       - 'scripts/audit-trade-par-promotion-candidates.mjs'
       - 'data/trade_par_exception_2025_evans_zero_point_start_v1.json'
       - 'data/trade_par_exception_2025_diggs_baseline_v1.json'
@@ -46,6 +48,8 @@ jobs:
         run: node scripts/verify-trade-par-roster-proofs.mjs --github-summary
       - name: Preflight four zero-start candidate PAR comparisons without publication
         run: node scripts/audit-trade-par-promotion-candidates.mjs --github-summary
+      - name: Independently reconcile post-trade starter points with historical lineup ledgers
+        run: node scripts/verify-trade-par-start-ledger-parity.mjs --github-summary
       - name: Install browser runtime for mobile museum checks
         run: |
           npm install --no-save playwright@1.56.1
