@@ -1,0 +1,58 @@
+{
+  "schema": "fellas-par-missing-starter-evidence-v1",
+  "status": "source_checked_pending_integration",
+  "sourcePlatform": "Sleeper",
+  "accessMethod": "Flaim Fantasy historical Sleeper roster",
+  "season": 2024,
+  "leagueId": "1134248931308802048",
+  "rosterId": "6",
+  "rosterOwner": "huppdawg80",
+  "manager": "Mitch",
+  "tradeId": "1159892809005076480",
+  "tradeWeek": 10,
+  "tradeDate": "2024-11-09",
+  "player": {
+    "name": "Raheem Mostert",
+    "sleeperPlayerId": "2749"
+  },
+  "evidence": {
+    "scope": "Regular-season Weeks 11–14, strictly after trade Week 10",
+    "weeklyRosterObservations": [
+      {
+        "week": 10,
+        "slot": "starter",
+        "points": 4.4,
+        "excludedReason": "Transaction week not measured"
+      },
+      {
+        "week": 11,
+        "slot": "bench",
+        "points": -0.2
+      },
+      {
+        "week": 12,
+        "slot": "bench",
+        "points": 0.7
+      },
+      {
+        "week": 13,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 14,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      }
+    ],
+    "verifiedPostTradeStarts": 0,
+    "verifiedPostTradeStarterPoints": 0
+  },
+  "notes": [
+    "The acquisition-week appearance is outside the measured post-trade PAR window.",
+    "Weeks 11 and 12 had bench appearances, not credited starts.",
+    "Weeks 13 and 14 did not show Mostert in this manager's historical roster; this is an absence from the snapshot, not proof of a drop date or destination.",
+    "The original PAR record already matches Kuhl's Nick Chubb side; full grade promotion remains subject to scoring provenance and audit review.",
+    "Source-backed candidate only; do not silently convert raw v9 trade scores into measured PAR."
+  ]
+}
