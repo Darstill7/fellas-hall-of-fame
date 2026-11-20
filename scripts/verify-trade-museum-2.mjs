@@ -102,6 +102,12 @@ assert.ok(plusMinus.includes('Never substitute zeros or partial PAR'),'Unmatched
 assert.ok(plusMinus.includes("side.fullyMatched===true"),'Recovery queue must classify receiving-side evidence');
 const incompleteTwo=parData.records.filter(t=>t.year>=2020&&t.year<=2025&&t.sides.length===2&&!parEligible.some(q=>String(q.id)===String(t.id)));
 assert.equal(incompleteTwo.length,23,'Audit queue coverage changed; verify reconciliation to eligible PAR source');
+const triageScript=readFileSync(new URL('audit-trade-par-recovery.mjs',import.meta.url),'utf8');
+assert.ok(triageScript.includes("assert.equal(eligible.length+queue.length"),'Source-review audit must reconcile complete-era counts');
+assert.ok(triageScript.includes("others=(evidence.get(t.year"),'Same-year player-name hints must be labeled as review leads');
+assert.ok(triageScript.includes('not proof')&&triageScript.includes('Never substitute a zero'),'Research queue cannot fabricate PAR');
+new Script(triageScript.replace(/^import .*;$/gm,''),{filename:'audit-trade-par-recovery.mjs'});
+
 assert.equal(incompleteTwo.filter(t=>t.sides.filter(s=>s.fullyMatched===true).length===1).length,18,'One-side research bucket changed');
 assert.equal(incompleteTwo.filter(t=>t.sides.filter(s=>s.fullyMatched===true).length===0).length,5,'Both-sides research bucket changed');
 for(const t of incompleteTwo){
