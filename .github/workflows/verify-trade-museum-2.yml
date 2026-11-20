@@ -48,7 +48,7 @@ jobs:
         run: node scripts/audit-trade-par-historical-crosswalk.mjs --github-summary
       - name: Validate historical roster proof windows and provenance
         run: node scripts/verify-trade-par-roster-proofs.mjs --github-summary
-      - name: Preflight four zero-start candidate PAR comparisons without publication
+      - name: Preflight six zero-start candidate PAR comparisons without publication
         run: node scripts/audit-trade-par-promotion-candidates.mjs --github-summary
       - name: Independently reconcile post-trade starter points with historical lineup ledgers
         run: node scripts/verify-trade-par-start-ledger-parity.mjs --github-summary
