@@ -4,6 +4,8 @@ on:
     paths:
       - 'analytics/trade-museum.html'
       - 'analytics/trade-portfolios.html'
+      - 'analytics/trade-plus-minus.html'
+      - 'data/trade_par_preview.json'
       - 'analytics/greatest-worst-trades.html'
       - 'scripts/verify-trade-museum-2.mjs'
       - 'scripts/test-browser-trade-museum-2.mjs'
