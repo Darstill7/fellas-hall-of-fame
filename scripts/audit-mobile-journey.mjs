@@ -59,6 +59,20 @@ try{
      steps.push({engine,width,route,title:status.title,scroll:status.scroll,viewport:status.viewport});
     }
     for(const route of routes)await visit(route);
+    // Visual-review regression: fixed Top control must not cover first-screen CTA.
+    for(const route of ['analytics/records.html','analytics/record-holders.html']){
+     await visit(route);
+     const top=page.locator('a.record-recovery');
+     expect(!(await top.isVisible()),'Back-to-top control obscures first screen',{engine,width,route});
+     await page.evaluate(()=>window.scrollTo(0,1100));
+     await page.waitForFunction(()=>document.querySelector('a.record-recovery')?.classList.contains('is-visible'),null,{timeout:5000})
+      .catch(()=>fail('Back-to-top never appears after scrolling',{engine,width,route}));
+     if(await top.isVisible()){
+      await top.click();
+      await page.waitForFunction(()=>window.scrollY<120,null,{timeout:5000})
+       .catch(()=>fail('Back-to-top does not return to page beginning',{engine,width,route}));
+     }
+    }
     // Real tap: homepage mobile menu should expose canonical league records.
     await visit('');
     const menu=page.locator('details.mobile-menu>summary');
@@ -91,6 +105,7 @@ try{
     expect(await page.locator('#owned-records').count()===1,'Personal league records section absent',{engine,width});
     // Record Holders manager finder, family search and two-manager comparison.
     await visit('analytics/record-holders.html');
+    expect((await page.locator('#records-cover-title').innerText()).includes('Record Holders'),'Record Holders title not distinguishable from league Record Book',{engine,width});
     await page.waitForFunction(()=>document.querySelector('#record-category-results-count')?.textContent?.includes('Showing 44 of 44'),null,{timeout:30000}).catch(()=>fail('44 verified record categories did not load',{engine,width}));
     const left=page.locator('#record-compare-left'),right=page.locator('#record-compare-right');
     if(await left.locator('option').count()>1){
