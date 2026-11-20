@@ -141,18 +141,25 @@ for(const c of records.values()){
   count:rows.length,leaders,holders});
 }
 const schema={schema:'fellas-phase2-record-research-v1',status:'provisional-not-published',
- source,sourceUpdated:ledger.updated,updated:'2026-11-11',
- rules:['Regular season only; 2026 W9 is the active incomplete season.',
+ source,sourceUpdated:ledger.updated,updated:ledger.updated,
+ rules:['Regular season only; 2026 through Week '+currentWeek+' is the active incomplete season.',
   '2016 has eight scored managers; ordinary subsequent weeks have ten.',
   '2020 and 2021 Week 14 excluded from weekly-ranking categories, but played matches retained for scoring and rivalry categories.',
   'A tie for first shares rank 1, and the next distinct rank is 3 when two people tie for first.',
   'Raw fantasy points across ESPN and Sleeper scoring eras are not normalized.',
   'Head-to-head rivalry streaks mean consecutive meetings, not league weeks.',
   'A zero count is not an earned record; unresolved tied scoring placements are excluded from runner-up/second-lowest titles.',
-  'Completed season records exclude all of 2026; verified provider finality of W9 does not make the season complete.'],
+  'Completed season records exclude all of 2026; verified finality of Week '+currentWeek+' does not make the season complete.'],
  coverage:{games:games.length,weeklyScoringSets:qualified.length,excludedPartialWeeks:excluded,latest2026Week:currentWeek},
  categoryCount:out.length,categories:out};
-assert.equal(schema.coverage.games,705);
-assert.equal(schema.coverage.weeklyScoringSets,142);
+// Freeze the recovered 2016–2025 research coverage while allowing completed
+// 2026 weeks to advance in five-matchup increments.
+assert.equal(games.filter(g=>g.year<2026).length,660,'Historical regular-season corpus changed unexpectedly');
+assert.equal(qualified.filter(w=>w.year<2026).length,133,'Historical complete weekly scoring sets changed unexpectedly');
+assert(Number.isInteger(currentWeek)&&currentWeek>=9&&currentWeek<=14,'Unexpected active-season week');
+assert.equal(games.filter(g=>g.year===2026).length,currentWeek*5,'Incomplete 2026 week or duplicate matchup');
+assert.equal(qualified.filter(w=>w.year===2026).length,currentWeek,'2026 weekly scoring sets incomplete');
+assert.equal(schema.coverage.games,660+currentWeek*5);
+assert.equal(schema.coverage.weeklyScoringSets,133+currentWeek);
 assert.equal(schema.categoryCount,23);
 console.log(JSON.stringify(schema,null,2));

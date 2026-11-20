@@ -84,6 +84,7 @@ function renderManagerBook(data){
   if(!sig){host.innerHTML='<h2>Signature records</h2><p class="records-lab-intro">This archived manager is not in the current ten-manager signature collection. Historical matchup records remain available above.</p>';return}
   const holders=managerLeagueHolders(data,name);
   host.innerHTML='<h2>Signature records · '+escapeHtml(name)+'</h2>'
+   +'<p class="records-lab-caveat">Research snapshot: '+escapeHtml(data.scope||'archive coverage not specified')+'. The live career totals above are derived separately from the current canonical ledger.</p>'
    +'<p class="records-lab-intro">'+holders.length+' ranked top-three entries across '+new Set(holders.map(x=>x.category.key)).size+' distinct categories (of '+data.categoryCount+'), plus separately labeled personal milestones.</p>'
    +'<div class="records-lab-grid">'+signatureTiles(data,name,6)+'</div>'
    +'<a class="records-lab-action" href="../analytics/expanded-records.html?manager='+encodeURIComponent(name)+'">See every '+escapeHtml(name)+" record and ranking →</a>";

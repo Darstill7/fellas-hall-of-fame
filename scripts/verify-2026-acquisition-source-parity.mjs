@@ -8,9 +8,13 @@ const archived=new Map(archive.weeks.flatMap(w=>w.tx.map(t=>[String(t.id),t])));
 const certifiedBids=new Map(receipts.receipts.map(t=>[String(t.id),t]));
 const canonical=read('data/unified_record_book_2016_2026.json');
 const latestWeek=Math.max(...canonical.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week));
-const currentWeeks=Array.from({length:latestWeek},(_,i)=>i+1);
-assert.deepEqual(archive.weeks.map(w=>w.week),currentWeeks,'Acquisition ledger must cover all finalized weeks');
-assert.deepEqual(receipts.weeks.map(w=>w.week),currentWeeks,'Certified FAAB receipts must cover all finalized weeks');
+const coverage=(name,weeks)=>{
+ assert.ok(weeks.length>=8&&weeks.length<=latestWeek,name+' source cannot extend beyond finalized canonical games');
+ assert.deepEqual(weeks.map(w=>w.week),Array.from({length:weeks.length},(_,i)=>i+1),name+' provider week coverage must be contiguous');
+ if(weeks.length<latestWeek)console.warn(name+' SOURCE REVIEW REQUIRED: provider receipts end Week '+weeks.length+', canonical score ledger is Week '+latestWeek+'.');
+};
+coverage('Acquisition',archive.weeks);
+coverage('FAAB',receipts.weeks);
 assert.equal(archived.size,archive.weeks.reduce((n,w)=>n+w.tx.length,0),'Duplicate archived acquisition IDs');
 assert.equal(certifiedBids.size,receipts.receipts.length,'Duplicate certified receipt IDs');
 const ids=new Set(),visitedArchived=new Set(),visitedReceipts=new Set(),rows=[];
@@ -87,4 +91,4 @@ for(const e of staging.events){
 assert.equal(staging.events.filter(e=>e.eventType==='waiver').length,6,'Six certified winning claims expected');
 assert.equal(staging.events.filter(e=>e.eventType==='waiver').reduce((n,e)=>n+e.certifiedWinningBid,0),18,'Staged Week 7 certified winning spend mismatch');
 console.log('2026 ACQUISITION SOURCE PARITY (research-only): '+JSON.stringify(rows));
-console.log('Source coverage gate: '+allMatched+' recovered provider sample acquisitions match current archive; '+allMissing+' missing; Week 8 standalone recovery sample is not completeness-certified, while independent current FAAB receipts extend through Week '+latestWeek+'.');
+console.log('Source coverage gate: '+allMatched+' recovered provider sample acquisitions match current archive; '+allMissing+' missing; standalone Week 8 sample not completeness-certified; acquisition source through Week '+archive.weeks.length+' and independent FAAB source through Week '+receipts.weeks.length+', both require separate collection for newer canonical score weeks.');

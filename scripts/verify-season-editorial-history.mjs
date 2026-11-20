@@ -15,7 +15,11 @@ for(const year of years){
  if(Number(year)<2026)assert(entry.champion,'Completed season lacks champion '+year);
 }
 assert.equal(seasons['2026'].champion,null,'2026 cannot have a finalized champion');
-assert(seasons['2026'].coverage.includes('Week 9'),'Current embedded snapshot is through Week 9');
+const ledger=JSON.parse(readFileSync(new URL('../data/unified_record_book_2016_2026.json',import.meta.url),'utf8'));
+const regular2026=ledger.games.filter(g=>g.year===2026&&g.stage==='regular');
+const latestWeek=Math.max(...regular2026.map(g=>g.week));
+assert.equal(regular2026.length,latestWeek*5,'2026 final-matchup coverage must be complete');
+assert(seasons['2026'].coverage.includes('Week '+latestWeek),'Current embedded season coverage is stale: expected Week '+latestWeek);
 assert(!html.includes('archived through completed Week 7'),'Outdated reader-facing season coverage');
 for(const id of ['season','season-buttons','headline','story','coverage','standings','highlights','seasonarchive','edition-primary','edition-secondary'])
  assert(html.includes('id="'+id+'"'),'Season selector control missing '+id);

@@ -7,10 +7,19 @@ const unified=read("data/unified_record_book_2016_2026.json");
 const placements=read("data/fellas_final_placements_2016_2025_verified.json");
 const current=["Stilly","Stew","Tom","Stover","Birch","Tony","Mitch","Kuhl","JMid","Scott"];
 const norm=n=>n==="Thommy"?"Tom":n;
-const regular=unified.games.filter(g=>g.stage==="regular"&&Number.isFinite(g.homeScore)&&Number.isFinite(g.awayScore)&&g.home!==g.away);
+const canonicalRegular=unified.games.filter(g=>g.stage==="regular"&&Number.isFinite(g.homeScore)&&Number.isFinite(g.awayScore)&&g.home!==g.away);
+// This exhibit is a historical research SNAPSHOT, not a weekly projection.
+// Verify its exact declared scope instead of pretending its 44 independently
+// curated record categories were recalculated when canonical Week 10 landed.
+const archivedWeekMatch=String(data.scope||'').match(/2026 Week ([0-9]+)/);
+assert.ok(archivedWeekMatch,'Expanded Record Book must declare an exact 2026 archival cutoff');
+const archivedWeek=Number(archivedWeekMatch[1]);
+const currentWeek=Math.max(...canonicalRegular.filter(g=>g.year===2026).map(g=>g.week));
+assert.ok(Number.isInteger(archivedWeek)&&archivedWeek>=1&&archivedWeek<=currentWeek,'Invalid archived coverage week');
+const regular=canonicalRegular.filter(g=>g.year!==2026||g.week<=archivedWeek);
 assert.equal(data.version,1);
-assert.equal(data.recoveredRegularGames,regular.length);
-assert.equal(data.gameContributions,regular.length*2);
+assert.equal(data.recoveredRegularGames,regular.length,'Archived research must reconcile against its stated Week '+archivedWeek+' source coverage');
+assert.equal(data.gameContributions,regular.length*2,'Archived game contributions must match stated scope');
 assert.equal(data.categoryCount,data.categories.length);
 assert.ok(data.categoryCount>=40,"At least 40 documented categories expected");
 assert.deepEqual([...data.currentManagers].sort(),[...current].sort());
@@ -68,4 +77,4 @@ for(const name of current){
  assert.ok(page.includes('data-expanded-records-profile="'+name+'"'),"Manager profile missing sourced signature "+name);
  assert.ok(page.includes("expanded-records.mjs"),"Manager profile missing record renderer "+name);
 }
-console.log("EXPANDED RECORDS VERIFIED: "+data.categoryCount+" categories, "+current.length+" manager profiles, "+regular.length+" recovered regular-season matchups");
+console.log("EXPANDED RECORDS VERIFIED (ARCHIVED RESEARCH): "+data.categoryCount+" categories through 2026 Week "+archivedWeek+", "+regular.length+" historic regular-season matchups; canonical approved through Week "+currentWeek+". Separate live categories must be regenerated before claiming newer coverage.");

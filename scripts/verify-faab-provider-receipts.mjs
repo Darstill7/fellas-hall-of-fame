@@ -11,8 +11,16 @@ for(const year of seasons){
  const archivedWaivers=archive.filter(x=>x.type==='waiver');
  const currentLedger=read('data/unified_record_book_2016_2026.json');
  const latestFinalizedWeek=Math.max(...currentLedger.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week));
- const expectedWeeks=year===2026?latestFinalizedWeek:18;
- if(file.year!==year||file.weeks.length!==expectedWeeks)throw Error('FAAB week coverage mismatch '+year);
+ // FAAB provider claims are independently recovered receipts, not a projection
+ // that can be extended when five new fantasy game scores become final. Never
+ // invent winning or failed bids for an uncollected week.
+ const expectedWeeks=year===2026?file.weeks.length:18;
+ if(file.year!==year||file.weeks.length!==expectedWeeks||expectedWeeks<1||expectedWeeks>18)
+  throw Error('FAAB week coverage mismatch '+year);
+ if(year===2026&&expectedWeeks>latestFinalizedWeek)
+  throw Error('FAAB provider receipt week extends beyond certified canonical game coverage');
+ if(year===2026&&expectedWeeks<latestFinalizedWeek)
+  console.warn('FAAB PROVIDER SOURCE REVIEW REQUIRED: Week '+(expectedWeeks+1)+'–'+latestFinalizedWeek+' transaction receipts not yet collected; existing FAAB research remains archived through Week '+expectedWeeks+'.');
  if(file.weeks.some((w,i)=>w.week!==i+1||w.ok!==true))throw Error('Incomplete weekly source response '+year);
  if(file.issues.length)throw Error('Unresolved FAAB provider fetch issues '+year);
  const receipts=new Map();
@@ -43,6 +51,9 @@ for(const year of seasons){
  console.log(year+': '+completed+' completed, '+failed+' failed, '+spent+' winning FAAB, '+matched+'/'+archivedWaivers.length+' archived claims matched');
 }
 const manager=read('data-integrity/faab-manager-spend-research-v1.json');
+const covered2026=read('data-integrity/faab-provider-receipts-2026.json').weeks.length;
+if(!String(manager.scope||'').includes('2026 weeks 1-'+covered2026+' (partial)'))
+ throw Error('Manager FAAB research scope does not match actual 2026 provider receipt weeks');
 if(manager.schema!=='fellas-faab-manager-spend-research-v2')throw Error('Outdated manager FAAB research');
 const metrics=['completedClaims','failedClaims','paidWins','zeroDollarWins','completedBidSpend','failedAttemptedBidTotal','completedNotInOldArchive'];
 const aggregated=new Map();
@@ -62,3 +73,4 @@ const editorial=read('data-integrity/faab-legacy-claim-verification-v1.json');
 if(editorial.cases.length!==16)throw Error('Missing FAAB editorial source receipts');
 for(const x of editorial.cases){const r=byYear.get(x.year)?.get(x.transactionId);if(!r||r.status!=='complete'||r.bid!==x.verifiedBid||!r.playerIds.includes(x.playerId)||!r.rosterIds.includes(x.rosterId)||!r.rosterMatch||!r.playerMatch)throw Error('Legacy FAAB claim not source-verified '+x.player);}
 console.log('FAAB RECEIPTS PASS: '+completedTotal+' successful and '+failedTotal+' failed claims, $'+spentTotal+' verified winning bids, '+archivedWaiversTotal+' archived claims reconciled; 16 legacy prices sourced. No skill grades.');
+console.log('FAAB SCOPE: 2026 bids verified through Week '+covered2026+' only. Game results may be more recent; no missing bids have been synthesized.');
