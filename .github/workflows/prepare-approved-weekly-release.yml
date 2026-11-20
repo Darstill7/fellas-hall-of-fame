@@ -68,6 +68,9 @@ jobs:
           node scripts/verify-weekly-ledger-parity.mjs
           node scripts/verify-current-week-website.mjs
           node scripts/audit-weekly-publication.mjs "--expected-week=$REVIEWED_WEEK"
+          # Mandatory release gate: source coverage + every SHA256 fingerprint must
+          # match the new canonical week before a PR is even created.
+          node scripts/scan-site-freshness.mjs --release-gate "--expected-week=$REVIEWED_WEEK"
           node scripts/build-weekly-commissioner-review.mjs \
             "--candidate=$CANDIDATE" \
             "--before=/tmp/fellas-week-before" \

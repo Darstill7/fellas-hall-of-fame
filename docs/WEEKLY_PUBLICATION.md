@@ -90,6 +90,20 @@ Recommended reconciliation order: (1) complete all exact-head checks on #271 and
 
 Both Week 10 candidates (public Sleeper staging branch and connected league source) currently agree on all five final matchup score pairs. That agreement is valuable verification but is not itself a publication approval. The manual release workflow records the exact staging source commit in its GitHub Actions summary; the generated historical record feeds are checked before it creates any PR.
 
+## Find the actual last update of each website section
+
+**One-click dashboard:** `analytics/site-freshness.html` displays the canonical verified week and source-derived coverage for 11 major website features. Linked source histories are on GitHub. The dashboard reads current checked-in JSON files directly; it does not claim that the file's commit timestamp is the verified week.
+
+**GitHub scheduled report:** Actions → **Scan website freshness registry** (Tuesday and Wednesday, or manually) runs `node scripts/scan-site-freshness.mjs --strict`, generates a summary table that includes each source's actual last Git committer timestamp and short commit hash, and attaches a `fellas-website-freshness-scan` JSON artifact for programmatic consumers. The workflow also inspects the separate Sleeper staging branch for a newer five-game review candidate; it reports **PENDING COMMISSIONER REVIEW** when, for example, Week 10 is staged but only Week 9 is published. A staged candidate is not treated as automatically verified or approved. Each JSON entry contains source path, consumer page, expected cadence, canonical week, source SHA256, last Git change, and either CURRENT / STALE / ERROR / REVIEW_REQUIRED / ARCHIVED / EVENT_AUDITED.
+
+**For a quick scan in any branch:** `node scripts/scan-site-freshness.mjs --json` prints the data directly; `--markdown` prints the human report; `--strict` also fails on blocking weekly coverage discrepancies. The config file `data/site_freshness_config_v1.json` is the single searchable list of source files, destination pages and refresh expectations.
+
+**After an approved weekly import:** the importer runs `--write`, generating `data/site_freshness_report_v1.json` with approved coverage and source digests, and then `--check` to enforce exact reproducibility. It is included in the reviewable release PR, but no pre-release report is claimed to exist on production yet.
+
+**Publication gate:** Before creating a commissioner release PR, `node scripts/scan-site-freshness.mjs --release-gate --expected-week=N` must pass. It verifies the exact approved week, all eight critical weekly source feeds, the presence of each consumer page, and the SHA256 manifest of every registered source. Even if a manifest is recalculated to match stale data, the gate rejects it when Playoff Race, Standings, Schedule Luck or the record feeds lag behind the approved canonical week. It **does not silently certify the Trade Museum**: a latest trade date alone is never evidence of complete transaction coverage, so transaction review remains separately required. The full synthetic release rehearsal exercises the gate, and regression tests deliberately inject an old playoff week and corrupt source manifest to prove fail-closed behavior. The scheduled/PR freshness workflow also checks the committed manifest whenever one exists; if an approved weekly release branch lacks a manifest entirely, the check fails rather than silently accepting the release.
+
+A newer Git file commit does not certify a newer fantasy week. An old Trade Museum event date means later transactions need *verification*, not that there were definitely no trades. The archival Record Book is marked ARCHIVED rather than misleadingly passing as a weekly-refresh source.
+
 ## Safety
 
 - No auto-merge, no publishing unreviewed scores, no invented trades, no inferred FAAB/keeper/draft assets.
