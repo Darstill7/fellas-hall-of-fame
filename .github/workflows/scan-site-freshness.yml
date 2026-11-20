@@ -26,15 +26,41 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Identify newer completed-week review candidate without publishing it
+        run: |
+          set -euo pipefail
+          if git fetch --no-tags origin refs/heads/automation/sleeper-weekly-stage:refs/remotes/origin/automation/sleeper-weekly-stage; then
+            node --input-type=module -e '
+              import fs from "node:fs";
+              import {execFileSync} from "node:child_process";
+              const branch="refs/remotes/origin/automation/sleeper-weekly-stage";
+              const paths=execFileSync("git",["ls-tree","-r","--name-only",branch,"data-integrity/sleeper-sync-candidates"],{encoding:"utf8"}).trim().split("\n");
+              let latest=0;
+              for(const path of paths){
+                if(!/^data-integrity\/sleeper-sync-candidates\/2026-week\d+\.json$/.test(path))continue;
+                const data=JSON.parse(execFileSync("git",["show",branch+":"+path],{encoding:"utf8"}));
+                if(data.status==="REVIEW_REQUIRED"&&data.year===2026&&data.league==="1340027406009761792"&&data.games?.length===5&&data.matchupCount===5&&Number.isInteger(data.week))
+                  latest=Math.max(latest,data.week);
+              }
+              fs.appendFileSync(process.env.GITHUB_ENV,"STAGED_WEEK="+latest+"\n");
+              console.log("Most recent validated-shape staged review candidate: Week "+latest);
+            '
+          else
+            echo 'Staging branch unavailable; cannot assert whether a newer candidate exists.' >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Scan 2026 data coverage and last Git file change
         run: |
           set -euo pipefail
           node --check scripts/scan-site-freshness.mjs
           node --check scripts/test-site-freshness.mjs
           node scripts/test-site-freshness.mjs
-          node scripts/scan-site-freshness.mjs --markdown
-          node scripts/scan-site-freshness.mjs --json > /tmp/fellas-freshness.json
-          node scripts/scan-site-freshness.mjs --strict
+          EXTRA=()
+          if [[ "${STAGED_WEEK:-0}" =~ ^([1-9]|1[0-4])$ ]]; then
+            EXTRA=("--staged-week=$STAGED_WEEK")
+          fi
+          node scripts/scan-site-freshness.mjs --markdown "${EXTRA[@]}"
+          node scripts/scan-site-freshness.mjs --json "${EXTRA[@]}" > /tmp/fellas-freshness.json
+          node scripts/scan-site-freshness.mjs --strict "${EXTRA[@]}"
       - name: Archive structured scan for machines and future reviews
         if: always()
         uses: actions/upload-artifact@v4
