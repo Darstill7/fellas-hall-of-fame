@@ -9,6 +9,13 @@ main{max-width:1080px;margin:auto;padding:32px 16px 80px}h1{font:700 clamp(37px,
 .status{color:var(--muted);font-size:13px;min-height:25px}.controls{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin:23px 0}.controls label{display:grid;gap:7px;color:var(--gold);font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.07em}.controls select{min-height:46px;background:#112734;color:var(--text);border:1px solid #647989;border-radius:9px;padding:10px;font:inherit;min-width:185px;max-width:100%}
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:24px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}.stat strong{color:var(--gold);font-size:clamp(23px,3.5vw,35px);display:block;line-height:1.2;font-variant-numeric:tabular-nums}.stat span{font-size:12px;color:var(--muted)}.section{border-top:1px solid var(--line);margin-top:24px;padding-top:24px}
 .table-scroll{overflow-x:auto;max-width:100%;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:590px;font-variant-numeric:tabular-nums}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #334c5b}th{background:#182b37;font-size:12px;color:#dfeced}tr:last-child td{border-bottom:0}tbody tr:hover{background:#182c38}td.num,th.num{text-align:right;white-space:nowrap}.gain{color:var(--gain);font-weight:850}.loss{color:var(--loss);font-weight:850}.zero{color:var(--muted)}.sub{font-size:12px;color:var(--muted)}.matrix-scroll{overflow:auto;max-width:100%;border:1px solid var(--line);border-radius:12px;margin-top:14px}.matrix-scroll table{min-width:650px}.matrix-scroll th,.matrix-scroll td{text-align:center;min-width:76px;padding:10px 9px}.matrix-scroll th:first-child{position:sticky;left:0;z-index:1;background:#1d3342;text-align:left;min-width:110px}.matrix-scroll td.na{color:#85939c}.matrix-scroll td.self{color:#8797a0;background:#142532}.matrix-scroll td a{white-space:nowrap;font-weight:850;text-decoration:none}.small{font-size:13px;color:var(--muted);line-height:1.7}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.deal{padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;min-width:0}.deal h3{font-size:18px;margin:7px 0}.deal p{margin:6px 0;overflow-wrap:anywhere}.deal a{display:inline-flex;min-height:44px;align-items:center;font-weight:800;font-size:13px}.no-data{padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.preview-toggle{margin:18px 0;background:#182d3b;border:1px solid #997f4c;border-radius:12px;padding:16px}
+.preview-toggle label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-size:15px;font-weight:750}
+.preview-toggle input{width:22px;height:22px;flex-shrink:0;accent-color:#d9bb78}
+.preview-toggle p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.6}
+.preview-state{font-weight:800;color:var(--gold);font-size:13px;margin-top:8px}
+.preview-label{font-size:11px;color:var(--gold);font-weight:800;letter-spacing:.02em}
+
 .coverage-heading{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}.coverage-table td small{display:block;color:var(--muted);font-size:11px}.coverage-bar{height:7px;border-radius:8px;background:#2c4756;overflow:hidden;margin-top:5px}.coverage-bar span{display:block;background:#d2b77b;height:100%;min-width:0}.coverage-missing{font-size:12px;color:var(--muted)}
 .recovery-controls{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:15px 0}
 .recovery-controls label{display:grid;gap:6px;font-size:12px;color:var(--gold);text-transform:uppercase;font-weight:800}
@@ -28,6 +35,8 @@ main{max-width:1080px;margin:auto;padding:32px 16px 80px}h1{font:700 clamp(37px,
 <div class="notice"><strong>Measured trade advantage, not total trade value.</strong> This is the qualifying 2020–2025 sample, not an exhaustive all-time history. Only trades where both acquired sides were fully matched are included. The measure excludes 2016–2019, 2026, incomplete and three-manager receipts, postseason results, keeper rights, FAAB, and roster counterfactuals. A missing pairing means <em>not measured</em>, not a draw or zero.</div>
 <p id="status" class="status" role="status">Loading source-qualified PAR research…</p>
 <div id="scoreboard" hidden>
+<div class="preview-toggle"><label for="includeRecovery"><input type="checkbox" id="includeRecovery">Compare with four source-backed zero-start recovery candidates (research preview)</label>
+<p>Off by default. With this enabled, the head-to-head scoreboard and manager totals include four additional trades whose unmatched players have documented zero qualifying starts. Their counterpart PAR is taken from the original audited preview. This is <strong>not</strong> the certified 18-trade leaderboard, a trade-value grade, or commissioner approval. The 2025 Mike Evans zero-point start remains excluded because it needs a replacement baseline.</p><div class="preview-state" id="previewState" role="status">Certified sample only: 18 trades.</div></div>
 <div class="stats"><div class="stat"><strong id="qualified">—</strong><span>Qualified two-manager trades</span></div><div class="stat"><strong id="pairCount">—</strong><span>Distinct measured manager pairs</span></div><div class="stat"><strong id="excluded">—</strong><span>Unqualified preview receipts</span></div></div>
 <section class="section" aria-labelledby="coverageTitle"><div class="coverage-heading"><div><div class="eyebrow">00 · Research completeness</div><h2 id="coverageTitle">What has and hasn't been measured?</h2></div></div><p class="small">Coverage refers only to recorded 2020–2025 museum transactions, not every exchange that occurred in the league. Incomplete or one-sided transactions, multi-manager trades and unresolved player identities are not scored. Counts below are source-derived and update when the archive or measurement research changes.</p><p class="small" id="exclusionReasons"></p><div class="table-scroll"><table class="coverage-table"><thead><tr><th>Season</th><th class="num">Recorded receipts</th><th class="num">Comparable +/-</th><th class="num">Not graded</th><th>Coverage</th></tr></thead><tbody id="coverageRows"></tbody></table></div></section>
 <section class="section" aria-labelledby="recoveryTitle"><div class="eyebrow">Research queue · Not graded</div><h2 id="recoveryTitle">Trades awaiting production matching</h2>
@@ -55,6 +64,35 @@ const eligible=t=>t.year>=2020&&t.year<=2025&&t.complete===true&&t.sides.length=
 let qualified=[];
 let archiveRecords=[];
 let recoveryQueue=[];
+let recoveredPreview=[];
+const activeTrades=()=>$('includeRecovery').checked?[...qualified,...recoveredPreview]:qualified;
+async function loadRecoveredPreview(parRecords){
+ const paths=['trade_par_recovery_2025_ertz_source_v1.json','trade_par_recovery_2024_mostert_source_v1.json','trade_par_recovery_2024_aiyuk_source_v1.json','trade_par_recovery_2025_tuten_source_v1.json'];
+ const proofs=await Promise.all(paths.map(async file=>{
+  const response=await fetch('../data/'+file,{cache:'no-store'});
+  if(!response.ok)throw Error('Recovered proof missing: '+file);
+  return response.json();
+ }));
+ const ids=new Set();
+ return proofs.map(proof=>{
+  if(proof.schema!=='fellas-par-missing-starter-evidence-v1'||proof.status!=='source_checked_pending_integration'||proof.evidence.verifiedPostTradeStarts!==0||proof.evidence.verifiedPostTradeStarterPoints!==0)throw Error('Source recovery proof is not approved for preview');
+  if(ids.has(proof.tradeId))throw Error('Duplicate source-recovered trade');
+  ids.add(proof.tradeId);
+  const trade=parRecords.find(t=>String(t.id)===proof.tradeId);
+  if(!trade||eligible(trade)||trade.complete||trade.sides.length!==2||trade.year!==proof.season||trade.week!==proof.tradeWeek||trade.date!==proof.tradeDate)throw Error('Source evidence and PAR trade mismatch: '+proof.tradeId);
+  const missing=trade.sides.flatMap(s=>(s.unresolved||[]).map(asset=>({manager:s.manager,asset})));
+  if(missing.length!==1||missing[0].asset!==proof.player.name||missing[0].manager!==proof.manager)throw Error('Recovery must resolve the exact single incoming asset');
+  const observations=proof.evidence.weeklyRosterObservations.filter(w=>w.week>trade.week).sort((a,b)=>a.week-b.week);
+  const expected=Array.from({length:14-trade.week},(_,i)=>trade.week+i+1);
+  if(observations.length!==expected.length||observations.some((o,i)=>o.week!==expected[i]||!['bench','absent_from_roster_snapshot'].includes(o.slot)||o.slot==='absent_from_roster_snapshot'&&o.points!==null))throw Error('Incomplete or contradictory later-week lineup evidence');
+  for(const side of trade.sides){
+   if(!Number.isFinite(side.postTradePAR)||side.matched.some(p=>p.sourceWeeks.some(week=>week<=trade.week||week>14)))throw Error('Other PAR evidence not qualified');
+   const matchSum=side.matched.reduce((sum,p)=>sum+p.par,0);
+   if(Math.abs(matchSum-side.postTradePAR)>.02)throw Error('Matched side PAR does not reconcile');
+  }
+  return {...trade,complete:true,sourceRecoveredPreview:true,sides:trade.sides.map(side=>side.manager===proof.manager?{...side,unresolved:[],fullyMatched:true,matched:[...side.matched,{asset:proof.player.name,starts:0,points:0,par:0,sourceWeeks:[]}]}:side)};
+ });
+}
 function renderRecovery(){
  const mode=$('recoveryFilter').value,season=$('recoverySeason').value;
  const list=recoveryQueue.filter(t=>(season==='all'||String(t.year)===season)&&
@@ -72,14 +110,14 @@ function renderCoverage(){
  const years=[2020,2021,2022,2023,2024,2025];
  const rows=years.map(year=>{
   const receipts=archiveRecords.filter(t=>t.year===year);
-  const measured=qualified.filter(t=>t.year===year).length;
+  const measured=activeTrades().filter(t=>t.year===year).length;
   const missing=receipts.length-measured;
   if(missing<0)throw Error('More measured trades than museum receipts for '+year);
   const pct=receipts.length?Math.round(measured/receipts.length*100):0;
   return '<tr><td>'+year+'</td><td class="num">'+receipts.length+'</td><td class="num">'+measured+'</td><td class="num">'+missing+'</td><td>'+pct+'%<div class="coverage-bar" role="img" aria-label="'+pct+' percent of archived '+year+' receipts are measured"><span style="width:'+pct+'%"></span></div></td></tr>';
  });
  const total=archiveRecords.filter(t=>years.includes(t.year)).length;
- rows.push('<tr><td><strong>2020–2025</strong></td><td class="num"><strong>'+total+'</strong></td><td class="num"><strong>'+qualified.length+'</strong></td><td class="num">'+(total-qualified.length)+'</td><td>'+Math.round(qualified.length/Math.max(1,total)*100)+'% of recorded receipts</td></tr>');
+ rows.push('<tr><td><strong>2020–2025</strong></td><td class="num"><strong>'+total+'</strong></td><td class="num"><strong>'+activeTrades().length+'</strong></td><td class="num">'+(total-activeTrades().length)+'</td><td>'+Math.round(activeTrades().length/Math.max(1,total)*100)+'% of recorded receipts</td></tr>');
  $('coverageRows').innerHTML=rows.join('');
 }
 
@@ -103,7 +141,7 @@ function render(){
  const manager=$('managerFilter').value,year=$('seasonFilter').value;
  const partner=new URL(window.location.href).searchParams.get('partner');
  const validPartner=manager!=='all'&&partner&&partner!==manager?partner:null;
- const subset=qualified.filter(t=>year==='all'||String(t.year)===year);
+ const subset=activeTrades().filter(t=>year==='all'||String(t.year)===year);
  const agg=aggregate(subset);
  const pairs=agg.pairs.filter(p=>(manager==='all'||p.a===manager||p.b===manager)&&(!validPartner||p.a===validPartner||p.b===validPartner)).sort((x,y)=>Math.abs(y.net)-Math.abs(x.net)||x.a.localeCompare(y.a));
  $('pairRows').innerHTML=pairs.length?pairs.map(p=>{
@@ -113,7 +151,7 @@ function render(){
   const documented=documentedPairCount(p.a,p.b,year);
   return '<tr><td><strong>'+name+'</strong><div class="sub">'+(manager==='all'?'Leading manager first':'Selected manager perspective')+'</div></td><td class="num '+classFor(view)+'">'+signed(view)+'</td><td class="num">'+p.n+' / '+documented+'</td><td class="num">'+signed(view/p.n)+'</td></tr>';
  }).join(''):'<tr><td colspan="4">No qualified two-manager trade measurements for this selection.</td></tr>';
- const matrixNames=[...new Set(qualified.flatMap(t=>t.sides.map(s=>canon(s.manager))))].sort((a,b)=>a.localeCompare(b));
+ const matrixNames=[...new Set(activeTrades().flatMap(t=>t.sides.map(s=>canon(s.manager))))].sort((a,b)=>a.localeCompare(b));
  const matrixByPair=new Map(agg.pairs.map(p=>[[p.a,p.b].join('|'),p]));
  $('matrixHeader').innerHTML='<tr><th scope="col">Manager</th>'+matrixNames.map(name=>'<th scope="col">'+esc(name)+'</th>').join('')+'</tr>';
  $('matrixBody').innerHTML=matrixNames.map(row=>'<tr><th scope="row">'+esc(row)+'</th>'+matrixNames.map(col=>{
@@ -125,10 +163,10 @@ function render(){
  }).join('')+'</tr>').join('');
  const managerRows=agg.managers.filter(m=>manager==='all'||m.manager===manager).sort((a,b)=>b.net-a.net);
  $('managerRows').innerHTML=managerRows.map(m=>'<tr><td><a href="trade-portfolios.html?manager='+encodeURIComponent(m.manager)+'">'+esc(m.manager)+'</a></td><td class="num '+classFor(m.net)+'">'+signed(m.net)+'</td><td class="num">'+m.n+'</td><td class="num">'+m.wins+'</td><td class="num">'+m.losses+'</td></tr>').join('')||'<tr><td colspan="5">No qualifying sample for this manager.</td></tr>';
- const selected=qualified.filter(t=>(year==='all'||String(t.year)===year)&&(manager==='all'||t.sides.some(s=>canon(s.manager)===manager))&&(!validPartner||t.sides.some(s=>canon(s.manager)===validPartner))).sort((a,b)=>b.date.localeCompare(a.date));
+ const selected=activeTrades().filter(t=>(year==='all'||String(t.year)===year)&&(manager==='all'||t.sides.some(s=>canon(s.manager)===manager))&&(!validPartner||t.sides.some(s=>canon(s.manager)===validPartner))).sort((a,b)=>b.date.localeCompare(a.date));
  $('tradeRows').innerHTML=selected.map(t=>{
   const [a,b]=t.sides;const gap=a.postTradePAR-b.postTradePAR;const lead=gap>=0?a:b,low=gap>=0?b:a;
-  return '<article class="deal"><div class="eyebrow">'+esc(t.year)+' · Week '+esc(t.week)+' · '+esc(t.date)+'</div><h3>'+esc(canon(lead.manager))+' vs '+esc(canon(low.manager))+'</h3><p class="'+classFor(Math.abs(gap))+'">+'+Math.abs(gap).toFixed(2)+' observed PAR for '+esc(canon(lead.manager))+'</p><p>'+esc(canon(a.manager))+': '+esc(a.assets)+' ('+a.postTradePAR.toFixed(2)+' PAR)</p><p>'+esc(canon(b.manager))+': '+esc(b.assets)+' ('+b.postTradePAR.toFixed(2)+' PAR)</p><a href="trade-museum.html?trade='+encodeURIComponent(String(t.id))+'">Inspect source receipt →</a></article>';
+  return '<article class="deal"><div class="eyebrow">'+(t.sourceRecoveredPreview?'<span class="preview-label">RESEARCH PREVIEW · NOT CERTIFIED</span> · ':'')+esc(t.year)+' · Week '+esc(t.week)+' · '+esc(t.date)+'</div><h3>'+esc(canon(lead.manager))+' vs '+esc(canon(low.manager))+'</h3><p class="'+classFor(Math.abs(gap))+'">+'+Math.abs(gap).toFixed(2)+' observed PAR for '+esc(canon(lead.manager))+'</p><p>'+esc(canon(a.manager))+': '+esc(a.assets)+' ('+a.postTradePAR.toFixed(2)+' PAR)</p><p>'+esc(canon(b.manager))+': '+esc(b.assets)+' ('+b.postTradePAR.toFixed(2)+' PAR)</p><a href="trade-museum.html?trade='+encodeURIComponent(String(t.id))+'">Inspect source receipt →</a></article>';
  }).join('')||'<p class="no-data">No qualifying measured trades for this selection.</p>';
  const url=new URL(window.location.href);
  if(manager==='all'){url.searchParams.delete('manager');url.searchParams.delete('partner')}else url.searchParams.set('manager',manager);
@@ -154,6 +192,8 @@ try{
  if(!Array.isArray(archiveRecords))throw Error('Invalid museum transaction archive');
  qualified=data.records.filter(eligible);
  if(!qualified.length)throw Error('No fully matched transactions');
+ try{recoveredPreview=await loadRecoveredPreview(data.records)}
+ catch(err){recoveredPreview=[];$('includeRecovery').disabled=true;$('previewState').textContent='Expanded research preview unavailable: '+err.message}
  const archiveById=new Map(archiveRecords.map(t=>[String(t.id),t]));
  if(archiveById.size!==archiveRecords.length)throw Error('Museum duplicate receipt IDs');
  for(const measured of qualified){
@@ -178,6 +218,10 @@ try{
  const selected=managers.find(m=>m.toLowerCase()===String(query.get('manager')||'').toLowerCase());
  if(selected)$('managerFilter').value=selected;
  if(years.some(y=>String(y)===query.get('season')))$('seasonFilter').value=query.get('season');
+ $('includeRecovery').addEventListener('change',()=>{
+  $('previewState').textContent=$('includeRecovery').checked?'EXPANDED RESEARCH PREVIEW: '+activeTrades().length+' trades · four provisional score comparisons, not certified':'Certified sample only: '+qualified.length+' trades.';
+  renderCoverage();render();
+ });
  $('managerFilter').addEventListener('change',()=>{const url=new URL(window.location.href);url.searchParams.delete('partner');history.replaceState(null,'',url);render()});$('seasonFilter').addEventListener('change',render);
  $('scoreboard').hidden=false;
  $('status').textContent='Research-scoped sample: '+qualified.length+' qualified deals out of '+data.records.length+' reviewed transactions. Updated only when the audited PAR source changes.';
