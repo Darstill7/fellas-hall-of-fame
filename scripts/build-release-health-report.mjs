@@ -8,6 +8,13 @@ const REQUIRED = [
  {key:'visual',label:'Visual first-screen gate',terms:['Visual first-screen quality gate']},
  {key:'mobile',label:'Mobile visitor journey',terms:['Full mobile visitor journey audit']}
 ];
+const REQUIRED_BY_PR={
+ 268:['canonical','visual'],
+ 271:['canonical','rehearsal','visual'],
+ 272:['canonical','rehearsal'],
+ 273:['canonical','rehearsal','freshness','mobile'],
+ 274:['canonical']
+};
 const esc=s=>String(s??'').replace(/[|\r\n]/g,' ').slice(0,200);
 const iso=x=>x||'Unknown';
 const status=run=>{
@@ -15,11 +22,13 @@ const status=run=>{
  if(run.status!=='completed')return 'PENDING';
  return run.conclusion==='success'?'PASS':run.conclusion==='skipped'?'SKIPPED':'FAIL';
 };
-function requiredChecks(runs){
+function requiredChecks(runs,number){
  const sorted=[...(runs||[])].sort((a,b)=>String(b.created_at||'').localeCompare(String(a.created_at||'')));
+ const required=new Set(REQUIRED_BY_PR[number]||['canonical']);
  return REQUIRED.map(req=>{
   const run=sorted.find(r=>req.terms.includes(r.name));
-  return {key:req.key,label:req.label,state:status(run),runId:run?.id??null,url:run?.html_url??null};
+  const isRequired=required.has(req.key);
+  return {key:req.key,label:req.label,required:isRequired,state:!run&&!isRequired?'NOT_APPLICABLE':status(run),runId:run?.id??null,url:run?.html_url??null};
  });
 }
 function recent(runs,name){
@@ -47,9 +56,9 @@ export function derive(input){
    verified:!!pages&&!!parity&&pages.head_sha===input.mainSha&&parity.head_sha===input.mainSha&&status(pages)==='PASS'&&status(parity)==='PASS'
  };
  const prs=input.prs.map(p=>{
-  const checks=requiredChecks(p.runs);
-  const failures=checks.filter(c=>c.state==='FAIL');
-  const outstanding=checks.filter(c=>c.state!=='PASS'&&c.state!=='FAIL');
+  const checks=requiredChecks(p.runs,p.number);
+  const failures=checks.filter(c=>c.required&&c.state==='FAIL');
+  const outstanding=checks.filter(c=>c.required&&c.state!=='PASS'&&c.state!=='FAIL');
   let stage;
   if(p.state!=='open')stage=p.merged?'MERGED':'CLOSED_UNMERGED';
   else if(failures.length)stage='CHECK_FAILURE';
