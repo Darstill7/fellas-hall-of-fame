@@ -98,7 +98,7 @@ assert.ok(plusMinus.includes('id="pairRows"')&&plusMinus.includes('id="managerRo
 assert.ok(plusMinus.includes("t.sides.length===2")&&plusMinus.includes("s.fullyMatched===true"),'Unqualified trade receipts must not be graded');
 assert.ok(plusMinus.includes("2016–2019")&&plusMinus.includes("three-manager receipts"),'Historical coverage omissions must stay visible');
 assert.ok(html.includes('href="trade-plus-minus.html"')&&portfolio.includes('href="trade-plus-minus.html"'),'Trade +/- must be discoverable from museum and franchise pages');
-const plusModule=[...plusMinus.matchAll(/<script type="module">([\\s\\S]*?)<\\/script>/gi)];
+const plusModule=[...plusMinus.matchAll(/<script type="module">([\s\S]*?)<\/script>/gi)];
 assert.equal(plusModule.length,1,'Trade +/- view must have one module');
 new Function('return (async()=>{'+plusModule[0][1]+'})');
 const moduleScripts=[...portfolio.matchAll(/<script type="module">([\s\S]*?)<\/script>/gi)];
