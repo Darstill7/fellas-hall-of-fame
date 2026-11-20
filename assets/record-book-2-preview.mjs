@@ -102,6 +102,34 @@ function renderCatalog(){
  $('#results-count').textContent=filtered.length+' of '+dataset.records.length+' record and exhibit IDs in view. Research candidates are not certified public records.';
  $('#record-catalog').innerHTML=filtered.length?filtered.map(renderRecord).join(''):'<div class="empty">No records match. Try a broader search.</div>';
 }
+
+function renderComparison(){
+ const a=$('#compare-first').value,b=$('#compare-second').value,includeResearch=$('#compare-status').value==='all';
+ if(!dataset||!a||!b)return;
+ if(a===b){$('#compare-summary').textContent='Choose two different managers for a meaningful comparison.';$('#compare-results').innerHTML='';return;}
+ const first=dataset.managers.find(p=>p.manager===a),second=dataset.managers.find(p=>p.manager===b);
+ if(!first||!second)return;
+ const left=new Map(first.recordPlacements.map(p=>[p.id,p]));
+ const right=new Map(second.recordPlacements.map(p=>[p.id,p]));
+ // Do not treat absent rankings as a last-place result. Compare only the intersection.
+ const common=[...left.keys()].filter(id=>right.has(id)).map(id=>({
+  id,record:recordsById.get(id),a:left.get(id),b:right.get(id)
+ })).filter(x=>x.record&&x.record.family!=='Legendary'&&(includeResearch||!isResearch(x.record)));
+ common.sort((x,y)=>Math.min(x.a.rank,x.b.rank)-Math.min(y.a.rank,y.b.rank)||x.record.title.localeCompare(y.record.title));
+ const ties=common.filter(x=>x.a.rank===x.b.rank).length;
+ const aAhead=common.filter(x=>x.a.rank<x.b.rank).length;
+ const bAhead=common.filter(x=>x.b.rank<x.a.rank).length;
+ $('#compare-summary').textContent=common.length+' shared ranked categories · '+a+' ranks higher in '+aAhead+' · '+b+' ranks higher in '+bAhead+' · '+ties+' tied ranks. Missing categories are excluded, not counted as losses.';
+ $('#compare-results').innerHTML=common.length?'<div class="compare-list">'+common.map(x=>{
+  const status=isResearch(x.record)?' · Provisional research':'';
+  const better=x.a.rank===x.b.rank?'Same rank':x.a.rank<x.b.rank?a+' higher':b+' higher';
+  return '<article class="compare-card"><div class="compare-record"><a href="'+esc(link(x.id))+'">'+esc(x.record.title)+'</a><span>'+esc(x.record.family+status)+'</span></div>'
+   +'<div class="compare-marks"><div><small>'+esc(a)+'</small><strong>#'+esc(x.a.rank)+'</strong><span>'+esc(fmt(x.a.value,x.record.unit))+'</span></div>'
+   +'<div><small>'+esc(b)+'</small><strong>#'+esc(x.b.rank)+'</strong><span>'+esc(fmt(x.b.value,x.record.unit))+'</span></div></div>'
+   +'<p class="compare-outcome">'+esc(better)+' · '+esc(x.record.coverage||'Coverage specified in research ledger')+'</p></article>';
+ }).join('')+'</div>':'<div class="empty">No shared ranked categories for this selection and coverage. Try other managers or include provisional research.</div>';
+}
+
 function syncManager(){
  const u=new URL(location.href);u.searchParams.set('manager',selectedManager);
  history.replaceState(null,'',u);
@@ -123,6 +151,12 @@ async function start(){
   $('#family-picker').innerHTML='<option value="all">All categories</option>'+groups.map(g=>'<option value="'+esc(g)+'">'+esc(g)+'</option>').join('');
   $('#scope').textContent=dataset.records.length+' indexed records and exhibits · '+dataset.coverage.completeRankingCategories+
     ' complete statistical indexes · '+dataset.managers.length+' manager dossiers · '+dataset.cutoff;
+  const managerOptions=managers.map(m=>'<option value="'+esc(m)+'">'+esc(m)+'</option>').join('');
+  $('#compare-first').innerHTML=managerOptions;
+  $('#compare-second').innerHTML=managerOptions;
+  $('#compare-first').value=selectedManager;
+  $('#compare-second').value=managers.find(m=>m!==selectedManager)||selectedManager;
+  for(const id of ['#compare-first','#compare-second','#compare-status'])$(id).addEventListener('change',renderComparison);
   $('#manager-picker').addEventListener('change',e=>{selectedManager=e.target.value;syncManager()});
   $('#manager-filters').addEventListener('click',e=>{
    const btn=e.target.closest('button[data-pf]');if(!btn)return;
@@ -132,7 +166,7 @@ async function start(){
   });
   for(const s of ['#record-search','#family-picker','#status-picker'])
    $(s).addEventListener(s==='#record-search'?'input':'change',renderCatalog);
-  renderManager();renderCatalog();
+  renderManager();renderComparison();renderCatalog();
  }catch(err){
   const m='Preview data unavailable: '+err.message+'. Run the review-only registry build before using this page.';
   $('#manager-summary').textContent=m;$('#manager-results').textContent='';
