@@ -20,6 +20,12 @@ for(const [engine,name,width] of [[chromium,'chromium-320',320],[chromium,'chrom
   // Manager comparison must stay source-backed, keyboard-selectable and separate from game results.
   assert.equal(await page.locator('#compare-first option').count(),14);
   assert.equal(await page.locator('#compare-second option').count(),14);
+  assert.equal(await page.locator('.record-journeys a').count(),3);
+  for(const href of ['#franchise-dossier','#manager-comparison','#record-catalog-section'])
+    assert.equal(await page.locator(href).count(),1);
+  await page.locator('#manager-picker').selectOption('Birch');
+  await page.locator('#compare-selected').click();
+  assert.equal(await page.locator('#compare-first').inputValue(),'Birch');
   await page.locator('#compare-first').selectOption('Stilly');
   await page.locator('#compare-second').selectOption('Stew');
   const comparisonCount=await page.locator('.compare-card').count();
