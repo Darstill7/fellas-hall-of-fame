@@ -743,6 +743,16 @@ function mountManagerSeasonPulse(){
  const hero=document.querySelector('main .hero');
  if(!hero||document.querySelector('#profile-season-pulse'))return;
  const name=profileName==='Tom'?'Thommy':profileName;
+ // A compact, source-linked season result belongs beside the career identity.
+ // Do not invent a live rank or duplicate the full standings panel.
+ const firstScreenSeason=document.createElement('p');
+ firstScreenSeason.className='profile-firstscreen-season';
+ firstScreenSeason.dataset.profileFirstscreenSeason='';
+ firstScreenSeason.setAttribute('aria-label','2026 verified season record');
+ firstScreenSeason.textContent='2026 season · Checking verified results…';
+ const lead=hero.querySelector(':scope > .lead');
+ if(lead)lead.after(firstScreenSeason);
+ else hero.querySelector('h1')?.after(firstScreenSeason);
  const pulse=document.createElement('section');
  pulse.id='profile-season-pulse';
  pulse.className='profile-season-pulse';
@@ -769,9 +779,12 @@ function mountManagerSeasonPulse(){
   stats.hidden=false;
   const match=String(season.summary||'').match(/Week\s+(\d+)/);
   const week=match?.[1]||'—';
+  const verifiedRecord=standing.w+'–'+standing.l+(standing.t?'–'+standing.t:'');
+  firstScreenSeason.textContent='2026 · '+verifiedRecord+' · Verified through Week '+week;
   pulse.querySelector('.profile-season-pulse-status').textContent='Verified through Week '+week+' · Regular season in progress';
   pulse.querySelector('.profile-season-pulse-footnote').textContent='Reconstructed regular-season standings; not official playoff seeding. Incomplete weeks are excluded.';
  }).catch(()=>{
+  firstScreenSeason.textContent='2026 results unavailable · View season center';
   pulse.querySelector('.profile-season-pulse-status').textContent='The current season snapshot is temporarily unavailable.';
   pulse.querySelector('.profile-season-pulse-footnote').textContent='See the season center for the latest verified results.';
  });
