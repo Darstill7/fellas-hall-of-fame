@@ -106,6 +106,7 @@ for(const [id,side] of [['high-streak','top'],['low-streak','bottom']]){
 for(const g of games){
  const a=norm(g.home),b=norm(g.away),sum=fromCents(cents(g.homeScore)+cents(g.awayScore));
  const ev={year:g.year,week:g.week,home:a,away:b,homeScore:g.homeScore,awayScore:g.awayScore};
+ // Rank physical matchups once; share resulting rank with both members in the manager index.
  push('combined-high',a,sum,ev,{opponent:b,year:g.year,week:g.week});
  push('combined-low',a,sum,ev,{opponent:b,year:g.year,week:g.week});
 }
@@ -125,6 +126,7 @@ for(const [pair,games] of rivalries){
    near++;close.push({year:g.year,week:g.week,pointsA:fromCents(g.sa),pointsB:fromCents(g.sb)});
   }
  }
+ // Count each rivalry pair exactly once; mirror only the personal-best entry after ranking.
  push('rival-one-point',a,near,close,{opponent:b});
 }
 const out=[];
@@ -137,8 +139,20 @@ for(const c of records.values()){
  const leaders=rows.filter(r=>r.rank<=5);
  // All tied top marks are retained; no arbitrary truncation at first place.
  const holders=rows.filter(r=>r.rank===1);
+ // Crucial for manager dossiers: top-five alone cannot supply a full personal-best index.
+ const sharedMatchup=c.id==='combined-high'||c.id==='combined-low'||c.id==='rival-one-point';
+ const expandOwners=row=>sharedMatchup&&row.opponent?
+  [row,{...row,manager:row.opponent,opponent:row.manager}]:[row];
+ const bestByManager=new Map();
+ for(const row of rows)for(const owner of expandOwners(row)){
+  const previous=bestByManager.get(owner.manager);
+  if(!previous||owner.rank<previous.rank)bestByManager.set(owner.manager,owner);
+ }
+ const managerBest=[...bestByManager.values()].sort((a,b)=>a.rank-b.rank||a.manager.localeCompare(b.manager));
+ const sharedHolders=holders.flatMap(expandOwners);
  out.push({id:c.id,title:c.title,scope:c.scope,unit:c.unit,direction,
-  count:rows.length,leaders,holders});
+  count:rows.length,leaders,holders:sharedHolders,managerBest,
+  ownershipRule:sharedMatchup?'one physical event; both participants share its competition rank':'individual outcome'});
 }
 const schema={schema:'fellas-phase2-record-research-v1',status:'provisional-not-published',
  source,sourceUpdated:ledger.updated,updated:'2026-11-11',

@@ -32,8 +32,19 @@ leader('season-weekly-highs','Mitch',5,2025);
 leader('season-weekly-lows','Thommy',6,2019);
 leader('high-streak','Evans',3,2016);
 leader('low-streak','Stew',4,2023);
-leader('combined-high','Stew',332.62,2025,10);
-leader('combined-low','Thommy',119,2017,1);
+// Both managers share one combined-score game: reject one-sided portfolio attribution.
+for(const manager of ['Mitch','Stew']){
+ const c=get('combined-high');
+ assert(c.holders.some(x=>x.manager===manager&&x.value===332.62&&x.year===2025&&x.week===10));
+}
+for(const manager of ['Thommy','Tony']){
+ const c=get('combined-low');
+ assert(c.holders.some(x=>x.manager===manager&&x.value===119&&x.year===2017&&x.week===1));
+}
+const closeRivals=get('rival-one-point');
+for(const manager of ['Stover','Tony'])
+ assert(closeRivals.holders.some(x=>x.manager===manager&&x.value===3&&
+  x.opponent===(manager==='Stover'?'Tony':'Stover')));
 const rivalry=get('rival-win-run');
 assert.equal(rivalry.holders[0].value,6);
 assert.equal(new Set(rivalry.holders.map(x=>x.manager+'|'+x.opponent)).size,6);
