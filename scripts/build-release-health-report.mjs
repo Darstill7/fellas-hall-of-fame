@@ -32,6 +32,7 @@ export function derive(input){
  if(!Number.isInteger(canonicalWeek)||canonicalWeek<1||canonicalWeek>14)throw Error('Unsupported current canonical week');
  const stagedWeek=input.staging?.candidateWeek??null;
  const stagedNewer=Number.isInteger(stagedWeek)&&stagedWeek>canonicalWeek;
+ const stagingStatus=input.staging?.status||'SOURCE_UNAVAILABLE';
  const deployments=input.mainRuns||[];
  const pages=recent(deployments,'pages build and deployment');
  const parity=recent(deployments,'Verify deployed GitHub Pages parity');
@@ -64,15 +65,17 @@ export function derive(input){
  if(blockingFreshness.length)blockers.push('Data source coverage mismatch: '+blockingFreshness.map(x=>x.title||x.id).join(', '));
  if(upstream&&!upstream.merged)blockers.push('Base weekly automation PR #271 not merged');
  if(stagedNewer)blockers.push('Week '+stagedWeek+' is staged but not approved in the published canonical ledger (Week '+canonicalWeek+')');
+ if(stagingStatus==='SOURCE_UNAVAILABLE'||stagingStatus==='UNKNOWN')blockers.push('Sleeper staging source could not be verified; no assertion that all weeks are collected');
  if(trade?.status==='REVIEW_REQUIRED')blockers.push('Trade Museum transaction coverage needs separate commissioner evidence review');
  for(const p of prs.filter(p=>p.state==='open')){
+  if(p.draft)blockers.push('PR #'+p.number+' is still draft; explicit human approval required');
   if(p.failed.length)blockers.push('PR #'+p.number+' failing: '+p.failed.join(', '));
   else if(p.pending.length)blockers.push('PR #'+p.number+' pending or missing: '+p.pending.join(', '));
  }
  if(!deployment.verified)blockers.push('Live Pages and parity not both verified for exact current main commit');
  const report={
   schema:'fellas-release-health-v1',observedAt:input.observedAt??null,mainSha:input.mainSha,
-  canonicalWeek,stagedWeek,stagedNewer,
+  canonicalWeek,stagedWeek,stagedNewer,stagingStatus,
   freshness:{criticalIssues:blockingFreshness.length,tradeMuseum:trade?.status??'NOT_SCANNED',tradeMuseumLatestEvent:trade?.latestEventDate??null},
   deployment,prs,blockers,
   overall:blockers.length?'ACTION_REQUIRED':'VERIFIED_NO_OUTSTANDING_GATES',
