@@ -15,6 +15,9 @@ on:
       - 'scripts/apply-reviewed-sleeper-week.mjs'
       - 'scripts/review-staged-trades.mjs'
       - 'scripts/test-review-staged-trades.mjs'
+      - 'scripts/import-reviewed-trade-museum.mjs'
+      - 'scripts/test-import-reviewed-trade-museum.mjs'
+      - 'scripts/verify-trade-museum-scope.mjs'
       - 'scripts/verify-current-week-website.mjs'
       - '.github/workflows/prepare-approved-weekly-release.yml'
       - '.github/workflows/audit-weekly-publication.yml'
@@ -46,6 +49,9 @@ jobs:
           node --check scripts/review-staged-trades.mjs
           node --check scripts/test-review-staged-trades.mjs
           node scripts/test-review-staged-trades.mjs
+          node --check scripts/import-reviewed-trade-museum.mjs
+          node --check scripts/test-import-reviewed-trade-museum.mjs
+          node scripts/test-import-reviewed-trade-museum.mjs
           node scripts/build-current-2026-records.mjs --check
           node scripts/verify-current-week-website.mjs
           if [ -n "$EXPECTED_WEEK" ]; then
