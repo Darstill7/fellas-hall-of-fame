@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Website Data Freshness | The Fellas</title><meta name="description" content="Source-backed coverage by page, latest verified week, and direct GitHub file history.">
+<style>
+:root{color-scheme:dark;--bg:#08131d;--card:#122838;--line:#41566a;--text:#f3f5f6;--muted:#b9c9d2;--gold:#ecc77e}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#193244,var(--bg) 60%);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text)}
+a{color:#f4d796}a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+main{width:min(1100px,100%);margin:auto;padding:24px 17px 65px}.crumbs{display:flex;gap:14px;flex-wrap:wrap;font-size:13px}
+h1{font-size:clamp(30px,6vw,48px);line-height:1.1;margin:20px 0 12px;letter-spacing:-.035em}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:800;color:var(--gold)}
+.lead{max-width:77ch;color:var(--muted);margin:0 0 20px}.panel{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:17px;margin:14px 0}
+.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.summary b{display:block;font-size:25px;font-variant-numeric:tabular-nums}.summary small{color:var(--muted)}
+.status{display:inline-block;font-size:11px;font-weight:850;letter-spacing:.035em;padding:4px 8px;border-radius:5px;border:1px solid var(--line);white-space:nowrap}
+.status.current{color:#c3efcf;border-color:#44715a}.status.review{color:#ffe2ab;border-color:#81683e}.status.archive{color:#c4ccd8;border-color:#657182}.status.stale{color:#ffbbb7;border-color:#965251}
+.overflow{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:700px;font-size:13px}
+th,td{text-align:left;padding:11px 9px;border-bottom:1px solid #344a5b;vertical-align:top}th{color:#f4d796;font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+small,.muted{color:var(--muted)}.caption{font-size:12px}.notice{border-left:3px solid var(--gold);padding:12px 14px;background:#192c39}
+@media(max-width:500px){.summary{gap:6px}.summary b{font-size:21px}.panel{padding:13px}}
+</style></head>
+<body><main><nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">The Fellas</a><a href="records.html">Record Book</a><a href="playoff-race.html">Playoff Race</a></nav>
+<p class="eyebrow">The Fellas / Data integrity</p><h1>How current is the website?</h1>
+<p class="lead">One source-backed view of what has actually been verified, instead of guessing from when a page was last edited. GitHub keeps a separate history of when each underlying file last changed.</p>
+<div class="summary" aria-label="Freshness summary"><div class="panel"><b id="canonical-week">—</b><small>Latest verified week</small></div><div class="panel"><b id="stale-count">—</b><small>Outdated weekly feeds</small></div><div class="panel"><b id="review-count">—</b><small>Event reviews needed</small></div></div>
+<section class="panel" aria-label="Detailed data sources"><h2>Page-by-page source coverage</h2><p class="caption muted" id="scan-status" role="status">Checking approved league data…</p><div class="overflow"><table><thead><tr><th>Section</th><th>Verified coverage</th><th>Status</th><th>GitHub history</th></tr></thead><tbody id="freshness-rows"><tr><td colspan="4">Loading…</td></tr></tbody></table></div></section>
+<p class="notice">A Trade Museum last-event date is not proof that every trade since that date has been imported. Historical research pages are intentionally archival. <strong>Git commit date</strong> means the file changed; <strong>verified week</strong> means league results were independently accepted.</p>
+<p class="muted">For the exact file-change timestamps and a downloadable JSON report, open <a href="https://github.com/Darstill7/fellas-hall-of-fame/actions/workflows/scan-site-freshness.yml">Website Freshness Scan on GitHub Actions</a>. All scores and trade receipts remain subject to the separate commissioner approval process.</p>
+</main>
+<script type="module">
+const el=id=>document.getElementById(id);
+const clean=String;
+const tr=(...values)=>{const row=document.createElement('tr');for(const value of values){const cell=document.createElement('td');if(typeof value==='string')cell.textContent=value;else cell.append(value);row.append(cell)}return row};
+const badge=value=>{const b=document.createElement('span');b.className='status '+(value==='CURRENT'?'current':value==='ARCHIVED'?'archive':value==='STALE'||value==='ERROR'?'stale':'review');b.textContent=value.replaceAll('_',' ');return b};
+const src=(p)=>fetch('../'+p,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(p+': HTTP '+r.status);return r.json()});
+try{
+ const config=await src('data/site_freshness_config_v1.json');
+ const ledger=await src('data/unified_record_book_2016_2026.json');
+ if(config.schema!=='fellas-site-freshness-config-v1'||!Array.isArray(ledger.games))throw Error('Unexpected site freshness schema');
+ const current=Math.max(0,...ledger.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week));
+ const results=await Promise.all(config.sections.map(async s=>{
+  try{
+   const v=await src(s.path);let w=null,lastDate=null,status='';
+   if(s.scope==='approved-2026-games')w=current;
+   else if(s.scope==='season-guide-2026')w=Number(v['2026']?.games)/5;
+   else if(['verified_through_week','currentThroughWeek','verified2026ThroughWeek'].includes(s.scope))w=Number(v[s.scope]);
+   else if(s.scope==='latest-reviewed-event'){const sorted=v.filter(t=>t.year===2026&&t.date).sort((a,b)=>b.date.localeCompare(a.date));w=sorted[0]?.week??null;lastDate=sorted[0]?.date??null}
+   else if(s.scope==='archived-as-of')lastDate=v.asOf||null;
+   if(s.cadence==='weekly-final')status=Number.isInteger(w)&&w===current?'CURRENT':'STALE';
+   else if(s.cadence==='event-reviewed')status=w<current?'REVIEW_REQUIRED':'EVENT_AUDITED';
+   else status='ARCHIVED';
+   const coverage=s.cadence==='archival'?'As of '+(lastDate||'not dated'):s.cadence==='event-reviewed'?'Last documented trade: '+(lastDate||'unknown')+' · Week '+(w??'?'):'2026 Week '+(w??'?');
+   return {meta:s,coverage,status};
+  }catch(err){return {meta:s,coverage:'Unavailable: '+String(err.message||err),status:'ERROR'}}
+ }));
+ const failures=results.filter(x=>x.meta.severity==='block'&&x.status!=='CURRENT').length;
+ const reviews=results.filter(x=>x.status==='REVIEW_REQUIRED').length;
+ el('canonical-week').textContent=current?'Week '+current:'Unknown';el('stale-count').textContent=failures;el('review-count').textContent=reviews;
+ const rows=el('freshness-rows');rows.replaceChildren();
+ for(const result of results){
+  const {meta,coverage,status}=result;
+  const name=document.createElement('a');name.href='../'+meta.page;name.textContent=meta.title;
+  const git=document.createElement('a');git.href='https://github.com/Darstill7/fellas-hall-of-fame/commits/main/'+meta.path;git.textContent='View last file changes';git.target='_blank';git.rel='noopener noreferrer';
+  rows.append(tr(name,coverage,badge(status),git));
+ }
+ el('scan-status').textContent=results.length+' sources checked against approved Week '+current+'. GitHub file history is linked per source.';
+}catch(err){el('scan-status').textContent='Unable to verify data sources: '+String(err.message||err);el('freshness-rows').replaceChildren(tr('Freshness unavailable','Do not assume the site is current','ERROR','Check GitHub Actions'))}
+</script></body></html>
