@@ -600,9 +600,9 @@ function mountManagerHomeHub(){
  const hub=document.createElement('section');hub.className='manager-home-hub';
  hub.setAttribute('aria-label',who+' personal league hub');
  const chapterLabel=document.createElement('p');chapterLabel.className='manager-home-kicker';
- chapterLabel.textContent='FRANCHISE GUIDE / SIX WAYS IN';
+ chapterLabel.textContent='03 / EXPLORE THE FRANCHISE';
  const h=document.createElement('h2');h.textContent='Explore '+who+'’s career';
- const note=document.createElement('p');note.textContent='Choose a chapter below. Detailed game logs, ratings and research remain in the expandable archive.';
+ const note=document.createElement('p');note.textContent='Start with the story or your record book. The remaining paths lead to seasons, rivalries, report cards and roster decisions.';
  note.className='manager-home-hub-note';
  const grid=document.createElement('nav');grid.className='manager-home-hub-grid';grid.setAttribute('aria-label','Primary manager destinations');
  const routes=[
@@ -686,7 +686,7 @@ function mountCareerExhibit(){
  feature.className='hof-career-exhibit';
  feature.setAttribute('aria-label',slug+' Hall of Fame career story');
  const kicker=document.createElement('span');kicker.className='hof-career-kicker';kicker.textContent='02 / THE CAREER STORY';
- const h=document.createElement('h2');h.textContent='The story behind the numbers';
+ const h=document.createElement('h2');h.textContent='The story behind the record';
  const intro=document.createElement('p');intro.className='hof-career-intro';
  const sourceIntro=document.querySelector('#franchise-story .lead');
  intro.textContent=sourceIntro?.textContent?.trim()||'Explore the archived seasons, title results and defining roster decisions.';
