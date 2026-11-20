@@ -5,6 +5,7 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const canonical=read('data/unified_record_book_2016_2026.json');
 const mirror=read('data/season_weekly_matchups_2016_2026_v1.json');
 const race=read('data/playoff_race_v1.json');
+const currentRecords=read('data/current_2026_records_v1.json');
 const guide=read('data/season_guide.json');
 const luck=read('data/all_time_luck_ratings_v1.json');
 const games=canonical.games.filter(x=>x.year===2026&&x.stage==='regular');
@@ -13,6 +14,11 @@ if(!Number.isInteger(week)||week<1)throw Error('No current completed season week
 for(let w=1;w<=week;w++)if(games.filter(g=>g.week===w).length!==5)
  throw Error('Canonical league Week '+w+' is not finalized with five matchups');
 if(race.verified_through_week!==week)throw Error('Playoff forecast out of date: '+race.verified_through_week+' vs '+week);
+if(currentRecords.schema!=='fellas-current-season-records-v1'||currentRecords.verified_through_week!==week||currentRecords.number_of_games!==games.length)
+ throw Error('Current 2026 record pulse is stale versus approved Week '+week);
+const recordsHTML=fs.readFileSync('analytics/records.html','utf8');
+if(!recordsHTML.includes('../assets/current-season-records.mjs')||!recordsHTML.includes('id="current-season-records"'))
+ throw Error('Record Book does not render the current approved score records');
 const scope=mirror.bySeason['2026'];
 if(scope.regularGames!==games.length||scope.standings.length!==10)throw Error('Season mirror has stale matchup count or fewer than 10 managers');
 if(guide['2026'].games!==games.length||!guide['2026'].summary.includes('Week '+week))
