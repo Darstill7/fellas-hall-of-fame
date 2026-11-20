@@ -97,6 +97,18 @@ assert.equal(totals.dependentEquations,8,'Shared-position-week linear dependenci
 assert.ok(totals.maximumDependentResidual<.05,'Identical baseline constraints no longer agree within fantasy-score rounding');
 assert.ok(totals.unconstrained>0,'Unique weekly baseline cannot be claimed while underidentified');
 
+const wr2025=byYearPosition.get('2025|WR');
+assert.ok(wr2025,'2025 WR aggregate constraints missing');
+const wrRank=analyze(wr2025).rank;
+const targetWeeks=[7,12,13].map(week=>{
+ const tested=analyze([...wr2025,{weeks:[week],deduction:0,asset:'hypothetical week target'}]);
+ return {week,identifiedUnderHypothesis:tested.rank===wrRank};
+});
+assert.deepEqual(targetWeeks.map(x=>x.identifiedUnderHypothesis),[false,true,false],
+ '2025 WR target identifiability changed, recheck Mike Evans and Diggs research');
+const identifiableW12=wr2025.find(x=>x.weeks.length===1&&x.weeks[0]===12);
+assert.ok(identifiableW12&&Math.abs(identifiableW12.deduction-3.88)<.01,
+ 'Week 12 single-start deduction no longer supports the illustrative 3.88 constraint');
 const report=[
  '# Trade PAR replacement-baseline identifiability audit','',
  '> This does NOT recover or certify a weekly replacement baseline. It tests the deliberately simplified assumption that one common replacement point value existed for each season × week × position. Real FLEX/lineup/owner-specific models would require even more inputs.','',
@@ -111,6 +123,7 @@ const report=[
  '- '+totals.dependentEquations+' dependent equations are internally consistent within rounding; this consistency does **not** prove that the position-week model was the actual original replacement rule.',
  '- A numerical fit can produce infinitely many different weekly WR/RB/QB/TE baselines consistent with published PAR aggregates. None can be chosen as the source-verified baseline without external definition and weekly replacement receipts.',
  '- Mike Evans (2025 W7, starting-slot 0.0) and Stefon Diggs (2025 W12–13, 3.0 and 4.1 starting points) therefore remain ungraded until a versioned position/slot and week-specific methodology is verified.',
+ '- Specific 2025 WR tests under this HYPOTHETICAL shared-week model: Week 7 is unidentifiable, Week 12 is mathematically constrained to 3.88 by an existing one-start asset row, and Week 13 is unidentifiable. The 3.88 is a conditional implied aggregate deduction, **not** a verified historical replacement baseline and must not be applied to Diggs automatically.',
  '- This analysis is not a calculation of trade skill, trading decision quality, keeper cost or causal value.',
  ''
 ].join('\n');
