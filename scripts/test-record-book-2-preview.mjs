@@ -20,6 +20,7 @@ for(const [engine,name,width] of [[chromium,'chromium-320',320],[chromium,'chrom
   // Manager comparison must stay source-backed, keyboard-selectable and separate from game results.
   assert.equal(await page.locator('#compare-first option').count(),14);
   assert.equal(await page.locator('#compare-second option').count(),14);
+  assert.equal(await page.locator('.nav-links a').first().getAttribute('href'),'records.html');
   assert.equal(await page.locator('.record-journeys a').count(),3);
   for(const href of ['#franchise-dossier','#manager-comparison','#record-catalog-section'])
     assert.equal(await page.locator(href).count(),1);
@@ -70,6 +71,8 @@ for(const [engine,name,width] of [[chromium,'chromium-320',320],[chromium,'chrom
   // Deep-linked comparisons must restore the selected pair on reload.
   await page.reload({waitUntil:'networkidle'});
   await page.locator('#manager-summary .summary').waitFor();
+  assert.equal(await page.locator('[id="'+anchoredRecord+'"] details').getAttribute('open'),'');
+  assert.equal(await page.locator('#record-search').inputValue(),'');
   assert.equal(await page.locator('#compare-first').inputValue(),'Stilly');
   assert.equal(await page.locator('#compare-second').inputValue(),'Stew');
   await page.locator('#manager-picker').selectOption('Birch');
