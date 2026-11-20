@@ -74,6 +74,8 @@ execFileSync(process.execPath,['scripts/build-schedule-luck.mjs'],{stdio:'inheri
 execFileSync(process.execPath,['scripts/build-luck-performance-profiles.mjs'],{stdio:'inherit'});
 // Regenerate the playoff outlook from the same five approved games; never retain last week's model.
 execFileSync(process.execPath,['scripts/rebuild-playoff-race.mjs'],{stdio:'inherit'});
+// Refresh strictly score-derived 2026 records from this exact approved ledger.
+execFileSync(process.execPath,['scripts/build-current-2026-records.mjs'],{stdio:'inherit'});
 for(const script of ['verify-weekly-ledger-parity.mjs','verify-manager-madden-cards.mjs','verify-fellas-rating.mjs','test-playoff-race-archive.mjs'])
  execFileSync(process.execPath,['scripts/'+script],{stdio:'inherit'});
 console.log('Review regenerated files and full CI before merging. Source-dependent pages must pass their freshness audits before release; archival snapshots remain labeled.');
