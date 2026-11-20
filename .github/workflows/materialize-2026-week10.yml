@@ -1,0 +1,82 @@
+name: Materialize verified 2026 Week 10 canonical release
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/materialize-2026-week10.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: read
+jobs:
+  prepare-reviewed-release:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.head_ref == 'data/2026-week10-canonical-release-v1'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout designated release PR branch at exact reviewed head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Independently reconcile five final games against 10 Sleeper standings
+        run: |
+          node scripts/verify-staged-sleeper-week10.mjs
+          node scripts/test-weekly-import-rehearsal.mjs
+      - name: Guard original canonical cutoff and correct branch
+        run: |
+          set -euo pipefail
+          test "${{ github.head_ref }}" = 'data/2026-week10-canonical-release-v1'
+          node --input-type=module -e "
+            import fs from 'node:fs';
+            const l=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json','utf8'));
+            const games=l.games.filter(x=>x.year===2026&&x.stage==='regular');
+            if(games.length!==45||Math.max(...games.map(x=>x.week))!==9)throw Error('Expected 45 canonical games through Week 9; stop and restage');
+          "
+      - name: Regenerate verified source projections in CI working tree
+        env:
+          FELLAS_APPROVE_WEEKLY_IMPORT: YES
+        run: |
+          node scripts/apply-reviewed-sleeper-week.mjs data-integrity/sleeper-sync-candidates/2026-week10.json
+          node scripts/verify-current-week-website.mjs
+          node scripts/verify-weekly-ledger-parity.mjs
+          git diff --check
+      - name: Require exactly nine reviewed generated data files
+        run: |
+          set -euo pipefail
+          cat > /tmp/expected.txt <<'EOF'
+          data/all_time_luck_ratings_v1.json
+          data/career_core_generated.json
+          data/luck_performance_profiles_2016_2026_v1.json
+          data/playoff_race_v1.json
+          data/schedule_luck_current_v1.json
+          data/season_guide.json
+          data/season_weekly_matchups_2016_2026_v1.json
+          data/unified_record_book_2016_2026.json
+          seasons/index.html
+          EOF
+          git diff --name-only | LC_ALL=C sort > /tmp/actual.txt
+          diff -u /tmp/expected.txt /tmp/actual.txt
+          test "$(wc -l < /tmp/actual.txt)" -eq 9
+          node --input-type=module -e "
+            import fs from 'node:fs';
+            const l=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json','utf8'));
+            const g=l.games.filter(x=>x.year===2026&&x.stage==='regular');
+            if(g.length!==50||Math.max(...g.map(x=>x.week))!==10)throw Error('Season must end at 50 final games through Week 10');
+          "
+      - name: Commit only nine generated outputs to the existing review PR branch
+        env:
+          TARGET_BRANCH: data/2026-week10-canonical-release-v1
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          while IFS= read -r file; do git add -- "$file"; done < /tmp/expected.txt
+          git diff --cached --check
+          git commit -m 'Regenerate verified 2026 Week 10 canonical data and dependent projections'
+          git push origin "HEAD:refs/heads/$TARGET_BRANCH"
