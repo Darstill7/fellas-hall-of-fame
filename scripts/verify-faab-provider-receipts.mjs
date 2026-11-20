@@ -72,6 +72,5 @@ if(manager.managerTotals.reduce((n,r)=>n+r.completedClaims,0)!==completedTotal||
 const editorial=read('data-integrity/faab-legacy-claim-verification-v1.json');
 if(editorial.cases.length!==16)throw Error('Missing FAAB editorial source receipts');
 for(const x of editorial.cases){const r=byYear.get(x.year)?.get(x.transactionId);if(!r||r.status!=='complete'||r.bid!==x.verifiedBid||!r.playerIds.includes(x.playerId)||!r.rosterIds.includes(x.rosterId)||!r.rosterMatch||!r.playerMatch)throw Error('Legacy FAAB claim not source-verified '+x.player);}
-console.log('FAAB RECEIPTS PASS: '+completedTotal+' successful and '+failedTotal+' failed claims, 
-+spentTotal+' verified winning bids, '+archivedWaiversTotal+' archived claims reconciled; 16 legacy prices sourced. No skill grades.');
+console.log('FAAB RECEIPTS PASS: '+completedTotal+' successful and '+failedTotal+' failed claims, $'+spentTotal+' verified winning bids, '+archivedWaiversTotal+' archived claims reconciled; 16 legacy prices sourced. No skill grades.');
 console.log('FAAB SCOPE: 2026 bids verified through Week '+covered2026+' only. Game results may be more recent; no missing bids have been synthesized.');
