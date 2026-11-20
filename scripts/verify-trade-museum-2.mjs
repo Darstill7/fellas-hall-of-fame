@@ -97,6 +97,18 @@ assert.ok(Math.abs([...parManagerNet.values()].reduce((sum,n)=>sum+n,0))<0.001,'
 assert.ok(plusMinus.includes('id="pairRows"')&&plusMinus.includes('id="managerRows"')&&plusMinus.includes('id="tradeRows"'),'Trade +/- view must include pair, manager and source evidence views');
 assert.ok(plusMinus.includes('id="matrixHeader"')&&plusMinus.includes('id="matrixBody"'),'Trade +/- must include directional head-to-head matrix');
 assert.ok(plusMinus.includes('id="coverageRows"')&&plusMinus.includes('renderCoverage()'),'Trade +/- must report yearly source coverage');
+assert.ok(plusMinus.includes('id="recoveryRows"')&&plusMinus.includes('renderRecovery()'),'Unmatched trade research queue must remain discoverable');
+assert.ok(plusMinus.includes('Never substitute zeros or partial PAR'),'Unmatched received players must not be scored as zero');
+assert.ok(plusMinus.includes("side.fullyMatched===true"),'Recovery queue must classify receiving-side evidence');
+const incompleteTwo=parData.records.filter(t=>t.year>=2020&&t.year<=2025&&t.sides.length===2&&!parEligible.some(q=>String(q.id)===String(t.id)));
+assert.equal(incompleteTwo.length,23,'Audit queue coverage changed; verify reconciliation to eligible PAR source');
+assert.equal(incompleteTwo.filter(t=>t.sides.filter(s=>s.fullyMatched===true).length===1).length,18,'One-side research bucket changed');
+assert.equal(incompleteTwo.filter(t=>t.sides.filter(s=>s.fullyMatched===true).length===0).length,5,'Both-sides research bucket changed');
+for(const t of incompleteTwo){
+ assert.ok(ids.includes(String(t.id)),'Recovery queue must contain only archived receipts');
+ assert.ok(t.sides.some(side=>side.fullyMatched!==true),'An already qualified trade cannot enter recovery queue');
+}
+
 assert.ok(plusMinus.includes("id=\"exclusionReasons\"")&&plusMinus.includes('Unclassified PAR coverage gap'),'Research exclusions must be classified and checked for completeness');
 assert.ok(plusMinus.includes('documentedPairCount(p.a,p.b,year)'),'Measured pairs must disclose comparison coverage');
 assert.ok(plusMinus.includes("t.sides.some(s=>canon(s.manager)===a)"),'Pair coverage must derive from recorded counterparties');
