@@ -1,0 +1,52 @@
+name: Verify deployed GitHub Pages parity
+on:
+  pull_request:
+    paths:
+      - 'scripts/verify-pages-release-parity.mjs'
+      - 'scripts/test-pages-release-parity.mjs'
+      - '.github/workflows/pages-release-parity.yml'
+  workflow_run:
+    workflows:
+      - 'pages build and deployment'
+    types:
+      - completed
+  workflow_dispatch:
+jobs:
+  parity-unit-tests:
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: |
+          node --check scripts/verify-pages-release-parity.mjs
+          node scripts/test-pages-release-parity.mjs
+
+  deployed-pages-byte-parity:
+    if: >-
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exactly the successful Pages deployment SHA
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test permanent mismatch and retry behavior
+        run: node scripts/test-pages-release-parity.mjs
+      - name: Verify deployed asset byte parity — fail on persistent mismatch
+        env:
+          PAGES_DEPLOY_SHA: ${{ github.event.workflow_run.head_sha }}
+          PAGES_BASE_URL: https://darstill7.github.io/fellas-hall-of-fame/
+        run: node scripts/verify-pages-release-parity.mjs

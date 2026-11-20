@@ -148,16 +148,6 @@ jobs:
         run: node scripts/verify-franchise-timeline-freshness.mjs
       - name: Verify records across published pages
         run: node scripts/verify-canonical-history.mjs
-      - name: Observe deployed GitHub Pages parity (deployment may lag CI)
-        continue-on-error: true
-        run: |
-          set -euo pipefail
-          for file in index.html managers/stilly/index.html managers/tom/index.html managers/stover/index.html data/career_core_generated.json data/manager_biographies_awards.json assets/manager-encyclopedia.js; do
-            url="https://darstill7.github.io/fellas-hall-of-fame/$file"
-            curl --fail --location --retry 3 --retry-delay 2 --connect-timeout 15 --max-time 45 --silent --show-error "$url" -o /tmp/fellas-public-file
-            cmp -s "$file" /tmp/fellas-public-file || { echo "::error::Published file differs from checkout: $file"; exit 1; }
-            echo "Published file matches: $file"
-          done
       - name: Verify living Fellas power rating formula
         run: node scripts/verify-fellas-rating.mjs
       - name: Syntax-check Madden manager browser modules
