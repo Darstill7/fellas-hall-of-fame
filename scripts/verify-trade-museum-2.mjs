@@ -33,7 +33,7 @@ for(const phrase of ['Not live · review newer transactions','Point totals are a
  assert.ok(html.includes(phrase),'Missing evidence/share disclosure: '+phrase);
 }
 const editorial=readFileSync(new URL('../analytics/greatest-worst-trades.html',import.meta.url),'utf8');
-const sourceLinks=[...editorial.matchAll(/href="trade-museum\\.html\\?trade=(\\d+)"/g)].map(match=>match[1]);
+const sourceLinks=[...editorial.matchAll(/href="trade-museum\.html\?trade=(\d+)"/g)].map(match=>match[1]);
 assert.ok(sourceLinks.length>=3,'Featured greatest/worst editorial needs direct source receipts');
 for(const id of sourceLinks)assert.ok(ids.includes(id),'Editorial source link must resolve to a documented museum receipt: '+id);
 assert.ok(editorial.includes('Browse the source-backed Trade Museum receipts'),'Editorial page must link to Trade Museum');
