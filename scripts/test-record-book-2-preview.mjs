@@ -16,6 +16,8 @@ for(const [engine,name,width] of [[chromium,'chromium-320',320],[chromium,'chrom
   await page.goto(base,{waitUntil:'networkidle'});
   await page.locator('#manager-summary .summary').waitFor();
   assert.equal(await page.locator('#manager-picker option').count(),14);
+  assert.equal(await page.locator('#manager-summary .summary-destinations a').first().getAttribute('href'),'../managers/record-books.html?manager=Stilly');
+
   assert.equal(await page.locator('.record-card').count(),93);
   // Manager comparison must stay source-backed, keyboard-selectable and separate from game results.
   assert.equal(await page.locator('#compare-first option').count(),14);
@@ -77,6 +79,7 @@ for(const [engine,name,width] of [[chromium,'chromium-320',320],[chromium,'chrom
   assert.equal(await page.locator('#compare-second').inputValue(),'Stew');
   await page.locator('#manager-picker').selectOption('Birch');
   assert((await page.locator('#manager-summary').innerText()).includes('Birch'));
+  assert.equal(await page.locator('#manager-summary .summary-destinations a').first().getAttribute('href'),'../managers/record-books.html?manager=Birch');
   assert((await page.locator('#manager-results .portfolio-record').count())>0);
   const currentURL=new URL(page.url());
   assert.equal(currentURL.searchParams.get('manager'),'Birch');
