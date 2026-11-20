@@ -1,0 +1,20 @@
+name: Verify Trade Museum 2.0
+on:
+  pull_request:
+    paths:
+      - 'analytics/trade-museum.html'
+      - 'scripts/verify-trade-museum-2.mjs'
+      - '.github/workflows/verify-trade-museum-2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-trade-museum:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check embedded receipt integrity, JS syntax and museum navigation
+        run: node scripts/verify-trade-museum-2.mjs
