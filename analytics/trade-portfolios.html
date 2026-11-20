@@ -34,6 +34,7 @@ h1{font:700 clamp(37px,7vw,68px)/1.06 Georgia,serif;letter-spacing:-.04em;margin
 <p id="status" role="status" aria-live="polite" class="muted">Reading verified museum receipts…</p>
 <div id="portfolio" hidden><div class="eyebrow" id="managerName"></div><div class="stats"><div class="stat"><strong id="total"></strong><span>Archived trades involving manager</span></div><div class="stat"><strong id="complete"></strong><span>Complete verified receipts</span></div><div class="stat"><strong id="seasons"></strong><span>Seasons represented</span></div></div>
 <section class="impact-head" aria-labelledby="impactHeading"><div class="eyebrow">Verified playoff evidence · 2020–2025</div><h2 id="impactHeading">Impact &amp; legacy</h2><p class="muted">Selected championship-run starter appearances traced to received players and verified playoff box scores. Not a trade-win ranking, keeper valuation, or an estimate of what would have happened without the deal.</p><div id="impactGrid" class="impact-grid"></div><p id="impactStatus" class="impact-note" role="status">Loading independently verified playoff evidence…</p></section>
+<section class="section-head" id="keeperStory" aria-labelledby="keeperStoryTitle" hidden><div class="eyebrow">Documented keeper-era turning point</div><h2 id="keeperStoryTitle">A three-team deal that carried forward</h2><div class="notice"><p>The museum's commissioner-confirmed history records Stilly acquiring Amon-Ra St. Brown in a November 12, 2025 three-team exchange with JMid and Tom. Amon-Ra was then retained as a 2026 keeper. This is a verified historical connection, <strong>not</strong> a complete keeper-value or trade-winner calculation.</p><a href="trade-museum.html?trade=1294402688213057536">Inspect the original three-team receipt →</a></div></section>
 <section class="section-head" aria-labelledby="historyHeading"><div class="eyebrow">The transaction ledger</div><h2 id="historyHeading">Documented acquisitions</h2><p class="muted" id="coverage"></p><div class="timeline" id="timeline"></div></section></div>
 <section class="all-managers section-head" aria-label="Other manager trade portfolios"><div class="eyebrow">Continue exploring</div><h2>Another franchise's history</h2><div class="manager-links" id="managerLinks"></div></section>
 </main>
@@ -65,6 +66,7 @@ const showImpact=(name,trades)=>{
 };
 
 function render(name){
+ // Only source-qualified incoming sides are eligible for any impact attribution.
  const selected=archive.find(t=>t.sides.some(s=>canonical(s.manager)===canonical(name)));
  const options=[...$('manager').options];
  const option=options.find(o=>canonical(o.value)===canonical(name));
@@ -72,6 +74,7 @@ function render(name){
  name=option.value;$('manager').value=name;
  const trades=archive.filter(t=>t.sides.some(s=>canonical(s.manager)===canonical(name))).sort((a,b)=>b.date.localeCompare(a.date));
  const verified=trades.filter(complete),years=new Set(trades.map(t=>t.year));
+ $('keeperStory').hidden=!(canonical(name)==='stilly'&&trades.some(t=>String(t.id)==='1294402688213057536'&&complete(t)));
  $('portfolio').hidden=false;$('managerName').textContent=name+' · Museum portfolio';$('total').textContent=trades.length.toLocaleString();$('complete').textContent=verified.length.toLocaleString();$('seasons').textContent=years.size.toLocaleString();$('franchiseLink').href=profileUrl(name);
  $('status').textContent='Viewing '+name+' · '+trades.length+' documented receipts in this archived collection.';
  showImpact(name,trades);
