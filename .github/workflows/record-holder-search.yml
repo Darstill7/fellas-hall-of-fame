@@ -1,0 +1,30 @@
+name: Record Holders category search
+on:
+  pull_request:
+    paths:
+      - 'analytics/record-holders.html'
+      - 'assets/record-holders-page.mjs'
+      - 'scripts/test-record-holder-search.mjs'
+      - 'scripts/test-record-holder-search-browser.mjs'
+      - '.github/workflows/record-holder-search.yml'
+  workflow_dispatch:
+jobs:
+  verified-record-search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify source-backed search invariants and syntax
+        run: |
+          node --check assets/record-holders-page.mjs
+          node --check scripts/test-record-holder-search-browser.mjs
+          node scripts/test-record-holder-search.mjs
+      - name: Install browser runtime
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Exercise the record search on mobile Chrome and Safari
+        run: node scripts/test-record-holder-search-browser.mjs
