@@ -10,6 +10,15 @@ main{max-width:1080px;margin:auto;padding:32px 16px 80px}h1{font:700 clamp(37px,
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:24px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}.stat strong{color:var(--gold);font-size:clamp(23px,3.5vw,35px);display:block;line-height:1.2;font-variant-numeric:tabular-nums}.stat span{font-size:12px;color:var(--muted)}.section{border-top:1px solid var(--line);margin-top:24px;padding-top:24px}
 .table-scroll{overflow-x:auto;max-width:100%;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:590px;font-variant-numeric:tabular-nums}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #334c5b}th{background:#182b37;font-size:12px;color:#dfeced}tr:last-child td{border-bottom:0}tbody tr:hover{background:#182c38}td.num,th.num{text-align:right;white-space:nowrap}.gain{color:var(--gain);font-weight:850}.loss{color:var(--loss);font-weight:850}.zero{color:var(--muted)}.sub{font-size:12px;color:var(--muted)}.matrix-scroll{overflow:auto;max-width:100%;border:1px solid var(--line);border-radius:12px;margin-top:14px}.matrix-scroll table{min-width:650px}.matrix-scroll th,.matrix-scroll td{text-align:center;min-width:76px;padding:10px 9px}.matrix-scroll th:first-child{position:sticky;left:0;z-index:1;background:#1d3342;text-align:left;min-width:110px}.matrix-scroll td.na{color:#85939c}.matrix-scroll td.self{color:#8797a0;background:#142532}.matrix-scroll td a{white-space:nowrap;font-weight:850;text-decoration:none}.small{font-size:13px;color:var(--muted);line-height:1.7}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.deal{padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;min-width:0}.deal h3{font-size:18px;margin:7px 0}.deal p{margin:6px 0;overflow-wrap:anywhere}.deal a{display:inline-flex;min-height:44px;align-items:center;font-weight:800;font-size:13px}.no-data{padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
 .coverage-heading{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}.coverage-table td small{display:block;color:var(--muted);font-size:11px}.coverage-bar{height:7px;border-radius:8px;background:#2c4756;overflow:hidden;margin-top:5px}.coverage-bar span{display:block;background:#d2b77b;height:100%;min-width:0}.coverage-missing{font-size:12px;color:var(--muted)}
+.recovery-controls{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:15px 0}
+.recovery-controls label{display:grid;gap:6px;font-size:12px;color:var(--gold);text-transform:uppercase;font-weight:800}
+.recovery-controls select{min-height:44px;background:#142a37;color:var(--text);border:1px solid #647989;border-radius:9px;padding:9px 12px;font:inherit;max-width:100%}
+.recovery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.recovery-card{background:var(--panel);padding:16px;border:1px solid var(--line);border-radius:12px;min-width:0}
+.recovery-card h3{font-size:18px;margin:9px 0}.recovery-card p{font-size:13px;overflow-wrap:anywhere;margin:7px 0}
+.recovery-card .research-reason{padding:10px 12px;background:#0c202a;border-left:3px solid var(--gold)}
+.recovery-card a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;font-weight:800}
+@media(max-width:680px){.recovery-grid{grid-template-columns:1fr}}
 @media(max-width:650px){.detail-grid{grid-template-columns:1fr}.controls{display:grid}.controls select{width:100%}.stats{gap:7px}.stat{padding:10px}.stat strong{font-size:23px}}
 @media(max-width:350px){.stats{grid-template-columns:1fr}}
 </style></head><body>
@@ -21,6 +30,10 @@ main{max-width:1080px;margin:auto;padding:32px 16px 80px}h1{font:700 clamp(37px,
 <div id="scoreboard" hidden>
 <div class="stats"><div class="stat"><strong id="qualified">—</strong><span>Qualified two-manager trades</span></div><div class="stat"><strong id="pairCount">—</strong><span>Distinct measured manager pairs</span></div><div class="stat"><strong id="excluded">—</strong><span>Unqualified preview receipts</span></div></div>
 <section class="section" aria-labelledby="coverageTitle"><div class="coverage-heading"><div><div class="eyebrow">00 · Research completeness</div><h2 id="coverageTitle">What has and hasn't been measured?</h2></div></div><p class="small">Coverage refers only to recorded 2020–2025 museum transactions, not every exchange that occurred in the league. Incomplete or one-sided transactions, multi-manager trades and unresolved player identities are not scored. Counts below are source-derived and update when the archive or measurement research changes.</p><p class="small" id="exclusionReasons"></p><div class="table-scroll"><table class="coverage-table"><thead><tr><th>Season</th><th class="num">Recorded receipts</th><th class="num">Comparable +/-</th><th class="num">Not graded</th><th>Coverage</th></tr></thead><tbody id="coverageRows"></tbody></table></div></section>
+<section class="section" aria-labelledby="recoveryTitle"><div class="eyebrow">Research queue · Not graded</div><h2 id="recoveryTitle">Trades awaiting production matching</h2>
+<p class="small">These 23 two-manager receipts remain excluded from the +/- rankings. “Unmatched” means the archived PAR preview cannot certify a later starter-production match for a received asset; it does not prove the player had zero value or that an identity was entered incorrectly. Resolve player identity, roster ownership, week eligibility, and box-score provenance before changing any grade.</p>
+<div class="recovery-controls"><label for="recoveryFilter">Source evidence state<select id="recoveryFilter"><option value="all">All incomplete two-manager trades</option><option value="one">One fully matched side</option><option value="none">Neither side fully matched</option></select></label><label for="recoverySeason">Season<select id="recoverySeason"><option value="all">All completed seasons</option></select></label></div>
+<p id="recoveryCount" class="status" aria-live="polite"></p><div id="recoveryRows" class="recovery-grid"></div></section>
 <section class="section" aria-labelledby="matrixTitle"><div class="eyebrow">01 · Directional scoreboard</div><h2 id="matrixTitle">Net PAR by trading partner</h2>
 <div class="controls"><label for="managerFilter">Manager<select id="managerFilter"><option value="all">All managers</option></select></label><label for="seasonFilter">Completed season<select id="seasonFilter"><option value="all">2020–2025 combined</option></select></label></div>
 <p class="small">A positive number means the first listed manager's received players generated more observed post-trade PAR than the counterpart's received players. Negative values mean the opposite. Repeated qualified trades are added together. “Measured / archived” reveals the source-coverage gap for that pair, including incomplete and three-manager deals in the archive. No value is assigned for unqualified trades.</p>
@@ -41,6 +54,20 @@ const documentedPairCount=(a,b,year)=>archiveRecords.filter(t=>(year==='all'||St
 const eligible=t=>t.year>=2020&&t.year<=2025&&t.complete===true&&t.sides.length===2&&t.sides.every(s=>s.fullyMatched===true&&Number.isFinite(s.postTradePAR));
 let qualified=[];
 let archiveRecords=[];
+let recoveryQueue=[];
+function renderRecovery(){
+ const mode=$('recoveryFilter').value,season=$('recoverySeason').value;
+ const list=recoveryQueue.filter(t=>(season==='all'||String(t.year)===season)&&
+ (mode==='all'||t.sides.filter(side=>side.fullyMatched===true).length===(mode==='one'?1:0)))
+ .sort((a,b)=>b.year-a.year||a.week-b.week||a.date.localeCompare(b.date));
+ $('recoveryCount').textContent=list.length+' ungraded receipts shown · '+recoveryQueue.length+' incomplete two-manager receipts in the 2020–2025 audit';
+ $('recoveryRows').innerHTML=list.map(t=>{
+  const matched=t.sides.filter(side=>side.fullyMatched===true).length;
+  const remaining=t.sides.flatMap(side=>(side.unresolved||[]).map(asset=>side.manager+': '+asset));
+  return '<article class="recovery-card"><div class="eyebrow">'+esc(t.year)+' · Week '+esc(t.week)+' · '+esc(t.date)+'</div><h3>'+t.sides.map(side=>esc(canon(side.manager))).join(' ↔ ')+'</h3><p>'+matched+' of 2 receiving sides fully matched</p><p class="research-reason"><strong>Unmatched received assets:</strong> '+esc(remaining.join('; ')||'Requires source review')+'</p><p class="small">Audit next: provider player IDs, post-trade roster ownership and source-verified later starts. Never substitute zeros or partial PAR for the missing side.</p><a href="trade-museum.html?trade='+encodeURIComponent(String(t.id))+'">Inspect original trade receipt →</a></article>'
+ }).join('')||'<p class="no-data">No ungraded receipts match these filters.</p>';
+}
+
 function renderCoverage(){
  const years=[2020,2021,2022,2023,2024,2025];
  const rows=years.map(year=>{
@@ -112,7 +139,8 @@ try{
  const response=await fetch('../data/trade_par_preview.json',{cache:'no-store'});if(!response.ok)throw Error('Research data unavailable');
  const data=await response.json();if(!Array.isArray(data.records))throw Error('Invalid research format');
  const completeEra=data.records.filter(t=>t.year>=2020&&t.year<=2025);
- const partialTwo=completeEra.filter(t=>t.sides.length===2&&!eligible(t)).length;
+ recoveryQueue=completeEra.filter(t=>t.sides.length===2&&!eligible(t));
+ const partialTwo=recoveryQueue.length;
  const single=completeEra.filter(t=>t.sides.length===1).length;
  const multi=completeEra.filter(t=>t.sides.length>2).length;
  if(partialTwo+single+multi+completeEra.filter(eligible).length!==completeEra.length)throw Error('Unclassified PAR coverage gap');
@@ -133,6 +161,10 @@ try{
   if(!original||original.year!==measured.year)throw Error('Measured trade not matched to its museum receipt: '+measured.id);
  }
  renderCoverage();
+ $('recoverySeason').innerHTML='<option value="all">All completed seasons</option>'+[2025,2024,2023,2022,2021,2020].map(year=>'<option value="'+year+'">'+year+'</option>').join('');
+ $('recoveryFilter').addEventListener('change',renderRecovery);
+ $('recoverySeason').addEventListener('change',renderRecovery);
+ renderRecovery();
  const pairStats=aggregate(qualified);
  if(Math.abs(pairStats.managers.reduce((sum,m)=>sum+m.net,0))>.001)throw Error('Non-zero-sum comparison detected');
  $('qualified').textContent=qualified.length.toLocaleString();
