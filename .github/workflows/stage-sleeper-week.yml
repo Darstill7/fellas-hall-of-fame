@@ -17,20 +17,28 @@ jobs:
         with:
           node-version: '22'
       - name: Check staging script syntax
-        run: node --check scripts/stage-sleeper-week.mjs
+        run: |
+          node --check scripts/stage-sleeper-week.mjs
+          node --check scripts/stage-sleeper-trades.mjs
       - name: Stage complete next week (skip expected not-yet-final cases)
         id: stage
         run: |
           if node scripts/stage-sleeper-week.mjs > /tmp/sleeper-stage.log 2>&1; then
             cat /tmp/sleeper-stage.log
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
           else
             cat /tmp/sleeper-stage.log
             if grep -q 'has not been superseded by the next NFL week' /tmp/sleeper-stage.log; then
               echo 'NFL week not finished; no update' >> "$GITHUB_STEP_SUMMARY"
+              echo 'ready=false' >> "$GITHUB_OUTPUT"
             else
               exit 1
             fi
           fi
+      - name: Stage completed trade receipts without grading or publication
+        if: steps.stage.outputs.ready == 'true'
+        run: |
+          node scripts/stage-sleeper-trades.mjs
       - name: Create review pull request, never update canonical history automatically
         uses: peter-evans/create-pull-request@v7
         with:
