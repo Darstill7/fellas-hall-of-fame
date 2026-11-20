@@ -14,7 +14,8 @@ const candidate=read(candidatePath),ledger=read(path),mirror=read(mirrorPath),lu
 if(candidate.status!=='REVIEW_REQUIRED'||candidate.year!==2026||candidate.matchupCount!==5||candidate.games?.length!==5||candidate.league!=='1340027406009761792')throw Error('Unverified candidate format');
 const rehearsalOnly=process.env.FELLAS_SYNTHETIC_REHEARSAL==='YES'&&
  process.env.GITHUB_WORKFLOW==='Rehearse approved weekly data release (synthetic; never publish)';
-const stagedEvidence=candidate.source==='Sleeper public API'&&candidate.games.every(g=>g.source==='sleeper_api_staged_week_'+candidate.week);
+const supportedSleeperSources=new Set(['Sleeper public API','Connected Sleeper league weekly matchup result (Flaim Fantasy)']);
+const stagedEvidence=supportedSleeperSources.has(candidate.source)&&candidate.games.every(g=>g.source==='sleeper_api_staged_week_'+candidate.week);
 const syntheticEvidence=rehearsalOnly&&candidate.source==='SYNTHETIC_CI_TEST_DO_NOT_PUBLISH'&&candidate.games.every(g=>g.source===candidate.source);
 if(!stagedEvidence&&!syntheticEvidence)throw Error('Unsupported or synthetic Sleeper source evidence; publication refused');
 
