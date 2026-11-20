@@ -16,7 +16,7 @@ The read-only `audit-weekly-publication.yml` runs Tuesday/Wednesday and on relev
 
 1. Review the staging PR against Sleeper: exactly five final scores, ten unique owners, aliases, and any changed trades. Keep the trade receipt separately for manual asset verification.
 2. In **Actions → Prepare approved weekly website release → Run workflow**, enter `completed_week=N` and `confirmation=APPROVE`. The action retrieves the fixed staging candidate; it will refuse noncontiguous weeks, invalid scores or mismatched owners.
-3. The action applies the approved week **on a release branch**, regenerating canonical ledger, standings, season guide, manager career data, all-play and luck, playoff odds and `data/current_2026_records_v1.json`. It creates a release PR, **not an automatic merge**.
+3. The action applies the approved week **on a release branch**, regenerating canonical ledger, standings, season guide, manager career data, all-play and luck, playoff odds, `data/current_2026_records_v1.json` and `data/alltime_game_records_live_v1.json`. It creates a release PR, **not an automatic merge**.
 4. Review the resulting diff, Week N records, expected playoff percentages, source cutoff notices, green canonical/mobile checks, and the publication freshness audit. A stale Trade Museum is flagged, not silently rewritten.
 5. **Merge the release PR only when approved.** Wait for the GitHub Pages deployment and verify that the live data and HTML correspond to the merged commit.
 
@@ -60,10 +60,11 @@ Then use **Actions → Prepare commissioner-approved Trade Museum release**, ent
 | Playoff odds / byes | `data/playoff_race_v1.json` derived from canonical games | Recomputed 25,000 seeded projections, explicitly modeled (not Sleeper odds) |
 | All-play / schedule luck / manager career | Canonical games | Rebuilt on approval |
 | Current-season records | `data/current_2026_records_v1.json` derived from canonical games | Week-by-week highest / lowest team scores, largest / closest / highest-total games, weekly scoring titles |
-| Historical all-time record research | Separate 2016–2026 provenance-backed record registry | **Not yet fully regenerated** by core weekly importer; do not label archival exhibits current |
+| All-time single-game records | `data/alltime_game_records_live_v1.json` from every approved regular-season matchup | Eight categories regenerate weekly, preserve tied holders and source-game receipts; linked in Record Book | 
+| Historical multi-season and narrative research | Separate 2016–2026 provenance-backed record registry | **Not yet fully regenerated**; season awards, rivalry thresholds and editorial exhibits remain archival |
 | Trade Museum | `data/trade_museum_stage66.json` verified receipts and embedded HTML | **Not yet automatically rebuilt**. Updated raw Sleeper transactions are staged, never blindly published. Museum shows its actual cutoff. Starter points remain historical audit snapshots |
 
-**Pending engineering:** validate raw player/roster IDs and transfer directions; build an auditable Trade Museum renderer from certified receipts; refresh all-time record indices from verified new games; verify deployed Pages commit parity. Make these release gates before calling the **entire** website current.
+**Pending engineering:** verify raw player/roster IDs and transfer directions for each new trade; commissioner's review and source certification are required before museum import. Beyond the eight rebuilt all-time single-game records, historical season records, streaks, rivalry awards and narrative exhibits still require provenance-specific rebuilds. Verify deployed Pages commit parity. Make these release gates before calling the **entire** website current.
 
 ## Safety
 
