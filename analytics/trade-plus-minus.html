@@ -97,10 +97,10 @@ async function loadRecoveredPreview(parRecords){
   const missing=trade.sides.flatMap(s=>(s.unresolved||[]).map(asset=>({manager:s.manager,asset})));
   if(missing.length!==1||missing[0].asset!==proof.player.name||missing[0].manager!==proof.manager)throw Error('Recovery must resolve the exact single incoming asset');
   const observations=proof.evidence.weeklyRosterObservations.filter(w=>w.week>trade.week).sort((a,b)=>a.week-b.week);
-  const expected=Array.from({length:14-trade.week},(_,i)=>trade.week+i+1);
+  const expected=Array.from({length:playoffStartByYear[trade.year]-trade.week-1},(_,i)=>trade.week+i+1);
   if(observations.length!==expected.length||observations.some((o,i)=>o.week!==expected[i]||!['bench','absent_from_roster_snapshot'].includes(o.slot)||o.slot==='absent_from_roster_snapshot'&&o.points!==null))throw Error('Incomplete or contradictory later-week lineup evidence');
   for(const side of trade.sides){
-   if(!Number.isFinite(side.postTradePAR)||side.matched.some(p=>p.sourceWeeks.some(week=>week<=trade.week||week>14)))throw Error('Other PAR evidence not qualified');
+   if(!Number.isFinite(side.postTradePAR)||side.matched.some(p=>p.sourceWeeks.some(week=>week<=trade.week||week>=playoffStartByYear[trade.year])))throw Error('Other PAR evidence not qualified');
    const matchSum=side.matched.reduce((sum,p)=>sum+p.par,0);
    if(Math.abs(matchSum-side.postTradePAR)>.02)throw Error('Matched side PAR does not reconcile');
   }
