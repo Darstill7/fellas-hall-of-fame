@@ -37,6 +37,17 @@ const sourceLinks=[...editorial.matchAll(/href="trade-museum\.html\?trade=(\d+)"
 assert.ok(sourceLinks.length>=3,'Featured greatest/worst editorial needs direct source receipts');
 for(const id of sourceLinks)assert.ok(ids.includes(id),'Editorial source link must resolve to a documented museum receipt: '+id);
 assert.ok(editorial.includes('Browse the source-backed Trade Museum receipts'),'Editorial page must link to Trade Museum');
+const portfolio=readFileSync(new URL('../analytics/trade-portfolios.html',import.meta.url),'utf8');
+assert.ok(html.includes('href="trade-portfolios.html" id="manager-entry"'),'Franchise entrance must lead to manager portfolios');
+assert.ok(portfolio.includes("fetch('trade-museum.html'"),'Portfolios must read existing museum receipts rather than copied trade data');
+assert.ok(portfolio.includes("querySelector('#archive-data')"),'Portfolio must use the museum archive source');
+assert.ok(!portfolio.includes('id="archive-data"'),'Portfolio must not duplicate a potentially stale museum dataset');
+for(const phrase of ['Research receipt · incomplete evidence','Latest dated receipt','?manager=','trade-museum.html?trade=']){
+ assert.ok(portfolio.includes(phrase),'Missing portfolio source scope or deep link: '+phrase);
+}
+const moduleScripts=[...portfolio.matchAll(/<script type="module">([\\s\\S]*?)<\\/script>/gi)];
+assert.equal(moduleScripts.length,1,'Manager portfolios require one self-contained browser module');
+new Script(moduleScripts[0][1],{filename:'trade-portfolios-module.js'});
 const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)].map(x=>x[1]).filter(Boolean);
 assert.ok(scripts.length>=1,'Missing browser script');
 for(const [i,src] of scripts.entries())new Script(src,{filename:'inline-trade-museum-'+i+'.js'});
