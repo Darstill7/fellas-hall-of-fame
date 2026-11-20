@@ -1,0 +1,58 @@
+name: Rehearse approved weekly data release (synthetic; never publish)
+on:
+  pull_request:
+    paths:
+      - 'scripts/fixture-weekly-release-rehearsal.mjs'
+      - 'scripts/apply-reviewed-sleeper-week.mjs'
+      - 'scripts/build-*.mjs'
+      - 'scripts/rebuild-playoff-race.mjs'
+      - 'scripts/verify-current-week-website.mjs'
+      - '.github/workflows/rehearse-weekly-release.yml'
+      - '.github/workflows/prepare-approved-weekly-release.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rehearsal:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check source syntax and create clearly marked synthetic review candidate
+        run: |
+          set -euo pipefail
+          node --check scripts/fixture-weekly-release-rehearsal.mjs
+          node --check scripts/apply-reviewed-sleeper-week.mjs
+          node scripts/fixture-weekly-release-rehearsal.mjs
+      - name: Confirm importer refuses any unapproved candidate
+        run: |
+          set -euo pipefail
+          CANDIDATE=$(find data-integrity/sleeper-sync-candidates -name '2026-week*.json' | sort -V | tail -1)
+          if env -u FELLAS_APPROVE_WEEKLY_IMPORT node scripts/apply-reviewed-sleeper-week.mjs "$CANDIDATE" --dry-run >/tmp/unapproved.txt 2>&1; then
+            echo '::error::Importer did not enforce explicit approval'
+            exit 1
+          fi
+          grep -q 'Human approval required' /tmp/unapproved.txt
+      - name: Rehearse approved import and full regenerated-source freshness (CI workspace ONLY)
+        env:
+          FELLAS_APPROVE_WEEKLY_IMPORT: 'YES'
+        run: |
+          set -euo pipefail
+          CANDIDATE=$(find data-integrity/sleeper-sync-candidates -name '2026-week*.json' | sort -V | tail -1)
+          node scripts/apply-reviewed-sleeper-week.mjs "$CANDIDATE" --dry-run
+          node scripts/apply-reviewed-sleeper-week.mjs "$CANDIDATE"
+          node scripts/verify-current-week-website.mjs
+          node scripts/build-current-2026-records.mjs --check
+          node scripts/build-alltime-game-records.mjs --check
+          node scripts/build-alltime-career-records.mjs --check
+          node scripts/build-ledger-milestone-records.mjs --check
+          node scripts/verify-ledger-milestones-history.mjs
+          node scripts/audit-weekly-publication.mjs
+          node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json'));if(!d.games.some(x=>x.source==='SYNTHETIC_CI_TEST_DO_NOT_PUBLISH'))throw Error('Rehearsal did not exercise synthetic next week');console.log('SYNTHETIC DATA ASSERTION PASS')"
+      - name: Verify no source changes are committed or published from rehearsal
+        if: always()
+        run: |
+          echo 'Synthetic sources and generated files remain inside this disposable CI checkout. No push, artifact publication, merge or Pages deployment steps exist.' >> "$GITHUB_STEP_SUMMARY"
