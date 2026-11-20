@@ -87,8 +87,8 @@ try{
    assert.equal(await page.locator('#qualified').innerText(),'18','Only 18 verified complete two-manager trades qualify');
    assert.equal(await page.locator('#includeRecovery').isChecked(),false,'Research preview must be opt-in');
    await page.locator('#includeRecovery').check();
-   assert.ok((await page.locator('#previewState').innerText()).includes('22 trades'),'Proof-qualified preview should show 22 trades');
-   assert.ok((await page.locator('#coverageRows tr').last().innerText()).includes('22'),'Coverage should show 22 in preview');
+   assert.ok((await page.locator('#previewState').innerText()).includes('24 trades'),'Proof-qualified preview should show 24 trades');
+   assert.ok((await page.locator('#coverageRows tr').last().innerText()).includes('24'),'Coverage should show 24 in preview');
    await page.locator('#seasonFilter').selectOption('2025');
    assert.ok((await page.locator('#tradeRows .deal .preview-label').count())>=1,'Expanded sample marks research-only trade cards');
    await page.locator('#includeRecovery').uncheck();
