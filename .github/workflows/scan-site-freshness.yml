@@ -8,6 +8,7 @@ on:
       - 'data/site_freshness_config_v1.json'
       - 'data/site_freshness_report_v1.json'
       - 'scripts/scan-site-freshness.mjs'
+      - 'scripts/test-site-freshness.mjs'
       - 'scripts/apply-reviewed-sleeper-week.mjs'
       - '.github/workflows/scan-site-freshness.yml'
       - 'analytics/site-freshness.html'
@@ -29,6 +30,8 @@ jobs:
         run: |
           set -euo pipefail
           node --check scripts/scan-site-freshness.mjs
+          node --check scripts/test-site-freshness.mjs
+          node scripts/test-site-freshness.mjs
           node scripts/scan-site-freshness.mjs --markdown
           node scripts/scan-site-freshness.mjs --json > /tmp/fellas-freshness.json
           node scripts/scan-site-freshness.mjs --strict
