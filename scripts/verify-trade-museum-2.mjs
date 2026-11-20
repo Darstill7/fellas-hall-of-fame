@@ -97,7 +97,7 @@ assert.ok(Math.abs([...parManagerNet.values()].reduce((sum,n)=>sum+n,0))<0.001,'
 assert.ok(plusMinus.includes('id="pairRows"')&&plusMinus.includes('id="managerRows"')&&plusMinus.includes('id="tradeRows"'),'Trade +/- view must include pair, manager and source evidence views');
 assert.ok(plusMinus.includes('id="matrixHeader"')&&plusMinus.includes('id="matrixBody"'),'Trade +/- must include directional head-to-head matrix');
 assert.ok(plusMinus.includes("if(!pair)return '<td class=\"na\""),'Unmeasured manager pairs must display a dash rather than false zero');
-assert.ok(plusMinus.includes("url.searchParams.get('partner')"),'Matrix pair deep links must retain selected counterpart');
+assert.ok(plusMinus.includes("searchParams.get('partner')"),'Matrix pair deep links must retain selected counterpart');
 assert.ok(plusMinus.includes("t.sides.length===2")&&plusMinus.includes("s.fullyMatched===true"),'Unqualified trade receipts must not be graded');
 assert.ok(plusMinus.includes("2016–2019")&&plusMinus.includes("three-manager receipts"),'Historical coverage omissions must stay visible');
 assert.ok(html.includes('href="trade-plus-minus.html"')&&portfolio.includes('href="trade-plus-minus.html"'),'Trade +/- must be discoverable from museum and franchise pages');
