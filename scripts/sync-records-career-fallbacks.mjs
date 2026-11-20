@@ -4,12 +4,15 @@
 import fs from 'node:fs';
 const records=JSON.parse(fs.readFileSync('data/manager_record_books_2016_2026.json','utf8')).managers;
 const byName=new Map(records.map(m=>[m.manager==='Thommy'?'Tom':m.manager,m]));
+const matchups=JSON.parse(fs.readFileSync('data/season_weekly_matchups_2016_2026_v1.json','utf8'));
+const latest2026Week=Math.max(...matchups.bySeason['2026'].games.filter(g=>g.stage==='regular').map(g=>g.week));
 for(const filename of ['analytics/records.html','analytics/records-archive.html']){
  const html=fs.readFileSync(filename,'utf8');
  const re=/(<script id="(?:book-data|records-data)" type="application\/json">)([\s\S]*?)(<\/script>)/;
  const match=html.match(re);
  if(!match)throw Error('Missing records source embed: '+filename);
  const data=JSON.parse(match[2]),rows=data.career||data.career_records;
+ if(data.metadata?.careerScope)data.metadata.careerScope='2016–2026 Week '+latest2026Week+' unified regular-season matchups';
  if(!Array.isArray(rows)||rows.length!==records.length)throw Error('Unexpected career fallback array in '+filename);
  const seen=new Set();
  for(const row of rows){
