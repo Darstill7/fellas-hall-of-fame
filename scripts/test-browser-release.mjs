@@ -379,6 +379,38 @@ try{
      errors.push(width+' '+route+' advanced research menu must initially be collapsed');
     else await moreResearch.locator(':scope > summary').click();
 
+    // Phase 2: verify the actual five-chapter layout in Chromium and WebKit.
+    // The chapter design enhances existing disclosures; it must not remove
+    // source sections, create horizontal overflow, or shrink touch targets.
+    const chapterLayout=await page.evaluate(()=>{
+     const menu=document.querySelector('#profile-features .profile-feature-groups');
+     if(!menu)return null;
+     const groups=[...menu.querySelectorAll(':scope > details.profile-feature-group')];
+     const summaries=groups.map(g=>g.querySelector(':scope > summary'));
+     const first=summaries[0];
+     return {count:groups.length,
+      names:summaries.map(s=>s?.querySelector('strong')?.textContent?.trim()),
+      firstOpen:groups[0]?.open===true,
+      counterStyle:getComputedStyle(menu).counterReset,
+      numberStyle:first?getComputedStyle(first,'::before').content:'',
+      grid:first?getComputedStyle(first).display:'',
+      touchHeights:summaries.map(s=>Math.round(s?.getBoundingClientRect().height||0)),
+      overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};
+    });
+    const chapterNames=['Career & Results','Rivals & Matchups','Drafts, Trades & Pickups','Ratings & Legacy','Lineups & Keepers'];
+    if(!chapterLayout||chapterLayout.count!==5||
+       JSON.stringify(chapterLayout.names)!==JSON.stringify(chapterNames)||
+       !chapterLayout.firstOpen||chapterLayout.grid!=='grid'||
+       !chapterLayout.counterStyle.includes('fellas-profile-chapter')||
+       !chapterLayout.numberStyle.includes('counter(')||
+       chapterLayout.touchHeights.some(h=>h<44)||chapterLayout.overflow>2)
+     errors.push(width+' '+route+' Phase 2 mobile chapter hierarchy failed: '+JSON.stringify(chapterLayout));
+    if(captureVisuals&&width===390&&route==='managers/stilly/'){
+     const screenshot=path.join(root,'data-integrity','visual-audit',engine.toLowerCase(),String(width),'stilly_research_chapters.png');
+     await fs.mkdir(path.dirname(screenshot),{recursive:true});
+     await page.locator('#profile-features').screenshot({path:screenshot,animations:'disabled'});
+    }
+
     const panel=page.locator('#profile-playoff-resume');
     await panel.waitFor({state:'visible',timeout:10000});
     // Every champion's profile links directly to its verified title features.
