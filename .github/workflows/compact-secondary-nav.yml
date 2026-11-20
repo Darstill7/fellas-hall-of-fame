@@ -1,0 +1,27 @@
+name: Compact mobile secondary navigation
+on:
+  pull_request:
+    paths:
+      - 'managers/index.html'
+      - 'analytics/records.html'
+      - 'managers/record-books.html'
+      - 'scripts/test-compact-secondary-nav.mjs'
+      - '.github/workflows/compact-secondary-nav.yml'
+  workflow_dispatch:
+jobs:
+  mobile-headers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check browser-test syntax
+        run: node --check scripts/test-compact-secondary-nav.mjs
+      - name: Install phone browser engines
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Check compact navigation on mobile and desktop
+        run: node scripts/test-compact-secondary-nav.mjs

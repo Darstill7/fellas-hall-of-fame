@@ -1421,12 +1421,17 @@ try{
     if(await cards.count()!==10)errors.push(width+' managers directory needs exactly 10 profile links');
     if(await page.locator('details.manager-nav-more a[href="../analytics/records.html"]').count()!==0)
      errors.push(width+' manager directory repeats the primary Records link inside More');
-    const extra=page.locator('details.manager-nav-more');
+    const extra=width<650?page.locator('header details.compact-secondary-nav'):page.locator('details.manager-nav-more');
     if(await extra.count()!==1||await extra.evaluate(el=>el.open))
      errors.push(width+' managers navigation extras should start collapsed');
     await extra.locator(':scope > summary').click();
     if(!await extra.locator('a[href="../analytics/trade-museum.html"]').isVisible())
      errors.push(width+' managers extra destinations not reachable');
+    if(width<650){
+     for(const href of ['../analytics/records.html','../analytics/power-ratings.html','../seasons/','../analytics/keeper-tracker.html','../analytics/keeper-decision-research.html'])
+      if(!await extra.locator('a[href="'+href+'"]').isVisible())
+       errors.push(width+' manager directory compact navigation lost '+href);
+    }
     const input=page.locator('#manager-name-search');
     await input.fill('stover');
     if(await page.locator('#manager-directory-cards a.manager:visible').count()!==1||!await page.locator('a.manager[href="stover/"]').isVisible())
@@ -1544,7 +1549,13 @@ try{
      errors.push(width+' historical spread deep-link parameters not honored');
    }
    if(route==='analytics/records.html'){
-    const managersLink=page.locator('header .navlinks a[href="../managers/"]');
+    const mobileRecordMenu=page.locator('header details.compact-secondary-nav');
+    if(width<650){
+     if(await mobileRecordMenu.count()!==1||!await mobileRecordMenu.isVisible())
+      errors.push(width+' record book compact mobile navigation missing');
+     else await mobileRecordMenu.locator(':scope > summary').click();
+    }
+    const managersLink=width<650?mobileRecordMenu.locator('nav a[href="../managers/"]'):page.locator('header .navlinks a[href="../managers/"]');
     if(await managersLink.count()!==1||!await managersLink.isVisible())
      errors.push(width+' record book Managers navigation must point to current directory');
     const coverage=page.locator('main .hero details.records-coverage');
@@ -2653,15 +2664,21 @@ try{
     if(!links)errors.push(width+' record holder links broken');
    }
    if(route==='managers/record-books.html'){
-    const primary=page.locator('header nav.records-primary-nav');
+    const primary=width<650?page.locator('header details.compact-secondary-nav'):page.locator('header nav.records-primary-nav');
     if(await primary.count()!==1)
      errors.push(width+' Manager Record Books primary navigation missing');
     else{
-     for(const href of ['../index.html','../managers/','../analytics/records.html','../analytics/manager-report-cards.html']){
+     if(width<650){
+      if(await primary.evaluate(el=>el.open))errors.push(width+' Manager Record Books compact navigation must start collapsed');
+      await primary.locator(':scope > summary').click();
+     }
+     for(const href of ['../index.html','../managers/','../analytics/records.html','../analytics/record-holders.html','../analytics/manager-report-cards.html']){
       if(await primary.locator('a[href="'+href+'"]').count()!==1)
        errors.push(width+' Manager Record Books missing destination '+href);
+      else if(width<650&&!await primary.locator('a[href="'+href+'"]').isVisible())
+       errors.push(width+' Manager Record Books compact destination inaccessible '+href);
      }
-     const tinyTargets=await primary.locator('a').evaluateAll(links=>links.filter(link=>getComputedStyle(link).display!=='none'&&link.getBoundingClientRect().height<40).map(link=>link.textContent.trim()));
+     const tinyTargets=await primary.locator('a').evaluateAll(links=>links.filter(link=>{const r=link.getBoundingClientRect();return r.width>0&&r.height>0&&r.height<44}).map(link=>link.textContent.trim()));
      if(tinyTargets.length)errors.push(width+' Manager Record Books links too small to tap: '+tinyTargets.join(', '));
     }
     const recordJump=page.locator('nav.record-jump-nav');
