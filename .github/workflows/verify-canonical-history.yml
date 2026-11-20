@@ -146,8 +146,12 @@ jobs:
         run: node scripts/verify-manager-profile-v2.mjs
       - name: Ensure all ten Franchise Timelines reflect canonical current-season game results
         run: node scripts/verify-franchise-timeline-freshness.mjs
+      - name: Require deterministic Franchise Timeline source regeneration
+        run: node scripts/sync-franchise-timeline-current.mjs --check
       - name: Verify records across published pages
         run: node scripts/verify-canonical-history.mjs
+      - name: Require canonical career records in both embedded Record Book fallbacks
+        run: node scripts/sync-records-career-fallbacks.mjs --check
       - name: Verify living Fellas power rating formula
         run: node scripts/verify-fellas-rating.mjs
       - name: Syntax-check Madden manager browser modules
