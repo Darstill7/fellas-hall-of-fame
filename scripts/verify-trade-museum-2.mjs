@@ -96,6 +96,24 @@ for(const t of parEligible){
 assert.ok(Math.abs([...parManagerNet.values()].reduce((sum,n)=>sum+n,0))<0.001,'Pairwise +/- must be zero sum');
 assert.ok(plusMinus.includes('id="pairRows"')&&plusMinus.includes('id="managerRows"')&&plusMinus.includes('id="tradeRows"'),'Trade +/- view must include pair, manager and source evidence views');
 assert.ok(plusMinus.includes('id="matrixHeader"')&&plusMinus.includes('id="matrixBody"'),'Trade +/- must include directional head-to-head matrix');
+assert.ok(plusMinus.includes('id="includeRecovery"')&&plusMinus.includes("const activeTrades=()=>$('includeRecovery').checked"),'Expanded four-case comparison must be explicitly opt-in');
+assert.ok(plusMinus.includes("sourceRecoveredPreview:true")&&plusMinus.includes("RESEARCH PREVIEW · NOT CERTIFIED"),'Source-recovered comparisons must remain visibly research-only');
+assert.ok(plusMinus.includes('loadRecoveredPreview(data.records)')&&plusMinus.includes('Expanded research preview unavailable'),'Missing proof data must fail closed');
+const proofFiles=['trade_par_recovery_2025_ertz_source_v1.json','trade_par_recovery_2024_mostert_source_v1.json','trade_par_recovery_2024_aiyuk_source_v1.json','trade_par_recovery_2025_tuten_source_v1.json'];
+const recoveredIds=new Set();
+for(const file of proofFiles){
+ const proof=JSON.parse(readFileSync(new URL('../data/'+file,import.meta.url),'utf8'));
+ assert.equal(proof.status,'source_checked_pending_integration');
+ assert.equal(proof.evidence.verifiedPostTradeStarts,0);
+ const trade=parData.records.find(t=>String(t.id)===proof.tradeId);
+ assert.ok(trade&&!parEligible.includes(trade),'Preview proof cannot already be a certified sample trade');
+ const unresolved=trade.sides.flatMap(side=>(side.unresolved||[]).map(asset=>({asset,manager:side.manager})));
+ assert.deepEqual(unresolved,[{asset:proof.player.name,manager:proof.manager}]);
+ assert.ok(!recoveredIds.has(String(trade.id)),'No duplicate preview trades');
+ recoveredIds.add(String(trade.id));
+}
+assert.equal(parEligible.length+recoveredIds.size,22,'Expanded research-only comparison count must stay independently audited');
+
 assert.ok(plusMinus.includes('id="coverageRows"')&&plusMinus.includes('renderCoverage()'),'Trade +/- must report yearly source coverage');
 assert.ok(plusMinus.includes('id="recoveryRows"')&&plusMinus.includes('renderRecovery()'),'Unmatched trade research queue must remain discoverable');
 assert.ok(plusMinus.includes('Never substitute zeros or partial PAR'),'Unmatched received players must not be scored as zero');
