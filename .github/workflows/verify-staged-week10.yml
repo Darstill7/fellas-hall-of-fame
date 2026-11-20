@@ -1,0 +1,24 @@
+name: Verify staged 2026 Week 10 source receipts
+on:
+  pull_request:
+    paths:
+      - 'data-integrity/sleeper-sync-candidates/2026-week10.json'
+      - 'data-integrity/sleeper-sync-candidates/2026-week10-standings-receipt.json'
+      - 'scripts/verify-staged-sleeper-week10.mjs'
+      - 'scripts/test-weekly-import-rehearsal.mjs'
+      - '.github/workflows/verify-staged-week10.yml'
+  workflow_dispatch:
+jobs:
+  reconcile-final-week:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify independent score and standings receipts
+        run: |
+          node --check scripts/verify-staged-sleeper-week10.mjs
+          node scripts/verify-staged-sleeper-week10.mjs
+      - name: Prove staged candidate can be dry-run without canonical mutation
+        run: node scripts/test-weekly-import-rehearsal.mjs
