@@ -158,7 +158,7 @@ async function start(){
        r.evidence?.opponent||''])].join(' ').toLocaleLowerCase('en-US');
   };
   const drawExpanded=()=>{
-   const normalized=queryInput.value.trim().replace(/\\s+/g,' ').toLocaleLowerCase('en-US');
+   const normalized=queryInput.value.trim().replace(/\s+/g,' ').toLocaleLowerCase('en-US');
    const parts=normalized?normalized.split(' '):[];
    expandedHost.replaceChildren();
    const filtered=expanded.categories.filter(c=>
