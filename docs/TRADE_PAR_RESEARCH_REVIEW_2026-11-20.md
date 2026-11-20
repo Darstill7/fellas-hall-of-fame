@@ -50,7 +50,25 @@ This result is enforced by `scripts/audit-trade-par-baseline-identifiability.mjs
 
 ---
 
-## 6. Requirements to promote or label an all-time ranking
+## 6. Alternative benchmark source feasibility
+
+An independent check of all **611** inherited matched starter-week records against local week-level *full roster/bench* source filenames finds:
+
+- **598** observations with a standard archived Sleeper roster-snapshot source file.
+- **6** observations in 2025 Week 7 with a separate WAR roster reconstruction source, not an ordinary Sleeper roster-snapshot file.
+- **7** observations in **2020 Week 14** with no archived full weekly roster snapshot in the current repository. Their starter scores are nevertheless independently verified in the season's starter-only ledger.
+
+The audit `scripts/audit-trade-par-bench-source-readiness.mjs` independently inspects available roster files and identifies receiving team starters/bench lists. A historical bench score is **not automatically a legal replacement** at fantasy lineup lock, a waiver/free agent, or a FLEX-eligible substitute. Before any new comparable PAR approach can be approved, establish which position/slot substitutes would actually have been eligible and available; prevent counting the same replacement twice.
+
+### Targeted 2025 WR constraint check
+
+Under the *hypothetical* simplified assumption of one common WR baseline for each year/week, the inherited aggregate PAR data cannot uniquely determine **2025 Week 7** (Mike Evans) or **Week 13** (Stefon Diggs) WR replacement values. Week 12 is **mathematically constrained to 3.88** by another asset with a single Week 12 WR start (the 0-point Jordan Addison appearance). **3.88 is an implied deduction conditional on the assumed model, not a verified or deployable source baseline**. It does not resolve Diggs's two-week total, Evans's Week 7 start, or whether the original model treated FLEX/WR starts differently.
+
+No all-time trade skill or replacement-adjusted winner ranking should be certified from these aggregate deductions alone.
+
+---
+
+## 7. Requirements to promote or label an all-time ranking
 
 1. Confirm the specific season's scoring rules and exact lineup slots including FLEX treatment; establish whether the baseline is league-wide, waiver replacement, actual same-roster bench, or another model.
 2. For each started player and week, attach stable provider player ID, owner/roster ID, position and lineup slot, the fantasy points scored, specific replacement peer set, eligible substitute points, benchmark methodology/version, and source receipt.
@@ -66,6 +84,7 @@ This result is enforced by `scripts/audit-trade-par-baseline-identifiability.mjs
 - `scripts/audit-trade-par-promotion-candidates.mjs` — six optional research-only bilateral comparisons.
 - `scripts/audit-trade-par-baseline-provenance.mjs` — explicit warning that no week-specific replacement benchmark is independently reproduced.
 - `scripts/audit-trade-par-baseline-identifiability.mjs` — independent linear constraint audit: 205 position-week unknowns, rank 102, 103 not determined by inherited aggregate asset PAR.
+- `scripts/audit-trade-par-bench-source-readiness.mjs` — counts 598 standard source snapshots, six WAR reconstructions and seven missing full-roster 2020 Week 14 observations, without treating hindsight bench points as automatically eligible replacements.
 - `scripts/verify-trade-museum-2.mjs` and the Chromium/WebKit browser tests — source integrity, opt-in preview on/off and shareable pair navigation.
 
 **Disposition:** Maintain PR #276 as a draft. The evidence is strong enough for a clearly labeled research preview, but not yet for a fully certified, all-time trading-skill leaderboard.
