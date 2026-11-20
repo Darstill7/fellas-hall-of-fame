@@ -35,9 +35,11 @@ leader('low-streak','Stew',4,2023);
 leader('combined-high','Stover',342.30,2026,10);
 leader('combined-low','Thommy',119,2017,1);
 const rivalry=get('rival-win-run');
-assert.equal(rivalry.holders[0].value,6);
-assert.equal(new Set(rivalry.holders.map(x=>x.manager+'|'+x.opponent)).size,6);
-assert(rivalry.holders.every(x=>x.rank===1),'All six holders should share first rank');
+assert.equal(rivalry.holders[0].value,7);
+assert.equal(rivalry.holders[0].manager,'Tony');
+assert.equal(rivalry.holders[0].opponent,'Kuhl');
+assert.equal(new Set(rivalry.holders.map(x=>x.manager+'|'+x.opponent)).size,1);
+assert(rivalry.holders.every(x=>x.rank===1),'The seven-game rivalry streak must be unambiguously ranked first');
 assert(get('combined-low').direction==='low');
 assert(get('combined-low').leaders.every(x=>x.value>0),'Combined scores must be positive');
 for(const category of result.categories){
