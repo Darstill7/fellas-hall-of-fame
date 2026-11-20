@@ -1,0 +1,81 @@
+{
+  "league": "1340027406009761792",
+  "season": 2026,
+  "throughWeek": 10,
+  "source": "Connected Sleeper league standings retrieved 2026-11-20; validated separately against final Week 10 paired matchups",
+  "note": "Season-snapshot receipts for a review candidate; never treat week 11 in-progress scores as final",
+  "rosterManagerMap": {
+    "1": "Stilly",
+    "2": "JMid",
+    "3": "Thommy",
+    "4": "Stew",
+    "5": "Scott",
+    "6": "Mitch",
+    "7": "Tony",
+    "8": "Stover",
+    "9": "Kuhl",
+    "10": "Birch"
+  },
+  "standings": [
+    {
+      "rosterId": 6,
+      "wins": 8,
+      "losses": 2,
+      "pointsFor": 1291.16
+    },
+    {
+      "rosterId": 4,
+      "wins": 7,
+      "losses": 3,
+      "pointsFor": 1251.74
+    },
+    {
+      "rosterId": 7,
+      "wins": 7,
+      "losses": 3,
+      "pointsFor": 1092.82
+    },
+    {
+      "rosterId": 10,
+      "wins": 6,
+      "losses": 4,
+      "pointsFor": 1176.22
+    },
+    {
+      "rosterId": 1,
+      "wins": 6,
+      "losses": 4,
+      "pointsFor": 1166.76
+    },
+    {
+      "rosterId": 2,
+      "wins": 5,
+      "losses": 5,
+      "pointsFor": 1158.26
+    },
+    {
+      "rosterId": 8,
+      "wins": 4,
+      "losses": 6,
+      "pointsFor": 1108.8
+    },
+    {
+      "rosterId": 5,
+      "wins": 4,
+      "losses": 6,
+      "pointsFor": 989.08
+    },
+    {
+      "rosterId": 3,
+      "wins": 3,
+      "losses": 7,
+      "pointsFor": 1031.96
+    },
+    {
+      "rosterId": 9,
+      "wins": 0,
+      "losses": 10,
+      "pointsFor": 815.78
+    }
+  ]
+}
