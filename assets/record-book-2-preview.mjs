@@ -203,6 +203,17 @@ async function start(){
       target.focus({preventScroll:true});
     }
   });
+  $('#compare-selected').addEventListener('click',()=>{
+    $('#compare-first').value=selectedManager;
+    if($('#compare-second').value===selectedManager){
+      $('#compare-second').value=managers.find(m=>m!==selectedManager)||selectedManager;
+    }
+    const url=new URL(location.href);
+    url.searchParams.set('compareA',$('#compare-first').value);
+    url.searchParams.set('compareB',$('#compare-second').value);
+    history.replaceState(null,'',url);
+    renderComparison();
+  });
   $('#manager-picker').addEventListener('change',e=>{selectedManager=e.target.value;syncManager()});
   $('#manager-filters').addEventListener('click',e=>{
    const btn=e.target.closest('button[data-pf]');if(!btn)return;
