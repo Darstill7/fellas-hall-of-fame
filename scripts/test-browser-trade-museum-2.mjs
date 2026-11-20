@@ -58,9 +58,20 @@ try{
    assert.ok((await page.locator('#timeline .receipt a[href*="trade-museum.html?trade="]').count())>0,'Portfolio receipt deep links resolve to museum');
    const portfolioOverflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+1);
    assert.equal(portfolioOverflow,false,testCase.engine+' '+testCase.width+'px portfolio horizontal overflow');
+   await page.locator('#impactStatus').waitFor();
+   assert.ok((await page.locator('#impactStatus').innerText()).includes('verified playoff game/trade matches'),'Stilly championship impact must be evidenced');
+   assert.ok(await page.locator('#impactGrid .impact-case').count()>0,'Verified championship-run impact panels visible');
+   assert.ok(await page.locator('#keeperStory').isVisible(),'Verified keeper-era story should show for Stilly');
    await page.goto(portfolioUrl+'?manager=thommy',{waitUntil:'load'});
    await page.locator('#portfolio:not([hidden])').waitFor();
    assert.equal((await page.locator('#manager').inputValue()).toLowerCase(),'tom','Historical Thommy alias must map to Tom portfolio');
+   assert.ok(await page.locator('#impactGrid .impact-case').count()>0,'Tom/Thommy championship research mapped correctly');
+   assert.equal(await page.locator('#keeperStory').isVisible(),false,'Keeper story should not be credited to Thommy');
+   await page.goto(portfolioUrl+'?manager=kuhl',{waitUntil:'load'});
+   await page.locator('#portfolio:not([hidden])').waitFor();
+   assert.equal(await page.locator('#impactGrid .impact-case').count(),0,'Unproven impact must not be invented');
+   assert.ok((await page.locator('#impactStatus').innerText()).includes('No qualifying acquired-player'),'Missing data should have a scope explanation');
+
    assert.equal(errors.length,0,'Unexpected page JS errors: '+errors.join('; '));
    await page.close();
    console.log(testCase.engine+' '+testCase.width+'px: museum journey passed');
