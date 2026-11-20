@@ -6,7 +6,7 @@ for(const id of ['record-manager-compare','record-compare-left','record-compare-
  assert.equal((html.match(new RegExp('id="'+id+'"','g'))||[]).length,1,'Missing/duplicated comparison control '+id);
 }
 assert(html.indexOf('id="manager-record-finder"')<html.indexOf('id="record-manager-compare"'),'Manager finder should come first');
-assert(html.indexOf('id="record-manager-compare"')<html.indexOf('record-holders-other-paths'),'Comparison should precede optional archive');
+assert(html.indexOf('id="record-manager-compare"')<html.indexOf('<details class="record-holders-other-paths">'),'Comparison should precede optional archive');
 assert(html.includes('44-category expanded archive'),'Scope note must use the 44-category dataset');
 assert(html.includes('Ties count for both managers'),'Tied owners must be explained');
 assert(js.includes('function renderManagerComparison()'),'Comparison renderer absent');
