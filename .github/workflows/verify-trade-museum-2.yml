@@ -8,6 +8,7 @@ on:
       - 'data/trade_par_preview.json'
       - 'analytics/greatest-worst-trades.html'
       - 'scripts/verify-trade-museum-2.mjs'
+      - 'scripts/audit-trade-par-recovery.mjs'
       - 'scripts/test-browser-trade-museum-2.mjs'
       - '.github/workflows/verify-trade-museum-2.yml'
   workflow_dispatch:
@@ -23,6 +24,8 @@ jobs:
           node-version: '22'
       - name: Check embedded receipt integrity, JS syntax and museum navigation
         run: node scripts/verify-trade-museum-2.mjs
+      - name: Publish incomplete trade PAR research audit
+        run: node scripts/audit-trade-par-recovery.mjs --github-summary
       - name: Install browser runtime for mobile museum checks
         run: |
           npm install --no-save playwright@1.56.1
