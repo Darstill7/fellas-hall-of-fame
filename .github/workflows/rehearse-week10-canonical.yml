@@ -1,0 +1,60 @@
+name: Rehearse Week 10 canonical projection regeneration
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/rehearse-week10-canonical.yml'
+      - 'scripts/verify-staged-sleeper-week10.mjs'
+      - 'scripts/apply-reviewed-sleeper-week.mjs'
+      - 'data-integrity/sleeper-sync-candidates/2026-week10.json'
+      - 'data-integrity/sleeper-sync-candidates/2026-week10-standings-receipt.json'
+  workflow_dispatch:
+jobs:
+  disposable-week10-rebuild:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate staged final scores and ten standings against source receipts
+        run: |
+          node scripts/verify-staged-sleeper-week10.mjs
+          node scripts/test-weekly-import-rehearsal.mjs
+      - name: Rehearse complete import and downstream generation only inside disposable checkout
+        id: rebuild
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p data-integrity/week10-preview
+          printf 'Status: review-only projection preview. No canonical commit, push or deployment.\n' > data-integrity/week10-preview/README.txt
+          FELLAS_APPROVE_WEEKLY_IMPORT=YES node scripts/apply-reviewed-sleeper-week.mjs data-integrity/sleeper-sync-candidates/2026-week10.json 2>&1 | tee data-integrity/week10-preview/rebuild.log
+          git diff --check
+          git status --short > data-integrity/week10-preview/changed-files.txt
+          git diff --stat > data-integrity/week10-preview/diff-summary.txt
+          git diff -- data/unified_record_book_2016_2026.json data/season_weekly_matchups_2016_2026_v1.json data/all_time_luck_ratings_v1.json > data-integrity/week10-preview/canonical-preview.diff
+          echo 'Disposable Week 10 source and downstream generation completed. This job does not publish or commit any files.'
+      - name: Inspect source coverage and downstream projections for unreviewed changes
+        if: steps.rebuild.outcome == 'success'
+        run: |
+          node scripts/verify-current-week-website.mjs
+          node scripts/verify-weekly-ledger-parity.mjs
+          test "$(node -e "const d=require('./data/unified_record_book_2016_2026.json'); console.log(d.games.filter(g=>g.year===2026&&g.stage==='regular').length)")" = '50'
+      - name: Always preserve rehearsal evidence, including failures
+        if: always()
+        run: |
+          mkdir -p data-integrity/week10-preview
+          git status --short > data-integrity/week10-preview/changed-files-final.txt
+          git diff --stat > data-integrity/week10-preview/diff-summary-final.txt
+      - name: Save review-only staging and generation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: week10-projection-rehearsal
+          path: data-integrity/week10-preview/
+          if-no-files-found: error
+          retention-days: 21
