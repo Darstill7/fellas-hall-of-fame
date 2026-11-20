@@ -47,6 +47,7 @@ jobs:
       - name: Rehearse approved import and full regenerated-source freshness (CI workspace ONLY)
         env:
           FELLAS_APPROVE_WEEKLY_IMPORT: 'YES'
+          FELLAS_SYNTHETIC_REHEARSAL: 'YES'
         run: |
           set -euo pipefail
           cd "$REHEARSAL_PATH"
