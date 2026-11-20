@@ -96,6 +96,17 @@ for(const t of parEligible){
 assert.ok(Math.abs([...parManagerNet.values()].reduce((sum,n)=>sum+n,0))<0.001,'Pairwise +/- must be zero sum');
 assert.ok(plusMinus.includes('id="pairRows"')&&plusMinus.includes('id="managerRows"')&&plusMinus.includes('id="tradeRows"'),'Trade +/- view must include pair, manager and source evidence views');
 assert.ok(plusMinus.includes('id="matrixHeader"')&&plusMinus.includes('id="matrixBody"'),'Trade +/- must include directional head-to-head matrix');
+assert.ok(plusMinus.includes('id="coverageRows"')&&plusMinus.includes('renderCoverage()'),'Trade +/- must report yearly source coverage');
+assert.ok(plusMinus.includes("fetch('trade-museum.html'"),'Trade +/- must independently reconcile against the museum source');
+assert.ok(plusMinus.includes('original.year!==measured.year'),'Qualified PAR evidence must fail closed on source ID or season mismatch');
+const countByYear=new Map();
+for(const t of trades.filter(t=>t.year>=2020&&t.year<=2025))countByYear.set(t.year,(countByYear.get(t.year)||0)+1);
+for(const year of [2020,2021,2022,2023,2024,2025]){
+ const matched=parEligible.filter(t=>t.year===year).length;
+ assert.ok(matched<=countByYear.get(year),'Measured results exceed museum receipts for '+year);
+}
+assert.equal([...countByYear.values()].reduce((a,b)=>a+b,0),44,'Museum coverage scope changed; re-audit release assumptions');
+
 assert.ok(plusMinus.includes("if(!pair)return '<td class=\"na\""),'Unmeasured manager pairs must display a dash rather than false zero');
 assert.ok(plusMinus.includes("searchParams.get('partner')"),'Matrix pair deep links must retain selected counterpart');
 assert.ok(plusMinus.includes("t.sides.length===2")&&plusMinus.includes("s.fullyMatched===true"),'Unqualified trade receipts must not be graded');
