@@ -20,6 +20,38 @@ The read-only `audit-weekly-publication.yml` runs Tuesday/Wednesday and on relev
 4. Review the resulting diff, Week N records, expected playoff percentages, source cutoff notices, green canonical/mobile checks, and the publication freshness audit. A stale Trade Museum is flagged, not silently rewritten.
 5. **Merge the release PR only when approved.** Wait for the GitHub Pages deployment and verify that the live data and HTML correspond to the merged commit.
 
+## Trade Museum: separate approval for newly discovered transactions
+
+After the Tuesday staging PR, open `data-integrity/sleeper-sync-candidates/2026-trade-review-through-weekN.json`. It reports completed provider trade IDs that do not yet exist in the audited Trade Museum, with source-driven FAAB and draft-field cautions. **A new transaction is not automatically publishable.**
+
+For verified multi-manager player trades, create and review `data-integrity/trade-certifications/2026-weekN.json` on the staging branch. Its shape is:
+
+```json
+{
+  "schema": "fellas-trade-museum-certification-v1",
+  "status": "COMMISSIONER_APPROVED",
+  "year": 2026,
+  "through_week": 10,
+  "raw_candidate": "data-integrity/sleeper-sync-candidates/2026-trades-through-week10.json",
+  "trades": [
+    {
+      "transaction_id": "VERIFIED_SLEEPER_TRANSACTION_ID",
+      "week": 10,
+      "date": "YYYY-MM-DD",
+      "faab_reviewed": true,
+      "sides": [
+        {"roster_id": 1, "manager": "Stilly", "assets": ["VERIFIED_RECEIVED_PLAYER"]},
+        {"roster_id": 2, "manager": "JMid", "assets": ["VERIFIED_RECEIVED_PLAYER"]}
+      ]
+    }
+  ]
+}
+```
+
+*This is a schema example, not a real trade or approved score.* Confirm every asset-direction and roster mapping against Sleeper. Current team roster IDs are versioned in the importer. Three-team transfers require all sides. Unknown or FAAB-only transfers stay in the research queue; unexpected draft-pick fields are blocked. Preserve historical trade statistics.
+
+Then use **Actions → Prepare commissioner-approved Trade Museum release**, enter the certification week and `APPROVE_TRADES`. The workflow retrieves the staged source, checks participants and source IDs, runs a no-write dry-run, imports newly certified trades as **ungraded**, validates museum parity and opens a separate PR. **No automatic merge or publication.** Trade starter points only appear after an independent production audit; `null` is displayed as “Not audited,” not zero.
+
 ## One source, separate accuracy scopes
 
 | Feature | Approved source | Weekly behavior |
