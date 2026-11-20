@@ -15,6 +15,17 @@ const numbers=[268,271,272,273];
 const main=await api('/git/ref/heads/main');
 const mainSha=main.object?.sha;
 if(!/^[0-9a-f]{40}$/.test(mainSha||''))throw Error('No exact main SHA');
+const mainLedgerFile=await api('/contents/data/unified_record_book_2016_2026.json?ref='+mainSha);
+if(mainLedgerFile.encoding!=='base64'||!mainLedgerFile.content)throw Error('Cannot read approved main ledger');
+const mainLedger=JSON.parse(Buffer.from(mainLedgerFile.content.replace(/\\s/g,''),'base64').toString('utf8'));
+const approvedGames=(mainLedger.games||[]).filter(g=>g.year===2026&&g.stage==='regular');
+const mainCanonicalWeek=Math.max(0,...approvedGames.map(g=>g.week));
+if(mainCanonicalWeek<1||mainCanonicalWeek>14)throw Error('Invalid production canonical week');
+for(let w=1;w<=mainCanonicalWeek;w++){
+ const pair=approvedGames.filter(g=>g.week===w);
+ if(pair.length!==5||new Set(pair.flatMap(g=>[g.home,g.away])).size!==10)
+  throw Error('Production canonical Week '+w+' has incomplete source coverage');
+}
 const mainRuns=(await api('/actions/runs?branch=main&per_page=100')).workflow_runs.map(x=>({
  name:x.name,status:x.status,conclusion:x.conclusion,head_sha:x.head_sha,created_at:x.created_at,html_url:x.html_url,id:x.id
 }));
@@ -45,7 +56,7 @@ try{
  if(staging.status==='UNKNOWN')staging.status='NO_REVIEW_CANDIDATE';
 }catch(e){staging={candidateWeek:null,status:'SOURCE_UNAVAILABLE',error:String(e.message||e).slice(0,150)}}
 const freshness=JSON.parse(execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--json'],{encoding:'utf8'}));
-const input={schema:'fellas-release-health-input-v1',observedAt:new Date().toISOString(),mainSha,staging,freshness,mainRuns,prs};
+const input={schema:'fellas-release-health-input-v1',observedAt:new Date().toISOString(),mainSha,mainCanonicalWeek,staging,freshness,mainRuns,prs};
 const out=process.argv[2]||'/tmp/fellas-release-health-input.json';
 fs.writeFileSync(out,JSON.stringify(input,null,2)+'\n');
-console.log('Collected exact main '+mainSha.slice(0,12)+', '+prs.length+' PR heads, staging '+staging.status+' through '+staging.candidateWeek+', '+freshness.sections.length+' data sections');
+console.log('Collected main '+mainSha.slice(0,12)+' verified through Week '+mainCanonicalWeek+', branch Week '+freshness.canonicalVerifiedThroughWeek+', '+prs.length+' PR heads, staging '+staging.status+' Week '+staging.candidateWeek);
