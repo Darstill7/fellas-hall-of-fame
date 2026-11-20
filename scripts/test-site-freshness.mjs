@@ -44,6 +44,23 @@ try{
  const pass=execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--release-gate','--expected-week='+canonicalWeek],{encoding:'utf8'});
  assert.match(pass,/FELLAS RELEASE GATE PASS/);
  if(canonicalWeek<14)assert.throws(()=>execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--release-gate','--expected-week='+(canonicalWeek+1)],{encoding:'utf8',stdio:'pipe'}),/Command failed/,'Future week must not publish');
+ // Even when a source SHA256 is perfectly current with a regenerated manifest,
+ // the release must fail if the playoff model is still from last week.
+ const racePath='data/playoff_race_v1.json';
+ const untouched=fs.readFileSync(racePath);
+ try{
+  const race=JSON.parse(untouched);
+  race.verified_through_week=canonicalWeek-1;
+  fs.writeFileSync(racePath,JSON.stringify(race,null,2)+'\n');
+  execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--write'],{encoding:'utf8'});
+  const staleGate=execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--json'],{encoding:'utf8'});
+  const stale=JSON.parse(staleGate).sections.find(x=>x.id==='playoff-race');
+  assert.equal(stale.status,'STALE');
+  assert.throws(()=>execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--release-gate','--expected-week='+canonicalWeek],{encoding:'utf8',stdio:'pipe'}),/Command failed/,'Last-week playoff odds must block publication even with matching source hash');
+ }finally{
+  fs.writeFileSync(racePath,untouched);
+  execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--write'],{encoding:'utf8'});
+ }
  fs.writeFileSync(snapshot,'{"corrupt":"never publish"}\n');
  assert.throws(()=>execFileSync(process.execPath,['scripts/scan-site-freshness.mjs','--release-gate','--expected-week='+canonicalWeek],{encoding:'utf8',stdio:'pipe'}),/Command failed/,'Unverifiable source fingerprints must block publication');
 }finally{
