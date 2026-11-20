@@ -12,6 +12,12 @@ After raw receipts are staged, `scripts/review-staged-trades.mjs` compares compl
 
 The read-only `audit-weekly-publication.yml` runs Tuesday/Wednesday and on relevant PRs. It reports canonical week, playoff-model week, the Trade Museum's latest documented 2026 trade and frozen starter-point methodology. It never publishes.
 
+## A readable Tuesday approval report
+
+The approved weekly release workflow now generates its PR body from actual data, not a reusable generic template. Before any canonical write, it captures the prior published ledger, standings/projections and three all-time record feeds in a temporary runner directory. After the import passes its freshness gates, `scripts/build-weekly-commissioner-review.mjs` checks that the five source scores exactly match the new canonical games and that every derived record feed reports the same approved week.
+
+The GitHub PR summary includes the five score pairs, every manager's updated W–L and scoring delta, changes to all-time record values and holders, changed current-season scoring highlights, the exact staging-source commit, and a short publication checklist. It explicitly marks the Trade Museum as requiring a **separate trade certification**. This report is generated only inside a disposable CI runner and is **not** committed as a public data source. The synthetic weekly rehearsal tests that the report can be produced without any publication.
+
 ## Commissioner approval → complete reviewable release
 
 1. Review the staging PR against Sleeper: exactly five final scores, ten unique owners, aliases, and any changed trades. Keep the trade receipt separately for manual asset verification.
