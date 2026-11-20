@@ -100,6 +100,8 @@ Both Week 10 candidates (public Sleeper staging branch and connected league sour
 
 **After an approved weekly import:** the importer runs `--write`, generating `data/site_freshness_report_v1.json` with approved coverage and source digests, and then `--check` to enforce exact reproducibility. It is included in the reviewable release PR, but no pre-release report is claimed to exist on production yet.
 
+**Publication gate:** Before creating a commissioner release PR, `node scripts/scan-site-freshness.mjs --release-gate --expected-week=N` must pass. It verifies the exact approved week, all eight critical weekly source feeds, the presence of each consumer page, and the SHA256 manifest of every registered source. Even if a manifest is recalculated to match stale data, the gate rejects it when Playoff Race, Standings, Schedule Luck or the record feeds lag behind the approved canonical week. It **does not silently certify the Trade Museum**: a latest trade date alone is never evidence of complete transaction coverage, so transaction review remains separately required. The full synthetic release rehearsal exercises the gate, and regression tests deliberately inject an old playoff week and corrupt source manifest to prove fail-closed behavior.
+
 A newer Git file commit does not certify a newer fantasy week. An old Trade Museum event date means later transactions need *verification*, not that there were definitely no trades. The archival Record Book is marked ARCHIVED rather than misleadingly passing as a weekly-refresh source.
 
 ## Safety
