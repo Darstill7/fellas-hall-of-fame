@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'analytics/trade-museum.html'
+      - 'analytics/trade-portfolios.html'
+      - 'analytics/greatest-worst-trades.html'
       - 'scripts/verify-trade-museum-2.mjs'
       - 'scripts/test-browser-trade-museum-2.mjs'
       - '.github/workflows/verify-trade-museum-2.yml'
