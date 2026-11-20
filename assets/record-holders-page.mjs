@@ -145,10 +145,41 @@ async function start(){
    const link=tag('span','Explore this manager’s records →','cta');
    a.append(heading,count,breakdown,preview,link);(row.records.length||row.expandedRecords.length?list:other).append(a);
   }
-  // New primary catalog; the established legacy set remains under a separate disclosure.
-  const drawExpanded=(selected)=>{
+  // Filter the existing verified 44-category catalog; never compute or invent
+  // records from search text. The family and keyword filters combine.
+  const queryInput=document.getElementById('record-category-query');
+  const resultCount=document.getElementById('record-category-results-count');
+  if(!queryInput||!resultCount)throw Error('Record category search controls unavailable');
+  let selectedFamily='All';
+  const searchableCategory=c=>{
+   const winners=c.leaders.filter(r=>r.rank===1);
+   return [c.label,c.group,c.qualifier||'',c.key,
+     ...winners.flatMap(r=>[displayName(r.manager),r.year||'',r.week?'Week '+r.week:'',
+       r.evidence?.opponent||''])].join(' ').toLocaleLowerCase('en-US');
+  };
+  const drawExpanded=()=>{
+   const normalized=queryInput.value.trim().replace(/\s+/g,' ').toLocaleLowerCase('en-US');
+   const parts=normalized?normalized.split(' '):[];
    expandedHost.replaceChildren();
-   const filtered=expanded.categories.filter(c=>selected==='All'||c.group===selected);
+   const filtered=expanded.categories.filter(c=>
+     (selectedFamily==='All'||c.group===selectedFamily)&&
+     parts.every(part=>searchableCategory(c).includes(part)));
+   resultCount.textContent='Showing '+filtered.length+' of '+expanded.categories.length+
+     ' verified categories'+(selectedFamily==='All'?'':' in '+selectedFamily)+
+     (normalized?' for “'+queryInput.value.trim()+'”':'')+'.';
+   if(!filtered.length){
+    const empty=tag('div',undefined,'record-category-empty');
+    empty.append(tag('p','No verified record category matches these filters. Try another manager, season or keyword.'));
+    const clear=tag('button','Clear search and filters','record-category-clear');
+    clear.type='button';
+    clear.addEventListener('click',()=>{
+     queryInput.value='';selectedFamily='All';
+     for(const button of familyNav.querySelectorAll('button'))
+      button.setAttribute('aria-pressed',String(button.dataset.family==='All'));
+     drawExpanded();queryInput.focus();
+    });
+    empty.append(clear);expandedHost.append(empty);return;
+   }
    for(const category of filtered){
     const winners=category.leaders.filter(r=>r.rank===1);
     const card=tag('article',undefined,'category-card');
@@ -168,11 +199,15 @@ async function start(){
   familyNav.replaceChildren();
   for(const group of catalogGroups){
    const button=tag('button',group+(group==='All'?' ('+expanded.categoryCount+')':' ('+expanded.categories.filter(c=>c.group===group).length+')'));
-   button.type='button';button.setAttribute('aria-pressed',group==='All'?'true':'false');
-   button.addEventListener('click',()=>{for(const b of familyNav.querySelectorAll('button'))b.setAttribute('aria-pressed',String(b===button));drawExpanded(group)});
+   button.type='button';button.dataset.family=group;button.setAttribute('aria-pressed',group==='All'?'true':'false');
+   button.addEventListener('click',()=>{selectedFamily=group;
+    for(const b of familyNav.querySelectorAll('button'))b.setAttribute('aria-pressed',String(b===button));
+    drawExpanded();
+   });
    familyNav.append(button);
   }
-  drawExpanded('All');
+  queryInput.addEventListener('input',drawExpanded);
+  drawExpanded();
   categoryHost.replaceChildren();
   for(const label of categories){
    const categoryHolders=rows.flatMap(r=>r.records.filter(record=>record.label===label).map(record=>({name:r.name,record})));
