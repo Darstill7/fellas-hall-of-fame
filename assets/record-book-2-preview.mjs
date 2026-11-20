@@ -42,9 +42,11 @@ function buildSummary(person){
     recordsById.get(x.id)?.family!=='Legendary').length;
  const slug=person.manager==='Thommy'?'tom':person.manager.toLowerCase();
  const isCurrent=dataset.currentManagers.includes(person.manager);
+ const officialPortfolio='../managers/record-books.html?manager='+encodeURIComponent(person.manager);
  return '<div class="summary"><div class="summary-head"><div><div class="eyebrow">Franchise record dossier</div>'
  +'<h3>'+esc(displayName(person.manager))+'</h3><p>All known category placements are generated from the same record registry as the league archive. First-place counts include historical lowlights and ties; they are not championship totals.</p></div>'
- +(isCurrent?'<a class="summary-link" href="../managers/'+encodeURIComponent(slug)+'/">Manager biography ↗</a>':'<span class="label">Historical manager</span>')
+ +'<div class="summary-destinations"><a class="summary-link" href="'+esc(officialPortfolio)+'">Published personal record book ↗</a>'
+ +(isCurrent?'<a class="summary-link" href="../managers/'+encodeURIComponent(slug)+'/">Manager biography ↗</a>':'<span class="label">Historical manager</span>')+'</div>'
  +'</div><div class="stat-row"><div class="stat"><strong>'+rows.length+'</strong><span>Known placements</span></div>'
  +'<div class="stat"><strong>'+first+'</strong><span>No. 1 ranks (all types)</span></div>'
  +'<div class="stat"><strong>'+top3+'</strong><span>Top-three marks</span></div></div>'
