@@ -85,24 +85,24 @@ try{
    await page.goto(plusUrl,{waitUntil:'load'});
    await page.locator('#scoreboard:not([hidden])').waitFor();
    assert.equal(await page.locator('#qualified').innerText(),'13','Only 13 full matched trades avoid 2020–21 Week 14 playoff contamination');
-   assert.equal(await page.locator('#rawPointsRows tr').count(),7,'Seven managers should have at least one original period-clean trade');
-   assert.ok((await page.locator('#rawPointsRows').innerText()).includes('+274.30'),'Historical Kuhl received-start differential must reconcile');
-   assert.ok((await page.locator('#rawPointsStatus').innerText()).includes('13 two-manager trades'),'Default raw production ledger excludes postseason starts');
+   assert.equal(await page.locator('#rawPointsRows tr').count(),8,'Eight managers have originally fully matched raw-point trades including five postseason-corrected transactions');
+   assert.ok((await page.locator('#rawPointsRows').innerText()).includes('+306.60'),'Historical Kuhl source-rebuilt 18-trade raw differential must reconcile');
+   assert.ok((await page.locator('#rawPointsStatus').innerText()).includes('18 two-manager trades'),'Default raw points may recover five playoff-affected transactions after removing Week14 starts');
 
    assert.equal(await page.locator('#scopeRows .recovery-card').count(),5,'Five legacy qualified trades need re-scoring for 2020–21 playoff starts');
    assert.ok((await page.locator('#scopeSummary').innerText()).includes('5 inherited'),'Postseason contamination warning must be visible');
    assert.equal(await page.locator('#includeRecovery').isChecked(),false,'Research preview must be opt-in');
    await page.locator('#includeRecovery').check();
    assert.equal(await page.locator('#rawPointsRows tr').count(),8,'All eight managers appear when provisional research receipts are enabled');
-   assert.ok((await page.locator('#rawPointsRows').innerText()).includes('+304.60'),'Kuhl raw points update from six candidate receipts');
-   assert.ok((await page.locator('#rawPointsStatus').innerText()).includes('19 two-manager trades'),'Expanded raw production ledger uses the 19-trade period-clean sample');
+   assert.ok((await page.locator('#rawPointsRows').innerText()).includes('+336.90'),'Kuhl raw points update from six candidate receipts');
+   assert.ok((await page.locator('#rawPointsStatus').innerText()).includes('24 two-manager trades'),'Expanded raw production ledger uses 18 original and six provisional receipts');
 
    assert.ok((await page.locator('#previewState').innerText()).includes('19 trades'),'Opt-in clean-period preview should show 19 trades');
    assert.ok((await page.locator('#coverageRows tr').last().innerText()).includes('19'),'Coverage should show 19 in preview');
    await page.locator('#seasonFilter').selectOption('2025');
    assert.ok((await page.locator('#tradeRows .deal .preview-label').count())>=1,'Expanded sample marks research-only trade cards');
    await page.locator('#includeRecovery').uncheck();
-   assert.ok((await page.locator('#rawPointsRows').innerText()).includes('+274.30'),'Switching preview off restores source-backed raw accounting');
+   assert.ok((await page.locator('#rawPointsRows').innerText()).includes('+306.60'),'Switching preview off restores the full 18 source-backed raw accounting trades');
 
    assert.ok((await page.locator('#coverageRows tr').last().innerText()).includes('13'),'Unchecking reverts 13 postseason-clean measured trades');
    await page.locator('#seasonFilter').selectOption('all');
