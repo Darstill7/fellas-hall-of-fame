@@ -80,7 +80,6 @@ jobs:
         run: node scripts/build-trade-raw-starter-ledger.mjs --github-summary
       - name: Report 18/24 zero-sum received starter point research
         run: node scripts/audit-trade-par-raw-starter-accounting.mjs --github-summary
-        run: node scripts/audit-trade-par-raw-starter-accounting.mjs --github-summary
       - name: Install browser runtime for mobile museum checks
         run: |
           npm install --no-save playwright@1.56.1
