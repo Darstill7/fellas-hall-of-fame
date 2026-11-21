@@ -21,6 +21,8 @@ on:
       - 'scripts/audit-trade-par-baseline-identifiability.mjs'
       - 'scripts/audit-trade-par-bench-source-readiness.mjs'
       - 'scripts/audit-trade-par-clean-roster-readiness.mjs'
+      - 'scripts/verify-trade-par-era-settings.mjs'
+      - 'data/trade_par_era_lineup_settings_2020_2025_v1.json'
       - 'data/sleeper_roster_snapshots_20*.json'
       - 'data/war_rosters_2025_week7.json'
       - 'scripts/audit-trade-par-baseline-provenance.mjs'
@@ -69,6 +71,8 @@ jobs:
         run: node scripts/audit-trade-par-playoff-boundary.mjs --github-summary
       - name: Check original roster ownership and bench evidence for 13 postseason-clean trades
         run: node scripts/audit-trade-par-clean-roster-readiness.mjs --github-summary
+      - name: Verify six seasons of half-PPR dual-FLEX league settings and true playoff weeks
+        run: node scripts/verify-trade-par-era-settings.mjs --github-summary
       - name: Install browser runtime for mobile museum checks
         run: |
           npm install --no-save playwright@1.56.1
