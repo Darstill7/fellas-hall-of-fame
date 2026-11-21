@@ -3,6 +3,33 @@
 **Pull request:** #276 (draft; unmerged)  
 **Interpretation:** Observed post-trade starter production relative to a proposed replacement baseline. NOT trade decision quality or all-time franchise value.
 
+## Source-backed alternative: actual starter-point production (distinct from PAR)
+
+Using the six season-level original `data/player_starts_YYYY.json` ledgers, we have independently rebuilt the **raw fantasy points scored in acquired players’ receiving-manager starting lineups**. This requires **no replacement-level estimate**.
+
+Unlike the aggregate experimental PAR, a raw starter-point total can be precisely adjusted for the playoff boundary: all **14** player-start observations from 2020–2021 Week 14 within the five previously mixed-period fully matched trades are removed. That produces a season-correct **18-trade raw-starter-point source sample**, plus an expressly research-only **24-trade preview** when six zero-post-trade-start source-backed candidates are added.
+
+These raw point totals answer “what scoring actually appeared in that manager’s lineup from the received assets” and provide a defensible zero-sum historical accounting. They **do not** answer “who took advantage,” because quarterbacks and receivers have different scoring opportunities, roster slots/FLEX, unstarted assets, injuries, keeper value, playoff performance and counterfactual replacement are not normalized.
+
+| Manager | Source-corrected 18-trade net received starter pts | 24-trade research preview |
+|---|---:|---:|
+| Kuhl | +306.60 | +336.90 |
+| Mitch | +170.90 | +131.10 |
+| Birch | +155.22 | +90.72 |
+| Stilly | −3.52 | −3.52 |
+| JMid | −63.30 | −22.50 |
+| Stew | −74.70 | −24.30 |
+| Tony | −159.90 | −59.80 |
+| Tom | −331.30 | −448.60 |
+
+Reproducibility: `data/trade_raw_starter_accounting_2020_2025_v1.json` is generated from the original source ledgers by `scripts/build-trade-raw-starter-ledger.mjs` and checked byte-for-byte in CI. The raw production accounting is shown separately in the +/- view, with independent **18/24** sample sizes; inherited experimental PAR is still **13/19**. Never mix or substitute these two different metrics.
+
+### Verified league format, 2020–2025
+
+Historical Sleeper league-info confirms 0.5 PPR, starting QB/RB/RB/WR/WR/TE/FLEX/FLEX/DEF, six bench slots, and conventional RB/WR/TE FLEX eligibility in each of six seasons. Season-specific winners-bracket first weeks remain 2020–2021 Week 14 and 2022–2025 Week 15. The versioned source is `data/trade_par_era_lineup_settings_2020_2025_v1.json` and `scripts/verify-trade-par-era-settings.mjs` verifies agreement with the recovered playoff fixtures. These facts constrain future replacement models, but do not themselves establish a legal replacement player or a causal trade grade.
+
+---
+
 ## Critical correction: 2020–2021 Week 14 was postseason
 
 Verified historical winners-bracket fixtures establish the first playoff round in **Week 14 of both 2020 and 2021**; 2022–2025 first playoff rounds began Week 15. The inherited `trade_par_preview.json` applied a universal Week 14 "regular-season" cutoff and therefore included **25 postseason starter-asset observations** across 12 historical trades. **Five of the 18 fully matched two-manager comparisons are affected**, including the previously prominent 2021 Birch–Tom trade.
