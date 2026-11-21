@@ -201,9 +201,9 @@ function render(){
   r.net+=sorted[0].receivedStarterPoints-sorted[1].receivedStarterPoints;r.count++;
   rawPairNet.set(key,r);
  }
- const matrixNames=[...rawNet.keys()].sort((a,b)=>a.localeCompare(b));
- $('rawMatrixHeader').innerHTML='<tr><th scope="col">Manager</th>'+matrixNames.map(n=>'<th scope="col">'+esc(n)+'</th>').join('')+'</tr>';
- $('rawMatrixRows').innerHTML=matrixNames.map(row=>'<tr><th scope="row">'+esc(row)+'</th>'+matrixNames.map(col=>{
+ const rawMatrixNames=[...rawNet.keys()].sort((a,b)=>a.localeCompare(b));
+ $('rawMatrixHeader').innerHTML='<tr><th scope="col">Manager</th>'+rawMatrixNames.map(n=>'<th scope="col">'+esc(n)+'</th>').join('')+'</tr>';
+ $('rawMatrixRows').innerHTML=rawMatrixNames.map(row=>'<tr><th scope="row">'+esc(row)+'</th>'+rawMatrixNames.map(col=>{
   if(row===col)return '<td class="self" aria-label="Same manager">·</td>';
   const key=[row,col].sort().join('|'),pair=rawPairNet.get(key);
   if(!pair)return '<td class="na" title="No measured raw-point transaction">—</td>';
