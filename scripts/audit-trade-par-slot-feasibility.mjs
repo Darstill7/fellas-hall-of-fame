@@ -87,6 +87,34 @@ assert.equal(slotCounts.get('FLEX'),54,'Dual-FLEX observed starter evidence chan
 const withCandidates=observations.filter(x=>x.benchCandidateCount>0);
 const without=observations.filter(x=>x.benchCandidateCount===0);
 const rosterSources=new Set(observations.map(x=>x.source));
+const summary={
+ schema:'fellas-trade-slot-feasibility-source-2020-2025-v1',
+ status:'research_input_coverage_not_replacement_baseline_or_trade_grade',
+ originalPeriodCleanTrades:selected.length,
+ creditedAcquiredPlayerStarts:observations.length,
+ withObservedEligibleBench:withCandidates.length,
+ withoutObservedEligibleBench:without.length,
+ flexSlotStarts:slotCounts.get('FLEX')||0,
+ reconstructedRosterStarts:observations.filter(x=>x.source==='WAR reconstructed snapshot').length,
+ seasons:[2020,2021,2022,2023,2024,2025].map(year=>{
+  const v=yearCounts.get(year)||{starts:0,hasCandidate:0,noCandidate:0,flex:0,reconstructed:0};
+  return {year,starts:v.starts,withObservedEligibleBench:v.hasCandidate,withoutObservedEligibleBench:v.noCandidate,flexSlotStarts:v.flex,reconstructedRosterStarts:v.reconstructed};
+ }),
+ limitations:[
+  'Bench player eligible by recorded position for the same starting slot is not proof of active status or availability at lineup lock.',
+  'Scores are known after games and cannot be used as unbiased advance replacement projections.',
+  'Bench roster snapshots omit any unrostered waiver or free-agent player options.',
+  'Does not solve simultaneous substitutions or prevent one bench candidate from being reused across multiple proposed replacements.',
+  'Does not establish an independently reproducible replacement-level PAR or WAR benchmark.'
+ ]
+};
+const summaryFile=path.join(root,'data/trade_par_slot_feasibility_2020_2025_v1.json');
+const serialized=JSON.stringify(summary,null,2)+'\n';
+if(process.argv.includes('--write')){fs.writeFileSync(summaryFile,serialized);console.log('Wrote source-generated slot feasibility summary');}
+else{
+ assert.ok(fs.existsSync(summaryFile),'Slot feasibility summary must exist for site display');
+ assert.equal(fs.readFileSync(summaryFile,'utf8'),serialized,'Site slot-feasibility summary out of sync with historical starter and roster evidence');
+}
 const report=[
  '# Period-clean trade starter slot and bench feasibility audit','',
  '> **RESEARCH INPUTS, NOT A REPLACEMENT BASELINE.** This reports whether each credited acquired-player start had a historical same-roster bench option eligible for its exact starting slot (including RB/WR/TE FLEX). It does NOT prove game-time active status, transaction-time availability, a realistic projected replacement, or equal strategic value across positions. The best already-scored bench player is a hindsight diagnostic, not an ex-ante expectation. It does not simulate multiple simultaneous substitutions or reallocate existing starters.','',
