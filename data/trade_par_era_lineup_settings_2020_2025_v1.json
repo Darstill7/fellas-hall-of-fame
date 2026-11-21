@@ -1,0 +1,172 @@
+{
+  "schema": "fellas-trade-par-era-lineup-and-scoring-source-v1",
+  "status": "source_checked_not_a_replacement_benchmark",
+  "source": "Connected historical Sleeper season league-info, cross-checked against season winners-bracket records in data/playoff_explorer_verified_2016_2025_v1.json",
+  "observedOn": "2026-11-20",
+  "scope": "2020–2025 Sleeper league settings, not ESPN 2016–2019",
+  "limitations": [
+    "Only selected scoring settings are preserved; these fields are not a complete scoring ruleset.",
+    "Two FLEX places can be filled by RB/WR/TE; recorded player position alone does not reveal which lineup slot was used.",
+    "Weekly historical roster snapshots list starters and bench but not an independently certified bench substitution, waiver availability at lock, or trade PAR replacement methodology.",
+    "Playoff first-week values are derived from independent verified winners-bracket receipts, not an assumption that NFL Week 14 is regular season.",
+    "Historical Sleeper keeper settings can differ from actual keeper usage and are intentionally not used as trade value evidence."
+  ],
+  "seasons": [
+    {
+      "year": 2020,
+      "sleeperLeagueId": "561248176597610496",
+      "confirmedRegularSeasonWeeks": "1–13",
+      "firstWinnersBracketWeek": 14,
+      "startingSlots": [
+        "QB",
+        "RB",
+        "RB",
+        "WR",
+        "WR",
+        "TE",
+        "FLEX",
+        "FLEX",
+        "DEF"
+      ],
+      "benchSlots": 6,
+      "flexEligiblePositions": [
+        "RB",
+        "WR",
+        "TE"
+      ],
+      "pointsPerReception": 0.5,
+      "pointsPerReceivingYard": 0.1,
+      "pointsPerPassingYard": 0.04
+    },
+    {
+      "year": 2021,
+      "sleeperLeagueId": "668633299786244096",
+      "confirmedRegularSeasonWeeks": "1–13",
+      "firstWinnersBracketWeek": 14,
+      "startingSlots": [
+        "QB",
+        "RB",
+        "RB",
+        "WR",
+        "WR",
+        "TE",
+        "FLEX",
+        "FLEX",
+        "DEF"
+      ],
+      "benchSlots": 6,
+      "flexEligiblePositions": [
+        "RB",
+        "WR",
+        "TE"
+      ],
+      "pointsPerReception": 0.5,
+      "pointsPerReceivingYard": 0.1,
+      "pointsPerPassingYard": 0.04
+    },
+    {
+      "year": 2022,
+      "sleeperLeagueId": "857125408712310784",
+      "confirmedRegularSeasonWeeks": "1–14",
+      "firstWinnersBracketWeek": 15,
+      "startingSlots": [
+        "QB",
+        "RB",
+        "RB",
+        "WR",
+        "WR",
+        "TE",
+        "FLEX",
+        "FLEX",
+        "DEF"
+      ],
+      "benchSlots": 6,
+      "flexEligiblePositions": [
+        "RB",
+        "WR",
+        "TE"
+      ],
+      "pointsPerReception": 0.5,
+      "pointsPerReceivingYard": 0.1,
+      "pointsPerPassingYard": 0.04
+    },
+    {
+      "year": 2023,
+      "sleeperLeagueId": "946275261279055872",
+      "confirmedRegularSeasonWeeks": "1–14",
+      "firstWinnersBracketWeek": 15,
+      "startingSlots": [
+        "QB",
+        "RB",
+        "RB",
+        "WR",
+        "WR",
+        "TE",
+        "FLEX",
+        "FLEX",
+        "DEF"
+      ],
+      "benchSlots": 6,
+      "flexEligiblePositions": [
+        "RB",
+        "WR",
+        "TE"
+      ],
+      "pointsPerReception": 0.5,
+      "pointsPerReceivingYard": 0.1,
+      "pointsPerPassingYard": 0.04
+    },
+    {
+      "year": 2024,
+      "sleeperLeagueId": "1134248931308802048",
+      "confirmedRegularSeasonWeeks": "1–14",
+      "firstWinnersBracketWeek": 15,
+      "startingSlots": [
+        "QB",
+        "RB",
+        "RB",
+        "WR",
+        "WR",
+        "TE",
+        "FLEX",
+        "FLEX",
+        "DEF"
+      ],
+      "benchSlots": 6,
+      "flexEligiblePositions": [
+        "RB",
+        "WR",
+        "TE"
+      ],
+      "pointsPerReception": 0.5,
+      "pointsPerReceivingYard": 0.1,
+      "pointsPerPassingYard": 0.04
+    },
+    {
+      "year": 2025,
+      "sleeperLeagueId": "1181421235163095040",
+      "confirmedRegularSeasonWeeks": "1–14",
+      "firstWinnersBracketWeek": 15,
+      "startingSlots": [
+        "QB",
+        "RB",
+        "RB",
+        "WR",
+        "WR",
+        "TE",
+        "FLEX",
+        "FLEX",
+        "DEF"
+      ],
+      "benchSlots": 6,
+      "flexEligiblePositions": [
+        "RB",
+        "WR",
+        "TE"
+      ],
+      "pointsPerReception": 0.5,
+      "pointsPerReceivingYard": 0.1,
+      "pointsPerPassingYard": 0.04
+    }
+  ]
+}
