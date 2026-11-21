@@ -86,6 +86,22 @@ try{
    await page.locator('#scoreboard:not([hidden])').waitFor();
    assert.equal(await page.locator('#qualified').innerText(),'13','Only 13 full matched trades avoid 2020–21 Week 14 playoff contamination');
    assert.equal(await page.locator('#rawPointsRows tr').count(),8,'Eight managers have originally fully matched raw-point trades including five postseason-corrected transactions');
+   assert.equal(await page.locator('#rawMatrixRows tr').count(),8,'Raw directional pair matrix must include all eight source-matched managers');
+   assert.equal(await page.locator('#rawMatrixHeader th').count(),9,'Raw matrix must label every manager column');
+   assert.ok(await page.locator('#rawMatrixRows a[href*="trade-portfolios.html?manager="]').count()>0,'Head-to-head raw scores must link to documented rivalry receipts');
+   assert.ok(await page.evaluate(()=>{
+     const labels=[...document.querySelectorAll('#rawMatrixHeader th')].slice(1);
+     const rows=[...document.querySelectorAll('#rawMatrixRows tr')];
+     if(labels.length!==rows.length)return false;
+     return labels.every((_,i)=>labels.every((_,j)=>{
+       const a=rows[i]?.querySelectorAll('td')[j]?.textContent.trim();
+       const b=rows[j]?.querySelectorAll('td')[i]?.textContent.trim();
+       if(i===j)return a==='·'&&b==='·';
+       if(a==='—'||b==='—')return a===b;
+       return Number.isFinite(Number(a))&&Number.isFinite(Number(b))&&Math.abs(Number(a)+Number(b))<.011;
+     }));
+   }),'Raw pair matrix must be directionally zero-sum on every measured manager pair');
+
    assert.ok((await page.locator('#rawPointsRows').innerText()).includes('+306.60'),'Historical Kuhl source-rebuilt 18-trade raw differential must reconcile');
    assert.ok((await page.locator('#rawPointsStatus').innerText()).includes('18 two-manager trades'),'Default raw points may recover five playoff-affected transactions after removing Week14 starts');
 
