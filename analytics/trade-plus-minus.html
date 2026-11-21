@@ -51,8 +51,9 @@ main{max-width:1080px;margin:auto;padding:32px 16px 80px}h1{font:700 clamp(37px,
 <section class="section" aria-labelledby="matrixGridTitle"><div class="eyebrow">02 · Head-to-head matrix</div><h2 id="matrixGridTitle">Every measured trading relationship</h2><p class="small">Read across each manager's row. Positive values favor the row manager, negative values favor the column manager, and a dash means no comparable qualified transaction. Tap a measured cell to filter the pair.</p><div class="matrix-scroll"><table aria-label="Directional PAR advantage matrix between fantasy managers"><thead id="matrixHeader"></thead><tbody id="matrixBody"></tbody></table></div></section>
 <section class="section" aria-labelledby="careerTitle"><div class="eyebrow">03 · Qualified-sample returns</div><h2 id="careerTitle">Managers by observed net trade PAR</h2><p class="small">This leaderboard sums only eligible pairwise comparisons, including losses. It is zero-sum across the qualifying set; it is not a complete manager trading record.</p>
 <div class="table-scroll"><table><thead><tr><th>Manager</th><th class="num">Net +/- PAR</th><th class="num">Measured trades</th><th class="num">Higher return</th><th class="num">Lower return</th></tr></thead><tbody id="managerRows"></tbody></table></div></section>
-<section class="section" aria-labelledby="dealTitle"><div class="eyebrow">04 · Audit trail</div><h2 id="dealTitle">Every trade behind the number</h2><div id="tradeRows" class="detail-grid"></div></section>
-<p class="small">Method: each eligible transaction contributes <em>side A postTradePAR − side B postTradePAR</em>, with the sign reversed for side B. PAR measures strictly later regular-season starter utility relative to position, through Week 14. The same trade is counted once per pair and once per manager; no component is counted twice. The data is research-scoped and may be superseded when more source receipts are certified.</p>
+<section class="section" aria-labelledby="rawPointsTitle"><div class="eyebrow">04 · Directly sourced production</div><h2 id="rawPointsTitle">Received starter points — no replacement assumptions</h2><p class="small">A separate, zero-sum accounting of points actually scored in the receiving manager’s lineup after each trade and before that season’s playoffs. This measure <strong>does not normalize QB/RB/WR/TE or FLEX opportunities</strong>, value unstarted or kept players, or establish who negotiated better. Its manager/year and optional recovery filters follow the research sample above; the underlying player-start points are source-reconciled.</p><div class="table-scroll"><table aria-label="Raw credited starter-point differences by receiving manager"><thead><tr><th>Manager</th><th class="num">Net received starter pts</th><th class="num">Measured trades</th></tr></thead><tbody id="rawPointsRows"></tbody></table></div><p class="small" id="rawPointsStatus"></p></section>
+<section class="section" aria-labelledby="dealTitle"><div class="eyebrow">05 · Audit trail</div><h2 id="dealTitle">Every trade behind the number</h2><div id="tradeRows" class="detail-grid"></div></section>
+<p class="small">Method: each eligible transaction contributes <em>side A postTradePAR − side B postTradePAR</em>, with the sign reversed for side B. Inherited PAR estimates use started production after the transaction week; this display excludes any entire trade whose source includes starters at or beyond its independently verified first playoff week (Week 14 in 2020–2021, Week 15 in 2022–2025). The weekly replacement formula remains experimental and unverified. The same trade is counted once per pair and once per manager; no component is counted twice. The data is research-scoped and may be superseded when more source receipts are certified.</p>
 </div></main>
 <script type="module">
 const $=id=>document.getElementById(id);
@@ -180,6 +181,20 @@ function render(){
  }).join('')+'</tr>').join('');
  const managerRows=agg.managers.filter(m=>manager==='all'||m.manager===manager).sort((a,b)=>b.net-a.net);
  $('managerRows').innerHTML=managerRows.map(m=>'<tr><td><a href="trade-portfolios.html?manager='+encodeURIComponent(m.manager)+'">'+esc(m.manager)+'</a></td><td class="num '+classFor(m.net)+'">'+signed(m.net)+'</td><td class="num">'+m.n+'</td><td class="num">'+m.wins+'</td><td class="num">'+m.losses+'</td></tr>').join('')||'<tr><td colspan="5">No qualifying sample for this manager.</td></tr>';
+ const rawNet=new Map();
+ for(const trade of subset){
+  for(let i=0;i<2;i++){
+   const a=trade.sides[i],b=trade.sides[1-i],name=canon(a.manager);
+   if(!Number.isFinite(a.postTradePoints)||!Number.isFinite(b.postTradePoints))throw Error('Starter point source is not numeric');
+   const n=rawNet.get(name)||{net:0,count:0};n.net+=a.postTradePoints-b.postTradePoints;n.count++;
+   rawNet.set(name,n);
+  }
+ }
+ const rawSum=[...rawNet.values()].reduce((total,m)=>total+m.net,0);
+ if(Math.abs(rawSum)>.001)throw Error('Raw starter-point trade ledger is not zero-sum');
+ const rawManagers=[...rawNet].map(([name,v])=>({name,...v})).filter(m=>manager==='all'||m.name===manager).sort((a,b)=>b.net-a.net);
+ $('rawPointsRows').innerHTML=rawManagers.map(m=>'<tr><td><a href="trade-portfolios.html?manager='+encodeURIComponent(m.name)+'">'+esc(m.name)+'</a></td><td class="num '+classFor(m.net)+'">'+signed(m.net)+'</td><td class="num">'+m.count+'</td></tr>').join('')||'<tr><td colspan="3">No period-clean trade in this research selection.</td></tr>';
+ $('rawPointsStatus').textContent='Period-clean sample: '+subset.length+' two-manager trades. '+($('includeRecovery').checked?'Includes six provisional zero-start source receipts; not a commissioner-approved trade grade.':'Only original fully matched transactions; expanded receipts excluded.')+' Observed starter points do not establish replacement-level trade value.';
  const selected=activeTrades().filter(t=>(year==='all'||String(t.year)===year)&&(manager==='all'||t.sides.some(s=>canon(s.manager)===manager))&&(!validPartner||t.sides.some(s=>canon(s.manager)===validPartner))).sort((a,b)=>b.date.localeCompare(a.date));
  $('tradeRows').innerHTML=selected.map(t=>{
   const [a,b]=t.sides;const gap=a.postTradePAR-b.postTradePAR;const lead=gap>=0?a:b,low=gap>=0?b:a;
