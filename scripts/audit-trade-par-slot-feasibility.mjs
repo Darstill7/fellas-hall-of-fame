@@ -86,6 +86,73 @@ const without=observations.filter(x=>x.benchCandidateCount===0);
 assert.equal(withCandidates.length,246,'Recorded eligible bench observations changed; review full historical source');
 assert.equal(without.length,8,'No recorded eligible same-roster bench option count changed');
 assert.equal(slotCounts.get('FLEX'),54,'Dual-FLEX observed starter evidence changed');
+// The per-start feasibility rate can double-use a bench player when several
+// acquired players started for the same manager in the same week.
+// A bipartite maximum-cardinality match tests simultaneous position eligibility.
+// It is intentionally POINT-FREE: retrospectively highest fantasy points would
+// leak game results into a supposed lineup-lock projection.
+function maximumDistinctBench(slotsNeeded,bench){
+ const assigned=new Map();
+ const options=slotsNeeded.map(x=>bench.filter(p=>p&&p.id!=null&&allowed[x.slot].includes(p.position)).map(p=>String(p.id)));
+ function augment(index,seen){
+  for(const id of options[index]){
+   if(seen.has(id))continue;seen.add(id);
+   const occupying=assigned.get(id);
+   if(occupying===undefined||augment(occupying,seen)){assigned.set(id,index);return true}
+  }
+  return false;
+ }
+ let count=0;
+ for(let i=0;i<slotsNeeded.length;i++)if(augment(i,new Set()))count++;
+ return count;
+}
+assert.equal(maximumDistinctBench([{slot:'RB'},{slot:'RB'}],[{id:'a',position:'RB'}]),1,'One bench RB cannot replace two starting RBs');
+assert.equal(maximumDistinctBench([{slot:'RB'},{slot:'FLEX'}],[{id:'a',position:'RB'},{id:'b',position:'WR'}]),2,'RB and WR must cover distinct RB/FLEX holes');
+assert.equal(maximumDistinctBench([{slot:'FLEX'},{slot:'FLEX'}],[{id:'a',position:'WR'},{id:'b',position:'TE'}]),2,'Both flexible positions accept RB/WR/TE substitutes');
+assert.equal(maximumDistinctBench([{slot:'QB'}],[{id:'a',position:'WR'}]),0,'QB cannot be replaced by ineligible position');
+const byManagerWeek=new Map();
+for(const x of observations){
+ const key=[x.year,x.week,x.manager].join('|');
+ const row=byManagerWeek.get(key)||[];
+ if(row.some(y=>y.providerId===x.providerId))throw Error('Duplicate acquired starter within manager-week');
+ row.push(x);byManagerWeek.set(key,row);
+}
+const concurrent=[];
+for(const [key,holes] of byManagerWeek){
+ const x=holes[0],origin=sideMap.get(String(x.tradeId)+'|'+x.manager);
+ assert.ok(origin,'Concurrent starter lacks original receiving roster');
+ const roster=weekly(x.year,x.week).teams.get(String(origin.team_id));
+ assert.ok(roster&&roster.owner===expectedOwner[x.manager],'Concurrent owner/roster mismatch');
+ // All starts are drawn from one receiving roster for that manager-week,
+ // even if acquired across multiple separate trades.
+ const ids=new Set();
+ const bench=roster.bench.filter(p=>{
+  if(!p||p.id==null||!allowed.FLEX.includes(p.position)&&p.position!=='QB'&&p.position!=='DEF')return false;
+  const id=String(p.id);if(ids.has(id))throw Error('Duplicate bench player ID in source roster '+key);
+  ids.add(id);return true;
+ });
+ const withIndividualChoice=holes.filter(h=>h.benchCandidateCount>0).length;
+ const maxSimultaneous=maximumDistinctBench(holes,bench);
+ assert.ok(maxSimultaneous<=withIndividualChoice,'Simultaneous coverage cannot exceed individual coverage');
+ assert.ok(maxSimultaneous<=holes.length,'Cannot cover more starter holes than exist');
+ concurrent.push({year:x.year,week:x.week,manager:x.manager,acquiredStarts:holes.length,individuallyCoverable:withIndividualChoice,simultaneouslyCoverable:maxSimultaneous,competitionShortfall:withIndividualChoice-maxSimultaneous,benchSource:weekly(x.year,x.week).sourceType,tradeIds:[...new Set(holes.map(h=>h.tradeId))].sort()});
+}
+const multiGroups=concurrent.filter(r=>r.acquiredStarts>1);
+const contested=concurrent.filter(r=>r.competitionShortfall>0);
+const concurrentTotals={
+ distinctManagerWeeks:concurrent.length,
+ managerWeeksWithMultipleAcquiredStarts:multiGroups.length,
+ acquiredStartsInMultipleStartWeeks:multiGroups.reduce((n,r)=>n+r.acquiredStarts,0),
+ individualBenchCoverableStarts:concurrent.reduce((n,r)=>n+r.individuallyCoverable,0),
+ simultaneousDistinctBenchCoverableStarts:concurrent.reduce((n,r)=>n+r.simultaneouslyCoverable,0),
+ managerWeeksWithBenchCompetition:contested.length,
+ additionalBenchCompetitionShortfall:concurrent.reduce((n,r)=>n+r.competitionShortfall,0)
+};
+assert.equal(concurrentTotals.distinctManagerWeeks,133,'Receiving roster-week grouping changed');
+assert.equal(concurrentTotals.managerWeeksWithMultipleAcquiredStarts,74,'Overlapping post-trade starts changed');
+assert.equal(concurrentTotals.individualBenchCoverableStarts,246);
+assert.equal(concurrentTotals.simultaneousDistinctBenchCoverableStarts+concurrentTotals.additionalBenchCompetitionShortfall,246);
+
 const rosterSources=new Set(observations.map(x=>x.source));
 const summary={
  schema:'fellas-trade-slot-feasibility-source-2020-2025-v1',
@@ -96,6 +163,8 @@ const summary={
  withoutObservedEligibleBench:without.length,
  flexSlotStarts:slotCounts.get('FLEX')||0,
  reconstructedRosterStarts:observations.filter(x=>x.source==='WAR reconstructed snapshot').length,
+ simultaneousBenchFeasibility:concurrentTotals,
+ benchCompetitionManagerWeeks:contested.map(x=>({...x})).sort((a,b)=>a.year-b.year||a.week-b.week||a.manager.localeCompare(b.manager)),
  seasons:[2020,2021,2022,2023,2024,2025].map(year=>{
   const v=yearCounts.get(year)||{starts:0,hasCandidate:0,noCandidate:0,flex:0,reconstructed:0};
   return {year,starts:v.starts,withObservedEligibleBench:v.hasCandidate,withoutObservedEligibleBench:v.noCandidate,flexSlotStarts:v.flex,reconstructedRosterStarts:v.reconstructed};
@@ -126,6 +195,15 @@ const report=[
   return '| '+y+' | '+r.starts+' | '+r.hasCandidate+' | '+r.noCandidate+' | '+r.flex+' | '+r.reconstructed+' |';
  }),
  '| **Total** | **'+observations.length+'** | **'+withCandidates.length+'** | **'+without.length+'** | **'+(slotCounts.get('FLEX')||0)+'** | **'+observations.filter(x=>x.source==='WAR reconstructed snapshot').length+'** |',
+ '',
+ '### Distinct-bench simultaneous substitution feasibility','',
+ '- '+concurrentTotals.distinctManagerWeeks+' distinct receiving manager-weeks, including '+concurrentTotals.managerWeeksWithMultipleAcquiredStarts+' with multiple acquired-player starts ('+concurrentTotals.acquiredStartsInMultipleStartWeeks+' starter observations).',
+ '- Individually, '+concurrentTotals.individualBenchCoverableStarts+' starts had a position-eligible bench candidate. With one bench player allowed to fill **at most one** hole per manager-week, maximum feasible simultaneous coverage is '+concurrentTotals.simultaneousDistinctBenchCoverableStarts+'; '+concurrentTotals.additionalBenchCompetitionShortfall+' individual matches cannot be simultaneously satisfied.',
+ '- '+concurrentTotals.managerWeeksWithBenchCompetition+' manager-weeks have competing claims on the recorded bench pool. This is a roster feasibility diagnostic; it does not choose the best projected replacement or reoptimize all starting slots.',
+ '',
+ '| Season | Week | Receiving manager | Acquired starts | Individually coverable | Simultaneously coverable |',
+ '|---|---:|---|---:|---:|---:|',
+ ...contested.map(x=>'| '+x.year+' | '+x.week+' | '+x.manager+' | '+x.acquiredStarts+' | '+x.individuallyCoverable+' | '+x.simultaneouslyCoverable+' |'),
  '',
  'Source observed player positions: '+[...positionCounts].sort().map(([position,n])=>position+' '+n).join(' · ')+'.',
  'Starting-slot assignments from ordered historical arrays: '+[...slotCounts].sort().map(([slot,n])=>slot+' '+n).join(' · ')+'.',
