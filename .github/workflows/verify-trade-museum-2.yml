@@ -23,6 +23,8 @@ on:
       - 'scripts/audit-trade-par-clean-roster-readiness.mjs'
       - 'scripts/verify-trade-par-era-settings.mjs'
       - 'scripts/audit-trade-par-raw-starter-accounting.mjs'
+      - 'scripts/build-trade-raw-starter-ledger.mjs'
+      - 'data/trade_raw_starter_accounting_2020_2025_v1.json'
       - 'data/trade_par_era_lineup_settings_2020_2025_v1.json'
       - 'data/sleeper_roster_snapshots_20*.json'
       - 'data/war_rosters_2025_week7.json'
@@ -74,7 +76,10 @@ jobs:
         run: node scripts/audit-trade-par-clean-roster-readiness.mjs --github-summary
       - name: Verify six seasons of half-PPR dual-FLEX league settings and true playoff weeks
         run: node scripts/verify-trade-par-era-settings.mjs --github-summary
-      - name: Reconcile period-clean 13/19 research samples as observed zero-sum starter points
+      - name: Verify reconstructed 18/24 raw trade scores against every original source starter week
+        run: node scripts/build-trade-raw-starter-ledger.mjs --github-summary
+      - name: Report 18/24 zero-sum received starter point research
+        run: node scripts/audit-trade-par-raw-starter-accounting.mjs --github-summary
         run: node scripts/audit-trade-par-raw-starter-accounting.mjs --github-summary
       - name: Install browser runtime for mobile museum checks
         run: |
