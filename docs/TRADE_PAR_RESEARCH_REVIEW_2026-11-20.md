@@ -3,6 +3,18 @@
 **Pull request:** #276 (draft; unmerged)  
 **Interpretation:** Observed post-trade starter production relative to a proposed replacement baseline. NOT trade decision quality or all-time franchise value.
 
+## New research phase: slot-eligible bench-source feasibility
+
+The latest model-development step deliberately **does not** assign fresh PAR/WAR scores. It tests the exact recorded lineup position of each of the **254** post-trade starter observations in the 13 previously validated regular-season-only transactions against the actual season’s nine-slot structure (QB/RB/RB/WR/WR/TE/FLEX/FLEX/DEF), the receiving owner’s historical weekly roster, and the list of recorded bench assets. Both FLEX slots are eligible for RB/WR/TE, not QB/DEF.
+
+The reproducible audit is `scripts/audit-trade-par-slot-feasibility.mjs` and publishes a source-coverage breakdown by season, fixed position versus FLEX, availability of a position-eligible bench candidate, and the number of roster reconstructions. Each player start is required to have a unique player ID and an original manager owner. It does not allow the same starter to be credited twice.
+
+**Interpretation restriction:** Observing a same-week bench alternative with a known final score does **not** prove that player was active, available at lineup lock, optimal in advance, or the appropriate replacement under a validated WAR/PAR model. The exercise does not count waiver/free agents, does not permit the same reserve to fill two simultaneous holes, and does not infer the acquisition’s keeper or playoff value. An empty eligible bench list is a source-coverage fact, **not zero replacement value**.
+
+Next source requirement: make explicit whether proposed counterfactuals are retrospective same-roster swaps versus ex-ante projected replacement availability. Reconstruct legal lineup assignments without bench reuse, preserve each historical player/slot ID, and validate exact week/owner/scoring provenance before any value estimates are surfaced as a comparison.
+
+---
+
 ## Source-backed alternative: actual starter-point production (distinct from PAR)
 
 Using the six season-level original `data/player_starts_YYYY.json` ledgers, we have independently rebuilt the **raw fantasy points scored in acquired players’ receiving-manager starting lineups**. This requires **no replacement-level estimate**.
