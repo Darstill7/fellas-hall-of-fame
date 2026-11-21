@@ -104,6 +104,8 @@ assert.equal(rawSource.baselineFullyMatchedTrades,18);
 assert.equal(rawSource.fullSampleTradeCount,24);
 assert.equal(rawSource.postseasonStartsExcludedFromRaw,14);
 assert.ok(plusMinus.includes('id="rawPointsRows"')&&plusMinus.includes("rawLedger=rawSource.rows"),'Source-rebuilt received starter points must be rendered independently of experimental PAR');
+assert.ok(plusMinus.includes('id="rawMatrixRows"')&&plusMinus.includes('rawPairNet=new Map()'),'Source-backed raw head-to-head matrix must be represented separately from inherited PAR');
+assert.ok(plusMinus.includes('trade-portfolios.html?manager='),'Raw manager pair comparisons must link to recorded rivalry receipts');
 assert.ok(plusMinus.includes('rawSubset=rawLedger.filter'),'Raw starter ranking must derive only from sourced original/provisional historical receipts');
 assert.ok(plusMinus.includes('id="includeRecovery"')&&plusMinus.includes("const activeTrades=()=>$('includeRecovery').checked"),'Expanded six-case comparison must be explicitly opt-in');
 assert.ok(plusMinus.includes("sourceRecoveredPreview:true")&&plusMinus.includes("RESEARCH PREVIEW · NOT CERTIFIED"),'Source-recovered comparisons must remain visibly research-only');
