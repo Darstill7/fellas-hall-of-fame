@@ -3,19 +3,27 @@
 **Pull request:** #276 (draft; unmerged)  
 **Interpretation:** Observed post-trade starter production relative to a proposed replacement baseline. NOT trade decision quality or all-time franchise value.
 
+## Critical correction: 2020–2021 Week 14 was postseason
+
+Verified historical winners-bracket fixtures establish the first playoff round in **Week 14 of both 2020 and 2021**; 2022–2025 first playoff rounds began Week 15. The inherited `trade_par_preview.json` applied a universal Week 14 "regular-season" cutoff and therefore included **25 postseason starter-asset observations** across 12 historical trades. **Five of the 18 fully matched two-manager comparisons are affected**, including the previously prominent 2021 Birch–Tom trade.
+
+Those five can NOT be repaired by subtracting Week 14 raw fantasy points: their replacement-level deduction for Week 14 was also included, and the weekly PAR source values are not available. The published trade +/- research page now excludes those five entirely from regular-season views. The conservative inherited set is **13 postseason-clean trades**; six source-backed zero-start candidates create an optional **19-trade research comparison**. This remains experimental PAR because the weekly baseline formula is not independently reproduced.
+
+Audit: `scripts/audit-trade-par-playoff-boundary.mjs` derives first-round weeks from `data/playoff_explorer_verified_2016_2025_v1.json`, reports affected IDs, and blocks reintroduction of the contaminated comparisons.
+
 ## 1. What has independently passed
 
-The existing 2020–2025 `data/trade_par_preview.json` matched asset starter fields were compared by year, week, manager's historical roster ID, player name/ID and fantasy score with six immutable `data/player_starts_YYYY.json` files. Every one of **611 starting-lineup observations** was found. The **110 asset-in-trade point totals** equal their component starter points within rounding tolerance. The same player start was not counted against two different trades. This source reconciliation is now reproduced by `scripts/verify-trade-par-start-ledger-parity.mjs` on Trade Museum CI.
+The existing 2020–2025 `data/trade_par_preview.json` matched asset starter fields were compared by year, week, manager's historical roster ID, player name/ID and fantasy score with six immutable `data/player_starts_YYYY.json` files. Every one of **611 starting-lineup observations** was found. The **110 asset-in-trade point totals** equal their component starter points within rounding tolerance. The same player start was not counted against two different trades. These 611 observations verify fantasy scoring only; **25 are confirmed 2020–2021 Week 14 postseason observations** and cannot be presented as regular-season-only. This source reconciliation is now reproduced by `scripts/verify-trade-par-start-ledger-parity.mjs` on Trade Museum CI.
 
 This verifies **starter point attribution**, not the underlying PAR replacement deductions, causal wins from trading, or every historical league trade.
 
 ## 2. Coverage and scope
 
 - Museum currently records 44 trades from completed Sleeper seasons 2020–2025, plus seven 2026 trades in the older preview. This is not necessarily the full league-history archive.
-- 18 of those 44 transactions have complete, two-manager, name-matched received sides in the inherited PAR preview. Their research scores are the default.
+- 18 of those 44 transactions have complete, two-manager, name-matched received sides in the inherited PAR preview, but five contain confirmed postseason Week 14 starts and are withheld from the season-clean comparison. **Thirteen** are eligible for the conservative default research view.
 - 23 additional completed-season two-manager trades are incompletely matched, with one completed-season three-manager and two one-sided recorded trades left out of bilateral PAR grading.
 - Seven specific missing player assets now have complete, direct historical roster-source **zero-post-trade-start evidence**: Zach Ertz (2025 Kuhl); Raheem Mostert (2024 Mitch); Brandon Aiyuk (2024 Tom); Bhayshul Tuten (2025 Birch); Rico Dowdle (2024 Tom); Calvin Ridley (2024 JMid); Brian Thomas Jr. (2025 Stilly).
-- Six of those seven are the only unresolved asset in their two-manager exchange, allowing a strictly opt-in **24-trade research comparison** (18 + six). Brian Thomas Jr. is NOT eligible for that preview because the opposing Stefon Diggs received side still lacks weekly replacement-level PAR for two verified starts.
+- Six of those seven are the only unresolved asset in their two-manager exchange, allowing a strictly opt-in **19-trade postseason-clean research comparison** (13 + six). Brian Thomas Jr. is NOT eligible for that preview because the opposing Stefon Diggs received side still lacks weekly replacement-level PAR for two verified starts.
 - The two completed-season zero-point/low-score starter exceptions are **Mike Evans (Stover, 2025 Week 7: 0.0 points in a starting lineup slot)** and **Stefon Diggs (Stover, 2025 Weeks 12–13: 3.0 and 4.1 points in starting lineup slots)**. Neither should be treated as zero starts or automatically given zero PAR.
 - ESPN-era 2016–2019 transactions and the unfinished 2026 season are outside current comparable PAR scope. Multi-manager transactions are excluded from bilateral PAR, not artificially allocated among pairs.
 
@@ -32,7 +40,7 @@ This verifies **starter point attribution**, not the underlying PAR replacement 
 
 These differences use previously matched receiving-asset PAR plus a **zero additional credited starter contribution** for the independently source-checked, missing asset. They do not price a player's opportunity cost, playoff results, injury risk, keeper rights, FAAB or alternative trade choices. The inferred PAR model remains unvalidated, so do not publish as certified talent evaluation.
 
-The opt-in 24-trade research scenario is zero-sum and has the following net manager values: Kuhl +260.19; Mitch +101.97; Birch +97.78; Stilly +18.21; JMid −2.66; Stew −58.64; Tony −114.30; Tom −302.55. The 18-trade default values remain unchanged.
+The new **13-trade season-boundary-clean default** net values are Kuhl +178.08; Mitch +116.44; Stilly +56.64; JMid −41.12; Stew −52.70; Tom −117.26; Tony −140.08. Birch has no eligible fully matched trade in this narrowed default set. The **opt-in 19-trade research** scenario produces Kuhl +194.65; Mitch +101.97; Stilly +56.64; JMid −2.66; Birch −34.01; Stew −57.79; Tony −87.19; Tom −171.61. Both are zero-sum research outcomes, not certified PAR skill measures. The original 18-trade and 24-trade legacy computations are preserved in research provenance but must not be displayed as strictly regular-season-only.
 
 ## 4. What the PAR model still cannot prove
 
