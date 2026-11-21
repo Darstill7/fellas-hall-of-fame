@@ -163,6 +163,8 @@ const summary={
  withoutObservedEligibleBench:without.length,
  flexSlotStarts:slotCounts.get('FLEX')||0,
  reconstructedRosterStarts:observations.filter(x=>x.source==='WAR reconstructed snapshot').length,
+ simultaneousBenchFeasibility:concurrentTotals,
+ benchCompetitionManagerWeeks:contested.map(x=>({...x})).sort((a,b)=>a.year-b.year||a.week-b.week||a.manager.localeCompare(b.manager)),
  seasons:[2020,2021,2022,2023,2024,2025].map(year=>{
   const v=yearCounts.get(year)||{starts:0,hasCandidate:0,noCandidate:0,flex:0,reconstructed:0};
   return {year,starts:v.starts,withObservedEligibleBench:v.hasCandidate,withoutObservedEligibleBench:v.noCandidate,flexSlotStarts:v.flex,reconstructedRosterStarts:v.reconstructed};
