@@ -96,6 +96,15 @@ for(const t of parEligible){
 assert.ok(Math.abs([...parManagerNet.values()].reduce((sum,n)=>sum+n,0))<0.001,'Pairwise +/- must be zero sum');
 assert.ok(plusMinus.includes('id="pairRows"')&&plusMinus.includes('id="managerRows"')&&plusMinus.includes('id="tradeRows"'),'Trade +/- view must include pair, manager and source evidence views');
 assert.ok(plusMinus.includes('id="matrixHeader"')&&plusMinus.includes('id="matrixBody"'),'Trade +/- must include directional head-to-head matrix');
+
+const rawSource=JSON.parse(readFileSync(new URL('../data/trade_raw_starter_accounting_2020_2025_v1.json',import.meta.url),'utf8'));
+assert.equal(rawSource.schema,'fellas-trade-raw-starter-accounting-2020-2025-v1');
+assert.equal(rawSource.status,'research_only_source_reconciled_raw_starter_points_not_trade_grades');
+assert.equal(rawSource.baselineFullyMatchedTrades,18);
+assert.equal(rawSource.fullSampleTradeCount,24);
+assert.equal(rawSource.postseasonStartsExcludedFromRaw,14);
+assert.ok(plusMinus.includes('id="rawPointsRows"')&&plusMinus.includes("rawLedger=rawSource.rows"),'Source-rebuilt received starter points must be rendered independently of experimental PAR');
+assert.ok(plusMinus.includes('rawSubset=rawLedger.filter'),'Raw starter ranking must derive only from sourced original/provisional historical receipts');
 assert.ok(plusMinus.includes('id="includeRecovery"')&&plusMinus.includes("const activeTrades=()=>$('includeRecovery').checked"),'Expanded six-case comparison must be explicitly opt-in');
 assert.ok(plusMinus.includes("sourceRecoveredPreview:true")&&plusMinus.includes("RESEARCH PREVIEW · NOT CERTIFIED"),'Source-recovered comparisons must remain visibly research-only');
 assert.ok(plusMinus.includes('loadRecoveredPreview(data.records)')&&plusMinus.includes('Expanded research preview unavailable'),'Missing proof data must fail closed');
