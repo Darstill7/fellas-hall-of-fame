@@ -86,6 +86,10 @@ try{
    await page.locator('#scoreboard:not([hidden])').waitFor();
    assert.equal(await page.locator('#qualified').innerText(),'13','Only 13 full matched trades avoid 2020–21 Week 14 playoff contamination');
    assert.equal(await page.locator('#benchSourceRows tr').count(),6,'Six season-specific bench-source readiness rows must render');
+   assert.equal(await page.locator('#benchMissingRows tr').count(),8,'Display all eight sourced no-bench-option starter weeks');
+   assert.equal(await page.locator('#benchMissingRows a[href*="trade-museum.html?trade="]').count(),8,'Each missing bench observation must link to the archived original trade');
+   assert.ok((await page.locator('#benchMissingRows').innerText()).includes('Jonathan Taylor'),'Critical 2022 RB bench substitution gaps must remain visible');
+
    assert.ok((await page.locator('#benchSourceSummary').innerText()).includes('246 of 254'),'Observed eligible bench coverage must be sourced rather than inferred');
    assert.ok((await page.locator('#benchSourceSummary').innerText()).includes('54 starts occupied a FLEX'),'Historical slot-specific FLEX audit must appear');
 
