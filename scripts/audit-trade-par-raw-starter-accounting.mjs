@@ -1,73 +1,49 @@
-// Source-backed, zero-sum RECEIVED STARTER POINTS trade accounting.
-// NOT PAR, a fair QB-vs-WR replacement comparison, a causal trade grade,
-// keeper valuation, or an all-time assessment. No source file is mutated.
+// Independent ZERO-SUM report of 18/24 source-rebuilt RAW received starter points.
+// The generator separately rechecks all source player-start rows, including
+// original five playoff-mixed trades corrected only for raw scoring.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
-const research=read('data/trade_par_preview.json').records;
-const bracket=read('data/playoff_explorer_verified_2016_2025_v1.json').seasons;
-const first=Object.fromEntries(bracket.filter(s=>s.year>=2020&&s.year<=2025).map(s=>[s.year,Math.min(...s.matches.filter(m=>m.round==='opening').map(m=>m.week))]));
-const complete=t=>t.year>=2020&&t.year<=2025&&t.complete&&t.sides.length===2&&t.sides.every(s=>s.fullyMatched);
-const clean=research.filter(t=>complete(t)&&t.sides.every(s=>s.matched.every(p=>p.sourceWeeks.every(w=>w<first[t.year]))));
-assert.equal(clean.length,13,'Verified period-clean baseline changed');
-const previewFiles=['2025_ertz','2024_mostert','2024_aiyuk','2025_tuten','2024_dowdle','2024_ridley'];
-const additions=[];
-for(const slug of previewFiles){
- const proof=read('data/trade_par_recovery_'+slug+'_source_v1.json');
- assert.equal(proof.status,'source_checked_pending_integration');
- assert.equal(proof.evidence.verifiedPostTradeStarts,0);
- assert.equal(proof.evidence.verifiedPostTradeStarterPoints,0);
- const trade=research.find(t=>String(t.id)===proof.tradeId);
- assert.ok(trade&&trade.sides.length===2&&!complete(trade),'Research-only candidate must remain incomplete in original source');
- const unresolved=trade.sides.flatMap(s=>(s.unresolved||[]).map(asset=>({manager:s.manager,asset})));
- assert.deepEqual(unresolved,[{manager:proof.manager,asset:proof.player.name}],'Only one source-backed asset can be inferred as zero started points');
- const weeks=proof.evidence.weeklyRosterObservations.filter(x=>x.week>trade.week).map(x=>x.week);
- const expected=Array.from({length:first[trade.year]-trade.week-1},(_,i)=>trade.week+i+1);
- assert.deepEqual(weeks,expected,'Recovered proof does not cover entire postseason-clean observation window');
- for(const s of trade.sides){
-  assert.ok(s.matched.every(p=>p.sourceWeeks.every(w=>w>trade.week&&w<first[trade.year])),'Other received-asset starts cross season cutoff');
-  assert.ok(Math.abs(s.matched.reduce((v,p)=>v+p.points,0)-s.postTradePoints)<.03,'Received asset raw fantasy point components do not reconcile');
- }
- additions.push(trade);
-}
-assert.equal(additions.length,6);
-const canonical=s=>s==='Thommy'?'Tom':s;
-function tally(trades){
- const manager=new Map(),pairs=new Map();
- for(const t of trades){
-  assert.equal(t.sides.length,2);
-  for(let i=0;i<2;i++){
-   const a=t.sides[i],b=t.sides[1-i],name=canonical(a.manager);
-   assert.ok(Number.isFinite(a.postTradePoints)&&Number.isFinite(b.postTradePoints));
-   const entry=manager.get(name)||{net:0,count:0};
-   entry.net+=a.postTradePoints-b.postTradePoints;entry.count++;
-   manager.set(name,entry);
+const ledger=JSON.parse(fs.readFileSync('data/trade_raw_starter_accounting_2020_2025_v1.json','utf8'));
+assert.equal(ledger.schema,'fellas-trade-raw-starter-accounting-2020-2025-v1');
+assert.equal(ledger.status,'research_only_source_reconciled_raw_starter_points_not_trade_grades');
+assert.equal(ledger.baselineFullyMatchedTrades,18);
+assert.equal(ledger.provisionalZeroStartTrades,6);
+assert.equal(ledger.postseasonStartsExcludedFromRaw,14);
+assert.equal(ledger.previouslyPARContaminatedTradesRepairedForRawOnly,5);
+const verified=ledger.rows.filter(row=>row.sourceCategory==='original_fully_matched');
+const provisional=ledger.rows.filter(row=>row.sourceCategory==='source_checked_zero_start_provisional');
+assert.equal(verified.length,18);assert.equal(provisional.length,6);assert.equal(ledger.rows.length,24);
+function results(rows){
+ const owners=new Map();
+ for(const trade of rows){
+  assert.equal(trade.sides.length,2,'Each trade needs two receiving sides');
+  for(let k=0;k<2;k++){
+   const a=trade.sides[k],b=trade.sides[1-k];
+   assert.ok(Number.isFinite(a.receivedStarterPoints)&&Number.isFinite(b.receivedStarterPoints));
+   const manager=a.manager==='Thommy'?'Tom':a.manager;
+   owners.set(manager,(owners.get(manager)||0)+a.receivedStarterPoints-b.receivedStarterPoints);
   }
-  const pair=t.sides.map(s=>canonical(s.manager)).sort();
-  const key=pair.join('|'),firstSide=t.sides.find(s=>canonical(s.manager)===pair[0]),secondSide=t.sides.find(s=>canonical(s.manager)===pair[1]);
-  const r=pairs.get(key)||{net:0,count:0};
-  r.net+=firstSide.postTradePoints-secondSide.postTradePoints;r.count++;
-  pairs.set(key,r);
  }
- const total=[...manager.values()].reduce((sum,s)=>sum+s.net,0);
- assert.ok(Math.abs(total)<.001,'Transaction point differences must sum to zero across all manager sides');
- return [...manager].map(([name,v])=>({name,net:+v.net.toFixed(2),trades:v.count})).sort((a,b)=>b.net-a.net);
+ const total=[...owners.values()].reduce((sum,n)=>sum+n,0);
+ assert.ok(Math.abs(total)<.001,'Raw received-starter point comparisons must be zero-sum across each trade');
+ return owners;
 }
-const defaultRows=tally(clean),previewRows=tally([...clean,...additions]);
-const lines=[
- '# Source-backed raw starter-point trade accounting','',
- '> This is an **observed production ledger only**. Acquired players credited after trade week and before the season-specific first playoff week. It is zero-sum by receiving manager but does **not** equate one QB point to one RB/WR opportunity, value an unstarted acquisition, estimate bench/waiver replacement, or measure managerial skill. Keeper and playoff values excluded.','',
- '| Manager | 13 originally fully matched period-clean trades: net raw points | 19-trade expanded research scenario: net raw points |',
+const base=results(verified),expanded=results(ledger.rows);
+assert.equal(base.size,8);assert.equal(expanded.size,8);
+assert.ok(Math.abs(base.get('Kuhl')-306.60)<.001);
+assert.ok(Math.abs(expanded.get('Kuhl')-336.90)<.001);
+const score=value=>value===undefined?'—':(value>=0?'+':'')+value.toFixed(2);
+const report=[
+ '# Historical trade RAW starter production: 18 matched / 24 with research recoveries','',
+ '> Source-backed fantasy points credited only after trade week and before each season’s verified playoff opening. This is NOT position- or FLEX-adjusted, does NOT infer manager skill, and does NOT assign any value to unstarted keepers, bench players, picks or alternative trades. Experimental PAR remains a separate 13/19 season-clean analysis.',
+ '',
+ '| Manager | 18 originally fully matched raw-point trade returns | 24-trade source-backed research preview |',
  '|---|---:|---:|',
- ...[...new Set([...defaultRows.map(x=>x.name),...previewRows.map(x=>x.name)])].sort().map(name=>{
-  const a=defaultRows.find(r=>r.name===name),b=previewRows.find(r=>r.name===name);
-  const fmt=v=>v==null?'—':(v>=0?'+':'')+v.toFixed(2);
-  return '| '+name+' | '+fmt(a?.net)+' | '+fmt(b?.net)+' |';
- }),
+ ...[...new Set([...base.keys(),...expanded.keys()])].sort().map(name=>'| '+name+' | '+score(base.get(name))+' | '+score(expanded.get(name))+' |'),
  '',
- 'The 13-trade original sample uses verified received-player starter points. All 611 inherited source starter points were already reconciled separately with the season lineup ledgers; this view includes only period-clean observations. Six additional zero-start receiving-side receipts are expressly provisional, and the opponent must have complete source-matched points. The remaining historical transactions are not treated as zeros.',
- '',
- 'This table is often easier to reproduce than PAR because no replacement-level assumption is required; it is also **less comparable across positions and starter opportunities**. Never label a positive raw net as “won the trade” without context.'
+ '- Five original 2020–2021 trades with postseason Week 14 contamination can be corrected for **raw starter points** by removing 14 source-identified playoff starter observations; this correction cannot be applied directly to their unknown weekly replacement-adjusted PAR.',
+ '- Both raw point samples are zero-sum at the trade level, but not normalized for position, opportunity, keeper or replacement.',
+ '- Source rebuild in \`scripts/build-trade-raw-starter-ledger.mjs\` independently verifies these values from the year/week/manager/player starter records.'
 ].join('\n');
-console.log(lines);
-if(process.argv.includes('--github-summary')&&process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,lines);
+console.log(report);
+if(process.argv.includes('--github-summary')&&process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,report+'\n');
