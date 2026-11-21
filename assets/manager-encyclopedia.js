@@ -95,11 +95,11 @@
    const higher=best.betterReturn.manager===name;
    const other=higher?best.lowerReturn.manager:best.betterReturn.manager;
    title.textContent='#'+best.rank+' · '+name+' vs. '+other+' ('+best.year+')';
-   detail.textContent=(higher?'Higher':'Lower')+' observed post-trade starter production · '+Number(best.observedPARGap).toFixed(2)+' position-relative points separated the two sides. '+name+' appears in '+entries.length+' of the ten ranked transactions. Regular-season production only; not a definitive best/worst trade verdict.';
+   detail.textContent=(higher?'Higher':'Lower')+' observed post-trade starter production · '+Number(best.observedPARGap).toFixed(2)+' position-relative points separated the two sides. '+name+' appears in '+entries.length+' of the ten ranked transactions. '+(best.periodClean?'No identified playoff-week leakage, but the PAR benchmark remains unverified.':'WARNING: this legacy source includes 2020–2021 Week 14 playoff starts and is not regular-season-only.')+'';
    link.href='../../analytics/greatest-worst-trades.html?manager='+encodeURIComponent(name)+'#research-heading';
   }else{
    title.textContent='Explore '+name+'\'s trade history';
-   detail.textContent='No entry in the qualified top-ten observed PAR study. This is not a grade on every trade: the study covers 18 fully matched two-manager deals from 2020–2025, excludes ESPN-era comparisons and does not rank unfinished 2026 returns.';
+   detail.textContent='No entry in the qualified top-ten observed PAR study. This is not a grade on every trade: the historical source covers 18 fully matched two-manager deals from 2020–2025, of which five include Week 14 playoff starts in 2020–2021. The corrected season-clean comparison contains 13 before provisional source recoveries. ESPN and unfinished 2026 are outside this scope.';
   }
   panel.dataset.tradeLegacy='verified';
  }catch{

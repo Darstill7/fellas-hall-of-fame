@@ -1,0 +1,53 @@
+{
+  "schema": "fellas-par-missing-starter-evidence-v1",
+  "status": "source_checked_pending_integration",
+  "sourcePlatform": "Sleeper",
+  "accessMethod": "Flaim Fantasy historical Sleeper roster",
+  "season": 2025,
+  "leagueId": "1181421235163095040",
+  "rosterId": "9",
+  "rosterOwner": "ckuhl5",
+  "manager": "Kuhl",
+  "tradeId": "1294724519813988352",
+  "tradeWeek": 11,
+  "tradeDate": "2025-11-13",
+  "player": {
+    "name": "Zach Ertz",
+    "sleeperPlayerId": "1339"
+  },
+  "evidence": {
+    "scope": "Regular-season Weeks 12–14, strictly after trade Week 11, and before playoffs",
+    "weeklyRosterObservations": [
+      {
+        "week": 11,
+        "slot": "starter",
+        "points": 6.2,
+        "excludedReason": "Transaction week not measured"
+      },
+      {
+        "week": 12,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 13,
+        "slot": "bench",
+        "points": 15.6
+      },
+      {
+        "week": 14,
+        "slot": "bench",
+        "points": 1.6
+      }
+    ],
+    "verifiedPostTradeStarts": 0,
+    "verifiedPostTradeStarterPoints": 0
+  },
+  "notes": [
+    "The player was present on this historical roster, but never a starter in the strictly later 2025 Weeks 12–14 regular-season PAR window.",
+    "Bench points are not starter production and cannot be added to the numerator.",
+    "Original PAR preview already includes separately matched Derrick Henry and both of Stew's received assets.",
+    "Source-backed candidate for recomputing the complete two-side trade; does not by itself promote an unqualified trade or modify the public rankings.",
+    "Historical snapshots were retrieved from the connected historical Sleeper roster source on November 20, 2026."
+  ]
+}

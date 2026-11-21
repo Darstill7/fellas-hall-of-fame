@@ -1,0 +1,88 @@
+name: Verify Trade Museum 2.0
+on:
+  pull_request:
+    paths:
+      - 'analytics/trade-museum.html'
+      - 'analytics/trade-portfolios.html'
+      - 'analytics/trade-plus-minus.html'
+      - 'data/trade_par_preview.json'
+      - 'analytics/greatest-worst-trades.html'
+      - 'scripts/verify-trade-museum-2.mjs'
+      - 'scripts/audit-trade-par-recovery.mjs'
+      - 'scripts/audit-trade-par-historical-crosswalk.mjs'
+      - 'scripts/audit-inline-js.mjs'
+      - 'data/v9_trade_engine.json'
+      - 'data/trade_par_recovery_2025_ertz_source_v1.json'
+      - 'data/trade_par_recovery_2024_mostert_source_v1.json'
+      - 'data/trade_par_recovery_2024_aiyuk_source_v1.json'
+      - 'data/trade_par_recovery_2025_tuten_source_v1.json'
+      - 'scripts/verify-trade-par-roster-proofs.mjs'
+      - 'scripts/verify-trade-par-start-ledger-parity.mjs'
+      - 'scripts/audit-trade-par-baseline-identifiability.mjs'
+      - 'scripts/audit-trade-par-bench-source-readiness.mjs'
+      - 'scripts/audit-trade-par-clean-roster-readiness.mjs'
+      - 'scripts/verify-trade-par-era-settings.mjs'
+      - 'scripts/audit-trade-par-raw-starter-accounting.mjs'
+      - 'scripts/build-trade-raw-starter-ledger.mjs'
+      - 'data/trade_raw_starter_accounting_2020_2025_v1.json'
+      - 'data/trade_par_era_lineup_settings_2020_2025_v1.json'
+      - 'data/sleeper_roster_snapshots_20*.json'
+      - 'data/war_rosters_2025_week7.json'
+      - 'scripts/audit-trade-par-baseline-provenance.mjs'
+      - 'scripts/audit-trade-par-playoff-boundary.mjs'
+      - 'data/playoff_explorer_verified_2016_2025_v1.json'
+      - 'FELLAS_WAR_METHOD.md'
+      - 'data/player_starts_20*.json'
+      - 'scripts/audit-trade-par-promotion-candidates.mjs'
+      - 'data/trade_par_exception_2025_evans_zero_point_start_v1.json'
+      - 'data/trade_par_exception_2025_diggs_baseline_v1.json'
+      - 'data/trade_par_recovery_2024_dowdle_source_v1.json'
+      - 'data/trade_par_recovery_2024_ridley_source_v1.json'
+      - 'data/trade_par_recovery_2025_brian_thomas_source_v1.json'
+      - 'scripts/test-browser-trade-museum-2.mjs'
+      - '.github/workflows/verify-trade-museum-2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-trade-museum:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check embedded receipt integrity, JS syntax and museum navigation
+        run: node scripts/verify-trade-museum-2.mjs
+      - name: Publish incomplete trade PAR research audit
+        run: node scripts/audit-trade-par-recovery.mjs --github-summary
+      - name: Audit historical starter-point evidence without grading
+        run: node scripts/audit-trade-par-historical-crosswalk.mjs --github-summary
+      - name: Validate historical roster proof windows and provenance
+        run: node scripts/verify-trade-par-roster-proofs.mjs --github-summary
+      - name: Preflight six zero-start candidate PAR comparisons without publication
+        run: node scripts/audit-trade-par-promotion-candidates.mjs --github-summary
+      - name: Independently reconcile post-trade starter points with historical lineup ledgers
+        run: node scripts/verify-trade-par-start-ledger-parity.mjs --github-summary
+      - name: Flag uncertified PAR weekly replacement benchmark provenance
+        run: node scripts/audit-trade-par-baseline-provenance.mjs --github-summary
+      - name: Show replacement-baseline identifiability constraints
+        run: node scripts/audit-trade-par-baseline-identifiability.mjs --github-summary
+      - name: Audit manager-bench snapshot evidence before independent PAR design
+        run: node scripts/audit-trade-par-bench-source-readiness.mjs --github-summary
+      - name: Audit season-aware regular-season cutoffs against recovered playoff brackets
+        run: node scripts/audit-trade-par-playoff-boundary.mjs --github-summary
+      - name: Check original roster ownership and bench evidence for 13 postseason-clean trades
+        run: node scripts/audit-trade-par-clean-roster-readiness.mjs --github-summary
+      - name: Verify six seasons of half-PPR dual-FLEX league settings and true playoff weeks
+        run: node scripts/verify-trade-par-era-settings.mjs --github-summary
+      - name: Verify reconstructed 18/24 raw trade scores against every original source starter week
+        run: node scripts/build-trade-raw-starter-ledger.mjs --github-summary
+      - name: Report 18/24 zero-sum received starter point research
+        run: node scripts/audit-trade-par-raw-starter-accounting.mjs --github-summary
+      - name: Install browser runtime for mobile museum checks
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Exercise Trade Museum on mobile Chromium and WebKit
+        run: node scripts/test-browser-trade-museum-2.mjs

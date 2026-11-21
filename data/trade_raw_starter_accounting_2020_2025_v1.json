@@ -1,0 +1,572 @@
+{
+  "schema": "fellas-trade-raw-starter-accounting-2020-2025-v1",
+  "status": "research_only_source_reconciled_raw_starter_points_not_trade_grades",
+  "method": "Actual receiving-manager starter fantasy scores on strictly later weeks, ending before each season-specific first winners-bracket playoff week. No position/FLEX baseline adjustment and no keeper, playoff, bench, FAAB or counterfactual value.",
+  "firstPlayoffWeekBySeason": {
+    "2020": 14,
+    "2021": 14,
+    "2022": 15,
+    "2023": 15,
+    "2024": 15,
+    "2025": 15
+  },
+  "baselineFullyMatchedTrades": 18,
+  "provisionalZeroStartTrades": 6,
+  "fullSampleTradeCount": 24,
+  "previouslyPARContaminatedTradesRepairedForRawOnly": 5,
+  "postseasonStartsExcludedFromRaw": 14,
+  "rows": [
+    {
+      "tradeId": "622492390107738112",
+      "year": 2020,
+      "transactionWeek": 6,
+      "firstPlayoffWeek": 14,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "receivedStarterPoints": 140.2,
+          "creditedStarts": 9,
+          "playoffExcludedStarts": 2,
+          "playoffExcludedPoints": 48.22
+        },
+        {
+          "manager": "Tony",
+          "receivedStarterPoints": 146.5,
+          "creditedStarts": 6,
+          "playoffExcludedStarts": 1,
+          "playoffExcludedPoints": 17.46
+        }
+      ]
+    },
+    {
+      "tradeId": "738428315181928448",
+      "year": 2021,
+      "transactionWeek": 1,
+      "firstPlayoffWeek": 14,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Tom",
+          "receivedStarterPoints": 314.78,
+          "creditedStarts": 23,
+          "playoffExcludedStarts": 1,
+          "playoffExcludedPoints": 8.94
+        },
+        {
+          "manager": "Birch",
+          "receivedStarterPoints": 470,
+          "creditedStarts": 29,
+          "playoffExcludedStarts": 3,
+          "playoffExcludedPoints": 31.68
+        }
+      ]
+    },
+    {
+      "tradeId": "754017147822415872",
+      "year": 2021,
+      "transactionWeek": 6,
+      "firstPlayoffWeek": 14,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "receivedStarterPoints": 0,
+          "creditedStarts": 0,
+          "playoffExcludedStarts": 1,
+          "playoffExcludedPoints": 2.8
+        },
+        {
+          "manager": "Tony",
+          "receivedStarterPoints": 61.7,
+          "creditedStarts": 5,
+          "playoffExcludedStarts": 1,
+          "playoffExcludedPoints": 11.1
+        }
+      ]
+    },
+    {
+      "tradeId": "754024908207583232",
+      "year": 2021,
+      "transactionWeek": 6,
+      "firstPlayoffWeek": 14,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Tom",
+          "receivedStarterPoints": 39.1,
+          "creditedStarts": 4,
+          "playoffExcludedStarts": 1,
+          "playoffExcludedPoints": 13.6
+        },
+        {
+          "manager": "Stew",
+          "receivedStarterPoints": 59.7,
+          "creditedStarts": 5,
+          "playoffExcludedStarts": 1,
+          "playoffExcludedPoints": 3.1
+        }
+      ]
+    },
+    {
+      "tradeId": "759191673220775936",
+      "year": 2021,
+      "transactionWeek": 8,
+      "firstPlayoffWeek": 14,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Tony",
+          "receivedStarterPoints": 30.5,
+          "creditedStarts": 5,
+          "playoffExcludedStarts": 1,
+          "playoffExcludedPoints": 8.6
+        },
+        {
+          "manager": "Kuhl",
+          "receivedStarterPoints": 62.8,
+          "creditedStarts": 4,
+          "playoffExcludedStarts": 2,
+          "playoffExcludedPoints": 40.2
+        }
+      ]
+    },
+    {
+      "tradeId": "875965138744864768",
+      "year": 2022,
+      "transactionWeek": 2,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "receivedStarterPoints": 99.3,
+          "creditedStarts": 8,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Mitch",
+          "receivedStarterPoints": 239,
+          "creditedStarts": 18,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "881580705233195008",
+      "year": 2022,
+      "transactionWeek": 4,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Tom",
+          "receivedStarterPoints": 85.7,
+          "creditedStarts": 6,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Tony",
+          "receivedStarterPoints": 21.4,
+          "creditedStarts": 1,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "886267215865982976",
+      "year": 2022,
+      "transactionWeek": 6,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "receivedStarterPoints": 219.46,
+          "creditedStarts": 18,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Tom",
+          "receivedStarterPoints": 241,
+          "creditedStarts": 19,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1012571602774532096",
+      "year": 2023,
+      "transactionWeek": 3,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stew",
+          "receivedStarterPoints": 136.6,
+          "creditedStarts": 8,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Kuhl",
+          "receivedStarterPoints": 268.1,
+          "creditedStarts": 21,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1023059879336013824",
+      "year": 2023,
+      "transactionWeek": 8,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "receivedStarterPoints": 187.1,
+          "creditedStarts": 12,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Tony",
+          "receivedStarterPoints": 45.1,
+          "creditedStarts": 5,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1031121022772555776",
+      "year": 2023,
+      "transactionWeek": 11,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stew",
+          "receivedStarterPoints": 0,
+          "creditedStarts": 1,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Mitch",
+          "receivedStarterPoints": 31.2,
+          "creditedStarts": 3,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1031251467312775168",
+      "year": 2023,
+      "transactionWeek": 11,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stew",
+          "receivedStarterPoints": 38.5,
+          "creditedStarts": 3,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Tony",
+          "receivedStarterPoints": 49.2,
+          "creditedStarts": 5,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1139340571111256064",
+      "year": 2024,
+      "transactionWeek": 1,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Tom",
+          "receivedStarterPoints": 10.5,
+          "creditedStarts": 2,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Kuhl",
+          "receivedStarterPoints": 93.8,
+          "creditedStarts": 8,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1141777905656143872",
+      "year": 2024,
+      "transactionWeek": 2,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "source_checked_zero_start_provisional",
+      "sides": [
+        {
+          "manager": "JMid",
+          "receivedStarterPoints": 180.7,
+          "creditedStarts": 11,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Stew",
+          "receivedStarterPoints": 139.9,
+          "creditedStarts": 11,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1144362000575840256",
+      "year": 2024,
+      "transactionWeek": 3,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "receivedStarterPoints": 371.2,
+          "creditedStarts": 29,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Tom",
+          "receivedStarterPoints": 187.7,
+          "creditedStarts": 15,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1146946436173623296",
+      "year": 2024,
+      "transactionWeek": 4,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "source_checked_zero_start_provisional",
+      "sides": [
+        {
+          "manager": "Tom",
+          "receivedStarterPoints": 21.6,
+          "creditedStarts": 2,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Stew",
+          "receivedStarterPoints": 38.8,
+          "creditedStarts": 6,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1146947320588861440",
+      "year": 2024,
+      "transactionWeek": 4,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "receivedStarterPoints": 106.1,
+          "creditedStarts": 7,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Tom",
+          "receivedStarterPoints": 131.58,
+          "creditedStarts": 8,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1152708228883660800",
+      "year": 2024,
+      "transactionWeek": 7,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "source_checked_zero_start_provisional",
+      "sides": [
+        {
+          "manager": "Tom",
+          "receivedStarterPoints": 78.7,
+          "creditedStarts": 7,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Tony",
+          "receivedStarterPoints": 178.8,
+          "creditedStarts": 13,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1159892809005076480",
+      "year": 2024,
+      "transactionWeek": 10,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "source_checked_zero_start_provisional",
+      "sides": [
+        {
+          "manager": "Mitch",
+          "receivedStarterPoints": 0,
+          "creditedStarts": 0,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Kuhl",
+          "receivedStarterPoints": 39.8,
+          "creditedStarts": 4,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1273856224776962053",
+      "year": 2025,
+      "transactionWeek": 2,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stew",
+          "receivedStarterPoints": 81.4,
+          "creditedStarts": 7,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Kuhl",
+          "receivedStarterPoints": 140.9,
+          "creditedStarts": 10,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1274473433362604032",
+      "year": 2025,
+      "transactionWeek": 3,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "JMid",
+          "receivedStarterPoints": 34.7,
+          "creditedStarts": 4,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Stew",
+          "receivedStarterPoints": 98,
+          "creditedStarts": 8,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1276026193660899328",
+      "year": 2025,
+      "transactionWeek": 3,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "original_fully_matched",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "receivedStarterPoints": 227.8,
+          "creditedStarts": 14,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Stew",
+          "receivedStarterPoints": 302.1,
+          "creditedStarts": 14,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1276373761972527104",
+      "year": 2025,
+      "transactionWeek": 3,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "source_checked_zero_start_provisional",
+      "sides": [
+        {
+          "manager": "Stew",
+          "receivedStarterPoints": 64.5,
+          "creditedStarts": 7,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Birch",
+          "receivedStarterPoints": 0,
+          "creditedStarts": 0,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    },
+    {
+      "tradeId": "1294724519813988352",
+      "year": 2025,
+      "transactionWeek": 11,
+      "firstPlayoffWeek": 15,
+      "sourceCategory": "source_checked_zero_start_provisional",
+      "sides": [
+        {
+          "manager": "Stew",
+          "receivedStarterPoints": 59.9,
+          "creditedStarts": 6,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        },
+        {
+          "manager": "Kuhl",
+          "receivedStarterPoints": 50.4,
+          "creditedStarts": 3,
+          "playoffExcludedStarts": 0,
+          "playoffExcludedPoints": 0
+        }
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import {spawnSync} from 'node:child_process';
 const skip=new Set(['.git','node_modules','.github']);
 const failures=[];
 let scripts=0,pages=0;
@@ -23,8 +24,14 @@ function walk(directory){
    if(!['text/javascript','application/javascript','module'].includes(type))continue;
    if(!body.trim())continue;
    scripts++;
-   try{new vm.Script(body,{filename:full+' script '+index})}
-   catch(error){failures.push(full+' script '+index+': '+error.message)}
+   try{
+    if(type==='module'){
+     // vm.Script parses classic scripts only; modules allow top-level await/import.
+     const result=spawnSync(process.execPath,['--check','--input-type=module'],{input:body,encoding:'utf8'});
+     if(result.error)throw result.error;
+     if(result.status!==0)throw Error((result.stderr||result.stdout||'Module syntax check failed').trim());
+    }else new vm.Script(body,{filename:full+' script '+index});
+   }catch(error){failures.push(full+' script '+index+': '+error.message)}
   }
  }
 }

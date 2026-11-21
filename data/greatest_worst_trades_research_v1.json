@@ -1,7 +1,7 @@
 {
   "schema": "fellas-greatest-worst-trades-research-v1",
   "asOf": "2026-11-12",
-  "status": "verified_ranked_observed_player_starter_outcomes_NOT_definitive_all_time_trade_grades",
+  "status": "legacy_observed_PAR_research_mixed_2020_2021_playoff_week14_not_regular_season_ranking",
   "coverage": {
     "completedSleeperSeasons": "2020–2025",
     "fullyMatchedTwoManagerTrades": 18,
@@ -10,7 +10,12 @@
     "rankedDisplayed": 10,
     "espnYears": "2016–2019 not included; do not label a 2020–2025 ranking a league-history definitive ranking",
     "threeTeam": "not included in two-side PAR comparisons",
-    "ongoing2026": "excluded from completed-season rankings"
+    "ongoing2026": "excluded from completed-season rankings",
+    "periodCleanFullyMatchedTwoManagerTrades": 13,
+    "periodContaminatedFullyMatchedTwoManagerTrades": 5,
+    "originalResearchIncludesPostseasonWeek14": true,
+    "regularSeasonOnlyRankingApproved": false,
+    "playoffSource": "data/playoff_explorer_verified_2016_2025_v1.json"
   },
   "rules": [
     "Only trades with both receiving sides fully name-matched and two managers qualify.",
@@ -18,7 +23,8 @@
     "Comparison ends with regular-season Week 14. Playoff contributions, injuries, keeper rights, FAAB, future considerations, and replacement options require separate editorial context.",
     "Voided draft-pick rule changes are never a criterion for worst-trade honors.",
     "Number of starts and traded-player ownership changes affect measured production.",
-    "There is no all-time best or worst trade winner certified yet."
+    "There is no all-time best or worst trade winner certified yet.",
+    "2020 and 2021 playoff first rounds began Week 14; five of the 18 formerly fully matched trades have Week 14 postseason starter data. This legacy ranked list is retained as research provenance, not a strictly regular-season ranking. Use the 13-trade postseason-clean +/- view."
   ],
   "rankedObservedPARAdvantage": [
     {
@@ -42,8 +48,10 @@
         "starts": 24
       },
       "observedPARGap": 131.79,
-      "playoffCaveat": null,
-      "classification": "observed_regular_season_starter_PAR_only"
+      "playoffCaveat": "Playoff Week 14 received-player starts contaminate this inherited season aggregate; the exact regular-season-only PAR cannot be recovered without weekly replacement deductions.",
+      "classification": "legacy_mixed_regular_and_playoff_week14_PAR_experimental",
+      "periodClean": false,
+      "scopeWarning": "2020_2021_week14_playoff_starts_included"
     },
     {
       "rank": 2,
@@ -67,7 +75,8 @@
       },
       "observedPARGap": 104.99,
       "playoffCaveat": "Evans and Henry contributed 44.98 combined semifinal points against their former manager Tony in Stilly's 2023 championship season.",
-      "classification": "observed_regular_season_starter_PAR_only"
+      "classification": "observed_regular_season_starter_PAR_only",
+      "periodClean": true
     },
     {
       "rank": 3,
@@ -91,7 +100,8 @@
       },
       "observedPARGap": 102.92,
       "playoffCaveat": "Thommy ultimately won 2024 championship; acquired Tee Higgins contributed 34.60 title-game points.",
-      "classification": "observed_regular_season_starter_PAR_only"
+      "classification": "observed_regular_season_starter_PAR_only",
+      "periodClean": true
     },
     {
       "rank": 4,
@@ -115,7 +125,8 @@
       },
       "observedPARGap": 97.23,
       "playoffCaveat": null,
-      "classification": "observed_regular_season_starter_PAR_only"
+      "classification": "observed_regular_season_starter_PAR_only",
+      "periodClean": true
     },
     {
       "rank": 5,
@@ -139,7 +150,8 @@
       },
       "observedPARGap": 76.08,
       "playoffCaveat": null,
-      "classification": "observed_regular_season_starter_PAR_only"
+      "classification": "observed_regular_season_starter_PAR_only",
+      "periodClean": true
     },
     {
       "rank": 6,
@@ -163,7 +175,8 @@
       },
       "observedPARGap": 67.15,
       "playoffCaveat": null,
-      "classification": "observed_regular_season_starter_PAR_only"
+      "classification": "observed_regular_season_starter_PAR_only",
+      "periodClean": true
     },
     {
       "rank": 7,
@@ -186,8 +199,10 @@
         "starts": 6
       },
       "observedPARGap": 65.54,
-      "playoffCaveat": null,
-      "classification": "observed_regular_season_starter_PAR_only"
+      "playoffCaveat": "Playoff Week 14 received-player starts contaminate this inherited season aggregate; the exact regular-season-only PAR cannot be recovered without weekly replacement deductions.",
+      "classification": "legacy_mixed_regular_and_playoff_week14_PAR_experimental",
+      "periodClean": false,
+      "scopeWarning": "2020_2021_week14_playoff_starts_included"
     },
     {
       "rank": 8,
@@ -211,7 +226,8 @@
       },
       "observedPARGap": 62.32,
       "playoffCaveat": null,
-      "classification": "observed_regular_season_starter_PAR_only"
+      "classification": "observed_regular_season_starter_PAR_only",
+      "periodClean": true
     },
     {
       "rank": 9,
@@ -234,8 +250,10 @@
         "starts": 1
       },
       "observedPARGap": 50.6,
-      "playoffCaveat": null,
-      "classification": "observed_regular_season_starter_PAR_only"
+      "playoffCaveat": "Playoff Week 14 received-player starts contaminate this inherited season aggregate; the exact regular-season-only PAR cannot be recovered without weekly replacement deductions.",
+      "classification": "legacy_mixed_regular_and_playoff_week14_PAR_experimental",
+      "periodClean": false,
+      "scopeWarning": "2020_2021_week14_playoff_starts_included"
     },
     {
       "rank": 10,
@@ -259,17 +277,18 @@
       },
       "observedPARGap": 41.12,
       "playoffCaveat": null,
-      "classification": "observed_regular_season_starter_PAR_only"
+      "classification": "observed_regular_season_starter_PAR_only",
+      "periodClean": true
     }
   ],
   "awards": [
     {
-      "name": "Largest observed regular-season post-trade production advantage",
+      "name": "Largest observed legacy PAR gap (mixed period, includes 2021 playoff Week14)",
       "transactionId": "738428315181928448",
       "advantageManager": "Birch",
       "disadvantageManager": "Thommy",
       "gap": 131.79,
-      "scope": "18 qualified 2020–2025 deals, not all league trades"
+      "scope": "Source-provenance archival result only; NOT a verified regular-season-only greatest-trade award."
     },
     {
       "name": "Strongest documented championship trade storyline",
