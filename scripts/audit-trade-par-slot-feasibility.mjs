@@ -100,6 +100,7 @@ const summary={
   const v=yearCounts.get(year)||{starts:0,hasCandidate:0,noCandidate:0,flex:0,reconstructed:0};
   return {year,starts:v.starts,withObservedEligibleBench:v.hasCandidate,withoutObservedEligibleBench:v.noCandidate,flexSlotStarts:v.flex,reconstructedRosterStarts:v.reconstructed};
  }),
+ missingBenchCases:without.map(x=>({year:x.year,week:x.week,manager:x.manager,asset:x.asset,slot:x.slot,tradeId:x.tradeId})).sort((a,b)=>a.year-b.year||a.week-b.week||a.manager.localeCompare(b.manager)),
  limitations:[
   'Bench player eligible by recorded position for the same starting slot is not proof of active status or availability at lineup lock.',
   'Scores are known after games and cannot be used as unbiased advance replacement projections.',
