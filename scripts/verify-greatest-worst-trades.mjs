@@ -12,6 +12,17 @@ const hall=fs.readFileSync('hall/shame.html','utf8');
 const trades=fs.readFileSync('analytics/trades.html','utf8');
 assert.equal(registry.schema,'fellas-greatest-worst-trades-research-v1');
 assert.equal(registry.coverage.fullyMatchedTwoManagerTrades,18);
+assert.equal(registry.coverage.periodCleanFullyMatchedTwoManagerTrades,13,'2020–2021 playoff Week14 mixed-period research must be excluded from clean subset');
+assert.equal(registry.coverage.periodContaminatedFullyMatchedTwoManagerTrades,5,'Five original qualified trades contain postseason Week14');
+assert.equal(registry.coverage.regularSeasonOnlyRankingApproved,false,'Legacy top-10 must not be misrepresented as period-clean ranking');
+assert.ok(page.includes('id="historical-par-scope-warning"'),'Visible cross-page legacy playoff-boundary correction required');
+assert.ok(page.includes('trade-plus-minus.html'),'Readers must be able to reach corrected period-clean research');
+const affected=new Set(['759191673220775936','754024908207583232','754017147822415872','738428315181928448','622492390107738112']);
+for(const row of registry.rankedObservedPARAdvantage){
+ assert.equal(row.periodClean,!affected.has(String(row.id)),'Legacy ranked trade period status misclassified');
+ if(!row.periodClean)assert.equal(row.scopeWarning,'2020_2021_week14_playoff_starts_included');
+}
+
 const eligible=preview.records.filter(r=>r.complete&&r.year>=2020&&r.year<=2025&&r.sides.length===2);
 assert.equal(eligible.length,18);
 assert.equal(registry.coverage.incompleteOrUnmatched,preview.records.filter(r=>!r.complete).length);
