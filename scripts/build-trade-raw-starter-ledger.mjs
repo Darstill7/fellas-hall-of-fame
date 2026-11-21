@@ -12,6 +12,7 @@ const bracket=read('data/playoff_explorer_verified_2016_2025_v1.json').seasons;
 const first=Object.fromEntries(bracket.filter(s=>s.year>=2020&&s.year<=2025).map(s=>[s.year,Math.min(...s.matches.filter(m=>m.round==='opening').map(m=>m.week))]));
 const norm=s=>String(s).normalize('NFKD').toLowerCase().replace(/[^a-z0-9]/g,'');
 const sourceBySide=new Map(original.map(s=>[String(s.trade_id)+'|'+s.manager,s]));
+const expectedOwner={Stilly:'Darstill',Tom:'thommy',Stew:'Dsylvester9',Tony:'tsteg',Birch:'birchhh',Kuhl:'ckuhl5',Mitch:'huppdawg80',Stover:'yogurtslinger15',JMid:'JMidd'};
 assert.equal(sourceBySide.size,original.length,'Historical receiving-side IDs duplicated');
 const yearLedgers=new Map();
 for(let y=2020;y<=2025;y++){
@@ -53,6 +54,7 @@ function buildRow(t,kind){
     assert.ok(week>t.week&&week<=14,'Original researched start outside source scope');
     const roster=yearLedgers.get(t.year).get(week)?.get(String(origin.team_id));
     assert.ok(roster,'Missing original manager roster/week');
+    assert.equal(roster.owner,expectedOwner[s.manager],'Credited starter had wrong historical roster owner for receiving manager');
     const found=roster.players.filter(p=>norm(p[1])===norm(asset.asset));
     assert.equal(found.length,1,'Unresolved matched player ID in starter ledger '+t.id+'/'+asset.asset+'/'+week);
     const p=found[0];
