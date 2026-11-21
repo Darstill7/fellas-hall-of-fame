@@ -85,6 +85,10 @@ try{
    await page.goto(plusUrl,{waitUntil:'load'});
    await page.locator('#scoreboard:not([hidden])').waitFor();
    assert.equal(await page.locator('#qualified').innerText(),'13','Only 13 full matched trades avoid 2020–21 Week 14 playoff contamination');
+   assert.equal(await page.locator('#benchSourceRows tr').count(),6,'Six season-specific bench-source readiness rows must render');
+   assert.ok((await page.locator('#benchSourceSummary').innerText()).includes('246 of 254'),'Observed eligible bench coverage must be sourced rather than inferred');
+   assert.ok((await page.locator('#benchSourceSummary').innerText()).includes('54 starts occupied a FLEX'),'Historical slot-specific FLEX audit must appear');
+
    assert.equal(await page.locator('#rawPointsRows tr').count(),8,'Eight managers have originally fully matched raw-point trades including five postseason-corrected transactions');
    assert.equal(await page.locator('#rawMatrixRows tr').count(),8,'Raw directional pair matrix must include all eight source-matched managers');
    assert.equal(await page.locator('#rawMatrixHeader th').count(),9,'Raw matrix must label every manager column');
