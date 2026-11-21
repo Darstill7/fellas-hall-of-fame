@@ -81,11 +81,11 @@ assert.equal(seenStarts.size,254);
 assert.equal([...yearCounts.values()].reduce((a,r)=>a+r.starts,0),254);
 assert.equal([...yearCounts.values()].reduce((a,r)=>a+r.hasCandidate+r.noCandidate,0),254);
 assert.equal([...positionCounts.values()].reduce((a,n)=>a+n,0),254);
+const withCandidates=observations.filter(x=>x.benchCandidateCount>0);
+const without=observations.filter(x=>x.benchCandidateCount===0);
 assert.equal(withCandidates.length,246,'Recorded eligible bench observations changed; review full historical source');
 assert.equal(without.length,8,'No recorded eligible same-roster bench option count changed');
 assert.equal(slotCounts.get('FLEX'),54,'Dual-FLEX observed starter evidence changed');
-const withCandidates=observations.filter(x=>x.benchCandidateCount>0);
-const without=observations.filter(x=>x.benchCandidateCount===0);
 const rosterSources=new Set(observations.map(x=>x.source));
 const summary={
  schema:'fellas-trade-slot-feasibility-source-2020-2025-v1',
