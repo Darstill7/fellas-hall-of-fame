@@ -79,7 +79,7 @@ assert.equal(new Set(rows.map(t=>t.tradeId)).size,24);
 const affected=rows.filter(r=>r.sourceCategory==='original_fully_matched'&&r.sides.some(s=>s.playoffExcludedStarts));
 assert.equal(affected.length,5,'Exactly five originally fully matched trades contain 2020–2021 playoff starts');
 const totalExcluded=affected.reduce((n,r)=>n+r.sides.reduce((k,s)=>k+s.playoffExcludedStarts,0),0);
-assert.equal(totalExcluded,8,'Original matched trades Week14 excluded-start count changed');
+assert.equal(totalExcluded,14,'Fourteen starter-asset Week14 observations removed from five mixed-period qualified trades');
 const result={
  schema:'fellas-trade-raw-starter-accounting-2020-2025-v1',
  status:'research_only_source_reconciled_raw_starter_points_not_trade_grades',
