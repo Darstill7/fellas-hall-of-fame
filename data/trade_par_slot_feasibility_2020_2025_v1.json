@@ -57,6 +57,72 @@
       "reconstructedRosterStarts": 4
     }
   ],
+  "missingBenchCases": [
+    {
+      "year": 2022,
+      "week": 3,
+      "manager": "Stilly",
+      "asset": "Jonathan Taylor",
+      "slot": "RB",
+      "tradeId": "875965138744864768"
+    },
+    {
+      "year": 2022,
+      "week": 4,
+      "manager": "Stilly",
+      "asset": "Jonathan Taylor",
+      "slot": "RB",
+      "tradeId": "875965138744864768"
+    },
+    {
+      "year": 2022,
+      "week": 8,
+      "manager": "Stilly",
+      "asset": "Jonathan Taylor",
+      "slot": "RB",
+      "tradeId": "875965138744864768"
+    },
+    {
+      "year": 2022,
+      "week": 11,
+      "manager": "Stilly",
+      "asset": "Jonathan Taylor",
+      "slot": "RB",
+      "tradeId": "875965138744864768"
+    },
+    {
+      "year": 2024,
+      "week": 12,
+      "manager": "Tom",
+      "asset": "Jordan Love",
+      "slot": "QB",
+      "tradeId": "1146947320588861440"
+    },
+    {
+      "year": 2024,
+      "week": 13,
+      "manager": "Tom",
+      "asset": "Jordan Love",
+      "slot": "QB",
+      "tradeId": "1146947320588861440"
+    },
+    {
+      "year": 2024,
+      "week": 14,
+      "manager": "Tom",
+      "asset": "Jordan Love",
+      "slot": "QB",
+      "tradeId": "1146947320588861440"
+    },
+    {
+      "year": 2025,
+      "week": 11,
+      "manager": "Stew",
+      "asset": "RJ Harvey",
+      "slot": "RB",
+      "tradeId": "1276026193660899328"
+    }
+  ],
   "limitations": [
     "Bench player eligible by recorded position for the same starting slot is not proof of active status or availability at lineup lock.",
     "Scores are known after games and cannot be used as unbiased advance replacement projections.",
