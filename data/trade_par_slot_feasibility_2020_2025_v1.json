@@ -7,6 +7,129 @@
   "withoutObservedEligibleBench": 8,
   "flexSlotStarts": 54,
   "reconstructedRosterStarts": 4,
+  "simultaneousBenchFeasibility": {
+    "distinctManagerWeeks": 133,
+    "managerWeeksWithMultipleAcquiredStarts": 74,
+    "acquiredStartsInMultipleStartWeeks": 195,
+    "individualBenchCoverableStarts": 246,
+    "simultaneousDistinctBenchCoverableStarts": 238,
+    "managerWeeksWithBenchCompetition": 8,
+    "additionalBenchCompetitionShortfall": 8
+  },
+  "benchCompetitionManagerWeeks": [
+    {
+      "year": 2022,
+      "week": 7,
+      "manager": "Stilly",
+      "acquiredStarts": 4,
+      "individuallyCoverable": 4,
+      "simultaneouslyCoverable": 3,
+      "competitionShortfall": 1,
+      "benchSource": "Historical Sleeper snapshot",
+      "tradeIds": [
+        "875965138744864768",
+        "886267215865982976"
+      ]
+    },
+    {
+      "year": 2022,
+      "week": 14,
+      "manager": "Stilly",
+      "acquiredStarts": 3,
+      "individuallyCoverable": 3,
+      "simultaneouslyCoverable": 2,
+      "competitionShortfall": 1,
+      "benchSource": "Historical Sleeper snapshot",
+      "tradeIds": [
+        "886267215865982976"
+      ]
+    },
+    {
+      "year": 2024,
+      "week": 5,
+      "manager": "Stilly",
+      "acquiredStarts": 4,
+      "individuallyCoverable": 4,
+      "simultaneouslyCoverable": 3,
+      "competitionShortfall": 1,
+      "benchSource": "Historical Sleeper snapshot",
+      "tradeIds": [
+        "1144362000575840256",
+        "1146947320588861440"
+      ]
+    },
+    {
+      "year": 2024,
+      "week": 9,
+      "manager": "Stilly",
+      "acquiredStarts": 3,
+      "individuallyCoverable": 3,
+      "simultaneouslyCoverable": 2,
+      "competitionShortfall": 1,
+      "benchSource": "Historical Sleeper snapshot",
+      "tradeIds": [
+        "1144362000575840256"
+      ]
+    },
+    {
+      "year": 2025,
+      "week": 9,
+      "manager": "Stew",
+      "acquiredStarts": 3,
+      "individuallyCoverable": 3,
+      "simultaneouslyCoverable": 2,
+      "competitionShortfall": 1,
+      "benchSource": "Historical Sleeper snapshot",
+      "tradeIds": [
+        "1273856224776962053",
+        "1274473433362604032",
+        "1276026193660899328"
+      ]
+    },
+    {
+      "year": 2025,
+      "week": 10,
+      "manager": "Stew",
+      "acquiredStarts": 3,
+      "individuallyCoverable": 3,
+      "simultaneouslyCoverable": 2,
+      "competitionShortfall": 1,
+      "benchSource": "Historical Sleeper snapshot",
+      "tradeIds": [
+        "1273856224776962053",
+        "1274473433362604032",
+        "1276026193660899328"
+      ]
+    },
+    {
+      "year": 2025,
+      "week": 12,
+      "manager": "Stew",
+      "acquiredStarts": 2,
+      "individuallyCoverable": 2,
+      "simultaneouslyCoverable": 1,
+      "competitionShortfall": 1,
+      "benchSource": "Historical Sleeper snapshot",
+      "tradeIds": [
+        "1274473433362604032",
+        "1276026193660899328"
+      ]
+    },
+    {
+      "year": 2025,
+      "week": 13,
+      "manager": "Stew",
+      "acquiredStarts": 3,
+      "individuallyCoverable": 3,
+      "simultaneouslyCoverable": 2,
+      "competitionShortfall": 1,
+      "benchSource": "Historical Sleeper snapshot",
+      "tradeIds": [
+        "1274473433362604032",
+        "1276026193660899328"
+      ]
+    }
+  ],
   "seasons": [
     {
       "year": 2020,
