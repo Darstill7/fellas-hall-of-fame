@@ -51,7 +51,7 @@ main{max-width:1080px;margin:auto;padding:32px 16px 80px}h1{font:700 clamp(37px,
 <section class="section" aria-labelledby="matrixGridTitle"><div class="eyebrow">02 · Head-to-head matrix</div><h2 id="matrixGridTitle">Every measured trading relationship</h2><p class="small">Read across each manager's row. Positive values favor the row manager, negative values favor the column manager, and a dash means no comparable qualified transaction. Tap a measured cell to filter the pair.</p><div class="matrix-scroll"><table aria-label="Directional PAR advantage matrix between fantasy managers"><thead id="matrixHeader"></thead><tbody id="matrixBody"></tbody></table></div></section>
 <section class="section" aria-labelledby="careerTitle"><div class="eyebrow">03 · Qualified-sample returns</div><h2 id="careerTitle">Managers by observed net trade PAR</h2><p class="small">This leaderboard sums only eligible pairwise comparisons, including losses. It is zero-sum across the qualifying set; it is not a complete manager trading record.</p>
 <div class="table-scroll"><table><thead><tr><th>Manager</th><th class="num">Net +/- PAR</th><th class="num">Measured trades</th><th class="num">Higher return</th><th class="num">Lower return</th></tr></thead><tbody id="managerRows"></tbody></table></div></section>
-<section class="section" aria-labelledby="rawPointsTitle"><div class="eyebrow">04 · Directly sourced production</div><h2 id="rawPointsTitle">Received starter points — no replacement assumptions</h2><p class="small">An independently reconstructed, zero-sum accounting of points actually scored in the receiving manager’s lineup after each trade and before that season’s playoffs. Unlike experimental PAR, the underlying weekly points allow us to correctly remove Week 14 playoff appearances from five additional 2020–2021 trades. The raw sample includes 18 fully matched trades, or 24 with six provisional zero-start receipts, independently of the 13/19 experimental PAR comparison above. This measure <strong>does not normalize QB/RB/WR/TE or FLEX opportunities</strong>, value unstarted or kept players, or establish who negotiated better. Its manager/year and optional recovery filters follow the research sample above; the underlying player-start points are source-reconciled.</p><div class="table-scroll"><table aria-label="Raw credited starter-point differences by receiving manager"><thead><tr><th>Manager</th><th class="num">Net received starter pts</th><th class="num">Measured trades</th></tr></thead><tbody id="rawPointsRows"></tbody></table></div><p class="small" id="rawPointsStatus"></p></section>
+<section class="section" aria-labelledby="rawPointsTitle"><div class="eyebrow">04 · Directly sourced production</div><h2 id="rawPointsTitle">Received starter points — no replacement assumptions</h2><p class="small">An independently reconstructed, zero-sum accounting of points actually scored in the receiving manager’s lineup after each trade and before that season’s playoffs. Unlike experimental PAR, the underlying weekly points allow us to correctly remove Week 14 playoff appearances from five additional 2020–2021 trades. The raw sample includes 18 fully matched trades, or 24 with six provisional zero-start receipts, independently of the 13/19 experimental PAR comparison above. This measure <strong>does not normalize QB/RB/WR/TE or FLEX opportunities</strong>, value unstarted or kept players, or establish who negotiated better. Its manager/year and optional recovery filters follow the research sample above; the underlying player-start points are source-reconciled.</p><div class="table-scroll"><table aria-label="Raw credited starter-point differences by receiving manager"><thead><tr><th>Manager</th><th class="num">Net received starter pts</th><th class="num">Measured trades</th></tr></thead><tbody id="rawPointsRows"></tbody></table></div><p class="small" id="rawPointsStatus"></p><h3>Raw production between each pair</h3><p class="small">Each row shows that manager’s received starter-point difference against the column manager. Positive favors the row in observed points, negative favors the column, and a dash means there is no measured two-manager exchange. These values are not position-normalized or proof of negotiating skill. Select a measured cell to inspect the two managers’ trade receipts.</p><div class="matrix-scroll"><table aria-label="Directional received starter point differences between managers"><thead id="rawMatrixHeader"></thead><tbody id="rawMatrixRows"></tbody></table></div></section>
 <section class="section" aria-labelledby="dealTitle"><div class="eyebrow">05 · Audit trail</div><h2 id="dealTitle">Every trade behind the number</h2><div id="tradeRows" class="detail-grid"></div></section>
 <p class="small">Method: each eligible transaction contributes <em>side A postTradePAR − side B postTradePAR</em>, with the sign reversed for side B. Inherited PAR estimates use started production after the transaction week; this display excludes any entire trade whose source includes starters at or beyond its independently verified first playoff week (Week 14 in 2020–2021, Week 15 in 2022–2025). The weekly replacement formula remains experimental and unverified. The same trade is counted once per pair and once per manager; no component is counted twice. The data is research-scoped and may be superseded when more source receipts are certified.</p>
 </div></main>
@@ -182,7 +182,7 @@ function render(){
  }).join('')+'</tr>').join('');
  const managerRows=agg.managers.filter(m=>manager==='all'||m.manager===manager).sort((a,b)=>b.net-a.net);
  $('managerRows').innerHTML=managerRows.map(m=>'<tr><td><a href="trade-portfolios.html?manager='+encodeURIComponent(m.manager)+'">'+esc(m.manager)+'</a></td><td class="num '+classFor(m.net)+'">'+signed(m.net)+'</td><td class="num">'+m.n+'</td><td class="num">'+m.wins+'</td><td class="num">'+m.losses+'</td></tr>').join('')||'<tr><td colspan="5">No qualifying sample for this manager.</td></tr>';
- const rawNet=new Map();
+ const rawNet=new Map(),rawPairNet=new Map();
  const rawSubset=rawLedger.filter(t=>(year==='all'||String(t.year)===year)&&($('includeRecovery').checked||t.sourceCategory==='original_fully_matched'));
  for(const trade of rawSubset){
   for(let i=0;i<2;i++){
@@ -192,6 +192,24 @@ function render(){
    rawNet.set(name,n);
   }
  }
+ for(const trade of rawSubset){
+  const sorted=[...trade.sides].sort((a,b)=>canon(a.manager).localeCompare(canon(b.manager)));
+  const a=canon(sorted[0].manager),b=canon(sorted[1].manager);
+  if(a===b)throw Error('Raw ledger contains a self-trade');
+  const key=a+'|'+b;
+  const r=rawPairNet.get(key)||{net:0,count:0};
+  r.net+=sorted[0].receivedStarterPoints-sorted[1].receivedStarterPoints;r.count++;
+  rawPairNet.set(key,r);
+ }
+ const matrixNames=[...rawNet.keys()].sort((a,b)=>a.localeCompare(b));
+ $('rawMatrixHeader').innerHTML='<tr><th scope="col">Manager</th>'+matrixNames.map(n=>'<th scope="col">'+esc(n)+'</th>').join('')+'</tr>';
+ $('rawMatrixRows').innerHTML=matrixNames.map(row=>'<tr><th scope="row">'+esc(row)+'</th>'+matrixNames.map(col=>{
+  if(row===col)return '<td class="self" aria-label="Same manager">·</td>';
+  const key=[row,col].sort().join('|'),pair=rawPairNet.get(key);
+  if(!pair)return '<td class="na" title="No measured raw-point transaction">—</td>';
+  const net=row===key.split('|')[0]?pair.net:-pair.net;
+  return '<td class="'+classFor(net)+'"><a href="trade-portfolios.html?manager='+encodeURIComponent(row)+'&partner='+encodeURIComponent(col)+'" title="'+esc(pair.count+' raw-point trade receipts')+'">'+signed(net)+'</a></td>';
+ }).join('')+'</tr>').join('');
  const rawSum=[...rawNet.values()].reduce((total,m)=>total+m.net,0);
  if(Math.abs(rawSum)>.001)throw Error('Raw starter-point trade ledger is not zero-sum');
  const rawManagers=[...rawNet].map(([name,v])=>({name,...v})).filter(m=>manager==='all'||m.name===manager).sort((a,b)=>b.net-a.net);
