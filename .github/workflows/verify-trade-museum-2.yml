@@ -22,6 +22,7 @@ on:
       - 'scripts/audit-trade-par-bench-source-readiness.mjs'
       - 'scripts/audit-trade-par-clean-roster-readiness.mjs'
       - 'scripts/audit-trade-par-slot-feasibility.mjs'
+      - 'data/trade_par_slot_feasibility_2020_2025_v1.json'
       - 'scripts/verify-trade-par-era-settings.mjs'
       - 'scripts/audit-trade-par-raw-starter-accounting.mjs'
       - 'scripts/build-trade-raw-starter-ledger.mjs'
