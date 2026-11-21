@@ -102,10 +102,10 @@ try{
    await page.locator('#seasonFilter').selectOption('2025');
    assert.ok((await page.locator('#tradeRows .deal .preview-label').count())>=1,'Expanded sample marks research-only trade cards');
    await page.locator('#includeRecovery').uncheck();
+   await page.locator('#seasonFilter').selectOption('all');
    assert.ok((await page.locator('#rawPointsRows').innerText()).includes('+306.60'),'Switching preview off restores the full 18 source-backed raw accounting trades');
 
    assert.ok((await page.locator('#coverageRows tr').last().innerText()).includes('13'),'Unchecking reverts 13 postseason-clean measured trades');
-   await page.locator('#seasonFilter').selectOption('all');
 
    assert.equal(await page.locator('#recoveryRows .recovery-card').count(),23,'Every incomplete two-manager receipt must appear in audit queue');
    await page.locator('#recoveryFilter').selectOption('one');
