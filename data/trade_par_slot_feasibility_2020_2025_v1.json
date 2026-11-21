@@ -1,0 +1,67 @@
+{
+  "schema": "fellas-trade-slot-feasibility-source-2020-2025-v1",
+  "status": "research_input_coverage_not_replacement_baseline_or_trade_grade",
+  "originalPeriodCleanTrades": 13,
+  "creditedAcquiredPlayerStarts": 254,
+  "withObservedEligibleBench": 246,
+  "withoutObservedEligibleBench": 8,
+  "flexSlotStarts": 54,
+  "reconstructedRosterStarts": 4,
+  "seasons": [
+    {
+      "year": 2020,
+      "starts": 0,
+      "withObservedEligibleBench": 0,
+      "withoutObservedEligibleBench": 0,
+      "flexSlotStarts": 0,
+      "reconstructedRosterStarts": 0
+    },
+    {
+      "year": 2021,
+      "starts": 0,
+      "withObservedEligibleBench": 0,
+      "withoutObservedEligibleBench": 0,
+      "flexSlotStarts": 0,
+      "reconstructedRosterStarts": 0
+    },
+    {
+      "year": 2022,
+      "starts": 70,
+      "withObservedEligibleBench": 66,
+      "withoutObservedEligibleBench": 4,
+      "flexSlotStarts": 15,
+      "reconstructedRosterStarts": 0
+    },
+    {
+      "year": 2023,
+      "starts": 58,
+      "withObservedEligibleBench": 58,
+      "withoutObservedEligibleBench": 0,
+      "flexSlotStarts": 10,
+      "reconstructedRosterStarts": 0
+    },
+    {
+      "year": 2024,
+      "starts": 69,
+      "withObservedEligibleBench": 66,
+      "withoutObservedEligibleBench": 3,
+      "flexSlotStarts": 17,
+      "reconstructedRosterStarts": 0
+    },
+    {
+      "year": 2025,
+      "starts": 57,
+      "withObservedEligibleBench": 56,
+      "withoutObservedEligibleBench": 1,
+      "flexSlotStarts": 12,
+      "reconstructedRosterStarts": 4
+    }
+  ],
+  "limitations": [
+    "Bench player eligible by recorded position for the same starting slot is not proof of active status or availability at lineup lock.",
+    "Scores are known after games and cannot be used as unbiased advance replacement projections.",
+    "Bench roster snapshots omit any unrostered waiver or free-agent player options.",
+    "Does not solve simultaneous substitutions or prevent one bench candidate from being reused across multiple proposed replacements.",
+    "Does not establish an independently reproducible replacement-level PAR or WAR benchmark."
+  ]
+}
