@@ -87,6 +87,11 @@ try{
    assert.equal(await page.locator('#qualified').innerText(),'13','Only 13 full matched trades avoid 2020–21 Week 14 playoff contamination');
    assert.equal(await page.locator('#benchSourceRows tr').count(),6,'Six season-specific bench-source readiness rows must render');
    assert.equal(await page.locator('#benchMissingRows tr').count(),8,'Display all eight sourced no-bench-option starter weeks');
+   assert.equal(await page.locator('#benchCompetitionRows tr').count(),8,'Eight distinct manager-weeks have competition for nonreusable bench assets');
+   assert.ok((await page.locator('#benchSimultaneousSummary').innerText()).includes('238 could be covered'),'Maximum simultaneous bench coverage must exclude double-counting');
+   assert.ok((await page.locator('#benchSimultaneousSummary').innerText()).includes('74 with multiple acquired-player starts'),'Group analysis must show multi-acquisition manager-weeks');
+   assert.ok(await page.locator('#benchCompetitionRows a[href*="trade-museum.html?trade="]').count()>=8,'Every contested bench week needs historical receipt links');
+
    assert.equal(await page.locator('#benchMissingRows a[href*="trade-museum.html?trade="]').count(),8,'Each missing bench observation must link to the archived original trade');
    assert.ok((await page.locator('#benchMissingRows').innerText()).includes('Jonathan Taylor'),'Critical 2022 RB bench substitution gaps must remain visible');
 
