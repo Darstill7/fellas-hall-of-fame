@@ -17,6 +17,8 @@ on:
       - 'scripts/build-manager-record-books-projection.mjs'
       - 'scripts/build-manager-season-endings-projection.mjs'
       - 'scripts/test-nine-career-projections.mjs'
+      - 'scripts/rebuild-playoff-race.mjs'
+      - 'scripts/test-certified-playoff-race.mjs'
       - 'scripts/stage-verified-career-website-candidate.mjs'
       - 'scripts/test-staged-career-website-consumers.mjs'
       - 'scripts/audit-mobile-journey.mjs'
@@ -135,6 +137,8 @@ jobs:
         run: |
           node scripts/build-manager-season-endings-projection.mjs
           node scripts/test-nine-career-projections.mjs
+      - name: Verify isolated playoff race against certified standings
+        run: node scripts/test-certified-playoff-race.mjs
       - name: Stage verified website migration package
         run: node scripts/stage-verified-career-website-candidate.mjs
       - name: Inventory all legacy career consumers
@@ -158,6 +162,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/manager-record-books-preview.json
             data-integrity/historical-trade-draft-audits/manager-season-endings-preview.json
             data-integrity/historical-trade-draft-audits/manager-season-results-preview.json
+            data-integrity/historical-trade-draft-audits/playoff-race-preview.json
             data-integrity/historical-trade-draft-audits/website-migration-candidate/
           if-no-files-found: error
 
