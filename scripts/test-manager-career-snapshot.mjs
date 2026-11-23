@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {careerSnapshot,renderSnapshot,rivalryBreakdown,renderRivalryComparison,renderRivalrySpotlight} from '../assets/manager-career-snapshot.mjs';
+import {careerSnapshot,renderSnapshot,rivalryBreakdown,renderRivalryComparison,renderRivalrySpotlight,attachRivalrySelector} from '../assets/manager-career-snapshot.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
 const managers={birch:'Birch',jmid:'JMid',kuhl:'Kuhl',mitch:'Mitch',scott:'Scott',stew:'Stew',stilly:'Stilly',stover:'Stover',tom:'Thommy',tony:'Tony'};
@@ -78,6 +78,21 @@ for(const [slug,name] of Object.entries(managers)){
  }
  snapshots.push({manager:name,games:r.games,record:r.wins+'-'+r.losses+(r.ties?'-'+r.ties:''),week:r.week});
 }
+// Exercise the actual selected-opponent interaction with a minimal DOM contract.
+const interaction=careerSnapshot(ledger,'Stilly');
+const alternative=interaction.opponents[1]?.name;
+assert.ok(alternative,'Interaction needs two historically documented opponents');
+const view={innerHTML:''};
+let changeHandler=null;
+const select={value:interaction.opponents[0].name,addEventListener(type,fn){if(type==='change')changeHandler=fn;}};
+attachRivalrySelector({querySelector(selector){return selector==='[data-rivalry-select]'?select:selector==='[data-rivalry-comparison]'?view:null;}},interaction);
+assert.equal(typeof changeHandler,'function','The opponent selector must bind an event');
+select.value=alternative;changeHandler();
+assert.ok(view.innerHTML.includes('rivalry-war-room.html?a=Stilly&amp;b='+encodeURIComponent(alternative)),'Selecting a different opponent must redraw matching evidence and deep link');
+const previous=view.innerHTML;
+select.value='Not In League';changeHandler();
+assert.equal(view.innerHTML,previous,'Unrecognized option must never render unsupported matchup');
+
 const fixture={games:[
  {year:2026,week:1,stage:'regular',home:'A',away:'B',homeScore:50.01,awayScore:50},
  {year:2026,week:1,stage:'regular',home:'C',away:'D',homeScore:40,awayScore:50},
