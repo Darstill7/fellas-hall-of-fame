@@ -242,7 +242,7 @@ fetch(depth+'data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw E
    // Older deployed Museum versions have receipts but no portfolio route.
    // Only expose a portfolio link if the destination exists on this deployment.
    const portfolioAvailable=await fetch(portfolioBase).then(r=>r.ok?r.text():null).then(s=>!!s&&s.includes('id="tradePartner"')).catch(()=>false);
-   const dates=parsed.filter(trade=>/^\\d{4}-\\d{2}-\\d{2}$/.test(String(trade.date||''))).map(trade=>trade.date).sort();
+   const dates=parsed.filter(trade=>/^\d{4}-\d{2}-\d{2}$/.test(String(trade.date||''))).map(trade=>trade.date).sort();
    const cutoff=dates.length?dates[dates.length-1]:'date not verified';
    const header='<h2 id="rivalry-trade-heading">Trade rivalry</h2>';
    const intro='<p class="muted">'+shared.length+' documented shared '+(shared.length===1?'transaction':'transactions')
