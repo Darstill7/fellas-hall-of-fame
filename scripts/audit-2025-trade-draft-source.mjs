@@ -130,4 +130,12 @@ fs.mkdirSync('data-integrity/historical-trade-draft-audits',{recursive:true});
 fs.writeFileSync('data-integrity/historical-trade-draft-audits/2025-original-sleeper-review.json',JSON.stringify(report,null,2)+'\n');
 console.log('2025 TRADE AUDIT '+JSON.stringify(report.counts));
 for(const t of audit)console.log('TRADE '+t.trade_id+' W'+t.week+' '+t.side_audits.map(s=>s.manager+' '+s.archived_points+'/'+s.archived_starts+' → '+s.verified_post_week_points+'/'+s.verified_post_week_starts+' + playoffs '+s.verified_post_week_playoff_points+'/'+s.verified_post_week_playoff_starts+' = '+s.verified_all_weeks_points+'/'+s.verified_all_weeks_starts+' '+s.archived_match_status).join(' | '));
+assert.equal(report.counts.sides_with_discrepant_points_or_starts,0,
+ '2025 source PF divergence cannot be considered verified');
+assert.equal(audit.reduce((sum,t)=>sum+t.side_audits.length,0),17,'Expected seventeen 2025 receiving sides');
+console.log('DRAFT PICK NAME CROSSCHECK REVIEW QUEUE '+JSON.stringify(picks.filter(p=>p.status!=='NAME_MATCHED_WITHIN_TOLERANCE').map(p=>({
+ pick:p.overall,round:p.round,manager:p.manager,player:p.player,
+ keeper:p.keeper,traded:p.traded_same_season,reported_points:p.current_reg_points,
+ lineup_name_points:p.name_mapped_points,reported_starts:p.current_reg_starts,lineup_starts:p.name_mapped_starts
+}))));
 console.log('IMPORTANT research-only: no production Trade Museum or official manager draft grades were changed.');
