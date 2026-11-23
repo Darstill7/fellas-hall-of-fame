@@ -57,7 +57,7 @@ assert.ok(js.includes("side.source_status==='VERIFIED_SOURCE'"),'Verified trade 
 assert.ok(js.includes("trade.sides.length>=3"),'Multi-manager exchanges must be identified separately');
 assert.ok(js.includes('this is not proof that no trade occurred'),'Missing paired receipts must never imply a historical zero');
 assert.ok(js.includes('Trade production, keeper outcomes, FAAB and positional value are not inferred here'),'Trade count is not evidence of trade value');
-assert.ok(js.includes("trade-portfolios.html?manager="),'Trade portfolio linkage must preserve pair selection');
+assert.ok(js.includes("portfolioBase+'?manager='+encodeURIComponent(firstName)+'&partner='+encodeURIComponent(secondName)"),'Trade portfolio linkage must preserve pair selection');
 assert.ok(js.includes("await fetch(portfolioBase)"),'Portfolio link must probe the deployed destination first');
 assert.ok(js.includes("s.includes('id=\"tradePartner\"')"),'Portfolio probe must verify the actual portfolio page, not an arbitrary 200 response');
 assert.ok(js.includes("portfolioAvailable?"),'Unavailable portfolio must never render a dead link');
