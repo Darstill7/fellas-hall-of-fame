@@ -18,6 +18,8 @@ on:
       - 'scripts/build-manager-season-endings-projection.mjs'
       - 'scripts/test-nine-career-projections.mjs'
       - 'scripts/stage-verified-career-website-candidate.mjs'
+      - 'scripts/test-staged-career-website-consumers.mjs'
+      - 'scripts/audit-mobile-journey.mjs'
       - 'scripts/test-career-projection-agreement.mjs'
       - 'scripts/test-espn-two-week-postseason.mjs'
       - 'scripts/test-espn-cumulative-consolation.mjs'
@@ -158,3 +160,32 @@ jobs:
             data-integrity/historical-trade-draft-audits/manager-season-results-preview.json
             data-integrity/historical-trade-draft-audits/website-migration-candidate/
           if-no-files-found: error
+
+  website-candidate-consumers:
+    needs: [combined-career]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: combined-career-research
+          path: data-integrity/historical-trade-draft-audits
+      - name: Install mobile browser engines
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Exercise existing website against isolated verified candidate
+        run: node scripts/test-staged-career-website-consumers.mjs
+      - name: Preserve integration findings and mobile evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-candidate-integration
+          path: |
+            data-integrity/historical-trade-draft-audits/website-migration-candidate/consumer-integration-report.json
+            data-integrity/mobile-journey/
+          if-no-files-found: warn
