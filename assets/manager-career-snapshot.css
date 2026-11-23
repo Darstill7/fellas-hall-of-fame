@@ -39,3 +39,32 @@
 .manager-pulse-trajectory-content li small{grid-column:2/4;color:#b9c9d2;font-size:11px}
 .manager-pulse-trajectory-content .manager-pulse-peak{margin-top:12px}
 @media(max-width:540px){.manager-pulse-trajectory-content li{grid-template-columns:38px minmax(0,1fr) 51px;padding:9px 8px;gap:7px}}
+
+/* Rivalries 3.0: progressively disclosed comparison; no sideways mobile table. */
+.manager-rivalry-spotlight{border-top:1px solid #385064;margin-top:15px;padding-top:15px}
+.manager-rivalry-spotlight>summary{cursor:pointer;color:#f3d894;font-weight:850;font-size:15px;min-height:44px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.manager-rivalry-spotlight>summary span{font-weight:500;color:#b8c9d3;font-size:12px}
+.manager-rivalry-spotlight>summary:focus-visible,.manager-rivalry-inner select:focus-visible{outline:3px solid #f3d38d;outline-offset:3px}
+.manager-rivalry-inner>p{font-size:13px;color:#b9c9d2;margin:8px 0 14px}
+.manager-rivalry-inner>label{display:block;color:#f3d894;font-size:13px;font-weight:800;margin-bottom:5px}
+.manager-rivalry-inner>select{width:100%;max-width:420px;min-height:46px;border:1px solid #547083;background:#0e1c28;color:#f6f1e8;border-radius:9px;padding:10px 12px;font:inherit}
+.manager-rivalry-score{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:16px 0}
+.manager-rivalry-score>div{background:#0d1c28;border:1px solid #385064;border-radius:10px;padding:13px;min-width:0}
+.manager-rivalry-score small,.manager-rivalry-score strong{display:block}
+.manager-rivalry-score small{color:#bed0d9;font-size:11px}
+.manager-rivalry-score strong{color:#f3d38d;font-size:clamp(20px,2.5vw,27px);overflow-wrap:anywhere;font-variant-numeric:tabular-nums;margin-top:4px}
+.manager-rivalry-seasons h4,.manager-rivalry-notables h4{font-size:16px;margin:13px 0 8px}
+.manager-rivalry-seasons ol,.manager-rivalry-notables ul{padding:0;margin:0;list-style:none;display:grid;gap:7px}
+.manager-rivalry-seasons li{display:grid;grid-template-columns:49px minmax(0,1fr) auto;align-items:center;gap:7px;background:#10202c;border:1px solid #354e5e;border-radius:9px;padding:10px}
+.manager-rivalry-seasons li strong{color:#f3d38d}
+.manager-rivalry-seasons li small{font-size:11px;color:#b8c9d3}
+.manager-rivalry-seasons li>small{grid-column:2/4}
+.manager-rivalry-margin{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;font-weight:750}
+.manager-rivalry-notables ul{grid-template-columns:repeat(3,minmax(0,1fr))}
+.manager-rivalry-notables li{background:#10202c;border:1px solid #354e5e;border-radius:9px;padding:12px;min-width:0}
+.manager-rivalry-notables li span,.manager-rivalry-notables li strong,.manager-rivalry-notables li small{display:block;overflow-wrap:anywhere}
+.manager-rivalry-notables li span{font-size:12px;color:#f3d894;font-weight:800}
+.manager-rivalry-notables li strong{font-size:13px;margin:4px 0}
+.manager-rivalry-notables li small{font-size:11px;color:#b9c9d2}
+@media(max-width:800px){.manager-rivalry-notables ul{grid-template-columns:1fr}}
+@media(max-width:540px){.manager-rivalry-score{grid-template-columns:1fr 1fr}.manager-rivalry-score>div:last-child{grid-column:1/3}.manager-rivalry-seasons li{grid-template-columns:37px minmax(0,1fr) auto;padding:9px 8px}.manager-rivalry-inner>select{max-width:100%}}
