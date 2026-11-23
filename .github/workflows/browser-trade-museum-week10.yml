@@ -1,0 +1,31 @@
+name: Browser-test Trade Museum Week 10 scoring
+on:
+  pull_request:
+    paths:
+      - 'analytics/trade-museum.html'
+      - 'data/trade_museum_stage66.json'
+      - 'data-integrity/trade-point-recalculations/2026-through-week10.json'
+      - 'scripts/test-browser-trade-museum-week10.mjs'
+      - '.github/workflows/browser-trade-museum-week10.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: browser-trade-week10-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  score-ui:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/test-browser-trade-museum-week10.mjs
+      - name: Install browsers
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Test mobile and desktop Trade Museum receipts with both engines
+        run: node scripts/test-browser-trade-museum-week10.mjs
