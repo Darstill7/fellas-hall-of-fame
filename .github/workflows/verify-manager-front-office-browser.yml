@@ -9,6 +9,9 @@ on:
       - 'managers/**/index.html'
       - '.github/workflows/verify-manager-front-office-browser.yml'
   workflow_dispatch:
+concurrency:
+  group: manager-front-office-browser-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
