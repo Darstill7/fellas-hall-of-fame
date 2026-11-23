@@ -16,10 +16,9 @@ export function assessPrelockReplacements({owner,decisionTime,holes,candidates,s
  const holeIds=new Set(),startedIds=new Set();
  for(const h of holes){
   assertNonempty(h.id,'hole ID');assertNonempty(h.startedPlayerId,'started player ID');
-  if(startedIds.has(h.startedPlayerId))throw Error('The same original starter cannot occupy two holes');
-  startedIds.add(h.startedPlayerId);
   if(holeIds.has(h.id))throw Error('Duplicate lineup hole');
-  holeIds.add(h.id);
+  if(startedIds.has(h.startedPlayerId))throw Error('The same original starter cannot occupy two holes');
+  holeIds.add(h.id);startedIds.add(h.startedPlayerId);
   if(!eligiblePositions[h.slot])throw Error('Unknown starting slot '+h.slot);
   if(!(time(h.lockAt,'hole lockAt')>decision))throw Error('Lineup slot already locked at decision time');
  }
