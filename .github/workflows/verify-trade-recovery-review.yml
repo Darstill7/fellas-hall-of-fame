@@ -1,0 +1,23 @@
+name: Verify recovered 2026 trade review
+on:
+  pull_request:
+    paths:
+      - 'data-integrity/trade-recovery/2026-weeks1-12-provider-review-20261123.json'
+      - 'scripts/verify-recovered-trade-review.mjs'
+      - '.github/workflows/verify-trade-recovery-review.yml'
+      - 'data/trade_museum_stage66.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/verify-recovered-trade-review.mjs
+      - run: node scripts/verify-recovered-trade-review.mjs
+      - run: node scripts/test-import-reviewed-trade-museum.mjs
