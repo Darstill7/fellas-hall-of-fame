@@ -42,6 +42,7 @@ on:
       - 'scripts/build-combined-trade-front-office-projection.mjs'
       - 'scripts/research-2026-live-acquisitions.mjs'
       - 'scripts/build-combined-career-acquisitions.mjs'
+      - 'scripts/build-front-office-site-candidate.mjs'
       - 'scripts/test-trading-floor-browser.mjs'
       - 'data-integrity/trading-floor-preview.html'
       - 'scripts/audit-2025-original-draft-player-ids.mjs'
@@ -126,6 +127,7 @@ jobs:
           node scripts/build-combined-trade-front-office-projection.mjs
           FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-acquisitions.mjs
           node scripts/build-combined-career-acquisitions.mjs
+          node scripts/build-front-office-site-candidate.mjs
       - name: Preserve research receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -161,6 +163,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/combined-trade-front-office-preview.json
             data-integrity/historical-trade-draft-audits/2026-live-acquisition-preview.json
             data-integrity/historical-trade-draft-audits/combined-career-acquisition-preview.json
+            data-integrity/historical-trade-draft-audits/front-office-site-candidate/
             data-integrity/historical-trade-draft-audits/career-draft-return-research.json
           retention-days: 30
           if-no-files-found: warn
