@@ -7,6 +7,7 @@ on:
       - 'scripts/test-historical-championship-consistency.mjs'
       - 'scripts/build-frozen-regular-statistics.mjs'
       - 'scripts/collect-live-completed-regular.mjs'
+      - 'scripts/test-combined-career-refresh.mjs'
       - 'scripts/test-frozen-provider-agreement.mjs'
       - 'data-integrity/frozen-regular-matchups-2020-2025-v1.json'
       - 'scripts/research-regular-season-source-reconciliation.mjs'
@@ -84,6 +85,8 @@ jobs:
         run: |
           node scripts/build-frozen-regular-statistics.mjs
           FELLAS_LIVE_INPUT=data-integrity/historical-trade-draft-audits/live-completed-regular-2026.json FELLAS_STATS_OUTPUT=data-integrity/historical-trade-draft-audits/combined-career-statistics.json node scripts/build-frozen-regular-statistics.mjs
+      - name: Prove deterministic refresh and reject invalid inputs
+        run: node scripts/test-combined-career-refresh.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: combined-career-research
