@@ -2,9 +2,12 @@
 // Uses original Sleeper player IDs and full regular-season leaguewide started PF.
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-const source=process.env.FELLAS_2025_DRAFT_ID_AUDIT||'data-integrity/historical-trade-draft-audits/2025-sleeper-draft-id-review.json';
+const target=Number(process.env.FELLAS_DRAFT_YEAR||2025);
+assert([2024,2025].includes(target));
+const source=process.env.FELLAS_2025_DRAFT_ID_AUDIT||'data-integrity/historical-trade-draft-audits/'+target+'-sleeper-draft-id-review.json';
 const j=JSON.parse(fs.readFileSync(source,'utf8'));
 assert.equal(j.status,'RESEARCH_ONLY_PLAYER_ID_VERIFIED_NO_FINAL_GRADES');
+assert.equal(j.season,target);
 assert.equal(j.counts.drafted,150);
 assert.equal(j.counts.stored_point_or_start_differences,0);
 const picks=j.verified_picks;
@@ -33,10 +36,10 @@ const compare=nonkeeper.map(p=>{
   position:p.position,round:p.round,grade_eligible:true,
   source_leaguewide_started_points:actual,original_manager_started_points:p.source_original_roster_points,
   keeper:false,traded:p.traded_same_season,
-  reference:'Same-position, non-keeper, nearby draft rounds, minimum 4 *other* 2025 picks',
+  reference:'Same-position, non-keeper, nearby draft rounds, minimum 4 *other* '+target+' picks',
   peer_count:peers.length,window_rounds:band,peer_median_points:baseline,
   realized_selection_surplus:round(actual-baseline),
-  note:'Observed 2025 production, not pre-draft projection, manager skill, or counterfactual impact'};
+  note:'Observed season-specific production, not pre-draft projection, manager skill, or counterfactual impact'};
 });
 const unresolved=compare.filter(x=>!x.grade_eligible);
 const totalByManager=managers.map(manager=>{
@@ -49,24 +52,24 @@ const totalByManager=managers.map(manager=>{
   total_peer_baseline:round(eligible.reduce((sum,x)=>sum+x.peer_median_points,0)),
   realized_selection_surplus:round(eligible.reduce((sum,x)=>sum+x.realized_selection_surplus,0)),
   original_roster_pf_from_nonkeepers:round(eligible.reduce((sum,x)=>sum+x.original_manager_started_points,0)),
-  confidence:eligible.length===13?'COMPLETE_2025_NONKEEPER_PEER_COVERAGE':'PARTIAL_DO_NOT_RANK'};
+  confidence:eligible.length===13?'COMPLETE_NONKEEPER_PEER_COVERAGE':'PARTIAL_DO_NOT_RANK'};
 });
 const fullyCovered=unresolved.length===0;
 const ordered=fullyCovered?[...totalByManager].sort((a,b)=>b.realized_selection_surplus-a.realized_selection_surplus):[];
 const ranked=ordered.map((x,index)=>({...x,
  observed_return_rank:index+1,
  observed_return_tier:index<2?'A':index<4?'B':index<6?'C':index<8?'D':'F',
- tier_warning:'2025 observed realized draft selection return tier ONLY, not career GM ability, ex ante skill or official site grade'}));
-const report={schema:'fellas-2025-draft-peer-surplus-research-v1',
- status:fullyCovered?'RESEARCH_ONLY_2025_OBSERVED_RETURN_TIERS_NOT_OFFICIAL':'RESEARCH_ONLY_INCOMPLETE_PEER_COVERAGE_NO_TIERS',
- source:'Original Sleeper 2025 draft IDs + complete 2025 regular season lineup player IDs',
- grading_scope:'13 nonkeeper selections per manager; 2025 year only; player started anywhere after being drafted regardless of team',
- baseline:'Median leaguewide 2025 starter PF among >=4 different picks of same position within nearest expanding round window; no keepers; focal pick excluded from peers',
+ tier_warning:'Season-specific observed realized draft selection return tier ONLY, not career GM ability, ex ante skill or official site grade'}));
+const report={schema:'fellas-'+target+'-draft-peer-surplus-research-v1',season:target,
+ status:fullyCovered?'RESEARCH_ONLY_OBSERVED_RETURN_TIERS_NOT_OFFICIAL':'RESEARCH_ONLY_INCOMPLETE_PEER_COVERAGE_NO_TIERS',
+ source:'Original Sleeper draft IDs + complete season-specific regular season lineup player IDs',
+ grading_scope:'13 nonkeeper selections per manager; selected year only; player started anywhere after being drafted regardless of team',
+ baseline:'Median leaguewide season starter PF among >=4 different picks of same position within nearest expanding round window; no keepers; focal pick excluded from peers',
  adjustments_not_included:['Injury risk and pre-draft expectations','Trade counterpart compensation or transaction opportunity cost','Keeper cost vs alternate keepers','Waiver pickups and lineup choices','Playoff production','Past seasons and career sample','Lineup replacement-level counterfactual'],
  coverage:{picks_compared:compare.length,picks_without_four_peers:unresolved.length,full_grade_coverage:fullyCovered},
- manager_summary:totalByManager,experimental_2025_ranking:ranked,unresolved_picks:unresolved,selection_evidence:compare};
+ manager_summary:totalByManager,experimental_season_ranking:ranked,unresolved_picks:unresolved,selection_evidence:compare};
 fs.mkdirSync('data-integrity/historical-trade-draft-audits',{recursive:true});
-fs.writeFileSync('data-integrity/historical-trade-draft-audits/2025-draft-peer-return-research.json',JSON.stringify(report,null,2)+'\n');
-console.log('2025 PEER BENCHMARK '+JSON.stringify(report.coverage));
-console.log('2025 EXPERIMENTAL RETURN ORDER '+JSON.stringify(ranked.map(x=>({rank:x.observed_return_rank,manager:x.manager,tier:x.observed_return_tier,surplus:x.realized_selection_surplus,pf:x.observed_player_leaguewide_pf,baseline:x.total_peer_baseline}))));
+fs.writeFileSync('data-integrity/historical-trade-draft-audits/'+target+'-draft-peer-return-research.json',JSON.stringify(report,null,2)+'\n');
+console.log(target+' PEER BENCHMARK '+JSON.stringify(report.coverage));
+console.log(target+' EXPERIMENTAL RETURN ORDER '+JSON.stringify(ranked.map(x=>({rank:x.observed_return_rank,manager:x.manager,tier:x.observed_return_tier,surplus:x.realized_selection_surplus,pf:x.observed_player_leaguewide_pf,baseline:x.total_peer_baseline}))));
 console.log('No official draft or GM grades assigned.');
