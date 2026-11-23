@@ -1,0 +1,24 @@
+name: Verify certified trade player directions
+on:
+  pull_request:
+    paths:
+      - 'scripts/import-reviewed-trade-museum.mjs'
+      - 'scripts/test-import-reviewed-trade-museum.mjs'
+      - '.github/workflows/verify-trade-player-directions.yml'
+      - 'docs/WEEKLY_PUBLICATION.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-directions:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/import-reviewed-trade-museum.mjs
+      - run: node --check scripts/test-import-reviewed-trade-museum.mjs
+      - run: node scripts/test-import-reviewed-trade-museum.mjs
+      - run: node scripts/verify-trade-museum-scope.mjs
