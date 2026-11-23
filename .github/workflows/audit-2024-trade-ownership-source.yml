@@ -39,6 +39,8 @@ on:
       - 'scripts/test-acquisition-hall-browser.mjs'
       - 'data-integrity/acquisition-hall-preview.html'
       - 'scripts/research-2026-live-trade-player-returns.mjs'
+      - 'scripts/lib/trade-deadline-freeze.mjs'
+      - 'scripts/test-trade-deadline-lifecycle.mjs'
       - 'scripts/build-combined-trade-front-office-projection.mjs'
       - 'scripts/research-2026-live-acquisitions.mjs'
       - 'scripts/research-2026-acquisition-kickoff-evidence.py'
@@ -65,6 +67,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify trade deadline lifecycle before provider research
+        run: node scripts/test-trade-deadline-lifecycle.mjs
       - name: Check audit syntax
         run: node --check scripts/audit-2024-trade-ownership-source.mjs
       - name: Reconcile original 2024 transactions and starter records
@@ -166,6 +170,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/draft-room-research.json
             data-integrity/historical-trade-draft-audits/keeper-source-audit-research.json
             data-integrity/historical-trade-draft-audits/2026-live-trade-player-returns-research.json
+            data-integrity/historical-trade-draft-audits/2026-trade-deadline-snapshot-preview.json
             data-integrity/historical-trade-draft-audits/combined-trade-front-office-preview.json
             data-integrity/historical-trade-draft-audits/2026-live-acquisition-preview.json
             data-integrity/historical-trade-draft-audits/2026-live-acquisition-kickoff-evidence.json
