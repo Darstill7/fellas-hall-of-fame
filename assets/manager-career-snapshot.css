@@ -79,3 +79,37 @@
 .manager-rivalry-receipts li small{color:#afc4d0}
 .manager-rivalry-receipt-outcome{color:#f3d894;font-weight:800}
 .manager-rivalry-receipts li>span:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Front Office 3.0 is progressive disclosure; preserve the first-screen profile hierarchy. */
+.manager-front-office{border-top:1px solid #385064;margin-top:16px;padding-top:15px}
+.manager-front-office>summary{cursor:pointer;min-height:44px;color:#f3d894;font-size:15px;font-weight:850;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.manager-front-office>summary span{color:#b8c9d3;font-size:12px;font-weight:500}
+.manager-front-office summary:focus-visible,.manager-front-office a:focus-visible{outline:3px solid #f3d38d;outline-offset:3px}
+.manager-front-office-content>p,.manager-front-office-content section p,.manager-front-office-footnote{color:#bbcbd5;font-size:12px}
+.manager-front-office-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:15px 0}
+.manager-front-office-metrics>div{background:#0e1c28;border:1px solid #3b5363;border-radius:10px;padding:12px;min-width:0}
+.manager-front-office-metrics small,.manager-front-office-metrics strong{display:block}
+.manager-front-office-metrics small{font-size:11px;color:#bed0da}
+.manager-front-office-metrics strong{font-size:clamp(20px,2.5vw,27px);color:#f3d38d;font-variant-numeric:tabular-nums}
+.manager-front-office-content section{border-top:1px solid #385064;padding:16px 0}
+.manager-front-office-content h3{font-size:19px;margin:0}
+.manager-front-office-content section a{display:inline-block;color:#f3d894;text-decoration:underline;text-underline-offset:3px;padding:10px 0;font-size:13px;font-weight:800}
+.manager-front-office-content ul,.manager-front-office-content ol{list-style:none;margin:9px 0;padding:0}
+.manager-front-office-picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.manager-front-office-picks li{border:1px solid #3c5362;background:#0e1c28;border-radius:10px;padding:10px}
+.manager-front-office-picks li strong,.manager-front-office-picks li span{display:block;overflow-wrap:anywhere}
+.manager-front-office-picks li strong{font-size:12px;color:#f3d894}
+.manager-front-office-picks li span{font-size:13px}
+.manager-front-office-content section details{border:1px solid #3c5261;border-radius:9px;padding:9px 11px;background:#112532}
+.manager-front-office-content section details summary{cursor:pointer;color:#f3d894;font-size:13px;min-height:38px;display:flex;align-items:center}
+.manager-front-office-content section details li{padding:8px 0;border-top:1px solid #354b59;display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;font-size:12px}
+.manager-front-office-trades li,.manager-front-office-waivers li{background:#10202c;border:1px solid #385064;border-radius:10px;padding:11px;display:grid;grid-template-columns:130px minmax(0,1fr) auto;gap:9px;align-items:center;margin:7px 0;font-size:12px}
+.manager-front-office-trades li strong,.manager-front-office-trades li small{display:block}
+.manager-front-office-trades li small,.manager-front-office-waivers li small{font-size:11px;color:#bed0da}
+.manager-front-office-trades li>span{overflow-wrap:anywhere}
+.manager-front-office-waivers li{grid-template-columns:100px 1fr auto}
+.manager-front-office-waivers li strong{color:#f3d894}
+.manager-front-office-footnote{padding-top:13px;border-top:1px solid #385064}
+.manager-front-office-unavailable{font-size:13px;color:#bbcbd5}
+@media(max-width:800px){.manager-front-office-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.manager-front-office-picks{grid-template-columns:1fr}.manager-front-office-trades li{grid-template-columns:1fr}.manager-front-office-waivers li{grid-template-columns:1fr 1fr}.manager-front-office-waivers li small{grid-column:1/3}}
+@media(max-width:540px){.manager-front-office-metrics>div{padding:11px}.manager-front-office-metrics strong{font-size:22px}}
