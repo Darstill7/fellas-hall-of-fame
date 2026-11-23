@@ -2,9 +2,22 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+import {verifyHistoricalPackage} from './verify-historical-acquisition-package.mjs';
 const root='data-integrity/historical-trade-draft-audits/';
 const read=n=>JSON.parse(fs.readFileSync(root+n+'.json','utf8'));
-const historical=read('acquisition-hall-of-fame-research'),live=read('2026-live-acquisition-preview'),trade=read('combined-trade-front-office-preview');
+const frozenPath=process.env.FELLAS_FROZEN_HISTORICAL_ACQUISITIONS;
+let historical,approvedHistory=null;
+if(frozenPath){
+ const pkg=JSON.parse(fs.readFileSync(frozenPath,'utf8'));
+ const approvedHash=process.env.FELLAS_APPROVED_HISTORICAL_ACQUISITION_SHA256;
+ assert.match(approvedHash||'',/^[a-f0-9]{64}$/,'Explicit approved historical fingerprint required');
+ approvedHistory=verifyHistoricalPackage(pkg,{approvedHash});
+ historical={ledger:pkg.acquisitions};
+}else{
+ assert(process.env.FELLAS_REQUIRE_APPROVED_HISTORY!=='1','Frozen historical acquisition input required');
+ historical=read('acquisition-hall-of-fame-research');
+}
+const live=read('2026-live-acquisition-preview'),trade=read('combined-trade-front-office-preview');
 assert.deepEqual(live.completedThrough,trade.completedThrough);
 assert.equal(historical.ledger.length,2542);
 const cents=n=>{assert(Number.isFinite(n));return Math.round(n*100)};
@@ -40,6 +53,6 @@ for(const t of trade.transaction_ledger.filter(t=>t.year===2026))for(const s of 
 }
 const rank=category=>rows.filter(a=>a.category===category&&a.regular_starts>0).sort((a,b)=>b.regular_pf_cents-a.regular_pf_cents||b.regular_starts-a.regular_starts||a.year-b.year||a.id.localeCompare(b.id)).map(({year,manager,player_id,name,id,regular_pf_cents,regular_starts,cost})=>({year,manager,player_id,name,id,regular_pf_cents,regular_starts,cost}));
 const historicalHash=createHash('sha256').update(JSON.stringify(historical.ledger)).digest('hex');
-const report={status:'RESEARCH_ONLY_NOT_DEPLOYABLE',completedThrough:live.completedThrough,historical_source:{years:[2020,2025],sha256:historicalHash,status:'Fingerprint recorded; immutable source certification pending'},coverage:{historical_acquisitions:historical.ledger.length,live_acquisitions:live.ledger.length,regular_starts:regularStarts,regular_pf_cents:regularPF,live_unattributed_starts:live.coverage.unattributed_starts,keeper_flags:live.coverage.keeper_flags},categories,rankings:Object.fromEntries(Object.keys(categories).map(k=>[k,rank(k)])),draft_rounds:draftRounds,managers:Object.values(managers),players:Object.values(players),ledger:rows,limitations:['Strict ownership only; timing-supported historical boundary scenarios not merged.','Unknown active keeper flags separated from confirmed draft and keeper categories. Historical keeper classification remains archive-derived.','Postseason calendar receipts retained separately; not included in regular career totals.','No causal grades or replacement-value estimates.']};
+const report={status:'RESEARCH_ONLY_NOT_DEPLOYABLE',completedThrough:live.completedThrough,historical_source:{years:[2020,2025],sha256:historicalHash,status:approvedHistory?'Approved frozen input verified':'Fingerprint recorded; immutable source certification pending',package_sha256:approvedHistory?.sha256??null},coverage:{historical_acquisitions:historical.ledger.length,live_acquisitions:live.ledger.length,regular_starts:regularStarts,regular_pf_cents:regularPF,live_unattributed_starts:live.coverage.unattributed_starts,keeper_flags:live.coverage.keeper_flags},categories,rankings:Object.fromEntries(Object.keys(categories).map(k=>[k,rank(k)])),draft_rounds:draftRounds,managers:Object.values(managers),players:Object.values(players),ledger:rows,limitations:['Strict ownership only; timing-supported historical boundary scenarios not merged.','Unknown active keeper flags separated from confirmed draft and keeper categories. Historical keeper classification remains archive-derived.','Postseason calendar receipts retained separately; not included in regular career totals.','No causal grades or replacement-value estimates.']};
 fs.writeFileSync(root+'combined-career-acquisition-preview.json',JSON.stringify(report,null,2)+'\n');
 console.log('COMBINED CAREER ACQUISITION PASS '+JSON.stringify({checks,completedThrough:report.completedThrough,coverage:report.coverage,managers:Object.keys(managers).length,players:Object.keys(players).length}));
