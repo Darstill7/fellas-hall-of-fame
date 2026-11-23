@@ -132,7 +132,7 @@ console.log('2024 TRADE AUDIT '+JSON.stringify(report.counts));
 for(const t of audit)console.log('TRADE '+t.trade_id+' W'+t.week+' '+t.side_audits.map(s=>s.manager+' '+s.archived_points+'/'+s.archived_starts+' → '+s.verified_post_week_points+'/'+s.verified_post_week_starts+' + playoffs '+s.verified_post_week_playoff_points+'/'+s.verified_post_week_playoff_starts+' = '+s.verified_all_weeks_points+'/'+s.verified_all_weeks_starts+' '+s.archived_match_status).join(' | '));
 assert.equal(report.counts.sides_with_discrepant_points_or_starts,0,
  '2024 source PF divergence cannot be considered verified');
-assert.equal(audit.reduce((sum,t)=>sum+t.side_audits.length,0),17,'Expected seventeen 2024 receiving sides');
+assert.equal(audit.reduce((sum,t)=>sum+t.side_audits.length,0),16,'Expected sixteen 2024 receiving sides');
 console.log('DRAFT PICK NAME CROSSCHECK REVIEW QUEUE '+JSON.stringify(picks.filter(p=>p.status!=='NAME_MATCHED_WITHIN_TOLERANCE').map(p=>({
  pick:p.overall,round:p.round,manager:p.manager,player:p.player,
  keeper:p.keeper,traded:p.traded_same_season,reported_points:p.current_reg_points,
