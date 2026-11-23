@@ -1,0 +1,26 @@
+// Generate lightweight browser-facing Front Office summaries, preserving receipt provenance.
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const root='data-integrity/historical-trade-draft-audits/';
+const read=n=>JSON.parse(fs.readFileSync(root+n+'.json','utf8'));
+const acq=read('combined-career-acquisition-preview'),trade=read('combined-trade-front-office-preview');
+assert.deepEqual(acq.completedThrough,trade.completedThrough);
+const output=root+'front-office-site-candidate';fs.mkdirSync(output,{recursive:true});
+const common={status:'RESEARCH_ONLY_NOT_DEPLOYABLE',completedThrough:acq.completedThrough,historicalScope:[2020,2025],method:'Strict received regular-season starter production; not causal value or trade grades.'};
+const rank=rows=>rows.slice().sort((a,b)=>b.regular_pf_cents-a.regular_pf_cents||b.regular_starts-a.regular_starts);
+const draft=acq.ledger.filter(a=>['DRAFT','ARCHIVED_KEEPER','DRAFT_KEEPER_UNKNOWN'].includes(a.category));
+const compact=a=>({year:a.year,manager:a.manager,player_id:a.player_id,name:a.name,category:a.category,id:a.id,cost:a.cost,regular_pf_cents:a.regular_pf_cents,regular_starts:a.regular_starts});
+const datasets={
+ 'overview.json':{...common,coverage:acq.coverage,tradeCoverage:trade.coverage,tradeDeadline:trade.trade_deadline,departments:['trading','draft','acquisitions','players','managers','keepers']},
+ 'trading.json':{...common,deadline:trade.trade_deadline,coverage:trade.coverage,transactions:trade.transaction_ledger,managers:trade.manager_summary,pairwise:trade.pairwise,limitations:trade.limitations},
+ 'draft.json':{...common,rounds:acq.draft_rounds,picks:rank(draft).map(compact),limitations:['Historical keeper designations remain archive-derived; unknown live keeper flags separate. Round production is not a draft grade.']},
+ 'acquisitions.json':{...common,categories:acq.categories,rankings:acq.rankings,limitations:acq.limitations},
+ 'players.json':{...common,players:acq.players,limitations:acq.limitations},
+ 'managers.json':{...common,managers:acq.managers,limitations:acq.limitations},
+ 'keepers.json':{...common,keepers:rank(draft.filter(a=>a.category==='ARCHIVED_KEEPER')).map(compact),unknown:rank(draft.filter(a=>a.category==='DRAFT_KEEPER_UNKNOWN')).map(compact),limitations:['Historical archive keeper designations are provisional; unknown flags are not non-keepers. No verified opportunity cost or keeper eligibility calculation.']}
+};
+const files=[];
+for(const [name,d] of Object.entries(datasets)){assert.deepEqual(d.completedThrough,common.completedThrough);const raw=JSON.stringify(d,null,2)+'\n';fs.writeFileSync(output+'/'+name,raw);files.push({name,sha256:createHash('sha256').update(raw).digest('hex'),bytes:Buffer.byteLength(raw)});}
+fs.writeFileSync(output+'/manifest.json',JSON.stringify({...common,files,limitations:acq.limitations},null,2)+'\n');
+console.log('FRONT OFFICE SITE PACKAGE PASS '+JSON.stringify({files:files.length,completedThrough:common.completedThrough,acquisitions:acq.ledger.length}));
