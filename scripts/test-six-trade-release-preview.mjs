@@ -24,7 +24,8 @@ assert.equal(certificate.status,'REVIEW_REQUIRED','Source certificate cannot be 
 assert.equal(certificate.through_week,11);
 assert.equal(certificate.trades.length,6);
 assert.equal(certificate.raw_candidate,paths[0]);
-const old=get(root,'data/trade_museum_stage66.json');
+const originalMuseumBytes=fs.readFileSync(path.join(root,'data/trade_museum_stage66.json'),'utf8');
+const old=JSON.parse(originalMuseumBytes);
 assert.equal(old.length,51,'Current audited museum baseline changed; independently review before rehearsing');
 const oldById=new Map(old.map(t=>[String(t.id),t]));
 const expectedIds=[
@@ -75,7 +76,7 @@ try{
  assert(match,'Trade Museum embedded archive must exist');
  assert.deepEqual(JSON.parse(match[1]),next,'Public markup and JSON must be identical');
  assert.equal(fs.readFileSync(path.join(root,'data/trade_museum_stage66.json'),'utf8'),
-  JSON.stringify(old,null,2)+'\n','Real source must be unchanged by isolated preview');
+  originalMuseumBytes,'Real source must be unchanged by isolated preview');
  const unchanged=get(evidenceRoot,paths[1]);
  assert.equal(unchanged.status,'REVIEW_REQUIRED','Real commissioner certificate must remain unapproved');
  console.log('SYNTHETIC TRADE RELEASE PASS: 51 historical + 6 source-backed ungraded = 57 receipts; exact original roster directions and FAAB; no live writes.');
