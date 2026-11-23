@@ -3,6 +3,11 @@ on:
   pull_request:
     paths:
       - 'assets/manager-career-snapshot.mjs'
+      - 'assets/manager-front-office.mjs'
+      - 'scripts/test-manager-front-office.mjs'
+      - 'data/manager_draft_trade_profile_evidence_v1.json'
+      - 'data/manager_acquisition_by_season_v1.json'
+      - 'data/trade_museum_stage66.json'
       - 'assets/manager-career-snapshot.css'
       - 'scripts/test-manager-career-snapshot.mjs'
       - 'managers/**/index.html'
@@ -22,3 +27,6 @@ jobs:
       - run: node --check assets/manager-career-snapshot.mjs
       - run: node --check scripts/test-manager-career-snapshot.mjs
       - run: node scripts/test-manager-career-snapshot.mjs
+      - run: node --check assets/manager-front-office.mjs
+      - run: node --check scripts/test-manager-front-office.mjs
+      - run: node scripts/test-manager-front-office.mjs
