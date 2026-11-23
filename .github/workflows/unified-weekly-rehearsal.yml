@@ -5,6 +5,7 @@ on:
       - 'scripts/rehearse-atomic-weekly-release.mjs'
       - 'scripts/test-atomic-weekly-release.mjs'
       - 'scripts/build-unified-weekly-release-manifest.mjs'
+      - 'scripts/build-weekly-release-freshness.mjs'
       - '.github/workflows/unified-weekly-rehearsal.yml'
   workflow_dispatch:
 permissions:
@@ -58,11 +59,13 @@ jobs:
           github-token: ${{ github.token }}
           path: data-integrity/historical-trade-draft-audits
       - run: node scripts/build-unified-weekly-release-manifest.mjs
+      - run: node scripts/build-weekly-release-freshness.mjs
       - run: node scripts/rehearse-atomic-weekly-release.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: unified-weekly-release-rehearsal
           path: |
             data-integrity/historical-trade-draft-audits/unified-weekly-release-manifest.json
+            data-integrity/historical-trade-draft-audits/weekly-release-freshness-preview.json
             data-integrity/historical-trade-draft-audits/atomic-release-rehearsal/
           if-no-files-found: error
