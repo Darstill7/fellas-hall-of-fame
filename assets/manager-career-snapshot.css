@@ -125,3 +125,19 @@
 .manager-front-office-timeline li span{color:#d4e0e7;overflow-wrap:anywhere}
 @media(max-width:760px){.manager-front-office-timeline li{grid-template-columns:1fr 1fr}.manager-front-office-timeline li strong{grid-column:1/3}}
 @media(max-width:420px){.manager-front-office-timeline li{grid-template-columns:1fr}.manager-front-office-timeline li strong{grid-column:auto}}
+
+/* Front Office 3.1: documentary stories, deliberately behind a disclosure */
+.fo-decisions{border:1px solid #395363;background:#10222f;border-radius:11px;margin:12px 0 17px;padding:0 13px}
+.fo-decisions>summary{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-height:48px;cursor:pointer;color:#f3d894;font-size:14px;font-weight:850}
+.fo-decisions>summary span{color:#b9cad6;font-size:11px;font-weight:500}
+.fo-decisions>summary:focus-visible,.fo-decisions a:focus-visible{outline:3px solid #f3d38d;outline-offset:3px}
+.fo-decisions-content>p{color:#b9cad6;font-size:12px;margin:6px 0 13px}
+.fo-move-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fo-move{border:1px solid #3b5464;background:#0c1b27;border-radius:10px;padding:14px;min-width:0}
+.fo-move-story{grid-column:1/-1;border-color:#816e45}
+.fo-move-type{font-size:11px!important;color:#e7c27f!important;letter-spacing:.03em;font-weight:800}
+.fo-move h4{font-size:17px;margin:5px 0 8px;overflow-wrap:anywhere}
+.fo-move p{color:#c6d4de;font-size:12px;margin:8px 0}
+.fo-move a,.fo-move-story-links a{color:#f3d894;display:inline-flex;min-height:44px;align-items:center;text-decoration:underline;text-underline-offset:3px;font-size:12px;font-weight:800;margin-right:10px}
+.fo-move-limits{font-size:11px!important;color:#afc2ce!important}
+@media(max-width:640px){.fo-move-grid{grid-template-columns:1fr}.fo-move-story{grid-column:auto}.fo-move{padding:12px}}
