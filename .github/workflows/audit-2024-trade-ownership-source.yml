@@ -18,6 +18,9 @@ on:
       - 'scripts/research-trade-player-receipts.mjs'
       - 'scripts/research-acquisition-hall-of-fame.mjs'
       - 'scripts/research-acquisition-leaderboards.mjs'
+      - 'scripts/research-acquisition-positional-records.mjs'
+      - 'scripts/test-acquisition-hall-browser.mjs'
+      - 'data-integrity/acquisition-hall-preview.html'
       - 'scripts/research-2026-live-trade-player-returns.mjs'
       - 'scripts/test-trading-floor-browser.mjs'
       - 'data-integrity/trading-floor-preview.html'
@@ -81,6 +84,8 @@ jobs:
           node scripts/research-acquisition-hall-of-fame.mjs
           node --check scripts/research-acquisition-leaderboards.mjs
           node scripts/research-acquisition-leaderboards.mjs
+          node --check scripts/research-acquisition-positional-records.mjs
+          node scripts/research-acquisition-positional-records.mjs
           node --check scripts/research-2026-live-trade-player-returns.mjs
           FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-trade-player-returns.mjs
       - name: Install browser runtime
@@ -89,6 +94,16 @@ jobs:
           npx playwright install --with-deps chromium webkit
       - name: Exercise Trading Floor using generated research files
         run: node scripts/test-trading-floor-browser.mjs
+      - name: Exercise Acquisition Hall using generated research files
+        run: node scripts/test-acquisition-hall-browser.mjs
+      - name: Preserve Acquisition Hall visual captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: acquisition-hall-research-captures
+          path: data-integrity/acquisition-hall-captures/*.png
+          retention-days: 14
+          if-no-files-found: warn
       - name: Preserve Trading Floor visual captures
         if: always()
         uses: actions/upload-artifact@v4
@@ -119,6 +134,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/trade-player-receipts-research.json
             data-integrity/historical-trade-draft-audits/acquisition-hall-of-fame-research.json
             data-integrity/historical-trade-draft-audits/acquisition-leaderboards-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-positional-records-research.json
             data-integrity/historical-trade-draft-audits/2026-live-trade-player-returns-research.json
             data-integrity/historical-trade-draft-audits/career-draft-return-research.json
           retention-days: 30
