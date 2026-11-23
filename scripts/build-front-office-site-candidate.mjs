@@ -10,6 +10,8 @@ const supported=read('combined-evidence-supported-career-preview');
 assert.deepEqual(supported.completedThrough,acq.completedThrough);
 assert.equal(supported.coverage.strict_starts,acq.coverage.regular_starts);
 assert.equal(supported.coverage.strict_pf_cents,acq.coverage.regular_pf_cents);
+const supportedRankings=acq.ledger.map(a=>{const key=[a.year,Number(a.roster),String(a.player_id),String(a.id)].join(':');return {...compactSupported(a),...(supported.acquisitions[key]||{strict_starts:0,strict_pf_cents:0,supported_starts:0,supported_pf_cents:0,additional_starts:0,additional_pf_cents:0})};}).filter(a=>a.supported_starts>0).sort((a,b)=>b.supported_pf_cents-a.supported_pf_cents||b.supported_starts-a.supported_starts||a.year-b.year||String(a.id).localeCompare(String(b.id)));
+function compactSupported(a){return {year:a.year,manager:a.manager,player_id:a.player_id,name:a.name,category:a.category,id:a.id,cost:a.cost};}
 const evidenceMeta={historicalPackage:supported.historicalPackage,coverage:supported.coverage,limitations:supported.limitations};
 const output=root+'front-office-site-candidate';fs.mkdirSync(output,{recursive:true});
 const common={status:'RESEARCH_ONLY_NOT_DEPLOYABLE',completedThrough:acq.completedThrough,historicalScope:[2020,2025],method:'Strict received regular-season starter production; not causal value or trade grades.'};
@@ -28,8 +30,8 @@ const datasets={
 // Explicit parallel evidence tier: never silently replace the existing strict fields.
 Object.assign(datasets['overview.json'],{supportedEvidence:evidenceMeta});
 Object.assign(datasets['trading.json'],{supportedEvidence:{...evidenceMeta,tradeSides:supported.trades}});
-Object.assign(datasets['draft.json'],{supportedEvidence:{...evidenceMeta,rounds:supported.rounds}});
-Object.assign(datasets['acquisitions.json'],{supportedEvidence:{...evidenceMeta,categories:supported.categories}});
+Object.assign(datasets['draft.json'],{supportedEvidence:{...evidenceMeta,rounds:supported.rounds,picks:supportedRankings.filter(a=>['DRAFT','ARCHIVED_KEEPER','DRAFT_KEEPER_UNKNOWN'].includes(a.category))}});
+Object.assign(datasets['acquisitions.json'],{supportedEvidence:{...evidenceMeta,categories:supported.categories,rankings:supportedRankings}});
 Object.assign(datasets['players.json'],{supportedEvidence:{...evidenceMeta,players:supported.players}});
 Object.assign(datasets['managers.json'],{supportedEvidence:{...evidenceMeta,managers:supported.managers}});
 Object.assign(datasets['keepers.json'],{supportedEvidence:{...evidenceMeta,archiveKeeperTotals:supported.categories.ARCHIVED_KEEPER??null,unknownKeeperTotals:supported.categories.DRAFT_KEEPER_UNKNOWN??null}});
