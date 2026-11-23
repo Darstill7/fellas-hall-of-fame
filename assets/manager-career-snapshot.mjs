@@ -162,6 +162,10 @@ async function start(){
  const root=document.querySelector('[data-career-snapshot]');
  if(!root)return;
  const manager=root.dataset.careerSnapshot;
+ // The site's existing four-part profile navigation is the primary wayfinding.
+ // Present it before the deeper data pulse instead of burying it below cards.
+ const navigator=document.querySelector('nav[data-manager-profile-tabs]')||document.querySelector('nav.profile-chapters');
+ if(navigator&&navigator.parentElement===root.parentElement)navigator.after(root);
  try{
   const response=await fetch('../../data/unified_record_book_2016_2026.json',{cache:'no-store'});
   if(!response.ok)throw Error('Canonical source unavailable');
