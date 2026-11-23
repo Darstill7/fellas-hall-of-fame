@@ -21,6 +21,10 @@ The machine-readable review file is `data-integrity/trade-recovery/2026-weeks1-1
 | 11 | `1428887570439245824` | 2026-11-18 | Stilly: James Cook III; Birch: Amon-Ra St. Brown | Verify exact receiving sides and keeper rights separately |
 | 11 | `1428927046507069440` | 2026-11-18 | Stew: Matthew Golden; Stover: Chase Brown | Confirm manager identity (Stover = Gurt) and full exchange |
 
+## Source-branch permission fallback
+
+The source-refresh workflow now uploads the original Sleeper receipts and unapproved six-trade certificates as an Actions review artifact, rather than attempting to create a pull request with an Actions token that lacks repository PR-creation permission. It also does **not** move the already-pinned source branch. The existing [source review PR #286](https://github.com/Darstill7/fellas-hall-of-fame/pull/286) contains the separately reviewed, unapproved evidence commit `b33f303e4a3443551915413583bf0799e1a0d664`; all synthetic six-trade rehearsal jobs pin that exact commit. If the newly generated artifact differs, create and inspect a new source PR and update the SHA only after review. Do not assume an artifact grants certification or alters an existing evidence branch.
+
 ## Required next steps
 
 1. **Provider originals and staging SHA.** The read-only raw source crosscheck now covers `transactions/0` through Week 12 and proves player directions; the artifact is linked above. Next capture those exact original payloads on the commissioner-reviewed **staging branch** as the importer requires (the CI artifact alone is not a pinned Git source commit). Preserve `adds`, `drops`, `roster_ids`, `draft_picks`, `waiver_budget` and compare to the recovered six-ID draft.
