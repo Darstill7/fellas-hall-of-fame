@@ -72,6 +72,7 @@ if(document.body.dataset.rivalryPair){
  const style=document.createElement('style');
  style.dataset.rivalryReadability='';
  style.textContent='.rivalry-page .top h1{font-size:clamp(32px,6vw,60px);line-height:1.14;overflow-wrap:anywhere;max-width:24ch}.rivalry-page .top p{font-size:14px;line-height:1.75}.rivalry-page .section{margin:23px 0}.rivalry-page .rival-hero{gap:16px;padding:clamp(16px,3vw,27px);min-width:0}.rivalry-page .rival-hero .metric{font-size:clamp(26px,5vw,40px);line-height:1.25}.rivalry-page .rival-hero .vs{font-size:clamp(21px,4vw,32px);line-height:1.4;white-space:nowrap}.rivalry-page .rivalry-key-facts{font-size:14px;line-height:1.7}.rivalry-page .rivalry-recent-context{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}.rivalry-page .rivalry-recent-context p{margin:0;padding:14px 16px;border:1px solid #476176;border-radius:12px;background:#102735;font-size:13px;line-height:1.65;overflow-wrap:anywhere}@media(max-width:700px){.rivalry-page .rivalry-recent-context{grid-template-columns:1fr}}.rivalry-page .rivalry-game-history{border:1px solid #526e81;border-radius:12px;background:#112634;padding:0 16px;margin:15px 0}.rivalry-page .rivalry-game-history>summary{display:flex;align-items:center;min-height:54px;cursor:pointer;line-height:1.5;color:#f2d28f;font-weight:850;font-size:15px;padding:12px 0}.rivalry-page .rivalry-game-content{padding:0 0 16px}.rivalry-page .rivalry-game-content p{font-size:13px;line-height:1.7;margin:10px 0}.rivalry-page .rivalry-game-content .table-wrap{max-width:100%;overflow-x:auto}.rivalry-page .rivalry-game-content table{min-width:560px}.rivalry-page .rivalry-game-content th,.rivalry-page .rivalry-game-content td{padding:12px;line-height:1.55;text-align:left;font-size:12px}.rivalry-page .rivalry-game-content th{font-size:11px;letter-spacing:.02em}.rivalry-page .rivalry-back{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;font-size:14px;color:#f2d28f;font-weight:850}.rivalry-page .rivalry-source-details{border:1px solid #4d6375;border-radius:10px;padding:0 12px;margin:13px 0;color:#cbd9e3}.rivalry-page .rivalry-source-details>summary{cursor:pointer;display:flex;align-items:center;min-height:44px;line-height:1.5;font-size:13px;font-weight:800;color:#f1d18f}.rivalry-page .rivalry-source-details p{font-size:12px;line-height:1.7}.rivalry-page .rivalry-game-history summary:focus-visible,.rivalry-page .rivalry-source-details summary:focus-visible,.rivalry-page .rivalry-back:focus-visible{outline:3px solid #f1d18f;outline-offset:3px}.rivalry-page .page-kicker,.rivalry-page .live-chip,.rivalry-page .footer{display:none}@media(max-width:700px){.rivalry-page .rival-hero{display:grid;grid-template-columns:1fr auto 1fr;text-align:center;align-items:center;gap:8px}.rivalry-page .rival-hero>div:last-child{text-align:center!important}.rivalry-page .rivalry-game-history{padding:0 12px}.rivalry-page .top{padding:18px 0 12px}.rivalry-page .section h2{font-size:clamp(21px,6vw,28px);line-height:1.3}}';
+ style.textContent+='.rivalry-playoff-history{margin:25px 0}.rivalry-playoff-scroll{overflow-x:auto;max-width:100%;border:1px solid #476176;border-radius:12px}.rivalry-playoff-scroll table{min-width:680px;width:100%;border-collapse:collapse}.rivalry-playoff-scroll th,.rivalry-playoff-scroll td{padding:11px 12px;border-bottom:1px solid #324d61;text-align:left;font-size:12px;line-height:1.5}.rivalry-playoff-scroll:focus-visible{outline:3px solid #f1d18f;outline-offset:3px}.rivalry-playoff-source{font-size:12px;line-height:1.7}';
  document.head.append(style);
  const notices=[...document.querySelectorAll('.fellas-review-notice,#fellas-stage13-audit')];
  if(notices.length){
@@ -159,4 +160,49 @@ fetch(depth+'data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw E
   }
  }
 }).catch(()=>{const root=document.getElementById('verified-rivalry-matrix');if(root)root.textContent='Rivalry history is temporarily unavailable. No records can be verified.';const picker=document.getElementById('rivalry-picker');if(picker){const status=picker.querySelector('#rivalry-picker-status');const go=picker.querySelector('#rivalry-go');if(status){status.textContent='Matchup records are unavailable. Please try again later.';status.setAttribute('role','alert')}if(go)go.disabled=true}const hero=document.querySelector('body[data-rivalry-pair] .rival-hero');if(hero){hero.textContent='Verified rivalry history is temporarily unavailable. No archived record can be confirmed.';hero.setAttribute('role','alert')}});
+
+ // Postseason is a separately verified winners-bracket archive, not part of
+ // regular-season head-to-head W/L. Legacy two-week rounds are aggregate scores.
+ if(document.body.dataset.rivalryPair){
+  const [a,b]=document.body.dataset.rivalryPair.split('|');
+  const aCanonical=canonical(a),bCanonical=canonical(b);
+  const post=document.createElement('section');
+  post.className='section rivalry-playoff-history';
+  post.dataset.rivalryPlayoffs='true';
+  post.setAttribute('aria-labelledby','rivalry-playoff-heading');
+  post.innerHTML='<h2 id="rivalry-playoff-heading">Verified playoff encounters</h2><p class="muted" role="status">Loading separately verified winners-bracket history…</p>';
+  (document.querySelector('.rivalry-main')||document.querySelector('.wrap'))?.append(post);
+  fetch(depth+'data/playoff_explorer_verified_2016_2025_v1.json')
+   .then(r=>{if(!r.ok)throw Error('Postseason source unavailable');return r.json()})
+   .then(d=>{
+    if(!Array.isArray(d.seasons)||!String(d.scope||'').includes('Verified winners-bracket'))throw Error('Unrecognized postseason source');
+    const matches=[];
+    for(const season of d.seasons){
+     if(!Number.isInteger(season.year)||season.year>2025||!Array.isArray(season.matches))continue;
+     for(const m of season.matches){
+      if(!((m.home===aCanonical&&m.away===bCanonical)||(m.away===aCanonical&&m.home===bCanonical)))continue;
+      if(!Number.isFinite(m.homeScore)||!Number.isFinite(m.awayScore)||!['opening','semifinal','final'].includes(m.round))continue;
+      matches.push({year:season.year,...m});
+     }
+    }
+    matches.sort((x,y)=>y.year-x.year||y.week-x.week);
+    const intro=matches.length
+     ?matches.length+' verified winners-bracket '+(matches.length===1?'meeting':'meetings')+' · separate from regular-season standings and streaks.'
+     :'No verified winners-bracket meetings between these managers in the recovered 2016–2025 archive. This does not establish that no other postseason encounter occurred.';
+    const rows=matches.map(m=>{
+     const pa=m.home===aCanonical?m.homeScore:m.awayScore;
+     const pb=m.home===bCanonical?m.homeScore:m.awayScore;
+     const winner=m.homeScore===m.awayScore?'Tie':display(m.homeScore>m.awayScore?m.home:m.away);
+     const weekLabel=Array.isArray(m.weeksCovered)&&m.weeksCovered.length>1?'Weeks '+m.weeksCovered.join(' & '):'Week '+m.week;
+     const round=m.round==='final'?'Championship':m.round==='semifinal'?'Semifinal':'Opening round';
+     return '<tr><td>'+m.year+'</td><td>'+E(round)+'</td><td>'+E(weekLabel)+'</td><td>'+fmt(pa)+'</td><td>'+fmt(pb)+'</td><td>'+E(winner)+'</td><td>'+(m.aggregate?'Two-week aggregate':'Single week')+(m.seedUpset?' · lower-seed upset':'')+'</td></tr>';
+    }).join('');
+    post.innerHTML='<h2 id="rivalry-playoff-heading">Verified playoff encounters</h2><p class="muted">'+intro+'</p>'
+      +(matches.length?'<div class="rivalry-playoff-scroll" tabindex="0" role="region" aria-label="Playoff matchups scrollable table"><table><thead><tr><th>Season</th><th>Round</th><th>Week(s)</th><th>'+E(a)+'</th><th>'+E(b)+'</th><th>Winner</th><th>Format</th></tr></thead><tbody>'+rows+'</tbody></table></div>':'')
+      +'<p class="muted rivalry-playoff-source">Verified 2016–2025 championship bracket only. Consolation and unclassified postseason fixtures excluded. Two-week ESPN rounds retain their aggregate totals. This section is not counted in regular-season head-to-head W/L.</p>';
+   }).catch(()=>{
+    post.innerHTML='<h2 id="rivalry-playoff-heading">Verified playoff encounters</h2><p role="alert" class="muted">Verified playoff history is temporarily unavailable. No postseason record can be confirmed.</p>';
+   });
+ }
+
 })();
