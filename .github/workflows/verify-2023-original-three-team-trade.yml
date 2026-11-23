@@ -1,0 +1,27 @@
+name: Verify original 2023 three-team trade including FAAB and 2024 picks
+on:
+  pull_request:
+    paths:
+      - 'scripts/verify-2023-original-three-team-trade.mjs'
+      - '.github/workflows/verify-2023-original-three-team-trade.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  historical-three-way:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reconstruct original three-way exchange and separate regular/playoff starter PF
+        run: |
+          node --check scripts/verify-2023-original-three-team-trade.mjs
+          node scripts/verify-2023-original-three-team-trade.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 2023-three-team-source-not-certified
+          retention-days: 30
+          path: data-integrity/historical-trade-draft-audits/2023-three-team-original-source-review.json
