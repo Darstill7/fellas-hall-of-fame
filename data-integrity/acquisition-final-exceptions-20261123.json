@@ -1,0 +1,180 @@
+{
+  "status": "RESEARCH_ONLY_NO_ADDITIONAL_CREDIT",
+  "source": {
+    "run": 45273306981,
+    "artifact": 14864998046,
+    "sha256": "4fc275ea255e678a46e6a99c4feab18d92ccfb132159377b805f752124053dd0"
+  },
+  "coverage": {
+    "observed": 7374,
+    "strict": 6672,
+    "schedule_supported_additional": 691,
+    "unresolved": 11,
+    "unresolved_pf": 93.5
+  },
+  "near_kickoff": [
+    {
+      "year": 2020,
+      "week": 11,
+      "manager": "Stew",
+      "player_id": "2118",
+      "name": "Eric Ebron",
+      "pf": 11.6,
+      "transaction_id": "636273463166050304",
+      "acquired_ms": 1606067705441,
+      "scheduled_kickoff_utc": "2020-11-22T18:00:00+00:00",
+      "seconds_before_scheduled_kickoff": 294.559,
+      "status": "NEAR_KICKOFF_REVIEW_NOT_CERTIFIED"
+    },
+    {
+      "year": 2020,
+      "week": 13,
+      "manager": "Tom",
+      "player_id": "LV",
+      "name": "Raiders D/ST",
+      "pf": 7,
+      "transaction_id": "641363457366859776",
+      "acquired_ms": 1607275473494,
+      "scheduled_kickoff_utc": "2020-12-06T18:00:00+00:00",
+      "seconds_before_scheduled_kickoff": 2126.506,
+      "status": "NEAR_KICKOFF_REVIEW_NOT_CERTIFIED"
+    },
+    {
+      "year": 2021,
+      "week": 7,
+      "manager": "EvansBrandon",
+      "player_id": "4950",
+      "name": "Christian Kirk",
+      "pf": 13,
+      "transaction_id": "758091876904947712",
+      "acquired_ms": 1635105697421,
+      "scheduled_kickoff_utc": "2021-10-24T20:25:00+00:00",
+      "seconds_before_scheduled_kickoff": 1402.579,
+      "status": "NEAR_KICKOFF_REVIEW_NOT_CERTIFIED"
+    },
+    {
+      "year": 2021,
+      "week": 12,
+      "manager": "Koble",
+      "player_id": "5536",
+      "name": "Dontrell Hilliard",
+      "pf": 18.8,
+      "transaction_id": "770732406960480256",
+      "acquired_ms": 1638119434636,
+      "scheduled_kickoff_utc": "2021-11-28T18:00:00+00:00",
+      "seconds_before_scheduled_kickoff": 2965.364,
+      "status": "NEAR_KICKOFF_REVIEW_NOT_CERTIFIED"
+    },
+    {
+      "year": 2023,
+      "week": 2,
+      "manager": "Tom",
+      "player_id": "7606",
+      "name": "Kadarius Toney",
+      "pf": 5.3,
+      "transaction_id": "1009180399395897344",
+      "acquired_ms": 1694969866182,
+      "scheduled_kickoff_utc": "2023-09-17T17:00:00+00:00",
+      "seconds_before_scheduled_kickoff": 133.818,
+      "status": "NEAR_KICKOFF_REVIEW_NOT_CERTIFIED"
+    },
+    {
+      "year": 2023,
+      "week": 11,
+      "manager": "Koble",
+      "player_id": "10222",
+      "name": "Jayden Reed",
+      "pf": 17.2,
+      "transaction_id": "1032023227364777984",
+      "acquired_ms": 1700416020769,
+      "scheduled_kickoff_utc": "2023-11-19T18:00:00+00:00",
+      "seconds_before_scheduled_kickoff": 779.231,
+      "status": "NEAR_KICKOFF_REVIEW_NOT_CERTIFIED"
+    },
+    {
+      "year": 2025,
+      "week": 8,
+      "manager": "JMid",
+      "player_id": "5001",
+      "name": "Dalton Schultz",
+      "pf": 3.4,
+      "transaction_id": "1288205297101336576",
+      "acquired_ms": 1761494585827,
+      "scheduled_kickoff_utc": "2025-10-26T17:00:00+00:00",
+      "seconds_before_scheduled_kickoff": 3414.173,
+      "status": "NEAR_KICKOFF_REVIEW_NOT_CERTIFIED"
+    },
+    {
+      "year": 2025,
+      "week": 8,
+      "manager": "Scott",
+      "player_id": "9494",
+      "name": "Marvin Mims Jr.",
+      "pf": 1.8,
+      "transaction_id": "1288258426253615105",
+      "acquired_ms": 1761507252805,
+      "scheduled_kickoff_utc": "2025-10-26T20:25:00+00:00",
+      "seconds_before_scheduled_kickoff": 3047.195,
+      "status": "NEAR_KICKOFF_REVIEW_NOT_CERTIFIED"
+    },
+    {
+      "year": 2025,
+      "week": 9,
+      "manager": "Stover",
+      "player_id": "11603",
+      "name": "AJ Barner",
+      "pf": 9,
+      "transaction_id": "1290870426183925760",
+      "acquired_ms": 1762130002117,
+      "scheduled_kickoff_utc": "2025-11-03T01:20:00+00:00",
+      "seconds_before_scheduled_kickoff": 2797.883,
+      "status": "NEAR_KICKOFF_REVIEW_NOT_CERTIFIED"
+    }
+  ],
+  "missing_acquisition": {
+    "year": 2021,
+    "league_id": "668633299786244096",
+    "manager": "Tom",
+    "player_id": "3242",
+    "name": "Kenyan Drake",
+    "starts": [
+      {
+        "week": 11,
+        "pf": 2.4
+      },
+      {
+        "week": 12,
+        "pf": 4
+      }
+    ],
+    "archive_snapshots": [
+      "data/sleeper_roster_snapshots_2021_week10.json",
+      "data/sleeper_roster_snapshots_2021_week11.json",
+      "data/sleeper_roster_snapshots_2021_week12.json",
+      "data/sleeper_roster_snapshots_2021_week13.json"
+    ],
+    "snapshot_findings": {
+      "10": "Not present on archived rosters",
+      "11": "Tom starter",
+      "12": "Tom starter",
+      "13": "Tom bench"
+    },
+    "prior_exit": {
+      "manager": "Stilly",
+      "transaction": "767868877819494400",
+      "ms": 1637436716087
+    },
+    "subsequent_acquisition": {
+      "manager": "Tom",
+      "transaction": "772928085644398592",
+      "ms": 1638653177125,
+      "week": 13
+    },
+    "status": "SCORING_CONFIRMED_ACQUISITION_UNRESOLVED"
+  },
+  "limitations": [
+    "No extra credit awarded",
+    "Scheduled kickoff not actual lineup lock",
+    "Roster snapshots support manager attribution, not acquisition transaction"
+  ]
+}
