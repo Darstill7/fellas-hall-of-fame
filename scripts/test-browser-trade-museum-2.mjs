@@ -86,6 +86,9 @@ try{
    await page.locator('#scoreboard:not([hidden])').waitFor();
    assert.equal(await page.locator('#qualified').innerText(),'13','Only 13 full matched trades avoid 2020–21 Week 14 playoff contamination');
    assert.equal(await page.locator('#benchSourceRows tr').count(),6,'Six season-specific bench-source readiness rows must render');
+   assert.ok((await page.locator('#decisionTimeWarning').innerText()).includes('Decision-time model not validated'),'Missing pregame provenance must be visible to readers');
+   assert.ok((await page.locator('#decisionTimeWarning').innerText()).includes('before lineup lock'),'Do not infer pregame replacement availability from postgame scoring');
+
    assert.equal(await page.locator('#benchMissingRows tr').count(),8,'Display all eight sourced no-bench-option starter weeks');
    assert.equal(await page.locator('#benchCompetitionRows tr').count(),8,'Eight distinct manager-weeks have competition for nonreusable bench assets');
    assert.ok((await page.locator('#benchSimultaneousSummary').innerText()).includes('238 could be covered'),'Maximum simultaneous bench coverage must exclude double-counting');
