@@ -18,6 +18,7 @@ on:
       - 'scripts/research-trade-player-receipts.mjs'
       - 'scripts/research-acquisition-hall-of-fame.mjs'
       - 'scripts/research-unattributed-starter-audit.mjs'
+      - 'scripts/research-acquisition-kickoff-evidence.py'
       - 'scripts/research-manager-identity-crosscheck.mjs'
       - 'data-integrity/historical-manager-confirmation-20261123.json'
       - 'scripts/research-acquisition-leaderboards.mjs'
@@ -98,6 +99,7 @@ jobs:
           node --check scripts/research-acquisition-hall-of-fame.mjs
           node scripts/research-acquisition-hall-of-fame.mjs
           node scripts/research-unattributed-starter-audit.mjs
+          python3 scripts/research-acquisition-kickoff-evidence.py
           node scripts/research-manager-identity-crosscheck.mjs
           node --check scripts/research-acquisition-leaderboards.mjs
           node scripts/research-acquisition-leaderboards.mjs
@@ -201,6 +203,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/trade-player-receipts-research.json
             data-integrity/historical-trade-draft-audits/acquisition-hall-of-fame-research.json
             data-integrity/historical-trade-draft-audits/unattributed-starter-audit-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-kickoff-evidence-research.json
             data-integrity/historical-trade-draft-audits/manager-identity-crosscheck-research.json
             data-integrity/historical-trade-draft-audits/acquisition-leaderboards-research.json
             data-integrity/historical-trade-draft-audits/acquisition-positional-records-research.json
