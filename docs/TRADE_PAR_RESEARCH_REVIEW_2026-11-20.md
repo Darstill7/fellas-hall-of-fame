@@ -3,6 +3,16 @@
 **Pull request:** #276 (draft; unmerged)  
 **Interpretation:** Observed post-trade starter production relative to a proposed replacement baseline. NOT trade decision quality or all-time franchise value.
 
+## Projection source inventory and model hardening — November 23
+
+A repository-level source audit (`scripts/audit-trade-projection-source-readiness.mjs`) checked the editorial `shitter/2026-week-10/projection-receipts.json` alongside the 2025 experimental starter benchmark and the 2020–2025 trade research. The **2026 Week 10** editorial receipt contains third-party pregame *estimates* for lineups, but is date-stamped only, has no per-player issue/lock timestamp, and belongs to a different season. It **cannot** establish decision-time evidence for 2020–2025 trade returns. The 2025 experimental baseline is a postgame scorer benchmark rather than an archived pregame projection feed. Existing source files therefore remain **not qualified** for historical trading-skill WAR.
+
+The synthetic-only prelock assignment engine now requires every vacated slot to name its **original started player ID**, rejects bench candidates that were already started, rejects duplicate starting-player claims, and caps explicit same-roster bench options to 12 to bound computational search. Candidate source names/receipt identifiers are **claims supplied by the caller, not independently authenticated URLs or evidence**; a source-validation and timestamp review is still required before any historical input can be accepted for certified research.
+
+The CI source-readiness audit and synthetic assignment tests are versioned. Neither publishes new manager grades, substitutes final-scoring points for pregame forecasts, nor changes the separate 13/19 experimental PAR and 18/24 observed starter-point comparisons.
+
+---
+
 ## Research-only source-gated replacement assignment prototype
 
 `scripts/trade-prelock-replacement-engine.mjs` provides a standalone future-input adapter for **prelock** projected points. It verifies a named, versioned projection feed, each substitute's owner and active-at-decision state, ISO as-of prediction time no later than the decision, roster verification time no later than the decision, each bench player's separate game lock, and the vacated starter's exact positional/FLEX slot. A maximum-cardinality, then maximum-projected-points bipartite assignment prevents bench player reuse. Uncovered starter slots remain explicitly **uncovered**, never silently replaced with 0 projection points.
