@@ -1,4 +1,4 @@
-name: Verify 2025 original drafted player IDs and starter PF
+name: Verify 2024 and 2025 original drafted player IDs and starter PF
 on:
   pull_request:
     paths:
@@ -23,11 +23,13 @@ jobs:
           node scripts/audit-2025-original-draft-player-ids.mjs
           node --check scripts/research-2025-draft-peer-returns.mjs
           node scripts/research-2025-draft-peer-returns.mjs
+          FELLAS_DRAFT_YEAR=2024 node scripts/audit-2025-original-draft-player-ids.mjs
+          FELLAS_DRAFT_YEAR=2024 node scripts/research-2025-draft-peer-returns.mjs
       - name: Preserve source audit for commissioner review
         uses: actions/upload-artifact@v4
         with:
-          name: 2025-verified-draft-player-id-audit
+          name: 2024-2025-verified-draft-player-id-audit
           retention-days: 30
           path: |
-            data-integrity/historical-trade-draft-audits/2025-sleeper-draft-id-review.json
-            data-integrity/historical-trade-draft-audits/2025-draft-peer-return-research.json
+            data-integrity/historical-trade-draft-audits/*-sleeper-draft-id-review.json
+            data-integrity/historical-trade-draft-audits/*-draft-peer-return-research.json
