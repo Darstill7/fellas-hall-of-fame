@@ -45,4 +45,18 @@ for(const m of playoffRows){
  if(m.aggregate)assert.ok(Array.isArray(m.weeksCovered)&&m.weeksCovered.length>1,'Two-week aggregates must retain both covered NFL weeks');
 }
 
+
+// Trade Rivalries is gated on the *published* Trade Museum HTML and its embedded archive.
+// The rivalry page must not manufacture transactions or infer graded trade winners.
+assert.ok(js.includes("fetch(depth+'analytics/trade-museum.html')"),'Rivalry trade evidence must load the deployed Museum, never an unsynced local copy');
+assert.ok(js.includes("script#archive-data[type=\"application/json\"]"),'Trade feed must be extracted from the Museum original source');
+assert.ok(js.includes("if(!r.ok)throw Error('Museum not published')"),'Trade links must fail closed when Museum is not deployed');
+assert.ok(js.includes("norm(firstName)!==norm(secondName)"),'A manager cannot be paired with themselves in trade rivalry filtering');
+assert.ok(js.includes("new Set(trade.sides.map(side=>norm(side.manager))).size===trade.sides.length"),'Source-qualified receipts require unique participants');
+assert.ok(js.includes("side.source_status==='VERIFIED_SOURCE'"),'Verified trade counts must require source-qualified asset sides');
+assert.ok(js.includes("trade.sides.length>=3"),'Multi-manager exchanges must be identified separately');
+assert.ok(js.includes('this is not proof that no trade occurred'),'Missing paired receipts must never imply a historical zero');
+assert.ok(js.includes('Trade production, keeper outcomes, FAAB and positional value are not inferred here'),'Trade count is not evidence of trade value');
+assert.ok(js.includes("trade-portfolios.html?manager="),'Trade portfolio linkage must preserve pair selection');
+
 console.log('Rivalry recent-meeting and streak source safeguards passed; approved game ledger unchanged.');
