@@ -104,7 +104,7 @@ export function rivalryBreakdown(data,opponent){
   :null;
  const biggestWin=meetings.filter(g=>g.margin>0).sort((a,b)=>b.margin-a.margin||a.year-b.year||a.week-b.week)[0]||null;
  const biggestLoss=meetings.filter(g=>g.margin<0).sort((a,b)=>a.margin-b.margin||a.year-b.year||a.week-b.week)[0]||null;
- return {opponent:row.name,games:row.games,w:row.w,l:row.l,t:row.t,pf:row.pf,pa:row.pa,
+ return {manager:data.manager,opponent:row.name,games:row.games,w:row.w,l:row.l,t:row.t,pf:row.pf,pa:row.pa,
   margin:row.pf-row.pa,averageMargin:(row.pf-row.pa)/row.games,meetings,
   seasons:[...years.values()],closest,biggestWin,biggestLoss};
 }
@@ -125,7 +125,12 @@ export function renderRivalryComparison(r){
   '</ol></div>'+
   (notable.length?'<div class="manager-rivalry-notables"><h4>Notable matchups</h4><ul>'+
    notable.map(([label,g])=>'<li><span>'+esc(label)+'</span><strong>'+esc(meetingLabel(g))+'</strong><small>Margin '+marginText(g.margin)+'</small></li>').join('')+
-   '</ul></div>':'<p>No decided games in the recovered rivalry receipts.</p>');
+   '</ul></div>':'<p>No decided games in the recovered rivalry receipts.</p>')+
+  '<details class="manager-rivalry-receipts"><summary>All '+r.games+' documented score receipts</summary><ol>'+
+   [...r.meetings].reverse().map(g=>'<li><div><strong>'+g.year+' Week '+g.week+'</strong><small>'+dec(g.for)+'–'+dec(g.against)+'</small></div>'+
+    '<span class="manager-rivalry-receipt-outcome">'+(g.margin>0?'Win':g.margin<0?'Loss':'Tie')+'</span><span>'+marginText(g.margin)+' pts</span></li>').join('')+
+   '</ol></details>'+
+  '<a class="manager-pulse-rival-link" href="../../analytics/rivalry-war-room.html?a='+encodeURIComponent(r.manager)+'&amp;b='+encodeURIComponent(r.opponent)+'">Compare in Rivalry War Room →</a>';
 }
 export function renderRivalrySpotlight(data){
  if(!data.opponents.length)return '';
