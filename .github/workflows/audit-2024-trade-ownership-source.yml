@@ -44,6 +44,7 @@ on:
       - 'scripts/build-combined-trade-front-office-projection.mjs'
       - 'scripts/research-2026-live-acquisitions.mjs'
       - 'scripts/research-2026-acquisition-kickoff-evidence.py'
+      - 'scripts/build-live-evidence-supported-acquisitions.mjs'
       - 'scripts/research-historical-near-kickoff-independent.py'
       - 'scripts/research-kenyan-drake-2021.mjs'
       - 'scripts/build-historical-acquisition-certification.mjs'
@@ -144,6 +145,7 @@ jobs:
           node scripts/verify-historical-acquisition-package.mjs data-integrity/historical-trade-draft-audits/historical-acquisition-certification-candidate.json
           node scripts/test-historical-acquisition-immutability.mjs
           python3 scripts/research-2026-acquisition-kickoff-evidence.py
+          node scripts/build-live-evidence-supported-acquisitions.mjs
           node scripts/build-combined-career-acquisitions.mjs
           node scripts/build-front-office-site-candidate.mjs
       - name: Preserve research receipts
@@ -182,6 +184,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/combined-trade-front-office-preview.json
             data-integrity/historical-trade-draft-audits/2026-live-acquisition-preview.json
             data-integrity/historical-trade-draft-audits/2026-live-acquisition-kickoff-evidence.json
+            data-integrity/historical-trade-draft-audits/2026-evidence-supported-acquisition-preview.json
             data-integrity/historical-trade-draft-audits/historical-near-kickoff-independent-review.json
             data-integrity/historical-trade-draft-audits/kenyan-drake-2021-source-reconciliation.json
             data-integrity/historical-trade-draft-audits/historical-acquisition-certification-candidate.json
