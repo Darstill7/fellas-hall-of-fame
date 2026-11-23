@@ -1,4 +1,4 @@
-name: Audit 2022 through 2025 trade ownership and original lineup evidence
+name: Audit 2020 through 2025 trade ownership and original lineup evidence
 on:
   pull_request:
     paths:
@@ -24,11 +24,13 @@ jobs:
           FELLAS_OWNERSHIP_YEAR=2025 node scripts/audit-2024-trade-ownership-source.mjs
           FELLAS_OWNERSHIP_YEAR=2023 node scripts/audit-2024-trade-ownership-source.mjs
           FELLAS_OWNERSHIP_YEAR=2022 node scripts/audit-2024-trade-ownership-source.mjs
+          FELLAS_OWNERSHIP_YEAR=2021 node scripts/audit-2024-trade-ownership-source.mjs
+          FELLAS_OWNERSHIP_YEAR=2020 node scripts/audit-2024-trade-ownership-source.mjs
       - name: Preserve research receipts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: 2022-2025-trade-ownership-research
+          name: 2020-2025-trade-ownership-research
           path: data-integrity/historical-trade-draft-audits/*-ownership-review.json
           retention-days: 30
           if-no-files-found: warn
