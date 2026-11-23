@@ -1,0 +1,21 @@
+name: Verify Trade Museum certification approval pin
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/prepare-approved-trade-museum.yml'
+      - '.github/workflows/verify-trade-staging-pin.yml'
+      - 'scripts/test-trade-staging-pin.mjs'
+      - 'docs/WEEKLY_PUBLICATION.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/test-trade-staging-pin.mjs
+      - run: node scripts/test-trade-staging-pin.mjs
