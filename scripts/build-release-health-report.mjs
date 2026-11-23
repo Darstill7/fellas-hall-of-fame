@@ -8,7 +8,8 @@ const REQUIRED = [
  {key:'visual',label:'Visual first-screen gate',terms:['Visual first-screen quality gate']},
  {key:'mobile',label:'Mobile visitor journey',terms:['Full mobile visitor journey audit']},
  {key:'tradePin',label:'Trade source approval pin',terms:['Verify Trade Museum certification approval pin']},
- {key:'integration',label:'Weekly + Trade Museum approval integration',terms:['Verify Tuesday approval and release-health integration']}
+ {key:'integration',label:'Weekly + Trade Museum approval integration',terms:['Verify Tuesday approval and release-health integration']},
+ {key:'museum',label:'Trade Museum 2.0 evidence verifier',terms:['Verify Trade Museum 2.0']}
 ];
 const REQUIRED_BY_PR={
  268:['canonical','visual'],
@@ -16,6 +17,7 @@ const REQUIRED_BY_PR={
  272:['canonical','rehearsal'],
  273:['canonical','rehearsal','freshness','mobile'],
  274:['canonical'],
+ 276:['canonical','rehearsal','museum'],
  280:['canonical','rehearsal','tradePin','integration']
 };
 const esc=s=>String(s??'').replace(/[|\r\n]/g,' ').slice(0,200);
@@ -110,12 +112,12 @@ export function toMarkdown(report){
  '| --- | --- | --- |',
  '| '+d.pagesStatus+' ('+esc(d.pagesSha?.slice(0,12)||'none')+') | '+d.parityStatus+' ('+esc(d.paritySha?.slice(0,12)||'none')+') | '+(d.verified?'YES':'NOT VERIFIED')+' |','',
  '## Approval and GitHub checks',
- '| PR | Stage | Canonical | Rehearsal | Freshness | Visual | Mobile | Trade pin | Combined integration |',
- '| --- | --- | --- | --- | --- | --- | --- | --- | --- |'
+ '| PR | Stage | Canonical | Rehearsal | Freshness | Visual | Mobile | Trade pin | Combined integration | Museum evidence |',
+ '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |'
  ];
  for(const p of report.prs){
   const cs=Object.fromEntries(p.checks.map(c=>[c.key,c.state]));
-  rows.push('| #'+p.number+' '+esc(p.title)+' | '+p.stage+' | '+cs.canonical+' | '+cs.rehearsal+' | '+cs.freshness+' | '+cs.visual+' | '+cs.mobile+' | '+cs.tradePin+' | '+cs.integration+' |');
+  rows.push('| #'+p.number+' '+esc(p.title)+' | '+p.stage+' | '+cs.canonical+' | '+cs.rehearsal+' | '+cs.freshness+' | '+cs.visual+' | '+cs.mobile+' | '+cs.tradePin+' | '+cs.integration+' | '+cs.museum+' |');
  }
  rows.push('','## What needs attention');
  rows.push(...(report.blockers.length?report.blockers.map((x,i)=>(i+1)+'. '+esc(x)):['No outstanding gates in this snapshot. Commissioner approval is still required before any merge.']));
