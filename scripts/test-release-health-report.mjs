@@ -95,6 +95,18 @@ integrationWrongHead.prs[0].runs=goodRuns.map(x=>x.name==='Verify Tuesday approv
 r=derive(integrationWrongHead);
 assert.equal(r.prs[0].checks.find(x=>x.key==='integration').state,'NOT_REPORTED');
 
+const missingBrowser=clone(integrated);
+r=derive(missingBrowser);
+assert.equal(r.prs[0].checks.find(x=>x.key==='browser').state,'NOT_REPORTED');
+assert.equal(r.prs[0].stage,'CHECKS_PENDING');
+const correctBrowser=clone(integrated);
+correctBrowser.prs[0].runs.push({name:'Verify integrated mobile and visual release gates',status:'completed',conclusion:'success',head_sha:sha,created_at:'2026-11-20T22:00:00Z'});
+r=derive(correctBrowser);
+assert.equal(r.prs[0].checks.find(x=>x.key==='browser').state,'PASS');
+const outdatedBrowser=clone(correctBrowser);
+outdatedBrowser.prs[0].runs.at(-1).head_sha=other;
+r=derive(outdatedBrowser);
+assert.equal(r.prs[0].checks.find(x=>x.key==='browser').state,'NOT_REPORTED');
 const museum=clone(base);
 museum.prs=[{...museum.prs[0],number:276,title:'Trade Museum 2.0',head_sha:sha,base:'automation/tuesday-publication-readiness-20261120',runs:[
  ...goodRuns,{name:'Verify Trade Museum 2.0',status:'completed',conclusion:'success',head_sha:sha,created_at:'2026-11-20T21:00:01Z'}
