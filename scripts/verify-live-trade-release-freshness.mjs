@@ -6,12 +6,14 @@ import assert from 'node:assert/strict';
 const league='1340027406009761792';
 const cutoff=10;
 const expectedArchived=51;
-const tradeSource='data-integrity/trade-recovery/2026-weeks1-12-provider-review-20261123.json';
+const tradeSource=process.env.FELLAS_TRADE_RAW_SOURCE;
+if(!tradeSource)throw Error('Exact pinned raw trade source path required');
 const normalized=JSON.parse(fs.readFileSync(tradeSource,'utf8'));
 const scores=JSON.parse(fs.readFileSync('data-integrity/trade-point-recalculations/2026-through-week10.json','utf8'));
 const museum=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json','utf8'));
-assert.equal(normalized.status,'RESEARCH_ONLY_NOT_CERTIFIED');
-assert.equal(normalized.league_id,league);
+assert.equal(normalized.schema,'fellas-sleeper-raw-trade-review-v1');
+assert.equal(normalized.status,'REVIEW_REQUIRED');
+assert.equal(normalized.league,league);
 assert.equal(scores.scoring_through_week,cutoff);
 assert.equal(museum.length,expectedArchived);
 assert(museum.filter(t=>t.year===2026).every(t=>t.scoring_through_week===cutoff));
@@ -41,7 +43,7 @@ for(let week=0;week<=stateWeek;week++){
 }
 const unique=new Set(rawTradeIds);
 assert.equal(unique.size,rawTradeIds.length,'Duplicated provider trade transaction');
-const prior=new Set(normalized.trades.map(t=>String(t.id)));
+const prior=new Set(normalized.trades.map(t=>String(t.transaction_id)));
 assert.equal(prior.size,13,'Expected source research snapshot changed; re-review before release');
 const missing=rawTradeIds.filter(id=>!prior.has(id));
 const erased=[...prior].filter(id=>!unique.has(id));
