@@ -9,7 +9,9 @@ for(const id of ['content','approved-week','source-date','game-count','regular-s
 }
 assert.ok(html.includes("fetch('../data/unified_record_book_2016_2026.json',{cache:'no-store'})"),'Status page must use deployed canonical source file');
 assert.ok(html.includes("g.year===2026&&g.stage==='regular'"),'Do not count playoffs as regular-season games');
-assert.ok(html.includes("weeks.every((w,i)=>w===i+1)"),'Contiguous weeks must be validated before reporting a through-week');
+assert.ok(html.includes("weeks.every((w,i)=>w===i+1&&completeWeek(w))"),'Through-week reporting must reject non-contiguous or incomplete weeks');
+assert.ok(html.includes("games.length===5&&participants.length===10"),'Each approved ten-team league week needs exactly five complete games');
+assert.ok(html.includes("new Set(participants).size===10"),'A repeated manager must not be treated as an independent completed matchup');
 assert.ok(html.includes("document.getElementById(id).textContent='Unverified'"),'Fetch failure must fail closed');
 assert.ok(html.includes('A staged result or an unfinished game is not an approved final matchup.'),'Published and staged weeks must remain distinct');
 assert.ok(html.includes('A green pull request does not independently prove deployed Pages parity'),'CI must not be mistaken for Pages deployment');
@@ -21,4 +23,17 @@ const weeks=[...new Set(matches.map(g=>g.week).filter(w=>Number.isInteger(w)&&w>
 assert.ok(weeks.every((w,i)=>w===i+1),'Canonical 2026 source weeks must not contain unexplained gaps');
 assert.ok(matches.length>0,'Canonical 2026 data should not silently vanish');
 assert.ok(matches.every(g=>Number.isFinite(g.homeScore)&&Number.isFinite(g.awayScore)),'All displayed matchups require finalized numeric scores');
+const weekComplete=(list,week)=>{
+ const games=list.filter(g=>g.week===week);
+ const participants=games.flatMap(g=>[g.home,g.away]);
+ return games.length===5&&participants.length===10
+  &&participants.every(n=>typeof n==='string'&&n.trim().length>0)
+  &&new Set(participants).size===10;
+};
+for(const week of weeks)assert.ok(weekComplete(matches,week),'Canonical approved week '+week+' must include five unique manager matchups');
+assert.ok(!weekComplete(matches.slice(1),1),'Dropping a matchup must invalidate a purported approved week');
+const first=matches.find(g=>g.week===1);
+const replaced=matches.map(g=>g.week===1&&g!==first?g:g);
+const tampered=replaced.map(g=>g===first?{...g,home:matches.filter(m=>m.week===1&&m!==first)[0].home}:g);
+assert.ok(!weekComplete(tampered,1),'Duplicate team participation must invalidate a week');
 console.log('Historical source status verified against approved canonical snapshot, with fail-closed freshness presentation.');
