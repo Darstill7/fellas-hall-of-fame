@@ -17,6 +17,7 @@ on:
       - 'scripts/build-manager-record-books-projection.mjs'
       - 'scripts/build-manager-season-endings-projection.mjs'
       - 'scripts/test-nine-career-projections.mjs'
+      - 'scripts/stage-verified-career-website-candidate.mjs'
       - 'scripts/test-career-projection-agreement.mjs'
       - 'scripts/test-espn-two-week-postseason.mjs'
       - 'scripts/test-espn-cumulative-consolation.mjs'
@@ -132,6 +133,8 @@ jobs:
         run: |
           node scripts/build-manager-season-endings-projection.mjs
           node scripts/test-nine-career-projections.mjs
+      - name: Stage verified website migration package
+        run: node scripts/stage-verified-career-website-candidate.mjs
       - name: Inventory all legacy career consumers
         run: node scripts/audit-career-consumer-dependencies.mjs
       - uses: actions/upload-artifact@v4
@@ -153,4 +156,5 @@ jobs:
             data-integrity/historical-trade-draft-audits/manager-record-books-preview.json
             data-integrity/historical-trade-draft-audits/manager-season-endings-preview.json
             data-integrity/historical-trade-draft-audits/manager-season-results-preview.json
+            data-integrity/historical-trade-draft-audits/website-migration-candidate/
           if-no-files-found: error
