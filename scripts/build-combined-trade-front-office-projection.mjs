@@ -5,8 +5,8 @@ import assert from 'node:assert/strict';
 const root='data-integrity/historical-trade-draft-audits/';
 const read=n=>JSON.parse(fs.readFileSync(root+n+'.json','utf8'));
 const historical=read('career-trade-return-research'),live=read('2026-live-trade-player-returns-research'),career=read('full-era-career-statistics');
-const cutoff=career.live_watermark.completed_regular_week;
-assert.equal(live.completed_week,cutoff);assert.equal(live.season,2026);
+const cutoff=live.completed_week;
+assert.equal(career.live_watermark.completed_regular_week,Math.min(cutoff,14));assert.equal(live.season,2026);
 assert.equal(live.trade_deadline_week,11);assert.equal(live.trade_window,cutoff>=11?'CLOSED':'OPEN');
 assert.equal(live.regular_season_end_week,14);
 const norm=n=>n==='Tom'?'Thommy':n;
@@ -18,14 +18,14 @@ for(const t of live.trades){
  assert(!historicalIds.has(t.id));historicalIds.add(t.id);assert(t.week<=Math.min(cutoff,live.trade_deadline_week)&&t.sides.length>=2);
  const sides=t.sides.map(s=>{
   const manager=norm(s.manager);assert(career.seasons.find(x=>x.year===2026).managers[manager]);
-  let pf=0,count=0;
+  let pf=0,count=0,regular=0,postseason=0,regularStarts=0,postseasonStarts=0;
   for(const p of s.players){
    let sum=0;
-   for(const r of p.receipts){assert(r.week>t.week&&r.week<=cutoff);const key=[manager,p.player_id,r.week].join('|');assert(!receipts.has(key));receipts.add(key);sum+=cents(r.points);}
+   for(const r of p.receipts){assert(r.week>t.week&&r.week<=cutoff);const key=[manager,p.player_id,r.week].join('|');assert(!receipts.has(key));receipts.add(key);sum+=cents(r.points);if(r.week<=14){regular+=cents(r.points);regularStarts++;}else{postseason+=cents(r.points);postseasonStarts++;}}
    assert.equal(sum,cents(p.pf));assert.equal(p.receipts.length,p.starts);pf+=sum;count+=p.starts;
   }
   assert.equal(pf,cents(s.pf));assert.equal(count,s.starts);starts+=count;
-  return {manager,regular:pf/100,postseason:0,starts:count,boundary:s.players.reduce((n,p)=>n+p.boundary.length,0),player_count:s.players.length,players:s.players};
+  return {manager,regular:regular/100,postseason:postseason/100,starts:regularStarts,postseason_starts:postseasonStarts,boundary:s.players.reduce((n,p)=>n+p.boundary.length,0),player_count:s.players.length,players:s.players};
  });
  assert.equal(new Set(sides.map(s=>s.manager)).size,sides.length);
  const has=sides.some(s=>s.player_count>0),kind=!has?'NONPLAYER_ONLY':sides.length!==2?'MULTI_TEAM':sides.some(s=>!s.player_count)?'PLAYER_FOR_NONPLAYER':'TWO_TEAM_PLAYER_EXCHANGE';
@@ -33,7 +33,7 @@ for(const t of live.trades){
 }
 const managers={},pairs={};
 for(const t of ledger){
- for(const s of t.sides){const m=managers[s.manager]??={manager:s.manager,transactions:0,strict_regular_cents:0,strict_starts:0,pair_eligible:0,raw_delta_cents:0};m.transactions++;m.strict_regular_cents+=cents(s.regular);m.strict_starts+=s.starts;}
+ for(const s of t.sides){const m=managers[s.manager]??={manager:s.manager,transactions:0,strict_regular_cents:0,strict_starts:0,live_postseason_cents:0,live_postseason_starts:0,pair_eligible:0,raw_delta_cents:0};m.transactions++;m.strict_regular_cents+=cents(s.regular);m.strict_starts+=s.starts;if(t.year===2026){m.live_postseason_cents+=cents(s.postseason);m.live_postseason_starts+=s.postseason_starts;}}
  if(t.kind!=='TWO_TEAM_PLAYER_EXCHANGE')continue;
  const [a,b]=t.sides.slice().sort((a,b)=>a.manager.localeCompare(b.manager)),key=JSON.stringify([a.manager,b.manager]),p=pairs[key]??={a:a.manager,b:b.manager,trades:0,a_cents:0,b_cents:0,receipts:[]};
  const ac=cents(a.regular),bc=cents(b.regular);p.trades++;p.a_cents+=ac;p.b_cents+=bc;p.receipts.push({year:t.year,id:t.id,a_cents:ac,b_cents:bc});
