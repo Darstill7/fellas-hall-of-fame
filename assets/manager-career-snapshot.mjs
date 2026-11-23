@@ -1,3 +1,4 @@
+import {mountFrontOffice} from './manager-front-office.mjs';
 // Manager profile quick-read: regular-season matchups from the delivered canonical ledger.
 // No preseason projections, archival starter-points or estimated trade value are mixed in.
 export function careerSnapshot(ledger,manager){
@@ -61,6 +62,7 @@ export function renderSnapshot(data){
   '<a class="manager-pulse-rival-link" href="#head-to-head">Explore every rivalry →</a></div>'+
   renderSeasonTrajectory(data)+
   renderRivalrySpotlight(data)+
+  '<div data-front-office-pulse><p class="manager-pulse-source">Loading front-office evidence…</p></div>'+
   '<p class="manager-pulse-source">Source: canonical ESPN/Sleeper recovered regular-season scoreboards; 2026 through Week '+data.week+
   '. No postseason games or estimated trade outcomes included. Earlier-era coverage has documented limitations. Ledger updated '+esc(data.sourceUpdated)+
   '. <a href="../../data-integrity/source-status.html">Review source status</a>.</p>';
@@ -166,6 +168,7 @@ async function start(){
   const snapshot=careerSnapshot(await response.json(),manager);
   root.innerHTML=renderSnapshot(snapshot);
   attachRivalrySelector(root,snapshot);
+  await mountFrontOffice(root,manager);
  }catch(_){
   root.innerHTML='<h2 id="manager-pulse-heading">Career snapshot unavailable</h2><p class="manager-pulse-source">Verified matchup data could not be loaded. No numbers have been estimated. <a href="../../data-integrity/source-status.html">See source status</a>.</p>';
  }
