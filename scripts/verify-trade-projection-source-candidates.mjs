@@ -12,6 +12,12 @@ assert.equal(d.decisions.autoImportApproved,false);
 assert.equal(d.decisions.publishProviderRowsApproved,false);
 const ids=new Set(d.candidates.map(c=>c.id));
 assert.ok(ids.has('hvpkod-nfl-data')&&ids.has('ffa-historical-weekly'));
+const hv=d.candidates.find(c=>c.id==='hvpkod-nfl-data');
+assert.ok(hv.coverageClaim.includes('2020 directory only has season files'),'Do not claim source has 2020 weekly prelock projections');
+assert.equal(hv.sampleEvidence.sourceChangeCommitTimeUTC,'2024-11-13T00:35:25Z');
+assert.ok(hv.sampleEvidence.columnNames.includes('TotalPoints')&&hv.sampleEvidence.columnNames.includes('ProjectionDiff'),'Sample forecast file carries postgame outcome fields; leakage guard required');
+assert.equal(hv.promotionAllowed,false);
+
 for(const row of d.candidates){
  assert.ok(/^https:\/\//.test(row.url));
  assert.equal(row.promotionAllowed,false,'No projection candidate cleared pregame/model/legal approval');
