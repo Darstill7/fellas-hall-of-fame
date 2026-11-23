@@ -1,5 +1,7 @@
 // Verify a historical package without querying live sources. Approval is explicit, never inferred from CI.
 import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 const hash=x=>createHash('sha256').update(JSON.stringify(x)).digest('hex');
@@ -40,7 +42,7 @@ export function verifyHistoricalPackage(pkg,{approvedHash=null}={}){
  return {status:approvedHash?'APPROVED_FINGERPRINT_VERIFIED':'CANDIDATE_INTEGRITY_VERIFIED',observed:seen.size,strict:counts.STRICT_OWNERSHIP,schedule_supported:counts.SCHEDULE_SUPPORTED,exceptions:exceptions.size,pending:pending.size,commissioner_pending:commissionerPending.size,unreviewed:exceptions.size-pending.size-commissionerPending.size,sha256:content_sha256};
 }
 const file=process.argv[2];
-if(file){
+if(file&&process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const pkg=JSON.parse(fs.readFileSync(file,'utf8'));
  const approvedHash=process.env.FELLAS_APPROVED_HISTORICAL_ACQUISITION_SHA256||null;
  if(process.env.FELLAS_REQUIRE_APPROVED_HISTORY==='1')assert(approvedHash,'Approved historical fingerprint required');
