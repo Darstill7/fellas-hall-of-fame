@@ -3,6 +3,16 @@
 **Pull request:** #276 (draft; unmerged)  
 **Interpretation:** Observed post-trade starter production relative to a proposed replacement baseline. NOT trade decision quality or all-time franchise value.
 
+## Research-only source-gated replacement assignment prototype
+
+`scripts/trade-prelock-replacement-engine.mjs` provides a standalone future-input adapter for **prelock** projected points. It verifies a named, versioned projection feed, each substitute's owner and active-at-decision state, ISO as-of prediction time no later than the decision, roster verification time no later than the decision, each bench player's separate game lock, and the vacated starter's exact positional/FLEX slot. A maximum-cardinality, then maximum-projected-points bipartite assignment prevents bench player reuse. Uncovered starter slots remain explicitly **uncovered**, never silently replaced with 0 projection points.
+
+`scripts/test-trade-prelock-replacement-engine.mjs` exercises this protocol with **synthetic inputs only** and intentional rejection of future-dated projections, late roster evidence, missing forecasts, inactive players, locked games and duplicate player IDs. None of the simulated projections or scored outcomes is assigned to historical Fellas athletes or transactions.
+
+**Status:** algorithmic source-contract research, NOT an available 2020–2025 data feed, published WAR, or validated historical trading-skill score. The actual 254 historical observations still lack independently verified decision-time forecasts and roster/health availability.
+
+---
+
 ## Decision-time source audit — November 23
 
 The 13 original postseason-clean trade samples provide **254** acquired-player starter observations in preserved historical scoring/roster records. The existing files include stable player IDs, positions, postgame fantasy points and bench assignments. They **do not include independently timestamped pregame projections, game-lock times, historical injury/active-at-lock status, or an as-of snapshot of league ownership and waiver availability** for these 254 player-start observations.
