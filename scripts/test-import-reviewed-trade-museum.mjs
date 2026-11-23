@@ -49,7 +49,11 @@ try{
  attempt((r,c)=>{c.sides[0].assets[0].name='<script>'},false);
  attempt((r,c)=>{r.draft_picks=[{round:2}]},false);
  attempt((r,c)=>{r.waiver_budget=[{sender:1,receiver:2,amount:15}]},false);
- attempt((r,c)=>{r.waiver_budget=[{sender:1,receiver:2,amount:15}];c.faab_reviewed=true},true);
+ attempt((r,c)=>{r.waiver_budget=[{sender:1,receiver:2,amount:15}];c.faab_reviewed=true},false);
+ attempt((r,c)=>{r.waiver_budget=[{sender:1,receiver:2,amount:15}];c.faab_reviewed=true;c.faab_transfers=[{sender:2,receiver:1,amount:15}]},false);
+ attempt((r,c)=>{r.waiver_budget=[{sender:1,receiver:2,amount:15}];c.faab_reviewed=true;c.faab_transfers=[{sender:1,receiver:2,amount:14}]},false);
+ attempt((r,c)=>{c.faab_reviewed=true;c.faab_transfers=[{sender:1,receiver:2,amount:15}]},false);
+ attempt((r,c)=>{r.waiver_budget=[{sender:1,receiver:2,amount:15}];c.faab_reviewed=true;c.faab_transfers=[{sender:1,receiver:2,amount:15}]},true);
  // A three-manager cycle requires a distinct, traceable incoming ID per side.
  const tri=structuredClone(raw),triCert=structuredClone(cert);
  tri.trades[0].roster_ids=[1,2,3];
@@ -67,6 +71,8 @@ try{
  assert.throws(()=>run(),/Command failed/,'Unmapped third-side asset must fail');
  assert.equal(fs.readFileSync(museum,'utf8'),beforeMuseum);
  assert.equal(fs.readFileSync(html,'utf8'),beforeHTML);
+ // The 2026 recovery case: Mitch transfers 2 FAAB to Stew.
+ attempt((r,c)=>{r.waiver_budget=[{sender:6,receiver:4,amount:2}];r.roster_ids=[4,6];r.adds={'123':4,'456':6};r.drops={'123':6,'456':4};c.sides=[{roster_id:4,manager:'Stew',assets:[{player_id:'123',name:'Adonai Mitchell'}]},{roster_id:6,manager:'Mitch',assets:[{player_id:'456',name:'Minnesota Vikings DEF'}]}];c.faab_reviewed=true;c.faab_transfers=[{sender:6,receiver:4,amount:2}]},true);
  console.log('PASS Trade Museum certification: approval, exact player recipients/donors, no missing/duplicate/legacy IDs, FAAB/pick guards, three-way, dry-run no-write');
 }finally{
  fs.rmSync(rawPath,{force:true});fs.rmSync(certPath,{force:true});
