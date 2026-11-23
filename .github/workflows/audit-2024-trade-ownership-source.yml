@@ -39,6 +39,7 @@ on:
       - 'scripts/test-acquisition-hall-browser.mjs'
       - 'data-integrity/acquisition-hall-preview.html'
       - 'scripts/research-2026-live-trade-player-returns.mjs'
+      - 'scripts/build-combined-trade-front-office-projection.mjs'
       - 'scripts/test-trading-floor-browser.mjs'
       - 'data-integrity/trading-floor-preview.html'
       - 'scripts/audit-2025-original-draft-player-ids.mjs'
@@ -118,6 +119,9 @@ jobs:
           node scripts/research-keeper-source-audit.mjs
           node --check scripts/research-2026-live-trade-player-returns.mjs
           FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-trade-player-returns.mjs
+          FELLAS_COMPLETED_WEEK=10 node scripts/collect-live-completed-regular.mjs
+          FELLAS_FULL_ERA=1 FELLAS_LIVE_INPUT=data-integrity/historical-trade-draft-audits/live-completed-regular-2026.json FELLAS_STATS_OUTPUT=data-integrity/historical-trade-draft-audits/full-era-career-statistics.json node scripts/build-frozen-regular-statistics.mjs
+          node scripts/build-combined-trade-front-office-projection.mjs
       - name: Preserve research receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -150,6 +154,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/draft-room-research.json
             data-integrity/historical-trade-draft-audits/keeper-source-audit-research.json
             data-integrity/historical-trade-draft-audits/2026-live-trade-player-returns-research.json
+            data-integrity/historical-trade-draft-audits/combined-trade-front-office-preview.json
             data-integrity/historical-trade-draft-audits/career-draft-return-research.json
           retention-days: 30
           if-no-files-found: warn
