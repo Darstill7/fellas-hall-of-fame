@@ -24,6 +24,8 @@ on:
       - 'scripts/audit-trade-par-slot-feasibility.mjs'
       - 'scripts/audit-trade-decision-time-provenance.mjs'
       - 'scripts/audit-trade-projection-source-readiness.mjs'
+      - 'data/trade_projection_source_candidates_2020_2025_v1.json'
+      - 'scripts/verify-trade-projection-source-candidates.mjs'
       - 'shitter/2026-week-10/projection-receipts.json'
       - 'data/war_2025_starter_benchmark_audit.json'
       - 'scripts/trade-prelock-replacement-engine.mjs'
@@ -63,6 +65,7 @@ jobs:
       - name: Syntax-check new historical source and replacement research scripts before expensive browser setup
         run: |
           node --check scripts/audit-trade-projection-source-readiness.mjs
+          node --check scripts/verify-trade-projection-source-candidates.mjs
           node --check scripts/audit-trade-decision-time-provenance.mjs
           node --check scripts/trade-prelock-replacement-engine.mjs
           node --check scripts/test-trade-prelock-replacement-engine.mjs
@@ -100,6 +103,8 @@ jobs:
         run: node scripts/audit-trade-decision-time-provenance.mjs --github-summary
       - name: Distinguish 2026 editorial projections from missing historical prelock trade evidence
         run: node scripts/audit-trade-projection-source-readiness.mjs --github-summary
+      - name: Require provenance and use-rights review for historical projection candidates
+        run: node scripts/verify-trade-projection-source-candidates.mjs --github-summary
       - name: Test source-gated synthetic prelock RB WR TE and dual FLEX matching
         run: node scripts/test-trade-prelock-replacement-engine.mjs
       - name: Install browser runtime for mobile museum checks
