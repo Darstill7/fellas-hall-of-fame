@@ -1,0 +1,108 @@
+{
+  "status": "COMMISSIONER_CONFIRMED_MANAGER_MAPPING",
+  "confirmed_on": "2026-11-23",
+  "confirmation": "Those managers are all correct.",
+  "basis": [
+    "Historical roster snapshots: week 1 for 2020–2024 and week 2 for 2025",
+    "data/manager_identity_map_v1.json",
+    "Explicit user confirmation in conversation"
+  ],
+  "scope": "Season-specific roster-to-manager assignments for 2020–2025 only",
+  "rows": [
+    {
+      "year": 2020,
+      "rosters": {
+        "1": "Stilly",
+        "2": "EvansBrandon",
+        "3": "Tom",
+        "4": "Stew",
+        "5": "Koble",
+        "6": "Mitch",
+        "7": "Tony",
+        "8": "Stover",
+        "9": "Kuhl",
+        "10": "Birch"
+      }
+    },
+    {
+      "year": 2021,
+      "rosters": {
+        "1": "Stilly",
+        "2": "EvansBrandon",
+        "3": "Tom",
+        "4": "Stew",
+        "5": "Koble",
+        "6": "Mitch",
+        "7": "Tony",
+        "8": "Stover",
+        "9": "Kuhl",
+        "10": "Birch"
+      }
+    },
+    {
+      "year": 2022,
+      "rosters": {
+        "1": "Stilly",
+        "2": "EvansBrandon",
+        "3": "Tom",
+        "4": "Stew",
+        "5": "Koble",
+        "6": "Mitch",
+        "7": "Tony",
+        "8": "Stover",
+        "9": "Kuhl",
+        "10": "Birch"
+      }
+    },
+    {
+      "year": 2023,
+      "rosters": {
+        "1": "Stilly",
+        "2": "EvansBrandon",
+        "3": "Tom",
+        "4": "Stew",
+        "5": "Koble",
+        "6": "Mitch",
+        "7": "Tony",
+        "8": "Stover",
+        "9": "Kuhl",
+        "10": "Birch"
+      }
+    },
+    {
+      "year": 2024,
+      "rosters": {
+        "1": "Stilly",
+        "2": "JMid",
+        "3": "Tom",
+        "4": "Stew",
+        "5": "Scott",
+        "6": "Mitch",
+        "7": "Tony",
+        "8": "Stover",
+        "9": "Kuhl",
+        "10": "Birch"
+      }
+    },
+    {
+      "year": 2025,
+      "rosters": {
+        "1": "Stilly",
+        "2": "JMid",
+        "3": "Tom",
+        "4": "Stew",
+        "5": "Scott",
+        "6": "Mitch",
+        "7": "Tony",
+        "8": "Stover",
+        "9": "Kuhl",
+        "10": "Birch"
+      }
+    }
+  ],
+  "limitations": [
+    "Not a championship-winner confirmation",
+    "2023 roster 2 remains Evans despite JMidd account handle",
+    "No confirmation of keeper status or historical scoring methodology"
+  ]
+}
