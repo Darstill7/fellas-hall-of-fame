@@ -98,7 +98,11 @@ for(const [engine,launcher] of [['chromium',chromium],['webkit',webkit]]){
  await page.locator('#receipt-transaction').selectOption('616864423201554432');
  assert.match(await receipt.innerText(),/Travis Kelce/);
  assert.equal(await receipt.locator('.receipt-side').count(),2);
- assert.equal(await page.locator('#detail .event details').count(),4);
+ assert.equal(await page.locator('#detail .event > details').count(),4);
+ const historicalDetail=page.locator('#detail .event > details').first();
+ await historicalDetail.locator(':scope > summary').click();
+ assert(await historicalDetail.locator('.receipt-side').count()===2);
+ assert(await historicalDetail.locator('.contribution').count()>0);
  const receiptOverflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
  assert(receiptOverflow<=3,'Receipt layout overflow '+receiptOverflow);
  await page.screenshot({path:'data-integrity/trading-floor-captures/'+engine+'-'+width+'.png',fullPage:true});
