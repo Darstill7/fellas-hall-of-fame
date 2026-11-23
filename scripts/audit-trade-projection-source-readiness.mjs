@@ -31,7 +31,7 @@ const checks=[
 ];
 const report=[
  '# Existing Fellas projection source readiness audit','',
- '> Source qualification requires **per-player historical forecast issuance time prior to the player's own lock**, a league-scoring-compatible prediction, decision-time receiving-team ownership, bench and healthy/active availability. No currently identified repo evidence meets the full contract for 2020–2025 acquired-player starts.','',
+ '> Source qualification requires **per-player historical forecast issuance time prior to each individual game lock**, a league-scoring-compatible prediction, decision-time receiving-team ownership, bench and healthy/active availability. No currently identified repo evidence meets the full contract for 2020–2025 acquired-player starts.','',
  '| Existing source | Coverage | Historical prelock qualification | Permitted interpretation |',
  '|---|---|---|---|',
  ...checks.map(x=>'| '+x.source+' | '+x.coverage+' | '+x.beforeLock+' | '+x.allowed+' |'),
