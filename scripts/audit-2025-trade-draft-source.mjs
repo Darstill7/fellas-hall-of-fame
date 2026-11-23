@@ -98,7 +98,7 @@ const report={schema:'fellas-2025-trade-draft-historical-audit-v1',status:'RESEA
  methods:{trade:'Original complete Sleeper adds recipient ID credited only when that ID is a starter on receiving roster strictly after the trade week through Week 14',draft:'Preliminary player NAME-based original-roster regular season starter cross-check; not proof of original drafted ID or ownership continuity',grade:'Do not recalculate manager grade from raw PF; keep picks drafted, traded, keeper-cost, posttrade and waivers distinct'},
  counts:{archived_2025_trades:audit.length,source_completed_trades:all.length,unarchived_provider_trade_ids:unarchived.length,
   sides_with_discrepant_points_or_starts:audit.flatMap(x=>x.side_audits).filter(x=>x.warnings.includes('ARCHIVED_POINTS_OR_STARTS_DIFFER')).length,
-  2025_draft_picks:picks.length,picks_requiring_name_or_score_review:picks.filter(p=>p.status!=='NAME_MATCHED_WITHIN_TOLERANCE').length},
+  draft_picks_2025:picks.length,picks_requiring_name_or_score_review:picks.filter(p=>p.status!=='NAME_MATCHED_WITHIN_TOLERANCE').length},
  caveats:['Archived manager point totals were not presumed accurate','2025 original transaction ownership directions are checked, but all player display-name mappings are not independently ID-certified','Some archived 2025 picks might be traded or keepers; draft-grade policy should not use points after exiting original manager','No playoffs scored here and no trade winners issued','Unarchived completed source transactions must be reconciled before claiming comprehensive trade coverage'],
  trades:audit,unarchived_completed_transactions:unarchived,draft_original_roster_name_crosscheck:picks};
 fs.mkdirSync('data-integrity/historical-trade-draft-audits',{recursive:true});
