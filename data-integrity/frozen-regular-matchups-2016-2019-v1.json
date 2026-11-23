@@ -1,0 +1,1735 @@
+{
+  "schema": "fellas-frozen-regular-matchups-v1",
+  "status": "ARCHIVED_ESPN_EXPORT_RECONCILED_RESEARCH_BRANCH",
+  "scope": "ESPN 2016–2019 regular seasons",
+  "provenance": {
+    "archive": "data/espn_history_2016_2019.json",
+    "archive_blob": "2fba7e6548905d72c9fcfbe5f8dfcfa59f72f41c",
+    "verification": "Original archived matchup scores independently summed and matched against archived original mTeam totals; not a fresh ESPN API verification"
+  },
+  "units": "integer hundredths of fantasy points",
+  "seasons": [
+    {
+      "year": 2016,
+      "regular_weeks": 13,
+      "teams": 8,
+      "games": [
+        {
+          "week": 1,
+          "home": "Stilly",
+          "away": "Stover",
+          "home_cents": 11400,
+          "away_cents": 12000
+        },
+        {
+          "week": 1,
+          "home": "Halderman",
+          "away": "Stew",
+          "home_cents": 9500,
+          "away_cents": 11600
+        },
+        {
+          "week": 1,
+          "home": "Thommy",
+          "away": "Koble",
+          "home_cents": 7200,
+          "away_cents": 12800
+        },
+        {
+          "week": 1,
+          "home": "Evans",
+          "away": "Schermerhorn",
+          "home_cents": 13300,
+          "away_cents": 10300
+        },
+        {
+          "week": 2,
+          "home": "Stover",
+          "away": "Stew",
+          "home_cents": 9700,
+          "away_cents": 13100
+        },
+        {
+          "week": 2,
+          "home": "Halderman",
+          "away": "Stilly",
+          "home_cents": 10000,
+          "away_cents": 9300
+        },
+        {
+          "week": 2,
+          "home": "Schermerhorn",
+          "away": "Koble",
+          "home_cents": 8100,
+          "away_cents": 11600
+        },
+        {
+          "week": 2,
+          "home": "Evans",
+          "away": "Thommy",
+          "home_cents": 8700,
+          "away_cents": 6000
+        },
+        {
+          "week": 3,
+          "home": "Halderman",
+          "away": "Stover",
+          "home_cents": 9000,
+          "away_cents": 6100
+        },
+        {
+          "week": 3,
+          "home": "Stew",
+          "away": "Stilly",
+          "home_cents": 9600,
+          "away_cents": 7600
+        },
+        {
+          "week": 3,
+          "home": "Schermerhorn",
+          "away": "Thommy",
+          "home_cents": 11400,
+          "away_cents": 13600
+        },
+        {
+          "week": 3,
+          "home": "Koble",
+          "away": "Evans",
+          "home_cents": 8400,
+          "away_cents": 12400
+        },
+        {
+          "week": 4,
+          "home": "Stover",
+          "away": "Schermerhorn",
+          "home_cents": 6700,
+          "away_cents": 8900
+        },
+        {
+          "week": 4,
+          "home": "Stilly",
+          "away": "Thommy",
+          "home_cents": 9400,
+          "away_cents": 6300
+        },
+        {
+          "week": 4,
+          "home": "Stew",
+          "away": "Koble",
+          "home_cents": 8900,
+          "away_cents": 11600
+        },
+        {
+          "week": 4,
+          "home": "Halderman",
+          "away": "Evans",
+          "home_cents": 12200,
+          "away_cents": 9200
+        },
+        {
+          "week": 5,
+          "home": "Schermerhorn",
+          "away": "Stilly",
+          "home_cents": 9500,
+          "away_cents": 9700
+        },
+        {
+          "week": 5,
+          "home": "Thommy",
+          "away": "Stew",
+          "home_cents": 8600,
+          "away_cents": 5900
+        },
+        {
+          "week": 5,
+          "home": "Koble",
+          "away": "Halderman",
+          "home_cents": 7000,
+          "away_cents": 17000
+        },
+        {
+          "week": 5,
+          "home": "Evans",
+          "away": "Stover",
+          "home_cents": 11600,
+          "away_cents": 11900
+        },
+        {
+          "week": 6,
+          "home": "Stew",
+          "away": "Schermerhorn",
+          "home_cents": 6500,
+          "away_cents": 8600
+        },
+        {
+          "week": 6,
+          "home": "Halderman",
+          "away": "Thommy",
+          "home_cents": 9200,
+          "away_cents": 10100
+        },
+        {
+          "week": 6,
+          "home": "Stover",
+          "away": "Koble",
+          "home_cents": 5100,
+          "away_cents": 9900
+        },
+        {
+          "week": 6,
+          "home": "Stilly",
+          "away": "Evans",
+          "home_cents": 15700,
+          "away_cents": 9100
+        },
+        {
+          "week": 7,
+          "home": "Schermerhorn",
+          "away": "Halderman",
+          "home_cents": 10000,
+          "away_cents": 12100
+        },
+        {
+          "week": 7,
+          "home": "Thommy",
+          "away": "Stover",
+          "home_cents": 10300,
+          "away_cents": 6600
+        },
+        {
+          "week": 7,
+          "home": "Koble",
+          "away": "Stilly",
+          "home_cents": 10900,
+          "away_cents": 7800
+        },
+        {
+          "week": 7,
+          "home": "Evans",
+          "away": "Stew",
+          "home_cents": 12900,
+          "away_cents": 7400
+        },
+        {
+          "week": 8,
+          "home": "Stover",
+          "away": "Stilly",
+          "home_cents": 8600,
+          "away_cents": 9500
+        },
+        {
+          "week": 8,
+          "home": "Stew",
+          "away": "Halderman",
+          "home_cents": 9400,
+          "away_cents": 7400
+        },
+        {
+          "week": 8,
+          "home": "Schermerhorn",
+          "away": "Thommy",
+          "home_cents": 7900,
+          "away_cents": 8900
+        },
+        {
+          "week": 8,
+          "home": "Koble",
+          "away": "Evans",
+          "home_cents": 10000,
+          "away_cents": 10500
+        },
+        {
+          "week": 9,
+          "home": "Stew",
+          "away": "Stover",
+          "home_cents": 9300,
+          "away_cents": 7200
+        },
+        {
+          "week": 9,
+          "home": "Stilly",
+          "away": "Halderman",
+          "home_cents": 8100,
+          "away_cents": 12300
+        },
+        {
+          "week": 9,
+          "home": "Koble",
+          "away": "Schermerhorn",
+          "home_cents": 11700,
+          "away_cents": 8300
+        },
+        {
+          "week": 9,
+          "home": "Thommy",
+          "away": "Evans",
+          "home_cents": 10700,
+          "away_cents": 15300
+        },
+        {
+          "week": 10,
+          "home": "Stover",
+          "away": "Halderman",
+          "home_cents": 8900,
+          "away_cents": 15700
+        },
+        {
+          "week": 10,
+          "home": "Stilly",
+          "away": "Stew",
+          "home_cents": 9900,
+          "away_cents": 11100
+        },
+        {
+          "week": 10,
+          "home": "Schermerhorn",
+          "away": "Evans",
+          "home_cents": 8200,
+          "away_cents": 12000
+        },
+        {
+          "week": 10,
+          "home": "Thommy",
+          "away": "Koble",
+          "home_cents": 9400,
+          "away_cents": 7700
+        },
+        {
+          "week": 11,
+          "home": "Stover",
+          "away": "Schermerhorn",
+          "home_cents": 12600,
+          "away_cents": 10900
+        },
+        {
+          "week": 11,
+          "home": "Stilly",
+          "away": "Thommy",
+          "home_cents": 12200,
+          "away_cents": 9400
+        },
+        {
+          "week": 11,
+          "home": "Stew",
+          "away": "Koble",
+          "home_cents": 7200,
+          "away_cents": 9100
+        },
+        {
+          "week": 11,
+          "home": "Halderman",
+          "away": "Evans",
+          "home_cents": 7900,
+          "away_cents": 8300
+        },
+        {
+          "week": 12,
+          "home": "Schermerhorn",
+          "away": "Stilly",
+          "home_cents": 8800,
+          "away_cents": 7600
+        },
+        {
+          "week": 12,
+          "home": "Thommy",
+          "away": "Stew",
+          "home_cents": 10300,
+          "away_cents": 9900
+        },
+        {
+          "week": 12,
+          "home": "Koble",
+          "away": "Halderman",
+          "home_cents": 11500,
+          "away_cents": 12800
+        },
+        {
+          "week": 12,
+          "home": "Evans",
+          "away": "Stover",
+          "home_cents": 8400,
+          "away_cents": 9800
+        },
+        {
+          "week": 13,
+          "home": "Stew",
+          "away": "Schermerhorn",
+          "home_cents": 7800,
+          "away_cents": 15100
+        },
+        {
+          "week": 13,
+          "home": "Halderman",
+          "away": "Thommy",
+          "home_cents": 12100,
+          "away_cents": 12100
+        },
+        {
+          "week": 13,
+          "home": "Stover",
+          "away": "Koble",
+          "home_cents": 9200,
+          "away_cents": 8600
+        },
+        {
+          "week": 13,
+          "home": "Stilly",
+          "away": "Evans",
+          "home_cents": 9100,
+          "away_cents": 6900
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "regular_weeks": 12,
+      "teams": 10,
+      "games": [
+        {
+          "week": 1,
+          "home": "Stilly",
+          "away": "Stew",
+          "home_cents": 14900,
+          "away_cents": 8000
+        },
+        {
+          "week": 1,
+          "home": "Stover",
+          "away": "Schermerhorn",
+          "home_cents": 10500,
+          "away_cents": 4900
+        },
+        {
+          "week": 1,
+          "home": "Thommy",
+          "away": "Tony",
+          "home_cents": 7500,
+          "away_cents": 4400
+        },
+        {
+          "week": 1,
+          "home": "Birch",
+          "away": "Halderman",
+          "home_cents": 5200,
+          "away_cents": 8500
+        },
+        {
+          "week": 1,
+          "home": "Koble",
+          "away": "Evans",
+          "home_cents": 8300,
+          "away_cents": 6900
+        },
+        {
+          "week": 2,
+          "home": "Schermerhorn",
+          "away": "Tony",
+          "home_cents": 10200,
+          "away_cents": 10900
+        },
+        {
+          "week": 2,
+          "home": "Halderman",
+          "away": "Stilly",
+          "home_cents": 10800,
+          "away_cents": 7800
+        },
+        {
+          "week": 2,
+          "home": "Evans",
+          "away": "Stew",
+          "home_cents": 9200,
+          "away_cents": 9700
+        },
+        {
+          "week": 2,
+          "home": "Birch",
+          "away": "Stover",
+          "home_cents": 7200,
+          "away_cents": 6300
+        },
+        {
+          "week": 2,
+          "home": "Koble",
+          "away": "Thommy",
+          "home_cents": 8400,
+          "away_cents": 9200
+        },
+        {
+          "week": 3,
+          "home": "Halderman",
+          "away": "Evans",
+          "home_cents": 8500,
+          "away_cents": 8800
+        },
+        {
+          "week": 3,
+          "home": "Schermerhorn",
+          "away": "Birch",
+          "home_cents": 9400,
+          "away_cents": 9100
+        },
+        {
+          "week": 3,
+          "home": "Tony",
+          "away": "Koble",
+          "home_cents": 7100,
+          "away_cents": 8900
+        },
+        {
+          "week": 3,
+          "home": "Stilly",
+          "away": "Stover",
+          "home_cents": 10500,
+          "away_cents": 11300
+        },
+        {
+          "week": 3,
+          "home": "Stew",
+          "away": "Thommy",
+          "home_cents": 7800,
+          "away_cents": 9800
+        },
+        {
+          "week": 4,
+          "home": "Birch",
+          "away": "Koble",
+          "home_cents": 7200,
+          "away_cents": 8000
+        },
+        {
+          "week": 4,
+          "home": "Stover",
+          "away": "Halderman",
+          "home_cents": 7300,
+          "away_cents": 5300
+        },
+        {
+          "week": 4,
+          "home": "Thommy",
+          "away": "Evans",
+          "home_cents": 11400,
+          "away_cents": 10700
+        },
+        {
+          "week": 4,
+          "home": "Stilly",
+          "away": "Schermerhorn",
+          "home_cents": 9200,
+          "away_cents": 10300
+        },
+        {
+          "week": 4,
+          "home": "Stew",
+          "away": "Tony",
+          "home_cents": 7600,
+          "away_cents": 8900
+        },
+        {
+          "week": 5,
+          "home": "Stover",
+          "away": "Thommy",
+          "home_cents": 11800,
+          "away_cents": 6400
+        },
+        {
+          "week": 5,
+          "home": "Birch",
+          "away": "Stilly",
+          "home_cents": 7200,
+          "away_cents": 9000
+        },
+        {
+          "week": 5,
+          "home": "Koble",
+          "away": "Stew",
+          "home_cents": 9200,
+          "away_cents": 11700
+        },
+        {
+          "week": 5,
+          "home": "Halderman",
+          "away": "Schermerhorn",
+          "home_cents": 7900,
+          "away_cents": 4700
+        },
+        {
+          "week": 5,
+          "home": "Evans",
+          "away": "Tony",
+          "home_cents": 12100,
+          "away_cents": 9100
+        },
+        {
+          "week": 6,
+          "home": "Stew",
+          "away": "Schermerhorn",
+          "home_cents": 6700,
+          "away_cents": 12200
+        },
+        {
+          "week": 6,
+          "home": "Tony",
+          "away": "Halderman",
+          "home_cents": 9300,
+          "away_cents": 7400
+        },
+        {
+          "week": 6,
+          "home": "Evans",
+          "away": "Birch",
+          "home_cents": 8600,
+          "away_cents": 9100
+        },
+        {
+          "week": 6,
+          "home": "Koble",
+          "away": "Stover",
+          "home_cents": 8900,
+          "away_cents": 10300
+        },
+        {
+          "week": 6,
+          "home": "Thommy",
+          "away": "Stilly",
+          "home_cents": 9200,
+          "away_cents": 10000
+        },
+        {
+          "week": 7,
+          "home": "Halderman",
+          "away": "Stew",
+          "home_cents": 4900,
+          "away_cents": 7600
+        },
+        {
+          "week": 7,
+          "home": "Birch",
+          "away": "Tony",
+          "home_cents": 6900,
+          "away_cents": 9400
+        },
+        {
+          "week": 7,
+          "home": "Stover",
+          "away": "Evans",
+          "home_cents": 10100,
+          "away_cents": 9100
+        },
+        {
+          "week": 7,
+          "home": "Stilly",
+          "away": "Koble",
+          "home_cents": 8700,
+          "away_cents": 10900
+        },
+        {
+          "week": 7,
+          "home": "Schermerhorn",
+          "away": "Thommy",
+          "home_cents": 12400,
+          "away_cents": 9000
+        },
+        {
+          "week": 8,
+          "home": "Stew",
+          "away": "Birch",
+          "home_cents": 8200,
+          "away_cents": 11100
+        },
+        {
+          "week": 8,
+          "home": "Tony",
+          "away": "Stover",
+          "home_cents": 9900,
+          "away_cents": 5700
+        },
+        {
+          "week": 8,
+          "home": "Evans",
+          "away": "Stilly",
+          "home_cents": 9300,
+          "away_cents": 8900
+        },
+        {
+          "week": 8,
+          "home": "Koble",
+          "away": "Schermerhorn",
+          "home_cents": 8500,
+          "away_cents": 8900
+        },
+        {
+          "week": 8,
+          "home": "Thommy",
+          "away": "Halderman",
+          "home_cents": 12400,
+          "away_cents": 6600
+        },
+        {
+          "week": 9,
+          "home": "Stew",
+          "away": "Stover",
+          "home_cents": 7700,
+          "away_cents": 7000
+        },
+        {
+          "week": 9,
+          "home": "Tony",
+          "away": "Stilly",
+          "home_cents": 6300,
+          "away_cents": 6400
+        },
+        {
+          "week": 9,
+          "home": "Evans",
+          "away": "Schermerhorn",
+          "home_cents": 13000,
+          "away_cents": 10200
+        },
+        {
+          "week": 9,
+          "home": "Koble",
+          "away": "Halderman",
+          "home_cents": 8800,
+          "away_cents": 9300
+        },
+        {
+          "week": 9,
+          "home": "Thommy",
+          "away": "Birch",
+          "home_cents": 14800,
+          "away_cents": 6300
+        },
+        {
+          "week": 10,
+          "home": "Koble",
+          "away": "Evans",
+          "home_cents": 8800,
+          "away_cents": 7500
+        },
+        {
+          "week": 10,
+          "home": "Thommy",
+          "away": "Tony",
+          "home_cents": 10800,
+          "away_cents": 12700
+        },
+        {
+          "week": 10,
+          "home": "Birch",
+          "away": "Halderman",
+          "home_cents": 10900,
+          "away_cents": 8500
+        },
+        {
+          "week": 10,
+          "home": "Stover",
+          "away": "Schermerhorn",
+          "home_cents": 7300,
+          "away_cents": 13200
+        },
+        {
+          "week": 10,
+          "home": "Stilly",
+          "away": "Stew",
+          "home_cents": 4600,
+          "away_cents": 8200
+        },
+        {
+          "week": 11,
+          "home": "Thommy",
+          "away": "Koble",
+          "home_cents": 9900,
+          "away_cents": 9300
+        },
+        {
+          "week": 11,
+          "home": "Stover",
+          "away": "Birch",
+          "home_cents": 10600,
+          "away_cents": 12300
+        },
+        {
+          "week": 11,
+          "home": "Evans",
+          "away": "Stew",
+          "home_cents": 9600,
+          "away_cents": 6400
+        },
+        {
+          "week": 11,
+          "home": "Halderman",
+          "away": "Stilly",
+          "home_cents": 7600,
+          "away_cents": 10600
+        },
+        {
+          "week": 11,
+          "home": "Tony",
+          "away": "Schermerhorn",
+          "home_cents": 7600,
+          "away_cents": 10500
+        },
+        {
+          "week": 12,
+          "home": "Koble",
+          "away": "Tony",
+          "home_cents": 11200,
+          "away_cents": 9600
+        },
+        {
+          "week": 12,
+          "home": "Thommy",
+          "away": "Stew",
+          "home_cents": 13700,
+          "away_cents": 8800
+        },
+        {
+          "week": 12,
+          "home": "Stilly",
+          "away": "Stover",
+          "home_cents": 12300,
+          "away_cents": 11400
+        },
+        {
+          "week": 12,
+          "home": "Schermerhorn",
+          "away": "Birch",
+          "home_cents": 10000,
+          "away_cents": 9700
+        },
+        {
+          "week": 12,
+          "home": "Halderman",
+          "away": "Evans",
+          "home_cents": 6300,
+          "away_cents": 7700
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "regular_weeks": 13,
+      "teams": 10,
+      "games": [
+        {
+          "week": 1,
+          "home": "Tony",
+          "away": "Koble",
+          "home_cents": 12840,
+          "away_cents": 9144
+        },
+        {
+          "week": 1,
+          "home": "Evans",
+          "away": "Stew",
+          "home_cents": 11896,
+          "away_cents": 11014
+        },
+        {
+          "week": 1,
+          "home": "Thommy",
+          "away": "Stover",
+          "home_cents": 12184,
+          "away_cents": 9508
+        },
+        {
+          "week": 1,
+          "home": "Mitch",
+          "away": "Stilly",
+          "home_cents": 10296,
+          "away_cents": 13146
+        },
+        {
+          "week": 1,
+          "home": "Birch",
+          "away": "Kuhl",
+          "home_cents": 7142,
+          "away_cents": 11476
+        },
+        {
+          "week": 2,
+          "home": "Stew",
+          "away": "Stover",
+          "home_cents": 8990,
+          "away_cents": 12096
+        },
+        {
+          "week": 2,
+          "home": "Stilly",
+          "away": "Tony",
+          "home_cents": 7234,
+          "away_cents": 15958
+        },
+        {
+          "week": 2,
+          "home": "Kuhl",
+          "away": "Koble",
+          "home_cents": 10182,
+          "away_cents": 7518
+        },
+        {
+          "week": 2,
+          "home": "Mitch",
+          "away": "Evans",
+          "home_cents": 13892,
+          "away_cents": 10036
+        },
+        {
+          "week": 2,
+          "home": "Birch",
+          "away": "Thommy",
+          "home_cents": 14184,
+          "away_cents": 8308
+        },
+        {
+          "week": 3,
+          "home": "Stilly",
+          "away": "Kuhl",
+          "home_cents": 6990,
+          "away_cents": 12804
+        },
+        {
+          "week": 3,
+          "home": "Stew",
+          "away": "Mitch",
+          "home_cents": 8860,
+          "away_cents": 8694
+        },
+        {
+          "week": 3,
+          "home": "Stover",
+          "away": "Birch",
+          "home_cents": 9272,
+          "away_cents": 10106
+        },
+        {
+          "week": 3,
+          "home": "Tony",
+          "away": "Evans",
+          "home_cents": 12582,
+          "away_cents": 10438
+        },
+        {
+          "week": 3,
+          "home": "Koble",
+          "away": "Thommy",
+          "home_cents": 10424,
+          "away_cents": 8640
+        },
+        {
+          "week": 4,
+          "home": "Mitch",
+          "away": "Birch",
+          "home_cents": 9538,
+          "away_cents": 10506
+        },
+        {
+          "week": 4,
+          "home": "Evans",
+          "away": "Stilly",
+          "home_cents": 13156,
+          "away_cents": 9720
+        },
+        {
+          "week": 4,
+          "home": "Thommy",
+          "away": "Kuhl",
+          "home_cents": 12452,
+          "away_cents": 9268
+        },
+        {
+          "week": 4,
+          "home": "Tony",
+          "away": "Stew",
+          "home_cents": 10976,
+          "away_cents": 11660
+        },
+        {
+          "week": 4,
+          "home": "Koble",
+          "away": "Stover",
+          "home_cents": 6894,
+          "away_cents": 13426
+        },
+        {
+          "week": 5,
+          "home": "Evans",
+          "away": "Thommy",
+          "home_cents": 7924,
+          "away_cents": 7818
+        },
+        {
+          "week": 5,
+          "home": "Mitch",
+          "away": "Tony",
+          "home_cents": 10352,
+          "away_cents": 8630
+        },
+        {
+          "week": 5,
+          "home": "Birch",
+          "away": "Koble",
+          "home_cents": 11432,
+          "away_cents": 12450
+        },
+        {
+          "week": 5,
+          "home": "Stilly",
+          "away": "Stew",
+          "home_cents": 12414,
+          "away_cents": 11378
+        },
+        {
+          "week": 5,
+          "home": "Kuhl",
+          "away": "Stover",
+          "home_cents": 10292,
+          "away_cents": 10644
+        },
+        {
+          "week": 6,
+          "home": "Koble",
+          "away": "Stew",
+          "home_cents": 8738,
+          "away_cents": 10580
+        },
+        {
+          "week": 6,
+          "home": "Stover",
+          "away": "Stilly",
+          "home_cents": 11400,
+          "away_cents": 11068
+        },
+        {
+          "week": 6,
+          "home": "Kuhl",
+          "away": "Mitch",
+          "home_cents": 12760,
+          "away_cents": 12672
+        },
+        {
+          "week": 6,
+          "home": "Birch",
+          "away": "Evans",
+          "home_cents": 14228,
+          "away_cents": 8194
+        },
+        {
+          "week": 6,
+          "home": "Thommy",
+          "away": "Tony",
+          "home_cents": 12150,
+          "away_cents": 11070
+        },
+        {
+          "week": 7,
+          "home": "Stilly",
+          "away": "Koble",
+          "home_cents": 10250,
+          "away_cents": 10038
+        },
+        {
+          "week": 7,
+          "home": "Mitch",
+          "away": "Stover",
+          "home_cents": 9632,
+          "away_cents": 9698
+        },
+        {
+          "week": 7,
+          "home": "Evans",
+          "away": "Kuhl",
+          "home_cents": 10104,
+          "away_cents": 12302
+        },
+        {
+          "week": 7,
+          "home": "Tony",
+          "away": "Birch",
+          "home_cents": 11446,
+          "away_cents": 9532
+        },
+        {
+          "week": 7,
+          "home": "Stew",
+          "away": "Thommy",
+          "home_cents": 14276,
+          "away_cents": 14292
+        },
+        {
+          "week": 8,
+          "home": "Koble",
+          "away": "Mitch",
+          "home_cents": 10900,
+          "away_cents": 12056
+        },
+        {
+          "week": 8,
+          "home": "Stover",
+          "away": "Evans",
+          "home_cents": 10286,
+          "away_cents": 15006
+        },
+        {
+          "week": 8,
+          "home": "Kuhl",
+          "away": "Tony",
+          "home_cents": 7444,
+          "away_cents": 11858
+        },
+        {
+          "week": 8,
+          "home": "Birch",
+          "away": "Stew",
+          "home_cents": 10962,
+          "away_cents": 12196
+        },
+        {
+          "week": 8,
+          "home": "Thommy",
+          "away": "Stilly",
+          "home_cents": 6754,
+          "away_cents": 10704
+        },
+        {
+          "week": 9,
+          "home": "Evans",
+          "away": "Koble",
+          "home_cents": 13094,
+          "away_cents": 8262
+        },
+        {
+          "week": 9,
+          "home": "Tony",
+          "away": "Mitch",
+          "home_cents": 10228,
+          "away_cents": 9586
+        },
+        {
+          "week": 9,
+          "home": "Stover",
+          "away": "Thommy",
+          "home_cents": 10786,
+          "away_cents": 10476
+        },
+        {
+          "week": 9,
+          "home": "Stew",
+          "away": "Stilly",
+          "home_cents": 10878,
+          "away_cents": 7002
+        },
+        {
+          "week": 9,
+          "home": "Kuhl",
+          "away": "Birch",
+          "home_cents": 15054,
+          "away_cents": 10760
+        },
+        {
+          "week": 10,
+          "home": "Tony",
+          "away": "Stover",
+          "home_cents": 8554,
+          "away_cents": 9826
+        },
+        {
+          "week": 10,
+          "home": "Stew",
+          "away": "Evans",
+          "home_cents": 12062,
+          "away_cents": 7910
+        },
+        {
+          "week": 10,
+          "home": "Koble",
+          "away": "Kuhl",
+          "home_cents": 11554,
+          "away_cents": 7330
+        },
+        {
+          "week": 10,
+          "home": "Stilly",
+          "away": "Mitch",
+          "home_cents": 13172,
+          "away_cents": 12392
+        },
+        {
+          "week": 10,
+          "home": "Thommy",
+          "away": "Birch",
+          "home_cents": 14166,
+          "away_cents": 11386
+        },
+        {
+          "week": 11,
+          "home": "Stew",
+          "away": "Kuhl",
+          "home_cents": 9088,
+          "away_cents": 11862
+        },
+        {
+          "week": 11,
+          "home": "Tony",
+          "away": "Stilly",
+          "home_cents": 10684,
+          "away_cents": 5614
+        },
+        {
+          "week": 11,
+          "home": "Birch",
+          "away": "Stover",
+          "home_cents": 11862,
+          "away_cents": 9420
+        },
+        {
+          "week": 11,
+          "home": "Evans",
+          "away": "Mitch",
+          "home_cents": 12262,
+          "away_cents": 10322
+        },
+        {
+          "week": 11,
+          "home": "Thommy",
+          "away": "Koble",
+          "home_cents": 12058,
+          "away_cents": 11448
+        },
+        {
+          "week": 12,
+          "home": "Stilly",
+          "away": "Birch",
+          "home_cents": 9186,
+          "away_cents": 15012
+        },
+        {
+          "week": 12,
+          "home": "Mitch",
+          "away": "Stew",
+          "home_cents": 10348,
+          "away_cents": 9234
+        },
+        {
+          "week": 12,
+          "home": "Kuhl",
+          "away": "Thommy",
+          "home_cents": 9764,
+          "away_cents": 10712
+        },
+        {
+          "week": 12,
+          "home": "Evans",
+          "away": "Tony",
+          "home_cents": 10322,
+          "away_cents": 11708
+        },
+        {
+          "week": 12,
+          "home": "Stover",
+          "away": "Koble",
+          "home_cents": 11202,
+          "away_cents": 13096
+        },
+        {
+          "week": 13,
+          "home": "Mitch",
+          "away": "Thommy",
+          "home_cents": 14006,
+          "away_cents": 7302
+        },
+        {
+          "week": 13,
+          "home": "Stilly",
+          "away": "Evans",
+          "home_cents": 10836,
+          "away_cents": 7462
+        },
+        {
+          "week": 13,
+          "home": "Koble",
+          "away": "Birch",
+          "home_cents": 10130,
+          "away_cents": 9320
+        },
+        {
+          "week": 13,
+          "home": "Stew",
+          "away": "Tony",
+          "home_cents": 12056,
+          "away_cents": 11124
+        },
+        {
+          "week": 13,
+          "home": "Stover",
+          "away": "Kuhl",
+          "home_cents": 7364,
+          "away_cents": 6518
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "regular_weeks": 13,
+      "teams": 10,
+      "games": [
+        {
+          "week": 1,
+          "home": "Birch",
+          "away": "Tony",
+          "home_cents": 16932,
+          "away_cents": 11492
+        },
+        {
+          "week": 1,
+          "home": "Stew",
+          "away": "Thommy",
+          "home_cents": 11436,
+          "away_cents": 8266
+        },
+        {
+          "week": 1,
+          "home": "Stilly",
+          "away": "Evans",
+          "home_cents": 9282,
+          "away_cents": 10204
+        },
+        {
+          "week": 1,
+          "home": "Mitch",
+          "away": "Koble",
+          "home_cents": 12696,
+          "away_cents": 9590
+        },
+        {
+          "week": 1,
+          "home": "Stover",
+          "away": "Kuhl",
+          "home_cents": 12378,
+          "away_cents": 13420
+        },
+        {
+          "week": 2,
+          "home": "Tony",
+          "away": "Thommy",
+          "home_cents": 12106,
+          "away_cents": 9362
+        },
+        {
+          "week": 2,
+          "home": "Evans",
+          "away": "Birch",
+          "home_cents": 9870,
+          "away_cents": 12162
+        },
+        {
+          "week": 2,
+          "home": "Koble",
+          "away": "Stew",
+          "home_cents": 10376,
+          "away_cents": 11228
+        },
+        {
+          "week": 2,
+          "home": "Kuhl",
+          "away": "Stilly",
+          "home_cents": 12140,
+          "away_cents": 13904
+        },
+        {
+          "week": 2,
+          "home": "Stover",
+          "away": "Mitch",
+          "home_cents": 10442,
+          "away_cents": 11706
+        },
+        {
+          "week": 3,
+          "home": "Evans",
+          "away": "Tony",
+          "home_cents": 8506,
+          "away_cents": 9834
+        },
+        {
+          "week": 3,
+          "home": "Thommy",
+          "away": "Koble",
+          "home_cents": 11892,
+          "away_cents": 11024
+        },
+        {
+          "week": 3,
+          "home": "Birch",
+          "away": "Kuhl",
+          "home_cents": 14676,
+          "away_cents": 14004
+        },
+        {
+          "week": 3,
+          "home": "Stew",
+          "away": "Stover",
+          "home_cents": 16638,
+          "away_cents": 10712
+        },
+        {
+          "week": 3,
+          "home": "Stilly",
+          "away": "Mitch",
+          "home_cents": 13006,
+          "away_cents": 12374
+        },
+        {
+          "week": 4,
+          "home": "Tony",
+          "away": "Koble",
+          "home_cents": 11670,
+          "away_cents": 10292
+        },
+        {
+          "week": 4,
+          "home": "Kuhl",
+          "away": "Evans",
+          "home_cents": 9050,
+          "away_cents": 6450
+        },
+        {
+          "week": 4,
+          "home": "Stover",
+          "away": "Thommy",
+          "home_cents": 10880,
+          "away_cents": 10348
+        },
+        {
+          "week": 4,
+          "home": "Mitch",
+          "away": "Birch",
+          "home_cents": 7250,
+          "away_cents": 9460
+        },
+        {
+          "week": 4,
+          "home": "Stilly",
+          "away": "Stew",
+          "home_cents": 12180,
+          "away_cents": 16318
+        },
+        {
+          "week": 5,
+          "home": "Kuhl",
+          "away": "Tony",
+          "home_cents": 11334,
+          "away_cents": 14874
+        },
+        {
+          "week": 5,
+          "home": "Koble",
+          "away": "Stover",
+          "home_cents": 12452,
+          "away_cents": 12424
+        },
+        {
+          "week": 5,
+          "home": "Evans",
+          "away": "Mitch",
+          "home_cents": 11566,
+          "away_cents": 15504
+        },
+        {
+          "week": 5,
+          "home": "Thommy",
+          "away": "Stilly",
+          "home_cents": 15080,
+          "away_cents": 10886
+        },
+        {
+          "week": 5,
+          "home": "Birch",
+          "away": "Stew",
+          "home_cents": 11724,
+          "away_cents": 10884
+        },
+        {
+          "week": 6,
+          "home": "Tony",
+          "away": "Stover",
+          "home_cents": 13650,
+          "away_cents": 7392
+        },
+        {
+          "week": 6,
+          "home": "Mitch",
+          "away": "Kuhl",
+          "home_cents": 10646,
+          "away_cents": 11990
+        },
+        {
+          "week": 6,
+          "home": "Stilly",
+          "away": "Koble",
+          "home_cents": 15414,
+          "away_cents": 10860
+        },
+        {
+          "week": 6,
+          "home": "Stew",
+          "away": "Evans",
+          "home_cents": 12494,
+          "away_cents": 11834
+        },
+        {
+          "week": 6,
+          "home": "Birch",
+          "away": "Thommy",
+          "home_cents": 10242,
+          "away_cents": 6572
+        },
+        {
+          "week": 7,
+          "home": "Mitch",
+          "away": "Tony",
+          "home_cents": 12734,
+          "away_cents": 5912
+        },
+        {
+          "week": 7,
+          "home": "Stover",
+          "away": "Stilly",
+          "home_cents": 10060,
+          "away_cents": 12564
+        },
+        {
+          "week": 7,
+          "home": "Kuhl",
+          "away": "Stew",
+          "home_cents": 11964,
+          "away_cents": 10862
+        },
+        {
+          "week": 7,
+          "home": "Koble",
+          "away": "Birch",
+          "home_cents": 10636,
+          "away_cents": 7694
+        },
+        {
+          "week": 7,
+          "home": "Evans",
+          "away": "Thommy",
+          "home_cents": 8258,
+          "away_cents": 6162
+        },
+        {
+          "week": 8,
+          "home": "Tony",
+          "away": "Stilly",
+          "home_cents": 14956,
+          "away_cents": 13750
+        },
+        {
+          "week": 8,
+          "home": "Stew",
+          "away": "Mitch",
+          "home_cents": 9966,
+          "away_cents": 12878
+        },
+        {
+          "week": 8,
+          "home": "Birch",
+          "away": "Stover",
+          "home_cents": 11878,
+          "away_cents": 12556
+        },
+        {
+          "week": 8,
+          "home": "Thommy",
+          "away": "Kuhl",
+          "home_cents": 9988,
+          "away_cents": 10528
+        },
+        {
+          "week": 8,
+          "home": "Evans",
+          "away": "Koble",
+          "home_cents": 12204,
+          "away_cents": 8950
+        },
+        {
+          "week": 9,
+          "home": "Stew",
+          "away": "Tony",
+          "home_cents": 11600,
+          "away_cents": 10854
+        },
+        {
+          "week": 9,
+          "home": "Stilly",
+          "away": "Birch",
+          "home_cents": 7500,
+          "away_cents": 14794
+        },
+        {
+          "week": 9,
+          "home": "Mitch",
+          "away": "Thommy",
+          "home_cents": 10340,
+          "away_cents": 9466
+        },
+        {
+          "week": 9,
+          "home": "Stover",
+          "away": "Evans",
+          "home_cents": 9356,
+          "away_cents": 7820
+        },
+        {
+          "week": 9,
+          "home": "Kuhl",
+          "away": "Koble",
+          "home_cents": 14852,
+          "away_cents": 11908
+        },
+        {
+          "week": 10,
+          "home": "Tony",
+          "away": "Birch",
+          "home_cents": 8052,
+          "away_cents": 15374
+        },
+        {
+          "week": 10,
+          "home": "Thommy",
+          "away": "Stew",
+          "home_cents": 4972,
+          "away_cents": 13272
+        },
+        {
+          "week": 10,
+          "home": "Evans",
+          "away": "Stilly",
+          "home_cents": 9168,
+          "away_cents": 8790
+        },
+        {
+          "week": 10,
+          "home": "Koble",
+          "away": "Mitch",
+          "home_cents": 12338,
+          "away_cents": 14624
+        },
+        {
+          "week": 10,
+          "home": "Kuhl",
+          "away": "Stover",
+          "home_cents": 14278,
+          "away_cents": 9702
+        },
+        {
+          "week": 11,
+          "home": "Thommy",
+          "away": "Tony",
+          "home_cents": 6792,
+          "away_cents": 7926
+        },
+        {
+          "week": 11,
+          "home": "Birch",
+          "away": "Evans",
+          "home_cents": 11960,
+          "away_cents": 8934
+        },
+        {
+          "week": 11,
+          "home": "Stew",
+          "away": "Koble",
+          "home_cents": 13288,
+          "away_cents": 9556
+        },
+        {
+          "week": 11,
+          "home": "Stilly",
+          "away": "Kuhl",
+          "home_cents": 11306,
+          "away_cents": 10372
+        },
+        {
+          "week": 11,
+          "home": "Mitch",
+          "away": "Stover",
+          "home_cents": 14044,
+          "away_cents": 12006
+        },
+        {
+          "week": 12,
+          "home": "Tony",
+          "away": "Evans",
+          "home_cents": 10652,
+          "away_cents": 4824
+        },
+        {
+          "week": 12,
+          "home": "Koble",
+          "away": "Thommy",
+          "home_cents": 12078,
+          "away_cents": 10732
+        },
+        {
+          "week": 12,
+          "home": "Kuhl",
+          "away": "Birch",
+          "home_cents": 8864,
+          "away_cents": 14148
+        },
+        {
+          "week": 12,
+          "home": "Stover",
+          "away": "Stew",
+          "home_cents": 8742,
+          "away_cents": 15056
+        },
+        {
+          "week": 12,
+          "home": "Mitch",
+          "away": "Stilly",
+          "home_cents": 8676,
+          "away_cents": 8014
+        },
+        {
+          "week": 13,
+          "home": "Koble",
+          "away": "Tony",
+          "home_cents": 11770,
+          "away_cents": 11602
+        },
+        {
+          "week": 13,
+          "home": "Evans",
+          "away": "Kuhl",
+          "home_cents": 9194,
+          "away_cents": 9096
+        },
+        {
+          "week": 13,
+          "home": "Thommy",
+          "away": "Stover",
+          "home_cents": 7906,
+          "away_cents": 8810
+        },
+        {
+          "week": 13,
+          "home": "Birch",
+          "away": "Mitch",
+          "home_cents": 11410,
+          "away_cents": 11328
+        },
+        {
+          "week": 13,
+          "home": "Stew",
+          "away": "Stilly",
+          "home_cents": 8790,
+          "away_cents": 9840
+        }
+      ]
+    }
+  ]
+}
