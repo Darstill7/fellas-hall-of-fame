@@ -10,6 +10,10 @@ on:
         description: 'Type APPROVE_TRADES after manually verifying transaction IDs, roster ownership, all received assets and FAAB'
         required: true
         type: string
+      staging_commit:
+        description: 'Exact full 40-character staging commit SHA containing the reviewed trade certificate and provider receipts'
+        required: true
+        type: string
 permissions:
   contents: write
   pull-requests: write
@@ -32,18 +36,29 @@ jobs:
       - name: Retrieve independently reviewed trade certification and provider source
         env:
           CERT_WEEK: ${{ inputs.certification_week }}
+          REVIEWED_STAGING_COMMIT: ${{ inputs.staging_commit }}
         run: |
           set -euo pipefail
           if ! [[ "$CERT_WEEK" =~ ^([1-9]|1[0-4])$ ]]; then
             echo '::error::Certification must target Week 1–14'
             exit 1
           fi
+          if ! [[ "$REVIEWED_STAGING_COMMIT" =~ ^[0-9a-f]{40}$ ]]; then
+            echo '::error::Certification requires the exact reviewed staging commit SHA'
+            exit 1
+          fi
           git fetch origin refs/heads/automation/sleeper-weekly-stage:refs/remotes/origin/automation/sleeper-weekly-stage
+          SOURCE_COMMIT=$(git rev-parse refs/remotes/origin/automation/sleeper-weekly-stage)
+          if [[ "$SOURCE_COMMIT" != "$REVIEWED_STAGING_COMMIT" ]]; then
+            echo '::error::Staging branch changed after trade certification review; re-review all received assets and FAAB before approval'
+            exit 1
+          fi
+          echo "Trade certification source commit: $SOURCE_COMMIT" >> "$GITHUB_STEP_SUMMARY"
           CERT="data-integrity/trade-certifications/2026-week${CERT_WEEK}.json"
           RAW="data-integrity/sleeper-sync-candidates/2026-trades-through-week${CERT_WEEK}.json"
           mkdir -p data-integrity/trade-certifications data-integrity/sleeper-sync-candidates
-          git show "origin/automation/sleeper-weekly-stage:${CERT}" > "$CERT"
-          git show "origin/automation/sleeper-weekly-stage:${RAW}" > "$RAW"
+          git show "$SOURCE_COMMIT:${CERT}" > "$CERT"
+          git show "$SOURCE_COMMIT:${RAW}" > "$RAW"
           echo "CERT=$CERT" >> "$GITHUB_ENV"
           echo "RAW=$RAW" >> "$GITHUB_ENV"
       - name: Run approved import and deterministic source integrity checks
