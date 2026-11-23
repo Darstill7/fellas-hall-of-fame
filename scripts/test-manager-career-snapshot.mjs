@@ -24,7 +24,7 @@ for(const [slug,name] of Object.entries(managers)){
  assert.ok(Math.abs(r.pf-games.reduce((sum,g)=>sum+(g.home===name?g.homeScore:g.awayScore),0))<.001,'Points for mismatch '+name);
  assert.ok(Math.abs(r.pa-games.reduce((sum,g)=>sum+(g.home===name?g.awayScore:g.homeScore),0))<.001,'Points against mismatch '+name);
  assert.ok(r.opponents.every((o,i,a)=>i===0||a[i-1].games>=o.games),'Rivals must be sorted by meetings');
- assert.equal(r.week,9,'Update tests when a new canonical 2026 week is approved');
+ assert.equal(r.week,Math.max(...ledger.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week)),'Current verified cutoff must derive from the canonical ledger');
  assert.ok(renderSnapshot(r).includes('Most-played opponents'),'Profile must show head-to-head context');
  snapshots.push({manager:name,games:r.games,record:r.wins+'-'+r.losses+(r.ties?'-'+r.ties:''),week:r.week});
 }
