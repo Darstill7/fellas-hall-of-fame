@@ -70,7 +70,10 @@ try{
  }
  const faab=byId.get('1424524291990450196');
  assert.equal(faab.sides.find(s=>s.manager==='Stew').assets,'Adonai Mitchell + 2 FAAB');
- assert.equal(faab.sides.find(s=>s.manager==='Mitch').assets,'Minnesota Vikings DEF');
+ const sourceDefense=certificate.trades.find(t=>String(t.transaction_id)==='1424524291990450196')
+  .sides.find(s=>s.manager==='Mitch').assets.find(a=>a.player_id==='MIN');
+ assert.equal(sourceDefense.name,'Minnesota Vikings','Defense player ID must correspond to reviewed source label');
+ assert.equal(faab.sides.find(s=>s.manager==='Mitch').assets,sourceDefense.name);
  const html=fs.readFileSync(path.join(temp,'analytics/trade-museum.html'),'utf8');
  const match=html.match(/<script id="archive-data" type="application\/json">([\s\S]*?)<\/script>/);
  assert(match,'Trade Museum embedded archive must exist');
