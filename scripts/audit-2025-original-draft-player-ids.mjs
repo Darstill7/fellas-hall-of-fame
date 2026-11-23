@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const target=Number(process.env.FELLAS_DRAFT_YEAR||2025);
-assert([2022,2023,2024,2025].includes(target));
+assert([2020,2021,2022,2023,2024,2025].includes(target));
 const latestLeague='1181421235163095040';
 const model=JSON.parse(fs.readFileSync('data/v9_draft_engine.json','utf8')).filter(p=>p.year===target);
 const season=JSON.parse(fs.readFileSync('data/player_starts_'+target+'.json','utf8'));
@@ -22,7 +22,8 @@ let cursor=latest;
 for(let year=2025;year>target;year--){league=String(cursor.previous_league_id);cursor=await api('https://api.sleeper.app/v1/league/'+league);assert.equal(String(cursor.season),String(year-1));}
 const leagueInfo=await api('https://api.sleeper.app/v1/league/'+league);
 assert.equal(String(leagueInfo.season),String(target));
-assert.equal(Number(leagueInfo.settings.playoff_week_start),15);
+const playoffStart=Number(leagueInfo.settings.playoff_week_start);
+assert.equal(playoffStart,target<=2021?14:15);
 const drafts=await api('https://api.sleeper.app/v1/league/'+league+'/drafts');
 const candidates=drafts.filter(d=>d.status==='complete'&&Number(d.settings?.teams)===10&&Number(d.settings?.rounds)===15);
 assert.equal(candidates.length,1,'Expected one completed 150-pick draft');
@@ -31,7 +32,7 @@ const board=await api('https://api.sleeper.app/v1/draft/'+draftId+'/picks');
 assert(Array.isArray(board)&&board.length===150,'Draft board missing picks');
 const byOverall=new Map(board.map(p=>[Number(p.pick_no),p]));
 assert.equal(byOverall.size,150,'Draft pick numbers must be unique');
-const rosterStarts=new Map(),allStarts=new Map();
+const rosterStarts=new Map(),allStarts=new Map(),legacyStarts=new Map();
 for(const week of season.weeks){
  const seen=new Set();
  for(const team of week.teams){
@@ -42,6 +43,10 @@ for(const week of season.weeks){
    const p=Number(points),key=String(playerId);
    assert(Number.isFinite(p));
    const receipt={week:week.week,roster,manager:managers.get(roster),points:p};
+   const legacyKey=roster+':'+key;
+   if(!legacyStarts.has(legacyKey))legacyStarts.set(legacyKey,[]);
+   legacyStarts.get(legacyKey).push(receipt);
+   if(week.week>=playoffStart)continue;
    if(!allStarts.has(key))allStarts.set(key,[]);
    allStarts.get(key).push(receipt);
    const ownerKey=roster+':'+key;
@@ -64,7 +69,9 @@ for(const pick of model){
  const leagueRows=allStarts.get(id)||[];
  const ownedPoints=roundToMoney(ownerRows.reduce((s,r)=>s+r.points,0));
  const leaguePoints=roundToMoney(leagueRows.reduce((s,r)=>s+r.points,0));
- const storedMatch=Math.abs(ownedPoints-pick.reg_starter_points)<=0.011&&ownerRows.length===pick.reg_starts;
+ const legacyRows=legacyStarts.get(roster+':'+id)||[];
+ const legacyPoints=roundToMoney(legacyRows.reduce((s,r)=>s+r.points,0));
+ const storedMatch=Math.abs(legacyPoints-pick.reg_starter_points)<=0.011&&legacyRows.length===pick.reg_starts;
  review.push({
   pick:pick.overall,round:pick.round,manager:pick.manager,original_roster:roster,
   player_id:id,provider_name:[p.metadata?.first_name,p.metadata?.last_name].filter(Boolean).join(' ')||null,
@@ -72,6 +79,7 @@ for(const pick of model){
   is_keeper_archived:pick.keeper,
   traded_same_season:pick.traded_same_season,
   stored_reg_starter_points:pick.reg_starter_points,stored_reg_starts:pick.reg_starts,
+  legacy_archive_window_points:legacyPoints,legacy_archive_window_starts:legacyRows.length,
   source_original_roster_points:ownedPoints,source_original_roster_starts:ownerRows.length,
   source_leaguewide_started_points:leaguePoints,source_leaguewide_starts:leagueRows.length,
   source_original_receipts:ownerRows,source_leaguewide_receipts:leagueRows,
@@ -97,7 +105,7 @@ const grouped=[...new Set(review.map(p=>p.manager))].sort().map(manager=>{
 });
 const report={schema:'fellas-'+target+'-original-draft-player-id-reconciliation-v1',season:target,
  status:'RESEARCH_ONLY_PLAYER_ID_VERIFIED_NO_FINAL_GRADES',
- league_id:league,draft_id:draftId,regular_season_completed_weeks:14,
+ league_id:league,draft_id:draftId,regular_season_completed_weeks:playoffStart-1,archive_comparison_weeks:14,
  methodology:{source:'Original Sleeper draft pick_no, roster_id and player_id crosschecked against season-specific archived weekly starter player IDs',original_manager:'Count only starts by original drafting roster; do not attribute traded-away points back to drafting manager',leaguewide:'Sum the drafted player starter points for ALL managers, including subsequent trading counterparts, separately from original owner capture',grades:'No permanent historical grade from unadjusted PF; non-keeper peer opportunity cost plus verified trade compensation required'},
  counts:{drafted:review.length,manager_count:grouped.length,stored_point_or_start_differences:mismatches.length,existing_name_differences:review.filter(p=>p.name_difference!=='NONE').length,traded_same_season:review.filter(p=>p.traded_same_season).length,keeper_picks:review.filter(p=>p.is_keeper_archived).length},
  verified_picks:review,manager_descriptive_totals:grouped};
