@@ -7,6 +7,7 @@ on:
       - 'scripts/research-trade-trees.mjs'
       - 'scripts/research-trade-playoff-impact.mjs'
       - 'scripts/research-provider-bracket-identity.mjs'
+      - 'scripts/research-boundary-kickoff-evidence.py'
       - '.github/workflows/audit-2024-trade-ownership-source.yml'
   workflow_dispatch:
 permissions:
@@ -38,6 +39,7 @@ jobs:
           node scripts/research-trade-playoff-impact.mjs
           node --check scripts/research-provider-bracket-identity.mjs
           node scripts/research-provider-bracket-identity.mjs
+          python3 scripts/research-boundary-kickoff-evidence.py
       - name: Preserve research receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -49,5 +51,6 @@ jobs:
             data-integrity/historical-trade-draft-audits/trade-tree-research.json
             data-integrity/historical-trade-draft-audits/trade-playoff-impact-research.json
             data-integrity/historical-trade-draft-audits/provider-bracket-identity-research.json
+            data-integrity/historical-trade-draft-audits/boundary-kickoff-evidence-research.json
           retention-days: 30
           if-no-files-found: warn
