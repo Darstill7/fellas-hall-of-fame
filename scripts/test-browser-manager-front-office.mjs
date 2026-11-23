@@ -40,6 +40,17 @@ try{
      assert.match(await panel.innerText(),/Trade desk/);
      assert.match(await panel.innerText(),/Waiver wire/);
      assert.match(await panel.innerText(),/2026 partial/);
+     const defining=panel.locator('.fo-decisions');
+     await defining.waitFor({state:'attached',timeout:30000});
+     await defining.locator(':scope > summary').click();
+     assert.equal(await defining.getAttribute('open'),'','Defining Moves should open on phone tap');
+     assert.match(await defining.innerText(),/Recorded waiver\/add/);
+     assert.match(await defining.innerText(),/not proof this was the manager/i);
+     assert.ok(await defining.locator('.fo-move').count()>=2,'Missing researched decisions');
+     if(slug==='stilly'){
+      assert.match(await defining.innerText(),/three-team trade/i);
+      assert.ok(await defining.locator('.fo-move-story a').count()>=2,'Commissioner story must link to source receipts');
+     }
      const yearbook=panel.locator('.manager-front-office-timeline');
      await yearbook.locator('summary').click();
      assert.equal(await yearbook.getAttribute('open'),'','Yearbook should open');
