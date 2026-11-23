@@ -21,6 +21,9 @@ on:
       - 'scripts/research-acquisition-positional-records.mjs'
       - 'scripts/research-player-career-encyclopedia.mjs'
       - 'scripts/research-manager-acquisition-resume.mjs'
+      - 'scripts/research-draft-room.mjs'
+      - 'scripts/test-front-office-hub-browser.mjs'
+      - 'data-integrity/front-office-preview.html'
       - 'scripts/test-player-encyclopedia-browser.mjs'
       - 'data-integrity/player-encyclopedia-preview.html'
       - 'data-integrity/manager-acquisition-resume-preview.html'
@@ -95,6 +98,8 @@ jobs:
           node scripts/research-player-career-encyclopedia.mjs
           node --check scripts/research-manager-acquisition-resume.mjs
           node scripts/research-manager-acquisition-resume.mjs
+          node --check scripts/research-draft-room.mjs
+          node scripts/research-draft-room.mjs
           node --check scripts/research-2026-live-trade-player-returns.mjs
           FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-trade-player-returns.mjs
       - name: Install browser runtime
@@ -107,6 +112,16 @@ jobs:
         run: node scripts/test-acquisition-hall-browser.mjs
       - name: Exercise Player Encyclopedia using generated research files
         run: node scripts/test-player-encyclopedia-browser.mjs
+      - name: Exercise Front Office hub
+        run: node scripts/test-front-office-hub-browser.mjs
+      - name: Preserve Front Office hub visual captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: front-office-research-captures
+          path: data-integrity/front-office-captures/*.png
+          retention-days: 14
+          if-no-files-found: warn
       - name: Preserve Player Encyclopedia visual captures
         if: always()
         uses: actions/upload-artifact@v4
@@ -156,6 +171,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/acquisition-positional-records-research.json
             data-integrity/historical-trade-draft-audits/player-career-encyclopedia-research.json
             data-integrity/historical-trade-draft-audits/manager-acquisition-resumes-research.json
+            data-integrity/historical-trade-draft-audits/draft-room-research.json
             data-integrity/historical-trade-draft-audits/2026-live-trade-player-returns-research.json
             data-integrity/historical-trade-draft-audits/career-draft-return-research.json
           retention-days: 30
