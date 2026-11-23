@@ -4,6 +4,10 @@ on:
     paths:
       - 'assets/manager-career-snapshot.mjs'
       - 'assets/manager-front-office.mjs'
+      - 'assets/manager-defining-moves.mjs'
+      - 'scripts/test-manager-defining-moves.mjs'
+      - 'data/manager_franchise_enrichment_v1.json'
+      - 'data/featured_trade_storylines_v1.json'
       - 'scripts/test-manager-front-office.mjs'
       - 'data/manager_draft_trade_profile_evidence_v1.json'
       - 'data/manager_acquisition_by_season_v1.json'
@@ -30,3 +34,6 @@ jobs:
       - run: node --check assets/manager-front-office.mjs
       - run: node --check scripts/test-manager-front-office.mjs
       - run: node scripts/test-manager-front-office.mjs
+      - run: node --check assets/manager-defining-moves.mjs
+      - run: node --check scripts/test-manager-defining-moves.mjs
+      - run: node scripts/test-manager-defining-moves.mjs
