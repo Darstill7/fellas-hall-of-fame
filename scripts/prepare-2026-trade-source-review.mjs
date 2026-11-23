@@ -89,6 +89,7 @@ const approvalDraft={
   return {transaction_id:c.transaction_id,week:c.week,date:c.date,
    faab_reviewed:false,
    faab_receipt:budget,
+   faab_transfers:budget.map(x=>({sender:x.sender,receiver:x.receiver,amount:x.amount})),
    sides:c.sides.map(s=>({
     roster_id:s.roster_id,manager:s.manager,
     assets:s.assets.map(a=>({player_id:a.player_id,name:a.name}))
