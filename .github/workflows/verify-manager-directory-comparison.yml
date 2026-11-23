@@ -1,0 +1,26 @@
+name: Verify manager directory comparison
+on:
+  pull_request:
+    paths:
+      - 'managers/index.html'
+      - 'assets/manager-directory-compare.mjs'
+      - 'assets/manager-directory-compare.css'
+      - 'scripts/test-manager-directory-compare.mjs'
+      - 'data/manager_profile_career_summary_v2.json'
+      - 'data/unified_record_book_2016_2026.json'
+      - '.github/workflows/verify-manager-directory-comparison.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verified-comparison:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/manager-directory-compare.mjs
+      - run: node --check scripts/test-manager-directory-compare.mjs
+      - run: node scripts/test-manager-directory-compare.mjs
