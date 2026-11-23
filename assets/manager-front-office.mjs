@@ -1,3 +1,4 @@
+import {decisionEvidence,renderDecisionHighlights} from './manager-defining-moves.mjs';
 // Front Office 3.0: source-backed historical coverage, NOT skill grades.
 // ESPN draft rows can contain unresolved names; Sleeper add coverage is observational;
 // completed Trade Museum receipts may lag the latest canonical matchup week.
@@ -50,6 +51,7 @@ export function renderFrontOffice(r){
  }).join('');
  return '<details class="manager-front-office"><summary>Front Office 3.0 <span>Drafts · Trades · Waivers</span></summary>'+
  '<div class="manager-front-office-content"><p>Research inventory, not a grade or ranking of management decisions. Coverage is historical and incomplete.</p>'+
+ '<div class="manager-front-office-defining"><p class="manager-front-office-unavailable">Loading source-backed decision examples…</p></div>'+
  '<details class="manager-front-office-timeline"><summary>Front-office yearbook <span>Drafts, trades and pickups by season</span></summary>'+
  '<p>Documented counts only. “Not covered” means the available sources cannot confirm activity, not that none occurred. Trade totals refer only to archived receipts.</p>'+
  '<ol>'+frontOfficeTimeline(r).map(y=>'<li><strong>'+y.year+(y.partial?' · partial':'')+'</strong>'+
@@ -86,6 +88,16 @@ export async function mountFrontOffice(root,manager){
   const payload=await Promise.all(replies.map(r=>r.json()));
   const evidence=frontOfficeEvidence(...payload,manager);
   target.innerHTML=renderFrontOffice(evidence);
+  const decisions=target.querySelector('.manager-front-office-defining');
+  try{
+   const urls=['manager_franchise_enrichment_v1.json','featured_trade_storylines_v1.json'];
+   const replies=await Promise.all(urls.map(path=>fetch('../../data/'+path,{cache:'no-store'})));
+   if(replies.some(r=>!r.ok))throw Error('Decision source unavailable');
+   const [enrichment,stories]=await Promise.all(replies.map(r=>r.json()));
+   decisions.innerHTML=renderDecisionHighlights(decisionEvidence(enrichment,stories,payload[2],manager));
+  }catch{
+   decisions.innerHTML='<p class="manager-front-office-unavailable">Defining moves are unavailable because verified research evidence could not be loaded. The documented yearbook below remains available.</p>';
+  }
  }catch{
   target.innerHTML='<p class="manager-front-office-unavailable">Front-office research is unavailable. No transactions or grades have been estimated. <a href="../../analytics/trade-museum.html">View archived trade evidence</a>.</p>';
  }
