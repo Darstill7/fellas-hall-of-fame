@@ -95,6 +95,21 @@ integrationWrongHead.prs[0].runs=goodRuns.map(x=>x.name==='Verify Tuesday approv
 r=derive(integrationWrongHead);
 assert.equal(r.prs[0].checks.find(x=>x.key==='integration').state,'NOT_REPORTED');
 
+const museum=clone(base);
+museum.prs=[{...museum.prs[0],number:276,title:'Trade Museum 2.0',head_sha:sha,base:'automation/tuesday-publication-readiness-20261120',runs:[
+ ...goodRuns,{name:'Verify Trade Museum 2.0',status:'completed',conclusion:'success',head_sha:sha,created_at:'2026-11-20T21:00:01Z'}
+]}];
+r=derive(museum);
+assert.equal(r.prs[0].checks.find(x=>x.key==='museum').state,'PASS');
+const missingMuseum=clone(museum);
+missingMuseum.prs[0].runs=goodRuns;
+r=derive(missingMuseum);
+assert.equal(r.prs[0].checks.find(x=>x.key==='museum').state,'NOT_REPORTED');
+assert.equal(r.prs[0].stage,'CHECKS_PENDING');
+const wrongMuseumSha=clone(museum);
+wrongMuseumSha.prs[0].runs.at(-1).head_sha=other;
+r=derive(wrongMuseumSha);
+assert.equal(r.prs[0].checks.find(x=>x.key==='museum').state,'NOT_REPORTED');
 const final=clone(base);
 final.staging={candidateWeek:9,status:'REVIEW_CANDIDATE'};
 final.freshness.sections.find(x=>x.id==='trade-museum').status='EVENT_AUDITED';
