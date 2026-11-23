@@ -53,6 +53,7 @@ on:
       - 'scripts/verify-historical-acquisition-package.mjs'
       - 'scripts/test-historical-acquisition-immutability.mjs'
       - 'scripts/build-combined-career-acquisitions.mjs'
+      - 'scripts/build-combined-evidence-supported-career.mjs'
       - 'scripts/build-front-office-site-candidate.mjs'
       - 'scripts/test-front-office-live-candidate-browser.mjs'
       - 'data-integrity/front-office-live-candidate.html'
@@ -151,6 +152,7 @@ jobs:
           python3 scripts/research-2026-acquisition-kickoff-evidence.py
           node scripts/build-live-evidence-supported-acquisitions.mjs
           node scripts/build-combined-career-acquisitions.mjs
+          node scripts/build-combined-evidence-supported-career.mjs
           node scripts/build-front-office-site-candidate.mjs
       - name: Preserve research receipts
         if: always()
@@ -194,6 +196,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/historical-acquisition-certification-candidate.json
             data-integrity/historical-trade-draft-audits/historical-acquisition-final-review.json
             data-integrity/historical-trade-draft-audits/combined-career-acquisition-preview.json
+            data-integrity/historical-trade-draft-audits/combined-evidence-supported-career-preview.json
             data-integrity/historical-trade-draft-audits/front-office-site-candidate/
             data-integrity/historical-trade-draft-audits/career-draft-return-research.json
           retention-days: 30
