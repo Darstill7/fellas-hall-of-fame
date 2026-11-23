@@ -68,13 +68,13 @@ const match=before.match(pattern);
 assert(match);
 assert.deepEqual(JSON.parse(match[1]),museum);
 let html=before.replace(pattern,'<script id="archive-data" type="application/json">'+JSON.stringify(next).replace(/</g,'\\u003c')+'</script>');
-const marker='const points=t=>t.sides.reduce(';
+const marker='const fullyAudited=t=>';
 assert(html.includes(marker));html=html.replace(marker,"const scoringLabel=t=>t.scoring_through_week?'starter pts verified through W'+t.scoring_through_week:'historical snapshot starter pts';\n"+marker);
-assert(html.includes('snapshot starter pts</span>'));
-html=html.replace('snapshot starter pts</span>','\${scoringLabel(t)}</span>');
-const modal='audit-snapshot starter points · \${Number(s.started_games||0)} recorded starts';
+const card="Number(s.raw_starter_points).toFixed(1)+' snapshot starter pts'";
+assert(html.includes(card));html=html.replace(card,"Number(s.raw_starter_points).toFixed(1)+' '+scoringLabel(t)");
+const modal="'audit-snapshot starter points · '+Number(s.started_games||0)+' recorded starts'";
 assert(html.includes(modal));
-html=html.replace(modal,'\${scoringLabel(t)} · \${Number(s.started_games||0)} recorded starts');
+html=html.replace(modal,"scoringLabel(t)+' · '+Number(s.started_games||0)+' recorded starts'");
 const report={schema:'fellas-2026-trade-starter-point-refresh-v1',status:'RESEARCH_RECALCULATED_REQUIRES_REVIEW',
  league,scoring_through_week:through,scope:'7 already archived 2026 trades only; 6 unapproved recovered trades excluded',
  source:'Sleeper original completed transaction adds and weekly starting lineup scores, Weeks 1-10',
