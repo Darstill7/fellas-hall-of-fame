@@ -15,7 +15,7 @@ def dt(s): return datetime.fromisoformat(s.replace("Z","+00:00"))
 rows=[]
 for a in source["near_kickoff"]:
     scheduled=dt(a["scheduled_kickoff_utc"])
-    day=scheduled.strftime("%Y%m%d")
+    day=scheduled.astimezone(__import__("zoneinfo").ZoneInfo("America/New_York")).strftime("%Y%m%d")
     url="https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates="+day+"&limit=100"
     out={**a,"team":teams[a["player_id"]],"scoreboard_source":url,"status":"ACTUAL_START_NOT_VERIFIED"}
     try:
@@ -30,6 +30,7 @@ for a in source["near_kickoff"]:
             d=get(summary)
             # Do not treat scheduled date or a generic update clock as actual kickoff.
             plays=[p for drive in d.get("drives",{}).get("previous",[]) for p in drive.get("plays",[]) if p.get("period",{}).get("number")==1 and p.get("type",{}).get("text","").lower()=="kickoff"]
+            out["first_drive_opening_plays"]=[{"id":p.get("id"),"type":p.get("type",{}).get("text"),"clock":p.get("clock",{}).get("displayValue"),"wallclock":p.get("wallclock",p.get("wallClock"))} for drive in d.get("drives",{}).get("previous",[])[:2] for p in drive.get("plays",[])[:4]]
             evidence=[]
             for p in plays:
                 if p.get("clock",{}).get("displayValue") not in ("15:00","14:59"): continue
