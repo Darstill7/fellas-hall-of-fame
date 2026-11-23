@@ -40,6 +40,21 @@ for(const s of ledger.seasons){
 for(const r of Object.values(career))check(r);
 for(const [a,os] of Object.entries(rivalries))for(const [b,r] of Object.entries(os)){const q=rivalries[b][a];assert.equal(r.games,q.games);assert.equal(r.w,q.l);assert.equal(r.t,q.t);assert.equal(r.pf_cents,q.pa_cents);}
 assert.equal(Object.values(career).reduce((n,r)=>n+r.games,0),820);
-const out={schema:'fellas-frozen-regular-statistics-v1',status:'RESEARCH_ONLY_NOT_PUBLIC_INTEGRATION',source_blob:blob,scope:'2020–2025 Sleeper regular seasons only',definitions:{weekly_highs:'All tied weekly leaders receive credit',all_play:'Each actual team score compared with nine other teams in same week',threshold_losses:'Actual head-to-head losses with own score at or above threshold',units:'integer hundredths of fantasy points'},seasons,career,rivalries};
+// Schedule luck and season-bounded streaks, derived from the same verified scores.
+const luck=Object.fromEntries(Object.entries(career).map(([m,r])=>[m,{actual_wins:r.w,expected_wins:(r.all_play_w+r.all_play_t/2)/9,win_equivalent_delta:r.w+r.t/2-(r.all_play_w+r.all_play_t/2)/9}]));
+const streaks=[],extremes=[];
+for(const s of seasons)for(const m of Object.keys(s.managers)){
+ const weeks=s.weekly.map(w=>({week:w.week,pf:w.scores[m],high:w.leaders.includes(m)}));
+ for(const [kind,test] of [['weekly_high',w=>w.high],...([100,105,110,125,140,150].map(n=>['score_at_least_'+n,w=>w.pf>=100*n]))]){
+ let first=null,last=null;for(const w of [...weeks,{week:null,pf:-Infinity,high:false}]){if(test(w)){first??=w.week;last=w.week;}else if(first!==null){streaks.push({manager:m,year:s.year,kind,first_week:first,last_week:last,length:last-first+1});first=last=null;}}
+ }
+ for(const w of weeks)extremes.push({manager:m,year:s.year,week:w.week,pf_cents:w.pf});
+}
+streaks.sort((a,b)=>b.length-a.length||a.year-b.year||a.first_week-b.first_week||a.manager.localeCompare(b.manager));
+extremes.sort((a,b)=>b.pf_cents-a.pf_cents||a.year-b.year||a.week-b.week||a.manager.localeCompare(b.manager));
+assert.equal(extremes.length,820);
+assert(Math.abs(Object.values(luck).reduce((n,r)=>n+r.win_equivalent_delta,0))<1e-9);
+const records={streaks,highest_scores:extremes.slice(0,25),lowest_scores:extremes.slice().reverse().slice(0,25),schedule_luck:luck};
+const out={schema:'fellas-frozen-regular-statistics-v1',status:'RESEARCH_ONLY_NOT_PUBLIC_INTEGRATION',source_blob:blob,scope:'2020–2025 Sleeper regular seasons only',definitions:{weekly_highs:'All tied weekly leaders receive credit',all_play:'Each actual team score compared with nine other teams in same week',threshold_losses:'Actual head-to-head losses with own score at or above threshold',units:'integer hundredths of fantasy points'},seasons,career,rivalries,records};
 fs.mkdirSync('data-integrity/historical-trade-draft-audits',{recursive:true});fs.writeFileSync('data-integrity/historical-trade-draft-audits/frozen-regular-statistics-v1.json',JSON.stringify(out,null,2)+'\n');
 console.log('FROZEN REGULAR STATISTICS '+JSON.stringify({seasons:seasons.length,team_games:820,managers:Object.keys(career).length,career}));
