@@ -29,6 +29,9 @@ export function assessPrelockReplacements({owner,decisionTime,holes,candidates,s
   assertNonempty(p.projectionSource,'candidate forecast source');
   if(p.projectionSource!==sourceVersion)throw Error('Projection source/version mismatch');
   if(p.owner!==owner)throw Error('Candidate must be owned by same roster at decision time');
+  if(p.rosterSlotAtDecision!=='bench')throw Error('Candidate must be verified on receiving manager bench at decision time');
+  assertNonempty(p.rosterEvidenceSource,'candidate roster evidence source');
+  assertNonempty(p.availabilityEvidenceSource,'candidate active status evidence source');
   if(p.activeAtDecision!==true)throw Error('Candidate lacks verified active-at-decision source state');
   if(!Number.isFinite(p.projectedPoints)||p.projectedPoints<0)throw Error('Missing valid forecast points');
   if(time(p.projectionIssuedAt,'projection issuedAt')>decision)throw Error('Future projection leaks into decision');
