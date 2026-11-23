@@ -6,8 +6,7 @@ on:
       - '.github/workflows/prepare-2026-trade-source-review.yml'
   workflow_dispatch:
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 concurrency:
   group: fellas-raw-trade-source-review
   cancel-in-progress: true
@@ -45,22 +44,19 @@ jobs:
           cp research/data-integrity/trade-certifications/2026-week11.json stage/data-integrity/trade-certifications/
           test "$(node -p "require('./stage/data-integrity/trade-certifications/2026-week11.json').status")" = REVIEW_REQUIRED
           git -C stage diff --name-only
-      - name: Open a source-only PR targeting staging, no automatic approval
-        uses: peter-evans/create-pull-request@v7
+      # Recompute the review evidence as a short-lived artifact, not a branch push.
+      # This avoids moving a previously pinned commissioner source SHA.
+      - name: Upload review-only Sleeper evidence bundle
+        uses: actions/upload-artifact@v4
         with:
-          path: stage
-          base: automation/sleeper-weekly-stage
-          branch: review/2026-trade-evidence-week11
-          delete-branch: false
-          title: 'Review six recovered 2026 Sleeper trades and original source receipts'
-          commit-message: 'Stage read-only original Sleeper trade evidence for commissioner certification'
-          body: |
-            Original 2026 Sleeper trade source through Week 11, reconciled against the 13 normalized trades.
-            New review queue includes six provider IDs missing from Trade Museum.
-            Certificate status is **REVIEW_REQUIRED** and cannot be imported.
-            Commissioner has confirmed the displayed six exchanges; independently approve names, FAAB, keeper rights and the pinned source commit before any official certification.
-            This PR targets the non-canonical staging branch only. Do not merge the score candidate into main. No Trade Museum release, scoreboard change, grading or Pages deployment.
-          add-paths: |
-            data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json
-            data-integrity/sleeper-sync-candidates/2026-trade-review-through-week11.json
-            data-integrity/trade-certifications/2026-week11.json
+          name: unapproved-trade-source-review-week11
+          retention-days: 21
+          path: |
+            research/data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json
+            research/data-integrity/sleeper-sync-candidates/2026-trade-review-through-week11.json
+            research/data-integrity/trade-certifications/2026-week11.json
+      - name: Explain manual PR review handoff
+        run: |
+          echo '## Source-only trade evidence prepared' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Download the three evidence files from this run. GitHub Actions does **not** create or approve a PR, move an evidence branch, or alter canonical data.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Existing staging review: [PR #286](https://github.com/Darstill7/fellas-hall-of-fame/pull/286). If new source content differs, use an explicitly reviewed new source PR and update pinned source SHA after review.' >> "$GITHUB_STEP_SUMMARY"
