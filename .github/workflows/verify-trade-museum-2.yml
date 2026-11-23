@@ -60,6 +60,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Syntax-check new historical source and replacement research scripts before expensive browser setup
+        run: |
+          node --check scripts/audit-trade-projection-source-readiness.mjs
+          node --check scripts/audit-trade-decision-time-provenance.mjs
+          node --check scripts/trade-prelock-replacement-engine.mjs
+          node --check scripts/test-trade-prelock-replacement-engine.mjs
       - name: Check embedded receipt integrity, JS syntax and museum navigation
         run: node scripts/verify-trade-museum-2.mjs
       - name: Publish incomplete trade PAR research audit
