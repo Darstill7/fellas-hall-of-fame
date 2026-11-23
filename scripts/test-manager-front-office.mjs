@@ -1,7 +1,7 @@
 // Source-scope and identity checks for Front Office 3.0; no fabricated grades.
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {frontOfficeEvidence,renderFrontOffice} from '../assets/manager-front-office.mjs';
+import {frontOfficeEvidence,renderFrontOffice,frontOfficeTimeline} from '../assets/manager-front-office.mjs';
 const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const draft=read('data/manager_draft_trade_profile_evidence_v1.json');
 const waivers=read('data/manager_acquisition_by_season_v1.json');
@@ -21,8 +21,22 @@ for(const [slug,manager] of Object.entries(profiles)){
  assert.ok(result.acquisitionsWithLaterStarts<=result.distinctAcquisitions,'Observed later-start count cannot exceed distinct adds '+manager);
  assert.ok(result.draftYears.every((r,i,a)=>i===0||a[i-1].year>=r.year));
  assert.ok(result.waiverYears.every((r,i,a)=>i===0||a[i-1].year>=r.year));
+ const yearbook=frontOfficeTimeline(result);
+ assert.ok(yearbook.length>0,'Every current manager should have at least one documented front-office year');
+ assert.ok(yearbook.every((y,i,all)=>i===0||all[i-1].year>y.year),'Timeline must sort most recent first');
+ assert.equal(yearbook.reduce((s,y)=>s+y.tradeReceiptCount,0),result.documentedTrades,'No five-trade preview cap may leak into annual archive counts '+manager);
+ assert.equal(yearbook.reduce((s,y)=>s+(y.distinctAdds??0),0),result.distinctAcquisitions,'Waiver seasons must reconcile '+manager);
+ assert.equal(yearbook.filter(y=>y.draftPicks!==null).length,result.selectedDraftYears,'Draft yearbook coverage must reconcile '+manager);
+ assert.ok(yearbook.every(y=>y.year<2020||y.distinctAdds!==null||!waivers.rows.some(x=>x.year===y.year&&x.manager===manager)),'Available pickup data must not be hidden');
+ if(yearbook.some(y=>y.year<2020)){
+  assert.ok(yearbook.filter(y=>y.year<2020).every(y=>y.distinctAdds===null),'ESPN-era pickup history must not be fabricated');
+ }
  const markup=renderFrontOffice(result);
  assert.match(markup,/Front Office 3\.0/);
+ assert.ok(markup.includes('Front-office yearbook'),'Yearbook must be accessible');
+ assert.ok(markup.includes('Not covered'),'Missing 2016–19 waiver source must be presented as unknown rather than zero');
+ assert.equal((markup.match(/Draft: /g)||[]).length,yearbook.length,'Each season needs a draft coverage label');
+
  assert.match(markup,/research inventory, not a grade/i);
  assert.ok(markup.includes('2026 partial'),'2026 waiver coverage must be marked partial');
  assert.ok(markup.includes('through '+draft.seasonCutoff.year+' Week '+draft.seasonCutoff.throughWeek),'Old draft cutoff must never be masked by approved score week');
