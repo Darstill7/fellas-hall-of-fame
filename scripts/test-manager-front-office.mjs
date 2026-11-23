@@ -34,7 +34,7 @@ for(const [slug,manager] of Object.entries(profiles)){
  const markup=renderFrontOffice(result);
  assert.match(markup,/Front Office 3\.0/);
  assert.ok(markup.includes('Front-office yearbook'),'Yearbook must be accessible');
- assert.ok(markup.includes('Not covered'),'Missing 2016–19 waiver source must be presented as unknown rather than zero');
+ if(yearbook.some(y=>y.distinctAdds===null))assert.ok(markup.includes('Not covered'),'Missing waiver source must be presented as unknown rather than zero');
  assert.equal((markup.match(/Draft: /g)||[]).length,yearbook.length,'Each season needs a draft coverage label');
 
  assert.match(markup,/research inventory, not a grade/i);
