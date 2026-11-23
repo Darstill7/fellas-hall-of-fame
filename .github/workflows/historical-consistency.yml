@@ -6,6 +6,7 @@ on:
       - 'data-integrity/historical-*-confirmation-*.json'
       - 'scripts/test-historical-championship-consistency.mjs'
       - 'scripts/build-frozen-regular-statistics.mjs'
+      - 'scripts/collect-live-completed-regular.mjs'
       - 'scripts/test-frozen-provider-agreement.mjs'
       - 'data-integrity/frozen-regular-matchups-2020-2025-v1.json'
       - 'scripts/research-regular-season-source-reconciliation.mjs'
@@ -69,3 +70,24 @@ jobs:
           name: frozen-regular-statistics-v1
           path: data-integrity/historical-trade-draft-audits
       - run: node scripts/test-frozen-provider-agreement.mjs
+  combined-career:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Collect completed week 10 for research rehearsal
+        run: FELLAS_COMPLETED_WEEK=10 node scripts/collect-live-completed-regular.mjs
+      - name: Generate frozen and combined career statistics
+        run: |
+          node scripts/build-frozen-regular-statistics.mjs
+          FELLAS_LIVE_INPUT=data-integrity/historical-trade-draft-audits/live-completed-regular-2026.json FELLAS_STATS_OUTPUT=data-integrity/historical-trade-draft-audits/combined-career-statistics.json node scripts/build-frozen-regular-statistics.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: combined-career-research
+          path: |
+            data-integrity/historical-trade-draft-audits/live-completed-regular-2026.json
+            data-integrity/historical-trade-draft-audits/combined-career-statistics.json
+          if-no-files-found: error
