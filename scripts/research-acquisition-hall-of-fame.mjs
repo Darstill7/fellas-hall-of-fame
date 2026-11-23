@@ -39,7 +39,7 @@ for(const year of years){
  const unique=[year,w,a.roster,a.player_id].join(':');assert(!claimed.has(unique),'Duplicate strict receipt '+unique);claimed.add(unique);receipts.push(r);
  }
  const pf=round(receipts.reduce((n,r)=>n+r.points,0));
- const row={...a,year,manager:managers.get(a.roster),exit_transaction:exit?.transaction_id??null,strict_pf:pf,starts:receipts.length,points_per_start:receipts.length?round(pf/receipts.length):null,receipts,boundary};
+ const row={...a,year,manager:managers.get(a.roster),exit_transaction:exit?.transaction_id??null,exit_ms:exit?Number(exit.status_updated):null,exit_week:exit?.week??null,strict_pf:pf,starts:receipts.length,points_per_start:receipts.length?round(pf/receipts.length):null,receipts,boundary};
  if(a.category==='TRADE'){
  const t=own.trade_results.find(t=>t.id===a.id),side=t?.sides.find(s=>Number(s.roster)===a.roster),p=side?.players.find(p=>String(p.player_id)===a.player_id);assert(p,'Trade missing ownership receipt '+a.id);
  const expected=p.receipts.filter(r=>r.week<=end);assert.equal(receipts.length,expected.length);assert(Math.abs(pf-expected.reduce((n,r)=>n+r.points,0))<.011);
