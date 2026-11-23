@@ -7,13 +7,15 @@ const read=n=>JSON.parse(fs.readFileSync(root+n+'.json','utf8'));
 const historical=read('career-trade-return-research'),live=read('2026-live-trade-player-returns-research'),career=read('full-era-career-statistics');
 const cutoff=career.live_watermark.completed_regular_week;
 assert.equal(live.completed_week,cutoff);assert.equal(live.season,2026);
+assert.equal(live.trade_deadline_week,11);assert.equal(live.trade_window,cutoff>=11?'CLOSED':'OPEN');
+assert.equal(live.regular_season_end_week,14);
 const norm=n=>n==='Tom'?'Thommy':n;
 const cents=n=>{assert(Number.isFinite(n));return Math.round(n*100)};
 const ledger=historical.transaction_ledger.map(t=>({...t,sides:t.sides.map(s=>({...s,manager:norm(s.manager)}))}));
 const historicalIds=new Set(ledger.map(t=>t.id));assert.equal(historicalIds.size,ledger.length);assert.equal(ledger.length,48);
 const receipts=new Set();let starts=0;
 for(const t of live.trades){
- assert(!historicalIds.has(t.id));historicalIds.add(t.id);assert(t.week<=cutoff&&t.sides.length>=2);
+ assert(!historicalIds.has(t.id));historicalIds.add(t.id);assert(t.week<=Math.min(cutoff,live.trade_deadline_week)&&t.sides.length>=2);
  const sides=t.sides.map(s=>{
   const manager=norm(s.manager);assert(career.seasons.find(x=>x.year===2026).managers[manager]);
   let pf=0,count=0;
@@ -39,6 +41,6 @@ for(const t of ledger){
 }
 assert.equal(Object.values(managers).reduce((n,m)=>n+m.raw_delta_cents,0),0);
 assert.equal(Object.values(managers).reduce((n,m)=>n+m.pair_eligible,0),2*Object.values(pairs).reduce((n,p)=>n+p.trades,0));
-const report={status:'RESEARCH_ONLY_NOT_DEPLOYABLE',completedThrough:{year:2026,week:cutoff},historical_scope:[2020,2025],coverage:{historical_transactions:48,live_transactions:live.trades.length,live_strict_starts:starts},transaction_ledger:ledger,manager_summary:Object.values(managers).sort((a,b)=>b.raw_delta_cents-a.raw_delta_cents),pairwise:Object.values(pairs).map(p=>({...p,a_minus_b_cents:p.a_cents-p.b_cents})),limitations:['Strict received starter points only, not causal trade value or a grade.','Acquisition and exit boundary weeks excluded consistently.','Multi-team and player-for-nonplayer deals excluded from pairwise comparison.','Historical inputs remain research receipts pending immutable artifact certification.','Draft, waiver and keeper results not included.']};
+const report={status:'RESEARCH_ONLY_NOT_DEPLOYABLE',completedThrough:{year:2026,week:cutoff},trade_deadline:{week:live.trade_deadline_week,status:live.trade_window,returns_continue_after_close:true},historical_scope:[2020,2025],coverage:{historical_transactions:48,live_transactions:live.trades.length,live_strict_starts:starts},transaction_ledger:ledger,manager_summary:Object.values(managers).sort((a,b)=>b.raw_delta_cents-a.raw_delta_cents),pairwise:Object.values(pairs).map(p=>({...p,a_minus_b_cents:p.a_cents-p.b_cents})),limitations:['Strict received starter points only, not causal trade value or a grade.','Acquisition and exit boundary weeks excluded consistently.','Multi-team and player-for-nonplayer deals excluded from pairwise comparison.','Historical inputs remain research receipts pending immutable artifact certification.','Draft, waiver and keeper results not included.']};
 fs.writeFileSync(root+'combined-trade-front-office-preview.json',JSON.stringify(report,null,2)+'\n');
 console.log('COMBINED TRADE FRONT OFFICE PASS '+JSON.stringify({completedThrough:report.completedThrough,coverage:report.coverage,managers:Object.keys(managers).length,pairs:Object.keys(pairs).length}));
