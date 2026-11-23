@@ -77,14 +77,16 @@
         "regular": "8-6",
         "ending": "Champion",
         "note": "Verified championship season",
-        "source": "Sleeper reconstruction / championship ledger"
+        "source": "Sleeper reconstruction / championship ledger",
+        "finalRank": 1
       },
       {
         "year": 2024,
         "regular": "7-7",
         "ending": "Runner-up",
         "note": "Lost championship to Tom 114.88–205.30",
-        "source": "Sleeper reconstruction / championship ledger"
+        "source": "Sleeper reconstruction / championship ledger",
+        "finalRank": 2
       },
       {
         "year": 2025,
@@ -156,7 +158,8 @@
         "regular": "11-3",
         "ending": "Runner-up",
         "note": "Lost championship to Stover 48.16–99.22",
-        "source": "Sleeper reconstruction / championship ledger"
+        "source": "Sleeper reconstruction / championship ledger",
+        "finalRank": 2
       },
       {
         "year": 2023,
@@ -264,14 +267,16 @@
         "regular": "9-5",
         "ending": "Champion",
         "note": "Verified championship season",
-        "source": "Sleeper reconstruction / championship ledger"
+        "source": "Sleeper reconstruction / championship ledger",
+        "finalRank": 1
       },
       {
         "year": 2025,
         "regular": "8-6",
         "ending": "Runner-up",
         "note": "Lost championship to Scott 86.00–156.32",
-        "source": "Sleeper reconstruction / championship ledger"
+        "source": "Sleeper reconstruction / championship ledger",
+        "finalRank": 2
       },
       {
         "year": 2026,
@@ -335,7 +340,8 @@
         "regular": "9-5",
         "ending": "Champion",
         "note": "Verified 2022 championship season; identity reconciled to Sleeper owner handle yogurtslinger15",
-        "source": "Sleeper reconstruction / championship ledger"
+        "source": "Sleeper reconstruction / championship ledger",
+        "finalRank": 1
       },
       {
         "year": 2023,
@@ -504,7 +510,8 @@
         "regular": "10-3",
         "ending": "Champion",
         "note": "Verified championship season",
-        "source": "Sleeper reconstruction / championship ledger"
+        "source": "Sleeper reconstruction / championship ledger",
+        "finalRank": 1
       },
       {
         "year": 2022,
@@ -592,7 +599,8 @@
         "regular": "6-8",
         "ending": "Runner-up",
         "note": "Lost championship to Stilly 90.18–104.96",
-        "source": "Sleeper reconstruction / championship ledger"
+        "source": "Sleeper reconstruction / championship ledger",
+        "finalRank": 2
       },
       {
         "year": 2024,
@@ -734,7 +742,8 @@
         "regular": "8-6",
         "ending": "Champion",
         "note": "Verified championship season",
-        "source": "Sleeper reconstruction"
+        "source": "Sleeper reconstruction",
+        "finalRank": 1
       },
       {
         "year": 2026,
@@ -812,6 +821,112 @@
         "note": "Verified Sleeper final postseason placement: 6 of 10.",
         "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
         "finalRank": 6
+      }
+    ],
+    "Halderman": [
+      {
+        "year": 2016,
+        "regular": "8-4-1",
+        "ending": "Runner-up",
+        "note": "Verified final league placement; regular-season record retained from historical source.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 2
+      },
+      {
+        "year": 2017,
+        "regular": "4-8",
+        "ending": "6th place",
+        "note": "Verified final league placement; regular-season record retained from historical source.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 6
+      }
+    ],
+    "Koble": [
+      {
+        "year": 2016,
+        "regular": "7-6",
+        "ending": "4th place",
+        "note": "Verified final league placement; regular-season record retained from historical source.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 4
+      },
+      {
+        "year": 2017,
+        "regular": "6-6",
+        "ending": "5th place",
+        "note": "Verified final league placement; regular-season record retained from historical source.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 5
+      },
+      {
+        "year": 2018,
+        "regular": "5-8",
+        "ending": "9th place",
+        "note": "Verified final league placement; regular-season record retained from historical source.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 9
+      },
+      {
+        "year": 2019,
+        "regular": "4-9",
+        "ending": "7th place",
+        "note": "Verified final league placement; regular-season record retained from historical source.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 7
+      },
+      {
+        "year": 2020,
+        "regular": null,
+        "ending": "Champion",
+        "note": "Verified final league placement; regular-season record not established in this dataset.",
+        "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 1
+      },
+      {
+        "year": 2021,
+        "regular": null,
+        "ending": "9th place",
+        "note": "Verified final league placement; regular-season record not established in this dataset.",
+        "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 9
+      },
+      {
+        "year": 2022,
+        "regular": null,
+        "ending": "8th place",
+        "note": "Verified final league placement; regular-season record not established in this dataset.",
+        "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 8
+      },
+      {
+        "year": 2023,
+        "regular": null,
+        "ending": "3rd place",
+        "note": "Verified final league placement; regular-season record not established in this dataset.",
+        "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
+        "finalRank": 3
+      }
+    ],
+    "Schermerhorn": [
+      {
+        "year": 2016,
+        "regular": "4-9",
+        "ending": "8th place (last)",
+        "note": "Verified final league placement; regular-season record retained from historical source.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 8,
+        "awards": [
+          "Shitter of the Year"
+        ],
+        "awardNote": "Verified final last-place finish; historical bracket format varies by season."
+      },
+      {
+        "year": 2017,
+        "regular": "8-4",
+        "ending": "Runner-up",
+        "note": "Verified final league placement; regular-season record retained from historical source.",
+        "source": "Original ESPN finalRank + recovered bracket screenshot",
+        "finalRank": 2
       }
     ]
   }
