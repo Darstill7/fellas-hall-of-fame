@@ -23,3 +23,19 @@
 .manager-pulse a:focus-visible{outline:3px solid #f3d38d;outline-offset:3px;border-radius:2px}
 @media(max-width:850px){.manager-pulse-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.manager-pulse-rivals ol{grid-template-columns:1fr}}
 @media(max-width:540px){.manager-pulse{padding:17px;margin-bottom:18px}.manager-pulse-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.manager-pulse-tile{padding:12px}.manager-pulse-tile strong{font-size:23px}.manager-pulse-header{gap:6px}.manager-pulse-more{min-height:44px}}
+
+/* Disclosure keeps long 2016–2026 history out of the first mobile viewport. */
+.manager-pulse-trajectory{margin-top:16px;border-top:1px solid #385064;padding:15px 0 0}
+.manager-pulse-trajectory>summary{cursor:pointer;color:#f3d894;font-weight:850;font-size:15px;min-height:44px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.manager-pulse-trajectory>summary span{font-weight:500;color:#b8c9d3;font-size:12px}
+.manager-pulse-trajectory>summary:focus-visible{outline:3px solid #f3d38d;outline-offset:3px}
+.manager-pulse-trajectory-content>p{font-size:12px;color:#b9c9d2;margin:6px 0 13px}
+.manager-pulse-trajectory-content ol{padding:0;margin:0;list-style:none;display:grid;gap:8px}
+.manager-pulse-trajectory-content li{display:grid;grid-template-columns:42px minmax(0,1fr) 56px;column-gap:9px;row-gap:2px;align-items:center;border:1px solid #354e5e;border-radius:9px;background:#0e1c28;padding:9px 11px}
+.manager-pulse-season-year{color:#f3d894;font-weight:850;font-size:13px}
+.manager-pulse-season-bar{background:#334553;border-radius:7px;height:10px;overflow:hidden}
+.manager-pulse-season-bar>span{background:#e0bb71;display:block;height:100%;border-radius:7px}
+.manager-pulse-trajectory-content li strong{text-align:right;font-size:13px;font-variant-numeric:tabular-nums}
+.manager-pulse-trajectory-content li small{grid-column:2/4;color:#b9c9d2;font-size:11px}
+.manager-pulse-trajectory-content .manager-pulse-peak{margin-top:12px}
+@media(max-width:540px){.manager-pulse-trajectory-content li{grid-template-columns:38px minmax(0,1fr) 51px;padding:9px 8px;gap:7px}}
