@@ -22,6 +22,8 @@ on:
       - 'scripts/research-player-career-encyclopedia.mjs'
       - 'scripts/research-manager-acquisition-resume.mjs'
       - 'scripts/research-draft-room.mjs'
+      - 'scripts/research-keeper-source-audit.mjs'
+      - 'data-integrity/draft-room-preview.html'
       - 'scripts/test-front-office-hub-browser.mjs'
       - 'data-integrity/front-office-preview.html'
       - 'scripts/test-player-encyclopedia-browser.mjs'
@@ -100,6 +102,8 @@ jobs:
           node scripts/research-manager-acquisition-resume.mjs
           node --check scripts/research-draft-room.mjs
           node scripts/research-draft-room.mjs
+          node --check scripts/research-keeper-source-audit.mjs
+          node scripts/research-keeper-source-audit.mjs
           node --check scripts/research-2026-live-trade-player-returns.mjs
           FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-trade-player-returns.mjs
       - name: Install browser runtime
@@ -172,6 +176,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/player-career-encyclopedia-research.json
             data-integrity/historical-trade-draft-audits/manager-acquisition-resumes-research.json
             data-integrity/historical-trade-draft-audits/draft-room-research.json
+            data-integrity/historical-trade-draft-audits/keeper-source-audit-research.json
             data-integrity/historical-trade-draft-audits/2026-live-trade-player-returns-research.json
             data-integrity/historical-trade-draft-audits/career-draft-return-research.json
           retention-days: 30
