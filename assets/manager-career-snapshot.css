@@ -1,0 +1,25 @@
+/* Career quick-read between franchise hero and deep archive navigation. */
+.manager-pulse{border:1px solid #365061;background:linear-gradient(145deg,#172d3b,#111e29);border-radius:17px;padding:24px;margin:0 0 27px;min-width:0}
+.manager-pulse-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.manager-pulse-eyebrow{color:#e3bd71;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.12em}
+.manager-pulse h2{font-size:clamp(24px,4vw,31px);margin:2px 0 5px}
+.manager-pulse-intro,.manager-pulse-rivals p,.manager-pulse-source{color:#b9c9d2;font-size:13px}
+.manager-pulse-more,.manager-pulse-rival-link{color:#f3d894;text-decoration:underline;text-underline-offset:4px;font-size:13px;font-weight:800;display:inline-block;padding:8px 0}
+.manager-pulse-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:16px 0 19px}
+.manager-pulse-tile{border:1px solid #3b5464;background:#0e1c28;border-radius:11px;padding:14px;min-width:0}
+.manager-pulse-tile span{display:block;color:#c5d1d9;font-size:12px;font-weight:700}
+.manager-pulse-tile strong{display:block;color:#f3d38d;font-size:clamp(20px,2.8vw,28px);letter-spacing:-.03em;line-height:1.3;margin:5px 0;overflow-wrap:anywhere}
+.manager-pulse-tile small{color:#a6b9c7;font-size:11px}
+.manager-pulse-rivals{border-top:1px solid #385064;padding-top:14px}
+.manager-pulse-rivals h3{margin:0;font-size:18px}
+.manager-pulse-rivals ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.manager-pulse-rivals li{display:flex;gap:8px;align-items:center;justify-content:space-between;background:#101f2a;border:1px solid #3b5363;border-radius:10px;padding:12px;min-width:0}
+.manager-pulse-rivals li strong,.manager-pulse-rivals li small{display:block}
+.manager-pulse-rivals li strong{font-size:14px}
+.manager-pulse-rivals li span{text-align:right;font-weight:850;white-space:nowrap;color:#f3d38d}
+.manager-pulse-rivals li small{font-size:11px;color:#b7c7d1;font-weight:500}
+.manager-pulse-source{margin:17px 0 0;border-top:1px solid #355065;padding-top:13px;font-size:12px}
+.manager-pulse-source a{color:#f3d894;text-decoration:underline}
+.manager-pulse a:focus-visible{outline:3px solid #f3d38d;outline-offset:3px;border-radius:2px}
+@media(max-width:850px){.manager-pulse-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.manager-pulse-rivals ol{grid-template-columns:1fr}}
+@media(max-width:540px){.manager-pulse{padding:17px;margin-bottom:18px}.manager-pulse-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.manager-pulse-tile{padding:12px}.manager-pulse-tile strong{font-size:23px}.manager-pulse-header{gap:6px}.manager-pulse-more{min-height:44px}}
