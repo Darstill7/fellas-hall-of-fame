@@ -13,6 +13,8 @@ on:
       - 'scripts/build-career-core-projection.mjs'
       - 'scripts/build-season-guide-projection.mjs'
       - 'scripts/build-unified-record-book-projection.mjs'
+      - 'scripts/build-weekly-mirror-luck-projections.mjs'
+      - 'scripts/build-manager-record-books-projection.mjs'
       - 'scripts/test-career-projection-agreement.mjs'
       - 'scripts/test-espn-two-week-postseason.mjs'
       - 'scripts/test-espn-cumulative-consolation.mjs'
@@ -120,6 +122,10 @@ jobs:
         run: |
           node scripts/build-unified-record-book-projection.mjs
           node scripts/test-career-projection-agreement.mjs
+      - name: Regenerate matchup mirror, luck and personal records
+        run: |
+          node scripts/build-weekly-mirror-luck-projections.mjs
+          node scripts/build-manager-record-books-projection.mjs
       - name: Inventory all legacy career consumers
         run: node scripts/audit-career-consumer-dependencies.mjs
       - uses: actions/upload-artifact@v4
@@ -136,4 +142,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/season-guide-preview.json
             data-integrity/historical-trade-draft-audits/season-guide-migration-audit.json
             data-integrity/historical-trade-draft-audits/unified-record-book-preview.json
+            data-integrity/historical-trade-draft-audits/weekly-matchup-mirror-preview.json
+            data-integrity/historical-trade-draft-audits/all-time-luck-preview.json
+            data-integrity/historical-trade-draft-audits/manager-record-books-preview.json
           if-no-files-found: error
