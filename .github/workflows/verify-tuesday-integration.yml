@@ -22,6 +22,31 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Rehearse merge into current main without changing refs or canonical files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main
+          MAIN_SHA=$(git rev-parse refs/remotes/origin/main)
+          HEAD_SHA=$(git rev-parse HEAD)
+          BASE_SHA=$(git merge-base "$MAIN_SHA" "$HEAD_SHA")
+          echo "Main: $MAIN_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "Integration: $HEAD_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "Merge base: $BASE_SHA" >> "$GITHUB_STEP_SUMMARY"
+          # A virtual merge-tree writes no checkout, branch, commit or deployment.
+          # A conflict fails this workflow rather than silently claiming readiness.
+          if ! MERGED_TREE=$(git merge-tree --write-tree "$MAIN_SHA" "$HEAD_SHA" 2>&1); then
+            echo "::error::Current main has conflicts with the integrated release stack"
+            echo 'Merge rehearsal: CONFLICT; rebase/reconcile before any release' >> "$GITHUB_STEP_SUMMARY"
+            printf '%s\n' "$MERGED_TREE"
+            exit 1
+          fi
+          if ! [[ "$MERGED_TREE" =~ ^[a-f0-9]{40}$ ]]; then
+            echo "::error::Virtual merge did not yield a tree hash"
+            printf '%s\n' "$MERGED_TREE"
+            exit 1
+          fi
+          echo "Read-only merge rehearsal PASS (tree $MERGED_TREE). Browser, canonical and Pages checks remain separately required." >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
