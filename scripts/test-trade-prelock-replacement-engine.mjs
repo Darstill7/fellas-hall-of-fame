@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {assessPrelockReplacements} from './trade-prelock-replacement-engine.mjs';
 const issued='2025-10-05T14:00:00Z',decision='2025-10-05T16:00:00Z',lock='2025-10-05T17:00:00Z',source='synthetic-contract-test-v1';
 const setup={owner:'test_owner',sourceVersion:source,decisionTime:decision};
-const hole=(id,slot)=>({id,slot,lockAt:lock});
+const hole=(id,slot)=>({id,startedPlayerId:'original-started-'+id,slot,lockAt:lock});
 const bench=(id,position,projectedPoints)=>({id,position,projectedPoints,owner:setup.owner,rosterSlotAtDecision:'bench',rosterEvidenceSource:'synthetic-roster-receipt',availabilityEvidenceSource:'synthetic-injury-receipt',projectionSource:source,projectionIssuedAt:issued,ownershipVerifiedAt:issued,gameLockAt:lock,activeAtDecision:true});
 const run=(holes,candidates)=>assessPrelockReplacements({...setup,holes,candidates});
 let r=run([hole('rb1','RB'),hole('rb2','RB')],[bench('a','RB',16)]);
@@ -36,5 +36,8 @@ expectReject(p=>delete p.rosterEvidenceSource,'Missing bench owner evidence must
 expectReject(p=>delete p.availabilityEvidenceSource,'Missing activity evidence source must fail');
 assert.throws(()=>assessPrelockReplacements({...setup,holes:[hole('rb','RB'),hole('rb','WR')],candidates:[]}),/Duplicate lineup hole/);
 assert.throws(()=>run([hole('rb','RB')],[bench('same','RB',11),bench('same','RB',6)]),/Duplicate bench candidate/);
+assert.throws(()=>run([hole('rb','RB')],[bench('original-started-rb','RB',12)]),/Original started player cannot also be a bench replacement/);
+assert.throws(()=>run([hole('rb1','RB'),{...hole('rb2','RB'),startedPlayerId:'original-started-rb1'}],[]),/same original starter/);
+assert.throws(()=>run([hole('rb','RB')],Array.from({length:13},(_,i)=>bench('rb'+i,'RB',5))),/max 12/);
 assert.throws(()=>assessPrelockReplacements({...setup,holes:[hole('qb','QB')],candidates:[bench('x','QB',12)],decisionTime:'2025-10-05T18:00:00Z'}),/already locked/);
 console.log('PASS: synthetic prelock source-gated replacement checks: unique player assignment, dual FLEX, position legality, prediction ordering, ownership, locked games and explicit uncovered slots; NO real trade grade created.');
