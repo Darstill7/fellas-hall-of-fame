@@ -23,6 +23,8 @@ on:
       - 'scripts/audit-trade-par-clean-roster-readiness.mjs'
       - 'scripts/audit-trade-par-slot-feasibility.mjs'
       - 'scripts/audit-trade-decision-time-provenance.mjs'
+      - 'scripts/trade-prelock-replacement-engine.mjs'
+      - 'scripts/test-trade-prelock-replacement-engine.mjs'
       - 'data/trade_par_slot_feasibility_2020_2025_v1.json'
       - 'scripts/verify-trade-par-era-settings.mjs'
       - 'scripts/audit-trade-par-raw-starter-accounting.mjs'
@@ -87,6 +89,8 @@ jobs:
         run: node scripts/audit-trade-par-slot-feasibility.mjs --github-summary
       - name: Audit missing pregame projection and lock-time source provenance
         run: node scripts/audit-trade-decision-time-provenance.mjs --github-summary
+      - name: Test source-gated synthetic prelock RB WR TE and dual FLEX matching
+        run: node scripts/test-trade-prelock-replacement-engine.mjs
       - name: Install browser runtime for mobile museum checks
         run: |
           npm install --no-save playwright@1.56.1
