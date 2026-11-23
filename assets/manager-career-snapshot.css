@@ -68,3 +68,14 @@
 .manager-rivalry-notables li small{font-size:11px;color:#b9c9d2}
 @media(max-width:800px){.manager-rivalry-notables ul{grid-template-columns:1fr}}
 @media(max-width:540px){.manager-rivalry-score{grid-template-columns:1fr 1fr}.manager-rivalry-score>div:last-child{grid-column:1/3}.manager-rivalry-seasons li{grid-template-columns:37px minmax(0,1fr) auto;padding:9px 8px}.manager-rivalry-inner>select{max-width:100%}}
+
+.manager-rivalry-receipts{border:1px solid #3c5261;border-radius:10px;background:#101e29;margin-top:13px;padding:0 12px}
+.manager-rivalry-receipts>summary{min-height:44px;padding:12px 2px;cursor:pointer;color:#f3d894;font-size:13px;font-weight:850}
+.manager-rivalry-receipts>summary:focus-visible{outline:3px solid #f3d38d;outline-offset:3px}
+.manager-rivalry-receipts ol{margin:0;padding:0 0 10px;list-style:none}
+.manager-rivalry-receipts li{display:grid;grid-template-columns:minmax(0,1fr) 52px auto;align-items:center;gap:8px;padding:10px 2px;border-top:1px solid #304857;font-size:12px}
+.manager-rivalry-receipts li strong,.manager-rivalry-receipts li small{display:block}
+.manager-rivalry-receipts li strong{color:#f5f2e8}
+.manager-rivalry-receipts li small{color:#afc4d0}
+.manager-rivalry-receipt-outcome{color:#f3d894;font-weight:800}
+.manager-rivalry-receipts li>span:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
