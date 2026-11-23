@@ -71,7 +71,9 @@ for(const pick of model){
  const leaguePoints=roundToMoney(leagueRows.reduce((s,r)=>s+r.points,0));
  const legacyRows=legacyStarts.get(roster+':'+id)||[];
  const legacyPoints=roundToMoney(legacyRows.reduce((s,r)=>s+r.points,0));
- const storedMatch=Math.abs(legacyPoints-pick.reg_starter_points)<=0.011&&legacyRows.length===pick.reg_starts;
+ const correctWindowMatch=Math.abs(ownedPoints-pick.reg_starter_points)<=0.011&&ownerRows.length===pick.reg_starts;
+ const legacyWindowMatch=Math.abs(legacyPoints-pick.reg_starter_points)<=0.011&&legacyRows.length===pick.reg_starts;
+ const storedMatch=correctWindowMatch||legacyWindowMatch;
  review.push({
   pick:pick.overall,round:pick.round,manager:pick.manager,original_roster:roster,
   player_id:id,provider_name:[p.metadata?.first_name,p.metadata?.last_name].filter(Boolean).join(' ')||null,
@@ -84,6 +86,7 @@ for(const pick of model){
   source_leaguewide_started_points:leaguePoints,source_leaguewide_starts:leagueRows.length,
   source_original_receipts:ownerRows,source_leaguewide_receipts:leagueRows,
   source_consistency:storedMatch?'MATCH':'MISMATCH',
+  archive_window_match:correctWindowMatch?'CORRECT_REGULAR_WINDOW':legacyWindowMatch?'LEGACY_14_WEEK_WINDOW':'NEITHER',
   name_difference:(pick.player.toLowerCase()!==([p.metadata?.first_name,p.metadata?.last_name].filter(Boolean).join(' ').toLowerCase()))?'DISPLAY_NAME_DIFFERENCE_NEVER_USE_FOR_IDENTITY':'NONE',
   existing_pick_grade:pick.grade,
   caveat:pick.traded_same_season?'Original-roster returns must not be treated as all-season draft selection value; trade compensation tracked separately':null
@@ -107,7 +110,7 @@ const report={schema:'fellas-'+target+'-original-draft-player-id-reconciliation-
  status:'RESEARCH_ONLY_PLAYER_ID_VERIFIED_NO_FINAL_GRADES',
  league_id:league,draft_id:draftId,regular_season_completed_weeks:playoffStart-1,archive_comparison_weeks:14,
  methodology:{source:'Original Sleeper draft pick_no, roster_id and player_id crosschecked against season-specific archived weekly starter player IDs',original_manager:'Count only starts by original drafting roster; do not attribute traded-away points back to drafting manager',leaguewide:'Sum the drafted player starter points for ALL managers, including subsequent trading counterparts, separately from original owner capture',grades:'No permanent historical grade from unadjusted PF; non-keeper peer opportunity cost plus verified trade compensation required'},
- counts:{drafted:review.length,manager_count:grouped.length,stored_point_or_start_differences:mismatches.length,existing_name_differences:review.filter(p=>p.name_difference!=='NONE').length,traded_same_season:review.filter(p=>p.traded_same_season).length,keeper_picks:review.filter(p=>p.is_keeper_archived).length},
+ counts:{drafted:review.length,manager_count:grouped.length,stored_point_or_start_differences:mismatches.length,legacy_window_only_matches:review.filter(p=>p.archive_window_match==='LEGACY_14_WEEK_WINDOW').length,existing_name_differences:review.filter(p=>p.name_difference!=='NONE').length,traded_same_season:review.filter(p=>p.traded_same_season).length,keeper_picks:review.filter(p=>p.is_keeper_archived).length},
  verified_picks:review,manager_descriptive_totals:grouped};
 fs.mkdirSync('data-integrity/historical-trade-draft-audits',{recursive:true});
 fs.writeFileSync('data-integrity/historical-trade-draft-audits/'+target+'-sleeper-draft-id-review.json',JSON.stringify(report,null,2)+'\n');
