@@ -3,13 +3,13 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const target=Number(process.env.FELLAS_DRAFT_YEAR||2025);
-assert([2023,2024,2025].includes(target));
+assert([2022,2023,2024,2025].includes(target));
 const latestLeague='1181421235163095040';
 const model=JSON.parse(fs.readFileSync('data/v9_draft_engine.json','utf8')).filter(p=>p.year===target);
 const season=JSON.parse(fs.readFileSync('data/player_starts_'+target+'.json','utf8'));
 assert.equal(model.length,150);
 assert.deepEqual(season.weeks.map(w=>w.week),Array.from({length:14},(_,i)=>i+1));
-const managers=new Map([[1,'Stilly'],[2,target===2023?'EvansBrandon':'JMid'],[3,'Tom'],[4,'Stew'],[5,target===2023?'Koble':'Scott'],[6,'Mitch'],[7,'Tony'],[8,'Stover'],[9,'Kuhl'],[10,'Birch']]);
+const managers=new Map([[1,'Stilly'],[2,target<=2023?'EvansBrandon':'JMid'],[3,'Tom'],[4,'Stew'],[5,target<=2023?'Koble':'Scott'],[6,'Mitch'],[7,'Tony'],[8,'Stover'],[9,'Kuhl'],[10,'Birch']]);
 const api=async url=>{
  const response=await fetch(url,{signal:AbortSignal.timeout(30000)});
  if(!response.ok)throw Error('Sleeper HTTP '+response.status+' at '+url);
