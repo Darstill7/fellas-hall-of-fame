@@ -11,6 +11,10 @@ on:
       - 'scripts/research-boundary-adjusted-trade-returns.mjs'
       - 'scripts/research-trade-positional-surplus.mjs'
       - 'scripts/research-trade-model-sensitivity.mjs'
+      - 'scripts/research-manager-front-office.mjs'
+      - 'scripts/audit-2025-original-draft-player-ids.mjs'
+      - 'scripts/research-2025-draft-peer-returns.mjs'
+      - 'scripts/research-career-draft-returns.mjs'
       - '.github/workflows/audit-2024-trade-ownership-source.yml'
   workflow_dispatch:
 permissions:
@@ -49,6 +53,13 @@ jobs:
           node scripts/research-trade-positional-surplus.mjs
           node --check scripts/research-trade-model-sensitivity.mjs
           node scripts/research-trade-model-sensitivity.mjs
+          for year in 2020 2021 2022 2023 2024 2025; do
+            FELLAS_DRAFT_YEAR=$year node scripts/audit-2025-original-draft-player-ids.mjs
+            FELLAS_DRAFT_YEAR=$year node scripts/research-2025-draft-peer-returns.mjs
+          done
+          node scripts/research-career-draft-returns.mjs
+          node --check scripts/research-manager-front-office.mjs
+          node scripts/research-manager-front-office.mjs
       - name: Preserve research receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -64,5 +75,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/boundary-adjusted-trade-returns-research.json
             data-integrity/historical-trade-draft-audits/trade-positional-surplus-research.json
             data-integrity/historical-trade-draft-audits/trade-model-sensitivity-research.json
+            data-integrity/historical-trade-draft-audits/manager-front-office-research.json
+            data-integrity/historical-trade-draft-audits/career-draft-return-research.json
           retention-days: 30
           if-no-files-found: warn
