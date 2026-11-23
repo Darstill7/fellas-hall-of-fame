@@ -1,0 +1,28 @@
+name: Verify 2025 original drafted player IDs and starter PF
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit-2025-original-draft-player-ids.mjs'
+      - '.github/workflows/audit-2025-original-draft-ids.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  draft-id-attribution:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate read-only original draft ID reconciliation
+        run: |
+          node --check scripts/audit-2025-original-draft-player-ids.mjs
+          node scripts/audit-2025-original-draft-player-ids.mjs
+      - name: Preserve source audit for commissioner review
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2025-verified-draft-player-id-audit
+          retention-days: 30
+          path: data-integrity/historical-trade-draft-audits/2025-sleeper-draft-id-review.json
