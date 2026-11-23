@@ -14,7 +14,11 @@ if(staged.schema!=='fellas-sleeper-raw-trade-review-v1'||staged.status!=='REVIEW
 const listed=read('data/trade_museum_stage66.json');
 if(!Array.isArray(listed))throw Error('Audited museum must be an array');
 const ids=new Set(listed.map(x=>String(x.id)));
-const seen=new Set(),missing=[],alreadyListed=[];
+const listedById=new Map(listed.map(x=>[String(x.id),x]));
+// 2026 roster IDs are league-specific. Compare participant identity even for
+// already-listed trades so a reused ID cannot silently mask source drift.
+const rosterOwner=new Map([[1,'Stilly'],[2,'JMid'],[3,'Tom'],[4,'Stew'],[5,'Scott'],[6,'Mitch'],[7,'Tony'],[8,'Stover'],[9,'Kuhl'],[10,'Birch']]);
+const seen=new Set(),missing=[],alreadyListed=[],participantConflicts=[];
 for(const t of staged.trades){
  const id=String(t.transaction_id||'');
  if(!/^\d+$/.test(id)||seen.has(id))throw Error('Invalid/duplicate Sleeper trade '+id);
@@ -34,8 +38,19 @@ for(const t of staged.trades){
  if(raw.raw_draft_entries>0)raw.issues.push('Draft-pick fields present — reconcile against league prohibition; do not assert a valid draft-pick trade');
  if(raw.player_ids_in_adds.length!==raw.player_ids_in_drops.length)
   raw.issues.push('Incoming/outgoing ID counts differ — inspect provider ownership mapping');
- if(ids.has(id))alreadyListed.push(raw);
- else missing.push(raw);
+ if(ids.has(id)){
+  alreadyListed.push(raw);
+  const previous=listedById.get(id);
+  const expectedOwners=t.roster_ids.map(r=>rosterOwner.get(Number(r)));
+  const certifiedOwners=previous?.sides?.map(s=>s.manager)||[];
+  if(previous?.year!==2026||expectedOwners.some(name=>!name)||
+     expectedOwners.length!==certifiedOwners.length||
+     new Set(expectedOwners).size!==new Set(certifiedOwners).size||
+     expectedOwners.some(name=>!certifiedOwners.includes(name))){
+   raw.issues.push('Existing museum participant sides differ from current 2026 provider roster IDs');
+   participantConflicts.push(raw);
+  }
+ }else missing.push(raw);
 }
 missing.sort((a,b)=>a.week-b.week||a.transaction_id.localeCompare(b.transaction_id));
 const result={
@@ -43,6 +58,8 @@ const result={
  source:candidatePath, museum_source:'data/trade_museum_stage66.json',
  staged_completed_trades:staged.trades.length, museum_current_receipts:listed.length,
  matched_museum_ids:alreadyListed.length, new_provider_ids_awaiting_review:missing.length,
+ existing_ids_with_participant_conflicts:participantConflicts.length,
+ participant_conflicts:participantConflicts,
  review_queue:missing,
  disclaimers:[
   'A new provider ID is NOT automatically a publishable trade or proof of asset direction.',
@@ -56,6 +73,8 @@ const summary=[
  'Sleeper completed trade receipts through Week '+staged.through_week+': **'+staged.trades.length+'**',
  'Already listed by transaction ID: **'+alreadyListed.length+'**',
  'Not yet listed by transaction ID: **'+missing.length+'**',
+ 'Previously listed IDs with roster-identity conflicts: **'+participantConflicts.length+'**',
+ ...participantConflicts.map(t=>'- CONFLICT Week '+t.week+' · trade `'+t.transaction_id+'` · museum participants disagree with 2026 roster identity map; independently re-review before relying on receipt'),
  '',
  ...missing.map(t=>'- Week '+t.week+' · trade `'+t.transaction_id+'` · '+t.roster_ids.length+' roster participants · '+t.player_ids_in_adds.length+' raw additions · '+t.raw_faab_entries+' FAAB entries · '+t.raw_draft_entries+' pick entries'+(t.issues.length?' · review: '+t.issues.join('; '):'')),
  '',
