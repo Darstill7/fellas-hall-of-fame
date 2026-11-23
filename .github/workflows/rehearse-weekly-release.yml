@@ -10,6 +10,8 @@ on:
       - '.github/workflows/rehearse-weekly-release.yml'
       - '.github/workflows/prepare-approved-weekly-release.yml'
       - 'scripts/build-weekly-commissioner-review.mjs'
+      - 'scripts/test-approved-staging-pin.mjs'
+      - 'docs/WEEKLY_PUBLICATION.md'
       - 'scripts/scan-site-freshness.mjs'
       - 'data/site_freshness_config_v1.json'
   workflow_dispatch:
@@ -24,6 +26,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Execute exact reviewed weekly staging approval safeguard
+        run: node scripts/test-approved-staging-pin.mjs
       - name: Copy to disposable test workspace and create synthetic candidate
         run: |
           set -euo pipefail
