@@ -1,0 +1,30 @@
+name: Audit 2024 trade ownership and original lineup evidence
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit-2024-trade-ownership-source.mjs'
+      - '.github/workflows/audit-2024-trade-ownership-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  historical-ownership:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check audit syntax
+        run: node --check scripts/audit-2024-trade-ownership-source.mjs
+      - name: Reconcile original 2024 transactions and starter records
+        run: node scripts/audit-2024-trade-ownership-source.mjs
+      - name: Preserve research receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2024-trade-ownership-research
+          path: data-integrity/historical-trade-draft-audits/2024-ownership-review.json
+          retention-days: 30
+          if-no-files-found: warn
