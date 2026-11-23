@@ -42,6 +42,7 @@ on:
       - 'scripts/build-combined-trade-front-office-projection.mjs'
       - 'scripts/research-2026-live-acquisitions.mjs'
       - 'scripts/research-2026-acquisition-kickoff-evidence.py'
+      - 'scripts/research-historical-near-kickoff-independent.py'
       - 'scripts/build-combined-career-acquisitions.mjs'
       - 'scripts/build-front-office-site-candidate.mjs'
       - 'scripts/test-front-office-live-candidate-browser.mjs'
@@ -129,6 +130,7 @@ jobs:
           FELLAS_FULL_ERA=1 FELLAS_LIVE_INPUT=data-integrity/historical-trade-draft-audits/live-completed-regular-2026.json FELLAS_STATS_OUTPUT=data-integrity/historical-trade-draft-audits/full-era-career-statistics.json node scripts/build-frozen-regular-statistics.mjs
           node scripts/build-combined-trade-front-office-projection.mjs
           FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-acquisitions.mjs
+          python3 scripts/research-historical-near-kickoff-independent.py
           python3 scripts/research-2026-acquisition-kickoff-evidence.py
           node scripts/build-combined-career-acquisitions.mjs
           node scripts/build-front-office-site-candidate.mjs
@@ -167,6 +169,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/combined-trade-front-office-preview.json
             data-integrity/historical-trade-draft-audits/2026-live-acquisition-preview.json
             data-integrity/historical-trade-draft-audits/2026-live-acquisition-kickoff-evidence.json
+            data-integrity/historical-trade-draft-audits/historical-near-kickoff-independent-review.json
             data-integrity/historical-trade-draft-audits/combined-career-acquisition-preview.json
             data-integrity/historical-trade-draft-audits/front-office-site-candidate/
             data-integrity/historical-trade-draft-audits/career-draft-return-research.json
