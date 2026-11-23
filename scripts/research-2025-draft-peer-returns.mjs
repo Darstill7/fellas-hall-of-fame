@@ -3,7 +3,9 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const target=Number(process.env.FELLAS_DRAFT_YEAR||2025);
-assert([2024,2025].includes(target));
+assert([2023,2024,2025].includes(target));
+const expectedKeepers=target===2025?2:0;
+const expectedNonkeepers=15-expectedKeepers;
 const source=process.env.FELLAS_2025_DRAFT_ID_AUDIT||'data-integrity/historical-trade-draft-audits/'+target+'-sleeper-draft-id-review.json';
 const j=JSON.parse(fs.readFileSync(source,'utf8'));
 assert.equal(j.status,'RESEARCH_ONLY_PLAYER_ID_VERIFIED_NO_FINAL_GRADES');
@@ -12,7 +14,7 @@ assert.equal(j.counts.drafted,150);
 assert.equal(j.counts.stored_point_or_start_differences,0);
 const picks=j.verified_picks;
 const nonkeeper=picks.filter(p=>!p.is_keeper_archived);
-assert.equal(nonkeeper.length,130,'The 2025 season had 2 keeper picks per manager');
+assert.equal(nonkeeper.length,10*expectedNonkeepers,'Season-specific archived keeper count mismatch');
 const managers=[...new Set(picks.map(p=>p.manager))].sort();
 assert.equal(managers.length,10);
 const median=values=>{
@@ -44,7 +46,7 @@ const compare=nonkeeper.map(p=>{
 const unresolved=compare.filter(x=>!x.grade_eligible);
 const totalByManager=managers.map(manager=>{
  const own=compare.filter(p=>p.manager===manager);
- assert.equal(own.length,13,'Expected 13 nonkeeper selections for '+manager);
+ assert.equal(own.length,expectedNonkeepers,'Unexpected nonkeeper selections for '+manager);
  const eligible=own.filter(p=>p.grade_eligible);
  return {manager,total_nonkeeper_selections:own.length,eligible:eligible.length,
   uncovered_picks:own.filter(x=>!x.grade_eligible).map(x=>x.pick),
@@ -52,7 +54,7 @@ const totalByManager=managers.map(manager=>{
   total_peer_baseline:round(eligible.reduce((sum,x)=>sum+x.peer_median_points,0)),
   realized_selection_surplus:round(eligible.reduce((sum,x)=>sum+x.realized_selection_surplus,0)),
   original_roster_pf_from_nonkeepers:round(eligible.reduce((sum,x)=>sum+x.original_manager_started_points,0)),
-  confidence:eligible.length===13?'COMPLETE_NONKEEPER_PEER_COVERAGE':'PARTIAL_DO_NOT_RANK'};
+  confidence:eligible.length===expectedNonkeepers?'COMPLETE_NONKEEPER_PEER_COVERAGE':'PARTIAL_DO_NOT_RANK'};
 });
 const fullyCovered=unresolved.length===0;
 const ordered=fullyCovered?[...totalByManager].sort((a,b)=>b.realized_selection_surplus-a.realized_selection_surplus):[];
@@ -63,7 +65,7 @@ const ranked=ordered.map((x,index)=>({...x,
 const report={schema:'fellas-'+target+'-draft-peer-surplus-research-v1',season:target,
  status:fullyCovered?'RESEARCH_ONLY_OBSERVED_RETURN_TIERS_NOT_OFFICIAL':'RESEARCH_ONLY_INCOMPLETE_PEER_COVERAGE_NO_TIERS',
  source:'Original Sleeper draft IDs + complete season-specific regular season lineup player IDs',
- grading_scope:'13 nonkeeper selections per manager; selected year only; player started anywhere after being drafted regardless of team',
+ grading_scope:expectedNonkeepers+' nonkeeper selections per manager; selected year only; player started anywhere after being drafted regardless of team',
  baseline:'Median leaguewide season starter PF among >=4 different picks of same position within nearest expanding round window; no keepers; focal pick excluded from peers',
  adjustments_not_included:['Injury risk and pre-draft expectations','Trade counterpart compensation or transaction opportunity cost','Keeper cost vs alternate keepers','Waiver pickups and lineup choices','Playoff production','Past seasons and career sample','Lineup replacement-level counterfactual'],
  coverage:{picks_compared:compare.length,picks_without_four_peers:unresolved.length,full_grade_coverage:fullyCovered},
