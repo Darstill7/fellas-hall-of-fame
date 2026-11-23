@@ -1,7 +1,7 @@
 // Historical 2025 trade/draft source audit. Research-only; never modifies live Museum.
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-const league='1181235433425774592'; // resolved from archived 2025 Sleeper season; if mismatched, fail from source metadata
+const league='1181421235163095040'; // The Fellas 2025 Sleeper league ID, independently retrieved from connected league history
 const museum=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json','utf8')).filter(t=>t.year===2025);
 const season=JSON.parse(fs.readFileSync('data/player_starts_2025.json','utf8'));
 const drafts=JSON.parse(fs.readFileSync('data/v9_draft_engine.json','utf8')).filter(x=>x.year===2025);
@@ -30,7 +30,7 @@ const get=async(url)=>{
  if(!response.ok)throw Error('Sleeper source unavailable: HTTP '+response.status+' '+url);
  return response.json();
 };
-const API='https://api.sleeper.app/v1/league/'+(process.env.FELLAS_2025_LEAGUE_ID||league);
+const API='https://api.sleeper.app/v1/league/'+league;
 const leagueInfo=await get(API);
 assert.equal(String(leagueInfo.season),'2025','2025 league ID mismatch');
 const all=[];
@@ -93,7 +93,7 @@ const picks=drafts.map(d=>{
   status:pointsDiffer?'REVIEW_SOURCE_ATTRIBUTION_OR_NAME_MATCH':'NAME_MATCHED_WITHIN_TOLERANCE'};
 });
 const report={schema:'fellas-2025-trade-draft-historical-audit-v1',status:'RESEARCH_ONLY_NOT_CERTIFIED',
- league_id:String(leagueInfo.lease_id||leagueInfo.league_id||process.env.FELLAS_2025_LEAGUE_ID||league),
+ league_id:String(leagueInfo.league_id||league),
  regular_season_through_week:14,
  methods:{trade:'Original complete Sleeper adds recipient ID credited only when that ID is a starter on receiving roster strictly after the trade week through Week 14',draft:'Preliminary player NAME-based original-roster regular season starter cross-check; not proof of original drafted ID or ownership continuity',grade:'Do not recalculate manager grade from raw PF; keep picks drafted, traded, keeper-cost, posttrade and waivers distinct'},
  counts:{archived_2025_trades:audit.length,source_completed_trades:all.length,unarchived_provider_trade_ids:unarchived.length,
