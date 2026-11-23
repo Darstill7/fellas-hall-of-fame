@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'data-integrity/trade-recovery/2026-weeks1-12-provider-review-20261123.json'
+      - 'data-integrity/trade-recovery/2026-week11-precertification-20261123.json'
       - 'scripts/verify-recovered-trade-review.mjs'
       - '.github/workflows/verify-trade-recovery-review.yml'
       - 'data/trade_museum_stage66.json'
