@@ -51,7 +51,7 @@ const ledger=acqs.map(a=>{
   assert(!claimed.has(k),'Duplicate ownership receipt '+k);claimed.add(k);receipts.push(r);
  }
  const sum=rs=>rs.reduce((n,r)=>n+cents(r.points),0)/100;
- return {...a,year,manager:managers.get(a.roster),name:names.get(a.player_id)??null,position:positions.get(a.player_id)??null,exit_transaction:exit?.transaction_id??null,exit_week:exit?.week??null,strict_pf:sum(receipts),regular_pf:sum(receipts.filter(r=>r.phase==='regular')),postseason_calendar_pf:sum(receipts.filter(r=>r.phase==='postseason_calendar')),starts:receipts.length,receipts,boundary};
+ return {...a,year,manager:managers.get(a.roster),name:names.get(a.player_id)??null,position:positions.get(a.player_id)??null,exit_transaction:exit?.transaction_id??null,exit_ms:exit?Number(exit.status_updated):null,exit_week:exit?.week??null,strict_pf:sum(receipts),regular_pf:sum(receipts.filter(r=>r.phase==='regular')),postseason_calendar_pf:sum(receipts.filter(r=>r.phase==='postseason_calendar')),starts:receipts.length,receipts,boundary};
 });
 const live=read(root+'2026-live-trade-player-returns-research.json');assert.equal(live.completed_week,cutoff);
 for(const t of live.trades)for(const s of t.sides)for(const p of s.players){
