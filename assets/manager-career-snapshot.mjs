@@ -46,7 +46,7 @@ export function renderSnapshot(data){
   '<p class="manager-pulse-intro">Documented regular-season results only · '+esc(data.years[0])+'–'+esc(data.years.at(-1))+' · 2026 approved through Week '+data.week+'</p></div>'+
   '<a class="manager-pulse-more" href="../../managers/record-books.html?manager='+encodeURIComponent(data.manager)+'#career-first">Full career records →</a></div>'+
   '<div class="manager-pulse-grid" role="list">'+
-  [['Career record',record({w:data.wins,l:data.losses,t:data.ties}),'W–L'+(data.ties?'–T':'')],
+  [['Career win rate',dec(100*(data.wins+data.ties/2)/data.games)+'%','Ties count half a win'],
    ['Games',int(data.games),'Documented'],
    ['Points for',int(data.pf),'Regular season'],
    ['Points per game',dec(data.avgFor),'Scored'],
