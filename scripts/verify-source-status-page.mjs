@@ -16,7 +16,7 @@ assert.ok(html.includes('green pull request')===false,'Avoid falsely presenting 
 assert.ok(html.includes('A green pull request does not independently prove deployed Pages parity'),'CI must not be mistaken for Pages deployment');
 assert.ok(!html.includes('standings through Week 6')&&!html.includes('v9 REVIEW BUILD'),'Historical preview labels must not masquerade as current scope');
 
-assert.match(ledger.updated,/^\\d{4}-\\d{2}-\\d{2}$/,'Canonical source update date must be explicit');
+assert.match(ledger.updated,/^\d{4}-\d{2}-\d{2}$/,'Canonical source update date must be explicit');
 const matches=ledger.games.filter(g=>g.year===2026&&g.stage==='regular'&&Number.isFinite(g.homeScore)&&Number.isFinite(g.awayScore));
 const weeks=[...new Set(matches.map(g=>g.week).filter(w=>Number.isInteger(w)&&w>=1&&w<=18))].sort((a,b)=>a-b);
 assert.ok(weeks.every((w,i)=>w===i+1),'Canonical 2026 source weeks must not contain unexplained gaps');
