@@ -40,15 +40,15 @@ For verified multi-manager player trades, create and review `data-integrity/trad
       "date": "YYYY-MM-DD",
       "faab_reviewed": true,
       "sides": [
-        {"roster_id": 1, "manager": "Stilly", "assets": ["VERIFIED_RECEIVED_PLAYER"]},
-        {"roster_id": 2, "manager": "JMid", "assets": ["VERIFIED_RECEIVED_PLAYER"]}
+        {"roster_id": 1, "manager": "Stilly", "assets": [{"player_id": "12345", "name": "REVIEWED_PLAYER_A"}]},
+        {"roster_id": 2, "manager": "JMid", "assets": [{"player_id": "67890", "name": "REVIEWED_PLAYER_B"}]}
       ]
     }
   ]
 }
 ```
 
-*This is a schema example, not a real trade or approved score.* Confirm every asset-direction and roster mapping against Sleeper. Current team roster IDs are versioned in the importer. Three-team transfers require all sides. Unknown or FAAB-only transfers stay in the research queue; unexpected draft-pick fields are blocked. Preserve historical trade statistics.
+*This is a schema example, not a real trade or approved score.* A certification **must use the new ID-bound `assets` objects**, each with the exact Sleeper `player_id` and the commissioner-reviewed player `name`. The importer now checks that **every** raw `adds` player is covered exactly once, assigned to the correct receiving roster, and has a distinct sending roster in raw `drops`. Sleeper defense IDs can be alphabetic (for example `MIN`) and are valid player IDs. Name-only legacy asset arrays are rejected. A player ID proves direction, **not** that the human-entered display name is correct; manually verify each name against the season-specific player ID map and source receipt. Confirm every asset-direction and roster mapping against Sleeper. Current 2026 roster-ID to manager mapping is defined in the importer and must be independently reviewed if ownership changes. Three-team transfers require all sides and **all received player IDs**. FAAB details must be manually verified; `faab_reviewed=true` records review but does not encode the complete amounts or directions. Unknown or FAAB-only transfers stay in the research queue; unexpected draft-pick fields are blocked. Preserve historical trade statistics.
 
 Then use **Actions → Prepare commissioner-approved Trade Museum release**, enter the certification week, `APPROVE_TRADES`, and `trade_staging_commit=<reviewed 40-character SHA>` (workflow input `staging_commit`). The workflow refuses if the staging branch has changed since the trade certificate and original provider receipts were reviewed; review the new head rather than approving a moving target. The workflow retrieves the staged source, checks participants and source IDs, runs a no-write dry-run, imports newly certified trades as **ungraded**, validates museum parity and opens a separate PR. **No automatic merge or publication.** Trade starter points only appear after an independent production audit; `null` is displayed as “Not audited,” not zero.
 
