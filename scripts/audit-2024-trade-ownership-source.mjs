@@ -2,15 +2,17 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const get=async path=>{const r=await fetch('https://api.sleeper.app/v1/'+path,{signal:AbortSignal.timeout(30000)});assert(r.ok,'Sleeper HTTP '+r.status+' '+path);return r.json()};
+const target=Number(process.env.FELLAS_OWNERSHIP_YEAR||2024);
+assert([2024,2025].includes(target));
 const newer=await get('league/1181421235163095040');
 assert.equal(String(newer.season),'2025');
-const id=String(newer.previous_league_id);
+const id=target===2025?String(newer.league_id):String(newer.previous_league_id);
 const league=await get('league/'+id);
-assert.equal(String(league.season),'2024');
+assert.equal(String(league.season),String(target));
 assert.equal(Number(league.settings.playoff_week_start),15);
 const names=new Map([[1,'Stilly'],[2,'JMid'],[3,'Tom'],[4,'Stew'],[5,'Scott'],[6,'Mitch'],[7,'Tony'],[8,'Stover'],[9,'Kuhl'],[10,'Birch']]);
-const archive=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json','utf8')).filter(t=>t.year===2024);
-const starts=JSON.parse(fs.readFileSync('data/player_starts_2024.json','utf8'));
+const archive=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json','utf8')).filter(t=>t.year===target);
+const starts=JSON.parse(fs.readFileSync('data/player_starts_'+target+'.json','utf8'));
 assert.equal(archive.length,8);
 assert.deepEqual(starts.weeks.map(w=>w.week),Array.from({length:14},(_,i)=>i+1));
 const transactions=[];
@@ -80,8 +82,8 @@ for(const a of archive){
  }
  results.push({id:String(t.transaction_id),week:t.week,sides:sideAudits,nonplayer_assets:{faab:t.waiver_budget||[],draft_picks:t.draft_picks||[]}});
 }
-const report={status:'RESEARCH_ONLY_NOT_CERTIFIED',league_id:id,season:2024,archive_trades:archive.length,source_completed_trades:trades.length,unarchived_trades:trades.filter(t=>!archive.some(a=>String(a.id)===String(t.transaction_id))).map(t=>({id:String(t.transaction_id),week:t.week})),regular_lineup_source_differences:sourceDifferences,trade_results:results,limitations:['Acquisition and exit weeks excluded pending lock-time evidence','Postseason calendar points not necessarily championship-bracket points','No replacement-adjusted grades','Roster identity mapping must be crosschecked with provider usernames before publication']};
+const report={status:'RESEARCH_ONLY_NOT_CERTIFIED',league_id:id,season:target,archive_trades:archive.length,source_completed_trades:trades.length,unarchived_trades:trades.filter(t=>!archive.some(a=>String(a.id)===String(t.transaction_id))).map(t=>({id:String(t.transaction_id),week:t.week})),regular_lineup_source_differences:sourceDifferences,trade_results:results,limitations:['Acquisition and exit weeks excluded pending lock-time evidence','Postseason calendar points not necessarily championship-bracket points','No replacement-adjusted grades','Roster identity mapping must be crosschecked with provider usernames before publication']};
 fs.mkdirSync('data-integrity/historical-trade-draft-audits',{recursive:true});
-fs.writeFileSync('data-integrity/historical-trade-draft-audits/2024-ownership-review.json',JSON.stringify(report,null,2)+'\n');
-console.log('2024 SOURCE RESEARCH '+JSON.stringify({league:id,trades:trades.length,archived:archive.length,unarchived:report.unarchived_trades,sourceDifferences:sourceDifferences.length,boundaryStarts:results.flatMap(t=>t.sides).flatMap(s=>s.players).reduce((n,p)=>n+p.boundary.length,0)}));
+fs.writeFileSync('data-integrity/historical-trade-draft-audits/'+target+'-ownership-review.json',JSON.stringify(report,null,2)+'\n');
+console.log(target+' SOURCE RESEARCH '+JSON.stringify({league:id,trades:trades.length,archived:archive.length,unarchived:report.unarchived_trades,sourceDifferences:sourceDifferences.length,boundaryStarts:results.flatMap(t=>t.sides).flatMap(s=>s.players).reduce((n,p)=>n+p.boundary.length,0)}));
 for(const t of results)console.log('TRADE '+t.id+' '+JSON.stringify(t.sides.map(s=>({manager:s.manager,archive:s.archive_points,regular:s.regular_pf,postseason:s.postseason_calendar_pf,players:s.players.map(p=>({id:p.player_id,exit:p.exit_transaction,boundary:p.boundary}))}))));
