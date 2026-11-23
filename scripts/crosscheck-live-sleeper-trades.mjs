@@ -51,6 +51,22 @@ for(const t of review.trades){
     issues.push('Raw receipt contradicts sending side: '+t.id+'/'+p.player_id);
   }
  }
+ const budgets=Array.isArray(raw.waiver_budget)?raw.waiver_budget:[];
+ for(const b of budgets){
+  if(!owners.has(Number(b.sender))||!owners.has(Number(b.receiver))||
+     Number(b.sender)===Number(b.receiver)||!Number.isFinite(Number(b.amount))||Number(b.amount)<0)
+   issues.push('Raw FAAB transfer is malformed or outside participating rosters: '+t.id);
+ }
+ for(const side of t.participants){
+  const recv=budgets.filter(b=>Number(b.receiver)===side.roster_id).reduce((sum,b)=>sum+Number(b.amount),0);
+  const gave=budgets.filter(b=>Number(b.sender)===side.roster_id).reduce((sum,b)=>sum+Number(b.amount),0);
+  if(side.faab_acquired!==null&&recv!==Number(side.faab_acquired))
+   issues.push('Normalized FAAB acquired differs from raw sender/receiver amounts: '+t.id+'/'+side.manager);
+  if(side.faab_gave_up!==null&&gave!==Number(side.faab_gave_up))
+   issues.push('Normalized FAAB sent differs from raw sender/receiver amounts: '+t.id+'/'+side.manager);
+  if(side.faab_acquired===null&&recv>0||side.faab_gave_up===null&&gave>0)
+   issues.push('Raw FAAB transaction component not shown in normalized side: '+t.id+'/'+side.manager);
+ }
  if(Object.keys(adds).length!==receiverSeen.size)issues.push('Raw adds count differs from normalized player list: '+t.id);
  if(Object.keys(drops).length!==senderSeen.size)issues.push('Raw drops count differs from normalized player list: '+t.id);
  for(const [player,to] of Object.entries(adds)){
@@ -83,6 +99,7 @@ fs.mkdirSync('data-integrity/trade-recovery',{recursive:true});
 fs.writeFileSync(target,JSON.stringify(out,null,2)+'\n');
 console.log('RAW RECEIPT REVIEW: '+all.length+' complete raw trades in Weeks 0–12; '+review.trades.length+' normalized snapshot; '+additional.length+' additional; '+issues.length+' integrity issues.');
 console.log('Raw FAAB-bearing IDs: '+rawEvidence.filter(x=>x.manual_faab_review_required).map(x=>x.id).join(', '));
+for(const x of rawEvidence.filter(x=>x.manual_faab_review_required))console.log('Raw FAAB source detail '+x.id+': '+JSON.stringify(x.raw_waiver_budget));
 if(process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
  '## Raw Sleeper source cross-check (unapproved)\n\n- Raw completed transactions Weeks 0–12: **'+all.length+'**\n- Normalized snapshot IDs: **'+review.trades.length+'**\n- Additional raw IDs: **'+additional.length+'**\n- Source integrity issues: **'+issues.length+'**\n- Archived or new raw transactions are **not commissioner-certified**. Download artifact for exact FAAB, player IDs and manager-source review.\n');
 if(issues.length){
