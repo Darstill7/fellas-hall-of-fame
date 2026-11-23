@@ -14,7 +14,7 @@ export function decisionEvidence(enrichment,stories,trades,manager){
  if(w&&w.confidence==='verified-acquisition-and-subsequent-starts'&&Number.isInteger(w.creditedStarts)&&Number.isFinite(w.starterPoints)&&w.creditedStarts>0&&w.year<=2026){
   waiver={player:w.player,year:w.year,week:w.acquisitionWeek,kind:w.acquisitionType,starts:w.creditedStarts,points:w.starterPoints,transactionId:w.transactionId};
  }
- const available=trades.filter(t=>Array.isArray(t.sides)&&t.sides.some(s=>s.manager===manager||s.manager===nameForTrade(manager)));
+ const available=trades.filter(t=>Array.isArray(t.sides)&&t.sides.some(s=>(s.manager===manager||s.manager===nameForTrade(manager))&&s.source_status==='VERIFIED_SOURCE'));
  // The research candidate is not a universal winner; display only when its
  // ID matches a recorded participant-side receipt and the year is complete.
  const candidate=profile.bestTradeCandidate;
