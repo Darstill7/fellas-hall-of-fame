@@ -9,7 +9,7 @@ assert.equal(j.counts.drafted,150);
 assert.equal(j.counts.stored_point_or_start_differences,0);
 const picks=j.verified_picks;
 const nonkeeper=picks.filter(p=>!p.is_keeper_archived);
-assert.equal(nonkeeper.length,130,'The 2024 season had 2 keeper picks per manager');
+assert.equal(nonkeeper.length,150,'All 2024 archive picks currently have keeper=false; verify keeper provenance before cross-year grading');
 const managers=[...new Set(picks.map(p=>p.manager))].sort();
 assert.equal(managers.length,10);
 const median=values=>{
@@ -41,7 +41,7 @@ const compare=nonkeeper.map(p=>{
 const unresolved=compare.filter(x=>!x.grade_eligible);
 const totalByManager=managers.map(manager=>{
  const own=compare.filter(p=>p.manager===manager);
- assert.equal(own.length,13,'Expected 13 nonkeeper selections for '+manager);
+ assert.equal(own.length,15,'Expected 15 archive-unflagged selections for '+manager);
  const eligible=own.filter(p=>p.grade_eligible);
  return {manager,total_nonkeeper_selections:own.length,eligible:eligible.length,
   uncovered_picks:own.filter(x=>!x.grade_eligible).map(x=>x.pick),
@@ -49,21 +49,21 @@ const totalByManager=managers.map(manager=>{
   total_peer_baseline:round(eligible.reduce((sum,x)=>sum+x.peer_median_points,0)),
   realized_selection_surplus:round(eligible.reduce((sum,x)=>sum+x.realized_selection_surplus,0)),
   original_roster_pf_from_nonkeepers:round(eligible.reduce((sum,x)=>sum+x.original_manager_started_points,0)),
-  confidence:eligible.length===13?'COMPLETE_2024_NONKEEPER_PEER_COVERAGE':'PARTIAL_DO_NOT_RANK'};
+  confidence:eligible.length===15?'COMPLETE_SOURCE_OBSERVED_2024_PICK_COVERAGE_KEEPER_FLAGS_UNVERIFIED':'PARTIAL_DO_NOT_RANK'};
 });
-const fullyCovered=unresolved.length===0;
+const fullyCovered=unresolved.length===0&&j.counts.keeper_picks===0; // comparability is limited until historic keeper flags are independently reviewed
 const ordered=fullyCovered?[...totalByManager].sort((a,b)=>b.realized_selection_surplus-a.realized_selection_surplus):[];
 const ranked=ordered.map((x,index)=>({...x,
  observed_return_rank:index+1,
  observed_return_tier:index<2?'A':index<4?'B':index<6?'C':index<8?'D':'F',
  tier_warning:'2024 observed realized draft selection return tier ONLY, not career GM ability, ex ante skill or official site grade'}));
 const report={schema:'fellas-2024-draft-peer-surplus-research-v1',
- status:fullyCovered?'RESEARCH_ONLY_2024_OBSERVED_RETURN_TIERS_NOT_OFFICIAL':'RESEARCH_ONLY_INCOMPLETE_PEER_COVERAGE_NO_TIERS',
+ status:fullyCovered?'RESEARCH_ONLY_2024_OBSERVED_RETURN_TIERS_KEEPER_PROVENANCE_UNVERIFIED':'RESEARCH_ONLY_INCOMPLETE_PEER_COVERAGE_NO_TIERS',
  source:'Original Sleeper 2024 draft IDs + complete 2024 regular season lineup player IDs',
  grading_scope:'13 nonkeeper selections per manager; 2024 year only; player started anywhere after being drafted regardless of team',
  baseline:'Median leaguewide 2024 starter PF among >=4 different picks of same position within nearest expanding round window; no keepers; focal pick excluded from peers',
  adjustments_not_included:['Injury risk and pre-draft expectations','Trade counterpart compensation or transaction opportunity cost','Keeper cost vs alternate keepers','Waiver pickups and lineup choices','Playoff production','Past seasons and career sample','Lineup replacement-level counterfactual'],
- coverage:{picks_compared:compare.length,picks_without_four_peers:unresolved.length,full_grade_coverage:fullyCovered},
+ coverage:{picks_compared:compare.length,picks_without_four_peers:unresolved.length,full_grade_coverage:fullyCovered,keeper_metadata:'2024 archived picks all keeper=false; Sleeper historical draft feed does not independently establish keeper flags'},
  manager_summary:totalByManager,experimental_2024_ranking:ranked,unresolved_picks:unresolved,selection_evidence:compare};
 fs.mkdirSync('data-integrity/historical-trade-draft-audits',{recursive:true});
 fs.writeFileSync('data-integrity/historical-trade-draft-audits/2024-draft-peer-return-research.json',JSON.stringify(report,null,2)+'\n');
