@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'scripts/import-reviewed-trade-museum.mjs'
+      - 'scripts/review-staged-trades.mjs'
+      - 'scripts/test-review-staged-trades.mjs'
       - 'scripts/test-import-reviewed-trade-museum.mjs'
       - '.github/workflows/verify-trade-player-directions.yml'
       - 'docs/WEEKLY_PUBLICATION.md'
@@ -21,4 +23,6 @@ jobs:
       - run: node --check scripts/import-reviewed-trade-museum.mjs
       - run: node --check scripts/test-import-reviewed-trade-museum.mjs
       - run: node scripts/test-import-reviewed-trade-museum.mjs
+      - run: node --check scripts/review-staged-trades.mjs
+      - run: node scripts/test-review-staged-trades.mjs
       - run: node scripts/verify-trade-museum-scope.mjs
