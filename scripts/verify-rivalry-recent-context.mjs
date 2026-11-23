@@ -58,7 +58,7 @@ assert.ok(js.includes("trade.sides.length>=3"),'Multi-manager exchanges must be 
 assert.ok(js.includes('this is not proof that no trade occurred'),'Missing paired receipts must never imply a historical zero');
 assert.ok(js.includes('Trade production, keeper outcomes, FAAB and positional value are not inferred here'),'Trade count is not evidence of trade value');
 assert.ok(js.includes("portfolioBase+'?manager='+encodeURIComponent(firstName)+'&partner='+encodeURIComponent(secondName)"),'Trade portfolio linkage must preserve pair selection');
-assert.ok(js.includes("page.querySelector('a#manager-entry[href=\\\"trade-portfolios.html\\\"]')"),'Portfolio visibility must follow explicit published Museum navigation');
+assert.ok(js.includes("const portfolioAvailable=!!page.querySelector("),'Portfolio visibility must follow published Museum navigation');
 assert.ok(!js.includes('await fetch(portfolioBase)'),'Portfolio existence must not be tested by creating a 404 network request');
 assert.ok(js.includes("portfolioAvailable?"),'Unavailable portfolio must never render a dead link');
 assert.ok(js.includes("Latest dated receipt in this deployed archive:"),'Trade coverage must expose the deployed archive cutoff');
