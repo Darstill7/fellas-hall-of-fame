@@ -79,13 +79,17 @@ for(const [slug,name] of Object.entries(managers)){
  snapshots.push({manager:name,games:r.games,record:r.wins+'-'+r.losses+(r.ties?'-'+r.ties:''),week:r.week});
 }
 const fixture={games:[
- {year:2026,week:1,stage:'regular',home:'A',away:'B',homeScore:50,awayScore:40},
+ {year:2026,week:1,stage:'regular',home:'A',away:'B',homeScore:50.01,awayScore:50},
  {year:2026,week:1,stage:'regular',home:'C',away:'D',homeScore:40,awayScore:50},
  {year:2026,week:1,stage:'regular',home:'E',away:'F',homeScore:70,awayScore:20},
  {year:2026,week:1,stage:'regular',home:'G',away:'H',homeScore:30,awayScore:30},
  {year:2026,week:1,stage:'regular',home:'I',away:'J',homeScore:80,awayScore:90}
  ],updated:'2026-09-01'};
 assert.equal(careerSnapshot(fixture,'A').wins,1);
+const closeReceipt=renderRivalryComparison(rivalryBreakdown(careerSnapshot(fixture,'A'),'B'));
+assert.ok(closeReceipt.includes('+0.01'),'Hundredth-point game margins must not round to zero');
+assert.ok(closeReceipt.includes('50.01–50.00'),'Exact scores must retain two decimals');
+
 const tide=careerSnapshot(fixture,'G');
 assert.equal(tide.seasons[0].t,1,'Season trajectory must count tied matchups');
 assert.equal(tide.seasons[0].w,0,'Tie must not count as full win');
