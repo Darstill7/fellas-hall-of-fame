@@ -1,0 +1,30 @@
+name: Verify Front Office mobile browsers
+on:
+  pull_request:
+    paths:
+      - 'assets/manager-front-office.mjs'
+      - 'assets/manager-career-snapshot.mjs'
+      - 'assets/manager-career-snapshot.css'
+      - 'scripts/test-browser-manager-front-office.mjs'
+      - 'managers/**/index.html'
+      - '.github/workflows/verify-manager-front-office-browser.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check browser test syntax
+        run: node --check scripts/test-browser-manager-front-office.mjs
+      - name: Install Chromium and WebKit
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Test manager front-office drawers on phone-size pages
+        run: node scripts/test-browser-manager-front-office.mjs
