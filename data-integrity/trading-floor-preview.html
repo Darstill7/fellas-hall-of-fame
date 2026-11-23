@@ -68,7 +68,7 @@ function playerCard(parent,player){
  fallback();
  const src=portraits.get(id);
  if(src){const img=el('img');img.alt='';img.decoding='async';img.addEventListener('error',fallback,{once:true});img.src=src;frame.replaceChildren(img);}
- const copy=add(card,'div',undefined,'player-copy');add(copy,'b',name);
+ const copy=add(card,'div',undefined,'player-copy');const link=add(copy,'a',name);link.href='player-encyclopedia-preview.html?player='+encodeURIComponent(id);link.title='Open player encyclopedia; load its local research file';
  if(player.position)add(copy,'small',player.position);
  return copy;
 }
