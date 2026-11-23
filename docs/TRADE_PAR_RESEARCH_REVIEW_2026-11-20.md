@@ -3,6 +3,21 @@
 **Pull request:** #276 (draft; unmerged)  
 **Interpretation:** Observed post-trade starter production relative to a proposed replacement baseline. NOT trade decision quality or all-time franchise value.
 
+## External historical projection archive leads — November 23
+
+A targeted external source search identified two actionable, **not-yet-approved** paths for historical player-level projections:
+
+1. **hvpkod/NFL-Data** — https://github.com/hvpkod/NFL-Data — describes historical NFL.com weekly projected and actual football statistics from 2015 onward. A separate historical research project reports 2021–2025 weekly forecast rows from that dataset. **Critical unresolved gate:** whether the specific published projection rows were captured or frozen before each relevant player’s game lock, instead of being later snapshots or reconstructed values; crosswalk to historical Sleeper player IDs; underlying NFL.com use and publication rights.
+2. **Fantasy Football Analytics** — https://fantasyfootballanalytics.net/fantasy-football-analytics-api — describes historical weekly projections from 2015 onward. **Critical unresolved gate:** access rights and terms, the per-week forecast version and issuance timestamp, player-level scoring identity, and independent verification of historical lock-time eligibility.
+
+A third-party method description at https://github.com/coolstick784/draft-goblin-public/blob/main/docs/PROJECTIONS.md highlights avoiding `TotalPoints` and `ProjectionDiff` as prediction inputs when evaluating the hvpkod feed. This is **secondary methodological support**, not original timestamp or licensing evidence.
+
+The versioned `data/trade_projection_source_candidates_2020_2025_v1.json` and `scripts/verify-trade-projection-source-candidates.mjs` record these as **research candidates only** and enforce `prelockReplacementCertified=false`, `autoImportApproved=false`, and `publishProviderRowsApproved=false`. No proprietary forecast data were downloaded into the site; no PAR/WAR or user-facing trade grade was altered.
+
+**Recommended qualification sequence:** confirm an archive commit/file capture timestamp before individual games, verify that the saved row is genuinely a forecast rather than postgame revision, prove a stable identity and scoring-format crosswalk, reconstruct historical injury/roster/bench and game-lock state, and separately document permitted private computation and public derived reporting. Only then backtest on held-out years.
+
+---
+
 ## Projection source inventory and model hardening — November 23
 
 A repository-level source audit (`scripts/audit-trade-projection-source-readiness.mjs`) checked the editorial `shitter/2026-week-10/projection-receipts.json` alongside the 2025 experimental starter benchmark and the 2020–2025 trade research. The **2026 Week 10** editorial receipt contains third-party pregame *estimates* for lineups, but is date-stamped only, has no per-player issue/lock timestamp, and belongs to a different season. It **cannot** establish decision-time evidence for 2020–2025 trade returns. The 2025 experimental baseline is a postgame scorer benchmark rather than an archived pregame projection feed. Existing source files therefore remain **not qualified** for historical trading-skill WAR.
