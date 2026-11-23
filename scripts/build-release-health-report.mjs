@@ -29,7 +29,7 @@ function requiredChecks(runs,number,expectedSha){
  const sorted=[...(runs||[])].sort((a,b)=>String(b.created_at||'').localeCompare(String(a.created_at||'')));
  const required=new Set(REQUIRED_BY_PR[number]||['canonical']);
  return REQUIRED.map(req=>{
-  const run=sorted.find(r=>req.terms.includes(r.name)&&(!r.head_sha||r.head_sha===expectedSha));
+  const run=sorted.find(r=>req.terms.includes(r.name)&&r.head_sha===expectedSha);
   const isRequired=required.has(req.key);
   return {key:req.key,label:req.label,required:isRequired,state:!run&&!isRequired?'NOT_APPLICABLE':status(run),runId:run?.id??null,url:run?.html_url??null};
  });
