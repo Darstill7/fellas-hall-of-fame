@@ -59,7 +59,7 @@ assert.ok(js.includes('this is not proof that no trade occurred'),'Missing paire
 assert.ok(js.includes('Trade production, keeper outcomes, FAAB and positional value are not inferred here'),'Trade count is not evidence of trade value');
 assert.ok(js.includes("trade-portfolios.html?manager="),'Trade portfolio linkage must preserve pair selection');
 assert.ok(js.includes("await fetch(portfolioBase)"),'Portfolio link must probe the deployed destination first');
-assert.ok(js.includes("s.includes('id=\\\"tradePartner\\\"')"),'Portfolio probe must verify the actual portfolio page, not an arbitrary 200 response');
+assert.ok(js.includes("s.includes('id=\"tradePartner\"')"),'Portfolio probe must verify the actual portfolio page, not an arbitrary 200 response');
 assert.ok(js.includes("portfolioAvailable?"),'Unavailable portfolio must never render a dead link');
 assert.ok(js.includes("Latest dated receipt in this deployed archive:"),'Trade coverage must expose the deployed archive cutoff');
 assert.ok(js.includes("Expanded manager trade portfolios are not published"),'Missing portfolio must display a safe fallback');
