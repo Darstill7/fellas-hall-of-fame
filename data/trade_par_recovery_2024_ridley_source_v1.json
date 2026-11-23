@@ -1,0 +1,91 @@
+{
+  "schema": "fellas-par-missing-starter-evidence-v1",
+  "status": "source_checked_pending_integration",
+  "sourcePlatform": "Sleeper",
+  "accessMethod": "Flaim Fantasy historical Sleeper roster",
+  "season": 2024,
+  "leagueId": "1134248931308802048",
+  "rosterId": "2",
+  "rosterOwner": "JMidd",
+  "manager": "JMid",
+  "tradeId": "1141777905656143872",
+  "tradeWeek": 2,
+  "tradeDate": "2024-09-17",
+  "player": {
+    "name": "Calvin Ridley",
+    "sleeperPlayerId": "4981"
+  },
+  "evidence": {
+    "scope": "Regular-season Weeks 3–14, strictly after trade Week 2",
+    "weeklyRosterObservations": [
+      {
+        "week": 3,
+        "slot": "bench",
+        "points": 1.4
+      },
+      {
+        "week": 4,
+        "slot": "bench",
+        "points": 2
+      },
+      {
+        "week": 5,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 6,
+        "slot": "bench",
+        "points": 0.9
+      },
+      {
+        "week": 7,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 8,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 9,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 10,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 11,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 12,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 13,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 14,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      }
+    ],
+    "verifiedPostTradeStarts": 0,
+    "verifiedPostTradeStarterPoints": 0
+  },
+  "notes": [
+    "Calvin Ridley was benched on JMid's roster Weeks 3–6 and absent from that roster's snapshots Weeks 7–14.",
+    "Do not infer exact departure date, receiving new owner, or NFL game participation from weekly roster slots.",
+    "Older v9 raw starter-point totals covered more than this single received asset and must not be used as direct PAR.",
+    "Staged for final complete two-sided scoring review only."
+  ]
+}

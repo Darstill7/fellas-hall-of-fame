@@ -1,0 +1,115 @@
+name: Verify Trade Museum 2.0
+on:
+  pull_request:
+    paths:
+      - 'analytics/trade-museum.html'
+      - 'analytics/trade-portfolios.html'
+      - 'analytics/trade-plus-minus.html'
+      - 'data/trade_par_preview.json'
+      - 'analytics/greatest-worst-trades.html'
+      - 'scripts/verify-trade-museum-2.mjs'
+      - 'scripts/audit-trade-par-recovery.mjs'
+      - 'scripts/audit-trade-par-historical-crosswalk.mjs'
+      - 'scripts/audit-inline-js.mjs'
+      - 'data/v9_trade_engine.json'
+      - 'data/trade_par_recovery_2025_ertz_source_v1.json'
+      - 'data/trade_par_recovery_2024_mostert_source_v1.json'
+      - 'data/trade_par_recovery_2024_aiyuk_source_v1.json'
+      - 'data/trade_par_recovery_2025_tuten_source_v1.json'
+      - 'scripts/verify-trade-par-roster-proofs.mjs'
+      - 'scripts/verify-trade-par-start-ledger-parity.mjs'
+      - 'scripts/audit-trade-par-baseline-identifiability.mjs'
+      - 'scripts/audit-trade-par-bench-source-readiness.mjs'
+      - 'scripts/audit-trade-par-clean-roster-readiness.mjs'
+      - 'scripts/audit-trade-par-slot-feasibility.mjs'
+      - 'scripts/audit-trade-decision-time-provenance.mjs'
+      - 'scripts/audit-trade-projection-source-readiness.mjs'
+      - 'data/trade_projection_source_candidates_2020_2025_v1.json'
+      - 'scripts/verify-trade-projection-source-candidates.mjs'
+      - 'shitter/2026-week-10/projection-receipts.json'
+      - 'data/war_2025_starter_benchmark_audit.json'
+      - 'scripts/trade-prelock-replacement-engine.mjs'
+      - 'scripts/test-trade-prelock-replacement-engine.mjs'
+      - 'data/trade_par_slot_feasibility_2020_2025_v1.json'
+      - 'scripts/verify-trade-par-era-settings.mjs'
+      - 'scripts/audit-trade-par-raw-starter-accounting.mjs'
+      - 'scripts/build-trade-raw-starter-ledger.mjs'
+      - 'data/trade_raw_starter_accounting_2020_2025_v1.json'
+      - 'data/trade_par_era_lineup_settings_2020_2025_v1.json'
+      - 'data/sleeper_roster_snapshots_20*.json'
+      - 'data/war_rosters_2025_week7.json'
+      - 'scripts/audit-trade-par-baseline-provenance.mjs'
+      - 'scripts/audit-trade-par-playoff-boundary.mjs'
+      - 'data/playoff_explorer_verified_2016_2025_v1.json'
+      - 'FELLAS_WAR_METHOD.md'
+      - 'data/player_starts_20*.json'
+      - 'scripts/audit-trade-par-promotion-candidates.mjs'
+      - 'data/trade_par_exception_2025_evans_zero_point_start_v1.json'
+      - 'data/trade_par_exception_2025_diggs_baseline_v1.json'
+      - 'data/trade_par_recovery_2024_dowdle_source_v1.json'
+      - 'data/trade_par_recovery_2024_ridley_source_v1.json'
+      - 'data/trade_par_recovery_2025_brian_thomas_source_v1.json'
+      - 'scripts/test-browser-trade-museum-2.mjs'
+      - '.github/workflows/verify-trade-museum-2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-trade-museum:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax-check new historical source and replacement research scripts before expensive browser setup
+        run: |
+          node --check scripts/audit-trade-projection-source-readiness.mjs
+          node --check scripts/verify-trade-projection-source-candidates.mjs
+          node --check scripts/audit-trade-decision-time-provenance.mjs
+          node --check scripts/trade-prelock-replacement-engine.mjs
+          node --check scripts/test-trade-prelock-replacement-engine.mjs
+      - name: Check embedded receipt integrity, JS syntax and museum navigation
+        run: node scripts/verify-trade-museum-2.mjs
+      - name: Publish incomplete trade PAR research audit
+        run: node scripts/audit-trade-par-recovery.mjs --github-summary
+      - name: Audit historical starter-point evidence without grading
+        run: node scripts/audit-trade-par-historical-crosswalk.mjs --github-summary
+      - name: Validate historical roster proof windows and provenance
+        run: node scripts/verify-trade-par-roster-proofs.mjs --github-summary
+      - name: Preflight six zero-start candidate PAR comparisons without publication
+        run: node scripts/audit-trade-par-promotion-candidates.mjs --github-summary
+      - name: Independently reconcile post-trade starter points with historical lineup ledgers
+        run: node scripts/verify-trade-par-start-ledger-parity.mjs --github-summary
+      - name: Flag uncertified PAR weekly replacement benchmark provenance
+        run: node scripts/audit-trade-par-baseline-provenance.mjs --github-summary
+      - name: Show replacement-baseline identifiability constraints
+        run: node scripts/audit-trade-par-baseline-identifiability.mjs --github-summary
+      - name: Audit manager-bench snapshot evidence before independent PAR design
+        run: node scripts/audit-trade-par-bench-source-readiness.mjs --github-summary
+      - name: Audit season-aware regular-season cutoffs against recovered playoff brackets
+        run: node scripts/audit-trade-par-playoff-boundary.mjs --github-summary
+      - name: Check original roster ownership and bench evidence for 13 postseason-clean trades
+        run: node scripts/audit-trade-par-clean-roster-readiness.mjs --github-summary
+      - name: Verify six seasons of half-PPR dual-FLEX league settings and true playoff weeks
+        run: node scripts/verify-trade-par-era-settings.mjs --github-summary
+      - name: Verify reconstructed 18/24 raw trade scores against every original source starter week
+        run: node scripts/build-trade-raw-starter-ledger.mjs --github-summary
+      - name: Report 18/24 zero-sum received starter point research
+        run: node scripts/audit-trade-par-raw-starter-accounting.mjs --github-summary
+      - name: Audit 254 acquired-player starter slots and FLEX-eligible bench candidates without assigning WAR
+        run: node scripts/audit-trade-par-slot-feasibility.mjs --github-summary
+      - name: Audit missing pregame projection and lock-time source provenance
+        run: node scripts/audit-trade-decision-time-provenance.mjs --github-summary
+      - name: Distinguish 2026 editorial projections from missing historical prelock trade evidence
+        run: node scripts/audit-trade-projection-source-readiness.mjs --github-summary
+      - name: Require provenance and use-rights review for historical projection candidates
+        run: node scripts/verify-trade-projection-source-candidates.mjs --github-summary
+      - name: Test source-gated synthetic prelock RB WR TE and dual FLEX matching
+        run: node scripts/test-trade-prelock-replacement-engine.mjs
+      - name: Install browser runtime for mobile museum checks
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Exercise Trade Museum on mobile Chromium and WebKit
+        run: node scripts/test-browser-trade-museum-2.mjs

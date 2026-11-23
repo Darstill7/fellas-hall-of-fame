@@ -1,0 +1,86 @@
+{
+  "schema": "fellas-par-missing-starter-evidence-v1",
+  "status": "source_checked_pending_integration",
+  "sourcePlatform": "Sleeper",
+  "accessMethod": "Flaim Fantasy historical Sleeper roster",
+  "season": 2025,
+  "leagueId": "1181421235163095040",
+  "rosterId": "10",
+  "rosterOwner": "birchhh",
+  "manager": "Birch",
+  "tradeId": "1276373761972527104",
+  "tradeWeek": 3,
+  "tradeDate": "2025-09-24",
+  "player": {
+    "name": "Bhayshul Tuten",
+    "sleeperPlayerId": "12490"
+  },
+  "evidence": {
+    "scope": "Regular-season Weeks 4–14, strictly after trade Week 3",
+    "weeklyRosterObservations": [
+      {
+        "week": 4,
+        "slot": "bench",
+        "points": 2.7
+      },
+      {
+        "week": 5,
+        "slot": "bench",
+        "points": 1.6
+      },
+      {
+        "week": 6,
+        "slot": "bench",
+        "points": 3.8
+      },
+      {
+        "week": 7,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 8,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 9,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 10,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 11,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 12,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 13,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 14,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      }
+    ],
+    "verifiedPostTradeStarts": 0,
+    "verifiedPostTradeStarterPoints": 0
+  },
+  "notes": [
+    "Weeks 4–6 Tuten was on Birch's bench; Weeks 7–14 absent from roster snapshots.",
+    "The 2.7, 1.6 and 3.8 are bench player scores, not started production.",
+    "Do not infer the date or reason Tuten left Birch's roster.",
+    "The receiving side remains ungraded until the full scoring re-audit."
+  ]
+}

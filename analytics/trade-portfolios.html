@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a131b"><title>Manager Trade Portfolios | The Fellas</title>
+<meta name="description" content="Source-backed manager trade portfolios from The Fellas Trade Museum archive.">
+<style>
+:root{color-scheme:dark;--bg:#0a131b;--panel:#142734;--line:#395366;--gold:#e9c982;--text:#f5f0e8;--muted:#b5c8d2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#213849,#0a131b 60%);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--gold)}a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+header{border-bottom:1px solid var(--line);background:#0d1a25}header .bar{max-width:1080px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:16px;flex-wrap:wrap}header strong{color:var(--gold);letter-spacing:.1em}header nav{display:flex;gap:15px;flex-wrap:wrap}header nav a{min-height:44px;display:inline-flex;align-items:center;font-size:13px;font-weight:750}
+main{max-width:1080px;margin:auto;padding:34px 16px 90px}.eyebrow{text-transform:uppercase;font-size:11px;color:var(--gold);letter-spacing:.16em;font-weight:900}
+h1{font:700 clamp(37px,7vw,68px)/1.06 Georgia,serif;letter-spacing:-.04em;margin:10px 0 13px}h2{font:700 clamp(25px,4vw,38px)/1.2 Georgia,serif;margin:6px 0 13px}p{max-width:74ch}
+.lead{font-size:17px;color:#d0dee4}.muted{color:var(--muted)}.notice{padding:15px 18px;border:1px solid #826e4c;border-left:4px solid var(--gold);border-radius:12px;background:#182a35;line-height:1.65}
+.controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:28px 0 16px}.controls label{display:grid;gap:6px;font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--gold);text-transform:uppercase}.controls select{background:#132938;color:var(--text);border:1px solid #5e798b;padding:11px 14px;border-radius:10px;font:inherit;min-width:min(270px,calc(100vw - 32px));min-height:48px}.controls a{display:inline-flex;align-items:center;min-height:48px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 20px}.stat{padding:17px;background:var(--panel);border:1px solid var(--line);border-radius:13px}.stat strong{display:block;font-size:clamp(25px,4vw,36px);color:var(--gold);font-variant-numeric:tabular-nums}.stat span{font-size:12px;color:var(--muted)}
+.section-head{border-top:1px solid var(--line);padding-top:25px;margin-top:27px}.timeline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.receipt{background:linear-gradient(140deg,#1c3342,#11232f);border:1px solid #455d6e;border-radius:14px;padding:18px;min-width:0}.receipt .tag{color:var(--gold);font-size:11px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.receipt h3{font-size:20px;margin:8px 0}.receipt p{margin:8px 0;overflow-wrap:anywhere}.receipt .received{background:#0e202a;border-left:3px solid var(--gold);padding:10px 12px}.receipt .actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:13px;font-weight:800}.receipt .actions a{min-height:44px;display:inline-flex;align-items:center}.empty{background:var(--panel);padding:20px;border:1px solid var(--line);border-radius:12px}
+#status{font-size:14px}.rivalry{border-top:1px solid var(--line);padding-top:25px;margin-top:30px}
+.rivalry-picker{display:flex;align-items:end;flex-wrap:wrap;gap:12px;margin:16px 0}
+.rivalry-picker label{display:grid;gap:6px;font-size:12px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
+.rivalry-picker select{min-height:46px;background:#132938;border:1px solid #5e798b;border-radius:9px;color:var(--text);padding:10px;font:inherit;max-width:100%}
+.rivalry-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:16px 0}
+.rivalry-summary .stat{padding:14px}
+.rivalry-ledger{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.rivalry-ledger .receipt{border-color:#65727a}
+.rivalry-ledger .receipt h3{font-size:17px}
+.rivalry-help{font-size:13px;color:var(--muted);line-height:1.6}
+@media(max-width:650px){.rivalry-ledger{grid-template-columns:1fr}.rivalry-picker{display:grid}.rivalry-picker select{width:100%}}
+.impact-head{border-top:1px solid var(--line);padding-top:25px;margin-top:28px}
+.impact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.impact-case{border:1px solid #596b69;background:linear-gradient(145deg,#213746,#10212c);border-radius:14px;padding:17px;min-width:0}
+.impact-case h3{margin:8px 0;font-size:20px;line-height:1.25}
+.impact-case p{margin:8px 0}
+.impact-metric{color:var(--gold);font-size:24px;font-weight:850;font-variant-numeric:tabular-nums}
+.impact-case small{display:block;color:var(--muted);line-height:1.5}
+.impact-case a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;font-weight:800;margin-top:8px}
+.impact-note{font-size:13px;color:var(--muted);line-height:1.65;margin-top:16px}
+@media(max-width:650px){.impact-grid{grid-template-columns:1fr}}
+.all-managers{margin-top:30px}.manager-links{display:flex;flex-wrap:wrap;gap:8px}.manager-links a{border:1px solid #526878;background:#162b39;border-radius:9px;padding:9px 12px;text-decoration:none;min-height:44px}.manager-links a[aria-current="page"]{border-color:var(--gold);color:#fff0be}
+@media(max-width:650px){.timeline{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stat{padding:11px}.stat strong{font-size:24px}.controls{display:grid}.controls select{width:100%}}
+@media(max-width:350px){.stats{grid-template-columns:1fr}}
+</style></head>
+<body><header><div class="bar"><strong>THE FELLAS</strong><nav aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../managers/">Managers</a><a href="trade-museum.html">Trade Museum</a><a href="greatest-worst-trades.html">Greatest & Worst</a><a href="trade-plus-minus.html">Trade +/-</a></nav></div></header>
+<main><div class="eyebrow">Trade Museum · Franchise archive</div><h1>Manager Trade<br>Portfolios</h1><p class="lead">Every documented deal has a story. Follow the players a franchise received, who else was involved, and which receipts are confirmed. This is transaction history, not a verdict on who won.</p>
+<div class="notice">Coverage is limited to the Trade Museum's current archived receipts. The latest dated transaction does <strong>not</strong> prove complete season coverage. Starter-point snapshots, where available, are historical audit checkpoints—not live production or keeper-value rankings.</div>
+<div class="controls"><label for="manager">Choose a franchise<select id="manager" aria-label="Choose manager trade portfolio"><option value="">Loading documented managers…</option></select></label><a id="franchiseLink" href="../managers/">View franchise profile →</a></div>
+<p id="status" role="status" aria-live="polite" class="muted">Reading verified museum receipts…</p>
+<div id="portfolio" hidden><div class="eyebrow" id="managerName"></div><div class="stats"><div class="stat"><strong id="total"></strong><span>Archived trades involving manager</span></div><div class="stat"><strong id="complete"></strong><span>Complete verified receipts</span></div><div class="stat"><strong id="seasons"></strong><span>Seasons represented</span></div></div>
+<section class="rivalry" id="rivalrySection" aria-labelledby="rivalryHeading"><div class="eyebrow">Source-backed franchise connections</div><h2 id="rivalryHeading">Trade partners &amp; rivalries</h2><p class="muted">Explore every recorded exchange involving two managers. A three-manager deal is counted <strong>once</strong> for each participating pair; the exchange may also involve a third franchise.</p><div class="rivalry-picker"><label for="tradePartner">Compare with a trade partner<select id="tradePartner" aria-label="Choose a trading counterpart"><option value="">Choose a trade partner</option></select></label></div><p class="rivalry-help" id="partnerCoverage" role="status"></p><div class="rivalry-summary" id="rivalryStats" hidden><div class="stat"><strong id="sharedTrades"></strong><span>Documented shared transactions</span></div><div class="stat"><strong id="verifiedSharedTrades"></strong><span>Complete source-qualified receipts</span></div><div class="stat"><strong id="threeWaySharedTrades"></strong><span>Three-or-more-manager trades</span></div></div><div id="rivalryLedger" class="rivalry-ledger" aria-live="polite"></div></section>
+<section class="impact-head" aria-labelledby="impactHeading"><div class="eyebrow">Verified playoff evidence · 2020–2025</div><h2 id="impactHeading">Impact &amp; legacy</h2><p class="muted">Selected championship-run starter appearances traced to received players and verified playoff box scores. Not a trade-win ranking, keeper valuation, or an estimate of what would have happened without the deal.</p><div id="impactGrid" class="impact-grid"></div><p id="impactStatus" class="impact-note" role="status">Loading independently verified playoff evidence…</p></section>
+<section class="section-head" id="keeperStory" aria-labelledby="keeperStoryTitle" hidden><div class="eyebrow">Documented keeper-era turning point</div><h2 id="keeperStoryTitle">A three-team deal that carried forward</h2><div class="notice"><p>The museum's commissioner-confirmed history records Stilly acquiring Amon-Ra St. Brown in a November 12, 2025 three-team exchange with JMid and Tom. Amon-Ra was then retained as a 2026 keeper. This is a verified historical connection, <strong>not</strong> a complete keeper-value or trade-winner calculation.</p><a href="trade-museum.html?trade=1294402688213057536">Inspect the original three-team receipt →</a></div></section>
+<section class="section-head" aria-labelledby="historyHeading"><div class="eyebrow">The transaction ledger</div><h2 id="historyHeading">Documented acquisitions</h2><p class="muted" id="coverage"></p><div class="timeline" id="timeline"></div></section></div>
+<section class="all-managers section-head" aria-label="Other manager trade portfolios"><div class="eyebrow">Continue exploring</div><h2>Another franchise's history</h2><div class="manager-links" id="managerLinks"></div></section>
+</main>
+<script type="module">
+const $=id=>document.getElementById(id);
+const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const canonical=name=>String(name||'').toLowerCase()==='thommy'?'tom':String(name||'').toLowerCase();
+const complete=trade=>trade.sides.length>=2&&new Set(trade.sides.map(s=>s.manager)).size===trade.sides.length&&trade.sides.every(s=>s.source_status==='VERIFIED_SOURCE'&&typeof s.assets==='string'&&s.assets.trim());
+const active=new Set(['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott']);
+const profileUrl=name=>active.has(canonical(name))?'../managers/'+encodeURIComponent(canonical(name))+'/':'record-books.html?manager='+encodeURIComponent(name==='EvansBrandon'?'Evans':name);
+let archive=[];
+let impactSource=null;
+const showImpact=(name,trades)=>{
+ const container=$('impactGrid'),status=$('impactStatus');
+ const ids=new Set(trades.filter(complete).map(t=>String(t.id)));
+ const evidence=Array.isArray(impactSource?.qualifiedPlayoffReceipts)?impactSource.qualifiedPlayoffReceipts:[];
+ const matched=evidence.filter(r=>canonical(r.champion)===canonical(name)&&ids.has(String(r.tradeId)))
+ .sort((a,b)=>b.year-a.year||(a.round==='championship'?-1:1));
+ if(!impactSource){container.innerHTML='';status.textContent='Independent playoff evidence is currently unavailable. No impact values have been estimated.';return}
+ container.innerHTML=matched.map(r=>{
+  const players=r.players.map(p=>escapeHtml(p.name)+' ('+Number(p.points).toFixed(2)+' pts)').join(', ');
+  const scored=Number(r.totalAcquiredStarterPoints).toFixed(2);
+  const margin=Number(r.margin).toFixed(2);
+  return '<article class="impact-case"><div class="eyebrow">'+escapeHtml(r.year)+' · '+escapeHtml(r.round)+' · Week '+escapeHtml(r.week)+'</div><h3>'+escapeHtml(r.received)+'</h3><div class="impact-metric">'+scored+' observed starter pts</div><p>Documented acquiring champion: '+escapeHtml(r.champion)+'</p><p>Verified starters: '+players+'</p><small>Winning margin: '+margin+' points. Exceeding the margin does not prove the trade caused the win; replacement lineups were not established.</small><a href="trade-museum.html?trade='+encodeURIComponent(String(r.tradeId))+'">Open verified trade receipt →</a></article>';
+ }).join('');
+ status.textContent=matched.length
+  ? matched.length+' verified playoff game/trade matches for this acquiring champion in completed 2020–2025 seasons. A trade can appear twice if its players started both the semifinal and championship; these are not unique trades.'
+  : 'No qualifying acquired-player championship playoff starter matches are established for this manager in the current research scope. This does not mean their trades had no effect.';
+};
+
+function renderRivalry(name,trades,requestedPartner){
+ const partnerSet=new Set(trades.flatMap(t=>t.sides.filter(s=>canonical(s.manager)!==canonical(name)).map(s=>s.manager)));
+ const partners=[...partnerSet].sort((a,b)=>a.localeCompare(b));
+ const selector=$('tradePartner');
+ selector.innerHTML='<option value="">Choose a trade partner</option>'+partners.map(partner=>'<option value="'+escapeHtml(partner)+'">'+escapeHtml(partner)+'</option>').join('');
+ const selected=partners.find(partner=>canonical(partner)===canonical(requestedPartner))||'';
+ selector.value=selected;
+ showRivalry(name,trades,selected);
+}
+function showRivalry(name,trades,partner){
+ const url=new URL(window.location.href);
+ if(partner)url.searchParams.set('partner',partner);else url.searchParams.delete('partner');
+ window.history.replaceState(null,'',url);
+ const partnerTrades=partner?trades.filter(t=>t.sides.some(s=>canonical(s.manager)===canonical(partner))):[];
+ $('rivalryStats').hidden=!partner;
+ if(!partner){
+  $('partnerCoverage').textContent='Select a documented counterpart to view shared transactions. The current archive is incomplete and cannot establish all-time trade volume.';
+  $('rivalryLedger').innerHTML='';return
+ }
+ $('sharedTrades').textContent=partnerTrades.length.toLocaleString();
+ $('verifiedSharedTrades').textContent=partnerTrades.filter(complete).length.toLocaleString();
+ $('threeWaySharedTrades').textContent=partnerTrades.filter(t=>t.sides.length>=3).length.toLocaleString();
+ $('partnerCoverage').textContent='Documented transactions involving both '+name+' and '+partner+' within the available museum archive. This is not a win/loss record, all-time total, or ranking of trade partners.';
+ $('rivalryLedger').innerHTML=partnerTrades.map(t=>{
+  const participants=t.sides.map(s=>s.manager).join(' · ');
+  const own=t.sides.find(s=>canonical(s.manager)===canonical(name));
+  const theirs=t.sides.find(s=>canonical(s.manager)===canonical(partner));
+  return '<article class="receipt"><div class="tag">'+escapeHtml(t.year)+' · Week '+escapeHtml(t.week??'?')+' · '+(complete(t)?'Complete receipt':'Research only · incomplete')+'</div><h3>'+escapeHtml(t.date)+'</h3><p class="muted">'+escapeHtml(participants)+'</p><p><strong>'+escapeHtml(name)+' received:</strong> '+escapeHtml(own.assets||'Not established')+'</p><p><strong>'+escapeHtml(partner)+' received:</strong> '+escapeHtml(theirs.assets||'Not established')+'</p><div class="actions"><a href="trade-museum.html?trade='+encodeURIComponent(String(t.id))+'">Open source receipt →</a></div></article>';
+ }).join('')||'<p class="empty">No matching documented transactions in this archive.</p>';
+}
+function render(name){
+ // Only source-qualified incoming sides are eligible for any impact attribution.
+ const selected=archive.find(t=>t.sides.some(s=>canonical(s.manager)===canonical(name)));
+ const options=[...$('manager').options];
+ const option=options.find(o=>canonical(o.value)===canonical(name));
+ if(!option){$('status').textContent='No archived receipts found for that manager. Choose another franchise.';$('portfolio').hidden=true;return}
+ name=option.value;$('manager').value=name;
+ const trades=archive.filter(t=>t.sides.some(s=>canonical(s.manager)===canonical(name))).sort((a,b)=>b.date.localeCompare(a.date));
+ const verified=trades.filter(complete),years=new Set(trades.map(t=>t.year));
+ $('keeperStory').hidden=!(canonical(name)==='stilly'&&trades.some(t=>String(t.id)==='1294402688213057536'&&complete(t)));
+ $('portfolio').hidden=false;$('managerName').textContent=name+' · Museum portfolio';$('total').textContent=trades.length.toLocaleString();$('complete').textContent=verified.length.toLocaleString();$('seasons').textContent=years.size.toLocaleString();$('franchiseLink').href=profileUrl(name);
+ $('status').textContent='Viewing '+name+' · '+trades.length+' documented receipts in this archived collection.';
+ renderRivalry(name,trades,new URL(window.location.href).searchParams.get('partner'));
+ showImpact(name,trades);
+ $('coverage').textContent=trades.length?'Recorded seasons: '+[...years].sort().join(', ')+'. Latest dated receipt: '+trades[0].date+'. These figures describe only available museum records.':'No available transactions in this snapshot.';
+ $('timeline').innerHTML=trades.length?trades.map(t=>{
+ const own=t.sides.find(s=>canonical(s.manager)===canonical(name));
+ const others=t.sides.filter(s=>canonical(s.manager)!==canonical(name)).map(s=>s.manager).join(' · ');
+ const raw=own.raw_starter_points==null?'Not audited':Number(own.raw_starter_points).toFixed(2)+' audit-snapshot starter points';
+ const status=complete(t)?'Documented complete exchange':'Research receipt · incomplete evidence';
+ return '<article class="receipt"><div class="tag">'+escapeHtml(t.year)+' · Week '+escapeHtml(t.week??'?')+' · '+escapeHtml(status)+'</div><h3>'+escapeHtml(t.date)+'</h3><p class="muted">With '+escapeHtml(others||'unconfirmed counterparty')+'</p><p class="received"><strong>Received</strong><br>'+escapeHtml(own.assets||'Assets not established')+'</p><p class="muted">'+escapeHtml(raw)+'</p><div class="actions"><a href="trade-museum.html?trade='+encodeURIComponent(String(t.id))+'">Open source receipt →</a><a href="'+escapeHtml(profileUrl(name))+'">Franchise profile →</a></div></article>';
+ }).join(''):'<p class="empty">No documented exchanges for this manager.</p>';
+ $('managerLinks').innerHTML=options.filter(o=>o.value).map(o=>'<a '+(o.value===name?'aria-current="page" ':'')+'href="?manager='+encodeURIComponent(o.value)+'">'+escapeHtml(o.value)+'</a>').join('');
+ const url=new URL(window.location.href);url.searchParams.set('manager',name);window.history.replaceState(null,'',url);
+}
+try{
+ const response=await fetch('trade-museum.html',{cache:'no-store'});if(!response.ok)throw Error('Archive could not be read (HTTP '+response.status+')');
+ const html=await response.text();const doc=new DOMParser().parseFromString(html,'text/html');
+ const node=doc.querySelector('#archive-data');if(!node)throw Error('Archived transaction source is unavailable');
+ archive=JSON.parse(node.textContent);if(!Array.isArray(archive))throw Error('Invalid archive source');
+ try{
+  const evidenceResponse=await fetch('../data/championship_trade_impact_receipts_2020_2025_v1.json',{cache:'no-store'});
+  if(!evidenceResponse.ok)throw Error('Impact research unavailable');
+  const candidate=await evidenceResponse.json();
+  if(candidate.schema!=='fellas-championship-trade-impact-receipts-v1'||!Array.isArray(candidate.qualifiedPlayoffReceipts))throw Error('Impact research schema mismatch');
+  impactSource=candidate;
+ }catch{impactSource=null}
+
+ const names=[...new Set(archive.flatMap(t=>t.sides.map(s=>s.manager)))].sort((a,b)=>a.localeCompare(b));
+ $('manager').innerHTML=names.map(n=>'<option value="'+escapeHtml(n)+'">'+escapeHtml(n)+'</option>').join('');
+ $('manager').addEventListener('change',()=>{const url=new URL(window.location.href);url.searchParams.delete('partner');window.history.replaceState(null,'',url);render($('manager').value)});
+ $('tradePartner').addEventListener('change',()=>{const current=$('manager').value;const trades=archive.filter(t=>t.sides.some(s=>canonical(s.manager)===canonical(current))).sort((a,b)=>b.date.localeCompare(a.date));showRivalry(current,trades,$('tradePartner').value)});
+ const requested=new URL(window.location.href).searchParams.get('manager');
+ render(names.find(n=>canonical(n)===canonical(requested))||names.find(n=>canonical(n)==='stilly')||names[0]);
+}catch(error){$('status').textContent='Museum receipts are unavailable right now; no portfolio totals have been estimated. '+error.message;$('portfolio').hidden=true}
+</script></body></html>

@@ -1,0 +1,87 @@
+{
+  "schema": "fellas-par-starter-zero-score-exception-v1",
+  "status": "source_checked_requires_scoring_baseline",
+  "sourcePlatform": "Sleeper",
+  "accessMethod": "Flaim Fantasy historical Sleeper roster",
+  "season": 2025,
+  "leagueId": "1181421235163095040",
+  "rosterId": "8",
+  "rosterOwner": "yogurtslinger15",
+  "manager": "Stover",
+  "tradeId": "1276326233327570944",
+  "tradeWeek": 3,
+  "tradeDate": "2025-09-24",
+  "player": {
+    "name": "Mike Evans",
+    "sleeperPlayerId": "2216",
+    "position": "WR"
+  },
+  "evidence": {
+    "scope": "Regular-season Weeks 4–14, strictly after trade Week 3",
+    "weeklyRosterObservations": [
+      {
+        "week": 4,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 5,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 6,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 7,
+        "slot": "starter",
+        "points": 0
+      },
+      {
+        "week": 8,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 9,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 10,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 11,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 12,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 13,
+        "slot": "bench",
+        "points": 0
+      },
+      {
+        "week": 14,
+        "slot": "bench",
+        "points": 0
+      }
+    ],
+    "postTradeLineupStarts": 1,
+    "postTradeStarterPoints": 0
+  },
+  "requiredReview": "A lineup start with 0 fantasy points is not a zero-start asset. Apply that week's verified WR replacement baseline to calculate its position-relative PAR; ensure week 7 matchup and scoring provenance, then reconcile the complete two-side trade. Do not promote this trade as zero PAR or zero starts.",
+  "notes": [
+    "Week 7 shows Mike Evans in Stover's starting slot with zero fantasy points. This does not prove the player participated in the NFL game.",
+    "The other ten later-week roster snapshots show Evans on the bench with zero points.",
+    "This exception is excluded from the four zero-start promotion-preflight cases and from all currently qualified PAR trade rankings."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema": "fellas-par-missing-starter-evidence-v1",
+  "status": "source_checked_pending_integration",
+  "sourcePlatform": "Sleeper",
+  "accessMethod": "Flaim Fantasy historical Sleeper roster",
+  "season": 2024,
+  "leagueId": "1134248931308802048",
+  "rosterId": "3",
+  "rosterOwner": "thommy",
+  "manager": "Tom",
+  "tradeId": "1146946436173623296",
+  "tradeWeek": 4,
+  "tradeDate": "2024-10-01",
+  "player": {
+    "name": "Rico Dowdle",
+    "sleeperPlayerId": "7021"
+  },
+  "evidence": {
+    "scope": "Regular-season Weeks 5–14, strictly after trade Week 4",
+    "weeklyRosterObservations": [
+      {
+        "week": 5,
+        "slot": "bench",
+        "points": 17.4
+      },
+      {
+        "week": 6,
+        "slot": "bench",
+        "points": 8
+      },
+      {
+        "week": 7,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 8,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 9,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 10,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 11,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 12,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 13,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      },
+      {
+        "week": 14,
+        "slot": "absent_from_roster_snapshot",
+        "points": null
+      }
+    ],
+    "verifiedPostTradeStarts": 0,
+    "verifiedPostTradeStarterPoints": 0
+  },
+  "notes": [
+    "This is Tom roster 3 only, not the ownership history of Rico Dowdle across every franchise.",
+    "Two bench appearances in Weeks 5–6 and absence in Weeks 7–14 support zero credited post-trade starts for Tom.",
+    "Do not infer exact drop, transfer, or transaction dates from an absent weekly snapshot.",
+    "The earlier historical side totals are not position-relative post-trade PAR. No grade promotion."
+  ]
+}

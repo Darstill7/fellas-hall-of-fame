@@ -1,0 +1,83 @@
+{
+  "schema": "fellas-historical-projection-source-candidates-v1",
+  "status": "research_only_no_historical_trade_model_promotions",
+  "updatedAsOf": "2026-11-23",
+  "scoringContext": "Half-PPR, QB RB RB WR WR TE FLEX FLEX DEF, seasons 2020-2025. Never infer a historical player projection from final points.",
+  "minimumQualification": [
+    "verified forecast issuance or immutable collection timestamp before each candidate's NFL game lock",
+    "player ID crosswalk to historical Sleeper ID and position",
+    "season/week game identity, half-PPR scoring compatibility or recalculable projected stats",
+    "historical receiving-team bench ownership and activity status as of lineup decision",
+    "provider rights for automated reuse, retention and public-derived displays",
+    "reproducible versioned source capture with original file hash",
+    "no postgame edits or actual/ProjectionDiff fields used as predictor"
+  ],
+  "candidates": [
+    {
+      "id": "hvpkod-nfl-data",
+      "name": "hvpkod/NFL-Data weekly NFL.com historical projections",
+      "url": "https://github.com/hvpkod/NFL-Data",
+      "coverageClaim": "README reports historical records since 2015; actual 2020 directory only has season files, while sampled 2021–2025 weekly directories include projected player CSV/JSON",
+      "potential": "High relevance; weekly player forecast fields exist, likely sufficient to conduct coverage crosswalk",
+      "provenanceStatus": "2024_sample_commit_postgame_and_2020_weekly_absent_not_certified",
+      "criticalBlocker": "No 2020 weekly archive found in current public tree. Sample 2024 Week10 RB projected CSV contains PlayerWeekProjectedPts alongside TotalPoints and ProjectionDiff; file has a Nov13 2024 commit after Week10 games began. That file cannot be certified as a prelock frozen snapshot from its archived commit alone. Verify earlier immutable snapshots, timestamp and identity for each week.",
+      "licenseStatus": "Repo marked MIT; rights to reuse underlying Fantasy.NFL.com data and public redistribution unverified",
+      "promotionAllowed": false,
+      "sampleEvidence": {
+        "sourceFile": "https://raw.githubusercontent.com/hvpkod/NFL-Data/main/NFL-data-Players/2024/10/projected/RB_projected.csv",
+        "columnNames": [
+          "PlayerName",
+          "PlayerId",
+          "PlayerWeekProjectedPts",
+          "TotalPoints",
+          "ProjectionDiff"
+        ],
+        "sourceChangeCommit": "9703592c37463c09c71acedab6eab0208d9fc634",
+        "sourceChangeCommitTimeUTC": "2024-11-13T00:35:25Z",
+        "gitHistoryUrl": "https://github.com/hvpkod/NFL-Data/commits/main/NFL-data-Players/2024/10/projected/RB_projected.csv",
+        "conclusion": "Sample archive file was updated after the 2024 Week10 slate; issue-time before individual kickoff not established"
+      }
+    },
+    {
+      "id": "ffa-historical-weekly",
+      "name": "Fantasy Football Analytics historical weekly projections",
+      "url": "https://fantasyfootballanalytics.net/fantasy-football-analytics-api",
+      "coverageClaim": "Provider reports archived weekly projections since 2015",
+      "potential": "Aggregated weekly forecast and player rows may permit validation against actuals",
+      "provenanceStatus": "not_certified_as_prelock_snapshot",
+      "criticalBlocker": "Need season/week/person per-snapshot capture time and permissible access plan, model/scoring rules, license, and as-of original forecasts",
+      "licenseStatus": "Historic archive/API access terms and public publishing rights need review",
+      "promotionAllowed": false
+    },
+    {
+      "id": "draft-goblin-hvpkod-methodology",
+      "name": "Independent hvpkod source-methodology assessment (not original source)",
+      "url": "https://github.com/coolstick784/draft-goblin-public/blob/main/docs/PROJECTIONS.md",
+      "coverageClaim": "Third-party project reports 2021-2025 weekly projected-versus-actual rows from hvpkod",
+      "potential": "Useful independent source field and identity/split-leakage notes; not a new forecast archive",
+      "provenanceStatus": "methodology_secondary_not_primary_evidence",
+      "criticalBlocker": "Assess original dataset's timestamps and terms; a third party's backtest does not prove prelock archival provenance",
+      "licenseStatus": "Do not copy or redistribute underlying NFL.com source without rights review",
+      "promotionAllowed": false
+    }
+  ],
+  "rejectedForHistoricalPrelock": [
+    {
+      "id": "fellas-week10-editorial",
+      "name": "The Weekly Shitter 2026 Week 10 editorial forecasts",
+      "reason": "2026 season only, asOf date without per-player forecast issuance and NFL game locks"
+    },
+    {
+      "id": "fellas-war-2025-starter",
+      "name": "2025 experimental WAR starter benchmark",
+      "reason": "Retrospective scored starter output, not a decision-time forecast"
+    }
+  ],
+  "decisions": {
+    "historicalPointsCanBeCertified": true,
+    "experimentalPARCertified": false,
+    "prelockReplacementCertified": false,
+    "autoImportApproved": false,
+    "publishProviderRowsApproved": false
+  }
+}
