@@ -35,8 +35,19 @@ let attemptedPages=0,completedPages=0;
 try{
  if(startupError)throw startupError;
  for(const width of (useWebkit?[390]:[390,1280])){
-  const context=await browser.newContext({viewport:{width,height:844},isMobile:width===390,hasTouch:width===390});
+  // WebKit's process can accumulate expensive JS/chart state across 107 heavy
+  // routes even after page.close(). Recycle browser context periodically while
+  // retaining the exact same page and navigation coverage.
+  const contextOptions={viewport:{width,height:844},isMobile:width===390,hasTouch:width===390};
+  let context=await browser.newContext(contextOptions);
+  let routesInContext=0;
   for(const route of routes){
+   if(useWebkit&&routesInContext>=12){
+    await context.close();
+    context=await browser.newContext(contextOptions);
+    routesInContext=0;
+   }
+   routesInContext++;
    attemptedPages++;
    const page=await context.newPage();
    const unexpected=[];

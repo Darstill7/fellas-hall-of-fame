@@ -8,7 +8,7 @@ The scheduled `.github/workflows/stage-sleeper-week.yml` checks Sleeper Tuesday 
 
 On a successful score stage, `scripts/stage-sleeper-trades.mjs` also gathers completed raw 2026 Sleeper trades into a separate `2026-trades-through-weekN.json` review candidate. These entries are **not** trade grades, verified player-name mappings, or proof of any keeper/FAAB effect.
 
-After raw receipts are staged, `scripts/review-staged-trades.mjs` compares completed provider trade IDs with the 51 audited museum receipts. It writes `2026-trade-review-through-weekN.json`, listing **new source IDs requiring commissioner review** and explicit issues for FAAB, draft-pick fields, and unmatched asset movements. A new ID is *not* an approved trade. The staging PR includes both raw receipts and this review queue. The offline contract test `scripts/test-review-staged-trades.mjs` validates known/new ID matching, three-party flags, and duplicate refusal.
+After raw receipts are staged, `scripts/review-staged-trades.mjs` compares completed provider trade IDs with the 51 audited museum receipts. It writes `2026-trade-review-through-weekN.json`, listing **new source IDs requiring commissioner review** and explicit issues for FAAB, draft-pick fields, and unmatched asset movements. A new ID is *not* an approved trade. The staging comparison also reports `existing_ids_with_participant_conflicts` and `participant_conflicts` when a previously listed transaction ID has a manager-side roster mismatch. **Do not treat an already-listed ID as verified when it appears in this conflict queue; independently reconcile the owner mapping and original provider receipt.** The staging PR includes both raw receipts and this review queue. The offline contract test `scripts/test-review-staged-trades.mjs` validates known/new ID matching, three-party flags, and duplicate refusal.
 
 The read-only `audit-weekly-publication.yml` runs Tuesday/Wednesday and on relevant PRs. It reports canonical week, playoff-model week, the Trade Museum's latest documented 2026 trade and frozen starter-point methodology. It never publishes.
 
@@ -39,16 +39,17 @@ For verified multi-manager player trades, create and review `data-integrity/trad
       "week": 10,
       "date": "YYYY-MM-DD",
       "faab_reviewed": true,
+      "faab_transfers": [{"sender": 2, "receiver": 1, "amount": 2}],
       "sides": [
-        {"roster_id": 1, "manager": "Stilly", "assets": ["VERIFIED_RECEIVED_PLAYER"]},
-        {"roster_id": 2, "manager": "JMid", "assets": ["VERIFIED_RECEIVED_PLAYER"]}
+        {"roster_id": 1, "manager": "Stilly", "assets": [{"player_id": "12345", "name": "REVIEWED_PLAYER_A"}]},
+        {"roster_id": 2, "manager": "JMid", "assets": [{"player_id": "67890", "name": "REVIEWED_PLAYER_B"}]}
       ]
     }
   ]
 }
 ```
 
-*This is a schema example, not a real trade or approved score.* Confirm every asset-direction and roster mapping against Sleeper. Current team roster IDs are versioned in the importer. Three-team transfers require all sides. Unknown or FAAB-only transfers stay in the research queue; unexpected draft-pick fields are blocked. Preserve historical trade statistics.
+*This is a schema example, not a real trade or approved score.* A certification **must use the new ID-bound `assets` objects**, each with the exact Sleeper `player_id` and the commissioner-reviewed player `name`. The importer now checks that **every** raw `adds` player is covered exactly once, assigned to the correct receiving roster, and has a distinct sending roster in raw `drops`. Sleeper defense IDs can be alphabetic (for example `MIN`) and are valid player IDs. Name-only legacy asset arrays are rejected. A player ID proves direction, **not** that the human-entered display name is correct; manually verify each name against the season-specific player ID map and source receipt. Confirm every asset-direction and roster mapping against Sleeper. Current 2026 roster-ID to manager mapping is defined in the importer and must be independently reviewed if ownership changes. Three-team transfers require all sides and **all received player IDs**. FAAB details must be manually verified. When `waiver_budget` is present, `faab_reviewed=true` **and** the full exact `faab_transfers` array (sender roster ID, receiver roster ID, amount) are required; the importer refuses missing, reversed or incorrect transfers. Certified FAAB appears as `N FAAB` on the receiving side. The sender and receiver example above is illustrative only; use actual raw values for each certification. Unknown or FAAB-only transfers stay in the research queue; unexpected draft-pick fields are blocked. Preserve historical trade statistics.
 
 Then use **Actions → Prepare commissioner-approved Trade Museum release**, enter the certification week, `APPROVE_TRADES`, and `trade_staging_commit=<reviewed 40-character SHA>` (workflow input `staging_commit`). The workflow refuses if the staging branch has changed since the trade certificate and original provider receipts were reviewed; review the new head rather than approving a moving target. The workflow retrieves the staged source, checks participants and source IDs, runs a no-write dry-run, imports newly certified trades as **ungraded**, validates museum parity and opens a separate PR. **No automatic merge or publication.** Trade starter points only appear after an independent production audit; `null` is displayed as “Not audited,” not zero.
 

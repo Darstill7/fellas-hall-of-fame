@@ -34,18 +34,67 @@ for(const c of cert.trades){
  const received=new Set(c.sides.map(s=>Number(s.roster_id)));
  if(expected.size!==received.size||[...expected].some(n=>!received.has(n)))
   throw Error('Certified participant roster IDs differ from Sleeper for '+id);
+ // New certifications must bind every received player name to the exact Sleeper
+ // player ID and recipient roster ID. A free-text asset list is insufficient.
+ const adds=txn.adds||{},drops=txn.drops||{};
+ const added=Object.keys(adds),dropped=Object.keys(drops);
+ if(!added.length||added.length!==dropped.length||
+    new Set(dropped).size!==dropped.length||
+    added.some(player=>!/^[A-Za-z0-9_-]{1,64}$/.test(player)||!Object.hasOwn(drops,player)))
+  throw Error('Raw player directions are missing or inconsistent for '+id);
+ const certifiedIds=new Set();
+ for(const player of added){
+  const receiver=Number(adds[player]),sender=Number(drops[player]);
+  if(!expected.has(receiver)||!expected.has(sender)||receiver===sender)
+   throw Error('Sleeper raw player transfer is not between distinct certified rosters for '+id+' player '+player);
+ }
+ // Every FAAB transfer must be explicitly listed on the commissioner certificate.
+ // Matching the exact raw sender, receiver and amount is stronger than a boolean.
+ const budgets=Array.isArray(txn.waiver_budget)?txn.waiver_budget:[];
+ const assertedBudgets=Array.isArray(c.faab_transfers)?c.faab_transfers:[];
+ if(budgets.length){
+  if(c.faab_reviewed!==true||assertedBudgets.length!==budgets.length)
+   throw Error('Trade '+id+' needs complete reviewed FAAB sender/receiver/amount evidence');
+  const normalized=x=>{
+   const sender=Number(x.sender),receiver=Number(x.receiver),amount=Number(x.amount);
+   if(!Number.isInteger(sender)||!Number.isInteger(receiver)||!expected.has(sender)||!expected.has(receiver)||
+      sender===receiver||!Number.isInteger(amount)||amount<=0)
+    throw Error('Invalid FAAB sender/receiver/amount for '+id);
+   return sender+':'+receiver+':'+amount;
+  };
+  const actual=budgets.map(normalized).sort(),approved=assertedBudgets.map(normalized).sort();
+  if(actual.some((v,i)=>v!==approved[i]))
+   throw Error('Commissioner-certified FAAB transfer differs from Sleeper raw receipt for '+id);
+ }else if(assertedBudgets.length){
+  throw Error('FAAB claimed in certification without provider transfer for '+id);
+ }
+ const faabReceived=new Map();
+ for(const b of budgets)faabReceived.set(Number(b.receiver),(faabReceived.get(Number(b.receiver))||0)+Number(b.amount));
  const sides=c.sides.map(s=>{
-  const mgr=names.get(Number(s.roster_id));
+  const roster=Number(s.roster_id),mgr=names.get(roster);
   if(!mgr||s.manager!==mgr)throw Error('Unverified manager identity for '+id+' roster '+s.roster_id);
-  if(!Array.isArray(s.assets)||!s.assets.length||s.assets.some(a=>typeof a!=='string'||a.trim().length<2))
-   throw Error('All participating sides need verified received asset names; cannot publish incomplete trade '+id);
-  if(s.assets.some(a=>/[<>]/.test(a)))throw Error('Unsafe asset display text');
-  return {manager:mgr==='Thommy'?'Tom':mgr,assets:s.assets.join(' + '),raw_starter_points:null,started_games:null,source_status:'VERIFIED_SOURCE'};
+  if(!Array.isArray(s.assets)||!s.assets.length)
+   throw Error('All participating sides need certified received player IDs and names for '+id);
+  const namesForSide=[];
+  for(const asset of s.assets){
+   const player=asset?.player_id,name=asset?.name;
+   if(typeof player!=='string'||!/^[A-Za-z0-9_-]{1,64}$/.test(player)||typeof name!=='string'||name.trim().length<2||/[<>+]/.test(name))
+    throw Error('Certified player asset must include a numeric Sleeper player_id and safe player name for '+id);
+   if(certifiedIds.has(player))throw Error('Duplicate certified received player '+player+' for '+id);
+   if(!Object.hasOwn(adds,player)||Number(adds[player])!==roster)
+    throw Error('Certified received player direction differs from Sleeper adds for '+id+' player '+player);
+   certifiedIds.add(player);
+   namesForSide.push(name.trim());
+  }
+  const faab=faabReceived.get(roster)||0;
+  return {manager:mgr==='Thommy'?'Tom':mgr,assets:[...namesForSide,...(faab?[faab+' FAAB']:[])].join(' + '),raw_starter_points:null,started_games:null,source_status:'VERIFIED_SOURCE'};
  });
+ if(certifiedIds.size!==added.length||added.some(player=>!certifiedIds.has(player)))
+  throw Error('Certified received-player coverage is incomplete for '+id);
  if(txn.draft_picks?.length)throw Error('Trade '+id+' includes draft-pick fields forbidden in this league; requires separate source adjudication');
- if(txn.waiver_budget?.length&&!c.faab_reviewed)throw Error('Trade '+id+' includes FAAB entries not explicitly reviewed');
- if(Object.keys(txn.adds||{}).length===0&&Object.keys(txn.drops||{}).length===0)
-  throw Error('Trade '+id+' lacks player-transfer evidence; keep as special research instead');
+ // FAAB source equality was checked before assembling displayed receiving assets.
+ // Playerless, FAAB-only, and inconsistent transfer receipts never enter the player-trade museum.
+ if(!added.length)throw Error('Trade '+id+' lacks player-transfer evidence; keep as special research instead');
  certified.push({
   id,year:2026,date:c.date,week:c.week,sides,
   comparison_status:'ungraded_pending_starter_audit',
