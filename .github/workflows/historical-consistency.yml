@@ -6,6 +6,7 @@ on:
       - 'data-integrity/historical-*-confirmation-*.json'
       - 'scripts/test-historical-championship-consistency.mjs'
       - 'scripts/build-frozen-regular-statistics.mjs'
+      - 'scripts/test-frozen-provider-agreement.mjs'
       - 'data-integrity/frozen-regular-matchups-2020-2025-v1.json'
       - 'scripts/research-regular-season-source-reconciliation.mjs'
       - '.github/workflows/historical-consistency.yml'
@@ -50,3 +51,21 @@ jobs:
           name: frozen-regular-statistics-v1
           path: data-integrity/historical-trade-draft-audits/frozen-regular-statistics-v1.json
           if-no-files-found: error
+  independent-agreement:
+    needs: [provider-matchups, frozen-statistics]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: historical-provider-matchup-reconciliation
+          path: data-integrity/historical-trade-draft-audits
+      - uses: actions/download-artifact@v4
+        with:
+          name: frozen-regular-statistics-v1
+          path: data-integrity/historical-trade-draft-audits
+      - run: node scripts/test-frozen-provider-agreement.mjs
