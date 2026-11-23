@@ -3,17 +3,18 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const get=async path=>{const r=await fetch('https://api.sleeper.app/v1/'+path,{signal:AbortSignal.timeout(30000)});assert(r.ok,'Sleeper HTTP '+r.status+' '+path);return r.json()};
 const target=Number(process.env.FELLAS_OWNERSHIP_YEAR||2024);
-assert([2024,2025].includes(target));
+assert([2023,2024,2025].includes(target));
 const newer=await get('league/1181421235163095040');
 assert.equal(String(newer.season),'2025');
-const id=target===2025?String(newer.league_id):String(newer.previous_league_id);
+let id='1181421235163095040',cursor=newer;
+for(let year=2025;year>target;year--){id=String(cursor.previous_league_id);cursor=await get('league/'+id);assert.equal(String(cursor.season),String(year-1));}
 const league=await get('league/'+id);
 assert.equal(String(league.season),String(target));
 assert.equal(Number(league.settings.playoff_week_start),15);
-const names=new Map([[1,'Stilly'],[2,'JMid'],[3,'Tom'],[4,'Stew'],[5,'Scott'],[6,'Mitch'],[7,'Tony'],[8,'Stover'],[9,'Kuhl'],[10,'Birch']]);
+const names=new Map([[1,'Stilly'],[2,target===2023?'EvansBrandon':'JMid'],[3,'Tom'],[4,'Stew'],[5,target===2023?'Koble':'Scott'],[6,'Mitch'],[7,'Tony'],[8,'Stover'],[9,'Kuhl'],[10,'Birch']]);
 const archive=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json','utf8')).filter(t=>t.year===target);
 const starts=JSON.parse(fs.readFileSync('data/player_starts_'+target+'.json','utf8'));
-assert.equal(archive.length,8);
+assert.equal(archive.length,target===2023?7:8);
 assert.deepEqual(starts.weeks.map(w=>w.week),Array.from({length:14},(_,i)=>i+1));
 const transactions=[];
 for(let w=0;w<=17;w++){
