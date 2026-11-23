@@ -15,13 +15,28 @@ export function frontOfficeEvidence(draft,acquisitions,trades,manager){
  if(!draftYears.length&&!waiverYears.length&&!participating.length)throw Error('No documented front-office coverage for '+manager);
  const documentedTradeYears=[...new Set(participating.map(t=>t.year))].sort((a,b)=>b-a);
  const relevantTrades=[...participating].sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id)).slice(0,5);
- return {manager,draftYears,waiverYears,relevantTrades,documentedTradeYears,documentedTrades:participating.length,
+ return {manager,draftYears,waiverYears,relevantTrades,documentedTradeYears,documentedTrades:participating.length,allTrades:participating,
   selectedDraftYears:draftYears.length,distinctAcquisitions:waiverYears.reduce((sum,r)=>sum+r.distinctPlayerAdds,0),
   acquisitionsWithLaterStarts:waiverYears.reduce((sum,r)=>sum+r.withLaterRecordedStarts,0),
   latestTradeDate,tradeScopeYear:Math.max(...trades.map(t=>t.year)),
   waiverPartialYear:acquisitions.incompleteYear??2026,
   draftCutoff:draft.seasonCutoff,
   notes:{draft:draft.status,acquisition:acquisitions.status}};
+}
+// A missing source is "not documented", not proof no transaction occurred.
+export function frontOfficeTimeline(r){
+ const years=new Set([...r.draftYears.map(y=>y.year),...r.waiverYears.map(y=>y.year),...r.documentedTradeYears]);
+ return [...years].sort((a,b)=>b-a).map(year=>{
+  const draft=r.draftYears.find(d=>d.year===year);
+  const waiver=r.waiverYears.find(w=>w.year===year);
+  const trades=r.relevantTrades.filter(t=>t.year===year).length;
+  // recent trade preview intentionally has a five-event cap: count full archive separately.
+  return {year,draftPicks:draft?.recordedSelections??null,keeperPicks:draft?.recordedKeeperSelections??null,
+   distinctAdds:waiver?.distinctPlayerAdds??null,
+   laterStarts:waiver?.withLaterRecordedStarts??null,
+   tradeReceiptCount:r.allTrades.filter(t=>t.year===year).length,
+   tradeCoverage:'documented_receipts_only',partial:year===2026};
+ });
 }
 export function renderFrontOffice(r){
  const picks=r.draftYears.find(row=>row.year===2026)||r.draftYears[0];
@@ -35,6 +50,13 @@ export function renderFrontOffice(r){
  }).join('');
  return '<details class="manager-front-office"><summary>Front Office 3.0 <span>Drafts · Trades · Waivers</span></summary>'+
  '<div class="manager-front-office-content"><p>Research inventory, not a grade or ranking of management decisions. Coverage is historical and incomplete.</p>'+
+ '<details class="manager-front-office-timeline"><summary>Front-office yearbook <span>Drafts, trades and pickups by season</span></summary>'+
+ '<p>Documented counts only. “Not covered” means the available sources cannot confirm activity, not that none occurred. Trade totals refer only to archived receipts.</p>'+
+ '<ol>'+frontOfficeTimeline(r).map(y=>'<li><strong>'+y.year+(y.partial?' · partial':'')+'</strong>'+
+  '<span>Draft: '+(y.draftPicks===null?'Not covered':y.draftPicks+' recorded selections')+'</span>'+
+  '<span>Trades: '+y.tradeReceiptCount+' archived '+(y.tradeReceiptCount===1?'receipt':'receipts')+'</span>'+
+  '<span>Pickups: '+(y.distinctAdds===null?'Not covered':y.distinctAdds+' distinct recorded adds')+'</span></li>').join('')+'</ol>'+
+ '</details>'+
  '<div class="manager-front-office-metrics">'+
  '<div><small>Draft seasons documented</small><strong>'+number(r.selectedDraftYears)+'</strong></div>'+
  '<div><small>Archived trade receipts</small><strong>'+number(r.documentedTrades)+'</strong></div>'+
