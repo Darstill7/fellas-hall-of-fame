@@ -29,8 +29,15 @@ export function verifyHistoricalPackage(pkg,{approvedHash=null}={}){
  const pending=new Set();
  for(const a of pkg.additional_review){assert(exceptions.has(a.key));assert(!pending.has(a.key));pending.add(a.key);assert.equal(a.confidence,'OPENING_PLAY_SUPPORTED_PENDING_APPROVAL');assert.equal(a.pf_cents,Math.round(exceptions.get(a.key).pf*100));}
  assert.equal(pending.size,pkg.coverage.pending_opening_play_review);
+ const commissioner=pkg.commissioner_acquisition;assert(commissioner&&commissioner.category==='COMMISSIONER'&&commissioner.id==='768151870828122112');
+ const event=pkg.drake_review.events.find(t=>t.id===commissioner.id);assert(event&&event.status==='complete'&&event.type==='commissioner'&&Number(event.adds[commissioner.player_id])===commissioner.roster);assert.equal(event.updated,commissioner.time);
+ const exit=pkg.drake_review.events.find(t=>t.id===commissioner.exit_transaction);assert(exit&&exit.status==='complete'&&Number(exit.drops[commissioner.player_id])===commissioner.roster);assert.equal(exit.updated,commissioner.exit_ms);
+ const commissionerPending=new Set();
+ for(const r of pkg.commissioner_review){const e=exceptions.get(r.key);assert(e&&!pending.has(r.key)&&!commissionerPending.has(r.key));assert.equal(r.acquisition_id,commissioner.id);assert.equal(r.category,'COMMISSIONER');assert.equal(r.pf_cents,Math.round(e.pf*100));assert.equal(e.year,commissioner.year);assert.equal(Number(e.roster),commissioner.roster);assert.equal(String(e.player_id),commissioner.player_id);assert(e.week>=commissioner.week&&e.week<commissioner.exit_week);const lineup=pkg.drake_review.lineups.find(l=>l.week===e.week&&Number(l.roster)===commissioner.roster&&l.starter);assert(lineup);assert.equal(Math.round(lineup.points*100),r.pf_cents);commissionerPending.add(r.key);}
+ assert.equal(commissionerPending.size,pkg.coverage.pending_commissioner_review);
+ assert.equal(commissionerPending.size,2);
  for(const x of Object.values(pkg.source_fingerprints))assert.match(x,/^[a-f0-9]{64}$/);
- return {status:approvedHash?'APPROVED_FINGERPRINT_VERIFIED':'CANDIDATE_INTEGRITY_VERIFIED',observed:seen.size,strict:counts.STRICT_OWNERSHIP,schedule_supported:counts.SCHEDULE_SUPPORTED,exceptions:exceptions.size,pending:pending.size,sha256:content_sha256};
+ return {status:approvedHash?'APPROVED_FINGERPRINT_VERIFIED':'CANDIDATE_INTEGRITY_VERIFIED',observed:seen.size,strict:counts.STRICT_OWNERSHIP,schedule_supported:counts.SCHEDULE_SUPPORTED,exceptions:exceptions.size,pending:pending.size,commissioner_pending:commissionerPending.size,unreviewed:exceptions.size-pending.size-commissionerPending.size,sha256:content_sha256};
 }
 const file=process.argv[2];
 if(file){
