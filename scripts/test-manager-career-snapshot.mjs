@@ -26,6 +26,8 @@ for(const [slug,name] of Object.entries(managers)){
  assert.ok(r.opponents.every((o,i,a)=>i===0||a[i-1].games>=o.games),'Rivals must be sorted by meetings');
  assert.equal(r.week,Math.max(...ledger.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week)),'Current verified cutoff must derive from the canonical ledger');
  assert.ok(renderSnapshot(r).includes('Most-played opponents'),'Profile must show head-to-head context');
+ assert.ok(renderSnapshot(r).includes('Career win rate'),'Quick read must add meaningful information beyond existing hero W-L');
+ assert.ok(renderSnapshot(r).includes('Ties count half a win'),'Win percentage definition must remain transparent');
  snapshots.push({manager:name,games:r.games,record:r.wins+'-'+r.losses+(r.ties?'-'+r.ties:''),week:r.week});
 }
 const fixture={games:[
