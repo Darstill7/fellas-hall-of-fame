@@ -23,6 +23,9 @@ for(let week=1;week<=canonicalWeek;week++) {
   assert.equal(games.filter(g=>g.week===week).length,5,'Canonical week '+week+' is incomplete');
 }
 const museum2026 = museum.filter(t=>t.year===2026);
+const scoreWeeks= museum2026.map(t=>t.scoring_through_week);
+const tradeStarterScoringWeek=scoreWeeks.length>0&&scoreWeeks.every(w=>Number.isInteger(w)&&w>=1&&w<=14)
+ ? Math.min(...scoreWeeks):null;
 const newestTrade = museum2026.map(t=>t.date).sort().at(-1)||null;
 const latestTradeWeek = Math.max(0,...museum2026.map(t=>Number(t.week)||0));
 const raceWeek = Number(race.verified_through_week);
@@ -39,13 +42,20 @@ if(latestTradeWeek<canonicalWeek-1)warnings.push(
  'Trade Museum last listed 2026 trade is Week '+latestTradeWeek+' while canonical games end Week '+canonicalWeek+
  '. This may be missing later transactions; inspect Sleeper trade receipts. No fresh trade is assumed without evidence.'
 );
-warnings.push('Trade Museum starter-point values are explicitly fixed audit snapshots, NOT live cumulative scores.');
+if(tradeStarterScoringWeek===null)warnings.push(
+ 'Trade Museum 2026 starter-point audit cutoff is not stated for every receipt; verify the score attribution against final weekly lineups.'
+);
+else if(tradeStarterScoringWeek<canonicalWeek)warnings.push(
+ 'Trade Museum 2026 starter-point calculations end Week '+tradeStarterScoringWeek+
+ ' but approved matchups end Week '+canonicalWeek+'. Regenerate from verified completed starters.'
+);
+warnings.push('Trade Museum starter-point values are verified through an explicit source cutoff, NOT continuously live cumulative scores.');
 const report = {
   auditedAt: new Date().toISOString(),
   canonicalWeek,
   canonicalGames: games.length,
   playoffRaceWeek: raceWeek,
-  tradeMuseum: {totalReceipts:museum.length,receipts2026:museum2026.length,latestListed2026TradeDate:newestTrade,latestListed2026TradeWeek:latestTradeWeek,scoring:'frozen-audit-snapshot'},
+  tradeMuseum: {totalReceipts:museum.length,receipts2026:museum2026.length,latestListed2026TradeDate:newestTrade,latestListed2026TradeWeek:latestTradeWeek,scoringCutoffWeek2026:tradeStarterScoringWeek,scoring:'source-verified-weekly-starter-audit'},
   expectedVerifiedWeek:expectedWeek,
   failures,warnings,
   publicationReady:failures.length===0 && warnings.length===1
@@ -58,7 +68,7 @@ if(process.env.GITHUB_STEP_SUMMARY){
   '| --- | --- |',
   '| Canonical matchups | Week '+canonicalWeek+' ('+games.length+' games) |',
   '| Playoff Race | Week '+raceWeek+' |',
-  '| Trade Museum | Last 2026 trade '+(newestTrade||'not established')+'; Week '+latestTradeWeek+' |',
+  '| Trade Museum | Last 2026 trade '+(newestTrade||'not established')+'; Week '+latestTradeWeek+'; 2026 starter-point audit through Week '+(tradeStarterScoringWeek??'unverified')+' |',
   '',
   ...failures.map(x=>'**FAIL:** '+x),
   ...warnings.map(x=>'**REVIEW:** '+x),
