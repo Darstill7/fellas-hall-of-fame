@@ -1,0 +1,319 @@
+{
+  "status": "RESEARCH_ONLY_PENDING_PROVIDER_MATCHUP_RECONCILIATION",
+  "source": "data/season_weekly_matchups_2016_2026_v1.json",
+  "regular_season_cutoff_basis": "Original Sleeper league playoff_week_start=14, historical ownership audit",
+  "reports": [
+    {
+      "year": 2020,
+      "regularGames": 65,
+      "rows": [
+        {
+          "manager": "Stilly",
+          "w": 4,
+          "l": 9,
+          "t": 0,
+          "pf": 1293.28,
+          "pa": 1553.48,
+          "games": 13
+        },
+        {
+          "manager": "Birch",
+          "w": 9,
+          "l": 4,
+          "t": 0,
+          "pf": 1593.54,
+          "pa": 1373.44,
+          "games": 13
+        },
+        {
+          "manager": "Evans",
+          "w": 7,
+          "l": 6,
+          "t": 0,
+          "pf": 1549.54,
+          "pa": 1438.76,
+          "games": 13
+        },
+        {
+          "manager": "Stover",
+          "w": 7,
+          "l": 6,
+          "t": 0,
+          "pf": 1439.16,
+          "pa": 1475.26,
+          "games": 13
+        },
+        {
+          "manager": "Thommy",
+          "w": 4,
+          "l": 9,
+          "t": 0,
+          "pf": 1475.82,
+          "pa": 1598.84,
+          "games": 13
+        },
+        {
+          "manager": "Kuhl",
+          "w": 9,
+          "l": 4,
+          "t": 0,
+          "pf": 1415.58,
+          "pa": 1373.12,
+          "games": 13
+        },
+        {
+          "manager": "Stew",
+          "w": 6,
+          "l": 7,
+          "t": 0,
+          "pf": 1361.42,
+          "pa": 1438.28,
+          "games": 13
+        },
+        {
+          "manager": "Mitch",
+          "w": 9,
+          "l": 4,
+          "t": 0,
+          "pf": 1650.42,
+          "pa": 1510.82,
+          "games": 13
+        },
+        {
+          "manager": "Koble",
+          "w": 6,
+          "l": 7,
+          "t": 0,
+          "pf": 1403.32,
+          "pa": 1418.38,
+          "games": 13
+        },
+        {
+          "manager": "Tony",
+          "w": 4,
+          "l": 9,
+          "t": 0,
+          "pf": 1426.12,
+          "pa": 1427.82,
+          "games": 13
+        }
+      ],
+      "week14": [
+        {
+          "week": 14,
+          "stage": "regular",
+          "home": "Stilly",
+          "away": "Stew",
+          "homeScore": 115.72,
+          "awayScore": 97.64,
+          "winner": "HOME",
+          "margin": 18.08,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false,
+          "verifiedWinnersBracket": false
+        },
+        {
+          "week": 14,
+          "stage": "regular",
+          "home": "Evans",
+          "away": "Stover",
+          "homeScore": 108.72,
+          "awayScore": 110.84,
+          "winner": "AWAY",
+          "margin": 2.12,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false,
+          "verifiedWinnersBracket": true
+        },
+        {
+          "week": 14,
+          "stage": "regular",
+          "home": "Thommy",
+          "away": "Tony",
+          "homeScore": 151.32,
+          "awayScore": 125.56,
+          "winner": "HOME",
+          "margin": 25.76,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false,
+          "verifiedWinnersBracket": false
+        },
+        {
+          "week": 14,
+          "stage": "regular",
+          "home": "Koble",
+          "away": "Kuhl",
+          "homeScore": 149.98,
+          "awayScore": 118.14,
+          "winner": "HOME",
+          "margin": 31.84,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false,
+          "verifiedWinnersBracket": true
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "regularGames": 65,
+      "rows": [
+        {
+          "manager": "Stilly",
+          "w": 5,
+          "l": 8,
+          "t": 0,
+          "pf": 1419.96,
+          "pa": 1553.34,
+          "games": 13
+        },
+        {
+          "manager": "Mitch",
+          "w": 8,
+          "l": 5,
+          "t": 0,
+          "pf": 1581.18,
+          "pa": 1453.16,
+          "games": 13
+        },
+        {
+          "manager": "Evans",
+          "w": 6,
+          "l": 7,
+          "t": 0,
+          "pf": 1436.08,
+          "pa": 1430.14,
+          "games": 13
+        },
+        {
+          "manager": "Stover",
+          "w": 10,
+          "l": 3,
+          "t": 0,
+          "pf": 1626.1,
+          "pa": 1340.78,
+          "games": 13
+        },
+        {
+          "manager": "Thommy",
+          "w": 5,
+          "l": 8,
+          "t": 0,
+          "pf": 1456.8,
+          "pa": 1621.2,
+          "games": 13
+        },
+        {
+          "manager": "Stew",
+          "w": 2,
+          "l": 11,
+          "t": 0,
+          "pf": 1320.74,
+          "pa": 1535.44,
+          "games": 13
+        },
+        {
+          "manager": "Koble",
+          "w": 4,
+          "l": 9,
+          "t": 0,
+          "pf": 1294.44,
+          "pa": 1567.06,
+          "games": 13
+        },
+        {
+          "manager": "Kuhl",
+          "w": 4,
+          "l": 9,
+          "t": 0,
+          "pf": 1436.32,
+          "pa": 1527.2,
+          "games": 13
+        },
+        {
+          "manager": "Tony",
+          "w": 10,
+          "l": 3,
+          "t": 0,
+          "pf": 1708.6,
+          "pa": 1433.12,
+          "games": 13
+        },
+        {
+          "manager": "Birch",
+          "w": 11,
+          "l": 2,
+          "t": 0,
+          "pf": 1513.84,
+          "pa": 1332.62,
+          "games": 13
+        }
+      ],
+      "week14": [
+        {
+          "week": 14,
+          "stage": "regular",
+          "home": "Stilly",
+          "away": "Stew",
+          "homeScore": 108.94,
+          "awayScore": 111.32,
+          "winner": "AWAY",
+          "margin": 2.38,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false,
+          "verifiedWinnersBracket": false
+        },
+        {
+          "week": 14,
+          "stage": "regular",
+          "home": "Evans",
+          "away": "Mitch",
+          "homeScore": 162.04,
+          "awayScore": 134.82,
+          "winner": "HOME",
+          "margin": 27.22,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false,
+          "verifiedWinnersBracket": true
+        },
+        {
+          "week": 14,
+          "stage": "regular",
+          "home": "Thommy",
+          "away": "Stover",
+          "homeScore": 104.54,
+          "awayScore": 144.8,
+          "winner": "AWAY",
+          "margin": 40.26,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false,
+          "verifiedWinnersBracket": true
+        },
+        {
+          "week": 14,
+          "stage": "regular",
+          "home": "Koble",
+          "away": "Kuhl",
+          "homeScore": 73.32,
+          "awayScore": 109.52,
+          "winner": "AWAY",
+          "margin": 36.2,
+          "era": "Sleeper",
+          "weeksCovered": null,
+          "twoWeekAggregate": false,
+          "verifiedWinnersBracket": false
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Reconstructed from existing matchup archive; provider matchup audit required before canonical changes",
+    "Excluded week 14 rows remain retained as evidence"
+  ]
+}
