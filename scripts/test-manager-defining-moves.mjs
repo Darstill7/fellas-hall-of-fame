@@ -40,6 +40,11 @@ assert.throws(()=>decisionEvidence({},storylines,receipts,'Stilly'),/enrichment 
 assert.throws(()=>decisionEvidence(enrichment,{},receipts,'Stilly'),/Editorial provenance/);
 assert.throws(()=>decisionEvidence(enrichment,storylines,null,'Stilly'),/Missing trade/);
 assert.throws(()=>decisionEvidence(enrichment,storylines,receipts,'Unknown'),/Missing franchise enrichment/);
+const altered=structuredClone(receipts);
+for(const t of altered)for(const side of t.sides)if(side.manager==='Stilly')side.source_status='UNVERIFIED';
+const unavailable=decisionEvidence(enrichment,storylines,altered,'Stilly');
+assert.equal(unavailable.trade,null,'Unverified receiving side must never be featured');
+assert.equal(unavailable.story,null,'Story cannot link unsupported manager-side trade receipts');
 const noTrade=decisionEvidence(enrichment,storylines,[],'Tony');
 assert.equal(noTrade.trade,null,'Missing archive must never invent a trade');
 assert.match(renderDecisionHighlights(noTrade),/Trade example unavailable/);
