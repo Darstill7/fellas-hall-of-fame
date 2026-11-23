@@ -31,6 +31,12 @@ try{
      page.on('pageerror',e=>errors.push(e.message));
      const response=await page.goto(base+'managers/'+slug+'/',{waitUntil:'domcontentloaded',timeout:30000});
      assert.equal(response.status(),200,slug+' route should load');
+     const ordering=await page.evaluate(()=>{
+       const nav=document.querySelector('nav[data-manager-profile-tabs]')||document.querySelector('nav.profile-chapters');
+       const pulse=document.querySelector('[data-career-snapshot]');
+       return {hasNav:!!nav,hasPulse:!!pulse,navBeforePulse:!!(nav&&pulse&&(nav.compareDocumentPosition(pulse)&Node.DOCUMENT_POSITION_FOLLOWING))};
+     });
+     assert.ok(ordering.hasNav&&ordering.hasPulse&&ordering.navBeforePulse,engine+' '+slug+': navigation must precede research cards');
      const panel=page.locator('[data-front-office-pulse] .manager-front-office');
      await panel.waitFor({state:'attached',timeout:30000});
      assert.ok(await panel.locator('summary').first().count(),'Panel needs an accessible disclosure');
