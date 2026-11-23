@@ -25,6 +25,8 @@ on:
       - 'scripts/research-keeper-source-audit.mjs'
       - 'data-integrity/draft-room-preview.html'
       - 'scripts/test-front-office-hub-browser.mjs'
+      - 'scripts/test-manager-acquisition-resume-browser.mjs'
+      - 'scripts/test-draft-room-browser.mjs'
       - 'data-integrity/front-office-preview.html'
       - 'scripts/test-player-encyclopedia-browser.mjs'
       - 'data-integrity/player-encyclopedia-preview.html'
@@ -118,6 +120,22 @@ jobs:
         run: node scripts/test-player-encyclopedia-browser.mjs
       - name: Exercise Front Office hub
         run: node scripts/test-front-office-hub-browser.mjs
+      - name: Exercise Draft Room
+        if: success() || failure()
+        run: node scripts/test-draft-room-browser.mjs
+      - name: Exercise Manager Resumes
+        if: success() || failure()
+        run: node scripts/test-manager-acquisition-resume-browser.mjs
+      - name: Preserve Draft Room and Manager Resume captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: draft-room-manager-resume-captures
+          path: |
+            data-integrity/draft-room-captures/*.png
+            data-integrity/manager-resume-captures/*.png
+          retention-days: 14
+          if-no-files-found: warn
       - name: Preserve Front Office hub visual captures
         if: always()
         uses: actions/upload-artifact@v4
