@@ -14,6 +14,7 @@ on:
       - 'scripts/research-manager-front-office.mjs'
       - 'scripts/research-manager-trade-matrix.mjs'
       - 'scripts/research-trade-rivalry-timelines.mjs'
+      - 'scripts/research-trading-records.mjs'
       - 'scripts/audit-2025-original-draft-player-ids.mjs'
       - 'scripts/research-2025-draft-peer-returns.mjs'
       - 'scripts/research-career-draft-returns.mjs'
@@ -66,6 +67,8 @@ jobs:
           node scripts/research-manager-trade-matrix.mjs
           node --check scripts/research-trade-rivalry-timelines.mjs
           node scripts/research-trade-rivalry-timelines.mjs
+          node --check scripts/research-trading-records.mjs
+          node scripts/research-trading-records.mjs
       - name: Preserve research receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -84,6 +87,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/manager-front-office-research.json
             data-integrity/historical-trade-draft-audits/manager-trade-matrix-research.json
             data-integrity/historical-trade-draft-audits/trade-rivalry-timelines-research.json
+            data-integrity/historical-trade-draft-audits/trading-records-research.json
             data-integrity/historical-trade-draft-audits/career-draft-return-research.json
           retention-days: 30
           if-no-files-found: warn
