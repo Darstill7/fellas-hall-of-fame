@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import {derive,toMarkdown} from './build-release-health-report.mjs';
 const sha='a'.repeat(40),other='b'.repeat(40);
-const names=['Validate canonical Fellas records','Rehearse approved weekly data release (synthetic; never publish)','Scan website freshness registry','Visual first-screen quality gate','Full mobile visitor journey audit'];
+const names=['Validate canonical Fellas records','Rehearse approved weekly data release (synthetic; never publish)','Scan website freshness registry','Visual first-screen quality gate','Full mobile visitor journey audit','Verify Trade Museum certification approval pin','Verify Tuesday approval and release-health integration'];
 const goodRuns=names.map((name,i)=>({name,status:'completed',conclusion:'success',head_sha:sha,id:i+1,created_at:'2026-11-20T21:00:00Z'}));
 const base={
  schema:'fellas-release-health-input-v1',mainSha:sha,mainCanonicalWeek:9,observedAt:'2026-11-20T21:00:00Z',
@@ -68,6 +68,60 @@ unverified.staging={candidateWeek:null,status:'SOURCE_UNAVAILABLE'};
 r=derive(unverified);
 assert.equal(r.stagedNewer,false);
 assert(r.blockers.some(x=>x.includes('Sleeper staging source')));
+// Approval gates are required on their own PR; historical success elsewhere is not enough.
+const tradePinMissing=clone(base);
+tradePinMissing.prs[0].runs=goodRuns.filter(x=>x.name!=='Verify Trade Museum certification approval pin');
+r=derive(tradePinMissing);
+assert.equal(r.prs[0].checks.find(x=>x.key==='tradePin').state,'NOT_REPORTED');
+assert.equal(r.prs[0].stage,'CHECKS_PENDING');
+
+const integrated=clone(base);
+integrated.prs=[{...integrated.prs[0],number:280,title:'Combined integration',head_sha:sha,base:'feature/release-health-console-20261120'}];
+r=derive(integrated);
+assert.equal(r.prs[0].checks.find(x=>x.key==='integration').state,'PASS');
+assert.equal(r.prs[0].checks.find(x=>x.key==='tradePin').state,'PASS');
+assert.match(toMarkdown(r),/Combined integration/);
+const integrationMissing=clone(integrated);
+integrationMissing.prs[0].runs=goodRuns.filter(x=>x.name!=='Verify Tuesday approval and release-health integration');
+r=derive(integrationMissing);
+assert.equal(r.prs[0].checks.find(x=>x.key==='integration').state,'NOT_REPORTED');
+assert.equal(r.prs[0].stage,'CHECKS_PENDING');
+const integrationFailed=clone(integrated);
+integrationFailed.prs[0].runs=goodRuns.map(x=>x.name==='Verify Tuesday approval and release-health integration'?{...x,conclusion:'failure'}:x);
+r=derive(integrationFailed);
+assert.equal(r.prs[0].stage,'CHECK_FAILURE');
+const integrationWrongHead=clone(integrated);
+integrationWrongHead.prs[0].runs=goodRuns.map(x=>x.name==='Verify Tuesday approval and release-health integration'?{...x,head_sha:other}:x);
+r=derive(integrationWrongHead);
+assert.equal(r.prs[0].checks.find(x=>x.key==='integration').state,'NOT_REPORTED');
+
+const missingBrowser=clone(integrated);
+r=derive(missingBrowser);
+assert.equal(r.prs[0].checks.find(x=>x.key==='browser').state,'NOT_REPORTED');
+assert.equal(r.prs[0].stage,'CHECKS_PENDING');
+const correctBrowser=clone(integrated);
+correctBrowser.prs[0].runs.push({name:'Verify integrated mobile and visual release gates',status:'completed',conclusion:'success',head_sha:sha,created_at:'2026-11-20T22:00:00Z'});
+r=derive(correctBrowser);
+assert.equal(r.prs[0].checks.find(x=>x.key==='browser').state,'PASS');
+const outdatedBrowser=clone(correctBrowser);
+outdatedBrowser.prs[0].runs.at(-1).head_sha=other;
+r=derive(outdatedBrowser);
+assert.equal(r.prs[0].checks.find(x=>x.key==='browser').state,'NOT_REPORTED');
+const museum=clone(base);
+museum.prs=[{...museum.prs[0],number:276,title:'Trade Museum 2.0',head_sha:sha,base:'automation/tuesday-publication-readiness-20261120',runs:[
+ ...goodRuns,{name:'Verify Trade Museum 2.0',status:'completed',conclusion:'success',head_sha:sha,created_at:'2026-11-20T21:00:01Z'}
+]}];
+r=derive(museum);
+assert.equal(r.prs[0].checks.find(x=>x.key==='museum').state,'PASS');
+const missingMuseum=clone(museum);
+missingMuseum.prs[0].runs=goodRuns;
+r=derive(missingMuseum);
+assert.equal(r.prs[0].checks.find(x=>x.key==='museum').state,'NOT_REPORTED');
+assert.equal(r.prs[0].stage,'CHECKS_PENDING');
+const wrongMuseumSha=clone(museum);
+wrongMuseumSha.prs[0].runs.at(-1).head_sha=other;
+r=derive(wrongMuseumSha);
+assert.equal(r.prs[0].checks.find(x=>x.key==='museum').state,'NOT_REPORTED');
 const final=clone(base);
 final.staging={candidateWeek:9,status:'REVIEW_CANDIDATE'};
 final.freshness.sections.find(x=>x.id==='trade-museum').status='EVENT_AUDITED';

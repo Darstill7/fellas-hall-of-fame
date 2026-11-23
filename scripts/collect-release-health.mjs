@@ -11,7 +11,7 @@ const api=async p=>{
  if(!res.ok)throw Error('GitHub read failed: '+p+' HTTP '+res.status);
  return res.json();
 };
-const numbers=[268,271,272,273,274];
+const numbers=[268,271,272,273,274,276,280];
 const main=await api('/git/ref/heads/main');
 const mainSha=main.object?.sha;
 if(!/^[0-9a-f]{40}$/.test(mainSha||''))throw Error('No exact main SHA');

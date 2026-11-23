@@ -21,7 +21,7 @@ The GitHub PR summary includes the five score pairs, every manager's updated W�
 ## Commissioner approval → complete reviewable release
 
 1. Review the staging PR against Sleeper: exactly five final scores, ten unique owners, aliases, and any changed trades. Keep the trade receipt separately for manual asset verification.
-2. In **Actions → Prepare approved weekly website release → Run workflow**, enter `completed_week=N` and `confirmation=APPROVE`. The action retrieves the fixed staging candidate; it will refuse noncontiguous weeks, invalid scores or mismatched owners.
+2. In **Actions → Prepare approved weekly website release → Run workflow**, enter `completed_week=N`, `confirmation=APPROVE`, and `staging_commit=<reviewed 40-character SHA>`. The workflow compares the reviewed SHA with the current staging branch and refuses to proceed if it has advanced; re-review and re-approve the updated staging version. The action retrieves the fixed staging candidate; it will refuse noncontiguous weeks, invalid scores or mismatched owners.
 3. The action applies the approved week **on a release branch**, regenerating canonical ledger, standings, season guide, manager career data, all-play and luck, playoff odds, `data/current_2026_records_v1.json` and `data/alltime_game_records_live_v1.json`. It creates a release PR, **not an automatic merge**.
 4. Review the resulting diff, Week N records, expected playoff percentages, source cutoff notices, green canonical/mobile checks, and the publication freshness audit. A stale Trade Museum is flagged, not silently rewritten.
 5. **Merge the release PR only when approved.** Wait for the GitHub Pages deployment and verify that the live data and HTML correspond to the merged commit.
@@ -56,7 +56,7 @@ For verified multi-manager player trades, create and review `data-integrity/trad
 
 *This is a schema example, not a real trade or approved score.* Confirm every asset-direction and roster mapping against Sleeper. Current team roster IDs are versioned in the importer. Three-team transfers require all sides. Unknown or FAAB-only transfers stay in the research queue; unexpected draft-pick fields are blocked. Preserve historical trade statistics.
 
-Then use **Actions → Prepare commissioner-approved Trade Museum release**, enter the certification week and `APPROVE_TRADES`. The workflow retrieves the staged source, checks participants and source IDs, runs a no-write dry-run, imports newly certified trades as **ungraded**, validates museum parity and opens a separate PR. **No automatic merge or publication.** Trade starter points only appear after an independent production audit; `null` is displayed as “Not audited,” not zero.
+Then use **Actions → Prepare commissioner-approved Trade Museum release**, enter the certification week, `APPROVE_TRADES`, and `trade_staging_commit=<reviewed 40-character SHA>` (workflow input `staging_commit`). Both the trade certification and raw provider receipts are fetched from that reviewed SHA; an updated staging branch invalidates the approval. The workflow retrieves the staged source, checks participants and source IDs, runs a no-write dry-run, imports newly certified trades as **ungraded**, validates museum parity and opens a separate PR. **No automatic merge or publication.** Trade starter points only appear after an independent production audit; `null` is displayed as “Not audited,” not zero.
 
 ## One source, separate accuracy scopes
 

@@ -1,0 +1,61 @@
+name: Verify integrated mobile and visual release gates
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/verify-integration-browser-gates.yml'
+      - '.github/workflows/prepare-approved-weekly-release.yml'
+      - '.github/workflows/prepare-approved-trade-museum.yml'
+      - 'scripts/build-release-health-report.mjs'
+      - 'scripts/test-release-health-report.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mobile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium and WebKit
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Test phone-width user journeys in Chromium and WebKit
+        run: node scripts/audit-mobile-journey.mjs
+      - name: Preserve mobile test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integrated-mobile-audit
+          path: data-integrity/mobile-journey/
+          if-no-files-found: warn
+          retention-days: 14
+  visual:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium and WebKit
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Exercise navigation and weekly editorial visual behavior
+        run: |
+          node scripts/verify-core-user-journeys.mjs
+          node scripts/verify-weekly-shitter-visual.mjs
+      - name: Capture and inspect first screens on mobile and desktop
+        run: node scripts/visual-quality-gate.mjs
+      - name: Preserve visual test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integrated-visual-audit
+          path: data-integrity/visual-gate/
+          if-no-files-found: warn
+          retention-days: 14
