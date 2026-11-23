@@ -12,6 +12,19 @@ const museum=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json','utf8')
 assert.equal(museum.length,51);
 const current=museum.filter(t=>t.year===2026);
 assert.equal(current.length,7);
+if(current.every(t=>t.scoring_through_week===through)){
+ const auditPath='data-integrity/trade-point-recalculations/2026-through-week10.json';
+ assert(fs.existsSync(auditPath),'Already refreshed museum lacks the exact score-receipt audit');
+ const audit=JSON.parse(fs.readFileSync(auditPath,'utf8'));
+ assert.equal(audit.scoring_through_week,through);
+ assert.equal(audit.audits.length,7);
+ const publicHTML=fs.readFileSync('analytics/trade-museum.html','utf8');
+ const embedded=publicHTML.match(/<script id="archive-data" type="application\\/json">([\\s\\S]*?)<\\/script>/);
+ assert(embedded,'Published comparison data missing');
+ assert.deepEqual(JSON.parse(embedded[1]),museum);
+ console.log('IDEMPOTENT: Seven archived 2026 trades already verified through final Week '+through+'. No changed files.');
+ process.exit(0);
+}
 const byId=new Map(raw.trades.map(t=>[String(t.transaction_id),t]));
 const managers=new Map([[1,'Stilly'],[2,'JMid'],[3,'Tom'],[4,'Stew'],[5,'Scott'],[6,'Mitch'],[7,'Tony'],[8,'Stover'],[9,'Kuhl'],[10,'Birch']]);
 const weekly=new Map();
