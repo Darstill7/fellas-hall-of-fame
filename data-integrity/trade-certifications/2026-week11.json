@@ -1,0 +1,207 @@
+{
+  "schema": "fellas-trade-museum-certification-v1",
+  "status": "REVIEW_REQUIRED",
+  "year": 2026,
+  "through_week": 11,
+  "raw_candidate": "data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json",
+  "reviewed_receipts_source": "data-integrity/trade-recovery/2026-week11-precertification-20261123.json",
+  "commissioner_comment": "Commissioner confirmed six displayed exchanges match understanding on November 23, 2026; official trade release not yet authorized",
+  "trades": [
+    {
+      "transaction_id": "1424524291990450196",
+      "week": 9,
+      "date": "2026-11-06",
+      "faab_reviewed": false,
+      "faab_receipt": [
+        {
+          "amount": 2,
+          "sender": 6,
+          "receiver": 4
+        }
+      ],
+      "faab_transfers": [
+        {
+          "sender": 6,
+          "receiver": 4,
+          "amount": 2
+        }
+      ],
+      "sides": [
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "assets": [
+            {
+              "player_id": "11625",
+              "name": "Adonai Mitchell"
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "manager": "Mitch",
+          "assets": [
+            {
+              "player_id": "MIN",
+              "name": "Minnesota Vikings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "transaction_id": "1427488044335788032",
+      "week": 10,
+      "date": "2026-11-15",
+      "faab_reviewed": false,
+      "faab_receipt": [],
+      "faab_transfers": [],
+      "sides": [
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "assets": [
+            {
+              "player_id": "7569",
+              "name": "Nico Collins"
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "manager": "Kuhl",
+          "assets": [
+            {
+              "player_id": "11564",
+              "name": "Drake Maye"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "transaction_id": "1428829144581406720",
+      "week": 11,
+      "date": "2026-11-18",
+      "faab_reviewed": false,
+      "faab_receipt": [],
+      "faab_transfers": [],
+      "sides": [
+        {
+          "roster_id": 2,
+          "manager": "JMid",
+          "assets": [
+            {
+              "player_id": "8146",
+              "name": "Garrett Wilson"
+            },
+            {
+              "player_id": "13337",
+              "name": "Emmett Johnson"
+            }
+          ]
+        },
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "assets": [
+            {
+              "player_id": "8151",
+              "name": "Kenneth Walker III"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "transaction_id": "1428878310045151232",
+      "week": 11,
+      "date": "2026-11-18",
+      "faab_reviewed": false,
+      "faab_receipt": [],
+      "faab_transfers": [],
+      "sides": [
+        {
+          "roster_id": 6,
+          "manager": "Mitch",
+          "assets": [
+            {
+              "player_id": "6794",
+              "name": "Justin Jefferson"
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "manager": "Tony",
+          "assets": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "transaction_id": "1428887570439245824",
+      "week": 11,
+      "date": "2026-11-18",
+      "faab_reviewed": false,
+      "faab_receipt": [],
+      "faab_transfers": [],
+      "sides": [
+        {
+          "roster_id": 1,
+          "manager": "Stilly",
+          "assets": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III"
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "manager": "Birch",
+          "assets": [
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "transaction_id": "1428927046507069440",
+      "week": 11,
+      "date": "2026-11-18",
+      "faab_reviewed": false,
+      "faab_receipt": [],
+      "faab_transfers": [],
+      "sides": [
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "assets": [
+            {
+              "player_id": "12501",
+              "name": "Matthew Golden"
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "manager": "Stover",
+          "assets": [
+            {
+              "player_id": "9224",
+              "name": "Chase Brown"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
