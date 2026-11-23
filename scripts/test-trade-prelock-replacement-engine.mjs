@@ -1,0 +1,37 @@
+// Synthetic CONTRACT tests only. No 2020–2025 projections are invented.
+import assert from 'node:assert/strict';
+import {assessPrelockReplacements} from './trade-prelock-replacement-engine.mjs';
+const issued='2025-10-05T14:00:00Z',decision='2025-10-05T16:00:00Z',lock='2025-10-05T17:00:00Z',source='synthetic-contract-test-v1';
+const setup={owner:'test_owner',sourceVersion:source,decisionTime:decision};
+const hole=(id,slot)=>({id,slot,lockAt:lock});
+const bench=(id,position,projectedPoints)=>({id,position,projectedPoints,owner:setup.owner,projectionSource:source,projectionIssuedAt:issued,ownershipVerifiedAt:issued,gameLockAt:lock,activeAtDecision:true});
+const run=(holes,candidates)=>assessPrelockReplacements({...setup,holes,candidates});
+let r=run([hole('rb1','RB'),hole('rb2','RB')],[bench('a','RB',16)]);
+assert.equal(r.status,'incomplete_prelock_substitution_evidence');
+assert.equal(r.covered,1);assert.equal(r.uncovered,1);
+assert.equal(r.assignments.filter(x=>x.benchPlayerId==='a').length,1,'Same bench player cannot replace two RB starters');
+r=run([hole('rb','RB'),hole('flex','FLEX')],[bench('a','RB',9),bench('b','WR',7)]);
+assert.equal(r.covered,2);
+assert.deepEqual(r.assignments.map(x=>x.benchPlayerId),['a','b']);
+r=run([hole('flex1','FLEX'),hole('flex2','FLEX')],[bench('wr','WR',11),bench('te','TE',9)]);
+assert.equal(r.covered,2);assert.deepEqual(new Set(r.assignments.map(x=>x.benchPlayerId)).size,2);
+r=run([hole('qb','QB')],[bench('wr','WR',40)]);
+assert.equal(r.covered,0);assert.equal(r.uncovered,1);
+assert.equal(r.assignments[0].benchPlayerId,null);
+r=run([hole('flex','FLEX')],[bench('wr','WR',10),bench('rb','RB',15)]);
+assert.equal(r.projectedBenchPointsForCoveredSlots,15,'Among sourced eligible alternatives use pregame projection, not actual postgame score');
+assert.equal(r.assignments[0].benchPlayerId,'rb');
+const expectReject=(modify,label)=>{
+ const base=bench('rb','RB',11);modify(base);
+ assert.throws(()=>run([hole('rb','RB')],[base]),Error,label);
+};
+expectReject(p=>p.projectionIssuedAt='2025-10-05T18:00:00Z','Future projection must fail');
+expectReject(p=>p.ownershipVerifiedAt='2025-10-05T18:00:00Z','Future ownership snapshot must fail');
+expectReject(p=>p.gameLockAt='2025-10-05T15:00:00Z','Locked player must fail');
+expectReject(p=>p.activeAtDecision=false,'Unverified game-time active status must fail');
+expectReject(p=>delete p.projectedPoints,'Missing projection must fail');
+expectReject(p=>p.projectionSource='uncited','Unverified source version must fail');
+assert.throws(()=>assessPrelockReplacements({...setup,holes:[hole('rb','RB'),hole('rb','WR')],candidates:[]}),/Duplicate lineup hole/);
+assert.throws(()=>run([hole('rb','RB')],[bench('same','RB',11),bench('same','RB',6)]),/Duplicate bench candidate/);
+assert.throws(()=>assessPrelockReplacements({...setup,holes:[hole('qb','QB')],candidates:[bench('x','QB',12)],decisionTime:'2025-10-05T18:00:00Z'}),/already locked/);
+console.log('PASS: 12 synthetic prelock source-gated replacement checks: unique player assignment, dual FLEX, position legality, prediction ordering, ownership, locked games and explicit uncovered slots; NO real trade grade created.');
