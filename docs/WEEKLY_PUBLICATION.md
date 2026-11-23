@@ -50,7 +50,7 @@ For verified multi-manager player trades, create and review `data-integrity/trad
 
 *This is a schema example, not a real trade or approved score.* Confirm every asset-direction and roster mapping against Sleeper. Current team roster IDs are versioned in the importer. Three-team transfers require all sides. Unknown or FAAB-only transfers stay in the research queue; unexpected draft-pick fields are blocked. Preserve historical trade statistics.
 
-Then use **Actions → Prepare commissioner-approved Trade Museum release**, enter the certification week and `APPROVE_TRADES`. The workflow retrieves the staged source, checks participants and source IDs, runs a no-write dry-run, imports newly certified trades as **ungraded**, validates museum parity and opens a separate PR. **No automatic merge or publication.** Trade starter points only appear after an independent production audit; `null` is displayed as “Not audited,” not zero.
+Then use **Actions → Prepare commissioner-approved Trade Museum release**, enter the certification week, `APPROVE_TRADES`, and `trade_staging_commit=<reviewed 40-character SHA>` (workflow input `staging_commit`). The workflow refuses if the staging branch has changed since the trade certificate and original provider receipts were reviewed; review the new head rather than approving a moving target. The workflow retrieves the staged source, checks participants and source IDs, runs a no-write dry-run, imports newly certified trades as **ungraded**, validates museum parity and opens a separate PR. **No automatic merge or publication.** Trade starter points only appear after an independent production audit; `null` is displayed as “Not audited,” not zero.
 
 ## One source, separate accuracy scopes
 
