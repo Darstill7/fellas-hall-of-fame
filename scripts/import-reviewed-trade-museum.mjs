@@ -40,7 +40,7 @@ for(const c of cert.trades){
  const added=Object.keys(adds),dropped=Object.keys(drops);
  if(!added.length||added.length!==dropped.length||
     new Set(dropped).size!==dropped.length||
-    added.some(player=>!/^\\d+$/.test(player)||!Object.hasOwn(drops,player)))
+    added.some(player=>!/^\d+$/.test(player)||!Object.hasOwn(drops,player)))
   throw Error('Raw player directions are missing or inconsistent for '+id);
  const certifiedIds=new Set();
  for(const player of added){
@@ -56,7 +56,7 @@ for(const c of cert.trades){
   const namesForSide=[];
   for(const asset of s.assets){
    const player=asset?.player_id,name=asset?.name;
-   if(typeof player!=='string'||!/^\\d+$/.test(player)||typeof name!=='string'||name.trim().length<2||/[<>+]/.test(name))
+   if(typeof player!=='string'||!/^\d+$/.test(player)||typeof name!=='string'||name.trim().length<2||/[<>+]/.test(name))
     throw Error('Certified player asset must include a numeric Sleeper player_id and safe player name for '+id);
    if(certifiedIds.has(player))throw Error('Duplicate certified received player '+player+' for '+id);
    if(!Object.hasOwn(adds,player)||Number(adds[player])!==roster)
