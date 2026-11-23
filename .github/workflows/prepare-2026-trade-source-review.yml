@@ -1,0 +1,66 @@
+name: Prepare raw trade source review PR (never publish)
+on:
+  pull_request:
+    paths:
+      - 'scripts/prepare-2026-trade-source-review.mjs'
+      - '.github/workflows/prepare-2026-trade-source-review.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: fellas-raw-trade-source-review
+  cancel-in-progress: true
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: research
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Create source file and non-approved certificate from live original Sleeper receipts
+        working-directory: research
+        run: |
+          set -euo pipefail
+          node --check scripts/prepare-2026-trade-source-review.mjs
+          node scripts/prepare-2026-trade-source-review.mjs
+          node scripts/review-staged-trades.mjs \
+            --candidate=data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json \
+            --output=data-integrity/sleeper-sync-candidates/2026-trade-review-through-week11.json
+      - name: Checkout staging branch separately to avoid changing weekly score candidate
+        uses: actions/checkout@v4
+        with:
+          ref: automation/sleeper-weekly-stage
+          path: stage
+      - name: Copy only review artifacts into separate staging checkout
+        run: |
+          set -euo pipefail
+          mkdir -p stage/data-integrity/sleeper-sync-candidates stage/data-integrity/trade-certifications
+          cp research/data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json stage/data-integrity/sleeper-sync-candidates/
+          cp research/data-integrity/sleeper-sync-candidates/2026-trade-review-through-week11.json stage/data-integrity/sleeper-sync-candidates/
+          cp research/data-integrity/trade-certifications/2026-week11.json stage/data-integrity/trade-certifications/
+          test "$(node -p "require('./stage/data-integrity/trade-certifications/2026-week11.json').status")" = REVIEW_REQUIRED
+          git -C stage diff --name-only
+      - name: Open a source-only PR targeting staging, no automatic approval
+        uses: peter-evans/create-pull-request@v7
+        with:
+          path: stage
+          base: automation/sleeper-weekly-stage
+          branch: review/2026-trade-evidence-week11
+          delete-branch: false
+          title: 'Review six recovered 2026 Sleeper trades and original source receipts'
+          commit-message: 'Stage read-only original Sleeper trade evidence for commissioner certification'
+          body: |
+            Original 2026 Sleeper trade source through Week 11, reconciled against the 13 normalized trades.
+            New review queue includes six provider IDs missing from Trade Museum.
+            Certificate status is **REVIEW_REQUIRED** and cannot be imported.
+            Commissioner has confirmed the displayed six exchanges; independently approve names, FAAB, keeper rights and the pinned source commit before any official certification.
+            This PR targets the non-canonical staging branch only. Do not merge the score candidate into main. No Trade Museum release, scoreboard change, grading or Pages deployment.
+          add-paths: |
+            data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json
+            data-integrity/sleeper-sync-candidates/2026-trade-review-through-week11.json
+            data-integrity/trade-certifications/2026-week11.json
