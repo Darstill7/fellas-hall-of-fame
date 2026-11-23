@@ -11,6 +11,7 @@ on:
       - 'scripts/test-full-era-career-agreement.mjs'
       - 'scripts/build-manager-profile-career-projection.mjs'
       - 'scripts/build-career-core-projection.mjs'
+      - 'scripts/build-season-guide-projection.mjs'
       - 'scripts/audit-career-consumer-dependencies.mjs'
       - 'data-integrity/frozen-regular-matchups-2016-2019-v1.json'
       - 'scripts/test-frozen-provider-agreement.mjs'
@@ -100,6 +101,8 @@ jobs:
         run: node scripts/build-manager-profile-career-projection.mjs
       - name: Generate compatible career core from certified history
         run: node scripts/build-career-core-projection.mjs
+      - name: Generate reconciled season guide and migration audit
+        run: node scripts/build-season-guide-projection.mjs
       - name: Inventory all legacy career consumers
         run: node scripts/audit-career-consumer-dependencies.mjs
       - uses: actions/upload-artifact@v4
@@ -113,4 +116,6 @@ jobs:
             data-integrity/historical-trade-draft-audits/manager-profile-career-migration-audit.json
             data-integrity/historical-trade-draft-audits/career-consumer-dependencies.json
             data-integrity/historical-trade-draft-audits/career-core-preview.json
+            data-integrity/historical-trade-draft-audits/season-guide-preview.json
+            data-integrity/historical-trade-draft-audits/season-guide-migration-audit.json
           if-no-files-found: error
