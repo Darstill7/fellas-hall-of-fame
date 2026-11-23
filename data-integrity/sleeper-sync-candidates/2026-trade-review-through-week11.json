@@ -1,0 +1,139 @@
+{
+  "schema": "fellas-trade-museum-review-diff-v1",
+  "status": "REVIEW_REQUIRED",
+  "through_week": 11,
+  "source": "data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json",
+  "museum_source": "data/trade_museum_stage66.json",
+  "staged_completed_trades": 13,
+  "museum_current_receipts": 51,
+  "matched_museum_ids": 7,
+  "new_provider_ids_awaiting_review": 6,
+  "existing_ids_with_participant_conflicts": 0,
+  "participant_conflicts": [],
+  "review_queue": [
+    {
+      "transaction_id": "1424524291990450196",
+      "week": 9,
+      "roster_ids": [
+        4,
+        6
+      ],
+      "player_ids_in_adds": [
+        "11625",
+        "MIN"
+      ],
+      "player_ids_in_drops": [
+        "11625",
+        "MIN"
+      ],
+      "raw_faab_entries": 1,
+      "raw_draft_entries": 0,
+      "issues": [
+        "FAAB transfer present — validate manager, amount and eligibility"
+      ]
+    },
+    {
+      "transaction_id": "1427488044335788032",
+      "week": 10,
+      "roster_ids": [
+        4,
+        9
+      ],
+      "player_ids_in_adds": [
+        "11564",
+        "7569"
+      ],
+      "player_ids_in_drops": [
+        "11564",
+        "7569"
+      ],
+      "raw_faab_entries": 0,
+      "raw_draft_entries": 0,
+      "issues": []
+    },
+    {
+      "transaction_id": "1428829144581406720",
+      "week": 11,
+      "roster_ids": [
+        2,
+        4
+      ],
+      "player_ids_in_adds": [
+        "13337",
+        "8146",
+        "8151"
+      ],
+      "player_ids_in_drops": [
+        "13337",
+        "8146",
+        "8151"
+      ],
+      "raw_faab_entries": 0,
+      "raw_draft_entries": 0,
+      "issues": []
+    },
+    {
+      "transaction_id": "1428878310045151232",
+      "week": 11,
+      "roster_ids": [
+        6,
+        7
+      ],
+      "player_ids_in_adds": [
+        "6794",
+        "6813"
+      ],
+      "player_ids_in_drops": [
+        "6794",
+        "6813"
+      ],
+      "raw_faab_entries": 0,
+      "raw_draft_entries": 0,
+      "issues": []
+    },
+    {
+      "transaction_id": "1428887570439245824",
+      "week": 11,
+      "roster_ids": [
+        1,
+        10
+      ],
+      "player_ids_in_adds": [
+        "7547",
+        "8138"
+      ],
+      "player_ids_in_drops": [
+        "7547",
+        "8138"
+      ],
+      "raw_faab_entries": 0,
+      "raw_draft_entries": 0,
+      "issues": []
+    },
+    {
+      "transaction_id": "1428927046507069440",
+      "week": 11,
+      "roster_ids": [
+        4,
+        8
+      ],
+      "player_ids_in_adds": [
+        "12501",
+        "9224"
+      ],
+      "player_ids_in_drops": [
+        "12501",
+        "9224"
+      ],
+      "raw_faab_entries": 0,
+      "raw_draft_entries": 0,
+      "issues": []
+    }
+  ],
+  "disclaimers": [
+    "A new provider ID is NOT automatically a publishable trade or proof of asset direction.",
+    "Raw Sleeper roster IDs and player IDs must be mapped against the season-specific team/players archive.",
+    "FAAB, pick fields and three-team transactions need transaction-specific review.",
+    "Historic starter points and trade grades are not recalculated by this staging diff."
+  ]
+}

@@ -1,0 +1,296 @@
+{
+  "schema": "fellas-sleeper-raw-trade-review-v1",
+  "status": "REVIEW_REQUIRED",
+  "year": 2026,
+  "league": "1340027406009761792",
+  "through_week": 11,
+  "source": "Original Sleeper public API complete transaction payloads, weeks 0-11, re-checked against normalized reviewed IDs",
+  "collected_at": "2026-11-23T19:06:37.275Z",
+  "caveats": [
+    "This is a raw source review, not commissioner-approved publication",
+    "2026 Week 12 and future trades not included",
+    "Player display names and FAAB/keeper implications require commissioner signoff"
+  ],
+  "trades": [
+    {
+      "week": 1,
+      "transaction_id": "1399889389147979776",
+      "roster_ids": [
+        1,
+        3
+      ],
+      "adds": {
+        "11581": 1,
+        "11583": 3
+      },
+      "drops": {
+        "11581": 3,
+        "11583": 1
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1788122148362,
+      "status_updated": 1788134446345
+    },
+    {
+      "week": 1,
+      "transaction_id": "1400522174271340544",
+      "roster_ids": [
+        4,
+        5
+      ],
+      "adds": {
+        "11635": 4,
+        "12514": 5
+      },
+      "drops": {
+        "11635": 5,
+        "12514": 4
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1788273016091,
+      "status_updated": 1788273615700
+    },
+    {
+      "week": 2,
+      "transaction_id": "1405999320708268032",
+      "roster_ids": [
+        3,
+        8
+      ],
+      "adds": {
+        "7523": 8,
+        "12512": 3
+      },
+      "drops": {
+        "7523": 3,
+        "12512": 8
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1789578869563,
+      "status_updated": 1789584648836
+    },
+    {
+      "week": 4,
+      "transaction_id": "1411009536306733056",
+      "roster_ids": [
+        4,
+        9
+      ],
+      "adds": {
+        "6904": 9,
+        "8167": 4,
+        "11564": 4,
+        "11635": 9
+      },
+      "drops": {
+        "6904": 4,
+        "8167": 9,
+        "11564": 9,
+        "11635": 4
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1790773398046,
+      "status_updated": 1790774035083
+    },
+    {
+      "week": 4,
+      "transaction_id": "1411012593170010112",
+      "roster_ids": [
+        2,
+        4
+      ],
+      "adds": {
+        "6806": 2,
+        "8167": 2,
+        "13287": 4
+      },
+      "drops": {
+        "6806": 4,
+        "8167": 4,
+        "13287": 2
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1790774126859,
+      "status_updated": 1790774641323
+    },
+    {
+      "week": 5,
+      "transaction_id": "1413584172332654592",
+      "roster_ids": [
+        1,
+        2
+      ],
+      "adds": {
+        "2133": 2,
+        "4217": 2,
+        "7564": 1,
+        "8155": 2,
+        "11834": 1
+      },
+      "drops": {
+        "2133": 1,
+        "4217": 1,
+        "7564": 2,
+        "8155": 1,
+        "11834": 2
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1791387239109,
+      "status_updated": 1791390897874
+    },
+    {
+      "week": 5,
+      "transaction_id": "1414340723225976832",
+      "roster_ids": [
+        3,
+        10
+      ],
+      "adds": {
+        "5872": 3,
+        "MIN": 10
+      },
+      "drops": {
+        "5872": 10,
+        "MIN": 3
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1791567614899,
+      "status_updated": 1791567805762
+    },
+    {
+      "week": 9,
+      "transaction_id": "1424524291990450196",
+      "roster_ids": [
+        4,
+        6
+      ],
+      "adds": {
+        "11625": 4,
+        "MIN": 6
+      },
+      "drops": {
+        "11625": 6,
+        "MIN": 4
+      },
+      "draft_picks": [],
+      "waiver_budget": [
+        {
+          "amount": 2,
+          "sender": 6,
+          "receiver": 4
+        }
+      ],
+      "created": 1793995566894,
+      "status_updated": 1793995628259
+    },
+    {
+      "week": 10,
+      "transaction_id": "1427488044335788032",
+      "roster_ids": [
+        4,
+        9
+      ],
+      "adds": {
+        "7569": 4,
+        "11564": 9
+      },
+      "drops": {
+        "7569": 9,
+        "11564": 4
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1794702180516,
+      "status_updated": 1794706462308
+    },
+    {
+      "week": 11,
+      "transaction_id": "1428829144581406720",
+      "roster_ids": [
+        2,
+        4
+      ],
+      "adds": {
+        "8146": 2,
+        "8151": 4,
+        "13337": 2
+      },
+      "drops": {
+        "8146": 4,
+        "8151": 2,
+        "13337": 4
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1795021923732,
+      "status_updated": 1795022243705
+    },
+    {
+      "week": 11,
+      "transaction_id": "1428878310045151232",
+      "roster_ids": [
+        6,
+        7
+      ],
+      "adds": {
+        "6794": 6,
+        "6813": 7
+      },
+      "drops": {
+        "6794": 7,
+        "6813": 6
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1795033645691,
+      "status_updated": 1795035776825
+    },
+    {
+      "week": 11,
+      "transaction_id": "1428887570439245824",
+      "roster_ids": [
+        1,
+        10
+      ],
+      "adds": {
+        "7547": 10,
+        "8138": 1
+      },
+      "drops": {
+        "7547": 1,
+        "8138": 10
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1795035853541,
+      "status_updated": 1795044265316
+    },
+    {
+      "week": 11,
+      "transaction_id": "1428927046507069440",
+      "roster_ids": [
+        4,
+        8
+      ],
+      "adds": {
+        "9224": 8,
+        "12501": 4
+      },
+      "drops": {
+        "9224": 4,
+        "12501": 8
+      },
+      "draft_picks": [],
+      "waiver_budget": [],
+      "created": 1795045265370,
+      "status_updated": 1795045481136
+    }
+  ]
+}
