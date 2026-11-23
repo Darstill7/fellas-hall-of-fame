@@ -2,9 +2,11 @@
 // Read-only research; grade is NOT official and no public output is modified.
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-const league='1181421235163095040',draftId='1181421235163095041';
-const model=JSON.parse(fs.readFileSync('data/v9_draft_engine.json','utf8')).filter(p=>p.year===2025);
-const season=JSON.parse(fs.readFileSync('data/player_starts_2025.json','utf8'));
+const target=Number(process.env.FELLAS_DRAFT_YEAR||2025);
+assert([2024,2025].includes(target));
+const latestLeague='1181421235163095040';
+const model=JSON.parse(fs.readFileSync('data/v9_draft_engine.json','utf8')).filter(p=>p.year===target);
+const season=JSON.parse(fs.readFileSync('data/player_starts_'+target+'.json','utf8'));
 assert.equal(model.length,150);
 assert.deepEqual(season.weeks.map(w=>w.week),Array.from({length:14},(_,i)=>i+1));
 const managers=new Map([[1,'Stilly'],[2,'JMid'],[3,'Tom'],[4,'Stew'],[5,'Scott'],[6,'Mitch'],[7,'Tony'],[8,'Stover'],[9,'Kuhl'],[10,'Birch']]);
@@ -13,10 +15,18 @@ const api=async url=>{
  if(!response.ok)throw Error('Sleeper HTTP '+response.status+' at '+url);
  return response.json();
 };
+const latest=await api('https://api.sleeper.app/v1/league/'+latestLeague);
+assert.equal(String(latest.season),'2025');
+const league=target===2025?latestLeague:String(latest.previous_league_id);
+const leagueInfo=await api('https://api.sleeper.app/v1/league/'+league);
+assert.equal(String(leagueInfo.season),String(target));
+assert.equal(Number(leagueInfo.settings.playoff_week_start),15);
+const drafts=await api('https://api.sleeper.app/v1/league/'+league+'/drafts');
+const candidates=drafts.filter(d=>d.status==='complete'&&Number(d.settings?.teams)===10&&Number(d.settings?.rounds)===15);
+assert.equal(candidates.length,1,'Expected one completed 150-pick draft');
+const draftId=String(candidates[0].draft_id);
 const board=await api('https://api.sleeper.app/v1/draft/'+draftId+'/picks');
 assert(Array.isArray(board)&&board.length===150,'Draft board missing picks');
-const leagueInfo=await api('https://api.sleeper.app/v1/league/'+league);
-assert.equal(String(leagueInfo.season),'2025');
 const byOverall=new Map(board.map(p=>[Number(p.pick_no),p]));
 assert.equal(byOverall.size,150,'Draft pick numbers must be unique');
 const rosterStarts=new Map(),allStarts=new Map();
@@ -83,15 +93,15 @@ const grouped=[...new Set(review.map(p=>p.manager))].sort().map(manager=>{
   nonkeeper_original_manager_pf:sum(nonkeeper,'source_original_roster_points'),
   cannot_assign_grade_yet:'Keeper opportunity cost, pick-specific ex-ante replacement baselines, traded-out player compensation, injury/availability, and playoff impact require separate verification'};
 });
-const report={schema:'fellas-2025-original-draft-player-id-reconciliation-v1',
+const report={schema:'fellas-'+target+'-original-draft-player-id-reconciliation-v1',season:target,
  status:'RESEARCH_ONLY_PLAYER_ID_VERIFIED_NO_FINAL_GRADES',
  league_id:league,draft_id:draftId,regular_season_completed_weeks:14,
- methodology:{source:'Original Sleeper draft pick_no, roster_id and player_id crosschecked against 2025 archived weekly starter player IDs',original_manager:'Count only starts by original drafting roster; do not attribute traded-away points back to drafting manager',leaguewide:'Sum the drafted player starter points for ALL managers, including subsequent trading counterparts, separately from original owner capture',grades:'No permanent historical grade from unadjusted PF; non-keeper peer opportunity cost plus verified trade compensation required'},
+ methodology:{source:'Original Sleeper draft pick_no, roster_id and player_id crosschecked against season-specific archived weekly starter player IDs',original_manager:'Count only starts by original drafting roster; do not attribute traded-away points back to drafting manager',leaguewide:'Sum the drafted player starter points for ALL managers, including subsequent trading counterparts, separately from original owner capture',grades:'No permanent historical grade from unadjusted PF; non-keeper peer opportunity cost plus verified trade compensation required'},
  counts:{drafted:review.length,manager_count:grouped.length,stored_point_or_start_differences:mismatches.length,existing_name_differences:review.filter(p=>p.name_difference!=='NONE').length,traded_same_season:review.filter(p=>p.traded_same_season).length,keeper_picks:review.filter(p=>p.is_keeper_archived).length},
  verified_picks:review,manager_descriptive_totals:grouped};
 fs.mkdirSync('data-integrity/historical-trade-draft-audits',{recursive:true});
-fs.writeFileSync('data-integrity/historical-trade-draft-audits/2025-sleeper-draft-id-review.json',JSON.stringify(report,null,2)+'\n');
-console.log('2025 ORIGINAL DRAFT PLAYER ID AUDIT '+JSON.stringify(report.counts));
+fs.writeFileSync('data-integrity/historical-trade-draft-audits/'+target+'-sleeper-draft-id-review.json',JSON.stringify(report,null,2)+'\n');
+console.log(target+' ORIGINAL DRAFT PLAYER ID AUDIT '+JSON.stringify(report.counts));
 console.log('DRAFT MISATTRIBUTIONS '+JSON.stringify(mismatches.map(x=>({pick:x.pick,manager:x.manager,player:x.archive_player_name,sourceId:x.player_id,stored:x.stored_reg_starter_points,verified:x.source_original_roster_points,storedStarts:x.stored_reg_starts,verifiedStarts:x.source_original_roster_starts}))));
 console.log('MANAGER DRAFT DESCRIPTIVE SOURCE TOTALS '+JSON.stringify(grouped.map(x=>({manager:x.manager,nonkeeperPFleaguewide:x.nonkeeper_player_pf_any_owner,nonkeeperPForiginal:x.nonkeeper_original_manager_pf,traded:x.traded_original_picks,keepers:x.keeper_count}))));
 console.log('No draft grade or main repository write. This audit is source-only.');
