@@ -118,6 +118,42 @@ jobs:
           node scripts/research-keeper-source-audit.mjs
           node --check scripts/research-2026-live-trade-player-returns.mjs
           FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-trade-player-returns.mjs
+      - name: Preserve research receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2020-2025-trade-ownership-research
+          path: |
+            data-integrity/historical-trade-draft-audits/*-ownership-review.json
+            data-integrity/historical-trade-draft-audits/career-trade-return-research.json
+            data-integrity/historical-trade-draft-audits/trade-tree-research.json
+            data-integrity/historical-trade-draft-audits/trade-playoff-impact-research.json
+            data-integrity/historical-trade-draft-audits/provider-bracket-identity-research.json
+            data-integrity/historical-trade-draft-audits/boundary-kickoff-evidence-research.json
+            data-integrity/historical-trade-draft-audits/boundary-adjusted-trade-returns-research.json
+            data-integrity/historical-trade-draft-audits/trade-positional-surplus-research.json
+            data-integrity/historical-trade-draft-audits/trade-model-sensitivity-research.json
+            data-integrity/historical-trade-draft-audits/manager-front-office-research.json
+            data-integrity/historical-trade-draft-audits/manager-trade-matrix-research.json
+            data-integrity/historical-trade-draft-audits/trade-rivalry-timelines-research.json
+            data-integrity/historical-trade-draft-audits/trading-records-research.json
+            data-integrity/historical-trade-draft-audits/trade-player-receipts-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-hall-of-fame-research.json
+            data-integrity/historical-trade-draft-audits/unattributed-starter-audit-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-kickoff-evidence-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-ranking-sensitivity-research.json
+            data-integrity/historical-trade-draft-audits/manager-identity-crosscheck-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-leaderboards-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-positional-records-research.json
+            data-integrity/historical-trade-draft-audits/player-career-encyclopedia-research.json
+            data-integrity/historical-trade-draft-audits/manager-acquisition-resumes-research.json
+            data-integrity/historical-trade-draft-audits/draft-room-research.json
+            data-integrity/historical-trade-draft-audits/keeper-source-audit-research.json
+            data-integrity/historical-trade-draft-audits/2026-live-trade-player-returns-research.json
+            data-integrity/historical-trade-draft-audits/career-draft-return-research.json
+          retention-days: 30
+          if-no-files-found: warn
+
       - name: Install browser runtime
         id: browser-runtime
         timeout-minutes: 8
@@ -183,39 +219,4 @@ jobs:
           name: trading-floor-research-captures
           path: data-integrity/trading-floor-captures/*.png
           retention-days: 14
-          if-no-files-found: warn
-      - name: Preserve research receipts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: 2020-2025-trade-ownership-research
-          path: |
-            data-integrity/historical-trade-draft-audits/*-ownership-review.json
-            data-integrity/historical-trade-draft-audits/career-trade-return-research.json
-            data-integrity/historical-trade-draft-audits/trade-tree-research.json
-            data-integrity/historical-trade-draft-audits/trade-playoff-impact-research.json
-            data-integrity/historical-trade-draft-audits/provider-bracket-identity-research.json
-            data-integrity/historical-trade-draft-audits/boundary-kickoff-evidence-research.json
-            data-integrity/historical-trade-draft-audits/boundary-adjusted-trade-returns-research.json
-            data-integrity/historical-trade-draft-audits/trade-positional-surplus-research.json
-            data-integrity/historical-trade-draft-audits/trade-model-sensitivity-research.json
-            data-integrity/historical-trade-draft-audits/manager-front-office-research.json
-            data-integrity/historical-trade-draft-audits/manager-trade-matrix-research.json
-            data-integrity/historical-trade-draft-audits/trade-rivalry-timelines-research.json
-            data-integrity/historical-trade-draft-audits/trading-records-research.json
-            data-integrity/historical-trade-draft-audits/trade-player-receipts-research.json
-            data-integrity/historical-trade-draft-audits/acquisition-hall-of-fame-research.json
-            data-integrity/historical-trade-draft-audits/unattributed-starter-audit-research.json
-            data-integrity/historical-trade-draft-audits/acquisition-kickoff-evidence-research.json
-            data-integrity/historical-trade-draft-audits/acquisition-ranking-sensitivity-research.json
-            data-integrity/historical-trade-draft-audits/manager-identity-crosscheck-research.json
-            data-integrity/historical-trade-draft-audits/acquisition-leaderboards-research.json
-            data-integrity/historical-trade-draft-audits/acquisition-positional-records-research.json
-            data-integrity/historical-trade-draft-audits/player-career-encyclopedia-research.json
-            data-integrity/historical-trade-draft-audits/manager-acquisition-resumes-research.json
-            data-integrity/historical-trade-draft-audits/draft-room-research.json
-            data-integrity/historical-trade-draft-audits/keeper-source-audit-research.json
-            data-integrity/historical-trade-draft-audits/2026-live-trade-player-returns-research.json
-            data-integrity/historical-trade-draft-audits/career-draft-return-research.json
-          retention-days: 30
           if-no-files-found: warn
