@@ -54,7 +54,7 @@ Object.assign(datasets['overview.json'],{supportedEvidence:evidenceMeta});
 Object.assign(datasets['trading.json'],{supportedEvidence:{...evidenceMeta,tradeSides:supported.trades,pairwise:pairwiseRankings,managerSurplus}});
 Object.assign(datasets['draft.json'],{supportedEvidence:{...evidenceMeta,rounds:supported.rounds,picks:supportedRankings.filter(a=>['DRAFT','ARCHIVED_KEEPER','DRAFT_KEEPER_UNKNOWN'].includes(a.category))}});
 Object.assign(datasets['acquisitions.json'],{supportedEvidence:{...evidenceMeta,categories:supported.categories,rankings:supportedRankings}});
-Object.assign(datasets['players.json'],{supportedEvidence:{...evidenceMeta,players:supported.players}});
+Object.assign(datasets['players.json'],{supportedEvidence:{...evidenceMeta,players:supported.players,playerReceipts:supported.playerReceipts}});
 Object.assign(datasets['managers.json'],{supportedEvidence:{...evidenceMeta,managers:supported.managers}});
 Object.assign(datasets['keepers.json'],{supportedEvidence:{...evidenceMeta,archiveKeeperTotals:supported.categories.ARCHIVED_KEEPER??null,unknownKeeperTotals:supported.categories.DRAFT_KEEPER_UNKNOWN??null}});
 const files=[];
