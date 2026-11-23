@@ -4,6 +4,7 @@ on:
     paths:
       - 'scripts/test-combined-trade-release-week10.mjs'
       - 'scripts/import-reviewed-trade-museum.mjs'
+      - 'scripts/verify-live-trade-release-freshness.mjs'
       - 'data/trade_museum_stage66.json'
       - 'data-integrity/trade-point-recalculations/2026-through-week10.json'
       - '.github/workflows/rehearse-combined-trade-release.yml'
@@ -35,6 +36,10 @@ jobs:
           mkdir -p .combined-trade-source/data-integrity/sleeper-sync-candidates .combined-trade-source/data-integrity/trade-certifications
           git show "$SOURCE_SHA:data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json" > .combined-trade-source/data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json
           git show "$SOURCE_SHA:data-integrity/trade-certifications/2026-week11.json" > .combined-trade-source/data-integrity/trade-certifications/2026-week11.json
+      - name: Block stale week or changed completed trades before rehearsal
+        env:
+          FELLAS_TRADE_RAW_SOURCE: .combined-trade-source/data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json
+        run: node scripts/verify-live-trade-release-freshness.mjs
       - name: Run exact-source nonpublication combined release rehearsal
         env:
           FELLAS_EVIDENCE_ROOT: ${{ github.workspace }}/.combined-trade-source
