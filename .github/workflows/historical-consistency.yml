@@ -1,0 +1,36 @@
+name: Historical championship and provider matchup consistency
+on:
+  pull_request:
+    paths:
+      - 'data/**'
+      - 'data-integrity/historical-*-confirmation-*.json'
+      - 'scripts/test-historical-championship-consistency.mjs'
+      - 'scripts/research-regular-season-source-reconciliation.mjs'
+      - '.github/workflows/historical-consistency.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  championship:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-historical-championship-consistency.mjs
+  provider-matchups:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/research-regular-season-source-reconciliation.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: historical-provider-matchup-reconciliation
+          path: data-integrity/historical-trade-draft-audits/regular-season-source-reconciliation.json
+          if-no-files-found: error
