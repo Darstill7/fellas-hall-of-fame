@@ -12,7 +12,6 @@ assert.ok(html.includes("g.year===2026&&g.stage==='regular'"),'Do not count play
 assert.ok(html.includes("weeks.every((w,i)=>w===i+1)"),'Contiguous weeks must be validated before reporting a through-week');
 assert.ok(html.includes("document.getElementById(id).textContent='Unverified'"),'Fetch failure must fail closed');
 assert.ok(html.includes('A staged result or an unfinished game is not an approved final matchup.'),'Published and staged weeks must remain distinct');
-assert.ok(html.includes('green pull request')===false,'Avoid falsely presenting a PR as a deployed site');
 assert.ok(html.includes('A green pull request does not independently prove deployed Pages parity'),'CI must not be mistaken for Pages deployment');
 assert.ok(!html.includes('standings through Week 6')&&!html.includes('v9 REVIEW BUILD'),'Historical preview labels must not masquerade as current scope');
 
