@@ -87,7 +87,7 @@ for(const a of [...archive,...recovered]){
     if(w===t.week||w===exit?.week)boundary.push({...receipt,reason:w===t.week?'ACQUISITION_WEEK_LOCK_PROOF_REQUIRED':'EXIT_WEEK_LOCK_PROOF_REQUIRED'});
     else receipts.push(receipt);
    }
-   players.push({player_id:pid,observed_player_name:playerNames.get(pid)||null,acquired_transaction:String(t.transaction_id),acquired_status_updated:t.status_updated,exit_transaction:exit?String(exit.transaction_id):null,exit_week:exit?.week??null,receipts,boundary});
+   players.push({player_id:pid,observed_player_name:playerNames.get(pid)||null,acquired_transaction:String(t.transaction_id),acquired_status_updated:t.status_updated,exit_transaction:exit?String(exit.transaction_id):null,exit_week:exit?.week??null,exit_status_updated:exit?.status_updated??null,receipts,boundary});
   }
   const receipts=players.flatMap(p=>p.receipts),regular=receipts.filter(r=>r.week<playoffStart),post=receipts.filter(r=>r.week>=playoffStart);
   sideAudits.push({manager:side.manager,roster,archive_assets:side.assets,archive_points:side.raw_starter_points,archive_starts:side.started_games,regular_pf:round(regular.reduce((n,r)=>n+r.points,0)),regular_starts:regular.length,postseason_calendar_pf:round(post.reduce((n,r)=>n+r.points,0)),postseason_calendar_starts:post.length,players});
