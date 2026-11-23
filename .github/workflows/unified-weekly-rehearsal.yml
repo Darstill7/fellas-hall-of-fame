@@ -23,7 +23,7 @@ jobs:
   coordinated-rehearsal:
     needs: atomic-regression
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -39,7 +39,16 @@ jobs:
           for pair in 'core:historical-consistency.yml' 'front:audit-2024-trade-ownership-source.yml'; do
             name=${pair%%:*}
             workflow=${pair#*:}
-            id=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/$workflow/runs?head_sha=$HEAD_SHA&status=success&per_page=30" --jq '.workflow_runs[0].id // empty')
+            id=''
+            for attempt in $(seq 1 60); do
+              runs=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/$workflow/runs?head_sha=$HEAD_SHA&per_page=30")
+              id=$(jq -r '[.workflow_runs[] | select(.conclusion == "success")][0].id // empty' <<< "$runs")
+              if [ -n "$id" ]; then break; fi
+              pending=$(jq -r '[.workflow_runs[] | select(.status != "completed")] | length' <<< "$runs")
+              total=$(jq -r '.workflow_runs | length' <<< "$runs")
+              if [ "$total" -gt 0 ] && [ "$pending" -eq 0 ]; then break; fi
+              sleep 20
+            done
             if [ -z "$id" ]; then
               echo "::error::No successful same-commit $workflow; refusing to mix artifacts or publish partial release."
               exit 1
