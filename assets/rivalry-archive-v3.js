@@ -241,7 +241,7 @@ fetch(depth+'data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw E
    const portfolio=portfolioBase+'?manager='+encodeURIComponent(firstName)+'&partner='+encodeURIComponent(secondName);
    // Older deployed Museum versions have receipts but no portfolio route.
    // Only expose a portfolio link if the destination exists on this deployment.
-   const portfolioAvailable=await fetch(portfolioBase).then(r=>r.ok?r.text():null).then(s=>!!s&&s.includes('id="tradePartner"')).catch(()=>false);
+   const portfolioAvailable=!!page.querySelector('a#manager-entry[href="trade-portfolios.html"]');
    const dates=parsed.filter(trade=>/^\d{4}-\d{2}-\d{2}$/.test(String(trade.date||''))).map(trade=>trade.date).sort();
    const cutoff=dates.length?dates[dates.length-1]:'date not verified';
    const header='<h2 id="rivalry-trade-heading">Trade rivalry</h2>';
