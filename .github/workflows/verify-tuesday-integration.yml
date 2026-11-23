@@ -1,0 +1,41 @@
+name: Verify Tuesday approval and release-health integration
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/prepare-approved-weekly-release.yml'
+      - '.github/workflows/prepare-approved-trade-museum.yml'
+      - '.github/workflows/verify-tuesday-integration.yml'
+      - '.github/workflows/rehearse-weekly-release.yml'
+      - 'scripts/test-approved-staging-pin.mjs'
+      - 'scripts/test-trade-staging-pin.mjs'
+      - 'scripts/test-site-freshness.mjs'
+      - 'scripts/test-release-health-report.mjs'
+      - 'docs/WEEKLY_PUBLICATION.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integration:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate read-only approval and freshness test syntax
+        run: |
+          node --check scripts/test-approved-staging-pin.mjs
+          node --check scripts/test-trade-staging-pin.mjs
+          node --check scripts/test-site-freshness.mjs
+          node --check scripts/test-release-health-report.mjs
+      - name: Test reviewed score and trade staging pins
+        run: |
+          node scripts/test-approved-staging-pin.mjs
+          node scripts/test-trade-staging-pin.mjs
+      - name: Test website freshness and deliberate stale-source rejection
+        run: node scripts/test-site-freshness.mjs
+      - name: Test release-health aggregation and unverified-deployment cases
+        run: node scripts/test-release-health-report.mjs
