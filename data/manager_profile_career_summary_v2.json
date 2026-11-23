@@ -9,7 +9,7 @@
   "caveats": [
     "Combined regular season totals based on archived games; some Sleeper archive may be incomplete.",
     "2026 in progress.",
-    "Championship ledger 2020 onward retained as previously classified, not newly independently reverified.",
+    "Championship identities 2020–2025 independently cross-checked against verified Sleeper brackets and commissioner confirmation on 2026-11-23.",
     "2016-2019 championship and runner-up finishes verified from ESPN original finals.",
     "2017 runner-up Schermerhorn is former manager Schermerhorn, not Thommy."
   ],
@@ -302,7 +302,12 @@
         2016,
         2023
       ],
-      "titles": [],
+      "titles": [
+        {
+          "year": 2020,
+          "source": "Verified Sleeper bracket and commissioner-confirmed championship ledger"
+        }
+      ],
       "espnFinalAppearances": []
     }
   },
