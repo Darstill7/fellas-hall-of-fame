@@ -80,7 +80,17 @@ details{border:1px solid var(--border);padding:12px 17px;border-radius:12px;marg
   if(!Array.isArray(d.games)||typeof d.coverage!=='string'||typeof d.updated!=='string')throw Error('Invalid canonical format');
   const matches=d.games.filter(g=>g.year===2026&&g.stage==='regular'&&Number.isFinite(g.homeScore)&&Number.isFinite(g.awayScore));
   const weeks=[...new Set(matches.map(g=>g.week).filter(w=>Number.isInteger(w)&&w>=1&&w<=18))].sort((a,b)=>a-b);
-  const continuous=weeks.length&&weeks.every((w,i)=>w===i+1);
+  // Ten-team league: a completed week must contain five independent games
+  // with each of the ten managers appearing once. A partial week is NOT
+  // an approved "through Week N" even if its number follows Week N-1.
+  const completeWeek=week=>{
+   const games=matches.filter(g=>g.week===week);
+   const participants=games.flatMap(g=>[g.home,g.away]);
+   return games.length===5&&participants.length===10
+    &&participants.every(n=>typeof n==='string'&&n.trim().length>0)
+    &&new Set(participants).size===10;
+  };
+  const continuous=weeks.length>0&&weeks.every((w,i)=>w===i+1&&completeWeek(w));
   const through=continuous?'Weeks 1–'+weeks[weeks.length-1]:'Coverage requires review';
   document.getElementById('approved-week').textContent=through;
   document.getElementById('source-date').textContent=/^\d{4}-\d{2}-\d{2}$/.test(d.updated)?d.updated:'Date unverified';
