@@ -6,7 +6,7 @@ export function careerSnapshot(ledger,manager){
  const matches=ledger.games.filter(g=>g.stage==='regular'&&(g.home===manager||g.away===manager)&&
   Number.isFinite(g.homeScore)&&Number.isFinite(g.awayScore)&&Number.isInteger(g.year)&&Number.isInteger(g.week));
  if(!matches.length)throw Error('No documented regular-season matchups for '+manager);
- const opponents=new Map();
+ const opponents=new Map(),seasons=new Map();
  const years=new Set();let wins=0,losses=0,ties=0,pf=0,pa=0;
  for(const g of matches){
   years.add(g.year);
@@ -14,7 +14,10 @@ export function careerSnapshot(ledger,manager){
   const pts=home?g.homeScore:g.awayScore,against=home?g.awayScore:g.homeScore;
   const other=home?g.away:g.home;
   pf+=pts;pa+=against;
-  if(pts>against)wins++;else if(pts<against)losses++;else ties++;
+  const season=seasons.get(g.year)||{year:g.year,games:0,w:0,l:0,t:0,pf:0,pa:0};
+  season.games++;season.pf+=pts;season.pa+=against;
+  if(pts>against){wins++;season.w++}else if(pts<against){losses++;season.l++}else{ties++;season.t++}
+  seasons.set(g.year,season);
   const o=opponents.get(other)||{name:other,games:0,w:0,l:0,t:0,pf:0,pa:0};
   o.games++;o.pf+=pts;o.pa+=against;
   if(pts>against)o.w++;else if(pts<against)o.l++;else o.t++;
@@ -33,7 +36,7 @@ export function careerSnapshot(ledger,manager){
  }
  return {manager,games:matches.length,years:[...years].sort((a,b)=>a-b),wins,losses,ties,pf,pa,
   avgFor:pf/matches.length,avgAgainst:pa/matches.length,opponents:peers,
-  week,sourceUpdated:typeof ledger.updated==='string'?ledger.updated:'Unverified'};
+  seasons:[...seasons.values()].sort((a,b)=>a.year-b.year),week,sourceUpdated:typeof ledger.updated==='string'?ledger.updated:'Unverified'};
 }
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const int=n=>new Intl.NumberFormat('en-US',{maximumFractionDigits:0}).format(n);
@@ -55,9 +58,30 @@ export function renderSnapshot(data){
   '<div class="manager-pulse-rivals"><div><h3>Most-played opponents</h3><p>Historical meetings, not an opponent-strength ranking.</p></div>'+
   '<ol>'+top.map(o=>'<li><div><strong>'+esc(o.name)+'</strong><small>'+o.games+' meetings</small></div><span>'+record(o)+' <small>W–L'+(o.t?'–T':'')+'</small></span></li>').join('')+'</ol>'+
   '<a class="manager-pulse-rival-link" href="#head-to-head">Explore every rivalry →</a></div>'+
+  renderSeasonTrajectory(data)+
   '<p class="manager-pulse-source">Source: canonical ESPN/Sleeper recovered regular-season scoreboards; 2026 through Week '+data.week+
   '. No postseason games or estimated trade outcomes included. Earlier-era coverage has documented limitations. Ledger updated '+esc(data.sourceUpdated)+
   '. <a href="../../data-integrity/source-status.html">Review source status</a>.</p>';
+}
+// Season trend bars use each manager's documented W-L-T only. Partial and
+// reconstructed seasons are never mislabeled as verified final standings.
+export function renderSeasonTrajectory(data){
+ const rows=data.seasons||[];
+ if(!rows.length)return '';
+ const peak=[...rows].sort((a,b)=>(b.w+b.t/2)/b.games-(a.w+a.t/2)/a.games||b.games-a.games||a.year-b.year)[0];
+ return '<details class="manager-pulse-trajectory"><summary>Career trajectory by season <span>('+rows.length+' documented seasons)</span></summary>'+
+  '<div class="manager-pulse-trajectory-content">'+
+  '<p>Documented regular-season win percentage, not final league rank. Earlier ESPN/Sleeper coverage varies, and 2026 is still in progress.</p>'+
+  '<ol>'+rows.map(s=>{
+   const pct=100*(s.w+s.t/2)/s.games;
+   const description=s.year===2026?'In progress · through Week '+data.week:'Documented results';
+   return '<li><span class="manager-pulse-season-year">'+s.year+'</span>'+
+    '<div class="manager-pulse-season-bar" role="img" aria-label="'+esc(s.year+': '+dec(pct)+' percent wins from '+s.games+' documented games')+'"><span style="width:'+pct.toFixed(2)+'%"></span></div>'+
+    '<strong>'+dec(pct)+'%</strong><small>'+record(s)+' · '+s.games+' games · '+esc(description)+'</small></li>';
+  }).join('')+'</ol>'+
+  '<p class="manager-pulse-peak">Highest documented season win rate: '+peak.year+' · '+dec(100*(peak.w+peak.t/2)/peak.games)+'% ('+peak.games+' games). This is not a verified season finish or league rank.</p>'+
+  '<a class="manager-pulse-rival-link" href="#season-history">Explore full season history →</a>'+
+  '</div></details>';
 }
 async function start(){
  const root=document.querySelector('[data-career-snapshot]');
