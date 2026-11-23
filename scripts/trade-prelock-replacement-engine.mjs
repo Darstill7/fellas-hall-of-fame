@@ -12,10 +12,12 @@ export function assessPrelockReplacements({owner,decisionTime,holes,candidates,s
  assertNonempty(owner,'receiving owner');assertNonempty(sourceVersion,'projection source/version');
  const decision=time(decisionTime,'decisionTime');
  if(!Array.isArray(holes)||!holes.length||holes.length>9)throw Error('One to nine exact starting-slot holes required');
- if(!Array.isArray(candidates)||candidates.length>30)throw Error('Bench candidate list must be explicit, max 30');
- const holeIds=new Set();
+ if(!Array.isArray(candidates)||candidates.length>12)throw Error('Bench candidate list must be explicit, max 12 for bounded source-only matching');
+ const holeIds=new Set(),startedIds=new Set();
  for(const h of holes){
-  assertNonempty(h.id,'hole ID');
+  assertNonempty(h.id,'hole ID');assertNonempty(h.startedPlayerId,'started player ID');
+  if(startedIds.has(h.startedPlayerId))throw Error('The same original starter cannot occupy two holes');
+  startedIds.add(h.startedPlayerId);
   if(holeIds.has(h.id))throw Error('Duplicate lineup hole');
   holeIds.add(h.id);
   if(!eligiblePositions[h.slot])throw Error('Unknown starting slot '+h.slot);
@@ -25,6 +27,7 @@ export function assessPrelockReplacements({owner,decisionTime,holes,candidates,s
  for(const p of candidates){
   assertNonempty(p.id,'candidate player ID');assertNonempty(p.position,'candidate position');
   if(benchIds.has(p.id))throw Error('Duplicate bench candidate player ID');
+  if(startedIds.has(p.id))throw Error('Original started player cannot also be a bench replacement');
   benchIds.add(p.id);
   assertNonempty(p.projectionSource,'candidate forecast source');
   if(p.projectionSource!==sourceVersion)throw Error('Projection source/version mismatch');
@@ -65,6 +68,6 @@ export function assessPrelockReplacements({owner,decisionTime,holes,candidates,s
   covered:result.covered,required:holes.length,uncovered:holes.length-result.covered,
   projectedBenchPointsForCoveredSlots:+result.projected.toFixed(2),
   assignments,
-  limitations:['Sourced projections are not causally validated trade value','No waiver acquisition simulation','Only positions already sourced on the receiving team bench','Owner and health status require an authentic decision-time source']
+  limitations:['Input receipt identifiers are caller claims, not cryptographically authenticated evidence; independent source review required','Sourced projections are not causally validated trade value','No waiver acquisition simulation','Only positions already sourced on the receiving team bench','Owner and health status require an authentic decision-time source']
  };
 }
