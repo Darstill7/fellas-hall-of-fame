@@ -108,8 +108,9 @@ export function rivalryBreakdown(data,opponent){
   margin:row.pf-row.pa,averageMargin:(row.pf-row.pa)/row.games,meetings,
   seasons:[...years.values()],closest,biggestWin,biggestLoss};
 }
-const marginText=n=>(n>0?'+':'')+dec(n);
-const meetingLabel=g=>'Season '+g.year+' · Week '+g.week+' · '+dec(g.for)+'–'+dec(g.against);
+const score=n=>new Intl.NumberFormat('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+const marginText=n=>(n>0?'+':'')+score(n);
+const meetingLabel=g=>'Season '+g.year+' · Week '+g.week+' · '+score(g.for)+'–'+score(g.against);
 export function renderRivalryComparison(r){
  const notable=[
   ['Closest decided matchup',r.closest],
@@ -127,7 +128,7 @@ export function renderRivalryComparison(r){
    notable.map(([label,g])=>'<li><span>'+esc(label)+'</span><strong>'+esc(meetingLabel(g))+'</strong><small>Margin '+marginText(g.margin)+'</small></li>').join('')+
    '</ul></div>':'<p>No decided games in the recovered rivalry receipts.</p>')+
   '<details class="manager-rivalry-receipts"><summary>All '+r.games+' documented score receipts</summary><ol>'+
-   [...r.meetings].reverse().map(g=>'<li><div><strong>'+g.year+' Week '+g.week+'</strong><small>'+dec(g.for)+'–'+dec(g.against)+'</small></div>'+
+   [...r.meetings].reverse().map(g=>'<li><div><strong>'+g.year+' Week '+g.week+'</strong><small>'+score(g.for)+'–'+score(g.against)+'</small></div>'+
     '<span class="manager-rivalry-receipt-outcome">'+(g.margin>0?'Win':g.margin<0?'Loss':'Tie')+'</span><span>'+marginText(g.margin)+' pts</span></li>').join('')+
    '</ol></details>'+
   '<a class="manager-pulse-rival-link" href="../../analytics/rivalry-war-room.html?a='+encodeURIComponent(r.manager)+'&amp;b='+encodeURIComponent(r.opponent)+'">Compare in Rivalry War Room →</a>';
