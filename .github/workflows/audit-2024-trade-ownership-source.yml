@@ -109,22 +109,28 @@ jobs:
           node --check scripts/research-2026-live-trade-player-returns.mjs
           FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-trade-player-returns.mjs
       - name: Install browser runtime
+        id: browser-runtime
+        timeout-minutes: 8
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium webkit
       - name: Exercise Trading Floor using generated research files
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
         run: node scripts/test-trading-floor-browser.mjs
       - name: Exercise Acquisition Hall using generated research files
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
         run: node scripts/test-acquisition-hall-browser.mjs
       - name: Exercise Player Encyclopedia using generated research files
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
         run: node scripts/test-player-encyclopedia-browser.mjs
       - name: Exercise Front Office hub
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
         run: node scripts/test-front-office-hub-browser.mjs
       - name: Exercise Draft Room
-        if: success() || failure()
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
         run: node scripts/test-draft-room-browser.mjs
       - name: Exercise Manager Resumes
-        if: success() || failure()
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
         run: node scripts/test-manager-acquisition-resume-browser.mjs
       - name: Preserve Draft Room and Manager Resume captures
         if: always()
