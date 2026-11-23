@@ -27,8 +27,10 @@ for(let w=0;w<=seasonEnd;w++){
 const ids=new Set();for(const t of transactions){assert(!ids.has(String(t.transaction_id)),'Duplicate transaction ID');ids.add(String(t.transaction_id));}
 const trades=transactions.filter(t=>t.type==='trade');
 const matchups=new Map();
+const playerNames=new Map();
+for(const week of starts.weeks)for(const team of week.teams)for(const [pid,name] of team.players)if(name)playerNames.set(String(pid),name);
 const sourceDifferences=[];
-for(let w=1;w<=17;w++){
+for(let w=1;w<=seasonEnd;w++){
  const rows=await get('league/'+id+'/matchups/'+w);
  assert(Array.isArray(rows));
  const rosters=new Map();
@@ -61,9 +63,14 @@ for(const a of [...archive,...recovered]){
  const t=trades.find(x=>String(x.transaction_id)===String(a.id));
  assert(t,'Missing archived transaction '+a.id);
  assert.equal(t.week,a.week);
- assert.equal(t.roster_ids.length,a.sides.length);
+ const sourceManagers=t.roster_ids.map(r=>names.get(Number(r)));
+ assert(sourceManagers.every(Boolean),'Unknown transaction roster');
+ assert(a.sides.every(side=>sourceManagers.includes(side.manager)),'Archived participant absent from provider');
+ const missingSides=sourceManagers.filter(manager=>!a.sides.some(side=>side.manager===manager));
+ const completeSides=[...a.sides,...missingSides.map(manager=>({manager,assets:null,raw_starter_points:null,started_games:null}))];
+ assert.equal(completeSides.length,t.roster_ids.length);
  const sideAudits=[];
- for(const side of a.sides){
+ for(const side of completeSides){
   const roster=t.roster_ids.find(r=>names.get(Number(r))===side.manager);
   assert(roster,'Unknown recipient '+side.manager);
   const players=[];
@@ -80,16 +87,16 @@ for(const a of [...archive,...recovered]){
     if(w===t.week||w===exit?.week)boundary.push({...receipt,reason:w===t.week?'ACQUISITION_WEEK_LOCK_PROOF_REQUIRED':'EXIT_WEEK_LOCK_PROOF_REQUIRED'});
     else receipts.push(receipt);
    }
-   players.push({player_id:pid,acquired_transaction:String(t.transaction_id),acquired_status_updated:t.status_updated,exit_transaction:exit?String(exit.transaction_id):null,exit_week:exit?.week??null,receipts,boundary});
+   players.push({player_id:pid,observed_player_name:playerNames.get(pid)||null,acquired_transaction:String(t.transaction_id),acquired_status_updated:t.status_updated,exit_transaction:exit?String(exit.transaction_id):null,exit_week:exit?.week??null,receipts,boundary});
   }
   const receipts=players.flatMap(p=>p.receipts),regular=receipts.filter(r=>r.week<playoffStart),post=receipts.filter(r=>r.week>=playoffStart);
   sideAudits.push({manager:side.manager,roster,archive_assets:side.assets,archive_points:side.raw_starter_points,archive_starts:side.started_games,regular_pf:round(regular.reduce((n,r)=>n+r.points,0)),regular_starts:regular.length,postseason_calendar_pf:round(post.reduce((n,r)=>n+r.points,0)),postseason_calendar_starts:post.length,players});
  }
- results.push({id:String(t.transaction_id),week:t.week,source_only:!archive.some(a=>String(a.id)===String(t.transaction_id)),sides:sideAudits,nonplayer_assets:{faab:t.waiver_budget||[],draft_picks:t.draft_picks||[]}});
+ results.push({id:String(t.transaction_id),week:t.week,source_only:!archive.some(a=>String(a.id)===String(t.transaction_id)),recovered_participants:missingSides,sides:sideAudits,nonplayer_assets:{faab:t.waiver_budget||[],draft_picks:t.draft_picks||[]}});
 }
 const report={status:'RESEARCH_ONLY_NOT_CERTIFIED',league_id:id,season:target,regular_season_end:playoffStart-1,archive_trades:archive.length,source_completed_trades:trades.length,unarchived_trades:trades.filter(t=>!archive.some(a=>String(a.id)===String(t.transaction_id))).map(t=>({id:String(t.transaction_id),week:t.week})),regular_lineup_source_differences:sourceDifferences,trade_results:results,limitations:['Acquisition and exit weeks excluded pending lock-time evidence','Postseason calendar points not necessarily championship-bracket points','No replacement-adjusted grades','Roster identity mapping must be crosschecked with provider usernames before publication']};
 fs.mkdirSync('data-integrity/historical-trade-draft-audits',{recursive:true});
 fs.writeFileSync('data-integrity/historical-trade-draft-audits/'+target+'-ownership-review.json',JSON.stringify(report,null,2)+'\n');
 console.log(target+' SOURCE RESEARCH '+JSON.stringify({league:id,trades:trades.length,archived:archive.length,unarchived:report.unarchived_trades,sourceDifferences:sourceDifferences.length,boundaryStarts:results.flatMap(t=>t.sides).flatMap(s=>s.players).reduce((n,p)=>n+p.boundary.length,0)}));
-for(const t of results.filter(t=>t.source_only))console.log('RECOVERED SOURCE TRADE '+JSON.stringify(t));
+for(const t of results.filter(t=>t.source_only||t.recovered_participants.length))console.log('RECOVERED SOURCE TRADE '+JSON.stringify(t));
 for(const t of results)console.log('TRADE '+t.id+' '+JSON.stringify(t.sides.map(s=>({manager:s.manager,archive:s.archive_points,regular:s.regular_pf,postseason:s.postseason_calendar_pf,players:s.players.map(p=>({id:p.player_id,exit:p.exit_transaction,boundary:p.boundary}))}))));
