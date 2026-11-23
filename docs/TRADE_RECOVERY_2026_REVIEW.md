@@ -8,6 +8,8 @@ Connected Sleeper league transaction history was queried for Weeks 1–12 in The
 
 The machine-readable review file is `data-integrity/trade-recovery/2026-weeks1-12-provider-review-20261123.json`.
 
+**Raw source verification completed:** [GitHub Actions raw-source crosscheck](https://github.com/Darstill7/fellas-hall-of-fame/actions/runs/45242903360) recovered **13 completed raw trade payloads for Weeks 0–12**, found **zero additional IDs** and **zero player/roster direction mismatches** against this snapshot. The exact source payloads (including `waiver_budget`, `adds` and `drops`) are retained in the run's [review artifact](https://github.com/Darstill7/fellas-hall-of-fame/actions/runs/45242903360/artifacts/14851274190). The separately saved `data-integrity/trade-recovery/2026-week11-precertification-20261123.json` contains all six matching player-ID receiving sides **with explicit unapproved status**. It is a review aid, not an approvable/importable official certification. The owner must still validate player-name identities and any FAAB/keeper implications.
+
 ## Six transactions awaiting commissioner/source certification
 
 | Week | Transaction ID | Date | Recorded incoming assets by manager | Extra checks |
@@ -21,7 +23,7 @@ The machine-readable review file is `data-integrity/trade-recovery/2026-weeks1-1
 
 ## Required next steps
 
-1. **Provider originals.** Obtain the raw Sleeper `transactions/0` preseason response and Weeks 1–12, including `adds`, `drops`, `roster_ids`, `draft_picks`, `waiver_budget` for every candidate trade. Prefer the automated staging workflow; do not invent raw values from normalized activity.
+1. **Provider originals and staging SHA.** The read-only raw source crosscheck now covers `transactions/0` through Week 12 and proves player directions; the artifact is linked above. Next capture those exact original payloads on the commissioner-reviewed **staging branch** as the importer requires (the CI artifact alone is not a pinned Git source commit). Preserve `adds`, `drops`, `roster_ids`, `draft_picks`, `waiver_budget` and compare to the recovered six-ID draft.
 2. **Owner IDs and assets.** Cross-check all transfer IDs against 2026 roster ownership, player display names against the appropriate player map, including alphabetic defense IDs. Check multi-party directions and special transaction types.
 3. **Commissioner review.** Confirm the six exchanges and FAAB, any keeper-right implications, and unresolved historical receipts. Do not certify a trade if an asset remains uncertain.
 4. **Approve the exact source SHA.** Use the new `{player_id,name}` receiving-asset certification format from `docs/WEEKLY_PUBLICATION.md` and bind the exact raw staging commit SHA. The import action rejects moved branches and missing/wrong recipient IDs.
