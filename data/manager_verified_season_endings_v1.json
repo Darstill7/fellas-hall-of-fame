@@ -876,35 +876,39 @@
       },
       {
         "year": 2020,
-        "regular": null,
+        "regular": "7-7",
         "ending": "Champion",
-        "note": "Verified final league placement; regular-season record not established in this dataset.",
+        "note": "Verified final league placement; regular-season record reconstructed from archived season guide, subject to its coverage limitations.",
         "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
-        "finalRank": 1
+        "finalRank": 1,
+        "regularSource": "data/season_guide.json"
       },
       {
         "year": 2021,
-        "regular": null,
+        "regular": "4-10",
         "ending": "9th place",
-        "note": "Verified final league placement; regular-season record not established in this dataset.",
+        "note": "Verified final league placement; regular-season record reconstructed from archived season guide, subject to its coverage limitations.",
         "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
-        "finalRank": 9
+        "finalRank": 9,
+        "regularSource": "data/season_guide.json"
       },
       {
         "year": 2022,
-        "regular": null,
+        "regular": "6-8",
         "ending": "8th place",
-        "note": "Verified final league placement; regular-season record not established in this dataset.",
+        "note": "Verified final league placement; regular-season record reconstructed from archived season guide, subject to its coverage limitations.",
         "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
-        "finalRank": 8
+        "finalRank": 8,
+        "regularSource": "data/season_guide.json"
       },
       {
         "year": 2023,
-        "regular": null,
+        "regular": "10-4",
         "ending": "3rd place",
-        "note": "Verified final league placement; regular-season record not established in this dataset.",
+        "note": "Verified final league placement; regular-season record reconstructed from archived season guide, subject to its coverage limitations.",
         "source": "Verified Sleeper bracket / data/fellas_final_placements_2016_2025_verified.json",
-        "finalRank": 3
+        "finalRank": 3,
+        "regularSource": "data/season_guide.json"
       }
     ],
     "Schermerhorn": [
