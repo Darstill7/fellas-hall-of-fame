@@ -1,0 +1,33 @@
+name: Retrieve raw Sleeper trade evidence (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/crosscheck-live-sleeper-trades.mjs'
+      - '.github/workflows/retrieve-raw-trade-evidence.yml'
+      - 'data-integrity/trade-recovery/2026-weeks1-12-provider-review-20261123.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: fellas-raw-trades-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/crosscheck-live-sleeper-trades.mjs
+      - name: Retrieve original public Sleeper trade payloads; never publish
+        run: node scripts/crosscheck-live-sleeper-trades.mjs
+      - name: Preserve raw evidence for commissioner review; do not commit it
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raw-trade-source-review
+          path: data-integrity/trade-recovery/live-raw-crosscheck.json
+          if-no-files-found: warn
+          retention-days: 21

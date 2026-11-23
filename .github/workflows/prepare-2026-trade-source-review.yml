@@ -1,0 +1,62 @@
+name: Prepare raw trade source review PR (never publish)
+on:
+  pull_request:
+    paths:
+      - 'scripts/prepare-2026-trade-source-review.mjs'
+      - '.github/workflows/prepare-2026-trade-source-review.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: fellas-raw-trade-source-review
+  cancel-in-progress: true
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: research
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Create source file and non-approved certificate from live original Sleeper receipts
+        working-directory: research
+        run: |
+          set -euo pipefail
+          node --check scripts/prepare-2026-trade-source-review.mjs
+          node scripts/prepare-2026-trade-source-review.mjs
+          node scripts/review-staged-trades.mjs \
+            --candidate=data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json \
+            --output=data-integrity/sleeper-sync-candidates/2026-trade-review-through-week11.json
+      - name: Checkout staging branch separately to avoid changing weekly score candidate
+        uses: actions/checkout@v4
+        with:
+          ref: automation/sleeper-weekly-stage
+          path: stage
+      - name: Copy only review artifacts into separate staging checkout
+        run: |
+          set -euo pipefail
+          mkdir -p stage/data-integrity/sleeper-sync-candidates stage/data-integrity/trade-certifications
+          cp research/data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json stage/data-integrity/sleeper-sync-candidates/
+          cp research/data-integrity/sleeper-sync-candidates/2026-trade-review-through-week11.json stage/data-integrity/sleeper-sync-candidates/
+          cp research/data-integrity/trade-certifications/2026-week11.json stage/data-integrity/trade-certifications/
+          test "$(node -p "require('./stage/data-integrity/trade-certifications/2026-week11.json').status")" = REVIEW_REQUIRED
+          git -C stage diff --name-only
+      # Recompute the review evidence as a short-lived artifact, not a branch push.
+      # This avoids moving a previously pinned commissioner source SHA.
+      - name: Upload review-only Sleeper evidence bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: unapproved-trade-source-review-week11
+          retention-days: 21
+          path: |
+            research/data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json
+            research/data-integrity/sleeper-sync-candidates/2026-trade-review-through-week11.json
+            research/data-integrity/trade-certifications/2026-week11.json
+      - name: Explain manual PR review handoff
+        run: |
+          echo '## Source-only trade evidence prepared' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Download the three evidence files from this run. GitHub Actions does **not** create or approve a PR, move an evidence branch, or alter canonical data.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Existing staging review: [PR #286](https://github.com/Darstill7/fellas-hall-of-fame/pull/286). If new source content differs, use an explicitly reviewed new source PR and update pinned source SHA after review.' >> "$GITHUB_STEP_SUMMARY"

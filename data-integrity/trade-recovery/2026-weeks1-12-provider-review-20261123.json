@@ -1,0 +1,827 @@
+{
+  "schema": "fellas-recovered-trade-provider-comparison-v1",
+  "status": "RESEARCH_ONLY_NOT_CERTIFIED",
+  "as_of": "2026-11-23",
+  "source": "Connected Sleeper league transaction view via Flaim Fantasy (normalized); NOT verbatim Sleeper raw receipt",
+  "league_id": "1340027406009761792",
+  "season_year": 2026,
+  "queried_weeks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "unqueried_weeks": [
+    0
+  ],
+  "reported_week_counts": [
+    {
+      "week": 1,
+      "count": 2
+    },
+    {
+      "week": 2,
+      "count": 1
+    },
+    {
+      "week": 3,
+      "count": 0
+    },
+    {
+      "week": 4,
+      "count": 2
+    },
+    {
+      "week": 5,
+      "count": 2
+    },
+    {
+      "week": 6,
+      "count": 0
+    },
+    {
+      "week": 7,
+      "count": 0
+    },
+    {
+      "week": 8,
+      "count": 0
+    },
+    {
+      "week": 9,
+      "count": 1
+    },
+    {
+      "week": 10,
+      "count": 1
+    },
+    {
+      "week": 11,
+      "count": 4
+    },
+    {
+      "week": 12,
+      "count": 0
+    }
+  ],
+  "museum_baseline": {
+    "source": "data/trade_museum_stage66.json on main",
+    "archive_receipts": 51,
+    "archived_2026_receipts": 7,
+    "latest_trade_date": "2026-10-09"
+  },
+  "provider_completed_trade_count": 13,
+  "already_archived": 7,
+  "new_ids_needing_manual_review": 6,
+  "limitations": [
+    "Normalized provider transaction view, not raw Sleeper adds/drops receipt required for certification.",
+    "Preseason Week 0 not queried, so season-wide completeness is unproven.",
+    "FAAB fields may be incomplete; inspect raw waiver_budget values and asset direction.",
+    "Manually verify displayed names using exact player IDs and season-specific source.",
+    "Week 12 is not final; future trades can appear after this lookup.",
+    "No transaction in this review is approved for publishing or scoring."
+  ],
+  "trades": [
+    {
+      "id": "1399889389147979776",
+      "week": 1,
+      "date": "2026-08-31",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 1,
+          "manager": "Stilly",
+          "received": [
+            {
+              "player_id": "11581",
+              "reported_name": "MarShawn Lloyd",
+              "position": "RB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "11583",
+              "reported_name": "Jonathon Brooks",
+              "position": "RB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 3,
+          "manager": "Thommy",
+          "received": [
+            {
+              "player_id": "11583",
+              "reported_name": "Jonathon Brooks",
+              "position": "RB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "11581",
+              "reported_name": "MarShawn Lloyd",
+              "position": "RB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "ARCHIVED",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1400522174271340544",
+      "week": 1,
+      "date": "2026-09-01",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "received": [
+            {
+              "player_id": "11635",
+              "reported_name": "Ladd McConkey",
+              "position": "WR"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "12514",
+              "reported_name": "Emeka Egbuka",
+              "position": "WR"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 5,
+          "manager": "Scott",
+          "received": [
+            {
+              "player_id": "12514",
+              "reported_name": "Emeka Egbuka",
+              "position": "WR"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "11635",
+              "reported_name": "Ladd McConkey",
+              "position": "WR"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "ARCHIVED",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1405999320708268032",
+      "week": 2,
+      "date": "2026-09-16",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 3,
+          "manager": "Thommy",
+          "received": [
+            {
+              "player_id": "12512",
+              "reported_name": "Quinshon Judkins",
+              "position": "RB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "7523",
+              "reported_name": "Trevor Lawrence",
+              "position": "QB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 8,
+          "manager": "Stover",
+          "received": [
+            {
+              "player_id": "7523",
+              "reported_name": "Trevor Lawrence",
+              "position": "QB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "12512",
+              "reported_name": "Quinshon Judkins",
+              "position": "RB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "ARCHIVED",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1411009536306733056",
+      "week": 4,
+      "date": "2026-09-30",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "received": [
+            {
+              "player_id": "8167",
+              "reported_name": "Christian Watson",
+              "position": "WR"
+            },
+            {
+              "player_id": "11564",
+              "reported_name": "Drake Maye",
+              "position": "QB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "6904",
+              "reported_name": "Jalen Hurts",
+              "position": "QB"
+            },
+            {
+              "player_id": "11635",
+              "reported_name": "Ladd McConkey",
+              "position": "WR"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 9,
+          "manager": "Kuhl",
+          "received": [
+            {
+              "player_id": "6904",
+              "reported_name": "Jalen Hurts",
+              "position": "QB"
+            },
+            {
+              "player_id": "11635",
+              "reported_name": "Ladd McConkey",
+              "position": "WR"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "8167",
+              "reported_name": "Christian Watson",
+              "position": "WR"
+            },
+            {
+              "player_id": "11564",
+              "reported_name": "Drake Maye",
+              "position": "QB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "ARCHIVED",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1411012593170010112",
+      "week": 4,
+      "date": "2026-09-30",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 2,
+          "manager": "JMid",
+          "received": [
+            {
+              "player_id": "6806",
+              "reported_name": "J.K. Dobbins",
+              "position": "RB"
+            },
+            {
+              "player_id": "8167",
+              "reported_name": "Christian Watson",
+              "position": "WR"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "13287",
+              "reported_name": "Jeremiyah Love",
+              "position": "RB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "received": [
+            {
+              "player_id": "13287",
+              "reported_name": "Jeremiyah Love",
+              "position": "RB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "6806",
+              "reported_name": "J.K. Dobbins",
+              "position": "RB"
+            },
+            {
+              "player_id": "8167",
+              "reported_name": "Christian Watson",
+              "position": "WR"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "ARCHIVED",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1413584172332654592",
+      "week": 5,
+      "date": "2026-10-07",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 1,
+          "manager": "Stilly",
+          "received": [
+            {
+              "player_id": "7564",
+              "reported_name": "Ja'Marr Chase",
+              "position": "WR"
+            },
+            {
+              "player_id": "11834",
+              "reported_name": "Devaughn Vele",
+              "position": "WR"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "2133",
+              "reported_name": "Davante Adams",
+              "position": "WR"
+            },
+            {
+              "player_id": "4217",
+              "reported_name": "George Kittle",
+              "position": "TE"
+            },
+            {
+              "player_id": "8155",
+              "reported_name": "Breece Hall",
+              "position": "RB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 2,
+          "manager": "JMid",
+          "received": [
+            {
+              "player_id": "2133",
+              "reported_name": "Davante Adams",
+              "position": "WR"
+            },
+            {
+              "player_id": "4217",
+              "reported_name": "George Kittle",
+              "position": "TE"
+            },
+            {
+              "player_id": "8155",
+              "reported_name": "Breece Hall",
+              "position": "RB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "7564",
+              "reported_name": "Ja'Marr Chase",
+              "position": "WR"
+            },
+            {
+              "player_id": "11834",
+              "reported_name": "Devaughn Vele",
+              "position": "WR"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "ARCHIVED",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1414340723225976832",
+      "week": 5,
+      "date": "2026-10-09",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 3,
+          "manager": "Thommy",
+          "received": [
+            {
+              "player_id": "5872",
+              "reported_name": "Deebo Samuel Sr.",
+              "position": "WR"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "MIN",
+              "reported_name": "Minnesota Vikings",
+              "position": "DEF"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 10,
+          "manager": "Birch",
+          "received": [
+            {
+              "player_id": "MIN",
+              "reported_name": "Minnesota Vikings",
+              "position": "DEF"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "5872",
+              "reported_name": "Deebo Samuel Sr.",
+              "position": "WR"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "ARCHIVED",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1424524291990450196",
+      "week": 9,
+      "date": "2026-11-06",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "received": [
+            {
+              "player_id": "11625",
+              "reported_name": "Adonai Mitchell",
+              "position": "WR"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "MIN",
+              "reported_name": "Minnesota Vikings",
+              "position": "DEF"
+            }
+          ],
+          "faab_acquired": 2,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 6,
+          "manager": "Mitch",
+          "received": [
+            {
+              "player_id": "MIN",
+              "reported_name": "Minnesota Vikings",
+              "position": "DEF"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "11625",
+              "reported_name": "Adonai Mitchell",
+              "position": "WR"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": 2
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "NOT_IN_MUSEUM",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1427488044335788032",
+      "week": 10,
+      "date": "2026-11-15",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "received": [
+            {
+              "player_id": "7569",
+              "reported_name": "Nico Collins",
+              "position": "WR"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "11564",
+              "reported_name": "Drake Maye",
+              "position": "QB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 9,
+          "manager": "Kuhl",
+          "received": [
+            {
+              "player_id": "11564",
+              "reported_name": "Drake Maye",
+              "position": "QB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "7569",
+              "reported_name": "Nico Collins",
+              "position": "WR"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "NOT_IN_MUSEUM",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1428829144581406720",
+      "week": 11,
+      "date": "2026-11-18",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 2,
+          "manager": "JMid",
+          "received": [
+            {
+              "player_id": "8146",
+              "reported_name": "Garrett Wilson",
+              "position": "WR"
+            },
+            {
+              "player_id": "13337",
+              "reported_name": "Emmett Johnson",
+              "position": "RB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "8151",
+              "reported_name": "Kenneth Walker III",
+              "position": "RB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "received": [
+            {
+              "player_id": "8151",
+              "reported_name": "Kenneth Walker III",
+              "position": "RB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "8146",
+              "reported_name": "Garrett Wilson",
+              "position": "WR"
+            },
+            {
+              "player_id": "13337",
+              "reported_name": "Emmett Johnson",
+              "position": "RB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "NOT_IN_MUSEUM",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1428878310045151232",
+      "week": 11,
+      "date": "2026-11-18",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 6,
+          "manager": "Mitch",
+          "received": [
+            {
+              "player_id": "6794",
+              "reported_name": "Justin Jefferson",
+              "position": "WR"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "6813",
+              "reported_name": "Jonathan Taylor",
+              "position": "RB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 7,
+          "manager": "Tony",
+          "received": [
+            {
+              "player_id": "6813",
+              "reported_name": "Jonathan Taylor",
+              "position": "RB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "6794",
+              "reported_name": "Justin Jefferson",
+              "position": "WR"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "NOT_IN_MUSEUM",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1428887570439245824",
+      "week": 11,
+      "date": "2026-11-18",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 1,
+          "manager": "Stilly",
+          "received": [
+            {
+              "player_id": "8138",
+              "reported_name": "James Cook III",
+              "position": "RB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "7547",
+              "reported_name": "Amon-Ra St. Brown",
+              "position": "WR"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 10,
+          "manager": "Birch",
+          "received": [
+            {
+              "player_id": "7547",
+              "reported_name": "Amon-Ra St. Brown",
+              "position": "WR"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "8138",
+              "reported_name": "James Cook III",
+              "position": "RB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "NOT_IN_MUSEUM",
+      "certification_status": "NOT_CERTIFIED"
+    },
+    {
+      "id": "1428927046507069440",
+      "week": 11,
+      "date": "2026-11-18",
+      "status": "complete",
+      "participants": [
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "received": [
+            {
+              "player_id": "12501",
+              "reported_name": "Matthew Golden",
+              "position": "WR"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "9224",
+              "reported_name": "Chase Brown",
+              "position": "RB"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        },
+        {
+          "roster_id": 8,
+          "manager": "Stover",
+          "received": [
+            {
+              "player_id": "9224",
+              "reported_name": "Chase Brown",
+              "position": "RB"
+            }
+          ],
+          "sent": [
+            {
+              "player_id": "12501",
+              "reported_name": "Matthew Golden",
+              "position": "WR"
+            }
+          ],
+          "faab_acquired": null,
+          "faab_gave_up": null
+        }
+      ],
+      "has_draft_pick_fields": false,
+      "museum_status": "NOT_IN_MUSEUM",
+      "certification_status": "NOT_CERTIFIED"
+    }
+  ]
+}
