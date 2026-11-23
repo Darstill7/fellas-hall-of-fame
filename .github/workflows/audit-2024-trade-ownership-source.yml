@@ -17,6 +17,7 @@ on:
       - 'scripts/research-trading-records.mjs'
       - 'scripts/research-trade-player-receipts.mjs'
       - 'scripts/research-acquisition-hall-of-fame.mjs'
+      - 'scripts/research-acquisition-leaderboards.mjs'
       - 'scripts/research-2026-live-trade-player-returns.mjs'
       - 'scripts/test-trading-floor-browser.mjs'
       - 'data-integrity/trading-floor-preview.html'
@@ -78,6 +79,8 @@ jobs:
           node scripts/research-trade-player-receipts.mjs
           node --check scripts/research-acquisition-hall-of-fame.mjs
           node scripts/research-acquisition-hall-of-fame.mjs
+          node --check scripts/research-acquisition-leaderboards.mjs
+          node scripts/research-acquisition-leaderboards.mjs
           node --check scripts/research-2026-live-trade-player-returns.mjs
           FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-trade-player-returns.mjs
       - name: Install browser runtime
@@ -115,6 +118,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/trading-records-research.json
             data-integrity/historical-trade-draft-audits/trade-player-receipts-research.json
             data-integrity/historical-trade-draft-audits/acquisition-hall-of-fame-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-leaderboards-research.json
             data-integrity/historical-trade-draft-audits/2026-live-trade-player-returns-research.json
             data-integrity/historical-trade-draft-audits/career-draft-return-research.json
           retention-days: 30
