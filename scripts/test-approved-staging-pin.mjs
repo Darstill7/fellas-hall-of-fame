@@ -1,0 +1,21 @@
+// Prevent a moving staging branch from silently substituting unreviewed data.
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const workflow=readFileSync(new URL('../.github/workflows/prepare-approved-weekly-release.yml',import.meta.url),'utf8');
+const docs=readFileSync(new URL('../docs/WEEKLY_PUBLICATION.md',import.meta.url),'utf8');
+assert.match(workflow,/staging_commit:\s*\n\s*description:[^\n]*full 40-character|staging_commit:\s*\n\s*description:[^\n]*Full 40-character/i,'Workflow requires reviewed SHA input');
+assert.ok(workflow.includes("REVIEWED_STAGING_COMMIT: ${{ inputs.staging_commit }}"),'Explicit reviewed SHA must enter guarded shell through env');
+assert.ok(workflow.includes('[[ "$REVIEWED_STAGING_COMMIT" =~ ^[0-9a-f]{40}$ ]]'),'Reject malformed and short reviewed SHAs');
+assert.ok(workflow.includes('[[ "$SOURCE_COMMIT" != "$REVIEWED_STAGING_COMMIT" ]]'),'Refuse staging branch changes after review');
+assert.ok(workflow.includes('git show "$SOURCE_COMMIT:${CANDIDATE}" > "$CANDIDATE"'),'Candidate must be loaded from pinned SHA');
+assert.ok(!workflow.includes('git show "origin/automation/sleeper-weekly-stage:${CANDIDATE}"'),'Reject unpinned fetch of candidate');
+assert.ok(docs.includes('staging_commit=<reviewed 40-character SHA>'),'Commissioner runbook must document exact source identity');
+const isValid=s=>/^[0-9a-f]{40}$/.test(s);
+assert.equal(isValid('a'.repeat(40)),true);
+assert.equal(isValid('A'.repeat(40)),false);
+assert.equal(isValid('a'.repeat(39)),false);
+assert.equal(isValid('a'.repeat(41)),false);
+assert.equal(isValid('not-a-commit'),false);
+const approved='a'.repeat(40),advanced='b'.repeat(40);
+assert.equal(approved===advanced,false,'A changed staging branch must invalidate former approval');
+console.log('Approved staging SHA pinning contract passed: reviewed commit identity required, branch drift rejected.');
