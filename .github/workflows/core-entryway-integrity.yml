@@ -1,0 +1,26 @@
+name: Core mobile entryway integrity
+on:
+  pull_request:
+    paths:
+      - 'scripts/verify-core-entryways.mjs'
+      - '.github/workflows/core-entryway-integrity.yml'
+      - 'index.html'
+      - 'managers/index.html'
+      - 'analytics/records.html'
+      - 'analytics/playoff-race.html'
+      - 'analytics/trade-museum.html'
+      - 'data-integrity/source-status.html'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-entryways:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/verify-core-entryways.mjs
+      - run: node scripts/verify-core-entryways.mjs
