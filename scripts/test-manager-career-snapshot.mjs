@@ -58,6 +58,10 @@ for(const [slug,name] of Object.entries(managers)){
   assert.ok(Math.abs(cmp.averageMargin-sourceMargin/actual.length)<.001,'Average rivalry margin mismatch '+name+'/'+opponent.name);
   assert.equal(cmp.meetings.length,cmp.games);
   assert.ok(renderRivalryComparison(cmp).includes('How this rivalry has changed'));
+  const rendered=renderRivalryComparison(cmp);
+  assert.ok(rendered.includes('All '+cmp.games+' documented score receipts'),'Full game score drawer missing '+name+'/'+opponent.name);
+  assert.equal((rendered.match(/class="manager-rivalry-receipt-outcome"/g)||[]).length,cmp.games,'Every documented game must be inspectable '+name+'/'+opponent.name);
+  assert.ok(rendered.includes('rivalry-war-room.html?a='+encodeURIComponent(name)+'&amp;b='+encodeURIComponent(opponent.name)),'Rivalry War Room must open selected matchup '+name+'/'+opponent.name);
   assert.ok(cmp.meetings.every((g,i,list)=>i===0||list[i-1].year<g.year||(list[i-1].year===g.year&&list[i-1].week<=g.week)));
   if(cmp.closest)assert.ok(cmp.closest.margin!==0,'Closest decided matchup cannot be a tie');
   if(cmp.biggestWin)assert.ok(cmp.biggestWin.margin>0,'Biggest win must be positive');
