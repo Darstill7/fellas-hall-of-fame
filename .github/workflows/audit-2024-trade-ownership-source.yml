@@ -43,6 +43,8 @@ on:
       - 'scripts/research-2026-live-acquisitions.mjs'
       - 'scripts/build-combined-career-acquisitions.mjs'
       - 'scripts/build-front-office-site-candidate.mjs'
+      - 'scripts/test-front-office-live-candidate-browser.mjs'
+      - 'data-integrity/front-office-live-candidate.html'
       - 'scripts/test-trading-floor-browser.mjs'
       - 'data-integrity/trading-floor-preview.html'
       - 'scripts/audit-2025-original-draft-player-ids.mjs'
@@ -174,6 +176,16 @@ jobs:
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium webkit
+      - name: Exercise automatic live Front Office candidate
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
+        run: node scripts/test-front-office-live-candidate-browser.mjs
+      - name: Preserve live Front Office captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: front-office-live-candidate-captures
+          path: data-integrity/front-office-live-captures/
+          if-no-files-found: warn
       - name: Exercise Trading Floor using generated research files
         if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
         run: node scripts/test-trading-floor-browser.mjs
