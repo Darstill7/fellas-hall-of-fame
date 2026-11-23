@@ -1,0 +1,52 @@
+name: Rehearse six ungraded trades against pinned source (no publish)
+on:
+  pull_request:
+    paths:
+      - 'scripts/test-six-trade-release-preview.mjs'
+      - 'scripts/import-reviewed-trade-museum.mjs'
+      - '.github/workflows/rehearse-six-trade-release.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: fellas-six-trade-preview-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  synthetic-rehearsal:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check six-trade rehearsal syntax
+        run: node --check scripts/test-six-trade-release-preview.mjs
+      - name: Read exact independently reviewed source PR SHA; no branch movement accepted
+        env:
+          EXPECTED_SHA: b33f303e4a3443551915413583bf0799e1a0d664
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin refs/heads/review/2026-trade-evidence-week11:refs/remotes/origin/review/2026-trade-evidence-week11
+          SOURCE_SHA=$(git rev-parse refs/remotes/origin/review/2026-trade-evidence-week11)
+          if [[ "$SOURCE_SHA" != "$EXPECTED_SHA" ]]; then
+            echo "::error::Trade evidence changed; review and update pinned source SHA before running preview"
+            exit 1
+          fi
+          mkdir -p .trade-preview-evidence/data-integrity/sleeper-sync-candidates .trade-preview-evidence/data-integrity/trade-certifications
+          git show "$SOURCE_SHA:data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json" > .trade-preview-evidence/data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json
+          git show "$SOURCE_SHA:data-integrity/trade-certifications/2026-week11.json" > .trade-preview-evidence/data-integrity/trade-certifications/2026-week11.json
+          echo "Evidence source SHA: $SOURCE_SHA" >> "$GITHUB_STEP_SUMMARY"
+      - name: Rehearse exact six trade imports in disposable workspace
+        env:
+          FELLAS_EVIDENCE_ROOT: ${{ github.workspace }}/.trade-preview-evidence
+        run: |
+          set -euo pipefail
+          node scripts/test-six-trade-release-preview.mjs
+      - name: Ensure repository source files never changed
+        if: always()
+        run: |
+          git status --short -- data/trade_museum_stage66.json analytics/trade-museum.html
+          test -z "$(git status --porcelain -- data/trade_museum_stage66.json analytics/trade-museum.html)"
