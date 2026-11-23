@@ -221,7 +221,7 @@ fetch(depth+'data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw E
   tradeSection.setAttribute('aria-labelledby','rivalry-trade-heading');
   tradeSection.innerHTML='<h2 id="rivalry-trade-heading">Trade rivalry</h2><p class="muted" role="status">Checking published trade receipts…</p>';
   (document.querySelector('.rivalry-main')||document.querySelector('.wrap'))?.append(tradeSection);
-  fetch(depth+'analytics/trade-museum.html').then(r=>{if(!r.ok)throw Error('Museum not published');return r.text()}).then(html=>{
+  fetch(depth+'analytics/trade-museum.html').then(r=>{if(!r.ok)throw Error('Museum not published');return r.text()}).then(async html=>{
    const page=new DOMParser().parseFromString(html,'text/html');
    const archive=page.querySelector('script#archive-data[type="application/json"]');
    if(!archive)throw Error('Published Museum archive unavailable');
@@ -237,11 +237,17 @@ fetch(depth+'data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw E
     &&trade.sides.every(side=>side.source_status==='VERIFIED_SOURCE'&&typeof side.assets==='string'&&side.assets.trim());
    const qualified=shared.filter(complete);
    const multipart=shared.filter(trade=>trade.sides.length>=3).length;
-   const portfolio=depth+'analytics/trade-portfolios.html?manager='+encodeURIComponent(firstName)+'&partner='+encodeURIComponent(secondName);
+   const portfolioBase=depth+'analytics/trade-portfolios.html';
+   const portfolio=portfolioBase+'?manager='+encodeURIComponent(firstName)+'&partner='+encodeURIComponent(secondName);
+   // Older deployed Museum versions have receipts but no portfolio route.
+   // Only expose a portfolio link if the destination exists on this deployment.
+   const portfolioAvailable=await fetch(portfolioBase).then(r=>r.ok?r.text():null).then(s=>!!s&&s.includes('id="tradePartner"')).catch(()=>false);
+   const dates=parsed.filter(trade=>/^\\d{4}-\\d{2}-\\d{2}$/.test(String(trade.date||''))).map(trade=>trade.date).sort();
+   const cutoff=dates.length?dates[dates.length-1]:'date not verified';
    const header='<h2 id="rivalry-trade-heading">Trade rivalry</h2>';
    const intro='<p class="muted">'+shared.length+' documented shared '+(shared.length===1?'transaction':'transactions')
     +' · '+qualified.length+' complete source-qualified '+(qualified.length===1?'receipt':'receipts')
-    +' · '+multipart+' involving three or more managers. This is recorded archive coverage, not a complete all-time trade count or proof that either manager won a trade.</p>';
+    +' · '+multipart+' involving three or more managers. Latest dated receipt in this deployed archive: '+E(cutoff)+'. This is recorded archive coverage, not a complete all-time trade count or proof that either manager won a trade.</p>';
    const items=shared.map(trade=>{
     const assets=trade.sides.filter(side=>norm(side.manager)===norm(firstName)||norm(side.manager)===norm(secondName))
      .map(side=>'<span><strong>'+E(side.manager)+':</strong> '+E(side.assets||'Assets unverified')+'</span>').join(' · ');
@@ -254,7 +260,7 @@ fetch(depth+'data/unified_record_book_2016_2026.json').then(r=>{if(!r.ok)throw E
    tradeSection.innerHTML=header+intro
     +(shared.length?'<details class="rivalry-trade-list"><summary>Explore '+shared.length+' documented exchanges</summary><ol>'+items+'</ol></details>':'<p class="muted">No shared transaction is present in the published Museum snapshot; this is not proof that no trade occurred.</p>')
     +'<p class="muted rivalry-trade-disclosure">Transactions involving three or more managers are counted once per participating pair, not treated as direct two-manager swaps. Trade production, keeper outcomes, FAAB and positional value are not inferred here.</p>'
-    +'<a class="rivalry-trade-link" href="'+portfolio+'">Open manager trade portfolios</a>';
+    +(portfolioAvailable?'<a class="rivalry-trade-link" href="'+portfolio+'">Open manager trade portfolios</a>':'<p class="muted">Expanded manager trade portfolios are not published on this deployment. Individual museum receipts remain available above.</p>');
   }).catch(()=>{
    tradeSection.innerHTML='<h2 id="rivalry-trade-heading">Trade rivalry</h2><p class="muted">The reviewed Trade Museum archive is not yet available on this deployment. Trade comparisons will appear here when its source-backed release is published; no missing trade is counted as zero.</p>';
   });
