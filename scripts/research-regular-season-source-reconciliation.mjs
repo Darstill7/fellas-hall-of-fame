@@ -37,7 +37,7 @@ for(let year=2025;year>=2020;year--){
  const standings={};for(const g of source)for(const [m,pf,pa] of [[g.home,g.homeScore,g.awayScore],[g.away,g.awayScore,g.homeScore]]){const r=standings[m]??(standings[m]={games:0,w:0,l:0,t:0,pf:0,pa:0});r.games++;r[pf>pa?'w':pf<pa?'l':'t']++;r.pf+=pf;r.pa+=pa;}
  for(const r of Object.values(standings)){assert.equal(r.games,cutoff);r.pf=round(r.pf);r.pa=round(r.pa);}
  assert.equal(source.length,cutoff*5);assert.equal(Object.keys(standings).length,10);
- assert.equal(round(Object.values(standings).reduce((n,r)=>n+r.pf-r.pa,0)),0);
+ assert.equal(Object.values(standings).reduce((n,r)=>n+Math.round(r.pf*100)-Math.round(r.pa*100),0),0,'League-wide PF and PA must balance exactly in integer cents');
  const misclassified=archive.bySeason[year].games.filter(g=>g.stage==='regular'&&g.week>cutoff);
  reports.push({year,league_id:id,cutoff,source_games:source,archived_regular_games:archived.length,misclassified,differences,standings});
  console.log('REGULAR SEASON SOURCE '+JSON.stringify({year,cutoff,fixtures:source.length,differences:differences.length,misclassified:misclassified.length,standings}));
