@@ -6,14 +6,17 @@ const REQUIRED = [
  {key:'rehearsal',label:'Approved-release rehearsal',terms:['Rehearse approved weekly data release (synthetic; never publish)']},
  {key:'freshness',label:'Freshness registry',terms:['Scan website freshness registry']},
  {key:'visual',label:'Visual first-screen gate',terms:['Visual first-screen quality gate']},
- {key:'mobile',label:'Mobile visitor journey',terms:['Full mobile visitor journey audit']}
+ {key:'mobile',label:'Mobile visitor journey',terms:['Full mobile visitor journey audit']},
+ {key:'tradePin',label:'Trade source approval pin',terms:['Verify Trade Museum certification approval pin']},
+ {key:'integration',label:'Weekly + Trade Museum approval integration',terms:['Verify Tuesday approval and release-health integration']}
 ];
 const REQUIRED_BY_PR={
  268:['canonical','visual'],
- 271:['canonical','rehearsal','visual'],
+ 271:['canonical','rehearsal','visual','tradePin'],
  272:['canonical','rehearsal'],
  273:['canonical','rehearsal','freshness','mobile'],
- 274:['canonical']
+ 274:['canonical'],
+ 280:['canonical','rehearsal','tradePin','integration']
 };
 const esc=s=>String(s??'').replace(/[|\r\n]/g,' ').slice(0,200);
 const iso=x=>x||'Unknown';
@@ -22,11 +25,11 @@ const status=run=>{
  if(run.status!=='completed')return 'PENDING';
  return run.conclusion==='success'?'PASS':run.conclusion==='skipped'?'SKIPPED':'FAIL';
 };
-function requiredChecks(runs,number){
+function requiredChecks(runs,number,expectedSha){
  const sorted=[...(runs||[])].sort((a,b)=>String(b.created_at||'').localeCompare(String(a.created_at||'')));
  const required=new Set(REQUIRED_BY_PR[number]||['canonical']);
  return REQUIRED.map(req=>{
-  const run=sorted.find(r=>req.terms.includes(r.name));
+  const run=sorted.find(r=>req.terms.includes(r.name)&&(!r.head_sha||r.head_sha===expectedSha));
   const isRequired=required.has(req.key);
   return {key:req.key,label:req.label,required:isRequired,state:!run&&!isRequired?'NOT_APPLICABLE':status(run),runId:run?.id??null,url:run?.html_url??null};
  });
@@ -56,7 +59,7 @@ export function derive(input){
    verified:!!pages&&!!parity&&pages.head_sha===input.mainSha&&parity.head_sha===input.mainSha&&status(pages)==='PASS'&&status(parity)==='PASS'
  };
  const prs=input.prs.map(p=>{
-  const checks=requiredChecks(p.runs,p.number);
+  const checks=requiredChecks(p.runs,p.number,p.head_sha);
   const failures=checks.filter(c=>c.required&&c.state==='FAIL');
   const outstanding=checks.filter(c=>c.required&&c.state!=='PASS'&&c.state!=='FAIL');
   let stage;
@@ -107,12 +110,12 @@ export function toMarkdown(report){
  '| --- | --- | --- |',
  '| '+d.pagesStatus+' ('+esc(d.pagesSha?.slice(0,12)||'none')+') | '+d.parityStatus+' ('+esc(d.paritySha?.slice(0,12)||'none')+') | '+(d.verified?'YES':'NOT VERIFIED')+' |','',
  '## Approval and GitHub checks',
- '| PR | Stage | Canonical | Rehearsal | Freshness | Visual | Mobile |',
- '| --- | --- | --- | --- | --- | --- | --- |'
+ '| PR | Stage | Canonical | Rehearsal | Freshness | Visual | Mobile | Trade pin | Combined integration |',
+ '| --- | --- | --- | --- | --- | --- | --- | --- | --- |'
  ];
  for(const p of report.prs){
   const cs=Object.fromEntries(p.checks.map(c=>[c.key,c.state]));
-  rows.push('| #'+p.number+' '+esc(p.title)+' | '+p.stage+' | '+cs.canonical+' | '+cs.rehearsal+' | '+cs.freshness+' | '+cs.visual+' | '+cs.mobile+' |');
+  rows.push('| #'+p.number+' '+esc(p.title)+' | '+p.stage+' | '+cs.canonical+' | '+cs.rehearsal+' | '+cs.freshness+' | '+cs.visual+' | '+cs.mobile+' | '+cs.tradePin+' | '+cs.integration+' |');
  }
  rows.push('','## What needs attention');
  rows.push(...(report.blockers.length?report.blockers.map((x,i)=>(i+1)+'. '+esc(x)):['No outstanding gates in this snapshot. Commissioner approval is still required before any merge.']));
