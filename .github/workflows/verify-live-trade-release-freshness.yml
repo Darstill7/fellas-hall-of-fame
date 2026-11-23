@@ -1,0 +1,22 @@
+name: Verify live Trade Museum prepublication freshness
+on:
+  pull_request:
+    paths:
+      - 'scripts/verify-live-trade-release-freshness.mjs'
+      - '.github/workflows/verify-live-trade-release-freshness.yml'
+      - 'data-integrity/trade-recovery/2026-weeks1-12-provider-review-20261123.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  live-source-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/verify-live-trade-release-freshness.mjs
+      - name: Reject stale week or changed raw Sleeper trade IDs
+        run: node scripts/verify-live-trade-release-freshness.mjs
