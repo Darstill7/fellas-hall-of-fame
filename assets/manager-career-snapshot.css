@@ -1,0 +1,147 @@
+/* Career quick-read between franchise hero and deep archive navigation. */
+.manager-pulse{border:1px solid #365061;background:linear-gradient(145deg,#172d3b,#111e29);border-radius:17px;padding:24px;margin:0 0 27px;min-width:0}
+.manager-pulse-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.manager-pulse-eyebrow{color:#e3bd71;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.12em}
+.manager-pulse h2{font-size:clamp(24px,4vw,31px);margin:2px 0 5px}
+.manager-pulse-intro,.manager-pulse-rivals p,.manager-pulse-source{color:#b9c9d2;font-size:13px}
+.manager-pulse-more,.manager-pulse-rival-link{color:#f3d894;text-decoration:underline;text-underline-offset:4px;font-size:13px;font-weight:800;display:inline-block;padding:8px 0}
+.manager-pulse-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:16px 0 19px}
+.manager-pulse-tile{border:1px solid #3b5464;background:#0e1c28;border-radius:11px;padding:14px;min-width:0}
+.manager-pulse-tile span{display:block;color:#c5d1d9;font-size:12px;font-weight:700}
+.manager-pulse-tile strong{display:block;color:#f3d38d;font-size:clamp(20px,2.8vw,28px);letter-spacing:-.03em;line-height:1.3;margin:5px 0;overflow-wrap:anywhere}
+.manager-pulse-tile small{color:#a6b9c7;font-size:11px}
+.manager-pulse-rivals{border-top:1px solid #385064;padding-top:14px}
+.manager-pulse-rivals h3{margin:0;font-size:18px}
+.manager-pulse-rivals ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.manager-pulse-rivals li{display:flex;gap:8px;align-items:center;justify-content:space-between;background:#101f2a;border:1px solid #3b5363;border-radius:10px;padding:12px;min-width:0}
+.manager-pulse-rivals li strong,.manager-pulse-rivals li small{display:block}
+.manager-pulse-rivals li strong{font-size:14px}
+.manager-pulse-rivals li span{text-align:right;font-weight:850;white-space:nowrap;color:#f3d38d}
+.manager-pulse-rivals li small{font-size:11px;color:#b7c7d1;font-weight:500}
+.manager-pulse-source{margin:17px 0 0;border-top:1px solid #355065;padding-top:13px;font-size:12px}
+.manager-pulse-source a{color:#f3d894;text-decoration:underline}
+.manager-pulse a:focus-visible{outline:3px solid #f3d38d;outline-offset:3px;border-radius:2px}
+@media(max-width:850px){.manager-pulse-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.manager-pulse-rivals ol{grid-template-columns:1fr}}
+@media(max-width:540px){.manager-pulse{padding:17px;margin-bottom:18px}.manager-pulse-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.manager-pulse-tile{padding:12px}.manager-pulse-tile strong{font-size:23px}.manager-pulse-header{gap:6px}.manager-pulse-more{min-height:44px}}
+
+/* Disclosure keeps long 2016–2026 history out of the first mobile viewport. */
+.manager-pulse-trajectory{margin-top:16px;border-top:1px solid #385064;padding:15px 0 0}
+.manager-pulse-trajectory>summary{cursor:pointer;color:#f3d894;font-weight:850;font-size:15px;min-height:44px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.manager-pulse-trajectory>summary span{font-weight:500;color:#b8c9d3;font-size:12px}
+.manager-pulse-trajectory>summary:focus-visible{outline:3px solid #f3d38d;outline-offset:3px}
+.manager-pulse-trajectory-content>p{font-size:12px;color:#b9c9d2;margin:6px 0 13px}
+.manager-pulse-trajectory-content ol{padding:0;margin:0;list-style:none;display:grid;gap:8px}
+.manager-pulse-trajectory-content li{display:grid;grid-template-columns:42px minmax(0,1fr) 56px;column-gap:9px;row-gap:2px;align-items:center;border:1px solid #354e5e;border-radius:9px;background:#0e1c28;padding:9px 11px}
+.manager-pulse-season-year{color:#f3d894;font-weight:850;font-size:13px}
+.manager-pulse-season-bar{background:#334553;border-radius:7px;height:10px;overflow:hidden}
+.manager-pulse-season-bar>span{background:#e0bb71;display:block;height:100%;border-radius:7px}
+.manager-pulse-trajectory-content li strong{text-align:right;font-size:13px;font-variant-numeric:tabular-nums}
+.manager-pulse-trajectory-content li small{grid-column:2/4;color:#b9c9d2;font-size:11px}
+.manager-pulse-trajectory-content .manager-pulse-peak{margin-top:12px}
+@media(max-width:540px){.manager-pulse-trajectory-content li{grid-template-columns:38px minmax(0,1fr) 51px;padding:9px 8px;gap:7px}}
+
+/* Rivalries 3.0: progressively disclosed comparison; no sideways mobile table. */
+.manager-rivalry-spotlight{border-top:1px solid #385064;margin-top:15px;padding-top:15px}
+.manager-rivalry-spotlight>summary{cursor:pointer;color:#f3d894;font-weight:850;font-size:15px;min-height:44px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.manager-rivalry-spotlight>summary span{font-weight:500;color:#b8c9d3;font-size:12px}
+.manager-rivalry-spotlight>summary:focus-visible,.manager-rivalry-inner select:focus-visible{outline:3px solid #f3d38d;outline-offset:3px}
+.manager-rivalry-inner>p{font-size:13px;color:#b9c9d2;margin:8px 0 14px}
+.manager-rivalry-inner>label{display:block;color:#f3d894;font-size:13px;font-weight:800;margin-bottom:5px}
+.manager-rivalry-inner>select{width:100%;max-width:420px;min-height:46px;border:1px solid #547083;background:#0e1c28;color:#f6f1e8;border-radius:9px;padding:10px 12px;font:inherit}
+.manager-rivalry-score{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:16px 0}
+.manager-rivalry-score>div{background:#0d1c28;border:1px solid #385064;border-radius:10px;padding:13px;min-width:0}
+.manager-rivalry-score small,.manager-rivalry-score strong{display:block}
+.manager-rivalry-score small{color:#bed0d9;font-size:11px}
+.manager-rivalry-score strong{color:#f3d38d;font-size:clamp(20px,2.5vw,27px);overflow-wrap:anywhere;font-variant-numeric:tabular-nums;margin-top:4px}
+.manager-rivalry-seasons h4,.manager-rivalry-notables h4{font-size:16px;margin:13px 0 8px}
+.manager-rivalry-seasons ol,.manager-rivalry-notables ul{padding:0;margin:0;list-style:none;display:grid;gap:7px}
+.manager-rivalry-seasons li{display:grid;grid-template-columns:49px minmax(0,1fr) auto;align-items:center;gap:7px;background:#10202c;border:1px solid #354e5e;border-radius:9px;padding:10px}
+.manager-rivalry-seasons li strong{color:#f3d38d}
+.manager-rivalry-seasons li small{font-size:11px;color:#b8c9d3}
+.manager-rivalry-seasons li>small{grid-column:2/4}
+.manager-rivalry-margin{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;font-weight:750}
+.manager-rivalry-notables ul{grid-template-columns:repeat(3,minmax(0,1fr))}
+.manager-rivalry-notables li{background:#10202c;border:1px solid #354e5e;border-radius:9px;padding:12px;min-width:0}
+.manager-rivalry-notables li span,.manager-rivalry-notables li strong,.manager-rivalry-notables li small{display:block;overflow-wrap:anywhere}
+.manager-rivalry-notables li span{font-size:12px;color:#f3d894;font-weight:800}
+.manager-rivalry-notables li strong{font-size:13px;margin:4px 0}
+.manager-rivalry-notables li small{font-size:11px;color:#b9c9d2}
+@media(max-width:800px){.manager-rivalry-notables ul{grid-template-columns:1fr}}
+@media(max-width:540px){.manager-rivalry-score{grid-template-columns:1fr 1fr}.manager-rivalry-score>div:last-child{grid-column:1/3}.manager-rivalry-seasons li{grid-template-columns:37px minmax(0,1fr) auto;padding:9px 8px}.manager-rivalry-inner>select{max-width:100%}}
+
+.manager-rivalry-receipts{border:1px solid #3c5261;border-radius:10px;background:#101e29;margin-top:13px;padding:0 12px}
+.manager-rivalry-receipts>summary{min-height:44px;padding:12px 2px;cursor:pointer;color:#f3d894;font-size:13px;font-weight:850}
+.manager-rivalry-receipts>summary:focus-visible{outline:3px solid #f3d38d;outline-offset:3px}
+.manager-rivalry-receipts ol{margin:0;padding:0 0 10px;list-style:none}
+.manager-rivalry-receipts li{display:grid;grid-template-columns:minmax(0,1fr) 52px auto;align-items:center;gap:8px;padding:10px 2px;border-top:1px solid #304857;font-size:12px}
+.manager-rivalry-receipts li strong,.manager-rivalry-receipts li small{display:block}
+.manager-rivalry-receipts li strong{color:#f5f2e8}
+.manager-rivalry-receipts li small{color:#afc4d0}
+.manager-rivalry-receipt-outcome{color:#f3d894;font-weight:800}
+.manager-rivalry-receipts li>span:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Front Office 3.0 is progressive disclosure; preserve the first-screen profile hierarchy. */
+.manager-front-office{border-top:1px solid #385064;margin-top:16px;padding-top:15px}
+.manager-front-office>summary{cursor:pointer;min-height:44px;color:#f3d894;font-size:15px;font-weight:850;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.manager-front-office>summary span{color:#b8c9d3;font-size:12px;font-weight:500}
+.manager-front-office summary:focus-visible,.manager-front-office a:focus-visible{outline:3px solid #f3d38d;outline-offset:3px}
+.manager-front-office-content>p,.manager-front-office-content section p,.manager-front-office-footnote{color:#bbcbd5;font-size:12px}
+.manager-front-office-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:15px 0}
+.manager-front-office-metrics>div{background:#0e1c28;border:1px solid #3b5363;border-radius:10px;padding:12px;min-width:0}
+.manager-front-office-metrics small,.manager-front-office-metrics strong{display:block}
+.manager-front-office-metrics small{font-size:11px;color:#bed0da}
+.manager-front-office-metrics strong{font-size:clamp(20px,2.5vw,27px);color:#f3d38d;font-variant-numeric:tabular-nums}
+.manager-front-office-content section{border-top:1px solid #385064;padding:16px 0}
+.manager-front-office-content h3{font-size:19px;margin:0}
+.manager-front-office-content section a{display:inline-block;color:#f3d894;text-decoration:underline;text-underline-offset:3px;padding:10px 0;font-size:13px;font-weight:800}
+.manager-front-office-content ul,.manager-front-office-content ol{list-style:none;margin:9px 0;padding:0}
+.manager-front-office-picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.manager-front-office-picks li{border:1px solid #3c5362;background:#0e1c28;border-radius:10px;padding:10px}
+.manager-front-office-picks li strong,.manager-front-office-picks li span{display:block;overflow-wrap:anywhere}
+.manager-front-office-picks li strong{font-size:12px;color:#f3d894}
+.manager-front-office-picks li span{font-size:13px}
+.manager-front-office-content section details{border:1px solid #3c5261;border-radius:9px;padding:9px 11px;background:#112532}
+.manager-front-office-content section details summary{cursor:pointer;color:#f3d894;font-size:13px;min-height:38px;display:flex;align-items:center}
+.manager-front-office-content section details li{padding:8px 0;border-top:1px solid #354b59;display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;font-size:12px}
+.manager-front-office-trades li,.manager-front-office-waivers li{background:#10202c;border:1px solid #385064;border-radius:10px;padding:11px;display:grid;grid-template-columns:130px minmax(0,1fr) auto;gap:9px;align-items:center;margin:7px 0;font-size:12px}
+.manager-front-office-trades li strong,.manager-front-office-trades li small{display:block}
+.manager-front-office-trades li small,.manager-front-office-waivers li small{font-size:11px;color:#bed0da}
+.manager-front-office-trades li>span{overflow-wrap:anywhere}
+.manager-front-office-waivers li{grid-template-columns:100px 1fr auto}
+.manager-front-office-waivers li strong{color:#f3d894}
+.manager-front-office-footnote{padding-top:13px;border-top:1px solid #385064}
+.manager-front-office-unavailable{font-size:13px;color:#bbcbd5}
+@media(max-width:800px){.manager-front-office-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.manager-front-office-picks{grid-template-columns:1fr}.manager-front-office-trades li{grid-template-columns:1fr}.manager-front-office-waivers li{grid-template-columns:1fr 1fr}.manager-front-office-waivers li small{grid-column:1/3}}
+@media(max-width:540px){.manager-front-office-metrics>div{padding:11px}.manager-front-office-metrics strong{font-size:22px}}
+
+.manager-front-office-timeline{margin:15px 0;border:1px solid #3b5262;border-radius:10px;padding:10px 12px;background:#0d1e29}
+.manager-front-office-timeline>summary{cursor:pointer;min-height:44px;color:#f3d894;font-size:13px;font-weight:850;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.manager-front-office-timeline>summary span{font-size:11px;color:#b9cbd5;font-weight:500}
+.manager-front-office-timeline>summary:focus-visible{outline:3px solid #f3d38d;outline-offset:3px}
+.manager-front-office-timeline p{font-size:12px;color:#bbcbd5}
+.manager-front-office-timeline ol{padding:0;margin:0;list-style:none;display:grid;gap:7px}
+.manager-front-office-timeline li{display:grid;grid-template-columns:100px repeat(3,minmax(0,1fr));gap:9px;padding:10px;background:#112533;border:1px solid #3a5362;border-radius:8px;font-size:12px;align-items:start}
+.manager-front-office-timeline li strong{color:#f3d894}
+.manager-front-office-timeline li span{color:#d4e0e7;overflow-wrap:anywhere}
+@media(max-width:760px){.manager-front-office-timeline li{grid-template-columns:1fr 1fr}.manager-front-office-timeline li strong{grid-column:1/3}}
+@media(max-width:420px){.manager-front-office-timeline li{grid-template-columns:1fr}.manager-front-office-timeline li strong{grid-column:auto}}
+
+/* Front Office 3.1: documentary stories, deliberately behind a disclosure */
+.fo-decisions{border:1px solid #395363;background:#10222f;border-radius:11px;margin:12px 0 17px;padding:0 13px}
+.fo-decisions>summary{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-height:48px;cursor:pointer;color:#f3d894;font-size:14px;font-weight:850}
+.fo-decisions>summary span{color:#b9cad6;font-size:11px;font-weight:500}
+.fo-decisions>summary:focus-visible,.fo-decisions a:focus-visible{outline:3px solid #f3d38d;outline-offset:3px}
+.fo-decisions-content>p{color:#b9cad6;font-size:12px;margin:6px 0 13px}
+.fo-move-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fo-move{border:1px solid #3b5464;background:#0c1b27;border-radius:10px;padding:14px;min-width:0}
+.fo-move-story{grid-column:1/-1;border-color:#816e45}
+.fo-move-type{font-size:11px!important;color:#e7c27f!important;letter-spacing:.03em;font-weight:800}
+.fo-move h4{font-size:17px;margin:5px 0 8px;overflow-wrap:anywhere}
+.fo-move p{color:#c6d4de;font-size:12px;margin:8px 0}
+.fo-move a,.fo-move-story-links a{color:#f3d894;display:inline-flex;min-height:44px;align-items:center;text-decoration:underline;text-underline-offset:3px;font-size:12px;font-weight:800;margin-right:10px}
+.fo-move-limits{font-size:11px!important;color:#afc2ce!important}
+@media(max-width:640px){.fo-move-grid{grid-template-columns:1fr}.fo-move-story{grid-column:auto}.fo-move{padding:12px}}
+
+/* Keep navigation/feature selection above research on mobile. A focused feature
+   view must not retain a second large career/research chapter above its target. */
+body.profile-feature-focused .manager-pulse{display:none!important}
