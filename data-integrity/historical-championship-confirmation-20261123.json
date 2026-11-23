@@ -1,0 +1,59 @@
+{
+  "status": "COMMISSIONER_CONFIRMED_CHAMPION_IDENTITIES",
+  "confirmed_on": "2026-11-23",
+  "confirmation": "Yes we are",
+  "scope": "Commissioner confirms Stover 2022, Stilly 2023, Thommy 2024; other champions agree with previously recorded history. Scores and runner-up identities are from bracket research, not separately commissioner confirmed.",
+  "source": {
+    "workflow_run": 45273306981,
+    "artifact": 14864998046
+  },
+  "rows": [
+    {
+      "year": 2020,
+      "champion": "Koble",
+      "runner_up": "Mitch",
+      "champion_pf": 117.48,
+      "runner_up_pf": 99.42
+    },
+    {
+      "year": 2021,
+      "champion": "Tony",
+      "runner_up": "Evans",
+      "champion_pf": 138.28,
+      "runner_up_pf": 133.98
+    },
+    {
+      "year": 2022,
+      "champion": "Stover",
+      "runner_up": "Stew",
+      "champion_pf": 99.22,
+      "runner_up_pf": 48.16
+    },
+    {
+      "year": 2023,
+      "champion": "Stilly",
+      "runner_up": "Mitch",
+      "champion_pf": 104.96,
+      "runner_up_pf": 90.18
+    },
+    {
+      "year": 2024,
+      "champion": "Tom",
+      "runner_up": "Stilly",
+      "champion_pf": 205.3,
+      "runner_up_pf": 114.88
+    },
+    {
+      "year": 2025,
+      "champion": "Scott",
+      "runner_up": "Tom",
+      "champion_pf": 156.32,
+      "runner_up_pf": 86
+    }
+  ],
+  "limitations": [
+    "Tom is canonical key for Thommy",
+    "No canonical records modified by this evidence file",
+    "Final scores and runners-up retain provider-research provenance"
+  ]
+}
