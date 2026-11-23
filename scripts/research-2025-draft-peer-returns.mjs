@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const target=Number(process.env.FELLAS_DRAFT_YEAR||2025);
-assert([2022,2023,2024,2025].includes(target));
+assert([2020,2021,2022,2023,2024,2025].includes(target));
 const expectedKeepers=target===2025?2:0;
 const expectedNonkeepers=15-expectedKeepers;
 const source=process.env.FELLAS_2025_DRAFT_ID_AUDIT||'data-integrity/historical-trade-draft-audits/'+target+'-sleeper-draft-id-review.json';
