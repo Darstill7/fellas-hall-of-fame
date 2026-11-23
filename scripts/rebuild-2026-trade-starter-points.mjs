@@ -19,7 +19,7 @@ if(current.every(t=>t.scoring_through_week===through)){
  assert.equal(audit.scoring_through_week,through);
  assert.equal(audit.audits.length,7);
  const publicHTML=fs.readFileSync('analytics/trade-museum.html','utf8');
- const embedded=publicHTML.match(/<script id="archive-data" type="application\\/json">([\\s\\S]*?)<\\/script>/);
+ const embedded=publicHTML.match(/<script id="archive-data" type="application\/json">([\s\S]*?)<\/script>/);
  assert(embedded,'Published comparison data missing');
  assert.deepEqual(JSON.parse(embedded[1]),museum);
  console.log('IDEMPOTENT: Seven archived 2026 trades already verified through final Week '+through+'. No changed files.');
