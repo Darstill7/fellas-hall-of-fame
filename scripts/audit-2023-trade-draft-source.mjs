@@ -133,6 +133,7 @@ for(const t of audit)console.log('TRADE '+t.trade_id+' W'+t.week+' '+t.side_audi
 assert.equal(report.counts.sides_with_discrepant_points_or_starts,0,
  '2023 source PF divergence cannot be considered verified');
 assert.equal(audit.reduce((sum,t)=>sum+t.side_audits.length,0),14,'Expected fourteen 2023 receiving sides');
+console.log('2023 UNARCHIVED COMPLETE TRADE IDS '+JSON.stringify(unarchived.map(x=>({id:x.id,week:x.week,rosters:x.rosters,adds:x.adds,drops:x.drops,faab:x.faab,picks:x.picks}))));
 console.log('DRAFT PICK NAME CROSSCHECK REVIEW QUEUE '+JSON.stringify(picks.filter(p=>p.status!=='NAME_MATCHED_WITHIN_TOLERANCE').map(p=>({
  pick:p.overall,round:p.round,manager:p.manager,player:p.player,
  keeper:p.keeper,traded:p.traded_same_season,reported_points:p.current_reg_points,
