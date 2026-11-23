@@ -46,7 +46,17 @@ for(const e of exceptions){
  eq(overlaps.length,1);eq(akey(overlaps[0]),akey(a));
  additional.push({key:key(e),acquisition_id:a.id,category:a.category,pf_cents:cents(e.pf),confidence:'OPENING_PLAY_SUPPORTED_PENDING_APPROVAL',evidence:{event:r.espn_event_id,source:r.summary_source,play:p[0]}});
 }
-const baseline={schema:'fellas-historical-acquisitions-v1',status:'REVIEW_CANDIDATE_NOT_APPROVED',scope:{provider:'Sleeper',years:[2020,2025],phase:'regular'},coverage:{observed:7374,strict:6672,schedule_supported:691,unresolved:11,pending_opening_play_review:additional.length},acquisitions:ledger.ledger,receipts:[...receipts.values()],exceptions,additional_review:additional,drake_review:drake,source_fingerprints:{ledger:sha(ledger),audit:sha(audit),timing:sha(timing),independent:sha(independent),drake:sha(drake)},limitations:['Scheduled kickoff and opening play timestamps do not independently prove Sleeper lineup lock.','Historical keeper classification remains archive-derived.','No additional opening-play receipts credited until reviewed.','Missing acquisition category remains unknown rather than inferred.']};
+// Preserve the original 2,542 acquisition ledger; record the newly discovered commissioner event separately.
+const event=drake.events.find(t=>t.id==='768151870828122112');assert(event&&event.type==='commissioner'&&event.status==='complete'&&Number(event.adds['3242'])===3);
+const exit=drake.events.find(t=>t.id==='772259735494889472');assert(exit&&exit.status==='complete'&&Number(exit.drops['3242'])===3&&exit.updated>event.updated);
+const commissioner={year:2021,roster:3,manager:'Tom',player_id:'3242',name:'Kenyan Drake',category:'COMMISSIONER',id:event.id,week:event.bucket,time:event.updated,exit_transaction:exit.id,exit_ms:exit.updated,exit_week:exit.bucket,cost:null};
+const commissionerReview=[];
+for(const e of exceptions.filter(e=>e.year===2021&&String(e.player_id)==='3242'&&Number(e.roster)===3)){
+ const lineup=drake.lineups.find(r=>r.week===e.week&&Number(r.roster)===3&&r.starter);assert(lineup);eq(cents(lineup.points),cents(e.pf));assert(e.week>=commissioner.week&&e.week<commissioner.exit_week);
+ commissionerReview.push({key:key(e),acquisition_id:event.id,category:'COMMISSIONER',pf_cents:cents(e.pf),confidence:e.week===commissioner.week?'COMMISSIONER_BOUNDARY_LINEUP_SUPPORTED_PENDING_APPROVAL':'COMMISSIONER_OWNERSHIP_SUPPORTED_PENDING_APPROVAL',evidence:{transaction:event.id,exit:exit.id,lineup}});
+}
+eq(commissionerReview.length,2);eq(commissionerReview.reduce((n,r)=>n+r.pf_cents,0),640);
+const baseline={schema:'fellas-historical-acquisitions-v1',status:'REVIEW_CANDIDATE_NOT_APPROVED',scope:{provider:'Sleeper',years:[2020,2025],phase:'regular'},coverage:{observed:7374,strict:6672,schedule_supported:691,unresolved:11,pending_opening_play_review:additional.length,pending_commissioner_review:commissionerReview.length},acquisitions:ledger.ledger,receipts:[...receipts.values()],exceptions,additional_review:additional,commissioner_acquisition:commissioner,commissioner_review:commissionerReview,drake_review:drake,source_fingerprints:{ledger:sha(ledger),audit:sha(audit),timing:sha(timing),independent:sha(independent),drake:sha(drake)},limitations:['Scheduled kickoff and opening play timestamps do not independently prove Sleeper lineup lock.','Historical keeper classification remains archive-derived.','No additional opening-play receipts credited until reviewed.','Missing acquisition category remains unknown rather than inferred.']};
 eq(baseline.receipts.length+baseline.exceptions.length,baseline.coverage.observed);
 const out={...baseline,content_sha256:sha(baseline)};
 fs.writeFileSync(root+'historical-acquisition-certification-candidate.json',JSON.stringify(out,null,2)+'\n');
