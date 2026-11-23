@@ -39,7 +39,7 @@ For verified multi-manager player trades, create and review `data-integrity/trad
       "week": 10,
       "date": "YYYY-MM-DD",
       "faab_reviewed": true,
-      "faab_transfers": [{"sender": 6, "receiver": 4, "amount": 2}],
+      "faab_transfers": [{"sender": 2, "receiver": 1, "amount": 2}],
       "sides": [
         {"roster_id": 1, "manager": "Stilly", "assets": [{"player_id": "12345", "name": "REVIEWED_PLAYER_A"}]},
         {"roster_id": 2, "manager": "JMid", "assets": [{"player_id": "67890", "name": "REVIEWED_PLAYER_B"}]}
