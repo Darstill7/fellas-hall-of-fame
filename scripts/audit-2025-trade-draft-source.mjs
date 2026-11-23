@@ -73,6 +73,12 @@ for(const archived of museum){
   if(received.length!==displayAssets.length)warning.push('ASSET_COUNT_MISMATCH_OR_NONPLAYER_COMPONENT');
   const breakdown=received.map(id=>{
    const starts=[],playoffStarts=[];
+   // Trade transaction week is excluded from credited PF until a verified
+   // completion timestamp and that player's kickoff/lineup lock are known.
+   const tradeWeekLineup=starters.get(raw.week)?.get(roster);
+   const sameWeekCandidates=(tradeWeekLineup?.players||[])
+    .filter(item=>String(item[0])===id)
+    .map(item=>({week:raw.week,points:Number(item[3]),source:'FINAL_LINEUP_ONLY_NO_PRELOCK_TRADE_PROOF'}));
    for(let w=raw.week+1;w<=17;w++){
     const lineup=w<=14?starters.get(w).get(roster):playoff.get(w).get(roster);
     if(!lineup)continue;
@@ -80,8 +86,10 @@ for(const archived of museum){
      (w<=14?starts:playoffStarts).push({week:w,points:Number(item[3])});
    }
    const totalPoints=xs=>Math.round(xs.reduce((a,b)=>a+b.points,0)*100)/100;
-   return {player_id:id,observed_names:[...(idName.get(id)||[])].sort(),starts,playoff_starts:playoffStarts,post_trade_points:totalPoints(starts),post_trade_starts:starts.length,post_trade_playoff_points:totalPoints(playoffStarts),post_trade_playoff_starts:playoffStarts.length};
+   return {player_id:id,same_week_unverified_starts:sameWeekCandidates,same_week_prelock_status:sameWeekCandidates.length?'REQUIRES_TRADE_COMPLETION_AND_PLAYER_LOCK_TIMES':'NO_RECEIVING_ROSTER_START_OBSERVED',observed_names:[...(idName.get(id)||[])].sort(),starts,playoff_starts:playoffStarts,post_trade_points:totalPoints(starts),post_trade_starts:starts.length,post_trade_playoff_points:totalPoints(playoffStarts),post_trade_playoff_starts:playoffStarts.length};
   });
+  const sameWeekCandidates=breakdown.flatMap(b=>b.same_week_unverified_starts.map(r=>({...r,player_id:b.player_id})));
+  if(sameWeekCandidates.length)warning.push('SAME_WEEK_STARTS_EXCLUDED_PENDING_PRELOCK_PROOF');
   const total=Math.round(breakdown.reduce((a,b)=>a+b.post_trade_points,0)*100)/100;
   const games=breakdown.reduce((a,b)=>a+b.post_trade_starts,0);
   const playoffPoints=Math.round(breakdown.reduce((a,b)=>a+b.post_trade_playoff_points,0)*100)/100;
@@ -93,7 +101,7 @@ for(const archived of museum){
   if(!matchesRegular&&matchesAll)warning.push('ARCHIVED_TOTAL_INCLUDES_PLAYOFF_POINTS');
 
   if(breakdown.some(b=>b.observed_names.length===0))warning.push('SOME_RECEIVED_PLAYER_IDS_NOT_OBSERVED_AS_STARTER');
-  detail.push({manager:side.manager,roster,assets:side.assets,provider_received_ids:received,archived_points:side.raw_starter_points,archived_starts:side.started_games,verified_post_week_points:total,verified_post_week_starts:games,verified_post_week_playoff_points:playoffPoints,verified_post_week_playoff_starts:playoffGames,verified_all_weeks_points:seasonTotal,verified_all_weeks_starts:games+playoffGames,archived_match_status:matchesRegular?'REGULAR_ONLY_MATCH':matchesAll?'REG_PLUS_PLAYOFF_MATCH':'REVIEW_MISMATCH_AFTER_PLAYOFFS',breakdown,warnings:warning});
+  detail.push({manager:side.manager,roster,assets:side.assets,provider_received_ids:received,same_week_unverified_starts:sameWeekCandidates,archived_points:side.raw_starter_points,archived_starts:side.started_games,verified_post_week_points:total,verified_post_week_starts:games,verified_post_week_playoff_points:playoffPoints,verified_post_week_playoff_starts:playoffGames,verified_all_weeks_points:seasonTotal,verified_all_weeks_starts:games+playoffGames,archived_match_status:matchesRegular?'REGULAR_ONLY_MATCH':matchesAll?'REG_PLUS_PLAYOFF_MATCH':'REVIEW_MISMATCH_AFTER_PLAYOFFS',breakdown,warnings:warning});
  }
  audit.push({trade_id:archived.id,week:archived.week,date:archived.date,roster_ids:raw.rosters,faab:raw.faab,draft_picks:raw.picks,side_audits:detail});
 }
@@ -123,12 +131,14 @@ const report={schema:'fellas-2025-trade-draft-historical-audit-v1',status:'RESEA
  counts:{archived_2025_trades:audit.length,source_completed_trades:all.length,unarchived_provider_trade_ids:unarchived.length,
   sides_with_discrepant_points_or_starts:audit.flatMap(x=>x.side_audits).filter(x=>x.archived_match_status==='REVIEW_MISMATCH_AFTER_PLAYOFFS').length,
   archived_sides_including_playoffs:audit.flatMap(x=>x.side_audits).filter(x=>x.archived_match_status==='REG_PLUS_PLAYOFF_MATCH').length,
+  same_week_unverified_received_starts:audit.flatMap(x=>x.side_audits).reduce((n,s)=>n+s.same_week_unverified_starts.length,0),
   draft_picks_2025:picks.length,picks_requiring_name_or_score_review:picks.filter(p=>p.status!=='NAME_MATCHED_WITHIN_TOLERANCE').length},
- caveats:['Archived manager point totals were not presumed accurate','2025 original transaction ownership directions are checked, but all player display-name mappings are not independently ID-certified','Some archived 2025 picks might be traded or keepers; draft-grade policy should not use points after exiting original manager','Postseason Week 15-17 score attribution is distinguished from regular season, and no trade winners issued','Unarchived completed source transactions must be reconciled before claiming comprehensive trade coverage'],
+ caveats:['Same-week acquired-player starts are deliberately not scored without a completed-trade timestamp plus player kickoff/lineup-lock proof; candidate starts are listed for further investigation','Archived manager point totals were not presumed accurate','2025 original transaction ownership directions are checked, but all player display-name mappings are not independently ID-certified','Some archived 2025 picks might be traded or keepers; draft-grade policy should not use points after exiting original manager','Postseason Week 15-17 score attribution is distinguished from regular season, and no trade winners issued','Unarchived completed source transactions must be reconciled before claiming comprehensive trade coverage'],
  trades:audit,unarchived_completed_transactions:unarchived,draft_original_roster_name_crosscheck:picks};
 fs.mkdirSync('data-integrity/historical-trade-draft-audits',{recursive:true});
 fs.writeFileSync('data-integrity/historical-trade-draft-audits/2025-original-sleeper-review.json',JSON.stringify(report,null,2)+'\n');
 console.log('2025 TRADE AUDIT '+JSON.stringify(report.counts));
+console.log('SAME-WEEK RECEIVING-ROSTER STARTS NEEDING PRELOCK PROOF '+JSON.stringify(audit.flatMap(t=>t.side_audits.flatMap(side=>side.same_week_unverified_starts.map(start=>({trade_id:t.trade_id,week:t.week,manager:side.manager,...start}))))));
 for(const t of audit)console.log('TRADE '+t.trade_id+' W'+t.week+' '+t.side_audits.map(s=>s.manager+' '+s.archived_points+'/'+s.archived_starts+' → '+s.verified_post_week_points+'/'+s.verified_post_week_starts+' + playoffs '+s.verified_post_week_playoff_points+'/'+s.verified_post_week_playoff_starts+' = '+s.verified_all_weeks_points+'/'+s.verified_all_weeks_starts+' '+s.archived_match_status).join(' | '));
 assert.equal(report.counts.sides_with_discrepant_points_or_starts,0,
  '2025 source PF divergence cannot be considered verified');
