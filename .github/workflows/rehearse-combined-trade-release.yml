@@ -1,0 +1,45 @@
+name: Rehearse combined Trade Museum release with Week 10 scores
+on:
+  pull_request:
+    paths:
+      - 'scripts/test-combined-trade-release-week10.mjs'
+      - 'scripts/import-reviewed-trade-museum.mjs'
+      - 'data/trade_museum_stage66.json'
+      - 'data-integrity/trade-point-recalculations/2026-through-week10.json'
+      - '.github/workflows/rehearse-combined-trade-release.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: combined-trade-release-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  independent-source-rehearsal:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/test-combined-trade-release-week10.mjs
+      - name: Pin reviewed raw receipts and unsigned certificates by exact SHA
+        env:
+          SOURCE_SHA: b33f303e4a3443551915413583bf0799e1a0d664
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin refs/heads/review/2026-trade-evidence-week11:refs/remotes/origin/review/2026-trade-evidence-week11
+          test "$(git rev-parse refs/remotes/origin/review/2026-trade-evidence-week11)" = "$SOURCE_SHA"
+          mkdir -p .combined-trade-source/data-integrity/sleeper-sync-candidates .combined-trade-source/data-integrity/trade-certifications
+          git show "$SOURCE_SHA:data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json" > .combined-trade-source/data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json
+          git show "$SOURCE_SHA:data-integrity/trade-certifications/2026-week11.json" > .combined-trade-source/data-integrity/trade-certifications/2026-week11.json
+      - name: Run exact-source nonpublication combined release rehearsal
+        env:
+          FELLAS_EVIDENCE_ROOT: ${{ github.workspace }}/.combined-trade-source
+        run: node scripts/test-combined-trade-release-week10.mjs
+      - name: Verify nothing in published source was written
+        if: always()
+        run: |
+          test -z "$(git status --porcelain -- analytics/trade-museum.html data/trade_museum_stage66.json)"
