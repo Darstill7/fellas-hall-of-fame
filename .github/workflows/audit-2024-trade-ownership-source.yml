@@ -15,6 +15,7 @@ on:
       - 'scripts/research-manager-trade-matrix.mjs'
       - 'scripts/research-trade-rivalry-timelines.mjs'
       - 'scripts/research-trading-records.mjs'
+      - 'scripts/research-trade-player-receipts.mjs'
       - 'scripts/test-trading-floor-browser.mjs'
       - 'data-integrity/trading-floor-preview.html'
       - 'scripts/audit-2025-original-draft-player-ids.mjs'
@@ -71,6 +72,8 @@ jobs:
           node scripts/research-trade-rivalry-timelines.mjs
           node --check scripts/research-trading-records.mjs
           node scripts/research-trading-records.mjs
+          node --check scripts/research-trade-player-receipts.mjs
+          node scripts/research-trade-player-receipts.mjs
       - name: Install browser runtime
         run: |
           npm install --no-save playwright@1.56.1
@@ -104,6 +107,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/manager-trade-matrix-research.json
             data-integrity/historical-trade-draft-audits/trade-rivalry-timelines-research.json
             data-integrity/historical-trade-draft-audits/trading-records-research.json
+            data-integrity/historical-trade-draft-audits/trade-player-receipts-research.json
             data-integrity/historical-trade-draft-audits/career-draft-return-research.json
           retention-days: 30
           if-no-files-found: warn
