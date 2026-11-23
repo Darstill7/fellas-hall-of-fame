@@ -141,3 +141,7 @@
 .fo-move a,.fo-move-story-links a{color:#f3d894;display:inline-flex;min-height:44px;align-items:center;text-decoration:underline;text-underline-offset:3px;font-size:12px;font-weight:800;margin-right:10px}
 .fo-move-limits{font-size:11px!important;color:#afc2ce!important}
 @media(max-width:640px){.fo-move-grid{grid-template-columns:1fr}.fo-move-story{grid-column:auto}.fo-move{padding:12px}}
+
+/* Keep navigation/feature selection above research on mobile. A focused feature
+   view must not retain a second large career/research chapter above its target. */
+body.profile-feature-focused .manager-pulse{display:none!important}
