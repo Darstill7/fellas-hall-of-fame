@@ -3,13 +3,13 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const target=Number(process.env.FELLAS_DRAFT_YEAR||2025);
-assert([2024,2025].includes(target));
+assert([2023,2024,2025].includes(target));
 const latestLeague='1181421235163095040';
 const model=JSON.parse(fs.readFileSync('data/v9_draft_engine.json','utf8')).filter(p=>p.year===target);
 const season=JSON.parse(fs.readFileSync('data/player_starts_'+target+'.json','utf8'));
 assert.equal(model.length,150);
 assert.deepEqual(season.weeks.map(w=>w.week),Array.from({length:14},(_,i)=>i+1));
-const managers=new Map([[1,'Stilly'],[2,'JMid'],[3,'Tom'],[4,'Stew'],[5,'Scott'],[6,'Mitch'],[7,'Tony'],[8,'Stover'],[9,'Kuhl'],[10,'Birch']]);
+const managers=new Map([[1,'Stilly'],[2,target===2023?'EvansBrandon':'JMid'],[3,'Tom'],[4,'Stew'],[5,target===2023?'Koble':'Scott'],[6,'Mitch'],[7,'Tony'],[8,'Stover'],[9,'Kuhl'],[10,'Birch']]);
 const api=async url=>{
  const response=await fetch(url,{signal:AbortSignal.timeout(30000)});
  if(!response.ok)throw Error('Sleeper HTTP '+response.status+' at '+url);
@@ -17,7 +17,9 @@ const api=async url=>{
 };
 const latest=await api('https://api.sleeper.app/v1/league/'+latestLeague);
 assert.equal(String(latest.season),'2025');
-const league=target===2025?latestLeague:String(latest.previous_league_id);
+let league=latestLeague;
+let cursor=latest;
+for(let year=2025;year>target;year--){league=String(cursor.previous_league_id);cursor=await api('https://api.sleeper.app/v1/league/'+league);assert.equal(String(cursor.season),String(year-1));}
 const leagueInfo=await api('https://api.sleeper.app/v1/league/'+league);
 assert.equal(String(leagueInfo.season),String(target));
 assert.equal(Number(leagueInfo.settings.playoff_week_start),15);
