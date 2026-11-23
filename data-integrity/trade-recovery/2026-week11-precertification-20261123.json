@@ -1,0 +1,217 @@
+{
+  "schema": "fellas-trade-museum-precertification-review-v1",
+  "status": "PENDING_COMMISSIONER_REVIEW_NOT_PUBLISHABLE",
+  "year": 2026,
+  "through_week": 11,
+  "provider_raw_crosscheck": {
+    "workflow_run_id": 45242903360,
+    "artifact_id": 14851274190,
+    "source": "Raw Sleeper transaction API Weeks 0–12",
+    "source_integrity_issues": 0
+  },
+  "required_before_import": [
+    "Commissioner confirms every display name and exact received assets, roster ownership, keeper implications.",
+    "Review FAAB amounts and direction against original Sleeper waiver_budget.",
+    "Use the original raw Sleeper staging branch and pin its exact SHA. This pre-certification draft is not accepted by the importer.",
+    "Mark cert status commissioner approved only after explicit authorization; do not convert this draft automatically."
+  ],
+  "trades": [
+    {
+      "transaction_id": "1424524291990450196",
+      "week": 9,
+      "date": "2026-11-06",
+      "review_status": "NEEDS_COMMISSIONER_SIGNOFF",
+      "faab_reviewed": false,
+      "waiver_budget_requires_review": true,
+      "sides": [
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "assets": [
+            {
+              "player_id": "11625",
+              "name": "Adonai Mitchell",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "manager": "Mitch",
+          "assets": [
+            {
+              "player_id": "MIN",
+              "name": "Minnesota Vikings",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "transaction_id": "1427488044335788032",
+      "week": 10,
+      "date": "2026-11-15",
+      "review_status": "NEEDS_COMMISSIONER_SIGNOFF",
+      "faab_reviewed": false,
+      "waiver_budget_requires_review": false,
+      "sides": [
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "assets": [
+            {
+              "player_id": "7569",
+              "name": "Nico Collins",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "manager": "Kuhl",
+          "assets": [
+            {
+              "player_id": "11564",
+              "name": "Drake Maye",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "transaction_id": "1428829144581406720",
+      "week": 11,
+      "date": "2026-11-18",
+      "review_status": "NEEDS_COMMISSIONER_SIGNOFF",
+      "faab_reviewed": false,
+      "waiver_budget_requires_review": false,
+      "sides": [
+        {
+          "roster_id": 2,
+          "manager": "JMid",
+          "assets": [
+            {
+              "player_id": "8146",
+              "name": "Garrett Wilson",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            },
+            {
+              "player_id": "13337",
+              "name": "Emmett Johnson",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        },
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "assets": [
+            {
+              "player_id": "8151",
+              "name": "Kenneth Walker III",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "transaction_id": "1428878310045151232",
+      "week": 11,
+      "date": "2026-11-18",
+      "review_status": "NEEDS_COMMISSIONER_SIGNOFF",
+      "faab_reviewed": false,
+      "waiver_budget_requires_review": false,
+      "sides": [
+        {
+          "roster_id": 6,
+          "manager": "Mitch",
+          "assets": [
+            {
+              "player_id": "6794",
+              "name": "Justin Jefferson",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "manager": "Tony",
+          "assets": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "transaction_id": "1428887570439245824",
+      "week": 11,
+      "date": "2026-11-18",
+      "review_status": "NEEDS_COMMISSIONER_SIGNOFF",
+      "faab_reviewed": false,
+      "waiver_budget_requires_review": false,
+      "sides": [
+        {
+          "roster_id": 1,
+          "manager": "Stilly",
+          "assets": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "manager": "Birch",
+          "assets": [
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "transaction_id": "1428927046507069440",
+      "week": 11,
+      "date": "2026-11-18",
+      "review_status": "NEEDS_COMMISSIONER_SIGNOFF",
+      "faab_reviewed": false,
+      "waiver_budget_requires_review": false,
+      "sides": [
+        {
+          "roster_id": 4,
+          "manager": "Stew",
+          "assets": [
+            {
+              "player_id": "12501",
+              "name": "Matthew Golden",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "manager": "Stover",
+          "assets": [
+            {
+              "player_id": "9224",
+              "name": "Chase Brown",
+              "identity_status": "PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
