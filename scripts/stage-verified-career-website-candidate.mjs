@@ -1,4 +1,4 @@
-// Stage the four mutually verified projections in an isolated directory.
+// Stage the nine mutually verified projections in an isolated directory.
 // No canonical website writes. Publish only as a complete release after downstream gates.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -8,16 +8,23 @@ import {spawnSync} from 'node:child_process';
 const root='data-integrity/historical-trade-draft-audits/';
 const check=spawnSync(process.execPath,['scripts/test-career-projection-agreement.mjs'],{stdio:'inherit'});
 assert.equal(check.status,0,'Cross-dataset verification required');
+const expanded=spawnSync(process.execPath,['scripts/test-nine-career-projections.mjs'],{stdio:'inherit'});
+assert.equal(expanded.status,0,'Nine-dataset agreement required');
 const files={
  'manager-profile-career-preview.json':'data/manager_profile_career_summary_v2.json',
  'career-core-preview.json':'data/career_core_generated.json',
  'season-guide-preview.json':'data/season_guide.json',
- 'unified-record-book-preview.json':'data/unified_record_book_2016_2026.json'
+ 'unified-record-book-preview.json':'data/unified_record_book_2016_2026.json',
+ 'weekly-matchup-mirror-preview.json':'data/season_weekly_matchups_2016_2026_v1.json',
+ 'all-time-luck-preview.json':'data/all_time_luck_ratings_v1.json',
+ 'manager-record-books-preview.json':'data/manager_record_books_2016_2026.json',
+ 'manager-season-endings-preview.json':'data/manager_verified_season_endings_v1.json',
+ 'manager-season-results-preview.json':'data/manager_season_results_v1.json'
 };
 const stage=root+'website-migration-candidate';
 const temp=fs.mkdtempSync(root+'website-migration-tmp-');
 const sha=b=>createHash('sha256').update(b).digest('hex');
-const manifest={status:'RESEARCH_ONLY_NOT_DEPLOYABLE',completedThrough:null,files:[],remaining:['weekly matchup mirror','manager record books','season endings','all-time luck','embedded HTML and browser consumer parity','postseason eligibility','front office and playoff race freshness','production release approval']};
+const manifest={status:'RESEARCH_ONLY_NOT_DEPLOYABLE',completedThrough:null,files:[],remaining:['embedded HTML and browser consumer parity','postseason eligibility','front office and playoff race freshness','production release approval']};
 try{
  for(const [source,target] of Object.entries(files)){
   const bytes=fs.readFileSync(root+source),parsed=JSON.parse(bytes);
@@ -26,6 +33,7 @@ try{
   manifest.files.push({path:target,sha256:sha(bytes),previous_sha256:sha(fs.readFileSync(target))});
  }
  assert(manifest.completedThrough);
+ assert.equal(manifest.files.length,9);
  const guide=JSON.parse(fs.readFileSync(path.join(temp,'data/season_guide.json'),'utf8'));
  assert.equal(guide[manifest.completedThrough.year].standings[0].games,manifest.completedThrough.week);
  fs.writeFileSync(path.join(temp,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
