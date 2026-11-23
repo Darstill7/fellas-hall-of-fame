@@ -12,10 +12,16 @@ After raw receipts are staged, `scripts/review-staged-trades.mjs` compares compl
 
 The read-only `audit-weekly-publication.yml` runs Tuesday/Wednesday and on relevant PRs. It reports canonical week, playoff-model week, the Trade Museum's latest documented 2026 trade and frozen starter-point methodology. It never publishes.
 
+## A readable Tuesday approval report
+
+The approved weekly release workflow now generates its PR body from actual data, not a reusable generic template. Before any canonical write, it captures the prior published ledger, standings/projections and three all-time record feeds in a temporary runner directory. After the import passes its freshness gates, `scripts/build-weekly-commissioner-review.mjs` checks that the five source scores exactly match the new canonical games and that every derived record feed reports the same approved week.
+
+The GitHub PR summary includes the five score pairs, every manager's updated W–L and scoring delta, changes to all-time record values and holders, changed current-season scoring highlights, the exact staging-source commit, and a short publication checklist. It explicitly marks the Trade Museum as requiring a **separate trade certification**. This report is generated only inside a disposable CI runner and is **not** committed as a public data source. The synthetic weekly rehearsal tests that the report can be produced without any publication.
+
 ## Commissioner approval → complete reviewable release
 
 1. Review the staging PR against Sleeper: exactly five final scores, ten unique owners, aliases, and any changed trades. Keep the trade receipt separately for manual asset verification.
-2. In **Actions → Prepare approved weekly website release → Run workflow**, enter `completed_week=N` and `confirmation=APPROVE`. The action retrieves the fixed staging candidate; it will refuse noncontiguous weeks, invalid scores or mismatched owners.
+2. Review the staging PR at an **exact full 40-character commit SHA**. In **Actions → Prepare approved weekly website release → Run workflow**, enter `completed_week=N`, `confirmation=APPROVE`, and `staging_commit=<reviewed 40-character SHA>`. The action refuses to run if the staging branch has advanced since that exact review, and reads the candidate at the pinned commit. Re-review any updated staging branch rather than approving data you have not examined. It also refuses noncontiguous weeks, invalid scores or mismatched owners.
 3. The action applies the approved week **on a release branch**, regenerating canonical ledger, standings, season guide, manager career data, all-play and luck, playoff odds, `data/current_2026_records_v1.json` and `data/alltime_game_records_live_v1.json`. It creates a release PR, **not an automatic merge**.
 4. Review the resulting diff, Week N records, expected playoff percentages, source cutoff notices, green canonical/mobile checks, and the publication freshness audit. A stale Trade Museum is flagged, not silently rewritten.
 5. **Merge the release PR only when approved.** Wait for the GitHub Pages deployment and verify that the live data and HTML correspond to the merged commit.

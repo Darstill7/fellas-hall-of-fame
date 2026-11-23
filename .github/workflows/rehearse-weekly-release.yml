@@ -9,6 +9,9 @@ on:
       - 'scripts/verify-current-week-website.mjs'
       - '.github/workflows/rehearse-weekly-release.yml'
       - '.github/workflows/prepare-approved-weekly-release.yml'
+      - 'scripts/build-weekly-commissioner-review.mjs'
+      - 'scripts/test-approved-staging-pin.mjs'
+      - 'docs/WEEKLY_PUBLICATION.md'
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,6 +24,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Validate immutable commissioner staging-commit approval
+        run: node scripts/test-approved-staging-pin.mjs
       - name: Copy to disposable test workspace and create synthetic candidate
         run: |
           set -euo pipefail
@@ -33,6 +38,10 @@ jobs:
           echo "REHEARSAL_CANDIDATE=data-integrity/sleeper-sync-candidates/2026-week${REHEARSAL_WEEK}.json" >> "$GITHUB_ENV"
           node --check scripts/fixture-weekly-release-rehearsal.mjs
           node --check scripts/apply-reviewed-sleeper-week.mjs
+          mkdir -p "$RUNNER_TEMP/fellas-before"
+          for source in unified_record_book_2016_2026.json playoff_race_v1.json current_2026_records_v1.json alltime_game_records_live_v1.json alltime_career_records_live_v1.json ledger_milestones_live_v1.json; do
+            cp "data/$source" "$RUNNER_TEMP/fellas-before/$source"
+          done
           node scripts/fixture-weekly-release-rehearsal.mjs
       - name: Confirm importer refuses any unapproved candidate
         run: |
@@ -61,6 +70,14 @@ jobs:
           node scripts/build-ledger-milestone-records.mjs --check
           node scripts/verify-ledger-milestones-history.mjs
           node scripts/audit-weekly-publication.mjs
+          node scripts/build-weekly-commissioner-review.mjs \
+            "--candidate=$CANDIDATE" \
+            "--before=$RUNNER_TEMP/fellas-before" \
+            "--output=$RUNNER_TEMP/fellas-weekly-review.md" \
+            "--staging-commit=$(git rev-parse HEAD)"
+          grep -q 'Five completed matchups' "$RUNNER_TEMP/fellas-weekly-review.md"
+          grep -q 'Commissioner approval checklist' "$RUNNER_TEMP/fellas-weekly-review.md"
+          grep -q 'Trade Museum' "$RUNNER_TEMP/fellas-weekly-review.md"
           node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json'));if(!d.games.some(x=>x.source==='SYNTHETIC_CI_TEST_DO_NOT_PUBLISH'))throw Error('Rehearsal did not exercise synthetic next week');console.log('SYNTHETIC DATA ASSERTION PASS')"
       - name: Verify no source changes are committed or published from rehearsal
         if: always()
