@@ -1,0 +1,66 @@
+name: Rebuild archived 2026 trade starter points through Week 10
+on:
+  pull_request:
+    paths:
+      - 'scripts/rebuild-2026-trade-starter-points.mjs'
+      - '.github/workflows/rebuild-2026-trade-starter-points.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: fellas-2026-trade-point-rebuild
+  cancel-in-progress: false
+jobs:
+  recalculate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/2026-trade-points-through-week10-20261123
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Pin original trade source and fetch its JSON unchanged
+        env:
+          SOURCE_SHA: b33f303e4a3443551915413583bf0799e1a0d664
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin refs/heads/review/2026-trade-evidence-week11:refs/remotes/origin/review/2026-trade-evidence-week11
+          test "$(git rev-parse refs/remotes/origin/review/2026-trade-evidence-week11)" = "$SOURCE_SHA"
+          git show "$SOURCE_SHA:data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json" > .verified-trade-source.json
+          node --check scripts/rebuild-2026-trade-starter-points.mjs
+      - name: Recalculate seven previously listed trades using raw Sleeper weekly starters
+        env:
+          FELLAS_TRADE_SOURCE: .verified-trade-source.json
+        run: node scripts/rebuild-2026-trade-starter-points.mjs
+      - name: Check no historical receipt changed; verify museum JSON/HTML parity
+        run: |
+          set -euo pipefail
+          node scripts/verify-trade-museum-scope.mjs
+          node scripts/audit-weekly-publication.mjs
+          node --input-type=module -e "
+            import fs from 'node:fs';import assert from 'node:assert/strict';
+            const data=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json'));
+            assert.equal(data.filter(x=>x.year===2026).length,7);
+            assert(data.filter(x=>x.year===2026).every(x=>x.scoring_through_week===10));
+            assert.equal(data.length,51);
+            const report=JSON.parse(fs.readFileSync('data-integrity/trade-point-recalculations/2026-through-week10.json'));
+            assert.equal(report.audits.length,7);
+            assert(report.audits.every(x=>x.sides.every(s=>s.starts.length===s.current.starts)));
+            console.log('SEVEN-TRADE WEEK 10 SOURCE PARITY PASS');
+          "
+      - name: Commit review changes on research branch only (never main)
+        run: |
+          set -euo pipefail
+          git config user.name 'fellas-evidence-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/trade_museum_stage66.json analytics/trade-museum.html data-integrity/trade-point-recalculations/2026-through-week10.json
+          if git diff --cached --quiet; then
+            echo 'No change since last verified score refresh'
+          else
+            git commit -m 'Recalculate archived 2026 trade starter points through final Week 10'
+            git push origin HEAD:refs/heads/research/2026-trade-points-through-week10-20261123
+          fi
+          echo 'Only review branch updated; no production data has been merged.' >> "$GITHUB_STEP_SUMMARY"
