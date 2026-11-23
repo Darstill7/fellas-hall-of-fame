@@ -43,5 +43,7 @@ assert(embedded);
 assert.deepEqual(JSON.parse(embedded[1]),data,'Public HTML must precisely mirror reviewed source');
 assert(html.includes('scoringLabel(t)'),'Trade cards and details must show scored-through-week');
 assert(html.includes('starter pts verified through W'));
+assert(html.includes('verifiedScoreWeek'),'Museum header must communicate scoring cutoff independent of transaction date');
+assert(html.includes('through completed Week '),'The scoring audit is a completed-week snapshot');
 assert(!data.some(t=>t.year===2026&&t.comparison_status!=='raw_only'),'Existing trades remain ungraded');
 console.log('W10 TRADE POINT PARITY PASS: 7 previously documented 2026 trades; '+differing+' manager sides with new values; 44 historical entries unchanged; complete per-player weekly attribution.');
