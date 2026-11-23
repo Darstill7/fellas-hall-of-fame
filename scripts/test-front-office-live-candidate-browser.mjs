@@ -38,7 +38,7 @@ try{for(const [engine,launcher] of [['chromium',chromium],['webkit',webkit]]){
  assert(await page.locator('#results .entry').count()>0,key+' empty');
  eq(await page.locator('button[data-key="'+key+'"]').getAttribute('aria-pressed'),'true');
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+3),key+' overflow '+width);
- await page.locator('#filter').fill('zzzz-no-player-or-manager');eq(await page.locator('#results').innerText(),'No matching results.');
+ await page.locator('#filter').fill('zzzz-no-player-or-manager');eq((await page.locator('#results').innerText()).trim(),'No matching results.');
  await page.locator('#filter').fill('');assert(await page.locator('#results .entry').count()>0);
  if(width===390||width===1280)await page.screenshot({path:path.join(captures,engine+'-'+width+'-'+key+'.png'),fullPage:false});
  checks+=4;
