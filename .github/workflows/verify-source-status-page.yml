@@ -1,0 +1,19 @@
+name: Verify historical source status
+on:
+  pull_request:
+    paths:
+      - 'data-integrity/source-status.html'
+      - 'data/unified_record_book_2016_2026.json'
+      - 'scripts/verify-source-status-page.mjs'
+      - '.github/workflows/verify-source-status-page.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/verify-source-status-page.mjs
+      - run: node scripts/verify-source-status-page.mjs

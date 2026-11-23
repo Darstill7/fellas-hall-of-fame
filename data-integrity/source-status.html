@@ -1,1 +1,108 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Historical Audit Status | Fellas OS</title><style>body{margin:0;background:#071019;color:#f6f1e4;font:16px/1.6 system-ui,Arial,sans-serif}main{max-width:850px;margin:auto;padding:42px 22px}h1{font-size:clamp(32px,6vw,54px);line-height:1.1;color:#f0d98e}h2{color:#f0d98e;margin-top:36px}a{color:#f0d98e}section{background:#101c27;border:1px solid #30475b;border-radius:16px;padding:24px;margin:22px 0}table{width:100%;border-collapse:collapse}td,th{text-align:left;border-bottom:1px solid #30475b;padding:11px 6px}small{color:#c0ccd4}.flag{color:#ffce75}li{margin:8px 0}</style></head><body><main><p><a href="../index.html">← Back to The Fellas OS</a></p><small>THE FELLAS OS · v9 REVIEW BUILD · OCTOBER 23, 2026</small><h1>Historical Verification Status</h1><p>This is a <strong>working preview, not a final certified historical release</strong>. We preserve the original v9 ranking data until independent source checks have been completed and approved.</p><section><h2>Verification matrix</h2><table><thead><tr><th>Area</th><th>Current status</th></tr></thead><tbody><tr><td>2020–2026 Sleeper draft boards</td><td>1,050 / 1,050 source-matched</td></tr><tr><td>2026 standings through Week 6</td><td>10 / 10 verified</td></tr><tr><td>2026 trade scores through Week 6</td><td>14 / 14 manager sides checked</td></tr><tr><td>Historical trade engine</td><td class="flag">Partial — not certified</td></tr><tr><td>Legacy ESPN 2016–2019 detailed scores</td><td class="flag">Incomplete source coverage</td></tr><tr><td>Mobile, accessibility and deployed hosting</td><td class="flag">Final testing outstanding</td></tr></tbody></table></section><section><h2>Known material issue</h2><p>The September 2020 Stilly–Tom trade is credited with 96.10 starter points for Tom in original v9. Archived post-trade starting-lineup evidence totals 266.40 points over Weeks 4–16, but the proper attribution rule must be reconciled and related aggregate rankings regenerated before publication. The original v9 ranking remains visible elsewhere in this preview and should not be treated as verified.</p><p>Four historical trade events are ungraded; two reconstructed events have only one manager side. 2026 valuations are provisional, not season-final.</p></section><section><h2>Next release gates</h2><ol><li>Reconcile outstanding historical trade sides and ownership cutoffs against Sleeper.</li><li>Resolve the Stilly–Tom 2020 attribution and publish approved corrections.</li><li>Recompute manager summaries and every downstream trade-ranking page from one canonical dataset.</li><li>Run keyboard/mobile accessibility, link and static-host smoke tests.</li><li>Deploy a clearly versioned build and set up refresh procedures.</li></ol></section><p><a href="../index.html">Return to the website →</a></p></main><section style="background:#152634;border:1px solid #d2ac6e;border-radius:12px;padding:18px;margin:20px auto;max-width:1000px"><h2>v9.1 Trade Engine review</h2><p>A separate audit-candidate Trade Engine applies the 2020 Stilly–Tom starter-score correction and archives player-empty 2020 events. A three-team 2023 transaction is directionally resolved but ungraded. Full source certification is still open.</p><p><a href="../analytics/trades.html">Open the v9.1 Trade Engine review</a> · <a href="../analytics/trades-v9-archive.html">Original v9 archive</a></p></section></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071019">
+<meta name="description" content="Source coverage, approved data cutoff, and historical verification notes for The Fellas fantasy football archive.">
+<title>Data &amp; Source Status — The Fellas</title>
+<style>
+:root{color-scheme:dark;--bg:#071019;--panel:#101f2c;--border:#365064;--text:#f4f1e8;--muted:#b7c8d5;--gold:#f0d98e;--warn:#ffce75}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(155deg,#112c3e,#071019 35%);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--gold);text-underline-offset:3px}a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.skip{position:absolute;top:-100px;left:12px;padding:8px;background:var(--gold);color:#071019;z-index:10}.skip:focus{top:8px}
+.wrap{max-width:1040px;margin:0 auto;padding:22px 18px 80px}.topnav{display:flex;gap:15px;flex-wrap:wrap;align-items:center;min-height:48px}.topnav a{min-height:44px;display:inline-flex;align-items:center}
+.kicker{color:var(--gold);font-size:12px;letter-spacing:.13em;font-weight:850;text-transform:uppercase}
+h1{font-size:clamp(30px,6vw,54px);line-height:1.1;letter-spacing:-.03em;margin:12px 0}h2{font-size:clamp(20px,4vw,28px);line-height:1.24;margin:0 0 14px}
+p{margin:9px 0 14px}.lead{max-width:70ch;color:#d8e1e8;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:25px 0}.card,section{border:1px solid var(--border);background:var(--panel);border-radius:15px;padding:21px}
+.metric{font-size:clamp(21px,3.3vw,33px);font-weight:900;line-height:1.15;overflow-wrap:anywhere}.card small{display:block;margin:9px 0 0;color:var(--muted);font-size:12px}
+section{margin:20px 0}.muted{color:var(--muted)}.status{color:var(--warn);font-weight:800}
+.table-wrap{max-width:100%;overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:580px}th,td{padding:12px 9px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}th{color:var(--gold)}td{font-size:14px}
+ul,ol{padding-left:21px}li{margin:9px 0}code{overflow-wrap:anywhere;font-size:.88em;color:#cce8fc}
+details{border:1px solid var(--border);padding:12px 17px;border-radius:12px;margin:14px 0}summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:800;color:var(--gold)}
+.note{border-left:4px solid var(--warn);padding-left:15px;color:#e8d9b8}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.wrap{padding:16px 12px 70px}section,.card{padding:17px}table{min-width:530px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to source status</a>
+<div class="wrap">
+<nav class="topnav" aria-label="Source status navigation"><a href="../index.html">The Fellas home</a><a href="../analytics/records.html">Record Book</a><a href="../analytics/rivalries.html">Rivalries</a><a href="../analytics/trade-museum.html">Trade Museum</a></nav>
+<main id="content">
+<p class="kicker">The Fellas · Data integrity</p>
+<h1>What is verified, and through when?</h1>
+<p class="lead">Every part of the archive has its own source cutoff. A staged week is not an approved release; a merged GitHub change is not proof of what GitHub Pages has published.</p>
+<div class="grid" aria-label="Approved historical ledger snapshot">
+<div class="card"><div class="metric" id="approved-week">Checking source…</div><small>2026 regular-season matchup coverage in the published canonical ledger</small></div>
+<div class="card"><div class="metric" id="source-date">Checking source…</div><small>Canonical ledger's recorded source update date, not deployment time</small></div>
+<div class="card"><div class="metric" id="game-count">Checking source…</div><small>Recorded 2026 regular-season matchups; not projections</small></div>
+</div>
+<p id="source-load-status" class="muted" role="status">Reading the canonical record book delivered with this website…</p>
+<section aria-labelledby="coverage-heading">
+<h2 id="coverage-heading">Source coverage by area</h2>
+<div class="table-wrap"><table><thead><tr><th>Area</th><th>What the evidence establishes</th><th>What it does not establish</th></tr></thead><tbody>
+<tr><td>2026 game results</td><td id="regular-scope">Retrieving published canonical game ledger…</td><td>A staged result or an unfinished game is not an approved final matchup.</td></tr>
+<tr><td>2016–2019 ESPN era</td><td>Recovered historical results with explicit scoring and playoff-format caveats.</td><td>Missing or unclassified legacy records are not zeroes; two-week aggregates are not single-week scores.</td></tr>
+<tr><td>2020–2025 Sleeper era</td><td>Archived league results, with winners-bracket research separately checked.</td><td>Raw totals across eras are not inherently scoring-normalized; consolation is not championship-bracket history.</td></tr>
+<tr><td>Trade Museum</td><td>Archived receipts and post-trade starter-point research where source-matched.</td><td>Trade receipts are audit snapshots, not a live feed. Incomplete pairs, three-manager trades, keeper rights and replacement-level value cannot be silently graded.</td></tr>
+<tr><td>Visual and accessibility checks</td><td>Per-change automated regression and browser workflow results can be reviewed in GitHub.</td><td>A green pull request does not independently prove deployed Pages parity or manual device behavior.</td></tr>
+</tbody></table></div>
+</section>
+<section aria-labelledby="release-heading">
+<h2 id="release-heading">How a new fantasy week becomes official</h2>
+<ol><li><strong>Collect and stage</strong> Sleeper matchups, transactions and supporting receipts after games finish.</li><li><strong>Reconcile</strong> participants, scores, trade assets, standings, playoff boundaries and all downstream records.</li><li><strong>Approve once</strong> through the commissioner-reviewed canonical release path. Parallel candidate branches must not double-publish a week.</li><li><strong>Validate and publish</strong> on the exact integration commit, then compare the public Pages release against the expected source SHA and file contents.</li></ol>
+<p class="note"><strong>Release snapshot recorded November 23, 2026:</strong> Week 10 has a separately staged/reviewed candidate but was not yet approved in main when this page update was authored. That is a dated project checkpoint, not a live approval signal. Consult <a href="https://github.com/Darstill7/fellas-hall-of-fame/issues/275">weekly publication issue #275</a> for the latest review.</p>
+</section>
+<section aria-labelledby="research-heading">
+<h2 id="research-heading">Research limitations that matter</h2>
+<p>Trade value and transaction history are distinct from verified fantasy scores. Historical comparisons may be incomplete because received assets, valid lineup replacement options, time-of-decision projections, keeper rights or FAAB evidence have not all been independently validated. A manager's missing trade +/- is <strong>not</strong> a zero, tie or loss.</p>
+<p>For 2020–2021, championship-bracket playoffs began in Week 14; applying a universal Week 15 playoff cutoff would contaminate regular-season comparisons. Later eras and older ESPN aggregate formats need their own eligibility rules.</p>
+<details><summary>Source files and release references</summary>
+<ul><li><a href="../data/unified_record_book_2016_2026.json">Canonical historical game ledger (JSON)</a></li>
+<li><a href="../data/playoff_explorer_verified_2016_2025_v1.json">Verified 2016–2025 winners-bracket archive (JSON)</a></li>
+<li><a href="https://github.com/Darstill7/fellas-hall-of-fame/pull/268">Week 10 canonical candidate #268</a></li>
+<li><a href="https://github.com/Darstill7/fellas-hall-of-fame/pull/271">Tuesday publication foundation #271</a></li>
+<li><a href="https://github.com/Darstill7/fellas-hall-of-fame/pull/276">Trade Museum 2.0 draft #276</a></li>
+<li><a href="https://github.com/Darstill7/fellas-hall-of-fame/pull/277">Rivalries 2.0 release history #277</a></li></ul>
+</details>
+<p class="muted">Data source timestamps, staging timestamps, merge timestamps and public deployment timestamps are different facts. Only the first is read from the source file on this page.</p>
+</section>
+</main>
+</div>
+<script>
+(async()=>{
+ const status=document.getElementById('source-load-status');
+ try{
+  const response=await fetch('../data/unified_record_book_2016_2026.json',{cache:'no-store'});
+  if(!response.ok)throw Error('Canonical file unavailable');
+  const d=await response.json();
+  if(!Array.isArray(d.games)||typeof d.coverage!=='string'||typeof d.updated!=='string')throw Error('Invalid canonical format');
+  const matches=d.games.filter(g=>g.year===2026&&g.stage==='regular'&&Number.isFinite(g.homeScore)&&Number.isFinite(g.awayScore));
+  const weeks=[...new Set(matches.map(g=>g.week).filter(w=>Number.isInteger(w)&&w>=1&&w<=18))].sort((a,b)=>a-b);
+  // Ten-team league: a completed week must contain five independent games
+  // with each of the ten managers appearing once. A partial week is NOT
+  // an approved "through Week N" even if its number follows Week N-1.
+  const completeWeek=week=>{
+   const games=matches.filter(g=>g.week===week);
+   const participants=games.flatMap(g=>[g.home,g.away]);
+   return games.length===5&&participants.length===10
+    &&participants.every(n=>typeof n==='string'&&n.trim().length>0)
+    &&new Set(participants).size===10;
+  };
+  const continuous=weeks.length>0&&weeks.every((w,i)=>w===i+1&&completeWeek(w));
+  const through=continuous?'Weeks 1–'+weeks[weeks.length-1]:'Coverage requires review';
+  document.getElementById('approved-week').textContent=through;
+  document.getElementById('source-date').textContent=/^\d{4}-\d{2}-\d{2}$/.test(d.updated)?d.updated:'Date unverified';
+  document.getElementById('game-count').textContent=String(matches.length);
+  document.getElementById('regular-scope').textContent=matches.length+' source-recorded regular-season matchups; '+through.toLowerCase()+'. See the linked JSON for the exact source records.';
+  status.textContent='Showing the canonical source included with this delivered website. This is not a live Sleeper result, staging status or verified GitHub Pages deployment timestamp.';
+ }catch(_){
+  for(const id of ['approved-week','source-date','game-count'])document.getElementById(id).textContent='Unverified';
+  document.getElementById('regular-scope').textContent='Canonical source could not be checked. No week, score or count is being inferred.';
+  status.textContent='Canonical source could not be loaded. Displayed data freshness is unverified; check the source and publication log.';
+ }
+})();
+</script>
+</body>
+</html>
