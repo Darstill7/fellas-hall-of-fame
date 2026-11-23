@@ -46,6 +46,7 @@ on:
       - 'scripts/research-2026-acquisition-kickoff-evidence.py'
       - 'scripts/research-historical-near-kickoff-independent.py'
       - 'scripts/research-kenyan-drake-2021.mjs'
+      - 'scripts/build-historical-acquisition-certification.mjs'
       - 'scripts/build-combined-career-acquisitions.mjs'
       - 'scripts/build-front-office-site-candidate.mjs'
       - 'scripts/test-front-office-live-candidate-browser.mjs'
@@ -137,6 +138,7 @@ jobs:
           FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-acquisitions.mjs
           python3 scripts/research-historical-near-kickoff-independent.py
           node scripts/research-kenyan-drake-2021.mjs
+          node scripts/build-historical-acquisition-certification.mjs
           python3 scripts/research-2026-acquisition-kickoff-evidence.py
           node scripts/build-combined-career-acquisitions.mjs
           node scripts/build-front-office-site-candidate.mjs
@@ -178,6 +180,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/2026-live-acquisition-kickoff-evidence.json
             data-integrity/historical-trade-draft-audits/historical-near-kickoff-independent-review.json
             data-integrity/historical-trade-draft-audits/kenyan-drake-2021-source-reconciliation.json
+            data-integrity/historical-trade-draft-audits/historical-acquisition-certification-candidate.json
             data-integrity/historical-trade-draft-audits/combined-career-acquisition-preview.json
             data-integrity/historical-trade-draft-audits/front-office-site-candidate/
             data-integrity/historical-trade-draft-audits/career-draft-return-research.json
