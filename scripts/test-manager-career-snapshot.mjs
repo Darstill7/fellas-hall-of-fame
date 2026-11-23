@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {careerSnapshot,renderSnapshot} from '../assets/manager-career-snapshot.mjs';
+import {careerSnapshot,renderSnapshot,rivalryBreakdown,renderRivalryComparison,renderRivalrySpotlight} from '../assets/manager-career-snapshot.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
 const managers={birch:'Birch',jmid:'JMid',kuhl:'Kuhl',mitch:'Mitch',scott:'Scott',stew:'Stew',stilly:'Stilly',stover:'Stover',tom:'Thommy',tony:'Tony'};
@@ -42,6 +42,36 @@ for(const [slug,name] of Object.entries(managers)){
  }
  assert.ok(renderSnapshot(r).includes('Career win rate'),'Quick read must add meaningful information beyond existing hero W-L');
  assert.ok(renderSnapshot(r).includes('Ties count half a win'),'Win percentage definition must remain transparent');
+ assert.match(renderRivalrySpotlight(r),/data-rivalry-select/,'Interactive comparison must be present '+name);
+ assert.match(renderRivalrySpotlight(r),/Rivalry deep dive/,'Collapsed rivalry section must be discoverable '+name);
+ for(const opponent of r.opponents){
+  const cmp=rivalryBreakdown(r,opponent.name);
+  const actual=games.filter(g=>g.home===opponent.name||g.away===opponent.name);
+  assert.equal(cmp.games,actual.length,'Opponent meeting count mismatch '+name+'/'+opponent.name);
+  assert.equal(cmp.w+cmp.l+cmp.t,actual.length,'Every rivalry meeting needs a result '+name+'/'+opponent.name);
+  assert.equal(cmp.seasons.reduce((sum,row)=>sum+row.games,0),cmp.games,'Annual rivalry games must reconcile '+name+'/'+opponent.name);
+  assert.equal(cmp.seasons.reduce((sum,row)=>sum+row.w,0),cmp.w,'Annual rivalry wins mismatch '+name+'/'+opponent.name);
+  assert.equal(cmp.seasons.reduce((sum,row)=>sum+row.l,0),cmp.l,'Annual rivalry losses mismatch '+name+'/'+opponent.name);
+  assert.equal(cmp.seasons.reduce((sum,row)=>sum+row.t,0),cmp.t,'Annual rivalry ties mismatch '+name+'/'+opponent.name);
+  const sourceMargin=actual.reduce((sum,g)=>sum+(g.home===name?g.homeScore-g.awayScore:g.awayScore-g.homeScore),0);
+  assert.ok(Math.abs(cmp.margin-sourceMargin)<.001,'Cumulative rivalry margin mismatch '+name+'/'+opponent.name);
+  assert.ok(Math.abs(cmp.averageMargin-sourceMargin/actual.length)<.001,'Average rivalry margin mismatch '+name+'/'+opponent.name);
+  assert.equal(cmp.meetings.length,cmp.games);
+  assert.ok(renderRivalryComparison(cmp).includes('How this rivalry has changed'));
+  assert.ok(cmp.meetings.every((g,i,list)=>i===0||list[i-1].year<g.year||(list[i-1].year===g.year&&list[i-1].week<=g.week)));
+  if(cmp.closest)assert.ok(cmp.closest.margin!==0,'Closest decided matchup cannot be a tie');
+  if(cmp.biggestWin)assert.ok(cmp.biggestWin.margin>0,'Biggest win must be positive');
+  if(cmp.biggestLoss)assert.ok(cmp.biggestLoss.margin<0,'Biggest loss must be negative');
+  const reverseOwner=Object.values(managers).includes(opponent.name);
+  if(reverseOwner){
+   const reverse=rivalryBreakdown(careerSnapshot(ledger,opponent.name),name);
+   assert.equal(reverse.games,cmp.games,'Opposite sides must see same meetings '+name+'/'+opponent.name);
+   assert.equal(reverse.w,cmp.l,'Opposite sides must reverse win-loss '+name+'/'+opponent.name);
+   assert.equal(reverse.l,cmp.w,'Opposite sides must reverse loss-win '+name+'/'+opponent.name);
+   assert.equal(reverse.t,cmp.t,'Ties symmetric '+name+'/'+opponent.name);
+   assert.ok(Math.abs(reverse.margin+cmp.margin)<.001,'Rivalry scores must be zero-sum '+name+'/'+opponent.name);
+  }
+ }
  snapshots.push({manager:name,games:r.games,record:r.wins+'-'+r.losses+(r.ties?'-'+r.ties:''),week:r.week});
 }
 const fixture={games:[
@@ -55,6 +85,14 @@ assert.equal(careerSnapshot(fixture,'A').wins,1);
 const tide=careerSnapshot(fixture,'G');
 assert.equal(tide.seasons[0].t,1,'Season trajectory must count tied matchups');
 assert.equal(tide.seasons[0].w,0,'Tie must not count as full win');
+const tiedDuel=rivalryBreakdown(tide,'H');
+assert.equal(tiedDuel.t,1);
+assert.equal(tiedDuel.closest,null,'All-tie rivalry has no decided closest matchup');
+assert.equal(tiedDuel.biggestWin,null);
+assert.equal(tiedDuel.biggestLoss,null);
+assert.match(renderRivalryComparison(tiedDuel),/No decided games/);
+assert.throws(()=>rivalryBreakdown(tide,'Not In League'),/Opponent not found/);
+
 assert.ok(renderSnapshot(tide).includes('50.0%'),'Tie must count as half-win in visible percentage');
 fixture.games.pop();
 assert.throws(()=>careerSnapshot(fixture,'A'),/Incomplete canonical Week 1/,'Never claim an incomplete week');
