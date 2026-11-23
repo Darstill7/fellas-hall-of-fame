@@ -4,7 +4,7 @@ on:
     paths:
       - 'scripts/verify-live-trade-release-freshness.mjs'
       - '.github/workflows/verify-live-trade-release-freshness.yml'
-      - 'data-integrity/trade-recovery/2026-weeks1-12-provider-review-20261123.json'
+      - 'data-integrity/trade-point-recalculations/2026-through-week10.json'
   workflow_dispatch:
 permissions:
   contents: read
@@ -14,9 +14,21 @@ jobs:
     timeout-minutes: 7
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - run: node --check scripts/verify-live-trade-release-freshness.mjs
+      - name: Read immutable Sleeper raw trade source SHA
+        env:
+          SOURCE_SHA: b33f303e4a3443551915413583bf0799e1a0d664
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin refs/heads/review/2026-trade-evidence-week11:refs/remotes/origin/review/2026-trade-evidence-week11
+          test "$(git rev-parse refs/remotes/origin/review/2026-trade-evidence-week11)" = "$SOURCE_SHA"
+          git show "$SOURCE_SHA:data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json" > .pinned-raw-trade-source.json
       - name: Reject stale week or changed raw Sleeper trade IDs
+        env:
+          FELLAS_TRADE_RAW_SOURCE: .pinned-raw-trade-source.json
         run: node scripts/verify-live-trade-release-freshness.mjs
