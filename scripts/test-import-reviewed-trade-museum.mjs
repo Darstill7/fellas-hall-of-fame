@@ -2,6 +2,8 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
+import os from 'node:os';
+import path from 'node:path';
 const dir='data-integrity/sleeper-sync-candidates',certDir='data-integrity/trade-certifications';
 const rawPath=dir+'/2026-trades-through-week14.json',certPath=certDir+'/2026-week14.json';
 fs.mkdirSync(dir,{recursive:true});fs.mkdirSync(certDir,{recursive:true});
@@ -73,6 +75,40 @@ try{
  assert.equal(fs.readFileSync(html,'utf8'),beforeHTML);
  // The 2026 recovery case: Mitch transfers 2 FAAB to Stew.
  attempt((r,c)=>{r.waiver_budget=[{sender:6,receiver:4,amount:2}];r.roster_ids=[4,6];r.adds={'123':4,'456':6};r.drops={'123':6,'456':4};c.sides=[{roster_id:4,manager:'Stew',assets:[{player_id:'123',name:'Adonai Mitchell'}]},{roster_id:6,manager:'Mitch',assets:[{player_id:'456',name:'Minnesota Vikings DEF'}]}];c.faab_reviewed=true;c.faab_transfers=[{sender:6,receiver:4,amount:2}]},true);
+ // Test actual importer output in a disposable workspace; never mutate tracked source.
+ const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'fellas-trade-faab-'));
+ try{
+  const copy=(relative)=>{
+   const dst=path.join(tmp,relative);fs.mkdirSync(path.dirname(dst),{recursive:true});
+   fs.copyFileSync(relative,dst);
+  };
+  for(const relative of ['scripts/import-reviewed-trade-museum.mjs',museum,html])copy(relative);
+  const dstRaw=path.join(tmp,rawPath),dstCert=path.join(tmp,certPath);
+  fs.mkdirSync(path.dirname(dstRaw),{recursive:true});fs.mkdirSync(path.dirname(dstCert),{recursive:true});
+  const source=structuredClone(raw),certificate=structuredClone(cert);
+  source.trades[0].roster_ids=[4,6];
+  source.trades[0].adds={'123':4,'MIN':6};source.trades[0].drops={'123':6,'MIN':4};
+  source.trades[0].waiver_budget=[{sender:6,receiver:4,amount:2}];
+  certificate.trades[0].sides=[
+   {roster_id:4,manager:'Stew',assets:[{player_id:'123',name:'Adonai Mitchell'}]},
+   {roster_id:6,manager:'Mitch',assets:[{player_id:'MIN',name:'Minnesota Vikings DEF'}]}
+  ];
+  certificate.trades[0].faab_reviewed=true;
+  certificate.trades[0].faab_transfers=[{sender:6,receiver:4,amount:2}];
+  fs.writeFileSync(dstRaw,JSON.stringify(source));fs.writeFileSync(dstCert,JSON.stringify(certificate));
+  execFileSync(process.execPath,['scripts/import-reviewed-trade-museum.mjs',certPath],{
+   cwd:tmp,encoding:'utf8',env:{...process.env,FELLAS_APPROVE_TRADE_MUSEUM:'YES'}
+  });
+  const next=JSON.parse(fs.readFileSync(path.join(tmp,museum),'utf8'));
+  const trade=next.find(row=>row.id===id);
+  assert.ok(trade,'Test trade must enter disposable museum');
+  assert.equal(trade.sides.find(side=>side.manager==='Stew').assets,'Adonai Mitchell + 2 FAAB');
+  assert.equal(trade.sides.find(side=>side.manager==='Mitch').assets,'Minnesota Vikings DEF');
+  assert.equal(trade.comparison_status,'ungraded_pending_starter_audit');
+  assert.equal(trade.sides.find(side=>side.manager==='Stew').raw_starter_points,null);
+  assert.equal(fs.readFileSync(museum,'utf8'),beforeMuseum,'Live museum source unchanged');
+  assert.equal(fs.readFileSync(html,'utf8'),beforeHTML,'Live museum markup unchanged');
+ }finally{fs.rmSync(tmp,{recursive:true,force:true})}
  console.log('PASS Trade Museum certification: approval, exact player recipients/donors, no missing/duplicate/legacy IDs, FAAB/pick guards, three-way, dry-run no-write');
 }finally{
  fs.rmSync(rawPath,{force:true});fs.rmSync(certPath,{force:true});
