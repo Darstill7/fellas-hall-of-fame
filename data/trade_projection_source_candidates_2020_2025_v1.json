@@ -17,12 +17,26 @@
       "id": "hvpkod-nfl-data",
       "name": "hvpkod/NFL-Data weekly NFL.com historical projections",
       "url": "https://github.com/hvpkod/NFL-Data",
-      "coverageClaim": "README reports 2015 onward; weekly projection and outcome data by year/position",
+      "coverageClaim": "README reports historical records since 2015; actual 2020 directory only has season files, while sampled 2021–2025 weekly directories include projected player CSV/JSON",
       "potential": "High relevance; weekly player forecast fields exist, likely sufficient to conduct coverage crosswalk",
-      "provenanceStatus": "not_certified_as_prelock_snapshot",
-      "criticalBlocker": "Need proof each archived projected-points row existed before the individual week's first player lock; GitHub commit time alone may be later than game or dataset overwritten",
+      "provenanceStatus": "2024_sample_commit_postgame_and_2020_weekly_absent_not_certified",
+      "criticalBlocker": "No 2020 weekly archive found in current public tree. Sample 2024 Week10 RB projected CSV contains PlayerWeekProjectedPts alongside TotalPoints and ProjectionDiff; file has a Nov13 2024 commit after Week10 games began. That file cannot be certified as a prelock frozen snapshot from its archived commit alone. Verify earlier immutable snapshots, timestamp and identity for each week.",
       "licenseStatus": "Repo marked MIT; rights to reuse underlying Fantasy.NFL.com data and public redistribution unverified",
-      "promotionAllowed": false
+      "promotionAllowed": false,
+      "sampleEvidence": {
+        "sourceFile": "https://raw.githubusercontent.com/hvpkod/NFL-Data/main/NFL-data-Players/2024/10/projected/RB_projected.csv",
+        "columnNames": [
+          "PlayerName",
+          "PlayerId",
+          "PlayerWeekProjectedPts",
+          "TotalPoints",
+          "ProjectionDiff"
+        ],
+        "sourceChangeCommit": "9703592c37463c09c71acedab6eab0208d9fc634",
+        "sourceChangeCommitTimeUTC": "2024-11-13T00:35:25Z",
+        "gitHistoryUrl": "https://github.com/hvpkod/NFL-Data/commits/main/NFL-data-Players/2024/10/projected/RB_projected.csv",
+        "conclusion": "Sample archive file was updated after the 2024 Week10 slate; issue-time before individual kickoff not established"
+      }
     },
     {
       "id": "ffa-historical-weekly",
