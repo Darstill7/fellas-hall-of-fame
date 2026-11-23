@@ -22,6 +22,9 @@ const complete=t=>t.sides.length>=2&&new Set(t.sides.map(s=>s.manager)).size===t
 const curated=trades.filter(complete),research=trades.filter(t=>!complete(t));
 assert.equal(curated.length+research.length,trades.length,'Incomplete receipts must remain distinct');
 const multi=curated.filter(t=>t.sides.length>=3);
+assert.ok(html.includes('<a href="records.html">Records</a>'),'Museum main Records link must open the canonical league Record Book');
+assert.ok(html.includes('<small>Documented trade receipts</small>'),'Museum archive total must describe two- and three-manager trades accurately');
+assert.ok(!html.includes('<small>Documented multi-team receipts</small>'),'Museum must not mislabel all exchanges as multi-manager trades');
 assert.ok(multi.length>0,'Three-team gallery must have source-backed exhibits');
 for (const id of ['trade-museum-title','trade-filters','results','featured-trade','manager','format','scope','year','sort','q','clearFilters','tm-gallery-items','detail','detailBody','loadMore']){
  assert.match(html,new RegExp('id="'+id+'"'),'Missing museum control/landmark: '+id);
