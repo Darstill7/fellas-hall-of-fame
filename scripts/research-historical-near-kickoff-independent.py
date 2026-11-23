@@ -29,11 +29,14 @@ for a in source["near_kickoff"]:
             out["summary_source"]=summary
             d=get(summary)
             # Do not treat scheduled date or a generic update clock as actual kickoff.
-            plays=[p for drive in d.get("drives",{}).get("previous",[]) for p in drive.get("plays",[]) if p.get("period",{}).get("number")==1 and p.get("type",{}).get("text","").lower()=="kickoff"]
+            opening=d.get("drives",{}).get("previous",[])
+            first=opening[0].get("plays",[])[:1] if opening else []
+            plays=[p for p in first if p.get("period",{}).get("number")==1 and p.get("type",{}).get("text","").lower() in ("kickoff","kickoff return (offense)")]
             out["first_drive_opening_plays"]=[{"id":p.get("id"),"type":p.get("type",{}).get("text"),"clock":p.get("clock",{}).get("displayValue"),"wallclock":p.get("wallclock",p.get("wallClock"))} for drive in d.get("drives",{}).get("previous",[])[:2] for p in drive.get("plays",[])[:4]]
             evidence=[]
             for p in plays:
-                if p.get("clock",{}).get("displayValue") not in ("15:00","14:59"): continue
+                clock=p.get("clock",{}).get("displayValue")
+                if clock not in ("15:00","14:59","14:58","14:57","14:56","14:55","14:54"): continue
                 for field in ["wallclock","wallClock"]:
                     value=p.get(field)
                     if isinstance(value,str):
