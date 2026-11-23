@@ -1,0 +1,24 @@
+name: Verify manager career snapshots
+on:
+  pull_request:
+    paths:
+      - 'assets/manager-career-snapshot.mjs'
+      - 'assets/manager-career-snapshot.css'
+      - 'scripts/test-manager-career-snapshot.mjs'
+      - 'managers/**/index.html'
+      - 'data/unified_record_book_2016_2026.json'
+      - '.github/workflows/verify-manager-career-snapshot.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  manager-snapshots:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/manager-career-snapshot.mjs
+      - run: node --check scripts/test-manager-career-snapshot.mjs
+      - run: node scripts/test-manager-career-snapshot.mjs
