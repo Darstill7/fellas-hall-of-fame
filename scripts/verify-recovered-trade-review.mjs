@@ -70,4 +70,22 @@ const stew=faab[0].participants.find(p=>p.manager==='Stew'),mitch=faab[0].partic
 assert.equal(stew.faab_acquired,2);
 assert.equal(mitch.faab_gave_up,2);
 assert.equal(review.trades.filter(t=>t.week===12).length,0,'This is a dated snapshot; do not infer future absence');
+const precert=JSON.parse(fs.readFileSync('data-integrity/trade-recovery/2026-week11-precertification-20261123.json','utf8'));
+assert.equal(precert.status,'PENDING_COMMISSIONER_REVIEW_NOT_PUBLISHABLE','No unapproved certification may be imported');
+assert.equal(precert.trades.length,missing.length);
+assert.deepEqual(precert.trades.map(t=>t.transaction_id).sort(),missing.map(t=>t.id).sort());
+assert.equal(precert.provider_raw_crosscheck.source_integrity_issues,0);
+for(const c of precert.trades){
+ const t=missing.find(row=>row.id===c.transaction_id);
+ assert(t);
+ assert.equal(c.review_status,'NEEDS_COMMISSIONER_SIGNOFF');
+ assert.equal(c.faab_reviewed,false,'Do not silently approve FAAB');
+ assert.equal(c.sides.length,t.participants.length);
+ for(const side of c.sides){
+  const rawSide=t.participants.find(p=>p.roster_id===side.roster_id);
+  assert(rawSide&&side.manager===rawSide.manager);
+  assert.deepEqual(side.assets.map(a=>a.player_id).sort(),rawSide.received.map(a=>a.player_id).sort());
+  assert(side.assets.every(a=>a.identity_status==='PROVIDER_REPORTED_NOT_COMMISSIONER_VERIFIED'));
+ }
+}
 console.log('TRADE GAP EVIDENCE PASS: '+review.trades.length+' normalized completed provider trades, '+archived.length+' archived, '+missing.length+' unapproved missing. Week 0 and live Week 12 not certified.');
