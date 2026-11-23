@@ -1,0 +1,32 @@
+name: Verify 2023 draft player IDs and historical manager return attribution
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit-2023-original-draft-player-ids.mjs'
+      - 'scripts/research-2023-draft-peer-returns.mjs'
+      - '.github/workflows/audit-2023-original-draft-ids.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-draft:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit original 2023 picks, drafted IDs, and research-only return ranking
+        run: |
+          node --check scripts/audit-2023-original-draft-player-ids.mjs
+          node scripts/audit-2023-original-draft-player-ids.mjs
+          node --check scripts/research-2023-draft-peer-returns.mjs
+          node scripts/research-2023-draft-peer-returns.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 2023-draft-player-id-and-peer-return-research
+          retention-days: 30
+          path: |
+            data-integrity/historical-trade-draft-audits/2023-sleeper-draft-id-review.json
+            data-integrity/historical-trade-draft-audits/2023-draft-peer-return-research.json
