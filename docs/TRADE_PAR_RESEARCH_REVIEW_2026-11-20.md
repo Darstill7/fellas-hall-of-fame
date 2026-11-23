@@ -3,6 +3,16 @@
 **Pull request:** #276 (draft; unmerged)  
 **Interpretation:** Observed post-trade starter production relative to a proposed replacement baseline. NOT trade decision quality or all-time franchise value.
 
+## Decision-time source audit — November 23
+
+The 13 original postseason-clean trade samples provide **254** acquired-player starter observations in preserved historical scoring/roster records. The existing files include stable player IDs, positions, postgame fantasy points and bench assignments. They **do not include independently timestamped pregame projections, game-lock times, historical injury/active-at-lock status, or an as-of snapshot of league ownership and waiver availability** for these 254 player-start observations.
+
+This is a **dataset limitation, not proof such information never existed**. A reliable pregame replacement-level model requires an external archived forecast or decision-time source. The new CI step `scripts/audit-trade-decision-time-provenance.mjs` independently inspects the actual source schema for each observation, confirms the absence of known pregame fields, and blocks any accidental assumption that final bench points were predictive information. The Trade +/- page now explicitly warns that decision-time replacement value is not validated.
+
+A defensible next input would contain source/version, player ID, eligible lineup slot, season/week, prediction issuance timestamp before the relevant player's lock time, historical injury status, lineup eligibility, roster ownership and waiver availability as-of timestamp. Multiple simultaneous substitutions must obey the bipartite distinct-bench assignment constraint already audited. Until these are sourced, do not equate historical highest-scoring bench substitutions with manager skill or a certified PAR/WAR grade.
+
+---
+
 ## New research phase: slot-eligible bench-source feasibility
 
 The latest model-development step deliberately **does not** assign fresh PAR/WAR scores. It tests the exact recorded lineup position of each of the **254** post-trade starter observations in the 13 previously validated regular-season-only transactions against the actual season’s nine-slot structure (QB/RB/RB/WR/WR/TE/FLEX/FLEX/DEF), the receiving owner’s historical weekly roster, and the list of recorded bench assets. Both FLEX slots are eligible for RB/WR/TE, not QB/DEF.
