@@ -13,7 +13,7 @@ const fixture={
  schema:'fellas-sleeper-raw-trade-review-v1',
  status:'REVIEW_REQUIRED',year:2026,league:'1340027406009761792',through_week:14,
  trades:[
-  {transaction_id:existing,week:1,roster_ids:[1,2],adds:{p1:1},drops:{p1:2},draft_picks:[],waiver_budget:[]},
+  {transaction_id:existing,week:1,roster_ids:[3,10],adds:{p1:3},drops:{p1:10},draft_picks:[],waiver_budget:[]},
   {transaction_id:newID,week:11,roster_ids:[1,7,10],adds:{p2:1,p3:7},drops:{p2:7,p3:10},draft_picks:[{round:2}],waiver_budget:[{amount:7}]}
  ]
 };
@@ -22,6 +22,9 @@ try{
  const stdout=execFileSync(process.execPath,['scripts/review-staged-trades.mjs','--candidate='+candidate,'--output='+output],{encoding:'utf8'});
  const report=JSON.parse(fs.readFileSync(output,'utf8'));
  assert.equal(report.matched_museum_ids,1);
+ assert.equal(report.existing_ids_with_participant_conflicts,0,'Known trade with matching roster owners must not be flagged');
+ assert.equal(report.participant_conflicts.length,0);
+
  assert.equal(report.new_provider_ids_awaiting_review,1);
  assert.equal(report.review_queue[0].transaction_id,newID);
  assert.equal(report.review_queue[0].roster_ids.length,3);
@@ -29,6 +32,14 @@ try{
  assert(report.review_queue[0].issues.some(x=>x.includes('Draft-pick')));
  assert(stdout.includes('None of these raw transactions are approved for publication'));
  assert.equal(report.status,'REVIEW_REQUIRED');
+ fixture.trades[0].roster_ids=[1,2];
+ fs.writeFileSync(candidate,JSON.stringify(fixture));
+ execFileSync(process.execPath,['scripts/review-staged-trades.mjs','--candidate='+candidate,'--output='+output],{encoding:'utf8'});
+ const conflict=JSON.parse(fs.readFileSync(output,'utf8'));
+ assert.equal(conflict.existing_ids_with_participant_conflicts,1,'Changed participants on existing ID must not be silently treated as verified');
+ assert.equal(conflict.participant_conflicts[0].transaction_id,existing);
+ assert.ok(conflict.participant_conflicts[0].issues.some(i=>i.includes('participant sides')));
+ fixture.trades[0].roster_ids=[3,10];
  fixture.trades.push({...fixture.trades[1]});
  fs.writeFileSync(candidate,JSON.stringify(fixture));
  assert.throws(()=>execFileSync(process.execPath,['scripts/review-staged-trades.mjs','--candidate='+candidate],{stdio:'pipe'}),/Command failed/);
