@@ -13,6 +13,21 @@ for(const file of ['index.html',...walk('managers'),...walk('seasons'),...walk('
   const m=core.managers[name==='Tom'?'Thommy':name];assert(m,'Unknown canonical manager '+name+' in '+file);
   return open+(type==='record'?record(m):m.games)+close;
  });
+ if(file==='analytics/legacy.html'){
+  const block=/(<script[^>]*id="legacyData"[^>]*>)([\s\S]*?)(<\/script>)/;
+  assert(block.test(after),'Legacy embedded model missing');
+  after=after.replace(block,(all,open,raw,close)=>{
+   const model=JSON.parse(raw);
+   for(const entry of model.managers){
+    const m=core.managers[entry.manager==='Tom'?'Thommy':entry.manager];assert(m);
+    const games=m.w+m.l+(m.t||0);assert(games>0);
+    entry.career_wins=m.w;entry.career_losses=m.l;entry.career_ties=m.t||0;entry.career_win_pct=(m.w+(m.t||0)/2)/games;
+    entry.record_scope=entry.record_scope.replace(/2026 Week \d+/,'2026 Week '+core.completedThrough.week);
+    assert(entry.record_scope.includes('2026 Week '+core.completedThrough.week));
+   }
+   return open+JSON.stringify(model).replace(/</g,'\\u003c')+close;
+  });
+ }
  if(file==='seasons/index.html'){
   const block=/<script\s+type="application\/json"\s+id="seasons-data">[\s\S]*?<\/script>/;
   assert(block.test(after),'Season guide embedded data not found');
