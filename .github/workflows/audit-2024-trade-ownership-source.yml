@@ -75,6 +75,7 @@ jobs:
   historical-ownership:
     runs-on: ubuntu-24.04
     timeout-minutes: 40
+    container: mcr.microsoft.com/playwright:v1.56.1-noble
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -213,10 +214,8 @@ jobs:
 
       - name: Install browser runtime
         id: browser-runtime
-        timeout-minutes: 18
-        run: |
-          npm install --no-save playwright@1.56.1
-          npx playwright install --with-deps chromium webkit
+        timeout-minutes: 5
+        run: npm install --no-save playwright@1.56.1
       - name: Exercise automatic live Front Office candidate
         if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
         run: node scripts/test-front-office-live-candidate-browser.mjs
