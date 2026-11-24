@@ -1,0 +1,42 @@
+// A single-cutoff personalized dashboard; no stale probability mixing.
+export function buildManagerDashboard(core,guide,race,name){
+ const m=core.managers?.[name],season=guide['2026'],rows=season?.standings;
+ if(!m||!Array.isArray(rows)||rows.length!==10||new Set(rows.map(r=>r.name)).size!==10)throw Error('Missing canonical manager standings');
+ const week=Number(core.completedThrough?.week??String(season.summary||'').match(/Week\s+(\d+)/)?.[1]);
+ if(!Number.isInteger(week)||week<1||week>14)throw Error('Invalid completed week');
+ const guideWeek=Number(guide.completedThrough?.week??String(season.summary||'').match(/Week\s+(\d+)/)?.[1]);
+ if(guideWeek!==week)throw Error('Mixed core and season cutoffs');
+ const valid=r=>['w','l','t'].every(k=>Number.isInteger(r[k]??0)&&(r[k]??0)>=0)&&r.w+r.l+(r.t??0)===week&&Number.isFinite(r.pf)&&Number.isFinite(r.pa);
+ if(!rows.every(valid))throw Error('Invalid standings');
+ const r=rows.find(x=>x.name===name),annual=m.annual?.['2026'];
+ if(!r||!annual||['w','l','t'].some(k=>(annual[k]??0)!==(r[k]??0)))throw Error('Career season record mismatch');
+ if(m.games!==m.w+m.l+(m.t??0)||m.games<1)throw Error('Invalid career record');
+ const scoringRank=1+rows.filter(x=>x.pf>r.pf).length;
+ const alias=name==='Thommy'?'Tom':name;
+ let playoff=null;
+ if(race?.verified_through_week===week){
+  const team=race.teams?.[name]??race.teams?.[alias],odds=race.scenarios?.['6']?.[name]??race.scenarios?.['6']?.[alias];
+  if(team&&odds&&team.w===r.w&&team.l===r.l&&Math.round(team.pf*100)===Math.round(r.pf*100)&&[odds.playoff_pct,odds.top2_pct].every(x=>Number.isFinite(x)&&x>=0&&x<=100)&&odds.top2_pct<=odds.playoff_pct)playoff={playoff:odds.playoff_pct,bye:odds.top2_pct};
+ }
+ return {week,season:{...r,scoringRank,average:r.pf/week},career:{wins:m.w,winPct:(m.w+(m.t??0)/2)/m.games,seasons:Object.keys(m.annual||{}).length},playoff};
+}
+const make=(tag,txt,cls)=>{const n=document.createElement(tag);if(txt!=null)n.textContent=txt;if(cls)n.className=cls;return n};
+export async function mountManagerDashboard({name,host,root='../../'}){
+ if(!host||host.querySelector('.gm42-dashboard'))return;
+ const panel=make('div',null,'gm42-dashboard'),status=make('p','Checking synchronized career and playoff evidence…','gm42-status');status.setAttribute('role','status');panel.append(status);host.append(panel);
+ try{
+  const get=async file=>{const r=await fetch(root+'data/'+file,{cache:'no-store'});if(!r.ok)throw Error('Unavailable '+file);return r.json()};
+  const [core,guide,race]=await Promise.all([get('career_core_generated.json'),get('season_guide.json'),get('playoff_race_v1.json').catch(()=>null)]);
+  const d=buildManagerDashboard(core,guide,race,name),fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:2});
+  status.textContent='Synchronized through Week '+d.week+' · regular season';
+  const grid=make('div',null,'gm42-grid');
+  for(const [label,value] of [['League scoring rank','#'+d.season.scoringRank+' of 10'],['Average weekly PF',fmt(d.season.average)],['Career wins',fmt(d.career.wins)],['Career win percentage',fmt(d.career.winPct*100)+'%'],['Seasons played',fmt(d.career.seasons)]]){
+   const item=make('div',null,'gm42-metric');item.append(make('small',label),make('strong',value));grid.append(item);
+  }
+  panel.append(grid);
+  const outlook=make('section',null,'gm42-outlook');outlook.append(make('h3','Road to the playoffs'));
+  if(d.playoff){for(const [label,value] of [['Playoff probability',d.playoff.playoff],['First-round bye probability',d.playoff.bye]]){const row=make('div',null,'gm42-probability');const caption=make('label',label+' · '+fmt(value)+'%');const meter=make('meter');meter.min=0;meter.max=100;meter.value=value;meter.setAttribute('aria-label',label);row.append(caption,meter);outlook.append(row)}outlook.append(make('p','Model estimates, not mathematical clinches or official odds.'))}
+  else outlook.append(make('p','Matching completed-week playoff simulation not available. No outdated odds displayed.'));
+  panel.append(outlook);
+ }catch(error){status.textContent='Synchronized dashboard unavailable. Existing season results remain accessible.';console.warn('Manager 4.2 dashboard:',error.message)}
+}
