@@ -21,6 +21,18 @@ export function buildAchievements(core,ledger,guide,endings,brackets,name){
  add('comeback','The Comeback','Qualify for the championship bracket after starting 0–4',comeback,bracketComplete);
  const shame=complete?seasonRows.filter(r=>r.year<2026&&r.awards?.includes('Shitter of the Year')).sort((a,b)=>a.year-b.year)[0]:null;
  add('rock-bottom','Rock Bottom','Earn verified Shitter of the Year',titleEvidence(shame),complete);
+ const firstWin=games.find(g=>g.result==='W');
+ add('first-win','First Blood','Win a regular-season matchup',firstWin);
+ for(const n of [25,50,75])add('wins-'+n,n+' Win Club','Win '+n+' regular-season games',games.filter(g=>g.result==='W')[n-1]);
+ for(const n of [25,50,100])add('games-'+n,n+' Game Club','Play '+n+' regular-season games',games[n-1]);
+ for(const n of [150,175])add('score-'+n,n+' Point Club','Score '+n+' PF in one regular-season matchup',games.find(g=>g.pf>=n*100));
+ for(const n of [50,75,100])add('margin-'+n,'Victory by '+n,'Win a regular-season matchup by at least '+n+' PF',games.find(g=>g.margin>=n*100));
+ for(const n of [3,5]){let run=0;add('streak-'+n,n+' in a Row','Win '+n+' consecutive archived regular-season games',games.find(g=>{run=g.result==='W'?run+1:0;return run===n}))}
+ for(const n of [5,10]){let run=0;add('scoring-streak-'+n,'Century Streak '+n,'Score at least 100 PF in '+n+' consecutive archived regular-season games',games.find(g=>{run=g.pf>=10000?run+1:0;return run===n}))}
+ for(const n of [5000,10000,15000,20000]){let total=0;add('career-pf-'+n,n.toLocaleString('en-US')+' PF Club','Score '+n.toLocaleString('en-US')+' career regular-season PF',games.find(g=>(total+=g.pf)>=n*100))}
+ add('runner-up','So Close','Finish runner-up in a verified championship',titleEvidence(complete?seasonRows.filter(r=>r.year<2026&&r.finalRank===2).sort((a,b)=>a.year-b.year)[0]:null),complete);
+ for(const n of [1,3]){const seasons=bracketComplete?bracketSeasons.filter(b=>(b.participants??b.seeds).map(norm).includes(name)).sort((a,b)=>a.year-b.year):[];add('playoffs-'+n,n===1?'Playoff Debut':'Playoff Regular','Qualify for '+n+' championship brackets',seasons[n-1]?{year:seasons[n-1].year,source:'Verified championship bracket'}:null,bracketComplete)}
+ add('one-point-loss','Cruel Finish','Lose by one PF or less',games.find(g=>g.margin<0&&g.margin>=-100));
  return earned;
 }
 export function buildWeeklyRecordWatch(core,ledger,guide,endings,brackets,names){
