@@ -55,7 +55,12 @@ assert.ok(html.includes('shitter/cover-week10-approved.jpg'),'Standard PNG socia
 assert.ok(archive.includes('background:url("cover-week10-approved.avif") center/contain no-repeat'),'Archive shows safely constrained cover');
 const currentIssue=read('weekly-shitter/issue-02.html');
 const currentArchive=read('weekly-shitter/index.html');
-assert.ok(home.includes('href="weekly-shitter/issue-02.html"'),'Homepage promotes current Issue 02');
+if(home.includes('id="my-manager"')){
+ assert.ok(home.includes('data-news="shitter"')&&home.includes('assets/home-app-v3.mjs'),'Production homepage has dynamic publication card');
+ const loader=read('assets/home-app-v3.mjs');
+ assert.ok(loader.includes("archive:'weekly-shitter/'")&&loader.includes("selector:'main a.story'")&&loader.includes('pattern:/^issue-'),'Publication card must derive from published archive');
+ assert.ok(read('home-classic.html').includes('href="weekly-shitter/issue-02.html"'),'Classic homepage retains Issue 02 link');
+}else assert.ok(home.includes('href="weekly-shitter/issue-02.html"'),'Homepage promotes current Issue 02');
 assert.ok(home.includes('href="weekly-shitter/"'),'Homepage links to current issue archive');
 assert.ok(currentArchive.includes('href="issue-02.html"'),'Archive features current issue');
 assert.ok(currentArchive.includes('href="../shitter/2026-week-10/"'),'Archive retains previous issue');
