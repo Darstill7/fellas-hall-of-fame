@@ -1,0 +1,37 @@
+name: Manager Headquarters 4.1 verification
+on:
+  pull_request:
+    paths:
+      - 'assets/manager-headquarters-v4.*'
+      - 'assets/manager-profile-tabs.mjs'
+      - 'scripts/test-manager-headquarters-v4*.mjs'
+      - '.github/workflows/manager-headquarters-v4.yml'
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-manager-headquarters-v4.mjs
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    container: mcr.microsoft.com/playwright:v1.56.1-noble
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.56.1
+      - run: node scripts/test-manager-headquarters-v4-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: manager-headquarters-v4-evidence
+          path: data-integrity/manager-headquarters-v4/
+          if-no-files-found: warn

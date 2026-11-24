@@ -1,0 +1,19 @@
+/* Franchise Headquarters — deliberately scoped to the v4 component. */
+.gm4-headquarters{box-sizing:border-box;width:100%;min-width:0;max-width:960px;margin:16px auto 22px;padding:22px;border:1px solid #657786;border-top:3px solid #dcb979;border-radius:14px;background:linear-gradient(145deg,#203946,#112531);color:#f6f0e6;scroll-margin-top:90px}
+.gm4-kicker{font-size:10px;font-weight:850;letter-spacing:.13em;color:#efd092;margin:0 0 8px}
+.gm4-headquarters h2{font:500 clamp(25px,6vw,36px)/1.18 Georgia,serif;margin:0 0 10px;letter-spacing:-.035em}
+.gm4-intro,.gm4-status,.gm4-note{color:#c8d6df;font-size:13px;line-height:1.6}
+.gm4-status{padding:10px 0;border-block:1px solid #405966}
+.gm4-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:15px}
+.gm4-metrics>div{padding:12px;background:#122b39;border:1px solid #536e7d;border-radius:9px;min-width:0}
+.gm4-metrics small,.gm4-row small{display:block;color:#c0ced7;font-size:11px;line-height:1.5}
+.gm4-metrics strong{display:block;font-size:clamp(17px,4vw,27px);margin-top:5px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.gm4-disclosure{border:1px solid #536e7d;border-radius:9px;margin-top:9px;background:#142c3a}
+.gm4-disclosure summary{cursor:pointer;padding:13px;min-height:46px;box-sizing:border-box;color:#f0d59c;font-weight:750;font-size:14px}
+.gm4-rows{padding:0 13px}
+.gm4-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 0;border-top:1px solid #405966}
+.gm4-row>div{min-width:0;overflow-wrap:anywhere}.gm4-row b{text-align:right;max-width:48%;overflow-wrap:anywhere;font-variant-numeric:tabular-nums;font-size:14px}
+.gm4-link{display:inline-flex;align-items:center;min-height:44px;color:#edcc91;text-underline-offset:3px;font-weight:700;font-size:13px;margin-top:8px}
+.gm4-headquarters :is(a,summary):focus-visible{outline:3px solid #ffe1a2;outline-offset:3px}
+@media(max-width:650px){.gm4-headquarters{padding:16px}.gm4-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.gm4-metrics>div:first-child{grid-column:1/-1}}
+@media(max-width:355px){.gm4-headquarters{padding:13px}.gm4-metrics strong{font-size:18px}}

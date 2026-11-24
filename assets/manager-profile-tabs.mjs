@@ -1,3 +1,11 @@
+import {mountDeferredProfileTopic,revealProfileHash} from './manager-mobile-v47.mjs';
+import {mountFranchiseLegends} from './manager-franchise-legends-v46.mjs';
+import {mountAchievementCabinet} from './manager-achievements-record-watch.mjs';
+import {mountPersonalRecordIntelligence} from './manager-personal-records-v45.mjs';
+import {mountRivalryIntelligence} from './manager-rivalry-intelligence-v44.mjs';
+import {mountFranchiseTimeline} from './manager-franchise-timeline-v43.mjs';
+import {mountManagerDashboard} from './manager-dashboard-v42.mjs';
+import {mountManagerHeadquarters} from './manager-headquarters-v4.mjs';
 import {mountManagerLuckPerformance} from './manager-luck-performance.mjs';
 import {mountManagerScheduleLuck} from './manager-schedule-luck.mjs';
 import {mountDraftTradeCareer} from './manager-draft-trade-career-page.mjs';
@@ -667,6 +675,31 @@ function mountManagerHomeHub(){
  }
 }
 mountManagerHomeHub();
+const rivalryHost=document.getElementById('rivalry-analytics');
+if(rivalryHost&&profileName){const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('./manager-rivalry-intelligence-v44.css',import.meta.url).href;document.head.append(css);void mountRivalryIntelligence({name:profileName,host:rivalryHost});}
+const timelineHost=document.getElementById('season-history');
+if(timelineHost&&profileName){const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('./manager-franchise-timeline-v43.css',import.meta.url).href;document.head.append(css);void mountFranchiseTimeline({name:profileName,host:timelineHost});}
+const gm4Host=document.querySelector('.manager-home-hub');
+if(gm4Host&&profileName){
+ const dir=document.createElement('div');dir.className='gm47-directory';dir.setAttribute('aria-label','Franchise research chapters');gm4Host.append(dir);
+ const style=file=>{const css=document.createElement('link');css.rel='stylesheet';css.href=new URL(file,import.meta.url).href;document.head.append(css)};
+ style('./manager-mobile-v47.css');
+ const configs=[
+ ['gm47-story','Franchise legends','Career anthology, defining moments and classic games','./manager-franchise-legends-v46.css',mountFranchiseLegends,['gm46-legends']],
+ ['gm47-records','Records and milestones','Personal bests, league rankings and record chase','./manager-personal-records-v45.css',mountPersonalRecordIntelligence,['gm45-records']],
+ ['gm47-achievements','Achievement cabinet','Earned and locked career achievements','./manager-personal-records-v45.css',mountAchievementCabinet,['gm452-achievements']],
+ ['gm47-front-office','Front office','Roster construction, draft returns and trade evidence','./manager-headquarters-v4.css',mountManagerHeadquarters,['gm4-headquarters']]
+ ];
+ const loadedStyles=new Set();
+ const topics=configs.map(([id,label,description,file,mount,targets])=>{
+ const topic=mountDeferredProfileTopic({host:dir,id,label,description,load:async host=>{
+ if(!loadedStyles.has(file)){style(file);loadedStyles.add(file)}
+ await mount({name:profileName==='Tom'?'Thommy':profileName,host});
+ }});topic.targets=targets;return topic});
+ const tile=[...gm4Host.querySelectorAll('.manager-home-hub-tile')].find(n=>n.querySelector('strong')?.textContent==='Front office');
+ if(tile)tile.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();topics[3].reveal();topics[3].shell.scrollIntoView({block:'start',behavior:'auto'});topics[3].shell.querySelector('summary').focus({preventScroll:true})},{capture:true});
+ revealProfileHash(topics);window.addEventListener('hashchange',()=>revealProfileHash(topics));
+}
 // Let visitors choose a topic before seeing the complete playoff résumé.
 const profileTopicMenu=document.querySelector('main .profile-quickstart');
 const profilePlayoffSection=document.getElementById('profile-playoff-resume');
