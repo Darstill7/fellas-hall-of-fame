@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {gradeDraftReturns} from './lib/draft-return-grades.mjs';
+import {draftSlotAlternatives} from './lib/draft-slot-alternatives.mjs';
 const root='data-integrity/historical-trade-draft-audits/';
 const read=n=>JSON.parse(fs.readFileSync(root+n+'.json','utf8'));
 const acq=read('combined-career-acquisition-preview'),trade=read('combined-trade-front-office-preview');
@@ -36,6 +37,7 @@ for(const t of trade.transaction_ledger){
 assert.equal(Object.values(managerSurplus).reduce((n,v)=>n+v,0),0);
 const pairwiseRankings=[...pairwiseSupported.values()].map(p=>({...p,a_minus_b_supported_cents:p.a_supported_cents-p.b_supported_cents,a_minus_b_strict_cents:p.a_strict_cents-p.b_strict_cents})).sort((a,b)=>Math.abs(b.a_minus_b_supported_cents)-Math.abs(a.a_minus_b_supported_cents));
 const draftGrades=gradeDraftReturns(acq.ledger,supported.acquisitions);
+const slotAlternatives=draftSlotAlternatives(acq.ledger,supported.acquisitions);
 const evidenceMeta={historicalPackage:supported.historicalPackage,coverage:supported.coverage,limitations:supported.limitations};
 const output=root+'front-office-site-candidate';fs.mkdirSync(output,{recursive:true});
 const common={status:'RESEARCH_ONLY_NOT_DEPLOYABLE',completedThrough:acq.completedThrough,historicalScope:[2020,2025],method:'Strict received regular-season starter production; not causal value or trade grades.'};
@@ -54,11 +56,11 @@ const datasets={
 // Explicit parallel evidence tier: never silently replace the existing strict fields.
 Object.assign(datasets['overview.json'],{supportedEvidence:evidenceMeta});
 Object.assign(datasets['trading.json'],{supportedEvidence:{...evidenceMeta,tradeSides:supported.trades,pairwise:pairwiseRankings,managerSurplus}});
-Object.assign(datasets['draft.json'],{supportedEvidence:{...evidenceMeta,rounds:supported.rounds,grades:draftGrades,picks:supportedRankings.filter(a=>['DRAFT','ARCHIVED_KEEPER','DRAFT_KEEPER_UNKNOWN'].includes(a.category))}});
+Object.assign(datasets['draft.json'],{supportedEvidence:{...evidenceMeta,rounds:supported.rounds,grades:draftGrades,slotAlternatives,picks:supportedRankings.filter(a=>['DRAFT','ARCHIVED_KEEPER','DRAFT_KEEPER_UNKNOWN'].includes(a.category))}});
 Object.assign(datasets['acquisitions.json'],{supportedEvidence:{...evidenceMeta,categories:supported.categories,rankings:supportedRankings}});
 Object.assign(datasets['players.json'],{supportedEvidence:{...evidenceMeta,players:supported.players,playerReceipts:supported.playerReceipts}});
 Object.assign(datasets['managers.json'],{supportedEvidence:{...evidenceMeta,managers:supported.managers}});
-Object.assign(datasets['keepers.json'],{supportedEvidence:{...evidenceMeta,archiveKeeperTotals:supported.categories.ARCHIVED_KEEPER??null,unknownKeeperTotals:supported.categories.DRAFT_KEEPER_UNKNOWN??null}});
+Object.assign(datasets['keepers.json'],{supportedEvidence:{...evidenceMeta,keeperSlotComparisons:slotAlternatives.results.filter(r=>r.category==='ARCHIVED_KEEPER'),keeperSlotMethod:slotAlternatives.method,archiveKeeperTotals:supported.categories.ARCHIVED_KEEPER??null,unknownKeeperTotals:supported.categories.DRAFT_KEEPER_UNKNOWN??null}});
 const files=[];
 for(const [name,d] of Object.entries(datasets)){assert.deepEqual(d.completedThrough,common.completedThrough);const raw=JSON.stringify(d,null,2)+'\n';fs.writeFileSync(output+'/'+name,raw);files.push({name,sha256:createHash('sha256').update(raw).digest('hex'),bytes:Buffer.byteLength(raw)});}
 fs.writeFileSync(output+'/manifest.json',JSON.stringify({...common,files,limitations:acq.limitations},null,2)+'\n');
