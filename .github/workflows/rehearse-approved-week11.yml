@@ -32,6 +32,7 @@ jobs:
           set -euo pipefail
           node scripts/apply-reviewed-sleeper-week.mjs data-integrity/sleeper-sync-candidates/2026-week11.json
           node scripts/sync-franchise-timeline-current.mjs
+          node scripts/sync-weekly-manager-portfolios.mjs
           node scripts/sync-records-career-fallbacks.mjs
           node scripts/verify-weekly-ledger-parity.mjs
           node scripts/verify-current-week-website.mjs
