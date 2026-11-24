@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {buildEditorialPacket} from './build-weekly-shitter-research.mjs';
+const ledger=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json'));
+const guide=JSON.parse(fs.readFileSync('data/season_guide.json'));
+const week=Math.max(...ledger.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week));
+const notes=[{kind:'observation',text:'Manager comment to verify'},{kind:'private_background',text:'Not for publication'}];
+const p=buildEditorialPacket(ledger,guide,week,notes);
+assert.equal(p.matchups.length,5);assert.equal(p.scoring.length,10);
+assert.equal(p.scoring.reduce((n,s)=>n+s.season.w+s.season.l+s.season.t,0),week*10);
+assert.equal(p.scoring.reduce((n,s)=>n+s.season.allPlayW+s.season.allPlayL+s.season.allPlayT,0),week*90);
+assert.equal(p.commissionerNotes[1].kind,'private_background');
+assert.equal(p.commissionerNotes[0].verification,'USER_SUPPLIED_UNVERIFIED');
+assert.throws(()=>buildEditorialPacket(ledger,guide,week+1,notes));
+const bad=structuredClone(guide);bad['2026'].standings[0].pf++;
+assert.throws(()=>buildEditorialPacket(ledger,bad,week,notes));
+assert.throws(()=>buildEditorialPacket(ledger,guide,week,[{kind:'verified',text:'unsupported'}]));
+console.log('Editorial research archive parity and fail-closed notes checks passed');
