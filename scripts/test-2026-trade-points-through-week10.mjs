@@ -5,6 +5,30 @@ import fs from 'node:fs';
 const data=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json','utf8'));
 const audit=JSON.parse(fs.readFileSync('data-integrity/trade-point-recalculations/2026-through-week10.json','utf8'));
 const html=fs.readFileSync('analytics/trade-museum.html','utf8');
+if(data.filter(t=>t.year===2026).some(t=>t.scoring_through_week>10)){
+ const {execFileSync}=await import('node:child_process');
+ const a=JSON.parse(execFileSync(process.execPath,['scripts/audit-trade-starter-timing.mjs'],{encoding:'utf8'}));
+ assert.equal(a.status,'COMPLETE');
+ assert.equal(data.length,57);
+ assert.equal(data.filter(t=>t.year===2026).length,13);
+ assert.equal(a.audits.length,13);
+ for(const t of data.filter(t=>t.year===2026)){
+  const v=a.audits.find(x=>x.id===t.id);assert(v);
+  assert.equal(t.scoring_through_week,a.through_week);
+  assert.equal(t.comparison_status,'raw_only');
+  assert.equal(t.sides.length,v.sides.length);
+  for(const s of t.sides){
+   const q=v.sides.find(x=>x.manager===(s.manager==='Tom'?'Thommy':s.manager));assert(q?.complete);
+   assert.equal(s.raw_starter_points,q.verified_points);
+   assert.equal(s.started_games,q.verified_start_count);
+   assert.equal(q.verified_points,Math.round(q.verified_starts.reduce((n,p)=>n+p.points,0)*100)/100);
+  }
+ }
+ assert.equal(data.filter(t=>t.year!==2026).length,44);
+ assert.deepEqual(JSON.parse(html.match(/<script id="archive-data" type="application\/json">([\s\S]*?)<\/script>/)[1]),data);
+ console.log('W11 trade timing and publication parity PASS');
+ process.exit(0);
+}
 assert.equal(audit.schema,'fellas-2026-trade-starter-point-refresh-v1');
 assert.equal(audit.status,'RESEARCH_RECALCULATED_REQUIRES_REVIEW');
 assert.equal(audit.scoring_through_week,10);
