@@ -26,3 +26,9 @@ jobs:
           node scripts/import-reviewed-trade-museum.mjs data-integrity/trade-certifications/2026-week11.json
           node --input-type=module -e "import fs from 'node:fs';import assert from 'node:assert/strict';const b=JSON.parse(fs.readFileSync('/tmp/museum-before.json')),a=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json'));assert.equal(a.length,57);assert.equal(a.filter(t=>t.year===2026).length,13);for(const t of b)assert.deepEqual(a.find(x=>x.id===t.id),t);const n=a.filter(t=>!b.some(x=>x.id===t.id));assert.equal(n.length,6);assert(n.every(t=>t.sides.every(s=>s.raw_starter_points===null&&s.started_games===null)));console.log('Receipt import verified: six additions, 51 prior receipts unchanged, no invented scoring')"
           git diff --stat
+      - name: Recalculate all thirteen trade returns and validate timing
+        run: |
+          set -euo pipefail
+          node scripts/audit-trade-starter-timing.mjs > /tmp/trade-timing-audit.json
+          cat /tmp/trade-timing-audit.json
+          node --input-type=module -e "import fs from 'node:fs';import assert from 'node:assert/strict';const a=JSON.parse(fs.readFileSync('/tmp/trade-timing-audit.json'));assert.equal(a.audits.length,13);const t=a.audits.find(t=>t.id==='1428887570439245824');assert.equal(t.sides.find(s=>s.manager==='Stilly').verified_points,16.2);assert.equal(t.sides.find(s=>s.manager==='Birch').verified_points,12.2);assert.equal(a.status,'COMPLETE','Unresolved kickoff timing blocks certification');console.log('All thirteen trade timing audits complete')"
