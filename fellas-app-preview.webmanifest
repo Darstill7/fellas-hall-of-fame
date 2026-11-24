@@ -1,0 +1,18 @@
+{
+  "name": "The Fellas — App Preview",
+  "short_name": "Fellas",
+  "id": "./home-app-preview.html",
+  "start_url": "./home-app-preview.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b141e",
+  "theme_color": "#0b141e",
+  "icons": [
+    {
+      "src": "assets/fellas-app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
