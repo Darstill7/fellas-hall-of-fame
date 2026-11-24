@@ -30,6 +30,8 @@ const classicRoute=productionApp?'home-classic.html':'';
 const routes=['',...(productionApp?[classicRoute]:[]),'seasons/','hall/','hall/championship-stories.html','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
+const preflight=process.env.FELLAS_HOME_PREFLIGHT==='1';
+if(preflight)routes.splice(1);
 const errors=[];
 const pageAudits=[];
 const captureVisuals=process.env.FELLAS_VISUAL_AUDIT==='1';
@@ -2927,7 +2929,7 @@ try{
 if(completedPages!==routes.length*(useWebkit?1:2))errors.push('Incomplete browser coverage: completed '+completedPages+' of '+routes.length*(useWebkit?1:2)+' planned page visits');
 // Preserve machine-readable browser outcomes for failed and successful CI attempts.
 await fs.mkdir(path.join(root,'data-integrity'),{recursive:true});
-await fs.writeFile(path.join(root,'data-integrity','browser-release-'+engine.toLowerCase()+'.json'),
+await fs.writeFile(path.join(root,'data-integrity',(preflight?'browser-preflight-':'browser-release-')+engine.toLowerCase()+'.json'),
  JSON.stringify({engine,viewports:useWebkit?[390]:[390,1280],plannedRoutes:routes.length,plannedPageVisits:routes.length*(useWebkit?1:2),attemptedPages,completedPages,passed:errors.length===0&&completedPages===routes.length*(useWebkit?1:2),pageAudits,errors},null,2)+'\n');
 if(errors.length){console.error(engine+' browser release test FAILED:\n'+errors.map(x=>' - '+x).join('\n'));process.exitCode=1}
 else console.log(engine+' browser release test PASS with JS and interactive archive checks');
