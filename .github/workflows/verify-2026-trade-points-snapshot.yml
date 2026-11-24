@@ -1,0 +1,25 @@
+name: Verify 2026 trade-scoring snapshot through Week 10
+on:
+  pull_request:
+    paths:
+      - 'scripts/test-2026-trade-points-through-week10.mjs'
+      - 'data/trade_museum_stage66.json'
+      - 'analytics/trade-museum.html'
+      - 'data-integrity/trade-point-recalculations/2026-through-week10.json'
+      - '.github/workflows/verify-2026-trade-points-snapshot.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-archive:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/test-2026-trade-points-through-week10.mjs
+      - run: node scripts/test-2026-trade-points-through-week10.mjs
+      - run: node scripts/verify-trade-museum-scope.mjs
+      - run: node scripts/audit-weekly-publication.mjs

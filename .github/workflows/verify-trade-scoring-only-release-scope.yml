@@ -1,0 +1,26 @@
+name: Verify Week 10 scoring-only release scope
+on:
+  pull_request:
+    paths:
+      - 'data/trade_museum_stage66.json'
+      - 'analytics/trade-museum.html'
+      - 'data-integrity/trade-point-recalculations/2026-through-week10.json'
+      - 'scripts/test-scoring-only-release-scope.mjs'
+      - '.github/workflows/verify-trade-scoring-only-release-scope.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-scope:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: git fetch --no-tags origin main:refs/remotes/origin/main
+      - run: node --check scripts/test-scoring-only-release-scope.mjs
+      - run: node scripts/test-scoring-only-release-scope.mjs
