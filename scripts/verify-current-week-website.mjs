@@ -38,11 +38,22 @@ for(const [path,source] of Object.entries(sourceRoutes)){
  if(html.includes('ARCHIVED OCTOBER 27, 2026'))throw Error('Current page displays obsolete Week 7 as current: '+path);
 }
 const homepage=fs.readFileSync('index.html','utf8');
+const appHome=homepage.includes('id="my-manager"');
+if(appHome){
+ const compact=read('data/home-current-season-v1.json');
+ const loader=fs.readFileSync('assets/home-app-v3.mjs','utf8');
+ if(compact.schemaVersion!==1||compact.year!==2026||compact.throughWeek!==week)
+  throw Error('Production compact homepage data is stale');
+ for(const marker of ['id="standings"','id="cutoff"','assets/home-app-v3.mjs'])
+  if(!homepage.includes(marker))throw Error('Production homepage missing '+marker);
+ for(const source of ['season_guide.json','home-current-season-v1.json','unified_record_book_2016_2026.json'])
+  if(!loader.includes(source))throw Error('Production homepage missing verified source '+source);
+}
 if(homepage.includes('Both linked features are archived at Week 7')||
  !homepage.includes('href="analytics/sportscenter.html"')||
  !homepage.includes('href="analytics/playoff-race.html"')||
- !homepage.includes('id="home-season-snapshot"')||
- !homepage.includes('Standings are sourced from the verified season guide'))
+ (!appHome&&(!homepage.includes('id="home-season-snapshot"')||
+ !homepage.includes('Standings are sourced from the verified season guide'))))
  throw Error('Homepage must expose fresh SportsCenter, playoff race and verified season standings without stale Week 7 labels');
 for(const archive of ['seasons/2026-week7-archive.html','analytics/sportscenter-week7-archive.html'])
  if(!fs.existsSync(archive))throw Error('Historical Week 7 snapshots must remain available');

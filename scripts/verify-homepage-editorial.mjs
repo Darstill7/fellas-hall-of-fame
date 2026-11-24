@@ -1,7 +1,14 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
-const html=read('index.html');
+const production=read('index.html');
+const appHome=production.includes('id="my-manager"');
+const html=appHome?read('home-classic.html'):production;
+if(appHome){
+ for(const marker of ['assets/home-app-v3.css','assets/home-app-v3.mjs','id="my-manager"','id="pulse"','id="standings"','id="matchups"','data-news="hangover"','data-news="shitter"','href="home-classic.html"'])assert(production.includes(marker),'Production homepage missing '+marker);
+ assert.equal(production.split('<h1').length-1,1,'Production homepage must have one h1');
+ assert.equal(production.split('<section').length-1,production.split('</section>').length-1,'Production homepage sections must balance');
+}
 const css=read('assets/homepage-editorial-frontpage.css');
 assert(html.includes('homepage-editorial-frontpage.css')&&html.includes('home-adventure-v1.css'),'Homepage editorial and mobile adventure stylesheets must load');
 assert(html.includes('class="hero home-editorial-hero"'),'Editorial hero missing');

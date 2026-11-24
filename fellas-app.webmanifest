@@ -1,0 +1,18 @@
+{
+  "name": "The Fellas Fantasy Football",
+  "short_name": "Fellas",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b141e",
+  "theme_color": "#0b141e",
+  "icons": [
+    {
+      "src": "assets/fellas-app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

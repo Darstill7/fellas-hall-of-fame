@@ -1,0 +1,39 @@
+name: Consolidated editorial research
+on:
+  pull_request:
+    paths:
+      - 'scripts/*editorial*'
+      - 'scripts/*weekly-shitter*'
+      - 'scripts/score-writer-predictions.mjs'
+      - 'data-integrity/editorial-predictions/**'
+      - 'weekly-shitter/issue-01-verified-picks.json'
+      - 'data/**'
+      - 'assets/home-app-v3.mjs'
+      - 'assets/league-config.mjs'
+      - '.github/workflows/editorial-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: editorial-research-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/test-weekly-shitter-research.mjs
+      - run: node scripts/score-writer-predictions.mjs
+      - run: node scripts/build-weekly-editorial-packet.mjs
+      - name: Retain research-only evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-editorial-evidence
+          path: ${{ runner.temp }}/fellas-editorial/
+          retention-days: 14
+          if-no-files-found: warn

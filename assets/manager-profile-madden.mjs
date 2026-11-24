@@ -1,3 +1,4 @@
+import {sharedProfileJson} from './manager-mobile-v47.mjs';
 import {maddenOvr,seasonMaddenOvr} from './manager-madden-scale.mjs';
 import {historicalOvrHistory,singleSeasonOvrHistory,careerOvrMilestones} from './manager-historical-ovr.mjs';
 import {makeRatings,WEIGHTS} from './fellas-rating-model.mjs';
@@ -26,7 +27,7 @@ if(name){
  document.head.append(style);
  const files=['season_guide.json','career_core_generated.json','all_time_luck_ratings_v1.json','manager_verified_season_endings_v1.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json','unified_record_book_2016_2026.json'];
  try{
-  const [guide,careers,luck,endings,espn,sleeper,ledger]=await Promise.all(files.map(async p=>{const response=await fetch('../../data/'+p,{cache:'no-store'});if(!response.ok)throw Error('Missing verified source: '+p);return response.json()}));
+  const [guide,careers,luck,endings,espn,sleeper,ledger]=await Promise.all(files.map(p=>sharedProfileJson('../../data/'+p)));
   const playoffBrackets=[...espn.seasons,...sleeper.seasons],rankings=makeRatings({guide,careers,luck,endings,playoffBrackets}),manager=rankings.find(r=>r.name===name);
   if(!manager)throw Error('Manager not present in canonical ratings');
   const archetypes=earnedArchetypes(manager),tier=managerCardTier(manager),history=weeklyOvrHistory({ledger,guide,careers,luck,endings,playoffBrackets}),points=history.map(w=>w.rows.find(r=>r.name===name)?.ovr);

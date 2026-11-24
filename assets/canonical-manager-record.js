@@ -1,9 +1,8 @@
 (()=>{'use strict';
-const targets=[...document.querySelectorAll('[data-canonical-manager-record]')];
+const scriptURL=document.currentScript.src;const loadJson=url=>import(new URL('manager-mobile-v47.mjs',scriptURL).href).then(m=>m.sharedProfileJson(url));const targets=[...document.querySelectorAll('[data-canonical-manager-record]')];
 if(!targets.length)return;
 const prefix=targets[0].dataset.canonicalRoot||'../';
-fetch(prefix+'data/career_core_generated.json',{cache:'no-cache'})
-.then(r=>{if(!r.ok)throw Error('generated career core unavailable');return r.json()})
+loadJson(prefix+'data/career_core_generated.json')
 .then(data=>{
  for(const node of targets){
   const id=node.dataset.canonicalManagerRecord==='Tom'?'Thommy':node.dataset.canonicalManagerRecord;

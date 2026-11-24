@@ -62,7 +62,10 @@ console.log('MADDEN HISTORICAL WEEKLY COVERAGE PASS: no invented 2026 progressio
 if(!ui.includes("weekly.slice().reverse().map(")||!fs.readFileSync('assets/manager-weekly-ovr.mjs','utf8').includes('latestWeek'))throw Error('Weekly Madden timeline must follow verified ledger weeks');
 console.log('MADDEN LIVING TIMELINE PASS: derived week dropdown from canonical ledger');
 
-const homepage=fs.readFileSync('index.html','utf8'),homeModule=fs.readFileSync('assets/home-manager-cards.mjs','utf8');
+const productionHome=fs.readFileSync('index.html','utf8');
+const appHome=productionHome.includes('id="my-manager"');
+if(appHome&&(!productionHome.includes('href="home-classic.html"')||!productionHome.includes('href="analytics/manager-madden-cards.html"')))throw Error('Production homepage must retain classic ratings explorer and ratings lab routes');
+const homepage=appHome?fs.readFileSync('home-classic.html','utf8'):productionHome,homeModule=fs.readFileSync('assets/home-manager-cards.mjs','utf8');
 if(!homepage.includes('id="home-manager-cards"')||!homepage.includes('assets/home-manager-cards.mjs')||!homeModule.includes('makeRatings({guide,careers,luck,endings')||!homeModule.includes('href="managers/')||!ui.includes('profileSlug[r.name]'))throw Error('Homepage Madden manager profile navigation disconnected');
 const expectedSlugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];for(const s of expectedSlugs)if(!fs.existsSync('managers/'+s+'/index.html'))throw Error('Homepage manager target missing '+s);
 console.log('MADDEN HOMEPAGE PASS: ten verified manager profile targets');
@@ -91,7 +94,11 @@ for(const path of ['assets/manager-season-resume.mjs','assets/manager-madden-car
 }
 console.log('Runner-up results distinguished from champion finishes PASS');
 
-const homePage=fs.readFileSync('index.html','utf8');
+const homePage=homepage;
+if(appHome){
+ const picker=productionHome.indexOf('id="my-manager"'),ratingsLab=productionHome.indexOf('href="analytics/manager-madden-cards.html"');
+ if(picker<0||ratingsLab<0||picker>=ratingsLab)throw Error('Production homepage must prioritize franchise selection over ratings research');
+}
 const primaryManagerSection=homePage.indexOf('<section class="manager-showcase shell home-manager-refined"');
 const seasonRecordsSection=homePage.indexOf('<section class="section shell home-deep-archives"');
 if(primaryManagerSection<0||seasonRecordsSection<0||primaryManagerSection>=seasonRecordsSection)
@@ -154,7 +161,7 @@ const sharedScouting=fs.readFileSync('assets/manager-profile-madden.mjs','utf8')
 for(const token of ['grid-template-columns:repeat(4,minmax(0,1fr))','@media(max-width:700px)','min-height:112px','font-variant-numeric:tabular-nums'])if(!sharedScouting.includes(token))throw Error('Manager scouting card responsive layout regression: '+token);
 console.log('Shared scouting card responsive typography and stat grid PASS');
 
-const mobileHome=fs.readFileSync('index.html','utf8');
+const mobileHome=homepage;
 const mobileRenderer=fs.readFileSync('assets/home-manager-cards.mjs','utf8');
 if(!mobileHome.includes('id="home-manager-mobile"')||!mobileHome.includes('home-manager-grid{display:none!important}') && !mobileHome.includes('.home-manager-grid{display:none')||!mobileHome.includes('.mobile-tier-champion'))throw Error('Compact mobile manager list and tier colors missing');
 if(!mobileRenderer.includes('class="mobile-manager-row')||!mobileRenderer.includes('managerCardTier(r)')||!mobileRenderer.includes('maddenOvr(r.score)')||!mobileRenderer.includes('mobile-manager-link'))throw Error('Mobile list lost canonical OVR, expandable rows, or profile links');
