@@ -31,7 +31,7 @@ try{
    for(const width of [320,390,430]){
     const ctx=await browser.newContext({viewport:{width,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,reducedMotion:'reduce'});
     const page=await ctx.newPage(),badResponses=[],jsErrors=[];
-    page.on('pageerror',e=>jsErrors.push(e.message));
+    page.on('pageerror',e=>jsErrors.push({route:page.url(),message:e.message}));
     page.on('response',res=>{if(res.status()>=400&&res.url().startsWith(base))badResponses.push(res.status()+' '+res.url())});
     async function visit(route){
      const res=await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:25000});
@@ -106,6 +106,7 @@ try{
      if(await records.count()===1){
       expect(await records.getAttribute('href')==='analytics/records.html','Mobile Records link skips the league-wide entrance',{engine,width});
       await records.click();
+      await page.waitForLoadState('networkidle',{timeout:25000});
       expect(new URL(page.url()).pathname.endsWith('/analytics/records.html'),'Mobile Records tap did not navigate to league-wide record book',{engine,width});
      }
     }
@@ -115,12 +116,14 @@ try{
     expect(await manager.count()===1,'Home lacks direct Stilly franchise route',{engine,width});
     if(await manager.count()===1){
      await manager.click();
+     await page.waitForLoadState('networkidle',{timeout:25000});
+     await page.locator('.profile-madden-header').waitFor({timeout:25000});
      expect(new URL(page.url()).pathname.endsWith('/managers/stilly/'),'Manager profile tap failed',{engine,width});
      const career=page.locator('main a[href*="record-books.html?manager=Stilly#career-first"]').first();
      expect(await career.count()>=1,'Manager profile does not reach personal records',{engine,width});
-     if(await career.count()){await career.click();expect(new URL(page.url()).pathname.endsWith('/managers/record-books.html'),'Personal record tap failed',{engine,width})}
+     if(await career.count()){await career.click();await page.waitForLoadState('networkidle',{timeout:25000});await page.waitForFunction(()=>document.querySelector('#manager')?.options.length>=10,null,{timeout:25000});expect(new URL(page.url()).pathname.endsWith('/managers/record-books.html'),'Personal record tap failed',{engine,width})}
     }
-    await page.goto(base+'managers/record-books.html?manager=Stilly#career-first',{waitUntil:'domcontentloaded'});
+    await page.goto(base+'managers/record-books.html?manager=Stilly#career-first',{waitUntil:'networkidle'});
     await page.waitForFunction(()=>document.querySelector('#manager')?.options.length>=10,null,{timeout:25000}).catch(()=>fail('Personal record manager picker never loaded',{engine,width}));
     const personal=await page.locator('#manager').inputValue().catch(()=>'');
     expect(personal==='Stilly','Deep-linked personal records select wrong manager',{engine,width,selected:personal});
@@ -145,7 +148,7 @@ try{
     // Findings: actionable tap targets, but do not fail global navigation for dense archival metadata.
     const tap=await page.evaluate(()=>[...document.querySelectorAll('#record-family-nav button,.record-compare-controls select,.record-category-search input,.records-cover-actions a')].filter(e=>{const r=e.getBoundingClientRect();return r.height>0}).map(e=>({label:e.textContent?.trim().slice(0,30)||e.getAttribute('placeholder'),height:Math.round(e.getBoundingClientRect().height),width:Math.round(e.getBoundingClientRect().width)})).filter(x=>x.height<44||x.width<44));
     if(tap.length)warn('Small high-priority touch targets',{engine,width,targets:tap});
-    if(jsErrors.length)fail('Unhandled JavaScript error',{engine,width,messages:[...new Set(jsErrors)].slice(0,8)});
+    if(jsErrors.length)fail('Unhandled JavaScript error',{engine,width,messages:[...new Map(jsErrors.map(x=>[x.route+' '+x.message,x])).values()].slice(0,8)});
     if(badResponses.length)warn('HTTP errors for local assets',{engine,width,assets:[...new Set(badResponses)].slice(0,10)});
     await ctx.close();
    }
