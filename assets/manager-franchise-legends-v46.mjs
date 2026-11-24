@@ -1,3 +1,4 @@
+import {buildFranchiseAnthology} from './manager-franchise-anthology-v462.mjs';
 import {buildFranchiseTimeline} from './manager-franchise-timeline-v43.mjs';
 import {buildPersonalRecords} from './manager-personal-records-v45.mjs';
 import {buildRivalryIntelligence} from './manager-rivalry-intelligence-v44.mjs';
@@ -30,7 +31,7 @@ export function buildFranchiseLegends(core,ledger,guide,endings,name){
  const classics=personal.receipts.slice().sort((a,b)=>Math.abs(a.margin)-Math.abs(b.margin)||b.pf+b.pa-a.pf-a.pa||a.year-b.year||a.week-b.week).slice(0,5);
  const rival=rivalries.longest;
  const biography=name+' first appears in the '+first.year+' archive. Across '+timeline.length+' archived seasons, the franchise has played '+career.games+' regular-season games with a '+record(career)+' record. '+(titles.length?('Verified championship seasons: '+titles.map(r=>r.year).sort().join(', ')+'.'):'No championship appears in the completed-season archive.')+' '+(finals.length?'Championship-game appearances: '+finals.length+'.':'');
- return {name,persona:managerPersonas[name]?.name??name,biography,moments,chapters,classics,rival:rival?{opponent:rival.opponent,games:rival.regular.games,record:record(rival.regular),net:rival.regular.net}:null,milestones:personal.milestones};
+ return {anthology:buildFranchiseAnthology(name,timeline),name,persona:managerPersonas[name]?.name??name,biography,moments,chapters,classics,rival:rival?{opponent:rival.opponent,games:rival.regular.games,record:record(rival.regular),net:rival.regular.net}:null,milestones:personal.milestones};
 }
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n};
 export async function mountFranchiseLegends({name,host,root='../../'}){
@@ -42,6 +43,16 @@ export async function mountFranchiseLegends({name,host,root='../../'}){
  const [core,ledger,guide,endings]=await Promise.all(['career_core_generated.json','unified_record_book_2016_2026.json','season_guide.json','manager_verified_season_endings_v1.json'].map(get));
  const d=buildFranchiseLegends(core,ledger,guide,endings,name);status.textContent='Archive-backed editorial summary · nickname is not an official award.';
  p.append(el('h3',d.persona),el('p',d.biography));
+ const a=d.anthology,feature=el('details',null,'gm46-anthology');feature.append(el('summary','Read the franchise anthology'),el('h3',a.headline),el('p',a.opening),el('p',a.commentary));
+ for(const r of a.evidence)feature.append(el('small',r.year+' · '+r.record+' · Final place '+r.finish+' · '+r.source));
+ p.append(feature);
+ const turning=el('details');turning.append(el('summary','The turning point'));
+ if(a.turning){const t=a.turning;turning.append(el('p',t.from.year+' to '+t.to.year+' · '+a.format.signed(t.delta*100)+' percentage points in regular-season win rate.'),el('p','Largest absolute change between consecutive completed seasons. Not a causal explanation.'))}else turning.append(el('p','Not enough consecutive completed seasons.'));
+ p.append(turning);
+ const peaks=el('details');peaks.append(el('summary','The greatest teams and lost seasons'),el('p','Best completed regular-season win rate: '+a.best.year+' · '+a.format.pct(a.best.winPct)),el('p','Lowest completed regular-season win rate: '+a.worst.year+' · '+a.format.pct(a.worst.winPct)));
+ for(const w of a.windows)peaks.append(el('p','Best '+(w.to-w.from+1)+'-season stretch: '+w.from+'–'+w.to+' · '+a.format.pct(w.rate)+' · '+w.titles+' titles'));
+ p.append(peaks);
+ const debate=el('details');debate.append(el('summary','The legacy debate'),el('p',a.completeSeasons+' completed seasons · '+a.titles+' championships · '+a.runnerUps+' runner-up finishes.'),el('p','Regular-season success, championships and longevity measure different accomplishments. No subjective composite grade is assigned here.'));p.append(debate);
  const moments=el('details');moments.append(el('summary','Defining moments · glory and shame'));
  for(const m of d.moments){const card=el('article',null,'gm46-story');card.dataset.kind=m.kind;card.append(el('small',m.kind),el('h4',m.headline),el('p',m.story),el('small','Evidence: '+(m.evidence.source??'Reconciled matchup archive')));moments.append(card)}p.append(moments);
  const chapters=el('details');chapters.append(el('summary','Every franchise chapter'));for(const c of d.chapters)chapters.append(el('h4',c.year+' · '+c.label),el('p',c.story));p.append(chapters);
