@@ -22,9 +22,14 @@ for(const [a,b,pa,pb,fav,spread,total,side] of rows){
  assert.ok(original.includes(fav+' -'+spread+' and '+side+' '+total),'Original pick missing');
  const margin=fav===a?pa-pb:pb-pa;
  su+=+(margin>0);ats+=+(margin>spread);totals+=+(side==='Over'?pa+pb>total:pa+pb<total);
- assert.ok(article.includes(pa.toFixed(2))&&article.includes(pb.toFixed(2)),'Score missing');
+ // The detailed retrospective now lives in the separate Tuesday Hangover; the receipt ledger is verified against the original picks.
 }
 assert.deepEqual([su,ats,totals],[4,3,2]);
+const stew=ledger.games.filter(g=>+g.year===2026&&+g.week<=11&&g.stage==='regular'&&(g.home==='Stew'||g.away==='Stew')).sort((a,b)=>a.week-b.week);
+assert.deepEqual(stew.map(g=>g.week),Array.from({length:11},(_,i)=>i+1));
+const outcomes=stew.map(g=>g.home==='Stew'?g.winner==='HOME':g.winner==='AWAY');let streak=0;for(let i=outcomes.length-1;i>=0&&outcomes[i];i--)streak++;
+assert.equal(streak,7);assert.ok(article.includes('seven consecutive victories')&&!/five straight|fifth straight/i.test(article));
+assert.ok(article.includes('../tuesday-hangover/2026-week-11.html'));
 const ids=[...article.matchAll(/id="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(new Set(ids).size,ids.length,'Duplicate IDs');
 for(const m of article.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(m[1]),'Broken anchor '+m[1]);
