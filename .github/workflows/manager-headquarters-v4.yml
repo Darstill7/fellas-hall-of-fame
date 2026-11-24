@@ -21,6 +21,11 @@ jobs:
   browser:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+        width: [320, 390, 430, 1280]
     container: mcr.microsoft.com/playwright:v1.56.1-noble
     steps:
       - uses: actions/checkout@v4
@@ -29,9 +34,12 @@ jobs:
           node-version: '22'
       - run: npm install --no-save playwright@1.56.1
       - run: node scripts/test-manager-headquarters-v4-browser.mjs
+        env:
+          FELLAS_HQ_ENGINE: ${{ matrix.engine }}
+          FELLAS_HQ_WIDTH: ${{ matrix.width }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: manager-headquarters-v4-evidence
+          name: manager-headquarters-v4-evidence-${{ matrix.engine }}-${{ matrix.width }}
           path: data-integrity/manager-headquarters-v4/
           if-no-files-found: warn
