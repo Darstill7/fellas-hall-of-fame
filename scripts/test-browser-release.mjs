@@ -2720,11 +2720,17 @@ try{
     const sig=page.locator('#expanded-manager-records');
     await sig.locator('.records-lab-tile').first().waitFor({timeout:12000});
     const sigText=await sig.innerText();
-    const canonicalScorebook=(await (await page.request.get(baseUrl+'data/unified_record_book_2016_2026.json')).json()).games;
-    const stillyTotal=canonicalScorebook.filter(g=>g.stage==='regular').reduce((sum,g)=>sum+(g.home==='Stilly'?g.homeScore:g.away==='Stilly'?g.awayScore:0),0);
-    const stillyScoreDisplay=Number(stillyTotal.toFixed(2)).toLocaleString('en-US',{maximumFractionDigits:2})+' pts';
-    if(sigText.includes('undefined')||sigText.includes('NaN')||!sigText.includes('2017 · Week 9 vs Tony · Win')||!sigText.includes('2017 (3rd) · 2023 (1st) · 2024 (2nd)')||!sigText.includes(stillyScoreDisplay)||!sigText.includes('11 wins')||sigText.includes('15677.98'))
-     errors.push(width+' Stilly signature records have incorrect game, podium, or numeric context');
+    // Signature portfolio research is a separately dated archive. Check the
+    // displayed disclosure against the file's actual source coverage, never
+    // conflate it with the independently refreshed canonical career core.
+    const archiveResponse=await page.request.get(baseUrl+'data/expanded_records_verified_v1.json');
+    if(!archiveResponse.ok())errors.push(width+' expanded signature research source unavailable');
+    const researchScope=archiveResponse.ok()?(await archiveResponse.json()).scope:'';
+    if(sigText.includes('undefined')||sigText.includes('NaN')||!sigText.includes('Research snapshot:')||!sigText.includes(researchScope)||
+       !sigText.includes('2017 · Week 9 vs Tony · Win')||
+       !sigText.includes('2017 (3rd) · 2023 (1st) · 2024 (2nd)')||
+       !sigText.includes('11 wins'))
+     errors.push(width+' Stilly signature research lacks truthful source cutoff, verified game, podium, or rivalry context');
     if(width===390){
      const tiles=await sig.locator('.records-lab-tile').evaluateAll(els=>els.map(el=>({width:el.getBoundingClientRect().width,right:el.getBoundingClientRect().right})));
      if(tiles.length<6||tiles.some(x=>x.width<290||x.right>width+2))

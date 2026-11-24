@@ -6,7 +6,12 @@ const data=JSON.parse(fs.readFileSync('data-integrity/faab-manager-spend-researc
 assert.equal(data.status,'provider_observed_no_skill_grade');
 const canonical=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json','utf8'));
 const latestWeek=Math.max(...canonical.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week));
-assert.ok(data.scope.includes('2026 weeks 1-'+latestWeek+' (partial)'),'Partial 2026 FAAB coverage must follow the latest completed week');
+const faabProvider=JSON.parse(fs.readFileSync('data-integrity/faab-provider-receipts-2026.json','utf8'));
+const verifiedFaabWeek=faabProvider.weeks.length;
+assert.ok(verifiedFaabWeek>=1&&verifiedFaabWeek<=latestWeek,'FAAB source weeks cannot exceed approved canonical score coverage');
+assert.ok(data.scope.includes('2026 weeks 1-'+verifiedFaabWeek+' (partial)'),'Partial 2026 FAAB research must match independently recovered provider coverage');
+if(verifiedFaabWeek<latestWeek)
+ console.warn('FAAB SOURCE COVERAGE ALERT: Week '+(verifiedFaabWeek+1)+'–'+latestWeek+' provider bids have not been certified; this is an archival-only calculation.');
 const metrics=['completedClaims','failedClaims','paidWins','zeroDollarWins','completedBidSpend','failedAttemptedBidTotal','completedNotInOldArchive'];
 const ids=new Set();
 const totals=new Map();
