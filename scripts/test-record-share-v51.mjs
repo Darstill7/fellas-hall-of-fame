@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {recordSharePayload} from '../assets/record-share-v51.mjs';
+const base='https://example.com/fellas/managers/record-books.html?manager=Other&app=1';
+const record={label:'Example record',value:12,unit:'wins',context:'2025 regular season',scope:'Verified example scope',shared:true};
+const p=recordSharePayload('Mitch',record,base);
+assert.equal(p.url,'https://example.com/fellas/managers/record-books.html?manager=Mitch#owned-records');
+assert.match(p.text,/12 wins \(shared league record\)/);
+assert.match(p.text,/2025 regular season/);
+assert.match(p.text,/Verified example scope/);
+assert.match(recordSharePayload('Stew',{...record,value:75,unit:'%',shared:false},base).text,/75% \(league record\)/);
+console.log('Record share payload checks passed');
