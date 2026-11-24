@@ -25,7 +25,7 @@ try{
  if(width===390||width===1280)await cabinet.screenshot({path:out+'/'+engine+'-'+width+'-'+slug+'.png'});
  results.push(meta);
  }catch(e){failures.push({...meta,error:String(e)})}}
- try{await page.goto(base,{waitUntil:'domcontentloaded'});const watch=page.locator('#gm452-watch');await watch.getByText(/Archived completed Week/).waitFor({timeout:15000});await watch.getByText(/Milestones within reach/).click();assert(await watch.evaluate(e=>e.scrollWidth<=e.clientWidth+2));await watch.screenshot({path:out+'/'+engine+'-'+width+'-homepage.png'});results.push({engine,width,name:'homepage'})}catch(e){failures.push({engine,width,name:'homepage',error:String(e)})}
+ try{await page.goto(base,{waitUntil:'domcontentloaded'});if(await page.locator('#my-manager').count()){await page.locator('#more .archive summary').click();const link=page.locator('#more a[href="home-classic.html#home-record-watch"]');assert.equal(await link.count(),1,'Production homepage must retain direct Record Watch access');await link.click();await page.waitForURL('**/home-classic.html#home-record-watch');}const watch=page.locator('#gm452-watch');await watch.getByText(/Archived completed Week/).waitFor({timeout:15000});await watch.getByText(/Milestones within reach/).click();assert(await watch.evaluate(e=>e.scrollWidth<=e.clientWidth+2));await watch.screenshot({path:out+'/'+engine+'-'+width+'-homepage.png'});results.push({engine,width,name:'homepage'})}catch(e){failures.push({engine,width,name:'homepage',error:String(e)})}
  await ctx.close()}}finally{await browser.close()}
  }
 }finally{server.close();await fs.writeFile(out+'/report.json',JSON.stringify({results,failures},null,2))}
