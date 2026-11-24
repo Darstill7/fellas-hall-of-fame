@@ -8,6 +8,18 @@ const evidence=read('data-integrity/trade-point-recalculations/2026-starter-evid
 assert.equal(raw.league,evidence.league);
 assert.equal(raw.through_week,evidence.through_week);
 const cutoff=evidence.through_week;
+const timing=read('data-integrity/trade-point-recalculations/2026-kickoff-evidence-through-week11.json');
+assert.equal(timing.through_week,cutoff);
+const dateFormat=new Intl.DateTimeFormat('en-CA',{timeZone:timing.timezone,year:'numeric',month:'2-digit',day:'2-digit'});
+const date=ms=>dateFormat.format(ms);
+const dates=new Map(timing.individual_game_dates.map(x=>[x.week+':'+x.player_id,x.date]));
+function ordering(txn,week,player){
+ const day=date(txn.status_updated),first=timing.week_first_game_date[week],game=dates.get(week+':'+player);
+ if(game&&day!==game)return day<game?'BEFORE':'AFTER';
+ if(first&&day<first)return 'BEFORE';
+ return 'UNKNOWN';
+}
+const credited=new Set();
 assert.deepEqual(evidence.weeks.map(w=>w.week).sort((a,b)=>a-b),Array.from({length:cutoff},(_,i)=>i+1));
 const names=['','Stilly','JMid','Thommy','Stew','Scott','Mitch','Tony','Stover','Kuhl','Birch'];
 const trades=[...raw.trades].sort((a,b)=>a.status_updated-b.status_updated);
@@ -28,9 +40,16 @@ for(const txn of trades){
     const row={week:week.week,...p};
     const outgoing=trades.find(t=>t.status_updated>txn.status_updated&&t.drops[p.player_id]===roster);
     if(outgoing&&outgoing.week<week.week)continue;
-    if(week.week===txn.week||outgoing?.week===week.week){
-     pending.push({...row,reason:'Transaction-week or subsequent outgoing-trade-week kickoff ordering requires explicit evidence'});
-    }else starts.push(row);
+    const incomingOrder=week.week===txn.week?ordering(txn,week.week,p.player_id):'BEFORE';
+    const outgoingOrder=outgoing?.week===week.week?ordering(outgoing,week.week,p.player_id):'AFTER';
+    if(incomingOrder==='AFTER'||outgoingOrder==='BEFORE')continue;
+    if(incomingOrder==='UNKNOWN'||outgoingOrder==='UNKNOWN'){
+     pending.push({...row,reason:'Transaction/game ordering unresolved'});
+    }else{
+     const key=week.week+':'+roster+':'+p.player_id;
+     assert(!credited.has(key),'Duplicate trade attribution '+key);
+     credited.add(key);starts.push(row);
+    }
    }
   }
   const points=Math.round(starts.reduce((n,p)=>n+p.points,0)*100)/100;
