@@ -40,7 +40,43 @@ for(const pos of ['QB','RB','WR','TE','DEF']){
 const franchise=groups(rows,r=>r.id+':'+r.manager).map(a=>({id:a[0].id,name:a[0].name,manager:a[0].manager,...summarize(a)}));
 add('player-franchise-points','Most observed points for one fantasy manager',franchise,'pointsCents','max','pts',q);
 add('player-franchise-starts','Most observed starts for one fantasy manager',franchise,'starts','max','starts',q);
-assert.equal(records.length,22);
+// Completed-season player records are observed totals, not full-season NFL scoring.
+const completed=rows.filter(r=>r.year<=2025);
+const playerSeasons=groups(completed,r=>r.id+':'+r.year).map(a=>({id:a[0].id,name:a[0].name,year:a[0].year,...summarize(a),managerCount:new Set(a.map(r=>r.manager)).size}));
+const franchiseSeasons=groups(completed,r=>r.id+':'+r.manager+':'+r.year).map(a=>({id:a[0].id,name:a[0].name,manager:a[0].manager,year:a[0].year,...summarize(a)}));
+const longevity=groups(rows,r=>r.id+':'+r.manager).map(a=>({id:a[0].id,name:a[0].name,manager:a[0].manager,seasons:new Set(a.map(r=>r.year)).size,...summarize(a)}));
+add('player-season-points','Most observed starter points in one completed season',playerSeasons,'pointsCents','max','pts',q+'; completed 2020–2025 only');
+add('player-season-starts','Most observed starts in one completed season',playerSeasons,'starts','max','starts',q+'; completed 2020–2025 only');
+for(const dir of ['max','min'])add('player-season-average-'+dir,(dir==='max'?'Highest':'Lowest')+' observed points per start in one completed season',playerSeasons.filter(x=>x.starts>=10),'averageCents',dir,'pts',q+'; completed 2020–2025, minimum 10 starts');
+add('player-season-manager-count','Most different fantasy managers started for in one completed season',playerSeasons,'managerCount','max','managers',q+'; completed 2020–2025 only');
+add('player-franchise-season-points','Most observed starter points for one manager in one completed season',franchiseSeasons,'pointsCents','max','pts',q+'; completed 2020–2025 only');
+add('player-franchise-season-starts','Most observed starts for one manager in one completed season',franchiseSeasons,'starts','max','starts',q+'; completed 2020–2025 only');
+add('player-franchise-longevity','Most distinct seasons started for one fantasy manager',longevity,'seasons','max','seasons',q+'; not continuous roster tenure');
+for(const pos of ['QB','RB','WR','TE','DEF']){
+ const eligible=playerSeasons.filter(s=>players.find(p=>p.id===s.id).positions.length===1&&players.find(p=>p.id===s.id).position===pos);
+ add('player-'+pos.toLowerCase()+'-season-points','Most observed starter points at '+pos+' in one completed season',eligible,'pointsCents','max','pts',q+'; completed 2020–2025 only; stable recorded position');
+}
+const streaks=(key,predicate)=>{
+ const out=[];
+ for(const a of groups(rows,key)){
+  let run=[];
+  for(const x of [...a].sort((a,b)=>a.week-b.week)){
+   if(!predicate(x)){run=[];continue;}
+   if(run.length&&x.week!==run.at(-1).week+1)run=[];
+   run.push(x);
+   out.push({id:x.id,name:x.name,year:x.year,manager:key(x).split(':').length===3?x.manager:undefined,firstWeek:run[0].week,lastWeek:x.week,length:run.length,performances:run.map(r=>({week:r.week,manager:r.manager,cents:r.cents}))});
+  }
+ }
+ return out;
+};
+add('player-consecutive-starts','Most consecutive observed weekly starts in one season',streaks(r=>r.id+':'+r.year,()=>true),'length','max','weeks',q+'; missing weeks break streak');
+add('player-franchise-consecutive-starts','Most consecutive observed weekly starts for one manager in one season',streaks(r=>r.id+':'+r.year+':'+r.manager,()=>true),'length','max','weeks',q+'; missing weeks break streak');
+for(const threshold of [1000,2000,3000]){
+ add('player-scoring-streak-'+threshold/100,'Most consecutive observed starts scoring at least '+threshold/100+' points',streaks(r=>r.id+':'+r.year,x=>x.cents>=threshold),'length','max','weeks',q+'; within season, missing weeks break streak');
+ const counts=players.map(p=>({id:p.id,name:p.name,count:p.performances.filter(x=>x.cents>=threshold).length}));
+ add('player-career-threshold-'+threshold/100,'Most observed career starts scoring at least '+threshold/100+' points',counts,'count','max','starts',q);
+}
+assert.equal(records.length,43);
 const output={schemaVersion:1,status:'research-only-incomplete-coverage',scope,coverage:input.coverage,missingPairedTeamWeeks:input.missingPairedTeamWeeks,excludedTeamWeeks:input.excluded.length,playerCount:players.length,starterPerformances:rows.length,categoryCount:records.length,records,players};
 fs.writeFileSync('data-integrity/player-hall-of-fame-v56.json',JSON.stringify(output,null,2)+'\n');
 console.log('Player Hall of Fame: '+records.length+' player-owned candidates; '+players.length+' distinct Sleeper IDs; '+rows.length+' reconciled starter performances.');
