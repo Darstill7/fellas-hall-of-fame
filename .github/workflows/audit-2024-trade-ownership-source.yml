@@ -50,6 +50,8 @@ on:
       - 'scripts/build-historical-acquisition-certification.mjs'
       - 'scripts/finalize-historical-acquisition-review.mjs'
       - 'scripts/verify-final-historical-acquisitions.mjs'
+      - 'scripts/audit-final-historical-source-completeness.mjs'
+      - 'scripts/lib/provider-retry.mjs'
       - 'scripts/verify-historical-acquisition-package.mjs'
       - 'scripts/test-historical-acquisition-immutability.mjs'
       - 'scripts/build-combined-career-acquisitions.mjs'
@@ -154,6 +156,7 @@ jobs:
           node scripts/test-historical-acquisition-immutability.mjs
           node scripts/finalize-historical-acquisition-review.mjs
           node scripts/verify-final-historical-acquisitions.mjs --verify
+          node scripts/audit-final-historical-source-completeness.mjs
           python3 scripts/research-2026-acquisition-kickoff-evidence.py
           node scripts/build-live-evidence-supported-acquisitions.mjs
           node scripts/build-combined-career-acquisitions.mjs
@@ -200,6 +203,7 @@ jobs:
             data-integrity/historical-trade-draft-audits/kenyan-drake-2021-source-reconciliation.json
             data-integrity/historical-trade-draft-audits/historical-acquisition-certification-candidate.json
             data-integrity/historical-trade-draft-audits/historical-acquisition-final-review.json
+            data-integrity/historical-trade-draft-audits/final-historical-source-completeness-audit.json
             data-integrity/historical-trade-draft-audits/combined-career-acquisition-preview.json
             data-integrity/historical-trade-draft-audits/combined-evidence-supported-career-preview.json
             data-integrity/historical-trade-draft-audits/front-office-site-candidate/
