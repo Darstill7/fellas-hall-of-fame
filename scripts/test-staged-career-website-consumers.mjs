@@ -22,7 +22,7 @@ try{
   originals.set(entry.path,original);
  }
  // Back up every file that the static synchronizer may touch before the disposable overlay.
- for(const p of ['index.html',...htmlFiles('managers'),...htmlFiles('seasons'),...htmlFiles('analytics'),playoff])originals.set(p,fs.readFileSync(p));
+ for(const p of ['index.html',...htmlFiles('managers'),...htmlFiles('seasons'),...htmlFiles('analytics'),playoff,'data/league.json','data/manager_legacy_resumes.json'])originals.set(p,fs.readFileSync(p));
  const race=JSON.parse(fs.readFileSync(playoffPreview,'utf8'));
  assert.equal(race.verified_through_week,manifest.completedThrough.week,'Staged playoff cutoff mismatch');
  for(const entry of manifest.files)fs.copyFileSync(path.join(root,entry.path),entry.path);
