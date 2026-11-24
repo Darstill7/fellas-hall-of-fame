@@ -295,7 +295,7 @@ try{
      errors.push(width+' '+route+' missing six-destination personal manager hub');
     else{
      const destinations=await hub.locator('.manager-home-hub-tile').allInnerTexts();
-     for(const label of ['Career story','My records','Every season','Rivalries','Report card','Drafts & trades'])
+     for(const label of ['Career story','My records','Every season','Rivalries','Report card','Front office'])
       if(!destinations.some(x=>x.includes(label)))errors.push(width+' '+route+' lacks hub destination '+label);
      const recordHref=await hub.locator('a').filter({hasText:'My records'}).getAttribute('href');
      if(!recordHref||!recordHref.includes('manager='))errors.push(width+' '+route+' personal Records link missing manager scope');
