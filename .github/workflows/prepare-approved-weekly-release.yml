@@ -1,0 +1,100 @@
+name: Prepare approved weekly website release
+on:
+  workflow_dispatch:
+    inputs:
+      completed_week:
+        description: 'The independently reviewed final 2026 NFL week (1-14)'
+        required: true
+        type: string
+      confirmation:
+        description: 'Type APPROVE to confirm all 5 matchups and 10 manager identities were checked in Sleeper'
+        required: true
+        type: string
+      staging_commit:
+        description: 'Full 40-character SHA of the exact staging PR version independently reviewed'
+        required: true
+        type: string
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: fellas-approved-weekly-release
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: ${{ inputs.confirmation == 'APPROVE' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate reviewed week and retrieve fixed-source staging candidate
+        env:
+          REVIEWED_WEEK: ${{ inputs.completed_week }}
+          REVIEWED_STAGING_COMMIT: ${{ inputs.staging_commit }}
+        run: |
+          set -euo pipefail
+          if ! [[ "$REVIEWED_WEEK" =~ ^([1-9]|1[0-4])$ ]]; then
+            echo "::error::Completed week must be a 2026 regular-season week from 1 to 14"
+            exit 1
+          fi
+          if ! [[ "$REVIEWED_STAGING_COMMIT" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::Enter the exact full 40-character SHA from the commissioner-reviewed staging PR"
+            exit 1
+          fi
+          git fetch origin refs/heads/automation/sleeper-weekly-stage:refs/remotes/origin/automation/sleeper-weekly-stage
+          SOURCE_COMMIT=$(git rev-parse refs/remotes/origin/automation/sleeper-weekly-stage)
+          if [[ "$SOURCE_COMMIT" != "$REVIEWED_STAGING_COMMIT" ]]; then
+            echo "::error::Staging branch changed after approval. Re-review the new staging PR head and run with its exact SHA."
+            echo "Reviewed SHA: $REVIEWED_STAGING_COMMIT; latest staging SHA: $SOURCE_COMMIT" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          echo "Candidate staging commit: $SOURCE_COMMIT" >> "$GITHUB_STEP_SUMMARY"
+          echo "STAGING_COMMIT=$SOURCE_COMMIT" >> "$GITHUB_ENV"
+          CANDIDATE="data-integrity/sleeper-sync-candidates/2026-week${REVIEWED_WEEK}.json"
+          mkdir -p data-integrity/sleeper-sync-candidates
+          git show "$SOURCE_COMMIT:${CANDIDATE}" > "$CANDIDATE"
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync(process.argv[1]));if(x.source!=='Sleeper public API'||x.games?.some(g=>g.source!=='sleeper_api_staged_week_'+x.week)||x.year!==2026||x.week!==Number(process.argv[2])||x.status!=='REVIEW_REQUIRED'||x.matchupCount!==5||x.games?.length!==5)process.exit(1)" "$CANDIDATE" "$REVIEWED_WEEK"
+          echo "CANDIDATE=$CANDIDATE" >> "$GITHUB_ENV"
+          echo "REVIEWED_WEEK=$REVIEWED_WEEK" >> "$GITHUB_ENV"
+      - name: Recalculate approved games, standings, playoff odds, luck and 2026 records
+        env:
+          FELLAS_APPROVE_WEEKLY_IMPORT: 'YES'
+        run: |
+          set -euo pipefail
+          node scripts/apply-reviewed-sleeper-week.mjs "$CANDIDATE"
+          node scripts/sync-franchise-timeline-current.mjs
+          node scripts/sync-records-career-fallbacks.mjs
+          node scripts/verify-weekly-ledger-parity.mjs
+          node scripts/verify-current-week-website.mjs
+          node scripts/verify-core-consumers.mjs
+          node scripts/verify-franchise-timeline-freshness.mjs
+          node scripts/verify-canonical-history.mjs
+          node scripts/audit-weekly-publication.mjs "--expected-week=$REVIEWED_WEEK"
+          echo "Reviewed Week $REVIEWED_WEEK regenerated from staged commit $STAGING_COMMIT" >> "$GITHUB_STEP_SUMMARY"
+          rm -f "$CANDIDATE" # don't mix staging evidence into the publication PR
+      - name: Build one reviewable weekly release PR; never merge automatically
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: release/approved-2026-weekly
+          delete-branch: false
+          commit-message: 'Refresh approved 2026 league projections through Week ${{ inputs.completed_week }}'
+          title: 'Publish reviewed 2026 Week ${{ inputs.completed_week }} standings, odds and current-season records'
+          body: |
+            Explicitly reviewed source SHA and contiguous approved week.
+            Canonical and consumer checks must pass before merging.
+            Trade evidence remains separately reviewed; no automated publication.
+          add-paths: |
+            data/*.json
+            index.html
+            analytics/*.html
+            seasons/*.html
+            managers/**/*.html
+      - name: Summarize release handoff
+        run: |
+          echo 'Generated a reviewable weekly publication PR. No live website merge or GitHub Pages deployment was initiated by this workflow.' >> "$GITHUB_STEP_SUMMARY"
