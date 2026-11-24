@@ -1,6 +1,7 @@
 // Derive every current statistic from the completed regular-season ledger; fail closed on disagreement.
-const names=['Stilly','Stew','Thommy','Mitch','JMid','Scott','Stover','Kuhl','Tony','Birch'];
-const norm=n=>n==='Tom'?'Thommy':n;
+import {fellasLeague,normalizeManager,managerSlug} from './league-config.mjs';
+const names=fellasLeague.managers;
+const norm=n=>normalizeManager(n);
 const cents=n=>Math.round(n*100);
 // Hypothetical extra weekly game against the midpoint of scores 5 and 6.
 export function buildMedianStandings(standings,by,week){
@@ -24,7 +25,7 @@ export function buildHomeDashboard(guide,ledger){
 }
 const el=(tag,txt,cls)=>{const n=document.createElement(tag);if(txt!=null)n.textContent=txt;if(cls)n.className=cls;return n};
 const fmt=n=>n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
-const slug=n=>n==='Thommy'?'tom':n.toLowerCase();
+const slug=n=>managerSlug(n);
 const record=r=>r.w+'–'+r.l+(r.t?'–'+r.t:'');
 function render(d){document.getElementById('cutoff').textContent='Through Week '+d.week+' · 2026';const pulse=document.getElementById('pulse');pulse.replaceChildren();for(const [label,title,sub] of [['Standings leader',d.standings[0].name,record(d.standings[0])+' · '+d.standings[0].streak],['Weekly scoring king',d.leaders.map(r=>r.name).join(' / '),fmt(d.leaders[0].latest)+' PF']]){const card=el('div',null,'pulse-card');card.append(el('small',label),el('strong',title),el('b',sub));pulse.append(card)}
  const panel=document.getElementById('standings');panel.replaceChildren();const header=el('div',null,'standing head');for(const x of ['#','MANAGER','W–L','PF','RUN'])header.append(el('span',x));panel.append(header);for(const [i,r] of d.standings.entries()){const a=el('a',null,'standing home-franchise-link');a.href='managers/'+slug(r.name)+'/';a.append(el('span',String(i+1),'rank'),el('strong',r.name),el('span',record(r)),el('span',fmt(r.pf)),el('span',r.streak,r.streak[0]==='W'?'win':r.streak[0]==='L'?'loss':''));panel.append(a)}
@@ -41,8 +42,8 @@ function renderMedian(d){
 }
 
 // Local preference is not authentication or an ownership claim.
-export function readPreference(storage){try{const n=storage.getItem('fellas.franchise.v1');return names.includes(n)?n:''}catch{return ''}}
-export function savePreference(storage,name){try{if(names.includes(name))storage.setItem('fellas.franchise.v1',name);else storage.removeItem('fellas.franchise.v1')}catch{}}
+export function readPreference(storage){try{const n=storage.getItem(fellasLeague.preferenceKey);return names.includes(n)?n:''}catch{return ''}}
+export function savePreference(storage,name){try{if(names.includes(name))storage.setItem(fellasLeague.preferenceKey,name);else storage.removeItem(fellasLeague.preferenceKey)}catch{}}
 export function buildPersonalDashboard(d,race,name){
  const index=d.standings.findIndex(r=>r.name===name);if(index<0)return null;const team=d.standings[index],week=d.week+1;
  let opponent=null,odds=null;
