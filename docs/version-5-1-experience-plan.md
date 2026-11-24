@@ -26,3 +26,6 @@ A visitor can choose a manager in two deliberate taps from home; returning visit
 
 ## Commissioner clarification — Sleeper remains the main platform
 Roster management, live scoring, injury updates and transactions remain in Sleeper. The Fellas differentiates through personalized matchup context, playoff scenarios, comparative performance, front-office history, records and editorial entertainment. Keep roster as a secondary read-only snapshot with explicit timestamp; defer continuous roster synchronization and player-level live scoring. Prioritize navigation and analytical insights; no paid infrastructure or duplicated lineup management. Existing current roster evidence remains available but is not a prerequisite for the main personal dashboard.
+
+## Commissioner clarification — median scoring
+Median record is a hypothetical rule-change research tool, not an official league record. Do not promote it in personal headline statistics or default team cards. Retain the clearly labeled league simulation as optional research. Prioritize official standings, record, scoring average and playoff outlook.
