@@ -1,0 +1,50 @@
+name: Verify Tuesday Hangover
+on:
+  pull_request:
+    paths:
+      - 'tuesday-hangover/**'
+      - 'scripts/verify-tuesday-hangover*.mjs'
+      - '.github/workflows/tuesday-hangover.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  editorial:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/verify-tuesday-hangover.mjs
+  iphone:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          pip install Pillow CairoSVG
+          python - <<'PY'
+          import cairosvg, io
+          from PIL import Image
+          from pathlib import Path
+          p=Path('tuesday-hangover/assets/2026-week-11-social.jpg')
+          Image.open(io.BytesIO(cairosvg.svg2png(url=str(p.with_suffix('.svg'))))).convert('RGB').save(p,'JPEG',quality=88,optimize=True)
+          with Image.open(p) as im: assert im.size==(1200,630) and im.format=='JPEG'
+          assert p.stat().st_size<500000
+          PY
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node scripts/verify-tuesday-hangover-visual.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hangover-iphone-preview
+          path: |
+            data-integrity/hangover-preview/
+            tuesday-hangover/assets/2026-week-11-social.jpg
