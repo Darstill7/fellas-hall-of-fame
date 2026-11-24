@@ -1,5 +1,6 @@
 // Research-only editorial packet. No article generation or publication.
 import fs from 'node:fs';
+import {buildEditorialContext} from './weekly-shitter-context.mjs';
 import {pathToFileURL} from 'node:url';
 const cents=n=>{if(typeof n!=='number'||!Number.isFinite(n)||n<0)throw Error('Invalid score');return Math.round(n*100)};
 export function buildEditorialPacket(ledger,guide,week,notes=[]){
@@ -33,5 +34,8 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
  const ledger=read('data/unified_record_book_2016_2026.json'),guide=read('data/season_guide.json');
  const week=Number(process.argv[2]);const notes=process.argv[3]?read(process.argv[3]):[];
- console.log(JSON.stringify(buildEditorialPacket(ledger,guide,week,notes),null,2));
+ const packet=buildEditorialPacket(ledger,guide,week,notes);
+ const optional=p=>{try{return read(p)}catch{return null}};
+ packet.context=buildEditorialContext(packet,ledger,optional('data/playoff_race_v1.json'),optional('data/trade_museum_stage66.json'));
+ console.log(JSON.stringify(packet,null,2));
 }
