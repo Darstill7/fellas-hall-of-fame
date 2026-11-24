@@ -32,3 +32,9 @@ jobs:
           node scripts/audit-trade-starter-timing.mjs > /tmp/trade-timing-audit.json
           cat /tmp/trade-timing-audit.json
           node --input-type=module -e "import fs from 'node:fs';import assert from 'node:assert/strict';const a=JSON.parse(fs.readFileSync('/tmp/trade-timing-audit.json'));assert.equal(a.audits.length,13);const t=a.audits.find(t=>t.id==='1428887570439245824');assert.equal(t.sides.find(s=>s.manager==='Stilly').verified_points,16.2);assert.equal(t.sides.find(s=>s.manager==='Birch').verified_points,12.2);assert.equal(a.status,'COMPLETE','Unresolved kickoff timing blocks certification');console.log('All thirteen trade timing audits complete')"
+      - name: Rehearse publication of scored museum and verify parity
+        run: |
+          set -euo pipefail
+          node scripts/apply-reviewed-trade-timing.mjs
+          node --input-type=module -e "import fs from 'node:fs';import assert from 'node:assert/strict';const old=JSON.parse(fs.readFileSync('/tmp/museum-before.json')),now=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json')),a=JSON.parse(fs.readFileSync('/tmp/trade-timing-audit.json'));assert.equal(now.length,57);assert.deepEqual(now.filter(t=>t.year!==2026),old.filter(t=>t.year!==2026));for(const t of now.filter(t=>t.year===2026)){assert.equal(t.scoring_through_week,11);assert.equal(t.comparison_status,'raw_only');const v=a.audits.find(x=>x.id===t.id);assert(v);for(const s of t.sides){const q=v.sides.find(x=>x.manager===(s.manager==='Tom'?'Thommy':s.manager));assert.equal(s.raw_starter_points,q.verified_points);assert.equal(s.started_games,q.verified_start_count)}}const html=fs.readFileSync('analytics/trade-museum.html','utf8');assert.deepEqual(JSON.parse(html.split('<script id=\"archive-data\" type=\"application/json\">')[1].split('</script>')[0]),now);console.log('Publication parity: 57 receipts, 13 scored through W11, 44 historical receipts unchanged')"
+          git diff --stat
