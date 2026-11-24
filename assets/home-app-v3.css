@@ -81,3 +81,5 @@
 .personal-v51 .personal-roster>summary{font-weight:650;color:var(--muted);font-size:13px}
 .personal-insight-link{display:flex;align-items:center;min-height:44px;font-size:12px;font-weight:750;color:var(--gold)}
 .personal-v51 .personal-links a{text-align:center;padding:4px;line-height:1.2}
+
+#conditional-record-watch[hidden]{display:none}#conditional-record-watch h2{font-size:17px;margin:0 0 6px}#conditional-record-watch .record-watch-row{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:10px 12px}#conditional-record-watch p{margin:3px 0;font-size:13px}#conditional-record-watch small{display:block;color:var(--muted);font-size:11px}#conditional-record-watch a{display:inline-flex;align-items:center;min-height:44px;color:var(--gold);font-size:12px;font-weight:750}
