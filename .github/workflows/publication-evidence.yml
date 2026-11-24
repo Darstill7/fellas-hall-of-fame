@@ -1,0 +1,25 @@
+name: Publication evidence audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/derive-publication-facts.mjs'
+      - 'scripts/verify-publication-evidence.mjs'
+      - 'data/weekly-recaps/publication-evidence/**'
+      - '.github/workflows/publication-evidence.yml'
+  workflow_dispatch:
+    inputs:
+      strict:
+        description: Fail if independent evidence is outstanding
+        type: boolean
+        default: true
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/verify-publication-evidence.mjs
+        env:
+          STRICT_PUBLICATION: ${{ inputs.strict && '1' || '0' }}
