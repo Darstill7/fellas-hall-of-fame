@@ -30,8 +30,9 @@ try{
   try{
    for(const width of [320,390,430]){
     const ctx=await browser.newContext({viewport:{width,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,reducedMotion:'reduce'});
-    const page=await ctx.newPage(),badResponses=[],jsErrors=[];
+    const page=await ctx.newPage(),badResponses=[],jsErrors=[],consoleErrors=[];
     page.on('pageerror',e=>jsErrors.push(e.message));
+    page.on('console',msg=>{if(msg.type()==='error')consoleErrors.push(msg.text())});
     page.on('response',res=>{if(res.status()>=400&&res.url().startsWith(base))badResponses.push(res.status()+' '+res.url())});
     async function visit(route){
      const res=await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:25000});
@@ -142,6 +143,7 @@ try{
     // Findings: actionable tap targets, but do not fail global navigation for dense archival metadata.
     const tap=await page.evaluate(()=>[...document.querySelectorAll('#record-family-nav button,.record-compare-controls select,.record-category-search input,.records-cover-actions a')].filter(e=>{const r=e.getBoundingClientRect();return r.height>0}).map(e=>({label:e.textContent?.trim().slice(0,30)||e.getAttribute('placeholder'),height:Math.round(e.getBoundingClientRect().height),width:Math.round(e.getBoundingClientRect().width)})).filter(x=>x.height<44||x.width<44));
     if(tap.length)warn('Small high-priority touch targets',{engine,width,targets:tap});
+    if(consoleErrors.length)warn('Browser console diagnostics',{engine,width,messages:[...new Set(consoleErrors)].slice(0,12)});
     if(jsErrors.length)fail('Unhandled JavaScript error',{engine,width,messages:[...new Set(jsErrors)].slice(0,8)});
     if(badResponses.length)warn('HTTP errors for local assets',{engine,width,assets:[...new Set(badResponses)].slice(0,10)});
     await ctx.close();
