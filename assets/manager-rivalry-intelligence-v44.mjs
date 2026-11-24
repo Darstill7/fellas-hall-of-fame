@@ -23,7 +23,17 @@ export function buildRivalryIntelligence(core,ledger,name){
   const w=games.filter(g=>g.result==='W').length,l=games.filter(g=>g.result==='L').length,t=games.length-w-l;
   const pf=games.reduce((n,g)=>n+g.pf,0),pa=games.reduce((n,g)=>n+g.pa,0);
   let streak=0;for(const g of ordered){if(g.result!==ordered[0].result)break;streak++}
-  return {games:games.length,w,l,t,pf,pa,net:pf-pa,winPct:games.length?(w+t/2)/games.length:null,streak:streak?ordered[0].result+streak:null,closeGames:games.filter(g=>Math.abs(g.margin)<=500).length,latest:ordered[0]??null,biggestWin:games.filter(g=>g.margin>0).sort((a,b)=>b.margin-a.margin)[0]??null,biggestLoss:games.filter(g=>g.margin<0).sort((a,b)=>a.margin-b.margin)[0]??null,closest:games.slice().sort((a,b)=>Math.abs(a.margin)-Math.abs(b.margin))[0]??null,receipts:ordered};
+  const chronological=ordered.slice().reverse(),annual=new Map();
+  let longestWin=0,longestLoss=0,run=0,last=null;
+  for(const g of chronological){
+   run=g.result===last?run+1:1;last=g.result;
+   if(last==='W')longestWin=Math.max(longestWin,run);
+   if(last==='L')longestLoss=Math.max(longestLoss,run);
+   const y=annual.get(g.year)??{year:g.year,w:0,l:0,t:0,pf:0,pa:0};
+   y[g.result.toLowerCase()]++;y.pf+=g.pf;y.pa+=g.pa;annual.set(g.year,y);
+  }
+  const heartbreak=Object.fromEntries([1,3,5,10].map(n=>[n,games.filter(g=>g.margin<0&&g.margin>=-100*n).length]));
+  return {longestWin,longestLoss,heartbreak,annual:[...annual.values()],games:games.length,w,l,t,pf,pa,net:pf-pa,winPct:games.length?(w+t/2)/games.length:null,streak:streak?ordered[0].result+streak:null,closeGames:games.filter(g=>Math.abs(g.margin)<=500).length,latest:ordered[0]??null,biggestWin:games.filter(g=>g.margin>0).sort((a,b)=>b.margin-a.margin)[0]??null,biggestLoss:games.filter(g=>g.margin<0).sort((a,b)=>a.margin-b.margin)[0]??null,closest:games.slice().sort((a,b)=>Math.abs(a.margin)-Math.abs(b.margin))[0]??null,receipts:ordered};
  };
  const series=[...groups.values()].map(g=>({opponent:g.opponent,regular:summarize(g.regular),postseason:summarize(g.postseason)}));
  for(const r of series){const h=manager.h2h?.[r.opponent],s=r.regular;if(s.games&&(!h||['games','w','l','t'].some(k=>(h[k]??0)!==s[k])))throw Error('Canonical head-to-head mismatch: '+r.opponent)}
@@ -58,6 +68,14 @@ export async function mountRivalryIntelligence({name,host,root='../../'}){
    const s=r.regular;detail.append(el('h3',d.name+' vs '+r.opponent));
    const metrics=el('div',null,'gm44-cards');
    for(const [label,value] of [['Regular record',record(s)],['Net scoring margin',signed(s.net)],['Average margin',s.games?signed(s.net/s.games):'—'],['Current series streak',s.streak??'—'],['Games within 5 PF',String(s.closeGames)],['Archived postseason record',r.postseason.games?record(r.postseason):'No games archived']]){const item=el('div',null,'gm44-card');item.append(el('small',label),el('strong',value));metrics.append(item)}detail.append(metrics);
+   const evolution=el('details');evolution.append(el('summary','Rivalry evolution by season'));
+   let wins=0,losses=0,ties=0;
+   for(const y of s.annual){wins+=y.w;losses+=y.l;ties+=y.t;evolution.append(el('p',y.year+' · '+record(y)+' · Series to date '+record({w:wins,l:losses,t:ties})+' · Net PF '+signed(y.pf-y.pa)))}
+   detail.append(evolution);
+   const heartbreak=el('details');heartbreak.append(el('summary','Heartbreak and dominance'),el('p','Longest winning streak: '+s.longestWin+' · Longest losing streak: '+s.longestLoss));
+   for(const n of [1,3,5,10])heartbreak.append(el('p','Losses by '+n+' PF or less: '+s.heartbreak[n]));
+   heartbreak.append(el('p','Thresholds are cumulative; a one-point loss counts in every applicable threshold.','gm44-status'));detail.append(heartbreak);
+   if(s.games)detail.append(el('p',d.name+' has '+(s.w>s.l?'the winning edge':s.w<s.l?'a losing record':'an even win–loss record')+' against '+r.opponent+' over '+s.games+' regular-season meetings. '+(s.latest?'The most recent result was a '+({W:'win',L:'loss',T:'tie'})[s.latest.result]+' in '+s.latest.year+' Week '+s.latest.week+'.':'')));
    for(const [label,g] of [['Biggest win',s.biggestWin],['Biggest loss',s.biggestLoss],['Closest meeting',s.closest]])if(g)detail.append(el('p',label+': '+g.year+' W'+g.week+' · '+points(g.pf)+'–'+points(g.pa)));
    for(const [label,summary] of [['Regular-season game log',s],['Archived postseason game log',r.postseason]]){const log=el('details');log.append(el('summary',label+' ('+summary.games+')'));for(const g of summary.receipts)log.append(el('p',g.year+' W'+g.week+' · '+g.result+' · '+points(g.pf)+'–'+points(g.pa)+' · '+g.stage.replaceAll('_',' ')));detail.append(log)}
   }
