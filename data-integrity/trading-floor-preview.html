@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Trading Floor | Research Preview</title>
+<style>
+:root{color-scheme:dark;--bg:#07090d;--panel:#101721;--line:#283547;--gold:#f2d889;--muted:#aeb9c7;--green:#97d78c;--red:#ff8a7f}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f5f2e9;font:15px/1.5 system-ui,sans-serif}main{max-width:1160px;margin:auto;padding:24px 16px 80px}h1{font-size:clamp(38px,7vw,76px);letter-spacing:-.055em;line-height:1;margin:12px 0}h2{font-size:24px;margin:0 0 12px}p{color:var(--muted)}.kicker{color:var(--gold);font-size:12px;letter-spacing:.12em;font-weight:800}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin:16px 0}.controls{display:flex;gap:12px;flex-wrap:wrap}.controls label{flex:1;min-width:140px}select,input,button{font:inherit;color:inherit;background:#202a37;border:1px solid #46566d;border-radius:8px;padding:9px}select{display:block;width:100%;margin-top:4px}button{cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.opponents{display:grid;gap:8px;margin-top:12px}.opponent{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;text-align:left;min-height:60px;width:100%;padding:10px 12px}.opponent strong{font-size:17px;font-variant-numeric:tabular-nums}.opponent small{color:inherit;opacity:.85}.opponent .value{text-align:right}.matrix{overflow:auto;max-width:100%;border:1px solid var(--line);border-radius:10px}table{border-collapse:separate;border-spacing:2px;width:100%;min-width:760px}th{font-size:11px;color:var(--muted);padding:4px}th[scope=row]{position:sticky;left:0;background:var(--panel);z-index:1;text-align:left}td button{width:100%;min-height:44px;padding:4px;font-variant-numeric:tabular-nums;font-size:12px;border:none}.positive{background:#20563e;color:#fff}.negative{background:#79363d;color:#fff}.neutral{background:#303a49;color:#fff}.selected{outline:2px solid var(--gold);outline-offset:-2px}.muted{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:8px}.stat{padding:12px;background:#182230;border-radius:10px}.stat strong{display:block;font-size:23px}.rivalry-chart{margin:16px 0;background:#0b1016;border:1px solid var(--line);border-radius:12px;padding:10px}.rivalry-chart svg{display:block;width:100%;height:auto}.chart-events{display:flex;gap:6px;flex-wrap:wrap}.chart-events button{min-height:44px;font-size:12px}.event:focus{outline:2px solid var(--gold);outline-offset:2px}.event{border-top:1px solid var(--line);padding:12px 0}.event strong{color:var(--gold)}.packages{display:grid;grid-template-columns:1fr 1fr;gap:12px}.packages p{margin:4px 0}.player-card{display:flex;align-items:center;gap:9px;margin:8px 0;min-width:0}.portrait{width:48px;height:48px;flex:0 0 48px;border-radius:10px;background:#253347;display:grid;place-items:center;overflow:hidden;color:var(--gold);font-weight:800}.portrait img{width:100%;height:100%;object-fit:cover}.player-copy{min-width:0;overflow-wrap:anywhere}.player-copy small{display:block;color:var(--muted)}@media(max-width:480px){.player-card{align-items:flex-start;gap:6px}.portrait{width:36px;height:36px;flex-basis:36px}}.record{padding:12px 0;border-top:1px solid var(--line)}[hidden]{display:none!important}@media(max-width:480px){main{padding:18px 12px 60px}.panel{padding:12px}.stat strong{font-size:19px}}  .receipt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}.receipt-side{padding:12px;border:1px solid var(--line);border-radius:10px;min-width:0}.contribution{border-top:1px solid var(--line);padding:8px 0}.contribution-bar{height:8px;background:#283547;border-radius:5px;overflow:hidden}.contribution-bar span{display:block;height:100%;background:var(--green)}.receipt-side summary{min-height:44px;cursor:pointer;padding:10px 0}.player-copy a{color:var(--gold)}.receipt-line{display:flex;justify-content:space-between;gap:8px;padding:4px 0}.receipt-filter{min-height:44px;max-width:100%}.receipt-id{overflow-wrap:anywhere} .controls label{min-width:0;flex:1 1 140px;max-width:100%}.controls select{min-width:0;max-width:100%;width:100%;text-overflow:ellipsis}.receipt-side,.receipt-grid,.event,.packages,.packages>div,.panel{min-width:0;overflow-wrap:anywhere}.packages{grid-template-columns:repeat(2,minmax(0,1fr))}.receipt-side pre{max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere}.receipt-line>*{min-width:0}input[type=file]{max-width:100%}@media(max-width:480px){.receipt-grid{grid-template-columns:minmax(0,1fr)}.controls label{flex-basis:100%}}</style></head>
+<body><main><div class="kicker">THE FELLAS / FRONT OFFICE / RESEARCH PREVIEW</div><h1>The Trading Floor</h1><p>Every deal. Every rivalry. Every receipt.</p>
+<section class="panel" aria-labelledby="load-title"><h2 id="load-title">Private research preview</h2><p>This page contains no embedded historical results. Load the three research JSON files from the same CI artifact locally. Files stay in your browser; this preview makes no network requests.</p><label>Trading matrix <input type="file" id="matrix-file" accept=".json,application/json"></label><br><label>Rivalry timelines <input type="file" id="timeline-file" accept=".json,application/json"></label><br><label>Trading records <input type="file" id="records-file" accept=".json,application/json"></label><p role="status" id="status">Awaiting research files.</p></section>
+<section class="panel" id="player-receipt-panel"><h2>Individual trade contributions</h2><p>Load either source independently to explore every transaction, including three-team deals. Historical timing-supported scoring and current-season strict scoring are separate.</p><label>Historical player receipts <input id="historical-player-file" type="file" accept=".json,application/json"></label><br><label>2026 player receipts <input id="live-player-file" type="file" accept=".json,application/json"></label><p id="player-receipt-status" role="status">Awaiting player receipts.</p><div id="player-receipt-content" hidden><div class="controls"><label>Season<select id="receipt-season" class="receipt-filter"></select></label><label>Transaction<select id="receipt-transaction" class="receipt-filter"></select></label></div><div id="player-receipt-detail"></div></div></section><div id="content" hidden><section class="panel"><h2>Trading matrix</h2><div class="controls"><label>Season<select id="season"><option value="all">Career (2020–2025)</option></select></label><label>Scoring<select id="metric"><option value="p25_delta">Starter floor</option><option value="raw_delta">Raw points</option><option value="median_delta">Median starter</option></select></label><label>Display<select id="mode"><option value="total">Cumulative</option><option value="average">Per trade</option><option value="count">Trade count</option></select></label></div><div class="controls"><label>Manager focus<select id="manager-focus"><option value="">Choose a manager</option></select></label></div><div id="opponents" class="opponents" aria-live="polite"></div><p>Row manager vs. column manager. Green = positive, red = negative, dash = no comparable trades. Select a cell for receipts.</p><div class="matrix" tabindex="0" aria-label="Scrollable trading matrix"><table id="table"></table></div></section>
+<section class="panel" id="detail" aria-live="polite"><h2>Choose a rivalry</h2></section><section class="panel"><h2>Trading records</h2><div id="records"></div></section><p>Research only: scheduled kickoff proxy, historical identity mapping not independently certified, and no valuation of nonplayer assets. Starter-floor and median benchmarks are not true waiver replacement. No official GM grades.</p></div></main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),data={},state={selected:null};
+const names=k=>({raw_delta:'Raw points',p25_delta:'Starter floor',median_delta:'Median starter'}[k]||k);
+const fmt=n=>Number.isFinite(n)?(n>0?'+':'')+n.toFixed(2):'—';
+const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=String(text);if(cls)e.className=cls;return e};
+const add=(parent,tag,text,cls)=>{const e=el(tag,text,cls);parent.append(e);return e};
+function validate(){const m=data.matrix,t=data.timeline,r=data.records;if(!m||!t||!r)return false;if([m,t,r].some(x=>x.status!=='RESEARCH_ONLY_NOT_FOR_PUBLICATION'))throw Error('Expected research-only files');if(m.managers.length!==12||m.coverage.comparable_trades!==41||t.timelines.length!==23||!r.records.p25_delta)throw Error('Unexpected coverage or schema');for(const v of [{cells:m.cells},...m.season_views]){if(v.cells.length!==12||v.cells.some(row=>row.length!==12))throw Error('Invalid matrix dimensions');for(let i=0;i<12;i++)for(let j=0;j<12;j++){const a=v.cells[i][j],b=v.cells[j][i];if(a.trades!==b.trades||a.status!==b.status)throw Error('Asymmetric cell');if(a.values)for(const k of m.metrics)if(Math.abs(a.values[k]+b.values[k])>.001)throw Error('Asymmetric value')}}return true}
+for(const [type,id] of [['matrix','matrix-file'],['timeline','timeline-file'],['records','records-file']])$(id).addEventListener('change',async()=>{delete data[type];$('content').hidden=true;try{const f=$(id).files[0];if(!f)return;data[type]=JSON.parse(await f.text());if(!validate()){$('status').textContent='Loaded '+type+'; awaiting remaining files.';return}const s=$('season');s.replaceChildren(new Option('Career (2020–2025)','all'));for(const y of data.matrix.season_views)s.add(new Option(String(y.year),String(y.year)));const focus=$('manager-focus');focus.replaceChildren(new Option('Choose a manager',''));for(const n of data.matrix.managers)focus.add(new Option(n,n));$('content').hidden=false;$('status').textContent='Research files loaded locally. Not official league records.';render()}catch(e){$('status').textContent='Cannot load preview: '+e.message}});
+const view=()=> $('season').value==='all'?data.matrix.cells:data.matrix.season_views.find(s=>String(s.year)===$('season').value).cells;
+function render(){const m=data.matrix,k=$('metric').value,mode=$('mode').value,v=view(),table=$('table');table.replaceChildren();const head=add(add(table,'thead'),'tr');add(head,'th','Manager');for(const n of m.managers){const h=add(head,'th',n);h.scope='col'}const body=add(table,'tbody');m.managers.forEach((a,i)=>{const tr=add(body,'tr');const h=add(tr,'th',a);h.scope='row';m.managers.forEach((b,j)=>{const c=v[i][j],td=add(tr,'td');if(c.status!=='COMPARABLE'){add(td,'span',i===j?'×':'—','muted');return}const x=mode==='count'?c.trades:mode==='average'?c.average_per_trade[k]:c.values[k];const button=add(td,'button',mode==='count'?x:fmt(x),mode==='count'||x===0?'neutral':x>0?'positive':'negative');button.type='button';button.setAttribute('aria-label',a+' versus '+b+', '+c.trades+' trades, '+names(k)+' '+fmt(c.values[k]));if(state.selected?.[0]===i&&state.selected?.[1]===j)button.classList.add('selected');button.addEventListener('click',()=>{state.selected=[i,j];render();$('detail').scrollIntoView({block:'nearest'});})})});opponents();detail();records()}
+function opponents(){
+ const box=$('opponents');box.replaceChildren();
+ const m=data.matrix,a=$('manager-focus').value,i=m.managers.indexOf(a);
+ if(i<0)return;
+ const k=$('metric').value,mode=$('mode').value;
+ const rows=view()[i].map((c,j)=>({c,j,name:m.managers[j]})).filter(x=>x.c.status==='COMPARABLE');
+ const value=c=>mode==='count'?c.trades:mode==='average'?c.average_per_trade[k]:c.values[k];
+ rows.sort((x,y)=>value(y.c)-value(x.c)||x.name.localeCompare(y.name));
+ add(box,'h3',a+' — trading partners');
+ if(!rows.length){add(box,'p','No comparable trades in this view.');return;}
+ for(const {c,j,name} of rows){
+ const x=value(c),button=add(box,'button',undefined,'opponent '+(mode==='count'||x===0?'neutral':x>0?'positive':'negative'));
+ button.type='button';add(button,'b',name);add(button,'strong',mode==='count'?x:fmt(x),'value');
+ add(button,'small',c.trades+' trades · '+(c.trades<3?'Limited sample':'3+ trades'));
+ add(button,'small',c.direction.replaceAll('_',' ').toLowerCase(),'value');
+ button.setAttribute('aria-label',a+' versus '+name+', '+c.trades+' trades, '+names(k)+' '+fmt(c.values[k]));
+ button.addEventListener('click',()=>{state.selected=[i,j];detail();$('detail').scrollIntoView({block:'start'});});
+ }
+}
+function chart(box,events,sign,k){
+ if(!events.length)return;
+ const wrap=add(box,'div',undefined,'rivalry-chart');
+ add(wrap,'h3','Cumulative trade returns');
+ add(wrap,'p',names(k)+' · Each deal adds its eventual regular-season return, not points earned that day.');
+ const values=[0];for(const e of events)values.push(values.at(-1)+sign*e.values[k]);
+ const low=Math.min(0,...values),high=Math.max(0,...values),pad=Math.max(5,(high-low)*.12);
+ const min=low-pad,max=high+pad,W=340,H=186,L=48,R=14,T=12,B=32;
+ const x=i=>L+i*(W-L-R)/events.length,y=v=>T+(max-v)*(H-T-B)/(max-min);
+ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+ svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.setAttribute('role','img');svg.setAttribute('aria-label','Cumulative '+names(k)+' from zero to '+fmt(values.at(-1)));
+ wrap.append(svg);
+ const draw=(tag,attrs,text)=>{const n=document.createElementNS(svg.namespaceURI,tag);for(const [key,val] of Object.entries(attrs))n.setAttribute(key,String(val));if(text!==undefined)n.textContent=text;svg.append(n);return n};
+ for(const v of [...new Set([low,0,high])]){
+ draw('line',{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:v===0?'#aeb9c7':'#354052','stroke-dasharray':v===0?'4 4':'2 5'});
+ draw('text',{x:L-5,y:y(v)+4,'text-anchor':'end',fill:'#aeb9c7','font-size':10},Math.round(v));
+ }
+ draw('polyline',{points:values.map((v,i)=>x(i)+','+y(v)).join(' '),fill:'none',stroke:'#f2d889','stroke-width':2.5,'stroke-linejoin':'round'});
+ values.forEach((v,i)=>{draw('circle',{cx:x(i),cy:y(v),r:i===0?3:4,fill:v<0?'#ff8a7f':'#97d78c',stroke:'#101721','stroke-width':1});draw('text',{x:x(i),y:H-14,'text-anchor':'middle',fill:'#aeb9c7','font-size':10},i===0?'Start':String(i));});
+ const buttons=add(wrap,'div',undefined,'chart-events');
+ events.forEach((e,i)=>{const b=add(buttons,'button',(i+1)+' · '+e.year+' W'+e.week+' · '+fmt(values[i+1]));b.type='button';b.addEventListener('click',()=>{const target=document.getElementById('receipt-'+e.id);if(target){target.focus({preventScroll:true});target.scrollIntoView({block:'nearest'});}})});
+}
+// Only locally supplied, approved portrait bytes; no inferred CDN or third-party requests.
+const portraits=new Map();
+function playerCard(parent,player){
+ const id=String(player.id??player.player_id),name=player.name||'Sleeper player '+id;
+ const card=add(parent,'div',undefined,'player-card');card.dataset.playerId=id;
+ const frame=add(card,'div',undefined,'portrait');frame.setAttribute('aria-hidden','true');
+ const fallback=()=>{frame.replaceChildren();frame.textContent=player.name?player.name.split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase():'NFL'};
+ fallback();
+ const src=portraits.get(id);
+ if(src){const img=el('img');img.alt='';img.decoding='async';img.addEventListener('error',fallback,{once:true});img.src=src;frame.replaceChildren(img);}
+ const copy=add(card,'div',undefined,'player-copy');const link=add(copy,'a',name);link.href='player-encyclopedia-preview.html?player='+encodeURIComponent(id);link.title='Open player encyclopedia; load its local research file';
+ if(player.position)add(copy,'small',player.position);
+ return copy;
+}
+const receiptSources=new Map();
+const plain=n=>Number.isFinite(n)?n.toFixed(2):'—';
+function validateReceipts(d,live){
+ const trades=live?d.trades:d.transactions;
+ if(d.status!==(live?'RESEARCH_ONLY_IN_SEASON_NOT_CERTIFIED':'RESEARCH_ONLY_NOT_FOR_PUBLICATION')||!Array.isArray(trades))throw Error('Unexpected receipt schema');
+ const seen=new Set();
+ for(const t of trades){
+ const year=live?d.season:t.year,key=year+':'+t.id;
+ if(seen.has(key)||!t.id||!Number.isInteger(t.week)||!Array.isArray(t.sides))throw Error('Invalid transaction');seen.add(key);
+ for(const side of t.sides){
+ if(!side.manager||!Array.isArray(side.players))throw Error('Invalid side');
+ const pf=live?side.pf:side.totals.pf,starts=live?side.starts:side.totals.starts;
+ if(!Number.isFinite(pf)||Math.abs(side.players.reduce((n,p)=>n+p.pf,0)-pf)>.011||side.players.reduce((n,p)=>n+p.starts,0)!==starts)throw Error('Package does not reconcile');
+ for(const p of side.players){const weeks=live?p.receipts:p.weeks;if(!Array.isArray(weeks)||weeks.length!==p.starts||Math.abs(weeks.reduce((n,w)=>n+(live?w.points:w.pf),0)-p.pf)>.011)throw Error('Player weeks do not reconcile');}
+ }
+ }
+ return trades.map(t=>({...t,year:live?d.season:t.year,live,completed_week:live?d.completed_week:null}));
+}
+function allReceipts(){return [...receiptSources.values()].flat().sort((a,b)=>b.year-a.year||b.week-a.week||a.id.localeCompare(b.id));}
+function refreshReceipts(){const season=$('receipt-season'),old=season.value,rows=allReceipts();season.replaceChildren();for(const y of [...new Set(rows.map(t=>t.year))])season.add(new Option(String(y),String(y)));if([...season.options].some(o=>o.value===old))season.value=old;$('player-receipt-content').hidden=!rows.length;chooseReceipt();}
+function chooseReceipt(){const sel=$('receipt-transaction'),old=sel.value,rows=allReceipts().filter(t=>String(t.year)===$('receipt-season').value);sel.replaceChildren();for(const t of rows)sel.add(new Option('W'+t.week+' · '+t.sides.map(s=>s.manager).join(' / ')+' · '+t.id,t.id));if([...sel.options].some(o=>o.value===old))sel.value=old;showReceipt();}
+function showReceipt(){const box=$('player-receipt-detail');box.replaceChildren();const t=allReceipts().find(t=>String(t.year)===$('receipt-season').value&&t.id===$('receipt-transaction').value);if(!t)return;renderReceipt(box,t);}
+function renderReceipt(box,t){
+ add(box,'h3',t.year+' · Week '+t.week+' · '+t.sides.length+'-team transaction');
+ add(box,'p',t.live?'Strict ownership returns through Week '+t.completed_week+'; boundary weeks excluded.':'Historical regular-season returns including schedule-supported boundary receipts.');
+ add(box,'p','Transaction '+t.id,'receipt-id');
+ const grid=add(box,'div',undefined,'receipt-grid');
+ for(const s of t.sides){
+ const b=add(grid,'section',undefined,'receipt-side'),pf=t.live?s.pf:s.totals.pf,starts=t.live?s.starts:s.totals.starts;
+ add(b,'h3',s.manager+' received');add(b,'strong',plain(pf)+' PF · '+starts+' starts');
+ const canShare=pf>0&&s.players.every(p=>p.pf>=0);
+ for(const p of [...s.players].sort((a,b)=>b.pf-a.pf)){
+ const wrap=add(b,'div',undefined,'contribution');playerCard(wrap,p);
+ const share=canShare?100*p.pf/pf:null;
+ add(wrap,'strong',plain(p.pf)+' PF');
+ add(wrap,'p',p.starts+' starts · '+(p.starts?plain(p.pf/p.starts)+' PF/start':'No credited starts')+(share!==null?' · '+share.toFixed(2)+'% of package':' · Share not applicable'));
+ if(share!==null){const bar=add(wrap,'div',undefined,'contribution-bar'),fill=add(bar,'span');fill.style.width=Math.max(0,Math.min(100,share))+'%';}
+ const d=add(wrap,'details');add(d,'summary','Weekly scoring receipts');for(const w of (t.live?p.receipts:p.weeks)){const r=add(d,'div',undefined,'receipt-line');add(r,'span','Week '+w.week+(w.timing_supported_boundary?' · timing-supported boundary':''));add(r,'strong',plain(t.live?w.points:w.pf));}
+ if(t.live&&p.boundary?.length){add(d,'p','Excluded boundary weeks');for(const w of p.boundary)add(d,'p','Week '+w.week+' · '+plain(w.points)+' PF · '+w.reason);}
+ if(t.live&&p.exit_transaction)add(d,'p','Exit transaction: '+p.exit_transaction,'receipt-id');
+ }
+ }
+ if(t.nonplayer_assets){const a=add(box,'details');add(a,'summary','Non-player assets (not scored)');add(a,'pre',JSON.stringify(t.nonplayer_assets,null,2)).style.cssText='white-space:pre-wrap;overflow-wrap:anywhere';}
+}
+for(const [id,live] of [['historical-player-file',false],['live-player-file',true]])$(id).addEventListener('change',async()=>{receiptSources.delete(id);try{const f=$(id).files[0];if(f)receiptSources.set(id,validateReceipts(JSON.parse(await f.text()),live));$('player-receipt-status').textContent=allReceipts().length+' transactions loaded locally.';}catch(e){$('player-receipt-status').textContent='Cannot load receipts: '+e.message;}refreshReceipts();if(!$('content').hidden)detail();});
+$('receipt-season').addEventListener('change',chooseReceipt);$('receipt-transaction').addEventListener('change',showReceipt);
+function detail(){const box=$('detail');box.replaceChildren();if(!state.selected){add(box,'h2','Choose a rivalry');return}const [i,j]=state.selected,m=data.matrix,a=m.managers[i],b=m.managers[j],c=view()[i][j];add(box,'h2',a+' vs. '+b);if(!c.values){add(box,'p','No comparable trades in this view.');return}add(box,'p',c.trades+' comparable trades · '+c.direction.replaceAll('_',' ').toLowerCase()+' · '+(c.trades<3?'Limited sample':'Three or more trades'));const stats=add(box,'div',undefined,'stats');for(const k of m.metrics){const s=add(stats,'div',undefined,'stat');add(s,'span',names(k));add(s,'strong',fmt(c.values[k]));add(s,'small',fmt(c.average_per_trade[k])+' per trade')}const t=data.timeline.timelines.find(x=>x.managers.includes(a)&&x.managers.includes(b));if(!t)return;const sign=t.managers[0]===a?1:-1,k=$('metric').value;const events=t.events.filter(e=>$('season').value==='all'||String(e.year)===$('season').value);chart(box,events,sign,k);let cumulative=0;for(const e of events){cumulative+=sign*e.values[k];const event=add(box,'div',undefined,'event');event.id='receipt-'+e.id;event.tabIndex=-1;add(event,'strong',e.year+' · Week '+e.week+' · '+fmt(sign*e.values[k]));add(event,'p','Cumulative eventual return: '+fmt(cumulative)+' · Transaction '+e.id);const packages=add(event,'div',undefined,'packages');for(const name of [a,b]){const p=e.assets.find(x=>x.manager===name),side=add(packages,'div');add(side,'b',name+' received');for(const player of p?.players??[])playerCard(side,player)}const receipt=allReceipts().find(t=>t.year===e.year&&t.id===e.id);if(receipt){const d=add(event,'details');add(d,'summary','Individual player production');renderReceipt(d,receipt)}}}
+function records(){const box=$('records');box.replaceChildren();const r=data.records.records[$('metric').value];if($('season').value!=='all')add(box,'p','Record Book remains career-wide.');for(const [label,rows] of [['Biggest individual advantage',r.individual_advantages],['Largest rivalry advantage (3+ trades)',r.rivalry_advantages_min_three],['Best average return (3+ trades)',r.efficiency_min_three],['Longest rivalry streak',r.streaks],['Largest comeback',r.comebacks]]){const e=add(box,'div',undefined,'record');add(e,'b',label);const x=rows[0];add(e,'p',x?(x.leader||x.manager)+(x.opponent?' vs. '+x.opponent:'')+' · '+(x.length!==undefined?x.length+' deals':fmt(x.margin??x.per_trade??x.recovery)):'No qualifying result')}}
+for(const id of ['season','metric','mode','manager-focus'])$(id).addEventListener('change',render);
+// Optional local portrait manifest: stable Sleeper IDs, approved source metadata, raster data URLs only.
+const portraitLabel=el('label','Optional approved player portraits ');
+const portraitInput=el('input');portraitInput.type='file';portraitInput.accept='.json,application/json';portraitInput.id='portrait-file';portraitLabel.append(portraitInput);
+const portraitStatus=el('p','No portrait pack loaded; initials are shown.');portraitStatus.id='portrait-status';portraitStatus.setAttribute('role','status');
+$('status').before(portraitLabel,portraitStatus);
+portraitInput.addEventListener('change',async()=>{
+ portraits.clear();
+ try{
+ const f=portraitInput.files[0];if(!f)throw Error('No file selected');
+ if(f.size>20000000)throw Error('Portrait pack exceeds 20 MB');
+ const pack=JSON.parse(await f.text());
+ if(pack.schema!=='FELLAS_APPROVED_PORTRAITS_V1'||!Array.isArray(pack.players))throw Error('Invalid portrait manifest');
+ const next=new Map();
+ for(const p of pack.players){
+ if(!/^\d+$/.test(String(p.player_id))||!p.source||!p.permission_basis||!/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(p.data_url)||p.data_url.length>500000||next.has(String(p.player_id)))throw Error('Invalid or duplicate portrait entry');
+ next.set(String(p.player_id),p.data_url);
+ }
+ for(const [id,src] of next)portraits.set(id,src);
+ portraitStatus.textContent=portraits.size+' local portraits loaded; permission metadata supplied by pack creator, not independently verified.';
+ }catch(e){portraitStatus.textContent='Portraits unavailable: '+e.message+'; showing initials.';}
+ if(!$('content').hidden)detail();
+});
+</script></body></html>

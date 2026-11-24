@@ -1,0 +1,74 @@
+// Deterministic statistics derived only from frozen, provider-reconciled regular-season fixtures.
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const path='data-integrity/frozen-regular-matchups-2020-2025-v1.json';
+const bytes=fs.readFileSync(path);
+const blob=createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex');
+assert.equal(blob,'9d390c084c07874b9a282d21e7965e79f13f6b2d','Frozen history changed; use explicit versioned migration');
+const ledger=JSON.parse(bytes);
+const identity=JSON.parse(fs.readFileSync('data-integrity/historical-manager-confirmation-20261123.json','utf8'));
+const norm=m=>m==='Tom'?'Thommy':m==='EvansBrandon'?'Evans':m;
+const blank=()=>({games:0,w:0,l:0,t:0,pf_cents:0,pa_cents:0,all_play_w:0,all_play_l:0,all_play_t:0,weekly_highs:0,losses_at_or_above:{110:0,125:0,140:0,150:0}});
+const career={},rivalries={},seasons=[];
+function record(r,pf,pa){r.games++;r[pf>pa?'w':pf<pa?'l':'t']++;r.pf_cents+=pf;r.pa_cents+=pa;if(pf<pa)for(const k of [110,125,140,150])if(pf>=k*100)r.losses_at_or_above[k]++;}
+function add(a,b){for(const k of Object.keys(a))if(k!=='losses_at_or_above')a[k]+=b[k];for(const k of Object.keys(a.losses_at_or_above))a.losses_at_or_above[k]+=b.losses_at_or_above[k];}
+function check(r,comparisons){assert.equal(r.games,r.w+r.l+r.t);assert.equal(comparisons,r.all_play_w+r.all_play_l+r.all_play_t);}
+assert.deepEqual(ledger.seasons.map(s=>s.year),[2020,2021,2022,2023,2024,2025]);
+const livePath=process.env.FELLAS_LIVE_INPUT;
+const live=livePath?JSON.parse(fs.readFileSync(livePath,'utf8')):null;
+const liveNames=['Birch','JMid','Kuhl','Mitch','Scott','Stew','Stilly','Stover','Thommy','Tony'];
+if(live){assert.equal(live.schema,'fellas-live-completed-regular-v1');assert.equal(live.year,2026);assert(Number.isInteger(live.regular_weeks)&&live.regular_weeks>=1&&live.regular_weeks<=14);assert.equal(live.games.length,live.regular_weeks*5);assert(live.games.every(g=>Number.isInteger(g.week)&&g.week>=1&&g.week<=live.regular_weeks));}
+const fullEra=process.env.FELLAS_FULL_ERA==='1';
+const espnBytes=fullEra?fs.readFileSync('data-integrity/frozen-regular-matchups-2016-2019-v1.json'):null;
+const espnBlob=espnBytes?createHash('sha1').update('blob '+espnBytes.length+'\0').update(espnBytes).digest('hex'):null;
+if(fullEra)assert.equal(espnBlob,'52dbf83af8e1b8966ad71fb510f61377d2445835','Frozen ESPN history changed');
+const espn=fullEra?JSON.parse(espnBytes).seasons:[];
+if(fullEra)assert.deepEqual(espn.map(s=>s.year),[2016,2017,2018,2019]);
+const teamGames=820+(fullEra?484:0)+(live?live.regular_weeks*10:0);
+const expectedUnits={},comparisonCounts={};
+for(const s of [...espn,...ledger.seasons,...(live?[live]:[])]){
+ const names=s.year<2020?[...new Set(s.games.flatMap(g=>[g.home,g.away]))].sort():s.year===2026?liveNames:Object.values(identity.rows.find(r=>r.year===s.year).rosters).map(norm).sort();
+ const opponents=names.length-1;
+ assert.equal(names.length,s.year===2016?8:10);
+ const rows=Object.fromEntries(names.map(n=>[n,blank()]));const weekly=[];
+ if(s.year!==2026)assert.equal(s.regular_weeks,s.year===2017?12:s.year<=2021?13:14);assert.equal(s.games.length,s.regular_weeks*names.length/2);
+ for(let week=1;week<=s.regular_weeks;week++){
+  const games=s.games.filter(g=>g.week===week),scores={};assert.equal(games.length,names.length/2);
+  for(const g of games){
+   for(const [m,o,pf,pa] of [[g.home,g.away,g.home_cents,g.away_cents],[g.away,g.home,g.away_cents,g.home_cents]]){
+    assert(Object.hasOwn(rows,m)&&Object.hasOwn(rows,o)&&m!==o&&!Object.hasOwn(scores,m));assert(Number.isSafeInteger(pf)&&Number.isSafeInteger(pa));
+    scores[m]=pf;record(rows[m],pf,pa);
+    const r=(rivalries[m]??={})[o]??=((rivalries[m])[o]={games:0,w:0,l:0,t:0,pf_cents:0,pa_cents:0,losses_at_or_above:{110:0,125:0,140:0,150:0}});record(r,pf,pa);
+   }
+  }
+  assert.deepEqual(Object.keys(scores).sort(),names);
+  const high=Math.max(...Object.values(scores));
+  for(const m of names){const r=rows[m];for(const o of names)if(m!==o)r[scores[m]>scores[o]?'all_play_w':scores[m]<scores[o]?'all_play_l':'all_play_t']++;if(scores[m]===high)r.weekly_highs++;}
+  weekly.push({week,scores,high_cents:high,leaders:names.filter(m=>scores[m]===high)});
+ }
+ for(const [m,r] of Object.entries(rows)){check(r,r.games*opponents);add(career[m]??(career[m]=blank()),r);comparisonCounts[m]=(comparisonCounts[m]||0)+r.games*opponents;expectedUnits[m]=(expectedUnits[m]||0)+(2*r.all_play_w+r.all_play_t)*(63/opponents);}
+ assert.equal(Object.values(rows).reduce((n,r)=>n+r.pf_cents-r.pa_cents,0),0);
+ seasons.push({year:s.year,regular_weeks:s.regular_weeks,managers:rows,weekly});
+}
+for(const [m,r] of Object.entries(career))check(r,comparisonCounts[m]);
+for(const [a,os] of Object.entries(rivalries))for(const [b,r] of Object.entries(os)){const q=rivalries[b][a];assert.equal(r.games,q.games);assert.equal(r.w,q.l);assert.equal(r.t,q.t);assert.equal(r.pf_cents,q.pa_cents);}
+assert.equal(Object.values(career).reduce((n,r)=>n+r.games,0),teamGames);
+// Schedule luck and season-bounded streaks, derived from the same verified scores.
+const luck=Object.fromEntries(Object.entries(career).map(([m,r])=>[m,{actual_wins:r.w,expected_wins:expectedUnits[m]/126,win_equivalent_delta:r.w+r.t/2-expectedUnits[m]/126}]));
+const streaks=[],extremes=[];
+for(const s of seasons)for(const m of Object.keys(s.managers)){
+ const weeks=s.weekly.map(w=>({week:w.week,pf:w.scores[m],high:w.leaders.includes(m)}));
+ for(const [kind,test] of [['weekly_high',w=>w.high],...([100,105,110,125,140,150].map(n=>['score_at_least_'+n,w=>w.pf>=100*n]))]){
+ let first=null,last=null;for(const w of [...weeks,{week:null,pf:-Infinity,high:false}]){if(test(w)){first??=w.week;last=w.week;}else if(first!==null){streaks.push({manager:m,year:s.year,kind,first_week:first,last_week:last,length:last-first+1});first=last=null;}}
+ }
+ for(const w of weeks)extremes.push({manager:m,year:s.year,week:w.week,pf_cents:w.pf});
+}
+streaks.sort((a,b)=>b.length-a.length||a.year-b.year||a.first_week-b.first_week||a.manager.localeCompare(b.manager));
+extremes.sort((a,b)=>b.pf_cents-a.pf_cents||a.year-b.year||a.week-b.week||a.manager.localeCompare(b.manager));
+assert.equal(extremes.length,teamGames);
+assert(Math.abs(Object.values(luck).reduce((n,r)=>n+r.win_equivalent_delta,0))<1e-9);
+const records={streaks,highest_scores:extremes.slice(0,25),lowest_scores:extremes.slice().reverse().slice(0,25),schedule_luck:luck};
+const out={schema:'fellas-frozen-regular-statistics-v1',status:'RESEARCH_ONLY_NOT_PUBLIC_INTEGRATION',source_blob:blob,...(fullEra?{espn_source_blob:espnBlob}:{}),scope:fullEra?(live?'2016–2026 regular seasons through explicitly supplied completed week':'2016–2025 completed regular seasons'):(live?'2020–2026 Sleeper regular seasons through explicitly supplied completed week; excludes ESPN era':'2020–2025 Sleeper regular seasons only'),...(live?{live_watermark:{year:live.year,completed_regular_week:live.regular_weeks,source:live.source}}:{}),definitions:{weekly_highs:'All tied weekly leaders receive credit',all_play:'Each actual team score compared with every other participating team in same week; expected wins normalized by season opponent count',threshold_losses:'Actual head-to-head losses with own score at or above threshold',units:'integer hundredths of fantasy points'},seasons,career,rivalries,records};
+fs.mkdirSync('data-integrity/historical-trade-draft-audits',{recursive:true});fs.writeFileSync(process.env.FELLAS_STATS_OUTPUT||'data-integrity/historical-trade-draft-audits/frozen-regular-statistics-v1.json',JSON.stringify(out,null,2)+'\n');
+console.log('FROZEN REGULAR STATISTICS '+JSON.stringify({seasons:seasons.length,team_games:teamGames,managers:Object.keys(career).length,career}));

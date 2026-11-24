@@ -13,7 +13,12 @@
           "detail": "Documented championship",
           "status": "documented",
           "manager": "Thommy",
-          "runnerUp": null,
+          "runnerUp": {
+            "recipient": "Halderman",
+            "detail": "Lost championship to Thommy 175.00–223.00",
+            "status": "documented",
+            "source": "data/playoff_explorer_verified_2016_2025_v1.json"
+          },
           "evidenceHref": "../seasons/2016.html",
           "evidenceLabel": "Open 2016 season",
           "source": "verified ESPN original championship"
@@ -84,7 +89,12 @@
           "detail": "Documented championship",
           "status": "documented",
           "manager": "Thommy",
-          "runnerUp": null,
+          "runnerUp": {
+            "recipient": "Schermerhorn",
+            "detail": "Lost championship to Thommy 212.00–241.00",
+            "status": "documented",
+            "source": "data/playoff_explorer_verified_2016_2025_v1.json"
+          },
           "evidenceHref": "../seasons/2017.html",
           "evidenceLabel": "Open 2017 season",
           "source": "verified ESPN original championship"
@@ -155,7 +165,12 @@
           "detail": "Documented championship",
           "status": "documented",
           "manager": "Thommy",
-          "runnerUp": null,
+          "runnerUp": {
+            "recipient": "Birch",
+            "detail": "Lost championship to Thommy 106.62–111.58",
+            "status": "documented",
+            "source": "data/playoff_explorer_verified_2016_2025_v1.json"
+          },
           "evidenceHref": "../seasons/2018.html",
           "evidenceLabel": "Open 2018 season",
           "source": "verified ESPN original championship"
@@ -226,7 +241,12 @@
           "detail": "Documented championship",
           "status": "documented",
           "manager": "Birch",
-          "runnerUp": null,
+          "runnerUp": {
+            "recipient": "Stew",
+            "detail": "Lost championship to Birch 109.42–114.14",
+            "status": "documented",
+            "source": "data/playoff_explorer_verified_2016_2025_v1.json"
+          },
           "evidenceHref": "../seasons/2019.html",
           "evidenceLabel": "Open 2019 season",
           "source": "verified ESPN original championship"
@@ -297,7 +317,12 @@
           "detail": "Documented championship",
           "status": "documented",
           "manager": "Koble",
-          "runnerUp": null,
+          "runnerUp": {
+            "recipient": "Mitch",
+            "detail": "Lost championship to Koble 99.42–117.48",
+            "status": "documented",
+            "source": "data/playoff_explorer_verified_2016_2025_v1.json"
+          },
           "evidenceHref": "../seasons/2020.html",
           "evidenceLabel": "Open 2020 season"
         },
@@ -420,7 +445,12 @@
           "detail": "Documented championship",
           "status": "documented",
           "manager": "Tony",
-          "runnerUp": null,
+          "runnerUp": {
+            "recipient": "Evans",
+            "detail": "Lost championship to Tony 133.98–138.28",
+            "status": "documented",
+            "source": "data/playoff_explorer_verified_2016_2025_v1.json"
+          },
           "evidenceHref": "../seasons/2021.html",
           "evidenceLabel": "Open 2021 season"
         },

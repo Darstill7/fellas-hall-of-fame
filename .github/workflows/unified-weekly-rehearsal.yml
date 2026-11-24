@@ -1,0 +1,80 @@
+name: Unified weekly release rehearsal
+on:
+  pull_request:
+    paths:
+      - 'scripts/rehearse-atomic-weekly-release.mjs'
+      - 'scripts/test-atomic-weekly-release.mjs'
+      - 'scripts/build-unified-weekly-release-manifest.mjs'
+      - 'scripts/build-weekly-release-freshness.mjs'
+      - '.github/workflows/unified-weekly-rehearsal.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  atomic-regression:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-atomic-weekly-release.mjs
+  coordinated-rehearsal:
+    needs: atomic-regression
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Locate independently successful same-commit upstream workflows
+        id: upstream
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set -euo pipefail
+          for pair in 'core:historical-consistency.yml' 'front:audit-2024-trade-ownership-source.yml'; do
+            name=${pair%%:*}
+            workflow=${pair#*:}
+            id=''
+            for attempt in $(seq 1 60); do
+              runs=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/$workflow/runs?head_sha=$HEAD_SHA&per_page=30")
+              id=$(jq -r '[.workflow_runs[] | select(.conclusion == "success")][0].id // empty' <<< "$runs")
+              if [ -n "$id" ]; then break; fi
+              pending=$(jq -r '[.workflow_runs[] | select(.status != "completed")] | length' <<< "$runs")
+              total=$(jq -r '.workflow_runs | length' <<< "$runs")
+              if [ "$total" -gt 0 ] && [ "$pending" -eq 0 ]; then break; fi
+              sleep 20
+            done
+            if [ -z "$id" ]; then
+              echo "::error::No successful same-commit $workflow; refusing to mix artifacts or publish partial release."
+              exit 1
+            fi
+            echo "$name=$id" >> "$GITHUB_OUTPUT"
+          done
+      - uses: actions/download-artifact@v4
+        with:
+          name: combined-career-research
+          run-id: ${{ steps.upstream.outputs.core }}
+          github-token: ${{ github.token }}
+          path: data-integrity/historical-trade-draft-audits
+      - uses: actions/download-artifact@v4
+        with:
+          name: 2020-2025-trade-ownership-research
+          run-id: ${{ steps.upstream.outputs.front }}
+          github-token: ${{ github.token }}
+          path: data-integrity/historical-trade-draft-audits
+      - run: node scripts/build-unified-weekly-release-manifest.mjs
+      - run: node scripts/build-weekly-release-freshness.mjs
+      - run: node scripts/rehearse-atomic-weekly-release.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unified-weekly-release-rehearsal
+          path: |
+            data-integrity/historical-trade-draft-audits/unified-weekly-release-manifest.json
+            data-integrity/historical-trade-draft-audits/weekly-release-freshness-preview.json
+            data-integrity/historical-trade-draft-audits/atomic-release-rehearsal/
+          if-no-files-found: error

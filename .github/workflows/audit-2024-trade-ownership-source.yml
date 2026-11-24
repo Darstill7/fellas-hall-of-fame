@@ -1,0 +1,288 @@
+name: Audit 2020 through 2025 trade ownership and original lineup evidence
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit-2024-trade-ownership-source.mjs'
+      - 'scripts/research-career-trade-returns.mjs'
+      - 'scripts/research-trade-trees.mjs'
+      - 'scripts/research-trade-playoff-impact.mjs'
+      - 'scripts/research-provider-bracket-identity.mjs'
+      - 'scripts/research-boundary-kickoff-evidence.py'
+      - 'scripts/research-boundary-adjusted-trade-returns.mjs'
+      - 'scripts/research-trade-positional-surplus.mjs'
+      - 'scripts/research-trade-model-sensitivity.mjs'
+      - 'scripts/research-manager-front-office.mjs'
+      - 'scripts/research-manager-trade-matrix.mjs'
+      - 'scripts/research-trade-rivalry-timelines.mjs'
+      - 'scripts/research-trading-records.mjs'
+      - 'scripts/research-trade-player-receipts.mjs'
+      - 'scripts/research-acquisition-hall-of-fame.mjs'
+      - 'scripts/research-unattributed-starter-audit.mjs'
+      - 'scripts/research-acquisition-kickoff-evidence.py'
+      - 'scripts/research-acquisition-ranking-sensitivity.mjs'
+      - 'scripts/research-manager-identity-crosscheck.mjs'
+      - 'data-integrity/historical-manager-confirmation-20261123.json'
+      - 'scripts/research-acquisition-leaderboards.mjs'
+      - 'scripts/research-acquisition-positional-records.mjs'
+      - 'scripts/research-player-career-encyclopedia.mjs'
+      - 'scripts/research-manager-acquisition-resume.mjs'
+      - 'scripts/research-draft-room.mjs'
+      - 'scripts/research-keeper-source-audit.mjs'
+      - 'data-integrity/draft-room-preview.html'
+      - 'scripts/test-front-office-hub-browser.mjs'
+      - 'scripts/test-manager-acquisition-resume-browser.mjs'
+      - 'scripts/test-draft-room-browser.mjs'
+      - 'data-integrity/front-office-preview.html'
+      - 'scripts/test-player-encyclopedia-browser.mjs'
+      - 'data-integrity/player-encyclopedia-preview.html'
+      - 'data-integrity/manager-acquisition-resume-preview.html'
+      - 'scripts/test-acquisition-hall-browser.mjs'
+      - 'data-integrity/acquisition-hall-preview.html'
+      - 'scripts/research-2026-live-trade-player-returns.mjs'
+      - 'scripts/lib/trade-deadline-freeze.mjs'
+      - 'scripts/test-trade-deadline-lifecycle.mjs'
+      - 'scripts/build-combined-trade-front-office-projection.mjs'
+      - 'scripts/research-2026-live-acquisitions.mjs'
+      - 'scripts/research-2026-acquisition-kickoff-evidence.py'
+      - 'scripts/build-live-evidence-supported-acquisitions.mjs'
+      - 'scripts/research-historical-near-kickoff-independent.py'
+      - 'scripts/research-kenyan-drake-2021.mjs'
+      - 'scripts/build-historical-acquisition-certification.mjs'
+      - 'scripts/finalize-historical-acquisition-review.mjs'
+      - 'scripts/verify-final-historical-acquisitions.mjs'
+      - 'scripts/audit-final-historical-source-completeness.mjs'
+      - 'scripts/lib/provider-retry.mjs'
+      - 'scripts/verify-historical-acquisition-package.mjs'
+      - 'scripts/test-historical-acquisition-immutability.mjs'
+      - 'scripts/build-combined-career-acquisitions.mjs'
+      - 'scripts/build-combined-evidence-supported-career.mjs'
+      - 'scripts/build-front-office-site-candidate.mjs'
+      - 'scripts/lib/draft-return-grades.mjs'
+      - 'scripts/lib/draft-slot-alternatives.mjs'
+      - 'scripts/test-draft-return-analytics.mjs'
+      - 'scripts/test-front-office-live-candidate-browser.mjs'
+      - 'data-integrity/front-office-live-candidate.html'
+      - 'scripts/test-trading-floor-browser.mjs'
+      - 'data-integrity/trading-floor-preview.html'
+      - 'scripts/audit-2025-original-draft-player-ids.mjs'
+      - 'scripts/research-2025-draft-peer-returns.mjs'
+      - 'scripts/research-career-draft-returns.mjs'
+      - '.github/workflows/audit-2024-trade-ownership-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  historical-ownership:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    container: mcr.microsoft.com/playwright:v1.56.1-noble
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify trade deadline lifecycle before provider research
+        run: node scripts/test-trade-deadline-lifecycle.mjs
+      - name: Verify draft analytics independently before provider research
+        run: node scripts/test-draft-return-analytics.mjs
+      - name: Check audit syntax
+        run: node --check scripts/audit-2024-trade-ownership-source.mjs
+      - name: Reconcile original 2024 transactions and starter records
+        run: |
+          node scripts/audit-2024-trade-ownership-source.mjs
+          FELLAS_OWNERSHIP_YEAR=2025 node scripts/audit-2024-trade-ownership-source.mjs
+          FELLAS_OWNERSHIP_YEAR=2023 node scripts/audit-2024-trade-ownership-source.mjs
+          FELLAS_OWNERSHIP_YEAR=2022 node scripts/audit-2024-trade-ownership-source.mjs
+          FELLAS_OWNERSHIP_YEAR=2021 node scripts/audit-2024-trade-ownership-source.mjs
+          FELLAS_OWNERSHIP_YEAR=2020 node scripts/audit-2024-trade-ownership-source.mjs
+          node --check scripts/research-career-trade-returns.mjs
+          node scripts/research-career-trade-returns.mjs
+          node --check scripts/research-trade-trees.mjs
+          node scripts/research-trade-trees.mjs
+          node --check scripts/research-trade-playoff-impact.mjs
+          node scripts/research-trade-playoff-impact.mjs
+          node --check scripts/research-provider-bracket-identity.mjs
+          node scripts/research-provider-bracket-identity.mjs
+          python3 scripts/research-boundary-kickoff-evidence.py
+          node --check scripts/research-boundary-adjusted-trade-returns.mjs
+          node scripts/research-boundary-adjusted-trade-returns.mjs
+          node --check scripts/research-trade-positional-surplus.mjs
+          node scripts/research-trade-positional-surplus.mjs
+          node --check scripts/research-trade-model-sensitivity.mjs
+          node scripts/research-trade-model-sensitivity.mjs
+          for year in 2020 2021 2022 2023 2024 2025; do
+            FELLAS_DRAFT_YEAR=$year node scripts/audit-2025-original-draft-player-ids.mjs
+            FELLAS_DRAFT_YEAR=$year node scripts/research-2025-draft-peer-returns.mjs
+          done
+          node scripts/research-career-draft-returns.mjs
+          node --check scripts/research-manager-front-office.mjs
+          node scripts/research-manager-front-office.mjs
+          node --check scripts/research-manager-trade-matrix.mjs
+          node scripts/research-manager-trade-matrix.mjs
+          node --check scripts/research-trade-rivalry-timelines.mjs
+          node scripts/research-trade-rivalry-timelines.mjs
+          node --check scripts/research-trading-records.mjs
+          node scripts/research-trading-records.mjs
+          node --check scripts/research-trade-player-receipts.mjs
+          node scripts/research-trade-player-receipts.mjs
+          node --check scripts/research-acquisition-hall-of-fame.mjs
+          node scripts/research-acquisition-hall-of-fame.mjs
+          node scripts/research-unattributed-starter-audit.mjs
+          python3 scripts/research-acquisition-kickoff-evidence.py
+          node --check scripts/research-acquisition-ranking-sensitivity.mjs
+          node scripts/research-acquisition-ranking-sensitivity.mjs
+          node scripts/research-manager-identity-crosscheck.mjs
+          node --check scripts/research-acquisition-leaderboards.mjs
+          node scripts/research-acquisition-leaderboards.mjs
+          node --check scripts/research-acquisition-positional-records.mjs
+          node scripts/research-acquisition-positional-records.mjs
+          node --check scripts/research-player-career-encyclopedia.mjs
+          node scripts/research-player-career-encyclopedia.mjs
+          node --check scripts/research-manager-acquisition-resume.mjs
+          node scripts/research-manager-acquisition-resume.mjs
+          node --check scripts/research-draft-room.mjs
+          node scripts/research-draft-room.mjs
+          node --check scripts/research-keeper-source-audit.mjs
+          node scripts/research-keeper-source-audit.mjs
+          node --check scripts/research-2026-live-trade-player-returns.mjs
+          FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-trade-player-returns.mjs
+          FELLAS_COMPLETED_WEEK=10 node scripts/collect-live-completed-regular.mjs
+          FELLAS_FULL_ERA=1 FELLAS_LIVE_INPUT=data-integrity/historical-trade-draft-audits/live-completed-regular-2026.json FELLAS_STATS_OUTPUT=data-integrity/historical-trade-draft-audits/full-era-career-statistics.json node scripts/build-frozen-regular-statistics.mjs
+          node scripts/build-combined-trade-front-office-projection.mjs
+          FELLAS_COMPLETED_WEEK=10 node scripts/research-2026-live-acquisitions.mjs
+          python3 scripts/research-historical-near-kickoff-independent.py
+          node scripts/research-kenyan-drake-2021.mjs
+          node scripts/build-historical-acquisition-certification.mjs
+          node scripts/verify-historical-acquisition-package.mjs data-integrity/historical-trade-draft-audits/historical-acquisition-certification-candidate.json
+          node scripts/test-historical-acquisition-immutability.mjs
+          node scripts/finalize-historical-acquisition-review.mjs
+          node scripts/verify-final-historical-acquisitions.mjs --verify
+          node scripts/audit-final-historical-source-completeness.mjs
+          python3 scripts/research-2026-acquisition-kickoff-evidence.py
+          node scripts/build-live-evidence-supported-acquisitions.mjs
+          node scripts/build-combined-career-acquisitions.mjs
+          node scripts/build-combined-evidence-supported-career.mjs
+          node scripts/build-front-office-site-candidate.mjs
+      - name: Preserve research receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2020-2025-trade-ownership-research
+          path: |
+            data-integrity/historical-trade-draft-audits/*-ownership-review.json
+            data-integrity/historical-trade-draft-audits/career-trade-return-research.json
+            data-integrity/historical-trade-draft-audits/trade-tree-research.json
+            data-integrity/historical-trade-draft-audits/trade-playoff-impact-research.json
+            data-integrity/historical-trade-draft-audits/provider-bracket-identity-research.json
+            data-integrity/historical-trade-draft-audits/boundary-kickoff-evidence-research.json
+            data-integrity/historical-trade-draft-audits/boundary-adjusted-trade-returns-research.json
+            data-integrity/historical-trade-draft-audits/trade-positional-surplus-research.json
+            data-integrity/historical-trade-draft-audits/trade-model-sensitivity-research.json
+            data-integrity/historical-trade-draft-audits/manager-front-office-research.json
+            data-integrity/historical-trade-draft-audits/manager-trade-matrix-research.json
+            data-integrity/historical-trade-draft-audits/trade-rivalry-timelines-research.json
+            data-integrity/historical-trade-draft-audits/trading-records-research.json
+            data-integrity/historical-trade-draft-audits/trade-player-receipts-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-hall-of-fame-research.json
+            data-integrity/historical-trade-draft-audits/unattributed-starter-audit-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-kickoff-evidence-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-ranking-sensitivity-research.json
+            data-integrity/historical-trade-draft-audits/manager-identity-crosscheck-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-leaderboards-research.json
+            data-integrity/historical-trade-draft-audits/acquisition-positional-records-research.json
+            data-integrity/historical-trade-draft-audits/player-career-encyclopedia-research.json
+            data-integrity/historical-trade-draft-audits/manager-acquisition-resumes-research.json
+            data-integrity/historical-trade-draft-audits/draft-room-research.json
+            data-integrity/historical-trade-draft-audits/keeper-source-audit-research.json
+            data-integrity/historical-trade-draft-audits/2026-live-trade-player-returns-research.json
+            data-integrity/historical-trade-draft-audits/2026-trade-deadline-snapshot-preview.json
+            data-integrity/historical-trade-draft-audits/combined-trade-front-office-preview.json
+            data-integrity/historical-trade-draft-audits/2026-live-acquisition-preview.json
+            data-integrity/historical-trade-draft-audits/2026-live-acquisition-kickoff-evidence.json
+            data-integrity/historical-trade-draft-audits/2026-evidence-supported-acquisition-preview.json
+            data-integrity/historical-trade-draft-audits/historical-near-kickoff-independent-review.json
+            data-integrity/historical-trade-draft-audits/kenyan-drake-2021-source-reconciliation.json
+            data-integrity/historical-trade-draft-audits/historical-acquisition-certification-candidate.json
+            data-integrity/historical-trade-draft-audits/historical-acquisition-final-review.json
+            data-integrity/historical-trade-draft-audits/final-historical-source-completeness-audit.json
+            data-integrity/historical-trade-draft-audits/combined-career-acquisition-preview.json
+            data-integrity/historical-trade-draft-audits/combined-evidence-supported-career-preview.json
+            data-integrity/historical-trade-draft-audits/front-office-site-candidate/
+            data-integrity/historical-trade-draft-audits/career-draft-return-research.json
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Install browser runtime
+        id: browser-runtime
+        timeout-minutes: 5
+        run: npm install --no-save playwright@1.56.1
+      - name: Exercise automatic live Front Office candidate
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
+        run: node scripts/test-front-office-live-candidate-browser.mjs
+      - name: Preserve live Front Office captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: front-office-live-candidate-captures
+          path: data-integrity/front-office-live-captures/
+          if-no-files-found: warn
+      - name: Exercise Trading Floor using generated research files
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
+        run: node scripts/test-trading-floor-browser.mjs
+      - name: Exercise Acquisition Hall using generated research files
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
+        run: node scripts/test-acquisition-hall-browser.mjs
+      - name: Exercise Player Encyclopedia using generated research files
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
+        run: node scripts/test-player-encyclopedia-browser.mjs
+      - name: Exercise Front Office hub
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
+        run: node scripts/test-front-office-hub-browser.mjs
+      - name: Exercise Draft Room
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
+        run: node scripts/test-draft-room-browser.mjs
+      - name: Exercise Manager Resumes
+        if: ${{ !cancelled() && steps.browser-runtime.outcome == 'success' }}
+        run: node scripts/test-manager-acquisition-resume-browser.mjs
+      - name: Preserve Draft Room and Manager Resume captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: draft-room-manager-resume-captures
+          path: |
+            data-integrity/draft-room-captures/*.png
+            data-integrity/manager-resume-captures/*.png
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Preserve Front Office hub visual captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: front-office-research-captures
+          path: data-integrity/front-office-captures/*.png
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Preserve Player Encyclopedia visual captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: player-encyclopedia-research-captures
+          path: data-integrity/player-encyclopedia-captures/*.png
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Preserve Acquisition Hall visual captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: acquisition-hall-research-captures
+          path: data-integrity/acquisition-hall-captures/*.png
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Preserve Trading Floor visual captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trading-floor-research-captures
+          path: data-integrity/trading-floor-captures/*.png
+          retention-days: 14
+          if-no-files-found: warn

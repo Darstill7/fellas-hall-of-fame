@@ -168,7 +168,7 @@ async function start(){
    fetch('../data/fellas_final_placements_2016_2025_verified.json'),
    fetch('../data/expanded_records_verified_v1.json')
   ]);
-  if(responses.some(r=>!r.ok))throw Error('Record files unavailable');
+  if(responses.some(r=>!r.ok))throw Error('Record files unavailable: '+responses.filter(r=>!r.ok).map(r=>r.url+' HTTP '+r.status).join(', '));
   const [archive,guide,espn,sleeper,placements,placementReceipts,allEra,expanded]=await Promise.all(responses.map(r=>r.json()));
   if(expanded.version!==1||expanded.categoryCount!==44||expanded.categories?.length!==44||categories.length!==16)throw Error('Expanded and legacy record catalog mismatch');
   const leadersByManager=new Map();
@@ -178,7 +178,11 @@ async function start(){
    for(const name of names){const records=leadersByManager.get(name)||[];records.push({key:category.key,label:category.label,group:category.group});leadersByManager.set(name,records)}
   }
   const postseason={espn,sleeper,placements,placementReceipts,allEra};
-  if(!Array.isArray(archive.managers)||archive.managers.length<10||!archive.asOf)throw Error('Unexpected record archive');
+  const cutoff=archive.completedThrough;
+  const validCutoff=Number.isInteger(cutoff?.year)&&cutoff.year>=2016&&Number.isInteger(cutoff.week)&&cutoff.week>=1&&cutoff.week<=18;
+  // A verified completed-week boundary is more precise than an old archive build date.
+  if(!Array.isArray(archive.managers)||archive.managers.length<10||(!validCutoff&&!archive.asOf))throw Error('Unexpected record archive: missing managers or evidence cutoff');
+  if(new Set(archive.managers.map(m=>m.manager)).size!==archive.managers.length)throw Error('Duplicate manager in record archive');
   const rows=archive.managers.map(m=>({name:m.manager,records:findOwnedRecords(archive,guide,m.manager,postseason),expandedRecords:leadersByManager.get(expandedName(m.manager))||[]}))
    .sort((a,b)=>b.expandedRecords.length-a.expandedRecords.length||b.records.length-a.records.length||a.name.localeCompare(b.name));
   for(const [name,records] of leadersByManager)if(!rows.some(row=>expandedName(row.name)===name))rows.push({name,records:[],expandedRecords:records});

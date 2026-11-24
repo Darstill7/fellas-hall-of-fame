@@ -1,0 +1,196 @@
+name: Historical championship and provider matchup consistency
+on:
+  pull_request:
+    paths:
+      - 'data/**'
+      - 'data-integrity/historical-*-confirmation-*.json'
+      - 'scripts/test-historical-championship-consistency.mjs'
+      - 'scripts/build-frozen-regular-statistics.mjs'
+      - 'scripts/collect-live-completed-regular.mjs'
+      - 'scripts/test-combined-career-refresh.mjs'
+      - 'scripts/test-full-era-career-agreement.mjs'
+      - 'scripts/build-manager-profile-career-projection.mjs'
+      - 'scripts/build-career-core-projection.mjs'
+      - 'scripts/build-season-guide-projection.mjs'
+      - 'scripts/build-unified-record-book-projection.mjs'
+      - 'scripts/build-weekly-mirror-luck-projections.mjs'
+      - 'scripts/build-manager-record-books-projection.mjs'
+      - 'scripts/build-manager-season-endings-projection.mjs'
+      - 'scripts/test-nine-career-projections.mjs'
+      - 'scripts/rebuild-playoff-race.mjs'
+      - 'scripts/test-certified-playoff-race.mjs'
+      - 'scripts/stage-verified-career-website-candidate.mjs'
+      - 'scripts/test-staged-career-website-consumers.mjs'
+      - 'scripts/audit-mobile-journey.mjs'
+      - 'scripts/test-career-projection-agreement.mjs'
+      - 'scripts/test-espn-two-week-postseason.mjs'
+      - 'scripts/test-espn-cumulative-consolation.mjs'
+      - 'scripts/audit-career-consumer-dependencies.mjs'
+      - 'data-integrity/frozen-regular-matchups-2016-2019-v1.json'
+      - 'scripts/test-frozen-provider-agreement.mjs'
+      - 'data-integrity/frozen-regular-matchups-2020-2025-v1.json'
+      - 'scripts/research-regular-season-source-reconciliation.mjs'
+      - '.github/workflows/historical-consistency.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  championship:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-historical-championship-consistency.mjs
+      - run: node scripts/test-espn-two-week-postseason.mjs
+      - run: node scripts/test-espn-cumulative-consolation.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: espn-two-week-postseason-receipts
+          path: |
+            data-integrity/historical-trade-draft-audits/espn-two-week-postseason-receipts.json
+            data-integrity/historical-trade-draft-audits/espn-2019-cumulative-consolation-receipts.json
+          if-no-files-found: error
+  provider-matchups:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/research-regular-season-source-reconciliation.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: historical-provider-matchup-reconciliation
+          path: data-integrity/historical-trade-draft-audits/regular-season-source-reconciliation.json
+          if-no-files-found: error
+  frozen-statistics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/build-frozen-regular-statistics.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frozen-regular-statistics-v1
+          path: data-integrity/historical-trade-draft-audits/frozen-regular-statistics-v1.json
+          if-no-files-found: error
+  independent-agreement:
+    needs: [provider-matchups, frozen-statistics]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: historical-provider-matchup-reconciliation
+          path: data-integrity/historical-trade-draft-audits
+      - uses: actions/download-artifact@v4
+        with:
+          name: frozen-regular-statistics-v1
+          path: data-integrity/historical-trade-draft-audits
+      - run: node scripts/test-frozen-provider-agreement.mjs
+  combined-career:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Collect completed week 10 for research rehearsal
+        run: FELLAS_COMPLETED_WEEK=10 node scripts/collect-live-completed-regular.mjs
+      - name: Generate frozen and combined career statistics
+        run: |
+          node scripts/build-frozen-regular-statistics.mjs
+          FELLAS_LIVE_INPUT=data-integrity/historical-trade-draft-audits/live-completed-regular-2026.json FELLAS_STATS_OUTPUT=data-integrity/historical-trade-draft-audits/combined-career-statistics.json node scripts/build-frozen-regular-statistics.mjs
+      - name: Prove deterministic refresh and reject invalid inputs
+        run: node scripts/test-combined-career-refresh.mjs
+      - name: Generate and independently verify full-era career statistics
+        run: |
+          FELLAS_FULL_ERA=1 FELLAS_LIVE_INPUT=data-integrity/historical-trade-draft-audits/live-completed-regular-2026.json FELLAS_STATS_OUTPUT=data-integrity/historical-trade-draft-audits/full-era-career-statistics.json node scripts/build-frozen-regular-statistics.mjs
+          node scripts/test-full-era-career-agreement.mjs
+      - name: Generate certified manager profile preview and migration audit
+        run: node scripts/build-manager-profile-career-projection.mjs
+      - name: Generate compatible career core from certified history
+        run: node scripts/build-career-core-projection.mjs
+      - name: Generate reconciled season guide and migration audit
+        run: node scripts/build-season-guide-projection.mjs
+      - name: Reconstruct unified record book and require cross-dataset agreement
+        run: |
+          node scripts/build-unified-record-book-projection.mjs
+          node scripts/test-career-projection-agreement.mjs
+      - name: Regenerate matchup mirror, luck and personal records
+        run: |
+          node scripts/build-weekly-mirror-luck-projections.mjs
+          node scripts/build-manager-record-books-projection.mjs
+      - name: Verify season endings and all nine statistical projections
+        run: |
+          node scripts/build-manager-season-endings-projection.mjs
+          node scripts/test-nine-career-projections.mjs
+      - name: Verify isolated playoff race against certified standings
+        run: node scripts/test-certified-playoff-race.mjs
+      - name: Stage verified website migration package
+        run: node scripts/stage-verified-career-website-candidate.mjs
+      - name: Inventory all legacy career consumers
+        run: node scripts/audit-career-consumer-dependencies.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: combined-career-research
+          path: |
+            data-integrity/historical-trade-draft-audits/live-completed-regular-2026.json
+            data-integrity/historical-trade-draft-audits/combined-career-statistics.json
+            data-integrity/historical-trade-draft-audits/full-era-career-statistics.json
+            data-integrity/historical-trade-draft-audits/manager-profile-career-preview.json
+            data-integrity/historical-trade-draft-audits/manager-profile-career-migration-audit.json
+            data-integrity/historical-trade-draft-audits/career-consumer-dependencies.json
+            data-integrity/historical-trade-draft-audits/career-core-preview.json
+            data-integrity/historical-trade-draft-audits/season-guide-preview.json
+            data-integrity/historical-trade-draft-audits/season-guide-migration-audit.json
+            data-integrity/historical-trade-draft-audits/unified-record-book-preview.json
+            data-integrity/historical-trade-draft-audits/weekly-matchup-mirror-preview.json
+            data-integrity/historical-trade-draft-audits/all-time-luck-preview.json
+            data-integrity/historical-trade-draft-audits/manager-record-books-preview.json
+            data-integrity/historical-trade-draft-audits/manager-season-endings-preview.json
+            data-integrity/historical-trade-draft-audits/manager-season-results-preview.json
+            data-integrity/historical-trade-draft-audits/playoff-race-preview.json
+            data-integrity/historical-trade-draft-audits/website-migration-candidate/
+          if-no-files-found: error
+
+  website-candidate-consumers:
+    needs: [combined-career]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: combined-career-research
+          path: data-integrity/historical-trade-draft-audits
+      - name: Install mobile browser engines
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Exercise existing website against isolated verified candidate
+        run: node scripts/test-staged-career-website-consumers.mjs
+      - name: Preserve integration findings and mobile evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-candidate-integration
+          path: |
+            data-integrity/historical-trade-draft-audits/website-migration-candidate/consumer-integration-report.json
+            data-integrity/mobile-journey/
+          if-no-files-found: warn

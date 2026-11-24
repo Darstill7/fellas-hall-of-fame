@@ -1,7 +1,8 @@
 name: Stage completed Sleeper week for review
 on:
   schedule:
-    - cron: '30 14 * * 3'
+    # 7 AM Indianapolis (EST), remaining 2026 fantasy season only.
+    - cron: '0 12 * * 2'
   workflow_dispatch:
 permissions:
   contents: write
@@ -11,14 +12,29 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Restrict scheduled collection to remaining 2026 season
+        id: season-window
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          today=$(TZ=America/Indiana/Indianapolis date +%F)
+          if [[ "$EVENT_NAME" == schedule && ( "$today" < 2026-11-24 || "$today" > 2027-01-12 ) ]]; then
+            echo 'active=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'active=true' >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/checkout@v4
+        if: steps.season-window.outputs.active == 'true'
       - uses: actions/setup-node@v4
+        if: steps.season-window.outputs.active == 'true'
         with:
           node-version: '22'
       - name: Check staging script syntax
+        if: steps.season-window.outputs.active == 'true'
         run: node --check scripts/stage-sleeper-week.mjs
       - name: Stage complete next week (skip expected not-yet-final cases)
         id: stage
+        if: steps.season-window.outputs.active == 'true'
         run: |
           if node scripts/stage-sleeper-week.mjs > /tmp/sleeper-stage.log 2>&1; then
             cat /tmp/sleeper-stage.log
@@ -31,6 +47,7 @@ jobs:
             fi
           fi
       - name: Create review pull request, never update canonical history automatically
+        if: steps.season-window.outputs.active == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
           commit-message: 'Stage verified-coverage Sleeper weekly matchups for human review'

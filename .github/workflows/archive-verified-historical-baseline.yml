@@ -1,0 +1,40 @@
+name: Archive independently verified historical baseline
+on:
+  workflow_dispatch:
+    inputs:
+      approved_fingerprint:
+        description: 'Exact reviewed historical content SHA-256'
+        required: true
+        type: string
+permissions:
+  contents: write
+  actions: read
+jobs:
+  archive:
+    if: github.ref == 'refs/heads/research/2025-trade-draft-source-audit-20261123'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Download pinned original artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/fellas-historical
+          gh api repos/${{ github.repository }}/actions/artifacts/14879748458/zip > /tmp/fellas-historical/archive.zip
+          echo 'bc39e942c249d16bf80d0166b84297151f0aa0b583352355b86eb2a7459fc07c  /tmp/fellas-historical/archive.zip' | sha256sum -c -
+          unzip -q /tmp/fellas-historical/archive.zip -d /tmp/fellas-historical/extracted
+      - name: Verify and stage exact historical files
+        env:
+          APPROVED_FINGERPRINT: ${{ inputs.approved_fingerprint }}
+        run: node scripts/archive-verified-historical-baseline.mjs /tmp/fellas-historical/extracted
+      - name: Commit verified historical baseline to research branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data-integrity/frozen-acquisitions-2020-2025
+          git diff --cached --quiet && exit 0
+          git commit -m 'Archive exact independently verified historical acquisition baseline'
+          git push origin HEAD:refs/heads/research/2025-trade-draft-source-audit-20261123
