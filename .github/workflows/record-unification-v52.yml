@@ -1,0 +1,31 @@
+name: Record unification research 5.2
+on:
+  pull_request:
+    paths:
+      - 'scripts/build-*record*-v52.mjs'
+      - 'assets/manager-record-ownership.mjs'
+      - 'data/**'
+      - '.github/workflows/record-unification-v52.yml'
+  workflow_dispatch:
+jobs:
+  record-research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Inventory source definitions
+        run: node scripts/build-record-inventory-v52.mjs
+      - name: Recompute current regular-season core
+        run: node scripts/build-canonical-record-core-v52.mjs
+      - name: Recompute and verify completed record candidates
+        run: node scripts/build-canonical-record-completed-v52.mjs
+      - name: Upload candidate receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: record-unification-research
+          path: data-integrity/*record*-v52.json
+          if-no-files-found: error
