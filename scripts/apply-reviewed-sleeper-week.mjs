@@ -69,6 +69,9 @@ if(process.argv.includes('--dry-run')) {
  write(path,ledger);write(mirrorPath,mirror);write(luckPath,luck);
 execFileSync(process.execPath,['scripts/generate-career-core.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/generate-season-guide.mjs'],{stdio:'inherit'});
+// Regenerate and verify the compact homepage projection only after approved canonical data is written.
+execFileSync(process.execPath,['scripts/build-home-current-season.mjs'],{stdio:'inherit'});
+execFileSync(process.execPath,['scripts/build-home-current-season.mjs','--check'],{stdio:'inherit'});
 // Regenerate Schedule Luck from the same approved matchup ledger; do not update it from staged PRs.
 execFileSync(process.execPath,['scripts/build-schedule-luck.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/build-luck-performance-profiles.mjs'],{stdio:'inherit'});
