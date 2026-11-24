@@ -1,6 +1,7 @@
 // Standalone browser-free audit for Phase 2 proposed record categories.
 // Run: node scripts/verify-record-book-phase2.mjs
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
 const result=JSON.parse(execFileSync(process.execPath,['scripts/build-record-book-phase2.mjs'],{encoding:'utf8',maxBuffer:20*1024*1024}));
 assert.equal(result.status,'provisional-not-published');
@@ -8,7 +9,12 @@ assert.equal(result.categoryCount,23);
 assert.equal(result.categories.length,23);
 assert.equal(result.coverage.games,660+result.coverage.latest2026Week*5);
 assert.equal(result.coverage.weeklyScoringSets,133+result.coverage.latest2026Week);
-assert.equal(result.coverage.latest2026Week,10);
+const ledger=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json','utf8'));
+const completed=ledger.games.filter(g=>g.year===2026&&g.stage==='regular');
+const latest=Math.max(...completed.map(g=>g.week));
+assert.equal(completed.length,latest*5);
+assert.equal(result.coverage.latest2026Week,latest);
+// Fixed historical leader expectations below are intentionally retained; a changed leader requires source review.
 assert.deepEqual(result.coverage.excludedPartialWeeks,[
  {year:2020,week:14,scoredTeams:8},{year:2021,week:14,scoredTeams:8}
 ]);
