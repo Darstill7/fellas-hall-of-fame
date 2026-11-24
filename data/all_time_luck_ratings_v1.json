@@ -1,7 +1,7 @@
 {
   "version": 2,
   "source": "data/unified_record_book_2016_2026.json",
-  "scope": "2016-2026 Week10 regular-season recovered game logs (one league, both platforms)",
+  "scope": "2016-2026 Week11 regular-season recovered game logs (one league, both platforms)",
   "method": "Expected wins per week = fraction of all other playing teams outscored (ties worth half); luck = actual wins (ties half) minus all-play expected wins. Byes never become matchups; group comparisons use active teams that week.",
   "limitations": [
     "2020 and 2021 Week 14 each had two scored but unpaired rosters; no results or byes inferred.",
@@ -12,9 +12,9 @@
   "ranked": [
     {
       "manager": "Birch",
-      "games": 130,
-      "actualWins": 73,
-      "expectedWins": 66.33322222222223,
+      "games": 131,
+      "actualWins": 74,
+      "expectedWins": 67.111,
       "bySeason": {
         "2017": {
           "games": 12,
@@ -62,19 +62,19 @@
           "expectedWins": 6.333333333333333
         },
         "2026": {
-          "games": 10,
-          "actualWins": 6,
-          "expectedWins": 5.666666666666666
+          "games": 11,
+          "actualWins": 7,
+          "expectedWins": 6.444444444444444
         }
       },
-      "luckWins": 6.67,
-      "luckPer14": 0.72
+      "luckWins": 6.89,
+      "luckPer14": 0.74
     },
     {
       "manager": "Stover",
-      "games": 145,
-      "actualWins": 76,
-      "expectedWins": 73.94444444444444,
+      "games": 146,
+      "actualWins": 77,
+      "expectedWins": 74.27777777777777,
       "bySeason": {
         "2016": {
           "games": 13,
@@ -127,13 +127,13 @@
           "expectedWins": 4.888888888888889
         },
         "2026": {
-          "games": 10,
-          "actualWins": 4,
-          "expectedWins": 5.111111111111111
+          "games": 11,
+          "actualWins": 5,
+          "expectedWins": 5.444444444444444
         }
       },
-      "luckWins": 2.06,
-      "luckPer14": 0.2
+      "luckWins": 2.72,
+      "luckPer14": 0.26
     },
     {
       "manager": "Halderman",
@@ -157,9 +157,9 @@
     },
     {
       "manager": "Scott",
-      "games": 38,
+      "games": 39,
       "actualWins": 17,
-      "expectedWins": 17.44477777777778,
+      "expectedWins": 18.000333333333337,
       "bySeason": {
         "2024": {
           "games": 14,
@@ -172,19 +172,19 @@
           "expectedWins": 8.277777777777775
         },
         "2026": {
-          "games": 10,
+          "games": 11,
           "actualWins": 4,
-          "expectedWins": 3.666666666666667
+          "expectedWins": 4.222222222222222
         }
       },
-      "luckWins": -0.44,
-      "luckPer14": -0.16
+      "luckWins": -1,
+      "luckPer14": -0.36
     },
     {
       "manager": "Mitch",
-      "games": 119,
+      "games": 120,
       "actualWins": 71,
-      "expectedWins": 71.04811111111111,
+      "expectedWins": 71.15922222222223,
       "bySeason": {
         "2018": {
           "games": 13,
@@ -227,19 +227,19 @@
           "expectedWins": 10.777777777777777
         },
         "2026": {
-          "games": 10,
+          "games": 11,
           "actualWins": 8,
-          "expectedWins": 7.111111111111112
+          "expectedWins": 7.222222222222222
         }
       },
-      "luckWins": -0.05,
-      "luckPer14": -0.01
+      "luckWins": -0.16,
+      "luckPer14": -0.02
     },
     {
       "manager": "Stew",
-      "games": 145,
-      "actualWins": 69,
-      "expectedWins": 67.0631111111111,
+      "games": 146,
+      "actualWins": 70,
+      "expectedWins": 67.95199999999998,
       "bySeason": {
         "2016": {
           "games": 13,
@@ -292,19 +292,19 @@
           "expectedWins": 7.722222222222223
         },
         "2026": {
-          "games": 10,
-          "actualWins": 7,
-          "expectedWins": 6.333333333333332
+          "games": 11,
+          "actualWins": 8,
+          "expectedWins": 7.222222222222221
         }
       },
-      "luckWins": 1.94,
-      "luckPer14": 0.19
+      "luckWins": 2.05,
+      "luckPer14": 0.2
     },
     {
       "manager": "Tony",
-      "games": 131,
-      "actualWins": 74,
-      "expectedWins": 73.492,
+      "games": 132,
+      "actualWins": 75,
+      "expectedWins": 74.492,
       "bySeason": {
         "2017": {
           "games": 12,
@@ -352,9 +352,9 @@
           "expectedWins": 8.88888888888889
         },
         "2026": {
-          "games": 10,
-          "actualWins": 7,
-          "expectedWins": 4.777777777777779
+          "games": 11,
+          "actualWins": 8,
+          "expectedWins": 5.777777777777779
         }
       },
       "luckWins": 0.51,
@@ -362,9 +362,9 @@
     },
     {
       "manager": "Stilly",
-      "games": 145,
-      "actualWins": 68,
-      "expectedWins": 68.55544444444445,
+      "games": 146,
+      "actualWins": 69,
+      "expectedWins": 69.22211111111112,
       "bySeason": {
         "2016": {
           "games": 13,
@@ -417,13 +417,13 @@
           "expectedWins": 5.777777777777778
         },
         "2026": {
-          "games": 10,
-          "actualWins": 6,
-          "expectedWins": 6
+          "games": 11,
+          "actualWins": 7,
+          "expectedWins": 6.666666666666667
         }
       },
-      "luckWins": -0.56,
-      "luckPer14": -0.05
+      "luckWins": -0.22,
+      "luckPer14": -0.02
     },
     {
       "manager": "Koble",
@@ -477,9 +477,9 @@
     },
     {
       "manager": "Thommy",
-      "games": 145,
+      "games": 146,
       "actualWins": 67.5,
-      "expectedWins": 69.24544444444444,
+      "expectedWins": 69.46766666666667,
       "bySeason": {
         "2016": {
           "games": 13,
@@ -532,13 +532,13 @@
           "expectedWins": 7.111111111111112
         },
         "2026": {
-          "games": 10,
+          "games": 11,
           "actualWins": 3,
-          "expectedWins": 4.222222222222222
+          "expectedWins": 4.444444444444445
         }
       },
-      "luckWins": -1.75,
-      "luckPer14": -0.17
+      "luckWins": -1.97,
+      "luckPer14": -0.19
     },
     {
       "manager": "Evans",
@@ -592,7 +592,7 @@
     },
     {
       "manager": "Kuhl",
-      "games": 120,
+      "games": 121,
       "actualWins": 51,
       "expectedWins": 53.778,
       "bySeason": {
@@ -637,7 +637,7 @@
           "expectedWins": 4.888888888888888
         },
         "2026": {
-          "games": 10,
+          "games": 11,
           "actualWins": 0,
           "expectedWins": 1.3333333333333335
         }
@@ -667,9 +667,9 @@
     },
     {
       "manager": "JMid",
-      "games": 38,
+      "games": 39,
       "actualWins": 18,
-      "expectedWins": 19.72244444444444,
+      "expectedWins": 20.166888888888884,
       "bySeason": {
         "2024": {
           "games": 14,
@@ -682,13 +682,13 @@
           "expectedWins": 5.333333333333334
         },
         "2026": {
-          "games": 10,
+          "games": 11,
           "actualWins": 5,
-          "expectedWins": 5.777777777777779
+          "expectedWins": 6.222222222222223
         }
       },
-      "luckWins": -1.72,
-      "luckPer14": -0.63
+      "luckWins": -2.17,
+      "luckPer14": -0.78
     }
   ]
 }

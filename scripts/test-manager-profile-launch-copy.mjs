@@ -246,11 +246,24 @@ for(const kind of expectedKinds){
  const scores=holders.flatMap(([,records])=>records.filter(r=>r.label===kind).map(r=>r.value));
  if(new Set(scores).size!==1)throw Error('Record holders disagree on league-leading value: '+kind);
 }
-const rivalryLeaders=['Mitch','Stilly','Stover'];
-for(const name of rivalryLeaders){
- if(holderMap.get(name).find(r=>r.label==='Most regular-season wins against a single opponent')?.value!==11)
-  throw Error('Verified rivalry record changed for '+name);
+// Independently derive the current regular-season rivalry record from canonical games.
+const rivalryLedger=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json','utf8'));
+const rivalryWins=new Map();
+for(const g of rivalryLedger.games){
+ if(g.stage!=='regular'||!['HOME','AWAY'].includes(g.winner))continue;
+ const pair=g.winner==='HOME'?[g.home,g.away]:[g.away,g.home];
+ const key=JSON.stringify(pair);
+ rivalryWins.set(key,(rivalryWins.get(key)||0)+1);
 }
+const rivalryMax=Math.max(...rivalryWins.values());
+const expectedRivalryHolders=new Set([...rivalryWins].filter(([,w])=>w===rivalryMax).map(([k])=>JSON.parse(k)[0]));
+const rivalryLabel='Most regular-season wins against a single opponent';
+for(const [name,records] of holderMap){
+ const record=records.find(r=>r.label===rivalryLabel);
+ if(expectedRivalryHolders.has(name)?record?.value!==rivalryMax:!!record)
+  throw Error('Verified rivalry record differs from canonical ledger for '+name);
+}
+console.log('Canonical rivalry leader(s): '+[...expectedRivalryHolders].join(', ')+' with '+rivalryMax+' wins');
 for(const manager of ['Thommy','Birch']){
  if(holderMap.get(manager).find(r=>r.label==='Most championship-bracket playoff appearances')?.value!==7)
   throw Error('Verified playoff appearance leader changed: '+manager);

@@ -7,7 +7,7 @@
   ],
   "completedSeasonsThrough": 2025,
   "currentSeason": 2026,
-  "currentThroughWeek": 10,
+  "currentThroughWeek": 11,
   "includedCurrentWeeks": [
     1,
     2,
@@ -18,7 +18,8 @@
     7,
     8,
     9,
-    10
+    10,
+    11
   ],
   "excludedCurrentWeeks": [],
   "record": {
@@ -158,83 +159,83 @@
   "currentSeasonProvisional": [
     {
       "manager": "Tony",
-      "pairedWeeks": 10,
-      "actualWinCredits": 7,
-      "expectedWins": 4.778,
+      "pairedWeeks": 11,
+      "actualWinCredits": 8,
+      "expectedWins": 5.778,
       "scheduleLuckWins": 2.222,
-      "scheduleLuckPerWeek": 0.2222
+      "scheduleLuckPerWeek": 0.202
     },
     {
       "manager": "Mitch",
-      "pairedWeeks": 10,
+      "pairedWeeks": 11,
       "actualWinCredits": 8,
-      "expectedWins": 7.111,
-      "scheduleLuckWins": 0.889,
-      "scheduleLuckPerWeek": 0.0889
+      "expectedWins": 7.222,
+      "scheduleLuckWins": 0.778,
+      "scheduleLuckPerWeek": 0.0707
     },
     {
       "manager": "Stew",
-      "pairedWeeks": 10,
-      "actualWinCredits": 7,
-      "expectedWins": 6.333,
-      "scheduleLuckWins": 0.667,
-      "scheduleLuckPerWeek": 0.0667
-    },
-    {
-      "manager": "Scott",
-      "pairedWeeks": 10,
-      "actualWinCredits": 4,
-      "expectedWins": 3.667,
-      "scheduleLuckWins": 0.333,
-      "scheduleLuckPerWeek": 0.0333
+      "pairedWeeks": 11,
+      "actualWinCredits": 8,
+      "expectedWins": 7.222,
+      "scheduleLuckWins": 0.778,
+      "scheduleLuckPerWeek": 0.0707
     },
     {
       "manager": "Birch",
-      "pairedWeeks": 10,
-      "actualWinCredits": 6,
-      "expectedWins": 5.667,
-      "scheduleLuckWins": 0.333,
-      "scheduleLuckPerWeek": 0.0333
+      "pairedWeeks": 11,
+      "actualWinCredits": 7,
+      "expectedWins": 6.444,
+      "scheduleLuckWins": 0.556,
+      "scheduleLuckPerWeek": 0.0505
     },
     {
       "manager": "Stilly",
-      "pairedWeeks": 10,
-      "actualWinCredits": 6,
-      "expectedWins": 6,
-      "scheduleLuckWins": 0,
-      "scheduleLuckPerWeek": 0
+      "pairedWeeks": 11,
+      "actualWinCredits": 7,
+      "expectedWins": 6.667,
+      "scheduleLuckWins": 0.333,
+      "scheduleLuckPerWeek": 0.0303
     },
     {
-      "manager": "JMid",
-      "pairedWeeks": 10,
-      "actualWinCredits": 5,
-      "expectedWins": 5.778,
-      "scheduleLuckWins": -0.778,
-      "scheduleLuckPerWeek": -0.0778
+      "manager": "Scott",
+      "pairedWeeks": 11,
+      "actualWinCredits": 4,
+      "expectedWins": 4.222,
+      "scheduleLuckWins": -0.222,
+      "scheduleLuckPerWeek": -0.0202
     },
     {
       "manager": "Stover",
-      "pairedWeeks": 10,
-      "actualWinCredits": 4,
-      "expectedWins": 5.111,
-      "scheduleLuckWins": -1.111,
+      "pairedWeeks": 11,
+      "actualWinCredits": 5,
+      "expectedWins": 5.444,
+      "scheduleLuckWins": -0.444,
+      "scheduleLuckPerWeek": -0.0404
+    },
+    {
+      "manager": "JMid",
+      "pairedWeeks": 11,
+      "actualWinCredits": 5,
+      "expectedWins": 6.222,
+      "scheduleLuckWins": -1.222,
       "scheduleLuckPerWeek": -0.1111
     },
     {
-      "manager": "Thommy",
-      "pairedWeeks": 10,
-      "actualWinCredits": 3,
-      "expectedWins": 4.222,
-      "scheduleLuckWins": -1.222,
-      "scheduleLuckPerWeek": -0.1222
-    },
-    {
       "manager": "Kuhl",
-      "pairedWeeks": 10,
+      "pairedWeeks": 11,
       "actualWinCredits": 0,
       "expectedWins": 1.333,
       "scheduleLuckWins": -1.333,
-      "scheduleLuckPerWeek": -0.1333
+      "scheduleLuckPerWeek": -0.1212
+    },
+    {
+      "manager": "Thommy",
+      "pairedWeeks": 11,
+      "actualWinCredits": 3,
+      "expectedWins": 4.444,
+      "scheduleLuckWins": -1.444,
+      "scheduleLuckPerWeek": -0.1313
     }
   ],
   "careerPlusCurrentProvisional": [
@@ -243,18 +244,18 @@
       "completedSeasons": 9,
       "completedWeeks": 120,
       "completedScheduleLuckWins": 6.335,
-      "currentWeeks": 10,
-      "currentScheduleLuckWins": 0.333,
-      "combinedScheduleLuckWins": 6.668
+      "currentWeeks": 11,
+      "currentScheduleLuckWins": 0.556,
+      "combinedScheduleLuckWins": 6.891
     },
     {
       "manager": "Stover",
       "completedSeasons": 10,
       "completedWeeks": 133,
       "completedScheduleLuckWins": 2.31,
-      "currentWeeks": 10,
-      "currentScheduleLuckWins": -1.111,
-      "combinedScheduleLuckWins": 1.199
+      "currentWeeks": 11,
+      "currentScheduleLuckWins": -0.444,
+      "combinedScheduleLuckWins": 1.866
     },
     {
       "manager": "Halderman",
@@ -270,43 +271,43 @@
       "completedSeasons": 10,
       "completedWeeks": 133,
       "completedScheduleLuckWins": 0.841,
-      "currentWeeks": 10,
-      "currentScheduleLuckWins": 0.667,
-      "combinedScheduleLuckWins": 1.508
+      "currentWeeks": 11,
+      "currentScheduleLuckWins": 0.778,
+      "combinedScheduleLuckWins": 1.619
     },
     {
       "manager": "Mitch",
       "completedSeasons": 8,
       "completedWeeks": 108,
       "completedScheduleLuckWins": -0.221,
-      "currentWeeks": 10,
-      "currentScheduleLuckWins": 0.889,
-      "combinedScheduleLuckWins": 0.668
+      "currentWeeks": 11,
+      "currentScheduleLuckWins": 0.778,
+      "combinedScheduleLuckWins": 0.557
     },
     {
       "manager": "Thommy",
       "completedSeasons": 10,
       "completedWeeks": 133,
       "completedScheduleLuckWins": -0.381,
-      "currentWeeks": 10,
-      "currentScheduleLuckWins": -1.222,
-      "combinedScheduleLuckWins": -1.603
+      "currentWeeks": 11,
+      "currentScheduleLuckWins": -1.444,
+      "combinedScheduleLuckWins": -1.825
     },
     {
       "manager": "Stilly",
       "completedSeasons": 10,
       "completedWeeks": 133,
       "completedScheduleLuckWins": -0.842,
-      "currentWeeks": 10,
-      "currentScheduleLuckWins": 0,
-      "combinedScheduleLuckWins": -0.842
+      "currentWeeks": 11,
+      "currentScheduleLuckWins": 0.333,
+      "combinedScheduleLuckWins": -0.509
     },
     {
       "manager": "Tony",
       "completedSeasons": 9,
       "completedWeeks": 120,
       "completedScheduleLuckWins": -1.001,
-      "currentWeeks": 10,
+      "currentWeeks": 11,
       "currentScheduleLuckWins": 2.222,
       "combinedScheduleLuckWins": 1.221
     },
@@ -324,7 +325,7 @@
       "completedSeasons": 8,
       "completedWeeks": 108,
       "completedScheduleLuckWins": -1.446,
-      "currentWeeks": 10,
+      "currentWeeks": 11,
       "currentScheduleLuckWins": -1.333,
       "combinedScheduleLuckWins": -2.779
     },
@@ -342,18 +343,18 @@
       "completedSeasons": 2,
       "completedWeeks": 28,
       "completedScheduleLuckWins": -0.778,
-      "currentWeeks": 10,
-      "currentScheduleLuckWins": 0.333,
-      "combinedScheduleLuckWins": -0.445
+      "currentWeeks": 11,
+      "currentScheduleLuckWins": -0.222,
+      "combinedScheduleLuckWins": -1
     },
     {
       "manager": "JMid",
       "completedSeasons": 2,
       "completedWeeks": 28,
       "completedScheduleLuckWins": -0.944,
-      "currentWeeks": 10,
-      "currentScheduleLuckWins": -0.778,
-      "combinedScheduleLuckWins": -1.722
+      "currentWeeks": 11,
+      "currentScheduleLuckWins": -1.222,
+      "combinedScheduleLuckWins": -2.166
     },
     {
       "manager": "Schermerhorn",
