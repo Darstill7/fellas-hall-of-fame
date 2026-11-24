@@ -123,6 +123,8 @@ try{
     if(appHome){
      await page.locator('#my-manager').selectOption('Stilly');
      await page.locator('.personal-card').waitFor({timeout:25000});
+     await page.locator('.fellas-app-nav a[data-app-tab="team"]').click();
+     await page.locator('body:not(.home-overview)').waitFor();
      const profile=page.locator('#my-team a[href="managers/stilly/"]').first();
      expect(await profile.count()===1,'Production personalized team lacks franchise route',{engine,width});
      if(await profile.count()){await profile.click();await page.waitForLoadState('networkidle',{timeout:25000});expect(new URL(page.url()).pathname.endsWith('/managers/stilly/'),'Production personalized franchise tap failed',{engine,width})}
