@@ -1,0 +1,22 @@
+import {chromium,webkit} from 'playwright';
+import http from 'node:http';import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';
+const root=process.cwd(),prefix='/fellas-hall-of-fame/';
+const types={'.html':'text/html','.mjs':'text/javascript','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.webmanifest':'application/manifest+json'};
+const server=http.createServer(async(req,res)=>{try{const u=new URL(req.url,'http://localhost');if(!u.pathname.startsWith(prefix))throw Error('outside');let rel=decodeURIComponent(u.pathname.slice(prefix.length));if(!rel||rel.endsWith('/'))rel+='index.html';const f=path.resolve(root,rel);if(!f.startsWith(root+path.sep))throw Error('outside');const b=await fs.readFile(f);res.writeHead(200,{'Content-Type':types[path.extname(f)]||'application/octet-stream'});res.end(b)}catch{res.writeHead(404);res.end()}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port+prefix;
+const out='data-integrity/production-rehearsal';await fs.mkdir(out,{recursive:true});const results=[];
+try{for(const [engine,runner] of [['chromium',chromium],['webkit',webkit]]){const browser=await runner.launch();try{for(const width of [320,390,1280]){
+ const p=await browser.newPage({viewport:{width,height:844}}),errors=[];p.on('pageerror',e=>errors.push(e.message));
+ await p.goto(base);await p.locator('.standing:not(.head)').first().waitFor();
+ assert.equal(await p.locator('.standing:not(.head)').count(),10);assert.equal(await p.locator('.matchup').count(),5);assert.equal(await p.locator('.preview-note').count(),0);
+ assert.equal(await p.locator('.fellas-app-nav a').count(),5);assert.equal(await p.locator('.fellas-app-nav [aria-current]').getAttribute('data-app-tab'),'team');
+ await p.locator('#my-manager').selectOption('Stilly');await p.locator('.personal-card').waitFor();assert.match(await p.locator('.personal-card').innerText(),/Stilly/);
+ await p.screenshot({path:out+'/'+engine+'-'+width+'.png',fullPage:true});
+ await p.locator('.fellas-app-nav a[data-app-tab="managers"]').click();await p.locator('.fellas-app-nav a[data-app-tab="team"]').waitFor();
+ await p.locator('.fellas-app-nav a[data-app-tab="team"]').click();await p.locator('.personal-card').waitFor();assert.equal(new URL(p.url()).pathname,prefix+'index.html');assert.equal(await p.locator('#my-manager').inputValue(),'Stilly');
+ await p.locator('.fellas-app-nav a[data-app-tab="more"]').click();await p.locator('#more .archive summary').click();assert.ok(await p.locator('#more a[href="home-classic.html"]').isVisible());
+ assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+ await p.goto(base+'index.html#home-manager-title');await p.waitForURL('**/home-classic.html#home-manager-title');assert.equal(await p.locator('#home-manager-title').count(),1);
+ await p.waitForLoadState('networkidle');assert.deepEqual(errors,[]);results.push({engine,width,status:'PASS'});await p.close();
+ }}finally{await browser.close()}}}finally{server.close();await fs.writeFile(out+'/report.json',JSON.stringify(results,null,2))}
+assert.equal(results.length,6);
