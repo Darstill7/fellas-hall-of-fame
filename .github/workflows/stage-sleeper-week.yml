@@ -1,7 +1,8 @@
 name: Stage completed Sleeper week for review
 on:
   schedule:
-    - cron: '30 14 * * 3'
+    - cron: '0 12 * * 2' # Tuesday after Monday Night Football; staged review only
+    - cron: '30 14 * * 3' # Wednesday fallback if source results finalize late
   workflow_dispatch:
 permissions:
   contents: write
@@ -16,20 +17,37 @@ jobs:
         with:
           node-version: '22'
       - name: Check staging script syntax
-        run: node --check scripts/stage-sleeper-week.mjs
+        run: |
+          node --check scripts/stage-sleeper-week.mjs
+          node --check scripts/stage-sleeper-trades.mjs
+          node --check scripts/review-staged-trades.mjs
       - name: Stage complete next week (skip expected not-yet-final cases)
         id: stage
         run: |
           if node scripts/stage-sleeper-week.mjs > /tmp/sleeper-stage.log 2>&1; then
             cat /tmp/sleeper-stage.log
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
           else
             cat /tmp/sleeper-stage.log
             if grep -q 'has not been superseded by the next NFL week' /tmp/sleeper-stage.log; then
               echo 'NFL week not finished; no update' >> "$GITHUB_STEP_SUMMARY"
+              echo 'ready=false' >> "$GITHUB_OUTPUT"
             else
               exit 1
             fi
           fi
+      - name: Stage completed trade receipts without grading or publication
+        if: steps.stage.outputs.ready == 'true'
+        run: |
+          node scripts/stage-sleeper-trades.mjs
+      - name: Diff new completed trades against audited museum, without publication
+        if: steps.stage.outputs.ready == 'true'
+        run: |
+          set -euo pipefail
+          WEEK=$(node -e "const x=require('./data/unified_record_book_2016_2026.json');console.log(1+Math.max(0,...x.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week)))")
+          node scripts/review-staged-trades.mjs \
+            "--candidate=data-integrity/sleeper-sync-candidates/2026-trades-through-week${WEEK}.json" \
+            "--output=data-integrity/sleeper-sync-candidates/2026-trade-review-through-week${WEEK}.json"
       - name: Create review pull request, never update canonical history automatically
         uses: peter-evans/create-pull-request@v7
         with:

@@ -5,7 +5,14 @@ import {mkdtemp,mkdir,writeFile,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import http from 'node:http';
-import {verifyFiles,verifyWithRetries} from './verify-pages-release-parity.mjs';
+import {verifyFiles,verifyWithRetries,checkedPaths} from './verify-pages-release-parity.mjs';
+
+for(const required of [
+ 'data/unified_record_book_2016_2026.json','data/playoff_race_v1.json',
+ 'data/trade_museum_stage66.json','data/current_2026_records_v1.json',
+ 'data/alltime_game_records_live_v1.json','data/alltime_career_records_live_v1.json',
+ 'data/ledger_milestones_live_v1.json','analytics/records.html','analytics/trade-museum.html'
+])assert(checkedPaths.includes(required),'Missing Pages publication parity coverage for '+required);
 
 const root=await mkdtemp(join(tmpdir(),'pages-parity-'));
 await mkdir(join(root,'assets'));

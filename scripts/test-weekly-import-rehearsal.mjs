@@ -23,8 +23,16 @@ try{
  const rejected=run('NO');
  if(rejected.status===0||!rejected.stderr.includes('Human approval required'))throw Error('Approval safeguard failed: '+rejected.stderr);
  const approved=run('YES');
- if(approved.status!==0||!approved.stdout.includes('DRY RUN PASS'))throw Error('Synthetic dry-run failed: '+approved.stderr+' '+approved.stdout);
+ if(usingReviewedCandidate){
+  if(approved.status!==0||!approved.stdout.includes('DRY RUN PASS'))
+   throw Error('Reviewed-source dry-run failed: '+approved.stderr+' '+approved.stdout);
+ }else{
+  // A synthetic fixture is only valid inside the isolated full-release test workflow.
+  // Canonical CI must prove production approval alone cannot bypass source provenance.
+  if(approved.status===0||!approved.stderr.includes('Unsupported or synthetic Sleeper source evidence'))
+   throw Error('Synthetic fixture bypassed production provenance guard: '+approved.stderr+' '+approved.stdout);
+ }
  const after=sourceFiles.map(hash);
  if(after.some((h,i)=>h!==before[i]))throw Error('Dry-run mutated canonical files');
- console.log('WEEKLY IMPORT REHEARSAL PASS: '+(usingReviewedCandidate?'review candidate':'synthetic fixture')+' Week '+fixtureWeek+', approved dry-run validated; no canonical file changes');
+ console.log('WEEKLY IMPORT REHEARSAL PASS: '+(usingReviewedCandidate?'approved dry-run with existing reviewed-source candidate':'synthetic fixture rejected despite approval')+' Week '+fixtureWeek+'; no canonical files modified');
 }finally{if(!usingReviewedCandidate)fs.rmSync(file,{force:true})}

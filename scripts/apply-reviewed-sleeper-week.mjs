@@ -12,6 +12,13 @@ const write=(p,x)=>fs.writeFileSync(p,JSON.stringify(x,null,2)+'\n');
 const path='data/unified_record_book_2016_2026.json',mirrorPath='data/season_weekly_matchups_2016_2026_v1.json',luckPath='data/all_time_luck_ratings_v1.json';
 const candidate=read(candidatePath),ledger=read(path),mirror=read(mirrorPath),luck=read(luckPath);
 if(candidate.status!=='REVIEW_REQUIRED'||candidate.year!==2026||candidate.matchupCount!==5||candidate.games?.length!==5||candidate.league!=='1340027406009761792')throw Error('Unverified candidate format');
+const rehearsalOnly=process.env.FELLAS_SYNTHETIC_REHEARSAL==='YES'&&
+ process.env.GITHUB_WORKFLOW==='Rehearse approved weekly data release (synthetic; never publish)';
+const supportedSleeperSources=new Set(['Sleeper public API','Connected Sleeper league weekly matchup result (Flaim Fantasy)']);
+const stagedEvidence=supportedSleeperSources.has(candidate.source)&&candidate.games.every(g=>g.source==='sleeper_api_staged_week_'+candidate.week);
+const syntheticEvidence=rehearsalOnly&&candidate.source==='SYNTHETIC_CI_TEST_DO_NOT_PUBLISH'&&candidate.games.every(g=>g.source===candidate.source);
+if(!stagedEvidence&&!syntheticEvidence)throw Error('Unsupported or synthetic Sleeper source evidence; publication refused');
+
 const prior=ledger.games.filter(g=>g.year===2026&&g.stage==='regular');
 const last=Math.max(0,...prior.map(g=>g.week));
 if(candidate.week!==last+1||candidate.week>14)throw Error('Noncontiguous or postseason week');
@@ -74,6 +81,14 @@ execFileSync(process.execPath,['scripts/build-schedule-luck.mjs'],{stdio:'inheri
 execFileSync(process.execPath,['scripts/build-luck-performance-profiles.mjs'],{stdio:'inherit'});
 // Regenerate the playoff outlook from the same five approved games; never retain last week's model.
 execFileSync(process.execPath,['scripts/rebuild-playoff-race.mjs'],{stdio:'inherit'});
+// Refresh strictly score-derived 2026 records from this exact approved ledger.
+execFileSync(process.execPath,['scripts/build-current-2026-records.mjs'],{stdio:'inherit'});
+// Independently rebuild the eight canonical-ledger single-game all-time records.
+execFileSync(process.execPath,['scripts/build-alltime-game-records.mjs'],{stdio:'inherit'});
+// Rebuild all auditable career regular-season scoring and threshold marks.
+execFileSync(process.execPath,['scripts/build-alltime-career-records.mjs'],{stdio:'inherit'});
+// Milestones maintain documented-streak and completed-season-only eligibility.
+execFileSync(process.execPath,['scripts/build-ledger-milestone-records.mjs'],{stdio:'inherit'});
 for(const script of ['verify-weekly-ledger-parity.mjs','verify-manager-madden-cards.mjs','verify-fellas-rating.mjs','test-playoff-race-archive.mjs'])
  execFileSync(process.execPath,['scripts/'+script],{stdio:'inherit'});
 console.log('Review regenerated files and full CI before merging. Source-dependent pages must pass their freshness audits before release; archival snapshots remain labeled.');

@@ -1,0 +1,440 @@
+{
+  "schema": "fellas-ledger-career-records-v1",
+  "source": "data/unified_record_book_2016_2026.json",
+  "verified2026ThroughWeek": 9,
+  "sourceRegularGames": 705,
+  "managerCount": 14,
+  "scope": "Only career regular-season counting and scoring-average categories sourced from approved matchups",
+  "caveats": [
+    "Scoring rules changed between ESPN and Sleeper; scores are not normalized",
+    "Career leaders include active players with partial 2026 seasons; not completed-season records",
+    "Threshold categories count regular-season team performances only; no postseason or overlapping cumulative scoring"
+  ],
+  "records": [
+    {
+      "key": "games",
+      "title": "Most regular-season games",
+      "unit": "games",
+      "minGames": 0,
+      "value": 144,
+      "holders": [
+        {
+          "manager": "Stew",
+          "value": 144,
+          "games": 144
+        },
+        {
+          "manager": "Stilly",
+          "value": 144,
+          "games": 144
+        },
+        {
+          "manager": "Stover",
+          "value": 144,
+          "games": 144
+        },
+        {
+          "manager": "Thommy",
+          "value": 144,
+          "games": 144
+        }
+      ],
+      "holderCount": 4
+    },
+    {
+      "key": "wins",
+      "title": "Most regular-season wins",
+      "unit": "wins",
+      "minGames": 0,
+      "value": 76,
+      "holders": [
+        {
+          "manager": "Stover",
+          "value": 76,
+          "games": 144
+        }
+      ],
+      "holderCount": 1
+    },
+    {
+      "key": "pointsFor",
+      "title": "Most career points scored",
+      "unit": "pointsFor",
+      "minGames": 0,
+      "value": 15420.98,
+      "holders": [
+        {
+          "manager": "Stover",
+          "value": 15420.98,
+          "games": 144
+        }
+      ],
+      "holderCount": 1
+    },
+    {
+      "key": "pointsAgainst",
+      "title": "Most career points allowed",
+      "unit": "pointsAgainst",
+      "minGames": 0,
+      "value": 15755.52,
+      "holders": [
+        {
+          "manager": "Stilly",
+          "value": 15755.52,
+          "games": 144
+        }
+      ],
+      "holderCount": 1
+    },
+    {
+      "key": "score100",
+      "title": "Most 100+ scoring weeks",
+      "unit": "100+ weeks",
+      "minGames": 0,
+      "value": 92,
+      "holders": [
+        {
+          "manager": "Mitch",
+          "value": 92,
+          "games": 118
+        }
+      ],
+      "holderCount": 1
+    },
+    {
+      "key": "score120",
+      "title": "Most 120+ scoring weeks",
+      "unit": "120+ weeks",
+      "minGames": 0,
+      "value": 55,
+      "holders": [
+        {
+          "manager": "Mitch",
+          "value": 55,
+          "games": 118
+        }
+      ],
+      "holderCount": 1
+    },
+    {
+      "key": "score140",
+      "title": "Most 140+ scoring weeks",
+      "unit": "140+ weeks",
+      "minGames": 0,
+      "value": 23,
+      "holders": [
+        {
+          "manager": "Mitch",
+          "value": 23,
+          "games": 118
+        }
+      ],
+      "holderCount": 1
+    },
+    {
+      "key": "score160",
+      "title": "Most 160+ scoring weeks",
+      "unit": "160+ weeks",
+      "minGames": 0,
+      "value": 13,
+      "holders": [
+        {
+          "manager": "Mitch",
+          "value": 13,
+          "games": 118
+        }
+      ],
+      "holderCount": 1
+    },
+    {
+      "key": "highScoringLosses",
+      "title": "Most losses scoring 130+",
+      "unit": "130+ point losses",
+      "minGames": 0,
+      "value": 4,
+      "holders": [
+        {
+          "manager": "Stew",
+          "value": 4,
+          "games": 144
+        },
+        {
+          "manager": "Stilly",
+          "value": 4,
+          "games": 144
+        }
+      ],
+      "holderCount": 2
+    },
+    {
+      "key": "winsBelow100",
+      "title": "Most wins below 100 points",
+      "unit": "sub-100 wins",
+      "minGames": 0,
+      "value": 14,
+      "holders": [
+        {
+          "manager": "Thommy",
+          "value": 14,
+          "games": 144
+        }
+      ],
+      "holderCount": 1
+    },
+    {
+      "key": "ppg",
+      "title": "Highest career scoring average (40+ games)",
+      "unit": "points/game",
+      "minGames": 40,
+      "value": 119.77,
+      "holders": [
+        {
+          "manager": "Mitch",
+          "value": 119.77,
+          "games": 118
+        }
+      ],
+      "holderCount": 1
+    }
+  ],
+  "profiles": [
+    {
+      "manager": "Birch",
+      "games": 129,
+      "wins": 72,
+      "losses": 57,
+      "ties": 0,
+      "pointsFor": 14168.38,
+      "pointsAgainst": 13571.24,
+      "score100": 78,
+      "score120": 41,
+      "score140": 18,
+      "score160": 4,
+      "winsBelow100": 7,
+      "highScoringLosses": 0,
+      "ppg": 109.83,
+      "winPercentage": 55.81
+    },
+    {
+      "manager": "Evans",
+      "games": 107,
+      "wins": 52,
+      "losses": 55,
+      "ties": 0,
+      "pointsFor": 11477.78,
+      "pointsAgainst": 11421.38,
+      "score100": 64,
+      "score120": 34,
+      "score140": 11,
+      "score160": 2,
+      "winsBelow100": 11,
+      "highScoringLosses": 1,
+      "ppg": 107.27,
+      "winPercentage": 48.6
+    },
+    {
+      "manager": "Halderman",
+      "games": 25,
+      "wins": 12,
+      "losses": 12,
+      "ties": 1,
+      "pointsFor": 2388,
+      "pointsAgainst": 2227,
+      "score100": 9,
+      "score120": 7,
+      "score140": 2,
+      "score160": 1,
+      "winsBelow100": 4,
+      "highScoringLosses": 0,
+      "ppg": 95.52,
+      "winPercentage": 50
+    },
+    {
+      "manager": "JMid",
+      "games": 37,
+      "wins": 17,
+      "losses": 20,
+      "ties": 0,
+      "pointsFor": 4197.72,
+      "pointsAgainst": 4171.96,
+      "score100": 28,
+      "score120": 14,
+      "score140": 6,
+      "score160": 1,
+      "winsBelow100": 0,
+      "highScoringLosses": 0,
+      "ppg": 113.45,
+      "winPercentage": 45.95
+    },
+    {
+      "manager": "Koble",
+      "games": 107,
+      "wins": 49,
+      "losses": 58,
+      "ties": 0,
+      "pointsFor": 11155.1,
+      "pointsAgainst": 11612.24,
+      "score100": 61,
+      "score120": 25,
+      "score140": 6,
+      "score160": 0,
+      "winsBelow100": 8,
+      "highScoringLosses": 2,
+      "ppg": 104.25,
+      "winPercentage": 45.79
+    },
+    {
+      "manager": "Kuhl",
+      "games": 119,
+      "wins": 51,
+      "losses": 68,
+      "ties": 0,
+      "pointsFor": 12792.76,
+      "pointsAgainst": 13359.32,
+      "score100": 78,
+      "score120": 31,
+      "score140": 8,
+      "score160": 1,
+      "winsBelow100": 4,
+      "highScoringLosses": 2,
+      "ppg": 107.5,
+      "winPercentage": 42.86
+    },
+    {
+      "manager": "Mitch",
+      "games": 118,
+      "wins": 71,
+      "losses": 47,
+      "ties": 0,
+      "pointsFor": 14133.26,
+      "pointsAgainst": 13136.34,
+      "score100": 92,
+      "score120": 55,
+      "score140": 23,
+      "score160": 13,
+      "winsBelow100": 5,
+      "highScoringLosses": 2,
+      "ppg": 119.77,
+      "winPercentage": 60.17
+    },
+    {
+      "manager": "Schermerhorn",
+      "games": 25,
+      "wins": 12,
+      "losses": 13,
+      "ties": 0,
+      "pointsFor": 2429,
+      "pointsAgainst": 2435,
+      "score100": 13,
+      "score120": 4,
+      "score140": 1,
+      "score160": 0,
+      "winsBelow100": 5,
+      "highScoringLosses": 0,
+      "ppg": 97.16,
+      "winPercentage": 48
+    },
+    {
+      "manager": "Scott",
+      "games": 37,
+      "wins": 17,
+      "losses": 20,
+      "ties": 0,
+      "pointsFor": 3978.84,
+      "pointsAgainst": 4305.9,
+      "score100": 23,
+      "score120": 10,
+      "score140": 3,
+      "score160": 0,
+      "winsBelow100": 1,
+      "highScoringLosses": 2,
+      "ppg": 107.54,
+      "winPercentage": 45.95
+    },
+    {
+      "manager": "Stew",
+      "games": 144,
+      "wins": 68,
+      "losses": 76,
+      "ties": 0,
+      "pointsFor": 15303.26,
+      "pointsAgainst": 15454.2,
+      "score100": 79,
+      "score120": 40,
+      "score140": 11,
+      "score160": 4,
+      "winsBelow100": 13,
+      "highScoringLosses": 4,
+      "ppg": 106.27,
+      "winPercentage": 47.22
+    },
+    {
+      "manager": "Stilly",
+      "games": 144,
+      "wins": 67,
+      "losses": 77,
+      "ties": 0,
+      "pointsFor": 15315.16,
+      "pointsAgainst": 15755.52,
+      "score100": 89,
+      "score120": 38,
+      "score140": 11,
+      "score160": 3,
+      "winsBelow100": 12,
+      "highScoringLosses": 4,
+      "ppg": 106.36,
+      "winPercentage": 46.53
+    },
+    {
+      "manager": "Stover",
+      "games": 144,
+      "wins": 76,
+      "losses": 68,
+      "ties": 0,
+      "pointsFor": 15420.98,
+      "pointsAgainst": 15457.4,
+      "score100": 91,
+      "score120": 42,
+      "score140": 9,
+      "score160": 2,
+      "winsBelow100": 12,
+      "highScoringLosses": 1,
+      "ppg": 107.09,
+      "winPercentage": 52.78
+    },
+    {
+      "manager": "Thommy",
+      "games": 144,
+      "wins": 67,
+      "losses": 76,
+      "ties": 1,
+      "pointsFor": 15301.44,
+      "pointsAgainst": 15725.52,
+      "score100": 86,
+      "score120": 41,
+      "score140": 13,
+      "score160": 1,
+      "winsBelow100": 14,
+      "highScoringLosses": 3,
+      "ppg": 106.26,
+      "winPercentage": 46.88
+    },
+    {
+      "manager": "Tony",
+      "games": 130,
+      "wins": 73,
+      "losses": 57,
+      "ties": 0,
+      "pointsFor": 14544.32,
+      "pointsAgainst": 13972.98,
+      "score100": 86,
+      "score120": 49,
+      "score140": 14,
+      "score160": 4,
+      "winsBelow100": 11,
+      "highScoringLosses": 1,
+      "ppg": 111.88,
+      "winPercentage": 56.15
+    }
+  ]
+}

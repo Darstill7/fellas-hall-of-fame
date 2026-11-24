@@ -1,0 +1,183 @@
+{
+  "schema": "fellas-ledger-alltime-single-game-v1",
+  "generatedFrom": "data/unified_record_book_2016_2026.json",
+  "verified2026ThroughWeek": 9,
+  "sourceGames": 705,
+  "sourceTeamGames": 1410,
+  "coverage": "All recorded 2016–2026 regular-season scores only; not postseason or research-dependent all-time records",
+  "caveats": [
+    "Historic ESPN integer-rounded scores and scoring rules differ from Sleeper; no cross-era normalization.",
+    "Only directly computable single-game categories are refreshed; season awards and research records remain separately audited.",
+    "All equal record values retain co-holder status; original season and week receipts are preserved."
+  ],
+  "records": [
+    {
+      "key": "highest-score",
+      "title": "Highest single-game score",
+      "direction": "high",
+      "value": 180.86,
+      "unit": "pts",
+      "holderCount": 1,
+      "holders": [
+        {
+          "manager": "Mitch",
+          "opponent": "Scott",
+          "points": 180.86,
+          "opponentPoints": 136.06,
+          "year": 2025,
+          "week": 7,
+          "era": "Sleeper",
+          "margin": 44.8,
+          "value": 180.86
+        }
+      ]
+    },
+    {
+      "key": "lowest-score",
+      "title": "Lowest single-game score",
+      "direction": "low",
+      "value": 44,
+      "unit": "pts",
+      "holderCount": 1,
+      "holders": [
+        {
+          "manager": "Tony",
+          "opponent": "Thommy",
+          "points": 44,
+          "opponentPoints": 75,
+          "year": 2017,
+          "week": 1,
+          "era": "ESPN",
+          "margin": -31,
+          "value": 44
+        }
+      ]
+    },
+    {
+      "key": "highest-score-loss",
+      "title": "Highest score in a loss",
+      "direction": "high",
+      "value": 164.8,
+      "unit": "pts",
+      "holderCount": 1,
+      "holders": [
+        {
+          "manager": "Stew",
+          "opponent": "Mitch",
+          "points": 164.8,
+          "opponentPoints": 167.82,
+          "year": 2025,
+          "week": 10,
+          "era": "Sleeper",
+          "margin": -3.02,
+          "value": 164.8
+        }
+      ]
+    },
+    {
+      "key": "lowest-score-win",
+      "title": "Lowest winning score",
+      "direction": "low",
+      "value": 64,
+      "unit": "pts",
+      "holderCount": 1,
+      "holders": [
+        {
+          "manager": "Stilly",
+          "opponent": "Tony",
+          "points": 64,
+          "opponentPoints": 63,
+          "year": 2017,
+          "week": 9,
+          "era": "ESPN",
+          "margin": 1,
+          "value": 64
+        }
+      ]
+    },
+    {
+      "key": "biggest-win",
+      "title": "Largest winning margin",
+      "direction": "high",
+      "value": 101.38,
+      "unit": "pts",
+      "holderCount": 1,
+      "holders": [
+        {
+          "manager": "Scott",
+          "opponent": "JMid",
+          "points": 155.1,
+          "opponentPoints": 53.72,
+          "year": 2025,
+          "week": 11,
+          "era": "Sleeper",
+          "margin": 101.38,
+          "value": 101.38
+        }
+      ]
+    },
+    {
+      "key": "narrowest-win",
+      "title": "Closest victory margin",
+      "direction": "low",
+      "value": 0.16,
+      "unit": "pts",
+      "holderCount": 1,
+      "holders": [
+        {
+          "manager": "Thommy",
+          "opponent": "Stew",
+          "points": 142.92,
+          "opponentPoints": 142.76,
+          "year": 2018,
+          "week": 7,
+          "era": "ESPN",
+          "margin": 0.16,
+          "value": 0.16
+        }
+      ]
+    },
+    {
+      "key": "narrowest-defeat",
+      "title": "Closest losing margin",
+      "direction": "low",
+      "value": 0.16,
+      "unit": "pts",
+      "holderCount": 1,
+      "holders": [
+        {
+          "manager": "Stew",
+          "opponent": "Thommy",
+          "points": 142.76,
+          "opponentPoints": 142.92,
+          "year": 2018,
+          "week": 7,
+          "era": "ESPN",
+          "margin": -0.16,
+          "value": 0.16
+        }
+      ]
+    },
+    {
+      "key": "biggest-defeat",
+      "title": "Largest losing margin",
+      "direction": "high",
+      "value": 101.38,
+      "unit": "pts",
+      "holderCount": 1,
+      "holders": [
+        {
+          "manager": "JMid",
+          "opponent": "Scott",
+          "points": 53.72,
+          "opponentPoints": 155.1,
+          "year": 2025,
+          "week": 11,
+          "era": "Sleeper",
+          "margin": -101.38,
+          "value": 101.38
+        }
+      ]
+    }
+  ]
+}
