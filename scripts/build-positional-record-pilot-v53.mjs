@@ -29,6 +29,8 @@ for(let year=2020;year<=2026;year++){
  }
  coverage.push({year,sourceWeeks:data.weeks.map(w=>w.week),pairedTeamWeeks:[...paired.keys()].filter(k=>k.startsWith(year+':')).length,accepted:accepted.filter(x=>x.year===year).length});
 }
+// Shared evidence receipt for the player index; generated in CI, not a new source of truth.
+fs.writeFileSync('data-integrity/reconciled-starter-evidence-v53.json',JSON.stringify({schemaVersion:1,coverage,accepted,excluded,missingPairedTeamWeeks:[...paired.keys()].filter(k=>!seen.has(k))})+'\n');
 const records=[];
 for(const pos of positions){
  const starts=accepted.flatMap(t=>t.players.filter(p=>p.position===pos).map(p=>({...p,manager:t.manager,year:t.year,week:t.week})));
