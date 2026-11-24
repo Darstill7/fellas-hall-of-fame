@@ -1,3 +1,4 @@
+import {mountRecordShare} from './record-share-v51.mjs';
 import {auditPlacementStatistics} from './placement-statistics.mjs';
 import {auditAllEraFinishes} from './all-era-final-placements.mjs';
 // Archived category leaders, computed from verified manager record-book rows.
@@ -165,7 +166,7 @@ export async function mountRecordOwnership(){
     const value=document.createElement('strong');value.textContent=String(r.value)+(r.unit==='pts'?' pts':r.unit==='%'?'%':' '+r.unit);
     const context=document.createElement('p');context.textContent=r.context;
     const scope=document.createElement('small');scope.textContent=(r.shared?'Shared league record · ':'League record · ')+r.scope;
-    card.append(label,value,context,scope);list.append(card);
+    card.append(label,value,context,scope);mountRecordShare(card,manager,r);list.append(card);
    }
    root.append(list);
   };
