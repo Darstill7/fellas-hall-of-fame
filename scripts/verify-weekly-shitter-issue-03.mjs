@@ -5,7 +5,7 @@ const article=read('weekly-shitter/issue-03.html');
 const original=read('weekly-shitter/issue-02.html');
 const ledger=JSON.parse(read('data/unified_record_book_2016_2026.json'));
 const rows=[
- ['Stilly','Tom',104.16,84.56,'Stilly',10.5,219.5,'Over'],
+ ['Stilly','Thommy',104.16,84.56,'Stilly',10.5,219.5,'Over'],
  ['JMid','Stew',97.8,142.26,'JMid',1.5,228.5,'Over'],
  ['Scott','Tony',98.76,142.3,'Tony',12.5,207.5,'Under'],
  ['Mitch','Birch',83.96,127.06,'Birch',1.5,235.5,'Over'],
