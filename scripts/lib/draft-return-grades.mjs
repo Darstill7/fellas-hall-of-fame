@@ -21,5 +21,18 @@ export function gradeDraftReturns(ledger,supported){
  }
  const managers={};
  for(const r of rows){const m=managers[r.manager]??={manager:r.manager,picks:0,percentile_sum:0,surplus_cents:0};m.picks++;m.percentile_sum+=r.percentile;m.surplus_cents+=r.surplus_cents;}
- return {picks:rows,excluded,managers:Object.values(managers).map(m=>({...m,mean_percentile:m.percentile_sum/m.picks})).sort((a,b)=>b.mean_percentile-a.mean_percentile),method:'Same-season same-round received starter PF percentile; ties receive midrank; zero-return picks included; minimum four peers; uncertain keeper designations excluded where identified. Historical archive designations are provisional. Not a causal grade, positional adjustment, or keeper opportunity cost. Active-season grades provisional.'};
+ const reportCards=[];
+ const seasonKeys=new Set([...rows,...excluded].map(r=>JSON.stringify([r.year,r.manager])));
+ const letter=p=>p>=.9?'A+':p>=.75?'A':p>=.6?'B':p>=.4?'C':p>=.2?'D':'F';
+ for(const key of seasonKeys){
+  const [year,manager]=JSON.parse(key),graded=rows.filter(r=>r.year===year&&r.manager===manager),ungraded=excluded.filter(r=>r.year===year&&r.manager===manager);
+  const sorted=graded.slice().sort((a,b)=>b.surplus_cents-a.surplus_cents||b.percentile-a.percentile||String(a.id).localeCompare(String(b.id)));
+  const mean=graded.length?graded.reduce((n,r)=>n+r.percentile,0)/graded.length:null;
+  reportCards.push({year,manager,graded_picks:graded.length,excluded_picks:ungraded.length,total_picks:graded.length+ungraded.length,coverage:graded.length/(graded.length+ungraded.length),mean_percentile:mean,grade:mean===null?null:letter(mean),surplus_cents:graded.reduce((n,r)=>n+r.surplus_cents,0),graded_pf_cents:graded.reduce((n,r)=>n+r.supported_pf_cents,0),best_selection:sorted[0]??null,worst_selection:sorted.at(-1)??null,provisional:true,active_season:year===2026});
+ }
+ assert.equal(reportCards.reduce((n,r)=>n+r.graded_picks,0),rows.length);
+ assert.equal(reportCards.reduce((n,r)=>n+r.excluded_picks,0),excluded.length);
+ const historicalReportCards=reportCards.filter(r=>!r.active_season&&r.coverage>=.75&&r.graded_picks>=8);
+ const records={best:historicalReportCards.slice().sort((a,b)=>b.mean_percentile-a.mean_percentile||b.surplus_cents-a.surplus_cents).slice(0,10),worst:historicalReportCards.slice().sort((a,b)=>a.mean_percentile-b.mean_percentile||a.surplus_cents-b.surplus_cents).slice(0,10),eligibility:'At least eight graded picks and 75% graded coverage; completed seasons only; provisional archive keeper classifications.'};
+ return {picks:rows,excluded,reportCards,records,managers:Object.values(managers).map(m=>({...m,mean_percentile:m.percentile_sum/m.picks})).sort((a,b)=>b.mean_percentile-a.mean_percentile),method:'Same-season same-round received starter PF percentile; ties receive midrank; zero-return picks included; minimum four peers; uncertain keeper designations excluded where identified. Historical archive designations are provisional. Not a causal grade, positional adjustment, or keeper opportunity cost. Active-season grades provisional.'};
 }
