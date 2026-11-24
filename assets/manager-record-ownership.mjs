@@ -151,8 +151,8 @@ export async function mountRecordOwnership(){
    const manager=picker.value;
    const owned=findOwnedRecords(archive,guide,manager,postseason);
    root.replaceChildren();
-   const heading=document.createElement('h2');heading.textContent='League records '+manager+' owns';root.append(heading);
-   const intro=document.createElement('p');intro.className='muted';intro.textContent='Category leaders across current and former managers. Tied records are marked shared; personal bests appear below.';root.append(intro);
+   const heading=document.createElement('h2');heading.textContent='Records '+manager+' owns · '+owned.length;root.append(heading);
+   const intro=document.createElement('p');intro.className='muted';intro.textContent='First place in '+recordCategoryLabels.length+' verified categories. Shared records are labeled; personal bests appear below.';root.append(intro);
    if(!owned.length){
     const message=document.createElement('p');message.className='note';
     message.textContent='No league-leading record in these '+recordCategoryLabels.length+' verified categories yet. See personal records below for this manager’s biggest performances.';
