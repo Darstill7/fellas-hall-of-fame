@@ -4,6 +4,9 @@ on:
     paths:
       - 'home-app-preview.html'
       - 'assets/home-app-v3.*'
+      - 'assets/conditional-record-watch-v51.mjs'
+      - 'scripts/test-conditional-record-watch-v51.mjs'
+      - 'data/conditional-record-watch-v51.json'
       - 'assets/app-shell-v34.*'
       - 'assets/fellas-app-icon.svg'
       - 'fellas-app-preview.webmanifest'
@@ -26,6 +29,7 @@ jobs:
           node-version: 22
       - run: node scripts/build-home-current-season.mjs --check
       - run: node scripts/test-home-app-v3.mjs
+      - run: node scripts/test-conditional-record-watch-v51.mjs
       - run: npm install --no-save --package-lock=false playwright@1.56.1
       - run: npx playwright install --with-deps chromium webkit
       - run: node scripts/test-home-app-v3-browser.mjs
