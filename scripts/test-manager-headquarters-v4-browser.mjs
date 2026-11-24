@@ -29,7 +29,12 @@ try{
     await page.goto(base+'managers/'+slug+'/',{waitUntil:'domcontentloaded'});
     const topic=page.locator('#gm47-front-office');await topic.locator(':scope > summary').waitFor({timeout:15000});assert.equal(await topic.evaluate(e=>e.open),false,'Front office should be deferred');await topic.locator(':scope > summary').click();const panel=page.locator('#gm4-headquarters');await panel.locator('.gm4-metrics').waitFor({timeout:15000});
     assert.match(await panel.innerText(),/1,234\.56 PF/);
-    await page.getByRole('button',{name:/Front office Roster construction/}).click();
+    const frontOffice=page.getByRole('button',{name:/Drafts & trades The roster-building résumé/});
+    assert.equal(await frontOffice.count(),1,'Primary roster-building shortcut missing');
+    await topic.locator(':scope > summary').click();
+    assert.equal(await topic.evaluate(e=>e.open),false,'Front office should close before shortcut test');
+    await frontOffice.click();
+    assert.equal(await topic.evaluate(e=>e.open),true,'Primary shortcut must reopen verified front office');
     assert.equal(await page.evaluate(()=>document.activeElement?.closest('details')?.id),'gm47-front-office');
     for(const summary of await panel.locator('summary').all()){await summary.click();assert(await summary.evaluate(e=>e.parentElement.open))}
     assert(await panel.evaluate(e=>e.scrollWidth<=e.clientWidth+2),'Panel overflows');
