@@ -20,6 +20,9 @@ try{
  const slug=name==='Thommy'?'tom':name.toLowerCase(),model=buildRivalryIntelligence(core,ledger,name);
  await page.goto(base+'managers/'+slug+'/',{waitUntil:'domcontentloaded'});
  await page.locator('.manager-home-hub-tile').filter({hasText:'Rivalries'}).click();
+ const outer=page.locator('#rivalry-analytics > .profile-inline-disclosure');
+ await outer.waitFor({state:'visible',timeout:15000});
+ if(!await outer.evaluate(e=>e.open))await outer.locator(':scope > summary').click();
  const p=page.locator('#gm44-rivalries');await p.locator('select').waitFor({timeout:15000});
  const select=p.locator('select');assert.equal(await select.locator('option').count(),model.series.length);
  for(const r of model.series){
