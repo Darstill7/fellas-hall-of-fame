@@ -83,8 +83,8 @@ try{
  visited.push('managers/record-books.html');
  await page.locator('#profile .cards .card').first().waitFor({state:'visible',timeout:14000});
  assert.equal(new URL(page.url()).searchParams.get('manager'),'Stew','Manager selection not preserved');
- const sectionOrder=await page.evaluate(()=>['career-first','notable-matchups','owned-records'].map(id=>document.getElementById(id)?.getBoundingClientRect().top+scrollY));
- assert(sectionOrder.every((x,i)=>Number.isFinite(x)&&(i===0||x>sectionOrder[i-1])),'Personal book does not show career then historic games then records');
+ const sectionOrder=await page.evaluate(()=>['owned-records','career-first','notable-matchups'].map(id=>document.getElementById(id)?.getBoundingClientRect().top+scrollY));
+ assert(sectionOrder.every((x,i)=>Number.isFinite(x)&&(i===0||x>sectionOrder[i-1])),'Personal book must prioritize owned records before career and historic games');
  const historic=page.locator('#notable-matchup-results a.notable-matchup-card');
  await historic.first().waitFor({state:'visible',timeout:14000});
  await historic.first().click();

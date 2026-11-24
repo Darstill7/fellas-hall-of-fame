@@ -52,3 +52,54 @@
  #median-standings th,#median-standings td{padding:8px 2px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}}
+
+/* 5.1.1 — compact personal entry, scoped to production candidate. */
+.personal-v51 .personal .section-heading{min-height:30px;margin:8px 0 6px}
+.personal-v51 .team-picker{display:flex;justify-content:space-between;gap:10px;background:var(--surface-raised);border:1px solid #52616a;border-radius:10px;padding:6px 10px;margin-bottom:8px;min-height:58px}
+.personal-v51 .picker-label{display:grid;gap:1px;min-width:0}
+.personal-v51 .picker-label strong{font-size:14px;color:var(--text)}
+.personal-v51 .picker-label small{font-size:11px}
+.personal-v51 .team-picker select{width:48%;max-width:240px;font-size:15px;font-weight:750;border-color:#647787;cursor:pointer}
+.personal-v51 .personal-card{padding:10px 12px}
+.personal-v51 .personal-top strong{font-size:19px}
+.personal-v51 .personal-stats{margin-top:8px;padding-top:8px}
+.personal-v51 .personal-stats small{font-size:11px}
+.personal-v51 .personal-detail{padding:9px 12px}
+.personal-v51 .personal-detail h3{margin-bottom:3px}
+.personal-v51 .personal-detail p{margin-top:3px}
+.personal-v51 .odds-row{margin:4px 0;gap:2px}
+.personal-v51 .personal-activity-fold{grid-column:1/-1;border:1px solid var(--line);border-radius:10px;margin-top:7px}
+.personal-v51 .personal-activity-fold>summary{padding:10px 12px;min-height:44px;cursor:pointer;font-size:13px;font-weight:750}
+.personal-v51 .personal-activity-fold .personal-activity{padding:0 10px 10px}
+.personal-v51 .personal-activity-fold .personal-activity h3{font-size:14px}
+@media(max-width:759px){.personal-v51 #my-team{display:grid;grid-template-columns:minmax(0,1fr);gap:5px}.personal-v51 .personal-card,.personal-v51 .personal-detail{margin:0}.personal-v51 .personal-links{margin-top:2px}.personal-v51 .personal{margin-bottom:16px}}
+
+.personal-roster{grid-column:1/-1;border:1px solid #65715e;background:var(--panel);border-radius:10px;min-width:0}.personal-roster>summary{min-height:44px;padding:11px 12px;font-weight:800;color:var(--gold);cursor:pointer}.roster-body{padding:0 12px 12px}.roster-group h4{margin:12px 0 4px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.roster-row{display:grid;grid-template-columns:40px minmax(0,1fr) minmax(0,auto);align-items:center;gap:7px;min-height:35px;padding:5px 0;border-bottom:1px solid var(--line);font-size:13px}.roster-row strong{overflow-wrap:anywhere}.roster-row small{font-size:11px;color:var(--muted);text-align:right;overflow-wrap:anywhere}.roster-slot{color:var(--gold);font-size:11px;font-weight:800}@media(min-width:760px){.personal-v51 .personal-roster{grid-row:2}}
+
+/* 5.1: Sleeper remains the operational platform. Roster is optional and last. */
+.personal-v51 .personal-roster{grid-row:auto;border-color:var(--line)}
+.personal-v51 .personal-roster>summary{font-weight:650;color:var(--muted);font-size:13px}
+.personal-insight-link{display:flex;align-items:center;min-height:44px;font-size:12px;font-weight:750;color:var(--gold)}
+.personal-v51 .personal-links a{text-align:center;padding:4px;line-height:1.2}
+
+#conditional-record-watch[hidden]{display:none}#conditional-record-watch h2{font-size:17px;margin:0 0 6px}#conditional-record-watch .record-watch-row{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:10px 12px}#conditional-record-watch p{margin:3px 0;font-size:13px}#conditional-record-watch small{display:block;color:var(--muted);font-size:11px}#conditional-record-watch a{display:inline-flex;align-items:center;min-height:44px;color:var(--gold);font-size:12px;font-weight:750}
+
+/* Manager-first homepage: latest result and editorial precede deep analytics. */
+.personal-v51 .personal-latest-result{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:8px;padding-top:8px;font-size:12px}
+.personal-v51 .personal-latest-result strong{font-variant-numeric:tabular-nums;font-size:13px}
+.personal-v51 .personal-home-cta{display:none;min-height:44px;align-items:center;color:var(--gold);font-size:13px;font-weight:750}
+.personal-v51 #news{margin:0 0 18px;display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+.personal-v51 #news .section-heading{grid-column:1/-1;margin:0;min-height:32px}
+.personal-v51 #news .story{margin:0;padding:10px 12px;gap:4px}
+.personal-v51 #news .story strong{font-size:17px;line-height:1.25}
+.personal-v51 #news .story b{margin:0}
+@media(min-width:760px){.personal-v51 #news{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Detail elements remain reachable through the My Team hash, no hidden content for other routes. */
+.personal-v51.home-overview #my-team{grid-template-columns:minmax(0,1fr)}
+.personal-v51.home-overview #my-team>:not(.personal-card):not(.source-note){display:none}
+.personal-v51.home-overview .personal-home-cta{display:flex}
+
+#league-intelligence{display:none}.league-view #league-intelligence{display:block}.league-compare-table{width:100%;border-collapse:collapse;table-layout:auto;font-variant-numeric:tabular-nums;font-size:12px}.league-compare-table th,.league-compare-table td{padding:10px 3px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}.league-compare-table th:first-child{text-align:left}.league-compare-table thead th{font-size:10px;color:var(--muted)}.league-compare-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.league-compare-links a{min-height:44px;display:flex;align-items:center;padding:7px;border:1px solid var(--line);border-radius:8px;color:var(--gold);font-size:12px}.league-view #league-intelligence h2{font-size:20px;margin:0 0 6px}
+
+/* 5.1.6: More is a categorized discovery destination, not a flat directory. */
+.personal-v51 .more-groups{display:none}.personal-v51.more-view .more-groups{display:grid;gap:14px;margin-bottom:12px}.more-group{min-width:0}.more-group h3{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}.more-links{border:1px solid var(--line);background:var(--panel);border-radius:10px;overflow:hidden}.more-links a{min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 12px;border-bottom:1px solid var(--line)}.more-links a:last-child{border-bottom:0}.more-links a>span:first-child{min-width:0}.more-links strong,.more-links small{display:block}.more-links strong{font-size:14px}.more-links small{font-size:12px;color:var(--muted);line-height:1.3}.more-links a>span:last-child{color:var(--gold);font-size:20px}.personal-v51.more-view .dashboard{grid-template-columns:minmax(0,1fr)}.personal-v51.more-view .dashboard>.primary,.personal-v51.more-view .secondary>section:not(#more){display:none}@media(min-width:760px){.personal-v51.more-view .more-groups{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}}

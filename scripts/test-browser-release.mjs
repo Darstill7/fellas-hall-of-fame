@@ -30,6 +30,8 @@ const classicRoute=productionApp?'home-classic.html':'';
 const routes=['',...(productionApp?[classicRoute]:[]),'seasons/','hall/','hall/championship-stories.html','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
+const preflight=process.env.FELLAS_HOME_PREFLIGHT==='1';
+if(preflight)routes.splice(1);
 const errors=[];
 const pageAudits=[];
 const captureVisuals=process.env.FELLAS_VISUAL_AUDIT==='1';
@@ -1246,12 +1248,29 @@ try{
     await page.locator('#my-manager').selectOption('Stilly');
     await page.locator('.personal-card').waitFor({timeout:15000});
     if(!(await page.locator('.personal-card').innerText()).includes('Stilly'))errors.push(width+' production personalization failed');
-    await page.locator('#more .archive summary').focus();
+    await page.locator('.fellas-app-nav a[data-app-tab="more"]').click();
+    await page.waitForURL('**/index.html#more');
+    await page.locator('body.more-view').waitFor({timeout:15000});
+    const archive=page.locator('#more .archive');
+    if(await archive.evaluate(e=>e.open))await archive.locator('summary').click();
+    await archive.locator('summary').focus();
     await page.keyboard.press('Enter');
     if(!await page.locator('#more .archive').evaluate(e=>e.open))errors.push(width+' production archive keyboard disclosure failed');
-    for(const href of ['home-classic.html','home-classic.html#home-record-watch','analytics/playoff-race.html','managers/record-books.html'])
-     if(!await page.locator('#more a[href="'+href+'"]').isVisible())errors.push(width+' production archive missing '+href);
-    await page.locator('#more a[href="home-classic.html"]').click();
+    for(const href of ['home-classic.html','home-classic.html#home-record-watch'])
+     if(!await page.locator('#more .archive a[href="'+href+'"]').isVisible())errors.push(width+' production archive missing '+href);
+    // The two promoted research destinations now live in the categorized More view.
+    for(const href of ['analytics/playoff-race.html','managers/record-books.html']){
+     const link=page.locator('#more .more-links a[href="'+href+'"]');
+     if(await link.count()!==1||!await link.isVisible()||!await link.evaluate(a=>a.getBoundingClientRect().height>=44))
+      errors.push(width+' production categorized More destination inaccessible '+href);
+     else {
+      const target=await link.evaluate(a=>a.href);
+      const response=await page.request.get(target);
+      if(!response.ok())errors.push(width+' production categorized More destination failed HTTP '+response.status()+' '+href);
+     }
+    }
+    if(!await archive.evaluate(e=>e.open))await archive.locator('summary').click();
+    await page.locator('#more .archive a[href="home-classic.html"]').click({timeout:10000});
     await page.waitForURL('**/home-classic.html');
     if(!await page.locator('#homepage-editorial-title').isVisible())errors.push(width+' production classic homepage navigation failed');
    }
@@ -2705,7 +2724,7 @@ try{
      if(tinyTargets.length)errors.push(width+' Manager Record Books links too small to tap: '+tinyTargets.join(', '));
     }
     const recordJump=page.locator('nav.record-jump-nav');
-    const targets=['#career-first','#notable-matchups','#owned-records','#expanded-manager-records','#postseason-manager-panel','#opponents','#seasons'];
+    const targets=['#owned-records','#career-first','#notable-matchups','#expanded-manager-records','#postseason-manager-panel','#opponents','#seasons'];
     // Personal record sections load from canonical JSON after the static nav
     // mounts. Let the target exist before judging a navigable anchor.
     await page.locator('#opponents').waitFor({state:'attached',timeout:7000}).catch(()=>{});
@@ -2910,7 +2929,7 @@ try{
 if(completedPages!==routes.length*(useWebkit?1:2))errors.push('Incomplete browser coverage: completed '+completedPages+' of '+routes.length*(useWebkit?1:2)+' planned page visits');
 // Preserve machine-readable browser outcomes for failed and successful CI attempts.
 await fs.mkdir(path.join(root,'data-integrity'),{recursive:true});
-await fs.writeFile(path.join(root,'data-integrity','browser-release-'+engine.toLowerCase()+'.json'),
+await fs.writeFile(path.join(root,'data-integrity',(preflight?'browser-preflight-':'browser-release-')+engine.toLowerCase()+'.json'),
  JSON.stringify({engine,viewports:useWebkit?[390]:[390,1280],plannedRoutes:routes.length,plannedPageVisits:routes.length*(useWebkit?1:2),attemptedPages,completedPages,passed:errors.length===0&&completedPages===routes.length*(useWebkit?1:2),pageAudits,errors},null,2)+'\n');
 if(errors.length){console.error(engine+' browser release test FAILED:\n'+errors.map(x=>' - '+x).join('\n'));process.exitCode=1}
 else console.log(engine+' browser release test PASS with JS and interactive archive checks');

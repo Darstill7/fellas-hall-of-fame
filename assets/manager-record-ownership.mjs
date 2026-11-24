@@ -1,3 +1,4 @@
+import {mountRecordShare} from './record-share-v51.mjs';
 import {auditPlacementStatistics} from './placement-statistics.mjs';
 import {auditAllEraFinishes} from './all-era-final-placements.mjs';
 // Archived category leaders, computed from verified manager record-book rows.
@@ -151,8 +152,8 @@ export async function mountRecordOwnership(){
    const manager=picker.value;
    const owned=findOwnedRecords(archive,guide,manager,postseason);
    root.replaceChildren();
-   const heading=document.createElement('h2');heading.textContent='League records '+manager+' owns';root.append(heading);
-   const intro=document.createElement('p');intro.className='muted';intro.textContent='Category leaders across current and former managers. Tied records are marked shared; personal bests appear below.';root.append(intro);
+   const heading=document.createElement('h2');heading.textContent='Records '+manager+' owns · '+owned.length;root.append(heading);
+   const intro=document.createElement('p');intro.className='muted';intro.textContent='First place in '+recordCategoryLabels.length+' verified categories. Shared records are labeled; personal bests appear below.';root.append(intro);
    if(!owned.length){
     const message=document.createElement('p');message.className='note';
     message.textContent='No league-leading record in these '+recordCategoryLabels.length+' verified categories yet. See personal records below for this manager’s biggest performances.';
@@ -165,7 +166,7 @@ export async function mountRecordOwnership(){
     const value=document.createElement('strong');value.textContent=String(r.value)+(r.unit==='pts'?' pts':r.unit==='%'?'%':' '+r.unit);
     const context=document.createElement('p');context.textContent=r.context;
     const scope=document.createElement('small');scope.textContent=(r.shared?'Shared league record · ':'League record · ')+r.scope;
-    card.append(label,value,context,scope);list.append(card);
+    card.append(label,value,context,scope);mountRecordShare(card,manager,r);list.append(card);
    }
    root.append(list);
   };

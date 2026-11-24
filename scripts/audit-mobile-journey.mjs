@@ -123,9 +123,14 @@ try{
     if(appHome){
      await page.locator('#my-manager').selectOption('Stilly');
      await page.locator('.personal-card').waitFor({timeout:25000});
+     await page.locator('.fellas-app-nav a[data-app-tab="team"]').click();
+     await page.waitForURL('**/index.html#my-team-section');
+     await page.locator('body:not(.home-overview)').waitFor();
+     await page.waitForFunction(()=>document.querySelector('#my-manager')?.value==='Stilly'&&document.querySelector('.personal-top')?.textContent.includes('Stilly'),null,{timeout:25000});
      const profile=page.locator('#my-team a[href="managers/stilly/"]').first();
-     expect(await profile.count()===1,'Production personalized team lacks franchise route',{engine,width});
-     if(await profile.count()){await profile.click();await page.waitForLoadState('networkidle',{timeout:25000});expect(new URL(page.url()).pathname.endsWith('/managers/stilly/'),'Production personalized franchise tap failed',{engine,width})}
+     await profile.waitFor({state:'visible',timeout:25000}).catch(()=>{});
+     expect(await profile.isVisible(),'Production personalized team lacks visible franchise route',{engine,width});
+     if(await profile.isVisible()){await profile.click();await page.waitForLoadState('networkidle',{timeout:25000});expect(new URL(page.url()).pathname.endsWith('/managers/stilly/'),'Production personalized franchise tap failed',{engine,width})}
      await visit('home-classic.html');
     }
     const manager=page.locator('.home-franchise-links a[href="managers/stilly/"]');

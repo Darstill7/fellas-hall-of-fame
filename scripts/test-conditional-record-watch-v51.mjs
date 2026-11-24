@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {buildWinningStreakWatch} from '../assets/conditional-record-watch-v51.mjs';
+import {buildHomeDashboard} from '../assets/home-app-v3.mjs';
+const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+const ledger=read('data/unified_record_book_2016_2026.json'),guide=read('data/season_guide.json');
+const d=buildHomeDashboard(guide,ledger);
+const actual=buildWinningStreakWatch(ledger,d);
+assert(!actual.some(x=>x.manager==='Stew'&&x.week===11&&x.record===12),'Impossible chase must be excluded');
+assert.deepEqual(buildWinningStreakWatch({games:[]},d),[]);
+assert.deepEqual(buildWinningStreakWatch(ledger,{...d,week:d.week-1}),[]);
+const names=['Stilly','Stew','Thommy','Mitch','JMid','Scott','Stover','Kuhl','Tony','Birch'];
+const fixtures=(year,weeks)=>Array.from({length:weeks},(_,i)=>names.slice(0,5).map((n,j)=>({year,week:i+1,stage:'regular',home:n,away:names[j+5],homeScore:j===0||i<2?100:80,awayScore:90}))).flat();
+const past=fixtures(2025,5),now=fixtures(2026,4),mock={week:4,standings:names.map((name,j)=>({name,streak:j===0?'W4':j<5?'L2':j===5?'L4':'W2'}))};
+const result=buildWinningStreakWatch({games:[...past,...now]},mock);
+assert.equal(result.length,1);assert.equal(result[0].manager,'Stilly');assert.equal(result[0].tie,1);assert.equal(result[0].breakGap,2);
+assert.deepEqual(buildWinningStreakWatch({games:[...past,...now]}, {...mock,week:14}),[]);
+console.log('Conditional Record Watch fixtures passed; actual candidates:',actual.length);
