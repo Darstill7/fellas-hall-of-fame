@@ -1,3 +1,4 @@
+import {mountManagerHeadquarters} from './manager-headquarters-v4.mjs';
 import {mountManagerLuckPerformance} from './manager-luck-performance.mjs';
 import {mountManagerScheduleLuck} from './manager-schedule-luck.mjs';
 import {mountDraftTradeCareer} from './manager-draft-trade-career-page.mjs';
@@ -189,7 +190,7 @@ async function mountProfileRecordOwnership(){
   ]);
   if(responses.some(r=>!r.ok))throw Error('Record sources unavailable');
   const [archive,guide,espn,sleeper,placements,placementReceipts,allEra]=await Promise.all(responses.map(r=>r.json()));
-  if(archive.asOf!=='2026 Week 8')throw Error('Unexpected record archive scope');
+  if(!archive.asOf&&!(Number.isInteger(archive.completedThrough?.year)&&Number.isInteger(archive.completedThrough?.week)))throw Error('Unexpected record archive scope');
   const owned=findOwnedRecords(archive,guide,normalized,{espn,sleeper,placements,placementReceipts,allEra});
   result.textContent=owned.length
    ?owned.length+' of '+recordCategoryLabels.length+' league records held'
@@ -611,7 +612,7 @@ function mountManagerHomeHub(){
   {label:'Every season',detail:'Year-by-year results',icon:'📅',tab:'seasons'},
   {label:'Rivalries',detail:'Head-to-head history',icon:'⚔️',tab:'rivalries'},
   {label:'Report card',detail:'Career ratings and grades',icon:'📊',href:'../../analytics/manager-report-cards.html?manager='+encodeURIComponent(who)},
-  {label:'Drafts & trades',detail:'The roster-building résumé',icon:'🔄',action:'front-office'}
+  {label:'Front office',detail:'Roster construction, drafts, trades and keepers',icon:'🔄',action:'front-office'}
  ];
  for(const route of routes){
   const el=document.createElement(route.href?'a':'button');
@@ -626,6 +627,8 @@ function mountManagerHomeHub(){
   if(route.action==='story')el.addEventListener('click',()=>quick.querySelector('button.profile-biography-entry')?.click());
   if(route.action==='front-office'){
    el.addEventListener('click',()=>{
+    const headquarters=document.getElementById('gm4-headquarters');
+    if(headquarters){headquarters.scrollIntoView({block:'start',behavior:'instant'});headquarters.querySelector('h2')?.focus({preventScroll:true});return;}
     // Open the actual draft/trade résumé, not the generic Advanced tab.
     // Reuse the existing feature controller for history, focus and receipts.
     const topic=quick.querySelector('button[data-profile-feature][data-feature-target=".profile-career-resume"]');
@@ -667,6 +670,11 @@ function mountManagerHomeHub(){
  }
 }
 mountManagerHomeHub();
+const gm4Host=document.querySelector('.manager-home-hub');
+if(gm4Host&&profileName){
+ const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('./manager-headquarters-v4.css',import.meta.url).href;document.head.append(css);
+ void mountManagerHeadquarters({name:profileName==='Tom'?'Thommy':profileName,host:gm4Host});
+}
 // Let visitors choose a topic before seeing the complete playoff résumé.
 const profileTopicMenu=document.querySelector('main .profile-quickstart');
 const profilePlayoffSection=document.getElementById('profile-playoff-resume');
