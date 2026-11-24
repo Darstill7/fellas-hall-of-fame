@@ -20,13 +20,33 @@ export function buildManagerDashboard(core,guide,race,name){
  }
  return {week,season:{...r,scoringRank,average:r.pf/week},career:{wins:m.w,winPct:(m.w+(m.t??0)/2)/m.games,seasons:Object.keys(m.annual||{}).length},playoff};
 }
+// Reconcile the complete weekly ledger before drawing trends or streaks.
+export function buildSeasonTrajectory(ledger,guide,name,week){
+ const rows=guide['2026'].standings, games=ledger.games.filter(g=>g.year===2026&&g.stage==='regular');
+ if(games.length!==week*5)throw Error('Weekly ledger cutoff mismatch');
+ const names=new Set(rows.map(r=>r.name)),totals=new Map([...names].map(n=>[n,{w:0,l:0,t:0,pf:0,pa:0}]));
+ const history=[],seen=new Set(),cents=n=>Math.round(n*100);
+ for(const g of games){
+  if(!Number.isInteger(g.week)||g.week<1||g.week>week||g.home===g.away||!names.has(g.home)||!names.has(g.away)||![g.homeScore,g.awayScore].every(Number.isFinite))throw Error('Invalid weekly fixture');
+  for(const [n,o,p,a] of [[g.home,g.away,g.homeScore,g.awayScore],[g.away,g.home,g.awayScore,g.homeScore]]){
+   const k=g.week+':'+n;if(seen.has(k))throw Error('Duplicate weekly manager');seen.add(k);
+   const result=cents(p)>cents(a)?'W':cents(p)<cents(a)?'L':'T',t=totals.get(n);t[result.toLowerCase()]++;t.pf+=cents(p);t.pa+=cents(a);
+   if(n===name)history.push({week:g.week,opponent:o,pf:p,pa:a,result});
+  }
+ }
+ for(const r of rows){const t=totals.get(r.name);if(t.w!==r.w||t.l!==r.l||t.t!==(r.t??0)||t.pf!==cents(r.pf)||t.pa!==cents(r.pa))throw Error('Weekly ledger disagrees with standings: '+r.name)}
+ history.sort((a,b)=>a.week-b.week);if(history.length!==week)throw Error('Incomplete manager trajectory');
+ const leagueAverage=[...totals.values()].reduce((n,t)=>n+t.pf,0)/100/rows.length/week;
+ const recent=history.slice(-5),latest=history.at(-1);let streak=0;for(const g of history.slice().reverse()){if(g.result!==latest.result)break;streak++}
+ return {history,recent,leagueAverage,streak:latest.result+streak,seasonHigh:history.reduce((a,b)=>b.pf>a.pf?b:a),recentAverage:recent.reduce((n,g)=>n+g.pf,0)/recent.length};
+}
 const make=(tag,txt,cls)=>{const n=document.createElement(tag);if(txt!=null)n.textContent=txt;if(cls)n.className=cls;return n};
 export async function mountManagerDashboard({name,host,root='../../'}){
  if(!host||host.querySelector('.gm42-dashboard'))return;
  const panel=make('div',null,'gm42-dashboard'),status=make('p','Checking synchronized career and playoff evidence…','gm42-status');status.setAttribute('role','status');panel.append(status);host.append(panel);
  try{
   const get=async file=>{const r=await fetch(root+'data/'+file,{cache:'no-store'});if(!r.ok)throw Error('Unavailable '+file);return r.json()};
-  const [core,guide,race]=await Promise.all([get('career_core_generated.json'),get('season_guide.json'),get('playoff_race_v1.json').catch(()=>null)]);
+  const [core,guide,race,ledger]=await Promise.all([get('career_core_generated.json'),get('season_guide.json'),get('playoff_race_v1.json').catch(()=>null),get('unified_record_book_2016_2026.json').catch(()=>null)]);
   const d=buildManagerDashboard(core,guide,race,name),fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:2});
   status.textContent='Synchronized through Week '+d.week+' · regular season';
   const grid=make('div',null,'gm42-grid');
@@ -38,5 +58,17 @@ export async function mountManagerDashboard({name,host,root='../../'}){
   if(d.playoff){for(const [label,value] of [['Playoff probability',d.playoff.playoff],['First-round bye probability',d.playoff.bye]]){const row=make('div',null,'gm42-probability');const caption=make('label',label+' · '+fmt(value)+'%');const meter=make('meter');meter.min=0;meter.max=100;meter.value=value;meter.setAttribute('aria-label',label);row.append(caption,meter);outlook.append(row)}outlook.append(make('p','Model estimates, not mathematical clinches or official odds.'))}
   else outlook.append(make('p','Matching completed-week playoff simulation not available. No outdated odds displayed.'));
   panel.append(outlook);
+  const trend=make('section',null,'gm42-outlook');trend.append(make('h3','Season trajectory'));panel.append(trend);
+  try{
+   const t=buildSeasonTrajectory(ledger,guide,name,d.week);
+   trend.append(make('p','Current streak: '+t.streak+' · Last '+t.recent.length+' average: '+fmt(t.recentAverage)+' PF · League average: '+fmt(t.leagueAverage)+' PF'));
+   const bars=make('div',null,'gm42-trend');const max=Math.max(1,...t.history.map(g=>g.pf),t.leagueAverage);
+   for(const g of t.history){const item=make('div',null,'gm42-trend-item');item.append(make('span','W'+g.week));const bar=make('meter');bar.min=0;bar.max=max;bar.value=Math.max(0,g.pf);bar.setAttribute('aria-label','Week '+g.week+' '+fmt(g.pf)+' points');item.append(bar,make('strong',fmt(g.pf)),make('span',g.result));bars.append(item)}
+   trend.append(bars,make('p','Season high: '+fmt(t.seasonHigh.pf)+' PF vs '+t.seasonHigh.opponent+' (Week '+t.seasonHigh.week+').'));
+   const log=make('details');log.append(make('summary','Last '+t.recent.length+' matchup results'));
+   for(const g of t.recent.slice().reverse())log.append(make('p','Week '+g.week+' · '+g.result+' vs '+g.opponent+' · '+fmt(g.pf)+'–'+fmt(g.pa)));
+   trend.append(log);
+  }catch(error){trend.append(make('p','Weekly scoring trend unavailable until matchup evidence agrees with standings.'))}
+
  }catch(error){status.textContent='Synchronized dashboard unavailable. Existing season results remain accessible.';console.warn('Manager 4.2 dashboard:',error.message)}
 }
