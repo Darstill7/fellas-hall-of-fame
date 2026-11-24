@@ -30,13 +30,34 @@ export function buildPersonalDashboard(d,race,name){
  const fixtures=race.fixtures?.[week];if(Array.isArray(fixtures)&&fixtures.length===5&&fixtures.every(x=>Array.isArray(x)&&x.length===2)){const flat=fixtures.flat().map(norm);if(new Set(flat).size===10&&flat.every(x=>names.includes(x))){const pair=fixtures.map(x=>x.map(norm)).find(x=>x.includes(name));opponent=d.standings.find(r=>r.name===pair?.find(x=>x!==name))??null}}}}
  return {team,rank:index+1,opponent,odds,week,cutoff:d.week};
 }
+
+// Ranked, bounded activity derived exclusively from synchronized evidence.
+// Probability estimates are not official clinches. No inferred editorial mentions.
+export function buildActivityFeed(d,race,name){
+ const p=buildPersonalDashboard(d,race,name);if(!p)return [];
+ const t=p.team,items=[],week=d.week,profile='managers/'+slug(name)+'/?app=1';
+ const add=(id,priority,title,detail,href)=>items.push({id:week+':'+name+':'+id,priority,title,detail,href,week});
+ const run=Number(t.streak.slice(1)),result=t.streak[0];
+ if(run>=3&&result!=='T')add('streak',run>=7?100:80,run+' consecutive '+(result==='W'?'wins':'losses'), 'Your current regular-season streak through Week '+week+'.',profile);
+ if(d.leaders.some(r=>r.name===name))add('scoring',95,d.leaders.length>1?'Tied for weekly scoring lead':'Weekly scoring leader',fmt(t.latest)+' points in Week '+week+'.','analytics/sportscenter.html');
+ if(p.odds&&p.odds.playoff>0&&p.odds.playoff<100)add('playoff',p.odds.playoff>=20&&p.odds.playoff<=80?85:45,'Playoff watch · '+p.odds.playoff+'%', 'Model estimate through Week '+week+'; not an official clinch.','analytics/playoff-race.html');
+ const g=d.latest.find(g=>[norm(g.home),norm(g.away)].includes(name));if(g){const home=norm(g.home)===name,o=norm(home?g.away:g.home),pf=home?g.homeScore:g.awayScore,pa=home?g.awayScore:g.homeScore;add('result',Math.abs(pf-pa)>=30?75:60,(pf>pa?'Victory over ':pf<pa?'Loss to ':'Tie with ')+o,fmt(pf)+' – '+fmt(pa)+' · Week '+week,'analytics/sportscenter.html')}
+ if(p.opponent)add('next',65,p.opponent.name+' awaits','Week '+p.week+' schedule preview · '+record(p.opponent), 'analytics/rivalry-war-room.html');
+ return items.sort((a,b)=>b.priority-a.priority||a.id.localeCompare(b.id)).slice(0,3);
+}
+function renderActivity(host,d,race,name){
+ const items=buildActivityFeed(d,race,name);if(!items.length)return;
+ const panel=el('section',null,'personal-activity');const heading=el('h3','Your franchise activity');panel.append(heading,el('small','Three most relevant verified updates · Week '+d.week,'activity-meta'));
+ const list=el('div',null,'activity-list');for(const item of items){const a=el('a',null,'activity-item');a.href=item.href;a.dataset.activityId=item.id;const text=el('div');text.append(el('strong',item.title),el('small',item.detail));a.append(text,el('span','›','activity-arrow'));list.append(a)}panel.append(list);host.append(panel);
+}
+
 function renderPersonal(d,race,name){
  const host=document.getElementById('my-team');host.replaceChildren();const p=buildPersonalDashboard(d,race,name);if(!p){host.append(el('p','Choose your franchise to personalize this device. No account required.','source-note'));return}
  const card=el('div',null,'personal-card'),top=el('div',null,'personal-top'),identity=el('div'),avatar=el('span',name.slice(0,2).toUpperCase(),'team-avatar');identity.append(el('strong',name),el('small','Franchise headquarters'));const form=el('div',null,'team-form');form.append(el('strong',record(p.team)),el('small',p.team.streak+' streak',p.team.streak[0]==='W'?'win':'loss'));top.append(avatar,identity,form);card.append(top);
  const stats=el('div',null,'personal-stats');for(const [label,value] of [['Standing','#'+p.rank],['Weekly PF',fmt(p.team.pf/d.week)],['Playoff odds',p.odds?p.odds.playoff+'%':'—']]){const x=el('div');x.append(el('strong',value),el('small',label));stats.append(x)}card.append(stats);host.append(card);
  const match=el('div',null,'personal-detail');match.append(el('h3','Your next matchup'));if(p.opponent){match.append(el('small','Week '+p.week+' · archived schedule preview'),el('strong',name+' vs '+p.opponent.name),el('p',record(p.team)+' vs '+record(p.opponent)+' · Avg PF '+fmt(p.team.pf/d.week)+' – '+fmt(p.opponent.pf/d.week)))}else match.append(el('p','Matching future fixture unavailable.'));host.append(match);
  const outlook=el('div',null,'personal-detail');outlook.append(el('h3','Your playoff picture'));if(p.odds){for(const [label,value] of [['Playoffs',p.odds.playoff],['First-round bye',p.odds.bye]]){const row=el('div',null,'odds-row'),meter=el('meter');meter.min=0;meter.max=100;meter.value=value;meter.setAttribute('aria-label',label);row.append(el('span',label),el('b',value+'%'),meter);outlook.append(row)}outlook.append(el('small','Model estimates through Week '+d.week+'; not official clinches.'))}else outlook.append(el('p','Matching playoff model unavailable.'));host.append(outlook);
- const links=el('div',null,'personal-links');for(const [label,href] of [['Career','managers/'+slug(name)+'/'],['Records','managers/record-books.html?manager='+encodeURIComponent(name)+'#career-first'],['Trades','analytics/trade-museum.html?manager='+encodeURIComponent(name)],['Rivalries','analytics/rivalry-war-room.html?a='+encodeURIComponent(name)+'&b='+encodeURIComponent(p.opponent?.name??names.find(n=>n!==name))]]){const a=el('a',label);a.href=href;links.append(a)}host.append(links);
+ const links=el('div',null,'personal-links');for(const [label,href] of [['Career','managers/'+slug(name)+'/'],['Records','managers/record-books.html?manager='+encodeURIComponent(name)+'#career-first'],['Trades','analytics/trade-museum.html?manager='+encodeURIComponent(name)],['Rivalries','analytics/rivalry-war-room.html?a='+encodeURIComponent(name)+'&b='+encodeURIComponent(p.opponent?.name??names.find(n=>n!==name))]]){const a=el('a',label);a.href=href;links.append(a)}host.append(links);renderActivity(host,d,race,name);
 }
 
 if(typeof document!=='undefined'){const get=async file=>{const r=await fetch('data/'+file);if(!r.ok)throw Error('HTTP '+r.status);return r.json()};Promise.all([get('season_guide.json'),get('unified_record_book_2016_2026.json'),get('playoff_race_v1.json').catch(()=>null)]).then(([g,l,race])=>{const d=buildHomeDashboard(g,l);render(d);const select=document.getElementById('my-manager');let storage;try{storage=window.localStorage}catch{}select.value=readPreference(storage);renderPersonal(d,race,select.value);select.addEventListener('change',()=>{savePreference(storage,select.value);renderPersonal(d,race,select.value)})}).catch(e=>{document.getElementById('cutoff').textContent='Verified data unavailable';for(const id of ['pulse','standings','matchups'])document.getElementById(id).replaceChildren(el('p','Current data could not be verified. Open the season archive.'));console.warn('Home app:',e.message)})}
