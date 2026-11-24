@@ -20,16 +20,16 @@ try{
     await page.route('**/data/career_core_generated.json',async r=>{const response=await r.fetch();const data=await response.json();await r.fulfill({json:{...data,completedThrough:cutoff}})});
     const slug=name==='Thommy'?'tom':name.toLowerCase();
     await page.goto(base+'managers/'+slug+'/',{waitUntil:'domcontentloaded'});
-    const panel=page.locator('#gm4-headquarters');await panel.locator('.gm4-metrics').waitFor({timeout:15000});
+    const topic=page.locator('#gm47-front-office');await topic.locator(':scope > summary').waitFor({timeout:15000});assert.equal(await topic.evaluate(e=>e.open),false,'Front office should be deferred');await topic.locator(':scope > summary').click();const panel=page.locator('#gm4-headquarters');await panel.locator('.gm4-metrics').waitFor({timeout:15000});
     assert.match(await panel.innerText(),/1,234\.56 PF/);
     await page.getByRole('button',{name:/Front office Roster construction/}).click();
-    assert.equal(await page.evaluate(()=>document.activeElement?.id),'gm4-heading');
+    assert.equal(await page.evaluate(()=>document.activeElement?.closest('details')?.id),'gm47-front-office');
     for(const summary of await panel.locator('summary').all()){await summary.click();assert(await summary.evaluate(e=>e.parentElement.open))}
     assert(await panel.evaluate(e=>e.scrollWidth<=e.clientWidth+2),'Panel overflows');
     if(width===390||width===1280)await panel.screenshot({path:out+'/'+engine+'-'+width+'-'+slug+'.png'});
     await page.unrouteAll();
     await page.route('**/data/front-office/managers.json',r=>r.fulfill({json:{...fixture,status:'RESEARCH_ONLY_NOT_DEPLOYABLE'}}));
-    await page.reload({waitUntil:'domcontentloaded'});await panel.getByText(/Verified front office release not available/).waitFor({timeout:15000});
+    await page.reload({waitUntil:'domcontentloaded'});await topic.locator(':scope > summary').click();await panel.getByText(/Verified front office release not available/).waitFor({timeout:15000});
     assert.equal(await panel.locator('.gm4-metrics').count(),0);
     results.push(meta);
    }catch(e){failures.push({...meta,error:String(e)})}finally{await page.unrouteAll()}}
