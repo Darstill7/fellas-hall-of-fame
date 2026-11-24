@@ -75,3 +75,9 @@
 @media(max-width:759px){.personal-v51 #my-team{display:grid;grid-template-columns:minmax(0,1fr);gap:5px}.personal-v51 .personal-card,.personal-v51 .personal-detail{margin:0}.personal-v51 .personal-links{margin-top:2px}.personal-v51 .personal{margin-bottom:16px}}
 
 .personal-roster{grid-column:1/-1;border:1px solid #65715e;background:var(--panel);border-radius:10px;min-width:0}.personal-roster>summary{min-height:44px;padding:11px 12px;font-weight:800;color:var(--gold);cursor:pointer}.roster-body{padding:0 12px 12px}.roster-group h4{margin:12px 0 4px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.roster-row{display:grid;grid-template-columns:40px minmax(0,1fr) minmax(0,auto);align-items:center;gap:7px;min-height:35px;padding:5px 0;border-bottom:1px solid var(--line);font-size:13px}.roster-row strong{overflow-wrap:anywhere}.roster-row small{font-size:11px;color:var(--muted);text-align:right;overflow-wrap:anywhere}.roster-slot{color:var(--gold);font-size:11px;font-weight:800}@media(min-width:760px){.personal-v51 .personal-roster{grid-row:2}}
+
+/* 5.1: Sleeper remains the operational platform. Roster is optional and last. */
+.personal-v51 .personal-roster{grid-row:auto;border-color:var(--line)}
+.personal-v51 .personal-roster>summary{font-weight:650;color:var(--muted);font-size:13px}
+.personal-insight-link{display:flex;align-items:center;min-height:44px;font-size:12px;font-weight:750;color:var(--gold)}
+.personal-v51 .personal-links a{text-align:center;padding:4px;line-height:1.2}
