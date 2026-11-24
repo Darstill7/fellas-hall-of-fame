@@ -1,0 +1,26 @@
+name: Verify live weekly production parity
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  live-parity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify canonical weekly source consistency
+        run: |
+          node scripts/verify-current-week-website.mjs
+          node scripts/audit-weekly-publication.mjs
+      - name: Compare publicly served bytes against this main checkout
+        run: |
+          node --input-type=module <<'JS'
+          import {verifyWithRetries,checkedPaths} from './scripts/verify-pages-release-parity.mjs';
+          await verifyWithRetries({root:process.cwd(),baseUrl:'https://darstill7.github.io/fellas-hall-of-fame/',paths:[...checkedPaths,'data/unified_record_book_2016_2026.json','data/season_weekly_matchups_2016_2026_v1.json','data/season_guide.json','data/playoff_race_v1.json','data/trade_museum_stage66.json','analytics/trade-museum.html','analytics/playoff-race.html'],attempts:6,intervalMs:20000,nonce:process.env.GITHUB_SHA.slice(0,12)});
+          JS
