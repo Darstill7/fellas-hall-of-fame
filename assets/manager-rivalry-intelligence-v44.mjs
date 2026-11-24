@@ -1,3 +1,4 @@
+import {sharedProfileJson} from './manager-mobile-v47.mjs';
 // Rivalry Intelligence 4.4. Regular records reconcile to canonical career;
  // archived postseason games are separate, not assumed complete bracket series.
 import {validateScorecard} from './manager-headquarters-v4.mjs';
@@ -87,7 +88,7 @@ export async function mountRivalryIntelligence({name,host,root='../../'}){
  const panel=el('section',null,'gm44-rivalries');panel.id='gm44-rivalries';const heading=el('h2','Rivalry intelligence');heading.id='gm44-heading';panel.setAttribute('aria-labelledby',heading.id);
  const status=el('p','Checking career matchup evidence…','gm44-status');status.setAttribute('role','status');panel.append(el('p','FRANCHISE HEADQUARTERS / RIVALRIES','gm44-kicker'),heading,status);host.prepend(panel);
  try{
-  const get=async p=>{const r=await fetch(root+'data/'+p);if(!r.ok)throw Error('Unavailable '+p);return r.json()};
+  const get=file=>sharedProfileJson(root+'data/'+file);
   const [core,ledger,tradeData,espn,sleeper]=await Promise.all([get('career_core_generated.json'),get('unified_record_book_2016_2026.json'),get('front-office/managers.json').catch(()=>null),get('verified_espn_playoff_brackets_2016_2019.json').catch(()=>null),get('verified_sleeper_playoff_brackets_2020_2025.json').catch(()=>null)]);
   const d=buildRivalryIntelligence(core,ledger,name);
   status.textContent='Regular-season series reconcile to career totals. Archived postseason games shown separately; raw points across scoring eras are not normalized.';
