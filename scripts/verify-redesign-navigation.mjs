@@ -6,7 +6,9 @@ import assert from 'node:assert/strict';
 
 const root=process.cwd();
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
-const home=read('index.html');
+const production=read('index.html');
+const appHome=production.includes('id="my-manager"');
+const home=appHome?read('home-classic.html'):production;
 const profiles=read('assets/manager-profile-tabs.mjs');
 const book=read('managers/record-books.html');
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
@@ -15,6 +17,14 @@ let assertions=0;
 const check=(condition,message)=>{assert.ok(condition,message);assertions++};
 const route=relative=>check(fs.existsSync(path.join(root,relative)), 'Missing route '+relative);
 
+// Preserve all classic navigation contracts and independently require production routes.
+if(appHome){
+ for(const id of ['my-manager','standings','matchups','league','news','more'])check(production.includes('id="'+id+'"'),'Missing production home section '+id);
+ check(production.includes('href="home-classic.html"'),'Missing classic archive entry');
+ check(production.includes('location.replace("home-classic.html"+location.search+location.hash)'),'Missing legacy bookmark routing');
+ for(const name of names)check(production.includes('<option value="'+name+'">'+name+'</option>'),'Missing production franchise choice '+name);
+ for(const file of ['home-classic.html','fellas-app.webmanifest','assets/app-shell-v34.mjs'])route(file);
+}
 // First visit: clear homepage exploration and all current franchises.
 check(home.includes('id="explore-the-league"'), 'Missing homepage exploration anchor');
 check(home.includes('class="home-franchise-links"'), 'Missing direct franchise finder');
