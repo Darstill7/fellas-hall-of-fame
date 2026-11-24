@@ -1,11 +1,11 @@
-import {mountDeferredProfileTopic,revealProfileHash} from './manager-mobile-v47.mjs';
-import {mountFranchiseLegends} from './manager-franchise-legends-v46.mjs';
-import {mountAchievementCabinet} from './manager-achievements-record-watch.mjs';
-import {mountPersonalRecordIntelligence} from './manager-personal-records-v45.mjs';
+import {sharedProfileJson,mountDeferredProfileTopic,revealProfileHash} from './manager-mobile-v47.mjs';
+const mountFranchiseLegends=async options=>(await import('./manager-franchise-legends-v46.mjs')).mountFranchiseLegends(options);
+const mountAchievementCabinet=async options=>(await import('./manager-achievements-record-watch.mjs')).mountAchievementCabinet(options);
+const mountPersonalRecordIntelligence=async options=>(await import('./manager-personal-records-v45.mjs')).mountPersonalRecordIntelligence(options);
 import {mountRivalryIntelligence} from './manager-rivalry-intelligence-v44.mjs';
 import {mountFranchiseTimeline} from './manager-franchise-timeline-v43.mjs';
-import {mountManagerDashboard} from './manager-dashboard-v42.mjs';
-import {mountManagerHeadquarters} from './manager-headquarters-v4.mjs';
+const mountManagerDashboard=async options=>(await import('./manager-dashboard-v42.mjs')).mountManagerDashboard(options);
+const mountManagerHeadquarters=async options=>(await import('./manager-headquarters-v4.mjs')).mountManagerHeadquarters(options);
 import {mountManagerLuckPerformance} from './manager-luck-performance.mjs';
 import {mountManagerScheduleLuck} from './manager-schedule-luck.mjs';
 import {mountDraftTradeCareer} from './manager-draft-trade-career-page.mjs';
@@ -186,18 +186,25 @@ async function mountProfileRecordOwnership(){
  link.append(heading,result,arrow);
  snapshot.append(link);
  try{
-  const responses=await Promise.all([
-   fetch('../../data/manager_record_books_2016_2026.json'),
-   fetch('../../data/season_guide.json'),
-   fetch('../../data/verified_espn_playoff_brackets_2016_2019.json'),
-   fetch('../../data/verified_sleeper_playoff_brackets_2020_2025.json'),
-   fetch('../../data/fellas_final_placements_2020_2025.json'),
-   fetch('../../data/sleeper_postseason_placement_receipts_2020_2025.json'),
-   fetch('../../data/fellas_final_placements_2016_2025_verified.json')
+  const [archive,guide,espn,sleeper,placements,placementReceipts,allEra]=await Promise.all([
+   sharedProfileJson('../../data/manager_record_books_2016_2026.json'),
+   sharedProfileJson('../../data/season_guide.json'),
+   sharedProfileJson('../../data/verified_espn_playoff_brackets_2016_2019.json'),
+   sharedProfileJson('../../data/verified_sleeper_playoff_brackets_2020_2025.json'),
+   sharedProfileJson('../../data/fellas_final_placements_2020_2025.json'),
+   sharedProfileJson('../../data/sleeper_postseason_placement_receipts_2020_2025.json'),
+   sharedProfileJson('../../data/fellas_final_placements_2016_2025_verified.json')
   ]);
-  if(responses.some(r=>!r.ok))throw Error('Record sources unavailable');
-  const [archive,guide,espn,sleeper,placements,placementReceipts,allEra]=await Promise.all(responses.map(r=>r.json()));
-  if(archive.asOf!=='2026 Week 8')throw Error('Unexpected record archive scope');
+  const standings=guide['2026']?.standings;
+  const week=standings?.[0]?.games;
+  const coverage=String(archive.scope||'').match(/2026 Week (\d+)/);
+  if(archive.source!=='data/unified_record_book_2016_2026.json'||!Number.isInteger(week)||standings.length!==10||Number(coverage?.[1])!==week||!Array.isArray(archive.managers)||!standings.every(row=>{
+   const name=row.name==='Tom'?'Thommy':row.name;
+   const matches=archive.managers.filter(m=>m.manager===name);
+   const annual=matches[0]?.annual;
+   const record=Array.isArray(annual)?annual.find(a=>a.year===2026):annual?.['2026'];
+   return matches.length===1&&row.games===week&&record&&record.w===row.w&&record.l===row.l&&(record.t??0)===(row.t??0);
+  }))throw Error('Record archive does not match current canonical standings');
   const owned=findOwnedRecords(archive,guide,normalized,{espn,sleeper,placements,placementReceipts,allEra});
   result.textContent=owned.length
    ?owned.length+' of '+recordCategoryLabels.length+' league records held'

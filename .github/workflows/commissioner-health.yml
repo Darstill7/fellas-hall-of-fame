@@ -1,0 +1,34 @@
+name: Commissioner data health
+on:
+  pull_request:
+    paths:
+      - 'data/**'
+      - 'assets/home-app-v3.mjs'
+      - 'assets/league-config.mjs'
+      - 'scripts/build-commissioner-health.mjs'
+      - '.github/workflows/commissioner-health.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: commissioner-health-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  health:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Reconcile commissioner data health
+        run: node scripts/build-commissioner-health.mjs
+      - name: Retain timestamped diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: commissioner-data-health
+          path: ${{ runner.temp }}/fellas-health/
+          if-no-files-found: warn
+          retention-days: 14
