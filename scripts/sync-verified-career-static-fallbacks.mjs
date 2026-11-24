@@ -36,6 +36,18 @@ for(const file of ['index.html',...walk('managers'),...walk('seasons'),...walk('
  }
  if(before!==after)changes.push({file,before,after});
 }
+// Synchronize only the career record fields; retain all editorial and trophy evidence.
+for(const file of ['data/league.json','data/manager_legacy_resumes.json']){
+ const before=read(file),data=JSON.parse(before),rows=file==='data/league.json'?data.managers:data;
+ for(const [name,row] of Object.entries(rows)){
+  if(!row||typeof row.record!=='string')continue;
+  const m=core.managers[name==='Tom'?'Thommy':name];
+  assert(m,'Unknown shared career manager '+name+' in '+file);
+  row.record=record(m);
+ }
+ const after=JSON.stringify(data,null,2)+'\n';
+ if(JSON.stringify(JSON.parse(before))!==JSON.stringify(data))changes.push({file,before,after});
+}
 if(process.argv.includes('--check'))assert.equal(changes.length,0,'Stale static fallback files: '+changes.map(x=>x.file).join(', '));
 else for(const c of changes)fs.writeFileSync(c.file,c.after);
 console.log('CAREER STATIC FALLBACK SYNC '+JSON.stringify({completedThrough:core.completedThrough,changed:changes.map(c=>c.file)}));
