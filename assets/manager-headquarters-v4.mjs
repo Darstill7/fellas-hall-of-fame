@@ -1,0 +1,47 @@
+// Manager Profiles 4.0: a compact, source-backed front office dossier.
+// Optional production dataset is never substituted with research-only data.
+const labels={DRAFT:'Draft selections',ARCHIVED_KEEPER:'Archived keeper selections',DRAFT_KEEPER_UNKNOWN:'Draft / keeper status unknown',WAIVER:'Waiver claims',FREE_AGENT:'Free agents',TRADE:'Trades',COMMISSIONER:'Commissioner adjustments'};
+const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:2});
+const pf=n=>Number.isSafeInteger(n)?fmt(n/100)+' PF':'Not available';
+const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e};
+export function validateScorecard(data,name,cutoff){
+ if(data.status!=='VERIFIED_RELEASE'||data.completedThrough?.year!==cutoff.year||data.completedThrough?.week!==cutoff.week)throw Error('Front office release does not match current career cutoff');
+ const matches=data.supportedEvidence?.careerScorecards?.filter(x=>x.manager===name)||[];
+ if(matches.length!==1)throw Error('Expected one manager scorecard');
+ const m=matches[0],cats=Object.values(m.categories||{});
+ for(const x of [m.total,...cats])for(const k of ['supported_starts','supported_pf_cents','strict_pf_cents'])if(!Number.isSafeInteger(x[k]))throw Error('Invalid scoring receipt aggregate');
+ for(const k of ['supported_starts','supported_pf_cents','strict_pf_cents'])if(cats.reduce((n,x)=>n+x[k],0)!==m.total[k])throw Error('Category reconciliation failed: '+k);
+ if(!Array.isArray(m.draftSeasons)||!Array.isArray(m.tradeRivalries)||!Array.isArray(m.keeperSlots))throw Error('Incomplete scorecard');
+ return m;
+}
+function disclosure(title,rows){
+ const d=node('details',null,'gm4-disclosure');d.append(node('summary',title));
+ const body=node('div',null,'gm4-rows');
+ for(const [label,value,detail] of rows){const r=node('div',null,'gm4-row'),copy=node('div');copy.append(node('strong',label),node('small',detail));r.append(copy,node('b',value));body.append(r)}
+ if(!rows.length)body.append(node('p','No qualifying verified entries.'));
+ d.append(body);return d;
+}
+export async function mountManagerHeadquarters({name,host,root='../../',fetcher=fetch}){
+ if(!host||!name||host.querySelector('#gm4-headquarters'))return;
+ const section=node('section',null,'gm4-headquarters');section.id='gm4-headquarters';section.setAttribute('aria-labelledby','gm4-heading');
+ const heading=node('h2','Front office résumé');heading.id='gm4-heading';
+ section.append(node('p','FRANCHISE HEADQUARTERS / FRONT OFFICE','gm4-kicker'),heading,node('p','How '+name+' assembled the roster, season after season.','gm4-intro'));
+ const status=node('p','Checking released scoring evidence…','gm4-status');status.setAttribute('role','status');section.append(status);
+ const content=node('div');section.append(content);
+ const legacy=node('a','Explore existing draft and trade research →','gm4-link');legacy.href=root+'analytics/greatest-worst-trades.html?manager='+encodeURIComponent(name);section.append(legacy);
+ host.append(section);
+ try{
+  const [coreResponse,releaseResponse]=await Promise.all([fetcher(root+'data/career_core_generated.json'),fetcher(root+'data/front-office/managers.json')]);
+  if(!coreResponse.ok||!releaseResponse.ok)throw Error('Released evidence not available');
+  const [core,data]=await Promise.all([coreResponse.json(),releaseResponse.json()]);
+  const m=validateScorecard(data,name,core.completedThrough);
+  status.textContent='Sleeper era · 2020–'+data.completedThrough.year+' · through Week '+data.completedThrough.week+' · regular season only';
+  const metrics=node('div',null,'gm4-metrics');
+  for(const [label,value] of [['Starter production',pf(m.total.supported_pf_cents)],['Starts',fmt(m.total.supported_starts)],['Trade surplus',pf(m.tradeSurplusCents)]]){const card=node('div');card.append(node('small',label),node('strong',value));metrics.append(card)}
+  content.append(metrics,node('p','Received starter points are descriptive, not proof of managerial skill. Timing-supported ownership and archive-derived keeper designations retain uncertainty.','gm4-note'));
+  content.append(disclosure('Roster construction',Object.entries(m.categories).map(([k,v])=>[labels[k]||k,pf(v.supported_pf_cents),fmt(v.acquisitions)+' acquisitions · '+fmt(v.supported_starts)+' starts'])));
+  content.append(disclosure('Annual draft report cards (provisional)',m.draftSeasons.slice().sort((a,b)=>b.year-a.year).map(s=>[String(s.year),s.grade??'Not graded',s.graded_picks+'/'+s.total_picks+' graded selections'])));
+  content.append(disclosure('Trade rivalries',m.tradeRivalries.map(r=>[r.a===name?r.b:r.a,pf((r.a===name?1:-1)*r.a_minus_b_supported_cents),fmt(r.trades)+' eligible trades'])));
+  content.append(disclosure('Keeper slot comparisons (provisional)',m.keeperSlots.map(r=>[(r.name||r.player_id)+' · '+r.year,pf(r.observed_pf_cents),'Round '+r.round+' · archive classification'])));
+ }catch(error){status.textContent='Verified front office release not available for this completed week. Existing research remains accessible below.';console.warn('Manager 4.0 evidence:',error.message)}
+}
