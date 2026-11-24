@@ -1,0 +1,11 @@
+/* Compact manager career comparison, progressive enhancement: links/search work without data. */
+.manager-comparison-controls{display:flex;align-items:center;flex-wrap:wrap;gap:9px 13px;margin:19px 0 0;padding:14px 15px;border:1px solid #456176;background:#102534;border-radius:11px}
+.manager-comparison-controls label{font-size:13px;color:#eac879;font-weight:850}
+.manager-comparison-controls select{background:#0b1a26;color:#f4f1e9;border:1px solid #678397;border-radius:9px;min-height:44px;padding:10px 11px;font:inherit;font-size:13px;min-width:215px;max-width:100%}
+.manager-comparison-controls select:focus-visible{outline:3px solid #eac879;outline-offset:2px}
+.manager-comparison-controls select:disabled{opacity:.75}
+.manager-comparison-controls p{flex-basis:100%;margin:2px 0 0;color:#b9cbd6;font-size:12px;line-height:1.5}
+.manager-comparison-stats{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0 12px}
+.manager-comparison-stats>span{display:grid;min-width:74px;flex:1 1 70px;gap:3px;padding:7px 9px;border:1px solid #426074;border-radius:8px;background:#0c1e2b;color:#b8cbd6;font-size:11px}
+.manager-comparison-stats strong{color:#f2d08b;font-size:16px;line-height:1.15;font-variant-numeric:tabular-nums}
+@media(max-width:520px){.manager-comparison-controls{align-items:stretch;flex-direction:column}.manager-comparison-controls select{width:100%;min-width:0}.manager-comparison-stats>span{min-width:0}}
