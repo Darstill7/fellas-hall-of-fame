@@ -16,7 +16,7 @@ let request;
 const load=()=>request??=(fetch(new URL('../data/current-rosters-v1.json',import.meta.url),{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Roster unavailable');return r.json()}).then(validateRosterSnapshot).catch(e=>{request=undefined;throw e}));
 const el=(tag,value,cls)=>{const n=document.createElement(tag);if(value!=null)n.textContent=value;if(cls)n.className=cls;return n};
 export function mountRoster(host,name){
- const panel=el('details',null,'personal-roster');panel.dataset.manager=name;const summary=el('summary','My roster');panel.append(summary);const body=el('div',null,'roster-body');panel.append(body);host.append(panel);
+ const panel=el('details',null,'personal-roster');panel.dataset.manager=name;const summary=el('summary','My roster · optional snapshot');panel.append(summary);const body=el('div',null,'roster-body');panel.append(body);host.append(panel);
  let loaded=false;panel.addEventListener('toggle',async()=>{if(!panel.open||loaded)return;loaded=true;body.replaceChildren(el('p','Loading roster snapshot…','source-note'));try{
  const data=await load();if(!panel.isConnected)return;const team=data.teams.find(t=>t.manager===name);const time=new Date(data.collectedAt);const age=Date.now()-time.getTime();const old=age>24*3600000||age<0;
  body.replaceChildren(el('strong',team.teamName),el('p','Week '+team.startersWeek+' assigned starters · '+(old?'Older snapshot; verify in Sleeper':'Snapshot')+' · '+time.toLocaleString('en-US',{dateStyle:'medium',timeStyle:'short'})+' local time','source-note'),el('p','Read-only snapshot, not live. Changes after collection may not appear.','source-note'));
