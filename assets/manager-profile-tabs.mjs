@@ -195,7 +195,16 @@ async function mountProfileRecordOwnership(){
    sharedProfileJson('../../data/sleeper_postseason_placement_receipts_2020_2025.json'),
    sharedProfileJson('../../data/fellas_final_placements_2016_2025_verified.json')
   ]);
-  if(archive.asOf!=='2026 Week 8')throw Error('Unexpected record archive scope');
+  const standings=guide['2026']?.standings;
+  const week=standings?.[0]?.games;
+  const coverage=String(archive.scope||'').match(/2026 Week (\d+)/);
+  if(archive.source!=='data/unified_record_book_2016_2026.json'||!Number.isInteger(week)||standings.length!==10||Number(coverage?.[1])!==week||!Array.isArray(archive.managers)||!standings.every(row=>{
+   const name=row.name==='Tom'?'Thommy':row.name;
+   const matches=archive.managers.filter(m=>m.manager===name);
+   const annual=matches[0]?.annual;
+   const record=Array.isArray(annual)?annual.find(a=>a.year===2026):annual?.['2026'];
+   return matches.length===1&&row.games===week&&record&&record.w===row.w&&record.l===row.l&&(record.t??0)===(row.t??0);
+  }))throw Error('Record archive does not match current canonical standings');
   const owned=findOwnedRecords(archive,guide,normalized,{espn,sleeper,placements,placementReceipts,allEra});
   result.textContent=owned.length
    ?owned.length+' of '+recordCategoryLabels.length+' league records held'
