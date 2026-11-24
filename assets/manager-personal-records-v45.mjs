@@ -1,3 +1,4 @@
+import {sharedProfileJson} from './manager-mobile-v47.mjs';
 import {buildRecordCategories,findOwnedRecords,recordCategoryLabels,nextRecordChallenger} from './manager-record-ownership.mjs';
 const norm=n=>n==='Tom'?'Thommy':n;
 const cents=n=>Math.round(n*100);
@@ -59,7 +60,7 @@ export async function mountPersonalRecordIntelligence({name,host,root='../../'})
  if(!host||host.querySelector('#gm45-records'))return;
  const panel=el('section',null,'gm45-records');panel.id='gm45-records';const h=el('h2','Personal record book');h.id='gm45-heading';panel.setAttribute('aria-labelledby',h.id);
  const status=el('p','Reconciling career records…','gm45-status');status.setAttribute('role','status');panel.append(el('p','FRANCHISE HEADQUARTERS / RECORDS','gm45-kicker'),h,status);host.append(panel);
- const get=async p=>{const r=await fetch(root+'data/'+p);if(!r.ok)throw Error('Unavailable '+p);return r.json()};
+ const get=file=>sharedProfileJson(root+'data/'+file);
  try{
  const [core,ledger]=await Promise.all([get('career_core_generated.json'),get('unified_record_book_2016_2026.json')]);
  const d=buildPersonalRecords(core,ledger,name);status.textContent='Reconciled regular-season archive · '+d.games+' games · raw scoring across eras.';
