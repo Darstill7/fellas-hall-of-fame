@@ -31,4 +31,4 @@ fetch('../data/season_weekly_matchups_2016_2026_v1.json',{cache:'no-store'}).the
  $('game-heading').textContent='Week '+week+' · final scores';
  $('latest-games').innerHTML=latest.map(g=>'<div class="result"><strong>'+esc(clean(g.home))+' vs '+esc(clean(g.away))+'</strong><span class="score">'+num(g.homeScore)+' – '+num(g.awayScore)+'</span></div>').join('');
 }).catch(err=>{$('season-status').textContent='Current season information is temporarily unavailable; older archives may not reflect the latest final scores.';console.error(err)});
-</script></body></html>
+</script><script type="module" src="../assets/app-shell-v34.mjs"></script></body></html>
