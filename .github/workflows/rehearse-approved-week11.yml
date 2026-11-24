@@ -35,6 +35,7 @@ jobs:
           node scripts/sync-records-career-fallbacks.mjs
           node scripts/verify-weekly-ledger-parity.mjs
           node scripts/verify-current-week-website.mjs
+          node scripts/sync-weekly-manager-fallbacks.mjs
           node scripts/verify-core-consumers.mjs
           node scripts/verify-franchise-timeline-freshness.mjs
           node scripts/verify-canonical-history.mjs
