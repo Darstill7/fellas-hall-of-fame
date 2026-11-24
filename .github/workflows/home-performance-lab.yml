@@ -1,0 +1,46 @@
+name: Homepage performance laboratory
+on:
+  pull_request:
+    paths:
+      - 'assets/**'
+      - 'home-app-preview.html'
+      - 'data/home-current-season-v1.json'
+      - 'data/season_guide.json'
+      - 'data/unified_record_book_2016_2026.json'
+      - 'scripts/benchmark-site-performance.mjs'
+      - '.github/workflows/home-performance-lab.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: performance-lab-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: c88d9c998ca9354a20d7e2e4065a9230565dd913
+          path: baseline
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify identical canonical inputs
+        run: |
+          cmp baseline/data/season_guide.json data/season_guide.json
+          cmp baseline/data/unified_record_book_2016_2026.json data/unified_record_book_2016_2026.json
+          cmp baseline/data/playoff_race_v1.json data/playoff_race_v1.json
+          node scripts/build-home-current-season.mjs --check
+      - run: npm install --no-save --package-lock=false playwright@1.56.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node scripts/benchmark-site-performance.mjs baseline
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: homepage-performance-comparison
+          path: data-integrity/performance-lab/report.json
+          if-no-files-found: warn
