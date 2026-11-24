@@ -1,0 +1,25 @@
+import assert from 'node:assert/strict';
+import {validateScorecard} from '../assets/manager-headquarters-v4.mjs';
+const cutoff={year:2026,week:10},name='Stilly';
+const total={supported_starts:10,supported_pf_cents:10000,strict_pf_cents:9000};
+const card={manager:name,total,categories:{DRAFT:{...total,acquisitions:2}},draftSeasons:[{manager:name,year:2025,graded_picks:12,total_picks:15,provisional:true}],tradeRivalries:[{a:'Stilly',b:'Mitch',trades:2,a_minus_b_supported_cents:1000},{a:'Stew',b:'Stilly',trades:1,a_minus_b_supported_cents:500}],tradeSurplusCents:500,keeperSlots:[{manager:name,category:'ARCHIVED_KEEPER'}]};
+const data={status:'VERIFIED_RELEASE',completedThrough:cutoff,supportedEvidence:{careerScorecards:[card]}};
+let checks=0;
+assert.equal(validateScorecard(data,name,cutoff),card);checks++;
+function reject(mutate){const copy=structuredClone(data);mutate(copy,copy.supportedEvidence.careerScorecards[0]);assert.throws(()=>validateScorecard(copy,name,cutoff));checks++}
+reject(d=>d.status='RESEARCH_ONLY_NOT_DEPLOYABLE');
+reject(d=>d.completedThrough.week=9);
+reject(d=>d.supportedEvidence.careerScorecards=[]);
+reject(d=>d.supportedEvidence.careerScorecards.push(structuredClone(card)));
+reject((d,c)=>c.categories.DRAFT.supported_pf_cents++);
+reject((d,c)=>c.categories.DRAFT.acquisitions=-1);
+reject((d,c)=>c.categories.DRAFT.strict_pf_cents=NaN);
+reject((d,c)=>c.draftSeasons[0].manager='Mitch');
+reject((d,c)=>c.draftSeasons[0].graded_picks=16);
+reject((d,c)=>c.draftSeasons[0].provisional=false);
+reject((d,c)=>c.draftSeasons.push(structuredClone(c.draftSeasons[0])));
+reject((d,c)=>c.tradeRivalries[0].a='Birch');
+reject((d,c)=>c.tradeRivalries.push(structuredClone(c.tradeRivalries[0])));
+reject((d,c)=>c.tradeSurplusCents=-500);
+reject((d,c)=>c.keeperSlots[0].manager='Mitch');
+console.log('MANAGER HEADQUARTERS V4 VALIDATION PASS '+JSON.stringify({checks}));
