@@ -38,3 +38,15 @@ jobs:
           node scripts/apply-reviewed-trade-timing.mjs
           node --input-type=module -e "import fs from 'node:fs';import assert from 'node:assert/strict';const old=JSON.parse(fs.readFileSync('/tmp/museum-before.json')),now=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json')),a=JSON.parse(fs.readFileSync('/tmp/trade-timing-audit.json'));assert.equal(now.length,57);assert.deepEqual(now.filter(t=>t.year!==2026),old.filter(t=>t.year!==2026));for(const t of now.filter(t=>t.year===2026)){assert.equal(t.scoring_through_week,11);assert.equal(t.comparison_status,'raw_only');const v=a.audits.find(x=>x.id===t.id);assert(v);for(const s of t.sides){const q=v.sides.find(x=>x.manager===(s.manager==='Tom'?'Thommy':s.manager));assert.equal(s.raw_starter_points,q.verified_points);assert.equal(s.started_games,q.verified_start_count)}}const html=fs.readFileSync('analytics/trade-museum.html','utf8');assert.deepEqual(JSON.parse(html.split('<script id=\"archive-data\" type=\"application/json\">')[1].split('</script>')[0]),now);console.log('Publication parity: 57 receipts, 13 scored through W11, 44 historical receipts unchanged')"
           git diff --stat
+      - name: Run existing snapshot and scope gates against regenerated data
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          node scripts/test-2026-trade-points-through-week10.mjs
+          node scripts/test-scoring-only-release-scope.mjs
+          node scripts/verify-trade-museum-scope.mjs
+      - name: Install browsers and validate regenerated museum
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+          node scripts/test-browser-trade-museum-week10.mjs
