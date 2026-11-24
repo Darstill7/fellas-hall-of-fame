@@ -1,3 +1,4 @@
+import {mountManagerDashboard} from './manager-dashboard-v42.mjs';
 import {mountManagerHeadquarters} from './manager-headquarters-v4.mjs';
 import {mountManagerLuckPerformance} from './manager-luck-performance.mjs';
 import {mountManagerScheduleLuck} from './manager-schedule-luck.mjs';
@@ -762,6 +763,8 @@ function mountManagerSeasonPulse(){
  const exhibit=document.querySelector('.hof-career-exhibit');
  const hub=document.querySelector('.manager-home-hub');
  if(exhibit)exhibit.before(pulse);else if(hub)hub.before(pulse);else hero.after(pulse);
+ const dashboardCss=document.createElement('link');dashboardCss.rel='stylesheet';dashboardCss.href=new URL('./manager-dashboard-v42.css',import.meta.url).href;document.head.append(dashboardCss);
+ void mountManagerDashboard({name,host:pulse});
  fetch('../../data/season_guide.json',{cache:'no-store'}).then(response=>{
   if(!response.ok)throw Error('Season guide unavailable');
   return response.json();
