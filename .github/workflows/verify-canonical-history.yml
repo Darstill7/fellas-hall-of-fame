@@ -12,6 +12,7 @@ concurrency:
 jobs:
   canonical-history:
     runs-on: ubuntu-24.04
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -538,17 +539,55 @@ jobs:
           name: start-sit-2026-hindsight-research
           path: data-integrity/start-sit-2026-hindsight-v1.json
           if-no-files-found: warn
+  browser-release:
+    name: Browser release (${{ matrix.engine }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Install browser test runtime
-        if: success() || failure()
         run: |
           npm install --no-save playwright@1.56.1
-          npx playwright install --with-deps chromium webkit
-      - name: Exercise desktop and mobile Chromium pages
-        if: success() || failure()
-        run: FELLAS_VISUAL_AUDIT=1 node scripts/test-browser-release.mjs
-      - name: Exercise Safari-engine WebKit mobile pages
-        if: success() || failure()
-        run: FELLAS_BROWSER=webkit FELLAS_VISUAL_AUDIT=1 node scripts/test-browser-release.mjs
+          npx playwright install --with-deps ${{ matrix.engine }}
+      - name: Quick production navigation rehearsal
+        timeout-minutes: 5
+        run: FELLAS_BROWSER=${{ matrix.engine }} FELLAS_VISUAL_AUDIT=0 FELLAS_HOME_PREFLIGHT=1 node scripts/test-browser-release.mjs
+      - name: Exercise complete browser release routes
+        timeout-minutes: 18
+        run: FELLAS_BROWSER=${{ matrix.engine }} FELLAS_VISUAL_AUDIT=1 node scripts/test-browser-release.mjs
+      - name: Upload engine release report and captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-engine-${{ matrix.engine }}
+          path: |
+            data-integrity/browser-release-${{ matrix.engine }}.json
+            data-integrity/visual-audit/${{ matrix.engine }}/
+          if-no-files-found: error
+          retention-days: 7
+  release-certification:
+    runs-on: ubuntu-24.04
+    needs: [canonical-history, browser-release]
+    if: always()
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Download browser evidence
+        uses: actions/download-artifact@v4
+        with:
+          pattern: browser-engine-*
+          path: data-integrity
+          merge-multiple: true
       - name: Verify both browser reports completed
         if: success() || failure()
         run: |
@@ -592,6 +631,11 @@ jobs:
           path: data-integrity/visual-audit/
           if-no-files-found: ignore
           retention-days: 7
+      - name: Require successful canonical and browser jobs
+        if: always()
+        run: |
+          test "${{ needs.canonical-history.result }}" = success
+          test "${{ needs.browser-release.result }}" = success
       - name: Release-readiness summary
         if: always()
         run: |
