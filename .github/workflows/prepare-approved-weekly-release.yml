@@ -69,9 +69,11 @@ jobs:
           set -euo pipefail
           node scripts/apply-reviewed-sleeper-week.mjs "$CANDIDATE"
           node scripts/sync-franchise-timeline-current.mjs
+          node scripts/sync-weekly-manager-portfolios.mjs
           node scripts/sync-records-career-fallbacks.mjs
           node scripts/verify-weekly-ledger-parity.mjs
           node scripts/verify-current-week-website.mjs
+          node scripts/sync-weekly-manager-fallbacks.mjs
           node scripts/verify-core-consumers.mjs
           node scripts/verify-franchise-timeline-freshness.mjs
           node scripts/verify-canonical-history.mjs
@@ -95,6 +97,7 @@ jobs:
             analytics/*.html
             seasons/*.html
             managers/**/*.html
+            managers/*.html
       - name: Summarize release handoff
         run: |
           echo 'Generated a reviewable weekly publication PR. No live website merge or GitHub Pages deployment was initiated by this workflow.' >> "$GITHUB_STEP_SUMMARY"
