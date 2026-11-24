@@ -1,5 +1,6 @@
 // Rivalry Intelligence 4.4. Regular records reconcile to canonical career;
  // archived postseason games are separate, not assumed complete bracket series.
+import {validateScorecard} from './manager-headquarters-v4.mjs';
 const norm=n=>n==='Tom'?'Thommy':n;
 const cents=n=>Math.round(n*100);
 export function buildRivalryIntelligence(core,ledger,name){
@@ -44,6 +45,23 @@ export function buildRivalryIntelligence(core,ledger,name){
  const longest=series.filter(r=>r.regular.games).sort((a,b)=>b.regular.games-a.regular.games||a.opponent.localeCompare(b.opponent))[0]??null;
  return {name,series:series.sort((a,b)=>b.regular.games-a.regular.games||a.opponent.localeCompare(b.opponent)),longest,best:eligible.slice().sort(byRate)[0]??null,toughest:eligible.slice().sort((a,b)=>a.regular.winPct-b.regular.winPct||b.regular.games-a.regular.games||a.opponent.localeCompare(b.opponent))[0]??null,closest:eligible.slice().sort((a,b)=>Math.abs(a.regular.winPct-.5)-Math.abs(b.regular.winPct-.5)||b.regular.games-a.regular.games||a.opponent.localeCompare(b.opponent))[0]??null};
 }
+// Compare each opponent's scoring in the same season against everyone else.
+export function opponentScoringContext(ledger,name,opponent){
+ name=norm(name);opponent=norm(opponent);const years=new Map();
+ for(const g of ledger.games){if(g.stage!=='regular')continue;const h=norm(g.home),a=norm(g.away);if(h!==opponent&&a!==opponent)continue;
+ const rival=h===opponent?a:h,score=cents(h===opponent?g.homeScore:g.awayScore);
+ const y=years.get(g.year)??{against:[],other:[]};y[rival===name?'against':'other'].push(score);years.set(g.year,y);
+ }
+ let observed=0,expected=0,count=0;
+ for(const y of years.values())if(y.against.length&&y.other.length){observed+=y.against.reduce((a,b)=>a+b,0);expected+=y.other.reduce((a,b)=>a+b,0)/y.other.length*y.against.length;count+=y.against.length}
+ return count?{games:count,observed:observed/count,baseline:expected/count,delta:(observed-expected)/count}:null;
+}
+export function getTradeBattle(data,core,name,opponent){
+ const m=validateScorecard(data,norm(name),core.completedThrough);
+ const r=m.tradeRivalries.find(x=>norm(x.a===norm(name)?x.b:x.a)===norm(opponent));
+ if(!r)return null;
+ return {trades:r.trades,surplus:(r.a===norm(name)?1:-1)*r.a_minus_b_supported_cents};
+}
 const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e};
 const record=s=>s.w+'–'+s.l+(s.t?'–'+s.t:'');
 const points=n=>(n/100).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
@@ -54,7 +72,7 @@ export async function mountRivalryIntelligence({name,host,root='../../'}){
  const status=el('p','Checking career matchup evidence…','gm44-status');status.setAttribute('role','status');panel.append(el('p','FRANCHISE HEADQUARTERS / RIVALRIES','gm44-kicker'),heading,status);host.prepend(panel);
  try{
   const get=async p=>{const r=await fetch(root+'data/'+p);if(!r.ok)throw Error('Unavailable '+p);return r.json()};
-  const [core,ledger]=await Promise.all([get('career_core_generated.json'),get('unified_record_book_2016_2026.json')]);
+  const [core,ledger,tradeData]=await Promise.all([get('career_core_generated.json'),get('unified_record_book_2016_2026.json'),get('front-office/managers.json').catch(()=>null)]);
   const d=buildRivalryIntelligence(core,ledger,name);
   status.textContent='Regular-season series reconcile to career totals. Archived postseason games shown separately; raw points across scoring eras are not normalized.';
   const cards=el('div',null,'gm44-cards'),control=el('label','Choose an opponent'),select=el('select'),detail=el('div');detail.setAttribute('aria-live','polite');
@@ -75,6 +93,9 @@ export async function mountRivalryIntelligence({name,host,root='../../'}){
    const heartbreak=el('details');heartbreak.append(el('summary','Heartbreak and dominance'),el('p','Longest winning streak: '+s.longestWin+' · Longest losing streak: '+s.longestLoss));
    for(const n of [1,3,5,10])heartbreak.append(el('p','Losses by '+n+' PF or less: '+s.heartbreak[n]));
    heartbreak.append(el('p','Thresholds are cumulative; a one-point loss counts in every applicable threshold.','gm44-status'));detail.append(heartbreak);
+   const context=opponentScoringContext(ledger,d.name,r.opponent);
+   if(context){const scoring=el('details');scoring.append(el('summary','Opponent scoring anomaly'),el('p','Opponent averaged '+points(context.observed)+' PF against '+d.name+' versus a matched-season baseline of '+points(context.baseline)+' PF against everyone else.'),el('p','Difference: '+signed(context.delta)+' PF per game across '+context.games+' qualifying meetings. Descriptive only; does not establish causation.'));detail.append(scoring)}
+   const trades=el('details');trades.append(el('summary','Trade battles'));try{const t=getTradeBattle(tradeData,core,d.name,r.opponent);trades.append(el('p',t?signed(t.surplus)+' net received starter PF across '+t.trades+' eligible two-manager player trades.':'No eligible verified pairwise trades.'))}catch{trades.append(el('p','Matching verified Front Office release unavailable.'))}trades.append(el('p','Sleeper-era regular-season acquisition production, separate from matchup scoring margins.','gm44-status'));detail.append(trades);
    if(s.games)detail.append(el('p',d.name+' has '+(s.w>s.l?'the winning edge':s.w<s.l?'a losing record':'an even win–loss record')+' against '+r.opponent+' over '+s.games+' regular-season meetings. '+(s.latest?'The most recent result was a '+({W:'win',L:'loss',T:'tie'})[s.latest.result]+' in '+s.latest.year+' Week '+s.latest.week+'.':'')));
    for(const [label,g] of [['Biggest win',s.biggestWin],['Biggest loss',s.biggestLoss],['Closest meeting',s.closest]])if(g)detail.append(el('p',label+': '+g.year+' W'+g.week+' · '+points(g.pf)+'–'+points(g.pa)));
    for(const [label,summary] of [['Regular-season game log',s],['Archived postseason game log',r.postseason]]){const log=el('details');log.append(el('summary',label+' ('+summary.games+')'));for(const g of summary.receipts)log.append(el('p',g.year+' W'+g.week+' · '+g.result+' · '+points(g.pf)+'–'+points(g.pa)+' · '+g.stage.replaceAll('_',' ')));detail.append(log)}
