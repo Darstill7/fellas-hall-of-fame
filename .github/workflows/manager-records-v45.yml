@@ -1,0 +1,36 @@
+name: Manager Records Achievements and Record Watch 4.5
+on:
+  pull_request:
+    paths:
+      - 'assets/manager-personal-records-v45.*'
+      - 'assets/manager-achievements-record-watch.mjs'
+      - 'scripts/test-manager-records-achievements-v45*.mjs'
+      - 'index.html'
+      - '.github/workflows/manager-records-v45.yml'
+permissions:
+  contents: read
+jobs:
+  archive:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-manager-records-achievements-v45.mjs
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    container: mcr.microsoft.com/playwright:v1.56.1-noble
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.56.1
+      - run: node scripts/test-manager-records-achievements-v45-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: manager-records-v45-browser-evidence
+          path: data-integrity/manager-records-v45/

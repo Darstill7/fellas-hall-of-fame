@@ -1,3 +1,5 @@
+import {mountAchievementCabinet} from './manager-achievements-record-watch.mjs';
+import {mountPersonalRecordIntelligence} from './manager-personal-records-v45.mjs';
 import {mountRivalryIntelligence} from './manager-rivalry-intelligence-v44.mjs';
 import {mountFranchiseTimeline} from './manager-franchise-timeline-v43.mjs';
 import {mountManagerDashboard} from './manager-dashboard-v42.mjs';
@@ -681,6 +683,9 @@ const gm4Host=document.querySelector('.manager-home-hub');
 if(gm4Host&&profileName){
  const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('./manager-headquarters-v4.css',import.meta.url).href;document.head.append(css);
  void mountManagerHeadquarters({name:profileName==='Tom'?'Thommy':profileName,host:gm4Host});
+ const recordCss=document.createElement('link');recordCss.rel='stylesheet';recordCss.href=new URL('./manager-personal-records-v45.css',import.meta.url).href;document.head.append(recordCss);
+ void mountPersonalRecordIntelligence({name:profileName,host:gm4Host});
+ void mountAchievementCabinet({name:profileName,host:gm4Host});
 }
 // Let visitors choose a topic before seeing the complete playoff résumé.
 const profileTopicMenu=document.querySelector('main .profile-quickstart');
