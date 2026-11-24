@@ -1,5 +1,155 @@
 [
   {
+    "id": "1428927046507069440",
+    "year": 2026,
+    "date": "2026-11-18",
+    "week": 11,
+    "sides": [
+      {
+        "manager": "Stew",
+        "assets": "Matthew Golden",
+        "raw_starter_points": 0,
+        "started_games": 0,
+        "source_status": "VERIFIED_SOURCE"
+      },
+      {
+        "manager": "Stover",
+        "assets": "Chase Brown",
+        "raw_starter_points": 6.1,
+        "started_games": 1,
+        "source_status": "VERIFIED_SOURCE"
+      }
+    ],
+    "comparison_status": "raw_only",
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
+  },
+  {
+    "id": "1428887570439245824",
+    "year": 2026,
+    "date": "2026-11-18",
+    "week": 11,
+    "sides": [
+      {
+        "manager": "Stilly",
+        "assets": "James Cook III",
+        "raw_starter_points": 16.2,
+        "started_games": 1,
+        "source_status": "VERIFIED_SOURCE"
+      },
+      {
+        "manager": "Birch",
+        "assets": "Amon-Ra St. Brown",
+        "raw_starter_points": 12.2,
+        "started_games": 1,
+        "source_status": "VERIFIED_SOURCE"
+      }
+    ],
+    "comparison_status": "raw_only",
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
+  },
+  {
+    "id": "1428878310045151232",
+    "year": 2026,
+    "date": "2026-11-18",
+    "week": 11,
+    "sides": [
+      {
+        "manager": "Mitch",
+        "assets": "Justin Jefferson",
+        "raw_starter_points": 10.2,
+        "started_games": 1,
+        "source_status": "VERIFIED_SOURCE"
+      },
+      {
+        "manager": "Tony",
+        "assets": "Jonathan Taylor",
+        "raw_starter_points": 4.7,
+        "started_games": 1,
+        "source_status": "VERIFIED_SOURCE"
+      }
+    ],
+    "comparison_status": "raw_only",
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
+  },
+  {
+    "id": "1428829144581406720",
+    "year": 2026,
+    "date": "2026-11-18",
+    "week": 11,
+    "sides": [
+      {
+        "manager": "JMid",
+        "assets": "Garrett Wilson + Emmett Johnson",
+        "raw_starter_points": 27.7,
+        "started_games": 2,
+        "source_status": "VERIFIED_SOURCE"
+      },
+      {
+        "manager": "Stew",
+        "assets": "Kenneth Walker III",
+        "raw_starter_points": 0,
+        "started_games": 0,
+        "source_status": "VERIFIED_SOURCE"
+      }
+    ],
+    "comparison_status": "raw_only",
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
+  },
+  {
+    "id": "1427488044335788032",
+    "year": 2026,
+    "date": "2026-11-15",
+    "week": 10,
+    "sides": [
+      {
+        "manager": "Stew",
+        "assets": "Nico Collins",
+        "raw_starter_points": 34.2,
+        "started_games": 2,
+        "source_status": "VERIFIED_SOURCE"
+      },
+      {
+        "manager": "Kuhl",
+        "assets": "Drake Maye",
+        "raw_starter_points": 3.02,
+        "started_games": 1,
+        "source_status": "VERIFIED_SOURCE"
+      }
+    ],
+    "comparison_status": "raw_only",
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
+  },
+  {
+    "id": "1424524291990450196",
+    "year": 2026,
+    "date": "2026-11-06",
+    "week": 9,
+    "sides": [
+      {
+        "manager": "Stew",
+        "assets": "Adonai Mitchell + 2 FAAB",
+        "raw_starter_points": 4,
+        "started_games": 2,
+        "source_status": "VERIFIED_SOURCE"
+      },
+      {
+        "manager": "Mitch",
+        "assets": "Minnesota Vikings",
+        "raw_starter_points": 0,
+        "started_games": 0,
+        "source_status": "VERIFIED_SOURCE"
+      }
+    ],
+    "comparison_status": "raw_only",
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
+  },
+  {
     "id": "1414340723225976832",
     "year": 2026,
     "date": "2026-10-09",
@@ -8,21 +158,21 @@
       {
         "manager": "Tom",
         "assets": "Deebo Samuel Sr.",
-        "raw_starter_points": 25.4,
-        "started_games": 1,
+        "raw_starter_points": 31.6,
+        "started_games": 2,
         "source_status": "VERIFIED_SOURCE"
       },
       {
         "manager": "Birch",
         "assets": "Minnesota Vikings",
-        "raw_starter_points": 20,
-        "started_games": 2,
+        "raw_starter_points": 32,
+        "started_games": 3,
         "source_status": "VERIFIED_SOURCE"
       }
     ],
     "comparison_status": "raw_only",
-    "evidence": "Verified original Sleeper receiving-roster starters through finalized Week 10; post-trade weeks only. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
-    "scoring_through_week": 10
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
   },
   {
     "id": "1413584172332654592",
@@ -33,21 +183,21 @@
       {
         "manager": "Stilly",
         "assets": "Ja'Marr Chase + Devaughn Vele",
-        "raw_starter_points": 103.1,
-        "started_games": 5,
+        "raw_starter_points": 126.4,
+        "started_games": 7,
         "source_status": "VERIFIED_SOURCE"
       },
       {
         "manager": "JMid",
         "assets": "Davante Adams + George Kittle + Breece Hall",
-        "raw_starter_points": 72.8,
-        "started_games": 7,
+        "raw_starter_points": 131.7,
+        "started_games": 11,
         "source_status": "VERIFIED_SOURCE"
       }
     ],
     "comparison_status": "raw_only",
-    "evidence": "Verified original Sleeper receiving-roster starters through finalized Week 10; post-trade weeks only. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
-    "scoring_through_week": 10
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
   },
   {
     "id": "1411012593170010112",
@@ -58,21 +208,21 @@
       {
         "manager": "JMid",
         "assets": "J.K. Dobbins + Christian Watson",
-        "raw_starter_points": 104.1,
-        "started_games": 8,
+        "raw_starter_points": 110.3,
+        "started_games": 9,
         "source_status": "VERIFIED_SOURCE"
       },
       {
         "manager": "Stew",
         "assets": "Jeremiyah Love",
-        "raw_starter_points": 4.5,
-        "started_games": 2,
+        "raw_starter_points": 10.5,
+        "started_games": 3,
         "source_status": "VERIFIED_SOURCE"
       }
     ],
     "comparison_status": "raw_only",
-    "evidence": "Verified original Sleeper receiving-roster starters through finalized Week 10; post-trade weeks only. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
-    "scoring_through_week": 10
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
   },
   {
     "id": "1411009536306733056",
@@ -90,14 +240,14 @@
       {
         "manager": "Kuhl",
         "assets": "Jalen Hurts + Ladd McConkey",
-        "raw_starter_points": 22.6,
-        "started_games": 3,
+        "raw_starter_points": 52.32,
+        "started_games": 6,
         "source_status": "VERIFIED_SOURCE"
       }
     ],
     "comparison_status": "raw_only",
-    "evidence": "Verified original Sleeper receiving-roster starters through finalized Week 10; post-trade weeks only. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
-    "scoring_through_week": 10
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
   },
   {
     "id": "1405999320708268032",
@@ -115,14 +265,14 @@
       {
         "manager": "Stover",
         "assets": "Trevor Lawrence",
-        "raw_starter_points": 112.36,
-        "started_games": 6,
+        "raw_starter_points": 129.26,
+        "started_games": 8,
         "source_status": "VERIFIED_SOURCE"
       }
     ],
     "comparison_status": "raw_only",
-    "evidence": "Verified original Sleeper receiving-roster starters through finalized Week 10; post-trade weeks only. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
-    "scoring_through_week": 10
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
   },
   {
     "id": "1400522174271340544",
@@ -133,21 +283,21 @@
       {
         "manager": "Stew",
         "assets": "Ladd McConkey",
-        "raw_starter_points": 13.6,
-        "started_games": 2,
+        "raw_starter_points": 30.3,
+        "started_games": 3,
         "source_status": "VERIFIED_SOURCE"
       },
       {
         "manager": "Scott",
         "assets": "Emeka Egbuka",
-        "raw_starter_points": 48.3,
-        "started_games": 5,
+        "raw_starter_points": 59.9,
+        "started_games": 7,
         "source_status": "VERIFIED_SOURCE"
       }
     ],
     "comparison_status": "raw_only",
-    "evidence": "Verified original Sleeper receiving-roster starters through finalized Week 10; post-trade weeks only. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
-    "scoring_through_week": 10
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
   },
   {
     "id": "1399889389147979776",
@@ -158,8 +308,8 @@
       {
         "manager": "Stilly",
         "assets": "MarShawn Lloyd",
-        "raw_starter_points": 8.6,
-        "started_games": 2,
+        "raw_starter_points": 12.3,
+        "started_games": 3,
         "source_status": "VERIFIED_SOURCE"
       },
       {
@@ -171,8 +321,8 @@
       }
     ],
     "comparison_status": "raw_only",
-    "evidence": "Verified original Sleeper receiving-roster starters through finalized Week 10; post-trade weeks only. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
-    "scoring_through_week": 10
+    "evidence": "Verified finalized Sleeper receiving-roster starters through completed Week 11; eligible transaction-week starts included using archived game-date evidence. Not a lineup-, keeper-, FAAB- or replacement-adjusted verdict.",
+    "scoring_through_week": 11
   },
   {
     "id": "1294724519813988352",
