@@ -35,7 +35,10 @@ try{
     page.on('response',res=>{if(res.status()>=400&&res.url().startsWith(base))badResponses.push(res.status()+' '+res.url())});
     async function visit(route){
      const res=await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:25000});
-     await page.waitForTimeout(170);
+     await page.waitForLoadState('networkidle',{timeout:25000});
+     if(/^managers\/(?!$)[^/]+\/$/.test(route)){
+      await page.locator('.profile-madden-header').waitFor({timeout:25000}).catch(()=>fail('Manager career rating did not render',{engine,width,route}));
+     }
      expect(res?.status()===200,'Page failed to load',{engine,width,route,status:res?.status()});
      const status=await page.evaluate(()=>{
       const d=document.documentElement;
