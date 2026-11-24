@@ -1,13 +1,15 @@
 // A separate supported regular-season view. Do not mutate strict acquisition totals.
 import fs from 'node:fs';
+import {loadFrozenHistory} from './lib/load-frozen-historical-acquisitions.mjs';
 import assert from 'node:assert/strict';
 import {verifyFinalHistory} from './verify-final-historical-acquisitions.mjs';
 const root='data-integrity/historical-trade-draft-audits/';
 const read=n=>JSON.parse(fs.readFileSync(root+n+'.json','utf8'));
-const final=read('historical-acquisition-final-review'),candidate=read('historical-acquisition-certification-candidate'),live=read('2026-evidence-supported-acquisition-preview'),strict=read('combined-career-acquisition-preview');
+const frozen=(process.env.FELLAS_REQUIRE_APPROVED_HISTORY==='1'||process.env.FELLAS_FROZEN_HISTORY_DIR)?loadFrozenHistory(process.env.FELLAS_FROZEN_HISTORY_DIR||undefined):null;
+const final=frozen?.final??read('historical-acquisition-final-review'),candidate=frozen?.candidate??read('historical-acquisition-certification-candidate'),live=read('2026-evidence-supported-acquisition-preview'),strict=read('combined-career-acquisition-preview');
 const approved=process.env.FELLAS_APPROVED_FINAL_HISTORY_SHA256||null;
-if(process.env.FELLAS_REQUIRE_APPROVED_HISTORY==='1')assert(approved,'Explicit final history approval required');
-const verified=verifyFinalHistory(final,candidate,approved);
+const verified=frozen?.verified??verifyFinalHistory(final,candidate,approved);
+if(frozen)assert.equal(strict.historical_source.package_sha256,verified.sha256,'Strict and supported engines must share frozen baseline');
 assert.deepEqual(live.completedThrough,strict.completedThrough);
 const key=r=>[r.year,Number(r.roster),String(r.player_id),r.week].join(':');
 const seen=new Set(),managers={},players={},categories={},trades={},rounds={},acquisitions={};
