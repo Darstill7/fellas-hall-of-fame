@@ -23,3 +23,6 @@ Historical profiles remain intact and independently accessible.
 
 ## Acceptance criteria
 A visitor can choose a manager in two deliberate taps from home; returning visitor preference restored. Roster accessible in one tap from selected team; changing team never displays previous team data. Scores and standings within one tap of main navigation. Current data and historical archive clearly distinct. No unsupported player or ownership inference. All existing features remain reachable. No production change until approved and certified.
+
+## Commissioner clarification — Sleeper remains the main platform
+Roster management, live scoring, injury updates and transactions remain in Sleeper. The Fellas differentiates through personalized matchup context, playoff scenarios, comparative performance, front-office history, records and editorial entertainment. Keep roster as a secondary read-only snapshot with explicit timestamp; defer continuous roster synchronization and player-level live scoring. Prioritize navigation and analytical insights; no paid infrastructure or duplicated lineup management. Existing current roster evidence remains available but is not a prerequisite for the main personal dashboard.
