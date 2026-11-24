@@ -1,8 +1,8 @@
 {
-  "version": "v9.16",
-  "as_of": "2026-11-20",
-  "source": "Canonical final Sleeper matchups Weeks 1–10; remaining archived future pairings",
-  "verified_through_week": 10,
+  "version": "v9.17",
+  "as_of": "2026-11-24",
+  "source": "Canonical final Sleeper matchups Weeks 1–11; remaining archived future pairings",
+  "verified_through_week": 11,
   "assumed_regular_season_end_week": 14,
   "playoff_format": {
     "teams": 6,
@@ -14,133 +14,133 @@
   "teams": {
     "Mitch": {
       "w": 8,
-      "l": 2,
-      "pf": 1291.16,
-      "mean": 129.12,
-      "sd": 28.97,
+      "l": 3,
+      "pf": 1375.12,
+      "mean": 125.01,
+      "sd": 30.52,
       "team": "Suck My Njigba",
-      "apw": 64,
-      "apl": 26,
-      "forecast_mean": 123.63,
-      "forecast_sd": 28.97,
-      "pa": 1117.42
+      "apw": 65,
+      "apl": 34,
+      "forecast_mean": 120.59,
+      "forecast_sd": 30.52,
+      "pa": 1244.48
     },
     "Birch": {
-      "w": 6,
+      "w": 7,
       "l": 4,
-      "pf": 1176.22,
-      "mean": 117.62,
-      "sd": 32.32,
+      "pf": 1303.28,
+      "mean": 118.48,
+      "sd": 30.93,
       "team": "Nacua Matata",
-      "apw": 51,
-      "apl": 39,
-      "forecast_mean": 115.58,
-      "forecast_sd": 32.32,
-      "pa": 1113.12
+      "apw": 58,
+      "apl": 41,
+      "forecast_mean": 116.02,
+      "forecast_sd": 30.93,
+      "pa": 1197.08
     },
     "Tony": {
-      "w": 7,
+      "w": 8,
       "l": 3,
-      "pf": 1092.82,
-      "mean": 109.28,
-      "sd": 25.97,
+      "pf": 1235.12,
+      "mean": 112.28,
+      "sd": 26.52,
       "team": "Bowers Castle",
-      "apw": 43,
+      "apw": 52,
       "apl": 47,
-      "forecast_mean": 109.74,
-      "forecast_sd": 25.97,
-      "pa": 956.22
+      "forecast_mean": 111.68,
+      "forecast_sd": 26.52,
+      "pa": 1054.98
     },
     "Stew": {
-      "w": 7,
+      "w": 8,
       "l": 3,
-      "pf": 1251.74,
-      "mean": 125.17,
-      "sd": 22.53,
+      "pf": 1394,
+      "mean": 126.73,
+      "sd": 22.04,
       "team": "Worst Team on Paper!",
-      "apw": 57,
-      "apl": 33,
-      "forecast_mean": 120.87,
-      "forecast_sd": 22.53,
-      "pa": 1083.98
+      "apw": 65,
+      "apl": 34,
+      "forecast_mean": 121.8,
+      "forecast_sd": 22.04,
+      "pa": 1181.78
     },
     "Stilly": {
-      "w": 6,
+      "w": 7,
       "l": 4,
-      "pf": 1166.76,
-      "mean": 116.68,
-      "sd": 21.58,
+      "pf": 1270.92,
+      "mean": 115.54,
+      "sd": 20.89,
       "team": "Harry Woody",
-      "apw": 54,
-      "apl": 36,
-      "forecast_mean": 114.92,
-      "forecast_sd": 21.58,
-      "pa": 1076.16
+      "apw": 60,
+      "apl": 39,
+      "forecast_mean": 113.96,
+      "forecast_sd": 20.89,
+      "pa": 1160.72
     },
     "Stover": {
-      "w": 4,
+      "w": 5,
       "l": 6,
-      "pf": 1108.8,
-      "mean": 110.88,
-      "sd": 24.48,
+      "pf": 1200.54,
+      "mean": 109.14,
+      "sd": 23.98,
       "team": "Gurt",
-      "apw": 46,
-      "apl": 44,
-      "forecast_mean": 110.86,
-      "forecast_sd": 24.48,
-      "pa": 1179.42
+      "apw": 49,
+      "apl": 50,
+      "forecast_mean": 109.48,
+      "forecast_sd": 23.98,
+      "pa": 1255.82
     },
     "Tom": {
       "w": 3,
-      "l": 7,
-      "pf": 1031.96,
-      "mean": 103.2,
-      "sd": 23.45,
+      "l": 8,
+      "pf": 1116.52,
+      "mean": 101.5,
+      "sd": 22.99,
       "team": "Green Bowl Packers",
-      "apw": 38,
-      "apl": 52,
-      "forecast_mean": 105.49,
-      "forecast_sd": 23.45,
-      "pa": 1131.28
+      "apw": 40,
+      "apl": 59,
+      "forecast_mean": 104.14,
+      "forecast_sd": 22.99,
+      "pa": 1235.44
     },
     "Scott": {
       "w": 4,
-      "l": 6,
-      "pf": 989.08,
-      "mean": 98.91,
-      "sd": 25.25,
+      "l": 7,
+      "pf": 1087.84,
+      "mean": 98.89,
+      "sd": 24.08,
       "team": "Team Sheffla",
-      "apw": 33,
-      "apl": 57,
-      "forecast_mean": 102.49,
-      "forecast_sd": 25.25,
-      "pa": 1125.04
+      "apw": 38,
+      "apl": 61,
+      "forecast_mean": 102.31,
+      "forecast_sd": 24.08,
+      "pa": 1267.34
     },
     "JMid": {
       "w": 5,
-      "l": 5,
-      "pf": 1158.26,
-      "mean": 115.83,
-      "sd": 25.32,
+      "l": 6,
+      "pf": 1256.06,
+      "mean": 114.19,
+      "sd": 24.69,
       "team": "Tony Pollard Fan Club",
-      "apw": 52,
-      "apl": 38,
-      "forecast_mean": 114.33,
-      "forecast_sd": 25.32,
-      "pa": 1078.82
+      "apw": 56,
+      "apl": 43,
+      "forecast_mean": 113.02,
+      "forecast_sd": 24.69,
+      "pa": 1221.08
     },
     "Kuhl": {
       "w": 0,
-      "l": 10,
-      "pf": 815.78,
-      "mean": 81.58,
-      "sd": 18.42,
+      "l": 11,
+      "pf": 892.18,
+      "mean": 81.11,
+      "sd": 17.62,
       "team": "Kirko Chains",
       "apw": 12,
-      "apl": 78,
-      "forecast_mean": 90.35,
+      "apl": 87,
+      "forecast_mean": 89.86,
       "forecast_sd": 19,
-      "pa": 1221.12
+      "pa": 1312.86
     }
   },
   "fixtures": {
@@ -304,87 +304,87 @@
     "6": {
       "Mitch": {
         "playoff_pct": 100,
-        "top2_pct": 95.4,
-        "projected_wins": 10.8,
-        "median_wins": 11,
+        "top2_pct": 80.4,
+        "projected_wins": 10.2,
+        "median_wins": 10,
         "seed_mode": 1
       },
       "Birch": {
-        "playoff_pct": 95.7,
-        "top2_pct": 11,
-        "projected_wins": 8.2,
-        "median_wins": 8,
+        "playoff_pct": 99.6,
+        "top2_pct": 14.1,
+        "projected_wins": 8.8,
+        "median_wins": 9,
         "seed_mode": 4
       },
       "Tony": {
-        "playoff_pct": 97.2,
-        "top2_pct": 17.2,
-        "projected_wins": 9,
-        "median_wins": 9,
+        "playoff_pct": 100,
+        "top2_pct": 22.2,
+        "projected_wins": 9.5,
+        "median_wins": 10,
         "seed_mode": 3
       },
       "Stew": {
-        "playoff_pct": 99.9,
-        "top2_pct": 67.3,
-        "projected_wins": 9.6,
+        "playoff_pct": 100,
+        "top2_pct": 77.7,
+        "projected_wins": 10,
         "median_wins": 10,
-        "seed_mode": 2
+        "seed_mode": 1
       },
       "Stilly": {
-        "playoff_pct": 94.3,
-        "top2_pct": 7.8,
-        "projected_wins": 8.1,
+        "playoff_pct": 98.6,
+        "top2_pct": 5.6,
+        "projected_wins": 8.4,
         "median_wins": 8,
         "seed_mode": 5
       },
       "Stover": {
-        "playoff_pct": 34.4,
+        "playoff_pct": 40.7,
         "top2_pct": 0,
-        "projected_wins": 6.4,
-        "median_wins": 6,
+        "projected_wins": 6.6,
+        "median_wins": 7,
         "seed_mode": 7
       },
       "Tom": {
-        "playoff_pct": 1.4,
+        "playoff_pct": 0,
         "top2_pct": 0,
-        "projected_wins": 4.6,
-        "median_wins": 5,
+        "projected_wins": 4.2,
+        "median_wins": 4,
         "seed_mode": 9
       },
       "Scott": {
-        "playoff_pct": 5.5,
+        "playoff_pct": 1.5,
         "top2_pct": 0,
-        "projected_wins": 5.5,
+        "projected_wins": 5.1,
         "median_wins": 5,
         "seed_mode": 8
       },
       "JMid": {
-        "playoff_pct": 71.6,
-        "top2_pct": 1.3,
-        "projected_wins": 7,
+        "playoff_pct": 59.7,
+        "top2_pct": 0,
+        "projected_wins": 6.5,
         "median_wins": 7,
         "seed_mode": 6
       },
       "Kuhl": {
         "playoff_pct": 0,
         "top2_pct": 0,
-        "projected_wins": 0.8,
-        "median_wins": 1,
+        "projected_wins": 0.6,
+        "median_wins": 0,
         "seed_mode": 10
       }
     }
   },
   "remaining_schedule_strength": {
-    "Mitch": 103.48,
-    "Birch": 109.34,
-    "Tony": 109.31,
-    "Stew": 108.79,
-    "Stilly": 112.61,
-    "Stover": 103.16,
-    "Tom": 114.79,
-    "Scott": 114.95,
-    "JMid": 114.1,
-    "Kuhl": 117.73
+    "Mitch": 98.77,
+    "Birch": 104.66,
+    "Tony": 110.37,
+    "Stew": 106.61,
+    "Stilly": 115.5,
+    "Stover": 106.49,
+    "Tom": 113.92,
+    "Scott": 115.36,
+    "JMid": 111.71,
+    "Kuhl": 119.47
   },
   "status_notes": {
     "mathematical_clinches": [],
@@ -431,38 +431,38 @@
   "latest_results": [
     {
       "a": "Stilly",
-      "b": "Scott",
-      "a_score": 122.86,
-      "b_score": 88.1,
+      "b": "Tom",
+      "a_score": 104.16,
+      "b_score": 84.56,
       "winner": "HOME"
     },
     {
       "a": "JMid",
-      "b": "Tom",
-      "a_score": 119.46,
-      "b_score": 107.32,
-      "winner": "HOME"
+      "b": "Stew",
+      "a_score": 97.8,
+      "b_score": 142.26,
+      "winner": "AWAY"
     },
     {
-      "a": "Stew",
-      "b": "Mitch",
-      "a_score": 161.4,
-      "b_score": 134.04,
-      "winner": "HOME"
+      "a": "Scott",
+      "b": "Tony",
+      "a_score": 98.76,
+      "b_score": 142.3,
+      "winner": "AWAY"
     },
     {
-      "a": "Tony",
-      "b": "Kuhl",
-      "a_score": 89.52,
-      "b_score": 48.92,
-      "winner": "HOME"
+      "a": "Mitch",
+      "b": "Birch",
+      "a_score": 83.96,
+      "b_score": 127.06,
+      "winner": "AWAY"
     },
     {
       "a": "Stover",
-      "b": "Birch",
-      "a_score": 163.98,
-      "b_score": 178.32,
-      "winner": "AWAY"
+      "b": "Kuhl",
+      "a_score": 91.74,
+      "b_score": 76.4,
+      "winner": "HOME"
     }
   ]
 }
