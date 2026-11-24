@@ -1,0 +1,50 @@
+name: Frozen historical baseline regression
+on:
+  pull_request:
+    paths:
+      - 'scripts/lib/load-frozen-historical-acquisitions.mjs'
+      - 'scripts/test-frozen-historical-loader.mjs'
+      - 'scripts/archive-verified-historical-baseline.mjs'
+      - 'scripts/verify-final-historical-acquisitions.mjs'
+      - 'scripts/verify-historical-acquisition-package.mjs'
+      - 'data-integrity/frozen-acquisitions-2020-2025/**'
+      - 'data-integrity/historical-acquisition-freeze-proposal.json'
+      - '.github/workflows/frozen-history-regression.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  offline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-frozen-historical-loader.mjs
+  original-artifact-rehearsal:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fetch exact audited artifact into disposable checkout
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/fellas-historical-rehearsal
+          gh api repos/${{ github.repository }}/actions/artifacts/14879748458/zip > /tmp/fellas-historical-rehearsal/archive.zip
+          echo 'bc39e942c249d16bf80d0166b84297151f0aa0b583352355b86eb2a7459fc07c  /tmp/fellas-historical-rehearsal/archive.zip' | sha256sum -c -
+          unzip -q /tmp/fellas-historical-rehearsal/archive.zip -d /tmp/fellas-historical-rehearsal/extracted
+      - name: Rehearse archival locally without granting production approval
+        env:
+          APPROVED_FINGERPRINT: 5420fef3afbade40ac96ef98d7c0b48d506aa8daf9aff2e1f0ade20015073a08
+        run: |
+          node scripts/archive-verified-historical-baseline.mjs /tmp/fellas-historical-rehearsal/extracted
+          node scripts/test-frozen-historical-loader.mjs
+          node scripts/archive-verified-historical-baseline.mjs /tmp/fellas-historical-rehearsal/extracted
+      - name: Ensure tracked files were not modified
+        run: git diff --exit-code
