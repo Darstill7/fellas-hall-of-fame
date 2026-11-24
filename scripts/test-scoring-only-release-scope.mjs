@@ -62,6 +62,7 @@ for(const current of updated){
  // receipt cannot grow synthetic winner/grade/keeper/FAAB metadata here.
  const before=structuredClone(old),after=structuredClone(current);
  delete after.scoring_through_week;
+ delete before.scoring_through_week;
  delete after.evidence;
  delete before.evidence;
  for(const t of [before,after])for(const side of t.sides){
