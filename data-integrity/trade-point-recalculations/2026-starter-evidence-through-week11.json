@@ -1,0 +1,1564 @@
+{
+  "schema": "fellas-trade-starter-evidence-v1",
+  "league": "1340027406009761792",
+  "through_week": 11,
+  "source": "Connected Sleeper finalized matchup starting lineups, retrieved 2026-11-24; filtered to traded player IDs only",
+  "weeks": [
+    {
+      "week": 1,
+      "teams": [
+        {
+          "roster_id": 1,
+          "starters": [
+            {
+              "player_id": "11581",
+              "name": "MarShawn Lloyd",
+              "points": 3.7
+            },
+            {
+              "player_id": "8155",
+              "name": "Breece Hall",
+              "points": 18.8
+            },
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 23.7
+            },
+            {
+              "player_id": "2133",
+              "name": "Davante Adams",
+              "points": 4.1
+            }
+          ]
+        },
+        {
+          "roster_id": 5,
+          "starters": [
+            {
+              "player_id": "12514",
+              "name": "Emeka Egbuka",
+              "points": 8.8
+            }
+          ]
+        },
+        {
+          "roster_id": 2,
+          "starters": [
+            {
+              "player_id": "8151",
+              "name": "Kenneth Walker III",
+              "points": 33.6
+            },
+            {
+              "player_id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 2.2
+            }
+          ]
+        },
+        {
+          "roster_id": 3,
+          "starters": []
+        },
+        {
+          "roster_id": 4,
+          "starters": [
+            {
+              "player_id": "6904",
+              "name": "Jalen Hurts",
+              "points": 24.72
+            },
+            {
+              "player_id": "9224",
+              "name": "Chase Brown",
+              "points": 16.3
+            },
+            {
+              "player_id": "8146",
+              "name": "Garrett Wilson",
+              "points": 10.9
+            },
+            {
+              "player_id": "11635",
+              "name": "Ladd McConkey",
+              "points": 16.7
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "starters": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "points": 23.6
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "starters": [
+            {
+              "player_id": "6794",
+              "name": "Justin Jefferson",
+              "points": 27.2
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "starters": [
+            {
+              "player_id": "11564",
+              "name": "Drake Maye",
+              "points": 9.82
+            },
+            {
+              "player_id": "7569",
+              "name": "Nico Collins",
+              "points": 17.7
+            },
+            {
+              "player_id": "8167",
+              "name": "Christian Watson",
+              "points": 30.7
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "starters": [
+            {
+              "player_id": "12512",
+              "name": "Quinshon Judkins",
+              "points": 6
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "starters": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III",
+              "points": 7.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "teams": [
+        {
+          "roster_id": 1,
+          "starters": [
+            {
+              "player_id": "11581",
+              "name": "MarShawn Lloyd",
+              "points": 7.6
+            },
+            {
+              "player_id": "8155",
+              "name": "Breece Hall",
+              "points": 12.7
+            },
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 30.7
+            },
+            {
+              "player_id": "2133",
+              "name": "Davante Adams",
+              "points": 36.5
+            }
+          ]
+        },
+        {
+          "roster_id": 3,
+          "starters": []
+        },
+        {
+          "roster_id": 2,
+          "starters": [
+            {
+              "player_id": "13287",
+              "name": "Jeremiyah Love",
+              "points": 6
+            },
+            {
+              "player_id": "8151",
+              "name": "Kenneth Walker III",
+              "points": 20.8
+            },
+            {
+              "player_id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 23
+            },
+            {
+              "player_id": "11834",
+              "name": "Devaughn Vele",
+              "points": 8.9
+            }
+          ]
+        },
+        {
+          "roster_id": 4,
+          "starters": [
+            {
+              "player_id": "6904",
+              "name": "Jalen Hurts",
+              "points": 16.16
+            },
+            {
+              "player_id": "9224",
+              "name": "Chase Brown",
+              "points": 9.7
+            },
+            {
+              "player_id": "8146",
+              "name": "Garrett Wilson",
+              "points": 14.2
+            },
+            {
+              "player_id": "11635",
+              "name": "Ladd McConkey",
+              "points": 5
+            }
+          ]
+        },
+        {
+          "roster_id": 5,
+          "starters": [
+            {
+              "player_id": "12514",
+              "name": "Emeka Egbuka",
+              "points": 8.8
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "starters": [
+            {
+              "player_id": "6794",
+              "name": "Justin Jefferson",
+              "points": 7
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "starters": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "points": 27.2
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "starters": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III",
+              "points": 20.4
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "starters": [
+            {
+              "player_id": "7523",
+              "name": "Trevor Lawrence",
+              "points": 6.16
+            },
+            {
+              "player_id": "12501",
+              "name": "Matthew Golden",
+              "points": 7.8
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "starters": [
+            {
+              "player_id": "11564",
+              "name": "Drake Maye",
+              "points": 8.02
+            },
+            {
+              "player_id": "8167",
+              "name": "Christian Watson",
+              "points": 12.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "teams": [
+        {
+          "roster_id": 1,
+          "starters": [
+            {
+              "player_id": "8155",
+              "name": "Breece Hall",
+              "points": 7
+            },
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 9.9
+            },
+            {
+              "player_id": "4217",
+              "name": "George Kittle",
+              "points": 23.2
+            },
+            {
+              "player_id": "2133",
+              "name": "Davante Adams",
+              "points": 18.2
+            }
+          ]
+        },
+        {
+          "roster_id": 2,
+          "starters": [
+            {
+              "player_id": "13287",
+              "name": "Jeremiyah Love",
+              "points": 19.4
+            },
+            {
+              "player_id": "8151",
+              "name": "Kenneth Walker III",
+              "points": 20.3
+            },
+            {
+              "player_id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 20.3
+            },
+            {
+              "player_id": "11834",
+              "name": "Devaughn Vele",
+              "points": 5.4
+            }
+          ]
+        },
+        {
+          "roster_id": 3,
+          "starters": [
+            {
+              "player_id": "12512",
+              "name": "Quinshon Judkins",
+              "points": 8.9
+            },
+            {
+              "player_id": "MIN",
+              "name": "Minnesota Vikings",
+              "points": 19
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "starters": [
+            {
+              "player_id": "6794",
+              "name": "Justin Jefferson",
+              "points": 4.2
+            }
+          ]
+        },
+        {
+          "roster_id": 4,
+          "starters": [
+            {
+              "player_id": "6904",
+              "name": "Jalen Hurts",
+              "points": 12.62
+            },
+            {
+              "player_id": "9224",
+              "name": "Chase Brown",
+              "points": 7.9
+            },
+            {
+              "player_id": "8146",
+              "name": "Garrett Wilson",
+              "points": 21.7
+            },
+            {
+              "player_id": "11635",
+              "name": "Ladd McConkey",
+              "points": 8.6
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "starters": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III",
+              "points": 19.4
+            }
+          ]
+        },
+        {
+          "roster_id": 5,
+          "starters": [
+            {
+              "player_id": "12514",
+              "name": "Emeka Egbuka",
+              "points": 8.7
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "starters": [
+            {
+              "player_id": "7523",
+              "name": "Trevor Lawrence",
+              "points": 19.78
+            },
+            {
+              "player_id": "12501",
+              "name": "Matthew Golden",
+              "points": 19.5
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "starters": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "points": 8.2
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "starters": [
+            {
+              "player_id": "11564",
+              "name": "Drake Maye",
+              "points": 2.76
+            },
+            {
+              "player_id": "8167",
+              "name": "Christian Watson",
+              "points": 19.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "teams": [
+        {
+          "roster_id": 1,
+          "starters": [
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 11.5
+            },
+            {
+              "player_id": "4217",
+              "name": "George Kittle",
+              "points": 16
+            },
+            {
+              "player_id": "2133",
+              "name": "Davante Adams",
+              "points": 5.2
+            }
+          ]
+        },
+        {
+          "roster_id": 4,
+          "starters": [
+            {
+              "player_id": "9224",
+              "name": "Chase Brown",
+              "points": 13.6
+            },
+            {
+              "player_id": "8146",
+              "name": "Garrett Wilson",
+              "points": 4.2
+            },
+            {
+              "player_id": "13287",
+              "name": "Jeremiyah Love",
+              "points": 6
+            }
+          ]
+        },
+        {
+          "roster_id": 2,
+          "starters": [
+            {
+              "player_id": "8151",
+              "name": "Kenneth Walker III",
+              "points": 31.4
+            },
+            {
+              "player_id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 4.2
+            },
+            {
+              "player_id": "8167",
+              "name": "Christian Watson",
+              "points": 6.2
+            },
+            {
+              "player_id": "11834",
+              "name": "Devaughn Vele",
+              "points": 14.4
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "starters": []
+        },
+        {
+          "roster_id": 3,
+          "starters": [
+            {
+              "player_id": "12512",
+              "name": "Quinshon Judkins",
+              "points": 18.6
+            },
+            {
+              "player_id": "MIN",
+              "name": "Minnesota Vikings",
+              "points": 11
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "starters": [
+            {
+              "player_id": "7523",
+              "name": "Trevor Lawrence",
+              "points": 13.08
+            },
+            {
+              "player_id": "12501",
+              "name": "Matthew Golden",
+              "points": 10.2
+            }
+          ]
+        },
+        {
+          "roster_id": 5,
+          "starters": [
+            {
+              "player_id": "12514",
+              "name": "Emeka Egbuka",
+              "points": 2.3
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "starters": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "points": 22.2
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "starters": [
+            {
+              "player_id": "6904",
+              "name": "Jalen Hurts",
+              "points": 12.52
+            },
+            {
+              "player_id": "7569",
+              "name": "Nico Collins",
+              "points": 28.3
+            },
+            {
+              "player_id": "11635",
+              "name": "Ladd McConkey",
+              "points": 0
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "starters": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III",
+              "points": 15.3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "teams": [
+        {
+          "roster_id": 1,
+          "starters": [
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 7.9
+            },
+            {
+              "player_id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 17.7
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "starters": [
+            {
+              "player_id": "6794",
+              "name": "Justin Jefferson",
+              "points": 14.8
+            }
+          ]
+        },
+        {
+          "roster_id": 2,
+          "starters": [
+            {
+              "player_id": "8167",
+              "name": "Christian Watson",
+              "points": 31.3
+            },
+            {
+              "player_id": "2133",
+              "name": "Davante Adams",
+              "points": 19.6
+            },
+            {
+              "player_id": "4217",
+              "name": "George Kittle",
+              "points": 4.9
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "starters": [
+            {
+              "player_id": "7523",
+              "name": "Trevor Lawrence",
+              "points": 19.74
+            },
+            {
+              "player_id": "12501",
+              "name": "Matthew Golden",
+              "points": 18.3
+            }
+          ]
+        },
+        {
+          "roster_id": 3,
+          "starters": [
+            {
+              "player_id": "12512",
+              "name": "Quinshon Judkins",
+              "points": 6.5
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "starters": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "points": 9.7
+            }
+          ]
+        },
+        {
+          "roster_id": 4,
+          "starters": [
+            {
+              "player_id": "11564",
+              "name": "Drake Maye",
+              "points": 39.46
+            },
+            {
+              "player_id": "9224",
+              "name": "Chase Brown",
+              "points": 5.5
+            },
+            {
+              "player_id": "8146",
+              "name": "Garrett Wilson",
+              "points": 19.9
+            },
+            {
+              "player_id": "13287",
+              "name": "Jeremiyah Love",
+              "points": 2.2
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "starters": [
+            {
+              "player_id": "6904",
+              "name": "Jalen Hurts",
+              "points": 11
+            },
+            {
+              "player_id": "7569",
+              "name": "Nico Collins",
+              "points": 8.1
+            }
+          ]
+        },
+        {
+          "roster_id": 5,
+          "starters": [
+            {
+              "player_id": "12514",
+              "name": "Emeka Egbuka",
+              "points": 14.2
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "starters": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III",
+              "points": 21.3
+            },
+            {
+              "player_id": "MIN",
+              "name": "Minnesota Vikings",
+              "points": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "teams": [
+        {
+          "roster_id": 1,
+          "starters": [
+            {
+              "player_id": "11834",
+              "name": "Devaughn Vele",
+              "points": 5.7
+            },
+            {
+              "player_id": "11581",
+              "name": "MarShawn Lloyd",
+              "points": 1
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "starters": [
+            {
+              "player_id": "12501",
+              "name": "Matthew Golden",
+              "points": 19.4
+            }
+          ]
+        },
+        {
+          "roster_id": 2,
+          "starters": [
+            {
+              "player_id": "8151",
+              "name": "Kenneth Walker III",
+              "points": 26.9
+            },
+            {
+              "player_id": "8167",
+              "name": "Christian Watson",
+              "points": 7.9
+            },
+            {
+              "player_id": "2133",
+              "name": "Davante Adams",
+              "points": 5.4
+            },
+            {
+              "player_id": "4217",
+              "name": "George Kittle",
+              "points": 15.4
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "starters": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "points": 20.1
+            }
+          ]
+        },
+        {
+          "roster_id": 3,
+          "starters": []
+        },
+        {
+          "roster_id": 10,
+          "starters": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III",
+              "points": 22.8
+            }
+          ]
+        },
+        {
+          "roster_id": 4,
+          "starters": [
+            {
+              "player_id": "8146",
+              "name": "Garrett Wilson",
+              "points": 6.4
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "starters": []
+        },
+        {
+          "roster_id": 5,
+          "starters": [
+            {
+              "player_id": "12514",
+              "name": "Emeka Egbuka",
+              "points": 14.3
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "starters": [
+            {
+              "player_id": "7569",
+              "name": "Nico Collins",
+              "points": 10.4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "teams": [
+        {
+          "roster_id": 1,
+          "starters": [
+            {
+              "player_id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 14.7
+            },
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 20.7
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "starters": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "points": 18
+            }
+          ]
+        },
+        {
+          "roster_id": 2,
+          "starters": [
+            {
+              "player_id": "8151",
+              "name": "Kenneth Walker III",
+              "points": 7.7
+            },
+            {
+              "player_id": "8167",
+              "name": "Christian Watson",
+              "points": 8.2
+            },
+            {
+              "player_id": "4217",
+              "name": "George Kittle",
+              "points": 10.8
+            },
+            {
+              "player_id": "6806",
+              "name": "J.K. Dobbins",
+              "points": 8.3
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "starters": [
+            {
+              "player_id": "MIN",
+              "name": "Minnesota Vikings",
+              "points": 12
+            }
+          ]
+        },
+        {
+          "roster_id": 3,
+          "starters": [
+            {
+              "player_id": "12512",
+              "name": "Quinshon Judkins",
+              "points": 22.9
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "starters": [
+            {
+              "player_id": "7569",
+              "name": "Nico Collins",
+              "points": 1.6
+            }
+          ]
+        },
+        {
+          "roster_id": 4,
+          "starters": [
+            {
+              "player_id": "11564",
+              "name": "Drake Maye",
+              "points": 27.44
+            },
+            {
+              "player_id": "9224",
+              "name": "Chase Brown",
+              "points": 7.8
+            },
+            {
+              "player_id": "8146",
+              "name": "Garrett Wilson",
+              "points": 3.6
+            }
+          ]
+        },
+        {
+          "roster_id": 5,
+          "starters": []
+        },
+        {
+          "roster_id": 7,
+          "starters": [
+            {
+              "player_id": "6794",
+              "name": "Justin Jefferson",
+              "points": 6.4
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "starters": [
+            {
+              "player_id": "12501",
+              "name": "Matthew Golden",
+              "points": 6.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "teams": [
+        {
+          "roster_id": 1,
+          "starters": [
+            {
+              "player_id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 25.6
+            },
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 9.1
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "starters": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III",
+              "points": 17.1
+            },
+            {
+              "player_id": "MIN",
+              "name": "Minnesota Vikings",
+              "points": 8
+            }
+          ]
+        },
+        {
+          "roster_id": 2,
+          "starters": [
+            {
+              "player_id": "8151",
+              "name": "Kenneth Walker III",
+              "points": 10.4
+            },
+            {
+              "player_id": "6806",
+              "name": "J.K. Dobbins",
+              "points": 1.3
+            },
+            {
+              "player_id": "8167",
+              "name": "Christian Watson",
+              "points": 14.3
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "starters": [
+            {
+              "player_id": "11635",
+              "name": "Ladd McConkey",
+              "points": 11.6
+            }
+          ]
+        },
+        {
+          "roster_id": 3,
+          "starters": [
+            {
+              "player_id": "12512",
+              "name": "Quinshon Judkins",
+              "points": 5.9
+            }
+          ]
+        },
+        {
+          "roster_id": 5,
+          "starters": []
+        },
+        {
+          "roster_id": 4,
+          "starters": [
+            {
+              "player_id": "11564",
+              "name": "Drake Maye",
+              "points": 21.46
+            },
+            {
+              "player_id": "9224",
+              "name": "Chase Brown",
+              "points": 12.1
+            },
+            {
+              "player_id": "8146",
+              "name": "Garrett Wilson",
+              "points": 11.3
+            },
+            {
+              "player_id": "13287",
+              "name": "Jeremiyah Love",
+              "points": 2.3
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "starters": [
+            {
+              "player_id": "7523",
+              "name": "Trevor Lawrence",
+              "points": 19.4
+            },
+            {
+              "player_id": "12501",
+              "name": "Matthew Golden",
+              "points": 17.4
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "starters": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "points": 4.7
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "starters": [
+            {
+              "player_id": "6794",
+              "name": "Justin Jefferson",
+              "points": 11.8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "teams": [
+        {
+          "roster_id": 1,
+          "starters": [
+            {
+              "player_id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 27.5
+            },
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 12.6
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "starters": [
+            {
+              "player_id": "7569",
+              "name": "Nico Collins",
+              "points": 13.5
+            },
+            {
+              "player_id": "11635",
+              "name": "Ladd McConkey",
+              "points": 0
+            }
+          ]
+        },
+        {
+          "roster_id": 2,
+          "starters": [
+            {
+              "player_id": "8151",
+              "name": "Kenneth Walker III",
+              "points": 34.3
+            },
+            {
+              "player_id": "8155",
+              "name": "Breece Hall",
+              "points": 10.2
+            },
+            {
+              "player_id": "8167",
+              "name": "Christian Watson",
+              "points": 27.6
+            },
+            {
+              "player_id": "4217",
+              "name": "George Kittle",
+              "points": 7.8
+            }
+          ]
+        },
+        {
+          "roster_id": 5,
+          "starters": []
+        },
+        {
+          "roster_id": 3,
+          "starters": [
+            {
+              "player_id": "12512",
+              "name": "Quinshon Judkins",
+              "points": 5
+            }
+          ]
+        },
+        {
+          "roster_id": 4,
+          "starters": [
+            {
+              "player_id": "11564",
+              "name": "Drake Maye",
+              "points": 18.26
+            },
+            {
+              "player_id": "9224",
+              "name": "Chase Brown",
+              "points": 9
+            },
+            {
+              "player_id": "11625",
+              "name": "Adonai Mitchell",
+              "points": 0
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "starters": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "points": 6.9
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "starters": [
+            {
+              "player_id": "7523",
+              "name": "Trevor Lawrence",
+              "points": 13.58
+            },
+            {
+              "player_id": "12501",
+              "name": "Matthew Golden",
+              "points": 29.4
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "starters": [
+            {
+              "player_id": "6794",
+              "name": "Justin Jefferson",
+              "points": 7.3
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "starters": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III",
+              "points": 16.7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "teams": [
+        {
+          "roster_id": 1,
+          "starters": [
+            {
+              "player_id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 29.6
+            },
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 24.8
+            }
+          ]
+        },
+        {
+          "roster_id": 5,
+          "starters": []
+        },
+        {
+          "roster_id": 2,
+          "starters": [
+            {
+              "player_id": "8155",
+              "name": "Breece Hall",
+              "points": 12.8
+            },
+            {
+              "player_id": "8167",
+              "name": "Christian Watson",
+              "points": 5.2
+            },
+            {
+              "player_id": "4217",
+              "name": "George Kittle",
+              "points": 10.4
+            }
+          ]
+        },
+        {
+          "roster_id": 3,
+          "starters": [
+            {
+              "player_id": "12512",
+              "name": "Quinshon Judkins",
+              "points": 14.6
+            },
+            {
+              "player_id": "5872",
+              "name": "Deebo Samuel Sr.",
+              "points": 25.4
+            }
+          ]
+        },
+        {
+          "roster_id": 4,
+          "starters": [
+            {
+              "player_id": "13337",
+              "name": "Emmett Johnson",
+              "points": 31.1
+            },
+            {
+              "player_id": "7569",
+              "name": "Nico Collins",
+              "points": 19.9
+            },
+            {
+              "player_id": "9224",
+              "name": "Chase Brown",
+              "points": 24.3
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "starters": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "points": 10.3
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "starters": [
+            {
+              "player_id": "6794",
+              "name": "Justin Jefferson",
+              "points": 11.9
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "starters": [
+            {
+              "player_id": "11564",
+              "name": "Drake Maye",
+              "points": 3.02
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "starters": [
+            {
+              "player_id": "7523",
+              "name": "Trevor Lawrence",
+              "points": 26.78
+            },
+            {
+              "player_id": "12501",
+              "name": "Matthew Golden",
+              "points": 9.5
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "starters": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III",
+              "points": 22.7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "teams": [
+        {
+          "roster_id": 1,
+          "starters": [
+            {
+              "player_id": "8138",
+              "name": "James Cook III",
+              "points": 16.2
+            },
+            {
+              "player_id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 5.6
+            }
+          ]
+        },
+        {
+          "roster_id": 3,
+          "starters": [
+            {
+              "player_id": "5872",
+              "name": "Deebo Samuel Sr.",
+              "points": 6.2
+            }
+          ]
+        },
+        {
+          "roster_id": 2,
+          "starters": [
+            {
+              "player_id": "8155",
+              "name": "Breece Hall",
+              "points": 17.5
+            },
+            {
+              "player_id": "4217",
+              "name": "George Kittle",
+              "points": 16.9
+            },
+            {
+              "player_id": "13337",
+              "name": "Emmett Johnson",
+              "points": 22.3
+            },
+            {
+              "player_id": "8146",
+              "name": "Garrett Wilson",
+              "points": 5.4
+            }
+          ]
+        },
+        {
+          "roster_id": 4,
+          "starters": [
+            {
+              "player_id": "7569",
+              "name": "Nico Collins",
+              "points": 14.3
+            },
+            {
+              "player_id": "11625",
+              "name": "Adonai Mitchell",
+              "points": 4
+            }
+          ]
+        },
+        {
+          "roster_id": 5,
+          "starters": [
+            {
+              "player_id": "12514",
+              "name": "Emeka Egbuka",
+              "points": 2.8
+            }
+          ]
+        },
+        {
+          "roster_id": 7,
+          "starters": [
+            {
+              "player_id": "6813",
+              "name": "Jonathan Taylor",
+              "points": 4.7
+            }
+          ]
+        },
+        {
+          "roster_id": 6,
+          "starters": [
+            {
+              "player_id": "6794",
+              "name": "Justin Jefferson",
+              "points": 10.2
+            }
+          ]
+        },
+        {
+          "roster_id": 10,
+          "starters": [
+            {
+              "player_id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 12.2
+            }
+          ]
+        },
+        {
+          "roster_id": 8,
+          "starters": [
+            {
+              "player_id": "7523",
+              "name": "Trevor Lawrence",
+              "points": 10.74
+            },
+            {
+              "player_id": "9224",
+              "name": "Chase Brown",
+              "points": 6.1
+            }
+          ]
+        },
+        {
+          "roster_id": 9,
+          "starters": [
+            {
+              "player_id": "11635",
+              "name": "Ladd McConkey",
+              "points": 17.2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
