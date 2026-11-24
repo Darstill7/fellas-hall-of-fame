@@ -1,3 +1,4 @@
+import {sharedProfileJson} from './manager-mobile-v47.mjs';
 // A single-cutoff personalized dashboard; no stale probability mixing.
 export function buildManagerDashboard(core,guide,race,name){
  const m=core.managers?.[name],season=guide['2026'],rows=season?.standings;
@@ -65,7 +66,7 @@ export async function mountManagerDashboard({name,host,root='../../'}){
  if(!host||host.querySelector('.gm42-dashboard'))return;
  const panel=make('div',null,'gm42-dashboard'),status=make('p','Checking synchronized career and playoff evidence…','gm42-status');status.setAttribute('role','status');panel.append(status);host.append(panel);
  try{
-  const get=async file=>{const r=await fetch(root+'data/'+file,{cache:'no-store'});if(!r.ok)throw Error('Unavailable '+file);return r.json()};
+  const get=file=>sharedProfileJson(root+'data/'+file);
   const [core,guide,race,ledger]=await Promise.all([get('career_core_generated.json'),get('season_guide.json'),get('playoff_race_v1.json').catch(()=>null),get('unified_record_book_2016_2026.json').catch(()=>null)]);
   const d=buildManagerDashboard(core,guide,race,name),fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:2});
   status.textContent='Synchronized through Week '+d.week+' · regular season';

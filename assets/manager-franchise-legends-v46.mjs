@@ -1,3 +1,4 @@
+import {sharedProfileJson} from './manager-mobile-v47.mjs';
 import {buildFranchiseAnthology} from './manager-franchise-anthology-v462.mjs';
 import {buildFranchiseTimeline} from './manager-franchise-timeline-v43.mjs';
 import {buildPersonalRecords} from './manager-personal-records-v45.mjs';
@@ -38,7 +39,7 @@ export async function mountFranchiseLegends({name,host,root='../../'}){
  if(!host||host.querySelector('#gm46-legends'))return;
  const p=el('section',null,'gm46-legends');p.id='gm46-legends';p.append(el('p','THE FELLAS / FRANCHISE LEGENDS','gm46-kicker'),el('h2','The story behind the numbers'));
  const status=el('p','Checking historical evidence…','gm46-status');status.setAttribute('role','status');p.append(status);host.append(p);
- const get=async file=>{const r=await fetch(root+'data/'+file);if(!r.ok)throw Error('Unavailable '+file);return r.json()};
+ const get=file=>sharedProfileJson(root+'data/'+file);
  try{
  const [core,ledger,guide,endings]=await Promise.all(['career_core_generated.json','unified_record_book_2016_2026.json','season_guide.json','manager_verified_season_endings_v1.json'].map(get));
  const d=buildFranchiseLegends(core,ledger,guide,endings,name);status.textContent='Archive-backed editorial summary · nickname is not an official award.';

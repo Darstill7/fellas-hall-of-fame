@@ -1,3 +1,4 @@
+import {sharedProfileJson} from './manager-mobile-v47.mjs';
 // Franchise Timeline 4.3: regular-season performance and postseason placement remain separate.
 const normalize=n=>n==='Tom'?'Thommy':n;
 export function buildFranchiseTimeline(core,guide,endings,name){
@@ -36,7 +37,7 @@ export async function mountFranchiseTimeline({name,host,root='../../'}){
  const h=el('h2','Franchise timeline');h.id='gm43-heading';section.setAttribute('aria-labelledby',h.id);section.append(el('p','FRANCHISE HEADQUARTERS / HISTORY','gm43-kicker'),h);
  const status=el('p','Checking season archive evidence…','gm43-status');status.setAttribute('role','status');section.append(status);host.prepend(section);
  try{
-  const get=async file=>{const r=await fetch(root+'data/'+file);if(!r.ok)throw Error('Unavailable '+file);return r.json()};
+  const get=file=>sharedProfileJson(root+'data/'+file);
   const [core,guide,endings]=await Promise.all([get('career_core_generated.json'),get('season_guide.json'),get('manager_verified_season_endings_v1.json')]);
   const rows=buildFranchiseTimeline(core,guide,endings,name);
   status.textContent='Regular-season results and final placements are separate. Completed seasons only for honors; 2026 is ongoing.';

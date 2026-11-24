@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {sharedProfileJson,clearProfileJson,revealProfileHash} from '../assets/manager-mobile-v47.mjs';
+clearProfileJson();
+let calls=0;
+const get=async()=>{calls++;return {ok:true,json:async()=>({verified:true})}};
+const a=sharedProfileJson('/data/career.json',get),b=sharedProfileJson('/data/career.json',get);
+assert.equal(a,b);assert.deepEqual(await a,{verified:true});assert.equal(calls,1);
+await sharedProfileJson('/data/career.json',get);assert.equal(calls,1);
+let attempts=0;
+const retry=async()=>{attempts++;return {ok:attempts>1,status:503,json:async()=>({ready:true})}};
+await assert.rejects(sharedProfileJson('/data/retry.json',retry),/503/);
+assert.deepEqual(await sharedProfileJson('/data/retry.json',retry),{ready:true});assert.equal(attempts,2);
+let opened=0,scrolled=0;
+const topic={shell:{id:'gm47-story',scrollIntoView(){scrolled++}},targets:['gm46-legends'],reveal(){opened++}};
+assert.equal(revealProfileHash([topic],'#gm46-legends'),true);assert.equal(opened,1);assert.equal(scrolled,1);
+assert.equal(revealProfileHash([topic],'#unrelated'),false);assert.equal(opened,1);
+console.log('Manager 4.7 request cache and hash routing passed');

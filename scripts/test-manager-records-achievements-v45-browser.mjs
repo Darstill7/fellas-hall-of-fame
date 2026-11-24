@@ -15,7 +15,7 @@ try{
  try{for(const width of [320,390,430,1280]){const ctx=await browser.newContext({viewport:{width,height:900},reducedMotion:'reduce'});const page=await ctx.newPage();
  for(const name of names){const meta={engine,width,name};try{
  const slug=name==='Thommy'?'tom':name.toLowerCase();await page.goto(base+'managers/'+slug+'/',{waitUntil:'domcontentloaded'});
- const records=page.locator('#gm45-records'),cabinet=page.locator('#gm452-achievements');await records.getByText('Personal bests and worsts',{exact:true}).waitFor({timeout:15000});
+ const recordsTopic=page.locator('#gm47-records'),achievementsTopic=page.locator('#gm47-achievements');await recordsTopic.locator(':scope > summary').waitFor({timeout:15000});assert.equal(await recordsTopic.evaluate(e=>e.open),false,'Records should be deferred');await recordsTopic.locator(':scope > summary').click();await achievementsTopic.locator(':scope > summary').click();const records=page.locator('#gm45-records'),cabinet=page.locator('#gm452-achievements');await records.getByText('Personal bests and worsts',{exact:true}).waitFor({timeout:15000});
  await cabinet.getByText('Explore achievements',{exact:true}).waitFor({timeout:15000});
  for(const label of ['Personal bests and worsts','Career streak records','Career milestone tracker','Annual personal bests','Personal record progression','Milestone history','League record holdings','Record chase and league rankings']){
  const summary=records.getByText(label,{exact:true});await summary.click();assert(await summary.evaluate(e=>e.parentElement.open));await summary.click();

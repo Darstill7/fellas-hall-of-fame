@@ -295,7 +295,7 @@ try{
      errors.push(width+' '+route+' missing six-destination personal manager hub');
     else{
      const destinations=await hub.locator('.manager-home-hub-tile').allInnerTexts();
-     for(const label of ['Career story','My records','Every season','Rivalries','Report card','Drafts & trades'])
+     for(const label of ['Career story','My records','Every season','Rivalries','Report card','Front office'])
       if(!destinations.some(x=>x.includes(label)))errors.push(width+' '+route+' lacks hub destination '+label);
      const recordHref=await hub.locator('a').filter({hasText:'My records'}).getAttribute('href');
      if(!recordHref||!recordHref.includes('manager='))errors.push(width+' '+route+' personal Records link missing manager scope');
@@ -2417,11 +2417,11 @@ try{
       }
      }
      await page.locator('[data-profile-tab="rivalries"]').click();
-     const rivalryDisclosure=page.locator('#rivalry-analytics .profile-inline-disclosure');
+     const rivalryDisclosure=page.locator('#rivalry-analytics > .profile-inline-disclosure');
      if(await rivalryDisclosure.count()!==1)errors.push(width+' '+slug+' expandable rivalry analysis missing');
      else{
-      await rivalryDisclosure.locator('summary').click();
-      if(!await rivalryDisclosure.locator('.profile-inline-detail').isVisible())errors.push(width+' '+slug+' rivalry details did not expand');
+      await rivalryDisclosure.locator(':scope > summary').click();
+      if(!await rivalryDisclosure.locator(':scope > .profile-inline-detail').isVisible())errors.push(width+' '+slug+' rivalry details did not expand');
      }
      await page.locator('[data-profile-tab="advanced"]').click();
      const deepControls=page.locator('#franchise-legends .profile-deep-controls');
