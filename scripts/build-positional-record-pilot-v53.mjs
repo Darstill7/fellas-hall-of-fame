@@ -78,6 +78,36 @@ for(const pos of positions){
  add('observed-career-total',career,'totalCents','max','pts','Observed reconciled paired weeks only; not a complete career total');
  add('weekly-scoring-titles',[...titleCounts.values()],'titles','max','titles','Only fully reconciled ten-team weeks; ties credited to every co-leader');
 }
+// Dominance comparisons require both opponents; weekly titles require the entire field.
+const indexed=new Map(accepted.map(t=>[[t.year,t.week,t.manager].join(':'),t]));
+const pairs=[];
+for(const g of ledger.games.filter(g=>g.stage==='regular'&&g.year>=2020)){
+ const a=indexed.get([g.year,g.week,norm(g.home)].join(':')),b=indexed.get([g.year,g.week,norm(g.away)].join(':'));
+ if(a&&b)pairs.push([a,b],[b,a]);
+}
+const sum=(t,pos)=>t.players.filter(p=>!pos||p.position===pos).reduce((s,p)=>s+p.cents,0);
+for(const pos of positions){
+ const titleWeeks=new Map();
+ for(const [,a] of completeWeeks){
+  const best=Math.max(...a.map(t=>sum(t,pos)));
+  for(const t of a){const key=t.year+':'+t.manager;if(!titleWeeks.has(key))titleWeeks.set(key,[]);if(sum(t,pos)===best)titleWeeks.get(key).push(t.week);}
+ }
+ const titles=[...titleWeeks].map(([key,weeks])=>{const [year,manager]=key.split(':');let run=0,best=0,prev=-1;for(const w of weeks.sort((a,b)=>a-b)){run=w===prev+1?run+1:1;best=Math.max(best,run);prev=w;}return {manager,year:Number(year),weeks,titles:weeks.length,longest:best};});
+ const completeTitleSeasons=titles.filter(t=>t.year<2026&&[...expectedWeek].filter(([k])=>k.startsWith(t.year+':')).every(([k,n])=>n===10&&weekGroups.get(k)?.length===10));
+ const comparisons=pairs.map(([t,o])=>({manager:t.manager,opponent:o.manager,year:t.year,week:t.week,points:sum(t,pos),opponentPoints:sum(o,pos),edge:sum(t,pos)-sum(o,pos),teamScore:sum(t),opponentScore:sum(o)}));
+ const shares=accepted.filter(t=>sum(t)>0).map(t=>({manager:t.manager,year:t.year,week:t.week,positionCents:sum(t,pos),teamCents:sum(t),shareBasisPoints:Math.round(sum(t,pos)/sum(t)*10000)}));
+ const add=(kind,rows,field,unit,qualification)=>{
+  if(!rows.length)return;
+  const value=Math.max(...rows.map(x=>x[field]));
+  const evidence=rows.filter(x=>x[field]===value);
+  expanded.push({id:pos.toLowerCase()+'-'+kind+'-max',position:pos,kind,direction:'max',value:['pts','%'].includes(unit)?value/100:value,unit,qualification,holders:[...new Set(evidence.map(r=>r.manager))].sort(),evidence});
+ };
+ add('consecutive-weekly-titles',titles,'longest','weeks','Within one season; incomplete or absent weeks break streak; all ten lineups reconciled; co-leaders count');
+ add('season-weekly-titles',completeTitleSeasons,'titles','titles','Completed seasons with all ten paired lineups reconciled for every recorded regular-season week; co-leaders count');
+ add('largest-team-scoring-share',shares,'shareBasisPoints','%','Positive total team score; actual NFL position including FLEX; negative other-position points can produce shares above 100%');
+ add('highest-position-score-in-loss',comparisons.filter(t=>t.teamScore<t.opponentScore),'points','pts','Both opponents reconciled; actual matchup loss');
+ add('largest-head-to-head-position-edge',comparisons,'edge','pts','Both opponents reconciled; actual NFL positions including FLEX');
+}
 assert.equal(new Set([...records,...expanded].map(r=>r.id)).size,records.length+expanded.length);
 records.push(...expanded);
 const missing=[...paired.keys()].filter(k=>!seen.has(k));
