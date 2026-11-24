@@ -40,6 +40,26 @@ export function buildSeasonTrajectory(ledger,guide,name,week){
  const recent=history.slice(-5),latest=history.at(-1);let streak=0;for(const g of history.slice().reverse()){if(g.result!==latest.result)break;streak++}
  return {history,recent,leagueAverage,streak:latest.result+streak,seasonHigh:history.reduce((a,b)=>b.pf>a.pf?b:a),recentAverage:recent.reduce((n,g)=>n+g.pf,0)/recent.length};
 }
+export function buildUpcomingSchedule(core,guide,race,name,week){
+ if(race?.verified_through_week!==week)return [];
+ const normalize=n=>n==='Tom'?'Thommy':n;
+ const names=new Set(guide['2026'].standings.map(r=>r.name)),result=[];
+ for(let w=week+1;w<=14;w++){
+  const fixtures=race.fixtures?.[w];if(!Array.isArray(fixtures)||fixtures.length!==5)break;
+  const pairs=fixtures.map(p=>Array.isArray(p)?p.map(normalize):[]);
+  const flat=pairs.flat();if(pairs.some(p=>p.length!==2)||flat.length!==10||new Set(flat).size!==10||flat.some(n=>!names.has(n)))break;
+  const pair=pairs.find(p=>p.includes(name)),opponent=pair.find(n=>n!==name);
+  const h=core.managers[name].h2h?.[opponent];
+  const record=h&&[h.w,h.l,h.t??0].every(n=>Number.isInteger(n)&&n>=0)&&h.games===h.w+h.l+(h.t??0)?{w:h.w,l:h.l,t:h.t??0}:null;
+  result.push({week:w,opponent,record});
+ }
+ return result;
+}
+export function careerMilestones(wins){
+ if(!Number.isInteger(wins)||wins<0)throw Error('Invalid career wins');
+ const target=(Math.floor(wins/10)+1)*10;
+ return {target,remaining:target-wins};
+}
 const make=(tag,txt,cls)=>{const n=document.createElement(tag);if(txt!=null)n.textContent=txt;if(cls)n.className=cls;return n};
 export async function mountManagerDashboard({name,host,root='../../'}){
  if(!host||host.querySelector('.gm42-dashboard'))return;
@@ -58,9 +78,13 @@ export async function mountManagerDashboard({name,host,root='../../'}){
   if(d.playoff){for(const [label,value] of [['Playoff probability',d.playoff.playoff],['First-round bye probability',d.playoff.bye]]){const row=make('div',null,'gm42-probability');const caption=make('label',label+' · '+fmt(value)+'%');const meter=make('meter');meter.min=0;meter.max=100;meter.value=value;meter.setAttribute('aria-label',label);row.append(caption,meter);outlook.append(row)}outlook.append(make('p','Model estimates, not mathematical clinches or official odds.'))}
   else outlook.append(make('p','Matching completed-week playoff simulation not available. No outdated odds displayed.'));
   panel.append(outlook);
+  const milestone=careerMilestones(d.career.wins),watch=make('section',null,'gm42-outlook');watch.append(make('h3','Milestone watch'),make('p',name+' is '+milestone.remaining+' regular-season '+(milestone.remaining===1?'win':'wins')+' away from '+milestone.target+' career wins.'));panel.append(watch);
+  const schedule=buildUpcomingSchedule(core,guide,race,name,d.week),next=make('section',null,'gm42-outlook');next.append(make('h3','Remaining schedule'));
+  if(schedule.length){next.append(make('p',race.provider_schedule_verified===true?'Provider-verified fixtures':'Archived schedule preview · future pairings not independently verified'));for(const game of schedule){const h=game.record;next.append(make('p','Week '+game.week+' · '+game.opponent+(h?' · Career regular-season H2H '+h.w+'–'+h.l+(h.t?'–'+h.t:''):' · H2H unavailable')));}}else next.append(make('p','Matching future schedule unavailable.'));panel.append(next);
   const trend=make('section',null,'gm42-outlook');trend.append(make('h3','Season trajectory'));panel.append(trend);
   try{
    const t=buildSeasonTrajectory(ledger,guide,name,d.week);
+   const latest=t.history.at(-1);trend.append(make('p',name+' '+(latest.result==='W'?'defeated':latest.result==='L'?'lost to':'tied')+' '+latest.opponent+' in Week '+latest.week+', '+fmt(latest.pf)+'–'+fmt(latest.pa)+'. Currently #'+d.season.scoringRank+' in league scoring.'));
    trend.append(make('p','Current streak: '+t.streak+' · Last '+t.recent.length+' average: '+fmt(t.recentAverage)+' PF · League average: '+fmt(t.leagueAverage)+' PF'));
    const bars=make('div',null,'gm42-trend');const max=Math.max(1,...t.history.map(g=>g.pf),t.leagueAverage);
    for(const g of t.history){const item=make('div',null,'gm42-trend-item');item.append(make('span','W'+g.week));const bar=make('meter');bar.min=0;bar.max=max;bar.value=Math.max(0,g.pf);bar.setAttribute('aria-label','Week '+g.week+' '+fmt(g.pf)+' points');item.append(bar,make('strong',fmt(g.pf)),make('span',g.result));bars.append(item)}
