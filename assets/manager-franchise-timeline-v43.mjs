@@ -21,6 +21,11 @@ export function buildFranchiseTimeline(core,guide,endings,name){
  if(rows.reduce((n,r)=>n+r.games,0)!==m.games||['w','l','t'].some(k=>rows.reduce((n,r)=>n+r[k],0)!==(m[k]??0)))throw Error('Career season totals disagree');
  return rows.sort((a,b)=>b.year-a.year);
 }
+export function compareFranchiseSeasons(rows,first,second){
+ const a=rows.find(r=>r.year===first),b=rows.find(r=>r.year===second);
+ if(!a||!b||first===second)throw Error('Select two distinct archived seasons');
+ return {a,b,winPctDelta:b.winPct-a.winPct,scoringRankDelta:a.scoringRank-b.scoringRank,averageDelta:b.average-a.average,crossEra:a.era!==b.era};
+}
 const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e};
 const ordinal=n=>n===1?'1st':n===2?'2nd':n===3?'3rd':n+'th';
 const fmt=n=>n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
@@ -35,6 +40,25 @@ export async function mountFranchiseTimeline({name,host,root='../../'}){
   const [core,guide,endings]=await Promise.all([get('career_core_generated.json'),get('season_guide.json'),get('manager_verified_season_endings_v1.json')]);
   const rows=buildFranchiseTimeline(core,guide,endings,name);
   status.textContent='Regular-season results and final placements are separate. Completed seasons only for honors; 2026 is ongoing.';
+  const complete=rows.filter(r=>!r.active);
+  if(complete.length){
+   const best=complete.reduce((a,b)=>b.winPct>a.winPct?b:a),rank=complete.reduce((a,b)=>b.scoringRank<a.scoringRank?b:a);
+   const highlights=el('div',null,'gm43-metrics');
+   for(const [label,value] of [['Best win percentage',best.year+' · '+(best.winPct*100).toFixed(1)+'%'],['Best scoring rank',rank.year+' · #'+rank.scoringRank],['Championships',String(complete.filter(r=>r.finish===1).length)]]){const item=el('div');item.append(el('small',label),el('strong',value));highlights.append(item)}
+   section.append(highlights);
+  }
+  const evolution=el('details',null,'gm43-season');evolution.append(el('summary','Career evolution · annual win percentage'));
+  const bars=el('div',null,'gm43-body');
+  for(const r of rows.slice().reverse()){const line=el('div',null,'gm43-bar');const meter=el('meter');meter.min=0;meter.max=1;meter.value=r.winPct;meter.setAttribute('aria-label',r.year+' win percentage');line.append(el('span',String(r.year)+(r.active?'*':'')),meter,el('strong',(r.winPct*100).toFixed(1)+'%'));bars.append(line)}
+  bars.append(el('p','* Current season incomplete. Win percentage includes half credit for ties.'));evolution.append(bars);section.append(evolution);
+  if(rows.length>=2){
+   const comparison=el('details',null,'gm43-season');comparison.append(el('summary','Compare two seasons'));
+   const body=el('div',null,'gm43-body'),controls=el('div',null,'gm43-compare'),output=el('div');output.setAttribute('aria-live','polite');
+   const selects=[];
+   for(const [i,label] of ['Earlier comparison season','Later comparison season'].entries()){const wrap=el('label',label),select=el('select');for(const r of rows){const option=el('option',String(r.year)+(r.active?' (in progress)':''));option.value=String(r.year);select.append(option)}select.value=String(rows[i===0?1:0].year);wrap.append(select);controls.append(wrap);selects.push(select)}
+   function update(){output.replaceChildren();try{const c=compareFranchiseSeasons(rows,...selects.map(s=>Number(s.value)));for(const [label,a,b] of [['Record',c.a.w+'–'+c.a.l+(c.a.t?'–'+c.a.t:''),c.b.w+'–'+c.b.l+(c.b.t?'–'+c.b.t:'')],['Win percentage',(c.a.winPct*100).toFixed(1)+'%',(c.b.winPct*100).toFixed(1)+'%'],['Scoring rank','#'+c.a.scoringRank+' of '+c.a.leagueSize,'#'+c.b.scoringRank+' of '+c.b.leagueSize],['Weekly PF',fmt(c.a.average),fmt(c.b.average)],['Final outcome',result(c.a),result(c.b)]]){const line=el('div',null,'gm43-comparison-row');line.append(el('strong',label),el('span',a),el('span',b));output.append(line)}if(c.crossEra)output.append(el('p','Cross-era scoring rules may differ; raw PF is not normalized.'));if(c.a.active||c.b.active)output.append(el('p','Current season comparison is provisional.'))}catch{output.append(el('p','Select two different seasons.'))}}
+   selects.forEach(s=>s.addEventListener('change',update));body.append(controls,output);comparison.append(body);section.append(comparison);update();
+  }
   const filters=el('div',null,'gm43-filters');filters.setAttribute('role','group');filters.setAttribute('aria-label','Filter franchise timeline');
   const list=el('div',null,'gm43-list');section.append(filters,list);
   const options=[['All seasons',()=>true],['ESPN',r=>r.era==='ESPN'],['Sleeper',r=>r.era==='Sleeper'],['Finals',r=>r.finish===1||r.finish===2],['Shitter years',r=>r.award]];
