@@ -61,3 +61,41 @@ function renderPersonal(d,race,name){
 }
 
 if(typeof document!=='undefined'){const get=async file=>{const r=await fetch('data/'+file);if(!r.ok)throw Error('HTTP '+r.status);return r.json()};Promise.all([get('season_guide.json'),get('unified_record_book_2016_2026.json'),get('playoff_race_v1.json').catch(()=>null)]).then(([g,l,race])=>{const d=buildHomeDashboard(g,l);render(d);const select=document.getElementById('my-manager');let storage;try{storage=window.localStorage}catch{}select.value=readPreference(storage);renderPersonal(d,race,select.value);select.addEventListener('change',()=>{savePreference(storage,select.value);renderPersonal(d,race,select.value)})}).catch(e=>{document.getElementById('cutoff').textContent='Verified data unavailable';for(const id of ['pulse','standings','matchups'])document.getElementById(id).replaceChildren(el('p','Current data could not be verified. Open the season archive.'));console.warn('Home app:',e.message)})}
+
+
+ // Public archive indexes are the publication boundary. Never enumerate draft files.
+export async function refreshEditorialFeed(doc=document, fetcher=fetch){
+ const series=[
+  {key:'hangover',archive:'tuesday-hangover/',selector:'main section.game',link:'a[href]',title:'h2',meta:'.kicker',pattern:/^\d{4}-week-\d{1,2}\.html$/,label:'THE TUESDAY HANGOVER',cta:'Read the roast ↗'},
+  {key:'shitter',archive:'weekly-shitter/',selector:'main a.story',link:null,title:'h3',meta:'.story-info .eyebrow',pattern:/^issue-\d+\.html$/,label:'THE WEEKLY SHITTER',cta:'Read the issue ↗'}
+ ];
+ await Promise.all(series.map(async s=>{
+  const card=doc.querySelector('[data-news="'+s.key+'"]');if(!card)return;
+  try{
+   const archiveURL=new URL(s.archive,doc.baseURI);
+   const response=await fetcher(archiveURL.href,{cache:'no-cache'});
+   if(!response.ok)throw Error('Archive unavailable');
+   const archive=new DOMParser().parseFromString(await response.text(),'text/html');
+   const entry=archive.querySelector(s.selector);
+   const link=s.link?entry?.querySelector(s.link):entry;
+   const href=link?.getAttribute('href')||'';
+   const title=entry?.querySelector(s.title)?.textContent.trim();
+   const meta=entry?.querySelector(s.meta)?.textContent.trim();
+   if(!s.pattern.test(href)||!title||!meta)throw Error('Invalid archive entry');
+   const target=new URL(href,archiveURL);
+   if(target.origin!==archiveURL.origin||!target.pathname.startsWith(archiveURL.pathname))throw Error('Invalid article URL');
+   const article=await fetcher(target.href,{cache:'no-cache'});
+   if(!article.ok)throw Error('Article unavailable');
+   const articleDoc=new DOMParser().parseFromString(await article.text(),'text/html');
+   if(articleDoc.querySelector('meta[name="robots" i][content*="noindex" i]'))throw Error('Article not public');
+   const make=(tag,value)=>{const e=doc.createElement(tag);e.textContent=value;return e};
+   card.href=target.href;
+   card.replaceChildren(make('small',s.label+' · '+meta),make('strong',title),make('b',s.cta));
+  }catch{
+   // Fail closed: archive access remains available, but no unverified issue is promoted.
+   card.href=s.archive;
+   card.replaceChildren(...[['small',s.label],['strong','Browse published editions'],['b','Open archive ↗']].map(([tag,value])=>{const e=doc.createElement(tag);e.textContent=value;return e}));
+  }
+ }));
+}
+if(typeof document!=='undefined')void refreshEditorialFeed();
