@@ -1246,14 +1246,17 @@ try{
     await page.locator('#my-manager').selectOption('Stilly');
     await page.locator('.personal-card').waitFor({timeout:15000});
     if(!(await page.locator('.personal-card').innerText()).includes('Stilly'))errors.push(width+' production personalization failed');
-    await page.locator('#more .archive summary').focus();
+    await page.locator('.fellas-app-nav a[data-app-tab="more"]').click();
+    await page.waitForURL('**/index.html#more');
+    await page.locator('body.more-view').waitFor({timeout:15000});
+    const archive=page.locator('#more .archive');
+    if(await archive.evaluate(e=>e.open))await archive.locator('summary').click();
+    await archive.locator('summary').focus();
     await page.keyboard.press('Enter');
     if(!await page.locator('#more .archive').evaluate(e=>e.open))errors.push(width+' production archive keyboard disclosure failed');
     for(const href of ['home-classic.html','home-classic.html#home-record-watch'])
      if(!await page.locator('#more .archive a[href="'+href+'"]').isVisible())errors.push(width+' production archive missing '+href);
     // The two promoted research destinations now live in the categorized More view.
-    await page.locator('.fellas-app-nav a[data-app-tab="more"]').click();
-    await page.locator('body.more-view').waitFor({timeout:15000});
     for(const href of ['analytics/playoff-race.html','managers/record-books.html']){
      const link=page.locator('#more .more-links a[href="'+href+'"]');
      if(await link.count()!==1||!await link.isVisible()||!await link.evaluate(a=>a.getBoundingClientRect().height>=44))
@@ -1264,7 +1267,8 @@ try{
       if(!response.ok())errors.push(width+' production categorized More destination failed HTTP '+response.status()+' '+href);
      }
     }
-    await page.locator('#more a[href="home-classic.html"]').click();
+    if(!await archive.evaluate(e=>e.open))await archive.locator('summary').click();
+    await page.locator('#more .archive a[href="home-classic.html"]').click({timeout:10000});
     await page.waitForURL('**/home-classic.html');
     if(!await page.locator('#homepage-editorial-title').isVisible())errors.push(width+' production classic homepage navigation failed');
    }
