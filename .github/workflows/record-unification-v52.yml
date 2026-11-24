@@ -12,6 +12,7 @@ on:
       - 'scripts/build-transaction-records-v54.mjs'
       - 'scripts/build-championship-acquisition-records-v54.mjs'
       - 'scripts/build-lineup-records-v55.mjs'
+      - 'scripts/build-schedule-luck-records-v55.mjs'
       - 'assets/manager-record-ownership.mjs'
       - 'data/**'
       - '.github/workflows/record-unification-v52.yml'
@@ -49,6 +50,8 @@ jobs:
         run: node scripts/build-championship-acquisition-records-v54.mjs
       - name: Reconcile hindsight lineup records
         run: node scripts/build-lineup-records-v55.mjs
+      - name: Reconcile schedule luck records
+        run: node scripts/build-schedule-luck-records-v55.mjs
       - name: Upload candidate receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -65,4 +68,5 @@ jobs:
             data-integrity/transaction-records-v54.json
             data-integrity/championship-acquisition-records-v54.json
             data-integrity/lineup-records-v55.json
+            data-integrity/schedule-luck-records-v55.json
           if-no-files-found: error
