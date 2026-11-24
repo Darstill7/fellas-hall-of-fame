@@ -83,3 +83,18 @@
 .personal-v51 .personal-links a{text-align:center;padding:4px;line-height:1.2}
 
 #conditional-record-watch[hidden]{display:none}#conditional-record-watch h2{font-size:17px;margin:0 0 6px}#conditional-record-watch .record-watch-row{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:10px 12px}#conditional-record-watch p{margin:3px 0;font-size:13px}#conditional-record-watch small{display:block;color:var(--muted);font-size:11px}#conditional-record-watch a{display:inline-flex;align-items:center;min-height:44px;color:var(--gold);font-size:12px;font-weight:750}
+
+/* Manager-first homepage: latest result and editorial precede deep analytics. */
+.personal-v51 .personal-latest-result{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:8px;padding-top:8px;font-size:12px}
+.personal-v51 .personal-latest-result strong{font-variant-numeric:tabular-nums;font-size:13px}
+.personal-v51 .personal-home-cta{display:none;min-height:44px;align-items:center;color:var(--gold);font-size:13px;font-weight:750}
+.personal-v51 #news{margin:0 0 18px;display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+.personal-v51 #news .section-heading{grid-column:1/-1;margin:0;min-height:32px}
+.personal-v51 #news .story{margin:0;padding:10px 12px;gap:4px}
+.personal-v51 #news .story strong{font-size:17px;line-height:1.25}
+.personal-v51 #news .story b{margin:0}
+@media(min-width:760px){.personal-v51 #news{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Detail elements remain reachable through the My Team hash, no hidden content for other routes. */
+.personal-v51.home-overview #my-team{grid-template-columns:minmax(0,1fr)}
+.personal-v51.home-overview #my-team>:not(.personal-card):not(.source-note){display:none}
+.personal-v51.home-overview .personal-home-cta{display:flex}
