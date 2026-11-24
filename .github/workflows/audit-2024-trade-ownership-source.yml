@@ -55,6 +55,9 @@ on:
       - 'scripts/build-combined-career-acquisitions.mjs'
       - 'scripts/build-combined-evidence-supported-career.mjs'
       - 'scripts/build-front-office-site-candidate.mjs'
+      - 'scripts/lib/draft-return-grades.mjs'
+      - 'scripts/lib/draft-slot-alternatives.mjs'
+      - 'scripts/test-draft-return-analytics.mjs'
       - 'scripts/test-front-office-live-candidate-browser.mjs'
       - 'data-integrity/front-office-live-candidate.html'
       - 'scripts/test-trading-floor-browser.mjs'
@@ -77,6 +80,8 @@ jobs:
           node-version: '22'
       - name: Verify trade deadline lifecycle before provider research
         run: node scripts/test-trade-deadline-lifecycle.mjs
+      - name: Verify draft analytics independently before provider research
+        run: node scripts/test-draft-return-analytics.mjs
       - name: Check audit syntax
         run: node --check scripts/audit-2024-trade-ownership-source.mjs
       - name: Reconcile original 2024 transactions and starter records
