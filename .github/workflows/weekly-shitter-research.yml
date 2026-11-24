@@ -1,0 +1,29 @@
+name: Weekly Shitter editorial research
+on:
+  pull_request:
+    paths:
+      - 'scripts/*weekly-shitter-research.mjs'
+      - '.github/workflows/weekly-shitter-research.yml'
+      - 'data/unified_record_book_2016_2026.json'
+      - 'data/season_guide.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  research:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-weekly-shitter-research.mjs
+      - name: Generate canonical research packet
+        run: |
+          WEEK=$(node -e "const x=require('./data/unified_record_book_2016_2026.json');console.log(Math.max(...x.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week)))")
+          node scripts/build-weekly-shitter-research.mjs "$WEEK" > /tmp/weekly-shitter-research.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weekly-shitter-canonical-research
+          path: /tmp/weekly-shitter-research.json
+          retention-days: 14
