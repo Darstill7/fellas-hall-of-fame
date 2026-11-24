@@ -685,6 +685,7 @@ if(gm4Host&&profileName){
  const style=file=>{const css=document.createElement('link');css.rel='stylesheet';css.href=new URL(file,import.meta.url).href;document.head.append(css)};
  style('./manager-mobile-v47.css');
  const configs=[
+ ['gm47-season','Season intelligence','Current streak, scoring trends, playoff outlook and remaining schedule','./manager-dashboard-v42.css',mountManagerDashboard,[]],
  ['gm47-story','Franchise legends','Career anthology, defining moments and classic games','./manager-franchise-legends-v46.css',mountFranchiseLegends,['gm46-legends']],
  ['gm47-records','Records and milestones','Personal bests, league rankings and record chase','./manager-personal-records-v45.css',mountPersonalRecordIntelligence,['gm45-records']],
  ['gm47-achievements','Achievement cabinet','Earned and locked career achievements','./manager-personal-records-v45.css',mountAchievementCabinet,['gm452-achievements']],
@@ -697,7 +698,7 @@ if(gm4Host&&profileName){
  await mount({name:profileName==='Tom'?'Thommy':profileName,host});
  }});topic.targets=targets;return topic});
  const tile=[...gm4Host.querySelectorAll('.manager-home-hub-tile')].find(n=>n.querySelector('strong')?.textContent==='Front office');
- if(tile)tile.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();topics[3].reveal();topics[3].shell.scrollIntoView({block:'start',behavior:'auto'});topics[3].shell.querySelector('summary').focus({preventScroll:true})},{capture:true});
+ if(tile)tile.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();topics.find(t=>t.shell.id==='gm47-front-office').reveal();topics.find(t=>t.shell.id==='gm47-front-office').shell.scrollIntoView({block:'start',behavior:'auto'});topics.find(t=>t.shell.id==='gm47-front-office').shell.querySelector('summary').focus({preventScroll:true})},{capture:true});
  revealProfileHash(topics);window.addEventListener('hashchange',()=>revealProfileHash(topics));
 }
 // Let visitors choose a topic before seeing the complete playoff résumé.

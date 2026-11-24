@@ -28,7 +28,11 @@ try{
     await p.locator('summary').click();assert(await p.locator('details').evaluate(e=>e.open));
     assert(await p.evaluate(e=>e.scrollWidth<=e.clientWidth+2));
     if(width===390||width===1280)await p.screenshot({path:out+'/'+engine+'-'+width+'-'+name+'.png'});
-    await page.unroute('**/data/playoff_race_v1.json');await page.route('**/data/playoff_race_v1.json',r=>r.fulfill({json:{...race,verified_through_week:0}}));await page.reload();await p.getByText(/No outdated odds displayed/).waitFor();assert.equal(await p.locator('.gm42-probability').count(),0);results.push(meta);
+    await page.unroute('**/data/playoff_race_v1.json');await page.route('**/data/playoff_race_v1.json',r=>r.fulfill({json:{...race,verified_through_week:0}}));await page.reload();await p.getByText(/No outdated odds displayed/).waitFor();assert.equal(await p.locator('.gm42-probability').count(),0);await page.unrouteAll();
+    const slug=name==='Thommy'?'tom':name.toLowerCase();await page.goto(base+'managers/'+slug+'/',{waitUntil:'domcontentloaded'});
+    const topic=page.locator('#gm47-season');await topic.locator(':scope > summary').waitFor({timeout:15000});assert.equal(await topic.evaluate(e=>e.open),false);await topic.locator(':scope > summary').click();
+    const actual=topic.locator('.gm42-dashboard');await actual.getByText('Season trajectory',{exact:true}).waitFor({timeout:15000});assert.match(await actual.innerText(),/Synchronized through Week 11/);assert.equal(await actual.locator('.gm42-trend-item').count(),11);if(name==='Stew')assert.match(await actual.innerText(),/Current streak: W7/);
+    assert(await actual.evaluate(e=>e.scrollWidth<=e.clientWidth+2));results.push(meta);
    }catch(e){failures.push({...meta,error:String(e)})}finally{await page.unrouteAll()}}await ctx.close()}}finally{await browser.close()}
  }
 }finally{server.close();await fs.writeFile(out+'/report.json',JSON.stringify({fixtureOnly:true,results,failures},null,2))}
