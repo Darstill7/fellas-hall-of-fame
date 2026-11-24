@@ -34,7 +34,7 @@ export function buildPersonalRecords(core,ledger,name){
   for(let threshold=(Math.floor(previous/100000)+1)*100000;threshold<=runningPF;threshold+=100000)achievements.push({label:fmt(threshold/100)+' career PF',game:g});
  }
  const latest=games.at(-1),alerts=history.filter(h=>h.game===latest);
- return {annual:[...annual.values()].reverse(),history:history.reverse(),achievements:achievements.reverse(),alerts,name,marks,longestWin,longestLoss,longest100,totalPF,games:games.length,milestones:[next(m.w,10,'Career wins','wins'),next(m.games,25,'Career games','games'),next(totalPF,100000,'Career scoring','PF')]};
+ return {receipts:games,annual:[...annual.values()].reverse(),history:history.reverse(),achievements:achievements.reverse(),alerts,name,marks,longestWin,longestLoss,longest100,totalPF,games:games.length,milestones:[next(m.w,10,'Career wins','wins'),next(m.games,25,'Career games','games'),next(totalPF,100000,'Career scoring','PF')]};
 }
 export function validateRecordArchive(core,archive){
  if(!Array.isArray(archive?.managers)||new Set(archive.managers.map(m=>norm(m.manager))).size!==archive.managers.length)throw Error('Invalid record archive');
