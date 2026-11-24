@@ -50,3 +50,12 @@ jobs:
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium webkit
           node scripts/test-browser-trade-museum-week10.mjs
+      - name: Archive validated production files
+        uses: actions/upload-artifact@v4
+        with:
+          name: certified-week11-museum-production
+          path: |
+            data/trade_museum_stage66.json
+            analytics/trade-museum.html
+          if-no-files-found: error
+          retention-days: 14
