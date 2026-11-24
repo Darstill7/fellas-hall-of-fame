@@ -1,3 +1,4 @@
+import {mountManagerHeadquarters} from './manager-headquarters-v4.mjs';
 import {mountManagerLuckPerformance} from './manager-luck-performance.mjs';
 import {mountManagerScheduleLuck} from './manager-schedule-luck.mjs';
 import {mountDraftTradeCareer} from './manager-draft-trade-career-page.mjs';
@@ -667,6 +668,11 @@ function mountManagerHomeHub(){
  }
 }
 mountManagerHomeHub();
+const gm4Host=document.querySelector('.manager-home-hub');
+if(gm4Host&&profileName){
+ const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('./manager-headquarters-v4.css',import.meta.url).href;document.head.append(css);
+ void mountManagerHeadquarters({name:profileName==='Tom'?'Thommy':profileName,host:gm4Host});
+}
 // Let visitors choose a topic before seeing the complete playoff résumé.
 const profileTopicMenu=document.querySelector('main .profile-quickstart');
 const profilePlayoffSection=document.getElementById('profile-playoff-resume');
