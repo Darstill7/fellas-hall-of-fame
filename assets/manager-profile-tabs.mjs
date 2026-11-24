@@ -1,4 +1,4 @@
-import {mountDeferredProfileTopic,revealProfileHash} from './manager-mobile-v47.mjs';
+import {sharedProfileJson,mountDeferredProfileTopic,revealProfileHash} from './manager-mobile-v47.mjs';
 import {mountFranchiseLegends} from './manager-franchise-legends-v46.mjs';
 import {mountAchievementCabinet} from './manager-achievements-record-watch.mjs';
 import {mountPersonalRecordIntelligence} from './manager-personal-records-v45.mjs';
@@ -186,17 +186,15 @@ async function mountProfileRecordOwnership(){
  link.append(heading,result,arrow);
  snapshot.append(link);
  try{
-  const responses=await Promise.all([
-   fetch('../../data/manager_record_books_2016_2026.json'),
-   fetch('../../data/season_guide.json'),
-   fetch('../../data/verified_espn_playoff_brackets_2016_2019.json'),
-   fetch('../../data/verified_sleeper_playoff_brackets_2020_2025.json'),
-   fetch('../../data/fellas_final_placements_2020_2025.json'),
-   fetch('../../data/sleeper_postseason_placement_receipts_2020_2025.json'),
-   fetch('../../data/fellas_final_placements_2016_2025_verified.json')
+  const [archive,guide,espn,sleeper,placements,placementReceipts,allEra]=await Promise.all([
+   sharedProfileJson('../../data/manager_record_books_2016_2026.json'),
+   sharedProfileJson('../../data/season_guide.json'),
+   sharedProfileJson('../../data/verified_espn_playoff_brackets_2016_2019.json'),
+   sharedProfileJson('../../data/verified_sleeper_playoff_brackets_2020_2025.json'),
+   sharedProfileJson('../../data/fellas_final_placements_2020_2025.json'),
+   sharedProfileJson('../../data/sleeper_postseason_placement_receipts_2020_2025.json'),
+   sharedProfileJson('../../data/fellas_final_placements_2016_2025_verified.json')
   ]);
-  if(responses.some(r=>!r.ok))throw Error('Record sources unavailable');
-  const [archive,guide,espn,sleeper,placements,placementReceipts,allEra]=await Promise.all(responses.map(r=>r.json()));
   if(archive.asOf!=='2026 Week 8')throw Error('Unexpected record archive scope');
   const owned=findOwnedRecords(archive,guide,normalized,{espn,sleeper,placements,placementReceipts,allEra});
   result.textContent=owned.length
