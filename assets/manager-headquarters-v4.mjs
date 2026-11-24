@@ -1,3 +1,4 @@
+import {sharedProfileJson} from './manager-mobile-v47.mjs';
 // Manager Profiles 4.0: a compact, source-backed front office dossier.
 // Optional production dataset is never substituted with research-only data.
 const labels={DRAFT:'Draft selections',ARCHIVED_KEEPER:'Archived keeper selections',DRAFT_KEEPER_UNKNOWN:'Draft / keeper status unknown',WAIVER:'Waiver claims',FREE_AGENT:'Free agents',TRADE:'Trades',COMMISSIONER:'Commissioner adjustments'};
@@ -46,9 +47,8 @@ export async function mountManagerHeadquarters({name,host,root='../../',fetcher=
  const method=node('details',null,'gm4-disclosure');method.append(node('summary','How these numbers are calculated'),node('p','Received starter PF counts only recorded starting-lineup production during the acquisition’s ownership window. Strict receipts and timing-supported receipts are tracked separately. Draft grades compare observed returns within the same season and round; unknown keeper flags and incomplete evidence limit interpretation. Trade surplus compares eligible two-manager player exchanges, not hypothetical points or managerial skill. Keeper comparisons use observed later selections, not counterfactual production. ESPN-era acquisitions and postseason scoring are outside this dataset.'));section.append(method);
  host.append(section);
  try{
-  const [coreResponse,releaseResponse]=await Promise.all([fetcher(root+'data/career_core_generated.json'),fetcher(root+'data/front-office/managers.json')]);
-  if(!coreResponse.ok||!releaseResponse.ok)throw Error('Released evidence not available');
-  const [core,data]=await Promise.all([coreResponse.json(),releaseResponse.json()]);
+  const [core,data]=await Promise.all([root+'data/career_core_generated.json',root+'data/front-office/managers.json'].map(url=>fetcher===fetch?sharedProfileJson(url):fetcher(url).then(r=>{if(!r.ok)throw Error('Released evidence not available');return r.json()})));
+  if(data.status==='NOT_PUBLISHED'){status.textContent='Front Office scoring has not been approved for publication. Existing draft and trade research remains accessible.';return;}
   const m=validateScorecard(data,name,core.completedThrough);
   status.textContent='Sleeper era · 2020–'+data.completedThrough.year+' · through Week '+data.completedThrough.week+' · regular season only';
   const metrics=node('div',null,'gm4-metrics');
