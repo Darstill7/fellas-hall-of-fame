@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'weekly-shitter/issue-03.html'
+      - 'weekly-shitter/assets/issue-03-*'
+      - 'scripts/verify-weekly-shitter-issue-03-visual.mjs'
       - 'scripts/verify-weekly-shitter-issue-03.mjs'
       - '.github/workflows/weekly-shitter-issue-03.yml'
   workflow_dispatch:
@@ -17,3 +19,48 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/verify-weekly-shitter-issue-03.mjs
+  iphone-preview:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Render JPEG link preview
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'CairoSVG>=2.7,<3'
+          python - <<'PY'
+          import cairosvg, io
+          from PIL import Image
+          from pathlib import Path
+          p=Path('weekly-shitter/assets/issue-03-social.jpg')
+          im=Image.open(io.BytesIO(cairosvg.svg2png(url=str(p.with_suffix('.svg'))))).convert('RGB')
+          im.save(p,'JPEG',quality=88,optimize=True,progressive=True)
+          with Image.open(p) as check:
+              assert check.size==(1200,630) and check.format=='JPEG'
+          assert p.stat().st_size<500000
+          print('JPEG verified:',p.stat().st_size,'bytes')
+          PY
+      - name: Check preview metadata
+        run: |
+          node --input-type=module - <<'JS'
+          import assert from 'node:assert/strict';
+          import fs from 'node:fs';
+          const h=fs.readFileSync('weekly-shitter/issue-03.html','utf8');
+          for(const key of ['og:title','og:description','og:url','og:image','og:image:type','og:image:width','og:image:height','twitter:card'])assert.ok(h.includes(key),key);
+          assert.ok(h.includes('https://darstill7.github.io/fellas-hall-of-fame/weekly-shitter/assets/issue-03-social.jpg'));
+          assert.ok(fs.existsSync('weekly-shitter/assets/issue-03-social.jpg'));
+          JS
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node scripts/verify-weekly-shitter-issue-03-visual.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: issue-03-iphone-preview
+          path: |
+            weekly-shitter/assets/issue-03-social.jpg
+            data-integrity/visual-gate/issue-03/
