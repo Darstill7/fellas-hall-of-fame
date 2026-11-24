@@ -1,0 +1,49 @@
+name: Rehearse approved Week 11 import (isolated)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/rehearse-approved-week11.yml'
+      - 'data-integrity/sleeper-sync-candidates/2026-week11.json'
+permissions:
+  contents: read
+jobs:
+  rehearse:
+    if: github.head_ref == 'integration/week11-approved-rehearsal-20261124'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify pinned evidence and dry run
+        env:
+          FELLAS_APPROVE_WEEKLY_IMPORT: 'YES'
+        run: |
+          set -euo pipefail
+          git fetch origin 0cdd8843511d724b39eb47f3d1112522b22ed4a6
+          git show FETCH_HEAD:data-integrity/sleeper-sync-candidates/2026-week11.json | cmp - data-integrity/sleeper-sync-candidates/2026-week11.json
+          node scripts/apply-reviewed-sleeper-week.mjs data-integrity/sleeper-sync-candidates/2026-week11.json --dry-run
+      - name: Rehearse full import and downstream checks
+        env:
+          FELLAS_APPROVE_WEEKLY_IMPORT: 'YES'
+        run: |
+          set -euo pipefail
+          node scripts/apply-reviewed-sleeper-week.mjs data-integrity/sleeper-sync-candidates/2026-week11.json
+          node scripts/sync-franchise-timeline-current.mjs
+          node scripts/sync-weekly-manager-portfolios.mjs
+          node scripts/sync-records-career-fallbacks.mjs
+          node scripts/verify-weekly-ledger-parity.mjs
+          node scripts/verify-current-week-website.mjs
+          node scripts/sync-weekly-manager-fallbacks.mjs
+          node scripts/verify-core-consumers.mjs
+          node scripts/verify-franchise-timeline-freshness.mjs
+          node scripts/verify-canonical-history.mjs
+          node scripts/audit-weekly-publication.mjs --expected-week=11
+      - name: Capture changed file inventory
+        if: always()
+        run: |
+          git status --short
+          git diff --stat
+          git diff --stat >> "$GITHUB_STEP_SUMMARY"

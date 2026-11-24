@@ -1,0 +1,76 @@
+{
+  "status": "REVIEW_REQUIRED",
+  "league": "1340027406009761792",
+  "year": 2026,
+  "week": 11,
+  "source": "Sleeper public API",
+  "matchupCount": 5,
+  "reason": "Automated source fetch does not itself certify stat corrections or downstream projection parity",
+  "games": [
+    {
+      "year": 2026,
+      "week": 11,
+      "home": "Stilly",
+      "away": "Thommy",
+      "homeScore": 104.16,
+      "awayScore": 84.56,
+      "winner": "HOME",
+      "margin": 19.6,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_11"
+    },
+    {
+      "year": 2026,
+      "week": 11,
+      "home": "JMid",
+      "away": "Stew",
+      "homeScore": 97.8,
+      "awayScore": 142.26,
+      "winner": "AWAY",
+      "margin": 44.46,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_11"
+    },
+    {
+      "year": 2026,
+      "week": 11,
+      "home": "Scott",
+      "away": "Tony",
+      "homeScore": 98.76,
+      "awayScore": 142.3,
+      "winner": "AWAY",
+      "margin": 43.54,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_11"
+    },
+    {
+      "year": 2026,
+      "week": 11,
+      "home": "Mitch",
+      "away": "Birch",
+      "homeScore": 83.96,
+      "awayScore": 127.06,
+      "winner": "AWAY",
+      "margin": 43.1,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_11"
+    },
+    {
+      "year": 2026,
+      "week": 11,
+      "home": "Stover",
+      "away": "Kuhl",
+      "homeScore": 91.74,
+      "awayScore": 76.4,
+      "winner": "HOME",
+      "margin": 15.34,
+      "stage": "regular",
+      "era": "Sleeper",
+      "source": "sleeper_api_staged_week_11"
+    }
+  ]
+}
