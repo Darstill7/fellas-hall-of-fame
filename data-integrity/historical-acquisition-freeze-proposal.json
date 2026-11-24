@@ -1,0 +1,14 @@
+{
+  "schema": "fellas-historical-freeze-proposal-v1",
+  "status": "PENDING_ARCHIVAL_AND_APPROVAL",
+  "scope": {"provider": "Sleeper", "years": [2020, 2025], "phase": "regular"},
+  "source_run_id": 45304397427,
+  "source_head_sha": "eea98b486626b2b2be6b937e04a2cdbc7b62d463",
+  "source_artifact_id": 14879748458,
+  "source_artifact_name": "2020-2025-trade-ownership-research",
+  "source_artifact_digest": "sha256:bc39e942c249d16bf80d0166b84297151f0aa0b583352355b86eb2a7459fc07c",
+  "historical_content_sha256": "5420fef3afbade40ac96ef98d7c0b48d506aa8daf9aff2e1f0ade20015073a08",
+  "expected": {"acquisitions": 2543, "receipts": 7374, "pf_cents": 9153678, "findings": 0, "independent_checks": 7444},
+  "keeper_evidence": {"explicit_true": 20, "unknown": 880},
+  "limitations": ["Acquisition scope excludes ESPN and postseason.", "Evidence-supported ownership is not proof of lineup lock.", "Unknown keeper status must not be represented as confirmed nonkeeper.", "This proposal is not an approved frozen package."]
+}
