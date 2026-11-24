@@ -4,6 +4,9 @@ on:
     - cron: '0 12 * * 2' # Tuesday 7am EST / 8am EDT; review only
     - cron: '30 14 * * 3' # Wednesday fallback
   workflow_dispatch:
+concurrency:
+  group: fellas-weekly-staging
+  cancel-in-progress: false
 permissions:
   contents: write
   pull-requests: write
@@ -17,26 +20,39 @@ jobs:
         with:
           node-version: '22'
       - name: Check staging script syntax
-        run: node --check scripts/stage-sleeper-week.mjs
+        run: |
+          node --check scripts/stage-sleeper-week.mjs
+          node --check scripts/stage-sleeper-trades.mjs
+          node --check scripts/review-staged-trades.mjs
       - name: Stage complete next week (skip expected not-yet-final cases)
         id: stage
         run: |
           if node scripts/stage-sleeper-week.mjs > /tmp/sleeper-stage.log 2>&1; then
             cat /tmp/sleeper-stage.log
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
           else
             cat /tmp/sleeper-stage.log
             if grep -q 'has not been superseded by the next NFL week' /tmp/sleeper-stage.log; then
               echo 'NFL week not finished; no update' >> "$GITHUB_STEP_SUMMARY"
+              echo 'ready=false' >> "$GITHUB_OUTPUT"
             else
               exit 1
             fi
           fi
+      - name: Stage completed trade receipts and review queue
+        if: steps.stage.outputs.ready == 'true'
+        run: |
+          set -euo pipefail
+          WEEK=$(node -e "const x=require('./data/unified_record_book_2016_2026.json');console.log(1+Math.max(0,...x.games.filter(g=>g.year===2026&&g.stage==='regular').map(g=>g.week)))")
+          node scripts/stage-sleeper-trades.mjs
+          node scripts/review-staged-trades.mjs "--candidate=data-integrity/sleeper-sync-candidates/2026-trades-through-week${WEEK}.json" "--output=data-integrity/sleeper-sync-candidates/2026-trade-review-through-week${WEEK}.json"
       - name: Create review pull request, never update canonical history automatically
+        if: steps.stage.outputs.ready == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
           commit-message: 'Stage verified-coverage Sleeper weekly matchups for human review'
           branch: 'automation/sleeper-weekly-stage'
-          delete-branch: true
+          delete-branch: false
           title: 'Review next Sleeper week before canonical ratings refresh'
           body: |
             Automated staging candidate ONLY. **Do not merge this PR as canonical history.** After human review, run the approved importer with FELLAS_APPROVE_WEEKLY_IMPORT=YES and commit all regenerated projections together, then verify full CI. Verify all team identities and five finalized score pairs against Sleeper. Check all generated data and site-wide stale projections; repair additional consumers if CI flags them. The public Madden card recalculates upon approved deployment. REQUIRED CROSS-PAGE WEEKLY CHECKLIST: canonical matchup ledger, season mirror, season guide, manager career/record profiles, all-play and luck, 2026 season hub, SportsCenter, Playoff Race simulations and schedule strength, record portfolios, lineup/keeper snapshots where verified, weekly recap and visible homepage copy. Run `node scripts/verify-current-week-website.mjs` and `node scripts/test-playoff-race-archive.mjs`. Preserve named historical snapshots but never present them as the current week.
