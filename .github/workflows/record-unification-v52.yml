@@ -5,6 +5,7 @@ on:
       - 'scripts/build-*record*-v52.mjs'
       - 'scripts/build-positional-record-pilot-v53.mjs'
       - 'scripts/build-champion-position-records-v53.mjs'
+      - 'scripts/build-team-scoring-records-v53.mjs'
       - 'assets/manager-record-ownership.mjs'
       - 'data/**'
       - '.github/workflows/record-unification-v52.yml'
@@ -28,6 +29,8 @@ jobs:
         run: node scripts/build-positional-record-pilot-v53.mjs
       - name: Verify champion positional record receipts
         run: node scripts/build-champion-position-records-v53.mjs
+      - name: Recompute team scoring and consistency records
+        run: node scripts/build-team-scoring-records-v53.mjs
       - name: Upload candidate receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -37,4 +40,5 @@ jobs:
             data-integrity/*record*-v52.json
             data-integrity/positional-record-pilot-v53.json
             data-integrity/champion-position-records-v53.json
+            data-integrity/team-scoring-records-v53.json
           if-no-files-found: error
