@@ -1249,8 +1249,21 @@ try{
     await page.locator('#more .archive summary').focus();
     await page.keyboard.press('Enter');
     if(!await page.locator('#more .archive').evaluate(e=>e.open))errors.push(width+' production archive keyboard disclosure failed');
-    for(const href of ['home-classic.html','home-classic.html#home-record-watch','analytics/playoff-race.html','managers/record-books.html'])
-     if(!await page.locator('#more a[href="'+href+'"]').isVisible())errors.push(width+' production archive missing '+href);
+    for(const href of ['home-classic.html','home-classic.html#home-record-watch'])
+     if(!await page.locator('#more .archive a[href="'+href+'"]').isVisible())errors.push(width+' production archive missing '+href);
+    // The two promoted research destinations now live in the categorized More view.
+    await page.locator('.fellas-app-nav a[data-app-tab="more"]').click();
+    await page.locator('body.more-view').waitFor({timeout:15000});
+    for(const href of ['analytics/playoff-race.html','managers/record-books.html']){
+     const link=page.locator('#more .more-links a[href="'+href+'"]');
+     if(await link.count()!==1||!await link.isVisible()||!await link.evaluate(a=>a.getBoundingClientRect().height>=44))
+      errors.push(width+' production categorized More destination inaccessible '+href);
+     else {
+      const target=await link.evaluate(a=>a.href);
+      const response=await page.request.get(target);
+      if(!response.ok())errors.push(width+' production categorized More destination failed HTTP '+response.status()+' '+href);
+     }
+    }
     await page.locator('#more a[href="home-classic.html"]').click();
     await page.waitForURL('**/home-classic.html');
     if(!await page.locator('#homepage-editorial-title').isVisible())errors.push(width+' production classic homepage navigation failed');
@@ -2705,7 +2718,7 @@ try{
      if(tinyTargets.length)errors.push(width+' Manager Record Books links too small to tap: '+tinyTargets.join(', '));
     }
     const recordJump=page.locator('nav.record-jump-nav');
-    const targets=['#career-first','#notable-matchups','#owned-records','#expanded-manager-records','#postseason-manager-panel','#opponents','#seasons'];
+    const targets=['#owned-records','#career-first','#notable-matchups','#expanded-manager-records','#postseason-manager-panel','#opponents','#seasons'];
     // Personal record sections load from canonical JSON after the static nav
     // mounts. Let the target exist before judging a navigable anchor.
     await page.locator('#opponents').waitFor({state:'attached',timeout:7000}).catch(()=>{});
