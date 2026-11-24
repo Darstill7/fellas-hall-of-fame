@@ -107,7 +107,7 @@ try{
           news:document.querySelectorAll('#news [data-news]').length
         }));
         if(app.title!=='League dashboard'||app.managers!==11||app.standings!==10||app.games!==5||
-           JSON.stringify(app.nav)!==JSON.stringify(['team','league','managers','news','more'])||
+           JSON.stringify(app.nav)!==JSON.stringify(['home','team','league','records','more'])||
            app.pickerTop>=app.height*.9||!app.archive||!app.watch||app.news!==2)
           findings.push(engine+' '+width+' '+key+' production dashboard first-screen failure '+JSON.stringify(app));
         await page.screenshot({path:path.join(output,engine+'-'+width+'-production-home.png')});
