@@ -640,6 +640,7 @@ function mountManagerHomeHub(){
   words.append(name,desc);el.append(icon,words);
   if(route.action==='story')el.addEventListener('click',()=>quick.querySelector('button.profile-biography-entry')?.click());
   if(route.action==='front-office'){
+   el.dataset.profileAction='front-office';
    el.addEventListener('click',()=>{
     // Open the actual draft/trade résumé, not the generic Advanced tab.
     // Reuse the existing feature controller for history, focus and receipts.
@@ -704,7 +705,7 @@ if(gm4Host&&profileName){
  if(!loadedStyles.has(file)){style(file);loadedStyles.add(file)}
  await mount({name:profileName==='Tom'?'Thommy':profileName,host});
  }});topic.targets=targets;return topic});
- const tile=[...gm4Host.querySelectorAll('.manager-home-hub-tile')].find(n=>n.querySelector('strong')?.textContent==='Front office');
+ const tile=gm4Host.querySelector('button[data-profile-action="front-office"]');
  if(tile)tile.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();topics.find(t=>t.shell.id==='gm47-front-office').reveal();topics.find(t=>t.shell.id==='gm47-front-office').shell.scrollIntoView({block:'start',behavior:'auto'});topics.find(t=>t.shell.id==='gm47-front-office').shell.querySelector('summary').focus({preventScroll:true})},{capture:true});
  revealProfileHash(topics);window.addEventListener('hashchange',()=>revealProfileHash(topics));
 }
