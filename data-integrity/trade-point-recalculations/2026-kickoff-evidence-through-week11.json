@@ -1,0 +1,44 @@
+{
+  "schema": "fellas-trade-kickoff-evidence-v1",
+  "through_week": 11,
+  "timezone": "America/New_York",
+  "week_first_game_date": {
+    "1": "2026-09-09",
+    "2": "2026-09-17",
+    "4": "2026-10-01",
+    "5": "2026-10-08",
+    "11": "2026-11-19"
+  },
+  "week_first_game_sources": [
+    "https://nfl-ops-prod-umbraco-author.azurewebsites.net/calendar-events/nfl-schedule/2026-regular-season-schedule/",
+    "https://www.nfl.com/schedules/2026/prime-time/thursday-night-football",
+    "https://www.nfl.com/schedules/2026/by-week/week-4"
+  ],
+  "individual_game_dates": [
+    {
+      "week": 5,
+      "player_id": "MIN",
+      "date": "2026-10-11",
+      "source": "https://www.nfl.com/schedules/2026/by-team/minnesota-vikings"
+    },
+    {
+      "week": 9,
+      "player_id": "11625",
+      "date": "2026-11-08",
+      "source": "https://www.nfl.com/players/adonai-mitchell/stats/logs/"
+    },
+    {
+      "week": 10,
+      "player_id": "7569",
+      "date": "2026-11-15",
+      "source": "https://amp.nfl.com/players/nico-collins/stats/logs/2026/"
+    },
+    {
+      "week": 10,
+      "player_id": "11564",
+      "date": "2026-11-15",
+      "source": "https://www.nfl.com/players/drake-maye/stats/logs/2026/"
+    }
+  ],
+  "rule": "Calendar-date ordering only: same-day transactions require exact kickoff evidence and remain unresolved. Points come from Sleeper, not NFL box scores."
+}
