@@ -1,3 +1,4 @@
+import {sharedProfileJson} from './manager-mobile-v47.mjs';
 import {buildPersonalRecords} from './manager-personal-records-v45.mjs';
 const norm=n=>n==='Tom'?'Thommy':n;
 export function buildAchievements(core,ledger,guide,endings,brackets,name){
@@ -64,7 +65,7 @@ const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.te
 const receipt=e=>e.week?e.year+' W'+e.week+(e.opponent?' vs '+e.opponent:'')+' · '+(e.pf/100).toFixed(2)+'–'+(e.pa/100).toFixed(2):String(e.year)+' · '+(e.source??'Verified season evidence');
 async function load(root){
  const files=['career_core_generated.json','unified_record_book_2016_2026.json','season_guide.json','manager_verified_season_endings_v1.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json'];
- return Promise.all(files.map(async p=>{const r=await fetch(root+'data/'+p);if(!r.ok)throw Error('Unavailable '+p);return r.json()}));
+ return Promise.all(files.map(p=>sharedProfileJson(root+'data/'+p)));
 }
 export async function mountAchievementCabinet({name,host,root='../../'}){
  if(!host||host.querySelector('#gm452-achievements'))return;
