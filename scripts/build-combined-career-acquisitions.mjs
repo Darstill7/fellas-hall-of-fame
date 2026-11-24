@@ -1,5 +1,6 @@
 // Common strict-ownership career ledger; never mix timing-supported and strict returns.
 import fs from 'node:fs';
+import {loadFrozenHistory} from './lib/load-frozen-historical-acquisitions.mjs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {verifyHistoricalPackage} from './verify-historical-acquisition-package.mjs';
@@ -7,7 +8,11 @@ const root='data-integrity/historical-trade-draft-audits/';
 const read=n=>JSON.parse(fs.readFileSync(root+n+'.json','utf8'));
 const frozenPath=process.env.FELLAS_FROZEN_HISTORICAL_ACQUISITIONS;
 let historical,approvedHistory=null;
-if(frozenPath){
+if(process.env.FELLAS_REQUIRE_APPROVED_HISTORY==='1'||process.env.FELLAS_FROZEN_HISTORY_DIR){
+ const frozen=loadFrozenHistory(process.env.FELLAS_FROZEN_HISTORY_DIR||undefined);
+ historical={ledger:frozen.candidate.acquisitions};
+ approvedHistory=frozen.verified;
+}else if(frozenPath){
  const pkg=JSON.parse(fs.readFileSync(frozenPath,'utf8'));
  const approvedHash=process.env.FELLAS_APPROVED_HISTORICAL_ACQUISITION_SHA256;
  assert.match(approvedHash||'',/^[a-f0-9]{64}$/,'Explicit approved historical fingerprint required');
