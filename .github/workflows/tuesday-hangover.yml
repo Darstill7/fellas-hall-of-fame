@@ -34,17 +34,9 @@ jobs:
           from PIL import Image
           from pathlib import Path
           p=Path('tuesday-hangover/assets/2026-week-11-social.jpg')
-          Image.open(io.BytesIO(cairosvg.svg2png(url=str(p.with_suffix('.svg'))))).convert('RGB').save(p,'JPEG',quality=88,optimize=True)
+          assert p.is_file(), 'Committed JPEG required before release'
           with Image.open(p) as im: assert im.size==(1200,630) and im.format=='JPEG'
           assert p.stat().st_size<500000
-          PY
-      - name: Export verified JPEG for release commit
-        run: |
-          python - <<'PY'
-          import base64
-          from pathlib import Path
-          s=base64.b64encode(Path('tuesday-hangover/assets/2026-week-11-social.jpg').read_bytes()).decode()
-          for i in range(0,len(s),1024): print('HANGOVER_JPEG_'+str(i//1024).zfill(4)+':'+s[i:i+1024])
           PY
       - run: npm install --no-save playwright
       - run: npx playwright install --with-deps chromium webkit
