@@ -35,6 +35,18 @@ async function go(route){
 try{
  // 1. Homepage: real discovery path through the manager directory.
  await go('');
+ if(await page.locator('#my-manager').count()){
+  await page.locator('.standing:not(.head)').first().waitFor();
+  assert.equal(await page.locator('.standing:not(.head)').count(),10,'Production standings missing managers');
+  assert.equal(await page.locator('#my-manager option').count(),11,'Production franchise selection incomplete');
+  assert.equal(await page.locator('.fellas-app-nav a').count(),5,'Production primary navigation incomplete');
+  assert(await page.locator('#my-manager').evaluate(e=>e.getBoundingClientRect().top<innerHeight*.9),'Franchise selection buried below first screen');
+  await page.locator('.fellas-app-nav a[data-app-tab="more"]').click();
+  await page.locator('#more .archive summary').click();
+  await page.locator('#more a[href="home-classic.html"]').click();
+  await page.waitForURL('**/home-classic.html');
+  visited.push('home-classic.html');
+ }
  // First visit on a 390px phone: explain the league and show a real choice promptly.
  const homeEntry=await page.evaluate(()=>{
   const hero=document.getElementById('homepage-editorial-title');
