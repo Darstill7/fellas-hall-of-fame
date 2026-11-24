@@ -38,11 +38,12 @@ function disclosure(title,rows){
 export async function mountManagerHeadquarters({name,host,root='../../',fetcher=fetch}){
  if(!host||!name||host.querySelector('#gm4-headquarters'))return;
  const section=node('section',null,'gm4-headquarters');section.id='gm4-headquarters';section.setAttribute('aria-labelledby','gm4-heading');
- const heading=node('h2','Front office résumé');heading.id='gm4-heading';
+ const heading=node('h2','Front office résumé');heading.id='gm4-heading';heading.tabIndex=-1;
  section.append(node('p','FRANCHISE HEADQUARTERS / FRONT OFFICE','gm4-kicker'),heading,node('p','How '+name+' assembled the roster, season after season.','gm4-intro'));
  const status=node('p','Checking released scoring evidence…','gm4-status');status.setAttribute('role','status');section.append(status);
  const content=node('div');section.append(content);
  const legacy=node('a','Explore existing draft and trade research →','gm4-link');legacy.href=root+'analytics/greatest-worst-trades.html?manager='+encodeURIComponent(name);section.append(legacy);
+ const method=node('details',null,'gm4-disclosure');method.append(node('summary','How these numbers are calculated'),node('p','Received starter PF counts only recorded starting-lineup production during the acquisition’s ownership window. Strict receipts and timing-supported receipts are tracked separately. Draft grades compare observed returns within the same season and round; unknown keeper flags and incomplete evidence limit interpretation. Trade surplus compares eligible two-manager player exchanges, not hypothetical points or managerial skill. Keeper comparisons use observed later selections, not counterfactual production. ESPN-era acquisitions and postseason scoring are outside this dataset.'));section.append(method);
  host.append(section);
  try{
   const [coreResponse,releaseResponse]=await Promise.all([fetcher(root+'data/career_core_generated.json'),fetcher(root+'data/front-office/managers.json')]);
