@@ -8,6 +8,7 @@ on:
       - 'scripts/build-team-scoring-records-v53.mjs'
       - 'scripts/build-front-office-records-v54.mjs'
       - 'scripts/build-waiver-records-v54.mjs'
+      - 'scripts/build-keeper-records-v54.mjs'
       - 'assets/manager-record-ownership.mjs'
       - 'data/**'
       - '.github/workflows/record-unification-v52.yml'
@@ -37,6 +38,8 @@ jobs:
         run: node scripts/build-front-office-records-v54.mjs
       - name: Reconcile waiver and FAAB record research
         run: node scripts/build-waiver-records-v54.mjs
+      - name: Reconcile keeper record research
+        run: node scripts/build-keeper-records-v54.mjs
       - name: Upload candidate receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -49,4 +52,5 @@ jobs:
             data-integrity/team-scoring-records-v53.json
             data-integrity/front-office-records-v54.json
             data-integrity/waiver-records-v54.json
+            data-integrity/keeper-records-v54.json
           if-no-files-found: error
