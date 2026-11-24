@@ -1,0 +1,30 @@
+name: App homepage preview validation
+on:
+  pull_request:
+    paths:
+      - 'home-app-preview.html'
+      - 'assets/home-app-v3.*'
+      - 'assets/fellas-app-icon.svg'
+      - 'fellas-app-preview.webmanifest'
+      - 'scripts/test-home-app-v3*'
+      - '.github/workflows/home-app-v3.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/test-home-app-v3.mjs
+      - run: npm install --no-save --package-lock=false playwright@1.56.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node scripts/test-home-app-v3-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-app-v3-preview
+          path: data-integrity/home-app-v3/
