@@ -1,3 +1,4 @@
+import {mountFranchiseTimeline} from './manager-franchise-timeline-v43.mjs';
 import {mountManagerDashboard} from './manager-dashboard-v42.mjs';
 import {mountManagerHeadquarters} from './manager-headquarters-v4.mjs';
 import {mountManagerLuckPerformance} from './manager-luck-performance.mjs';
@@ -671,6 +672,8 @@ function mountManagerHomeHub(){
  }
 }
 mountManagerHomeHub();
+const timelineHost=document.getElementById('season-history');
+if(timelineHost&&profileName){const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('./manager-franchise-timeline-v43.css',import.meta.url).href;document.head.append(css);void mountFranchiseTimeline({name:profileName,host:timelineHost});}
 const gm4Host=document.querySelector('.manager-home-hub');
 if(gm4Host&&profileName){
  const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('./manager-headquarters-v4.css',import.meta.url).href;document.head.append(css);
