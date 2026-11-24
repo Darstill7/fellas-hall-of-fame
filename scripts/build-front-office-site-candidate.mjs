@@ -38,6 +38,25 @@ assert.equal(Object.values(managerSurplus).reduce((n,v)=>n+v,0),0);
 const pairwiseRankings=[...pairwiseSupported.values()].map(p=>({...p,a_minus_b_supported_cents:p.a_supported_cents-p.b_supported_cents,a_minus_b_strict_cents:p.a_strict_cents-p.b_strict_cents})).sort((a,b)=>Math.abs(b.a_minus_b_supported_cents)-Math.abs(a.a_minus_b_supported_cents));
 const draftGrades=gradeDraftReturns(acq.ledger,supported.acquisitions);
 const slotAlternatives=draftSlotAlternatives(acq.ledger,supported.acquisitions);
+const careerScorecards=Object.entries(supported.managers).map(([manager,total])=>{
+ const draftCareer=draftGrades.managers.find(m=>m.manager===manager)??null;
+ const seasons=draftGrades.reportCards.filter(r=>r.manager===manager).sort((a,b)=>a.year-b.year);
+ const categories={};
+ for(const a of acq.ledger.filter(a=>a.manager===manager)){
+  const key=[a.year,Number(a.roster),String(a.player_id),String(a.id)].join(':');
+  const v=supported.acquisitions[key],c=categories[a.category]??={acquisitions:0,supported_starts:0,supported_pf_cents:0,strict_pf_cents:0};
+  c.acquisitions++;c.supported_starts+=v?.supported_starts??0;c.supported_pf_cents+=v?.supported_pf_cents??0;c.strict_pf_cents+=v?.strict_pf_cents??0;
+ }
+ // Commissioner rows are absent from the legacy strict ledger; expose their supported production separately.
+ const residualStarts=total.supported_starts-Object.values(categories).reduce((n,c)=>n+c.supported_starts,0);
+ const residualPF=total.supported_pf_cents-Object.values(categories).reduce((n,c)=>n+c.supported_pf_cents,0);
+ if(residualStarts){assert.equal(manager,'Thommy');assert.equal(residualStarts,2);assert.equal(residualPF,640);categories.COMMISSIONER={acquisitions:1,supported_starts:2,supported_pf_cents:640,strict_pf_cents:0};}
+ else assert.equal(residualPF,0);
+ const eligible=seasons.filter(r=>!r.active_season&&r.coverage>=.75&&r.graded_picks>=8);
+ const mean=eligible.length?eligible.reduce((n,r)=>n+r.mean_percentile,0)/eligible.length:null;
+ const consistency=eligible.length>=2?Math.sqrt(eligible.reduce((n,r)=>n+(r.mean_percentile-mean)**2,0)/eligible.length):null;
+ return {manager,total,categories,draftCareer,draftSeasons:seasons,draftConsistency:{eligible_seasons:eligible.length,mean_percentile:mean,standard_deviation:consistency},tradeSurplusCents:managerSurplus[manager]??null,tradeRivalries:pairwiseRankings.filter(p=>p.a===manager||p.b===manager),keeperSlots:slotAlternatives.results.filter(r=>r.manager===manager&&r.category==='ARCHIVED_KEEPER'),method:'Descriptive production by acquisition method; no composite GM grade. Commissioner production excluded from managerial decision grading.'};
+});
 const evidenceMeta={historicalPackage:supported.historicalPackage,coverage:supported.coverage,limitations:supported.limitations};
 const output=root+'front-office-site-candidate';fs.mkdirSync(output,{recursive:true});
 const common={status:'RESEARCH_ONLY_NOT_DEPLOYABLE',completedThrough:acq.completedThrough,historicalScope:[2020,2025],method:'Strict received regular-season starter production; not causal value or trade grades.'};
@@ -59,7 +78,7 @@ Object.assign(datasets['trading.json'],{supportedEvidence:{...evidenceMeta,trade
 Object.assign(datasets['draft.json'],{supportedEvidence:{...evidenceMeta,rounds:supported.rounds,grades:draftGrades,slotAlternatives,picks:supportedRankings.filter(a=>['DRAFT','ARCHIVED_KEEPER','DRAFT_KEEPER_UNKNOWN'].includes(a.category))}});
 Object.assign(datasets['acquisitions.json'],{supportedEvidence:{...evidenceMeta,categories:supported.categories,rankings:supportedRankings}});
 Object.assign(datasets['players.json'],{supportedEvidence:{...evidenceMeta,players:supported.players,playerReceipts:supported.playerReceipts}});
-Object.assign(datasets['managers.json'],{supportedEvidence:{...evidenceMeta,managers:supported.managers}});
+Object.assign(datasets['managers.json'],{supportedEvidence:{...evidenceMeta,managers:supported.managers,careerScorecards}});
 Object.assign(datasets['keepers.json'],{supportedEvidence:{...evidenceMeta,keeperSlotComparisons:slotAlternatives.results.filter(r=>r.category==='ARCHIVED_KEEPER'),keeperSlotMethod:slotAlternatives.method,archiveKeeperTotals:supported.categories.ARCHIVED_KEEPER??null,unknownKeeperTotals:supported.categories.DRAFT_KEEPER_UNKNOWN??null}});
 const files=[];
 for(const [name,d] of Object.entries(datasets)){assert.deepEqual(d.completedThrough,common.completedThrough);const raw=JSON.stringify(d,null,2)+'\n';fs.writeFileSync(output+'/'+name,raw);files.push({name,sha256:createHash('sha256').update(raw).digest('hex'),bytes:Buffer.byteLength(raw)});}
