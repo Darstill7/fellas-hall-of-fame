@@ -4,6 +4,7 @@ on:
     paths:
       - 'home-app-preview.html'
       - 'assets/home-app-v3.*'
+      - 'assets/app-shell-v34.*'
       - 'assets/fellas-app-icon.svg'
       - 'fellas-app-preview.webmanifest'
       - 'scripts/test-home-app-v3*'
