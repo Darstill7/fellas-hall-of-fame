@@ -16,3 +16,17 @@ const bad=structuredClone(guide);bad['2026'].standings[0].pf++;
 assert.throws(()=>buildEditorialPacket(ledger,bad,week,notes));
 assert.throws(()=>buildEditorialPacket(ledger,guide,week,[{kind:'verified',text:'unsupported'}]));
 console.log('Editorial research archive parity and fail-closed notes checks passed');
+
+import {buildEditorialContext} from './weekly-shitter-context.mjs';
+const race=JSON.parse(fs.readFileSync('data/playoff_race_v1.json'));
+const trades=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json'));
+const context=buildEditorialContext(p,ledger,race,trades);
+assert.equal(context.comparisons.length,10);
+for(const row of context.comparisons)assert.equal(row.priorOpponentMeetings,row.priorOpponentRecord.w+row.priorOpponentRecord.l+row.priorOpponentRecord.t);
+if(race.verified_through_week===week)assert.equal(context.playoffs.status,'SAME_CUTOFF_SIMULATION');
+assert.equal(buildEditorialContext(p,ledger,{...race,verified_through_week:week-1},trades).playoffs.status,'UNAVAILABLE_OR_STALE');
+const broken=structuredClone(race);broken.teams.Mitch.pf+=1;
+assert.equal(buildEditorialContext(p,ledger,broken,trades).playoffs.status,'UNAVAILABLE_OR_STALE');
+assert.equal(context.tradeArchive.status,'ARCHIVE_ONLY_NOT_COMPLETE_SOURCE');
+assert.equal(context.tradeArchive.sameCutoffScoringReceiptCount,trades.filter(t=>t.year===2026&&t.week<=week&&t.scoring_through_week===week).length);
+console.log('Editorial context cutoff and historical receipt checks passed');
