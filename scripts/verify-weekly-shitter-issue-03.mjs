@@ -33,6 +33,26 @@ assert.ok(article.includes('../tuesday-hangover/2026-week-11.html'));
 const ids=[...article.matchAll(/id="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(new Set(ids).size,ids.length,'Duplicate IDs');
 for(const m of article.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(m[1]),'Broken anchor '+m[1]);
-for(const token of ['mast-editorial','mast-ticker','editorial-cover','Brother Bowl','Colts Misery Bowl','414.5','333.1','August 30, 2021','59.7%','40.7%','4–1','3–2','2–3','9–1','7–3','id="closing"','Fictional parody sponsor'])assert.ok(article.includes(token),'Missing '+token);
+for(const token of ['mast-editorial','mast-ticker','editorial-cover','Brother Bowl','Colts Misery Bowl','August 30, 2021','10–3 regular-season record','The Median Scandal','16–6','1–21','55.52','95.91','View all 90 current Sleeper starting slots','Walker is reported out','4–1','3–2','2–3','9–1','7–3','id="closing"','Fictional parody sponsor'])assert.ok(article.includes(token),'Missing '+token);
+// Recompute median records from the same canonical games, rather than requiring retired forecast or unverified trade-point copy.
+const weeks=Array.from({length:11},(_,i)=>ledger.games.filter(g=>+g.year===2026&&+g.week===i+1&&g.stage==='regular'));
+const stats=new Map();
+for(const week of weeks){
+ assert.equal(week.length,5);
+ const scores=week.flatMap(g=>[[g.home,g.homeScore],[g.away,g.awayScore]]);
+ assert.equal(new Set(scores.map(x=>x[0])).size,10);
+ const sorted=scores.map(x=>x[1]).sort((a,b)=>a-b);
+ const median=(sorted[4]+sorted[5])/2;
+ for(const g of week){for(const [name,score,opp] of [[g.home,g.homeScore,g.awayScore],[g.away,g.awayScore,g.homeScore]]){
+ const t=stats.get(name)||{w:0,mw:0,pf:0};
+ t.w+=+(score>opp);t.mw+=+(score>median);t.pf+=score;stats.set(name,t);
+ }}
+}
+const ranked=[...stats].sort((a,b)=>(b[1].w+b[1].mw)-(a[1].w+a[1].mw)||b[1].pf-a[1].pf);
+for(const [name,t] of ranked){
+ const record=t.w+'–'+(11-t.w), median=t.mw+'–'+(11-t.mw), combined=(t.w+t.mw)+'–'+(22-t.w-t.mw);
+ const row=article.match(/<tr><th scope="row" style="text-align:left;padding:8px">[^<]+<\/th>[\s\S]*?<\/tr>/g)?.find(r=>r.includes('>'+name+'<'));
+ assert.ok(row&&[record,median,combined].every(x=>row.includes('>'+x+'<')),'Median row mismatch '+name);
+}
 assert.ok(!article.includes('issue-02-social.jpg'),'Do not reuse previous social cover');
 console.log('PASS Issue 03: five canonical scores, original published predictions, independently calculated results, required editorial sections, anchors and masthead');
