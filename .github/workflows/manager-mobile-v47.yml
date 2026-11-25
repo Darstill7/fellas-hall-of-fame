@@ -1,0 +1,20 @@
+name: Manager Mobile 4.7 verification
+on:
+  pull_request:
+    paths:
+      - 'assets/manager-mobile-v47.*'
+      - 'assets/manager-profile-tabs.mjs'
+      - 'scripts/test-manager-mobile-v47.mjs'
+      - '.github/workflows/manager-mobile-v47.yml'
+permissions:
+  contents: read
+jobs:
+  mobile-contract:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/manager-profile-tabs.mjs
+      - run: node scripts/test-manager-mobile-v47.mjs

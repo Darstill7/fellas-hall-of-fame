@@ -31,11 +31,14 @@ try{
    for(const width of [320,390,430]){
     const ctx=await browser.newContext({viewport:{width,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,reducedMotion:'reduce'});
     const page=await ctx.newPage(),badResponses=[],jsErrors=[];
-    page.on('pageerror',e=>jsErrors.push(e.message));
+    page.on('pageerror',e=>jsErrors.push({route:page.url(),message:e.message}));
     page.on('response',res=>{if(res.status()>=400&&res.url().startsWith(base))badResponses.push(res.status()+' '+res.url())});
     async function visit(route){
      const res=await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:25000});
-     await page.waitForTimeout(170);
+     await page.waitForLoadState('networkidle',{timeout:25000});
+     if(/^managers\/(?!$)[^/]+\/$/.test(route)){
+      await page.locator('.profile-madden-header').waitFor({timeout:25000}).catch(()=>fail('Manager career rating did not render',{engine,width,route}));
+     }
      expect(res?.status()===200,'Page failed to load',{engine,width,route,status:res?.status()});
      const status=await page.evaluate(()=>{
       const d=document.documentElement;
@@ -43,7 +46,7 @@ try{
       const headings=[...document.querySelectorAll('h1')].filter(isVisible).map(e=>e.textContent.trim().slice(0,85));
       const unlabelled=[...document.querySelectorAll('input:not([type=hidden]),select,textarea')].filter(isVisible).filter(e=>!e.labels?.length&&!e.getAttribute('aria-label')&&!e.getAttribute('aria-labelledby')).map(e=>e.outerHTML.slice(0,130));
       const overflow=[...document.querySelectorAll('body *')].filter(isVisible).filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.right>window.innerWidth+8&&getComputedStyle(e).position!=='fixed'}).slice(0,8).map(e=>({tag:e.tagName,cls:typeof e.className==='string'?e.className.slice(0,80):'',right:Math.round(e.getBoundingClientRect().right)}));
-      return {title:document.title,headings,viewport:innerWidth,scroll:d.scrollWidth,unlabelled,overflow,main:!!document.querySelector('main'),skip:!!document.querySelector('a[href="#main-content"]')};
+      return {title:document.title,headings,viewport:innerWidth,scroll:d.scrollWidth,unlabelled,overflow,main:!!document.querySelector('main'),skip:[...document.querySelectorAll('a[href="#main-content"],a[href="#main"]')].some(a=>!!document.querySelector('main'+a.getAttribute('href'))) || (!!document.querySelector('a[href="#main-content"]')&&!!document.getElementById('main-content'))};
      });
      expect(status.headings.length===1,'Expected one visible page title',{engine,width,route,headings:status.headings});
      expect(status.main,'Missing primary main landmark',{engine,width,route});
@@ -94,6 +97,14 @@ try{
     }
     // Real tap: homepage mobile menu should expose canonical league records.
     await visit('');
+    const appHome=await page.locator('#my-manager').count()>0;
+    if(appHome){
+     const records=page.locator('a[href="analytics/records.html"]').first();
+     expect(await records.count()===1,'Production homepage lacks league Records route',{engine,width});
+     await records.click();await page.waitForLoadState('networkidle',{timeout:25000});
+     expect(new URL(page.url()).pathname.endsWith('/analytics/records.html'),'Production Records tap failed',{engine,width});
+     await visit('home-classic.html');
+    }
     const menu=page.locator('details.mobile-menu>summary');
     expect(await menu.isVisible(),'Mobile menu unavailable',{engine,width});
     if(await menu.isVisible()){
@@ -103,21 +114,37 @@ try{
      if(await records.count()===1){
       expect(await records.getAttribute('href')==='analytics/records.html','Mobile Records link skips the league-wide entrance',{engine,width});
       await records.click();
+      await page.waitForLoadState('networkidle',{timeout:25000});
       expect(new URL(page.url()).pathname.endsWith('/analytics/records.html'),'Mobile Records tap did not navigate to league-wide record book',{engine,width});
      }
     }
     // Real tap from homepage to manager and personal record book.
     await visit('');
+    if(appHome){
+     await page.locator('#my-manager').selectOption('Stilly');
+     await page.locator('.personal-card').waitFor({timeout:25000});
+     await page.locator('.fellas-app-nav a[data-app-tab="team"]').click();
+     await page.waitForURL('**/index.html#my-team-section');
+     await page.locator('body:not(.home-overview)').waitFor();
+     await page.waitForFunction(()=>document.querySelector('#my-manager')?.value==='Stilly'&&document.querySelector('.personal-top')?.textContent.includes('Stilly'),null,{timeout:25000});
+     const profile=page.locator('#my-team a[href="managers/stilly/"]').first();
+     await profile.waitFor({state:'visible',timeout:25000}).catch(()=>{});
+     expect(await profile.isVisible(),'Production personalized team lacks visible franchise route',{engine,width});
+     if(await profile.isVisible()){await profile.click();await page.waitForLoadState('networkidle',{timeout:25000});expect(new URL(page.url()).pathname.endsWith('/managers/stilly/'),'Production personalized franchise tap failed',{engine,width})}
+     await visit('home-classic.html');
+    }
     const manager=page.locator('.home-franchise-links a[href="managers/stilly/"]');
     expect(await manager.count()===1,'Home lacks direct Stilly franchise route',{engine,width});
     if(await manager.count()===1){
      await manager.click();
+     await page.waitForLoadState('networkidle',{timeout:25000});
+     await page.locator('.profile-madden-header').waitFor({timeout:25000});
      expect(new URL(page.url()).pathname.endsWith('/managers/stilly/'),'Manager profile tap failed',{engine,width});
      const career=page.locator('main a[href*="record-books.html?manager=Stilly#career-first"]').first();
      expect(await career.count()>=1,'Manager profile does not reach personal records',{engine,width});
-     if(await career.count()){await career.click();expect(new URL(page.url()).pathname.endsWith('/managers/record-books.html'),'Personal record tap failed',{engine,width})}
+     if(await career.count()){await career.click();await page.waitForLoadState('networkidle',{timeout:25000});await page.waitForFunction(()=>document.querySelector('#manager')?.options.length>=10,null,{timeout:25000});expect(new URL(page.url()).pathname.endsWith('/managers/record-books.html'),'Personal record tap failed',{engine,width})}
     }
-    await page.goto(base+'managers/record-books.html?manager=Stilly#career-first',{waitUntil:'domcontentloaded'});
+    await page.goto(base+'managers/record-books.html?manager=Stilly#career-first',{waitUntil:'networkidle'});
     await page.waitForFunction(()=>document.querySelector('#manager')?.options.length>=10,null,{timeout:25000}).catch(()=>fail('Personal record manager picker never loaded',{engine,width}));
     const personal=await page.locator('#manager').inputValue().catch(()=>'');
     expect(personal==='Stilly','Deep-linked personal records select wrong manager',{engine,width,selected:personal});
@@ -142,7 +169,7 @@ try{
     // Findings: actionable tap targets, but do not fail global navigation for dense archival metadata.
     const tap=await page.evaluate(()=>[...document.querySelectorAll('#record-family-nav button,.record-compare-controls select,.record-category-search input,.records-cover-actions a')].filter(e=>{const r=e.getBoundingClientRect();return r.height>0}).map(e=>({label:e.textContent?.trim().slice(0,30)||e.getAttribute('placeholder'),height:Math.round(e.getBoundingClientRect().height),width:Math.round(e.getBoundingClientRect().width)})).filter(x=>x.height<44||x.width<44));
     if(tap.length)warn('Small high-priority touch targets',{engine,width,targets:tap});
-    if(jsErrors.length)fail('Unhandled JavaScript error',{engine,width,messages:[...new Set(jsErrors)].slice(0,8)});
+    if(jsErrors.length)fail('Unhandled JavaScript error',{engine,width,messages:[...new Map(jsErrors.map(x=>[x.route+' '+x.message,x])).values()].slice(0,8)});
     if(badResponses.length)warn('HTTP errors for local assets',{engine,width,assets:[...new Set(badResponses)].slice(0,10)});
     await ctx.close();
    }

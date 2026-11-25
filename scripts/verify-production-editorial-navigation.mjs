@@ -4,8 +4,7 @@ import assert from 'node:assert/strict';
 const home=fs.readFileSync('index.html','utf8');
 assert.ok(home.includes('href="analytics/sportscenter.html"')&&
  home.includes('href="analytics/playoff-race.html"')&&
- home.includes('id="home-season-snapshot"')&&
- home.includes('id="home-now-heading"'),
+ (home.includes('id="my-manager"')?(home.includes('id="standings"')&&home.includes('id="cutoff"')&&home.includes('assets/home-app-v3.mjs')):(home.includes('id="home-season-snapshot"')&&home.includes('id="home-now-heading"'))),
  'Homepage must lead to current SportsCenter, Playoff Race and verified 2026 standings rather than frozen archives');
 for(let year=2020;year<=2025;year++){
  const page=fs.readFileSync('seasons/'+year+'.html','utf8');

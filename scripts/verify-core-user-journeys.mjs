@@ -35,6 +35,18 @@ async function go(route){
 try{
  // 1. Homepage: real discovery path through the manager directory.
  await go('');
+ if(await page.locator('#my-manager').count()){
+  await page.locator('.standing:not(.head)').first().waitFor();
+  assert.equal(await page.locator('.standing:not(.head)').count(),10,'Production standings missing managers');
+  assert.equal(await page.locator('#my-manager option').count(),11,'Production franchise selection incomplete');
+  assert.equal(await page.locator('.fellas-app-nav a').count(),5,'Production primary navigation incomplete');
+  assert(await page.locator('#my-manager').evaluate(e=>e.getBoundingClientRect().top<innerHeight*.9),'Franchise selection buried below first screen');
+  await page.locator('.fellas-app-nav a[data-app-tab="more"]').click();
+  await page.locator('#more .archive summary').click();
+  await page.locator('#more a[href="home-classic.html"]').click();
+  await page.waitForURL('**/home-classic.html');
+  visited.push('home-classic.html');
+ }
  // First visit on a 390px phone: explain the league and show a real choice promptly.
  const homeEntry=await page.evaluate(()=>{
   const hero=document.getElementById('homepage-editorial-title');
@@ -71,8 +83,8 @@ try{
  visited.push('managers/record-books.html');
  await page.locator('#profile .cards .card').first().waitFor({state:'visible',timeout:14000});
  assert.equal(new URL(page.url()).searchParams.get('manager'),'Stew','Manager selection not preserved');
- const sectionOrder=await page.evaluate(()=>['career-first','notable-matchups','owned-records'].map(id=>document.getElementById(id)?.getBoundingClientRect().top+scrollY));
- assert(sectionOrder.every((x,i)=>Number.isFinite(x)&&(i===0||x>sectionOrder[i-1])),'Personal book does not show career then historic games then records');
+ const sectionOrder=await page.evaluate(()=>['owned-records','career-first','notable-matchups'].map(id=>document.getElementById(id)?.getBoundingClientRect().top+scrollY));
+ assert(sectionOrder.every((x,i)=>Number.isFinite(x)&&(i===0||x>sectionOrder[i-1])),'Personal book must prioritize owned records before career and historic games');
  const historic=page.locator('#notable-matchup-results a.notable-matchup-card');
  await historic.first().waitFor({state:'visible',timeout:14000});
  await historic.first().click();

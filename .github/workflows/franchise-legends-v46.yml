@@ -1,0 +1,19 @@
+name: Franchise Legends 4.6 verification
+on:
+  pull_request:
+    paths:
+      - 'assets/*v46*.mjs'
+      - 'hall/legends-library.html'
+      - 'scripts/test-franchise-legends-v46.mjs'
+      - '.github/workflows/franchise-legends-v46.yml'
+permissions:
+  contents: read
+jobs:
+  archive:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-franchise-legends-v46.mjs

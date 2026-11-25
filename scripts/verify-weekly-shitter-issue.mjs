@@ -33,8 +33,10 @@ const played=ledger.games.filter(x=>x.stage==='regular');
 const history=played.find(x=>Number(x.year)===2025 && Number(x.week)===10 && [x.home,x.away].sort().join('|')==='Mitch|Stew');
 assert.ok(history,'2025 Week 10 Mitch/Stew receipt');
 assert.equal(history.homeScore+history.awayScore,332.62);
-const top=Math.max(...played.map(x=>+(Number(x.homeScore)+Number(x.awayScore)).toFixed(2)));
-assert.equal(top,332.62,'Historical lead is highest recovered regular-season combined total');
+// Issue 01 was published before Week 10 of 2026 was completed. Preserve its as-published historical claim.
+const publicationHistory=played.filter(x=>Number(x.year)<2026 || (Number(x.year)===2026 && Number(x.week)<10));
+const top=Math.max(...publicationHistory.map(x=>+(Number(x.homeScore)+Number(x.awayScore)).toFixed(2)));
+assert.equal(top,332.62,'Historical lead was highest recovered regular-season combined total at publication');
 const ids=[...html.matchAll(/id="([^"]+)"/g)].map(x=>x[1]);
 for(const anchor of [...html.matchAll(/href="#([^"]+)"/g)].map(x=>x[1]))assert.ok(ids.includes(anchor),'Broken jump link: '+anchor);
 for(const name of ['mitch-stew','stilly-scott','jmid-thommy','tony-kuhl','birch-stover','shit-list','final-flush'])assert.ok(ids.includes(name),'Missing section '+name);
@@ -53,7 +55,12 @@ assert.ok(html.includes('shitter/cover-week10-approved.jpg'),'Standard PNG socia
 assert.ok(archive.includes('background:url("cover-week10-approved.avif") center/contain no-repeat'),'Archive shows safely constrained cover');
 const currentIssue=read('weekly-shitter/issue-02.html');
 const currentArchive=read('weekly-shitter/index.html');
-assert.ok(home.includes('href="weekly-shitter/issue-02.html"'),'Homepage promotes current Issue 02');
+if(home.includes('id="my-manager"')){
+ assert.ok(home.includes('data-news="shitter"')&&home.includes('assets/home-app-v3.mjs'),'Production homepage has dynamic publication card');
+ const loader=read('assets/home-app-v3.mjs');
+ assert.ok(loader.includes("archive:'weekly-shitter/'")&&loader.includes("selector:'main a.story'")&&loader.includes('pattern:/^issue-'),'Publication card must derive from published archive');
+ assert.ok(read('home-classic.html').includes('href="weekly-shitter/issue-02.html"'),'Classic homepage retains Issue 02 link');
+}else assert.ok(home.includes('href="weekly-shitter/issue-02.html"'),'Homepage promotes current Issue 02');
 assert.ok(home.includes('href="weekly-shitter/"'),'Homepage links to current issue archive');
 assert.ok(currentArchive.includes('href="issue-02.html"'),'Archive features current issue');
 assert.ok(currentArchive.includes('href="../shitter/2026-week-10/"'),'Archive retains previous issue');

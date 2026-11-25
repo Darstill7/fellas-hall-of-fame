@@ -25,9 +25,13 @@ let startupError=null;
 try{browser=await (useWebkit?webkit:chromium).launch({headless:true,...(useWebkit?{}:{args:['--no-sandbox']})})}
 catch(e){startupError=e}
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','seasons/','hall/','hall/championship-stories.html','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
+const productionApp=(await fs.readFile(path.join(root,'index.html'),'utf8')).includes('id="my-manager"');
+const classicRoute=productionApp?'home-classic.html':'';
+const routes=['',...(productionApp?[classicRoute]:[]),'seasons/','hall/','hall/championship-stories.html','seasons/weekly-matchup-archive.html','managers/index.html','managers/record-books.html','analytics/record-holders.html','analytics/records.html','analytics/records-archive.html','analytics/goat-debate.html','analytics/franchise-timeline.html','analytics/legacy.html','analytics/power-ratings.html','analytics/trades.html','analytics/drafts/index.html','analytics/trades/index.html','analytics/metrics.html','analytics/manager-trade-intelligence.html','analytics/manager-decision-audit.html','analytics/this-week-history.html','analytics/trade-museum.html','hall/players.html','hall/shame.html','labs/faab/index.html','labs/lineups/index.html','analytics/manager-performance-timeline.html','analytics/manager-league-benchmarks.html','analytics/franchise-encyclopedia.html','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/keeper-decision-research.html','analytics/manager-madden-cards.html','analytics/historical-spreads.html','analytics/rivalries.html','analytics/awards-show.html','seasons/all-time-schedule-swap.html','seasons/espn-records.html','seasons/espn-origins.html','seasons/espn-draft-history.html','seasons/historical-awards.html','seasons/unified-record-book.html',...slugs.flatMap(s=>['managers/'+s+'/','managers/'+s+'.html'])];
 const rivals=['stilly','jmid','tom','stew','scott','mitch','tony','stover','kuhl','birch'];
 for(let i=0;i<rivals.length;i++)for(let j=i+1;j<rivals.length;j++)routes.push('rivalries/'+rivals[i]+'-vs-'+rivals[j]+'.html');
+const preflight=process.env.FELLAS_HOME_PREFLIGHT==='1';
+if(preflight)routes.splice(1);
 const errors=[];
 const pageAudits=[];
 const captureVisuals=process.env.FELLAS_VISUAL_AUDIT==='1';
@@ -98,7 +102,7 @@ try{
    if(audit.heading&&audit.headingLinePx!==null&&audit.headingLinePx<audit.headingFontPx)
     errors.push(width+' '+route+' main title line-height clips text');
    if(captureVisuals&&(
-    route===''||route==='analytics/records.html'||route==='analytics/power-ratings.html'||
+    (route===''||route===classicRoute)||route==='analytics/records.html'||route==='analytics/power-ratings.html'||
     route==='analytics/manager-report-cards.html'||route==='analytics/rivalries.html'||
     route==='managers/record-books.html'||route==='rivalries/stilly-vs-jmid.html'||
     (route.startsWith('managers/')&&route.endsWith('/')&&
@@ -111,7 +115,7 @@ try{
    // Shared first-visit design and keyboard navigation on core public routes.
    const isCurrentProfile=route.startsWith('managers/')&&route.endsWith('/')&&
     ['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'].includes(route.split('/')[1]);
-   const designed=route===''||isCurrentProfile||route.startsWith('rivalries/')||
+   const designed=route===classicRoute||isCurrentProfile||route.startsWith('rivalries/')||
     ['analytics/records.html','analytics/manager-report-cards.html','analytics/power-ratings.html',
      'analytics/rivalries.html','managers/record-books.html'].includes(route);
    if(designed){
@@ -1232,7 +1236,45 @@ try{
       errors.push(width+' filtered report card does not return to its manager or hide unrelated comparisons');
     }
    }
-   if(route===''){
+   if(productionApp&&route===''){
+    await page.locator('.standing:not(.head)').first().waitFor({timeout:15000});
+    const skip=page.locator('a.skip[href="#main"]');
+    if(await skip.count()!==1||!await skip.evaluate(e=>{e.focus();return document.activeElement===e&&!!document.querySelector('main#main')}))
+     errors.push(width+' production dashboard keyboard skip missing');
+    if(await page.locator('main h1').innerText()!=='League dashboard'||await page.locator('#my-manager option').count()!==11||
+       await page.locator('.standing:not(.head)').count()!==10||await page.locator('.matchup').count()!==5||
+       await page.locator('.fellas-app-nav a').count()!==5)
+     errors.push(width+' production dashboard heading, franchise, standings, matchup or navigation count mismatch');
+    await page.locator('#my-manager').selectOption('Stilly');
+    await page.locator('.personal-card').waitFor({timeout:15000});
+    if(!(await page.locator('.personal-card').innerText()).includes('Stilly'))errors.push(width+' production personalization failed');
+    await page.locator('.fellas-app-nav a[data-app-tab="more"]').click();
+    await page.waitForURL('**/index.html#more');
+    await page.locator('body.more-view').waitFor({timeout:15000});
+    const archive=page.locator('#more .archive');
+    if(await archive.evaluate(e=>e.open))await archive.locator('summary').click();
+    await archive.locator('summary').focus();
+    await page.keyboard.press('Enter');
+    if(!await page.locator('#more .archive').evaluate(e=>e.open))errors.push(width+' production archive keyboard disclosure failed');
+    for(const href of ['home-classic.html','home-classic.html#home-record-watch'])
+     if(!await page.locator('#more .archive a[href="'+href+'"]').isVisible())errors.push(width+' production archive missing '+href);
+    // The two promoted research destinations now live in the categorized More view.
+    for(const href of ['analytics/playoff-race.html','managers/record-books.html']){
+     const link=page.locator('#more .more-links a[href="'+href+'"]');
+     if(await link.count()!==1||!await link.isVisible()||!await link.evaluate(a=>a.getBoundingClientRect().height>=44))
+      errors.push(width+' production categorized More destination inaccessible '+href);
+     else {
+      const target=await link.evaluate(a=>a.href);
+      const response=await page.request.get(target);
+      if(!response.ok())errors.push(width+' production categorized More destination failed HTTP '+response.status()+' '+href);
+     }
+    }
+    if(!await archive.evaluate(e=>e.open))await archive.locator('summary').click();
+    await page.locator('#more .archive a[href="home-classic.html"]').click({timeout:10000});
+    await page.waitForURL('**/home-classic.html');
+    if(!await page.locator('#homepage-editorial-title').isVisible())errors.push(width+' production classic homepage navigation failed');
+   }
+   if(route===classicRoute){
     const ratingGuide=page.locator('details.home-rating-guide');
     if(await ratingGuide.count()!==1||await ratingGuide.evaluate(el=>el.open))
      errors.push(width+' home Legacy OVR glossary should begin collapsed');
@@ -1272,12 +1314,12 @@ try{
      await more.locator(':scope > summary').click();
     }
    }
-   if(route===''){
+   if(route===classicRoute){
     // Native disclosure must work with both pointer and keyboard, and the
     // visitor must be able to return from a real advanced research page.
     const research=await context.newPage();
     try{
-     await research.goto(baseUrl,{waitUntil:'networkidle',timeout:30000});
+     await research.goto(baseUrl+classicRoute,{waitUntil:'networkidle',timeout:30000});
      const more=research.locator('details.discovery-expander');
      const core=research.locator('#explore-the-league .discovery-grid a.discovery-card');
      if(await more.count()!==1||await more.evaluate(el=>el.open)||
@@ -1296,7 +1338,7 @@ try{
       if(!await research.locator('main h1').isVisible())
        errors.push(width+' advanced homepage feature lacked a usable destination');
       await research.goBack({waitUntil:'domcontentloaded'});
-      if(!research.url().endsWith('/fellas-hall-of-fame/')||
+      if(!research.url().endsWith('/fellas-hall-of-fame/'+classicRoute)||
          !await research.locator('main .hero h1').isVisible())
        errors.push(width+' homepage Explore more browser back did not restore home');
      }
@@ -1304,12 +1346,12 @@ try{
      errors.push(width+' homepage advanced research journey failed: '+String(error));
     }finally{await research.close();}
    }
-   if(route===''){
+   if(route===classicRoute){
     // Real new-visitor journey: homepage -> manager profile -> back ->
     // manager directory -> manager profile. No internal/test-only shortcuts.
     const visitor=await context.newPage();
     try{
-     await visitor.goto(baseUrl,{waitUntil:'networkidle',timeout:30000});
+     await visitor.goto(baseUrl+classicRoute,{waitUntil:'networkidle',timeout:30000});
      // The redesigned home offers one direct franchise list on all widths.
      // Test the visible Stilly link rather than a retired rating-card list.
      const directManager=visitor.locator('.home-franchise-links a[href="managers/stilly/"]');
@@ -1323,7 +1365,7 @@ try{
         await visitor.locator('.manager-home-hub-tile').count()!==6)
       errors.push(width+' first-visit homepage manager link failed to reach usable personal hub');
      await visitor.goBack({waitUntil:'networkidle'});
-     if(!visitor.url().endsWith('/fellas-hall-of-fame/'))
+     if(!visitor.url().endsWith('/fellas-hall-of-fame/'+classicRoute))
       errors.push(width+' first-visit browser back did not restore homepage');
      if(width===390){
       const menu=visitor.locator('details.mobile-menu');
@@ -1342,7 +1384,7 @@ try{
      errors.push(width+' first-visit end-to-end navigation journey failed: '+String(error));
     }finally{await visitor.close();}
    }
-   if(route===''){
+   if(route===classicRoute){
     // The first screen now prioritizes six adventure paths. The separate
     // ten-manager directory stays below; both have usable discovery links.
     const adventure=page.locator('#explore-the-league .discovery-grid a.discovery-card');
@@ -1352,18 +1394,18 @@ try{
     if(await managerDirectory.count()!==10)
      errors.push(width+' homepage direct franchise directory must link all ten managers');
    }
-   if(route===''){
+   if(route===classicRoute){
     const adventureSection=page.locator('#explore-the-league');
     const managerSection=page.locator('#home-direct-franchise-title');
     if(await adventureSection.count()!==1||await managerSection.count()!==1)
      errors.push(width+' homepage must provide a discovery hub and direct manager finder');
    }
-   if(route===''){
+   if(route===classicRoute){
     const seasonLinks=page.locator('a[href="analytics/manager-madden-cards.html#records-heading"]');
     if(await seasonLinks.count()<2)errors.push(width+' homepage missing prominent Season OVR record book links');
     if(await page.locator('#home-manager-cards a').count()!==10)errors.push(width+' homepage must retain ten clickable Legacy OVR manager cards');
    }
-   if(route===''){
+   if(route===classicRoute){
     if(await page.locator('a[href="analytics/legacy.html"]').count()>0)
      errors.push(width+' homepage links to obsolete Legacy Score prototype');
    }
@@ -1920,7 +1962,7 @@ try{
      errors.push(width+' missing rivalry receipts are being misrepresented as a tied series (hero='+JSON.stringify(emptyText.slice(0,180))+', facts='+JSON.stringify(emptyFacts.slice(0,180))+')');
     await empty.close();
    }
-   if(route===''){
+   if(route===classicRoute){
     const initialManagerStatus=await page.locator('#home-manager-status').innerText();
     if(initialManagerStatus.includes('Loading verified manager rankings')||
        !initialManagerStatus.includes('10 active manager profiles'))
@@ -2420,8 +2462,8 @@ try{
      const rivalryDisclosure=page.locator('#rivalry-analytics .profile-inline-disclosure');
      if(await rivalryDisclosure.count()!==1)errors.push(width+' '+slug+' expandable rivalry analysis missing');
      else{
-      await rivalryDisclosure.locator('summary').click();
-      if(!await rivalryDisclosure.locator('.profile-inline-detail').isVisible())errors.push(width+' '+slug+' rivalry details did not expand');
+      await rivalryDisclosure.locator(':scope > summary').click();
+      if(!await rivalryDisclosure.locator(':scope > .profile-inline-detail').isVisible())errors.push(width+' '+slug+' rivalry details did not expand');
      }
      await page.locator('[data-profile-tab="advanced"]').click();
      const deepControls=page.locator('#franchise-legends .profile-deep-controls');
@@ -2682,7 +2724,7 @@ try{
      if(tinyTargets.length)errors.push(width+' Manager Record Books links too small to tap: '+tinyTargets.join(', '));
     }
     const recordJump=page.locator('nav.record-jump-nav');
-    const targets=['#career-first','#notable-matchups','#owned-records','#expanded-manager-records','#postseason-manager-panel','#opponents','#seasons'];
+    const targets=['#owned-records','#career-first','#notable-matchups','#expanded-manager-records','#postseason-manager-panel','#opponents','#seasons'];
     // Personal record sections load from canonical JSON after the static nav
     // mounts. Let the target exist before judging a navigable anchor.
     await page.locator('#opponents').waitFor({state:'attached',timeout:7000}).catch(()=>{});
@@ -2887,7 +2929,7 @@ try{
 if(completedPages!==routes.length*(useWebkit?1:2))errors.push('Incomplete browser coverage: completed '+completedPages+' of '+routes.length*(useWebkit?1:2)+' planned page visits');
 // Preserve machine-readable browser outcomes for failed and successful CI attempts.
 await fs.mkdir(path.join(root,'data-integrity'),{recursive:true});
-await fs.writeFile(path.join(root,'data-integrity','browser-release-'+engine.toLowerCase()+'.json'),
+await fs.writeFile(path.join(root,'data-integrity',(preflight?'browser-preflight-':'browser-release-')+engine.toLowerCase()+'.json'),
  JSON.stringify({engine,viewports:useWebkit?[390]:[390,1280],plannedRoutes:routes.length,plannedPageVisits:routes.length*(useWebkit?1:2),attemptedPages,completedPages,passed:errors.length===0&&completedPages===routes.length*(useWebkit?1:2),pageAudits,errors},null,2)+'\n');
 if(errors.length){console.error(engine+' browser release test FAILED:\n'+errors.map(x=>' - '+x).join('\n'));process.exitCode=1}
 else console.log(engine+' browser release test PASS with JS and interactive archive checks');

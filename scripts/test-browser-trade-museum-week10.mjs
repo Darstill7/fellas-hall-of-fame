@@ -8,10 +8,12 @@ import {resolve,extname,sep} from 'node:path';
 import assert from 'node:assert/strict';
 const root=process.cwd(),prefix='/fellas-hall-of-fame/';
 const museum=JSON.parse(readFileSync('data/trade_museum_stage66.json','utf8'));
-const audit=JSON.parse(readFileSync('data-integrity/trade-point-recalculations/2026-through-week10.json','utf8'));
-assert.equal(audit.scoring_through_week,10);
+
 const current=museum.filter(t=>t.year===2026);
-assert.equal(current.length,7);
+const week=Math.max(...current.map(t=>t.scoring_through_week));
+const latest=Math.max(...current.map(t=>t.week));
+assert(current.every(t=>t.scoring_through_week===week));
+assert.equal(current.length,week===10?7:13);
 const mime={'.html':'text/html','.css':'text/css','.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp'};
 const server=createServer(async(req,res)=>{
  try{
@@ -40,28 +42,28 @@ try{
      assert.equal(response.status(),200);
      await page.locator('#results .tm-card').first().waitFor({timeout:15000});
      const cutoff=await page.locator('#tm-audit-cutoff').innerText();
-     assert.match(cutoff,/Week 5/,'Transaction archive cutoff must remain distinguishable');
-     assert.match(cutoff,/completed Week 10/,'Audited scoring cutoff must be visible');
+     assert.match(cutoff,new RegExp('Week '+latest),'Transaction archive cutoff must remain distinguishable');
+     assert.match(cutoff,new RegExp('completed Week '+week),'Audited scoring cutoff must be visible');
      assert.equal(await page.locator('#results .tm-card').count(),12,'Default result page size');
      await page.locator('#year').selectOption('2026');
      await page.locator('#results .tm-card').first().waitFor({timeout:10000});
-     assert.equal(await page.locator('#results .tm-card').count(),7,'Only seven approved 2026 trades may be rendered');
+     assert.equal(await page.locator('#results .tm-card').count(),Math.min(12,current.length),'Approved 2026 receipts and pagination');
      const list=await page.locator('#results').innerText();
-     assert.match(list,/starter pts verified through W10/);
+     assert.match(list,new RegExp('starter pts verified through W'+week));
      for(const trade of current){
       await page.locator('#q').fill(String(trade.id));
       assert.equal(await page.locator('#results .tm-card').count(),1,'Unique trade search '+trade.id);
       const text=await page.locator('#results .tm-card').first().innerText();
       for(const side of trade.sides){
        assert(text.includes(side.manager),'Receiving manager missing '+trade.id+'/'+side.manager);
-       assert(text.includes(Number(side.raw_starter_points).toFixed(1)+' starter pts verified through W10'),
+       assert(text.includes(Number(side.raw_starter_points).toFixed(1)+' starter pts verified through W'+week),
         'Updated starter points not shown '+trade.id+'/'+side.manager);
       }
       await page.locator('#results .tm-card').first().click();
       const dialog=page.locator('#detail');
       assert.equal(await dialog.evaluate(el=>el.open),true);
       const detail=await dialog.innerText();
-      assert.match(detail,/Week 10|W10/,'Trade detail must show score cutoff');
+      assert.match(detail,new RegExp('Week '+week+'|W'+week),'Trade detail must show score cutoff');
       for(const side of trade.sides)
        assert(detail.includes(Number(side.raw_starter_points).toFixed(2)),'Full-precision side score missing '+trade.id+'/'+side.manager);
       await page.locator('#close').click();
@@ -70,7 +72,7 @@ try{
      const limits=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));
      assert(limits.scroll<=limits.client+5,label+' '+width+'px horizontal overflow '+JSON.stringify(limits));
      assert.deepEqual(errors,[],'JS failures: '+errors.join('; '));
-     console.log(label+' '+width+'px Trade Museum PASS: seven current receipts and explicit Week 10 score cutoff');
+     console.log(label+' '+width+'px Trade Museum PASS: all current receipts and explicit scoring cutoff');
     }finally{await context.close()}
    }
   }finally{await browser.close()}

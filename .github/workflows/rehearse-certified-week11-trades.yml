@@ -1,0 +1,70 @@
+name: Rehearse certified Week 11 trade release
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data-integrity/trade-certifications/2026-week11.json'
+      - '.github/workflows/rehearse-certified-week11-trades.yml'
+permissions:
+  contents: read
+jobs:
+  rehearsal:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate receipt import and historical preservation
+        env:
+          FELLAS_APPROVE_TRADE_MUSEUM: 'YES'
+        run: |
+          set -euo pipefail
+          cp data/trade_museum_stage66.json /tmp/museum-committed.json
+          cp analytics/trade-museum.html /tmp/museum-committed.html
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          git show origin/main:data/trade_museum_stage66.json > data/trade_museum_stage66.json
+          git show origin/main:analytics/trade-museum.html > analytics/trade-museum.html
+          cp data/trade_museum_stage66.json /tmp/museum-before.json
+          node scripts/import-reviewed-trade-museum.mjs data-integrity/trade-certifications/2026-week11.json --dry-run
+          cmp /tmp/museum-before.json data/trade_museum_stage66.json
+          node scripts/import-reviewed-trade-museum.mjs data-integrity/trade-certifications/2026-week11.json
+          node --input-type=module -e "import fs from 'node:fs';import assert from 'node:assert/strict';const b=JSON.parse(fs.readFileSync('/tmp/museum-before.json')),a=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json'));assert.equal(a.length,57);assert.equal(a.filter(t=>t.year===2026).length,13);for(const t of b)assert.deepEqual(a.find(x=>x.id===t.id),t);const n=a.filter(t=>!b.some(x=>x.id===t.id));assert.equal(n.length,6);assert(n.every(t=>t.sides.every(s=>s.raw_starter_points===null&&s.started_games===null)));console.log('Receipt import verified: six additions, 51 prior receipts unchanged, no invented scoring')"
+          git diff --stat
+      - name: Recalculate all thirteen trade returns and validate timing
+        run: |
+          set -euo pipefail
+          node scripts/audit-trade-starter-timing.mjs > /tmp/trade-timing-audit.json
+          cat /tmp/trade-timing-audit.json
+          node --input-type=module -e "import fs from 'node:fs';import assert from 'node:assert/strict';const a=JSON.parse(fs.readFileSync('/tmp/trade-timing-audit.json'));assert.equal(a.audits.length,13);const t=a.audits.find(t=>t.id==='1428887570439245824');assert.equal(t.sides.find(s=>s.manager==='Stilly').verified_points,16.2);assert.equal(t.sides.find(s=>s.manager==='Birch').verified_points,12.2);assert.equal(a.status,'COMPLETE','Unresolved kickoff timing blocks certification');console.log('All thirteen trade timing audits complete')"
+      - name: Rehearse publication of scored museum and verify parity
+        run: |
+          set -euo pipefail
+          node scripts/apply-reviewed-trade-timing.mjs
+          node --input-type=module -e "import fs from 'node:fs';import assert from 'node:assert/strict';const old=JSON.parse(fs.readFileSync('/tmp/museum-before.json')),now=JSON.parse(fs.readFileSync('data/trade_museum_stage66.json')),a=JSON.parse(fs.readFileSync('/tmp/trade-timing-audit.json'));assert.equal(now.length,57);assert.deepEqual(now.filter(t=>t.year!==2026),old.filter(t=>t.year!==2026));for(const t of now.filter(t=>t.year===2026)){assert.equal(t.scoring_through_week,11);assert.equal(t.comparison_status,'raw_only');const v=a.audits.find(x=>x.id===t.id);assert(v);for(const s of t.sides){const q=v.sides.find(x=>x.manager===(s.manager==='Tom'?'Thommy':s.manager));assert.equal(s.raw_starter_points,q.verified_points);assert.equal(s.started_games,q.verified_start_count)}}const html=fs.readFileSync('analytics/trade-museum.html','utf8');assert.deepEqual(JSON.parse(html.split('<script id=\"archive-data\" type=\"application/json\">')[1].split('</script>')[0]),now);console.log('Publication parity: 57 receipts, 13 scored through W11, 44 historical receipts unchanged')"
+          git diff --stat
+      - name: Verify committed production bytes equal regenerated files
+        run: |
+          cmp /tmp/museum-committed.json data/trade_museum_stage66.json
+          cmp /tmp/museum-committed.html analytics/trade-museum.html
+      - name: Run existing snapshot and scope gates against regenerated data
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          node scripts/test-2026-trade-points-through-week10.mjs
+          node scripts/test-scoring-only-release-scope.mjs
+          node scripts/verify-trade-museum-scope.mjs
+      - name: Install browsers and validate regenerated museum
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+          node scripts/test-browser-trade-museum-week10.mjs
+      - name: Archive validated production files
+        uses: actions/upload-artifact@v4
+        with:
+          name: certified-week11-museum-production
+          path: |
+            data/trade_museum_stage66.json
+            analytics/trade-museum.html
+          if-no-files-found: error
+          retention-days: 14

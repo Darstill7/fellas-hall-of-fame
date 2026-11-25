@@ -1,3 +1,11 @@
+import {sharedProfileJson,mountDeferredProfileTopic,revealProfileHash} from './manager-mobile-v47.mjs';
+const mountFranchiseLegends=async options=>(await import('./manager-franchise-legends-v46.mjs')).mountFranchiseLegends(options);
+const mountAchievementCabinet=async options=>(await import('./manager-achievements-record-watch.mjs')).mountAchievementCabinet(options);
+const mountPersonalRecordIntelligence=async options=>(await import('./manager-personal-records-v45.mjs')).mountPersonalRecordIntelligence(options);
+import {mountRivalryIntelligence} from './manager-rivalry-intelligence-v44.mjs';
+import {mountFranchiseTimeline} from './manager-franchise-timeline-v43.mjs';
+const mountManagerDashboard=async options=>(await import('./manager-dashboard-v42.mjs')).mountManagerDashboard(options);
+const mountManagerHeadquarters=async options=>(await import('./manager-headquarters-v4.mjs')).mountManagerHeadquarters(options);
 import {mountManagerLuckPerformance} from './manager-luck-performance.mjs';
 import {mountManagerScheduleLuck} from './manager-schedule-luck.mjs';
 import {mountDraftTradeCareer} from './manager-draft-trade-career-page.mjs';
@@ -178,18 +186,25 @@ async function mountProfileRecordOwnership(){
  link.append(heading,result,arrow);
  snapshot.append(link);
  try{
-  const responses=await Promise.all([
-   fetch('../../data/manager_record_books_2016_2026.json'),
-   fetch('../../data/season_guide.json'),
-   fetch('../../data/verified_espn_playoff_brackets_2016_2019.json'),
-   fetch('../../data/verified_sleeper_playoff_brackets_2020_2025.json'),
-   fetch('../../data/fellas_final_placements_2020_2025.json'),
-   fetch('../../data/sleeper_postseason_placement_receipts_2020_2025.json'),
-   fetch('../../data/fellas_final_placements_2016_2025_verified.json')
+  const [archive,guide,espn,sleeper,placements,placementReceipts,allEra]=await Promise.all([
+   sharedProfileJson('../../data/manager_record_books_2016_2026.json'),
+   sharedProfileJson('../../data/season_guide.json'),
+   sharedProfileJson('../../data/verified_espn_playoff_brackets_2016_2019.json'),
+   sharedProfileJson('../../data/verified_sleeper_playoff_brackets_2020_2025.json'),
+   sharedProfileJson('../../data/fellas_final_placements_2020_2025.json'),
+   sharedProfileJson('../../data/sleeper_postseason_placement_receipts_2020_2025.json'),
+   sharedProfileJson('../../data/fellas_final_placements_2016_2025_verified.json')
   ]);
-  if(responses.some(r=>!r.ok))throw Error('Record sources unavailable');
-  const [archive,guide,espn,sleeper,placements,placementReceipts,allEra]=await Promise.all(responses.map(r=>r.json()));
-  if(archive.asOf!=='2026 Week 8')throw Error('Unexpected record archive scope');
+  const standings=guide['2026']?.standings;
+  const week=standings?.[0]?.games;
+  const coverage=String(archive.scope||'').match(/2026 Week (\d+)/);
+  if(archive.source!=='data/unified_record_book_2016_2026.json'||!Number.isInteger(week)||standings.length!==10||Number(coverage?.[1])!==week||!Array.isArray(archive.managers)||!standings.every(row=>{
+   const name=row.name==='Tom'?'Thommy':row.name;
+   const matches=archive.managers.filter(m=>m.manager===name);
+   const annual=matches[0]?.annual;
+   const record=Array.isArray(annual)?annual.find(a=>a.year===2026):annual?.['2026'];
+   return matches.length===1&&row.games===week&&record&&record.w===row.w&&record.l===row.l&&(record.t??0)===(row.t??0);
+  }))throw Error('Record archive does not match current canonical standings');
   const owned=findOwnedRecords(archive,guide,normalized,{espn,sleeper,placements,placementReceipts,allEra});
   result.textContent=owned.length
    ?owned.length+' of '+recordCategoryLabels.length+' league records held'
@@ -625,6 +640,7 @@ function mountManagerHomeHub(){
   words.append(name,desc);el.append(icon,words);
   if(route.action==='story')el.addEventListener('click',()=>quick.querySelector('button.profile-biography-entry')?.click());
   if(route.action==='front-office'){
+   el.dataset.profileAction='front-office';
    el.addEventListener('click',()=>{
     // Open the actual draft/trade résumé, not the generic Advanced tab.
     // Reuse the existing feature controller for history, focus and receipts.
@@ -667,6 +683,32 @@ function mountManagerHomeHub(){
  }
 }
 mountManagerHomeHub();
+const rivalryHost=document.getElementById('rivalry-analytics');
+if(rivalryHost&&profileName){const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('./manager-rivalry-intelligence-v44.css',import.meta.url).href;document.head.append(css);void mountRivalryIntelligence({name:profileName,host:rivalryHost});}
+const timelineHost=document.getElementById('season-history');
+if(timelineHost&&profileName){const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('./manager-franchise-timeline-v43.css',import.meta.url).href;document.head.append(css);void mountFranchiseTimeline({name:profileName,host:timelineHost});}
+const gm4Host=document.querySelector('.manager-home-hub');
+if(gm4Host&&profileName){
+ const dir=document.createElement('div');dir.className='gm47-directory';dir.setAttribute('aria-label','Franchise research chapters');gm4Host.append(dir);
+ const style=file=>{const css=document.createElement('link');css.rel='stylesheet';css.href=new URL(file,import.meta.url).href;document.head.append(css)};
+ style('./manager-mobile-v47.css');
+ const configs=[
+ ['gm47-season','Season intelligence','Current streak, scoring trends, playoff outlook and remaining schedule','./manager-dashboard-v42.css',mountManagerDashboard,[]],
+ ['gm47-story','Franchise legends','Career anthology, defining moments and classic games','./manager-franchise-legends-v46.css',mountFranchiseLegends,['gm46-legends']],
+ ['gm47-records','Records and milestones','Personal bests, league rankings and record chase','./manager-personal-records-v45.css',mountPersonalRecordIntelligence,['gm45-records']],
+ ['gm47-achievements','Achievement cabinet','Earned and locked career achievements','./manager-personal-records-v45.css',mountAchievementCabinet,['gm452-achievements']],
+ ['gm47-front-office','Front office','Roster construction, draft returns and trade evidence','./manager-headquarters-v4.css',mountManagerHeadquarters,['gm4-headquarters']]
+ ];
+ const loadedStyles=new Set();
+ const topics=configs.map(([id,label,description,file,mount,targets])=>{
+ const topic=mountDeferredProfileTopic({host:dir,id,label,description,load:async host=>{
+ if(!loadedStyles.has(file)){style(file);loadedStyles.add(file)}
+ await mount({name:profileName==='Tom'?'Thommy':profileName,host});
+ }});topic.targets=targets;return topic});
+ const tile=gm4Host.querySelector('button[data-profile-action="front-office"]');
+ if(tile)tile.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();topics.find(t=>t.shell.id==='gm47-front-office').reveal();topics.find(t=>t.shell.id==='gm47-front-office').shell.scrollIntoView({block:'start',behavior:'auto'});topics.find(t=>t.shell.id==='gm47-front-office').shell.querySelector('summary').focus({preventScroll:true})},{capture:true});
+ revealProfileHash(topics);window.addEventListener('hashchange',()=>revealProfileHash(topics));
+}
 // Let visitors choose a topic before seeing the complete playoff résumé.
 const profileTopicMenu=document.querySelector('main .profile-quickstart');
 const profilePlayoffSection=document.getElementById('profile-playoff-resume');

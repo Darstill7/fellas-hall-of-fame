@@ -1,0 +1,37 @@
+import {normalizeManager,fellasLeague} from './league-config.mjs';
+// Scope: consecutive wins within a single regular season, never across seasons or postseason.
+export function buildWinningStreakWatch(ledger,dashboard){
+ const week=dashboard?.week,year=fellasLeague.season;
+ if(!Number.isInteger(week)||week<1||week>=fellasLeague.regularSeasonWeeks||!Array.isArray(ledger?.games))return [];
+ const games=ledger.games.filter(g=>g.stage==='regular').sort((a,b)=>a.year-b.year||a.week-b.week);
+ const runs=new Map(),seen=new Set(),current=new Map();let best=0,holders=[];
+ for(const g of games){
+  if(!Number.isInteger(g.year)||!Number.isInteger(g.week)||g.week<1||g.year>year||![g.homeScore,g.awayScore].every(Number.isFinite))return [];
+  if(g.year===year&&g.week>week)return [];
+  const home=normalizeManager(g.home),away=normalizeManager(g.away);if(!home||!away||home===away)return [];
+  for(const [name,pf,pa] of [[home,g.homeScore,g.awayScore],[away,g.awayScore,g.homeScore]]){
+   const key=g.year+':'+name,k=key+':'+g.week;if(seen.has(k))return [];seen.add(k);
+   const prev=runs.get(key)||{run:0,last:0};
+   // Do not bridge missing weeks.
+   const run=pf>pa?(prev.last===g.week-1?prev.run:0)+1:0;
+   runs.set(key,{run,last:g.week});
+   if(run>best){best=run;holders=[{name,year:g.year}]}else if(run===best&&!holders.some(h=>h.name===name&&h.year===g.year))holders.push({name,year:g.year});
+   if(g.year===year)current.set(name,{run,last:g.week});
+  }
+ }
+ if(best<3||current.size!==10||dashboard.standings?.length!==10||dashboard.standings.some(t=>{const x=current.get(t.name);return !x||x.last!==week||x.run!==(t.streak.startsWith('W')?Number(t.streak.slice(1)):0)}))return [];
+ const remaining=fellasLeague.regularSeasonWeeks-week;
+ return dashboard.standings.flatMap(t=>{
+  const run=current.get(t.name).run,tie=best-run,breakGap=tie+1;
+  // Near-term only: within two consecutive wins, and attainable before season end.
+  // Sole holder extending their own mark is not a challenger.
+  if(run<3||tie<0||tie>2||breakGap>2||breakGap>remaining||(tie===0&&new Set(holders.map(h=>h.name)).size===1&&holders[0].name===t.name))return [];
+  return [{manager:t.name,record:best,holders,run,tie,breakGap,week,year,remaining}];
+ }).sort((a,b)=>a.breakGap-b.breakGap||a.manager.localeCompare(b.manager));
+}
+export function renderWinningStreakWatch(host,items){
+ if(!host)return;host.replaceChildren();host.hidden=!items.length;if(!items.length)return;
+ const el=(tag,value)=>{const n=document.createElement(tag);n.textContent=value;return n};
+ host.append(el('h2','Record Watch'));
+ for(const x of items){const row=el('article','');row.className='record-watch-row';row.append(el('strong',x.manager+' · '+x.run+' consecutive wins'),el('p',x.record+' wins · '+x.holders.map(h=>h.name+' ('+h.year+')').join(', ')),el('p',x.tie?x.tie+' to tie · '+x.breakGap+' to break':x.breakGap+' to take sole ownership'),el('small','Single regular season · through Week '+x.week+' · '+x.remaining+' games remain'));const a=el('a','Explore Record Book ›');a.href='analytics/records.html';row.append(a);host.append(row)}
+}

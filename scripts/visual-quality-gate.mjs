@@ -5,7 +5,9 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 const root=process.cwd(),base='/fellas-hall-of-fame/';
 const slugs=['stilly','stew','tom','stover','birch','tony','mitch','kuhl','jmid','scott'];
-const routes=['','managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/schedule-draw-all-play.html','analytics/regular-season-close-calls.html','analytics/scoring-consistency.html','analytics/postseason-moments.html',
+const productionApp=(await fs.readFile(path.join(root,'index.html'),'utf8')).includes('id="my-manager"');
+const classicRoute=productionApp?'home-classic.html':'';
+const routes=['',...(productionApp?[classicRoute]:[]),'managers/','analytics/manager-report-cards.html','analytics/manager-lineup-research.html','analytics/records.html','analytics/schedule-draw-all-play.html','analytics/regular-season-close-calls.html','analytics/scoring-consistency.html','analytics/postseason-moments.html',
  'analytics/power-ratings.html','analytics/rivalries.html','analytics/playoff-history.html','hall/championship-stories.html','hall/playoff-heroes.html','analytics/draft-value-lab.html','analytics/draft-keeper-value.html','analytics/draft-intelligence.html','analytics/manager-draft-report-cards.html','analytics/draft-legends.html','analytics/keeper-tracker.html','analytics/legendary-records.html','analytics/manager-madden-cards.html','analytics/franchise-timeline.html','hall/','seasons/',
  'managers/record-books.html','analytics/record-holders.html',
  'analytics/record-stories.html?record=highest&rank=1&manager=Stew',
@@ -28,6 +30,7 @@ const server=http.createServer(async(req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const baseUrl='http://127.0.0.1:'+server.address().port+base;
 const output=path.join(root,'data-integrity','visual-gate');
+await fs.mkdir(output,{recursive:true});
 const findings=[],screens=[],mobileJourneys=[];
 const placementReceipts=JSON.parse(await fs.readFile(path.join(root,'data','sleeper_postseason_placement_receipts_2020_2025.json'),'utf8'));
 try{
@@ -89,8 +92,28 @@ try{
         findings.push(engine+' '+width+' '+key+' resource or JS error '+runtime.slice(0,3).join(' | '));
        if(audit.loading)
         findings.push(engine+' '+width+' '+key+' first-screen content remains in a loading state');
-       if(route===''){
-        // Modern homepage: league now, six destinations and two editorial stories.
+       if(productionApp&&route===''){
+        await page.locator('.standing:not(.head)').first().waitFor({timeout:15000});
+        const app=await page.evaluate(()=>({
+          title:document.querySelector('main h1')?.textContent.trim(),
+          managers:document.querySelectorAll('#my-manager option').length,
+          standings:document.querySelectorAll('.standing:not(.head)').length,
+          games:document.querySelectorAll('.matchup').length,
+          nav:[...document.querySelectorAll('.fellas-app-nav a')].map(a=>a.dataset.appTab),
+          pickerTop:document.querySelector('#my-manager')?.getBoundingClientRect().top,
+          height:innerHeight,
+          archive:!!document.querySelector('#more a[href="home-classic.html"]'),
+          watch:!!document.querySelector('#more a[href="home-classic.html#home-record-watch"]'),
+          news:document.querySelectorAll('#news [data-news]').length
+        }));
+        if(app.title!=='League dashboard'||app.managers!==11||app.standings!==10||app.games!==5||
+           JSON.stringify(app.nav)!==JSON.stringify(['home','team','league','records','more'])||
+           app.pickerTop>=app.height*.9||!app.archive||!app.watch||app.news!==2)
+          findings.push(engine+' '+width+' '+key+' production dashboard first-screen failure '+JSON.stringify(app));
+        await page.screenshot({path:path.join(output,engine+'-'+width+'-production-home.png')});
+       }
+       if(route===classicRoute){
+        // Classic homepage: league now, six destinations and two editorial stories.
         const discovery=await page.evaluate(()=>{
          const hub=document.querySelector('#explore-the-league');
          const core=[...hub?.querySelectorAll('.discovery-grid a.discovery-card')||[]].map(a=>a.getAttribute('href'));
@@ -250,12 +273,12 @@ try{
         if(width===390&&directory.some(c=>c.height>175))
          findings.push(engine+' '+width+' mobile directory card too tall for quick scanning');
        }
-       if(route===''&&width===390){
+       if(route===classicRoute&&width===390){
         const headline=await page.locator('.hero h1').textContent();
         if(!/Ten managers\.[\s\S]*Eleven seasons\.[\s\S]*One story\./.test(headline||''))
          findings.push(engine+' '+width+' mobile homepage headline words run together');
        }
-       if(route===''&&width===390){
+       if(route===classicRoute&&width===390){
         const quick=page.locator('.home-find-franchise a[href="managers/record-books.html"]');
         if(!await quick.count())throw Error('Homepage personal records path missing');
         const managerPanel=page.locator('details.home-advanced-managers');
@@ -753,10 +776,10 @@ try{
        }
        // A complete visitor journey supplements page-level screenshots with actual links.
        // Run once per browser engine on the representative 390px phone viewport.
-       if(route===''&&width===390){
+       if(route===classicRoute&&width===390){
         const journey=await context.newPage();
         try{
-         await journey.goto(baseUrl,{waitUntil:'domcontentloaded',timeout:15000});
+         await journey.goto(baseUrl+classicRoute,{waitUntil:'domcontentloaded',timeout:15000});
          await journey.locator('.home-featured-editorial a[href="hall/championship-stories.html"]').click();
 
          await journey.waitForURL(url=>url.pathname.endsWith('/hall/championship-stories.html'),{timeout:12000});
@@ -766,7 +789,7 @@ try{
          if(!await journey.locator('#championship-story .story-section').count())
           throw Error('Championship year link failed to open verified article');
 
-         await journey.goto(baseUrl,{waitUntil:'domcontentloaded',timeout:15000});
+         await journey.goto(baseUrl+classicRoute,{waitUntil:'domcontentloaded',timeout:15000});
          await journey.locator('.discovery-grid a.discovery-card[href="managers/"]').click();
          await journey.waitForURL(url=>url.pathname.endsWith('/managers/'),{timeout:12000});
          await journey.locator('#manager-directory-cards a.manager[href="stilly/"]').click();
@@ -784,10 +807,10 @@ try{
        }
        // New page visits should never inherit an old manager card reading position.
        // Browser Back/Forward is separate: its existing reading-position test remains valid.
-       if(route===''&&width===390){
+       if(route===classicRoute&&width===390){
         const visitor=await context.newPage();
         try{
-         const home=baseUrl,profile=baseUrl+'managers/stilly/';
+         const home=baseUrl+classicRoute,profile=baseUrl+'managers/stilly/';
          const openStilly=async()=>{
           await visitor.goto(home,{waitUntil:'domcontentloaded',timeout:15000});
           const drawer=visitor.locator('details.home-advanced-managers');
@@ -1054,7 +1077,9 @@ try{
        console.log('VISUAL '+engine+' '+width+' '+key+' overflow='+audit.horizontalOverflow+' heading='+JSON.stringify(audit.heading));
       }catch(error){
        findings.push(engine+' '+width+' '+key+' audit error '+(error?.message||String(error)));
-       screens.push({engine,width,route:key,failed:true,error:String(error)});
+       const existing=screens.findIndex(s=>s.engine===engine&&s.width===width&&s.route===key);
+       const failed={engine,width,route:key,failed:true,error:String(error)};
+       if(existing>=0)screens[existing]={...screens[existing],...failed};else screens.push(failed);
        console.error('VISUAL FAIL '+engine+' '+width+' '+key+' '+error);
       }finally{await page.close();}
      }
