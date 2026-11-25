@@ -1,4 +1,4 @@
-// Verify the 44-category Record Holders search remains source-backed and accessible.
+// Verify both search collections remain source-backed and accessible.
 // Run: node scripts/test-record-holder-search.mjs
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -9,7 +9,8 @@ assert.equal(count(html,/id="record-category-query"/g),1,'One search input is re
 assert.equal(count(html,/id="record-category-results-count"/g),1,'Search result count is required');
 assert(html.includes('<label for="record-category-query">'),'Search needs a visible label');
 assert(html.includes('type="search"'),'Search must use native search input');
-assert(html.includes('aria-controls="expanded-record-categories"'),'Search target linkage missing');
+assert(html.includes('aria-controls="established-record-results expanded-record-categories"'),'Search must link both result collections');
+assert(html.includes('id="established-record-results"'),'Established record results missing');
 assert(html.includes('role="status" aria-live="polite"'),'Announce counts without refocusing');
 assert(html.includes('id="record-family-nav"'),'Existing family navigation must remain');
 assert(html.includes('id="expanded-record-categories"'),'Existing 44-category results must remain');
@@ -18,6 +19,8 @@ assert(js.includes("category.leaders.filter(r=>r.rank===1)"),'Verified record ow
 assert(js.includes("const searchableCategory=c=>"),'Search index must be built from source categories');
 assert(js.includes("selectedFamily==='All'||c.group===selectedFamily"),'Search must compose with group filtering');
 assert(js.includes("parts.every(part=>searchableCategory(c).includes(part))"),'Keyword filtering missing');
+assert(js.includes("const establishedMatches=drawEstablished(parts)"),'Established records must use the keyword query');
+assert(js.includes("link.href='#'+record.anchor"),'Established results must open the exact evidence');
 assert(js.includes("queryInput.addEventListener('input',drawExpanded)"),'Search input not wired');
 assert(js.includes("button.dataset.family=group"),'Family-state reset cannot work');
 assert(js.includes("record-category-empty"),'No-results state missing');

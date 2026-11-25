@@ -99,9 +99,10 @@ function renderExplorer(data){
  const requestedManager=url.searchParams.get("manager");
  let selectedManager=canonical.includes(requestedManager)?requestedManager:requestedManager==="Thommy"?"Tom":"Stilly";
  host.classList.add("records-lab");
- host.innerHTML='<div class="records-lab-controls"><label>Record family<select id="expanded-group"></select></label>'
+ host.innerHTML='<h2 id="expanded-title"></h2><p class="records-lab-intro" id="expanded-description"></p>'
+ +'<p class="records-lab-intro" id="expanded-records-coverage">Archive coverage · '+escapeHtml(data.scope)+'.</p>'
+ +'<div class="records-lab-controls"><label>Record family<select id="expanded-group"></select></label>'
  +'<label>Record category<select id="expanded-category"></select></label></div>'
- +'<h2 id="expanded-title"></h2><p class="records-lab-intro" id="expanded-description"></p>'
  +'<div class="records-lab-table-scroll"><table class="records-lab-table"><thead><tr><th>Rank</th><th>Manager</th><th>Record</th><th>Verified context</th></tr></thead><tbody id="expanded-rows"></tbody></table></div>'
  +'<p class="records-lab-caveat">'+data.rules.map(escapeHtml).join(" ")+'</p>';
  const group=host.querySelector("#expanded-group"),category=host.querySelector("#expanded-category"),manager=portfolio.querySelector("#expanded-manager");
@@ -138,6 +139,9 @@ function renderExplorer(data){
  category.addEventListener("change",()=>{selectedCategory=category.value;render()});
  manager.addEventListener("change",()=>{selectedManager=manager.value;render()});
  render();
+ if(url.hash==="#expanded-records-explorer"){
+  host.scrollIntoView({block:"start",behavior:"instant"});
+ }
 }
 try{
  const res=await fetch(new URL("../data/expanded_records_verified_v1.json",import.meta.url));

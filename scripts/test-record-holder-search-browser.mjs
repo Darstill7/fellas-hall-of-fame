@@ -18,7 +18,8 @@ const server=http.createServer(async(req,res)=>{
  catch{res.writeHead(404);res.end()}
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-const url='http://127.0.0.1:'+server.address().port+base+'analytics/record-holders.html';
+const recordsURL='http://127.0.0.1:'+server.address().port+base+'analytics/';
+const url=recordsURL+'record-holders.html';
 const engines=[['chromium',chromium],['webkit',webkit]];
 const errors=[];
 try{
@@ -26,7 +27,84 @@ try{
   const browser=await launcher.launch({headless:true,...(engine==='chromium'?{args:['--no-sandbox']}:{})});
   try{
    const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
+   await page.goto(recordsURL+'records.html?app=1',{waitUntil:'domcontentloaded'});
+   await page.getByRole('link',{name:'Search league records',exact:true}).click();
+   await page.waitForURL('**/record-holders.html?app=1#complete-record-index');
+   const linkedSearch=page.locator('#record-category-query');
+   await linkedSearch.waitFor({state:'visible'});
+   await page.waitForFunction(()=>document.querySelector('#record-category-results-count')?.textContent?.includes('Showing 44 of 44'));
+   if(!await linkedSearch.evaluate(el=>el.getBoundingClientRect().top>=0 &&
+     el.getBoundingClientRect().bottom<innerHeight))errors.push(engine+': direct link leaves search outside viewport');
+   await linkedSearch.fill('semifinal appearances');
+   const establishedResult=page.locator('#established-record-results').getByRole('link',{name:/Most semifinal appearances/});
+   await establishedResult.waitFor();
+   const result=await establishedResult.textContent();
+   if(!['Birch','Mitch','Stover','Thommy'].every(name=>result.includes(name))||
+      !(await page.locator('#record-category-results-count').textContent()).includes('1 established match')||
+      await page.locator('#expanded-record-categories>.category-card').count()!==0)
+    errors.push(engine+': established-only search omitted holders or confused the result scope');
+   await establishedResult.click();
+   await page.locator('#established-record-semifinals .established-record-evidence[open]').waitFor();
+   await page.goBack();
+   await linkedSearch.fill('closest win');
+   if(await page.locator('#established-record-results a[href="#established-record-closest-win"]').count()!==1)
+    errors.push(engine+': shared keyword omitted established match');
+
+   const closest=page.locator('#expanded-record-categories .category-card').filter({hasText:'Closest regular-season victory'});
+   const scope=await page.locator('#record-category-coverage').textContent();
+   await closest.getByRole('link',{name:'View full ranked evidence'}).click();
+   await page.waitForURL('**/expanded-records.html?*#expanded-records-explorer');
+   if(await page.locator('#expanded-title').textContent()!=='Closest regular-season victory'||
+      await page.locator('#expanded-category').inputValue()!=='narrowest-win'||
+      await page.locator('#expanded-records-coverage').textContent()!==scope||
+      !await page.locator('#expanded-rows tr').first().isVisible()||
+      !await page.locator('#expanded-title').evaluate(el=>el.getBoundingClientRect().top>=0 &&
+        el.getBoundingClientRect().bottom<innerHeight))
+    errors.push(engine+': evidence deep link lost the selected record or coverage');
+
+   await page.goto(recordsURL+'../managers/record-books.html?manager=Mitch#owned-records',{waitUntil:'domcontentloaded'});
+   const score = page.locator('#owned-records .owned-record').filter({hasText:'Highest regular-season weekly score'});
+   const scoreMark = await score.locator('strong').textContent();
+   await score.getByRole('link',{name:'View evidence for Highest regular-season weekly score'}).click();
+   await page.waitForURL('**/record-holders.html#established-record-weekly-score');
+   const evidence = page.locator('#established-record-weekly-score');
+   await evidence.locator('.established-record-evidence[open]').waitFor();
+   if (await evidence.locator('.category-meta').textContent() !== scoreMark ||
+       !await evidence.getByRole('link',{name:'Weekly matchup archive'}).isVisible() ||
+       !(await evidence.locator('.established-record-evidence').textContent()).includes('Mitch · Week'))
+    errors.push(engine+': established record evidence disagrees with the manager portfolio');
+
+   await page.goto(recordsURL+'../managers/record-books.html?manager=Tony#owned-records',{waitUntil:'domcontentloaded'});
+   const portfolio=page.locator('#owned-records');
+   await portfolio.getByRole('heading',{name:'Records Tony owns · 4'}).waitFor();
+   if(!(await portfolio.locator('p').first().textContent()).includes('4 of 23 established league records · 1 sole · 3 shared'))
+    errors.push(engine+': Tony portfolio omitted records or shared credits');
+   await portfolio.getByRole('searchbox',{name:'Search records held'}).fill('rebound');
+   if(await portfolio.locator('.owned-record').count()!==1)
+    errors.push(engine+': ownership search did not isolate the new rebound category');
+   await portfolio.getByRole('link',{name:'View evidence for Biggest year-over-year finish rebound'}).click();
+   const rebound=page.locator('#established-record-finish-rebound');
+   await rebound.locator('.established-record-evidence[open]').waitFor();
+   if(await rebound.locator('.category-meta').textContent()!=='100 percentage points'||
+      !(await rebound.locator('.established-record-evidence').textContent()).includes('#10 of 10 → 2021 · #1 of 10')||
+      await rebound.locator('.category-owners a').count()!==1)
+    errors.push(engine+': rebound mark, placement receipts or sole credit is wrong');
+   const topHalf=page.locator('#established-record-all-era-top-half');
+   if(await topHalf.locator('.category-owners a').count()!==4)
+    errors.push(engine+': top-half ties lost an eligible manager');
+
    await page.goto(url,{waitUntil:'domcontentloaded'});
+   const weeklyWatch=JSON.parse(await fs.readFile('data/weekly-record-ownership-v57.json','utf8'));
+   if(weeklyWatch.changes.length){
+    const watch=page.locator('#weekly-record-watch');
+    await watch.waitFor();
+    const first=weeklyWatch.changes[0];
+    const link=watch.getByRole('link',{name:new RegExp(first.label)});
+    if(!(await watch.locator('h3').textContent()).includes('Week '+weeklyWatch.week))
+     errors.push(engine+': weekly ownership cutoff is missing');
+    await link.click();
+    await page.locator('#'+first.id+' .established-record-evidence[open]').waitFor();
+   }
    await page.locator('#complete-record-index .records-archive-disclosure>summary').click();
    const input=page.locator('#record-category-query');
    const count=page.locator('#record-category-results-count');
@@ -84,4 +162,4 @@ try{
  }
 }finally{await new Promise(resolve=>server.close(resolve))}
 if(errors.length){console.error(errors.join('\n'));process.exitCode=1}
-else console.log('PASS: Chromium and WebKit 390px record search, family composition, reset and no overflow');
+else console.log('PASS: Chromium and WebKit 390px record search entry, evidence, family composition, reset and no overflow');

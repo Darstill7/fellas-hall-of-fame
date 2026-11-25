@@ -77,7 +77,7 @@ export async function mountPersonalRecordIntelligence({name,host,root='../../'})
  const ownership=el('details');ownership.append(el('summary','League record holdings'));panel.append(ownership);
  try{const [archive,guide,espn,sleeper,placements,placementReceipts,allEra]=await Promise.all(['manager_record_books_2016_2026.json','season_guide.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json','fellas_final_placements_2020_2025.json','sleeper_postseason_placement_receipts_2020_2025.json','fellas_final_placements_2016_2025_verified.json'].map(get));
  validateRecordArchive(core,archive);const post={espn,sleeper,placements,placementReceipts,allEra};
- const owned=findOwnedRecords(archive,guide,d.name,post);ownership.append(el('p',owned.length+' of '+recordCategoryLabels.length+' supported ownership categories · includes former managers.'));
+ const owned=findOwnedRecords(archive,guide,d.name,post);ownership.append(el('p',owned.length+' of '+recordCategoryLabels.length+' established league record categories · includes former managers.'));
  for(const r of owned){const card=el('div',null,'gm45-card');card.append(el('small',r.label),el('strong',fmt(r.value)+' '+r.unit),el('p',r.shared?'Shared league record':'League record'),el('p',r.context));const next=nextRecordChallenger(archive,guide,r.label,post);if(next)card.append(el('p','Nearest different-manager challenger: '+next.manager+' · Gap '+fmt(next.gap)+' '+next.unit));ownership.append(card)}
  const chase=el('details');chase.append(el('summary','Record chase and league rankings'));
  const ranks=buildRecordChase(archive,guide,post,d.name);

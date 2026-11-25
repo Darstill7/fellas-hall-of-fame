@@ -207,7 +207,7 @@ async function mountProfileRecordOwnership(){
   }))throw Error('Record archive does not match current canonical standings');
   const owned=findOwnedRecords(archive,guide,normalized,{espn,sleeper,placements,placementReceipts,allEra});
   result.textContent=owned.length
-   ?owned.length+' of '+recordCategoryLabels.length+' league records held'
+   ?owned.length+' of '+recordCategoryLabels.length+' established league records held'
    :'No category leads yet · Explore personal bests';
  }catch(error){
   result.textContent='View personal bests and archived records';

@@ -1,0 +1,563 @@
+{
+  "schemaVersion": 1,
+  "year": 2026,
+  "week": 11,
+  "previousWeek": 10,
+  "previous": {
+    "year": 2026,
+    "week": 10,
+    "asOf": "2026-11-20",
+    "seasonScoreHash": "b2e50203ba43045d2317624b889e5237b8c556611c6a3a4e7557231d30a73ac6",
+    "ledgerHash": "361167e87d0fa9202ef8e294bcee2ae4d8e39f2bca8bb4306a931755473090bb",
+    "priorLedgerHash": "3375b941327369b7308e13b2eaa38d327713014b209fa2a926c90dc71baa669b",
+    "marks": [
+      {
+        "id": "established-record-weekly-score",
+        "label": "Highest regular-season weekly score",
+        "value": 180.86,
+        "unit": "pts",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-largest-win",
+        "label": "Largest regular-season victory",
+        "value": 101.38,
+        "unit": "pts",
+        "direction": "max",
+        "holders": [
+          "Scott"
+        ]
+      },
+      {
+        "id": "established-record-career-wins",
+        "label": "Most career regular-season wins",
+        "value": 76,
+        "unit": "wins",
+        "direction": "max",
+        "holders": [
+          "Stover"
+        ]
+      },
+      {
+        "id": "established-record-completed-season-wins",
+        "label": "Most wins in a completed regular season",
+        "value": 13,
+        "unit": "wins",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-championships",
+        "label": "Most championships",
+        "value": 4,
+        "unit": "titles",
+        "direction": "max",
+        "holders": [
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-completed-season-points",
+        "label": "Most points in a completed regular season",
+        "value": 1894.88,
+        "unit": "pts",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-closest-win",
+        "label": "Closest regular-season victory",
+        "value": 0.16,
+        "unit": "pts",
+        "direction": "min",
+        "holders": [
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-career-win-rate-50",
+        "label": "Highest career regular-season winning percentage (50+ games)",
+        "value": 59.66,
+        "unit": "%",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-rival-wins",
+        "label": "Most regular-season wins against a single opponent",
+        "value": 11,
+        "unit": "wins",
+        "direction": "max",
+        "holders": [
+          "Birch",
+          "Mitch",
+          "Stilly",
+          "Stover",
+          "Tony"
+        ]
+      },
+      {
+        "id": "established-record-playoff-berths",
+        "label": "Most championship-bracket playoff appearances",
+        "value": 7,
+        "unit": "berths",
+        "direction": "max",
+        "holders": [
+          "Birch",
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-finals",
+        "label": "Most championship-game appearances",
+        "value": 5,
+        "unit": "finals",
+        "direction": "max",
+        "holders": [
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-sleeper-average-finish",
+        "label": "Best average final finish (all six Sleeper seasons)",
+        "value": 4.17,
+        "unit": "avg place",
+        "direction": "min",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-sleeper-top-three",
+        "label": "Most top-three final finishes (2020–2025)",
+        "value": 3,
+        "unit": "podiums",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-sleeper-top-five",
+        "label": "Most top-five final finishes (2020–2025)",
+        "value": 5,
+        "unit": "top-fives",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-all-era-normalized-finish",
+        "label": "Best normalized career final finish (6+ seasons, 2016–2025)",
+        "value": 66.67,
+        "unit": "finish score",
+        "direction": "max",
+        "holders": [
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-all-era-top-three",
+        "label": "Most top-three finishes across 2016–2025",
+        "value": 5,
+        "unit": "podiums",
+        "direction": "max",
+        "holders": [
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-completed-seasons",
+        "label": "Most completed seasons",
+        "value": 10,
+        "unit": "seasons",
+        "direction": "max",
+        "holders": [
+          "Stew",
+          "Stilly",
+          "Stover",
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-all-era-top-half",
+        "label": "Most top-half final finishes",
+        "value": 6,
+        "unit": "finishes",
+        "direction": "max",
+        "holders": [
+          "Birch",
+          "Mitch",
+          "Thommy",
+          "Tony"
+        ]
+      },
+      {
+        "id": "established-record-finish-rebound",
+        "label": "Biggest year-over-year finish rebound",
+        "value": 100,
+        "unit": "percentage points",
+        "direction": "max",
+        "holders": [
+          "Tony"
+        ]
+      },
+      {
+        "id": "established-record-semifinals",
+        "label": "Most semifinal appearances",
+        "value": 5,
+        "unit": "seasons",
+        "direction": "max",
+        "holders": [
+          "Birch",
+          "Mitch",
+          "Stover",
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-playoff-byes",
+        "label": "Most playoff byes",
+        "value": 3,
+        "unit": "seasons",
+        "direction": "max",
+        "holders": [
+          "Birch",
+          "Stover",
+          "Tony"
+        ]
+      },
+      {
+        "id": "established-record-top-seeds",
+        "label": "Most top seeds",
+        "value": 2,
+        "unit": "seasons",
+        "direction": "max",
+        "holders": [
+          "Birch",
+          "Mitch",
+          "Tony"
+        ]
+      },
+      {
+        "id": "established-record-playoff-berth-streak",
+        "label": "Longest consecutive playoff berth streak",
+        "value": 5,
+        "unit": "seasons",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      }
+    ]
+  },
+  "current": {
+    "year": 2026,
+    "week": 11,
+    "asOf": "2026-11-24",
+    "seasonScoreHash": "ababd3122c1c94d68eb5b715bd24afcc2af51408e0a57b154259943f2a88c561",
+    "ledgerHash": "50cb09bb1a21bfac1253ff3ea584b20c72ece937fada386b905e88580c734d47",
+    "priorLedgerHash": "361167e87d0fa9202ef8e294bcee2ae4d8e39f2bca8bb4306a931755473090bb",
+    "marks": [
+      {
+        "id": "established-record-weekly-score",
+        "label": "Highest regular-season weekly score",
+        "value": 180.86,
+        "unit": "pts",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-largest-win",
+        "label": "Largest regular-season victory",
+        "value": 101.38,
+        "unit": "pts",
+        "direction": "max",
+        "holders": [
+          "Scott"
+        ]
+      },
+      {
+        "id": "established-record-career-wins",
+        "label": "Most career regular-season wins",
+        "value": 77,
+        "unit": "wins",
+        "direction": "max",
+        "holders": [
+          "Stover"
+        ]
+      },
+      {
+        "id": "established-record-completed-season-wins",
+        "label": "Most wins in a completed regular season",
+        "value": 13,
+        "unit": "wins",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-championships",
+        "label": "Most championships",
+        "value": 4,
+        "unit": "titles",
+        "direction": "max",
+        "holders": [
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-completed-season-points",
+        "label": "Most points in a completed regular season",
+        "value": 1894.88,
+        "unit": "pts",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-closest-win",
+        "label": "Closest regular-season victory",
+        "value": 0.16,
+        "unit": "pts",
+        "direction": "min",
+        "holders": [
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-career-win-rate-50",
+        "label": "Highest career regular-season winning percentage (50+ games)",
+        "value": 59.17,
+        "unit": "%",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-rival-wins",
+        "label": "Most regular-season wins against a single opponent",
+        "value": 12,
+        "unit": "wins",
+        "direction": "max",
+        "holders": [
+          "Stilly"
+        ]
+      },
+      {
+        "id": "established-record-playoff-berths",
+        "label": "Most championship-bracket playoff appearances",
+        "value": 7,
+        "unit": "berths",
+        "direction": "max",
+        "holders": [
+          "Birch",
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-finals",
+        "label": "Most championship-game appearances",
+        "value": 5,
+        "unit": "finals",
+        "direction": "max",
+        "holders": [
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-sleeper-average-finish",
+        "label": "Best average final finish (all six Sleeper seasons)",
+        "value": 4.17,
+        "unit": "avg place",
+        "direction": "min",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-sleeper-top-three",
+        "label": "Most top-three final finishes (2020–2025)",
+        "value": 3,
+        "unit": "podiums",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-sleeper-top-five",
+        "label": "Most top-five final finishes (2020–2025)",
+        "value": 5,
+        "unit": "top-fives",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      },
+      {
+        "id": "established-record-all-era-normalized-finish",
+        "label": "Best normalized career final finish (6+ seasons, 2016–2025)",
+        "value": 66.67,
+        "unit": "finish score",
+        "direction": "max",
+        "holders": [
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-all-era-top-three",
+        "label": "Most top-three finishes across 2016–2025",
+        "value": 5,
+        "unit": "podiums",
+        "direction": "max",
+        "holders": [
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-completed-seasons",
+        "label": "Most completed seasons",
+        "value": 10,
+        "unit": "seasons",
+        "direction": "max",
+        "holders": [
+          "Stew",
+          "Stilly",
+          "Stover",
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-all-era-top-half",
+        "label": "Most top-half final finishes",
+        "value": 6,
+        "unit": "finishes",
+        "direction": "max",
+        "holders": [
+          "Birch",
+          "Mitch",
+          "Thommy",
+          "Tony"
+        ]
+      },
+      {
+        "id": "established-record-finish-rebound",
+        "label": "Biggest year-over-year finish rebound",
+        "value": 100,
+        "unit": "percentage points",
+        "direction": "max",
+        "holders": [
+          "Tony"
+        ]
+      },
+      {
+        "id": "established-record-semifinals",
+        "label": "Most semifinal appearances",
+        "value": 5,
+        "unit": "seasons",
+        "direction": "max",
+        "holders": [
+          "Birch",
+          "Mitch",
+          "Stover",
+          "Thommy"
+        ]
+      },
+      {
+        "id": "established-record-playoff-byes",
+        "label": "Most playoff byes",
+        "value": 3,
+        "unit": "seasons",
+        "direction": "max",
+        "holders": [
+          "Birch",
+          "Stover",
+          "Tony"
+        ]
+      },
+      {
+        "id": "established-record-top-seeds",
+        "label": "Most top seeds",
+        "value": 2,
+        "unit": "seasons",
+        "direction": "max",
+        "holders": [
+          "Birch",
+          "Mitch",
+          "Tony"
+        ]
+      },
+      {
+        "id": "established-record-playoff-berth-streak",
+        "label": "Longest consecutive playoff berth streak",
+        "value": 5,
+        "unit": "seasons",
+        "direction": "max",
+        "holders": [
+          "Mitch"
+        ]
+      }
+    ]
+  },
+  "changes": [
+    {
+      "id": "established-record-career-wins",
+      "label": "Most career regular-season wins",
+      "unit": "wins",
+      "type": "EXTENDED",
+      "previousValue": 76,
+      "value": 77,
+      "previousHolders": [
+        "Stover"
+      ],
+      "holders": [
+        "Stover"
+      ],
+      "joined": [],
+      "left": [],
+      "evidence": "analytics/record-holders.html#established-record-career-wins"
+    },
+    {
+      "id": "established-record-rival-wins",
+      "label": "Most regular-season wins against a single opponent",
+      "unit": "wins",
+      "type": "BROKEN",
+      "previousValue": 11,
+      "value": 12,
+      "previousHolders": [
+        "Birch",
+        "Mitch",
+        "Stilly",
+        "Stover",
+        "Tony"
+      ],
+      "holders": [
+        "Stilly"
+      ],
+      "joined": [],
+      "left": [
+        "Birch",
+        "Mitch",
+        "Stover",
+        "Tony"
+      ],
+      "evidence": "analytics/record-holders.html#established-record-rival-wins"
+    }
+  ]
+}

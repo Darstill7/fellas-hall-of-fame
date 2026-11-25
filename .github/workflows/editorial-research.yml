@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'scripts/*editorial*'
+      - 'scripts/*weekly-record-ownership.mjs'
+      - 'assets/manager-record-ownership.mjs'
       - 'scripts/*weekly-shitter*'
       - 'scripts/score-writer-predictions.mjs'
       - 'data-integrity/editorial-predictions/**'

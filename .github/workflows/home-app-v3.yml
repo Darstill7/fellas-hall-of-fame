@@ -4,6 +4,8 @@ on:
     paths:
       - 'home-app-preview.html'
       - 'assets/home-app-v3.*'
+      - 'assets/weekly-record-watch.mjs'
+      - 'data/weekly-record-ownership-v57.json'
       - 'assets/conditional-record-watch-v51.mjs'
       - 'scripts/test-conditional-record-watch-v51.mjs'
       - 'data/conditional-record-watch-v51.json'

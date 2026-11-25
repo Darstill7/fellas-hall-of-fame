@@ -2659,7 +2659,7 @@ try{
     const expandedKinds=await page.locator('#expanded-record-categories .category-card').count();
     const tabs=page.locator('#record-family-nav button');
     const countLabel=await page.locator('#record-count-summary').innerText();
-    if(expandedKinds!==44||await tabs.count()!==6||!countLabel.includes('44 expanded categories')||!countLabel.includes('16 established categories'))
+    if(expandedKinds!==44||await tabs.count()!==6||!countLabel.includes('44 expanded categories')||!countLabel.includes('23 established categories'))
      errors.push(width+' Recordholders failed to load all 44 expanded categories');
     const archiveDisclosure=page.locator('#complete-record-index details.records-archive-disclosure');
     if(await archiveDisclosure.count()===1)await archiveDisclosure.locator('summary').click();
@@ -2673,13 +2673,13 @@ try{
     if(restored!==44)errors.push(width+' Recordholders failed to restore all 44 expanded records');
     const evidenceLink=page.locator('#expanded-record-categories .category-card a[href^="expanded-records.html?"]').first();
     if(await evidenceLink.count()!==1)errors.push(width+' expanded record evidence deep link missing');
-    if(cards<1||cards+remaining!==14||kinds!==16)
+    if(cards<1||cards+remaining!==14||kinds!==23)
      errors.push(width+' record holders mismatch: '+cards+' leaders, '+remaining+' remaining, '+kinds+' categories');
     const first=await page.locator('#record-leaders .leader-card').first().innerText();
     if(!first.includes('record'))
      errors.push(width+' record holder leaderboard count missing');
     const disclosures=page.locator('#record-categories .record-context');
-    if(await disclosures.count()!==16)
+    if(await disclosures.count()!==23)
      errors.push(width+' missing next-manager comparisons on record categories');
     else{
      // The legacy 16-category catalog is intentionally collapsed for readers.
