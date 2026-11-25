@@ -15,6 +15,7 @@ on:
       - 'scripts/build-schedule-luck-records-v55.mjs'
       - 'scripts/build-player-hall-of-fame-v56.mjs'
       - 'scripts/build-player-championship-records-v56.mjs'
+      - 'scripts/build-player-transaction-history-v56.mjs'
       - 'assets/manager-record-ownership.mjs'
       - 'data/**'
       - '.github/workflows/record-unification-v52.yml'
@@ -58,6 +59,8 @@ jobs:
         run: node scripts/build-player-hall-of-fame-v56.mjs
       - name: Reconcile player championship records
         run: node scripts/build-player-championship-records-v56.mjs
+      - name: Reconcile player transaction history
+        run: node scripts/build-player-transaction-history-v56.mjs
       - name: Upload candidate receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -77,4 +80,5 @@ jobs:
             data-integrity/schedule-luck-records-v55.json
             data-integrity/player-hall-of-fame-v56.json
             data-integrity/player-championship-records-v56.json
+            data-integrity/player-transaction-history-v56.json
           if-no-files-found: error
