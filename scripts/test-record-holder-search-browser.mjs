@@ -35,7 +35,21 @@ try{
    await page.waitForFunction(()=>document.querySelector('#record-category-results-count')?.textContent?.includes('Showing 44 of 44'));
    if(!await linkedSearch.evaluate(el=>el.getBoundingClientRect().top>=0 &&
      el.getBoundingClientRect().bottom<innerHeight))errors.push(engine+': direct link leaves search outside viewport');
+   await linkedSearch.fill('semifinal appearances');
+   const establishedResult=page.locator('#established-record-results').getByRole('link',{name:/Most semifinal appearances/});
+   await establishedResult.waitFor();
+   const result=await establishedResult.textContent();
+   if(!['Birch','Mitch','Stover','Thommy'].every(name=>result.includes(name))||
+      !(await page.locator('#record-category-results-count').textContent()).includes('1 established match')||
+      await page.locator('#expanded-record-categories>.category-card').count()!==0)
+    errors.push(engine+': established-only search omitted holders or confused the result scope');
+   await establishedResult.click();
+   await page.locator('#established-record-semifinals .established-record-evidence[open]').waitFor();
+   await page.goBack();
    await linkedSearch.fill('closest win');
+   if(await page.locator('#established-record-results a[href="#established-record-closest-win"]').count()!==1)
+    errors.push(engine+': shared keyword omitted established match');
+
    const closest=page.locator('#expanded-record-categories .category-card').filter({hasText:'Closest regular-season victory'});
    const scope=await page.locator('#record-category-coverage').textContent();
    await closest.getByRole('link',{name:'View full ranked evidence'}).click();

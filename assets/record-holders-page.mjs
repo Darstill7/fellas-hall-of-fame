@@ -258,8 +258,36 @@ async function start(){
    const link=tag('span','Explore this manager’s records →','cta');
    a.append(heading,count,breakdown,preview,link);(row.records.length?list:other).append(a);
   }
-  // Filter the existing verified 44-category catalog; never compute or invent
-  // records from search text. The family and keyword filters combine.
+  const established=new Map(categories.map(label=>[label,[]]));
+  for(const {name,records} of rows){
+   for(const record of records)established.get(record.label).push({name,record});
+  }
+  const establishedSearch=document.getElementById('established-record-search');
+  const establishedResults=document.getElementById('established-record-results');
+  const drawEstablished=parts=>{
+   establishedResults.replaceChildren();
+   establishedSearch.hidden=parts.length===0;
+   if(establishedSearch.hidden)return 0;
+   let matches=0;
+   for(const [label,holders] of established){
+    if(!holders.length)continue;
+    const record=holders[0].record;
+    const searchable=[label,record.anchor.replaceAll('-',' '),record.scope,
+     ...holders.flatMap(holder=>[holder.name,holder.record.context])].join(' ').toLocaleLowerCase('en-US');
+    if(!parts.every(part=>searchable.includes(part)))continue;
+    matches++;
+    const item=tag('li');
+    const link=tag('a');
+    link.href='#'+record.anchor;
+    link.append(tag('strong',label),tag('small',toLabel(record)+' · '+holders.map(holder=>holder.name).join(', ')));
+    item.append(link);
+    establishedResults.append(item);
+   }
+   if(!matches)establishedResults.append(tag('li','No established records match.'));
+   return matches;
+  };
+
+  // Families filter the expanded archive. The keyword searches both collections.
   const queryInput=document.getElementById('record-category-query');
   const resultCount=document.getElementById('record-category-results-count');
   if(!queryInput||!resultCount)throw Error('Record category search controls unavailable');
@@ -274,16 +302,18 @@ async function start(){
   const drawExpanded=()=>{
    const normalized=queryInput.value.trim().replace(/\s+/g,' ').toLocaleLowerCase('en-US');
    const parts=normalized?normalized.split(' '):[];
+   const establishedMatches=drawEstablished(parts);
    expandedHost.replaceChildren();
    const filtered=expanded.categories.filter(c=>
      (selectedFamily==='All'||c.group===selectedFamily)&&
      parts.every(part=>searchableCategory(c).includes(part)));
-   resultCount.textContent='Showing '+filtered.length+' of '+expanded.categories.length+
-     ' verified categories'+(selectedFamily==='All'?'':' in '+selectedFamily)+
-     (normalized?' for “'+queryInput.value.trim()+'”':'')+'.';
+   const archiveCount='Showing '+filtered.length+' of '+expanded.categories.length+
+     ' expanded archive categories'+(selectedFamily==='All'?'':' in '+selectedFamily)+'.';
+   resultCount.textContent=normalized?establishedMatches+' established '+(establishedMatches===1?'match':'matches')+
+     ' for “'+queryInput.value.trim()+'”. '+archiveCount:archiveCount;
    if(!filtered.length){
     const empty=tag('div',undefined,'record-category-empty');
-    empty.append(tag('p','No verified record category matches these filters. Try another manager, season or keyword.'));
+    empty.append(tag('p','No expanded archive categories match these filters.'));
     const clear=tag('button','Clear search and filters','record-category-clear');
     clear.type='button';
     clear.addEventListener('click',()=>{
@@ -324,7 +354,7 @@ async function start(){
   drawExpanded();
   categoryHost.replaceChildren();
   for(const label of categories){
-   const categoryHolders=rows.flatMap(r=>r.records.filter(record=>record.label===label).map(record=>({name:r.name,record})));
+   const categoryHolders=established.get(label);
    const card=tag('article',undefined,'category-card');
    card.id=establishedRecordAnchor(label);
    card.append(tag('h3',label));

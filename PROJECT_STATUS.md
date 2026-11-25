@@ -22,7 +22,7 @@
 | --- | --- |
 | Registry and legacy review | 426 candidates, 360 manager-owned and 66 player-owned. All 44 legacy definitions reviewed. Of the later 65 publication candidates, seven verified standings and bracket records entered the established collection and 58 retain their own scopes. |
 | Manager ownership | 23 established categories. All 14 manager portfolios match the independent audit for total, sole and shared counts. Each established card links to qualifications and source receipts. |
-| Mobile Record Book | Direct search entry, category and keyword filters, searchable personal portfolios and linked ranked evidence. The expanded search archive has its own Week 9 cutoff. |
+| Mobile Record Book | One keyword search finds established records and expanded archive results. Results use separate counts and evidence links. Archive family filters and the Week 9 archive cutoff stay visible. |
 | Weekly ownership changes | The approved import compares adjacent weeks. Home, My Team and Record Holders show Week 11 verified changes and link to evidence. The editorial research packet consumes the same report. Synthetic Week 12 passed in a disposable copy. |
 | Player archive | Research and preview cover 470 players and team defenses, 8,253 reconciled starter performances, 935 linked draft selections and 3,187 transaction links. The 115 unresolved draft selections retain their uncertainty. Production integration is pending. |
 
@@ -36,6 +36,11 @@
 - The same implementation passed local Chromium and WebKit production
   rehearsal at 320, 390, and 1280 px, the stale-score Record Watch check,
   canonical validation, and the 87-route HTTP smoke test.
+- This search update passed the expanded and established evidence flows at
+  390 px in Chromium and WebKit, including four tied holders for semifinal
+  appearances. Registry verification, the weekly ownership report, canonical
+  validation, the 87-route smoke test, and documentation links also passed
+  locally. The new PR head still needs its GitHub checks.
 - Remaining 5.7 work is tracked in [ROADMAP.md](ROADMAP.md). The wider
   candidate registry remains scoped. The certified FAAB bid archive ends
   at Week 9, and later provider evidence needs separate verification.
