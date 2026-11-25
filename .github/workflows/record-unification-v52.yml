@@ -21,6 +21,7 @@ on:
       - 'scripts/legacy-record-definitions-v57.mjs'
       - 'scripts/record-deduplication-v57.mjs'
       - 'scripts/record-ownership-review-v57.mjs'
+      - 'scripts/record-publication-review-v57.mjs'
       - 'scripts/test-unified-record-registry-v57.mjs'
       - 'analytics/player-directory-preview.html'
       - 'assets/player-directory-preview.mjs'
@@ -100,4 +101,5 @@ jobs:
             data-integrity/player-transaction-history-v56.json
             data-integrity/player-directory-preview/
             data-integrity/unified-record-registry-v57.json
+            data-integrity/record-publication-preview-v57.json
           if-no-files-found: error

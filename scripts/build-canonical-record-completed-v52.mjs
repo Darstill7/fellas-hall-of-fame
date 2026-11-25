@@ -55,11 +55,12 @@ export function buildCompleted(allEra,placements,receipts,legendary,postseason,f
   add('legendary-'+c.id,c.label,c.metric,'',c.holder.map(h=>({...h,detail:c.detail})),c.rule,'data/legendary_records_2016_2025_v1.json');
  }
  assert.equal(floor.managerSeasons.length,floor.completeManagerSeasons);
- for(const [id,label,field,unit] of [
-  ['highest-season-floor','Highest complete-season scoring floor','minScore','pts'],
-  ['season-weeks-over100','Most weeks strictly over 100 in a completed season','weeksStrictlyOver100','weeks'],
-  ['season-weeks-atleast105','Most weeks at least 105 in a completed season','weeksAtLeast105','weeks']
- ])peak(id,label,floor.managerSeasons,r=>r[field],'max',unit,floor.method,'data/scoring_floor_research_2016_2025_v1.json');
+ const fullSeason='Every canonical regular-season week in a completed manager-season must have a recorded score';
+ for(const [id,label,field,unit,method] of [
+  ['highest-season-floor','Highest complete-season scoring floor','minScore','pts','rank the lowest weekly score'],
+  ['season-weeks-over100','Most weeks strictly over 100 in a completed season','weeksStrictlyOver100','weeks','count scores strictly greater than 100.00'],
+  ['season-weeks-atleast105','Most weeks at least 105 in a completed season','weeksAtLeast105','weeks','count scores greater than or equal to 105.00']
+ ])peak(id,label,floor.managerSeasons,r=>r[field],'max',unit,fullSeason+'; '+method,'data/scoring_floor_research_2016_2025_v1.json');
  assert.equal(new Set(records.map(r=>r.id)).size,records.length);
  return {schemaVersion:1,status:'completed-family-candidates-not-full-registry',categoryCount:records.length,scope,records,excluded};
 }

@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {reviewPublicationCandidates} from './record-publication-review-v57.mjs';
 import {findOwnedRecords, establishedRecordSources} from '../assets/manager-record-ownership.mjs';
 
 const researchFamilies = {
@@ -85,5 +86,9 @@ export function reviewOwnershipScope(records, establishedPanel, archive, guide, 
     assert.ok(byId.has(leftId) && byId.has(rightId), 'Unresolvable review comparison ' + leftId + ' / ' + rightId);
     return {leftId, rightId, decision:'distinct-scope', reason};
   });
-  return {established, candidateDecisions, comparisons};
+  const publicationCandidates = candidateDecisions.filter(row=>row.disposition==='awaiting-publication-review')
+    .map(row=>byId.get(row.id));
+  const publicationReview = reviewPublicationCandidates(publicationCandidates,established,
+    archive.managers.map(row=>row.manager),postseason);
+  return {established, candidateDecisions, comparisons, publicationReview};
 }

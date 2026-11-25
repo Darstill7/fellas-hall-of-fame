@@ -114,8 +114,16 @@ const out={schemaVersion:2,status:'legacy-reviewed-candidate-registry',asOf:inpu
  regularSeasonThrough:legacy.through,regularGames:legacy.regularGames,sourceCounts,categoryCount:records.length,
  managerCategoryCount:managerRecords.length,playerCategoryCount:playerRecords.length,legacyReview,
  ownershipReview,duplicateLabelReview,managerPortfolios,playerPortfolios,records};
-const file='data-integrity/unified-record-registry-v57.json',body=JSON.stringify(out,null,2)+'\n';
-if(process.argv.includes('--check'))assert.equal(fs.readFileSync(file,'utf8'),body);else fs.writeFileSync(file,body);
+const files=[
+ ['data-integrity/unified-record-registry-v57.json',out],
+ ['data-integrity/record-publication-preview-v57.json',{
+  asOf:out.asOf,regularSeasonThrough:out.regularSeasonThrough,...ownershipReview.publicationReview
+ }]
+];
+for(const [file,value] of files){
+ const body=JSON.stringify(value,null,2)+'\n';
+ if(process.argv.includes('--check'))assert.equal(fs.readFileSync(file,'utf8'),body);else fs.writeFileSync(file,body);
+}
 console.log('Unified registry: '+records.length+' candidates; '+managerRecords.length+' manager-owned, '+
  playerRecords.length+' player-owned; '+legacyReview.mappings.length+' legacy mappings and '+
  managerPortfolios.length+' manager portfolios. Candidate totals only.');

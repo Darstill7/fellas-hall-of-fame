@@ -33,6 +33,31 @@ for (const decision of review.candidateDecisions) {
 assert.ok(review.comparisons.some(row => row.leftId.startsWith('champion-position:') &&
   row.rightId.startsWith('player-champion:')), 'Cross-type ownership comparison must be explicit');
 
+const preview = review.publicationReview;
+assert.equal(preview.status,'review-preview');
+assert.deepEqual(read('data-integrity/record-publication-preview-v57.json'),{
+  asOf:registry.asOf,regularSeasonThrough:registry.regularSeasonThrough,...preview
+});
+assert.equal(preview.currentCategoryCount,review.established.length);
+assert.equal(preview.previewCategoryCount,preview.currentCategoryCount+preview.proposedRecords.length);
+assert.deepEqual(new Set(preview.decisions.map(row=>row.id)),
+  new Set(review.candidateDecisions.filter(row=>row.disposition==='awaiting-publication-review').map(row=>row.id)));
+assert.equal(preview.decisions.length,65);
+assert.equal(preview.proposedRecords.length,7);
+assert.equal(preview.portfolios.length,inputs.archive.managers.length);
+for (const record of preview.proposedRecords) {
+  assert.ok(!review.established.some(row=>row.canonicalId===record.id));
+  assert.ok(record.holders.every(holder=>holder.evidence.length>0));
+}
+for (const owner of preview.portfolios) {
+  const added = preview.proposedRecords.filter(record=>record.holders.some(holder=>holder.manager===owner.ownerId));
+  assert.deepEqual(owner.addedRecordIds,added.map(record=>record.id));
+  assert.equal(owner.sole+owner.shared,owner.total);
+  assert.equal(owner.total,owner.current+added.length);
+}
+assert.match(records.get('historical:season-weeks-over100').qualification,/strictly greater than 100/);
+assert.match(records.get('historical:season-weeks-atleast105').qualification,/greater than or equal to 105/);
+
 const threshold = (id, owner) => records.get('legacy:' + id).holders.find(row => row.ownerId === owner);
 const mitch = records.get('legacy:win-rate').holders[0].evidence[0];
 assert.ok(mitch.games >= 60);

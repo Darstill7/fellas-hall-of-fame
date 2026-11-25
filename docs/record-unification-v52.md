@@ -67,3 +67,22 @@ additional recovered-game or official-placement candidates awaiting publication
 review. These counts describe the inventory. The 16 established categories
 determine the public ownership totals. Their record links now open the
 corresponding card with the credited managers, qualification and source links.
+
+## Proposed standings and playoff additions
+
+`ownershipReview.publicationReview` records a disposition for each of the 65
+remaining candidates. The preview proposes seven additions: most completed
+seasons, most top-half finishes, greatest consecutive-season placement
+improvement, most semifinal appearances, most byes, most top seeds, and
+longest consecutive playoff berth streak. The generator calculates their
+marks and ties directly from the official finishing order and verified
+brackets, then checks the corresponding registry entries. Per-manager preview
+totals preserve the 16 established categories and show the effect of adding
+the seven proposals. CI also publishes a standalone copy at
+`data-integrity/record-publication-preview-v57.json` with the supporting season
+receipts.
+
+The other 58 records retain their specific scope. That includes recovered game
+and streak samples, partial-season comparisons, format-dependent postseason
+exhibits, and opposing roles in the same matchup. Public counts remain based
+on the established collection pending a publication decision.
