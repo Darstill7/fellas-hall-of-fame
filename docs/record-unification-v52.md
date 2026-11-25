@@ -14,3 +14,37 @@
 
 ## Next implementation
 Run scripts/build-record-inventory-v52.mjs to produce the source inventory. Add explicit stable canonical category IDs and verified holder receipts, then regenerate all active-season values and integrate the manager view and Tuesday sync. This is an initial inventory, not an exhaustive or unique count.
+
+## Phase 5.7 legacy reconciliation
+
+The research workflow regenerates the unified registry at
+`data-integrity/unified-record-registry-v57.json`. The `legacyReview` section
+maps every Expanded Records definition to a single stable ID. Sixteen map to
+regular-season core records, four to official-placement records, and 24 are
+recomputed from the paired ledger or verified final ranks. The generator checks
+the 24 recomputations against the archive at its original cutoff, then reruns
+them through the latest paired game. The weekly season projection and manager
+archive are checked against the ledger.
+
+The 60-game, tie-adjusted career win rate is the registry definition. The
+established 50-game display is a scoped variant and contributes no second
+registry credit. Rival wins and meetings now both require five meetings, and
+rivalry win rate uses at least six. Completed-season highs require 12 recorded
+games from an officially completed season. That minimum admits some partial
+historical samples, so the output describes recovered scores and leaves raw
+scores unadjusted across scoring eras. Career streaks follow recorded
+appearances across seasons and gaps. Within-season weekly streaks have separate
+eligibility. Role-specific records such as winning margin and losing margin
+credit the different sides of a matchup.
+
+Registry portfolios give each manager credit once per held category and keep
+every supporting instance. All tied managers receive credit. The registry
+includes a scoped portfolio for the 44 reviewed legacy definitions, and the
+larger candidate portfolios keep manager and player ownership separate. The
+full research intake still needs cross-family review and publication approval
+before its totals can be displayed as unique league records.
+
+Public profile previews, the personal record book and the ownership
+leaderboard use the established 16-category collection. The manager finder
+shows archived and specialty leads separately. The homepage links to the
+personal record book and does not display an ownership total.

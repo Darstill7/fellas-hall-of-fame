@@ -49,8 +49,10 @@ export function buildCore(ledger,archive){
  add('high-score-losses','Most losses while scoring at least 120',career,r=>r.highLoss,'max','games');
  const rival=[];
  for(const [manager,a] of teams){const opponents=new Map();for(const r of a){if(!opponents.has(r.opponent))opponents.set(r.opponent,[]);opponents.get(r.opponent).push(r);}for(const [opponent,list] of opponents)rival.push({manager,opponent,games:list.length,wins:list.filter(r=>r.points>r.against).length});}
- add('rival-wins','Most regular-season wins against one opponent',rival,r=>r.wins,'max','wins');
- add('rival-games','Most regular-season meetings against one opponent',rival,r=>r.games,'max','games');
+ const qualifiedRivals=rival.filter(r=>r.games>=5);
+ const rivalryQualification='At least five recovered paired regular-season meetings with one opponent';
+ add('rival-wins','Most regular-season wins against one opponent',qualifiedRivals,r=>r.wins,'max','wins',rivalryQualification);
+ add('rival-games','Most regular-season meetings against one opponent',qualifiedRivals,r=>r.games,'max','games',rivalryQualification);
  assert.equal(new Set(records.map(r=>r.id)).size,records.length);
  return {schemaVersion:1,throughWeek,asOf:ledger.updated,regularGames:games.length,categoryCount:records.length,scope,status:'partial-core-not-complete-ownership',records};
 }
