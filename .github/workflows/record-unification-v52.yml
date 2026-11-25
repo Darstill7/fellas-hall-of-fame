@@ -16,6 +16,9 @@ on:
       - 'scripts/build-player-hall-of-fame-v56.mjs'
       - 'scripts/build-player-championship-records-v56.mjs'
       - 'scripts/build-player-transaction-history-v56.mjs'
+      - 'scripts/build-player-directory-v56.mjs'
+      - 'analytics/player-directory-preview.html'
+      - 'assets/player-directory-preview.mjs'
       - 'assets/manager-record-ownership.mjs'
       - 'data/**'
       - '.github/workflows/record-unification-v52.yml'
@@ -61,6 +64,10 @@ jobs:
         run: node scripts/build-player-championship-records-v56.mjs
       - name: Reconcile player transaction history
         run: node scripts/build-player-transaction-history-v56.mjs
+      - name: Generate player directory preview
+        run: |
+          node scripts/build-player-directory-v56.mjs
+          node --check assets/player-directory-preview.mjs
       - name: Upload candidate receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -81,4 +88,5 @@ jobs:
             data-integrity/player-hall-of-fame-v56.json
             data-integrity/player-championship-records-v56.json
             data-integrity/player-transaction-history-v56.json
+            data-integrity/player-directory-preview/
           if-no-files-found: error
