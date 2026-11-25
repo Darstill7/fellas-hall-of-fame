@@ -113,6 +113,10 @@ export function findOwnedRecords(archive,guide,manager,postseason){
   }));
  });
 }
+export function summarizeOwnedRecords(records){
+ const shared=records.filter(record=>record.shared).length;
+ return {total:records.length,sole:records.length-shared,shared};
+}
 // Compare with the next-best different manager, not the holder's second season.
 export function nextRecordChallenger(archive,guide,label,postseason){
  const category=buildRecordCategories(archive,guide,postseason).find(c=>c.label===label);
@@ -153,22 +157,44 @@ export async function mountRecordOwnership(){
    const owned=findOwnedRecords(archive,guide,manager,postseason);
    root.replaceChildren();
    const heading=document.createElement('h2');heading.textContent='Records '+manager+' owns · '+owned.length;root.append(heading);
-   const intro=document.createElement('p');intro.className='muted';intro.textContent='Holds '+owned.length+' of '+buildRecordCategories(archive,guide,postseason).filter(c=>c.rows.length&&Math[c.direction](...c.rows.map(x=>x.value))>0).length+' evaluated league record categories. This is a limited collection, not the entire Record Book. Shared records are labeled; personal bests appear below.';root.append(intro);
+   const totals=summarizeOwnedRecords(owned);
+   const intro=document.createElement('p');intro.className='muted';
+   intro.textContent=totals.total+' of '+recordCategoryLabels.length+' established league records · '+
+    totals.sole+' sole · '+totals.shared+' shared · Updated '+archive.asOf;
+   root.append(intro);
    if(!owned.length){
     const message=document.createElement('p');message.className='note';
-    message.textContent='No league-leading record in these '+recordCategoryLabels.length+' verified categories yet. See personal records below for this manager’s biggest performances.';
+    message.textContent='No leads in the established collection. Explore personal bests below.';
     root.append(message);return;
    }
+   const search=document.createElement('input');
+   search.type='search';search.id='owned-record-search';search.placeholder='Search by record, season or opponent';
+   const searchLabel=document.createElement('label');
+   searchLabel.htmlFor=search.id;searchLabel.textContent='Search records held';
+   const status=document.createElement('p');
+   status.className='muted';status.setAttribute('role','status');
+   root.append(searchLabel,search,status);
    const list=document.createElement('div');list.className='owned-record-grid';
+   const items=[];
    for(const r of owned){
     const card=document.createElement('article');card.className='owned-record';
     const label=document.createElement('h3');label.textContent=r.label;
     const value=document.createElement('strong');value.textContent=String(r.value)+(r.unit==='pts'?' pts':r.unit==='%'?'%':' '+r.unit);
     const context=document.createElement('p');context.textContent=r.context;
     const scope=document.createElement('small');scope.textContent=(r.shared?'Shared league record · ':'League record · ')+r.scope;
-    card.append(label,value,context,scope);mountRecordShare(card,manager,r);list.append(card);
+    card.append(label,value,context,scope);mountRecordShare(card,manager,r);
+    items.push({card,text:[r.label,r.value,r.unit,r.context,r.scope,r.shared?'shared':'sole']
+     .join(' ').toLocaleLowerCase('en-US')});
    }
-   root.append(list);
+   const filter=()=>{
+    const words=search.value.trim().toLocaleLowerCase('en-US').split(/\s+/).filter(Boolean);
+    const matches=items.filter(item=>words.every(word=>item.text.includes(word)));
+    list.replaceChildren(...matches.map(item=>item.card));
+    status.textContent=matches.length===items.length?'':matches.length
+     ?matches.length+' of '+items.length+' records match your search.':'No records match your search.';
+   };
+   search.addEventListener('input',filter);
+   root.append(list);filter();
   };
   picker.addEventListener('change',draw);
   if(picker.options.length)draw();

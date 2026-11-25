@@ -1,4 +1,4 @@
-import {findOwnedRecords,recordCategoryLabels,nextRecordChallenger} from './manager-record-ownership.mjs';
+import {findOwnedRecords,recordCategoryLabels,nextRecordChallenger,summarizeOwnedRecords} from './manager-record-ownership.mjs';
 const active=new Set(['Stilly','JMid','Thommy','Stew','Scott','Mitch','Tony','Stover','Kuhl','Birch']);
 const categories=recordCategoryLabels;
 const catalogGroups=['All','Single-game','Career','Season','Rivalries','Final standings'];
@@ -49,13 +49,11 @@ function renderManagerFinder(){
   if(championshipTradeRecord&&selected===championshipTradeRecord.holder)collection.push({label:'Most championship-run starter points from one trade · 2020–2025',group:'Postseason',value:championshipTradeRecord.value.toFixed(2)+' points · '+championshipTradeRecord.year,href:'#championship-trade-record'});
   if(tradeRevenge?.recordA?.holder===selected)collection.push({label:'Former players scoring against their original manager · 2020–2025',group:'Postseason',value:tradeRevenge.recordA.points.toFixed(2)+' points · 2024',href:'#playoff-trade-revenge-records'});
   if(tradeRevenge?.recordB?.holder===selected)collection.push({label:'Former-player playoff points from one direct trade · 2020–2025',group:'Postseason',value:tradeRevenge.recordB.points.toFixed(2)+' points · 2023',href:'#playoff-trade-revenge-records'});
- // A concept can appear in multiple historical catalogs; display a warning instead of adding counts.
- const sections=[['Expanded league records',expanded],['Established records',legacy],['Specialty historical collections',collection]];
- const count=collection.length+expanded.length+legacy.length;
- selectedLabel.textContent=selected+' · '+count+' first-place category entries';
- results.replaceChildren();
- const warning=tag('p','These are first-place category entries, not '+count+' necessarily distinct records. Overlapping concepts across collections are retained for transparency. Ties share first place. Ongoing 2026 season watchlists are excluded.','muted');
- results.append(warning);
+ const totals=summarizeOwnedRecords(row.records);
+ selectedLabel.textContent=selected+' · '+totals.total+' established record '+(totals.total===1?'lead':'leads');
+ results.replaceChildren(tag('p',totals.sole+' sole · '+totals.shared+
+  ' shared. Archive exhibits below use their own source coverage.','muted'));
+ const sections=[['Established records',legacy],['Expanded record archive',expanded],['Specialty historical collections',collection]];
  const luck=scheduleLuckRows.find(r=>displayName(r.manager)===selected);
  for(const [heading,items] of sections){
   const section=tag('section',undefined,'record-finder-section');
@@ -171,35 +169,31 @@ async function start(){
   if(responses.some(r=>!r.ok))throw Error('Record files unavailable');
   const [archive,guide,espn,sleeper,placements,placementReceipts,allEra,expanded]=await Promise.all(responses.map(r=>r.json()));
   if(expanded.version!==1||expanded.categoryCount!==44||expanded.categories?.length!==44||categories.length!==16)throw Error('Expanded and legacy record catalog mismatch');
-  const leadersByManager=new Map();
   for(const category of expanded.categories){
    if(!category.key||!category.label||!Array.isArray(category.leaders)||!category.leaders.length)throw Error('Incomplete expanded category: '+category.key);
-   const names=new Set(category.leaders.filter(r=>r.rank===1).map(r=>expandedName(r.manager)));
-   for(const name of names){const records=leadersByManager.get(name)||[];records.push({key:category.key,label:category.label,group:category.group});leadersByManager.set(name,records)}
   }
   const postseason={espn,sleeper,placements,placementReceipts,allEra};
   if(!Array.isArray(archive.managers)||archive.managers.length<10||!archive.asOf)throw Error('Unexpected record archive');
-  const rows=archive.managers.map(m=>({name:m.manager,records:findOwnedRecords(archive,guide,m.manager,postseason),expandedRecords:leadersByManager.get(expandedName(m.manager))||[]}))
-   .sort((a,b)=>b.expandedRecords.length-a.expandedRecords.length||b.records.length-a.records.length||a.name.localeCompare(b.name));
-  for(const [name,records] of leadersByManager)if(!rows.some(row=>expandedName(row.name)===name))rows.push({name,records:[],expandedRecords:records});
-  rows.sort((a,b)=>b.expandedRecords.length-a.expandedRecords.length||b.records.length-a.records.length||a.name.localeCompare(b.name));
+  const rows=archive.managers.map(m=>({name:m.manager,records:findOwnedRecords(archive,guide,m.manager,postseason)}));
+  rows.sort((a,b)=>b.records.length-a.records.length||a.name.localeCompare(b.name));
   managerRows=rows;expandedData=expanded;renderManagerFinder();renderManagerComparison();
   fetch('../data/hall_of_fortune_2016_2026w9_v1.json').then(r=>{if(!r.ok)throw Error('Schedule Luck registry unavailable');return r.json()}).then(data=>{const ranks=data.careerScheduleSurplusNormalized||[];scheduleLuckRows=ranks;const leader=ranks[0];if(leader?.manager==='Birch'&&leader.winSurplus>0)fortuneRecord=leader;renderManagerFinder()}).catch(()=>{fortuneRecord=null});
   fetch('../data/championship_trade_awards_2020_2025_v1.json').then(response=>{if(!response.ok)throw Error('Championship trade awards unavailable');return response.json()}).then(data=>{const record=data.officialScopedRecord;if(data.schema==='fellas-championship-trade-awards-2020-2025-v1'&&record?.holder==='Stilly'&&record?.value===57.68){championshipTradeRecord=record;renderManagerFinder()}}).catch(()=>{championshipTradeRecord=null});
   fetch('../data/playoff_trade_revenge_2020_2025_v1.json').then(r=>{if(!r.ok)throw Error('Trade revenge archive unavailable');return r.json()}).then(data=>{if(data.schema==='fellas-playoff-trade-revenge-2020-2025-v1'&&data.recordA?.holder==='Thommy'&&data.recordB?.holder==='Stilly'){tradeRevenge=data;renderManagerFinder()}}).catch(()=>{tradeRevenge=null});
-  summary.textContent=expanded.categoryCount+' expanded categories + '+categories.length+' established categories · Tied first-place managers share credit · Some record concepts overlap.';
+  summary.textContent='Ranked by '+categories.length+' established categories · Tied first-place managers share credit. Browse '+expanded.categoryCount+' expanded categories in the archive.';
   list.replaceChildren();
   other.replaceChildren();
-  const remaining=rows.filter(row=>!row.records.length&&!row.expandedRecords.length);
+  const remaining=rows.filter(row=>!row.records.length);
   otherDisclosure.hidden=remaining.length===0;
   for(const row of rows){
    const a=tag('a',undefined,'leader-card');a.href=target(row.name);
    const heading=tag('h3',row.name+(active.has(row.name)?'':' · Former manager'));
-   const count=tag('span',row.expandedRecords.length+' expanded '+(row.expandedRecords.length===1?'record':'records'),'count');
-   const breakdown=tag('span',row.records.length+' established-category leads · First-place records only','leader-count-breakdown');
-   const preview=tag('small',row.expandedRecords.length?row.expandedRecords.slice(0,3).map(r=>r.label).join(' · '):row.records.length?row.records.slice(0,2).map(r=>r.label).join(' · '):'No current first-place category lead');
+   const totals=summarizeOwnedRecords(row.records);
+   const count=tag('span',totals.total+' established '+(totals.total===1?'record':'records'),'count');
+   const breakdown=tag('span',totals.sole+' sole · '+totals.shared+' shared','leader-count-breakdown');
+   const preview=tag('small',row.records.length?row.records.slice(0,3).map(r=>r.label).join(' · '):'No established category lead');
    const link=tag('span','Explore this manager’s records →','cta');
-   a.append(heading,count,breakdown,preview,link);(row.records.length||row.expandedRecords.length?list:other).append(a);
+   a.append(heading,count,breakdown,preview,link);(row.records.length?list:other).append(a);
   }
   // Filter the existing verified 44-category catalog; never compute or invent
   // records from search text. The family and keyword filters combine.
