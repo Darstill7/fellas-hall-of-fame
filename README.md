@@ -15,8 +15,11 @@ Historical league records, manager franchise pages, rivalry history, record book
 - [Development standards](AGENTS.md) cover identity rules, data verification
   and owner approval for production changes.
 
-The November 23 snapshot is available in Git history. For current release
-detail, use the project status and the relevant PR on GitHub.
+For ChatGPT and Codex handoffs, open the
+[live project status on the active GitHub branch](https://github.com/Darstill7/fellas-hall-of-fame/blob/development/v5-2-record-unification/PROJECT_STATUS.md)
+at the start of each significant task. The status identifies the current PR,
+tested revisions, and next work. The November 23 snapshot is available in
+Git history.
 
 ## Editorial and scoring rules
 

@@ -9,20 +9,34 @@ is mobile. Prioritize fast answers, plain navigation labels, readable numbers,
 and direct links from a statistic to its evidence. The site complements
 Sleeper. The Weekly Shitter is a roast with fact-checked statistics.
 
-## Start and finish each task
+## Shared GitHub handoff
 
-- Read [PROJECT_STATUS.md](PROJECT_STATUS.md) and [ROADMAP.md](ROADMAP.md).
-  Confirm the actual checkout, remote PR head, and relevant GitHub Actions
-  conclusions. GitHub is the shared record for ChatGPT and Codex.
+- At the start of each significant task, read [PROJECT_STATUS.md](PROJECT_STATUS.md),
+  [ROADMAP.md](ROADMAP.md), and this file on the active GitHub branch. Confirm
+  the checkout, PR head, source cutoff, and relevant Actions results. ChatGPT
+  and Codex should start with the current files in GitHub.
 - Continue Version 5.7 from `development/v5-2-record-unification` and
   [PR #318](https://github.com/Darstill7/fellas-hall-of-fame/pull/318).
-  Preserve existing work and use focused commits. Do not merge to `main` or
-  deploy to production without the owner's explicit approval.
-- Keep [PROJECT_STATUS.md](PROJECT_STATUS.md) and [ROADMAP.md](ROADMAP.md)
-  current in the same PR whenever significant work is completed, validation
-  changes, or release readiness changes. Record the tested revision, actual
-  results, source cutoff, and any remaining blocker. Distinguish local runs,
+  Preserve existing work and use focused commits. Merge to `main` and
+  production deployment each require the owner's explicit approval.
+- Updating the root [PROJECT_STATUS.md](PROJECT_STATUS.md) is part of completing
+  every significant development task. Record the last updated date and time
+  in America/New_York, the current phase, completed changes, files modified,
+  commit references, active PRs and branches, validation and browser results,
+  outstanding issues and blockers, implementation decisions, and recommended
+  next tasks. Keep the latest batch concise and use Git references for history.
+- Commit status and roadmap updates on the same branch and PR as the work they
+  describe. Give tests the exact code revision they covered. If work and
+  status share one commit, identify that commit by subject and use
+  `git log -1 -- PROJECT_STATUS.md` to resolve the SHA. Record later CI results
+  in a status follow-up when they change readiness. Distinguish local runs,
   PR CI, merged source, and independently verified public Pages.
+- Update [ROADMAP.md](ROADMAP.md) when a phase, sequence, or acceptance gate
+  changes. Update this file when lasting project rules change. Preserve dated
+  handoffs and technical documents as history and evidence.
+
+## Development and validation
+
 - Use the existing repository scripts and GitHub Actions. The site is static
   HTML, CSS, and JavaScript. CI uses Node 22 and Playwright Chromium/WebKit.
   Serve from the parent of the checkout to exercise the
