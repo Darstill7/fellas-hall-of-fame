@@ -18,7 +18,8 @@ const server=http.createServer(async(req,res)=>{
  catch{res.writeHead(404);res.end()}
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-const url='http://127.0.0.1:'+server.address().port+base+'analytics/record-holders.html';
+const recordsURL='http://127.0.0.1:'+server.address().port+base+'analytics/';
+const url=recordsURL+'record-holders.html';
 const engines=[['chromium',chromium],['webkit',webkit]];
 const errors=[];
 try{
@@ -26,6 +27,27 @@ try{
   const browser=await launcher.launch({headless:true,...(engine==='chromium'?{args:['--no-sandbox']}:{})});
   try{
    const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
+   await page.goto(recordsURL+'records.html?app=1',{waitUntil:'domcontentloaded'});
+   await page.getByRole('link',{name:'Search league records',exact:true}).click();
+   await page.waitForURL('**/record-holders.html?app=1#complete-record-index');
+   const linkedSearch=page.locator('#record-category-query');
+   await linkedSearch.waitFor({state:'visible'});
+   await page.waitForFunction(()=>document.querySelector('#record-category-results-count')?.textContent?.includes('Showing 44 of 44'));
+   if(!await linkedSearch.evaluate(el=>el.getBoundingClientRect().top>=0 &&
+     el.getBoundingClientRect().bottom<innerHeight))errors.push(engine+': direct link leaves search outside viewport');
+   await linkedSearch.fill('closest win');
+   const closest=page.locator('#expanded-record-categories .category-card').filter({hasText:'Closest regular-season victory'});
+   const scope=await page.locator('#record-category-coverage').textContent();
+   await closest.getByRole('link',{name:'View full ranked evidence'}).click();
+   await page.waitForURL('**/expanded-records.html?*#expanded-records-explorer');
+   if(await page.locator('#expanded-title').textContent()!=='Closest regular-season victory'||
+      await page.locator('#expanded-category').inputValue()!=='narrowest-win'||
+      await page.locator('#expanded-records-coverage').textContent()!==scope||
+      !await page.locator('#expanded-rows tr').first().isVisible()||
+      !await page.locator('#expanded-title').evaluate(el=>el.getBoundingClientRect().top>=0 &&
+        el.getBoundingClientRect().bottom<innerHeight))
+    errors.push(engine+': evidence deep link lost the selected record or coverage');
+
    await page.goto(url,{waitUntil:'domcontentloaded'});
    await page.locator('#complete-record-index .records-archive-disclosure>summary').click();
    const input=page.locator('#record-category-query');
@@ -84,4 +106,4 @@ try{
  }
 }finally{await new Promise(resolve=>server.close(resolve))}
 if(errors.length){console.error(errors.join('\n'));process.exitCode=1}
-else console.log('PASS: Chromium and WebKit 390px record search, family composition, reset and no overflow');
+else console.log('PASS: Chromium and WebKit 390px record search entry, evidence, family composition, reset and no overflow');

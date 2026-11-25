@@ -2,7 +2,11 @@ name: Record Holders category search
 on:
   pull_request:
     paths:
+      - 'analytics/records.html'
       - 'analytics/record-holders.html'
+      - 'analytics/expanded-records.html'
+      - 'assets/expanded-records.mjs'
+      - 'data/expanded_records_verified_v1.json'
       - 'assets/record-holders-page.mjs'
       - 'scripts/test-record-holder-search.mjs'
       - 'scripts/test-record-holder-search-browser.mjs'

@@ -2,6 +2,12 @@ import {findOwnedRecords,recordCategoryLabels,nextRecordChallenger,summarizeOwne
 const active=new Set(['Stilly','JMid','Thommy','Stew','Scott','Mitch','Tony','Stover','Kuhl','Birch']);
 const categories=recordCategoryLabels;
 const catalogGroups=['All','Single-game','Career','Season','Rivalries','Final standings'];
+const categorySearchAliases={
+ 'narrowest-win':'closest win smallest winning margin',
+ 'narrowest-defeat':'closest loss smallest losing margin',
+ 'biggest-win':'biggest win largest winning margin blowout',
+ 'biggest-defeat':'biggest loss largest losing margin blowout'
+};
 const expandedName=name=>name==='Thommy'?'Tom':name;
 const displayName=name=>name==='Tom'?'Thommy':name;
 const formatExpanded=(record,unit)=>{const val=Number(record.value);const formatted=Number.isFinite(val)?new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(val):String(record.value);return unit==='%'?formatted+'%':unit==='score / 100'?formatted+'/100':formatted+(unit?' '+unit:'')};
@@ -152,6 +158,16 @@ document.addEventListener('fellas:verified-record-owners',event=>{
 });
 
 const detail=(name,label)=>{const a=tag('a',label);a.href=target(name);return a};
+const archiveSection=document.getElementById('complete-record-index');
+function openLinkedSearch(){
+ if(location.hash!=='#complete-record-index')return;
+ const disclosure=archiveSection?.querySelector('details');
+ if(disclosure)disclosure.open=true;
+ archiveSection?.scrollIntoView({block:'start',behavior:'instant'});
+}
+window.addEventListener('hashchange',openLinkedSearch);
+openLinkedSearch();
+
 async function start(){
  const list=document.getElementById('record-leaders'),other=document.getElementById('record-other'),otherDisclosure=document.getElementById('leader-other'),categoryHost=document.getElementById('record-categories');
  const expandedHost=document.getElementById('expanded-record-categories'),familyNav=document.getElementById('record-family-nav'),summary=document.getElementById('record-count-summary');
@@ -200,10 +216,11 @@ async function start(){
   const queryInput=document.getElementById('record-category-query');
   const resultCount=document.getElementById('record-category-results-count');
   if(!queryInput||!resultCount)throw Error('Record category search controls unavailable');
+  document.getElementById('record-category-coverage').textContent='Archive coverage · '+expanded.scope+'.';
   let selectedFamily='All';
   const searchableCategory=c=>{
    const winners=c.leaders.filter(r=>r.rank===1);
-   return [c.label,c.group,c.qualifier||'',c.key,
+   return [c.label,c.group,c.qualifier||'',c.key,categorySearchAliases[c.key]||'',
      ...winners.flatMap(r=>[displayName(r.manager),r.year||'',r.week?'Week '+r.week:'',
        r.evidence?.opponent||''])].join(' ').toLocaleLowerCase('en-US');
   };
@@ -242,7 +259,7 @@ async function start(){
     const receipt=winners[0];const evidence=receipt.evidence||{};
     const context=[receipt.year?String(receipt.year):'',receipt.week?'Week '+receipt.week:'',evidence.opponent?'vs '+evidence.opponent:''].filter(Boolean).join(' · ');
     card.append(tag('small',category.group+(context?' · '+context:'')+(category.qualifier?' · '+category.qualifier:''),'record-source'));
-    const exact=tag('a','View full ranked evidence →');exact.href='expanded-records.html?group='+encodeURIComponent(category.group)+'&category='+encodeURIComponent(category.key);exact.className='cta';exact.style.display='inline-flex';exact.style.minHeight='44px';exact.style.alignItems='center';exact.style.marginTop='8px';card.append(exact);
+    const exact=tag('a','View full ranked evidence →');exact.href='expanded-records.html?group='+encodeURIComponent(category.group)+'&category='+encodeURIComponent(category.key)+'#expanded-records-explorer';exact.className='cta';exact.style.display='inline-flex';exact.style.minHeight='44px';exact.style.alignItems='center';exact.style.marginTop='8px';card.append(exact);
     expandedHost.append(card);
    }
   };
@@ -281,6 +298,8 @@ async function start(){
    }
    categoryHost.append(card);
   }
+  // The sections above the search grow when their archive data arrives.
+  openLinkedSearch();
  }catch(error){
   list.replaceChildren(tag('p','Record holders are temporarily unavailable. Try the personal record books below.','scope'));
   categoryHost.replaceChildren();
