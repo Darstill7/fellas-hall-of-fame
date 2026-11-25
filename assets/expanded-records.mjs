@@ -1,3 +1,4 @@
+import {matchesRecordWatchScores} from './weekly-record-watch.mjs';
 // Source-backed extended records: manager inclusion without invented league titles.
 const css=new URL("./expanded-records.css",import.meta.url).href;
 if(!document.querySelector('link[data-expanded-record-css]')){
@@ -103,6 +104,7 @@ function renderExplorer(data){
  +'<p class="records-lab-intro" id="expanded-records-coverage">Archive coverage · '+escapeHtml(data.scope)+'.</p>'
  +'<div class="records-lab-controls"><label>Record family<select id="expanded-group"></select></label>'
  +'<label>Record category<select id="expanded-category"></select></label></div>'
+ +'<section id="expanded-current-mark" aria-label="Approved leader mark" hidden></section>'
  +'<div class="records-lab-table-scroll"><table class="records-lab-table"><thead><tr><th>Rank</th><th>Manager</th><th>Record</th><th>Verified context</th></tr></thead><tbody id="expanded-rows"></tbody></table></div>'
  +'<p class="records-lab-caveat">'+data.rules.map(escapeHtml).join(" ")+'</p>';
  const group=host.querySelector("#expanded-group"),category=host.querySelector("#expanded-category"),manager=portfolio.querySelector("#expanded-manager");
@@ -120,6 +122,22 @@ function renderExplorer(data){
      +unique.map(({category:c,record:r})=>'<tr><td>#'+r.rank+'</td><td><a href="?group='+encodeURIComponent(c.group)+'&category='+encodeURIComponent(c.key)+'&manager='+encodeURIComponent(selectedManager)+'">'+escapeHtml(c.label)+'</a></td><td>'+escapeHtml(fmt(r.value,c.unit))+'</td><td>'+escapeHtml(detail(r))+'</td></tr>').join('')
      +'</tbody></table></div>':'<p class="records-lab-intro">No top-three leaderboard marks in the current evidence set; the personal milestones above are still verified.</p>');
  };
+ let currentMarks=null;
+ const paintCurrentMark=()=>{
+  const panel=host.querySelector('#expanded-current-mark');
+  const mark=currentMarks?.categories.find(row=>row.key===selectedCategory);
+  panel.replaceChildren();
+  panel.hidden=!mark;
+  if(!mark)return;
+  const title=document.createElement('h3');
+  title.textContent='Leader mark through approved Week '+currentMarks.throughWeek;
+  const value=document.createElement('p');
+  value.textContent=fmt(mark.value,mark.unit)+' · '+mark.holders.join(', ');
+  const scope=document.createElement('p');
+  scope.className='records-lab-intro';
+  scope.textContent=mark.scope+' · '+mark.qualification;
+  panel.append(title,value,scope);
+ };
  const render=()=>{
   group.value=selectedGroup;
   const opts=data.categories.filter(c=>c.group===selectedGroup);
@@ -134,11 +152,25 @@ function renderExplorer(data){
   if(selectedManager)url.searchParams.set("manager",selectedManager);else url.searchParams.delete("manager");
   history.replaceState(null,"",url);
   spotlight();
+  paintCurrentMark();
  };
  group.addEventListener("change",()=>{selectedGroup=group.value;selectedCategory=data.categories.find(c=>c.group===selectedGroup)?.key;render()});
  category.addEventListener("change",()=>{selectedCategory=category.value;render()});
  manager.addEventListener("change",()=>{selectedManager=manager.value;render()});
  render();
+ const get=async name=>{
+  const r=await fetch(new URL('../data/'+name+'.json',import.meta.url));
+  if(!r.ok)throw Error('Approved leader sources unavailable');
+  return r.json();
+ };
+ Promise.all([get('expanded-record-current-leaders-v58'),get('home-current-season-v1')]).then(async ([marks,compact])=>{
+  if(marks.schemaVersion!==1||marks.year!==compact.year||marks.throughWeek!==compact.throughWeek||
+    !Array.isArray(marks.categories)||marks.categories.length!==data.categoryCount||
+    marks.categories.some((row,i)=>row.key!==data.categories[i].key||!Number.isFinite(row.value)||!row.holders?.length)||
+    !await matchesRecordWatchScores(compact,marks.year,marks.seasonScoreHash))return;
+  currentMarks=marks;
+  paintCurrentMark();
+ }).catch(()=>{});
  if(url.hash==="#expanded-records-explorer"){
   host.scrollIntoView({block:"start",behavior:"instant"});
  }

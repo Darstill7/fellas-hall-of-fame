@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "year": 2026,
+  "approvedWeek": 11,
+  "asOf": "2026-11-24",
+  "seasonScoreHash": "ababd3122c1c94d68eb5b715bd24afcc2af51408e0a57b154259943f2a88c561",
+  "verifiedMatchups": 55,
+  "surfaces": [
+    {
+      "id": "canonical",
+      "label": "Approved matchups",
+      "dataset": "data/unified_record_book_2016_2026.json",
+      "throughWeek": 11,
+      "policy": "required",
+      "status": "CURRENT",
+      "detail": "Five complete pairings per approved week."
+    },
+    {
+      "id": "standings",
+      "label": "Season guide standings",
+      "dataset": "data/season_guide.json",
+      "throughWeek": 11,
+      "policy": "required",
+      "status": "CURRENT",
+      "detail": "Reconciled to approved matchup scores."
+    },
+    {
+      "id": "weekly-mirror",
+      "label": "Weekly matchup mirror",
+      "dataset": "data/season_weekly_matchups_2016_2026_v1.json",
+      "throughWeek": 11,
+      "policy": "required",
+      "status": "CURRENT",
+      "detail": "All current-season regular-season rows must agree with the approved ledger."
+    },
+    {
+      "id": "home",
+      "label": "Homepage scores",
+      "dataset": "data/home-current-season-v1.json",
+      "throughWeek": 11,
+      "policy": "required",
+      "status": "CURRENT",
+      "detail": "Compact view must match the canonical scores."
+    },
+    {
+      "id": "ownership",
+      "label": "Manager record books",
+      "dataset": "data/manager_record_books_2016_2026.json",
+      "throughWeek": 11,
+      "policy": "required",
+      "status": "CURRENT",
+      "detail": "Established ownership uses approved matchup and separately verified historical sources."
+    },
+    {
+      "id": "record-watch",
+      "label": "Weekly ownership report",
+      "dataset": "data/weekly-record-ownership-v57.json",
+      "throughWeek": 11,
+      "policy": "required",
+      "status": "CURRENT",
+      "detail": "Verified ownership changes only."
+    },
+    {
+      "id": "milestones",
+      "label": "Attainable milestones",
+      "dataset": "data/conditional-record-watch-v51.json",
+      "throughWeek": 11,
+      "policy": "required",
+      "status": "CURRENT",
+      "detail": "A chase targets a stated mark."
+    },
+    {
+      "id": "expanded-leaders",
+      "label": "Expanded first-place marks",
+      "dataset": "data/expanded-record-current-leaders-v58.json",
+      "throughWeek": 11,
+      "policy": "required",
+      "status": "CURRENT",
+      "detail": "The same 44 definitions, recomputed from approved sources."
+    },
+    {
+      "id": "expanded-archive",
+      "label": "Expanded ranked archive",
+      "dataset": "data/expanded_records_verified_v1.json",
+      "throughWeek": 9,
+      "policy": "archive",
+      "status": "ARCHIVED",
+      "detail": "Original ranked results, context and personal marks retain their historical cutoff."
+    },
+    {
+      "id": "playoff-race",
+      "label": "Playoff race model",
+      "dataset": "data/playoff_race_v1.json",
+      "throughWeek": 11,
+      "policy": "required",
+      "status": "CURRENT",
+      "detail": "Model estimates from finalized results and verified schedule."
+    },
+    {
+      "id": "schedule-luck",
+      "label": "Schedule luck",
+      "dataset": "data/schedule_luck_current_v1.json",
+      "throughWeek": 11,
+      "policy": "required",
+      "status": "CURRENT",
+      "detail": "Approved full-field matchups."
+    },
+    {
+      "id": "luck-profiles",
+      "label": "Manager luck profiles",
+      "dataset": "data/luck_performance_profiles_2016_2026_v1.json",
+      "throughWeek": 11,
+      "policy": "required",
+      "status": "CURRENT",
+      "detail": "Current-season projection and separate completed-season research."
+    },
+    {
+      "id": "museum",
+      "label": "Trade Museum starter scoring",
+      "dataset": "data/trade_museum_stage66.json",
+      "throughWeek": 11,
+      "policy": "evidence",
+      "status": "CURRENT",
+      "detail": "Receiving-roster starter scoring requires reviewed transactions, lineups and timing."
+    },
+    {
+      "id": "draft-production",
+      "label": "Draft starter production",
+      "dataset": "data/v9_draft_engine.json",
+      "throughWeek": null,
+      "policy": "evidence",
+      "status": "UNVERIFIED",
+      "detail": "The projection has no certified current-week lineage. The completed draft board is independently verified."
+    },
+    {
+      "id": "acquisitions",
+      "label": "Acquisition and waiver archive",
+      "dataset": "data/acquisitions_2026.json",
+      "throughWeek": 9,
+      "policy": "evidence",
+      "status": "LAGGING",
+      "detail": "Recorded acquisitions need independent transaction receipts."
+    },
+    {
+      "id": "faab",
+      "label": "Certified FAAB bids",
+      "dataset": "data-integrity/faab-provider-receipts-2026.json",
+      "throughWeek": 9,
+      "policy": "evidence",
+      "status": "LAGGING",
+      "detail": "Winning and failed bids require reconciled provider receipts."
+    },
+    {
+      "id": "player-starters",
+      "label": "Player starter history",
+      "dataset": "data/player_starts_2026.json",
+      "throughWeek": 9,
+      "policy": "evidence",
+      "status": "LAGGING",
+      "detail": "Team-level scores and traded-player-only lineups cannot certify full starter boxes."
+    },
+    {
+      "id": "player-transactions",
+      "label": "Player transaction history",
+      "dataset": "data-integrity/provider-recovered-transactions-2026-week8.json",
+      "throughWeek": 8,
+      "policy": "evidence",
+      "status": "LAGGING",
+      "detail": "Observed recovered transaction windows. Unresolved receiving directions remain separate."
+    },
+    {
+      "id": "draft-research",
+      "label": "Draft research snapshot",
+      "dataset": "data/draft_intelligence_research_2025_2026w8_v1.json",
+      "throughWeek": 8,
+      "policy": "archive",
+      "status": "ARCHIVED",
+      "detail": "Historical draft and keeper research retains its verified projection cutoff."
+    },
+    {
+      "id": "sportscenter-archive",
+      "label": "Packaged SportsCenter snapshot",
+      "dataset": "data/sportscenter_v1.json",
+      "throughWeek": 7,
+      "policy": "archive",
+      "status": "ARCHIVED",
+      "detail": "Live SportsCenter uses the approved matchup ledger."
+    },
+    {
+      "id": "draft-board",
+      "label": "Certified draft selections",
+      "dataset": "data/fellas_2026_sleeper_draft_board_verified_v1.json",
+      "throughWeek": null,
+      "policy": "season-event",
+      "status": "VERIFIED_EVENT",
+      "detail": "150 confirmed draft picks. This is a completed event, independent of weekly production."
+    }
+  ],
+  "inventoryCounts": {
+    "UNCLASSIFIED": 134,
+    "LAGGING": 4,
+    "HISTORICAL": 108,
+    "DECLARED_MATCH": 2,
+    "DECLARED_BEHIND": 8,
+    "CURRENT": 12,
+    "ARCHIVED": 3,
+    "VERIFIED_EVENT": 1,
+    "UNVERIFIED": 1
+  },
+  "blockers": [],
+  "specialtyGaps": [
+    "draft-production",
+    "acquisitions",
+    "faab",
+    "player-starters",
+    "player-transactions"
+  ]
+}

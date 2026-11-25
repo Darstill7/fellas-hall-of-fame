@@ -39,6 +39,11 @@ details{border:1px solid var(--border);padding:12px 17px;border-radius:12px;marg
 <div class="card"><div class="metric" id="game-count">Checking source…</div><small>Recorded 2026 regular-season matchups; not projections</small></div>
 </div>
 <p id="source-load-status" class="muted" role="status">Reading the canonical record book delivered with this website…</p>
+<section aria-labelledby="collection-freshness-heading">
+<h2 id="collection-freshness-heading">Collection freshness</h2>
+<p id="collection-freshness-status" role="status">Checking collection cutoffs…</p>
+<ul id="collection-freshness"></ul>
+</section>
 <section aria-labelledby="coverage-heading">
 <h2 id="coverage-heading">Source coverage by area</h2>
 <div class="table-wrap"><table><thead><tr><th>Area</th><th>What the evidence establishes</th><th>What it does not establish</th></tr></thead><tbody>
@@ -104,5 +109,6 @@ details{border:1px solid var(--border);padding:12px 17px;border-radius:12px;marg
  }
 })();
 </script>
+<script type="module" src="../assets/site-freshness-v58.mjs"></script>
 </body>
 </html>

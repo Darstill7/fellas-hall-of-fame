@@ -1,5 +1,6 @@
 // First canonical record family. Recompute rather than copy archived leaders.
 import fs from 'node:fs';
+import {pathToFileURL} from 'node:url';
 import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync('data/'+p,'utf8'));
 const normalize=n=>n==='Tom'?'Thommy':n;
@@ -56,8 +57,10 @@ export function buildCore(ledger,archive){
  assert.equal(new Set(records.map(r=>r.id)).size,records.length);
  return {schemaVersion:1,throughWeek,asOf:ledger.updated,regularGames:games.length,categoryCount:records.length,scope,status:'partial-core-not-complete-ownership',records};
 }
+if(process.argv[1]&&pathToFileURL(process.argv[1]).href===import.meta.url){
 const ledger=read('unified_record_book_2016_2026.json'),archive=read('manager_record_books_2016_2026.json');
 const output=buildCore(ledger,archive);
 const file='data-integrity/canonical-record-core-v52.json',body=JSON.stringify(output,null,2)+'\n';
 if(process.argv.includes('--check'))assert.equal(fs.readFileSync(file,'utf8'),body);else fs.writeFileSync(file,body);
 console.log('Canonical record core: '+output.categoryCount+' definitions, '+output.regularGames+' games through Week '+output.throughWeek+'; partial inventory only.');
+}

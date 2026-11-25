@@ -1,5 +1,6 @@
 // Completed-season ownership candidates. Preserve the scope and tie rules of each source.
 import fs from 'node:fs';
+import {pathToFileURL} from 'node:url';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {auditAllEraFinishes} from '../assets/all-era-final-placements.mjs';
@@ -64,9 +65,11 @@ export function buildCompleted(allEra,placements,receipts,legendary,postseason,f
  assert.equal(new Set(records.map(r=>r.id)).size,records.length);
  return {schemaVersion:1,status:'completed-family-candidates-not-full-registry',categoryCount:records.length,scope,records,excluded};
 }
+if(process.argv[1]&&pathToFileURL(process.argv[1]).href===import.meta.url){
 // Run independent source verifiers before generating ownership candidates.
 for(const script of ['verify-legendary-records.mjs','verify-postseason-records.mjs','verify-scoring-floor-research.mjs'])execFileSync(process.execPath,['scripts/'+script],{stdio:'inherit'});
 const output=buildCompleted(read('fellas_final_placements_2016_2025_verified.json'),read('fellas_final_placements_2020_2025.json'),read('sleeper_postseason_placement_receipts_2020_2025.json'),read('legendary_records_2016_2025_v1.json'),read('postseason_records_verified_v1.json'),read('scoring_floor_research_2016_2025_v1.json'),read('unified_record_book_2016_2026.json'));
 const file='data-integrity/canonical-record-completed-v52.json',body=JSON.stringify(output,null,2)+'\n';
 if(process.argv.includes('--check'))assert.equal(fs.readFileSync(file,'utf8'),body);else fs.writeFileSync(file,body);
 console.log('Completed record candidates: '+output.categoryCount+'; '+output.excluded.length+' excluded exhibits.');
+}

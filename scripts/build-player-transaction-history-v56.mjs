@@ -5,6 +5,9 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const index=read('data-integrity/player-hall-of-fame-v56.json');
 const draft=read('data/v9_draft_engine.json');
 const board=read('data/fellas_2026_sleeper_draft_board_verified_v1.json');
+const canonical=read('data/unified_record_book_2016_2026.json');
+const through2026=Math.max(...canonical.games.filter(game=>game.year===2026&&game.stage==='regular').map(game=>game.week));
+const providerFile=(year,week)=>'data-integrity/provider-recovered-transactions-'+year+'-week'+week+'.json';
 const players=new Map(index.players.map(p=>[String(p.id),{id:String(p.id),name:p.name,position:p.position,draft:[],transactions:[]}]));
 const aliases=new Map();
 for(const p of index.players)for(const alias of p.aliases)for(const pos of p.positions){
@@ -33,9 +36,14 @@ for(let year=2020;year<=2026;year++){
   const manager=norm(ownerMap[String(t.owner).toLowerCase()],year),id=String(t.roster);
   assert.ok(manager);if(roster.has(id))assert.equal(roster.get(id),manager);else roster.set(id,manager);
  }
- const windows=year===2026?8:18;let complete=0;
+ let windows=18;
+ if(year===2026){
+  windows=0;
+  while(windows<through2026&&fs.existsSync(providerFile(year,windows+1)))windows++;
+ }
+ let complete=0;
  for(let week=1;week<=windows;week++){
-  const d=read('data-integrity/provider-recovered-transactions-'+year+'-week'+week+'.json');
+  const d=read(providerFile(year,week));
   assert.equal(d.year,year);assert.equal(d.week,week);assert.equal(d.normalizedRows,d.transactions.length);
   for(const t of d.transactions){
    if(t.status!=='complete'||!['waiver','add','free_agent','trade'].includes(t.type))continue;

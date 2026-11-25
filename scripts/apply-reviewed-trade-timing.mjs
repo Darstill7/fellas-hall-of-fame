@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
-const audit=JSON.parse(execFileSync(process.execPath,['scripts/audit-trade-starter-timing.mjs'],{encoding:'utf8'}));
+const audit=JSON.parse(execFileSync(process.execPath,['scripts/audit-trade-starter-timing.mjs',...process.argv.slice(2)],{encoding:'utf8'}));
 assert.equal(audit.status,'COMPLETE');
 const path='data/trade_museum_stage66.json',htmlPath='analytics/trade-museum.html';
 const museum=JSON.parse(fs.readFileSync(path,'utf8'));

@@ -14,6 +14,13 @@ on:
         description: 'Full 40-character SHA of the exact staging PR version independently reviewed'
         required: true
         type: string
+      publication_scope:
+        description: 'Matchup refresh with labeled source limits, or require all weekly evidence'
+        type: choice
+        default: matchups
+        options:
+          - matchups
+          - all_collections
 permissions:
   contents: write
   pull-requests: write
@@ -65,25 +72,18 @@ jobs:
       - name: Recalculate approved games, standings, playoff odds, luck and 2026 records
         env:
           FELLAS_APPROVE_WEEKLY_IMPORT: 'YES'
-        run: |
-          set -euo pipefail
-          OWNERSHIP_BASELINE="$RUNNER_TEMP/fellas-record-ownership-before.json"
-          node scripts/build-weekly-record-ownership.mjs --snapshot "$OWNERSHIP_BASELINE"
-          node scripts/apply-reviewed-sleeper-week.mjs "$CANDIDATE"
-          node scripts/sync-franchise-timeline-current.mjs
-          node scripts/sync-weekly-manager-portfolios.mjs
-          node scripts/build-weekly-record-ownership.mjs --previous "$OWNERSHIP_BASELINE"
-          node scripts/build-weekly-record-ownership.mjs --check
-          node scripts/sync-records-career-fallbacks.mjs
-          node scripts/verify-weekly-ledger-parity.mjs
-          node scripts/verify-current-week-website.mjs
-          node scripts/sync-weekly-manager-fallbacks.mjs
-          node scripts/verify-core-consumers.mjs
-          node scripts/verify-franchise-timeline-freshness.mjs
-          node scripts/verify-canonical-history.mjs
-          node scripts/audit-weekly-publication.mjs "--expected-week=$REVIEWED_WEEK"
-          echo "Reviewed Week $REVIEWED_WEEK regenerated from staged commit $STAGING_COMMIT" >> "$GITHUB_STEP_SUMMARY"
-          rm -f "$CANDIDATE" # don't mix staging evidence into the publication PR
+          PUBLICATION_SCOPE: ${{ inputs.publication_scope }}
+        run: bash scripts/refresh-approved-week-v58.sh
+      - name: Retain source audit and scoped research artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-source-and-editorial-evidence
+          path: |
+            ${{ runner.temp }}/fellas-freshness/
+            ${{ runner.temp }}/fellas-editorial/
+            data-integrity/player-directory-preview/
+          if-no-files-found: ignore
       - name: Build one reviewable weekly release PR; never merge automatically
         uses: peter-evans/create-pull-request@v7
         with:
@@ -94,7 +94,8 @@ jobs:
           body: |
             Explicitly reviewed source SHA and contiguous approved week.
             Canonical and consumer checks must pass before merging.
-            Trade evidence remains separately reviewed; no automated publication.
+            Publication scope: ${{ inputs.publication_scope }}. See the freshness audit for the verified cutoff of each collection.
+            Trade and other receipts remain separately reviewed; no automated publication.
           add-paths: |
             data/*.json
             index.html

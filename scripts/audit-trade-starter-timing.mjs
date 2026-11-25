@@ -3,12 +3,15 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
-const raw=read('data-integrity/sleeper-sync-candidates/2026-trades-through-week11.json');
-const evidence=read('data-integrity/trade-point-recalculations/2026-starter-evidence-through-week11.json');
+const week=Number(process.argv[2]??11);
+assert.ok(Number.isInteger(week)&&week>=1&&week<=14,'Invalid approved week');
+const raw=read('data-integrity/sleeper-sync-candidates/2026-trades-through-week'+week+'.json');
+const evidence=read('data-integrity/trade-point-recalculations/2026-starter-evidence-through-week'+week+'.json');
 assert.equal(raw.league,evidence.league);
 assert.equal(raw.through_week,evidence.through_week);
 const cutoff=evidence.through_week;
-const timing=read('data-integrity/trade-point-recalculations/2026-kickoff-evidence-through-week11.json');
+assert.equal(cutoff,week);
+const timing=read('data-integrity/trade-point-recalculations/2026-kickoff-evidence-through-week'+week+'.json');
 assert.equal(timing.through_week,cutoff);
 const dateFormat=new Intl.DateTimeFormat('en-CA',{timeZone:timing.timezone,year:'numeric',month:'2-digit',day:'2-digit'});
 const date=ms=>dateFormat.format(ms);

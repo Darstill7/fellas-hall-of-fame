@@ -1,5 +1,6 @@
 // Evidence-only weekly editorial packet. No article publication or inferred quotes.
 import fs from 'node:fs';
+import {matchesRecordWatchScores} from '../assets/weekly-record-watch.mjs';
 import {captureRecordOwnership,ownershipWatchPath,verifyOwnershipWatch} from './weekly-record-ownership.mjs';
 import {buildEditorialPacket} from './build-weekly-shitter-research.mjs';
 import {buildEditorialContext} from './weekly-shitter-context.mjs';
@@ -57,6 +58,21 @@ if(fs.existsSync(ownershipWatchPath)){
   console.warn('Ownership changes omitted from editorial packet: '+error.message);
  }
 }
-const packet={originalResearch,originalContext,recordOwnership,schema:1,year,week,generatedAt:new Date().toISOString(),revision:process.env.GITHUB_SHA??null,publicationStatus:'RESEARCH_ONLY',matchups,scores,streaks,weeklyMedian:d.median.thresholds.at(-1),medianStandings:d.median.rows,playoff:d.standings.map(r=>{const p=buildPersonalDashboard(d,race,r.name);return {manager:r.name,odds:p.odds,nextOpponent:p.opponent?.name??null}}),tradeStatus:tradeFresh?'CUTOFF_VERIFIED':'UNAVAILABLE_OR_STALE',trades:tradeFresh?trades:[],waivers:{status:'NOT_VERIFIED',entries:[]},writerPredictions:{status:'NOT_VERIFIED',entries:[]},historicalMilestones:{status:'LEDGER_DERIVED_REVIEW_REQUIRED',entries:milestones},groupChatContext:{status:'COMMISSIONER_INPUT_REQUIRED'},sources:['data/season_guide.json','data/unified_record_book_2016_2026.json','data/playoff_race_v1.json','data/trade_museum_stage66.json'],cautions:['Playoff probabilities are model estimates, not official clinches.','Trade points are raw credited starter points, not adjusted trade grades.','No inferred quotes, waiver claims or writer predictions.','No automatic article publication.']};
+async function currentWeeklySource(path,weekField){
+ if(!fs.existsSync(path))return null;
+ try{
+  const source=read(path);
+  if(source.year===year&&source[weekField]===week&&
+   await matchesRecordWatchScores(ledger,year,source.seasonScoreHash))return source;
+ }catch(error){console.warn('Weekly source omitted: '+path+' · '+error.message);}
+ return null;
+}
+const freshness=await currentWeeklySource('data/site-freshness-v58.json','approvedWeek');
+const attainable=await currentWeeklySource('data/conditional-record-watch-v51.json','throughWeek');
+const sourceFreshness=freshness?{approvedWeek:week,surfaces:freshness.surfaces,specialtyGaps:freshness.specialtyGaps}:null;
+const attainableMilestones=attainable?
+ {status:'APPROVED_LEDGER_VERIFIED',careerWins:attainable.careerWins,winningStreaks:attainable.items}:
+ {status:'UNAVAILABLE_OR_STALE'};
+const packet={originalResearch,originalContext,recordOwnership,sourceFreshness,attainableMilestones,schema:1,year,week,generatedAt:new Date().toISOString(),revision:process.env.GITHUB_SHA??null,publicationStatus:'RESEARCH_ONLY',matchups,scores,streaks,weeklyMedian:d.median.thresholds.at(-1),medianStandings:d.median.rows,playoff:d.standings.map(r=>{const p=buildPersonalDashboard(d,race,r.name);return {manager:r.name,odds:p.odds,nextOpponent:p.opponent?.name??null}}),tradeStatus:tradeFresh?'CUTOFF_VERIFIED':'UNAVAILABLE_OR_STALE',trades:tradeFresh?trades:[],waivers:{status:'NOT_VERIFIED',entries:[]},writerPredictions:{status:'NOT_VERIFIED',entries:[]},historicalMilestones:{status:'LEDGER_DERIVED_REVIEW_REQUIRED',entries:milestones},groupChatContext:{status:'COMMISSIONER_INPUT_REQUIRED'},sources:['data/season_guide.json','data/unified_record_book_2016_2026.json','data/playoff_race_v1.json','data/trade_museum_stage66.json'],cautions:['Playoff probabilities are model estimates, not official clinches.','Trade points are raw credited starter points, not adjusted trade grades.','No inferred quotes, waiver claims or writer predictions.','No automatic article publication.']};
 const out=(process.env.RUNNER_TEMP||'/tmp')+'/fellas-editorial';fs.mkdirSync(out,{recursive:true});fs.writeFileSync(out+'/packet.json',JSON.stringify(packet,null,2)+'\n');
 console.log('Editorial research only: Week '+week+', '+matchups.length+' games, '+scores.length+' managers, '+streaks.length+' streak receipts; waivers and predictions unverified.');

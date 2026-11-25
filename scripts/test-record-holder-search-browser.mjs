@@ -62,6 +62,23 @@ try{
         el.getBoundingClientRect().bottom<innerHeight))
     errors.push(engine+': evidence deep link lost the selected record or coverage');
 
+   const current=page.locator('#expanded-current-mark');
+   const leaderData=JSON.parse(await fs.readFile('data/expanded-record-current-leaders-v58.json','utf8'));
+   await current.waitFor();
+   const archiveData=JSON.parse(await fs.readFile('data/expanded_records_verified_v1.json','utf8'));
+   if(!(await current.textContent()).includes('approved Week '+leaderData.throughWeek)||
+     !(await page.locator('#expanded-records-coverage').textContent()).includes(archiveData.scope))
+    errors.push(engine+': approved leader overlay and archive cutoff were conflated');
+
+   await page.goto(recordsURL+'../data-integrity/source-status.html',{waitUntil:'domcontentloaded'});
+   await page.waitForFunction(()=>document.querySelector('#collection-freshness-status')?.textContent.includes('Compared with approved'));
+   const freshness=await page.locator('#collection-freshness').textContent();
+   const audit=JSON.parse(await fs.readFile('data/site-freshness-v58.json','utf8'));
+   const faab=audit.surfaces.find(row=>row.id==='faab');
+   const faabLabel=faab.status==='CURRENT'?'Current':'Evidence pending';
+   for(const text of ['Approved matchups · Current','Expanded ranked archive · Archive','Certified FAAB bids · '+faabLabel+' · Week '+faab.throughWeek])
+    if(!freshness.includes(text))errors.push(engine+': missing separate source coverage '+text);
+
    await page.goto(recordsURL+'../managers/record-books.html?manager=Mitch#owned-records',{waitUntil:'domcontentloaded'});
    const score = page.locator('#owned-records .owned-record').filter({hasText:'Highest regular-season weekly score'});
    const scoreMark = await score.locator('strong').textContent();

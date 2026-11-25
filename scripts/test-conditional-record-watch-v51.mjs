@@ -38,3 +38,20 @@ const remaining=buildCareerWinsMilestones({games:[...extra,...fixed]},finalWeek)
 assert.deepEqual(remaining,[{manager:'Stew',wins:14,record:15,holders:['Stilly'],
  toMatch:1,toPass:null,week:13,remaining:1}],'Final-week math must preserve tie-only eligibility');
 console.log('Career wins milestones passed attainable, impossible and tie-only cases');
+
+const lastWeekNow=fixtures(2026,13);
+for(const game of lastWeekNow)game.homeScore=game.home==='Stilly'&&game.week>=10?100:80;
+const lastWeekDashboard={week:13,standings:names.map((name,i)=>({name,streak:
+ i===0?'W4':i<5?'L13':i===5?'L4':'W13'}))};
+const tieOnly=buildWinningStreakWatch({games:[...past,...lastWeekNow]},lastWeekDashboard);
+assert.ok(!tieOnly.some(item=>item.manager==='Stilly'),'A five-win run cannot tie a thirteen-win verified mark');
+const modified=lastWeekNow.map(game=>({...game,homeScore:
+ game.week%2===0||game.home==='Stilly'&&game.week>=10?100:80}));
+const alternating={week:13,standings:names.map((name,i)=>({name,streak:
+ i===0?'W4':i<5?'L1':i===5?'L4':'W1'}))};
+const oneLeft=buildWinningStreakWatch({games:[...past,...modified]},alternating);
+assert.equal(oneLeft.length,1);
+assert.equal(oneLeft[0].manager,'Stilly');
+assert.equal(oneLeft[0].tie,1);
+assert.equal(oneLeft[0].breakGap,null);
+console.log('Streak alerts include reachable ties on the last remaining game');

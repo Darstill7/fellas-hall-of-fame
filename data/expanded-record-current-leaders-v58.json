@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 1,
+  "year": 2026,
+  "throughWeek": 11,
+  "asOf": "2026-11-24",
+  "seasonScoreHash": "ababd3122c1c94d68eb5b715bd24afcc2af51408e0a57b154259943f2a88c561",
+  "pairedRegularGames": 715,
+  "categories": [
+    {
+      "key": "highest-score",
+      "label": "Highest regular-season score",
+      "description": "Highest recovered team total in one regular-season matchup.",
+      "value": 180.86,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "lowest-score",
+      "label": "Lowest regular-season score",
+      "description": "Lowest recovered team total in one regular-season matchup.",
+      "value": 44,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Tony"
+      ]
+    },
+    {
+      "key": "highest-score-loss",
+      "label": "Most points in a loss",
+      "description": "A high-scoring defeat; regular-season matchups only.",
+      "value": 164.8,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Stew"
+      ]
+    },
+    {
+      "key": "lowest-score-win",
+      "label": "Fewest points in a win",
+      "description": "A win achieved with the fewest team points in a regular-season matchup.",
+      "value": 64,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Stilly"
+      ]
+    },
+    {
+      "key": "biggest-win",
+      "label": "Largest regular-season victory",
+      "description": "Largest verified winning margin.",
+      "value": 101.38,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Scott"
+      ]
+    },
+    {
+      "key": "narrowest-win",
+      "label": "Closest regular-season victory",
+      "description": "Smallest strictly positive winning margin.",
+      "value": 0.16,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Thommy"
+      ]
+    },
+    {
+      "key": "biggest-defeat",
+      "label": "Largest regular-season defeat",
+      "description": "Largest negative margin in a regular-season loss.",
+      "value": 101.38,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "JMid"
+      ]
+    },
+    {
+      "key": "narrowest-defeat",
+      "label": "Closest regular-season defeat",
+      "description": "Smallest strictly positive losing margin.",
+      "value": 0.16,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Stew"
+      ]
+    },
+    {
+      "key": "giant-slayer-win",
+      "label": "Highest opponent score overcome",
+      "description": "Highest points scored by an opponent in a game the manager still won.",
+      "value": 164.8,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "most-wins",
+      "label": "Career regular-season wins",
+      "description": "Count of victories in the recovered regular-season matchup ledger.",
+      "value": 77,
+      "unit": "wins",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Stover"
+      ]
+    },
+    {
+      "key": "most-games",
+      "label": "Most recorded regular-season games",
+      "description": "Count of recorded matchups; 2026 is through Week 9.",
+      "value": 146,
+      "unit": "games",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Stew",
+        "Stilly",
+        "Stover",
+        "Thommy"
+      ]
+    },
+    {
+      "key": "win-rate",
+      "label": "Best career winning percentage",
+      "description": "Win rate from 60 or more recorded regular-season games; ties count as half a win.",
+      "value": 59.17,
+      "unit": "%",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "At least 60 recovered games; ties count as half a win; rounded to two decimals",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "career-points",
+      "label": "Most regular-season points scored",
+      "description": "Sum of recovered weekly team scores, not player-level scoring.",
+      "value": 15676.7,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Stover"
+      ]
+    },
+    {
+      "key": "career-ppg",
+      "label": "Highest career points per game",
+      "description": "Average recovered regular-season score, minimum 60 games.",
+      "value": 119.59,
+      "unit": "ppg",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "At least 60 recovered games; rounded to two decimals",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "points-against",
+      "label": "Most points faced",
+      "description": "Sum of opposing team scores; this reflects schedule and matchup results, not actual defensive play.",
+      "value": 15949.14,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Thommy"
+      ]
+    },
+    {
+      "key": "hundred-club",
+      "label": "Most 100-point games",
+      "description": "Regular-season scores of 100 or more points.",
+      "value": 93,
+      "unit": "games",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Score of at least 100.00",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "one-twenty-club",
+      "label": "Most 120-point games",
+      "description": "Regular-season scores of 120 or more points.",
+      "value": 56,
+      "unit": "games",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Score of at least 120.00",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "one-forty-club",
+      "label": "Most 140-point games",
+      "description": "Regular-season scores of 140 or more points.",
+      "value": 23,
+      "unit": "games",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Score of at least 140.00",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "one-sixty-club",
+      "label": "Most 160-point games",
+      "description": "Regular-season scores of 160 or more points.",
+      "value": 13,
+      "unit": "games",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Score of at least 160.00",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "wins-vs-130",
+      "label": "Wins despite opponent scoring 130+",
+      "description": "Recovered regular-season wins against opponents who scored 130 or more.",
+      "value": 5,
+      "unit": "wins",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Win against at least 130.00 opposing points",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Birch",
+        "Mitch"
+      ]
+    },
+    {
+      "key": "wins-below-100",
+      "label": "Wins while scoring below 100",
+      "description": "Recovered regular-season wins with fewer than 100 points scored.",
+      "value": 14,
+      "unit": "wins",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Win while scoring strictly below 100.00",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Thommy"
+      ]
+    },
+    {
+      "key": "high-score-losses",
+      "label": "120+ point losses",
+      "description": "Recovered regular-season defeats despite scoring at least 120.",
+      "value": 10,
+      "unit": "games",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "All recovered paired regular-season games",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch",
+        "Stilly",
+        "Thommy"
+      ]
+    },
+    {
+      "key": "nailbiters",
+      "label": "Wins by 3 points or fewer",
+      "description": "Wins with a positive margin no greater than 3.00 points.",
+      "value": 5,
+      "unit": "wins",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Winning margin from 0.01 through 3.00 points",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Birch",
+        "Kuhl",
+        "Tony"
+      ]
+    },
+    {
+      "key": "one-score-drama",
+      "label": "Games decided by 3 points or fewer",
+      "description": "Recorded regular-season matchups with absolute margin no greater than 3.00.",
+      "value": 11,
+      "unit": "games",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Absolute margin at most 3.00 points, including ties; both participants are eligible",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "thirty-plus-wins",
+      "label": "Blowout wins by 30+",
+      "description": "Wins by at least 30.00 fantasy points.",
+      "value": 30,
+      "unit": "wins",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Winning margin at least 30.00 points",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Birch"
+      ]
+    },
+    {
+      "key": "winning-streak",
+      "label": "Longest documented winning streak",
+      "description": "Consecutive recorded regular-season appearances ending with a win.",
+      "value": 20,
+      "unit": "games",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Consecutive recovered appearances with wins; runs may cross seasons and missing NFL weeks",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "scoring-streak-100",
+      "label": "Longest consecutive 100-point run",
+      "description": "Consecutive recorded regular-season appearances with 100+ scored.",
+      "value": 15,
+      "unit": "games",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Consecutive recovered appearances with scores at least 100.00; runs may cross seasons and missing NFL weeks",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "scoring-streak-120",
+      "label": "Longest consecutive 120-point run",
+      "description": "Consecutive recorded regular-season appearances with 120+ scored.",
+      "value": 7,
+      "unit": "games",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "Consecutive recovered appearances with scores at least 120.00; runs may cross seasons and missing NFL weeks",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Tony"
+      ]
+    },
+    {
+      "key": "season-points",
+      "label": "Most points in a season",
+      "description": "Highest recovered regular-season point total; completed seasons with at least 12 recorded games.",
+      "value": 1894.88,
+      "unit": "pts",
+      "scope": "Officially completed seasons 2016–2025; recovered paired regular-season scores, including incomplete historical samples; raw scores are not era-normalized.",
+      "qualification": "Minimum 12 recovered regular-season appearances in an officially completed season",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "season-average",
+      "label": "Highest season scoring average",
+      "description": "Average points per recovered regular-season matchup, at least 12 games.",
+      "value": 135.35,
+      "unit": "ppg",
+      "scope": "Officially completed seasons 2016–2025; recovered paired regular-season scores, including incomplete historical samples; raw scores are not era-normalized.",
+      "qualification": "Minimum 12 recovered regular-season appearances in an officially completed season; rounded to two decimals",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "season-wins",
+      "label": "Most wins in a season",
+      "description": "Recorded regular-season wins in a completed season.",
+      "value": 13,
+      "unit": "wins",
+      "scope": "Officially completed seasons 2016–2025; recovered paired regular-season scores, including incomplete historical samples; raw scores are not era-normalized.",
+      "qualification": "Minimum 12 recovered regular-season appearances in an officially completed season",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "season-win-rate",
+      "label": "Best season win percentage",
+      "description": "Season winning percentage among completed seasons with at least 12 recovered games.",
+      "value": 92.86,
+      "unit": "%",
+      "scope": "Officially completed seasons 2016–2025; recovered paired regular-season scores, including incomplete historical samples; raw scores are not era-normalized.",
+      "qualification": "Minimum 12 recovered regular-season appearances in an officially completed season; ties count as half a win; rounded to two decimals",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "season-point-diff",
+      "label": "Best season point differential",
+      "description": "Total points scored minus points allowed over recovered regular-season games.",
+      "value": 345.12,
+      "unit": "pts",
+      "scope": "Officially completed seasons 2016–2025; recovered paired regular-season scores, including incomplete historical samples; raw scores are not era-normalized.",
+      "qualification": "Minimum 12 recovered regular-season appearances in an officially completed season",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Birch"
+      ]
+    },
+    {
+      "key": "season-140-club",
+      "label": "Most 140-point games in one season",
+      "description": "Number of recovered 140+ point scores in a completed season.",
+      "value": 5,
+      "unit": "games",
+      "scope": "Officially completed seasons 2016–2025; recovered paired regular-season scores, including incomplete historical samples; raw scores are not era-normalized.",
+      "qualification": "Minimum 12 recovered regular-season appearances in an officially completed season; scores at least 140.00",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Birch",
+        "Mitch",
+        "Tony"
+      ]
+    },
+    {
+      "key": "rival-wins",
+      "label": "Most wins against one rival",
+      "description": "Regular-season wins against a single opponent in the recovered ledger.",
+      "value": 12,
+      "unit": "wins",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "At least five recovered paired regular-season meetings with one opponent",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Stilly"
+      ]
+    },
+    {
+      "key": "rival-games",
+      "label": "Most meetings against one rival",
+      "description": "Most recorded regular-season meetings with the same opponent.",
+      "value": 20,
+      "unit": "games",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11",
+      "qualification": "At least five recovered paired regular-season meetings with one opponent",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Stew",
+        "Stilly"
+      ]
+    },
+    {
+      "key": "rival-percentage",
+      "label": "Highest rivalry win rate",
+      "description": "Most wins as a percentage of games against a single opponent.",
+      "value": 84.62,
+      "unit": "%",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "At least six meetings against one opponent; wins divided by meetings; rounded to two decimals",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Tony"
+      ]
+    },
+    {
+      "key": "rival-margin",
+      "label": "Largest cumulative margin versus one rival",
+      "description": "Total points scored minus points allowed against one opponent over recorded regular-season meetings.",
+      "value": 270.78,
+      "unit": "pts",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "At least five meetings against one opponent",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Tony"
+      ]
+    },
+    {
+      "key": "rival-scoring",
+      "label": "Highest average score against one rival",
+      "description": "Average team points scored in meetings with one opponent.",
+      "value": 127.78,
+      "unit": "ppg",
+      "scope": "Recovered paired regular-season games 2016–2026 Week 11; all historical managers eligible; incomplete archives and scoring-era differences apply.",
+      "qualification": "At least five meetings against one opponent; rounded to two decimals",
+      "source": "data/unified_record_book_2016_2026.json",
+      "holders": [
+        "Mitch"
+      ]
+    },
+    {
+      "key": "seasons-played",
+      "label": "Most completed seasons",
+      "description": "Completed league seasons 2016–2025 with official finishing rank.",
+      "value": 10,
+      "unit": "seasons",
+      "scope": "Completed seasons 2016–2025",
+      "qualification": "Official final ranks across both platforms",
+      "source": "data/fellas_final_placements_2016_2025_verified.json",
+      "holders": [
+        "Stew",
+        "Stilly",
+        "Stover",
+        "Thommy"
+      ]
+    },
+    {
+      "key": "top-three-finishes",
+      "label": "Most top-three finishes",
+      "description": "Official final rank of third or better; includes all league formats.",
+      "value": 5,
+      "unit": "finishes",
+      "scope": "Completed seasons 2016–2025",
+      "qualification": "Official final ranks across both platforms",
+      "source": "data/fellas_final_placements_2016_2025_verified.json",
+      "holders": [
+        "Thommy"
+      ]
+    },
+    {
+      "key": "top-half-finishes",
+      "label": "Most top-half finishes",
+      "description": "Official finishing rank at or above the halfway mark of the league.",
+      "value": 6,
+      "unit": "finishes",
+      "scope": "Completed seasons 2016–2025",
+      "qualification": "Top half of the official field; 2016 eight teams",
+      "source": "data/fellas_final_placements_2016_2025_verified.json",
+      "holders": [
+        "Birch",
+        "Mitch",
+        "Thommy",
+        "Tony"
+      ]
+    },
+    {
+      "key": "average-finish",
+      "label": "Best average normalized finish",
+      "description": "Average official finish percentile normalized to 8- versus 10-team league sizes; requires six completed seasons.",
+      "value": 66.67,
+      "unit": "finish score",
+      "scope": "Completed seasons 2016–2025",
+      "qualification": "Minimum six completed seasons; 100=first, 0=last; two-decimal published score",
+      "source": "data/fellas_final_placements_2016_2025_verified.json",
+      "holders": [
+        "Thommy"
+      ]
+    },
+    {
+      "key": "bounceback",
+      "label": "Biggest year-over-year finish rebound",
+      "description": "Largest improvement in normalized final placing between consecutive completed seasons.",
+      "value": 100,
+      "unit": "percentage points",
+      "scope": "Verified official final placements 2016–2025",
+      "qualification": "Consecutive completed seasons; improvement in official normalized finish (100 first, 0 last); rounded to two decimals",
+      "source": "data/fellas_final_placements_2016_2025_verified.json",
+      "holders": [
+        "Tony"
+      ]
+    }
+  ]
+}
