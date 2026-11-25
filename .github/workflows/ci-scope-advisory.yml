@@ -1,0 +1,31 @@
+name: CI scope advisory
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-scope-advisory-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  scope-advisory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-ci-scope.mjs
+      - name: Recommend scope without skipping tests
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/classify-ci-scope.mjs "$BASE_SHA" "$HEAD_SHA" > ci-scope-report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ci-scope-report
+          path: ci-scope-report.json

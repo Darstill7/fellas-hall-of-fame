@@ -1,0 +1,4 @@
+# CI scope phase 5.0.1
+Advisory only: no existing workflow or required check is disabled. Narrow allowlist for individual editorial HTML and issue-specific images; shared consumer changes recommend integration; everything else, including renames, deletions, missing diffs and unknown paths, recommends full validation. Highest scope wins across mixed changes. Exact PR base/head SHA diff is required. Manual runs without PR evidence recommend full. The workflow summary and artifact are recommendations, not certification.
+
+Before phase 5.0.2: inspect branch protection with an authorized account, map shared dependencies, compare real workflow runtimes, verify scope classifier on representative PRs, and define honest explicit skip results and a full pre-release gate. Main pushes, weekly data releases and scheduled diagnostics must retain full verification until a separately reviewed policy changes them. No runtime savings claimed in advisory mode.
