@@ -29,9 +29,46 @@ export function buildWinningStreakWatch(ledger,dashboard){
   return [{manager:t.name,record:best,holders,run,tie,breakGap,week,year,remaining}];
  }).sort((a,b)=>a.breakGap-b.breakGap||a.manager.localeCompare(b.manager));
 }
-export function renderWinningStreakWatch(host,items){
- if(!host)return;host.replaceChildren();host.hidden=!items.length;if(!items.length)return;
+// Chase the frozen current mark. Future wins by any manager can move it.
+export function buildCareerWinsMilestones(ledger,dashboard){
+ const year=fellasLeague.season,week=dashboard?.week;
+ if(!Number.isInteger(week)||week<1||week>=fellasLeague.regularSeasonWeeks||
+    !Array.isArray(ledger?.games)||dashboard.standings?.length!==fellasLeague.managers.length)return [];
+ const totals=new Map(),current=new Map();
+ for(const game of ledger.games){
+  if(game.stage!=='regular')continue;
+  if(game.year>year||(game.year===year&&game.week>week)||
+     ![game.homeScore,game.awayScore].every(Number.isFinite))return [];
+  if(game.homeScore===game.awayScore)continue;
+  const winner=normalizeManager(game.homeScore>game.awayScore?game.home:game.away);
+  totals.set(winner,(totals.get(winner)??0)+1);
+  if(game.year===year)current.set(winner,(current.get(winner)??0)+1);
+ }
+ if(dashboard.standings.some(team=>(current.get(team.name)??0)!==team.w))return [];
+ const record=Math.max(0,...totals.values());
+ const holders=[...totals].filter(([,wins])=>wins===record).map(([manager])=>manager).sort();
+ const remaining=fellasLeague.regularSeasonWeeks-week;
+ if(record<=0)return [];
+ return dashboard.standings.flatMap(({name})=>{
+  const wins=totals.get(name)??0;
+  const toMatch=record-wins;
+  if(toMatch<1||toMatch>2||toMatch>remaining)return [];
+  return [{manager:name,wins,record,holders,toMatch,toPass:toMatch<remaining?toMatch+1:null,week,remaining}];
+ }).sort((a,b)=>a.toMatch-b.toMatch||a.manager.localeCompare(b.manager));
+}
+
+export function renderWinningStreakWatch(host,items,milestones=[]){
+ if(!host)return;host.replaceChildren();host.hidden=!items.length&&!milestones.length;if(host.hidden)return;
  const el=(tag,value)=>{const n=document.createElement(tag);n.textContent=value;return n};
  host.append(el('h2','Record Watch'));
  for(const x of items){const row=el('article','');row.className='record-watch-row';row.append(el('strong',x.manager+' · '+x.run+' consecutive wins'),el('p',x.record+' wins · '+x.holders.map(h=>h.name+' ('+h.year+')').join(', ')),el('p',x.tie?x.tie+' to tie · '+x.breakGap+' to break':x.breakGap+' to take sole ownership'),el('small','Single regular season · through Week '+x.week+' · '+x.remaining+' games remain'));const a=el('a','Explore Record Book ›');a.href='analytics/records.html';row.append(a);host.append(row)}
+ for(const x of milestones){
+  const row=el('article','');row.className='record-watch-row career-wins-milestone';
+  row.append(el('strong',x.manager+' · '+x.wins+' career wins'),
+   el('p',x.toMatch+' more '+(x.toMatch===1?'win':'wins')+' to match the current mark of '+x.record),
+   el('small','Through Week '+x.week+' · '+x.remaining+' regular-season games remain. The mark can move.'));
+  const evidence=el('a','Career wins record ›');
+  evidence.href='analytics/record-holders.html#established-record-career-wins';
+  row.append(evidence);host.append(row);
+ }
 }

@@ -1,7 +1,9 @@
 // Build a small season-specific projection from the canonical ledger. No service or credentials required.
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {buildWinningStreakWatch} from '../assets/conditional-record-watch-v51.mjs';
+import {createHash} from 'node:crypto';
+import {recordWatchScoreInput} from '../assets/weekly-record-watch.mjs';
+import {buildWinningStreakWatch,buildCareerWinsMilestones} from '../assets/conditional-record-watch-v51.mjs';
 import {buildHomeDashboard} from '../assets/home-app-v3.mjs';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const guide=read('data/season_guide.json'),ledger=read('data/unified_record_book_2016_2026.json');
@@ -13,5 +15,7 @@ if(process.argv.includes('--check'))assert.equal(fs.readFileSync(path,'utf8'),bo
 else fs.writeFileSync(path,body);
 console.log('Verified compact projection through Week '+full.week+' ('+Buffer.byteLength(body)+' bytes)');
 
-const watchPath='data/conditional-record-watch-v51.json',watchBody=JSON.stringify({schemaVersion:1,year:2026,throughWeek:full.week,items:buildWinningStreakWatch(ledger,full)})+'\n';
+const watchPath='data/conditional-record-watch-v51.json',watchBody=JSON.stringify({schemaVersion:1,year:2026,throughWeek:full.week,
+ seasonScoreHash:createHash('sha256').update(recordWatchScoreInput(ledger.games,2026)).digest('hex'),
+ items:buildWinningStreakWatch(ledger,full),careerWins:buildCareerWinsMilestones(ledger,full)})+'\n';
 if(process.argv.includes('--check'))assert.equal(fs.readFileSync(watchPath,'utf8'),watchBody,'Regenerate conditional Record Watch after canonical sync');else fs.writeFileSync(watchPath,watchBody);

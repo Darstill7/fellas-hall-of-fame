@@ -1,12 +1,16 @@
 # The Fellas project status
 
-**Last updated:** 2026-11-25 11:01 EST (America/New_York)
+**Last updated:** 2026-11-25 11:04 EST (America/New_York)
 
-**Current phase:** Version 5.7 release approval. The technical review passed on
-the exact proposed source revision. Phase 5.8 remains in development.
+**Current phase:** Version 5.8 attainable milestone follow-up. Version 5.7
+remains at the owner approval gate on PR #318.
 See the [release readiness report](docs/version-5-7-release-readiness.md).
 
 ## Active pull requests and branches
+
+- This follow-up is `development/v5-8-attainable-milestones`, based on
+  the 5.7 report commit `4ded58f7`. It is separate from the proposed 5.7
+  release source.
 
 - Primary development branch
   [development/v5-2-record-unification](https://github.com/Darstill7/fellas-hall-of-fame/tree/development/v5-2-record-unification)
@@ -29,6 +33,7 @@ See the [release readiness report](docs/version-5-7-release-readiness.md).
 
 | Change | Files modified | Commit reference |
 | --- | --- | --- |
+| Added attainable career-win milestones to the League view and the approved dashboard refresh, with current-score freshness checks. | `assets/conditional-record-watch-v51.mjs`, `assets/home-app-v3.mjs`, `assets/weekly-record-watch.mjs`, `data/conditional-record-watch-v51.json`, `scripts/build-home-current-season.mjs`, `scripts/test-conditional-record-watch-v51.mjs`, `scripts/test-production-homepage-browser.mjs`, `PROJECT_STATUS.md`, `ROADMAP.md` | `Add attainable career-win milestones to Record Watch` |
 | Completed exact-head release validation, independent ownership reconciliation, data freshness review and a disposable approved weekly refresh rehearsal. | `docs/version-5-7-release-readiness.md`, `PROJECT_STATUS.md`, `ROADMAP.md` | `Record Version 5.7 release evidence and approval gate` |
 | Made the shared GitHub handoff a standing requirement and recorded the completed feature checks. | `AGENTS.md`, `ROADMAP.md`, `PROJECT_STATUS.md`, `README.md` | `Establish permanent GitHub project handoff`, the commit containing this update. |
 | Unified keyword search for established and archived records. Results keep their own counts and link to the exact evidence. | `analytics/record-holders.html`, `assets/record-holders-page.mjs`, `scripts/test-record-holder-search.mjs`, `scripts/test-record-holder-search-browser.mjs`, `ROADMAP.md`, `PROJECT_STATUS.md` | [`a2ec81ec`](https://github.com/Darstill7/fellas-hall-of-fame/commit/a2ec81ec) |
@@ -55,6 +60,11 @@ See the [release readiness report](docs/version-5-7-release-readiness.md).
 - The full synthetic Week 12 recalculation and editorial handoff passed in a
   disposable copy. The publication audit correctly warned that Trade Museum
   scoring remained at Week 11.
+- On the 5.8 follow-up, Chromium and WebKit production homepage rehearsal
+  passed at 320, 390 and 1280 px. Tests covered attainable, impossible and
+  tie-only scenarios and fingerprint parity with the synthetic Week 12
+  ownership report. The synthetic refresh still flags Week 11 Trade Museum
+  scoring as stale for Week 12 publication.
 - Home and My Team passed local Chromium and WebKit rehearsal at 320, 390,
   and 1280 px on `88f350f5`. The data test confirmed that a same-week score
   correction hides stale Record Watch updates.
@@ -86,7 +96,8 @@ See the [release readiness report](docs/version-5-7-release-readiness.md).
 
 1. Review the 5.7 release report with the owner. Confirm the exact PR head
    and base are still valid when approval is granted.
-2. Continue 5.8 in development with attainable milestone alerts and the
-   approved Tuesday refresh rehearsal. Keep scope gaps explicit.
+2. Review the 5.8 career-win alerts. The calculation targets the standing
+   mark and checks the remaining games. Continue source reconciliation for
+   the actual next approved refresh.
 3. Finish browser and data-publication review for the 5.6 player archive.
    Track the sequence in [ROADMAP.md](ROADMAP.md).

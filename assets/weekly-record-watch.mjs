@@ -12,16 +12,21 @@ export function recordWatchScoreInput(games,year) {
   return JSON.stringify(rows.sort((a,b)=>a[0]-b[0]||(a[1]<b[1]?-1:a[1]>b[1]?1:0)));
 }
 
+export async function matchesRecordWatchScores(ledger,year,expected) {
+  if(typeof expected!=='string'||!Array.isArray(ledger?.games))return false;
+  const digest=await globalThis.crypto?.subtle?.digest('SHA-256',
+    new TextEncoder().encode(recordWatchScoreInput(ledger.games,year)));
+  if(!digest)return false;
+  const fingerprint=Array.from(new Uint8Array(digest),byte=>byte.toString(16).padStart(2,'0')).join('');
+  return fingerprint===expected;
+}
+
 export async function matchWeeklyRecordWatch(report,ledger,week) {
   const year = fellasLeague.season;
   if(report?.schemaVersion!==1||report.year!==year||report.week!==week||report.previousWeek!==week-1||
     report.current?.week!==week||report.current?.year!==year||!Array.isArray(report.current.marks)||
     !Array.isArray(report.changes)||!Array.isArray(ledger?.games))return null;
-  const digest = await globalThis.crypto?.subtle?.digest('SHA-256',
-    new TextEncoder().encode(recordWatchScoreInput(ledger.games,year)));
-  if(!digest)return null;
-  const fingerprint = Array.from(new Uint8Array(digest),byte=>byte.toString(16).padStart(2,'0')).join('');
-  if(fingerprint!==report.current.seasonScoreHash)return null;
+  if(!await matchesRecordWatchScores(ledger,year,report.current.seasonScoreHash))return null;
 
   const marks = new Map(report.current.marks.map(mark=>[mark?.id,mark]));
   const valid = report.changes.every(change=>{
