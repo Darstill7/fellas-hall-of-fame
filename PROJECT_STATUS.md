@@ -1,18 +1,20 @@
 # The Fellas project status
 
-**Last updated:** 2026-11-25 10:50 EST (America/New_York)
+**Last updated:** 2026-11-25 11:01 EST (America/New_York)
 
-**Current phase:** Version 5.7 release validation and owner review. The
-established ownership, leaderboard, and search implementation is complete in
-development. Phase 5.8 remains partially implemented.
+**Current phase:** Version 5.7 release approval. The technical review passed on
+the exact proposed source revision. Phase 5.8 remains in development.
+See the [release readiness report](docs/version-5-7-release-readiness.md).
 
 ## Active pull requests and branches
 
 - Primary development branch
   [development/v5-2-record-unification](https://github.com/Darstill7/fellas-hall-of-fame/tree/development/v5-2-record-unification)
   and draft [PR #318](https://github.com/Darstill7/fellas-hall-of-fame/pull/318).
-  The most recent feature revision verified in this update is
-  [`a2ec81ec`](https://github.com/Darstill7/fellas-hall-of-fame/commit/a2ec81ec).
+  The exact proposed release source is
+  [`1dd8fbcf7fb466f9c37797b6dc9bd88afc8d0ee8`](https://github.com/Darstill7/fellas-hall-of-fame/commit/1dd8fbcf7fb466f9c37797b6dc9bd88afc8d0ee8).
+  Keep 5.8 milestone work on the follow-up branch so the reviewed 5.7 site
+  tree stays stable.
 - Production branch `main` was `1a47de06` at the check. Its approved 2026
   ledger covers Weeks 1–11 (55 matchups). The served Pages revision remains
   unverified.
@@ -27,6 +29,7 @@ development. Phase 5.8 remains partially implemented.
 
 | Change | Files modified | Commit reference |
 | --- | --- | --- |
+| Completed exact-head release validation, independent ownership reconciliation, data freshness review and a disposable approved weekly refresh rehearsal. | `docs/version-5-7-release-readiness.md`, `PROJECT_STATUS.md`, `ROADMAP.md` | `Record Version 5.7 release evidence and approval gate` |
 | Made the shared GitHub handoff a standing requirement and recorded the completed feature checks. | `AGENTS.md`, `ROADMAP.md`, `PROJECT_STATUS.md`, `README.md` | `Establish permanent GitHub project handoff`, the commit containing this update. |
 | Unified keyword search for established and archived records. Results keep their own counts and link to the exact evidence. | `analytics/record-holders.html`, `assets/record-holders-page.mjs`, `scripts/test-record-holder-search.mjs`, `scripts/test-record-holder-search-browser.mjs`, `ROADMAP.md`, `PROJECT_STATUS.md` | [`a2ec81ec`](https://github.com/Darstill7/fellas-hall-of-fame/commit/a2ec81ec) |
 
@@ -42,16 +45,16 @@ development. Phase 5.8 remains partially implemented.
 
 ## Validation and browser results
 
-- GitHub checks passed on `a2ec81ec` for canonical validation, including both
-  browser engines and the final certification job, fast site consumers,
-  record registry research, Record Holders category search, first-screen
-  visual quality, homepage performance, app homepage preview, production
-  homepage rehearsal, and consolidated editorial research.
-  [PR checks](https://github.com/Darstill7/fellas-hall-of-fame/pull/318/checks)
-- Local search tests on `a2ec81ec` passed at 390 px in Chromium and WebKit.
-  They covered both evidence paths and all four tied semifinal holders.
-  Weekly ownership report verification, registry verification, canonical
-  validation, and the 87-route HTTP smoke test also passed locally.
+- All 33 jobs in 21 GitHub workflow groups passed on `1dd8fbcf`.
+  Its tree matches GitHub's test merge `9543ec3c`.
+- Independent checks matched all 23 established marks and 37 ownership
+  credits. Chromium and WebKit agreed on all category holders, leaderboard
+  totals and 14 manager books at 390 px. Search, evidence and the production
+  homepage rehearsal passed in both engines. Canonical validation, source
+  freshness and the 87-route HTTP smoke also passed.
+- The full synthetic Week 12 recalculation and editorial handoff passed in a
+  disposable copy. The publication audit correctly warned that Trade Museum
+  scoring remained at Week 11.
 - Home and My Team passed local Chromium and WebKit rehearsal at 320, 390,
   and 1280 px on `88f350f5`. The data test confirmed that a same-week score
   correction hides stale Record Watch updates.
@@ -81,9 +84,8 @@ development. Phase 5.8 remains partially implemented.
 
 ## Recommended next development tasks
 
-1. Review the 5.7 release evidence on PR #318 and confirm the full check set
-   for the proposed merge revision. Bring that revision to the owner for
-   approval when ready.
+1. Review the 5.7 release report with the owner. Confirm the exact PR head
+   and base are still valid when approval is granted.
 2. Continue 5.8 in development with attainable milestone alerts and the
    approved Tuesday refresh rehearsal. Keep scope gaps explicit.
 3. Finish browser and data-publication review for the 5.6 player archive.
