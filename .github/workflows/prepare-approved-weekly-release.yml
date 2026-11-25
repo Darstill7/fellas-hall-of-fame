@@ -67,9 +67,13 @@ jobs:
           FELLAS_APPROVE_WEEKLY_IMPORT: 'YES'
         run: |
           set -euo pipefail
+          OWNERSHIP_BASELINE="$RUNNER_TEMP/fellas-record-ownership-before.json"
+          node scripts/build-weekly-record-ownership.mjs --snapshot "$OWNERSHIP_BASELINE"
           node scripts/apply-reviewed-sleeper-week.mjs "$CANDIDATE"
           node scripts/sync-franchise-timeline-current.mjs
           node scripts/sync-weekly-manager-portfolios.mjs
+          node scripts/build-weekly-record-ownership.mjs --previous "$OWNERSHIP_BASELINE"
+          node scripts/build-weekly-record-ownership.mjs --check
           node scripts/sync-records-career-fallbacks.mjs
           node scripts/verify-weekly-ledger-parity.mjs
           node scripts/verify-current-week-website.mjs

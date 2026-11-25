@@ -181,7 +181,40 @@ window.addEventListener('hashchange',()=>{
 });
 openLinkedSearch();
 
+async function showWeeklyOwnershipWatch(watchPromise,archive,guide,rows){
+ const host=document.getElementById('weekly-record-watch');
+ if(!host)return;
+ try{
+  const watch=await watchPromise;
+  if(!watch)return;
+  const week=guide[watch.year]?.standings?.[0]?.games;
+  if(watch.schemaVersion!==1||watch.week!==week||watch.current?.asOf!==archive.asOf||
+    !Array.isArray(watch.changes)||!watch.changes.length)return;
+  const verbs={BROKEN:'New record',EXTENDED:'Record extended',TIED:'Record tied',OWNERSHIP_CHANGED:'Holders changed'};
+  const list=tag('ul');
+  for(const change of watch.changes){
+   const holders=rows.filter(row=>row.records.some(record=>record.anchor===change.id&&record.value===change.value))
+    .map(row=>row.name).sort();
+   if(!holders.length||holders.join('|')!==change.holders?.join('|')||!Object.hasOwn(verbs,change.type))return;
+   const item=tag('li');
+   item.append(tag('strong',verbs[change.type]+' · '+holders.join(', ')));
+   const link=tag('a',change.label+' · '+toLabel(change));
+   link.href='#'+change.id;
+   item.append(tag('br'),link);
+   list.append(item);
+  }
+  const heading=tag('h3','Record Watch · Week '+week);
+  heading.id='weekly-record-watch-title';
+  host.append(heading,list);
+  host.hidden=false;
+ }catch(error){
+  console.warn('Weekly record changes unavailable',error);
+ }
+}
+
 async function start(){
+ const watchPromise=fetch('../data/weekly-record-ownership-v57.json')
+  .then(response=>response.ok?response.json():null).catch(()=>null);
  const list=document.getElementById('record-leaders'),other=document.getElementById('record-other'),otherDisclosure=document.getElementById('leader-other'),categoryHost=document.getElementById('record-categories');
  const expandedHost=document.getElementById('expanded-record-categories'),familyNav=document.getElementById('record-family-nav'),summary=document.getElementById('record-count-summary');
  try{
@@ -206,6 +239,7 @@ async function start(){
   const rows=archive.managers.map(m=>({name:m.manager,records:findOwnedRecords(archive,guide,m.manager,postseason)}));
   rows.sort((a,b)=>b.records.length-a.records.length||a.name.localeCompare(b.name));
   managerRows=rows;expandedData=expanded;renderManagerFinder();renderManagerComparison();
+  await showWeeklyOwnershipWatch(watchPromise,archive,guide,rows);
   fetch('../data/hall_of_fortune_2016_2026w9_v1.json').then(r=>{if(!r.ok)throw Error('Schedule Luck registry unavailable');return r.json()}).then(data=>{const ranks=data.careerScheduleSurplusNormalized||[];scheduleLuckRows=ranks;const leader=ranks[0];if(leader?.manager==='Birch'&&leader.winSurplus>0)fortuneRecord=leader;renderManagerFinder()}).catch(()=>{fortuneRecord=null});
   fetch('../data/championship_trade_awards_2020_2025_v1.json').then(response=>{if(!response.ok)throw Error('Championship trade awards unavailable');return response.json()}).then(data=>{const record=data.officialScopedRecord;if(data.schema==='fellas-championship-trade-awards-2020-2025-v1'&&record?.holder==='Stilly'&&record?.value===57.68){championshipTradeRecord=record;renderManagerFinder()}}).catch(()=>{championshipTradeRecord=null});
   fetch('../data/playoff_trade_revenge_2020_2025_v1.json').then(r=>{if(!r.ok)throw Error('Trade revenge archive unavailable');return r.json()}).then(data=>{if(data.schema==='fellas-playoff-trade-revenge-2020-2025-v1'&&data.recordA?.holder==='Thommy'&&data.recordB?.holder==='Stilly'){tradeRevenge=data;renderManagerFinder()}}).catch(()=>{tradeRevenge=null});

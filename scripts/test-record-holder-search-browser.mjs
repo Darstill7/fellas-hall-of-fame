@@ -80,6 +80,17 @@ try{
     errors.push(engine+': top-half ties lost an eligible manager');
 
    await page.goto(url,{waitUntil:'domcontentloaded'});
+   const weeklyWatch=JSON.parse(await fs.readFile('data/weekly-record-ownership-v57.json','utf8'));
+   if(weeklyWatch.changes.length){
+    const watch=page.locator('#weekly-record-watch');
+    await watch.waitFor();
+    const first=weeklyWatch.changes[0];
+    const link=watch.getByRole('link',{name:new RegExp(first.label)});
+    if(!(await watch.locator('h3').textContent()).includes('Week '+weeklyWatch.week))
+     errors.push(engine+': weekly ownership cutoff is missing');
+    await link.click();
+    await page.locator('#'+first.id+' .established-record-evidence[open]').waitFor();
+   }
    await page.locator('#complete-record-index .records-archive-disclosure>summary').click();
    const input=page.locator('#record-category-query');
    const count=page.locator('#record-category-results-count');

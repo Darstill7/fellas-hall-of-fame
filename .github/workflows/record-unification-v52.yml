@@ -26,6 +26,7 @@ on:
       - 'analytics/player-directory-preview.html'
       - 'assets/player-directory-preview.mjs'
       - 'assets/manager-record-ownership.mjs'
+      - 'scripts/*weekly-record-ownership.mjs'
       - 'data/**'
       - '.github/workflows/record-unification-v52.yml'
   workflow_dispatch:
@@ -79,6 +80,7 @@ jobs:
           node scripts/build-unified-record-registry-v57.mjs
           node scripts/build-unified-record-registry-v57.mjs --check
           node scripts/test-unified-record-registry-v57.mjs
+          node scripts/test-weekly-record-ownership.mjs
       - name: Upload candidate receipts
         if: always()
         uses: actions/upload-artifact@v4

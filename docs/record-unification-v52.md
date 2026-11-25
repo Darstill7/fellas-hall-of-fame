@@ -88,3 +88,22 @@ The development site uses the resulting 23-category collection. Registry validat
 The other 58 records retain their specific scope. That includes recovered game
 and streak samples, partial-season comparisons, format-dependent postseason
 exhibits, and opposing roles in the same matchup.
+
+## Weekly ownership watch
+
+The approved weekly release captures the 23-category ownership collection
+before import, then compares it with the rebuilt manager portfolios after
+import. The comparison requires adjacent weeks, identical record definitions,
+and an unchanged prior game ledger. The resulting
+`data/weekly-record-ownership-v57.json` distinguishes new marks, extensions
+by existing holders, ties and other ownership changes. Record Holders shows
+changes for the current archived cutoff with links to the exact record cards.
+The editorial packet verifies the report against canonical inputs before it
+includes the same changes for research.
+
+The initial Week 11 report uses the Week 10 ledger and season guide from
+`9939f482`. Week 10 manager portfolios were regenerated from that ledger to
+replace the older archive present at that revision. Verified placement and
+playoff receipts were identical across both weeks. The adjacent comparison
+runs from the human-approved release path. Staged and synthetic weeks do not
+change the tracked report.
