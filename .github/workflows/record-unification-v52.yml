@@ -17,6 +17,7 @@ on:
       - 'scripts/build-player-championship-records-v56.mjs'
       - 'scripts/build-player-transaction-history-v56.mjs'
       - 'scripts/build-player-directory-v56.mjs'
+      - 'scripts/build-unified-record-registry-v57.mjs'
       - 'analytics/player-directory-preview.html'
       - 'assets/player-directory-preview.mjs'
       - 'assets/manager-record-ownership.mjs'
@@ -68,6 +69,8 @@ jobs:
         run: |
           node scripts/build-player-directory-v56.mjs
           node --check assets/player-directory-preview.mjs
+      - name: Normalize unified record registry
+        run: node scripts/build-unified-record-registry-v57.mjs
       - name: Upload candidate receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -89,4 +92,5 @@ jobs:
             data-integrity/player-championship-records-v56.json
             data-integrity/player-transaction-history-v56.json
             data-integrity/player-directory-preview/
+            data-integrity/unified-record-registry-v57.json
           if-no-files-found: error
