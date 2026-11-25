@@ -107,3 +107,11 @@ replace the older archive present at that revision. Verified placement and
 playoff receipts were identical across both weeks. The adjacent comparison
 runs from the human-approved release path. Staged and synthetic weeks do not
 change the tracked report.
+
+Home shows the approved week's ownership changes below the editorial feed.
+My Team uses the same report and shows only records where the selected
+manager holds or lost a share. Both paths link to the evidence. The report
+contains a fingerprint of the approved current-season scores. The homepage
+checks it against the data it actually loaded, whether that is the compact
+projection or the full ledger. A stale report stays hidden while the rest
+of the dashboard remains available.

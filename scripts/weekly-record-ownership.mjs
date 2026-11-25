@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {buildHomeDashboard} from '../assets/home-app-v3.mjs';
+import {recordWatchScoreInput} from '../assets/weekly-record-watch.mjs';
 import {fellasLeague} from '../assets/league-config.mjs';
 import {buildRecordCategories,establishedRecordAnchor,recordCategoryLabels} from '../assets/manager-record-ownership.mjs';
 
@@ -32,7 +33,9 @@ export function captureRecordOwnership(read) {
     const holders = [...new Set(rows.filter(row=>row.value===value).map(row=>row.manager))].sort();
     return {id:establishedRecordAnchor(label),label,value,unit,direction,holders};
   });
-  return {year,week,asOf:ledger.updated,ledgerHash:hash(ledger.games),priorLedgerHash:hash(ledger.games.filter(game=>
+  return {year,week,asOf:ledger.updated,
+    seasonScoreHash:createHash('sha256').update(recordWatchScoreInput(ledger.games,year)).digest('hex'),
+    ledgerHash:hash(ledger.games),priorLedgerHash:hash(ledger.games.filter(game=>
     game.year!==year||game.week!==week||game.stage!=='regular'
   )),marks};
 }

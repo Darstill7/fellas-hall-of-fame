@@ -5,13 +5,31 @@ const root=process.cwd(),prefix='/fellas-hall-of-fame/';
 const types={'.html':'text/html','.mjs':'text/javascript','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.webmanifest':'application/manifest+json'};
 const server=http.createServer(async(req,res)=>{try{const u=new URL(req.url,'http://localhost');if(!u.pathname.startsWith(prefix))throw Error('outside');let rel=decodeURIComponent(u.pathname.slice(prefix.length));if(!rel||rel.endsWith('/'))rel+='index.html';const f=path.resolve(root,rel);if(!f.startsWith(root+path.sep))throw Error('outside');const b=await fs.readFile(f);res.writeHead(200,{'Content-Type':types[path.extname(f)]||'application/octet-stream'});res.end(b)}catch{res.writeHead(404);res.end()}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port+prefix;
+const recordWatch=JSON.parse(await fs.readFile('data/weekly-record-ownership-v57.json','utf8'));
 const out='data-integrity/production-rehearsal';await fs.mkdir(out,{recursive:true});const results=[];
 try{for(const [engine,runner] of [['chromium',chromium],['webkit',webkit]]){const browser=await runner.launch();try{for(const width of [320,390,1280]){
  const p=await browser.newPage({viewport:{width,height:844}}),errors=[];p.on('pageerror',e=>errors.push(e.message));
  await p.goto(base);await p.locator('.standing:not(.head)').first().waitFor();
  assert.equal(await p.locator('.standing:not(.head)').count(),10);assert.equal(await p.locator('.matchup').count(),5);assert.equal(await p.locator('.preview-note').count(),0);
  assert.equal(await p.locator('.fellas-app-nav a').count(),5);await p.locator('body.fellas-desktop-shell').waitFor();assert.ok(await p.locator('.fellas-app-nav').evaluate((n,w)=>{const b=n.getBoundingClientRect();return w>=1100?b.left===0&&b.top===0&&b.right<=document.querySelector('main').getBoundingClientRect().left:b.bottom>=innerHeight-2},width));assert.equal(await p.locator('.fellas-app-nav [aria-current]').getAttribute('data-app-tab'),'home');
+ if(recordWatch.changes.length){
+  const panel=p.locator('#home-record-watch');
+  await panel.waitFor();
+  assert.match(await panel.locator('h2').textContent(),new RegExp('Week '+recordWatch.week));
+  assert.equal(await panel.locator('li').count(),recordWatch.changes.length);
+  assert.ok(await panel.locator('a').evaluateAll(links=>links.every(link=>link.getBoundingClientRect().height>=44)));
+ }
  await p.locator('.fellas-app-nav a[data-app-tab="team"]').click();await p.waitForURL('**/index.html#my-team-section');
+ assert.equal(await p.locator('#home-record-watch').isVisible(),false);
+ for(const name of ['Stilly','Stover','Scott']){
+  await p.locator('#my-manager').selectOption(name);
+  const expected=recordWatch.changes.filter(change=>change.holders.includes(name)||change.left.includes(name));
+  const teamWatch=p.locator('#team-record-watch');
+  assert.equal(await teamWatch.isVisible(),Boolean(expected.length));
+  assert.deepEqual(await teamWatch.locator('a').evaluateAll(links=>links.map(link=>new URL(link.href).hash)),
+   expected.map(change=>'#'+change.id));
+ }
+
  for(const name of ['Birch','JMid','Kuhl','Mitch','Scott','Stew','Stover','Thommy','Tony','Stilly']){await p.locator('#my-manager').selectOption(name);await p.locator('.personal-card').waitFor();assert.match(await p.locator('.personal-top').innerText(),new RegExp(name));assert.equal(await p.locator('.personal-card').count(),1);const roster=p.locator('.personal-roster');assert.equal(await roster.getAttribute('data-manager'),name);assert.match(await roster.locator('summary').innerText(),/optional snapshot/);assert.equal(await p.locator('#my-team').evaluate(e=>e.lastElementChild.classList.contains('personal-roster')),true,'Optional roster must follow franchise insights');assert.equal(await p.locator('.personal-insight-link').filter({hasText:'Playoff scenarios'}).count(),1);await roster.locator('summary').click();await roster.locator('.roster-group').first().waitFor({timeout:15000});assert.equal(await roster.locator('.roster-group').first().locator('.roster-row').count(),9);assert.match(await roster.innerText(),/Read-only snapshot, not live/);await roster.locator('summary').click();assert.equal(await p.locator('.personal-activity-fold').count(),1);assert.equal(await p.locator('.personal-activity-fold').evaluate(e=>e.open),false);}
  assert.ok(await p.locator('#my-manager').evaluate(e=>e.getBoundingClientRect().height>=44));await p.locator('.personal-activity-fold summary').click();assert.ok(await p.locator('.personal-activity .activity-item').first().isVisible());await p.locator('.personal-activity-fold summary').click();await p.locator('.personal-card').waitFor();assert.match(await p.locator('.personal-card').innerText(),/Stilly/);
  await p.screenshot({path:out+'/'+engine+'-'+width+'.png',fullPage:true});
@@ -21,6 +39,12 @@ try{for(const [engine,runner] of [['chromium',chromium],['webkit',webkit]]){cons
  await p.locator('.fellas-app-nav a[data-app-tab="team"]').click();await p.locator('.personal-card').waitFor();assert.equal(new URL(p.url()).pathname,prefix+'index.html');assert.equal(await p.locator('#my-manager').inputValue(),'Stilly');assert.equal(await p.locator('.fellas-app-nav [aria-current]').getAttribute('data-app-tab'),'team');assert.ok(!(await p.locator('.personal-card').innerText()).includes('Median format:'));
  await p.locator('.fellas-app-nav a[data-app-tab="league"]').click();await p.locator('#league-intelligence').waitFor();assert.equal(await p.locator('.league-compare-table tbody tr').count(),10);const comparison=await p.locator('.league-compare-table tbody tr').evaluateAll(rows=>rows.map(r=>({name:r.cells[0].textContent,rank:Number(r.cells[2].textContent.slice(1)),avg:Number(r.cells[3].textContent)})));for(const r of comparison)assert.equal(r.rank,1+comparison.filter(x=>x.avg>r.avg).length);await p.locator('.fellas-app-nav a[data-app-tab="more"]').click();await p.locator('#more .more-group').first().waitFor();assert.equal(await p.locator('#more .more-group').count(),4);assert.equal(await p.locator('#more .more-links a').count(),15);assert.ok(await p.locator('#more .more-links a').evaluateAll(es=>es.every(e=>e.getBoundingClientRect().height>=44)));await p.locator('#more .archive summary').click();assert.ok(await p.locator('#more a[href="home-classic.html"]').isVisible());
  assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+ if(width===390&&recordWatch.changes.length){
+  await p.locator('.fellas-app-nav a[data-app-tab="home"]').click();
+  const first=recordWatch.changes[0];
+  await p.locator('#home-record-watch a').first().click();
+  await p.locator('#'+first.id+' .established-record-evidence[open]').waitFor();
+ }
  await p.goto(base+'index.html#home-manager-title');await p.waitForURL('**/home-classic.html#home-manager-title');assert.equal(await p.locator('#home-manager-title').count(),1);
  await p.waitForLoadState('networkidle');assert.deepEqual(errors,[]);results.push({engine,width,status:'PASS'});await p.close();
  }}finally{await browser.close()}}}finally{server.close();await fs.writeFile(out+'/report.json',JSON.stringify(results,null,2))}

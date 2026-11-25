@@ -6,6 +6,8 @@ on:
       - 'home-classic.html'
       - 'assets/app-shell-v34.*'
       - 'assets/home-app-v3.*'
+      - 'assets/weekly-record-watch.mjs'
+      - 'data/weekly-record-ownership-v57.json'
       - 'fellas-app.webmanifest'
       - 'scripts/test-production-homepage-browser.mjs'
       - '.github/workflows/production-homepage-rehearsal.yml'
