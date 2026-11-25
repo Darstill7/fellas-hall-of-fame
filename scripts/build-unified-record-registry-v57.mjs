@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {buildLegacyRecords, normalizeManager as norm} from './legacy-record-definitions-v57.mjs';
+import {reviewOwnershipScope} from './record-ownership-review-v57.mjs';
 import {reviewLegacyDefinitions} from './record-deduplication-v57.mjs';
 import {recordCategoryLabels} from '../assets/manager-record-ownership.mjs';
 const read=n=>JSON.parse(fs.readFileSync('data-integrity/'+n+'.json','utf8'));
@@ -62,6 +63,13 @@ for(const {canonicalId,legacyId} of legacyReview.mappings){
  record.publicationStatus='legacy-reviewed-candidate';
 }
 for(const {canonicalId} of legacyReview.establishedPanel)assert.equal(byId.get(canonicalId).ownerType,'manager');
+const ownershipReview=reviewOwnershipScope(records,legacyReview.establishedPanel,archive,data('season_guide'),{
+ espn:data('verified_espn_playoff_brackets_2016_2019'),
+ sleeper:data('verified_sleeper_playoff_brackets_2020_2025'),
+ placements:data('fellas_final_placements_2020_2025'),
+ placementReceipts:data('sleeper_postseason_placement_receipts_2020_2025'),
+ allEra:inputs.placements
+});
 
 const managerRecords=records.filter(r=>r.ownerType==='manager'),playerRecords=records.filter(r=>r.ownerType==='player');
 const portfolios=(eligible,owners)=>[...owners].map(ownerId=>{
@@ -105,7 +113,7 @@ const duplicateLabelReview=[...labelGroups].filter(([,a])=>a.length>1).map(([lab
 const out={schemaVersion:2,status:'legacy-reviewed-candidate-registry',asOf:inputs.ledger.updated,
  regularSeasonThrough:legacy.through,regularGames:legacy.regularGames,sourceCounts,categoryCount:records.length,
  managerCategoryCount:managerRecords.length,playerCategoryCount:playerRecords.length,legacyReview,
- duplicateLabelReview,managerPortfolios,playerPortfolios,records};
+ ownershipReview,duplicateLabelReview,managerPortfolios,playerPortfolios,records};
 const file='data-integrity/unified-record-registry-v57.json',body=JSON.stringify(out,null,2)+'\n';
 if(process.argv.includes('--check'))assert.equal(fs.readFileSync(file,'utf8'),body);else fs.writeFileSync(file,body);
 console.log('Unified registry: '+records.length+' candidates; '+managerRecords.length+' manager-owned, '+

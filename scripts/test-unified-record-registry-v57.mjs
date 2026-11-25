@@ -19,6 +19,19 @@ assert.equal(registry.legacyReview.mappings.filter(row => row.decision === 'alia
 assert.equal(registry.legacyReview.mappings.filter(row => row.decision === 'integrated').length, 24);
 const records = new Map(registry.records.map(record => [record.id, record]));
 assert.equal(records.size, registry.categoryCount);
+const review = registry.ownershipReview;
+assert.equal(review.established.length, 16);
+assert.equal(new Set(review.established.map(row => row.anchor)).size, 16);
+assert.deepEqual(new Set(review.candidateDecisions.map(row => row.id)), new Set(records.keys()));
+assert.equal(review.candidateDecisions.length, records.size);
+assert.equal(review.established.filter(row => row.decision === 'scoped-variant').length, 4);
+for (const decision of review.candidateDecisions) {
+  if (records.get(decision.id).ownerType === 'player') {
+    assert.equal(decision.disposition, 'scoped-research');
+  }
+}
+assert.ok(review.comparisons.some(row => row.leftId.startsWith('champion-position:') &&
+  row.rightId.startsWith('player-champion:')), 'Cross-type ownership comparison must be explicit');
 
 const threshold = (id, owner) => records.get('legacy:' + id).holders.find(row => row.ownerId === owner);
 const mitch = records.get('legacy:win-rate').holders[0].evidence[0];

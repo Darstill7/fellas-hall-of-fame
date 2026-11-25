@@ -3,24 +3,40 @@ import {auditPlacementStatistics} from './placement-statistics.mjs';
 import {auditAllEraFinishes} from './all-era-final-placements.mjs';
 // Archived category leaders, computed from verified manager record-book rows.
 // Career-wide comparisons include former managers; 2026 is excluded from season wins.
-export const recordCategoryLabels=[
- 'Highest regular-season weekly score',
- 'Largest regular-season victory',
- 'Most career regular-season wins',
- 'Most wins in a completed regular season',
- 'Most championships',
- 'Most points in a completed regular season',
- 'Closest regular-season victory',
- 'Highest career regular-season winning percentage (50+ games)',
- 'Most regular-season wins against a single opponent',
- 'Most championship-bracket playoff appearances',
- 'Most championship-game appearances',
- 'Best average final finish (all six Sleeper seasons)',
- 'Most top-three final finishes (2020–2025)',
- 'Most top-five final finishes (2020–2025)',
- 'Best normalized career final finish (6+ seasons, 2016–2025)',
- 'Most top-three finishes across 2016–2025'
-];
+const establishedCategories=new Map([
+ ['Highest regular-season weekly score',{id:'weekly-score',sources:'matchups'}],
+ ['Largest regular-season victory',{id:'largest-win',sources:'matchups'}],
+ ['Most career regular-season wins',{id:'career-wins',sources:'matchups'}],
+ ['Most wins in a completed regular season',{id:'completed-season-wins',sources:'matchups'}],
+ ['Most championships',{id:'championships',sources:'allEra'}],
+ ['Most points in a completed regular season',{id:'completed-season-points',sources:'season'}],
+ ['Closest regular-season victory',{id:'closest-win',sources:'matchups'}],
+ ['Highest career regular-season winning percentage (50+ games)',{id:'career-win-rate-50',sources:'matchups'}],
+ ['Most regular-season wins against a single opponent',{id:'rival-wins',sources:'matchups'}],
+ ['Most championship-bracket playoff appearances',{id:'playoff-berths',sources:'brackets'}],
+ ['Most championship-game appearances',{id:'finals',sources:'brackets'}],
+ ['Best average final finish (all six Sleeper seasons)',{id:'sleeper-average-finish',sources:'sleeper'}],
+ ['Most top-three final finishes (2020–2025)',{id:'sleeper-top-three',sources:'sleeper'}],
+ ['Most top-five final finishes (2020–2025)',{id:'sleeper-top-five',sources:'sleeper'}],
+ ['Best normalized career final finish (6+ seasons, 2016–2025)',{id:'all-era-normalized-finish',sources:'allEra'}],
+ ['Most top-three finishes across 2016–2025',{id:'all-era-top-three',sources:'allEra'}],
+]);
+const evidenceSources={
+ matchups:[['Weekly matchup archive','../seasons/weekly-matchup-archive.html']],
+ season:[['Season guide data','../data/season_guide.json']],
+ allEra:[['Verified ESPN and Sleeper final placements','../data/fellas_final_placements_2016_2025_verified.json']],
+ brackets:[['ESPN playoff brackets','../data/verified_espn_playoff_brackets_2016_2019.json'],
+  ['Sleeper playoff brackets','../data/verified_sleeper_playoff_brackets_2020_2025.json']],
+ sleeper:[['Verified Sleeper placement receipts','../data/sleeper_postseason_placement_receipts_2020_2025.json']]
+};
+export const recordCategoryLabels=[...establishedCategories.keys()];
+export function establishedRecordAnchor(label){
+ const category=establishedCategories.get(label);
+ return category?'established-record-'+category.id:null;
+}
+export function establishedRecordSources(label){
+ return evidenceSources[establishedCategories.get(label)?.sources]??[];
+}
 export function buildRecordCategories(archive,guide,postseason){
  const all=archive.managers||[];
  const categories=[
@@ -95,7 +111,7 @@ export function findOwnedRecords(archive,guide,manager,postseason){
   // A manager may tie a season record in multiple years; that still owns one category.
   const selected=winners.find(x=>x.manager===manager);
   return (selected?[selected]:[]).map(x=>({
-   label:category.label,value:x.value,unit:category.unit,
+   anchor:establishedRecordAnchor(category.label),label:category.label,value:x.value,unit:category.unit,
    shared:new Set(winners.map(w=>w.manager)).size>1,
    context:x.opponent?'Against '+winners.filter(w=>w.manager===manager).map(w=>w.opponent).join(' and '):
     x.game?'Week '+x.game.week+', '+x.game.year+' vs '+x.game.opponent:
@@ -182,7 +198,10 @@ export async function mountRecordOwnership(){
     const value=document.createElement('strong');value.textContent=String(r.value)+(r.unit==='pts'?' pts':r.unit==='%'?'%':' '+r.unit);
     const context=document.createElement('p');context.textContent=r.context;
     const scope=document.createElement('small');scope.textContent=(r.shared?'Shared league record · ':'League record · ')+r.scope;
-    card.append(label,value,context,scope);mountRecordShare(card,manager,r);
+    const evidence=document.createElement('a');evidence.className='owned-record-evidence';
+    evidence.href='../analytics/record-holders.html#'+r.anchor;evidence.textContent='View record evidence';
+    evidence.setAttribute('aria-label','View evidence for '+r.label);
+    card.append(label,value,context,scope,evidence);mountRecordShare(card,manager,r);
     items.push({card,text:[r.label,r.value,r.unit,r.context,r.scope,r.shared?'shared':'sole']
      .join(' ').toLocaleLowerCase('en-US')});
    }

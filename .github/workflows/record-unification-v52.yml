@@ -20,6 +20,7 @@ on:
       - 'scripts/build-unified-record-registry-v57.mjs'
       - 'scripts/legacy-record-definitions-v57.mjs'
       - 'scripts/record-deduplication-v57.mjs'
+      - 'scripts/record-ownership-review-v57.mjs'
       - 'scripts/test-unified-record-registry-v57.mjs'
       - 'analytics/player-directory-preview.html'
       - 'assets/player-directory-preview.mjs'

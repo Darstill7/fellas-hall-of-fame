@@ -8,6 +8,8 @@ on:
       - 'assets/expanded-records.mjs'
       - 'data/expanded_records_verified_v1.json'
       - 'assets/record-holders-page.mjs'
+      - 'assets/manager-record-ownership.mjs'
+      - 'managers/record-books.html'
       - 'scripts/test-record-holder-search.mjs'
       - 'scripts/test-record-holder-search-browser.mjs'
       - 'scripts/test-record-holder-comparison.mjs'

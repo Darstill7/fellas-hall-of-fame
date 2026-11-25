@@ -1,4 +1,4 @@
-import {findOwnedRecords,recordCategoryLabels,nextRecordChallenger,summarizeOwnedRecords} from './manager-record-ownership.mjs';
+import {findOwnedRecords,recordCategoryLabels,nextRecordChallenger,summarizeOwnedRecords,establishedRecordAnchor,establishedRecordSources} from './manager-record-ownership.mjs';
 const active=new Set(['Stilly','JMid','Thommy','Stew','Scott','Mitch','Tony','Stover','Kuhl','Birch']);
 const categories=recordCategoryLabels;
 const catalogGroups=['All','Single-game','Career','Season','Rivalries','Final standings'];
@@ -49,7 +49,7 @@ function renderManagerFinder(){
   const winners=c.leaders.filter(r=>r.rank===1&&displayName(r.manager)===selected);
   return winners.length?[{label:c.label,group:c.group,value:formatExpanded(winners[0],c.unit),href:'expanded-records.html?group='+encodeURIComponent(c.group)+'&category='+encodeURIComponent(c.key)+'&manager='+encodeURIComponent(expandedName(selected))}]:[];
  });
- const legacy=row.records.map(r=>({label:r.label,group:'Established records',value:toLabel(r),href:target(selected)}));
+ const legacy=row.records.map(r=>({label:r.label,group:'Established records',value:toLabel(r),href:'#'+r.anchor}));
  const collection=collectionWinners.filter(r=>r.manager===selected).map(r=>({label:r.label,group:r.family,value:r.value+(r.year?' · '+r.year:''),href:'#'+r.anchor}));
   if(selected==='Birch'&&fortuneRecord)collection.push({label:'Most favorable career schedule draw · Schedule Luck',group:'Career',value:'+'+fortuneRecord.winSurplus.toFixed(2)+' wins',href:'#schedule-luck-record'});
   if(championshipTradeRecord&&selected===championshipTradeRecord.holder)collection.push({label:'Most championship-run starter points from one trade · 2020–2025',group:'Postseason',value:championshipTradeRecord.value.toFixed(2)+' points · '+championshipTradeRecord.year,href:'#championship-trade-record'});
@@ -165,7 +165,20 @@ function openLinkedSearch(){
  if(disclosure)disclosure.open=true;
  archiveSection?.scrollIntoView({block:'start',behavior:'instant'});
 }
-window.addEventListener('hashchange',openLinkedSearch);
+function openLinkedRecord(){
+ const id=location.hash.slice(1);
+ if(!id.startsWith('established-record-'))return;
+ const card=document.getElementById(id);
+ if(!card)return;
+ card.closest('details').open=true;
+ const evidence=card.querySelector('.established-record-evidence');
+ if(evidence)evidence.open=true;
+ card.scrollIntoView({block:'start',behavior:'instant'});
+}
+window.addEventListener('hashchange',()=>{
+ openLinkedSearch();
+ openLinkedRecord();
+});
 openLinkedSearch();
 
 async function start(){
@@ -279,13 +292,20 @@ async function start(){
   for(const label of categories){
    const categoryHolders=rows.flatMap(r=>r.records.filter(record=>record.label===label).map(record=>({name:r.name,record})));
    const card=tag('article',undefined,'category-card');
+   card.id=establishedRecordAnchor(label);
    card.append(tag('h3',label));
    if(!categoryHolders.length){card.append(tag('p','No verified record holder available','empty'));categoryHost.append(card);continue}
    const value=tag('div',toLabel(categoryHolders[0].record),'category-meta');
    const names=tag('div',undefined,'category-owners');
    for(const holder of categoryHolders)names.append(detail(holder.name,holder.name));
-   const context=tag('small',categoryHolders[0].record.context+' · '+categoryHolders[0].record.scope);
-   card.append(value,names,context);
+   const scope=tag('small',categoryHolders[0].record.scope);
+   const evidence=tag('details',undefined,'established-record-evidence');
+   evidence.append(tag('summary','Record evidence'));
+   for(const {name,record} of categoryHolders)evidence.append(tag('p',name+' · '+record.context));
+   for(const [sourceLabel,href] of establishedRecordSources(label)){
+    const link=tag('a',sourceLabel,'cta');link.href=href;evidence.append(link);
+   }
+   card.append(value,names,scope,evidence);
    const challenger=nextRecordChallenger(archive,guide,label,postseason);
    if(challenger){
     const disclosure=tag('details',undefined,'record-context');
@@ -300,6 +320,7 @@ async function start(){
   }
   // The sections above the search grow when their archive data arrives.
   openLinkedSearch();
+  openLinkedRecord();
  }catch(error){
   list.replaceChildren(tag('p','Record holders are temporarily unavailable. Try the personal record books below.','scope'));
   categoryHost.replaceChildren();

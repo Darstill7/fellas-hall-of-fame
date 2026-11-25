@@ -48,6 +48,18 @@ try{
         el.getBoundingClientRect().bottom<innerHeight))
     errors.push(engine+': evidence deep link lost the selected record or coverage');
 
+   await page.goto(recordsURL+'../managers/record-books.html?manager=Mitch#owned-records',{waitUntil:'domcontentloaded'});
+   const score = page.locator('#owned-records .owned-record').filter({hasText:'Highest regular-season weekly score'});
+   const scoreMark = await score.locator('strong').textContent();
+   await score.getByRole('link',{name:'View evidence for Highest regular-season weekly score'}).click();
+   await page.waitForURL('**/record-holders.html#established-record-weekly-score');
+   const evidence = page.locator('#established-record-weekly-score');
+   await evidence.locator('.established-record-evidence[open]').waitFor();
+   if (await evidence.locator('.category-meta').textContent() !== scoreMark ||
+       !await evidence.getByRole('link',{name:'Weekly matchup archive'}).isVisible() ||
+       !(await evidence.locator('.established-record-evidence').textContent()).includes('Mitch · Week'))
+    errors.push(engine+': established record evidence disagrees with the manager portfolio');
+
    await page.goto(url,{waitUntil:'domcontentloaded'});
    await page.locator('#complete-record-index .records-archive-disclosure>summary').click();
    const input=page.locator('#record-category-query');

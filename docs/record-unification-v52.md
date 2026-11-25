@@ -48,3 +48,22 @@ Public profile previews, the personal record book and the ownership
 leaderboard use the established 16-category collection. The manager finder
 shows archived and specialty leads separately. The homepage links to the
 personal record book and does not display an ownership total.
+
+## Comparing the research families
+
+The registry's `ownershipReview` accounts for each candidate. Build validation
+compares the mark and full holder set of each exact alias against the established
+public calculation. A different published scope, such as the 50-game win-rate
+board, retains its published qualification and supplies no extra ownership
+credit. The review also records comparisons between families where a shared
+receipt could otherwise look like a shared category. For example, the
+two-sided Trade Museum sample and the provider-wide completed-trade count have
+different eligibility. A starter performance can support a manager record and a
+player record in their respective collections.
+
+At the current cutoff, the 426 entries include 12 exact public equivalents,
+four variants of published scopes, 345 scoped research candidates, and 65
+additional recovered-game or official-placement candidates awaiting publication
+review. These counts describe the inventory. The 16 established categories
+determine the public ownership totals. Their record links now open the
+corresponding card with the credited managers, qualification and source links.
