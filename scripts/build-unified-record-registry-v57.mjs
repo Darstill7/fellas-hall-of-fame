@@ -4,7 +4,6 @@ import assert from 'node:assert/strict';
 import {buildLegacyRecords, normalizeManager as norm} from './legacy-record-definitions-v57.mjs';
 import {reviewOwnershipScope} from './record-ownership-review-v57.mjs';
 import {reviewLegacyDefinitions} from './record-deduplication-v57.mjs';
-import {recordCategoryLabels} from '../assets/manager-record-ownership.mjs';
 const read=n=>JSON.parse(fs.readFileSync('data-integrity/'+n+'.json','utf8'));
 const data=n=>JSON.parse(fs.readFileSync('data/'+n+'.json','utf8'));
 const archive=data('manager_record_books_2016_2026');
@@ -54,7 +53,6 @@ for(const [family,sourceReceipt,d] of intake){
  }
 }
 const legacyReview=reviewLegacyDefinitions(inputs.catalog,records,archived.records);
-assert.deepEqual(legacyReview.establishedPanel.map(row=>row.label),recordCategoryLabels);
 const reviewedCategories=new Map(inputs.catalog.categories.map(c=>[c.key,c.group]));
 const byId=new Map(records.map(record=>[record.id,record]));
 for(const {canonicalId,legacyId} of legacyReview.mappings){

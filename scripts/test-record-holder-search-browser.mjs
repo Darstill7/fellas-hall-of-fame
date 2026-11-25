@@ -60,6 +60,25 @@ try{
        !(await evidence.locator('.established-record-evidence').textContent()).includes('Mitch · Week'))
     errors.push(engine+': established record evidence disagrees with the manager portfolio');
 
+   await page.goto(recordsURL+'../managers/record-books.html?manager=Tony#owned-records',{waitUntil:'domcontentloaded'});
+   const portfolio=page.locator('#owned-records');
+   await portfolio.getByRole('heading',{name:'Records Tony owns · 4'}).waitFor();
+   if(!(await portfolio.locator('p').first().textContent()).includes('4 of 23 established league records · 1 sole · 3 shared'))
+    errors.push(engine+': Tony portfolio omitted records or shared credits');
+   await portfolio.getByRole('searchbox',{name:'Search records held'}).fill('rebound');
+   if(await portfolio.locator('.owned-record').count()!==1)
+    errors.push(engine+': ownership search did not isolate the new rebound category');
+   await portfolio.getByRole('link',{name:'View evidence for Biggest year-over-year finish rebound'}).click();
+   const rebound=page.locator('#established-record-finish-rebound');
+   await rebound.locator('.established-record-evidence[open]').waitFor();
+   if(await rebound.locator('.category-meta').textContent()!=='100 percentage points'||
+      !(await rebound.locator('.established-record-evidence').textContent()).includes('#10 of 10 → 2021 · #1 of 10')||
+      await rebound.locator('.category-owners a').count()!==1)
+    errors.push(engine+': rebound mark, placement receipts or sole credit is wrong');
+   const topHalf=page.locator('#established-record-all-era-top-half');
+   if(await topHalf.locator('.category-owners a').count()!==4)
+    errors.push(engine+': top-half ties lost an eligible manager');
+
    await page.goto(url,{waitUntil:'domcontentloaded'});
    await page.locator('#complete-record-index .records-archive-disclosure>summary').click();
    const input=page.locator('#record-category-query');

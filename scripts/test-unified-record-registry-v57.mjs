@@ -21,6 +21,8 @@ const records = new Map(registry.records.map(record => [record.id, record]));
 assert.equal(records.size, registry.categoryCount);
 const review = registry.ownershipReview;
 assert.equal(review.established.length, 16);
+assert.equal(review.siteCollection.length, 23);
+assert.equal(new Set(review.siteCollection.map(row=>row.anchor)).size, 23);
 assert.equal(new Set(review.established.map(row => row.anchor)).size, 16);
 assert.deepEqual(new Set(review.candidateDecisions.map(row => row.id)), new Set(records.keys()));
 assert.equal(review.candidateDecisions.length, records.size);
@@ -41,7 +43,7 @@ assert.deepEqual(read('data-integrity/record-publication-preview-v57.json'),{
 assert.equal(preview.currentCategoryCount,review.established.length);
 assert.equal(preview.previewCategoryCount,preview.currentCategoryCount+preview.proposedRecords.length);
 assert.deepEqual(new Set(preview.decisions.map(row=>row.id)),
-  new Set(review.candidateDecisions.filter(row=>row.disposition==='awaiting-publication-review').map(row=>row.id)));
+  new Set(review.candidateDecisions.filter(row=>row.disposition==='publication-reviewed').map(row=>row.id)));
 assert.equal(preview.decisions.length,65);
 assert.equal(preview.proposedRecords.length,7);
 assert.equal(preview.portfolios.length,inputs.archive.managers.length);

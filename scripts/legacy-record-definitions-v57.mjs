@@ -111,7 +111,7 @@ export function buildLegacyRecords({ledger, weekly, archive, placements, catalog
   const finishScope = 'Verified official final placements ' + firstYear + '–' + lastCompleted;
   const seasonQualification = 'Minimum 12 recovered regular-season appearances in an officially completed season';
   const records = [];
-  function add(id, eligible, metric, qualification, scope = liveScope, source = ledgerSource) {
+  function add(id, eligible, metric, qualification, scope = liveScope, source = ledgerSource, unit) {
     const definition = byId.get(id);
     assert.ok(definition, 'Missing source definition ' + id);
     assert.equal(definition.direction, 'high', id);
@@ -121,7 +121,7 @@ export function buildLegacyRecords({ledger, weekly, archive, placements, catalog
     const winners = groupBy(eligible.filter(row => score(row) === value), row => row.manager);
     const holders = [...winners].sort(([a],[b]) => a.localeCompare(b))
       .map(([manager, evidence]) => ({manager, evidence}));
-    records.push({id, label:definition.label, value, unit:definition.unit, scope,
+    records.push({id, label:definition.label, value, unit:unit??definition.unit, scope,
       qualification, source, category:definition.group, holders});
   }
 
@@ -204,7 +204,7 @@ export function buildLegacyRecords({ledger, weekly, archive, placements, catalog
   assert.ok(rebounds.some(row => row.improvement > 0), 'No documented improvement');
   add('bounceback', rebounds, row => row.improvement,
     'Consecutive completed seasons; improvement in official normalized finish (100 first, 0 last); rounded to two decimals',
-    finishScope, placementsSource);
+    finishScope, placementsSource, 'percentage points');
 
   return {records, through:{year:through.year, week:through.week}, regularGames:games.length};
 }

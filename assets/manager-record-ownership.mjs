@@ -20,6 +20,13 @@ const establishedCategories=new Map([
  ['Most top-five final finishes (2020–2025)',{id:'sleeper-top-five',sources:'sleeper'}],
  ['Best normalized career final finish (6+ seasons, 2016–2025)',{id:'all-era-normalized-finish',sources:'allEra'}],
  ['Most top-three finishes across 2016–2025',{id:'all-era-top-three',sources:'allEra'}],
+ ['Most completed seasons',{id:'completed-seasons',sources:'allEra'}],
+ ['Most top-half final finishes',{id:'all-era-top-half',sources:'allEra'}],
+ ['Biggest year-over-year finish rebound',{id:'finish-rebound',sources:'allEra'}],
+ ['Most semifinal appearances',{id:'semifinals',sources:'brackets'}],
+ ['Most playoff byes',{id:'playoff-byes',sources:'brackets'}],
+ ['Most top seeds',{id:'top-seeds',sources:'brackets'}],
+ ['Longest consecutive playoff berth streak',{id:'playoff-berth-streak',sources:'brackets'}],
 ]);
 const evidenceSources={
  matchups:[['Weekly matchup archive','../seasons/weekly-matchup-archive.html']],
@@ -55,13 +62,19 @@ export function buildRecordCategories(archive,guide,postseason){
  const seasons=[...(postseason?.espn?.seasons||[]),...(postseason?.sleeper?.seasons||[])];
  const years=seasons.map(s=>s.year);
  if(seasons.length===10&&new Set(years).size===10&&years.every(y=>Number.isInteger(y)&&y>=2016&&y<=2025)){
-  for(const [label,property,unit] of [
-   ['Most championship-bracket playoff appearances','entrants','berths'],
-   ['Most championship-game appearances','finalists','finals']
+  const bracketScope='Verified ESPN and Sleeper championship brackets, 2016–2025; consolation excluded';
+  const entrants=season=>season.participants??season.seeds;
+  for(const [label,namesForSeason,unit,detail] of [
+   ['Most championship-bracket playoff appearances',entrants,'berths',''],
+   ['Most championship-game appearances',season=>season.finalists,'finals',''],
+   ['Most semifinal appearances',season=>season.semifinalists,'seasons',''],
+   ['Most playoff byes',season=>season.byes,'seasons',''],
+   ['Most top seeds',season=>Object.keys(season.seedByManager).filter(name=>season.seedByManager[name]===1),'seasons','; seed No. 1'],
+   ['Longest consecutive playoff berth streak',entrants,'seasons','; consecutive calendar years']
   ]){
    const byManager=new Map();
    for(const season of seasons){
-    const names=property==='entrants'?(season.participants||season.seeds):season.finalists;
+    const names=namesForSeason(season);
     if(!Array.isArray(names))throw Error('Incomplete verified postseason bracket for '+season.year);
     for(const original of new Set(names)){
      const manager=original==='Tom'?'Thommy':original;
@@ -70,7 +83,20 @@ export function buildRecordCategories(archive,guide,postseason){
      seasonsForManager.push(season.year);byManager.set(manager,seasonsForManager);
     }
    }
-   categories.push({label,rows:[...byManager].map(([manager,years])=>({manager,value:years.length,years:years.sort((a,b)=>a-b)})),direction:'max',unit});
+   const rows=[...byManager].map(([manager,seasons])=>({manager,value:seasons.length,years:seasons.sort((a,b)=>a-b)}));
+   if(label==='Longest consecutive playoff berth streak'){
+    for(const row of rows){
+     const runs=[];
+     for(const year of row.years){
+      if(runs.at(-1)?.at(-1)!==year-1)runs.push([]);
+      runs.at(-1).push(year);
+     }
+     row.value=Math.max(...runs.map(run=>run.length));
+     row.context=runs.filter(run=>run.length===row.value)
+      .map(run=>run.length===1?String(run[0]):run[0]+'–'+run.at(-1)).join(', ');
+    }
+   }
+   categories.push({label,rows,direction:'max',unit,scope:bracketScope+detail});
   }
  }
  if(postseason?.placements&&postseason?.placementReceipts){
@@ -90,6 +116,23 @@ export function buildRecordCategories(archive,guide,postseason){
  }
  if(postseason?.allEra){
   const entire=auditAllEraFinishes(postseason.allEra);
+  const placementScope='Verified ESPN and Sleeper final placements, 2016–2025';
+  categories.push(
+   {label:'Most completed seasons',rows:entire.managers.map(m=>({manager:m.manager,value:m.seasonsPlayed,years:m.history.map(x=>x.year)})),
+    direction:'max',unit:'seasons',scope:placementScope},
+   {label:'Most top-half final finishes',rows:entire.managers.map(m=>({manager:m.manager,value:m.topHalf,
+     years:m.history.filter(x=>x.rank<=Math.floor(x.teams/2)).map(x=>x.year)})),
+    direction:'max',unit:'finishes',scope:placementScope+'; top four in 2016 and top five thereafter'},
+   {label:'Biggest year-over-year finish rebound',rows:entire.managers.flatMap(m=>m.history.flatMap((to,i)=>{
+     const from=m.history[i-1];
+     if(!from||to.year!==from.year+1)return [];
+     const score=row=>(row.teams-row.rank)/(row.teams-1);
+     const value=Number((100*(score(to)-score(from))).toFixed(2));
+     return value>0?[{manager:m.manager,value,context:from.year+' · #'+from.rank+' of '+from.teams+
+       ' → '+to.year+' · #'+to.rank+' of '+to.teams}]:[];
+    })),
+    direction:'max',unit:'percentage points',scope:placementScope+'; consecutive seasons, normalized to field size'}
+  );
   categories.push(
    {label:'Best normalized career final finish (6+ seasons, 2016–2025)',
     rows:entire.managers.filter(m=>m.seasonsPlayed>=6).map(m=>({manager:m.manager,value:m.meanFinishScore,years:m.history.map(x=>x.year)})),
@@ -113,11 +156,11 @@ export function findOwnedRecords(archive,guide,manager,postseason){
   return (selected?[selected]:[]).map(x=>({
    anchor:establishedRecordAnchor(category.label),label:category.label,value:x.value,unit:category.unit,
    shared:new Set(winners.map(w=>w.manager)).size>1,
-   context:x.opponent?'Against '+winners.filter(w=>w.manager===manager).map(w=>w.opponent).join(' and '):
+   context:x.context??(x.opponent?'Against '+winners.filter(w=>w.manager===manager).map(w=>w.opponent).join(' and '):
     x.game?'Week '+x.game.week+', '+x.game.year+' vs '+x.game.opponent:
     x.years?'Seasons '+x.years.join(', '):
-    x.year?'Season '+x.year:x.games?x.games+' regular-season games through '+archive.asOf:'Archived career through '+archive.asOf,
-   scope:category.label==='Best normalized career final finish (6+ seasons, 2016–2025)'?'Verified ESPN and Sleeper final ranks through 2025; 2016 had 8 teams; 100=first and 0=last; minimum six completed seasons':
+    x.year?'Season '+x.year:x.games?x.games+' regular-season games through '+archive.asOf:'Archived career through '+archive.asOf),
+   scope:category.scope??(category.label==='Best normalized career final finish (6+ seasons, 2016–2025)'?'Verified ESPN and Sleeper final ranks through 2025; 2016 had 8 teams; 100=first and 0=last; minimum six completed seasons':
     category.label==='Most top-three finishes across 2016–2025'?'Verified ESPN and Sleeper final placements, 2016–2025; includes former managers':
     category.label==='Best average final finish (all six Sleeper seasons)'?'Only managers present for all six completed Sleeper seasons, 2020–2025; lower is better':
     category.label==='Most top-three final finishes (2020–2025)'||category.label==='Most top-five final finishes (2020–2025)'?'Verified 2020–2025 final placements across all twelve participating managers':
@@ -125,7 +168,7 @@ export function findOwnedRecords(archive,guide,manager,postseason){
     category.label==='Most championships'?'Verified title seasons through 2025':
     category.label==='Most wins in a completed regular season'||category.label==='Most points in a completed regular season'?'Completed seasons through 2025; raw ESPN/Sleeper scores are not normalized':
     category.unit==='%'?'At least 50 archived regular-season games, ties count as half a win':
-    'Recorded 2016–'+archive.asOf
+    'Recorded 2016–'+archive.asOf)
   }));
  });
 }
@@ -144,10 +187,10 @@ export function nextRecordChallenger(archive,guide,label,postseason){
  if(!next)return null;
  return {
   manager:next.manager,value:next.value,unit:category.unit,
-  context:next.opponent?'Against '+next.opponent:
+  context:next.context??(next.opponent?'Against '+next.opponent:
    next.game?'Week '+next.game.week+', '+next.game.year+' vs '+next.game.opponent:
    next.years?'Seasons '+next.years.join(', '):
-   next.year?'Season '+next.year:next.games?next.games+' archived games':'Archived career',
+   next.year?'Season '+next.year:next.games?next.games+' archived games':'Archived career'),
   gap:Number(Math.abs(leader-next.value).toFixed(2))
  };
 }

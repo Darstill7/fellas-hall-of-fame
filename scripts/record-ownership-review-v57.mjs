@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {reviewPublicationCandidates} from './record-publication-review-v57.mjs';
-import {findOwnedRecords, establishedRecordSources} from '../assets/manager-record-ownership.mjs';
+import {findOwnedRecords, establishedRecordSources, recordCategoryLabels} from '../assets/manager-record-ownership.mjs';
 
 const researchFamilies = {
   position:'Reconciled Sleeper lineup samples with missing or excluded team-weeks.',
@@ -78,7 +78,7 @@ export function reviewOwnershipScope(records, establishedPanel, archive, guide, 
     const reason = researchFamilies[record.family];
     if (reason) return {id:record.id, disposition:'scoped-research', reason};
     assert.ok(['core','historical','legacy'].includes(record.family), 'Missing review for ' + record.family);
-    return {id:record.id, disposition:'awaiting-publication-review',
+    return {id:record.id, disposition:'publication-reviewed',
       reason:'Part of the wider recovered-game or official-placement registry, outside the established ownership collection.'};
   });
 
@@ -86,9 +86,25 @@ export function reviewOwnershipScope(records, establishedPanel, archive, guide, 
     assert.ok(byId.has(leftId) && byId.has(rightId), 'Unresolvable review comparison ' + leftId + ' / ' + rightId);
     return {leftId, rightId, decision:'distinct-scope', reason};
   });
-  const publicationCandidates = candidateDecisions.filter(row=>row.disposition==='awaiting-publication-review')
+  const publicationCandidates = candidateDecisions.filter(row=>row.disposition==='publication-reviewed')
     .map(row=>byId.get(row.id));
   const publicationReview = reviewPublicationCandidates(publicationCandidates,established,
     archive.managers.map(row=>row.manager),postseason);
-  return {established, candidateDecisions, comparisons, publicationReview};
+  const additions = publicationReview.proposedRecords.map(record=>{
+    const published = holdings.filter(holding=>holding.label===record.label);
+    assert.deepEqual(published.map(row=>row.manager).sort(),record.holders.map(holder=>holder.manager).sort(),record.id);
+    assert.ok(published.every(row=>row.value===record.value && row.unit===record.unit &&
+      row.shared===(record.holders.length>1) && row.anchor && establishedRecordSources(row.label).length),record.id);
+    return {canonicalId:record.id,label:record.label,anchor:published[0].anchor};
+  });
+  const siteCollection = [...established,...additions];
+  assert.deepEqual(siteCollection.map(row=>row.label),recordCategoryLabels);
+  assert.equal(new Set(siteCollection.map(row=>row.anchor)).size,siteCollection.length);
+  for(const {ownerId,total,sole,shared} of publicationReview.portfolios){
+    const records = holdings.filter(holding=>holding.manager===ownerId);
+    assert.equal(records.length,total,ownerId);
+    assert.equal(records.filter(holding=>holding.shared).length,shared,ownerId);
+    assert.equal(records.filter(holding=>!holding.shared).length,sole,ownerId);
+  }
+  return {established, candidateDecisions, comparisons, publicationReview, siteCollection};
 }

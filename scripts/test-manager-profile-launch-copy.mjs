@@ -236,9 +236,11 @@ const expectedKinds=[
  'Most top-three final finishes (2020–2025)',
  'Most top-five final finishes (2020–2025)',
  'Best normalized career final finish (6+ seasons, 2016–2025)',
- 'Most top-three finishes across 2016–2025'
+ 'Most top-three finishes across 2016–2025',
+ 'Most completed seasons','Most top-half final finishes','Biggest year-over-year finish rebound',
+ 'Most semifinal appearances','Most playoff byes','Most top seeds','Longest consecutive playoff berth streak'
 ];
-if(expectedKinds.length!==recordCategoryLabels.length||recordCategoryLabels.length!==16)
+if(expectedKinds.length!==recordCategoryLabels.length||recordCategoryLabels.length!==23)
  throw Error('Record category definitions and regression test disagree');
 for(const kind of expectedKinds){
  const holders=[...holderMap].filter(([,records])=>records.some(r=>r.label===kind));

@@ -44,8 +44,9 @@ larger candidate portfolios keep manager and player ownership separate. The
 full research intake still needs cross-family review and publication approval
 before its totals can be displayed as unique league records.
 
-Public profile previews, the personal record book and the ownership
-leaderboard use the established 16-category collection. The manager finder
+Before the standings and playoff expansion, public profile previews, the
+personal record book and the ownership leaderboard used the established
+16-category collection. The manager finder
 shows archived and specialty leads separately. The homepage links to the
 personal record book and does not display an ownership total.
 
@@ -64,14 +65,14 @@ player record in their respective collections.
 At the current cutoff, the 426 entries include 12 exact public equivalents,
 four variants of published scopes, 345 scoped research candidates, and 65
 additional recovered-game or official-placement candidates awaiting publication
-review. These counts describe the inventory. The 16 established categories
-determine the public ownership totals. Their record links now open the
+review. These counts describe the inventory. The 16 original categories
+define the baseline ownership totals. Their record links now open the
 corresponding card with the credited managers, qualification and source links.
 
-## Proposed standings and playoff additions
+## Standings and playoff ownership expansion
 
 `ownershipReview.publicationReview` records a disposition for each of the 65
-remaining candidates. The preview proposes seven additions: most completed
+remaining candidates. The preview compares seven additions: most completed
 seasons, most top-half finishes, greatest consecutive-season placement
 improvement, most semifinal appearances, most byes, most top seeds, and
 longest consecutive playoff berth streak. The generator calculates their
@@ -82,7 +83,8 @@ the seven proposals. CI also publishes a standalone copy at
 `data-integrity/record-publication-preview-v57.json` with the supporting season
 receipts.
 
+The development site uses the resulting 23-category collection. Registry validation checks that its marks and all 14 manager portfolios agree with the independent preview.
+
 The other 58 records retain their specific scope. That includes recovered game
 and streak samples, partial-season comparisons, format-dependent postseason
-exhibits, and opposing roles in the same matchup. Public counts remain based
-on the established collection pending a publication decision.
+exhibits, and opposing roles in the same matchup.

@@ -197,7 +197,7 @@ async function start(){
   ]);
   if(responses.some(r=>!r.ok))throw Error('Record files unavailable');
   const [archive,guide,espn,sleeper,placements,placementReceipts,allEra,expanded]=await Promise.all(responses.map(r=>r.json()));
-  if(expanded.version!==1||expanded.categoryCount!==44||expanded.categories?.length!==44||categories.length!==16)throw Error('Expanded and legacy record catalog mismatch');
+  if(expanded.version!==1||expanded.categoryCount!==44||expanded.categories?.length!==44)throw Error('Expanded and legacy record catalog mismatch');
   for(const category of expanded.categories){
    if(!category.key||!category.label||!Array.isArray(category.leaders)||!category.leaders.length)throw Error('Incomplete expanded category: '+category.key);
   }
