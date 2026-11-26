@@ -1,0 +1,374 @@
+{
+  "year": 2026,
+  "week": 11,
+  "publication": "The Tuesday Hangover",
+  "article": "tuesday-hangover/2026-week-11.html",
+  "claims": [
+    {
+      "id": "Scott-wins",
+      "text": "Scott wins",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Scott.wins",
+      "expected": 4
+    },
+    {
+      "id": "Scott-losses",
+      "text": "Scott losses",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Scott.losses",
+      "expected": 7
+    },
+    {
+      "id": "Scott-pf",
+      "text": "Scott pf",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Scott.pf",
+      "expected": 1087.84
+    },
+    {
+      "id": "Scott-streak",
+      "text": "Scott streak",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Scott.streak",
+      "expected": "L3"
+    },
+    {
+      "id": "Stilly-wins",
+      "text": "Stilly wins",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stilly.wins",
+      "expected": 7
+    },
+    {
+      "id": "Stilly-losses",
+      "text": "Stilly losses",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stilly.losses",
+      "expected": 4
+    },
+    {
+      "id": "Stilly-pf",
+      "text": "Stilly pf",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stilly.pf",
+      "expected": 1270.92
+    },
+    {
+      "id": "Stilly-streak",
+      "text": "Stilly streak",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stilly.streak",
+      "expected": "W4"
+    },
+    {
+      "id": "Thommy-wins",
+      "text": "Thommy wins",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Thommy.wins",
+      "expected": 3
+    },
+    {
+      "id": "Thommy-losses",
+      "text": "Thommy losses",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Thommy.losses",
+      "expected": 8
+    },
+    {
+      "id": "Thommy-pf",
+      "text": "Thommy pf",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Thommy.pf",
+      "expected": 1116.52
+    },
+    {
+      "id": "Thommy-streak",
+      "text": "Thommy streak",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Thommy.streak",
+      "expected": "L4"
+    },
+    {
+      "id": "JMid-wins",
+      "text": "JMid wins",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.JMid.wins",
+      "expected": 5
+    },
+    {
+      "id": "JMid-losses",
+      "text": "JMid losses",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.JMid.losses",
+      "expected": 6
+    },
+    {
+      "id": "JMid-pf",
+      "text": "JMid pf",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.JMid.pf",
+      "expected": 1256.06
+    },
+    {
+      "id": "JMid-streak",
+      "text": "JMid streak",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.JMid.streak",
+      "expected": "L1"
+    },
+    {
+      "id": "Mitch-wins",
+      "text": "Mitch wins",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Mitch.wins",
+      "expected": 8
+    },
+    {
+      "id": "Mitch-losses",
+      "text": "Mitch losses",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Mitch.losses",
+      "expected": 3
+    },
+    {
+      "id": "Mitch-pf",
+      "text": "Mitch pf",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Mitch.pf",
+      "expected": 1375.12
+    },
+    {
+      "id": "Mitch-streak",
+      "text": "Mitch streak",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Mitch.streak",
+      "expected": "L3"
+    },
+    {
+      "id": "Stew-wins",
+      "text": "Stew wins",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stew.wins",
+      "expected": 8
+    },
+    {
+      "id": "Stew-losses",
+      "text": "Stew losses",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stew.losses",
+      "expected": 3
+    },
+    {
+      "id": "Stew-pf",
+      "text": "Stew pf",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stew.pf",
+      "expected": 1394
+    },
+    {
+      "id": "Stew-streak",
+      "text": "Stew streak",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stew.streak",
+      "expected": "W7"
+    },
+    {
+      "id": "Tony-wins",
+      "text": "Tony wins",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Tony.wins",
+      "expected": 8
+    },
+    {
+      "id": "Tony-losses",
+      "text": "Tony losses",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Tony.losses",
+      "expected": 3
+    },
+    {
+      "id": "Tony-pf",
+      "text": "Tony pf",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Tony.pf",
+      "expected": 1235.12
+    },
+    {
+      "id": "Tony-streak",
+      "text": "Tony streak",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Tony.streak",
+      "expected": "W3"
+    },
+    {
+      "id": "Kuhl-wins",
+      "text": "Kuhl wins",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Kuhl.wins",
+      "expected": 0
+    },
+    {
+      "id": "Kuhl-losses",
+      "text": "Kuhl losses",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Kuhl.losses",
+      "expected": 11
+    },
+    {
+      "id": "Kuhl-pf",
+      "text": "Kuhl pf",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Kuhl.pf",
+      "expected": 892.18
+    },
+    {
+      "id": "Kuhl-streak",
+      "text": "Kuhl streak",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Kuhl.streak",
+      "expected": "L11"
+    },
+    {
+      "id": "Birch-wins",
+      "text": "Birch wins",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Birch.wins",
+      "expected": 7
+    },
+    {
+      "id": "Birch-losses",
+      "text": "Birch losses",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Birch.losses",
+      "expected": 4
+    },
+    {
+      "id": "Birch-pf",
+      "text": "Birch pf",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Birch.pf",
+      "expected": 1303.28
+    },
+    {
+      "id": "Birch-streak",
+      "text": "Birch streak",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Birch.streak",
+      "expected": "W2"
+    },
+    {
+      "id": "Stover-wins",
+      "text": "Stover wins",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stover.wins",
+      "expected": 5
+    },
+    {
+      "id": "Stover-losses",
+      "text": "Stover losses",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stover.losses",
+      "expected": 6
+    },
+    {
+      "id": "Stover-pf",
+      "text": "Stover pf",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stover.pf",
+      "expected": 1200.54
+    },
+    {
+      "id": "Stover-streak",
+      "text": "Stover streak",
+      "kind": "canonical",
+      "source": "canonical record book; 2026 weeks 1–11",
+      "path": "managers.Stover.streak",
+      "expected": "W1"
+    },
+    {
+      "id": "scoring-margin",
+      "text": "Tony's weekly scoring crown margin",
+      "kind": "canonical",
+      "source": "week 11 canonical results",
+      "path": "scoringLeadMargin",
+      "expected": 0.04,
+      "articleText": "0.04"
+    },
+    {
+      "id": "largest-margin",
+      "text": "Largest winning margin",
+      "kind": "canonical",
+      "source": "week 11 canonical results",
+      "path": "largestMargin",
+      "expected": 44.46,
+      "articleText": "44.46"
+    },
+    {
+      "id": "player-points",
+      "kind": "player",
+      "text": "All named starter and bench points, sums and lineup availability",
+      "source": "Independent issue-level audit required",
+      "status": "pending"
+    },
+    {
+      "id": "trade-context",
+      "kind": "trade",
+      "text": "All named deadline transactions and historical context",
+      "source": "Independent issue-level audit required",
+      "status": "pending"
+    },
+    {
+      "id": "nfl-context",
+      "kind": "nfl",
+      "text": "All NFL results, byes and player availability",
+      "source": "Independent issue-level audit required",
+      "status": "pending"
+    },
+    {
+      "id": "prose-review",
+      "kind": "manual",
+      "text": "Every numerical claim in prose, graphics, metadata and captions independently checked",
+      "source": "Independent issue-level audit required",
+      "status": "pending"
+    }
+  ]
+}
