@@ -5,6 +5,15 @@ on:
       - 'scripts/audit-record-certification.mjs'
       - 'scripts/build-certified-record-watch.mjs'
       - 'scripts/test-certified-record-watch.mjs'
+      - 'scripts/test-record-watch-integrations.mjs'
+      - 'assets/certified-record-watch-feed.mjs'
+      - 'data/certified-record-watch-feed-v1.json'
+      - 'assets/home-app-v3.mjs'
+      - 'assets/manager-achievements-record-watch.mjs'
+      - 'analytics/records.html'
+      - 'analytics/playoff-race.html'
+      - 'scripts/build-weekly-editorial-packet.mjs'
+      - 'scripts/build-weekly-shitter-research.mjs'
       - 'scripts/verify-legendary-records.mjs'
       - 'scripts/simulate-week14-stage-migration.mjs'
       - 'data/week14_2020_2021_stage_classification_audit_v1.json'
@@ -34,6 +43,7 @@ jobs:
       - run: node scripts/verify-record-book-phase2.mjs
       - run: node scripts/audit-record-certification.mjs > record-certification-audit.json
       - run: node scripts/test-certified-record-watch.mjs
+      - run: node scripts/test-record-watch-integrations.mjs
       - run: node scripts/build-certified-record-watch.mjs > certified-record-watch-research.json
       - uses: actions/upload-artifact@v4
         with:
