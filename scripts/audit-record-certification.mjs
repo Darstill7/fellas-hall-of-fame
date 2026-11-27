@@ -401,6 +401,31 @@ const correctedStageRankings=[...archivedProjection].map(([id,old])=>{
  return {id,beforePopulation:old.population,afterPopulation:next.population,holderChange:holderSignature(old)!==holderSignature(next),beforeHolders:old.holders,afterHolders:next.holders,changedManagers};
 });
 const stageProjectionCoverage={status:'same-cutoff research projection not certified',cutoff,regularBefore:archivedGames.length,regularAfter:archivedGames.length-removedGames.length,allGamesUnchanged:ledger.games.length,expandedRecomputed:correctedStageRankings.length,placementCategoriesUnaffected:rebuiltFinishes.map(c=>c.id),legendaryFullCorrectedRerank:'pending',weeklyAwards:'separate approved eligibility; not recalculated here',pointBasis:'summed weekly scores not official PF/PA',unresolved:'four non-winners exact postseason labels and six official PF discrepancies'};
+const correctedLegendary=JSON.parse(execFileSync(process.execPath,['scripts/verify-legendary-records.mjs','--corrected-research-json'],{encoding:'utf8',maxBuffer:32*1024*1024}));
+assert.equal(correctedLegendary.categories.length,19);
+const correctedLegendaryRankings=legendaryReconstruction.categories.map(old=>{
+ const next=correctedLegendary.categories.find(c=>c.id===old.id);assert(next);
+ const names=[...new Set([...Object.keys(old.personalBests),...Object.keys(next.personalBests)])];
+ const changedManagers=names.filter(n=>JSON.stringify(old.personalBests[n])!==JSON.stringify(next.personalBests[n])).map(manager=>({manager,before:old.personalBests[manager]??null,after:next.personalBests[manager]??null}));
+ return {id:old.id,beforePopulation:old.population,afterPopulation:next.population,holderChange:holderSignature(old)!==holderSignature(next),beforeHolders:old.holders,afterHolders:next.holders,changedManagers};
+});
+const correctedPhase2=JSON.parse(execFileSync(process.execPath,['scripts/build-record-book-phase2.mjs','--corrected-research-json'],{encoding:'utf8',maxBuffer:32*1024*1024}));
+assert.equal(correctedPhase2.categoryCount,23);
+assert.equal(phase2.coverage.games-correctedPhase2.coverage.games,8);
+assert.equal(phase2.coverage.weeklyScoringSets,correctedPhase2.coverage.weeklyScoringSets);
+assert.deepEqual(phase2.coverage.includedByeWeeks,correctedPhase2.coverage.includedByeWeeks);
+const weeklyAwardIds=['weekly-highs','weekly-lows','weekly-runnerups','weekly-top-three','weekly-bottom-three','top-three-losses','bottom-three-wins','runnerup-losses','second-lowest-wins','season-top-three','season-bottom-three','season-weekly-highs','season-weekly-lows','high-streak','low-streak'];
+for(const id of weeklyAwardIds){
+ assert.deepEqual(phase2.categories.find(c=>c.id===id),correctedPhase2.categories.find(c=>c.id===id),'Approved weekly award parity '+id);
+ for(const manager of new Set([...Object.keys(phase2.managerIndex),...Object.keys(correctedPhase2.managerIndex)]))assert.deepEqual(phase2.managerIndex[manager]?.[id],correctedPhase2.managerIndex[manager]?.[id],'Weekly personal rank parity '+manager+' '+id);
+}
+const phase2StageComparisons=phase2.categories.map(old=>{
+ const next=correctedPhase2.categories.find(c=>c.id===old.id);assert(next);
+ return {id:old.id,beforePopulation:old.count,afterPopulation:next.count,weeklyAward:weeklyAwardIds.includes(old.id),holdersBefore:old.holders,holdersAfter:next.holders};
+});
+const weeklyEligibilityProjection={status:'research-only-not-certified',weeklyAwardCategories:weeklyAwardIds.length,regularOnlyCategories:23-weeklyAwardIds.length,weeklyScoringSets:correctedPhase2.coverage.weeklyScoringSets,approvedPartialWeeks:correctedPhase2.coverage.includedByeWeeks,regularMatchups:correctedPhase2.coverage.games,weeklyAwardMatchups:correctedPhase2.coverage.weeklyAwardMatchups};
+stageProjectionCoverage.legendaryFullCorrectedRerank='integrated research comparison';
+stageProjectionCoverage.weeklyAwards='separate eligibility projection with invariant category and personal-rank assertions';
 const portfolioCoverage={managers:Object.keys(canonicalManagerIndex).length,personalMarks,outsideTopFive,mappedProposalCategories:phase2ToCanonical.size,incumbentRankCoverage,unmappedTaxonomyCategories:rows.filter(r=>!r.phase2.length).map(r=>r.id),publication:'not-authorized; candidate marks must not replace incumbent records; missing categories remain unavailable'};
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,rebuiltFinishes,expandedReconstruction,legendaryReconstruction,incumbentReconstruction,allGameStreakResearch,allGameCoverage,correctedStageRankings,stageProjectionCoverage,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,rebuiltFinishes,expandedReconstruction,legendaryReconstruction,incumbentReconstruction,allGameStreakResearch,allGameCoverage,correctedStageRankings,stageProjectionCoverage,correctedLegendaryRankings,phase2StageComparisons,weeklyEligibilityProjection,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));
