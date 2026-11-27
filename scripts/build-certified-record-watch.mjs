@@ -52,6 +52,59 @@ export function buildWatch(ledger,{year,week,regularSeasonWeeks,excludedKeys=[],
    research.push({id,eventId,type,manager:row.manager,year,week,run:row.run,startWeek:row.startWeek,priorRecord:priorBest,record:allBest,holders,priorHolders,remaining,toTie:Math.max(0,allBest-row.run),toBreak:Math.max(0,allBest+1-row.run),scope:'single regular season; contiguous calendar weeks',status:'research-only-not-certified'});
   }
  }
+ // Career regular-season streaks may bridge only adjacent seasons with
+ // complete manager regular-season coverage and known historical schedules.
+ // These are explicitly NOT all-game streaks.
+ const ordered=[...games].sort((a,b)=>a.year-b.year||a.week-b.week);
+ const historicalLengths={2016:13,2017:12,2018:13,2019:13,2020:13,2021:13,2022:14,2023:14,2024:14,2025:14};
+ const managerSeasonWeeks=new Map();
+ for(const g of ordered)for(const n of [norm(g.home),norm(g.away)]){
+  const k=JSON.stringify([n,g.year]);if(!managerSeasonWeeks.has(k))managerSeasonWeeks.set(k,new Set());managerSeasonWeeks.get(k).add(g.week);
+ }
+ const full=(n,y,length)=>{const weeks=managerSeasonWeeks.get(JSON.stringify([n,y]));return Number.isInteger(length)&&weeks?.size===length&&Array.from({length},(_,i)=>i+1).every(w=>weeks.has(w));};
+ for(const [side,id] of [['W','career-regular-winning-streak'],['L','career-regular-losing-streak']]){
+  const runs=new Map(),latest=new Map();let priorBest=0,allBest=0,priorHolders=[],holders=[];
+  for(const g of ordered)for(const [manager,p,q] of [[norm(g.home),g.homeScore,g.awayScore],[norm(g.away),g.awayScore,g.homeScore]]){
+   const prev=runs.get(manager),result=p>q?'W':p<q?'L':'T';
+   const adjacent=prev&&(g.year===prev.year&&g.week===prev.week+1||g.year===prev.year+1&&g.week===1&&prev.week===historicalLengths[prev.year]&&full(manager,prev.year,historicalLengths[prev.year]));
+   const run=result===side?(adjacent?prev.run:0)+1:0;
+   const row={manager,year:g.year,week:g.week,run,startYear:run>1?prev.startYear:g.year,startWeek:run>1?prev.startWeek:g.week};
+   runs.set(manager,row);if(g.year===year)latest.set(manager,row);
+   if(run>allBest){allBest=run;holders=[];}if(run===allBest&&run>0)holders.push(row);
+   if(g.year!==year||g.week<week){if(run>priorBest){priorBest=run;priorHolders=[];}if(run===priorBest&&run>0)priorHolders.push(row);}
+  }
+  if(priorBest<3)continue;
+  for(const row of latest.values()){
+   if(row.run<3||row.week!==week)continue;
+   const remaining=regularSeasonWeeks-week,alreadyHolder=priorHolders.some(h=>h.manager===row.manager&&h.startYear===row.startYear&&h.startWeek===row.startWeek);
+   let type=null;
+   if(row.run===allBest&&row.run>priorBest)type=alreadyHolder?'extended':'broken';
+   else if(row.run===allBest&&row.run===priorBest&&!alreadyHolder)type='tied';
+   else if(row.run<allBest&&allBest-row.run<=2&&allBest-row.run<=remaining)type='approaching';
+   if(type)research.push({...row,id,eventId:JSON.stringify([id,year,week,row.manager,type,row.run]),type,priorRecord:priorBest,record:allBest,holders,priorHolders,remaining,toTie:Math.max(0,allBest-row.run),toBreak:Math.max(0,allBest+1-row.run),scope:'career regular-season streak; postseason ignored; only verified-length adjacent seasons bridged',status:'research-only-not-certified'});
+  }
+ }
+ const careerTotals=new Map();
+ const total=(n)=>{if(!careerTotals.has(n))careerTotals.set(n,{wins:0,games:0,pointsCents:0,beforeWins:0,beforeGames:0,beforePointsCents:0});return careerTotals.get(n);};
+ for(const g of ordered)for(const [n,p,q] of [[norm(g.home),g.homeScore,g.awayScore],[norm(g.away),g.awayScore,g.homeScore]]){
+  const t=total(n),w=Number(p>q),c=Math.round(p*100);
+  t.wins+=w;t.games++;t.pointsCents+=c;
+  if(g.year!==year||g.week<week){t.beforeWins+=w;t.beforeGames++;t.beforePointsCents+=c;}
+ }
+ for(const manager of active){
+  const t=careerTotals.get(manager),remaining=regularSeasonWeeks-week;
+  for(const [id,field,before,targets] of [['career-win-milestone','wins','beforeWins',[25,50,75,100,125,150,175,200]],['career-game-milestone','games','beforeGames',[25,50,75,100,125,150,175,200]],['career-points-milestone','pointsCents','beforePointsCents',[500000,1000000,1500000,2000000,2500000,3000000]]]){
+   for(const target of targets){
+    const value=t[field],gap=target-value,achieved=t[before]<target&&value>=target;
+    // Points are unbounded in theory; only report actual crossings, never
+    // imply a projected score is achievable with certainty.
+    const approaching=field!=='pointsCents'&&gap>0&&gap<=2&&gap<=remaining;
+    if(!achieved&&!approaching)continue;
+    const type=achieved?'milestone-achieved':'milestone-approaching',scale=field==='pointsCents'?100:1;
+    research.push({id,eventId:JSON.stringify([id,year,week,manager,type,target]),type,manager,year,week,value:value/scale,target:target/scale,gap:Math.max(0,gap)/scale,remaining,scope:'career regular season; points from matchup sums, not official PF',status:'research-only-not-certified'});
+   }
+  }
+ }
  // Trust boundary: caller must supply reviewed certificates, never infer them
  // from a passing CI job, archive rank, or candidate research status.
  const items=research.filter(e=>certificates.some(c=>c.categoryId===e.id&&c.status==='certified'&&c.year===year&&c.throughWeek===week&&c.ledgerSha256===fingerprint&&c.approvedEventIds?.includes(e.eventId)&&typeof c.reviewReference==='string'&&c.reviewReference.length>0)).map(e=>({...e,status:'certified'}));
