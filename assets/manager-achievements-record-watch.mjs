@@ -1,3 +1,4 @@
+import {selectRecordWatch,renderRecordWatchFeed} from './certified-record-watch-feed.mjs';
 import {sharedProfileJson} from './manager-mobile-v47.mjs';
 import {buildPersonalRecords} from './manager-personal-records-v45.mjs';
 const norm=n=>n==='Tom'?'Thommy':n;
@@ -74,20 +75,44 @@ export async function mountAchievementCabinet({name,host,root='../../'}){
  try{
  const [core,ledger,guide,endings,espn,sleeper]=await load(root),rows=buildAchievements(core,ledger,guide,endings,[espn,sleeper],name);
  status.textContent=rows.filter(r=>r.status==='earned').length+' of '+rows.length+' achievements earned · regular-season and verified final placement evidence';
+ const watchHost=el('section');watchHost.hidden=true;p.append(watchHost);
+ const weeks=Object.values(core.managers??{}).map(m=>m.annual?.['2026']?.games).filter(Number.isInteger);
+ const week=core.completedThrough?.week??(weeks.length===10&&new Set(weeks).size===1?weeks[0]:undefined);
+ if(Number.isInteger(week))void sharedProfileJson(root+'data/certified-record-watch-feed-v1.json').then(feed=>renderRecordWatchFeed(watchHost,selectRecordWatch(feed,{year:2026,week,surface:'manager',manager:name}),{href:root+'analytics/records.html'})).catch(()=>renderRecordWatchFeed(watchHost,[]));
+ const earned=rows.filter(r=>r.status==='earned'),locked=rows.filter(r=>r.status==='locked'),unavailable=rows.filter(r=>r.status==='unavailable');
+ const showcase=el('div',null,'gm54-trophy-showcase');
+ const summary=el('div',null,'gm54-trophy-summary');
+ summary.append(el('small','FRANCHISE COLLECTION'),el('strong',earned.length+' / '+(earned.length+locked.length)),el('p','Earned achievements with available archive evidence'));
+ const meter=el('progress');meter.max=Math.max(1,earned.length+locked.length);meter.value=earned.length;meter.setAttribute('aria-label','Earned achievements out of available achievements');summary.append(meter);
+ if(unavailable.length)summary.append(el('p',unavailable.length+' additional achievements cannot be evaluated from available evidence.'));
+ showcase.append(summary);
+ const featuredIds=['dynasty','champion','runner-up','comeback','century','ironman','unstoppable','machine','playoffs-3'];
+ const highlights=featuredIds.flatMap(id=>earned.filter(r=>r.id===id)).slice(0,3);
+ if(highlights.length){
+  const shelf=el('div',null,'gm54-trophy-shelf');
+  for(const r of highlights){const trophy=el('article',null,'gm54-trophy');trophy.append(el('small','EARNED'),el('strong',r.label),el('p',r.requirement),el('p',receipt(r.evidence)));shelf.append(trophy)}
+  showcase.append(shelf);
+ }
+ p.append(showcase);
  const list=el('details');list.append(el('summary','Explore achievements'));
  const grid=el('div',null,'gm45-grid');
- for(const r of rows){const card=el('div',null,'gm45-card');card.dataset.achievement=r.status;card.append(el('small',r.status==='earned'?'✓ Earned':r.status==='locked'?'Locked':'Evidence unavailable'),el('strong',r.label),el('p',r.requirement));if(r.evidence)card.append(el('p',receipt(r.evidence)));grid.append(card)}list.append(grid);p.append(list);
+ const controls=el('div',null,'gm54-achievement-filters');controls.setAttribute('role','group');controls.setAttribute('aria-label','Filter achievements');
+ const filterStatus=el('p',rows.length+' achievements shown','gm45-status');filterStatus.setAttribute('role','status');
+ const filters=[['all','All',rows.length],['earned','Earned',earned.length],['locked','Locked',locked.length],['unavailable','Unknown',unavailable.length]];
+ for(const [key,label,count] of filters){
+  const b=el('button',label+' ('+count+')');b.type='button';b.dataset.filter=key;b.setAttribute('aria-pressed',String(key==='all'));controls.append(b);
+  b.addEventListener('click',()=>{for(const control of controls.children)control.setAttribute('aria-pressed',String(control===b));let visible=0;for(const card of grid.children){card.hidden=key!=='all'&&card.dataset.achievement!==key;if(!card.hidden)visible++;}filterStatus.textContent=visible+' achievements shown';});
+ }
+ for(const r of [...earned,...locked,...unavailable]){const card=el('div',null,'gm45-card');card.dataset.achievement=r.status;card.append(el('small',r.status==='earned'?'✓ Earned':r.status==='locked'?'Locked':'Evidence unavailable'),el('strong',r.label),el('p',r.requirement));if(r.evidence)card.append(el('p',receipt(r.evidence)));grid.append(card)}list.append(controls,filterStatus,grid);p.append(list);
  }catch(e){status.textContent='Achievement evidence unavailable.';console.warn('Achievement cabinet:',e.message)}
 }
 export async function mountWeeklyRecordWatch({host,root='./'}){
  if(!host||host.querySelector('#gm452-watch'))return;
- const p=el('section',null,'gm45-records');p.id='gm452-watch';p.append(el('h2','The Fellas Record Watch'));
- const status=el('p','Checking latest completed-week evidence…','gm45-status');status.setAttribute('role','status');p.append(status);host.append(p);
+ const p=el('section',null,'gm45-records');p.id='gm452-watch';p.hidden=true;host.append(p);
  try{
- const [core,ledger,guide,endings,espn,sleeper]=await load(root),watch=buildWeeklyRecordWatch(core,ledger,guide,endings,[espn,sleeper],activeNames);
- status.textContent='2026 · Archived completed Week '+watch.week+' · '+watch.scope;
- if(!watch.events.length)p.append(el('p','No qualifying new records or milestones in this completed week.'));
- for(const e of watch.events){const card=el('div',null,'gm45-card');card.append(el('small',e.type.replaceAll('_',' ')),el('strong',e.manager+' · '+e.label),el('p',receipt(e.evidence)));p.append(card)}
- const near=el('details');near.append(el('summary','Milestones within reach ('+watch.near.length+')'));for(const r of watch.near)near.append(el('p',r.manager+' · '+r.remaining+' '+r.unit+' away from '+r.target+' '+r.unit));p.append(near);
- }catch(e){status.textContent='Synchronized weekly record evidence unavailable.';console.warn('Record Watch:',e.message)}
+ const [core,feed]=await Promise.all(['career_core_generated.json','certified-record-watch-feed-v1.json'].map(f=>sharedProfileJson(root+'data/'+f)));
+ const weeks=Object.values(core.managers??{}).map(m=>m.annual?.['2026']?.games).filter(Number.isInteger);
+ const week=core.completedThrough?.week??(weeks.length===10&&new Set(weeks).size===1?weeks[0]:undefined);
+ renderRecordWatchFeed(p,selectRecordWatch(feed,{year:2026,week,surface:'recordBook'}),{href:root+'analytics/records.html'});
+ }catch(e){renderRecordWatchFeed(p,[]);console.warn('Certified Record Watch unavailable:',e.message)}
 }

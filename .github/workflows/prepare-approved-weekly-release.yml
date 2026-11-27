@@ -68,6 +68,8 @@ jobs:
         run: |
           set -euo pipefail
           node scripts/apply-reviewed-sleeper-week.mjs "$CANDIDATE"
+          node scripts/refresh-certified-record-watch-feed.mjs
+          node scripts/refresh-certified-record-watch-feed.mjs --check
           node scripts/sync-franchise-timeline-current.mjs
           node scripts/sync-weekly-manager-portfolios.mjs
           node scripts/sync-records-career-fallbacks.mjs
@@ -90,7 +92,8 @@ jobs:
           body: |
             Explicitly reviewed source SHA and contiguous approved week.
             Canonical and consumer checks must pass before merging.
-            Trade evidence remains separately reviewed; no automated publication.
+            Trade evidence and Record Watch certification remain separately reviewed; no automated publication.
+            Weekly matchup approval never automatically certifies record claims.
           add-paths: |
             data/*.json
             index.html

@@ -268,8 +268,8 @@ if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')
   const source=profileSnapshot.querySelector('.profile-snapshot-source');
   if(source)evidence.append(source);
   const records=profileSnapshot.querySelector('.profile-owned-records');
-  // Preserve verified league-record ownership, but avoid a duplicate Records
-  // CTA above the actual Records and Report Card starting destinations.
+  // Preserve the detailed ownership source link inside the evidence disclosure.
+  // The primary Records destination remains separate from personal-best shortcuts.
   if(records)evidence.append(records);
   profileSnapshot.append(evidence);
   const heading=profileSnapshot.querySelector('.profile-snapshot-heading');
@@ -707,6 +707,35 @@ if(gm4Host&&profileName){
  }});topic.targets=targets;return topic});
  const tile=gm4Host.querySelector('button[data-profile-action="front-office"]');
  if(tile)tile.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();topics.find(t=>t.shell.id==='gm47-front-office').reveal();topics.find(t=>t.shell.id==='gm47-front-office').shell.scrollIntoView({block:'start',behavior:'auto'});topics.find(t=>t.shell.id==='gm47-front-office').shell.querySelector('summary').focus({preventScroll:true})},{capture:true});
+ // A compact profile-specific navigation row leads directly to the existing
+ // deferred chapters. No second router or duplicate data requests.
+ const shortcuts=document.createElement('nav');shortcuts.className='portfolio54-shortcuts';shortcuts.setAttribute('aria-label','Personal portfolio shortcuts');
+ for(const [label,id] of [['Records','gm47-records'],['Achievements','gm47-achievements'],['2026 season','gm47-season'],['Front office','gm47-front-office']]){
+  const a=document.createElement('a');a.href='#'+id;a.textContent=label;
+  a.addEventListener('click',event=>{const topic=topics.find(t=>t.shell.id===id);if(!topic)return;event.preventDefault();history.replaceState(null,'','#'+id);topic.reveal();topic.shell.scrollIntoView({block:'start'});topic.shell.querySelector('summary').focus({preventScroll:true});});
+  shortcuts.append(a);
+ }
+ // Keep the full record book as the ownership link destination. The
+ // local portfolio is a distinct destination; avoid a second front-office
+ // shortcut since the existing Drafts & trades tile opens the same chapter.
+ shortcuts.querySelector('a[href="#gm47-front-office"]')?.remove();
+ const recordShortcut=shortcuts.querySelector('a[href="#gm47-records"]');
+ if(recordShortcut)recordShortcut.textContent='Personal bests';
+ profileHero?.append(shortcuts);
+ const ownershipLink=profileHero?.querySelector('[data-profile-owned-records]');
+ const ownershipCount=ownershipLink?.querySelector('.profile-owned-record-count');
+ if(ownershipCount){
+  const caption=document.createElement('p');caption.className='portfolio54-ownership-caption';
+  const sync=()=>{caption.textContent=ownershipCount.textContent;};sync();
+  new MutationObserver(sync).observe(ownershipCount,{childList:true,subtree:true,characterData:true});
+  shortcuts.before(caption);
+ }
+ const identity=profileHero?.querySelector('h1');
+ if(identity&&!profileHero.querySelector('.portfolio54-avatar')){
+  const avatar=document.createElement('span');avatar.className='portfolio54-avatar';avatar.setAttribute('aria-hidden','true');avatar.textContent=(profileName==='Tom'?'Thommy':profileName).slice(0,2).toUpperCase();
+  identity.before(avatar);profileHero.classList.add('portfolio54-hero');
+ }
+ style('./manager-portfolio-v54.css');
  revealProfileHash(topics);window.addEventListener('hashchange',()=>revealProfileHash(topics));
 }
 // Let visitors choose a topic before seeing the complete playoff résumé.

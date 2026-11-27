@@ -64,27 +64,56 @@ export async function mountPersonalRecordIntelligence({name,host,root='../../'})
  try{
  const [core,ledger]=await Promise.all([get('career_core_generated.json'),get('unified_record_book_2016_2026.json')]);
  const d=buildPersonalRecords(core,ledger,name);status.textContent='Reconciled regular-season archive · '+d.games+' games · raw scoring across eras.';
+ // The portfolio starts with a small, readable collection of actual marks.
+ const overview=el('div',null,'gm45-portfolio-overview');
+ const featured=el('div',null,'gm45-portfolio-hero');
+ const headline=d.marks[0][1];
+ featured.append(el('small','PERSONAL SCORING HIGH'),el('strong',fmt(headline.pf/100)),el('p',headline.year+' · Week '+headline.week+' vs '+headline.opponent));
+ const quick=el('div',null,'gm45-portfolio-metrics');
+ for(const [label,value] of [['Regular-season games',fmt(d.games)],['Career matchup points',fmt(d.totalPF/100)],['Archived regular-season win streak',fmt(d.longestWin)]]){const cell=el('div');cell.append(el('small',label),el('strong',value));quick.append(cell);}
+ overview.append(featured,quick);
+ const ownedSummary=el('div',null,'gm45-portfolio-owned');ownedSummary.append(el('small','LEAGUE RECORD OWNERSHIP'),el('p','Checking supported categories…'));overview.append(ownedSummary);
+ panel.append(overview);
  const marks=el('details');marks.append(el('summary','Personal bests and worsts'));const grid=el('div',null,'gm45-grid');
  for(const [label,g,key] of d.marks){if(!g)continue;const card=el('div',null,'gm45-card');card.append(el('small',label),el('strong',fmt(Math.abs(g[key])/100)+' PF'),el('p',g.year+' W'+g.week+' vs '+g.opponent),el('p',fmt(g.pf/100)+'–'+fmt(g.pa/100)+' · '+g.era));grid.append(card)}marks.append(grid);panel.append(marks);
  const streak=el('details');streak.append(el('summary','Career streak records'),el('p','Longest winning streak: '+d.longestWin),el('p','Longest losing streak: '+d.longestLoss),el('p','Longest 100+ PF streak: '+d.longest100),el('p','Consecutive archived regular-season games, including across seasons. Bye weeks and postseason excluded.','gm45-status'));panel.append(streak);
  const milestone=el('details');milestone.append(el('summary','Career milestone tracker'));
- for(const m of d.milestones){const scale=m.unit==='PF'?100:1,row=el('div',null,'gm45-milestone'),meter=el('meter');meter.min=0;meter.max=m.target;meter.value=m.value;meter.setAttribute('aria-label',m.label+' progress');row.append(el('strong',m.label+' · '+fmt(m.target/scale)),meter,el('p',fmt(m.remaining/scale)+' '+m.unit+' remaining'));milestone.append(row)}panel.append(milestone);
+ const milestonePreview=el('div',null,'gm45-portfolio-owned gm54-milestone-preview');
+ milestonePreview.append(el('small','NEXT CAREER MILESTONES'),el('p','Archived totals, not a prediction of when a target will be reached.'));
+ const milestoneGrid=el('div',null,'gm54-milestone-grid');
+ for(const m of d.milestones){
+  const scale=m.unit==='PF'?100:1,progress=m.value/m.target;
+  const row=el('div',null,'gm45-milestone'),heading=el('div',null,'gm54-milestone-heading'),meter=el('progress');
+  heading.append(el('strong',m.label),el('small',Math.floor(progress*100)+'%'));
+  meter.max=m.target;meter.value=m.value;meter.setAttribute('aria-label',m.label+' progress');
+  row.append(heading,el('p',fmt(m.value/scale)+' / '+fmt(m.target/scale)+' '+m.unit),meter,el('p',fmt(m.remaining/scale)+' '+m.unit+' remaining'));
+  milestoneGrid.append(row);
+  const detail=el('p',m.label+' · '+fmt(m.value/scale)+' of '+fmt(m.target/scale)+' '+m.unit+' · '+fmt(m.remaining/scale)+' remaining');milestone.append(detail);
+ }
+ milestonePreview.append(milestoneGrid);
+ const seeHistory=el('button','View milestone history');seeHistory.type='button';seeHistory.className='gm45-portfolio-action';milestonePreview.append(seeHistory);
+ overview.append(milestonePreview);panel.append(milestone);
  const receipt=g=>g.year+' W'+g.week+' vs '+g.opponent+' · '+fmt(g.pf/100)+'–'+fmt(g.pa/100);
  const annual=el('details');annual.append(el('summary','Annual personal bests'));for(const y of d.annual){annual.append(el('h3',String(y.year)),el('p','Highest score: '+receipt(y.best)),el('p','Lowest score: '+receipt(y.worst)));if(y.biggestWin)annual.append(el('p','Largest victory: '+receipt(y.biggestWin)))}panel.append(annual);
  const history=el('details');history.append(el('summary','Personal record progression'));for(const r of d.history)history.append(el('p',r.label+' · '+fmt(r.value/100)+' PF · '+receipt(r.game)));panel.append(history);
  const milestones=el('details');milestones.append(el('summary','Milestone history'));for(const r of d.achievements)milestones.append(el('p',r.label+' · '+receipt(r.game)));panel.append(milestones);
+ seeHistory.addEventListener('click',()=>{milestones.open=true;milestones.scrollIntoView({block:'start'});milestones.querySelector('summary').focus({preventScroll:true});});
  if(d.alerts.length){const alerts=el('div',null,'gm45-card');alerts.append(el('small','Latest archived matchup · new personal records'));for(const r of d.alerts)alerts.append(el('p',r.label+' · '+fmt(r.value/100)+' PF · '+receipt(r.game)));panel.prepend(alerts)}
  const ownership=el('details');ownership.append(el('summary','League record holdings'));panel.append(ownership);
  try{const [archive,guide,espn,sleeper,placements,placementReceipts,allEra]=await Promise.all(['manager_record_books_2016_2026.json','season_guide.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json','fellas_final_placements_2020_2025.json','sleeper_postseason_placement_receipts_2020_2025.json','fellas_final_placements_2016_2025_verified.json'].map(get));
  validateRecordArchive(core,archive);const post={espn,sleeper,placements,placementReceipts,allEra};
- const owned=findOwnedRecords(archive,guide,d.name,post);ownership.append(el('p',owned.length+' of '+recordCategoryLabels.length+' supported ownership categories · includes former managers.'));
+ const owned=findOwnedRecords(archive,guide,d.name,post);
+ ownedSummary.replaceChildren(el('small','LEAGUE RECORD OWNERSHIP'),el('strong',String(owned.length)),el('p','First-place categories in the existing '+recordCategoryLabels.length+'-category archive; shared titles count once per category.'));
+ if(owned.length){const highlights=el('div',null,'gm45-portfolio-honors');for(const r of owned.slice(0,3)){const card=el('div');card.append(el('small',r.shared?'Shared first place':'First place'),el('strong',fmt(r.value)+' '+r.unit),el('p',r.label));highlights.append(card);}ownedSummary.append(highlights);}
+ const browse=el('button','Explore all owned records');browse.type='button';browse.className='gm45-portfolio-action';browse.addEventListener('click',()=>{ownership.open=true;ownership.scrollIntoView({block:'start'});ownership.querySelector('summary').focus({preventScroll:true});});ownedSummary.append(browse);
+ ownership.append(el('p',owned.length+' of '+recordCategoryLabels.length+' supported ownership categories · includes former managers.'));
  for(const r of owned){const card=el('div',null,'gm45-card');card.append(el('small',r.label),el('strong',fmt(r.value)+' '+r.unit),el('p',r.shared?'Shared league record':'League record'),el('p',r.context));const next=nextRecordChallenger(archive,guide,r.label,post);if(next)card.append(el('p','Nearest different-manager challenger: '+next.manager+' · Gap '+fmt(next.gap)+' '+next.unit));ownership.append(card)}
  const chase=el('details');chase.append(el('summary','Record chase and league rankings'));
  const ranks=buildRecordChase(archive,guide,post,d.name);
  for(const r of ranks){const card=el('div',null,'gm45-card');card.append(el('small',r.label),el('strong','#'+r.rank+' · '+fmt(r.value)+' '+r.unit),el('p',r.owned?'Record holder':'Gap to tie: '+fmt(r.gap)+' '+r.unit+' · Leader: '+r.leaders.join(', ')));chase.append(card)}
  chase.append(el('p','Historical gaps are descriptive, not forecasts. Completed-season records require a completed season; minimum eligibility rules remain in effect.','gm45-status'));panel.append(chase);
  if(!owned.length)ownership.append(el('p','No league-leading record in this supported category set. Personal bests are available above.'));
- }catch{ownership.append(el('p','Synchronized league record ownership unavailable.'))}
+ }catch{ownedSummary.replaceChildren(el('small','LEAGUE RECORD OWNERSHIP'),el('p','Synchronized ownership unavailable. Personal marks remain accessible.'));ownership.append(el('p','Synchronized league record ownership unavailable.'))}
  const link=el('a','Open complete record book →');link.href=root+'managers/record-books.html?manager='+encodeURIComponent(d.name)+'#owned-records';panel.append(link);
  }catch(e){status.textContent='Reconciled personal record book unavailable. Existing archive remains accessible.';console.warn('Manager 4.5:',e.message)}
 }

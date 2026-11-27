@@ -1,0 +1,35 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {buildRecordWatchFeed,selectRecordWatch} from '../assets/certified-record-watch-feed.mjs';
+import {buildEditorialPacket} from './build-weekly-shitter-research.mjs';
+const year=2026,week=11;
+const base={year,week,status:'certified',scope:'synthetic fixture only',manager:'Stilly',value:12};
+const make=(id,type,eventId,extra={})=>({...base,id,type,eventId,...extra});
+const rows=[make('rivalry-meetings-milestone','milestone-achieved','shared',{manager:null,participants:['Stilly','Birch'],value:10}),make('weekly-highest-score','broken','high',{value:190}),make('career-regular-winning-streak','tied','tie'),make('single-season-regular-losing-streak','approaching','near'),make('championship-title','milestone-achieved','title'),make('career-game-milestone','milestone-approaching','games'),make('fake','broken','private',{status:'research-only-not-certified'}),make('fake','broken','old',{week:10})];
+const feed=buildRecordWatchFeed({year,week,items:[...rows,rows[0]],research:[make('fake','broken','not-public')]});
+assert.equal(feed.items.length,6);
+const select=(surface,manager=null,f=feed,w=week)=>selectRecordWatch(f,{year,week:w,surface,manager});
+assert.deepEqual(select('home').map(e=>e.eventId),['high','tie','near']);
+assert.equal(select('manager','Stilly').length,6);
+assert.deepEqual(select('manager','Birch').map(e=>e.eventId),['shared']);
+assert.deepEqual(select('playoff').map(e=>e.eventId),['title']);
+assert.deepEqual(select('recordBook'),select('editorial'));
+assert.equal(select('editorial').filter(e=>e.eventId==='shared').length,1);
+assert.deepEqual(select('home',null,feed,10),[]);
+assert.deepEqual(select('home',null,null),[]);
+assert.deepEqual(select('home',null,{...feed,schemaVersion:99}),[]);
+assert.deepEqual(select('home',null,{...feed,items:[{...feed.items[0],status:'research'}]}),[]);
+assert.deepEqual(select('home',null,{...feed,items:[]}),[]);
+const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+const ledger=read('data/unified_record_book_2016_2026.json'),guide=read('data/season_guide.json');
+const latest=Math.max(...ledger.games.filter(g=>g.year===year&&g.stage==='regular').map(g=>g.week));
+const live=read('data/certified-record-watch-feed-v1.json');
+assert.equal(live.throughWeek,latest,'Checked-in feed stale; regenerate reviewed feed before weekly release');
+assert.deepEqual(live.items,[],'Research branch must not publish unreviewed alerts');
+const packet=buildEditorialPacket(ledger,guide,latest,[],live);
+assert.deepEqual(packet.certifiedRecordWatch.entries,[]);
+if(latest===week)assert.deepEqual(buildEditorialPacket(ledger,guide,week,[],feed).certifiedRecordWatch.entries,select('editorial'));
+for(const [path,token] of [['assets/home-app-v3.mjs',"surface:'home'"],['assets/manager-achievements-record-watch.mjs',"surface:'manager'"],['analytics/records.html',"surface:'recordBook'"],['analytics/playoff-race.html',"surface:'playoff'"],['scripts/build-weekly-editorial-packet.mjs',"surface:'editorial'"],['scripts/build-weekly-shitter-research.mjs',"surface:'editorial'"]]){
+ const s=fs.readFileSync(path,'utf8');assert(s.includes(token)&&s.includes('certified-record-watch-feed'),path+' missing shared feed');
+}
+console.log('PASS: six consumer contracts, shared event ownership, priority, stale and research rejection, current-week feed and editorial parity');

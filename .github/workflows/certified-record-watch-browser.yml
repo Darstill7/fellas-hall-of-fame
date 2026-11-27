@@ -1,0 +1,36 @@
+name: Certified Record Watch browser integration
+on:
+  pull_request:
+    paths:
+      - 'assets/certified-record-watch-feed.mjs'
+      - 'data/certified-record-watch-feed-v1.json'
+      - 'assets/home-app-v3.mjs'
+      - 'assets/manager-achievements-record-watch.mjs'
+      - 'analytics/records.html'
+      - 'analytics/playoff-race.html'
+      - 'scripts/test-certified-watch-browser.mjs'
+      - '.github/workflows/certified-record-watch-browser.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: certified-watch-browser-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright@1.56.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node scripts/test-certified-watch-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: certified-watch-browser-evidence
+          path: data-integrity/certified-watch-browser/
+          if-no-files-found: warn
