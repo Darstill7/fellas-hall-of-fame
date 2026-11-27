@@ -84,3 +84,28 @@ export function bracketPaths(model,manager,picks={}){
  visit(0);
  return {outcomes,seedCounts,byePossible,firstRoundPossible,missPossible,pairs:[...pairs.values()].sort((a,b)=>a.seed-b.seed||b.outcomes-a.outcomes||a.opponent.localeCompare(b.opponent))};
 }
+
+// Independent illustrative postseason forecast; never changes archived regular-season odds.
+// Assumes fixed 3/6 and 4/5 bracket, #1 plays 4/5 winner, #2 plays 3/6 winner,
+// single-week rounds, PF ranking, independent normal scores and no injuries.
+export function championshipForecast(data,iterations=25000){
+ const m=prepare(data);if(!Number.isInteger(iterations)||iterations<1||iterations>100000)throw Error('Invalid iterations');
+ let state=(20260000+m.week)>>>0;
+ const random=()=>{state=(state+0x6D2B79F5)|0;let t=Math.imul(state^(state>>>15),1|state);t^=t+Math.imul(t^(t>>>7),61|t);return ((t^(t>>>14))>>>0)/4294967296;};
+ const normal=()=>Math.sqrt(-2*Math.log(Math.max(random(),1e-12)))*Math.cos(2*Math.PI*random());
+ const league=m.names.reduce((s,n)=>s+data.teams[n].mean,0)/10;
+ const params=m.names.map(n=>{const t=data.teams[n];if(![t.mean,t.recent_mean,t.sd].every(Number.isFinite))throw Error('Missing forecast inputs '+n);return {mean:.6*t.mean+.25*t.recent_mean+.15*league,sd:Math.max(19,Math.min(38,t.sd))};});
+ const score=i=>Math.max(0,params[i].mean+params[i].sd*normal());
+ const win=(a,b)=>{const x=score(a),y=score(b);return x===y?(random()<.5?a:b):x>y?a:b;};
+ const rows=m.names.map(name=>({name,playoffs:0,bye:0,semifinal:0,final:0,champion:0}));
+ for(let i=0;i<iterations;i++){
+  const w=m.wins.slice(),pf=m.points.slice();
+  for(const g of m.games){const a=score(g.a),b=score(g.b);pf[g.a]+=a;pf[g.b]+=b;w[a===b?(random()<.5?g.a:g.b):a>b?g.a:g.b]++;}
+  const ranked=m.names.map((_,j)=>j).sort((a,b)=>w[b]-w[a]||pf[b]-pf[a]||a-b);
+  const [s1,s2,s3,s4,s5,s6]=ranked;for(const j of ranked.slice(0,6))rows[j].playoffs++;
+  rows[s1].bye++;rows[s2].bye++;
+  const q36=win(s3,s6),q45=win(s4,s5);for(const j of [s1,s2,q36,q45])rows[j].semifinal++;
+  const f1=win(s1,q45),f2=win(s2,q36);rows[f1].final++;rows[f2].final++;rows[win(f1,f2)].champion++;
+ }
+ return {iterations,rows:rows.sort((a,b)=>b.champion-a.champion||a.name.localeCompare(b.name))};
+}

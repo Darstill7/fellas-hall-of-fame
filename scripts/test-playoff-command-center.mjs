@@ -45,3 +45,11 @@ assert.equal(bracketPaths(tied,'a').pairs.length,36);
 assert.throws(()=>bracketPaths(m,'unknown'));
 if(m.games.length)assert.equal(bracketPaths(m,m.names[0],{0:m.games[0].a}).outcomes,r.outcomes/2);
 console.log('Bracket paths: reciprocal pair counts, distinct-seed feasibility, fixed picks and tie fixtures verified');
+
+import {championshipForecast} from '../assets/playoff-command-center.mjs';
+const forecast=championshipForecast(data,2500);
+assert.deepEqual(forecast,championshipForecast(data,2500));
+for(const [k,n] of Object.entries({playoffs:6,bye:2,semifinal:4,final:2,champion:1}))assert.equal(forecast.rows.reduce((s,x)=>s+x[k],0),n*forecast.iterations);
+for(const x of forecast.rows){assert.ok(x.champion<=x.final&&x.final<=x.semifinal&&x.semifinal<=x.playoffs&&x.bye<=x.semifinal);}
+assert.throws(()=>championshipForecast(data,0));
+console.log('Championship forecast: reproducibility and stage conservation verified');
