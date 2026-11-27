@@ -268,9 +268,9 @@ if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')
   const source=profileSnapshot.querySelector('.profile-snapshot-source');
   if(source)evidence.append(source);
   const records=profileSnapshot.querySelector('.profile-owned-records');
-  // Keep record ownership immediately discoverable; retain the source
-  // disclosure for detailed career totals and provenance.
-  if(records)profileSnapshot.append(records);
+  // Preserve the detailed ownership source link inside the evidence disclosure.
+  // The primary Records destination remains separate from personal-best shortcuts.
+  if(records)evidence.append(records);
   profileSnapshot.append(evidence);
   const heading=profileSnapshot.querySelector('.profile-snapshot-heading');
   if(heading)heading.textContent='Career highlights';
@@ -722,15 +722,14 @@ if(gm4Host&&profileName){
  const recordShortcut=shortcuts.querySelector('a[href="#gm47-records"]');
  if(recordShortcut)recordShortcut.textContent='Personal bests';
  profileHero?.append(shortcuts);
- const heroActions=profileHero?.querySelector(':scope > .buttons');
- const redundant=heroActions?.querySelector('a[href*="record-books.html"]');
  const ownershipLink=profileHero?.querySelector('[data-profile-owned-records]');
- if(redundant&&ownershipLink){
-  redundant.hidden=true;
-  ownershipLink.href=redundant.href.replace(/#career-first$/,'#owned-records');
+ const ownershipCount=ownershipLink?.querySelector('.profile-owned-record-count');
+ if(ownershipCount){
+  const caption=document.createElement('p');caption.className='portfolio54-ownership-caption';
+  const sync=()=>{caption.textContent=ownershipCount.textContent;};sync();
+  new MutationObserver(sync).observe(ownershipCount,{childList:true,subtree:true,characterData:true});
+  shortcuts.before(caption);
  }
- const hubNote=gm4Host.querySelector('.manager-home-hub-note');
- if(hubNote)hubNote.textContent='Explore career history, rivalries, report cards and roster decisions.';
  const identity=profileHero?.querySelector('h1');
  if(identity&&!profileHero.querySelector('.portfolio54-avatar')){
   const avatar=document.createElement('span');avatar.className='portfolio54-avatar';avatar.setAttribute('aria-hidden','true');avatar.textContent=(profileName==='Tom'?'Thommy':profileName).slice(0,2).toUpperCase();
