@@ -1,0 +1,1149 @@
+{
+  "schema": "fellas-weekly-provider-receipts-v1",
+  "year": 2024,
+  "leagueId": "1134248931308802048",
+  "retrievedOn": "2026-11-27",
+  "scope": "Weeks 1–14 regular season; final scores, winners, roster identities compared with legacy ledger.",
+  "weeks": [
+    {
+      "week": 1,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 67.2
+          },
+          "away": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 110.66
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 92.96
+          },
+          "away": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 140.32
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 90.32
+          },
+          "away": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 94.86
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 112.18
+          },
+          "away": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 94.68
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 89.44
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 128.98
+          }
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 96.04
+          },
+          "away": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 113.34
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 110.42
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 136.86
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 111.42
+          },
+          "away": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 88.26
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 137.58
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 99.04
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 92.4
+          },
+          "away": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 120.02
+          }
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 106.76
+          },
+          "away": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 120.08
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 137.38
+          },
+          "away": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 121.58
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 101.96
+          },
+          "away": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 71.38
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 109.2
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 105.28
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 81.04
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 101.42
+          }
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 116.72
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 110.7
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 113.78
+          },
+          "away": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 119.98
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 116.94
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 99.7
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 127.94
+          },
+          "away": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 93.68
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 69.24
+          },
+          "away": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 133.72
+          }
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 99.92
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 95.34
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 145.68
+          },
+          "away": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 81.36
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 126.16
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 89.24
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 123.22
+          },
+          "away": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 133.26
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 128.94
+          },
+          "away": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 109.24
+          }
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 114.16
+          },
+          "away": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 78.92
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 129.42
+          },
+          "away": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 95.06
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 152.02
+          },
+          "away": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 79.78
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 124.2
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 95.4
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 109.76
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 133.7
+          }
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 52.94
+          },
+          "away": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 107.84
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 107.24
+          },
+          "away": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 103.8
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 97.34
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 94.92
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 110.58
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 102.86
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 95.8
+          },
+          "away": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 127.16
+          }
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 148.66
+          },
+          "away": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 106.08
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 111.44
+          },
+          "away": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 143.74
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 107.06
+          },
+          "away": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 112.2
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 114.98
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 132.28
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 103.5
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 123.72
+          }
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 120.36
+          },
+          "away": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 139.4
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 114.42
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 128.64
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 102.72
+          },
+          "away": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 89.4
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 111.32
+          },
+          "away": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 132.54
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 108.66
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 134.88
+          }
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 104.88
+          },
+          "away": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 98.44
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 165.02
+          },
+          "away": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 90.08
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 91.1
+          },
+          "away": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 86.38
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 101.54
+          },
+          "away": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 137.54
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 101.54
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 87.6
+          }
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 92.74
+          },
+          "away": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 136.78
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 127.24
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 89.18
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 127.24
+          },
+          "away": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 90.86
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 96.18
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 128.44
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 131.68
+          },
+          "away": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 131.44
+          }
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 140.5
+          },
+          "away": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 107.92
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 102.06
+          },
+          "away": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 106.18
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 82.62
+          },
+          "away": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 123.1
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 115.28
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 103.86
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 133.86
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 68.7
+          }
+        }
+      ]
+    },
+    {
+      "week": 13,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 162.24
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 100.24
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 132.86
+          },
+          "away": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 110.6
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 99.66
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 119.52
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 101.38
+          },
+          "away": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 84.28
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 98.16
+          },
+          "away": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 124.92
+          }
+        }
+      ]
+    },
+    {
+      "week": 14,
+      "phase": "regular",
+      "matches": [
+        {
+          "matchupId": 1,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 1,
+            "manager": "Stilly",
+            "points": 116.88
+          },
+          "away": {
+            "rosterId": 10,
+            "manager": "Birch",
+            "points": 152.58
+          }
+        },
+        {
+          "matchupId": 4,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 2,
+            "manager": "JMid",
+            "points": 145.66
+          },
+          "away": {
+            "rosterId": 5,
+            "manager": "Scott",
+            "points": 96.6
+          }
+        },
+        {
+          "matchupId": 2,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 3,
+            "manager": "Thommy",
+            "points": 105.34
+          },
+          "away": {
+            "rosterId": 9,
+            "manager": "Kuhl",
+            "points": 94.3
+          }
+        },
+        {
+          "matchupId": 5,
+          "status": "final",
+          "winner": "away",
+          "home": {
+            "rosterId": 4,
+            "manager": "Stew",
+            "points": 96.48
+          },
+          "away": {
+            "rosterId": 8,
+            "manager": "Stover",
+            "points": 117.52
+          }
+        },
+        {
+          "matchupId": 3,
+          "status": "final",
+          "winner": "home",
+          "home": {
+            "rosterId": 6,
+            "manager": "Mitch",
+            "points": 146.66
+          },
+          "away": {
+            "rosterId": 7,
+            "manager": "Tony",
+            "points": 126.94
+          }
+        }
+      ]
+    }
+  ],
+  "differences": [],
+  "summary": {
+    "pairs": 70,
+    "scoreMatches": 140,
+    "outcomeMatches": 70
+  }
+}
