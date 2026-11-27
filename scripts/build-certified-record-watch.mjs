@@ -7,7 +7,7 @@ const norm=n=>n==='Tom'?'Thommy':n;
 const key=g=>JSON.stringify([g.year,g.week,...[norm(g.home),norm(g.away)].sort()]);
 export function buildWatch(ledger,{year,week,regularSeasonWeeks,excludedKeys=[],certificates=[]}){
  const empty=reason=>({status:'withheld',reason,year,week,items:[],research:[]});
- if(!Number.isInteger(week)||week<1||week>regularSeasonWeeks||!Array.isArray(ledger?.games))return empty('invalid cutoff');
+ if(!Number.isInteger(year)||!Number.isInteger(regularSeasonWeeks)||regularSeasonWeeks<1||!Number.isInteger(week)||week<1||week>regularSeasonWeeks||!Array.isArray(ledger?.games))return empty('invalid cutoff');
  const exclusions=new Set(excludedKeys),games=ledger.games.filter(g=>g.stage==='regular'&&!exclusions.has(key(g)));
  const seen=new Set(),appearances=new Set(),groups=new Map();
  for(const g of games){
@@ -44,8 +44,8 @@ export function buildWatch(ledger,{year,week,regularSeasonWeeks,excludedKeys=[],
    if(row.run<3||row.week!==week)continue;
    const remaining=regularSeasonWeeks-week,alreadyHolder=priorHolders.some(h=>h.manager===row.manager&&h.year===year&&h.startWeek===row.startWeek);
    let type=null;
-   if(row.run>priorBest)type=alreadyHolder?'extended':'broken';
-   else if(row.run===priorBest&&!alreadyHolder)type='tied';
+   if(row.run===allBest&&row.run>priorBest)type=alreadyHolder?'extended':'broken';
+   else if(row.run===allBest&&row.run===priorBest&&!alreadyHolder)type='tied';
    else if(row.run<allBest&&allBest-row.run<=2&&allBest-row.run<=remaining)type='approaching';
    if(!type)continue;
    const eventId=JSON.stringify([id,year,week,row.manager,type,row.run]);
