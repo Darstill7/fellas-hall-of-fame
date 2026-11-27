@@ -13,3 +13,6 @@ body.premium-franchise .portfolio54-hero .profile-career-snapshot{border-radius:
 @media(prefers-reduced-motion:reduce){.portfolio54-shortcuts a{transition:none}}
 
 @media(max-width:355px){.portfolio54-shortcuts{grid-template-columns:1fr}.portfolio54-shortcuts a{min-height:44px}}
+
+/* Visible ownership summary is informational, not another competing CTA. */
+body.premium-franchise main>.portfolio54-hero .portfolio54-ownership-caption{font:650 13px/1.5 system-ui,sans-serif;color:#efd092;background:#102735;border:1px solid #536e7d;border-radius:9px;padding:10px 12px;margin:12px 0 4px;overflow-wrap:anywhere}
