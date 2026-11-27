@@ -57,6 +57,38 @@ const incumbentRankCoverage=[
  ...legendary.categories.map(c=>({id:c.id,source:'legendary',storedHolders:c.holder.length,status:'holder-only-requires-full-rebuild'}))
 ];
 assert.equal(incumbentRankCoverage.length,63);
+// Reconstruct full incumbent single-game populations at their own archived cutoff.
+// This establishes reproducibility, not corrected-stage or current-week certification.
+const cutoff=Number(String(expanded.scope).match(/2026 Week (\d+)/)?.[1]);
+assert(Number.isInteger(cutoff)&&cutoff<=week);
+const archivedGames=ledger.games.filter(g=>g.stage==='regular'&&(g.year!==2026||g.week<=cutoff));
+assert.equal(archivedGames.length,expanded.recoveredRegularGames);
+const canonicalName=n=>n==='Tom'?'Thommy':n;
+const cent=n=>{assert(Number.isFinite(n));return Math.round(n*100);};
+const appearances=archivedGames.flatMap(g=>[[g.home,g.away,g.homeScore,g.awayScore],[g.away,g.home,g.awayScore,g.homeScore]].map(([manager,opponent,p,q])=>({manager:canonicalName(manager),opponent:canonicalName(opponent),year:g.year,week:g.week,p:cent(p),q:cent(q),era:g.era,source:g.source})));
+const singleGameDefinitions={
+ 'highest-score':[r=>true,r=>r.p],'lowest-score':[r=>true,r=>r.p],
+ 'highest-score-loss':[r=>r.p<r.q,r=>r.p],'lowest-score-win':[r=>r.p>r.q,r=>r.p],
+ 'biggest-win':[r=>r.p>r.q,r=>r.p-r.q],'narrowest-win':[r=>r.p>r.q,r=>r.p-r.q],
+ 'biggest-defeat':[r=>r.p<r.q,r=>r.q-r.p],'narrowest-defeat':[r=>r.p<r.q,r=>r.q-r.p],
+ 'giant-slayer-win':[r=>r.p>r.q,r=>r.q]
+};
+const rebuiltSingleGame=Object.entries(singleGameDefinitions).map(([id,[eligible,value]])=>{
+ const cat=expanded.categories.find(c=>c.key===id);assert(cat);
+ const full=appearances.filter(eligible).map(r=>({...r,value:value(r)/100})).sort((a,b)=>(cat.direction==='low'?1:-1)*(a.value-b.value)||a.manager.localeCompare(b.manager)||a.year-b.year||a.week-b.week);
+ assert.equal(full.length,cat.entries,id+' population');
+ let prev=null,rank=0;
+ const ranked=full.map((r,i)=>{if(r.value!==prev){rank=i+1;prev=r.value;}return {...r,rank};});
+ for(const l of cat.leaders)assert(ranked.some(r=>r.manager===canonicalName(l.manager)&&r.year===l.year&&r.week===l.week&&r.value===l.value&&r.rank===l.rank),id+' archive mark mismatch');
+ const personalBests=Object.create(null);
+ for(const r of ranked){
+  const best=personalBests[r.manager]??={rank:r.rank,value:r.value,marks:[]};
+  if(best.rank===r.rank)best.marks.push(r);
+ }
+ assert(Object.values(personalBests).every(b=>b.marks.length&&b.rank>=1&&b.rank<=ranked.length));
+ return {id,cutoff,population:ranked.length,archivedEntriesMatched:cat.leaders.length,personalBests,status:'archived-scope-reconstructed-not-recertified',stageBasis:'legacy regular-labeled ledger with eight known postseason mislabels'};
+});
+assert.equal(rebuiltSingleGame.length,9);
 const portfolioCoverage={managers:Object.keys(canonicalManagerIndex).length,personalMarks,outsideTopFive,mappedProposalCategories:phase2ToCanonical.size,incumbentRankCoverage,unmappedTaxonomyCategories:rows.filter(r=>!r.phase2.length).map(r=>r.id),publication:'not-authorized; candidate marks must not replace incumbent records; missing categories remain unavailable'};
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));
