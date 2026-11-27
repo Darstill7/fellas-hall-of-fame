@@ -74,6 +74,7 @@ export function renderFranchiseIntelligence(card,p,d){
   if(data.titles!==null){metric('Championships',data.titles.length,'hall/');metric('Completed seasons',data.completed,'managers/'+managerSlug(data.name)+'/')}
   if(data.owned)metric('First-place categories',data.owned.count,'analytics/records.html?manager='+encodeURIComponent(data.name)+'&app=1');
   if(!metrics.children.length)return;
+  const summary=el('a',null,'hq40-legacy-glance');summary.href='#my-team-section';const parts=[];if(data.titles!==null)parts.push(data.titles.length+' championship'+(data.titles.length===1?'':'s'));if(data.owned)parts.push(data.owned.count+' archived first-place categories');if(parts.length){summary.append(el('small','FRANCHISE LEGACY'),el('strong',parts.join(' · ')),el('span','Explore your legacy ›'));card.insertBefore(summary,card.querySelector('.hq40-franchise-actions'));}
   legacy.append(el('h3','Your legacy'),metrics);
   if(data.titles?.length)legacy.append(el('p','Championship years: '+data.titles.join(' · '),'source-note'));
   if(data.completed!==null)legacy.append(el('p','Final placements · completed seasons 2016–2025','source-note'));
