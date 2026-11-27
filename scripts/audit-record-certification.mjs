@@ -26,5 +26,37 @@ const rows=taxonomy.categories.map(c=>{
 assert.equal(rows.length,taxonomy.coverage.uniqueTaxonomyIDs);
 assert.equal(rows.flatMap(r=>r.phase2).length,23);
 assert(rows.every(r=>r.publication==='not-authorized-by-this-audit'));
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+// Canonical IDs are the portfolio key. A candidate alias is not an
+// incumbent certification, and a missing personal mark is not rank zero.
+const canonicalManagerIndex=Object.create(null);
+const phase2ToCanonical=new Map();
+for(const row of rows)for(const p of row.phase2){
+ assert(!phase2ToCanonical.has(p.id),'Duplicate proposal mapping '+p.id);
+ phase2ToCanonical.set(p.id,row.id);
+}
+assert.equal(phase2ToCanonical.size,23);
+let outsideTopFive=0,personalMarks=0;
+for(const [manager,categories] of Object.entries(phase2.managerIndex)){
+ const portfolio=canonicalManagerIndex[manager]=Object.create(null);
+ for(const [proposalId,best] of Object.entries(categories)){
+  const id=phase2ToCanonical.get(proposalId);
+  assert(id,'Missing canonical mapping '+proposalId);
+  assert(!portfolio[id],'Multiple proposal definitions require review '+id);
+  const category=byId.get(proposalId);
+  assert(best.rank>=1&&best.rank<=category.count);
+  assert(best.marks.length>0&&best.marks.every(m=>m.rank===best.rank&&m.manager===manager));
+  portfolio[id]={...best,canonicalId:id,proposalId,source:'phase2-scoring',rankPopulation:category.count,status:'research-only-not-certified',stageBasis:'legacy regular-labeled ledger; eight known postseason mislabels; weekly award eligibility separate from regular-season eligibility'};
+  personalMarks++;if(best.rank>5)outsideTopFive++;
+ }
+}
+assert(outsideTopFive>0);
+const expanded=JSON.parse(fs.readFileSync('data/expanded_records_verified_v1.json','utf8'));
+const legendary=JSON.parse(fs.readFileSync('data/legendary_records_2016_2025_v1.json','utf8'));
+const incumbentRankCoverage=[
+ ...expanded.categories.map(c=>({id:c.key,source:'expanded',storedRows:c.leaders.length,population:c.entries,status:c.leaders.length===c.entries?'stored-row-count-complete-not-recertified':'truncated-source-requires-full-rebuild'})),
+ ...legendary.categories.map(c=>({id:c.id,source:'legendary',storedHolders:c.holder.length,status:'holder-only-requires-full-rebuild'}))
+];
+assert.equal(incumbentRankCoverage.length,63);
+const portfolioCoverage={managers:Object.keys(canonicalManagerIndex).length,personalMarks,outsideTopFive,mappedProposalCategories:phase2ToCanonical.size,incumbentRankCoverage,unmappedTaxonomyCategories:rows.filter(r=>!r.phase2.length).map(r=>r.id),publication:'not-authorized; candidate marks must not replace incumbent records; missing categories remain unavailable'};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));
