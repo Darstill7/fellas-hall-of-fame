@@ -31,7 +31,7 @@ export function searchCategories(rows,query='',group=''){
 }
 export function categoryHref(row,manager=''){
  const params=new URLSearchParams({group:row.group,category:row.key});
- if(manager)params.set('manager',manager);
+ if(manager)params.set('manager',normalizeManager(manager));
  return 'expanded-records.html?'+params;
 }
 const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e};
@@ -43,10 +43,11 @@ export async function mountRecordBookDiscovery(){
  select.append(new Option('Choose a manager',''));
  for(const name of fellasLeague.managers)select.append(new Option(name,name));
  let preferred='';try{preferred=normalizeManager(localStorage.getItem(fellasLeague.preferenceKey)||'')}catch{}
- if(fellasLeague.managers.includes(preferred))select.value=preferred;
+ const requested=normalizeManager(new URL(location.href).searchParams.get('manager')||'');
+ if(fellasLeague.managers.includes(requested))select.value=requested;else if(fellasLeague.managers.includes(preferred))select.value=preferred;
  const link=document.querySelector('#personal-record-entry-link');
  const sync=()=>{if(!link)return;const name=select.value;link.href='../managers/record-books.html'+(name?'?manager='+encodeURIComponent(name):'')+'#owned-records';link.textContent=name?'Records '+name+' owns →':'Open manager record book →'};
- select.addEventListener('change',()=>{sync();paint()});
+ select.addEventListener('change',()=>{const url=new URL(location.href);if(select.value)url.searchParams.set('manager',select.value);else url.searchParams.delete('manager');history.replaceState(null,'',url);sync();paintOwnership();paint()});
  personal?.insertBefore(label,link);personal?.insertBefore(select,link);sync();
  const search=el('input');search.id='rb30-search';search.type='search';search.placeholder='Try winning streak, scoring or rivalry';
  const searchLabel=el('label','Find a record');searchLabel.htmlFor=search.id;
@@ -59,7 +60,6 @@ export async function mountRecordBookDiscovery(){
  const ownership=el('div',null,'rb30-ownership');ownership.setAttribute('aria-live','polite');personal?.insertBefore(ownership,link);
  host.append(controls,status,results);
  function paint(){
-  paintOwnership();
   const matching=searchCategories(rows,search.value,family.value);
   results.replaceChildren();
   status.textContent=matching.length+' of '+rows.length+' archived categories';
@@ -81,7 +81,7 @@ export async function mountRecordBookDiscovery(){
   for(const c of d.owned){
    const a=el('a');a.href=categoryHref(c,d.manager);
    const copy=el('span');copy.append(el('strong',c.label),el('small',c.shared?'Shared with '+c.holders.filter(n=>n!==d.manager).join(', '):'Sole first-place manager'));
-   a.append(copy,el('strong',format(c.marks[0].value,c.unit)));list.append(a);
+   a.append(copy,el('strong',format(c.marks[0].value,c.unit)));if(c.marks.length>1)copy.append(el('small',c.marks.length+' tied archived entries'));list.append(a);
   }
   if(!d.owned.length)ownership.append(el('p','No first-place categories in this archive snapshot. Other personal marks remain accessible.','rb30-status'));
   else{const fold=el('details');fold.append(el('summary','Explore all '+d.owned.length+' first-place categories'),list);ownership.append(fold)}
@@ -89,7 +89,7 @@ export async function mountRecordBookDiscovery(){
  search.addEventListener('input',paint);family.addEventListener('change',paint);
  try{const response=await fetch(new URL('../data/expanded_records_verified_v1.json',import.meta.url));if(!response.ok)throw Error('Archive unavailable');const candidate=await response.json();rows=indexPublishedCategories(candidate);for(const name of fellasLeague.managers)managerArchivePortfolio(candidate,name);archive=candidate;
   for(const group of [...new Set(rows.map(c=>c.group))])family.append(new Option(group,group));
-  const note=el('p',String(archive.scope||'Archived expanded records; coverage varies.'),'rb30-status');host.insertBefore(note,controls);paint();
+  const note=el('p',String(archive.scope||'Archived expanded records; coverage varies.'),'rb30-status');host.insertBefore(note,controls);paintOwnership();paint();
  }catch{status.textContent='Category index unavailable. The original record collections below remain accessible.';search.disabled=true;family.disabled=true;archive=null;paintOwnership()}
 }
 if(typeof document!=='undefined')void mountRecordBookDiscovery();
