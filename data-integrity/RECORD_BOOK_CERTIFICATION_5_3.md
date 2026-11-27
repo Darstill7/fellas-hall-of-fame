@@ -11,3 +11,8 @@ This is a research-only inventory, not authorization to publish. Run node script
 - Conditional record watch must consume only certified categories and an up-to-date completed-week boundary.
 
 The audit workflow preserves all current quality gates. The public Record Book is unchanged.
+
+## Commissioner streak ruling — 2026-11-27
+- The archived Mitch 20-win mark is consecutive documented regular-season wins only, not an uninterrupted all-games winning streak. Commissioner notes a playoff loss interrupted it; verify the exact playoff receipt before publishing specific chronology.
+- Keep regular-season career streaks, single-season regular-season streaks, and all-game streaks as distinct scopes. Regular-season career streaks can bridge the offseason while skipping postseason games; an all-game streak includes eligible postseason results, and any loss or tie breaks a winning run. Missing or ambiguous postseason coverage prevents certification of uninterrupted all-game streaks.
+- Explicitly label scope in Record Book, manager profiles, achievements, record watch and editorial copy. Never describe the regular-only mark as an unqualified all-time winning streak. Do not publish new all-game categories until the original sources and ordering are certified.
