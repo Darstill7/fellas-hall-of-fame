@@ -5,6 +5,71 @@ import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 const norm=n=>n==='Tom'?'Thommy':n;
 const key=g=>JSON.stringify([g.year,g.week,...[norm(g.home),norm(g.away)].sort()]);
+// Postseason has a separate cutoff and evidence contract: a regular-season
+// finish or projection is never a verified berth, round advancement or title.
+export function buildPostseasonWatch({year,week,brackets=[],receipts=[],currentBracket=null,currentReceipts=[]}){
+ const blocked=reason=>({status:'withheld',reason,items:[],research:[]});
+ if(!Number.isInteger(year)||!Number.isInteger(week))return blocked('invalid cutoff');
+ if(!currentBracket)return blocked('no reviewed current championship bracket');
+ const prior=brackets.filter(b=>b.year<year);
+ if(prior.length!==year-2016||new Set(prior.map(b=>b.year)).size!==prior.length||!prior.every(b=>b.year>=2016&&Array.isArray(b.participants??b.seeds)&&Array.isArray(b.finalists)&&b.champion&&b.finalists.map(norm).includes(norm(b.champion))))return blocked('incomplete historical bracket coverage');
+ if(currentBracket.year!==year||currentBracket.throughWeek!==week||currentBracket.status!=='reviewed'||!Array.isArray(currentBracket.participants)||!Array.isArray(currentBracket.finalists)||!Array.isArray(currentBracket.semifinalists))return blocked('current bracket review or cutoff mismatch');
+ const participants=currentBracket.participants.map(norm),finalists=currentBracket.finalists.map(norm),semis=currentBracket.semifinalists.map(norm);
+ if(new Set(participants).size!==participants.length||participants.length!==6||new Set(finalists).size!==finalists.length||new Set(semis).size!==semis.length||finalists.length>2||semis.length>4||!finalists.every(n=>semis.includes(n))||!semis.every(n=>participants.includes(n))||currentBracket.champion&&(!finalists.includes(norm(currentBracket.champion))||finalists.length!==2))return blocked('inconsistent current bracket');
+ const research=[],seen=new Set();
+ const emit=(id,manager,value,extra={})=>research.push({id,eventId:JSON.stringify([id,year,week,manager,value,extra.opponent??null]),manager,year,week,value,status:'research-only-not-certified',scope:'verified championship bracket; no consolation or projected results',...extra});
+ for(const [id,names,field] of [['playoff-berth',participants,'participants'],['championship-final-appearance',finalists,'finalists'],['championship-title',currentBracket.champion?[norm(currentBracket.champion)]:[],'champion']]){
+  // Only explicit newly confirmed events at this cutoff are eligible; no
+  // repeat notices merely because a manager remains in the bracket.
+  for(const manager of names){
+   if(currentBracket.confirmedAt?.[field]?.[manager]!==week)continue;
+   const count=1+prior.filter(b=>field==='champion'?norm(b.champion)===manager:(b[field]??(field==='participants'?b.seeds:[])).map(norm).includes(manager)).length;
+   if(count===1||[3,5,10].includes(count))emit(id,manager,count,{type:'milestone-achieved'});
+  }
+ }
+ for(const g of currentReceipts){
+  if(g.year!==year||g.week>week||g.status!=='final'||g.reviewed!==true||!['opening','semifinal','final'].includes(g.round)||!participants.includes(norm(g.winner))||!participants.includes(norm(g.loser))||g.winner===g.loser||![g.winnerPoints,g.loserPoints].every(Number.isFinite)||g.winnerPoints<=g.loserPoints)return blocked('unverified current championship receipt');
+  const k=JSON.stringify([g.year,g.round,...[norm(g.winner),norm(g.loser)].sort()]);if(seen.has(k))return blocked('duplicate championship receipt');seen.add(k);
+  if(g.round==='final'&&(norm(currentBracket.champion)!==norm(g.winner)||!finalists.includes(norm(g.loser))))return blocked('final receipt contradicts bracket');
+ }
+ // Historical recovered championship game archive is incomplete. Never
+ // infer a complete career win count or single-week record from it.
+ return {status:'research-only-not-certified',items:[],research,coverage:{historicalSeasons:prior.length,historicalRecoveredGames:receipts.length,currentReviewedGames:currentReceipts.length,withheld:['career playoff win totals pending complete round receipts','postseason scoring records pending complete single-week baseline and reviewed current receipts']}};
+}
+export function buildAllGameWatch(ledger,{year,week,regularSeasonWeeks}){
+ const blocked=reason=>({status:'withheld',reason,items:[],research:[]});
+ if(!Array.isArray(ledger?.games)||!Number.isInteger(week)||!Number.isInteger(year))return blocked('invalid inputs');
+ const histories=new Map(),seen=new Set();
+ for(const g of ledger.games){
+  if(g.year>year||g.year===year&&g.week>week||![g.homeScore,g.awayScore].every(Number.isFinite))return blocked('mixed cutoff or invalid scores');
+  for(const [manager,p,q] of [[norm(g.home),g.homeScore,g.awayScore],[norm(g.away),g.awayScore,g.homeScore]]){
+   const k=JSON.stringify([manager,g.year,g.week]);if(seen.has(k))return blocked('duplicate appearance');seen.add(k);
+   const a=histories.get(manager)??[];
+   a.push({manager,year:g.year,week:g.week,result:g.cumulativeScoring||g.scoreAggregation==='running_three_week_consolation_total'?'unknown':p>q?'W':p<q?'L':'T',stage:g.stage,aggregate:!!g.twoWeekAggregate});histories.set(manager,a);
+  }
+ }
+ const research=[];
+ for(const side of ['W','L']){
+  let best=0,priorBest=0,holders=[],priorHolders=[],latest=[];
+  for(const [manager,history] of histories){
+   let run=0,start=null;
+   for(const g of history.sort((a,b)=>a.year-b.year||a.week-b.week)){
+    if(g.result===side){if(!run)start=g;run++;}else{run=0;start=null;}
+    const row={manager,year:g.year,week:g.week,run,startYear:start?.year,startWeek:start?.week};
+    if(run>best){best=run;holders=[];}if(run&&run===best)holders.push(row);
+    if(g.year<year||g.year===year&&g.week<week){if(run>priorBest){priorBest=run;priorHolders=[];}if(run&&run===priorBest)priorHolders.push(row);}
+    if(g.year===year&&g.week===week)latest.push(row);
+   }
+  }
+  if(priorBest<3)continue;
+  for(const row of latest){
+   const remaining=Math.max(0,regularSeasonWeeks-week),same=priorHolders.some(h=>h.manager===row.manager&&h.startYear===row.startYear&&h.startWeek===row.startWeek);
+   const type=row.run===best&&row.run>priorBest?(same?'extended':'broken'):row.run===best&&row.run===priorBest&&!same?'tied':row.run>=3&&best-row.run>0&&best-row.run<=2&&best-row.run<=remaining?'approaching':null;
+   if(type){const id='all-game-'+(side==='W'?'winning':'losing')+'-streak';research.push({...row,id,eventId:JSON.stringify([id,year,week,row.manager,type,row.run]),type,record:best,priorRecord:priorBest,holders,remaining,toTie:Math.max(0,best-row.run),toBreak:Math.max(0,best+1-row.run),scope:'observed all-game matchups; aggregate rounds count once; cumulative results interrupt run',status:'research-only-not-certified'});}
+  }
+ }
+ return {status:'withheld-pending-continuity-certification',items:[],research,reason:'Unresolved postseason completeness and cumulative scoring; observed appearances are not proof of continuous results'};
+}
 export function buildWatch(ledger,{year,week,regularSeasonWeeks,excludedKeys=[],certificates=[]}){
  const empty=reason=>({status:'withheld',reason,year,week,items:[],research:[]});
  if(!Number.isInteger(year)||!Number.isInteger(regularSeasonWeeks)||regularSeasonWeeks<1||!Number.isInteger(week)||week<1||week>regularSeasonWeeks||!Array.isArray(ledger?.games))return empty('invalid cutoff');
@@ -205,5 +270,10 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  assert.equal(excludedKeys.length,8);
  assert.equal(ledger.games.filter(g=>excludedKeys.includes(key(g))&&g.stage==='regular').length,8);
  // No reviewed watch certificates are currently authorized.
- console.log(JSON.stringify(buildWatch(ledger,{year:2026,week,regularSeasonWeeks:14,excludedKeys}),null,2));
+ const watch=buildWatch(ledger,{year:2026,week,regularSeasonWeeks:14,excludedKeys});
+ const brackets=[...read('data/verified_espn_playoff_brackets_2016_2019.json').seasons,...read('data/verified_sleeper_playoff_brackets_2020_2025.json').seasons];
+ const receipts=read('data/postseason_winners_bracket_record_receipts_2016_2025_v1.json').receipts;
+ const postseason=buildPostseasonWatch({year:2026,week,brackets,receipts});
+ const allGame=buildAllGameWatch(ledger,{year:2026,week,regularSeasonWeeks:14});
+ console.log(JSON.stringify({...watch,postseason,allGame},null,2));
 }
