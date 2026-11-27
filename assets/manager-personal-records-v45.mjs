@@ -78,11 +78,26 @@ export async function mountPersonalRecordIntelligence({name,host,root='../../'})
  for(const [label,g,key] of d.marks){if(!g)continue;const card=el('div',null,'gm45-card');card.append(el('small',label),el('strong',fmt(Math.abs(g[key])/100)+' PF'),el('p',g.year+' W'+g.week+' vs '+g.opponent),el('p',fmt(g.pf/100)+'–'+fmt(g.pa/100)+' · '+g.era));grid.append(card)}marks.append(grid);panel.append(marks);
  const streak=el('details');streak.append(el('summary','Career streak records'),el('p','Longest winning streak: '+d.longestWin),el('p','Longest losing streak: '+d.longestLoss),el('p','Longest 100+ PF streak: '+d.longest100),el('p','Consecutive archived regular-season games, including across seasons. Bye weeks and postseason excluded.','gm45-status'));panel.append(streak);
  const milestone=el('details');milestone.append(el('summary','Career milestone tracker'));
- for(const m of d.milestones){const scale=m.unit==='PF'?100:1,row=el('div',null,'gm45-milestone'),meter=el('meter');meter.min=0;meter.max=m.target;meter.value=m.value;meter.setAttribute('aria-label',m.label+' progress');row.append(el('strong',m.label+' · '+fmt(m.target/scale)),meter,el('p',fmt(m.remaining/scale)+' '+m.unit+' remaining'));milestone.append(row)}panel.append(milestone);
+ const milestonePreview=el('div',null,'gm45-portfolio-owned gm54-milestone-preview');
+ milestonePreview.append(el('small','NEXT CAREER MILESTONES'),el('p','Archived totals, not a prediction of when a target will be reached.'));
+ const milestoneGrid=el('div',null,'gm54-milestone-grid');
+ for(const m of d.milestones){
+  const scale=m.unit==='PF'?100:1,progress=m.value/m.target;
+  const row=el('div',null,'gm45-milestone'),heading=el('div',null,'gm54-milestone-heading'),meter=el('progress');
+  heading.append(el('strong',m.label),el('small',Math.floor(progress*100)+'%'));
+  meter.max=m.target;meter.value=m.value;meter.setAttribute('aria-label',m.label+' progress');
+  row.append(heading,el('p',fmt(m.value/scale)+' / '+fmt(m.target/scale)+' '+m.unit),meter,el('p',fmt(m.remaining/scale)+' '+m.unit+' remaining'));
+  milestoneGrid.append(row);
+  const detail=el('p',m.label+' · '+fmt(m.value/scale)+' of '+fmt(m.target/scale)+' '+m.unit+' · '+fmt(m.remaining/scale)+' remaining');milestone.append(detail);
+ }
+ milestonePreview.append(milestoneGrid);
+ const seeHistory=el('button','View milestone history');seeHistory.type='button';seeHistory.className='gm45-portfolio-action';milestonePreview.append(seeHistory);
+ overview.append(milestonePreview);panel.append(milestone);
  const receipt=g=>g.year+' W'+g.week+' vs '+g.opponent+' · '+fmt(g.pf/100)+'–'+fmt(g.pa/100);
  const annual=el('details');annual.append(el('summary','Annual personal bests'));for(const y of d.annual){annual.append(el('h3',String(y.year)),el('p','Highest score: '+receipt(y.best)),el('p','Lowest score: '+receipt(y.worst)));if(y.biggestWin)annual.append(el('p','Largest victory: '+receipt(y.biggestWin)))}panel.append(annual);
  const history=el('details');history.append(el('summary','Personal record progression'));for(const r of d.history)history.append(el('p',r.label+' · '+fmt(r.value/100)+' PF · '+receipt(r.game)));panel.append(history);
  const milestones=el('details');milestones.append(el('summary','Milestone history'));for(const r of d.achievements)milestones.append(el('p',r.label+' · '+receipt(r.game)));panel.append(milestones);
+ seeHistory.addEventListener('click',()=>{milestones.open=true;milestones.scrollIntoView({block:'start'});milestones.querySelector('summary').focus({preventScroll:true});});
  if(d.alerts.length){const alerts=el('div',null,'gm45-card');alerts.append(el('small','Latest archived matchup · new personal records'));for(const r of d.alerts)alerts.append(el('p',r.label+' · '+fmt(r.value/100)+' PF · '+receipt(r.game)));panel.prepend(alerts)}
  const ownership=el('details');ownership.append(el('summary','League record holdings'));panel.append(ownership);
  try{const [archive,guide,espn,sleeper,placements,placementReceipts,allEra]=await Promise.all(['manager_record_books_2016_2026.json','season_guide.json','verified_espn_playoff_brackets_2016_2019.json','verified_sleeper_playoff_brackets_2020_2025.json','fellas_final_placements_2020_2025.json','sleeper_postseason_placement_receipts_2020_2025.json','fellas_final_placements_2016_2025_verified.json'].map(get));
