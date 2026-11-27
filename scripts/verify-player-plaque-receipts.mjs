@@ -18,7 +18,8 @@ for(const item of checks){
 }
 const scores=[...page.matchAll(/class="hof-score">(\d+)<\/div>/g)].map(m=>Number(m[1]));
 assert.deepEqual(scores,[96,92,90,88,85,83,82,81,78,77,75,74],'Preserve existing editorial legacy scores');
-assert(page.includes('These are editorial legacy scores'),'Editorial score interpretation must be visible before rankings');
+const scoringNote=page.match(/<div class="plaque-scoring-note">([\s\S]*?)<\/div>/);
+assert(scoringNote&&scoringNote.index<page.indexOf('class="hof-score"')&&scoringNote[1].includes('editorial view')&&scoringNote[1].includes('not fantasy points, official awards or calculated performance ratings'),'Editorial score interpretation must be visible before rankings');
 const css=fs.readFileSync('assets/museum-editorial-editions.css','utf8');
 assert(css.includes('.plaque-receipt')&&css.includes('.plaque-scoring-note'),'Plaque evidence styles absent');
 console.log('PASS: four championship-backed player plaque additions, twelve unchanged editorial ranks, and transparent score methodology');
