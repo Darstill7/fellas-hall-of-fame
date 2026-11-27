@@ -1,0 +1,23 @@
+name: Verify Playoff Command Center
+on:
+  pull_request:
+    paths:
+      - 'analytics/playoff-race.html'
+      - 'assets/playoff-command-center.mjs'
+      - 'scripts/test-playoff-command-center.mjs'
+      - 'data/playoff_race_v1.json'
+      - '.github/workflows/playoff-command-center.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-outcomes:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-playoff-race-archive.mjs
+      - run: node scripts/test-playoff-command-center.mjs
