@@ -37,3 +37,23 @@ export function remainingSOS(data){
  rows.sort((a,b)=>(b.score??-Infinity)-(a.score??-Infinity)||a.name.localeCompare(b.name));let rank=0,last=null;
  rows.forEach((r,i)=>{if(r.score===null)return;const value=Math.round(r.score*100);if(value!==last)rank=i+1;r.rank=rank;last=value;});return rows;
 }
+
+// Conditional counts by next-week winner, in one enumeration pass.
+// Counts describe equally enumerated decisive outcomes, never forecast probabilities.
+export function rootingGuide(model,manager,picks={}){
+ const {names,wins,games}=model,idx=names.indexOf(manager);if(idx<0)throw Error('Unknown manager');
+ for(const [k,v] of Object.entries(picks))if(!/^\d+$/.test(k)||!games[+k]||![games[+k].a,games[+k].b].includes(v))throw Error('Invalid pick');
+ const targets=games.map((g,i)=>({...g,i})).filter(g=>g.week===model.week+1);
+ const make=()=>({outcomes:0,playoffCertain:0,playoffPossible:0,byeCertain:0,byePossible:0});
+ const rows=targets.map(g=>({...g,choices:[{winner:names[g.a],...make()},{winner:names[g.b],...make()}]}));
+ const totals=wins.slice(),chosen=[];
+ function visit(i){
+  if(i===games.length){
+   let above=0,tied=0;for(let j=0;j<names.length;j++)if(j!==idx){above+=+(totals[j]>totals[idx]);tied+=+(totals[j]===totals[idx]);}
+   for(const row of rows){const c=row.choices[chosen[row.i]===row.a?0:1];c.outcomes++;c.playoffCertain+=+(above+tied<6);c.playoffPossible+=+(above<6);c.byeCertain+=+(above+tied<2);c.byePossible+=+(above<2);}
+   return;
+  }
+  const g=games[i];for(const j of Object.hasOwn(picks,i)?[picks[i]]:[g.a,g.b]){chosen[i]=j;totals[j]++;visit(i+1);totals[j]--;}
+ }
+ visit(0);return rows;
+}

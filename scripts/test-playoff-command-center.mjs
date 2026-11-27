@@ -9,3 +9,20 @@ const broken=structuredClone(data);if(m.games.length){delete broken.fixtures[m.w
 console.log('Playoff command center: '+r.outcomes+' decisive-game outcomes verified; conservative tie bounds passed');
 
 const sos=remainingSOS(data);assert.equal(sos.length,10);const ledger=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json','utf8'));for(const n of m.names){const name=n==='Tom'?'Thommy':n;const scores=ledger.games.filter(g=>g.year===2026&&g.stage==='regular'&&g.week<=m.week&&g.week>=Math.max(1,m.week-2)).flatMap(g=>g.home===name?[g.homeScore]:g.away===name?[g.awayScore]:[]);assert.equal(scores.length,Math.min(3,m.week));assert.equal(data.teams[n].recent_mean,+(scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(2));}for(const row of sos){assert.equal(row.opponents.length,m.end-m.week);if(row.opponents.length){assert.ok(Math.abs(row.score-(.7*row.season+.3*row.recent))<1e-8);assert.ok(row.record>=0&&row.record<=1);assert.ok(row.allPlay>=0&&row.allPlay<=1);}}for(let i=1;i<sos.length;i++)assert.ok((sos[i-1].score??0)>=(sos[i].score??0));console.log('Remaining SOS: canonical recent scoring and all ten opponent schedules verified');
+
+import {rootingGuide} from '../assets/playoff-command-center.mjs';
+for(const n of m.names){
+ const guide=rootingGuide(m,n);
+ assert.equal(guide.length,m.games.length?5:0);
+ for(const g of guide){
+  assert.equal(g.choices.reduce((s,c)=>s+c.outcomes,0),r.outcomes);
+  for(const [i,c] of g.choices.entries()){
+   const a=analyze(m,{[g.i]:i===0?g.a:g.b}),row=a.rows.find(x=>x.name===n);
+   assert.equal(c.outcomes,a.outcomes);
+   for(const k of ['playoffCertain','playoffPossible','byeCertain','byePossible'])assert.equal(c[k],row[k]);
+  }
+ }
+}
+if(m.games.length){const g=m.games[0];const fixedGuide=rootingGuide(m,m.names[0],{0:g.a});assert.equal(fixedGuide[0].choices[1].outcomes,0);}
+assert.throws(()=>rootingGuide(m,'not a manager'));
+console.log('Rooting guide: conditional outcome counts independently cross-checked against exact solver');
