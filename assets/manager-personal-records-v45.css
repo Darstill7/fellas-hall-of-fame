@@ -22,3 +22,28 @@
 .gm45-records details>summary:after{content:'+';font-size:20px;font-weight:500}
 .gm45-records details[open]>summary:after{content:'−'}
 @media(max-width:520px){.gm45-portfolio-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.gm45-portfolio-metrics>div:last-child{grid-column:1/-1}.gm45-portfolio-honors{grid-template-columns:1fr}.gm45-portfolio-action{width:100%}}
+
+/* Trophy cabinet and milestone progress: portfolio 5.4.6 */
+.gm54-trophy-showcase{display:grid;gap:12px;margin:16px 0 22px;min-width:0}
+.gm54-trophy-summary{padding:18px;border:1px solid #917b52;border-radius:14px;background:radial-gradient(ellipse at 100% 0,rgba(220,185,121,.12),transparent 70%),#10242f}
+.gm54-trophy-summary>small{font-size:10px;font-weight:850;letter-spacing:.12em;color:#efd092}
+.gm54-trophy-summary>strong{display:block;font-size:clamp(30px,8vw,52px);font-variant-numeric:tabular-nums;line-height:1.2;letter-spacing:-.04em;color:#fff5de;margin:6px 0}
+.gm54-trophy-summary p,.gm54-trophy p{font-size:12px;line-height:1.5;color:#c8d6df;margin:6px 0;overflow-wrap:anywhere}
+.gm54-trophy-summary progress,.gm45-milestone progress{display:block;appearance:none;-webkit-appearance:none;width:100%;height:8px;border:0;border-radius:8px;background:#304254;overflow:hidden;margin:12px 0}
+.gm54-trophy-summary progress::-webkit-progress-bar,.gm45-milestone progress::-webkit-progress-bar{background:#304254;border-radius:8px}
+.gm54-trophy-summary progress::-webkit-progress-value,.gm45-milestone progress::-webkit-progress-value{background:#e8c47d;border-radius:8px}
+.gm54-trophy-summary progress::-moz-progress-bar,.gm45-milestone progress::-moz-progress-bar{background:#e8c47d;border-radius:8px}
+.gm54-trophy-shelf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;min-width:0}
+.gm54-trophy{background:linear-gradient(145deg,#332d22,#142b38);padding:14px;border:1px solid #917b52;border-radius:12px;min-width:0}
+.gm54-trophy small{display:block;font-size:10px;letter-spacing:.08em;font-weight:800;color:#efd092}
+.gm54-trophy strong{display:block;font-size:18px;margin:8px 0;line-height:1.3;color:#fff5de;overflow-wrap:anywhere}
+.gm54-achievement-filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin:8px 0;min-width:0}
+.gm54-achievement-filters button{min-width:0;min-height:44px;padding:8px 4px;font:700 12px/1.3 system-ui,sans-serif;overflow-wrap:anywhere;border:1px solid #536e7d;border-radius:8px;background:#102735;color:#f6f0e6;cursor:pointer}
+.gm54-achievement-filters button[aria-pressed=true]{background:#efd092;color:#14202a;border-color:#efd092}
+.gm54-achievement-filters button:focus-visible{outline:3px solid #ffe1a2;outline-offset:2px}
+.gm45-card[hidden]{display:none!important}
+.gm45-milestone{border-bottom:1px solid #405966;padding:14px 0}
+.gm45-milestone:last-child{border-bottom:0}
+.gm54-milestone-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.gm54-milestone-heading>small{font-size:12px;color:#efd092;font-variant-numeric:tabular-nums}
+@media(max-width:540px){.gm54-trophy-shelf{grid-template-columns:1fr}.gm54-achievement-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
