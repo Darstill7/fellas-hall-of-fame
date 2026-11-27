@@ -1,0 +1,27 @@
+/* Record Book 3.0: consistent with the manager portfolio design language. */
+main .record-cover #personal-record-entry{background:radial-gradient(ellipse at 95% 0,rgba(222,190,128,.12),transparent 65%),#142837!important;border-radius:16px!important;padding:clamp(14px,3vw,24px)!important}
+#personal-record-entry label,#record-book-v30-discovery label{display:block;font-size:12px;font-weight:750;color:#e8c47d;margin:8px 0 5px}
+#personal-record-entry select,#record-book-v30-discovery input,#record-book-v30-discovery select{width:100%;min-width:0;min-height:46px;border:1px solid #607a86;border-radius:9px;background:#102735;color:#f5f2e8;padding:10px 12px;font:inherit;font-size:14px}
+#personal-record-entry select{max-width:360px;display:block}
+#record-book-v30-discovery{margin:18px 0 28px;border:1px solid #536e7d;background:#10242f;border-radius:16px;padding:clamp(14px,3vw,24px);min-width:0}
+#record-book-v30-discovery h2{font-size:clamp(24px,4vw,32px);margin:5px 0 8px}
+.rb30-controls{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.rb30-controls>div{min-width:0}
+.rb30-status{font-size:12px;line-height:1.5;color:#c8d6df;margin:12px 0}
+.rb30-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.rb30-result{display:flex;flex-direction:column;gap:6px;padding:12px;min-height:100px;border-radius:11px;background:#193442;border:1px solid #496676;min-width:0}
+.rb30-result small{color:#e8c47d;font-size:11px;font-weight:750}
+.rb30-result strong{line-height:1.4;font-size:14px;overflow-wrap:anywhere}
+.rb30-result span{font-size:12px;color:#c8d6df;margin-top:auto}
+.rb30-result:hover{border-color:#e8c47d}
+.rb30-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+.rb30-metrics>div{padding:12px;border:1px solid #536e7d;border-radius:11px;background:#102735;min-width:0}
+.rb30-metrics strong{display:block;font-size:30px;font-variant-numeric:tabular-nums;color:#efd092;line-height:1.1}
+.rb30-metrics small{display:block;font-size:12px;color:#c8d6df;line-height:1.5;margin-top:5px}
+.rb30-ownership-list{display:grid;gap:6px;margin:12px 0}
+.rb30-ownership-list a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px;border-top:1px solid #405966;padding:8px 0;font-size:13px}
+.rb30-ownership-list a strong{color:#efd092;text-align:right;overflow-wrap:anywhere}
+.rb30-more{min-height:44px;padding:8px 12px;border:1px solid #607a86;border-radius:8px;background:#102735;color:#efd092;font:inherit;font-size:13px;font-weight:750;cursor:pointer;margin:12px 0 0}
+#record-book-v30-discovery :is(input,select,button,a):focus-visible,#personal-record-entry :is(select,a):focus-visible{outline:3px solid #ffe1a2;outline-offset:3px}
+@media(max-width:650px){.rb30-results{grid-template-columns:repeat(2,minmax(0,1fr))}.rb30-controls{grid-template-columns:1fr;gap:5px}.rb30-result{min-height:90px}.rb30-more{width:100%}}
+@media(max-width:355px){.rb30-results{grid-template-columns:1fr}}
