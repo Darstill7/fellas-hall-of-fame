@@ -297,6 +297,51 @@ assert.equal(legendaryReconstruction.categories.length,19);
 assert.deepEqual(legendaryReconstruction.categories.map(c=>c.id).sort(),legendary.categories.map(c=>c.id).sort());
 const incumbentReconstruction={expanded:expandedReconstruction.reconstructed,legendary:legendaryReconstruction.categories.length,totalCategoryAppearances:63,status:'archive-reconstruction-only-not-publication-certification',note:'63 source category appearances; taxonomy aliases and overlapping definitions are not automatically new unique records'};
 assert.equal(incumbentReconstruction.expanded+incumbentReconstruction.legendary,63);
+// All-game research includes regular, championship and consolation results.
+ // Aggregate playoff rounds count once; running cumulative score rows are unknown.
+ // Observed appearances alone do not prove uninterrupted provider coverage.
+const allGameHistories=new Map();
+for(const g of ledger.games){
+ for(const [manager,opponent,pf,pa] of [[g.home,g.away,g.homeScore,g.awayScore],[g.away,g.home,g.awayScore,g.homeScore]]){
+  const name=canonicalName(manager);
+  const history=allGameHistories.get(name)??[];
+  const uncertain=!!g.cumulativeScoring||g.scoreAggregation==='running_three_week_consolation_total';
+  history.push({year:g.year,week:g.week,manager:name,opponent:canonicalName(opponent),points:pf,against:pa,result:uncertain?'unknown':pf>pa?'W':pf<pa?'L':'T',stage:g.stage,source:g.source,weeksCovered:g.weeksCovered??[g.week],aggregate:!!g.twoWeekAggregate});
+  allGameHistories.set(name,history);
+ }
+}
+function allGameRuns(history,strict){
+ const h=[...history].sort((a,b)=>a.year-b.year||a.week-b.week);
+ let run=[],best={W:[],L:[]},previous=null;
+ const finish=()=>{
+  if(!run.length)return;
+  const k=run[0].result,len=best[k][0]?.length??0;
+  if(run.length>len)best[k]=[];
+  if(run.length>=len)best[k].push(run);
+  run=[];
+ };
+ for(const g of h){
+  if(previous)assert(previous.year!==g.year||previous.week!==g.week,'Duplicate all-game appearance');
+  // Conservative floor: only bridge contiguous calendar coverage within a
+  // season. Offseason and bye bridges are retained only in observed mode.
+  const contiguous=previous&&g.year===previous.year&&Math.min(...g.weeksCovered)===Math.max(...previous.weeksCovered)+1;
+  if(strict&&!contiguous||!['W','L'].includes(g.result)||run.at(-1)?.result!==g.result)finish();
+  if(['W','L'].includes(g.result))run.push(g);
+  previous=g;
+ }
+ const terminalRun=run.slice();finish();
+ return {longestWin:best.W[0]?.length??0,longestLoss:best.L[0]?.length??0,winReceipts:best.W,lossReceipts:best.L,terminalRun,lastObservedGame:previous};
+}
+const allGameStreakResearch=[false,true].map(strict=>{
+ const managers=[...allGameHistories].map(([manager,h])=>({manager,...allGameRuns(h,strict)}));
+ const ranking=field=>{let prev=null,rank=0;return [...managers].sort((a,b)=>b[field]-a[field]||a.manager.localeCompare(b.manager)).map((r,i)=>{if(r[field]!==prev){rank=i+1;prev=r[field];}return {manager:r.manager,value:r[field],rank};});};
+ return {policy:strict?'conservative contiguous within-season floor; gaps and offseasons break':'consecutive observed matchups; gaps and offseasons may hide missing results',managers,winning:ranking('longestWin'),losing:ranking('longestLoss'),status:'research-only-not-certified'};
+});
+assert.equal([...allGameHistories.values()].reduce((n,h)=>n+h.length,0),ledger.games.length*2);
+const mitchObserved=allGameStreakResearch[0].managers.find(r=>r.manager==='Mitch');
+assert(mitchObserved.winReceipts.every(run=>!run.some(g=>g.year===2025&&g.week===16)));
+assert(allGameHistories.get('Mitch').some(g=>g.year===2025&&g.week===16&&g.result==='L'));
+const allGameCoverage={unknownCumulativeRows:ledger.games.filter(g=>g.cumulativeScoring||g.scoreAggregation==='running_three_week_consolation_total').length,aggregateRounds:ledger.games.filter(g=>g.twoWeekAggregate).length,throughWeek:week,blockers:['Verify provider matchup completeness, especially postseason and missing weeks','Reconcile 2019 cumulative consolation outcomes','Validate 2026 pairing receipts before publication','Certify continuity through documented byes and offseasons; observed mode is not proof']};
 const portfolioCoverage={managers:Object.keys(canonicalManagerIndex).length,personalMarks,outsideTopFive,mappedProposalCategories:phase2ToCanonical.size,incumbentRankCoverage,unmappedTaxonomyCategories:rows.filter(r=>!r.phase2.length).map(r=>r.id),publication:'not-authorized; candidate marks must not replace incumbent records; missing categories remain unavailable'};
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,rebuiltFinishes,expandedReconstruction,legendaryReconstruction,incumbentReconstruction,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,rebuiltFinishes,expandedReconstruction,legendaryReconstruction,incumbentReconstruction,allGameStreakResearch,allGameCoverage,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));
