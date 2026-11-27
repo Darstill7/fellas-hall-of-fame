@@ -5,7 +5,7 @@ export function historicalMatchups(archive,week,selected=''){
  if(!Array.isArray(archive?.games)||!Number.isInteger(week)||week<1||week>14)return [];
  const seen=new Map(),conflict=new Set();
  for(const g of archive.games){
-  if(!Number.isInteger(g.year)||g.year<2016||g.year>=fellasLeague.season||g.week!==week||g.stage!=='regular'||typeof g.home!=='string'||typeof g.away!=='string'||!g.home.trim()||!g.away.trim()||!Number.isFinite(g.homeScore)||!Number.isFinite(g.awayScore)||!g.source)continue;
+  if(!Number.isInteger(g.year)||g.year<2016||g.year>=fellasLeague.season||g.week!==week||g.stage!=='regular'||typeof g.home!=='string'||typeof g.away!=='string'||!g.home.trim()||!g.away.trim()||!Number.isFinite(g.homeScore)||!Number.isFinite(g.awayScore)||typeof g.source!=='string'||!g.source.trim())continue;
   // 2020/21 Week 14 stage classification remains under separate historical review.
   if(week===14&&[2020,2021].includes(g.year))continue;
   const home=normalizeManager(g.home),away=normalizeManager(g.away);if(home===away)continue;
@@ -51,6 +51,10 @@ export function mountHistoricalDiscovery(host,d,selected=''){
    for(const [name,points,other] of [[g.home,g.homeScore,g.awayScore],[g.away,g.awayScore,g.homeScore]]){const col=el('div');col.append(el('span',name),el('strong',fmt(points),points>other?'win':points<other?'loss':''));score.append(col)}
    card.append(score,el('p',g.margin===0?'The game ended level.':(g.homeScore>g.awayScore?g.home:g.away)+' won by '+fmt(g.margin)+' points.'));
    const link=el('a','Explore the '+g.year+' season ›','personal-insight-link');link.href='seasons/'+g.year+'.html';card.append(link);
+   const related=el('div',null,'hq40-history-related');
+   for(const name of [g.home,g.away])if(fellasLeague.managers.includes(name)){const profile=el('a',name+' franchise ›');profile.href='managers/'+managerSlug(name)+'/?app=1';related.append(profile)}
+   if([g.home,g.away].every(n=>fellasLeague.managers.includes(n))){const rivalry=el('a','Head-to-head history ›');rivalry.href='analytics/rivalry-war-room.html?a='+encodeURIComponent(g.home)+'&b='+encodeURIComponent(g.away);related.append(rivalry)}
+   if(related.children.length)card.append(related);
    card.append(el('p','Archived matchup receipt · '+g.source.replaceAll('_',' ')+' · not a claim of an all-time record.','source-note'));
    position.textContent=(index+1)+' of '+stories.length;prev.disabled=index===0;next.disabled=index===stories.length-1;
   }
