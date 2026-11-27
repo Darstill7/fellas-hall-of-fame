@@ -114,5 +114,51 @@ const seasonImpact=[2020,2021].map(year=>{
  }
  return {year,streakDefinition:'within-season consecutive observed regular weeks; ties and gaps break runs',scheduleDefinition:'mean actual opponent weekly points, not future schedule forecast',before:a,after:b};
 });
+// Research policy only: offseason continuity requires adjacent seasons and
+// the manager's last/first games to coincide with observed league boundaries.
+// Missing weeks, missing seasons and ties break runs. No publication implied.
+function careerRuns(games,bridgeOffseason){
+ const bounds=new Map(), histories=new Map();
+ for(const g of games){
+  const b=bounds.get(g.year)??{first:g.week,last:g.week};
+  b.first=Math.min(b.first,g.week);b.last=Math.max(b.last,g.week);bounds.set(g.year,b);
+  for(const [manager,pf,pa] of [[g.home,g.homeScore,g.awayScore],[g.away,g.awayScore,g.homeScore]]){
+   const h=histories.get(manager)??[];
+   h.push({year:g.year,week:g.week,result:pf>pa?'W':pf<pa?'L':'T'});
+   histories.set(manager,h);
+  }
+ }
+ return Object.fromEntries([...histories].sort((a,b)=>a[0].localeCompare(b[0])).map(([manager,h])=>{
+  h.sort((a,b)=>a.year-b.year||a.week-b.week);
+  let prev=null,run=[],best={W:[],L:[]};
+  const finish=()=>{
+   if(!run.length)return;
+   const result=run[0].result;
+   const longest=best[result][0]?.length??0;
+   if(run.length>longest)best[result]=[];
+   if(run.length>=longest)best[result].push(run);
+   run=[];
+  };
+  for(const g of h){
+   if(prev)assert(prev.year!==g.year||prev.week!==g.week,'Duplicate manager week '+manager);
+   const adjacent=prev&&(g.year===prev.year&&g.week===prev.week+1||
+    bridgeOffseason&&g.year===prev.year+1&&prev.week===bounds.get(prev.year).last&&g.week===bounds.get(g.year).first);
+   if(!adjacent||g.result!==prev?.result||g.result==='T')finish();
+   if(g.result!=='T')run.push(g);
+   prev=g;
+  }
+  const terminal=run.slice();finish();
+  return [manager,{longestWin:best.W[0]?.length??0,longestLoss:best.L[0]?.length??0,winReceipts:best.W,lossReceipts:best.L,lastObservedGame:prev,terminalRun:terminal}];
+ }));
+}
+const fixture=(year,week,win)=>({year,week,home:'A',away:'B',homeScore:win?2:1,awayScore:win?1:2});
+const toy=[fixture(2020,13,true),fixture(2021,1,true),fixture(2021,3,true)];
+assert.equal(careerRuns(toy,true).A.longestWin,2);
+assert.equal(careerRuns(toy,false).A.longestWin,1);
+assert.equal(careerRuns([fixture(2020,13,true),fixture(2022,1,true)],true).A.longestWin,1);
+const careerStreaks=[false,true].map(bridgeOffseason=>{
+ const old=careerRuns(before,bridgeOffseason),next=careerRuns(after,bridgeOffseason);
+ return {bridgeOffseason,policy:'observed regular-game continuity; ties and gaps break; offseason bridges only adjacent seasons at observed league boundaries; research not certified',changed:Object.keys(old).filter(n=>JSON.stringify(old[n])!==JSON.stringify(next[n])).map(manager=>({manager,before:old[manager],after:next[manager]})),before:old,after:next};
+});
 assert.equal(JSON.stringify(ledger),snapshot);
-console.log(JSON.stringify({status:'research_projection_not_certified',pointUnits:'integer cents',scope:'legacy regular-labeled ledger including active season; excludes only eight known anomalies; not full stage certification',allGameCountUnchanged:ledger.games.length,regularBefore:before.length,regularAfter:after.length,career,headToHead,awards,seasonImpact,unverified:['exact non-winners bracket labels','official PF/PA versus weekly sums','career cross-season streak policy and consumer parity','future strength of schedule','personal best ranks','record watch and production consumer parity']},null,2));
+console.log(JSON.stringify({status:'research_projection_not_certified',pointUnits:'integer cents',scope:'legacy regular-labeled ledger including active season; excludes only eight known anomalies; not full stage certification',allGameCountUnchanged:ledger.games.length,regularBefore:before.length,regularAfter:after.length,career,headToHead,awards,seasonImpact,careerStreaks,unverified:['exact non-winners bracket labels','official PF/PA versus weekly sums','career cross-season streak policy and consumer parity','future strength of schedule','personal best ranks','record watch and production consumer parity']},null,2));
