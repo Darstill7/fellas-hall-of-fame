@@ -6,6 +6,8 @@ on:
       - 'scripts/build-certified-record-watch.mjs'
       - 'scripts/test-certified-record-watch.mjs'
       - 'scripts/test-record-watch-integrations.mjs'
+      - 'scripts/refresh-certified-record-watch-feed.mjs'
+      - '.github/workflows/prepare-approved-weekly-release.yml'
       - 'assets/certified-record-watch-feed.mjs'
       - 'data/certified-record-watch-feed-v1.json'
       - 'assets/home-app-v3.mjs'
@@ -44,6 +46,14 @@ jobs:
       - run: node scripts/audit-record-certification.mjs > record-certification-audit.json
       - run: node scripts/test-certified-record-watch.mjs
       - run: node scripts/test-record-watch-integrations.mjs
+      - run: node scripts/refresh-certified-record-watch-feed.mjs --check
+      - name: Reject unapproved public feed refresh
+        run: |
+          if env -u FELLAS_APPROVE_WEEKLY_IMPORT node scripts/refresh-certified-record-watch-feed.mjs > /tmp/unapproved-record-watch.log 2>&1; then
+            echo 'Unapproved public feed write unexpectedly succeeded'
+            exit 1
+          fi
+          grep -q 'Approved weekly release required' /tmp/unapproved-record-watch.log
       - run: node scripts/build-certified-record-watch.mjs > certified-record-watch-research.json
       - uses: actions/upload-artifact@v4
         with:
