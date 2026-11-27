@@ -54,3 +54,9 @@ main .record-cover #personal-record-entry{background:radial-gradient(ellipse at 
 #record-book-v30-discovery .rb30-ranking-head h3:focus-visible{outline:3px solid #ffe1a2;outline-offset:4px}
 .rb30-ownership-list a>span{min-width:0;flex:1;overflow-wrap:anywhere}
 .rb30-ownership-list a>span>strong{text-align:left}
+
+/* Visual review: maintain native keyboard semantics but match control styling. */
+#personal-record-entry #personal-record-entry-title{font-size:clamp(22px,4vw,28px)!important;font-weight:850;letter-spacing:-.025em}
+#personal-record-entry select,#record-book-v30-discovery select{appearance:none;-webkit-appearance:none;background:#102735 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23efd092' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 12px center;padding-right:38px}
+.rb30-ranking-list{max-height:480px;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding-right:5px}
+@media(max-width:650px){.rb30-ranking-list{max-height:360px}.records-premium .record-recovery.is-visible{position:static!important;display:flex!important;transform:none!important;margin:12px auto 24px;width:max-content;max-width:calc(100% - 32px)}}
