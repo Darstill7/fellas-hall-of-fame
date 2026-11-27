@@ -26,3 +26,22 @@ for(const n of m.names){
 if(m.games.length){const g=m.games[0];const fixedGuide=rootingGuide(m,m.names[0],{0:g.a});assert.equal(fixedGuide[0].choices[1].outcomes,0);}
 assert.throws(()=>rootingGuide(m,'not a manager'));
 console.log('Rooting guide: conditional outcome counts independently cross-checked against exact solver');
+
+import {bracketPaths} from '../assets/playoff-command-center.mjs';
+const brackets=Object.fromEntries(m.names.map(n=>[n,bracketPaths(m,n)]));
+for(const n of m.names){
+ const b=brackets[n],a=r.rows.find(x=>x.name===n);
+ assert.equal(b.outcomes,r.outcomes);assert.equal(b.byePossible,a.byePossible);
+ assert.equal(b.seedCounts.findIndex(x=>x>0)+1,a.best);
+ assert.equal(b.seedCounts.map((x,i)=>x?i+1:0).reduce((a,b)=>Math.max(a,b)),a.worst);
+ assert.ok(b.pairs.every(p=>p.opponent!==n&&p.seed+p.opponentSeed===9&&p.seed>=3&&p.seed<=6&&p.outcomes>0&&p.outcomes<=b.seedCounts[p.seed-1]));
+ for(const p of b.pairs){const reciprocal=brackets[p.opponent].pairs.find(q=>q.opponent===n&&q.seed===p.opponentSeed);assert.equal(reciprocal?.outcomes,p.outcomes);}
+}
+const unique={names:['a','b','c','d','e','f','g','h','i','j'],wins:[10,9,8,7,6,5,4,3,2,1],games:[]};
+assert.deepEqual(bracketPaths(unique,'c').pairs,[{seed:3,opponentSeed:6,opponent:'f',outcomes:1}]);
+assert.equal(bracketPaths(unique,'a').pairs.length,0);
+const tied={...unique,wins:Array(10).fill(7)};
+assert.equal(bracketPaths(tied,'a').pairs.length,36);
+assert.throws(()=>bracketPaths(m,'unknown'));
+if(m.games.length)assert.equal(bracketPaths(m,m.names[0],{0:m.games[0].a}).outcomes,r.outcomes/2);
+console.log('Bracket paths: reciprocal pair counts, distinct-seed feasibility, fixed picks and tie fixtures verified');

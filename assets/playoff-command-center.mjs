@@ -57,3 +57,30 @@ export function rootingGuide(model,manager,picks={}){
  }
  visit(0);return rows;
 }
+
+// Conditional conventional six-team bracket: #3 vs #6, #4 vs #5.
+// Each pair must be simultaneously feasible within ONE outcome, not merely
+// independently attainable over different outcomes. Tied-win permutations
+// can occupy any distinct slots within their shared interval.
+export function bracketPaths(model,manager,picks={}){
+ const {names,wins,games}=model,idx=names.indexOf(manager);if(idx<0)throw Error('Unknown manager');
+ for(const [k,v] of Object.entries(picks))if(!/^\d+$/.test(k)||!games[+k]||![games[+k].a,games[+k].b].includes(v))throw Error('Invalid pick');
+ const totals=wins.slice(),seedCounts=Array(10).fill(0),pairs=new Map();let outcomes=0,byePossible=0,firstRoundPossible=0,missPossible=0;
+ function visit(i){
+  if(i===games.length){
+   outcomes++;const ranks=totals.map(w=>[1+totals.filter(v=>v>w).length,totals.filter(v=>v>=w).length]),[lo,hi]=ranks[idx];
+   for(let s=lo;s<=hi;s++)seedCounts[s-1]++;
+   byePossible+=+(lo<=2);missPossible+=+(hi>6);firstRoundPossible+=+(lo<=6&&hi>=3);
+   for(let seed=Math.max(3,lo);seed<=Math.min(6,hi);seed++){
+    const otherSeed=9-seed;
+    for(let j=0;j<names.length;j++){if(j===idx)continue;const [a,b]=ranks[j];if(otherSeed<a||otherSeed>b)continue;
+     const key=seed+':'+j;let row=pairs.get(key);if(!row){row={seed,opponentSeed:otherSeed,opponent:names[j],outcomes:0};pairs.set(key,row);}row.outcomes++;
+    }
+   }
+   return;
+  }
+  const g=games[i];for(const j of Object.hasOwn(picks,i)?[picks[i]]:[g.a,g.b]){totals[j]++;visit(i+1);totals[j]--;}
+ }
+ visit(0);
+ return {outcomes,seedCounts,byePossible,firstRoundPossible,missPossible,pairs:[...pairs.values()].sort((a,b)=>a.seed-b.seed||b.outcomes-a.outcomes||a.opponent.localeCompare(b.opponent))};
+}
