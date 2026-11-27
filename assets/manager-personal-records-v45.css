@@ -47,3 +47,10 @@
 .gm54-milestone-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .gm54-milestone-heading>small{font-size:12px;color:#efd092;font-variant-numeric:tabular-nums}
 @media(max-width:540px){.gm54-trophy-shelf{grid-template-columns:1fr}.gm54-achievement-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.gm54-milestone-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.gm54-milestone-grid .gm45-milestone{border:1px solid #466071;border-radius:12px;padding:12px;background:#193442;min-width:0}
+.gm54-milestone-grid .gm45-milestone:last-child{border-bottom:1px solid #466071}
+.gm54-milestone-heading>strong{font-size:14px;line-height:1.4}
+.gm54-milestone-grid p{font-variant-numeric:tabular-nums}
+@media(max-width:650px){.gm54-milestone-grid{grid-template-columns:1fr}}
