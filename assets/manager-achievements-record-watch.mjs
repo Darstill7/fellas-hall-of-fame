@@ -76,7 +76,8 @@ export async function mountAchievementCabinet({name,host,root='../../'}){
  const [core,ledger,guide,endings,espn,sleeper]=await load(root),rows=buildAchievements(core,ledger,guide,endings,[espn,sleeper],name);
  status.textContent=rows.filter(r=>r.status==='earned').length+' of '+rows.length+' achievements earned · regular-season and verified final placement evidence';
  const watchHost=el('section');watchHost.hidden=true;p.append(watchHost);
- const week=core.completedThrough?.week??core.managers?.[norm(name)]?.annual?.['2026']?.games;
+ const weeks=Object.values(core.managers??{}).map(m=>m.annual?.['2026']?.games).filter(Number.isInteger);
+ const week=core.completedThrough?.week??(weeks.length===10&&new Set(weeks).size===1?weeks[0]:undefined);
  if(Number.isInteger(week))void sharedProfileJson(root+'data/certified-record-watch-feed-v1.json').then(feed=>renderRecordWatchFeed(watchHost,selectRecordWatch(feed,{year:2026,week,surface:'manager',manager:name}),{href:root+'analytics/records.html'})).catch(()=>renderRecordWatchFeed(watchHost,[]));
  const earned=rows.filter(r=>r.status==='earned'),locked=rows.filter(r=>r.status==='locked'),unavailable=rows.filter(r=>r.status==='unavailable');
  const showcase=el('div',null,'gm54-trophy-showcase');
