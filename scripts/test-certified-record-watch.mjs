@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {buildWatch} from './build-certified-record-watch.mjs';
+import {buildWatch,buildPostseasonWatch,buildAllGameWatch} from './build-certified-record-watch.mjs';
 const names=['Stilly','Stew','Thommy','Mitch','JMid','Scott','Stover','Kuhl','Tony','Birch'];
 const fixtures=(year,weeks,results)=>Array.from({length:weeks},(_,i)=>names.slice(0,5).map((home,j)=>({year,week:i+1,stage:'regular',home,away:names[j+5],homeScore:results(i,j)==='W'?100:results(i,j)==='T'?90:80,awayScore:90}))).flat();
 const historical=fixtures(2025,5,(i,j)=>j===0?'W':(i+j)%2?'W':'L');
@@ -76,3 +76,25 @@ if(week===11){
  assert(!current.research.some(e=>e.manager==='Stew'&&e.id==='single-season-regular-winning-streak'));
 }
 console.log('Record Watch tests passed: cutoff, duplicates, ties, reachability, review gating, ownership and current-week evidence');
+
+const brackets=[...read('data/verified_espn_playoff_brackets_2016_2019.json').seasons,...read('data/verified_sleeper_playoff_brackets_2020_2025.json').seasons];
+const receipts=read('data/postseason_winners_bracket_record_receipts_2016_2025_v1.json').receipts;
+assert.equal(buildPostseasonWatch({year:2026,week:11,brackets,receipts}).status,'withheld');
+const currentBracket={year:2026,throughWeek:14,status:'reviewed',participants:['Stilly','Stew','Thommy','Mitch','JMid','Scott'],semifinalists:[],finalists:[],confirmedAt:{participants:{Scott:14,JMid:14}}};
+const post=buildPostseasonWatch({year:2026,week:14,brackets,receipts,currentBracket});
+assert.deepEqual(post.items,[]);
+assert(post.research.every(e=>e.id==='playoff-berth'&&e.week===14));
+assert.equal(buildPostseasonWatch({year:2026,week:15,brackets,receipts,currentBracket}).status,'withheld');
+assert.equal(buildPostseasonWatch({year:2026,week:14,brackets:brackets.slice(1),receipts,currentBracket}).status,'withheld');
+assert.equal(buildPostseasonWatch({year:2026,week:14,brackets,receipts,currentBracket:{...currentBracket,champion:'Scott'}}).status,'withheld');
+assert.equal(buildPostseasonWatch({year:2026,week:14,brackets,receipts,currentBracket,currentReceipts:[{year:2026,week:14,round:'opening',winner:'Kuhl',loser:'Scott',winnerPoints:110,loserPoints:100,status:'final',reviewed:true}]}).status,'withheld');
+const allGame=buildAllGameWatch(real,{year:2026,week,regularSeasonWeeks:14});
+assert.deepEqual(allGame.items,[]);
+assert.equal(allGame.status,'withheld-pending-continuity-certification');
+const synthetic={games:[...fixtures(2025,5,(i,j)=>j===0?'W':'T'),{year:2025,week:6,stage:'championship_bracket',home:'Stilly',away:'Scott',homeScore:80,awayScore:90},...fixtures(2026,4,(i,j)=>j===0?'W':'T')]};
+const interrupted=buildAllGameWatch(synthetic,{year:2026,week:4,regularSeasonWeeks:6});
+const stilly=interrupted.research.find(e=>e.manager==='Stilly'&&e.id==='all-game-winning-streak');
+assert.equal(stilly.run,4);assert.equal(stilly.priorRecord,5);
+assert.equal(stilly.startYear,2026);assert.equal(stilly.type,'approaching');
+assert.deepEqual(interrupted.items,[]);
+console.log('Postseason and all-game withholding/continuity tests passed');
