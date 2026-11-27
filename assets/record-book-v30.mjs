@@ -9,6 +9,22 @@ export function indexPublishedCategories(archive){
   return {key:c.key,group:c.group,label:c.label,description:String(c.description??''),qualifier:String(c.qualifier??'')};
  });
 }
+// A category counts once per manager, even with multiple tied performances.
+export function managerArchivePortfolio(archive,name){
+ const categories=indexPublishedCategories(archive);
+ const who=normalizeManager(name);
+ if(!fellasLeague.managers.includes(who))return null;
+ const ranked=categories.flatMap((c,i)=>{
+  const source=archive.categories[i];
+  if(!Array.isArray(source.leaders)||source.leaders.some(r=>!Number.isInteger(r.rank)||r.rank<1||!Number.isFinite(r.value)||typeof r.manager!=='string'))throw Error('Invalid archived ranking');
+  const mine=source.leaders.filter(r=>normalizeManager(r.manager)===who);
+  if(!mine.length)return [];
+  const best=Math.min(...mine.map(r=>r.rank));
+  const holders=[...new Set(source.leaders.filter(r=>r.rank===1).map(r=>normalizeManager(r.manager)))];
+  return [{...c,unit:source.unit,rank:best,marks:mine.filter(r=>r.rank===best),holders,shared:holders.length>1}];
+ });
+ return {manager:who,total:categories.length,owned:ranked.filter(r=>r.rank===1),podium:ranked.filter(r=>r.rank<=3),ranked};
+}
 export function searchCategories(rows,query='',group=''){
  const tokens=query.trim().toLowerCase().split(/\s+/).filter(Boolean);
  return rows.filter(c=>(!group||c.group===group)&&tokens.every(t=>(c.label+' '+c.group+' '+c.key.replaceAll('-',' ')+' '+c.description+' '+c.qualifier).toLowerCase().includes(t)));
@@ -39,19 +55,41 @@ export async function mountRecordBookDiscovery(){
  const controls=el('div',null,'rb30-controls');
  for(const [a,b] of [[searchLabel,search],[familyLabel,family]]){const field=el('div');field.append(a,b);controls.append(field)}
  const status=el('p','Loading archived categories…','rb30-status');status.setAttribute('role','status');
- const results=el('div',null,'rb30-results');let rows=[];
+ const results=el('div',null,'rb30-results');let rows=[],archive=null;
+ const ownership=el('div',null,'rb30-ownership');ownership.setAttribute('aria-live','polite');personal?.insertBefore(ownership,link);
  host.append(controls,status,results);
  function paint(){
+  paintOwnership();
   const matching=searchCategories(rows,search.value,family.value);
   results.replaceChildren();
   status.textContent=matching.length+' of '+rows.length+' archived categories';
   for(const c of matching){const a=el('a',null,'rb30-result');a.href=categoryHref(c,select.value);a.append(el('small',c.group),el('strong',c.label),el('span','View ranking →'));results.append(a)}
   if(!matching.length)results.append(el('p','No matching categories. Try another search or choose All categories.'));
  }
+ function paintOwnership(){
+  ownership.replaceChildren();
+  if(!select.value){ownership.append(el('p','Choose a manager to view archived league rankings.','rb30-status'));return}
+  if(!archive){ownership.append(el('p','Archived ownership unavailable until the category data loads.','rb30-status'));return}
+  const d=managerArchivePortfolio(archive,select.value);
+  const metrics=el('div',null,'rb30-metrics');
+  for(const [value,title] of [[d.owned.length,'First-place categories'],[d.podium.length,'Top-three categories']]){
+   const card=el('div');card.append(el('strong',String(value)),el('small',title));metrics.append(card);
+  }
+  ownership.append(metrics,el('p',archive.scope+' · Shared first place counts once per category.','rb30-status'));
+  const list=el('div',null,'rb30-ownership-list');
+  const format=(v,u)=>v.toLocaleString('en-US',{maximumFractionDigits:2})+(u==='%'?'%':u?' '+u:'');
+  for(const c of d.owned){
+   const a=el('a');a.href=categoryHref(c,d.manager);
+   const copy=el('span');copy.append(el('strong',c.label),el('small',c.shared?'Shared with '+c.holders.filter(n=>n!==d.manager).join(', '):'Sole first-place manager'));
+   a.append(copy,el('strong',format(c.marks[0].value,c.unit)));list.append(a);
+  }
+  if(!d.owned.length)ownership.append(el('p','No first-place categories in this archive snapshot. Other personal marks remain accessible.','rb30-status'));
+  else{const fold=el('details');fold.append(el('summary','Explore all '+d.owned.length+' first-place categories'),list);ownership.append(fold)}
+ }
  search.addEventListener('input',paint);family.addEventListener('change',paint);
- try{const response=await fetch(new URL('../data/expanded_records_verified_v1.json',import.meta.url));if(!response.ok)throw Error('Archive unavailable');const archive=await response.json();rows=indexPublishedCategories(archive);
+ try{const response=await fetch(new URL('../data/expanded_records_verified_v1.json',import.meta.url));if(!response.ok)throw Error('Archive unavailable');const candidate=await response.json();rows=indexPublishedCategories(candidate);for(const name of fellasLeague.managers)managerArchivePortfolio(candidate,name);archive=candidate;
   for(const group of [...new Set(rows.map(c=>c.group))])family.append(new Option(group,group));
   const note=el('p',String(archive.scope||'Archived expanded records; coverage varies.'),'rb30-status');host.insertBefore(note,controls);paint();
- }catch{status.textContent='Category index unavailable. The original record collections below remain accessible.';search.disabled=true;family.disabled=true}
+ }catch{status.textContent='Category index unavailable. The original record collections below remain accessible.';search.disabled=true;family.disabled=true;archive=null;paintOwnership()}
 }
 if(typeof document!=='undefined')void mountRecordBookDiscovery();
