@@ -2,24 +2,36 @@
 import {fellasLeague,normalizeManager,managerSlug} from './league-config.mjs';
 import {managerArchivePortfolio} from './record-book-v30.mjs';
 const format=n=>n.toLocaleString('en-US',{maximumFractionDigits:2,minimumFractionDigits:2});
-export function buildHQBriefing(d,personal){
+// The calendar controls editorial emphasis only; it never establishes a data cutoff.
+export function hqCalendar(date=new Date()){
+ const day=new Intl.DateTimeFormat('en-US',{timeZone:'America/Indiana/Indianapolis',weekday:'short'}).format(date);
+ const themes={Mon:['REVIEW & CONTEXT','score','run','personal','playoff','rivalry'],Tue:['THE WEEK IN REVIEW','personal','run','score','playoff','rivalry'],Wed:['FRONT OFFICE','personal','playoff','run','rivalry','score'],Thu:['LOOKING AHEAD','rivalry','playoff','personal','run','score'],Fri:['WHAT IS AT STAKE','playoff','rivalry','run','personal','score'],Sat:['WEEKEND INTELLIGENCE','rivalry','playoff','run','personal','score'],Sun:['WEEKEND INTELLIGENCE','rivalry','playoff','personal','run','score']};
+ const [theme,...order]=themes[day]??themes.Fri;
+ return {day,theme,order};
+}
+export function buildHQBriefing(d,personal,date=new Date()){
  if(!d||!Number.isInteger(d.week)||d.week<1||d.week>fellasLeague.regularSeasonWeeks||d.standings?.length!==10)return [];
  const remaining=fellasLeague.regularSeasonWeeks-d.week,items=[];
  const add=(id,kicker,title,detail,href)=>items.push({id,kicker,title,detail,href});
  if(remaining>0)add('playoff','THE PLAYOFF PUSH',remaining===1?'One regular-season week left':remaining+' regular-season weeks remaining','Six playoff spots · two first-round byes. Explore the scenarios, not just the standings.','analytics/playoff-race.html');
  else add('playoff','POSTSEASON','The regular-season archive is complete','Explore the playoff center for verified scenarios and results.','analytics/playoff-race.html');
  if(personal?.opponent&&remaining>0)add('rivalry','YOUR NEXT CHAPTER',personal.team.name+' vs '+personal.opponent.name,'Week '+personal.week+' · explore the history between these franchises.','analytics/rivalry-war-room.html?a='+encodeURIComponent(personal.team.name)+'&b='+encodeURIComponent(personal.opponent.name));
+ if(personal?.team&&typeof personal.team.streak==='string'){
+  const code=personal.team.streak[0],count=Number(personal.team.streak.slice(1));
+  if(Number.isInteger(count)&&count>=3&&['W','L'].includes(code))add('personal','FRANCHISE MOMENTUM',personal.team.name+' · '+count+' straight '+(code==='W'?'wins':'losses'),'Your current regular-season streak through Week '+d.week+'. Explore your franchise history.','managers/'+managerSlug(personal.team.name)+'/');
+ }
  const runs=d.standings.filter(r=>r.streak?.startsWith('W')).sort((a,b)=>Number(b.streak.slice(1))-Number(a.streak.slice(1)));
  const best=Number(runs[0]?.streak.slice(1));
- if(best>=3){const leaders=runs.filter(r=>Number(r.streak.slice(1))===best);add('run','LEAGUE TALKING POINT',leaders.map(r=>r.name).join(' & ')+' · '+best+' straight wins','Current regular-season streak through Week '+d.week+'. Not an all-game streak.',leaders.length===1?'managers/'+managerSlug(leaders[0].name)+'/':'#league')}
+ if(best>=3){const leaders=runs.filter(r=>Number(r.streak.slice(1))===best);if(!(leaders.length===1&&leaders[0].name===personal?.team?.name&&items.some(i=>i.id==='personal')))add('run','LEAGUE TALKING POINT',leaders.map(r=>r.name).join(' & ')+' · '+best+' straight wins','Current regular-season streak through Week '+d.week+'. Not an all-game streak.',leaders.length===1?'managers/'+managerSlug(leaders[0].name)+'/':'#league')}
  if(d.leaders?.length&&Number.isFinite(d.leaders[0].latest))add('score','WEEK '+d.week+' SCORING LEAD',d.leaders.map(r=>r.name).join(' & ')+' · '+format(d.leaders[0].latest),'Completed matchup scoring leader'+(d.leaders.length>1?'s':'')+'.','analytics/sportscenter.html');
- return items.slice(0,3);
+ const order=hqCalendar(date).order;return items.sort((a,b)=>order.indexOf(a.id)-order.indexOf(b.id)).slice(0,3);
 }
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n};
 export function renderHQBriefing(d,personal){
  const host=document.getElementById('hq40-briefing');if(!host)return;
  host.replaceChildren();
- for(const item of buildHQBriefing(d,personal)){
+ const date=new Date(),calendar=hqCalendar(date);const title=document.querySelector('#hq40-now-title');if(title){const note=el('p',calendar.theme+' · Verified through Week '+d.week,'hq40-calendar-note');host.append(note)}
+ for(const item of buildHQBriefing(d,personal,date)){
   const a=el('a',null,'hq40-briefing-item');a.href=item.href;a.dataset.briefingId=item.id;
   const copy=el('div');copy.append(el('small',item.kicker),el('strong',item.title),el('p',item.detail));a.append(copy,el('span','›','hq40-arrow'));host.append(a);
  }
