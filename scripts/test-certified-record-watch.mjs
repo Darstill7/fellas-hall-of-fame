@@ -24,7 +24,7 @@ assert.equal(tied.research.find(e=>e.manager==='Stilly').type,'tied');
 const broken=buildWatch({games:[...historical,...longer]},{...options,week:6});
 assert.equal(broken.research.find(e=>e.manager==='Stilly').type,'extended');
 const ties=fixtures(2026,4,(i,j)=>j===0?(i===2?'T':'W'):(i+j)%2?'W':'L');
-assert(!buildWatch({games:[...historical,...ties]},options).research.some(e=>e.manager==='Stilly'));
+assert(!buildWatch({games:[...historical,...ties]},options).research.some(e=>e.manager==='Stilly'&&e.id.endsWith('winning-streak')),'A tie interrupts both winning-streak scopes, not unrelated scoring alerts');
 const reversed={games:ledger.games.map(g=>({...g,home:g.away,away:g.home,homeScore:g.awayScore,awayScore:g.homeScore}))};
 assert.deepEqual(buildWatch(reversed,options).research.map(e=>e.eventId).sort(),report.research.map(e=>e.eventId).sort());
 // Career categories are distinct from the single-season categories.
