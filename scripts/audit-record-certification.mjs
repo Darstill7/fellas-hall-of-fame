@@ -89,6 +89,42 @@ const rebuiltSingleGame=Object.entries(singleGameDefinitions).map(([id,[eligible
  return {id,cutoff,population:ranked.length,archivedEntriesMatched:cat.leaders.length,personalBests,status:'archived-scope-reconstructed-not-recertified',stageBasis:'legacy regular-labeled ledger with eight known postseason mislabels'};
 });
 assert.equal(rebuiltSingleGame.length,9);
+const careerGroups=new Map();
+for(const row of appearances){
+ if(!careerGroups.has(row.manager))careerGroups.set(row.manager,[]);
+ careerGroups.get(row.manager).push(row);
+}
+const countWhere=(a,f)=>a.filter(f).length;
+const round2=x=>Math.round(x*100)/100;
+const careerDefinitions={
+ 'most-wins':a=>countWhere(a,x=>x.p>x.q),
+ 'most-games':a=>a.length,
+ 'win-rate':a=>round2(100*(countWhere(a,x=>x.p>x.q)+countWhere(a,x=>x.p===x.q)/2)/a.length),
+ 'career-points':a=>a.reduce((s,x)=>s+x.p,0)/100,
+ 'career-ppg':a=>round2(a.reduce((s,x)=>s+x.p,0)/100/a.length),
+ 'points-against':a=>a.reduce((s,x)=>s+x.q,0)/100,
+ 'hundred-club':a=>countWhere(a,x=>x.p>=10000),
+ 'one-twenty-club':a=>countWhere(a,x=>x.p>=12000),
+ 'one-forty-club':a=>countWhere(a,x=>x.p>=14000),
+ 'one-sixty-club':a=>countWhere(a,x=>x.p>=16000),
+ 'wins-vs-130':a=>countWhere(a,x=>x.p>x.q&&x.q>=13000),
+ 'wins-below-100':a=>countWhere(a,x=>x.p>x.q&&x.p<10000),
+ 'high-score-losses':a=>countWhere(a,x=>x.p<x.q&&x.p>=12000),
+ 'nailbiters':a=>countWhere(a,x=>x.p>x.q&&x.p-x.q<=300),
+ 'one-score-drama':a=>countWhere(a,x=>Math.abs(x.p-x.q)<=300),
+ 'thirty-plus-wins':a=>countWhere(a,x=>x.p-x.q>=3000)
+};
+const rebuiltCareer=Object.entries(careerDefinitions).map(([id,value])=>{
+ const cat=expanded.categories.find(c=>c.key===id);assert(cat);
+ const minimum=['win-rate','career-ppg'].includes(id)?60:0;
+ const full=[...careerGroups].filter(([,a])=>a.length>=minimum).map(([manager,a])=>({manager,value:value(a),evidence:{games:a.length,...(minimum?{minimum}:{})}})).sort((a,b)=>(cat.direction==='low'?1:-1)*(a.value-b.value)||a.manager.localeCompare(b.manager));
+ assert.equal(full.length,cat.entries,id+' population');
+ let prev=null,rank=0;
+ const ranked=full.map((r,i)=>{if(r.value!==prev){rank=i+1;prev=r.value;}return {...r,rank};});
+ for(const l of cat.leaders)assert(ranked.some(r=>r.manager===canonicalName(l.manager)&&r.value===l.value&&r.rank===l.rank),id+' archive mark mismatch');
+ return {id,cutoff,population:ranked.length,archivedEntriesMatched:cat.leaders.length,ranked,status:'archived-scope-reconstructed-not-recertified',stageBasis:'legacy regular-labeled ledger with eight known postseason mislabels'};
+});
+assert.equal(rebuiltCareer.length,16);
 const portfolioCoverage={managers:Object.keys(canonicalManagerIndex).length,personalMarks,outsideTopFive,mappedProposalCategories:phase2ToCanonical.size,incumbentRankCoverage,unmappedTaxonomyCategories:rows.filter(r=>!r.phase2.length).map(r=>r.id),publication:'not-authorized; candidate marks must not replace incumbent records; missing categories remain unavailable'};
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));
