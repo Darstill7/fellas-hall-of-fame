@@ -1,0 +1,28 @@
+name: Record Book certification audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit-record-certification.mjs'
+      - 'scripts/build-record-book-phase2.mjs'
+      - 'scripts/build-record-taxonomy-crosswalk.mjs'
+      - 'data/unified_record_book_2016_2026.json'
+      - '.github/workflows/record-certification-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/verify-record-taxonomy-crosswalk.mjs
+      - run: node scripts/verify-record-book-phase2.mjs
+      - run: node scripts/audit-record-certification.mjs > record-certification-audit.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: record-certification-audit
+          path: record-certification-audit.json
