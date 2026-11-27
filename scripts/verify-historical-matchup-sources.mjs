@@ -24,4 +24,11 @@ const ep='data/espn_history_2016_2019.json';
 for(const s of read(ep).seasons){const ids=new Map(s.teams.map(t=>[t.id,t.manager]));reconcile(s.year,ep,s.games.filter(g=>g.stage==='NONE').map(g=>({week:g.period,a:ids.get(g.home),b:ids.get(g.away),sa:g.hs,sb:g.as})));}
 for(let y=2020;y<=2025;y++){const p='data/sleeper_matchups_'+y+'.json';reconcile(y,p,read(p).flatMap(w=>w.games.map(g=>({week:w.week,a:owner(y,g.home[0]),b:owner(y,g.away[0]),sa:g.home[2],sb:g.away[2]}))));}
 assert.equal(report.length,10);assert.equal(report.reduce((s,r)=>s+r.matched,0),660);
-console.log(JSON.stringify({status:'stored-source-parity',completedSeasons:report,total:660,activeSeason:'separate receipt reconciliation required'},null,2));
+// Source parity is not stage certification. These eight rows remain unchanged in the ledger.
+const anomalies=ledger.games.filter(g=>[2020,2021].includes(g.year)&&g.week===14&&g.stage==='regular');
+for(const year of [2020,2021]){
+ assert.equal(anomalies.filter(g=>g.year===year).length,4,'Expected legacy Week 14 anomaly count '+year);
+ assert.equal(ledger.games.filter(g=>g.year===year&&g.stage==='regular'&&g.week<=13).length,65,'Expected 13-week regular coverage '+year);
+}
+assert.equal(anomalies.length,8);
+console.log(JSON.stringify({status:'stored-source-parity-not-stage-certification',completedSeasons:report,total:660,legacyRegularLabeledMatchups:660,knownPostseasonMislabels:8,archiveMatchupsExcludingKnownMislabels:652,stageCertification:'pending; four championship opening and four non-winners postseason fixtures; exact non-winners bracket classification unverified',activeSeason:'separate receipt reconciliation required'},null,2));
