@@ -139,7 +139,7 @@ for(const [pair,games] of rivalries){
  }
  push('rival-one-point',a,near,close,{opponent:b});
 }
-const out=[],managerIndex=Object.create(null);
+const out=[],managerIndex=Object.create(null),sharedEventRegistry=Object.create(null);
 const sharedEventCategories=new Set(['combined-high','combined-low','rival-one-point']);
 for(const c of records.values()){
  let rows=c.rows.filter(r=>r.value>0);
@@ -147,6 +147,18 @@ for(const c of records.values()){
  rows.sort((a,b)=>(direction==='low'?a.value-b.value:b.value-a.value)||a.manager.localeCompare(b.manager)||(a.year??0)-(b.year??0));
  let previous=null,rank=0;
  rows=rows.map((r,i)=>{if(previous!==r.value){rank=i+1;previous=r.value}return {...r,rank}});
+ // Stable identity is independent of which manager was listed as home.
+ if(sharedEventCategories.has(c.id)){
+  const seen=new Set();
+  for(const row of rows){
+   const participants=[row.manager,row.opponent].sort();
+   assert(participants[0]!==participants[1]);
+   row.eventKey=JSON.stringify([c.id,...participants,...(c.id==='rival-one-point'?[]:[row.year,row.week])]);
+   assert(!seen.has(row.eventKey),'Duplicate shared league event '+row.eventKey);seen.add(row.eventKey);
+   row.participants=participants;
+  }
+  sharedEventRegistry[c.id]=rows.map(r=>({eventKey:r.eventKey,participants:r.participants,rank:r.rank,value:r.value,year:r.year??null,week:r.week??null,evidence:r.evidence}));
+ }
  const leaders=rows.filter(r=>r.rank<=5);
  // All tied top marks are retained; no arbitrary truncation at first place.
  const holders=rows.filter(r=>r.rank===1);
@@ -159,7 +171,7 @@ for(const c of records.values()){
    const index=managerIndex[name]??=Object.create(null);
    if(!index[c.id])index[c.id]={rank:row.rank,value:row.value,marks:[]};
    if(index[c.id].rank===row.rank){
-    const eventKey=JSON.stringify([c.id,row.manager,row.opponent??null,row.year??null,row.week??null,row.evidence]);
+    const eventKey=row.eventKey??JSON.stringify([c.id,row.manager,row.opponent??null,row.year??null,row.week??null,row.evidence]);
     index[c.id].marks.push({...row,eventKey,manager:name,...(sharedEventCategories.has(c.id)?{opponent:name===row.manager?row.opponent:row.manager}:{})});
    }
   }
@@ -185,7 +197,7 @@ const schema={schema:'fellas-phase2-record-research-v1',status:'provisional-not-
   'A zero count is not an earned record; unresolved tied scoring placements are excluded from runner-up/second-lowest titles.',
   'Completed season records exclude all of 2026; verified finality of Week '+currentWeek+' does not make the season complete.'],
  coverage:{stageBasis:correctedMode?'corrected-stage-projection-not-certified':'legacy-regular-labeled',weeklyAwardMatchups:weeklyGames.length,games:games.length,weeklyScoringSets:qualified.length,excludedPartialWeeks:excluded,includedByeWeeks,latest2026Week:currentWeek},
- categoryCount:out.length,categories:out,managerIndex};
+ categoryCount:out.length,categories:out,managerIndex,sharedEventRegistry};
 // Freeze the recovered 2016–2025 research coverage while allowing completed
 // 2026 weeks to advance in five-matchup increments.
 assert.equal(games.filter(g=>g.year<2026).length,correctedMode?652:660,'Historical regular-season corpus changed unexpectedly');
