@@ -3,6 +3,7 @@ import {fellasLeague,normalizeManager,managerSlug} from './league-config.mjs';
 import {selectRecordWatch,renderRecordWatchFeed} from './certified-record-watch-feed.mjs';
 import {mountLeagueComparison} from './league-intelligence-v51.mjs';
 import {mountRoster} from './current-roster-v51.mjs';
+import {renderHQBriefing,enhanceHQFranchise} from './league-hq-v40.mjs';
 const names=fellasLeague.managers;
 const norm=n=>normalizeManager(n);
 const cents=n=>Math.round(n*100);
@@ -78,7 +79,7 @@ function renderActivity(host,d,race,name){
 }
 
 function renderPersonal(d,race,name){
- const host=document.getElementById('my-team');host.replaceChildren();const compact=document.body.classList.contains('personal-v51');const p=buildPersonalDashboard(d,race,name);if(!p){host.append(el('p','Choose your franchise to personalize this device. No account required.','source-note'));return}
+ const host=document.getElementById('my-team');host.replaceChildren();const compact=document.body.classList.contains('personal-v51');const p=buildPersonalDashboard(d,race,name);const hq=document.body.classList.contains('league-hq-v40');if(hq)renderHQBriefing(d,p);if(!p){host.append(el('p','Choose your franchise to personalize this device. No account required.','source-note'));return}
  const card=el('div',null,'personal-card'),top=el('div',null,'personal-top'),identity=el('div'),avatar=el('span',name.slice(0,2).toUpperCase(),'team-avatar');identity.append(el('strong',name),el('small',compact?'2026 season':'Franchise headquarters'));const form=el('div',null,'team-form');form.append(el('strong',record(p.team)),el('small',p.team.streak+' streak',p.team.streak[0]==='W'?'win':'loss'));top.append(avatar,identity,form);card.append(top);
  const stats=el('div',null,'personal-stats');for(const [label,value] of [['Standing','#'+p.rank],[compact?'Avg. points':'Weekly PF',fmt(p.team.pf/d.week)],['Playoff odds',p.odds?p.odds.playoff+'%':'—']]){const x=el('div');x.append(el('strong',value),el('small',label));stats.append(x)}card.append(stats);const median=d.median?.rows.find(r=>r.name===name);if(median&&!compact){card.append(el('p','Median format: '+record({w:median.combinedW,l:median.combinedL,t:median.combinedT})+' · hypothetical, not official','source-note'))}host.append(card);
  if(compact){
@@ -86,6 +87,7 @@ function renderPersonal(d,race,name){
  if(g){const home=norm(g.home)===name,o=norm(home?g.away:g.home),pf=home?g.homeScore:g.awayScore,pa=home?g.awayScore:g.homeScore;
  const result=el('div',null,'personal-latest-result');result.append(el('span','Week '+d.week+' · '+(pf>pa?'Win over ':pf<pa?'Loss to ':'Tie with ')+o,pf>pa?'win':pf<pa?'loss':''),el('strong',fmt(pf)+'–'+fmt(pa)));card.append(result)}
  const more=el('a','My Team dashboard ›','personal-home-cta');more.href='#my-team-section';card.append(more);
+ if(hq)enhanceHQFranchise(card,p,d);
  }
  const match=el('div',null,'personal-detail');match.append(el('h3','Your next matchup'));if(p.opponent){match.append(el('small','Week '+p.week+' · schedule preview'),el('strong',name+' vs '+p.opponent.name),el('p',record(p.team)+' vs '+record(p.opponent)+' · Avg PF '+fmt(p.team.pf/d.week)+' – '+fmt(p.opponent.pf/d.week)))}else match.append(el('p','Matching future fixture unavailable.'));if(compact&&p.opponent){const a=el('a','Head-to-head history ›','personal-insight-link');a.href='analytics/rivalry-war-room.html?a='+encodeURIComponent(name)+'&b='+encodeURIComponent(p.opponent.name);match.append(a);const diff=p.team.pf/d.week-p.opponent.pf/d.week;match.append(el('p',Math.abs(diff)<.005?'Equal season scoring averages.':(diff>0?name:p.opponent.name)+' averages '+fmt(Math.abs(diff))+' more points per game. Not a projection.','source-note'))}host.append(match);
  const outlook=el('div',null,'personal-detail');outlook.append(el('h3','Your playoff picture'));if(p.odds){for(const [label,value] of [['Playoffs',p.odds.playoff],['First-round bye',p.odds.bye]]){const row=el('div',null,'odds-row'),meter=el('meter');meter.min=0;meter.max=100;meter.value=value;meter.setAttribute('aria-label',label);row.append(el('span',label),el('b',value+'%'),meter);outlook.append(row)}outlook.append(el('small','Model estimates through Week '+d.week+'; not official clinches.'))}else outlook.append(el('p','Matching playoff model unavailable.'));if(compact){const a=el('a','Playoff scenarios ›','personal-insight-link');a.href='analytics/playoff-race.html';outlook.append(a)}host.append(outlook);
