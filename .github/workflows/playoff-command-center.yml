@@ -6,6 +6,7 @@ on:
       - 'assets/playoff-command-center.mjs'
       - 'scripts/test-playoff-command-center.mjs'
       - 'data/playoff_race_v1.json'
+      - 'scripts/rebuild-playoff-race.mjs'
       - '.github/workflows/playoff-command-center.yml'
   workflow_dispatch:
 permissions:

@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';import fs from 'node:fs';import {prepare,analyze} from '../assets/playoff-command-center.mjs';
+import assert from 'node:assert/strict';import fs from 'node:fs';import {prepare,analyze,remainingSOS} from '../assets/playoff-command-center.mjs';
 const data=JSON.parse(fs.readFileSync('data/playoff_race_v1.json','utf8')),m=prepare(data),r=analyze(m);
 assert.equal(r.outcomes,2**m.games.length);assert.equal(r.rows.length,10);
 for(const x of r.rows){assert.ok(x.best<=x.worst);assert.ok(x.playoffCertain<=x.playoffPossible);assert.ok(x.byeCertain<=x.byePossible);assert.ok(x.byePossible<=x.playoffPossible);assert.ok(x.minWins<=x.maxWins);}
@@ -7,3 +7,5 @@ if(m.games.length){const g=m.games[0];assert.equal(analyze(m,{0:g.a}).outcomes,r
 const fixed=Object.fromEntries(m.games.map((g,i)=>[i,g.a])),one=analyze(m,fixed);assert.equal(one.outcomes,1);assert.equal(one.rows.reduce((s,x)=>s+x.minWins,0),m.wins.reduce((s,x)=>s+x,0)+m.games.length);
 const broken=structuredClone(data);if(m.games.length){delete broken.fixtures[m.week+1];assert.throws(()=>prepare(broken));}
 console.log('Playoff command center: '+r.outcomes+' decisive-game outcomes verified; conservative tie bounds passed');
+
+const sos=remainingSOS(data);assert.equal(sos.length,10);const ledger=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json','utf8'));for(const n of m.names){const name=n==='Tom'?'Thommy':n;const scores=ledger.games.filter(g=>g.year===2026&&g.stage==='regular'&&g.week<=m.week&&g.week>=Math.max(1,m.week-2)).flatMap(g=>g.home===name?[g.homeScore]:g.away===name?[g.awayScore]:[]);assert.equal(scores.length,Math.min(3,m.week));assert.equal(data.teams[n].recent_mean,+(scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(2));}for(const row of sos){assert.equal(row.opponents.length,m.end-m.week);if(row.opponents.length){assert.ok(Math.abs(row.score-(.7*row.season+.3*row.recent))<1e-8);assert.ok(row.record>=0&&row.record<=1);assert.ok(row.allPlay>=0&&row.allPlay<=1);}}for(let i=1;i<sos.length;i++)assert.ok((sos[i-1].score??0)>=(sos[i].score??0));console.log('Remaining SOS: canonical recent scoring and all ten opponent schedules verified');

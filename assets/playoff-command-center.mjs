@@ -22,3 +22,18 @@ export function analyze(model,picks={}){
  }
  visit(0);return {outcomes,rows:rows.map(r=>({...r,playoff:r.playoffCertain===outcomes?'Guaranteed':r.playoffPossible===0?'Impossible':'Open',bye:r.byeCertain===outcomes?'Guaranteed':r.byePossible===0?'Impossible':'Open'}))};
 }
+
+// Schedule difficulty measures opponents, not the selected team's own strength.
+// Weight season and recent completed-game scoring equally enough to reward form,
+// while keeping the larger season sample dominant. No player injury projections.
+export function remainingSOS(data){
+ const m=prepare(data),rows=m.names.map((name,i)=>{
+ const opponents=m.games.filter(g=>g.a===i||g.b===i).map(g=>({week:g.week,name:m.names[g.a===i?g.b:g.a]}));
+ if(!opponents.length)return {name,opponents,score:null,season:null,recent:null,record:null,allPlay:null,rank:null};
+ const metrics=opponents.map(o=>{const t=data.teams[o.name];if(!Number.isFinite(t.mean)||!Number.isFinite(t.recent_mean)||!Number.isInteger(t.apw)||!Number.isInteger(t.apl)||t.apw+t.apl<=0)throw Error('Missing schedule strength inputs for '+o.name);return {...o,season:t.mean,recent:t.recent_mean,record:t.w/(t.w+t.l),allPlay:t.apw/(t.apw+t.apl),score:.7*t.mean+.3*t.recent_mean};});
+ const avg=k=>metrics.reduce((s,x)=>s+x[k],0)/metrics.length;
+ return {name,opponents:metrics,score:avg('score'),season:avg('season'),recent:avg('recent'),record:avg('record'),allPlay:avg('allPlay')};
+ });
+ rows.sort((a,b)=>(b.score??-Infinity)-(a.score??-Infinity)||a.name.localeCompare(b.name));let rank=0,last=null;
+ rows.forEach((r,i)=>{if(r.score===null)return;const value=Math.round(r.score*100);if(value!==last)rank=i+1;r.rank=rank;last=value;});return rows;
+}
