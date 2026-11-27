@@ -73,8 +73,8 @@ for(const factor of ['titles','finals','playoffs','regular','allPlay','recent','
 if(!ratingCard.includes("manager.breakdown[key]/WEIGHTS[key]")||
  !ratingCard.includes("const summaryPanel=")||
  !ratingCard.includes("'+summaryPanel+'")||
- !ratingCard.includes("Lowest relative factor")||
- !ratingCard.includes("not league-wide category ranks"))
+ !ratingCard.includes("Lowest percentage of possible points, not a prediction")||
+ !ratingCard.includes("not rankings against other managers"))
  throw Error('Career rating strength summaries must be normalized and properly qualified');
 // A compact cross-era career résumé must remain data-backed and linked to the
 // detailed record book, rather than inventing unsourced achievement totals.
