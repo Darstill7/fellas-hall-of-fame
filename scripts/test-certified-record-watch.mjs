@@ -45,6 +45,24 @@ const crossing=buildWatch({games:[...crossingHistory,...fixtures(2026,1,()=> 'W'
 assert(crossing.research.some(e=>e.manager==='Stilly'&&e.id==='career-win-milestone'&&e.target===25&&e.type==='milestone-achieved'));
 assert(crossing.research.some(e=>e.manager==='Scott'&&e.id==='career-game-milestone'&&e.target===25&&e.type==='milestone-achieved'));
 assert(!crossing.research.some(e=>e.id==='career-points-milestone'&&e.type==='milestone-approaching'));
+// Scoring crossings use pre-week evidence; equal scores share the record.
+const scoringHistory=fixtures(2025,1,()=> 'W');
+const scoringNow=fixtures(2026,1,()=> 'W').map((g,i)=>({...g,homeScore:i<2?200:100}));
+const scoring=buildWatch({games:[...scoringHistory,...scoringNow]},{year:2026,week:1,regularSeasonWeeks:14});
+const high=scoring.research.filter(e=>e.id==='weekly-highest-score');
+assert.equal(high.length,2);assert(high.every(e=>e.type==='broken'&&e.value===200&&e.priorRecord===100));
+assert.deepEqual(scoring.items,[]);
+const same=buildWatch({games:[...scoringHistory,...fixtures(2026,1,()=> 'W')]},{year:2026,week:1,regularSeasonWeeks:14});
+assert(same.research.filter(e=>e.id==='weekly-highest-score').every(e=>e.type==='tied'));
+const repeatHistory=fixtures(2025,9,()=> 'W');
+const repeat=buildWatch({games:[...repeatHistory,...fixtures(2026,1,()=> 'W')]},{year:2026,week:1,regularSeasonWeeks:14});
+const meetings=repeat.research.filter(e=>e.id==='rivalry-meetings-milestone');
+assert.equal(meetings.length,5);assert(meetings.every(e=>e.participants.length===2&&e.value===10));
+assert.equal(new Set(meetings.map(e=>e.eventId)).size,5);
+const rivalWins=repeat.research.filter(e=>e.id==='rivalry-wins-milestone');
+assert.equal(rivalWins.length,5);assert(rivalWins.every(e=>e.participants.length===1&&e.value===10));
+assert.equal(repeat.research.filter(e=>e.id==='career-weekly-high-titles').length,5);
+assert.equal(repeat.research.filter(e=>e.id==='career-weekly-low-titles').length,5);
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const real=read('data/unified_record_book_2016_2026.json'),audit=read('data/week14_2020_2021_stage_classification_audit_v1.json');
 const norm=n=>n==='Tom'?'Thommy':n;
