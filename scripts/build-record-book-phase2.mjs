@@ -4,19 +4,31 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const source='data/unified_record_book_2016_2026.json';
 const ledger=JSON.parse(fs.readFileSync(source,'utf8'));
-const games=ledger.games.filter(g=>g.stage==='regular');
+const correctedMode=process.argv.includes('--corrected-research-json');
+const normName=n=>n==='Tom'?'Thommy':n;
+const audit=JSON.parse(fs.readFileSync('data/week14_2020_2021_stage_classification_audit_v1.json','utf8'));
+const approved=audit.years.flatMap(y=>y.week14Games.map(g=>({...g,year:y.year})));
+assert.equal(approved.length,8);
+const legacyGames=ledger.games.filter(g=>g.stage==='regular');
+const matchesApproved=g=>approved.some(e=>e.year===g.year&&e.week===g.week&&normName(e.home)===normName(g.home)&&normName(e.away)===normName(g.away)&&e.homeScore===g.homeScore&&e.awayScore===g.awayScore);
+assert.equal(legacyGames.filter(matchesApproved).length,8);
+const games=correctedMode?legacyGames.filter(g=>!matchesApproved(g)):legacyGames;
+// The eight paired managers in each historical Week 14 remain eligible
+// for weekly awards, regardless of matchup stage. Bye scores are excluded.
+const weeklyGames=legacyGames;
 const norm=n=>n==='Tom'?'Thommy':n;
 const cents=n=>Math.round(Number(n)*100);
 const fromCents=n=>n/100;
 const weeks=new Map(),rivalries=new Map(),seasonEntries=new Map();
 const add=(map,k,v)=>{if(!map.has(k))map.set(k,[]);map.get(k).push(v)};
-for(const g of games){
+for(const g of weeklyGames){
  const a=norm(g.home),b=norm(g.away),sa=cents(g.homeScore),sb=cents(g.awayScore);
  assert(a!==b&&Number.isInteger(sa)&&Number.isInteger(sb));
  const k=g.year+'|'+g.week;
  const home={manager:a,opponent:b,score:sa,against:sb,year:g.year,week:g.week,win:sa>sb,loss:sa<sb};
  const away={manager:b,opponent:a,score:sb,against:sa,year:g.year,week:g.week,win:sb>sa,loss:sb<sa};
  add(weeks,k,home);add(weeks,k,away);
+ if(correctedMode&&matchesApproved(g))continue;
  add(seasonEntries,g.year+'|'+a,home);add(seasonEntries,g.year+'|'+b,away);
  add(rivalries,[a,b].sort().join('|'),{year:g.year,week:g.week,a,b,sa,sb});
 }
@@ -155,9 +167,16 @@ for(const c of records.values()){
  out.push({id:c.id,title:c.title,scope:c.scope,unit:c.unit,direction,
   count:rows.length,leaders,holders});
 }
+assert.equal(includedByeWeeks.length,2);
+for(const w of qualified.filter(w=>[2020,2021].includes(w.year)&&w.week===14)){
+ const byes=ledger.confirmedByes.find(b=>b.year===w.year&&b.week===14);
+ assert(byes&&byes.managers.length===2);
+ assert.equal(w.entries.length,8);
+ assert(w.entries.every(e=>!byes.managers.map(norm).includes(e.manager)));
+}
 const schema={schema:'fellas-phase2-record-research-v1',status:'provisional-not-published',
  source,sourceUpdated:ledger.updated,updated:ledger.updated,
- rules:['Regular season only; 2026 through Week '+currentWeek+' is the active incomplete season.',
+ rules:[(correctedMode?'Corrected regular-season projection; approved weekly award exceptions are separate. ':'Legacy regular-labeled research; approved weekly award exceptions are separate. ')+'2026 through Week '+currentWeek+' is the active incomplete season.',
   '2016 has eight scored managers; ordinary subsequent weeks have ten.',
   'Commissioner ruling: 2020 and 2021 Week 14 include eight competing managers in weekly-ranking categories; bye managers have no score or rank.',
   'A tie for first shares rank 1, and the next distinct rank is 3 when two people tie for first.',
@@ -165,16 +184,17 @@ const schema={schema:'fellas-phase2-record-research-v1',status:'provisional-not-
   'Head-to-head rivalry streaks mean consecutive meetings, not league weeks.',
   'A zero count is not an earned record; unresolved tied scoring placements are excluded from runner-up/second-lowest titles.',
   'Completed season records exclude all of 2026; verified finality of Week '+currentWeek+' does not make the season complete.'],
- coverage:{games:games.length,weeklyScoringSets:qualified.length,excludedPartialWeeks:excluded,includedByeWeeks,latest2026Week:currentWeek},
+ coverage:{stageBasis:correctedMode?'corrected-stage-projection-not-certified':'legacy-regular-labeled',weeklyAwardMatchups:weeklyGames.length,games:games.length,weeklyScoringSets:qualified.length,excludedPartialWeeks:excluded,includedByeWeeks,latest2026Week:currentWeek},
  categoryCount:out.length,categories:out,managerIndex};
 // Freeze the recovered 2016–2025 research coverage while allowing completed
 // 2026 weeks to advance in five-matchup increments.
-assert.equal(games.filter(g=>g.year<2026).length,660,'Historical regular-season corpus changed unexpectedly');
+assert.equal(games.filter(g=>g.year<2026).length,correctedMode?652:660,'Historical regular-season corpus changed unexpectedly');
 assert.equal(qualified.filter(w=>w.year<2026).length,135,'Historical complete weekly scoring sets changed unexpectedly');
 assert(Number.isInteger(currentWeek)&&currentWeek>=9&&currentWeek<=14,'Unexpected active-season week');
 assert.equal(games.filter(g=>g.year===2026).length,currentWeek*5,'Incomplete 2026 week or duplicate matchup');
 assert.equal(qualified.filter(w=>w.year===2026).length,currentWeek,'2026 weekly scoring sets incomplete');
-assert.equal(schema.coverage.games,660+currentWeek*5);
+assert.equal(schema.coverage.games,(correctedMode?652:660)+currentWeek*5);
+assert.equal(schema.coverage.weeklyAwardMatchups,660+currentWeek*5);
 assert.equal(schema.coverage.weeklyScoringSets,135+currentWeek);
 assert.equal(schema.categoryCount,23);
 console.log(JSON.stringify(schema,null,2));
