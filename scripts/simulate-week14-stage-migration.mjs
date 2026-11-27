@@ -67,5 +67,52 @@ assert.equal(career.reduce((s,r)=>s+r.delta.games,0),-16);
 assert.equal(career.reduce((s,r)=>s+r.delta.w,0),-8);
 assert.equal(career.reduce((s,r)=>s+r.delta.l,0),-8);
 assert.equal(career.reduce((s,r)=>s+r.delta.pf,0),career.reduce((s,r)=>s+r.delta.pa,0));
+// Full paired weeks only for all-play; streaks reset each season, ties break both.
+const archivedAllPlay=read('data/all_play_schedule_variance_2016_2026w8_v1.json');
+function seasonMetrics(games,year){
+ const weeks=new Map(), rows=new Map();
+ for(const g of games.filter(g=>g.year===year)){
+  const w=weeks.get(g.week)??new Map();
+  for(const [n,p,o,q] of [[g.home,g.homeScore,g.away,g.awayScore],[g.away,g.awayScore,g.home,g.homeScore]]){
+   assert(!w.has(n),'Duplicate weekly participant');
+   w.set(n,{points:cents(p),opponent:o,against:cents(q)});
+  }
+  weeks.set(g.week,w);
+ }
+ for(const [week,w] of [...weeks].sort((a,b)=>a[0]-b[0])){
+  for(const [n,v] of w){
+   const a=rows.get(n)??{games:0,winRun:0,lossRun:0,longestWin:0,longestLoss:0,lastWeek:null,opponentPoints:0,completeWeeks:0,actualWins:0,actualTies:0,allPlayWins:0,allPlayTies:0};
+   if(a.lastWeek!==null&&week!==a.lastWeek+1){a.winRun=0;a.lossRun=0;}
+   a.games++;a.lastWeek=week;a.opponentPoints+=v.against;
+   a.winRun=v.points>v.against?a.winRun+1:0;
+   a.lossRun=v.points<v.against?a.lossRun+1:0;
+   a.longestWin=Math.max(a.longestWin,a.winRun);a.longestLoss=Math.max(a.longestLoss,a.lossRun);
+   if(w.size===10){
+    a.completeWeeks++;a.actualWins+=Number(v.points>v.against);a.actualTies+=Number(v.points===v.against);
+    for(const [other,q] of w)if(other!==n){a.allPlayWins+=Number(v.points>q.points);a.allPlayTies+=Number(v.points===q.points);}
+   }
+   rows.set(n,a);
+  }
+ }
+ return Object.fromEntries([...rows].map(([n,a])=>{
+  const expectedWins=(a.allPlayWins+a.allPlayTies/2)/9;
+  return [n,{...a,expectedWins,scheduleDrawSurplus:a.actualWins+a.actualTies/2-expectedWins,meanOpponentPoints:a.opponentPoints/a.games/100}];
+ }));
+}
+const seasonImpact=[2020,2021].map(year=>{
+ const a=seasonMetrics(before,year),b=seasonMetrics(after,year);
+ assert.equal(Object.keys(b).length,10);
+ for(const [n,v] of Object.entries(b)){
+  const old=a[n],ref=archivedAllPlay.allManagerSeasons.find(r=>r.year===year&&r.manager===n);
+  assert(ref);assert.equal(v.games,13);assert.equal(v.completeWeeks,13);
+  for(const f of ['completeWeeks','actualWins','actualTies','allPlayWins','allPlayTies']){
+   assert.equal(v[f],old[f]);assert.equal(v[f],ref[f],year+' '+n+' '+f);
+  }
+  assert(Math.abs(v.expectedWins-ref.expectedWins)<=0.00051);
+  assert(Math.abs(v.scheduleDrawSurplus-ref.scheduleDrawSurplus)<=0.00051);
+  assert(v.longestWin<=old.longestWin&&v.longestLoss<=old.longestLoss);
+ }
+ return {year,streakDefinition:'within-season consecutive observed regular weeks; ties and gaps break runs',scheduleDefinition:'mean actual opponent weekly points, not future schedule forecast',before:a,after:b};
+});
 assert.equal(JSON.stringify(ledger),snapshot);
-console.log(JSON.stringify({status:'research_projection_not_certified',pointUnits:'integer cents',scope:'legacy regular-labeled ledger including active season; excludes only eight known anomalies; not full stage certification',allGameCountUnchanged:ledger.games.length,regularBefore:before.length,regularAfter:after.length,career,headToHead,awards,unverified:['exact non-winners bracket labels','official PF/PA versus weekly sums','streaks','all-play','strength of schedule','personal best ranks','record watch and production consumer parity']},null,2));
+console.log(JSON.stringify({status:'research_projection_not_certified',pointUnits:'integer cents',scope:'legacy regular-labeled ledger including active season; excludes only eight known anomalies; not full stage certification',allGameCountUnchanged:ledger.games.length,regularBefore:before.length,regularAfter:after.length,career,headToHead,awards,seasonImpact,unverified:['exact non-winners bracket labels','official PF/PA versus weekly sums','career cross-season streak policy and consumer parity','future strength of schedule','personal best ranks','record watch and production consumer parity']},null,2));
