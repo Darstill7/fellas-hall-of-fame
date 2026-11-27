@@ -3,6 +3,9 @@ on:
   pull_request:
     paths:
       - 'scripts/audit-record-certification.mjs'
+      - 'scripts/build-certified-record-watch.mjs'
+      - 'scripts/test-certified-record-watch.mjs'
+      - 'scripts/verify-legendary-records.mjs'
       - 'scripts/simulate-week14-stage-migration.mjs'
       - 'data/week14_2020_2021_stage_classification_audit_v1.json'
       - 'data/corrected_2020_2021_regular_standings_projection_v1.json'
@@ -30,6 +33,8 @@ jobs:
       - run: node scripts/verify-record-taxonomy-crosswalk.mjs
       - run: node scripts/verify-record-book-phase2.mjs
       - run: node scripts/audit-record-certification.mjs > record-certification-audit.json
+      - run: node scripts/test-certified-record-watch.mjs
+      - run: node scripts/build-certified-record-watch.mjs > certified-record-watch-research.json
       - uses: actions/upload-artifact@v4
         with:
           name: record-certification-audit
@@ -37,3 +42,4 @@ jobs:
             record-certification-audit.json
             historical-source-parity.json
             historical-migration-impact.json
+            certified-record-watch-research.json
