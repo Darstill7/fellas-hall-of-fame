@@ -21,6 +21,29 @@ try{
  const summary=records.getByText(label,{exact:true});await summary.click();assert(await summary.evaluate(e=>e.parentElement.open));await summary.click();
  }
  await cabinet.getByText('Explore achievements',{exact:true}).click();assert.equal(await cabinet.locator('[data-achievement]').count(),33);
+ const shortcuts=page.locator('.portfolio54-shortcuts');assert.equal(await shortcuts.locator('a').count(),3);
+ assert.equal(await page.locator('.portfolio54-avatar').count(),1);
+ assert(await shortcuts.evaluate(e=>e.scrollWidth<=e.clientWidth+2),'Shortcut overflow');
+ const progress=records.locator('.gm54-milestone-grid progress');assert.equal(await progress.count(),3);
+ for(const bar of await progress.all()){assert(await bar.evaluate(e=>Number.isFinite(e.value)&&e.value>=0&&e.value<e.max&&e.max>0&&e.getAttribute('aria-label')),'Invalid milestone progress');}
+ await records.getByRole('button',{name:'View milestone history'}).click();
+ assert(await records.getByText('Milestone history',{exact:true}).evaluate(e=>e.parentElement.open),'Milestone shortcut did not open history');
+ await records.getByText('Milestone history',{exact:true}).click();
+ for(const key of ['earned','locked','unavailable','all']){
+  const button=cabinet.locator('[data-filter="'+key+'"]');await button.click();
+  assert.equal(await button.getAttribute('aria-pressed'),'true');
+  const expected=key==='all'?33:await cabinet.locator('[data-achievement="'+key+'"]').count();
+  assert.equal(await cabinet.locator('[data-achievement]:visible').count(),expected,'Achievement filter mismatch: '+key);
+ }
+ assert(await cabinet.locator('.gm54-trophy-summary progress').evaluate(e=>e.value<=e.max&&e.value>=0),'Invalid trophy completion');
+ const ownedButton=records.getByRole('button',{name:'Explore all owned records'});
+ if(await ownedButton.count()){await ownedButton.click();assert(await records.getByText('League record holdings',{exact:true}).evaluate(e=>e.parentElement.open),'Ownership shortcut did not open holdings');await records.getByText('League record holdings',{exact:true}).click();}
+ await recordsTopic.locator(':scope > summary').click();
+ await shortcuts.locator('a[href="#gm47-records"]').click();
+ assert(await recordsTopic.evaluate(e=>e.open),'Hero record shortcut did not reopen deferred chapter');
+ assert.equal(await records.count(),1,'Duplicate portfolio mount');
+ if(width===390||width===1280){await records.screenshot({path:out+'/'+engine+'-'+width+'-'+slug+'-portfolio.png'});await page.locator('main>.hero').screenshot({path:out+'/'+engine+'-'+width+'-'+slug+'-hero.png'});}
+
  assert(await cabinet.evaluate(e=>e.scrollWidth<=e.clientWidth+2),'Achievement overflow');assert(await records.evaluate(e=>e.scrollWidth<=e.clientWidth+2),'Records overflow');
  if(width===390||width===1280)await cabinet.screenshot({path:out+'/'+engine+'-'+width+'-'+slug+'.png'});
  results.push(meta);
