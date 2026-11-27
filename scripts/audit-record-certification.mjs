@@ -125,6 +125,41 @@ const rebuiltCareer=Object.entries(careerDefinitions).map(([id,value])=>{
  return {id,cutoff,population:ranked.length,archivedEntriesMatched:cat.leaders.length,ranked,status:'archived-scope-reconstructed-not-recertified',stageBasis:'legacy regular-labeled ledger with eight known postseason mislabels'};
 });
 assert.equal(rebuiltCareer.length,16);
+// Reproduce the incumbent consecutive documented appearance rule exactly.
+// Gap-aware and season-reset variants remain separate migration research.
+const streakDefinitions={
+ 'winning-streak':r=>r.p>r.q,
+ 'scoring-streak-100':r=>r.p>=10000,
+ 'scoring-streak-120':r=>r.p>=12000
+};
+function longestRuns(appearances,eligible){
+ const ordered=[...appearances].sort((a,b)=>a.year-b.year||a.week-b.week);
+ let run=[],best=[],length=0;
+ function finish(){
+  if(run.length>length){length=run.length;best=[];}
+  if(run.length&&run.length===length)best.push(run);
+  run=[];
+ }
+ for(const r of ordered){
+  if(eligible(r))run.push(r);else finish();
+ }
+ finish();
+ return {value:length,runs:best};
+}
+const rebuiltStreaks=Object.entries(streakDefinitions).map(([id,eligible])=>{
+ const cat=expanded.categories.find(c=>c.key===id);assert(cat);
+ const full=[...careerGroups].map(([manager,a])=>({manager,...longestRuns(a,eligible),games:a.length})).sort((a,b)=>b.value-a.value||a.manager.localeCompare(b.manager));
+ assert.equal(full.length,cat.entries,id+' population');
+ let prev=null,rank=0;
+ const ranked=full.map((r,i)=>{if(r.value!==prev){rank=i+1;prev=r.value;}return {...r,rank};});
+ for(const l of cat.leaders){
+  const r=ranked.find(r=>r.manager===canonicalName(l.manager));
+  assert(r&&r.value===l.value&&r.rank===l.rank&&r.games===l.evidence.games,id+' archive mark mismatch');
+  assert(r.runs[0]?.at(-1)?.year===l.evidence.endingYear&&r.runs[0]?.at(-1)?.week===l.evidence.endingWeek,id+' archive endpoint mismatch');
+ }
+ return {id,cutoff,population:ranked.length,archivedEntriesMatched:cat.leaders.length,ranked,status:'archived-scope-reconstructed-not-recertified',stageBasis:'legacy regular-labeled ledger with eight known postseason mislabels',continuity:'consecutive documented regular-season appearances, not necessarily consecutive NFL weeks'};
+});
+assert.equal(rebuiltStreaks.length,3);
 const portfolioCoverage={managers:Object.keys(canonicalManagerIndex).length,personalMarks,outsideTopFive,mappedProposalCategories:phase2ToCanonical.size,incumbentRankCoverage,unmappedTaxonomyCategories:rows.filter(r=>!r.phase2.length).map(r=>r.id),publication:'not-authorized; candidate marks must not replace incumbent records; missing categories remain unavailable'};
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));
