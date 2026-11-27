@@ -342,6 +342,65 @@ const mitchObserved=allGameStreakResearch[0].managers.find(r=>r.manager==='Mitch
 assert(mitchObserved.winReceipts.every(run=>!run.some(g=>g.year===2025&&g.week===16)));
 assert(allGameHistories.get('Mitch').some(g=>g.year===2025&&g.week===16&&g.result==='L'));
 const allGameCoverage={unknownCumulativeRows:ledger.games.filter(g=>g.cumulativeScoring||g.scoreAggregation==='running_three_week_consolation_total').length,aggregateRounds:ledger.games.filter(g=>g.twoWeekAggregate).length,throughWeek:week,blockers:['Verify provider matchup completeness, especially postseason and missing weeks','Reconcile 2019 cumulative consolation outcomes','Validate 2026 pairing receipts before publication','Certify continuity through documented byes and offseasons; observed mode is not proof']};
+// Reuse the exact archived definitions for a same-cutoff stage-only projection.
+const stageAudit=JSON.parse(fs.readFileSync('data/week14_2020_2021_stage_classification_audit_v1.json','utf8'));
+const gameKey=(year,week,a,b)=>JSON.stringify([year,week,...[canonicalName(a),canonicalName(b)].sort()]);
+const exclusion=new Map(stageAudit.years.flatMap(y=>y.week14Games.map(g=>[gameKey(y.year,g.week,g.home,g.away),g])));
+assert.equal(exclusion.size,8);
+const removedGames=archivedGames.filter(g=>exclusion.has(gameKey(g.year,g.week,g.home,g.away)));
+assert.equal(removedGames.length,8);
+for(const g of removedGames){
+ const e=exclusion.get(gameKey(g.year,g.week,g.home,g.away));
+ assert.equal(canonicalName(g.home),canonicalName(e.home));assert.equal(canonicalName(g.away),canonicalName(e.away));
+ assert.equal(g.homeScore,e.homeScore);assert.equal(g.awayScore,e.awayScore);
+}
+const correctedAppearances=appearances.filter(r=>!exclusion.has(gameKey(r.year,r.week,r.manager,r.opponent)));
+assert.equal(appearances.length-correctedAppearances.length,16);
+const groupRows=(items,key)=>{
+ const out=new Map();
+ for(const r of items){const k=key(r);if(!out.has(k))out.set(k,[]);out.get(k).push(r);}
+ return out;
+};
+function projectExpanded(items){
+ const result=new Map();
+ const add=(id,full)=>{
+  const cat=expanded.categories.find(c=>c.key===id);assert(cat);
+  const ordered=full.sort((a,b)=>(cat.direction==='low'?1:-1)*(a.value-b.value)||a.manager.localeCompare(b.manager)||(a.year??0)-(b.year??0)||(a.week??0)-(b.week??0)||(a.opponent??'').localeCompare(b.opponent??''));
+  let prev=null,rank=0;
+  const ranked=ordered.map((r,i)=>{if(r.value!==prev){rank=i+1;prev=r.value;}return {...r,rank};});
+  const personalBests=Object.create(null);
+  for(const r of ranked){const b=personalBests[r.manager]??={rank:r.rank,value:r.value,marks:[]};if(b.rank===r.rank)b.marks.push(r);}
+  result.set(id,{id,population:ranked.length,holders:ranked.filter(r=>r.rank===1),personalBests});
+ };
+ for(const [id,[eligible,value]] of Object.entries(singleGameDefinitions))add(id,items.filter(eligible).map(r=>({...r,value:value(r)/100})));
+ const career=groupRows(items,r=>r.manager);
+ for(const [id,value] of Object.entries(careerDefinitions))add(id,[...career].filter(([,a])=>!['win-rate','career-ppg'].includes(id)||a.length>=60).map(([manager,a])=>({manager,value:value(a)})));
+ for(const [id,eligible] of Object.entries(streakDefinitions))add(id,[...career].map(([manager,a])=>({manager,...longestRuns(a,eligible)})));
+ const seasons=groupRows(items.filter(r=>r.year<2026),r=>JSON.stringify([r.manager,r.year]));
+ for(const [id,value] of Object.entries(seasonDefinitions))add(id,[...seasons].filter(([,a])=>a.length>=12).map(([k,a])=>{const [manager,year]=JSON.parse(k);return {manager,year,value:value(a)};}));
+ const rivals=groupRows(items,r=>JSON.stringify([r.manager,r.opponent]));
+ for(const [id,value] of Object.entries(rivalryDefinitions))add(id,[...rivals].filter(([,a])=>a.length>=(id==='rival-percentage'?6:5)).map(([k,a])=>{const [manager,opponent]=JSON.parse(k),v=rivalryTotals(a);return {manager,opponent,value:value({...v,pointDifferential:(v.pf-v.pa)/100})};}));
+ return result;
+}
+const archivedProjection=projectExpanded(appearances),correctedProjection=projectExpanded(correctedAppearances);
+assert.equal(archivedProjection.size,39);assert.equal(correctedProjection.size,39);
+const markSignature=r=>JSON.stringify([r.manager,r.year??null,r.week??null,r.opponent??null,r.value,r.rank]);
+const holderSignature=c=>c.holders.map(markSignature).sort().join('|');
+const correctedStageRankings=[...archivedProjection].map(([id,old])=>{
+ const next=correctedProjection.get(id),cat=expanded.categories.find(c=>c.key===id);
+ assert.equal(old.population,cat.entries);
+ // All archived leader values and ranks must be reproduced by the shared baseline.
+ for(const l of cat.leaders){
+  const b=old.personalBests[canonicalName(l.manager)];
+  assert(b&&b.rank<=l.rank,id+' personal rank baseline mismatch');
+ }
+ const names=[...new Set([...Object.keys(old.personalBests),...Object.keys(next.personalBests)])];
+ const changedManagers=names.filter(n=>{
+  const a=old.personalBests[n],b=next.personalBests[n];return a?.rank!==b?.rank||a?.value!==b?.value||JSON.stringify(a?.marks)!==JSON.stringify(b?.marks);
+ }).map(manager=>({manager,before:old.personalBests[manager]??null,after:next.personalBests[manager]??null}));
+ return {id,beforePopulation:old.population,afterPopulation:next.population,holderChange:holderSignature(old)!==holderSignature(next),beforeHolders:old.holders,afterHolders:next.holders,changedManagers};
+});
+const stageProjectionCoverage={status:'same-cutoff research projection not certified',cutoff,regularBefore:archivedGames.length,regularAfter:archivedGames.length-removedGames.length,allGamesUnchanged:ledger.games.length,expandedRecomputed:correctedStageRankings.length,placementCategoriesUnaffected:rebuiltFinishes.map(c=>c.id),legendaryFullCorrectedRerank:'pending',weeklyAwards:'separate approved eligibility; not recalculated here',pointBasis:'summed weekly scores not official PF/PA',unresolved:'four non-winners exact postseason labels and six official PF discrepancies'};
 const portfolioCoverage={managers:Object.keys(canonicalManagerIndex).length,personalMarks,outsideTopFive,mappedProposalCategories:phase2ToCanonical.size,incumbentRankCoverage,unmappedTaxonomyCategories:rows.filter(r=>!r.phase2.length).map(r=>r.id),publication:'not-authorized; candidate marks must not replace incumbent records; missing categories remain unavailable'};
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,rebuiltFinishes,expandedReconstruction,legendaryReconstruction,incumbentReconstruction,allGameStreakResearch,allGameCoverage,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,rebuiltFinishes,expandedReconstruction,legendaryReconstruction,incumbentReconstruction,allGameStreakResearch,allGameCoverage,correctedStageRankings,stageProjectionCoverage,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));
