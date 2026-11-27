@@ -105,6 +105,92 @@ export function buildWatch(ledger,{year,week,regularSeasonWeeks,excludedKeys=[],
    }
   }
  }
+ // Scoring record crossings compare against the complete pre-week baseline.
+ const scoreRows=ordered.flatMap(g=>[[norm(g.home),norm(g.away),g.homeScore,g.awayScore],[norm(g.away),norm(g.home),g.awayScore,g.homeScore]].map(([manager,opponent,p,q])=>({manager,opponent,year:g.year,week:g.week,p:Math.round(p*100),q:Math.round(q*100)})));
+ const isLatest=r=>r.year===year&&r.week===week;
+ const priorScores=scoreRows.filter(r=>!isLatest(r)),newScores=scoreRows.filter(isLatest);
+ function scoringCrossing(id,prior,latest,direction,scope,scale=100){
+  if(!prior.length||!latest.length)return;
+  const sign=direction==='low'?-1:1;
+  const priorBest=Math.max(...prior.map(r=>sign*r.value)),newBest=Math.max(...latest.map(r=>sign*r.value));
+  if(newBest<priorBest)return;
+  const priorHolders=prior.filter(r=>sign*r.value===priorBest);
+  for(const r of latest.filter(r=>sign*r.value===newBest)){
+   const type=newBest===priorBest?'tied':'broken';
+   research.push({...r,id,eventId:JSON.stringify([id,year,week,r.manager,r.opponent??null,type,r.value]),year,week,type,value:r.value/scale,priorRecord:priorBest*sign/scale,record:newBest*sign/scale,priorHolders:priorHolders.map(h=>({...h,value:h.value/scale})),scope,status:'research-only-not-certified'});
+  }
+ }
+ for(const [id,eligible,value,direction] of [
+  ['weekly-highest-score',()=>true,r=>r.p,'high'],
+  ['weekly-lowest-score',()=>true,r=>r.p,'low'],
+  ['weekly-highest-score-in-loss',r=>r.p<r.q,r=>r.p,'high'],
+  ['weekly-lowest-score-in-win',r=>r.p>r.q,r=>r.p,'low']
+ ]){
+  scoringCrossing(id,priorScores.filter(eligible).map(r=>({...r,value:value(r)})),newScores.filter(eligible).map(r=>({...r,value:value(r)})),direction,'single regular-season game; raw cross-era points');
+ }
+ // Historical season totals use only complete known schedules. Active-season
+ // alerts identify a threshold already crossed, not a certified final result.
+ const seasonScores=new Map();
+ for(const r of scoreRows){
+  const k=JSON.stringify([r.manager,r.year]),a=seasonScores.get(k)??{manager:r.manager,year:r.year,value:0,before:0,games:0};
+  a.value+=r.p;a.games++;if(!isLatest(r))a.before+=r.p;seasonScores.set(k,a);
+ }
+ const historicalSeasons=[...seasonScores.values()].filter(r=>r.year<year&&full(r.manager,r.year,historicalLengths[r.year]));
+ const activeSeasons=[...seasonScores.values()].filter(r=>r.year===year);
+ if(historicalSeasons.length){
+  const priorBest=Math.max(...historicalSeasons.map(r=>r.value),...activeSeasons.map(r=>r.before));
+  const currentBest=Math.max(...activeSeasons.map(r=>r.value));
+  for(const r of activeSeasons.filter(r=>r.value===currentBest&&r.value>=priorBest&&r.value>r.before)){
+   const type=r.value===priorBest?'tied':r.before===priorBest?'extended':'broken';
+   research.push({id:'season-points-threshold',eventId:JSON.stringify(['season-points-threshold',year,week,r.manager,type,r.value]),type,manager:r.manager,year,week,value:r.value/100,priorRecord:priorBest/100,record:r.value/100,scope:'active regular-season cumulative matchup points; completed-season record not final until season end',status:'research-only-not-certified'});
+  }
+ }
+ // Weekly titles deliberately retain the commissioner-approved paired
+ // Week 14 exceptions; never include bye scores or partial ordinary weeks.
+ const awardGames=ledger.games.filter(g=>g.stage==='regular');
+ const awardWeeks=new Map();
+ for(const g of awardGames){
+  const k=JSON.stringify([g.year,g.week]),a=awardWeeks.get(k)??[];
+  a.push({manager:norm(g.home),p:Math.round(g.homeScore*100)},{manager:norm(g.away),p:Math.round(g.awayScore*100)});awardWeeks.set(k,a);
+ }
+ const titleCounts=new Map();
+ for(const [k,a] of awardWeeks){
+  const [y,w]=JSON.parse(k),expected=y===2016||([2020,2021].includes(y)&&w===14)?8:10;
+  if(a.length!==expected||new Set(a.map(r=>r.manager)).size!==expected||a.some(r=>!Number.isFinite(r.p)))continue;
+  for(const side of ['high','low']){
+   const best=(side==='high'?Math.max:Math.min)(...a.map(r=>r.p));
+   for(const r of a.filter(r=>r.p===best)){
+    const id=JSON.stringify([r.manager,side]),t=titleCounts.get(id)??{manager:r.manager,side,value:0,before:0};
+    t.value++;if(y!==year||w!==week)t.before++;titleCounts.set(id,t);
+   }
+  }
+ }
+ for(const side of ['high','low']){
+  const rows=[...titleCounts.values()].filter(r=>r.side===side);
+  if(!rows.length)continue;
+  const priorBest=Math.max(...rows.map(r=>r.before)),best=Math.max(...rows.map(r=>r.value));
+  if(priorBest<1)continue;
+  for(const r of rows.filter(r=>active.has(r.manager)&&r.value===best&&r.value>r.before)){
+   const type=r.value===priorBest?'tied':r.before===priorBest?'extended':'broken',id='career-weekly-'+side+'-titles';
+   research.push({id,eventId:JSON.stringify([id,year,week,r.manager,type,r.value]),type,manager:r.manager,year,week,value:r.value,priorRecord:priorBest,record:best,scope:'weekly scoring awards including approved eight-manager Week 14 sets; tied scores share title',status:'research-only-not-certified'});
+  }
+ }
+ // Rivalry milestones count an unordered meeting once; directional wins
+ // belong only to the winner. No assumed future opponent or schedule.
+ const pairCounts=new Map();
+ for(const g of ordered){
+  const participants=[norm(g.home),norm(g.away)].sort(),k=JSON.stringify(participants);
+  const t=pairCounts.get(k)??{participants,meetings:0,wins:{[participants[0]]:0,[participants[1]]:0}};
+  t.meetings++;
+  const winner=g.homeScore>g.awayScore?norm(g.home):g.homeScore<g.awayScore?norm(g.away):null;
+  if(winner)t.wins[winner]++;
+  if(g.year===year&&g.week===week){
+   const emit=(id,manager,opponent,value,owners)=>research.push({id,eventId:JSON.stringify([id,year,week,...(manager?[manager,opponent]:participants),value]),type:'milestone-achieved',manager,opponent,participants:owners,year,week,value,target:value,scope:'regular-season rivalry; observed meetings only',status:'research-only-not-certified'});
+   if([10,15,20,25,30].includes(t.meetings))emit('rivalry-meetings-milestone',null,null,t.meetings,participants);
+   if(winner&&[5,10,15,20].includes(t.wins[winner]))emit('rivalry-wins-milestone',winner,participants.find(n=>n!==winner),t.wins[winner],[winner]);
+  }
+  pairCounts.set(k,t);
+ }
  // Trust boundary: caller must supply reviewed certificates, never infer them
  // from a passing CI job, archive rank, or candidate research status.
  const items=research.filter(e=>certificates.some(c=>c.categoryId===e.id&&c.status==='certified'&&c.year===year&&c.throughWeek===week&&c.ledgerSha256===fingerprint&&c.approvedEventIds?.includes(e.eventId)&&typeof c.reviewReference==='string'&&c.reviewReference.length>0)).map(e=>({...e,status:'certified'}));
