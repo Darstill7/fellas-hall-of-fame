@@ -1,6 +1,17 @@
 # The Fellas editorial standard
 ## Purpose
 Professional sports journalism, polished presentation, and unprofessional league banter. Write for ten fantasy managers, not a statistics department. The joke should be specific enough that it could only belong to this league.
+## Accuracy is the release gate — not a weighted score
+No amount of polish, humor, or successful layout testing compensates for a factual error. Target zero factual errors. Do not publish with unresolved material claims.
+- Build a claim-by-claim evidence ledger before writing or revising: claim, source file or original record, exact game/season/transaction identifiers, coverage date, verification result.
+- Independently recompute winners from both scores, margins, standings, streaks, rankings, totals and record comparisons where applicable. Compare with official results and documented commissioner rulings; investigate disagreements rather than silently choosing a convenient source.
+- Verify player-to-manager attribution, trade direction, roster ownership and transaction timing at the relevant week; distinguish starting points from bench or later-roster points.
+- Check historical superlatives across the full eligible archive, including ties, scoring-era differences, playoff stages and incomplete coverage. Never imply all-time certainty from a partial dataset.
+- Require a separate final fact-check of the actual edited prose, headings, captions, share previews and rendered page; earlier approval does not automatically cover rewritten copy.
+- If evidence is insufficient, remove the unsupported claim or qualify it explicitly. If sources conflict on a material result, block release of the affected story until resolved.
+- If a published error is discovered, document the exact error, correction, source and affected destinations; notify the commissioner and obtain approval before correcting protected weekly editions.
+- Automated checks are necessary but not sufficient. Report verified scope, unresolved claims and checks actually performed; never claim guaranteed perfection or completed review without evidence.
+
 ## Voice by destination
 - Championship stories: prestige sports feature first; affectionate irreverence, earned callbacks, one or two sharp lines per chapter. Celebrate the winner without treating opponents as props. Never joke about real injury, medical emergencies, bereavement or other personal vulnerabilities.
 - Manager bios: recognizable personality, career arc, defining wins and losses, recurring league-specific jokes. Roast documented fantasy decisions, not private life or identity. Do not fabricate quotes, motivations or manager reactions.
