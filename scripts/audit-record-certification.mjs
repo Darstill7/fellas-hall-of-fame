@@ -499,6 +499,55 @@ for(const p of Object.values(unifiedManagerPortfolios)){
 assert.equal(portfolioStats.managers,14);
 assert(unifiedManagerPortfolios.Thommy&&!unifiedManagerPortfolios.Tom&&unifiedManagerPortfolios.Schermerhorn&&unifiedManagerPortfolios.Evans&&unifiedManagerPortfolios.JMid);
 assert(portfolioStats.correctedOutsideTopTen>0);
+// Independently reconstruct the complete shared-event population from the
+// ledger, and verify both managers' personal bests against every eligible event.
+const sharedOwnershipAudit=[{label:'archive',result:phase2,games:latestGames},{label:'corrected',result:correctedPhase2,games:latestGames.filter(g=>!exclusion.has(gameKey(g.year,g.week,g.home,g.away)))}].map(({label,result,games})=>{
+ const expected=new Map();
+ const groups=new Map();
+ for(const g of games){
+  const participants=[canonicalName(g.home),canonicalName(g.away)].sort();
+  const value=(cent(g.homeScore)+cent(g.awayScore))/100;
+  for(const id of ['combined-high','combined-low']){
+   const key=JSON.stringify([id,...participants,g.year,g.week]);
+   assert(!expected.has(key));expected.set(key,value);
+  }
+  if(Math.abs(cent(g.homeScore)-cent(g.awayScore))<=100){
+   const key=JSON.stringify(['rival-one-point',...participants]);
+   groups.set(key,(groups.get(key)??0)+1);
+  }
+ }
+ for(const [key,value] of groups)expected.set(key,value);
+ const checks=[];
+ for(const id of ['combined-high','combined-low','rival-one-point']){
+  const events=result.sharedEventRegistry[id],category=result.categories.find(c=>c.id===id);
+  assert.equal(events.length,category.count);
+  assert.equal(new Set(events.map(e=>e.eventKey)).size,events.length);
+  assert.equal(events.length,[...expected.keys()].filter(k=>JSON.parse(k)[0]===id).length);
+  for(const e of events){
+   assert.equal(e.value,expected.get(e.eventKey));
+   assert.equal(e.participants.length,2);
+   assert.deepEqual(JSON.parse(e.eventKey).slice(1,3),e.participants);
+   for(const name of e.participants)assert(unifiedManagerPortfolios[name]);
+  }
+  const managers=new Set(events.flatMap(e=>e.participants));
+  for(const name of managers){
+   const mine=events.filter(e=>e.participants.includes(name)),rank=Math.min(...mine.map(e=>e.rank));
+   const best=result.managerIndex[name][id];
+   assert.equal(best.rank,rank);
+   const bestEvents=mine.filter(e=>e.rank===rank);
+   assert.deepEqual(best.marks.map(m=>m.eventKey).sort(),bestEvents.map(e=>e.eventKey).sort());
+   for(const mark of best.marks){
+    const event=bestEvents.find(e=>e.eventKey===mark.eventKey);
+    assert.equal(mark.manager,name);assert.equal(mark.opponent,event.participants.find(p=>p!==name));assert.equal(mark.value,event.value);
+   }
+  }
+  const holders=events.filter(e=>e.rank===1);
+  for(const e of holders)for(const name of e.participants)assert(result.managerIndex[name][id].marks.some(m=>m.eventKey===e.eventKey&&m.rank===1));
+  checks.push({id,leagueEvents:events.length,participantCredits:events.length*2,rankOneEvents:holders.length,rankOneManagers:[...new Set(holders.flatMap(e=>e.participants))],status:'research-invariants-checked'});
+ }
+ return {label,checks};
+});
+const ownershipPolicy={shared:['combined-high','combined-low','rival-one-point'],directional:['rival-wins','rival-percentage','rival-margin','rival-scoring','rival-win-run'],pairedExposure:['rival-games'],individual:['highest-score-loss','lowest-score-win','biggest-win','biggest-defeat','closest-opening-playoff-loss','closest-semifinal-loss','closest-championship-final','largest-championship-margin'],note:'Directional achievements and explicitly winner/loser-defined records are not shared automatically. Rival-games retains two historical directional ranks; count unique unordered meetings separately. Shared-event credit is separate from personal best selection and does not double league counts.',publication:'not-authorized'};
 const portfolioCoverage={managers:Object.keys(canonicalManagerIndex).length,personalMarks,outsideTopFive,mappedProposalCategories:phase2ToCanonical.size,incumbentRankCoverage,unmappedTaxonomyCategories:rows.filter(r=>!r.phase2.length).map(r=>r.id),publication:'not-authorized; candidate marks must not replace incumbent records; missing categories remain unavailable'};
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,rebuiltFinishes,expandedReconstruction,legendaryReconstruction,incumbentReconstruction,allGameStreakResearch,allGameCoverage,correctedStageRankings,stageProjectionCoverage,correctedLegendaryRankings,phase2StageComparisons,weeklyEligibilityProjection,refreshedWeek11,refreshCoverage,unifiedManagerPortfolios,portfolioStats,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,rebuiltFinishes,expandedReconstruction,legendaryReconstruction,incumbentReconstruction,allGameStreakResearch,allGameCoverage,correctedStageRankings,stageProjectionCoverage,correctedLegendaryRankings,phase2StageComparisons,weeklyEligibilityProjection,refreshedWeek11,refreshCoverage,unifiedManagerPortfolios,portfolioStats,sharedOwnershipAudit,ownershipPolicy,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));
