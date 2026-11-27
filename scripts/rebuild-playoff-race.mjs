@@ -15,7 +15,8 @@ for(const name of owners){
  const pf=round(scores.reduce((s,r)=>s+r.score,0)),pa=round(scores.reduce((s,r)=>s+r.opp,0));
  const wins=scores.filter(r=>r.score>r.opp).length,losses=scores.filter(r=>r.score<r.opp).length;
  const avg=pf/week,sd=Math.sqrt(scores.reduce((s,r)=>s+(r.score-avg)**2,0)/week);
- team[name]={...data.teams[name],w:wins,l:losses,pf,pa,mean:round(avg),sd:round(sd)};
+ const recent=games.filter(g=>g.week>=Math.max(1,week-2)).flatMap(g=>g.home===canonical(name)?[g.homeScore]:g.away===canonical(name)?[g.awayScore]:[]);if(recent.length!==Math.min(3,week))throw Error('Incomplete recent scores '+name);
+ team[name]={...data.teams[name],w:wins,l:losses,pf,pa,mean:round(avg),sd:round(sd),recent_mean:round(recent.reduce((s,x)=>s+x,0)/recent.length)};
 }
 const leagueMean=Object.values(team).reduce((s,t)=>s+t.mean,0)/owners.length;
 for(const name of owners){const t=team[name];t.forecast_mean=round(.7*t.mean+.3*leagueMean);t.forecast_sd=round(Math.max(19,Math.min(38,t.sd)))}

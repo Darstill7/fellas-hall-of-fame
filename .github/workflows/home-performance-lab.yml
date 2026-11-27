@@ -33,7 +33,25 @@ jobs:
         run: |
           cmp baseline/data/season_guide.json data/season_guide.json
           cmp baseline/data/unified_record_book_2016_2026.json data/unified_record_book_2016_2026.json
-          cmp baseline/data/playoff_race_v1.json data/playoff_race_v1.json
+          # Allow only the independently verified additive recent scoring field.
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import fs from 'node:fs';
+          const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+          const baseline=read('baseline/data/playoff_race_v1.json');
+          const candidate=read('data/playoff_race_v1.json');
+          const added=Object.values(candidate.teams).some(t=>Object.hasOwn(t,'recent_mean'));
+          if(added && !Object.values(baseline.teams).some(t=>Object.hasOwn(t,'recent_mean'))){
+            for(const t of Object.values(candidate.teams)){
+              assert.ok(Number.isFinite(t.recent_mean),'Missing recent scoring field');
+              delete t.recent_mean;
+            }
+          }
+          assert.deepEqual(candidate,baseline,'Existing playoff benchmark inputs must remain identical');
+          JS
+          if grep -q '"recent_mean"' data/playoff_race_v1.json; then
+            node scripts/test-playoff-command-center.mjs
+          fi
           node scripts/build-home-current-season.mjs --check
       - run: npm install --no-save --package-lock=false playwright@1.56.1
       - run: npx playwright install --with-deps chromium webkit
