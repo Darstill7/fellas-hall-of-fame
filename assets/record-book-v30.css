@@ -45,3 +45,12 @@ main .record-cover #personal-record-entry{background:radial-gradient(ellipse at 
 .rb30-ranking-list li.rb30-ranking-selected{border-color:#e8c47d;background:#302b22}
 .rb30-ranking .rb30-more{display:inline-flex;align-items:center}
 @media(max-width:400px){.rb30-ranking-list li{grid-template-columns:28px minmax(0,1fr);gap:5px}.rb30-ranking-list li>strong{grid-column:2;text-align:left;max-width:none}.rb30-ranking details{padding:10px}.rb30-ranking-head .rb30-more{width:auto}}
+
+.rb30-story{background:#192d39;border-left:3px solid #e8c47d;border-radius:10px;padding:14px 16px;margin:12px 0;min-width:0}
+.rb30-story small{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;color:#efd092;margin-bottom:7px}
+.rb30-story p{font-size:14px;line-height:1.65;margin:6px 0;color:#f5f2e8;overflow-wrap:anywhere}
+#record-book-v30-discovery .rb30-more[hidden]{display:none!important}
+#record-book-v30-discovery>.rb30-more{display:block;width:100%;margin:12px 0 0;text-align:center}
+#record-book-v30-discovery .rb30-ranking-head h3:focus-visible{outline:3px solid #ffe1a2;outline-offset:4px}
+.rb30-ownership-list a>span{min-width:0;flex:1;overflow-wrap:anywhere}
+.rb30-ownership-list a>span>strong{text-align:left}
