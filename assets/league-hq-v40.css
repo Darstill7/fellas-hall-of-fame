@@ -125,3 +125,21 @@
 .hq40-competition-row summary:focus-visible{outline:3px solid var(--gold);outline-offset:-3px;border-radius:9px}
 @media(max-width:400px){.hq40-seed-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.hq40-seed{padding:7px 2px}.hq40-competition-row summary{padding:9px 10px}.hq40-comp-value strong{font-size:17px}}
 @media(min-width:760px){.hq40-seed-grid{grid-template-columns:repeat(10,minmax(0,1fr))}.hq40-seed{min-height:84px}.hq40-competition-list{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}}
+
+/* Calendar emphasis and verified playoff estimates. */
+.hq40-calendar-note{grid-column:1/-1;margin:0 0 3px;color:var(--muted);font-size:11px;letter-spacing:.04em;font-weight:650}
+.hq40-playoff-spotlight{border-color:#8c784e;background:linear-gradient(125deg,#2b2b23,#142935 65%)}
+.hq40-playoff-position{display:flex;align-items:center;gap:14px;margin:15px 0;padding-bottom:14px;border-bottom:1px solid #475961}
+.hq40-playoff-position>strong{font-size:clamp(35px,8vw,54px);font-weight:850;color:var(--gold);line-height:1.1;font-variant-numeric:tabular-nums}
+.hq40-playoff-position>span{font-size:16px;font-weight:750}
+.hq40-probability{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;margin:14px 0;align-items:center;font-size:13px}
+.hq40-probability strong{font-size:21px;font-variant-numeric:tabular-nums;color:var(--gold)}
+.hq40-probability meter{grid-column:1/-1;width:100%;height:12px;appearance:none;-webkit-appearance:none;accent-color:#78b99a}
+.hq40-probability meter::-webkit-meter-bar{background:#344955;border:0;border-radius:7px;box-shadow:none}
+.hq40-probability meter::-webkit-meter-optimum-value{background:#78b99a;border-radius:7px}
+.hq40-probability meter::-moz-meter-bar{background:#78b99a;border-radius:7px}
+.hq40-seed.selected{outline:2px solid var(--gold);outline-offset:1px}
+.hq40-allplay-track{height:4px;background:#344955;border-radius:3px;margin:0 12px 10px;overflow:hidden}
+.hq40-allplay-fill{height:100%;background:#78b99a;border-radius:3px}
+.hq40-competition-row:not([open]) .hq40-comp-detail{display:none}
+@media(max-width:360px){.hq40-playoff-position>span{font-size:14px}.hq40-probability strong{font-size:18px}}
