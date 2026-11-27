@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
+import {buildRecordWatchFeed} from '../assets/certified-record-watch-feed.mjs';
 const norm=n=>n==='Tom'?'Thommy':n;
 const key=g=>JSON.stringify([g.year,g.week,...[norm(g.home),norm(g.away)].sort()]);
 // Postseason has a separate cutoff and evidence contract: a regular-season
@@ -275,5 +276,5 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const receipts=read('data/postseason_winners_bracket_record_receipts_2016_2025_v1.json').receipts;
  const postseason=buildPostseasonWatch({year:2026,week,brackets,receipts});
  const allGame=buildAllGameWatch(ledger,{year:2026,week,regularSeasonWeeks:14});
- console.log(JSON.stringify({...watch,postseason,allGame},null,2));
+ console.log(JSON.stringify({...watch,postseason,allGame,publicFeed:buildRecordWatchFeed(watch)},null,2));
 }
