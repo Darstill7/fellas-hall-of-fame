@@ -442,6 +442,63 @@ const refreshedWeek11=[...archivedProjection].map(([id,old])=>{
 });
 assert.equal(refreshedWeek11.length,39);
 const refreshCoverage={status:'research-only-not-certified',fromWeek:cutoff,throughWeek:week,newMatchups:latestGames.length-archivedGames.length,legacyMatchups:latestGames.length,correctedMatchups:latestCorrected.length/2,expandedMatchupCategories:39,completedSeasonPlacementCategories:5,legendaryCompletedSeasonCategories:19,phase2Categories:23,policy:'Completed-season-only categories exclude 2026; historical correction and weekly advancement compared separately'};
+// One canonical category per manager, with separate source variants. A
+// research candidate never overwrites an incumbent or becomes certified.
+const categoryById=new Map(taxonomy.categories.map(c=>[c.id,c]));
+const unifiedManagerPortfolios=Object.create(null);
+for(const manager of [...allGameHistories.keys()].sort()){
+ unifiedManagerPortfolios[manager]={manager,throughWeek:week,categories:Object.create(null),allGameStreaks:allGameStreakResearch.map(p=>({policy:p.policy,status:p.status,summary:p.managers.find(m=>m.manager===manager)})),status:'research-only-not-certified'};
+}
+function attachVariant(manager,id,variant,best,population,scope,source){
+ const name=canonicalName(manager),p=unifiedManagerPortfolios[name],cat=categoryById.get(id);
+ assert(p&&cat,'Unknown portfolio identity or category '+name+' '+id);
+ const slot=p.categories[id]??={id,label:cat.canonicalLabel,origin:cat.origin.type,aliases:cat.aliases,relatedReview:cat.relatedReview,variants:Object.create(null),publication:'not-authorized'};
+ assert(!slot.variants[variant],'Duplicate portfolio variant '+name+' '+id+' '+variant);
+ if(!best)return;
+ assert(Number.isFinite(best.value)&&Number.isInteger(best.rank)&&best.rank>=1&&best.rank<=population);
+ assert(best.marks.length>0&&best.marks.every(m=>canonicalName(m.manager)===name&&m.rank===best.rank&&m.value===best.value),'Personal evidence mismatch '+name+' '+id);
+ slot.variants[variant]={rank:best.rank,value:best.value,marks:best.marks,population,scope,source,status:'research-only-not-certified'};
+}
+function addCategory(c,variant,scope,source){
+ for(const [manager,best] of Object.entries(c.personalBests))attachVariant(manager,c.id,variant,best,c.population,scope,source);
+}
+for(const [id,c] of archivedProjection)addCategory(c,'incumbentArchive','2016–2026 Week '+cutoff+' legacy regular-labeled; completed-season categories exclude 2026','expanded');
+for(const [id,c] of liveCorrected)addCategory(c,'correctedLatest','2016–2026 Week '+week+' corrected regular-season projection; completed-season categories exclude 2026','expanded');
+for(const c of rebuiltFinishes)addCategory(c,'incumbentArchive','Official final placements 2016–2025','expanded');
+for(const c of rebuiltFinishes)addCategory(c,'correctedLatest','Official final placements 2016–2025; stage correction does not change placements','expanded');
+for(const c of legendaryReconstruction.categories)addCategory(c,'incumbentArchive','Completed 2016–2025 legacy stage basis','legendary');
+for(const c of correctedLegendary.categories)addCategory(c,'correctedLatest','Completed 2016–2025 corrected-stage projection','legendary');
+for(const [manager,categories] of Object.entries(correctedPhase2.managerIndex)){
+ for(const [proposalId,best] of Object.entries(categories)){
+  const id=phase2ToCanonical.get(proposalId),c=correctedPhase2.categories.find(c=>c.id===proposalId);assert(id&&c);
+  attachVariant(manager,id,'phase2CorrectedCandidate',best,c.count,c.scope+'; through 2026 Week '+week+' where applicable','phase2-scoring:'+proposalId);
+ }
+}
+const portfolioStats={managers:Object.keys(unifiedManagerPortfolios).length,categorySlots:0,incumbentSlots:0,candidateSlots:0,correctedSlots:0,correctedRankOne:0,correctedOutsideTopTen:0,unavailableSlots:0};
+for(const p of Object.values(unifiedManagerPortfolios)){
+ // Missing eligibility and missing evidence are not equivalent to a zero.
+ p.unavailableCategoryIds=taxonomy.categories.filter(c=>!p.categories[c.id]||!Object.keys(p.categories[c.id].variants).length).map(c=>c.id);
+ p.summary={categoriesWithMarks:0,archive:0,corrected:0,candidate:0,correctedRankOne:0,correctedOutsideTopTen:0};
+ for(const slot of Object.values(p.categories)){
+  const v=slot.variants;
+  if(!Object.keys(v).length)continue;
+  p.summary.categoriesWithMarks++;
+  if(v.incumbentArchive)p.summary.archive++;
+  if(v.correctedLatest){p.summary.corrected++;if(v.correctedLatest.rank===1)p.summary.correctedRankOne++;if(v.correctedLatest.rank>10)p.summary.correctedOutsideTopTen++;}
+  if(v.phase2CorrectedCandidate)p.summary.candidate++;
+ }
+ assert.equal(p.summary.categoriesWithMarks+p.unavailableCategoryIds.length,taxonomy.categories.length);
+ portfolioStats.categorySlots+=p.summary.categoriesWithMarks;
+ portfolioStats.incumbentSlots+=p.summary.archive;
+ portfolioStats.correctedSlots+=p.summary.corrected;
+ portfolioStats.candidateSlots+=p.summary.candidate;
+ portfolioStats.correctedRankOne+=p.summary.correctedRankOne;
+ portfolioStats.correctedOutsideTopTen+=p.summary.correctedOutsideTopTen;
+ portfolioStats.unavailableSlots+=p.unavailableCategoryIds.length;
+}
+assert.equal(portfolioStats.managers,14);
+assert(unifiedManagerPortfolios.Thommy&&!unifiedManagerPortfolios.Tom&&unifiedManagerPortfolios.Schermerhorn&&unifiedManagerPortfolios.Evans&&unifiedManagerPortfolios.JMid);
+assert(portfolioStats.correctedOutsideTopTen>0);
 const portfolioCoverage={managers:Object.keys(canonicalManagerIndex).length,personalMarks,outsideTopFive,mappedProposalCategories:phase2ToCanonical.size,incumbentRankCoverage,unmappedTaxonomyCategories:rows.filter(r=>!r.phase2.length).map(r=>r.id),publication:'not-authorized; candidate marks must not replace incumbent records; missing categories remain unavailable'};
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,rebuiltFinishes,expandedReconstruction,legendaryReconstruction,incumbentReconstruction,allGameStreakResearch,allGameCoverage,correctedStageRankings,stageProjectionCoverage,correctedLegendaryRankings,phase2StageComparisons,weeklyEligibilityProjection,refreshedWeek11,refreshCoverage,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,rebuiltFinishes,expandedReconstruction,legendaryReconstruction,incumbentReconstruction,allGameStreakResearch,allGameCoverage,correctedStageRankings,stageProjectionCoverage,correctedLegendaryRankings,phase2StageComparisons,weeklyEligibilityProjection,refreshedWeek11,refreshCoverage,unifiedManagerPortfolios,portfolioStats,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));
