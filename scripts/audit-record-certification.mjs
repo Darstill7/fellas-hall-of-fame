@@ -18,7 +18,7 @@ const rows=taxonomy.categories.map(c=>{
  if(!research.length&&c.origin.type==='proposal')blockers.push('Re-run original research engine');
  for(const r of research){
   if(r.scope==='Weekly league rank'||r.scope==='Consecutive calendar weeks'||['season-top-three','season-bottom-three','season-weekly-highs','season-weekly-lows'].includes(r.id))blockers.push('Confirm eligibility for 2020 and 2021 Week 14 bye teams');
-  if(['combined-high','combined-low','rival-one-point'].includes(r.id))blockers.push('Index both matchup participants, not just canonical home or alphabetic first');
+  if(['combined-high','combined-low','rival-one-point'].includes(r.id))blockers.push('Review symmetric participant credit before public promotion');
   if(r.unit==='points'||r.id.includes('150-plus')||r.id.includes('sub-80'))blockers.push('Disclose cross-era raw scoring differences');
  }
  return {id:c.id,label:c.canonicalLabel,origin:c.origin,status:c.status,aliases:c.aliases,related:c.relatedReview,sourceProposals:c.proposals,phase2:research.map(r=>({id:r.id,scope:r.scope,unit:r.unit,count:r.count,holders:r.holders.map(h=>({manager:h.manager,opponent:h.opponent,year:h.year,week:h.week,value:h.value}))})),blockers:[...new Set(blockers)],publication:'not-authorized-by-this-audit'};
@@ -26,5 +26,5 @@ const rows=taxonomy.categories.map(c=>{
 assert.equal(rows.length,taxonomy.coverage.uniqueTaxonomyIDs);
 assert.equal(rows.flatMap(r=>r.phase2).length,23);
 assert(rows.every(r=>r.publication==='not-authorized-by-this-audit'));
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));

@@ -127,7 +127,8 @@ for(const [pair,games] of rivalries){
  }
  push('rival-one-point',a,near,close,{opponent:b});
 }
-const out=[];
+const out=[],managerIndex=Object.create(null);
+const sharedEventCategories=new Set(['combined-high','combined-low','rival-one-point']);
 for(const c of records.values()){
  let rows=c.rows.filter(r=>r.value>0);
  const direction=c.id==='combined-low'?'low':'high';
@@ -137,6 +138,20 @@ for(const c of records.values()){
  const leaders=rows.filter(r=>r.rank<=5);
  // All tied top marks are retained; no arbitrary truncation at first place.
  const holders=rows.filter(r=>r.rank===1);
+ // Derive personal bests from ALL ranked events, before the top-five display cutoff.
+ // Shared events remain one league row, but both participants receive the same rank.
+ for(const row of rows){
+  const participants=sharedEventCategories.has(c.id)?[row.manager,row.opponent]:[row.manager];
+  for(const name of participants){
+   assert(typeof name==='string'&&name.length>0,'Missing event participant '+c.id);
+   const index=managerIndex[name]??=Object.create(null);
+   if(!index[c.id])index[c.id]={rank:row.rank,value:row.value,marks:[]};
+   if(index[c.id].rank===row.rank){
+    const eventKey=JSON.stringify([c.id,row.manager,row.opponent??null,row.year??null,row.week??null,row.evidence]);
+    index[c.id].marks.push({...row,eventKey,manager:name,...(sharedEventCategories.has(c.id)?{opponent:name===row.manager?row.opponent:row.manager}:{})});
+   }
+  }
+ }
  out.push({id:c.id,title:c.title,scope:c.scope,unit:c.unit,direction,
   count:rows.length,leaders,holders});
 }
@@ -151,7 +166,7 @@ const schema={schema:'fellas-phase2-record-research-v1',status:'provisional-not-
   'A zero count is not an earned record; unresolved tied scoring placements are excluded from runner-up/second-lowest titles.',
   'Completed season records exclude all of 2026; verified finality of Week '+currentWeek+' does not make the season complete.'],
  coverage:{games:games.length,weeklyScoringSets:qualified.length,excludedPartialWeeks:excluded,latest2026Week:currentWeek},
- categoryCount:out.length,categories:out};
+ categoryCount:out.length,categories:out,managerIndex};
 // Freeze the recovered 2016–2025 research coverage while allowing completed
 // 2026 weeks to advance in five-matchup increments.
 assert.equal(games.filter(g=>g.year<2026).length,660,'Historical regular-season corpus changed unexpectedly');

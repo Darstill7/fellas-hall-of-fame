@@ -67,3 +67,28 @@ for(const category of result.categories){
  }
 }
 console.log('PASS Phase 2: 23 deterministic provisional categories; '+result.coverage.games+' games; '+result.coverage.weeklyScoringSets+' scored weeks; tie, source and ranking guards.');
+
+const index=result.managerIndex;
+assert(index&&Object.keys(index).length>=10);
+let outside=0;
+for(const [name,categories] of Object.entries(index)){
+ for(const [id,best] of Object.entries(categories)){
+  const c=get(id);assert(best.rank>=1&&best.rank<=c.count);
+  assert(best.marks.length>0);
+  assert.equal(new Set(best.marks.map(x=>x.eventKey)).size,best.marks.length);
+  for(const mark of best.marks){assert.equal(mark.manager,name);assert.equal(mark.rank,best.rank);assert.equal(mark.value,best.value);}
+  if(best.rank>5)outside++;
+ }
+}
+assert(outside>0,'Missing personal bests beyond displayed leaders');
+for(const id of ['combined-high','combined-low','rival-one-point']){
+ const c=get(id);
+ for(const event of c.holders){
+  const a=index[event.manager][id],b=index[event.opponent][id];
+  assert.equal(a.rank,1);assert.equal(b.rank,1);
+  assert(a.marks.some(x=>x.opponent===event.opponent&&b.marks.some(y=>y.opponent===event.manager&&x.eventKey===y.eventKey)));
+ }
+}
+assert.equal(get('combined-high').count,result.coverage.games);
+assert.equal(get('combined-low').count,result.coverage.games);
+console.log('PASS: full personal best ranks and symmetric shared-event credit; '+outside+' personal marks outside top five');
