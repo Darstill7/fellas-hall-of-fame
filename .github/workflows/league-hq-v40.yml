@@ -1,0 +1,52 @@
+name: League HQ 4.0 qualification
+on:
+  push:
+    branches:
+      - 'design/homepage-4-0'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'assets/league-hq-*.mjs'
+      - 'assets/league-hq-v40.css'
+      - 'assets/home-app-v3.mjs'
+      - 'assets/app-shell-v34.*'
+      - 'scripts/test-league-hq-v40*.mjs'
+      - '.github/workflows/league-hq-v40.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: league-hq-v40-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  accuracy:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: |
+          node --check assets/home-app-v3.mjs
+          node --check assets/league-hq-v40.mjs
+          node --check assets/league-hq-competitive-v40.mjs
+          node --check assets/league-hq-history-v40.mjs
+          node --check assets/app-shell-v34.mjs
+          node scripts/test-league-hq-v40.mjs
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    container: mcr.microsoft.com/playwright:v1.56.1-noble
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.56.1
+      - run: node scripts/test-league-hq-v40-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: league-hq-v40-browser-evidence
+          path: data-integrity/league-hq-v40/
+          if-no-files-found: error

@@ -1237,19 +1237,23 @@ try{
     }
    }
    if(productionApp&&route===''){
-    await page.locator('.standing:not(.head)').first().waitFor({timeout:15000});
+    await page.locator('.hq40-briefing-item').first().waitFor({timeout:15000});
+    if(await page.locator('.standing:not(.head)').first().isVisible())errors.push(width+' HQ should keep full standings in League Center');
     const skip=page.locator('a.skip[href="#main"]');
     if(await skip.count()!==1||!await skip.evaluate(e=>{e.focus();return document.activeElement===e&&!!document.querySelector('main#main')}))
      errors.push(width+' production dashboard keyboard skip missing');
-    if(await page.locator('main h1').innerText()!=='League dashboard'||await page.locator('#my-manager option').count()!==11||
+    if(await page.locator('main h1').innerText()!=='League HQ'||await page.locator('#my-manager option').count()!==11||
        await page.locator('.standing:not(.head)').count()!==10||await page.locator('.matchup').count()!==5||
        await page.locator('.fellas-app-nav a').count()!==5)
      errors.push(width+' production dashboard heading, franchise, standings, matchup or navigation count mismatch');
     await page.locator('#my-manager').selectOption('Stilly');
     await page.locator('.personal-card').waitFor({timeout:15000});
     if(!(await page.locator('.personal-card').innerText()).includes('Stilly'))errors.push(width+' production personalization failed');
+    await page.locator('.fellas-app-nav a[data-app-tab="league"]').click();
+    await page.locator('.standing:not(.head)').first().waitFor({timeout:15000});
+    if(!await page.locator('#hq40-competition').isVisible())errors.push(width+' League Center competitive intelligence missing');
     await page.locator('.fellas-app-nav a[data-app-tab="more"]').click();
-    await page.waitForURL('**/index.html#more');
+    await page.waitForURL(u=>u.hash==='#more');
     await page.locator('body.more-view').waitFor({timeout:15000});
     const archive=page.locator('#more .archive');
     if(await archive.evaluate(e=>e.open))await archive.locator('summary').click();

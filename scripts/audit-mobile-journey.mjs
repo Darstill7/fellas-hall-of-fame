@@ -99,7 +99,7 @@ try{
     await visit('');
     const appHome=await page.locator('#my-manager').count()>0;
     if(appHome){
-     const records=page.locator('a[href="analytics/records.html"]').first();
+     const records=page.locator('.fellas-app-nav [data-app-tab="records"]');
      expect(await records.count()===1,'Production homepage lacks league Records route',{engine,width});
      await records.click();await page.waitForLoadState('networkidle',{timeout:25000});
      expect(new URL(page.url()).pathname.endsWith('/analytics/records.html'),'Production Records tap failed',{engine,width});
@@ -124,10 +124,10 @@ try{
      await page.locator('#my-manager').selectOption('Stilly');
      await page.locator('.personal-card').waitFor({timeout:25000});
      await page.locator('.fellas-app-nav a[data-app-tab="team"]').click();
-     await page.waitForURL('**/index.html#my-team-section');
+     await page.waitForURL(u=>u.hash==='#my-team-section');
      await page.locator('body:not(.home-overview)').waitFor();
      await page.waitForFunction(()=>document.querySelector('#my-manager')?.value==='Stilly'&&document.querySelector('.personal-top')?.textContent.includes('Stilly'),null,{timeout:25000});
-     const profile=page.locator('#my-team a[href="managers/stilly/"]').first();
+     const profile=page.locator('#my-team a[href="managers/stilly/"]:visible, #my-team a[href="managers/stilly/?app=1"]:visible').first();
      await profile.waitFor({state:'visible',timeout:25000}).catch(()=>{});
      expect(await profile.isVisible(),'Production personalized team lacks visible franchise route',{engine,width});
      if(await profile.isVisible()){await profile.click();await page.waitForLoadState('networkidle',{timeout:25000});expect(new URL(page.url()).pathname.endsWith('/managers/stilly/'),'Production personalized franchise tap failed',{engine,width})}

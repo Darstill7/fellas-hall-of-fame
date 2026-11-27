@@ -1,0 +1,203 @@
+/* League HQ: editorial-first, restrained gold, source-backed intelligence. */
+.league-hq-v40{--bg:#09141e;--panel:#162b39;--line:#314957;--gold:#e3bf7b;--muted:#b1c3cf;--text:#f5f2ea}
+.league-hq-v40 main{max-width:1180px;padding:clamp(14px,3vw,28px)}
+.league-hq-v40 .header-inner{padding-block:10px}
+.league-hq-v40 .crest{background:var(--gold);border-radius:12px}
+.league-hq-v40 .brand small{color:var(--gold);letter-spacing:.1em;font-size:9px}
+.league-hq-v40 .edition{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;margin:6px 0 20px}
+.league-hq-v40 .edition h1{font-size:clamp(30px,6vw,46px);font-weight:850;line-height:1.08;letter-spacing:-.05em}
+.hq40-eyebrow{font-size:11px;font-weight:800;letter-spacing:.11em;color:var(--gold)}
+.league-hq-v40 #cutoff{color:var(--muted);font-size:12px}
+.league-hq-v40 .personal .section-heading h2{font-size:19px}
+.league-hq-v40 .team-picker{background:transparent;border-color:var(--line);border-radius:12px}
+.league-hq-v40 .team-picker select{appearance:none;-webkit-appearance:none;background:#132936 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23e3bf7b' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 10px center;padding-right:30px}
+.league-hq-v40 .hq40-franchise-card{border-radius:18px;padding:18px;background:radial-gradient(ellipse at 100% 0%,#243d4a,#142935 70%);border:1px solid #536c7c;min-width:0}
+.hq40-franchise-kicker{display:flex;justify-content:space-between;gap:8px;font-size:10px;letter-spacing:.07em;font-weight:800;color:var(--gold);margin-bottom:15px}
+.league-hq-v40 .team-avatar{width:52px;height:52px;border-radius:14px;border:1px solid #6a7d83;background:#243f4d;flex:none;font-size:19px}
+.league-hq-v40 .personal-top strong{font-size:clamp(22px,5.6vw,32px);line-height:1.1;letter-spacing:-.04em}
+.league-hq-v40 .personal-top .team-form strong{font-size:clamp(21px,5vw,29px);font-variant-numeric:tabular-nums}
+.league-hq-v40 .hq40-form-context{display:none}
+.league-hq-v40 .personal-stats{margin-top:17px;padding-top:15px;text-align:left;gap:9px}
+.league-hq-v40 .personal-stats>div{min-width:0}
+.league-hq-v40 .personal-stats strong{font-size:clamp(21px,5vw,30px);line-height:1.15}
+.league-hq-v40 .personal-stats small{font-size:11px;line-height:1.4;margin-top:4px}
+.league-hq-v40 .personal-latest-result{margin-top:14px;padding-top:12px;color:var(--muted)}
+.hq40-franchise-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:14px}
+.hq40-franchise-actions a{display:flex;flex-direction:column;justify-content:center;gap:3px;min-height:64px;padding:9px 8px;border:1px solid #425d6d;border-radius:10px;background:#10232e;overflow-wrap:anywhere}
+.hq40-franchise-actions strong{font-size:12px;color:var(--gold);line-height:1.3}
+.hq40-franchise-actions small{font-size:10px;color:var(--muted);line-height:1.3}
+#hq40-now{margin:22px 0}
+#hq40-now h2{font-size:21px;letter-spacing:-.035em;margin:0 0 10px}
+#hq40-briefing{display:grid;gap:8px}
+.hq40-briefing-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 16px;min-height:84px;background:var(--panel);border:1px solid var(--line);border-radius:13px;min-width:0}
+.hq40-briefing-item[data-briefing-id=playoff]{background:linear-gradient(115deg,#302d23,#1b303a);border-color:#776543}
+.hq40-briefing-item div{min-width:0}
+.hq40-briefing-item small{display:block;color:var(--gold);font-size:10px;font-weight:800;letter-spacing:.08em;margin-bottom:5px}
+.hq40-briefing-item strong{font-size:17px;font-weight:800;line-height:1.25;letter-spacing:-.025em}
+.hq40-briefing-item p{margin:5px 0 0;color:var(--muted);font-size:12px;line-height:1.45}
+.hq40-arrow{color:var(--gold);font-size:26px;flex:none}
+.league-hq-v40 #news{margin:24px 0}
+.league-hq-v40 #news .section-heading h2{font-size:21px}
+.league-hq-v40 #news .story{padding:16px;min-height:115px;border-radius:14px;align-content:start}
+.league-hq-v40 #news .story strong{font-family:Georgia,serif;font-size:clamp(18px,4.5vw,24px);font-style:italic;line-height:1.2}
+.league-hq-v40 #news .story b{margin-top:8px}
+.hq40-league-link{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px 16px;margin:16px 0}
+.hq40-league-link strong,.hq40-league-link small{display:block}
+.hq40-league-link small{color:var(--muted);font-size:12px;margin-top:3px}
+.hq40-league-link span:last-child{color:var(--gold);font-size:23px}
+.league-hq-v40.home-overview .dashboard>.primary>section:not(#conditional-record-watch),.league-hq-v40.home-overview .dashboard>.primary>#league-intelligence,.league-hq-v40.home-overview .dashboard>.secondary{display:none}
+.league-hq-v40.home-overview .dashboard{display:block}
+.league-hq-v40.home-overview .dashboard>.primary{display:block}
+.league-hq-v40.league-view #my-team-section,.league-hq-v40.league-view #hq40-now,.league-hq-v40.league-view #news,.league-hq-v40.league-view .hq40-league-link,.league-hq-v40.league-view .dashboard>.secondary{display:none}
+.league-hq-v40.league-view .dashboard{grid-template-columns:minmax(0,1fr)}
+.league-hq-v40.more-view #my-team-section,.league-hq-v40.more-view #hq40-now,.league-hq-v40.more-view #news,.league-hq-v40.more-view .hq40-league-link{display:none}
+.league-hq-v40.franchise-view #hq40-now,.league-hq-v40.franchise-view #news,.league-hq-v40.franchise-view .hq40-league-link,.league-hq-v40.franchise-view .dashboard{display:none}
+.league-hq-v40.franchise-view .hq40-franchise-actions a:first-child{display:none}
+.league-hq-v40.franchise-view .hq40-franchise-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+.league-hq-v40 a:focus-visible,.league-hq-v40 select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(min-width:760px){.league-hq-v40.home-overview #my-team{grid-template-columns:minmax(0,1fr)}.league-hq-v40.home-overview #hq40-briefing{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.league-hq-v40.home-overview #news{grid-template-columns:repeat(2,minmax(0,1fr))}.league-hq-v40 .hq40-franchise-card{padding:22px}.league-hq-v40 .hq40-franchise-actions a{padding:12px}.league-hq-v40 .hq40-franchise-actions strong{font-size:14px}}
+@media(max-width:360px){.league-hq-v40 .hq40-franchise-card{padding:12px}.league-hq-v40 .team-avatar{width:40px;height:40px}.hq40-franchise-actions a{padding:8px 5px}.hq40-franchise-actions small{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.league-hq-v40 *{scroll-behavior:auto!important}}
+
+/* Franchise intelligence: summary on HQ; full form and evidence in Franchise. */
+.hq40-recent-form,.hq40-legacy{margin-top:18px;padding-top:15px;border-top:1px solid #425c6b;min-width:0}
+.hq40-recent-form h3,.hq40-legacy h3{font-size:15px;margin:0 0 12px;letter-spacing:-.02em}
+.hq40-form-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.hq40-form-cell{display:flex;flex-direction:column;gap:5px;align-items:center;min-width:0;text-align:center}
+.hq40-form-cell>small{font-size:11px;color:var(--muted)}
+.hq40-form-track{height:72px;background:#10232e;border-radius:5px;display:flex;align-items:end;width:100%;max-width:46px;overflow:hidden}
+.hq40-form-bar{width:100%;border-radius:5px;background:#879ba8}
+.hq40-form-bar.win{background:#78b99a}.hq40-form-bar.loss{background:#d99089}
+.hq40-form-cell strong{font-size:clamp(11px,3vw,15px);font-variant-numeric:tabular-nums}
+.hq40-form-result{font-size:10px;line-height:1.3;overflow-wrap:anywhere;color:var(--muted)}
+.hq40-legacy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.hq40-legacy-grid a{display:flex;flex-direction:column;gap:6px;padding:10px 8px;background:#10232e;border:1px solid #425d6d;border-radius:10px;min-width:0;min-height:76px}
+.hq40-legacy-grid strong{font-size:clamp(23px,5.5vw,32px);color:var(--gold);line-height:1;font-variant-numeric:tabular-nums}
+.hq40-legacy-grid small{font-size:11px;line-height:1.3;color:var(--muted);overflow-wrap:anywhere}
+.hq40-legacy[hidden]{display:none!important}
+.league-hq-v40.home-overview .hq40-recent-form{display:none}
+.league-hq-v40.home-overview .hq40-legacy{display:none}
+.league-hq-v40.franchise-view #my-team{grid-template-columns:minmax(0,1fr)}
+@media(min-width:760px){.league-hq-v40.franchise-view #my-team{grid-template-columns:repeat(2,minmax(0,1fr))}.league-hq-v40.franchise-view .hq40-franchise-card{grid-column:1/-1}.hq40-form-track{height:105px;max-width:100px}.hq40-form-strip{gap:12px}.hq40-legacy-grid a{padding:16px}}
+@media(max-width:360px){.hq40-form-strip{gap:4px}.hq40-form-result{font-size:9px}.hq40-legacy-grid a{padding:8px 5px}.hq40-legacy-grid small{font-size:10px}}
+
+.hq40-legacy-glance{display:grid;gap:4px;margin-top:14px;padding:12px 13px;background:#10232e;border:1px solid #53616a;border-radius:11px;min-height:64px}
+.hq40-legacy-glance small{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--gold)}
+.hq40-legacy-glance strong{font-size:14px;line-height:1.35;overflow-wrap:anywhere}
+.hq40-legacy-glance span{font-size:11px;color:var(--gold)}
+.league-hq-v40.franchise-view .hq40-legacy-glance{display:none}
+.league-hq-v40 .edition h1:focus-visible{outline:3px solid var(--gold);outline-offset:5px}
+.league-hq-v40 .fellas-app-nav a{position:relative;min-height:52px;border-radius:9px}
+.league-hq-v40 .fellas-app-nav a[aria-current]{background:#25343d}
+.league-hq-v40 .fellas-app-nav a[aria-current]::before{content:'';position:absolute;top:0;left:35%;right:35%;height:2px;background:var(--gold);border-radius:2px}
+@media(min-width:1100px){.league-hq-v40 .fellas-app-nav a[aria-current]::before{top:20%;bottom:20%;left:0;right:auto;width:3px;height:auto}}
+
+/* Competitive intelligence: readable position groups and expandable evidence. */
+#hq40-competition[hidden]{display:none!important}
+#hq40-competition{min-width:0}
+#hq40-competition>h2{font-size:clamp(24px,5vw,32px);letter-spacing:-.04em;margin:0}
+.hq40-competition-card{padding:clamp(12px,3vw,20px);margin:14px 0;background:#142935;border:1px solid #3d5666;border-radius:16px;min-width:0}
+.hq40-competition-card h3{font-size:19px;letter-spacing:-.025em;margin:0 0 6px}
+.hq40-seed-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:14px 0}
+.hq40-seed{display:grid;gap:5px;align-content:center;min-height:64px;min-width:0;padding:8px 4px;text-align:center;border:1px solid #526471;background:#1a303e;border-radius:9px;overflow-wrap:anywhere}
+.hq40-seed strong{font-size:clamp(11px,2.8vw,15px);line-height:1.3}
+.hq40-seed small{font-size:11px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.hq40-seed.bye{background:#342e22;border-color:#aa905b}.hq40-seed.bye small{color:var(--gold)}
+.hq40-seed.in{background:#1e3834;border-color:#638f7e}.hq40-seed.in small{color:#9fdec0}
+.hq40-seed.out{border-style:dashed}
+.hq40-competition-card label{display:block;font-size:12px;color:var(--gold);font-weight:750;margin:15px 0 6px}
+.hq40-competition-card select{width:100%;max-width:480px;min-height:46px;font:inherit;color:var(--text);background:#10232e;border:1px solid #667e8d;border-radius:9px;padding:9px 12px}
+.hq40-competition-list{display:grid;gap:6px;margin-top:12px}
+.hq40-competition-row{background:#10232e;border:1px solid #3f5867;border-radius:10px;min-width:0}
+.hq40-competition-row.selected{border-color:#e3bf7b;background:#292c29}
+.hq40-competition-row summary{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:64px;padding:10px 12px;cursor:pointer;list-style:none}
+.hq40-competition-row summary::-webkit-details-marker{display:none}
+.hq40-competition-row summary::after{content:'+';color:var(--gold);font-size:20px;flex:none}
+.hq40-competition-row[open] summary::after{content:'−'}
+.hq40-competition-row summary>span{min-width:0}
+.hq40-competition-row summary strong,.hq40-competition-row summary small{display:block}
+.hq40-competition-row summary small{color:var(--muted);font-size:11px;margin-top:3px}
+.hq40-comp-value{margin-left:auto;text-align:right;font-variant-numeric:tabular-nums}
+.hq40-comp-value strong{font-size:19px;color:var(--gold)}
+.hq40-comp-detail{border-top:1px solid #425a69;padding:10px 12px;font-size:13px;color:var(--muted)}
+.hq40-comp-detail p{margin:0 0 8px}
+.hq40-comp-detail a{display:flex;align-items:center;min-height:44px;color:var(--gold);border-top:1px solid #314957;overflow-wrap:anywhere}
+.hq40-competition-row summary:focus-visible{outline:3px solid var(--gold);outline-offset:-3px;border-radius:9px}
+@media(max-width:400px){.hq40-seed-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.hq40-seed{padding:7px 2px}.hq40-competition-row summary{padding:9px 10px}.hq40-comp-value strong{font-size:17px}}
+@media(min-width:760px){.hq40-seed-grid{grid-template-columns:repeat(10,minmax(0,1fr))}.hq40-seed{min-height:84px}.hq40-competition-list{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}}
+
+/* Calendar emphasis and verified playoff estimates. */
+.hq40-calendar-note{grid-column:1/-1;margin:0 0 3px;color:var(--muted);font-size:11px;letter-spacing:.04em;font-weight:650}
+.hq40-playoff-spotlight{border-color:#8c784e;background:linear-gradient(125deg,#2b2b23,#142935 65%)}
+.hq40-playoff-position{display:flex;align-items:center;gap:14px;margin:15px 0;padding-bottom:14px;border-bottom:1px solid #475961}
+.hq40-playoff-position>strong{font-size:clamp(35px,8vw,54px);font-weight:850;color:var(--gold);line-height:1.1;font-variant-numeric:tabular-nums}
+.hq40-playoff-position>span{font-size:16px;font-weight:750}
+.hq40-probability{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;margin:14px 0;align-items:center;font-size:13px}
+.hq40-probability strong{font-size:21px;font-variant-numeric:tabular-nums;color:var(--gold)}
+.hq40-probability meter{grid-column:1/-1;width:100%;height:12px;appearance:none;-webkit-appearance:none;accent-color:#78b99a}
+.hq40-probability meter::-webkit-meter-bar{background:#344955;border:0;border-radius:7px;box-shadow:none}
+.hq40-probability meter::-webkit-meter-optimum-value{background:#78b99a;border-radius:7px}
+.hq40-probability meter::-moz-meter-bar{background:#78b99a;border-radius:7px}
+.hq40-seed.selected{outline:2px solid var(--gold);outline-offset:1px}
+.hq40-allplay-track{height:4px;background:#344955;border-radius:3px;margin:0 12px 10px;overflow:hidden}
+.hq40-allplay-fill{height:100%;background:#78b99a;border-radius:3px}
+.hq40-competition-row:not([open]) .hq40-comp-detail{display:none}
+@media(max-width:360px){.hq40-playoff-position>span{font-size:14px}.hq40-probability strong{font-size:18px}}
+
+/* Historical discovery is one compact editorial shelf, not another dashboard. */
+#hq40-history[hidden]{display:none!important}
+.league-hq-v40:not(.home-overview) #hq40-history{display:none}
+#hq40-history{margin:24px 0;min-width:0}
+#hq40-history h2{font-size:21px;letter-spacing:-.035em;margin:0 0 4px}
+.hq40-history-card{margin-top:12px;padding:clamp(14px,3vw,22px);background:linear-gradient(130deg,#263329,#162b39 60%);border:1px solid #766747;border-radius:15px;min-width:0}
+.hq40-history-kicker{font-size:10px;color:var(--gold);font-weight:800;letter-spacing:.08em}
+.hq40-history-card h3{font-size:24px;letter-spacing:-.04em;margin:7px 0 12px}
+.hq40-history-score{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.hq40-history-score>div{display:grid;gap:6px;padding:12px;background:#10232e;border:1px solid #425d6d;border-radius:10px;min-width:0}
+.hq40-history-score span{font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.hq40-history-score strong{font-size:clamp(24px,6vw,38px);font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.hq40-history-card>p:not(.source-note){font-size:14px;font-weight:700;margin:12px 0 4px}
+.hq40-history-related{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.hq40-history-related a{display:flex;align-items:center;min-height:44px;padding:7px 10px;border:1px solid #425d6d;border-radius:8px;font-size:11px;color:var(--gold)}
+.hq40-history-controls{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px}
+.hq40-history-controls button{min-height:44px;min-width:86px;background:#162b39;border:1px solid #536b7c;color:var(--gold);border-radius:9px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.hq40-history-controls button:disabled{opacity:.45;cursor:default}
+.hq40-history-controls button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hq40-history-controls span{font-size:12px;color:var(--muted)}
+
+/* 4.10: concise mobile briefing, balanced desktop editorial layout.
+   DOM order stays intact for keyboard and assistive technology. */
+.league-hq-v40.home-overview .edition{margin-bottom:14px}
+.league-hq-v40.home-overview .personal .section-heading{margin:4px 0 6px}
+.league-hq-v40.home-overview .hq40-franchise-kicker{margin-bottom:9px}
+.league-hq-v40.home-overview .hq40-franchise-card{padding:14px}
+.league-hq-v40.home-overview .personal-stats{margin-top:12px;padding-top:10px}
+.league-hq-v40.home-overview .personal-latest-result{margin-top:10px;padding-top:9px}
+.league-hq-v40.home-overview .hq40-franchise-actions{margin-top:10px}
+.league-hq-v40.home-overview .hq40-franchise-actions a{min-height:54px}
+.league-hq-v40.home-overview .hq40-legacy-glance{margin-top:9px;padding:9px 11px;min-height:44px}
+.league-hq-v40.home-overview #hq40-now{margin:18px 0}
+.league-hq-v40.home-overview .hq40-briefing-item{padding:12px 14px;min-height:76px}
+.league-hq-v40.home-overview #news{margin:18px 0}
+.league-hq-v40.home-overview #news .story{min-height:100px;padding:13px}
+.league-hq-v40.home-overview #hq40-history{margin:18px 0}
+@media(max-width:759px){
+ .league-hq-v40.home-overview .edition h1{font-size:clamp(29px,8vw,37px)}
+ .league-hq-v40.home-overview .hq40-eyebrow{font-size:9px;letter-spacing:.075em}
+ .league-hq-v40.home-overview .team-picker{min-height:50px}
+ .league-hq-v40.home-overview .team-picker select{min-height:44px}
+ .league-hq-v40.home-overview .hq40-franchise-actions small{font-size:10px}
+}
+@media(min-width:1100px){
+ .league-hq-v40.home-overview main{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px 22px;align-items:start}
+ .league-hq-v40.home-overview main>.edition,.league-hq-v40.home-overview main>.dashboard,.league-hq-v40.home-overview main>.hq40-league-link{grid-column:1/-1}
+ .league-hq-v40.home-overview main>#my-team-section,.league-hq-v40.home-overview main>#hq40-now,.league-hq-v40.home-overview main>#news,.league-hq-v40.home-overview main>#hq40-history{margin:0;min-width:0}
+ .league-hq-v40.home-overview #hq40-briefing{grid-template-columns:minmax(0,1fr)}
+ .league-hq-v40.home-overview #news{grid-template-columns:minmax(0,1fr)}
+ .league-hq-v40.home-overview #my-team-section .section-heading{min-height:32px;margin:0 0 8px}
+ .league-hq-v40.home-overview #hq40-now h2,.league-hq-v40.home-overview #hq40-history h2{min-height:32px;margin:0 0 8px}
+ .league-hq-v40.home-overview .hq40-franchise-card{padding:20px}
+ .league-hq-v40.home-overview .hq40-briefing-item{min-height:92px}
+ .league-hq-v40.home-overview .hq40-league-link{margin:0}
+ .league-hq-v40.league-view .hq40-competition-list{gap:10px}
+}
