@@ -13,7 +13,7 @@ export function buildCompetitiveIntelligence(d,race){
  if(modelValid&&remaining>0){
   const weeks=Array.from({length:remaining},(_,i)=>d.week+i+1);
   const pairs=weeks.map(week=>({week,pairs:race.fixtures?.[week]}));
-  if(pairs.every(({pairs:p})=>Array.isArray(p)&&p.length===5&&p.every(x=>Array.isArray(x)&&x.length===2&&x.every(n=>typeof n==='string'))&&new Set(p.flat().map(normalizeManager)).size===10&&p.flat().map(normalizeManager).every(n=>names.includes(n))))fixtures=pairs.map(({week,pairs:p})=>({week,pairs:p.map(x=>x.map(n=>normalizeManager(n)))}));
+  if(pairs.every(({pairs:p})=>Array.isArray(p)&&p.length===5&&p.every(x=>Array.isArray(x)&&x.length===2&&x.every(n=>typeof n==='string'))&&new Set(p.flat().map(n=>normalizeManager(n))).size===10&&p.flat().map(n=>normalizeManager(n)).every(n=>names.includes(n))))fixtures=pairs.map(({week,pairs:p})=>({week,pairs:p.map(x=>x.map(n=>normalizeManager(n)))}));
  }
  const rows=d.standings.map((r,i)=>{
   let wins=0,losses=0,ties=0;
