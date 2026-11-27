@@ -715,7 +715,22 @@ if(gm4Host&&profileName){
   a.addEventListener('click',event=>{const topic=topics.find(t=>t.shell.id===id);if(!topic)return;event.preventDefault();history.replaceState(null,'','#'+id);topic.reveal();topic.shell.scrollIntoView({block:'start'});topic.shell.querySelector('summary').focus({preventScroll:true});});
   shortcuts.append(a);
  }
+ // Keep the full record book as the ownership link destination. The
+ // local portfolio is a distinct destination; avoid a second front-office
+ // shortcut since the existing Drafts & trades tile opens the same chapter.
+ shortcuts.querySelector('a[href="#gm47-front-office"]')?.remove();
+ const recordShortcut=shortcuts.querySelector('a[href="#gm47-records"]');
+ if(recordShortcut)recordShortcut.textContent='Personal bests';
  profileHero?.append(shortcuts);
+ const heroActions=profileHero?.querySelector(':scope > .buttons');
+ const redundant=heroActions?.querySelector('a[href*="record-books.html"]');
+ const ownershipLink=profileHero?.querySelector('[data-profile-owned-records]');
+ if(redundant&&ownershipLink){
+  redundant.hidden=true;
+  ownershipLink.href=redundant.href.replace(/#career-first$/,'#owned-records');
+ }
+ const hubNote=gm4Host.querySelector('.manager-home-hub-note');
+ if(hubNote)hubNote.textContent='Explore career history, rivalries, report cards and roster decisions.';
  const identity=profileHero?.querySelector('h1');
  if(identity&&!profileHero.querySelector('.portfolio54-avatar')){
   const avatar=document.createElement('span');avatar.className='portfolio54-avatar';avatar.setAttribute('aria-hidden','true');avatar.textContent=(profileName==='Tom'?'Thommy':profileName).slice(0,2).toUpperCase();
