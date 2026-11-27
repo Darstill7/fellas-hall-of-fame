@@ -4,6 +4,7 @@ import {selectRecordWatch,renderRecordWatchFeed} from './certified-record-watch-
 import {mountLeagueComparison} from './league-intelligence-v51.mjs';
 import {mountRoster} from './current-roster-v51.mjs';
 import {renderHQBriefing,enhanceHQFranchise} from './league-hq-v40.mjs';
+import {mountCompetitiveIntelligence} from './league-hq-competitive-v40.mjs';
 const names=fellasLeague.managers;
 const norm=n=>normalizeManager(n);
 const cents=n=>Math.round(n*100);
@@ -79,7 +80,7 @@ function renderActivity(host,d,race,name){
 }
 
 function renderPersonal(d,race,name){
- const host=document.getElementById('my-team');host.replaceChildren();const compact=document.body.classList.contains('personal-v51');const p=buildPersonalDashboard(d,race,name);const hq=document.body.classList.contains('league-hq-v40');if(hq)renderHQBriefing(d,p);if(!p){host.append(el('p','Choose your franchise to personalize this device. No account required.','source-note'));return}
+ const host=document.getElementById('my-team');host.replaceChildren();const compact=document.body.classList.contains('personal-v51');const p=buildPersonalDashboard(d,race,name);const hq=document.body.classList.contains('league-hq-v40');if(hq){renderHQBriefing(d,p);mountCompetitiveIntelligence(document.getElementById('hq40-competition'),d,race,name)}if(!p){host.append(el('p','Choose your franchise to personalize this device. No account required.','source-note'));return}
  const card=el('div',null,'personal-card'),top=el('div',null,'personal-top'),identity=el('div'),avatar=el('span',name.slice(0,2).toUpperCase(),'team-avatar');identity.append(el('strong',name),el('small',compact?'2026 season':'Franchise headquarters'));const form=el('div',null,'team-form');form.append(el('strong',record(p.team)),el('small',p.team.streak+' streak',p.team.streak[0]==='W'?'win':'loss'));top.append(avatar,identity,form);card.append(top);
  const stats=el('div',null,'personal-stats');for(const [label,value] of [['Standing','#'+p.rank],[compact?'Avg. points':'Weekly PF',fmt(p.team.pf/d.week)],['Playoff odds',p.odds?p.odds.playoff+'%':'—']]){const x=el('div');x.append(el('strong',value),el('small',label));stats.append(x)}card.append(stats);const median=d.median?.rows.find(r=>r.name===name);if(median&&!compact){card.append(el('p','Median format: '+record({w:median.combinedW,l:median.combinedL,t:median.combinedT})+' · hypothetical, not official','source-note'))}host.append(card);
  if(compact){
