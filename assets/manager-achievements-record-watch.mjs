@@ -1,3 +1,4 @@
+import {selectRecordWatch,renderRecordWatchFeed} from './certified-record-watch-feed.mjs';
 import {sharedProfileJson} from './manager-mobile-v47.mjs';
 import {buildPersonalRecords} from './manager-personal-records-v45.mjs';
 const norm=n=>n==='Tom'?'Thommy':n;
@@ -74,6 +75,9 @@ export async function mountAchievementCabinet({name,host,root='../../'}){
  try{
  const [core,ledger,guide,endings,espn,sleeper]=await load(root),rows=buildAchievements(core,ledger,guide,endings,[espn,sleeper],name);
  status.textContent=rows.filter(r=>r.status==='earned').length+' of '+rows.length+' achievements earned · regular-season and verified final placement evidence';
+ const watchHost=el('section');watchHost.hidden=true;p.append(watchHost);
+ const week=core.completedThrough?.week;
+ if(Number.isInteger(week))void sharedProfileJson(root+'data/certified-record-watch-feed-v1.json').then(feed=>renderRecordWatchFeed(watchHost,selectRecordWatch(feed,{year:2026,week,surface:'manager',manager:name}),{href:root+'analytics/records.html'})).catch(()=>renderRecordWatchFeed(watchHost,[]));
  const list=el('details');list.append(el('summary','Explore achievements'));
  const grid=el('div',null,'gm45-grid');
  for(const r of rows){const card=el('div',null,'gm45-card');card.dataset.achievement=r.status;card.append(el('small',r.status==='earned'?'✓ Earned':r.status==='locked'?'Locked':'Evidence unavailable'),el('strong',r.label),el('p',r.requirement));if(r.evidence)card.append(el('p',receipt(r.evidence)));grid.append(card)}list.append(grid);p.append(list);
@@ -81,13 +85,10 @@ export async function mountAchievementCabinet({name,host,root='../../'}){
 }
 export async function mountWeeklyRecordWatch({host,root='./'}){
  if(!host||host.querySelector('#gm452-watch'))return;
- const p=el('section',null,'gm45-records');p.id='gm452-watch';p.append(el('h2','The Fellas Record Watch'));
- const status=el('p','Checking latest completed-week evidence…','gm45-status');status.setAttribute('role','status');p.append(status);host.append(p);
+ const p=el('section',null,'gm45-records');p.id='gm452-watch';p.hidden=true;host.append(p);
  try{
- const [core,ledger,guide,endings,espn,sleeper]=await load(root),watch=buildWeeklyRecordWatch(core,ledger,guide,endings,[espn,sleeper],activeNames);
- status.textContent='2026 · Archived completed Week '+watch.week+' · '+watch.scope;
- if(!watch.events.length)p.append(el('p','No qualifying new records or milestones in this completed week.'));
- for(const e of watch.events){const card=el('div',null,'gm45-card');card.append(el('small',e.type.replaceAll('_',' ')),el('strong',e.manager+' · '+e.label),el('p',receipt(e.evidence)));p.append(card)}
- const near=el('details');near.append(el('summary','Milestones within reach ('+watch.near.length+')'));for(const r of watch.near)near.append(el('p',r.manager+' · '+r.remaining+' '+r.unit+' away from '+r.target+' '+r.unit));p.append(near);
- }catch(e){status.textContent='Synchronized weekly record evidence unavailable.';console.warn('Record Watch:',e.message)}
+ const [core,feed]=await Promise.all(['career_core_generated.json','certified-record-watch-feed-v1.json'].map(f=>sharedProfileJson(root+'data/'+f)));
+ const week=core.completedThrough?.week;
+ renderRecordWatchFeed(p,selectRecordWatch(feed,{year:2026,week,surface:'recordBook'}),{href:root+'analytics/records.html'});
+ }catch(e){renderRecordWatchFeed(p,[]);console.warn('Certified Record Watch unavailable:',e.message)}
 }
