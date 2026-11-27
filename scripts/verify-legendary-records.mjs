@@ -7,6 +7,24 @@ const exhibits=read('data/legendary_records_2016_2025_v1.json');
 const html=fs.readFileSync('analytics/legendary-records.html','utf8');
 const front=fs.readFileSync('analytics/records.html','utf8');
 const normalize=name=>name==='Tom'?'Thommy':name;
+const correctedMode=process.argv.includes('--corrected-research-json');
+const researchMode=correctedMode||process.argv.includes('--research-json');
+const stageAudit=read('data/week14_2020_2021_stage_classification_audit_v1.json');
+const removed=stageAudit.years.flatMap(y=>y.week14Games.map(g=>({...g,year:y.year})));
+if(removed.length!==8||removed.filter(g=>g.verifiedWinnersBracket).length!==4)throw Error('Stage audit population mismatch');
+if(correctedMode){
+ for(const e of removed){
+  const games=weekly.bySeason[String(e.year)].games;
+  const matches=games.filter(g=>g.stage==='regular'&&g.week===e.week&&normalize(g.home)===normalize(e.home)&&normalize(g.away)===normalize(e.away)&&g.homeScore===e.homeScore&&g.awayScore===e.awayScore);
+  if(matches.length!==1)throw Error('Stage correction receipt mismatch '+e.year+' '+e.home);
+  const game=matches[0];
+  game.stage=e.verifiedWinnersBracket?'championship_bracket':'postseason_unclassified';
+  if(e.verifiedWinnersBracket){
+   const winner=normalize(game[game.winner==='HOME'?'home':'away']);
+   if(winner!==normalize(e.sourceWinnerBracketReceipt.winner))throw Error('Opening winner receipt mismatch');
+  }
+ }
+}
 const all=[];const losingGames=[];
 for(let year=2016;year<=2025;year++){
  const season=weekly.bySeason[String(year)],bracket=brackets.find(b=>b.year===year);
@@ -56,7 +74,7 @@ for(let year=2016;year<=2025;year++){
    round='final';
   }else if(g.week===lastWeek-1&&semis.includes(home)&&semis.includes(away)){
    round='semifinal';
-  }else if(year>=2022&&g.week===lastWeek-2&&entryNames.includes(home)&&entryNames.includes(away)&&!byes.includes(home)&&!byes.includes(away)){
+  }else if((year>=2022||correctedMode)&&g.week===lastWeek-2&&entryNames.includes(home)&&entryNames.includes(away)&&!byes.includes(home)&&!byes.includes(away)){
    round='opening';
   }
   if(!round)continue;
@@ -106,19 +124,19 @@ if(exhibits.categories.length!==Object.keys(calc).length)throw Error('Legendary 
 for(const card of exhibits.categories){
  const actual=calc[card.id];
  if(!actual)throw Error('Unknown legendary category '+card.id);
- if(signature(actual)!==signature(card.holder))throw Error('Legendary record holder mismatch '+card.id+' expected '+signature(actual)+' got '+signature(card.holder));
+ if(!correctedMode&&signature(actual)!==signature(card.holder))throw Error('Legendary record holder mismatch '+card.id+' expected '+signature(actual)+' got '+signature(card.holder));
  if(!html.includes('id="'+card.id+'"')||!html.includes(card.title)||!html.includes(card.metric)||!html.includes(card.detail))throw Error('Missing or stale HTML exhibit '+card.id);
  if(!card.rule||!card.source||!card.detail)throw Error('Missing record methodology '+card.id);
  for(const h of card.holder){
   const row=actual.find(x=>x.manager===h.manager&&x.year===h.year);
-  if(!row)throw Error('No reconstructed winner '+h.manager+' '+h.year);
+  if(!correctedMode&&!row)throw Error('No reconstructed winner '+h.manager+' '+h.year);
  }
 }
 if(!front.includes('href="legendary-records.html"'))throw Error('Main Record Book lacks Legendary Records link');
 if(!html.includes('href="records.html"'))throw Error('Legendary gallery has no Record Book return link');
 if(!html.includes('Evans, not JMid, occupied the disputed 2023 roster slot'))throw Error('Historical manager identity caveat absent');
 // Optional research export. Keep the original public exhibit checks above intact.
-if(process.argv.includes('--research-json')){
+if(researchMode){
  const defs={
  'worst-championship-start':[champions,x=>x.initialLosses],
  'deepest-champion-hole':[champions,x=>-x.deepest],
@@ -150,10 +168,10 @@ if(process.argv.includes('--research-json')){
   }
   const holders=ranked.filter(r=>r.rank===1);
   const archived=exhibits.categories.find(c=>c.id===id);
-  if(signature(holders)!==signature(archived.holder))throw Error('Research rank holder mismatch '+id);
+  if(!correctedMode&&signature(holders)!==signature(archived.holder))throw Error('Research rank holder mismatch '+id);
   const personalBests=Object.create(null);
   for(const row of ranked){const best=personalBests[row.manager]??={rank:row.rank,value:row.value,marks:[]};if(best.rank===row.rank)best.marks.push(row);}
-  return {id,population:ranked.length,direction:mode==='min'?'low':'high',ranked,personalBests,holders,status:'archived-scope-reconstructed-not-recertified',source:archived.source,rule:archived.rule};
+  return {id,population:ranked.length,direction:mode==='min'?'low':'high',ranked,personalBests,holders,status:correctedMode?'corrected-stage-projection-not-certified':'archived-scope-reconstructed-not-recertified',source:archived.source,rule:archived.rule};
  });
  if(rankedPopulations.length!==19||new Set(rankedPopulations.map(r=>r.id)).size!==19)throw Error('Incomplete legendary research population');
  // The stored opening-round population omits the four verified 2020/21
@@ -161,5 +179,5 @@ if(process.argv.includes('--research-json')){
  const audit=read('data/week14_2020_2021_stage_classification_audit_v1.json');
  const additionalOpening=audit.years.flatMap(y=>y.week14Games.filter(g=>g.verifiedWinnersBracket).map(g=>({year:y.year,week:g.week,home:g.home,away:g.away,homeScore:g.homeScore,awayScore:g.awayScore,margin:Math.round(Math.abs(g.homeScore-g.awayScore)*100)/100,receipt:g.sourceWinnerBracketReceipt})));
  if(additionalOpening.length!==4)throw Error('Unexpected verified opening receipt count');
- console.log(JSON.stringify({status:'research-only-not-certified',scope:'completed 2016–2025, legacy stage basis; championship round aggregates preserved as round results not single weeks',categories:rankedPopulations,knownStageCorrection:{additionalOpening,legacyOpeningPopulation:verifiedPostseason.filter(g=>g.round==='opening').length,projectedOpeningPopulation:verifiedPostseason.filter(g=>g.round==='opening').length+additionalOpening.length,unresolved:'non-winners exact bracket labels; corrected standings and full downstream rerank pending'}},null,2));
+ console.log(JSON.stringify({status:'research-only-not-certified',scope:correctedMode?'completed 2016–2025, corrected stage projection; championship round aggregates preserved':'completed 2016–2025, legacy stage basis; championship round aggregates preserved as round results not single weeks',categories:rankedPopulations,knownStageCorrection:{additionalOpening,legacyOpeningPopulation:verifiedPostseason.filter(g=>g.round==='opening').length-(correctedMode?4:0),projectedOpeningPopulation:verifiedPostseason.filter(g=>g.round==='opening').length+(correctedMode?0:4),unresolved:'non-winners exact bracket labels; provider PF discrepancy and publication certification remain pending'}},null,2));
 }else console.log('LEGENDARY RECORDS VERIFIED: '+exhibits.categories.length+' source-checked exhibits, completed 2016–2025 seasons, correct ties, linked gallery.');
