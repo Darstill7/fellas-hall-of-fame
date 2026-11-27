@@ -143,3 +143,24 @@
 .hq40-allplay-fill{height:100%;background:#78b99a;border-radius:3px}
 .hq40-competition-row:not([open]) .hq40-comp-detail{display:none}
 @media(max-width:360px){.hq40-playoff-position>span{font-size:14px}.hq40-probability strong{font-size:18px}}
+
+/* Historical discovery is one compact editorial shelf, not another dashboard. */
+#hq40-history[hidden]{display:none!important}
+.league-hq-v40:not(.home-overview) #hq40-history{display:none}
+#hq40-history{margin:24px 0;min-width:0}
+#hq40-history h2{font-size:21px;letter-spacing:-.035em;margin:0 0 4px}
+.hq40-history-card{margin-top:12px;padding:clamp(14px,3vw,22px);background:linear-gradient(130deg,#263329,#162b39 60%);border:1px solid #766747;border-radius:15px;min-width:0}
+.hq40-history-kicker{font-size:10px;color:var(--gold);font-weight:800;letter-spacing:.08em}
+.hq40-history-card h3{font-size:24px;letter-spacing:-.04em;margin:7px 0 12px}
+.hq40-history-score{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.hq40-history-score>div{display:grid;gap:6px;padding:12px;background:#10232e;border:1px solid #425d6d;border-radius:10px;min-width:0}
+.hq40-history-score span{font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.hq40-history-score strong{font-size:clamp(24px,6vw,38px);font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.hq40-history-card>p:not(.source-note){font-size:14px;font-weight:700;margin:12px 0 4px}
+.hq40-history-related{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.hq40-history-related a{display:flex;align-items:center;min-height:44px;padding:7px 10px;border:1px solid #425d6d;border-radius:8px;font-size:11px;color:var(--gold)}
+.hq40-history-controls{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px}
+.hq40-history-controls button{min-height:44px;min-width:86px;background:#162b39;border:1px solid #536b7c;color:var(--gold);border-radius:9px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.hq40-history-controls button:disabled{opacity:.45;cursor:default}
+.hq40-history-controls button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hq40-history-controls span{font-size:12px;color:var(--muted)}
