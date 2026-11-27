@@ -1,0 +1,45 @@
+name: Record Book 3.0 verification
+on:
+  push:
+    branches:
+      - 'design/record-book-3-0'
+  pull_request:
+    paths:
+      - 'analytics/records.html'
+      - 'assets/record-book-v30.*'
+      - 'scripts/test-record-book-v30*.mjs'
+      - 'data/expanded_records_verified_v1.json'
+      - '.github/workflows/record-book-v30.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: record-book-v30-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  archive:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/record-book-v30.mjs
+      - run: node scripts/test-record-book-v30.mjs
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    container: mcr.microsoft.com/playwright:v1.56.1-noble
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.56.1
+      - run: node scripts/test-record-book-v30-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: record-book-v30-browser-evidence
+          path: data-integrity/record-book-v30/
+          if-no-files-found: error
