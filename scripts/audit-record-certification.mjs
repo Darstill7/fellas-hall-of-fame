@@ -240,6 +240,58 @@ const rebuiltRivalries=Object.entries(rivalryDefinitions).map(([id,value])=>{
  return {id,cutoff,population:ranked.length,minimumMeetings:minimum,archivedEntriesMatched:cat.leaders.length,ranked,personalBests,status:'archived-scope-reconstructed-not-recertified',stageBasis:'legacy regular-labeled ledger with eight known postseason mislabels',ratePolicy:id==='rival-percentage'?'archived wins / meetings; tie-half treatment not certified':null};
 });
 assert.equal(rebuiltRivalries.length,5);
+// Rebuild final-standing categories from the verified placement receipts,
+// never from regular-season seed or win-loss standings.
+const placements=JSON.parse(fs.readFileSync('data/fellas_final_placements_2016_2025_verified.json','utf8'));
+const placementGroups=new Map();
+for(const season of placements.seasons){
+ assert(season.year>=2016&&season.year<=2025);
+ assert.equal(season.teams,season.year===2016?8:10);
+ assert.equal(season.finishes.length,season.teams);
+ assert.equal(new Set(season.finishes.map(f=>canonicalName(f.manager))).size,season.teams);
+ assert.deepEqual(season.finishes.map(f=>f.rank).sort((a,b)=>a-b),Array.from({length:season.teams},(_,i)=>i+1));
+ for(const f of season.finishes){
+  const manager=canonicalName(f.manager);
+  if(!placementGroups.has(manager))placementGroups.set(manager,[]);
+  placementGroups.get(manager).push({year:season.year,rank:f.rank,teams:season.teams,provider:season.provider,source:f.source});
+ }
+}
+assert.equal(placements.seasons.length,10);
+assert.equal(placementGroups.size,14);
+const finishScore=r=>100*(r.teams-r.rank)/(r.teams-1);
+const finishDefinitions={
+ 'seasons-played':a=>a.length,
+ 'top-three-finishes':a=>countWhere(a,r=>r.rank<=3),
+ 'top-half-finishes':a=>countWhere(a,r=>r.rank<=r.teams/2),
+ 'average-finish':a=>round2(a.reduce((s,r)=>s+finishScore(r),0)/a.length)
+};
+const rebuiltFinishes=[...Object.keys(finishDefinitions),'bounceback'].map(id=>{
+ const cat=expanded.categories.find(c=>c.key===id);assert(cat);
+ const full=[];
+ for(const [manager,history] of placementGroups){
+  const a=[...history].sort((x,y)=>x.year-y.year);
+  if(id==='bounceback'){
+   for(let i=1;i<a.length;i++){
+    const from=a[i-1],to=a[i];if(to.year!==from.year+1)continue;
+    full.push({manager,year:to.year,value:round2(finishScore(to)-finishScore(from)),evidence:{fromYear:from.year,toYear:to.year,fromRank:from.rank,toRank:to.rank,fromTeams:from.teams,toTeams:to.teams,receipts:[from,to]}});
+   }
+  }else if(id!=='average-finish'||a.length>=6){
+   full.push({manager,value:finishDefinitions[id](a),evidence:{years:a.map(r=>r.year),seasons:a.length,receipts:a}});
+  }
+ }
+ assert.equal(full.length,cat.entries,id+' population');
+ const ranked=rankSeasonRows(full);
+ for(const l of cat.leaders)assert(ranked.some(r=>r.manager===canonicalName(l.manager)&&r.year===l.year&&r.value===l.value&&r.rank===l.rank),id+' archive mark mismatch');
+ const personalBests=Object.create(null);
+ for(const r of ranked){const b=personalBests[r.manager]??={rank:r.rank,value:r.value,marks:[]};if(b.rank===r.rank)b.marks.push(r);}
+ return {id,population:ranked.length,archivedEntriesMatched:cat.leaders.length,ranked,personalBests,status:'archived-scope-reconstructed-not-recertified',source:'data/fellas_final_placements_2016_2025_verified.json',scope:'completed official final placements 2016–2025'};
+});
+assert.equal(rebuiltFinishes.length,5);
+const reconstructedIds=[...rebuiltSingleGame,...rebuiltCareer,...rebuiltStreaks,...rebuiltSeasons,...rebuiltRivalries,...rebuiltFinishes].map(c=>c.id);
+assert.equal(reconstructedIds.length,44);
+assert.equal(new Set(reconstructedIds).size,44);
+assert.deepEqual([...reconstructedIds].sort(),expanded.categories.map(c=>c.key).sort());
+const expandedReconstruction={reconstructed:44,total:expanded.categories.length,uniqueIds:44,status:'archive-reconstruction-only-not-publication-certification',ids:reconstructedIds};
 const portfolioCoverage={managers:Object.keys(canonicalManagerIndex).length,personalMarks,outsideTopFive,mappedProposalCategories:phase2ToCanonical.size,incumbentRankCoverage,unmappedTaxonomyCategories:rows.filter(r=>!r.phase2.length).map(r=>r.id),publication:'not-authorized; candidate marks must not replace incumbent records; missing categories remain unavailable'};
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,rebuiltFinishes,expandedReconstruction,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));
