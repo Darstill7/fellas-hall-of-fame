@@ -8,14 +8,15 @@ assert.equal(result.status,'provisional-not-published');
 assert.equal(result.categoryCount,23);
 assert.equal(result.categories.length,23);
 assert.equal(result.coverage.games,660+result.coverage.latest2026Week*5);
-assert.equal(result.coverage.weeklyScoringSets,133+result.coverage.latest2026Week);
+assert.equal(result.coverage.weeklyScoringSets,135+result.coverage.latest2026Week);
 const ledger=JSON.parse(fs.readFileSync('data/unified_record_book_2016_2026.json','utf8'));
 const completed=ledger.games.filter(g=>g.year===2026&&g.stage==='regular');
 const latest=Math.max(...completed.map(g=>g.week));
 assert.equal(completed.length,latest*5);
 assert.equal(result.coverage.latest2026Week,latest);
 // Fixed historical leader expectations below are intentionally retained; a changed leader requires source review.
-assert.deepEqual(result.coverage.excludedPartialWeeks,[
+assert.deepEqual(result.coverage.excludedPartialWeeks,[]);
+assert.deepEqual(result.coverage.includedByeWeeks,[
  {year:2020,week:14,scoredTeams:8},{year:2021,week:14,scoredTeams:8}
 ]);
 assert.equal(new Set(result.categories.map(c=>c.id)).size,23);
@@ -33,7 +34,7 @@ leader('weekly-highs','Mitch',22);
 leader('weekly-lows','Stilly',20);
 leader('weekly-runnerups','Tony',19);
 leader('top-three-losses','Stilly',8);
-leader('bottom-three-wins','Stover',8);
+leader('bottom-three-wins','Stover',9);
 leader('season-weekly-highs','Mitch',5,2025);
 leader('season-weekly-lows','Thommy',6,2019);
 leader('high-streak','Evans',3,2016);
@@ -92,3 +93,5 @@ for(const id of ['combined-high','combined-low','rival-one-point']){
 assert.equal(get('combined-high').count,result.coverage.games);
 assert.equal(get('combined-low').count,result.coverage.games);
 console.log('PASS: full personal best ranks and symmetric shared-event credit; '+outside+' personal marks outside top five');
+
+for(const y of [2020,2021]){const rows=ledger.games.filter(g=>g.year===y&&g.week===14&&g.stage==='regular');assert.equal(rows.length,4);const played=new Set(rows.flatMap(g=>[g.home,g.away]).map(n=>n==='Tom'?'Thommy':n));assert.equal(played.size,8);for(const [name,cats] of Object.entries(index))for(const best of Object.values(cats))for(const mark of best.marks){if(Array.isArray(mark.evidence))for(const ev of mark.evidence){if(ev.year===y&&ev.week===14&&ev.scoredTeams!==undefined){assert.equal(ev.scoredTeams,8);assert(played.has(name));}}}}

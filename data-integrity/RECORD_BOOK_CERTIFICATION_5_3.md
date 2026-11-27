@@ -3,7 +3,7 @@
 This is a research-only inventory, not authorization to publish. Run node scripts/audit-record-certification.mjs to obtain a canonical ID-by-ID queue from the current ledger. Existing 44 expanded IDs and 19 legendary IDs remain authoritative. Proposal appearances are not net-new categories.
 
 ## Priority blockers
-- Confirm weekly ranking eligibility for the eight scored managers in 2020 and 2021 Week 14; current research excludes these weeks from whole-league awards.
+- Commissioner ruling: include the eight scored managers in 2020 and 2021 Week 14 weekly awards; bye managers remain unranked. Generator updated; verify revised leaders before publication.
 - Combined high/low matchup records currently attribute the event to the home manager only; rivalry close-game records attribute it alphabetically. Both participants need the same event identity and equal portfolio credit without duplicating league event counts.
 - Resolve related-but-distinct definitions before promotion, including final-only versus all-round postseason records.
 - Refresh research from original branches; independently reconcile ESPN-era receipts, historical owners, scoring eras, aggregate rounds and completed-season eligibility.

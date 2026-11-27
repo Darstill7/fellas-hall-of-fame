@@ -20,11 +20,11 @@ for(const g of games){
  add(seasonEntries,g.year+'|'+a,home);add(seasonEntries,g.year+'|'+b,away);
  add(rivalries,[a,b].sort().join('|'),{year:g.year,week:g.week,a,b,sa,sb});
 }
-const qualified=[],excluded=[];
+const qualified=[],excluded=[],includedByeWeeks=[];
 for(const [k,entries] of weeks){
  const [year,week]=k.split('|').map(Number),expected=year===2016?8:10;
  assert.equal(entries.length,new Set(entries.map(e=>e.manager)).size,'Duplicate team score '+k);
- if(entries.length!==expected){excluded.push({year,week,scoredTeams:entries.length});continue}
+ if(entries.length!==expected){if([2020,2021].includes(year)&&week===14&&entries.length===8){includedByeWeeks.push({year,week,scoredTeams:entries.length});}else{excluded.push({year,week,scoredTeams:entries.length});continue;}}
  const s=[...entries].sort((a,b)=>b.score-a.score||a.manager.localeCompare(b.manager));
  const top=s[0].score,bottom=s.at(-1).score;
  const top3=s[2].score,bottom3=s.at(-3).score;
@@ -65,7 +65,7 @@ const increase=(id,name,ev,year=null)=>{const k=key(id,name,year),r=tally.get(k)
 const currentWeek=qualified.filter(w=>w.year===2026).at(-1)?.week;
 for(const w of qualified){
  for(const e of w.entries){
-  const ev={year:w.year,week:w.week,points:fromCents(e.score),opponent:e.opponent,opponentPoints:fromCents(e.against)};
+  const ev={year:w.year,week:w.week,points:fromCents(e.score),opponent:e.opponent,opponentPoints:fromCents(e.against),scoredTeams:w.entries.length};
   if(e.score===w.top)increase('weekly-highs',e.manager,ev);
   if(e.score===w.bottom)increase('weekly-lows',e.manager,ev);
   if(w.second!==null&&e.score===w.second)increase('weekly-runnerups',e.manager,ev);
@@ -159,22 +159,22 @@ const schema={schema:'fellas-phase2-record-research-v1',status:'provisional-not-
  source,sourceUpdated:ledger.updated,updated:ledger.updated,
  rules:['Regular season only; 2026 through Week '+currentWeek+' is the active incomplete season.',
   '2016 has eight scored managers; ordinary subsequent weeks have ten.',
-  '2020 and 2021 Week 14 excluded from weekly-ranking categories, but played matches retained for scoring and rivalry categories.',
+  'Commissioner ruling: 2020 and 2021 Week 14 include eight competing managers in weekly-ranking categories; bye managers have no score or rank.',
   'A tie for first shares rank 1, and the next distinct rank is 3 when two people tie for first.',
   'Raw fantasy points across ESPN and Sleeper scoring eras are not normalized.',
   'Head-to-head rivalry streaks mean consecutive meetings, not league weeks.',
   'A zero count is not an earned record; unresolved tied scoring placements are excluded from runner-up/second-lowest titles.',
   'Completed season records exclude all of 2026; verified finality of Week '+currentWeek+' does not make the season complete.'],
- coverage:{games:games.length,weeklyScoringSets:qualified.length,excludedPartialWeeks:excluded,latest2026Week:currentWeek},
+ coverage:{games:games.length,weeklyScoringSets:qualified.length,excludedPartialWeeks:excluded,includedByeWeeks,latest2026Week:currentWeek},
  categoryCount:out.length,categories:out,managerIndex};
 // Freeze the recovered 2016–2025 research coverage while allowing completed
 // 2026 weeks to advance in five-matchup increments.
 assert.equal(games.filter(g=>g.year<2026).length,660,'Historical regular-season corpus changed unexpectedly');
-assert.equal(qualified.filter(w=>w.year<2026).length,133,'Historical complete weekly scoring sets changed unexpectedly');
+assert.equal(qualified.filter(w=>w.year<2026).length,135,'Historical complete weekly scoring sets changed unexpectedly');
 assert(Number.isInteger(currentWeek)&&currentWeek>=9&&currentWeek<=14,'Unexpected active-season week');
 assert.equal(games.filter(g=>g.year===2026).length,currentWeek*5,'Incomplete 2026 week or duplicate matchup');
 assert.equal(qualified.filter(w=>w.year===2026).length,currentWeek,'2026 weekly scoring sets incomplete');
 assert.equal(schema.coverage.games,660+currentWeek*5);
-assert.equal(schema.coverage.weeklyScoringSets,133+currentWeek);
+assert.equal(schema.coverage.weeklyScoringSets,135+currentWeek);
 assert.equal(schema.categoryCount,23);
 console.log(JSON.stringify(schema,null,2));

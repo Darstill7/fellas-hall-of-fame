@@ -17,7 +17,7 @@ const rows=taxonomy.categories.map(c=>{
  if(c.relatedReview.length)blockers.push('Resolve related definitions before consolidation');
  if(!research.length&&c.origin.type==='proposal')blockers.push('Re-run original research engine');
  for(const r of research){
-  if(r.scope==='Weekly league rank'||r.scope==='Consecutive calendar weeks'||['season-top-three','season-bottom-three','season-weekly-highs','season-weekly-lows'].includes(r.id))blockers.push('Confirm eligibility for 2020 and 2021 Week 14 bye teams');
+  if(r.scope==='Weekly league rank'||r.scope==='Consecutive calendar weeks'||['season-top-three','season-bottom-three','season-weekly-highs','season-weekly-lows'].includes(r.id))blockers.push('Commissioner approved eight competing managers; verify source receipts and revised rankings');
   if(['combined-high','combined-low','rival-one-point'].includes(r.id))blockers.push('Review symmetric participant credit before public promotion');
   if(r.unit==='points'||r.id.includes('150-plus')||r.id.includes('sub-80'))blockers.push('Disclose cross-era raw scoring differences');
  }
