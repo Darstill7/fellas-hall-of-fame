@@ -201,6 +201,45 @@ assert.equal(rebuiltSeasons.length,6);
 const mitchInterruption=ledger.games.find(g=>g.year===2025&&g.week===16&&g.stage!=='regular'&&((g.home==='Mitch'&&g.homeScore<g.awayScore)||(g.away==='Mitch'&&g.awayScore<g.homeScore)));
 assert(mitchInterruption,'Missing archived Mitch postseason streak interruption');
 const streakScopeEvidence={status:'stored-archive-confirmation-not-fresh-provider-receipt',regularOnlyMark:20,interruption:mitchInterruption,policy:'Never label regular-only streak as uninterrupted all-game streak; all-game ordering and postseason eligibility require certification'};
+// Directional rivalry statistics: retain both perspectives, but a meeting
+// is one underlying game. Reverse directions must reconcile exactly.
+const rivalryGroups=new Map();
+for(const row of appearances){
+ const k=JSON.stringify([row.manager,row.opponent]);
+ if(!rivalryGroups.has(k))rivalryGroups.set(k,[]);
+ rivalryGroups.get(k).push(row);
+}
+const rivalryTotals=a=>({meetings:a.length,wins:countWhere(a,x=>x.p>x.q),losses:countWhere(a,x=>x.p<x.q),ties:countWhere(a,x=>x.p===x.q),pf:a.reduce((s,x)=>s+x.p,0),pa:a.reduce((s,x)=>s+x.q,0)});
+const rivalryMatrix=[...rivalryGroups].map(([k,a])=>{
+ const [manager,opponent]=JSON.parse(k),v=rivalryTotals(a);
+ const reverse=rivalryGroups.get(JSON.stringify([opponent,manager]));assert(reverse);
+ const b=rivalryTotals(reverse);
+ assert.equal(v.meetings,b.meetings);assert.equal(v.wins,b.losses);assert.equal(v.losses,b.wins);assert.equal(v.ties,b.ties);assert.equal(v.pf,b.pa);assert.equal(v.pa,b.pf);
+ assert.equal(v.meetings,v.wins+v.losses+v.ties);
+ return {manager,opponent,...v,pointDifferential:(v.pf-v.pa)/100,winLossDifferential:v.wins-v.losses,receipts:a};
+});
+assert.equal(rivalryMatrix.reduce((s,r)=>s+r.meetings,0),archivedGames.length*2);
+assert.equal(rivalryMatrix.reduce((s,r)=>s+r.winLossDifferential,0),0);
+const rivalryDefinitions={
+ 'rival-wins':r=>r.wins,
+ 'rival-games':r=>r.meetings,
+ 'rival-percentage':r=>round2(100*r.wins/r.meetings),
+ 'rival-margin':r=>r.pointDifferential,
+ 'rival-scoring':r=>round2(r.pf/100/r.meetings)
+};
+const rebuiltRivalries=Object.entries(rivalryDefinitions).map(([id,value])=>{
+ const cat=expanded.categories.find(c=>c.key===id);assert(cat);
+ const minimum=id==='rival-percentage'?6:5;
+ const full=rivalryMatrix.filter(r=>r.meetings>=minimum).map(r=>({manager:r.manager,opponent:r.opponent,value:value(r),evidence:{opponent:r.opponent,meetings:r.meetings,wins:r.wins,losses:r.losses,ties:r.ties,points:r.pf/100,against:r.pa/100}})).sort((a,b)=>b.value-a.value||a.manager.localeCompare(b.manager)||a.opponent.localeCompare(b.opponent));
+ assert.equal(full.length,cat.entries,id+' population');
+ let prev=null,rank=0;
+ const ranked=full.map((r,i)=>{if(r.value!==prev){rank=i+1;prev=r.value;}return {...r,rank};});
+ for(const l of cat.leaders)assert(ranked.some(r=>r.manager===canonicalName(l.manager)&&r.opponent===canonicalName(l.evidence.opponent)&&r.value===l.value&&r.rank===l.rank&&r.evidence.meetings===l.evidence.meetings&&r.evidence.wins===l.evidence.wins&&r.evidence.losses===l.evidence.losses),id+' archive mark mismatch');
+ const personalBests=Object.create(null);
+ for(const r of ranked){const b=personalBests[r.manager]??={rank:r.rank,value:r.value,marks:[]};if(b.rank===r.rank)b.marks.push(r);}
+ return {id,cutoff,population:ranked.length,minimumMeetings:minimum,archivedEntriesMatched:cat.leaders.length,ranked,personalBests,status:'archived-scope-reconstructed-not-recertified',stageBasis:'legacy regular-labeled ledger with eight known postseason mislabels',ratePolicy:id==='rival-percentage'?'archived wins / meetings; tie-half treatment not certified':null};
+});
+assert.equal(rebuiltRivalries.length,5);
 const portfolioCoverage={managers:Object.keys(canonicalManagerIndex).length,personalMarks,outsideTopFive,mappedProposalCategories:phase2ToCanonical.size,incumbentRankCoverage,unmappedTaxonomyCategories:rows.filter(r=>!r.phase2.length).map(r=>r.id),publication:'not-authorized; candidate marks must not replace incumbent records; missing categories remain unavailable'};
-const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
+const report={schema:'fellas-record-certification-audit-v1',throughWeek:week,coverage:taxonomy.coverage,phase2Coverage:phase2.coverage,provisionalManagerIndex:phase2.managerIndex,canonicalManagerIndex,portfolioCoverage,rebuiltSingleGame,rebuiltCareer,rebuiltStreaks,rebuiltSeasons,streakScopeEvidence,rebuiltRivalries,rivalryMatrix,counts:{candidateOnly:rows.filter(r=>r.origin.type==='proposal').length,withPhase2Evidence:rows.filter(r=>r.phase2.length).length,relatedReview:rows.filter(r=>r.related.length).length},rows};
 console.log(JSON.stringify(report,null,2));
