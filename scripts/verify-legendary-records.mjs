@@ -117,4 +117,49 @@ for(const card of exhibits.categories){
 if(!front.includes('href="legendary-records.html"'))throw Error('Main Record Book lacks Legendary Records link');
 if(!html.includes('href="records.html"'))throw Error('Legendary gallery has no Record Book return link');
 if(!html.includes('Evans, not JMid, occupied the disputed 2023 roster slot'))throw Error('Historical manager identity caveat absent');
-console.log('LEGENDARY RECORDS VERIFIED: '+exhibits.categories.length+' source-checked exhibits, completed 2016–2025 seasons, correct ties, linked gallery.');
+// Optional research export. Keep the original public exhibit checks above intact.
+if(process.argv.includes('--research-json')){
+ const defs={
+ 'worst-championship-start':[champions,x=>x.initialLosses],
+ 'deepest-champion-hole':[champions,x=>-x.deepest],
+ 'lowest-champion-seed':[champions,x=>x.seed],
+ 'champion-most-losses':[champions,x=>x.losses],
+ 'champion-loss-streak':[champions,x=>x.longestLossRun],
+ 'finalist-opening-losses':[finalists,x=>x.initialLosses],
+ 'worst-finalist-record':[finalists,x=>x.winPct,'min'],
+ 'worst-playoff-record':[playoffs,x=>x.winPct,'min'],
+ 'undefeated-six-week-champs':[champions.filter(x=>x.sixWeek?.wins===6&&x.sixWeek.losses===0&&x.sixWeek.ties===0),()=>6],
+ 'highest-score-in-loss':[losingGames,x=>x.points],
+ 'best-record-no-title':[all.filter(x=>!x.champion),x=>x.winPct],
+ 'deepest-playoff-qualifier-hole':[playoffs,x=>-x.deepest],
+ 'biggest-final-seed-upset':[finalSeedMargins,x=>x.seedGap],
+ 'lowest-seed-runner-up':[runnersUp,x=>x.seed],
+ 'closest-opening-playoff-loss':[verifiedPostseason.filter(x=>x.round==='opening'),x=>x.margin,'min'],
+ 'closest-semifinal-loss':[verifiedPostseason.filter(x=>x.round==='semifinal'),x=>x.margin,'min'],
+ 'closest-championship-final':[lastFinals.map(x=>({...x,manager:x.winner})),x=>x.margin,'min'],
+ 'largest-championship-margin':[lastFinals.map(x=>({...x,manager:x.winner})),x=>x.margin],
+ 'most-title-game-losses-without-ring':[titlelessCounts,x=>x.finals]
+ };
+ const rankedPopulations=Object.entries(defs).map(([id,[population,value,mode]])=>{
+  const ranked=population.map(x=>({...x,value:value(x)})).sort((a,b)=>(mode==='min'?1:-1)*(a.value-b.value)||a.manager.localeCompare(b.manager)||a.year-b.year);
+  let previous=null,rank=0;
+  for(let i=0;i<ranked.length;i++){
+   const row=ranked[i];if(!Number.isFinite(row.value))throw Error('Invalid value '+id);
+   if(previous===null||Math.abs(row.value-previous)>=1e-9){rank=i+1;previous=row.value;}
+   row.rank=rank;
+  }
+  const holders=ranked.filter(r=>r.rank===1);
+  const archived=exhibits.categories.find(c=>c.id===id);
+  if(signature(holders)!==signature(archived.holder))throw Error('Research rank holder mismatch '+id);
+  const personalBests=Object.create(null);
+  for(const row of ranked){const best=personalBests[row.manager]??={rank:row.rank,value:row.value,marks:[]};if(best.rank===row.rank)best.marks.push(row);}
+  return {id,population:ranked.length,direction:mode==='min'?'low':'high',ranked,personalBests,holders,status:'archived-scope-reconstructed-not-recertified',source:archived.source,rule:archived.rule};
+ });
+ if(rankedPopulations.length!==19||new Set(rankedPopulations.map(r=>r.id)).size!==19)throw Error('Incomplete legendary research population');
+ // The stored opening-round population omits the four verified 2020/21
+ // fixtures mislabeled regular. Keep these as a separate projection.
+ const audit=read('data/week14_2020_2021_stage_classification_audit_v1.json');
+ const additionalOpening=audit.years.flatMap(y=>y.week14Games.filter(g=>g.verifiedWinnersBracket).map(g=>({year:y.year,week:g.week,home:g.home,away:g.away,homeScore:g.homeScore,awayScore:g.awayScore,margin:Math.round(Math.abs(g.homeScore-g.awayScore)*100)/100,receipt:g.sourceWinnerBracketReceipt})));
+ if(additionalOpening.length!==4)throw Error('Unexpected verified opening receipt count');
+ console.log(JSON.stringify({status:'research-only-not-certified',scope:'completed 2016–2025, legacy stage basis; championship round aggregates preserved as round results not single weeks',categories:rankedPopulations,knownStageCorrection:{additionalOpening,legacyOpeningPopulation:verifiedPostseason.filter(g=>g.round==='opening').length,projectedOpeningPopulation:verifiedPostseason.filter(g=>g.round==='opening').length+additionalOpening.length,unresolved:'non-winners exact bracket labels; corrected standings and full downstream rerank pending'}},null,2));
+}else console.log('LEGENDARY RECORDS VERIFIED: '+exhibits.categories.length+' source-checked exhibits, completed 2016–2025 seasons, correct ties, linked gallery.');
