@@ -1,0 +1,13 @@
+/* Manager portfolio 5.4 — scoped identity and quick navigation. */
+body.premium-franchise main>.portfolio54-hero{border-radius:18px!important;background:radial-gradient(ellipse at 95% 0,rgba(222,190,128,.09),transparent 55%),#142833!important}
+.portfolio54-avatar{display:inline-grid;place-items:center;width:48px;height:48px;background:#20394a;border:1px solid #7d7155;border-radius:12px;color:#efd092;font:800 20px/1 system-ui,sans-serif;letter-spacing:.04em;margin:0 0 6px}
+body.premium-franchise main>.portfolio54-hero h1{font:780 clamp(40px,6vw,66px)/1.08 system-ui,sans-serif!important;letter-spacing:-.05em!important;margin:8px 0 12px}
+.portfolio54-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:14px 0 4px;min-width:0}
+.portfolio54-shortcuts a{display:flex;align-items:center;justify-content:space-between;gap:6px;min-height:48px;padding:10px 12px;border:1px solid #536e7d;background:#102735;border-radius:10px;color:#f6f0e6;font:700 13px/1.3 system-ui,sans-serif;text-decoration:none;overflow-wrap:anywhere}
+.portfolio54-shortcuts a:after{content:'›';font-size:18px;color:#efd092}
+.portfolio54-shortcuts a:hover{border-color:#efd092;background:#1a3544}
+.portfolio54-shortcuts a:focus-visible{outline:3px solid #ffe1a2;outline-offset:3px}
+body.premium-franchise .portfolio54-hero .profile-career-highlight{border-radius:12px!important}
+body.premium-franchise .portfolio54-hero .profile-career-snapshot{border-radius:14px!important}
+@media(max-width:650px){.portfolio54-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}.portfolio54-avatar{width:40px;height:40px;font-size:17px}body.premium-franchise main>.portfolio54-hero h1{font-size:clamp(37px,10vw,54px)!important}}
+@media(prefers-reduced-motion:reduce){.portfolio54-shortcuts a{transition:none}}
