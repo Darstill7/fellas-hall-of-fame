@@ -54,6 +54,20 @@ export function archivedContext(row,category){
  if(category.group==='Final standings')return 'Completed-season placement archive';
  return 'See category qualification and source evidence';
 }
+// Derive narrative solely from the same evidence as the displayed rank.
+export function archivedStory(row,category){
+ const e=row.evidence??{},name=normalizeManager(row.manager),opponent=normalizeManager(e.opponent??'');
+ if(Number.isInteger(e.year)&&Number.isInteger(e.week)&&opponent&&Number.isFinite(e.points)&&Number.isFinite(e.opponentPoints)){
+  const delta=Math.round((e.points-e.opponentPoints)*100)/100;
+  const outcome=delta>0?'defeated':delta<0?'lost to':'tied';
+  return 'In Week '+e.week+' of '+e.year+', '+name+' '+outcome+' '+opponent+' '+e.points.toFixed(2)+' to '+e.opponentPoints.toFixed(2)+'. '+(delta?'The margin was '+Math.abs(delta).toFixed(2)+' points.':'The scores were level.');
+ }
+ if(category.key==='winning-streak'&&e.endingYear)return name+' recorded '+row.value+' consecutive archived regular-season wins, ending in '+e.endingYear+' Week '+e.endingWeek+'. Postseason results are excluded; this is not an uninterrupted all-game winning streak.';
+ if(e.fromYear&&e.toYear&&Number.isInteger(e.fromRank)&&Number.isInteger(e.toRank))return name+' finished #'+e.fromRank+' in '+e.fromYear+' and #'+e.toRank+' in '+e.toYear+'.';
+ if(opponent&&Number.isInteger(e.meetings)&&Number.isInteger(e.wins)&&Number.isInteger(e.losses))return name+' recorded '+e.wins+' wins and '+e.losses+' losses against '+opponent+' across '+e.meetings+' archived meetings.'+(e.meetings===e.wins+e.losses?'':' Other results are included in the meeting count.');
+ if(Number.isInteger(e.year)&&Number.isInteger(e.games)&&Number.isInteger(e.wins)&&Number.isInteger(e.losses))return name+' finished the archived '+e.year+' regular season with '+e.wins+' wins and '+e.losses+' losses across '+e.games+' games.'+(Number.isFinite(e.points)?' The matchup ledger totals '+formatMark(e.points,'pts')+'.':'');
+ return null;
+}
 const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e};
 export async function mountRecordBookDiscovery(){
  const host=document.querySelector('#record-book-v30-discovery');if(!host||host.dataset.mounted)return;host.dataset.mounted='yes';
@@ -64,10 +78,10 @@ export async function mountRecordBookDiscovery(){
  for(const name of fellasLeague.managers)select.append(new Option(name,name));
  let preferred='';try{preferred=normalizeManager(localStorage.getItem(fellasLeague.preferenceKey)||'')}catch{}
  const requested=normalizeManager(new URL(location.href).searchParams.get('manager')||'');
- if(fellasLeague.managers.includes(requested))select.value=requested;else if(fellasLeague.managers.includes(preferred))select.value=preferred;
+ if(fellasLeague.managers.includes(requested))select.value=requested;else if(!new URL(location.href).searchParams.has('manager')&&fellasLeague.managers.includes(preferred))select.value=preferred;
  const link=document.querySelector('#personal-record-entry-link');
  const sync=()=>{if(!link)return;const name=select.value;link.href='../managers/record-books.html'+(name?'?manager='+encodeURIComponent(name):'')+'#owned-records';link.textContent=name?'Records '+name+' owns →':'Open manager record book →'};
- select.addEventListener('change',()=>{const url=new URL(location.href);if(select.value)url.searchParams.set('manager',select.value);else url.searchParams.delete('manager');history.replaceState(null,'',url);sync();paintOwnership();paint();if(selectedKey)paintRanking(false)});
+ select.addEventListener('change',()=>{const url=new URL(location.href);url.searchParams.set('manager',select.value);history.replaceState(null,'',url);sync();paintOwnership();paint();if(selectedKey)paintRanking(false)});
  personal?.insertBefore(label,link);personal?.insertBefore(select,link);sync();
  const search=el('input');search.id='rb30-search';search.type='search';search.placeholder='Try winning streak, scoring or rivalry';
  const searchLabel=el('label','Find a record');searchLabel.htmlFor=search.id;
@@ -79,13 +93,15 @@ export async function mountRecordBookDiscovery(){
  const results=el('div',null,'rb30-results');let rows=[],archive=null;
  const ownership=el('div',null,'rb30-ownership');ownership.setAttribute('aria-live','polite');personal?.insertBefore(ownership,link);
  const ranking=el('section',null,'rb30-ranking');ranking.hidden=true;ranking.id='rb30-ranking';
- let selectedKey='',returnFocus=null;
- host.append(controls,status,ranking,results);
+ let selectedKey='',returnFocus=null,limit=8;
+ const more=el('button','Show more categories','rb30-more');more.type='button';more.hidden=true;more.addEventListener('click',()=>{const previous=limit;limit+=8;paint();results.children[previous]?.focus();});
+ host.append(controls,status,ranking,results,more);
  function paint(){
   const matching=searchCategories(rows,search.value,family.value);
   results.replaceChildren();
-  status.textContent=matching.length+' of '+rows.length+' archived categories';
-  for(const c of matching){const a=el('a',null,'rb30-result');a.href=categoryHref(c,select.value);a.append(el('small',c.group),el('strong',c.label),el('span','Preview ranking →'));a.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();selectedKey=c.key;returnFocus=c.key;paintRanking(true)});a.dataset.category=c.key;results.append(a)}
+  status.textContent='Showing '+Math.min(limit,matching.length)+' of '+matching.length+' matching categories · '+rows.length+' in archive';
+  more.hidden=matching.length<=limit;more.textContent='Show '+Math.min(8,Math.max(0,matching.length-limit))+' more categories';
+  for(const c of matching.slice(0,limit)){const a=el('a',null,'rb30-result');a.href=categoryHref(c,select.value);a.append(el('small',c.group),el('strong',c.label),el('span','Preview ranking →'));a.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();selectedKey=c.key;returnFocus=c.key;paintRanking(true)});a.dataset.category=c.key;results.append(a)}
   if(!matching.length)results.append(el('p','No matching categories. Try another search or choose All categories.'));
  }
  function paintRanking(focus){
@@ -93,13 +109,15 @@ export async function mountRecordBookDiscovery(){
   const c=d.category;
   ranking.replaceChildren();ranking.hidden=false;
   const header=el('div',null,'rb30-ranking-head'),heading=el('h3',c.label);heading.tabIndex=-1;
-  const close=el('button','Close preview');close.type='button';close.className='rb30-more';close.addEventListener('click',()=>{selectedKey='';ranking.hidden=true;[...results.querySelectorAll('[data-category]')].find(a=>a.dataset.category===returnFocus)?.focus()});
+  const close=el('button','Close preview');close.type='button';close.className='rb30-more';close.addEventListener('click',()=>{selectedKey='';ranking.hidden=true;const target=[...results.querySelectorAll('[data-category]')].find(a=>a.dataset.category===returnFocus);(target??search).focus()});
   header.append(heading,close);ranking.append(el('small',c.group),header,el('p',c.description,'rb30-status'));
   if(c.qualifier)ranking.append(el('p','Qualification: '+c.qualifier,'rb30-status'));
   if(d.first.length){
    const leader=el('div',null,'rb30-ranking-leader');leader.append(el('small',d.holders.length>1?'SHARED FIRST PLACE':'FIRST PLACE'),el('strong',formatMark(d.first[0].value,c.unit)),el('p',d.holders.join(' · ')));
    for(const row of d.first){leader.append(el('p',normalizeManager(row.manager)+' · '+archivedContext(row,c),'rb30-status'))}
    ranking.append(leader);
+   const stories=d.first.map(row=>archivedStory(row,c)).filter(Boolean);
+   if(stories.length){const story=el('aside',null,'rb30-story');story.append(el('small','THE STORY BEHIND THE MARK'));for(const line of [...new Set(stories)])story.append(el('p',line));ranking.append(story)}
   }
   if(select.value){
    const mine=el('div',null,'rb30-ranking-personal');
@@ -125,7 +143,7 @@ export async function mountRecordBookDiscovery(){
   }
   ownership.append(metrics,el('p',archive.scope+' · Shared first place counts once per category.','rb30-status'));
   const list=el('div',null,'rb30-ownership-list');
-  const format=(v,u)=>v.toLocaleString('en-US',{maximumFractionDigits:2})+(u==='%'?'%':u?' '+u:'');
+  const format=formatMark;
   for(const c of d.owned){
    const a=el('a');a.href=categoryHref(c,d.manager);
    const copy=el('span');copy.append(el('strong',c.label),el('small',c.shared?'Shared with '+c.holders.filter(n=>n!==d.manager).join(', '):'Sole first-place manager'));
@@ -134,7 +152,7 @@ export async function mountRecordBookDiscovery(){
   if(!d.owned.length)ownership.append(el('p','No first-place categories in this archive snapshot. Other personal marks remain accessible.','rb30-status'));
   else{const fold=el('details');fold.append(el('summary','Explore all '+d.owned.length+' first-place categories'),list);ownership.append(fold)}
  }
- search.addEventListener('input',paint);family.addEventListener('change',paint);
+ const resetSearch=()=>{limit=8;paint()};search.addEventListener('input',resetSearch);family.addEventListener('change',resetSearch);
  try{const response=await fetch(new URL('../data/expanded_records_verified_v1.json',import.meta.url));if(!response.ok)throw Error('Archive unavailable');const candidate=await response.json();rows=indexPublishedCategories(candidate);for(const name of fellasLeague.managers)managerArchivePortfolio(candidate,name);archive=candidate;
   for(const group of [...new Set(rows.map(c=>c.group))])family.append(new Option(group,group));
   const note=el('p',String(archive.scope||'Archived expanded records; coverage varies.'),'rb30-status');host.insertBefore(note,controls);paintOwnership();paint();
