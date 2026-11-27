@@ -1,5 +1,6 @@
 // League HQ briefing: interpret verified completed games, never replace Sleeper.
 import {fellasLeague,normalizeManager,managerSlug} from './league-config.mjs';
+import {managerArchivePortfolio} from './record-book-v30.mjs';
 const format=n=>n.toLocaleString('en-US',{maximumFractionDigits:2,minimumFractionDigits:2});
 export function buildHQBriefing(d,personal){
  if(!d||!Number.isInteger(d.week)||d.week<1||d.week>fellasLeague.regularSeasonWeeks||d.standings?.length!==10)return [];
@@ -34,4 +35,49 @@ export function enhanceHQFranchise(card,p,d){
   const a=el('a');a.href=href;a.append(el('strong',label),el('small',detail));links.append(a);
  }
  card.querySelector('.personal-home-cta')?.replaceWith(links);
+ renderFranchiseIntelligence(card,p,d);
+}
+
+export function buildFranchiseLegacy(name,placements,records){
+ if(!fellasLeague.managers.includes(name))return null;
+ let titles=null,completed=null,owned=null;
+ if(placements?.version===1&&Array.isArray(placements.seasons)&&placements.seasons.length===10&&new Set(placements.seasons.map(s=>s.year)).size===10&&placements.seasons.every(s=>Number.isInteger(s.year)&&s.year>=2016&&s.year<=2025&&Array.isArray(s.finishes)&&s.finishes.length===s.teams&&new Set(s.finishes.map(f=>f.rank)).size===s.teams&&new Set(s.finishes.map(f=>normalizeManager(f.manager))).size===s.teams&&s.finishes.every(f=>Number.isInteger(f.rank)&&f.rank>=1&&f.rank<=s.teams&&typeof f.manager==='string')&&normalizeManager(s.finishes.find(f=>f.rank===1)?.manager)===normalizeManager(s.champion))){
+  const finishes=placements.seasons.flatMap(s=>s.finishes.filter(f=>normalizeManager(f.manager)===name).map(f=>({year:s.year,rank:f.rank})));
+  completed=finishes.length;titles=finishes.filter(f=>f.rank===1).map(f=>f.year).sort((a,b)=>a-b);
+ }
+ try{if(typeof records?.scope==='string'&&records.scope.trim()){const p=managerArchivePortfolio(records,name);owned={count:p.owned.length,scope:records.scope,total:p.total}}}catch{}
+ return {name,titles,completed,owned};
+}
+export function buildRecentForm(d,name,limit=5){
+ const rows=d?.history?.[name];if(!Array.isArray(rows)||rows.length!==d.week||rows.some((r,i)=>r.week!==i+1||!Number.isFinite(r.pf)||!Number.isFinite(r.pa)||!['W','L','T'].includes(r.result)))return [];
+ return rows.slice(-limit);
+}
+let legacyPromise;
+function loadLegacy(){
+ if(!legacyPromise){const get=async file=>{try{const r=await fetch(new URL('../data/'+file,import.meta.url));return r.ok?await r.json():null}catch{return null}};legacyPromise=Promise.all([get('fellas_final_placements_2016_2025_verified.json'),get('expanded_records_verified_v1.json')])}
+ return legacyPromise;
+}
+export function renderFranchiseIntelligence(card,p,d){
+ const rows=buildRecentForm(d,p.team.name);
+ if(rows.length){
+  const form=el('section',null,'hq40-recent-form');form.append(el('h3','Recent form'));
+  const strip=el('div',null,'hq40-form-strip');strip.setAttribute('aria-label','Last '+rows.length+' completed regular-season matchups');
+  const max=Math.max(1,...rows.map(r=>Math.max(0,r.pf)));
+  for(const row of rows){const cell=el('div',null,'hq40-form-cell');const track=el('div',null,'hq40-form-track');const bar=el('div',null,'hq40-form-bar '+(row.result==='W'?'win':row.result==='L'?'loss':'tie'));bar.style.height=Math.max(0,row.pf)/max*100+'%';track.append(bar);track.setAttribute('aria-hidden','true');cell.append(el('small','Wk '+row.week),track,el('strong',format(row.pf)),el('span',row.result+' vs '+row.opponent,'hq40-form-result'));strip.append(cell)}
+  form.append(strip,el('p','Points scored · completed regular-season matchups only','source-note'));card.append(form);
+ }
+ const legacy=el('section',null,'hq40-legacy');legacy.hidden=true;card.append(legacy);
+ void loadLegacy().then(([placements,records])=>{
+  if(!card.isConnected)return;const data=buildFranchiseLegacy(p.team.name,placements,records);if(!data)return;
+  const metrics=el('div',null,'hq40-legacy-grid');
+  const metric=(label,value,href)=>{const a=el('a');a.href=href;a.append(el('strong',String(value)),el('small',label));metrics.append(a)};
+  if(data.titles!==null){metric('Championships',data.titles.length,'hall/');metric('Completed seasons',data.completed,'managers/'+managerSlug(data.name)+'/')}
+  if(data.owned)metric('First-place categories',data.owned.count,'analytics/records.html?manager='+encodeURIComponent(data.name)+'&app=1');
+  if(!metrics.children.length)return;
+  legacy.append(el('h3','Your legacy'),metrics);
+  if(data.titles?.length)legacy.append(el('p','Championship years: '+data.titles.join(' · '),'source-note'));
+  if(data.completed!==null)legacy.append(el('p','Final placements · completed seasons 2016–2025','source-note'));
+  if(data.owned)legacy.append(el('p','Record ownership: '+data.owned.scope+' · Shared first place counts once per category.','source-note'));
+  legacy.hidden=false;
+ });
 }
