@@ -3,6 +3,9 @@ on:
   pull_request:
     paths:
       - 'scripts/audit-record-certification.mjs'
+      - 'scripts/simulate-week14-stage-migration.mjs'
+      - 'data/week14_2020_2021_stage_classification_audit_v1.json'
+      - 'data/corrected_2020_2021_regular_standings_projection_v1.json'
       - 'scripts/verify-historical-matchup-sources.mjs'
       - 'data/espn_history_2016_2019.json'
       - 'data/sleeper_matchups_*.json'
@@ -23,6 +26,7 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/verify-historical-matchup-sources.mjs > historical-source-parity.json
+      - run: node scripts/simulate-week14-stage-migration.mjs > historical-migration-impact.json
       - run: node scripts/verify-record-taxonomy-crosswalk.mjs
       - run: node scripts/verify-record-book-phase2.mjs
       - run: node scripts/audit-record-certification.mjs > record-certification-audit.json
@@ -32,3 +36,4 @@ jobs:
           path: |
             record-certification-audit.json
             historical-source-parity.json
+            historical-migration-impact.json
