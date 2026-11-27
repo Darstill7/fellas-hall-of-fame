@@ -25,3 +25,23 @@ main .record-cover #personal-record-entry{background:radial-gradient(ellipse at 
 #record-book-v30-discovery :is(input,select,button,a):focus-visible,#personal-record-entry :is(select,a):focus-visible{outline:3px solid #ffe1a2;outline-offset:3px}
 @media(max-width:650px){.rb30-results{grid-template-columns:repeat(2,minmax(0,1fr))}.rb30-controls{grid-template-columns:1fr;gap:5px}.rb30-result{min-height:90px}.rb30-more{width:100%}}
 @media(max-width:355px){.rb30-results{grid-template-columns:1fr}}
+
+.rb30-ranking[hidden]{display:none!important}
+.rb30-ranking{border:1px solid #917b52;border-radius:14px;background:#142837;padding:clamp(12px,3vw,20px);margin:12px 0 18px;scroll-margin-top:90px;min-width:0}
+.rb30-ranking>small,.rb30-ranking-leader>small,.rb30-ranking-personal>small{display:block;font-size:11px;letter-spacing:.05em;color:#efd092;font-weight:800}
+.rb30-ranking-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.rb30-ranking-head h3{font-size:clamp(20px,4vw,28px);line-height:1.25;margin:6px 0;min-width:0}
+.rb30-ranking-head .rb30-more{margin:0}
+.rb30-ranking-leader,.rb30-ranking-personal{padding:14px;border:1px solid #917b52;border-radius:12px;margin:12px 0;background:linear-gradient(135deg,#332d22,#172c38)}
+.rb30-ranking-personal{background:#102735;border-color:#536e7d}
+.rb30-ranking-leader>strong,.rb30-ranking-personal>strong{display:block;font-size:clamp(24px,7vw,42px);line-height:1.2;color:#efd092;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.rb30-ranking-leader>p{margin:6px 0;line-height:1.5}
+.rb30-ranking-list{list-style:none;padding:0;margin:10px 0;display:grid;gap:6px}
+.rb30-ranking-list li{display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:center;gap:8px;background:#193442;border:1px solid #496676;border-radius:9px;padding:10px;min-width:0;font-size:13px}
+.rb30-ranking-list li>span{font-weight:800;color:#efd092}
+.rb30-ranking-list li>div{min-width:0;overflow-wrap:anywhere}
+.rb30-ranking-list li>div small,.rb30-ownership-list a small{display:block;color:#c8d6df;font-size:11px;line-height:1.5;margin-top:4px}
+.rb30-ranking-list li>strong{font-variant-numeric:tabular-nums;text-align:right;max-width:110px;overflow-wrap:anywhere}
+.rb30-ranking-list li.rb30-ranking-selected{border-color:#e8c47d;background:#302b22}
+.rb30-ranking .rb30-more{display:inline-flex;align-items:center}
+@media(max-width:400px){.rb30-ranking-list li{grid-template-columns:28px minmax(0,1fr);gap:5px}.rb30-ranking-list li>strong{grid-column:2;text-align:left;max-width:none}.rb30-ranking details{padding:10px}.rb30-ranking-head .rb30-more{width:auto}}
