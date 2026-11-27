@@ -59,16 +59,130 @@ for(const story of anthology.seasons){
  assert(top.every(p=>full.includes(p.name)||p.name==='Tampa Bay Buccaneers'&&full.includes('Tampa Bay')),'title MVP absent from narration '+year);
  assert(top.every(p=>hasNumber(p.points)),'title MVP points omitted from narration '+year);
 }
-const regularLeader=[
- [2021,'Tony','Jonathan Taylor'],[2022,'Stover','Patrick Mahomes'],[2023,'Stilly','Josh Allen'],
- [2024,'Tom','Derrick Henry'],[2025,'Scott','Bijan Robinson']
+// Explicit claim inventory: regular-season lineup totals in the championship anthology.
+const regularClaims=[
+  [
+    2021,
+    "Tony",
+    "Jonathan Taylor",
+    292.4,
+    13
+  ],
+  [
+    2021,
+    "Tony",
+    "Matthew Stafford",
+    251.84,
+    12
+  ],
+  [
+    2021,
+    "Tony",
+    "Davante Adams",
+    211.4,
+    12
+  ],
+  [
+    2022,
+    "Stover",
+    "Patrick Mahomes",
+    316.4,
+    13
+  ],
+  [
+    2022,
+    "Stover",
+    "Tyreek Hill",
+    246,
+    13
+  ],
+  [
+    2022,
+    "Stover",
+    "Derrick Henry",
+    234.06,
+    13
+  ],
+  [
+    2022,
+    "Stover",
+    "Travis Kelce",
+    217.9,
+    13
+  ],
+  [
+    2023,
+    "Stilly",
+    "Josh Allen",
+    306.28,
+    13
+  ],
+  [
+    2023,
+    "Stilly",
+    "Michael Pittman Jr.",
+    155.2,
+    12
+  ],
+  [
+    2023,
+    "Stilly",
+    "Rachaad White",
+    127.2,
+    10
+  ],
+  [
+    2024,
+    "Tom",
+    "Derrick Henry",
+    248.7,
+    13
+  ],
+  [
+    2024,
+    "Tom",
+    "Bijan Robinson",
+    220.3,
+    13
+  ],
+  [
+    2025,
+    "Scott",
+    "Bijan Robinson",
+    239.3,
+    13
+  ],
+  [
+    2025,
+    "Scott",
+    "James Cook III",
+    221,
+    13
+  ],
+  [
+    2025,
+    "Scott",
+    "George Pickens",
+    206.9,
+    13
+  ],
+  [
+    2025,
+    "Scott",
+    "Trey McBride",
+    188.2,
+    13
+  ]
 ];
-for(const [year,manager,player] of regularLeader){
- const entry=legends.managers[manager]?.find(p=>p.name===player);
- const total=entry?.seasons?.[year]?.points;
- assert(Number.isFinite(total),'missing verified regular-season player total '+year+' '+player);
- const text=anthology.seasons.find(s=>s.year===year).sections.map(s=>s.text).join(' ');
- assert(text.includes(player)&&text.includes(total.toFixed(2)),'season cornerstone fact omitted or mismatched '+year+' '+player);
+for(const [year,manager,player,points,starts] of regularClaims){
+ const entry=legends.managers[manager]?.find(p=>p.name===player)?.seasons?.[year];
+ assert(entry&&entry.points===points&&entry.starts===starts,'regular-season source mismatch '+year+' '+player);
+ const prose=anthology.seasons.find(s=>s.year===year).sections.map(s=>s.text).join(' ');
+ // Check the player and number occur near one another, not merely somewhere in the article.
+ const nameIndex=prose.indexOf(player);
+ assert(nameIndex>=0,'missing season player '+year+' '+player);
+ const matching=prose.split(player).slice(1).some(t=>t.slice(0,150).includes(points.toFixed(2)));
+ assert(matching,'season production claim omitted or mismatched '+year+' '+player);
 }
 const page=fs.readFileSync('hall/championship-stories.html','utf8');
 for(const marker of ['championship_player_boxscores_2020_2025_v1.json','mvp-showcase','mvp-scores','verifiedTradeReceipts','story-trade-receipts','story-section'])
@@ -77,5 +191,5 @@ const named=players.games.filter(g=>g.round==='championship').map(g=>{
  const best=[...g.starters].sort((a,b)=>b.points-a.points)[0];
  return g.year+': '+best.name+' '+best.points.toFixed(2);
 });
-console.log('CHAMPIONSHIP JOURNALISM PASS: 10 long-form features, all original winners and finals, 12 exact playoff starting lineups, source-backed trade receipts, 5 regular-season production anchors and 6 title-week leading scorers.');
+console.log('CHAMPIONSHIP JOURNALISM PASS: 10 long-form features, all original winners and finals, 12 exact playoff starting lineups, source-backed trade receipts, 16 regular-season production anchors and 6 title-week leading scorers.');
 console.log(named.join(' | '));
