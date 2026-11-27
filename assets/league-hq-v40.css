@@ -164,3 +164,40 @@
 .hq40-history-controls button:disabled{opacity:.45;cursor:default}
 .hq40-history-controls button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .hq40-history-controls span{font-size:12px;color:var(--muted)}
+
+/* 4.10: concise mobile briefing, balanced desktop editorial layout.
+   DOM order stays intact for keyboard and assistive technology. */
+.league-hq-v40.home-overview .edition{margin-bottom:14px}
+.league-hq-v40.home-overview .personal .section-heading{margin:4px 0 6px}
+.league-hq-v40.home-overview .hq40-franchise-kicker{margin-bottom:9px}
+.league-hq-v40.home-overview .hq40-franchise-card{padding:14px}
+.league-hq-v40.home-overview .personal-stats{margin-top:12px;padding-top:10px}
+.league-hq-v40.home-overview .personal-latest-result{margin-top:10px;padding-top:9px}
+.league-hq-v40.home-overview .hq40-franchise-actions{margin-top:10px}
+.league-hq-v40.home-overview .hq40-franchise-actions a{min-height:54px}
+.league-hq-v40.home-overview .hq40-legacy-glance{margin-top:9px;padding:9px 11px;min-height:44px}
+.league-hq-v40.home-overview #hq40-now{margin:18px 0}
+.league-hq-v40.home-overview .hq40-briefing-item{padding:12px 14px;min-height:76px}
+.league-hq-v40.home-overview #news{margin:18px 0}
+.league-hq-v40.home-overview #news .story{min-height:100px;padding:13px}
+.league-hq-v40.home-overview #hq40-history{margin:18px 0}
+@media(max-width:759px){
+ .league-hq-v40.home-overview .edition h1{font-size:clamp(29px,8vw,37px)}
+ .league-hq-v40.home-overview .hq40-eyebrow{font-size:9px;letter-spacing:.075em}
+ .league-hq-v40.home-overview .team-picker{min-height:50px}
+ .league-hq-v40.home-overview .team-picker select{min-height:44px}
+ .league-hq-v40.home-overview .hq40-franchise-actions small{font-size:10px}
+}
+@media(min-width:1100px){
+ .league-hq-v40.home-overview main{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px 22px;align-items:start}
+ .league-hq-v40.home-overview main>.edition,.league-hq-v40.home-overview main>.dashboard,.league-hq-v40.home-overview main>.hq40-league-link{grid-column:1/-1}
+ .league-hq-v40.home-overview main>#my-team-section,.league-hq-v40.home-overview main>#hq40-now,.league-hq-v40.home-overview main>#news,.league-hq-v40.home-overview main>#hq40-history{margin:0;min-width:0}
+ .league-hq-v40.home-overview #hq40-briefing{grid-template-columns:minmax(0,1fr)}
+ .league-hq-v40.home-overview #news{grid-template-columns:minmax(0,1fr)}
+ .league-hq-v40.home-overview #my-team-section .section-heading{min-height:32px;margin:0 0 8px}
+ .league-hq-v40.home-overview #hq40-now h2,.league-hq-v40.home-overview #hq40-history h2{min-height:32px;margin:0 0 8px}
+ .league-hq-v40.home-overview .hq40-franchise-card{padding:20px}
+ .league-hq-v40.home-overview .hq40-briefing-item{min-height:92px}
+ .league-hq-v40.home-overview .hq40-league-link{margin:0}
+ .league-hq-v40.league-view .hq40-competition-list{gap:10px}
+}
