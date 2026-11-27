@@ -268,9 +268,9 @@ if(profileSnapshot&&!profileSnapshot.querySelector('.profile-snapshot-receipts')
   const source=profileSnapshot.querySelector('.profile-snapshot-source');
   if(source)evidence.append(source);
   const records=profileSnapshot.querySelector('.profile-owned-records');
-  // Preserve verified league-record ownership, but avoid a duplicate Records
-  // CTA above the actual Records and Report Card starting destinations.
-  if(records)evidence.append(records);
+  // Keep record ownership immediately discoverable; retain the source
+  // disclosure for detailed career totals and provenance.
+  if(records)profileSnapshot.append(records);
   profileSnapshot.append(evidence);
   const heading=profileSnapshot.querySelector('.profile-snapshot-heading');
   if(heading)heading.textContent='Career highlights';
