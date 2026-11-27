@@ -1,9 +1,10 @@
 // Research-only editorial packet. No article generation or publication.
 import fs from 'node:fs';
+import {selectRecordWatch} from '../assets/certified-record-watch-feed.mjs';
 import {buildEditorialContext} from './weekly-shitter-context.mjs';
 import {pathToFileURL} from 'node:url';
 const cents=n=>{if(typeof n!=='number'||!Number.isFinite(n)||n<0)throw Error('Invalid score');return Math.round(n*100)};
-export function buildEditorialPacket(ledger,guide,week,notes=[]){
+export function buildEditorialPacket(ledger,guide,week,notes=[],certifiedFeed=null){
  const names=new Set(['Stilly','JMid','Thommy','Stew','Scott','Mitch','Tony','Stover','Kuhl','Birch']);
  const games=ledger.games.filter(g=>g.year===2026&&g.stage==='regular');
  if(!Number.isInteger(week)||week<1||week>14||Math.max(...games.map(g=>g.week))!==week)throw Error('Requested week must match canonical cutoff');
@@ -28,14 +29,15 @@ export function buildEditorialPacket(ledger,guide,week,notes=[]){
  for(const s of standings){const t=totals.get(s.name);if(!t||s.games!==week||s.w!==t.w||s.l!==t.l||(s.t??0)!==t.t||cents(s.pf)!==t.pf||cents(s.pa)!==t.pa)throw Error('Standings mismatch: '+s.name)}
  const ranked=current.map(s=>({...s,scoringRank:1+current.filter(o=>o.pf>s.pf).length,season:totals.get(s.manager)}));
  if(!Array.isArray(notes)||notes.some(n=>typeof n.text!=='string'||!n.text.trim()||!['observation','correction','private_background','angle'].includes(n.kind)))throw Error('Invalid commissioner notes');
- return {status:'RESEARCH_ONLY',year:2026,week,source:'Canonical regular-season ledger and reconciled season guide',scoreUnit:'integer hundredths of fantasy points',matchups:games.filter(g=>g.week===week),scoring:ranked,highestScoringLosers:ranked.filter(s=>s.result==='L'),lowestScoringWinners:ranked.filter(s=>s.result==='W').reverse(),closestMatchups:games.filter(g=>g.week===week).sort((a,b)=>Math.abs(cents(a.homeScore)-cents(a.awayScore))-Math.abs(cents(b.homeScore)-cents(b.awayScore))),commissionerNotes:notes.map(n=>({kind:n.kind,text:n.text,verification:'USER_SUPPLIED_UNVERIFIED'})),requiresSeparateEvidence:['playoff simulations at same cutoff','original locked writer picks','trade receipts and ownership','pregame projections and lineup decisions','injury and bye news','upcoming schedule and forecasts'],publication:'Manual editorial review required. Private background never enters public copy.'};
+ const certifiedRecordWatch=selectRecordWatch(certifiedFeed,{year:2026,week,surface:'editorial'});
+ return {certifiedRecordWatch:{status:certifiedRecordWatch.length?'CERTIFIED':'NO_CERTIFIED_ALERTS',entries:certifiedRecordWatch},status:'RESEARCH_ONLY',year:2026,week,source:'Canonical regular-season ledger and reconciled season guide',scoreUnit:'integer hundredths of fantasy points',matchups:games.filter(g=>g.week===week),scoring:ranked,highestScoringLosers:ranked.filter(s=>s.result==='L'),lowestScoringWinners:ranked.filter(s=>s.result==='W').reverse(),closestMatchups:games.filter(g=>g.week===week).sort((a,b)=>Math.abs(cents(a.homeScore)-cents(a.awayScore))-Math.abs(cents(b.homeScore)-cents(b.awayScore))),commissionerNotes:notes.map(n=>({kind:n.kind,text:n.text,verification:'USER_SUPPLIED_UNVERIFIED'})),requiresSeparateEvidence:['playoff simulations at same cutoff','original locked writer picks','trade receipts and ownership','pregame projections and lineup decisions','injury and bye news','upcoming schedule and forecasts'],publication:'Manual editorial review required. Private background never enters public copy.'};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
  const ledger=read('data/unified_record_book_2016_2026.json'),guide=read('data/season_guide.json');
  const week=Number(process.argv[2]);const notes=process.argv[3]?read(process.argv[3]):[];
- const packet=buildEditorialPacket(ledger,guide,week,notes);
  const optional=p=>{try{return read(p)}catch{return null}};
+ const packet=buildEditorialPacket(ledger,guide,week,notes,optional('data/certified-record-watch-feed-v1.json'));
  packet.context=buildEditorialContext(packet,ledger,optional('data/playoff_race_v1.json'),optional('data/trade_museum_stage66.json'));
  console.log(JSON.stringify(packet,null,2));
 }
