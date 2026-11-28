@@ -1,0 +1,149 @@
+{
+  "id": "759191673220775936",
+  "date": "2021-10-27",
+  "status": "investigative-draft-not-certified",
+  "headline": "Tony Loses the Trade, Wins the Championship",
+  "publicationDraft": "Tony traded injured George Kittle and recently recovered Jarvis Landry for Kyle Pitts, fresh off consecutive 100-yard games. Kuhl could afford the gamble with Travis Kelce already in his lineup. Kittle returned and erupted for 63.70 points across Weeks 13–14, while Pitts scored only one NFL touchdown all season. Yet Pitts delivered 13.20 in Tony’s 4.30-point championship victory; Kittle managed 3.10 that week. A straight swap would have cost Tony the title, although starting Waddle or Brown instead of Lamb could have rescued him. Kuhl got the stronger observed return, but Tony’s acquisition delivered at exactly the right damn moment.",
+  "sources": [
+    {
+      "url": "https://www.foxsports.com/articles/nfl/49ers-place-te-george-kittle-on-ir-with-calf-injury",
+      "date": "2021-10-09",
+      "finding": "Kittle calf IR, eligible November 7"
+    },
+    {
+      "url": "https://www.atlantafalcons.com/news/kyle-pitts-is-as-advertised-performance-in-miami-proves-it",
+      "date": "2021-10-24",
+      "finding": "Consecutive 100-yard games, before trade"
+    },
+    {
+      "url": "https://www.clevelandbrowns.com/news/news-notes-jarvis-landry-says-he-ll-be-ready-for-steelers",
+      "finding": "Landry returned Week 7 after knee IR and reinjured knee; article timing relative to deal not verified"
+    },
+    {
+      "url": "https://www.49ers.com/news/activate-george-kittle-robbie-gould-injured-reserve-dee-ford-pup-jeff-wilson-jr",
+      "date": "2021-11-06",
+      "finding": "Kittle activated"
+    },
+    {
+      "url": "https://www.49ers.com/news/george-kittle-jimmy-garoppolo-enter-49ers-history-books-with-win-over-bengals",
+      "finding": "181 and 151 receiving yards Weeks 13–14"
+    },
+    {
+      "url": "https://www.clevelandbrowns.com/news/stefanski-expects-browns-to-lock-in-step-up-after-losing-8-to-reserve-covid-19-l",
+      "date": "2021-12-14",
+      "finding": "Landry COVID list"
+    },
+    {
+      "url": "https://www.gwttkb.com/fantasy-history/2021-te.html",
+      "finding": "Pitts 1026 yards one TD, Kittle 910 yards six TD"
+    },
+    {
+      "url": "https://www.pff.com/news/fantasy-football-nfl-week-16-fantasy-football-rankings-2021",
+      "finding": "Kittle TE1, Pitts TE3 pregame"
+    },
+    {
+      "url": "https://www.statmuse.com/nfl/ask/george-kittle-playoff-stats-2021",
+      "finding": "Kittle seven catches 108 yards one TD in three NFL postseason games"
+    }
+  ],
+  "leagueEvidence": {
+    "weeks": [
+      {
+        "week": 8,
+        "pittsStart": 2.3,
+        "kittleStart": null,
+        "landryStart": null
+      },
+      {
+        "week": 9,
+        "pittsStart": 7.7,
+        "kittleStart": null,
+        "landryStart": null
+      },
+      {
+        "week": 10,
+        "pittsStart": 8,
+        "kittleStart": 13.5,
+        "landryStart": null
+      },
+      {
+        "week": 11,
+        "pittsStart": 4.4,
+        "kittleStart": 11.4,
+        "landryStart": null
+      },
+      {
+        "week": 12,
+        "pittsStart": 3.6,
+        "kittleStart": 1.8,
+        "landryStart": null
+      },
+      {
+        "week": 13,
+        "pittsStart": 6.8,
+        "kittleStart": 36.1,
+        "landryStart": null
+      },
+      {
+        "week": 14,
+        "pittsStart": 8.6,
+        "kittleStart": 27.6,
+        "landryStart": 12.6
+      },
+      {
+        "week": 15,
+        "pittsStart": 10.7,
+        "kittleStart": 12.3,
+        "landryStart": null
+      },
+      {
+        "week": 16,
+        "pittsStart": 13.2,
+        "kittleStart": 3.1,
+        "landryStart": null
+      }
+    ],
+    "kittleWeek9Bench": 17.1,
+    "totals": {
+      "pittsObserved": 65.3,
+      "kuhlObserved": 118.39999999999999,
+      "pittsArchiveWindow": 63,
+      "kuhlArchiveWindow": 118.39999999999999,
+      "pittsExcludingKnownUnpaired": 56.7,
+      "kuhlExcludingKnownUnpaired": 115.3
+    },
+    "archive": {
+      "tony": 63,
+      "kuhl": 118.4
+    },
+    "championshipCounterfactual": {
+      "week15": {
+        "tony": 94.96,
+        "stover": 73.44,
+        "pitts": 10.7,
+        "kittle": 12.3,
+        "swapScore": 96.56
+      },
+      "week16": {
+        "tony": 138.28,
+        "evans": 133.98,
+        "pitts": 13.2,
+        "kittle": 3.1,
+        "landryBench": 7.5,
+        "swapScore": 128.18,
+        "margin": -5.8,
+        "swapAndWaddleForLamb": 139.98,
+        "swapAndBrownForLamb": 146.78,
+        "tonyActualBenchTE": [],
+        "landryIfRetainedNotProven": true
+      },
+      "method": "Frozen remaining lineup, assume retained Kittle starts; not full-season simulation. Waddle and Brown were rostered and legitimate replacement WRs."
+    }
+  },
+  "limitations": [
+    "Continuous ownership not transaction-replayed",
+    "All weekly pairing eligibility not independently checked",
+    "Known singleton Tony W14 and Kuhl W16 excluded from paired comparisons",
+    "No final grades"
+  ]
+}
