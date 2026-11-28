@@ -1,0 +1,155 @@
+{
+  "id": "885980047650119680",
+  "date": "2022-10-12",
+  "status": "investigative-draft-not-certified",
+  "headline": "Tony Flips Kamara for a Franchise Receiver",
+  "receipt": {
+    "Evans": [
+      "Alvin Kamara",
+      "Gabe Davis"
+    ],
+    "Tony": [
+      "A.J. Brown",
+      "James Robinson"
+    ]
+  },
+  "weeks": [
+    {
+      "week": 6,
+      "kamaraStart": 15.4,
+      "davisStart": 14.9,
+      "brownStart": 15.2,
+      "robinsonStart": null
+    },
+    {
+      "week": 7,
+      "kamaraStart": 14,
+      "davisStart": null,
+      "brownStart": null,
+      "robinsonStart": 0
+    },
+    {
+      "week": 8,
+      "kamaraStart": 38.3,
+      "davisStart": 4.5,
+      "brownStart": 37.6,
+      "robinsonStart": null
+    },
+    {
+      "week": 9,
+      "kamaraStart": 7.7,
+      "davisStart": 4.3,
+      "brownStart": 13.9,
+      "robinsonStart": null
+    },
+    {
+      "week": 10,
+      "kamaraStart": 6,
+      "davisStart": 18.3,
+      "brownStart": 1.2,
+      "robinsonStart": null
+    },
+    {
+      "week": 11,
+      "kamaraStart": 10.9,
+      "davisStart": 9.3,
+      "brownStart": 6.5,
+      "robinsonStart": null
+    },
+    {
+      "week": 12,
+      "kamaraStart": 4,
+      "davisStart": 5.8,
+      "brownStart": 10.6,
+      "robinsonStart": null
+    },
+    {
+      "week": 13,
+      "kamaraStart": 4.7,
+      "davisStart": 8.5,
+      "brownStart": 28.9,
+      "robinsonStart": null
+    },
+    {
+      "week": 14,
+      "kamaraStart": null,
+      "davisStart": 4.6,
+      "brownStart": 15,
+      "robinsonStart": null
+    },
+    {
+      "week": 15,
+      "kamaraStart": 11.4,
+      "davisStart": null,
+      "brownStart": 23.6,
+      "robinsonStart": null
+    },
+    {
+      "week": 16,
+      "kamaraStart": 18,
+      "davisStart": null,
+      "brownStart": 14.3,
+      "robinsonStart": null
+    },
+    {
+      "week": 17,
+      "kamaraStart": 8.5,
+      "davisStart": null,
+      "brownStart": 18.7,
+      "robinsonStart": null
+    }
+  ],
+  "totals": {
+    "kamara": 138.9,
+    "davis": 70.2,
+    "brown": 185.5,
+    "robinson": 0,
+    "evans": 209.10000000000002,
+    "tony": 185.5
+  },
+  "archive": {
+    "evans": 178.8,
+    "tony": 170.3
+  },
+  "ownership": {
+    "dropRobinson": {
+      "id": "906201350784819200",
+      "date": "2022-12-07",
+      "replacement": "DeeJay Dallas"
+    }
+  },
+  "week15": {
+    "Evans": 130.38,
+    "Tony": 121.32,
+    "kamara": 11.4,
+    "davisBench": 7.6,
+    "brown": 23.6,
+    "counterfactual": "Replacing Brown with the highest-scoring actual bench WR (Garrett Wilson 11.8) reduces Tony's score to 109.52. Frozen lineup only; no claim about retained assets."
+  },
+  "sources": [
+    {
+      "url": "https://www.fantasypros.com/2022/10/fantasy-football-trade-value-chart-week-6-2022/",
+      "finding": "Kamara value 42.6, Robinson 26.7, Davis 25.9; Robinson declining, Kamara rising."
+    },
+    {
+      "url": "https://www.rotostreetjournal.com/2022/10/12/fantasy-football-week-6-buy-low-sell-high-using-expected-fantasy-points-2022-buy-jamarr-chase-sell-gabriel-davis/",
+      "finding": "Davis 171 yards two TD on six targets, sell-high argument; exact publication time unverified."
+    },
+    {
+      "url": "https://www.pff.com/news/fantasy-football-nfl-week-12-recap-new-york-jets-chicago-bears-2022",
+      "finding": "Robinson healthy scratch, appeared fourth on depth chart."
+    },
+    {
+      "url": "https://www.pro-football-reference.com/teams/nyj/2022.htm",
+      "finding": "Robinson four Jets games, 85 rushing yards."
+    }
+  ],
+  "publicationDraft": "Tony flipped Kamara and Davis immediately after their Week 5 explosions, acquiring Brown and Robinson. Evans filled two starting slots, while Tony secured a weekly receiver. Robinson's role evaporated after his NFL move to New York, and Tony cut him December 7. Brown produced 23.60 against Evans in December, but Evans still won by 9.06. The deal delivered useful production to both sides; Tony concentrated it in one receiver while Evans spread it across two positions. Brown's consistency mattered more than Robinson's disappearing act. This was a sensible consolidation, not a guaranteed ticket to a title.",
+  "limitations": [
+    "Full ownership replay and weekly matchup eligibility pending",
+    "NFL postseason context incomplete",
+    "Exact manager motivations unknown",
+    "No grades or deployment",
+    "Archive scoring window requires reconciliation"
+  ]
+}
