@@ -1,0 +1,67 @@
+{
+  "id": "629416763662086144",
+  "status": "investigative-draft-not-certified",
+  "headline": "Five Dollars, a Broken Foot and a Christmas Comeback",
+  "transaction": {
+    "date": "2020-11-03",
+    "stillyAcquired": "George Kittle",
+    "stewAcquiredFaab": 5
+  },
+  "nflEvidence": [
+    {
+      "date": "2020-11-02",
+      "url": "https://fantasy-www.nfl.com/news/49ers-qb-jimmy-garoppolo-te-george-kittle-likely-out-indefinitely",
+      "finding": "Foot fracture publicly reported before trade."
+    },
+    {
+      "date": "2020-11-03",
+      "url": "https://49ers.1rmg.com/transcripts/head-coach-kyle-shanahan-press-conference-11-3-20/",
+      "finding": "Shanahan reported an approximately eight-week estimate."
+    },
+    {
+      "date": "2020-12-22",
+      "url": "https://www.49ers.com/news/george-kittle-49ers-tight-end-return-week-16-arizona-cardinals-shanahan",
+      "finding": "Potential Week 16 return after five missed contests."
+    }
+  ],
+  "leagueEvidence": {
+    "week8": {
+      "kelce": 20.9,
+      "kittle": 4.9
+    },
+    "week14": {
+      "kittleBench": 0,
+      "kelceStarter": 23.6,
+      "opponent": "Stew",
+      "score": 115.72,
+      "opponentScore": 97.64
+    },
+    "week15": {
+      "kittleBench": 0,
+      "kelceStarter": 18.8,
+      "opponent": "Thommy",
+      "score": 148.72,
+      "opponentScore": 124.46
+    },
+    "week16": {
+      "kittleStarter": 11.2,
+      "kelceStarter": 19.3,
+      "teamScore": 88.62,
+      "pairedOpponent": null
+    },
+    "week17": {
+      "kittleStarter": 11.3,
+      "kelceStarter": 0,
+      "stage": "unverified; do not count"
+    }
+  },
+  "article": "Stilly bought a damaged Ferrari for the price of a waiver-wire pickup. The foot fracture was public before the exchange, and Kelce already occupied the starting tight end job. Stew received five FAAB for a player facing an extended absence. Kittle returned in Week 16 and started alongside Kelce, but the provider has no paired opponent for Stilly that week; his 11.20 points cannot be credited to a verified head-to-head playoff victory. Week 17 shows another starting appearance but its eligibility is unverified. The decision was a low-cost known-injury gamble, not a healthy-player acquisition derailed by an unexpected injury.",
+  "limitations": [
+    "No confirmed manager motive",
+    "FAAB spending unverified",
+    "Week 14 and 15 paired scores confirmed; bracket classification requires canonical bracket reconciliation",
+    "Week 16 unpaired; not eligible as head-to-head impact",
+    "Week 17 eligibility unverified",
+    "No final grade"
+  ]
+}
