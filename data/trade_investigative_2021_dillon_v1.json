@@ -1,0 +1,241 @@
+{
+  "id": "748585137259884544",
+  "status": "investigative-draft-not-certified",
+  "headline": "Five Bucks for a Backup Who Became a Starter",
+  "date": "2021-09-28",
+  "receipt": {
+    "stilly": "AJ Dillon",
+    "mitch": "5 FAAB"
+  },
+  "sources": [
+    {
+      "url": "https://www.nbcsports.com/fantasy/football/news/article-backfield-report-week-3-backfield-report-september-22-2021",
+      "date": "2021-09-22",
+      "finding": "Dillon had 29% snap share and six opportunities in Week 2; Jones had 69% and 23."
+    },
+    {
+      "url": "https://www.packers.com/news/game-notes-aj-dillon-s-dominant-fourth-quarter-slams-door-on-seattle",
+      "date": "2021-11-14",
+      "finding": "Jones injured knee; Dillon 128 scrimmage yards and two TDs."
+    },
+    {
+      "url": "https://amp.nfl.com/news/packers-rb-aaron-jones-ruled-out-vs-seahawks-with-knee-injury",
+      "date": "2021-11-14",
+      "finding": "Initial MCL sprain report."
+    },
+    {
+      "url": "https://www.packers.com/team/stats/2021/reg",
+      "finding": "Dillon 803 rushing yards, five rushing TDs."
+    },
+    {
+      "url": "https://www.packers.com/news/shock-factor-will-stick-with-packers-for-a-while",
+      "finding": "Dillon fractured rib during divisional playoff loss after scoring team's only TD."
+    }
+  ],
+  "leagueEvidence": {
+    "weeks": [
+      {
+        "week": 4,
+        "dillonPoints": 10.2,
+        "dillonStarted": false,
+        "jonesPoints": 9.4,
+        "jonesStarted": true
+      },
+      {
+        "week": 5,
+        "dillonPoints": 15.9,
+        "dillonStarted": false,
+        "jonesPoints": 13.9,
+        "jonesStarted": true
+      },
+      {
+        "week": 6,
+        "dillonPoints": 5.9,
+        "dillonStarted": false,
+        "jonesPoints": 19,
+        "jonesStarted": true
+      },
+      {
+        "week": 7,
+        "dillonPoints": -1.7,
+        "dillonStarted": false,
+        "jonesPoints": 6.4,
+        "jonesStarted": true
+      },
+      {
+        "week": 8,
+        "dillonPoints": 7.8,
+        "dillonStarted": false,
+        "jonesPoints": 20.5,
+        "jonesStarted": true
+      },
+      {
+        "week": 9,
+        "dillonPoints": 11,
+        "dillonStarted": false,
+        "jonesPoints": 5.3,
+        "jonesStarted": true
+      },
+      {
+        "week": 10,
+        "dillonPoints": 26.8,
+        "dillonStarted": false,
+        "jonesPoints": 10.6,
+        "jonesStarted": true
+      },
+      {
+        "week": 11,
+        "dillonPoints": 12.7,
+        "dillonStarted": true,
+        "jonesPoints": 0,
+        "jonesStarted": false
+      },
+      {
+        "week": 12,
+        "dillonPoints": 17.5,
+        "dillonStarted": true,
+        "jonesPoints": 2.3,
+        "jonesStarted": true
+      },
+      {
+        "week": 13,
+        "dillonPoints": 0,
+        "dillonStarted": false,
+        "jonesPoints": 0,
+        "jonesStarted": false
+      },
+      {
+        "week": 14,
+        "dillonPoints": 7.1,
+        "dillonStarted": true,
+        "jonesPoints": 20,
+        "jonesStarted": true
+      },
+      {
+        "week": 15,
+        "dillonPoints": 10,
+        "dillonStarted": true,
+        "jonesPoints": 14,
+        "jonesStarted": true
+      },
+      {
+        "week": 16,
+        "dillonPoints": 7.1,
+        "dillonStarted": true,
+        "jonesPoints": 11.2,
+        "jonesStarted": true
+      }
+    ],
+    "pairs": [
+      {
+        "week": 10,
+        "success": true,
+        "matchups": [
+          {
+            "home": [
+              1,
+              107.26
+            ],
+            "away": [
+              6,
+              109.44
+            ],
+            "winner": "away"
+          }
+        ]
+      },
+      {
+        "week": 11,
+        "success": true,
+        "matchups": [
+          {
+            "home": [
+              1,
+              133.64
+            ],
+            "away": [
+              3,
+              89.84
+            ],
+            "winner": "home"
+          }
+        ]
+      },
+      {
+        "week": 12,
+        "success": true,
+        "matchups": [
+          {
+            "home": [
+              1,
+              106.32
+            ],
+            "away": [
+              4,
+              80.24
+            ],
+            "winner": "home"
+          }
+        ]
+      },
+      {
+        "week": 14,
+        "success": true,
+        "matchups": [
+          {
+            "home": [
+              1,
+              108.94
+            ],
+            "away": [
+              4,
+              111.32
+            ],
+            "winner": "away"
+          }
+        ]
+      },
+      {
+        "week": 15,
+        "success": true,
+        "matchups": [
+          {
+            "home": [
+              1,
+              88.68
+            ],
+            "away": [
+              5,
+              98.18
+            ],
+            "winner": "away"
+          }
+        ]
+      },
+      {
+        "week": 16,
+        "success": true,
+        "matchups": [
+          {
+            "home": [
+              1,
+              82.24
+            ],
+            "away": null
+          }
+        ]
+      }
+    ],
+    "observedStarterTotal": 54.4,
+    "pairedStarterTotal": 47.3,
+    "week16Unpaired": 7.1
+  },
+  "publicationDraft": "Stilly spent five FAAB to insure Aaron Jones with his Green Bay understudy. Dillon was a reserve when acquired, but Jones’ November knee injury turned the insurance policy into a usable starter. Naturally, Dillon’s 26.80-point breakout happened on Stilly’s bench. He started the following week for 12.70 and eventually contributed 54.40 across five observed starts, including 7.10 in an unpaired Week 16 lineup. Mitch sold a bench back for waiver flexibility; the exact benefit of those five dollars cannot be isolated without a budget ledger. Stilly bought meaningful depth without surrendering a player. Not a franchise-altering heist, just a damn sensible purchase.",
+  "limitations": [
+    "FAAB fungible; no attributable downstream purchase established",
+    "No confirmed manager motives",
+    "Continuous ownership not transaction-replayed",
+    "Week 16 singleton excluded from paired impact",
+    "Final grades withheld"
+  ]
+}
