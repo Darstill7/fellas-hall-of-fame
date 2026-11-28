@@ -5,7 +5,7 @@ export const letterGrade=n=>n===null?null:n>=97?'A+':n>=93?'A':n>=90?'A-':n>=87?
 const finite=n=>typeof n==='number'&&Number.isFinite(n);
 const round=n=>Math.round(n*100)/100;
 // Proposed policy; weights must not be redistributed when evidence is missing.
-export const weights=Object.freeze({positionAdjustedProduction:.5,lineupImpact:.25,keeperValue:.15,otherAssets:.1});
+export const weights=Object.freeze({positionAdjustedProduction:.6,lineupImpact:.3,keeperValue:.05,otherAssets:.05});
 const components=Object.keys(weights);
 export function buildTradeReport(museum,approved=[]){
  const approvals=new Map();
