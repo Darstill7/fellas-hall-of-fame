@@ -1,0 +1,155 @@
+{
+  "status": "PARTIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1276326233327570944",
+  "date": "2025-09-24",
+  "timestamp": 1758675766247,
+  "source": "Original Sleeper 2025 completed transaction, draft, weeks 4–17 transaction history and finalized matchups weeks 7–10,15–17 via Flaim; archive regular-season starters and scores",
+  "source_blobs": {
+    "data/player_starts_2025.json": "edd4ed006cda105f548c4ee681ad311eceb74441",
+    "data/season_weekly_matchups_2016_2026_v1.json": "6dee0794c38c072f30b69d42bd7a2bad92015921",
+    "data/verified_sleeper_playoff_brackets_2020_2025.json": "90c96eb8c43c1f970ed929554ca23c711dabca2d"
+  },
+  "draft": [
+    {
+      "player": "Mike Evans",
+      "roster": 3,
+      "round": 3,
+      "overall": 29
+    },
+    {
+      "player": "Jordan Addison",
+      "roster": 8,
+      "round": 11,
+      "overall": 110
+    }
+  ],
+  "pretrade": {
+    "Evans": [
+      [
+        1,
+        7.6
+      ],
+      [
+        2,
+        8.1
+      ],
+      [
+        3,
+        11.3
+      ]
+    ],
+    "Addison": []
+  },
+  "contemporaneous": [
+    {
+      "date": "2025-09-22",
+      "fact": "Addison reinstated",
+      "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-monday-sept-22"
+    },
+    {
+      "date": "2025-09-23",
+      "fact": "Evans expected to miss multiple games with hamstring injury",
+      "url": "https://www.reuters.com/sports/report-bucs-wr-mike-evans-hamstring-out-multiple-weeks--flm-2025-09-23/"
+    },
+    {
+      "date": "2025-10-22",
+      "fact": "Evans placed on injured reserve after October 20 broken clavicle; had missed three games with hamstring injury",
+      "url": "https://www.buccaneers.com/news/mike-evans-heads-ir-michael-jordan-promoted"
+    }
+  ],
+  "sides": [
+    {
+      "manager": "Thommy",
+      "roster": 3,
+      "player": "Jordan Addison",
+      "starts": [
+        [
+          7,
+          17.3
+        ],
+        [
+          8,
+          10.1
+        ],
+        [
+          9,
+          7.4
+        ],
+        [
+          10,
+          5
+        ]
+      ],
+      "total": 39.8,
+      "ownership_end": "2025-11-12"
+    },
+    {
+      "manager": "Stover",
+      "roster": 8,
+      "player": "Mike Evans",
+      "starts": [
+        [
+          7,
+          0
+        ]
+      ],
+      "total": 0
+    }
+  ],
+  "sensitive": {
+    "week": 8,
+    "Thommy": 107.36,
+    "JMid": 102.9,
+    "margin": 4.46,
+    "Addison": 10.1,
+    "replacement_to_tie": 5.64
+  },
+  "head_to_head": {
+    "week": 9,
+    "Thommy": 108.3,
+    "Stover": 95.14,
+    "Addison": 7.4,
+    "Evans": "not in recorded starters"
+  },
+  "subsequent": {
+    "trade_id": "1294402688213057536",
+    "date": "2025-11-12",
+    "Thommy_gave": [
+      "Jordan Addison",
+      "Jared Goff"
+    ],
+    "Thommy_received": "A.J. Brown",
+    "Brown_playoff_starts": [
+      [
+        15,
+        11.1
+      ],
+      [
+        16,
+        14
+      ],
+      [
+        17,
+        9.3
+      ]
+    ],
+    "semifinal": {
+      "Thommy": 134.28,
+      "Mitch": 126.3,
+      "margin": 7.98,
+      "Brown": 14,
+      "replacement_to_tie": 6.02
+    },
+    "final": {
+      "Thommy": 86,
+      "Scott": 156.32
+    }
+  },
+  "limitations": [
+    "No complete bench or all-player production; no legal replacement established",
+    "Future keeper eligibility/cost not established from draft position alone",
+    "Do not credit Brown's full production to Addison alone; separate multi-asset downstream deal",
+    "No causal wins or grades"
+  ],
+  "next": "2025-09-24 Johnston–Tuten"
+}
