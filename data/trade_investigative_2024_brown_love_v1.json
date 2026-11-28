@@ -1,0 +1,169 @@
+{
+  "id": "1146947320588861440",
+  "timestamp": 1727871110855,
+  "date": "2024-10-02",
+  "status": "investigative-draft-not-certified",
+  "receipt": {
+    "Stilly": [
+      "Chase Brown"
+    ],
+    "Thommy": [
+      "Jordan Love"
+    ]
+  },
+  "weeks": [
+    {
+      "week": 5,
+      "brownStart": 14.9,
+      "loveStart": 14.96,
+      "thommyPaired": true
+    },
+    {
+      "week": 6,
+      "brownStart": null,
+      "loveStart": 25.62,
+      "thommyPaired": true
+    },
+    {
+      "week": 7,
+      "brownStart": 6.3,
+      "loveStart": 16.8,
+      "thommyPaired": true
+    },
+    {
+      "week": 8,
+      "brownStart": 10.4,
+      "loveStart": 5.74,
+      "thommyPaired": true
+    },
+    {
+      "week": 9,
+      "brownStart": null,
+      "loveStart": null,
+      "thommyPaired": true
+    },
+    {
+      "week": 10,
+      "brownStart": 17.9,
+      "loveStart": null,
+      "thommyPaired": true
+    },
+    {
+      "week": 11,
+      "brownStart": 16.8,
+      "loveStart": 20.24,
+      "thommyPaired": true
+    },
+    {
+      "week": 12,
+      "brownStart": null,
+      "loveStart": 14.72,
+      "thommyPaired": true
+    },
+    {
+      "week": 13,
+      "brownStart": 18.5,
+      "loveStart": 18.96,
+      "thommyPaired": true
+    },
+    {
+      "week": 14,
+      "brownStart": 21.3,
+      "loveStart": 14.54,
+      "thommyPaired": true
+    },
+    {
+      "week": 15,
+      "brownStart": 24.8,
+      "loveStart": 17.56,
+      "thommyPaired": false
+    },
+    {
+      "week": 16,
+      "brownStart": 12.4,
+      "loveStart": 11.48,
+      "thommyPaired": true
+    },
+    {
+      "week": 17,
+      "brownStart": 11.1,
+      "loveStart": 14,
+      "thommyPaired": true
+    }
+  ],
+  "totals": {
+    "Stilly": 154.4,
+    "Thommy": 174.62,
+    "ThommyPaired": 157.06
+  },
+  "ownership": [
+    {
+      "id": "1159548820611686400",
+      "date": "2024-11-06",
+      "added": "Aaron Rodgers",
+      "dropped": "Dak Prescott"
+    },
+    {
+      "id": "1164776799251984384",
+      "date": "2024-11-20",
+      "added": "Adam Thielen",
+      "dropped": "Aaron Rodgers"
+    }
+  ],
+  "counterfactual": {
+    "week15": {
+      "actualStilly": 125.94,
+      "Birch": 122.68,
+      "brown": 24.8,
+      "Edwards": 2.3,
+      "edwardsSub": 103.44,
+      "Dell": 5.1,
+      "dellFlexSub": 106.24,
+      "AtlantaDEF": 20,
+      "BaltimoreDEF": 8,
+      "maximumRemainingActualRoster": 118.24,
+      "margin": -4.44,
+      "condition": "Daniels remains QB; Love retained could be alternative QB, score must be verified before full no-trade certification"
+    },
+    "week16": {
+      "Thommy": 123.38,
+      "JMid": 121.08,
+      "Love": 11.48,
+      "withoutQB": 111.9,
+      "tieThreshold": 9.18,
+      "strictWinThreshold": 9.19,
+      "Thielen": 12.8,
+      "RodgersAlternative": "Previously rostered, dropped for Thielen; cannot retain both by assuming actual waiver unchanged",
+      "Stilly": 174.82,
+      "Stover": 130.94
+    },
+    "week17": {
+      "Thommy": 205.3,
+      "Stilly": 114.88,
+      "Love": 14,
+      "Brown": 11.1,
+      "Thielen": 26.5
+    }
+  },
+  "sources": [
+    {
+      "url": "https://www.dallascowboys.com/news/dak-opts-to-undergo-season-ending-surgery-headed-to-injured-reserve",
+      "finding": "Prescott season-ending hamstring surgery"
+    },
+    {
+      "url": "https://www.profootballnetwork.com/fantasy-football-ir-injury-update-week-14-2024/",
+      "finding": "Brown overtook Moss by Week 7"
+    },
+    {
+      "url": "https://statchasers.com/nfl/players/aaron-rodgers/?log=2024",
+      "finding": "Rodgers Week16 256 passing yards, TD, 6 rushing yards, fumble lost; league-specific total not yet certified"
+    }
+  ],
+  "limitations": [
+    "Full regular-season seeding replay pending",
+    "Cannot hold Thielen acquisition fixed if Rodgers retained without alternative drop",
+    "Love retained as alternative QB not tested Week15",
+    "No final grade or deployment"
+  ],
+  "publicationDraft": "Stilly turned a spare quarterback into Cincinnati's emerging lead back. Thommy acquired insurance that became essential when Prescott went down. Brown supplied 24.80 in Stilly's narrow opening-round win over Birch; no remaining actual bench combination with Daniels at QB could replace enough of that production. Love supplied 11.48 in Thommy's 2.30-point semifinal win. Both managers reached the championship. The trade helped both, but a full reversal needs to account for Thommy dropping Rodgers to acquire Thielen."
+}
