@@ -1,0 +1,108 @@
+{
+  "status": "conditional-counterfactual-not-full-season-replay",
+  "season": 2024,
+  "receipts": [
+    "1144362000575840256",
+    "1146947320588861440"
+  ],
+  "actual": {
+    "champion": "Thommy",
+    "runnerUp": "Stilly",
+    "final": [
+      205.3,
+      114.88
+    ]
+  },
+  "method": "Reverse both receipts, hold unrelated actual starters and observed weekly scores fixed. Allow explicit positional replacements. Retain Rodgers instead of acquiring Thielen, and exclude Johnston/Doubs as dependent acquisitions. No assumed alternate waiver additions. Playoff seeding held fixed, not certified under reversal.",
+  "week15": {
+    "Stilly": {
+      "actual": 125.94,
+      "remove": {
+        "Brown": 24.8,
+        "Achane": 10.1,
+        "McLaurin": 22.8
+      },
+      "add": {
+        "Higgins": 17.3,
+        "Edwards": 2.3,
+        "Kraft": 4.4
+      },
+      "defenseDelta": 12,
+      "revised": 104.24,
+      "Birch": 122.68,
+      "margin": -18.44,
+      "Love": 17.56,
+      "Daniels": 22.64
+    }
+  },
+  "week16": {
+    "Thommy": {
+      "actual": 123.38,
+      "remove": {
+        "Love": 11.48,
+        "Higgins": 15.8,
+        "Thielen": 12.8
+      },
+      "add": {
+        "Rodgers": 12.84,
+        "McLaurin": 14.5,
+        "Dell": 18.8
+      },
+      "revised": 129.44,
+      "JMid": 121.08,
+      "margin": 8.36
+    },
+    "otherSemifinal": {
+      "Stover": 130.94,
+      "Birch": 87.36,
+      "conditionalWinner": "Stover"
+    }
+  },
+  "week17": {
+    "Thommy": {
+      "actual": 205.3,
+      "remove": {
+        "Love": 14,
+        "Higgins": 34.6,
+        "Thielen": 26.5
+      },
+      "add": {
+        "Rodgers": 0.48,
+        "Brown": 11.1,
+        "Achane": 4.8
+      },
+      "positionAdjustment": "DeVonta Smith moves from FLEX to WR, Brown and Achane occupy FLEX",
+      "revised": 146.58,
+      "Stover": 144,
+      "margin": 2.58
+    },
+    "sensitivity": {
+      "McLaurinInsteadOfAchane": 142.78,
+      "Stover": 144,
+      "margin": -1.22
+    }
+  },
+  "rodgersScoring": {
+    "week16": {
+      "passingYards": 256,
+      "passingTD": 1,
+      "rushingYards": 6,
+      "fumble": 1,
+      "fumbleLost": 1,
+      "points": 12.84,
+      "source": "https://www.pro-football-reference.com/boxscores/202412220nyj.htm"
+    },
+    "week17": {
+      "passingYards": 112,
+      "interceptions": 2,
+      "points": 0.48,
+      "source": "https://www.pro-football-reference.com/boxscores/202412290buf.htm"
+    }
+  },
+  "limitations": [
+    "No alternate regular-season seeding replay; Week15–17 bracket is conditional on unchanged qualification and seeds",
+    "Rodgers retention and all other roster choices hypothetical; no claims about what managers would actually do",
+    "Week17 alternative lineup is hindsight sensitivity, not a pregame forecast",
+    "No final trade grades or deployment"
+  ]
+}
