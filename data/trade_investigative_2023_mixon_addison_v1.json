@@ -3,11 +3,8 @@
   "timestamp": 1699475311775,
   "date": "2023-11-08",
   "status": "investigative-draft-not-certified",
-  "headline": "JMid Buys a Workhorse, Stew Bets on a Rookie",
+  "headline": "Evans Buys a Workhorse, Stew Bets on a Rookie",
   "receipt": {
-    "JMid": [
-      "Joe Mixon"
-    ],
     "Stew": [
       "Jordan Addison",
       {
@@ -16,9 +13,12 @@
         "realizedValue": 0,
         "status": "void per commissioner policy"
       }
+    ],
+    "Evans": [
+      "Joe Mixon"
     ]
   },
-  "archiveManagerCorrection": "EvansBrandon is incorrect; original receipt roster 2 owner JMidd",
+  "archiveManagerCorrection": "Commissioner confirmed 2026-11-27: Evans managed roster 2 for the entire 2023 season. JMid was assigned the team after the season ended; current Sleeper ownership is retroactive, not historical. Original archive attribution EvansBrandon is correct.",
   "weeks": [
     {
       "week": 10,
@@ -88,43 +88,6 @@
     47.6
   ],
   "pairedResults": {
-    "JMid": [
-      [
-        10,
-        145.32,
-        74.08
-      ],
-      [
-        11,
-        111.3,
-        120.58
-      ],
-      [
-        12,
-        128.5,
-        119.28
-      ],
-      [
-        13,
-        141.12,
-        171.6
-      ],
-      [
-        14,
-        90.28,
-        127.42
-      ],
-      [
-        15,
-        94.22,
-        110.32
-      ],
-      [
-        16,
-        69.34,
-        136.52
-      ]
-    ],
     "Stew": [
       [
         10,
@@ -161,6 +124,43 @@
         125.3,
         148.16
       ]
+    ],
+    "Evans": [
+      [
+        10,
+        145.32,
+        74.08
+      ],
+      [
+        11,
+        111.3,
+        120.58
+      ],
+      [
+        12,
+        128.5,
+        119.28
+      ],
+      [
+        13,
+        141.12,
+        171.6
+      ],
+      [
+        14,
+        90.28,
+        127.42
+      ],
+      [
+        15,
+        94.22,
+        110.32
+      ],
+      [
+        16,
+        69.34,
+        136.52
+      ]
     ]
   },
   "sources": [
@@ -193,11 +193,19 @@
       "finding": "Addison exited week 16 ankle injury"
     }
   ],
-  "publicationDraft": "JMid acquired Mixon while Stew bet on rookie Addison and a second-round pick that ultimately carried no realized value. Addison had impressed in Jefferson's absence, but Cousins' Achilles injury already clouded his outlook. Mixon remained a dependable starter even after Burrow went down. Both players scored touchdowns in the same Week 15 NFL game; Addison's 26.10 was wasted in Stew's 56.28-point loss to Thommy, while JMid lost to Mitch despite Mixon's 13.60. JMid bought the more reliable starter. Stew bought upside, but the pick never paid a damn dividend.",
+  "publicationDraft": "Evans acquired Mixon while Stew bet on rookie Addison and a second-round pick that ultimately carried no realized value. Addison had impressed in Jefferson's absence, but Cousins' Achilles injury already clouded his outlook. Mixon remained a dependable starter even after Burrow went down. Both players scored touchdowns in the same Week 15 NFL game; Addison's 26.10 was wasted in Stew's 56.28-point loss to Thommy, while Evans lost to Mitch despite Mixon's 13.60. Evans bought the more reliable starter. Stew bought upside, but the pick never paid a damn dividend.",
   "limitations": [
     "Full ownership replay and keeper eligibility pending",
     "Exact bracket classification unverified",
     "NFL postseason qualification not independently verified",
     "No final grade or deployment"
-  ]
+  ],
+  "historicalManagerEvidence": {
+    "season": 2023,
+    "rosterId": 2,
+    "historicalManager": "Evans",
+    "providerDisplayedOwner": "JMidd",
+    "authority": "Commissioner firsthand confirmation",
+    "confirmedDate": "2026-11-27"
+  }
 }
