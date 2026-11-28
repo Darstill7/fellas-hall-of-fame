@@ -1,0 +1,214 @@
+{
+  "status": "investigative-draft-not-certified",
+  "season": 2021,
+  "source": "Sleeper historical weekly roster and matchup reads via Flaim; archived trade and roster-fit records",
+  "weeks": [
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "players": {
+    "thommy": {
+      "Hill": [
+        3.2,
+        9.6,
+        27.8,
+        2.9,
+        7.2
+      ],
+      "Williams": [
+        25.8,
+        20.8,
+        10.1,
+        9,
+        3.7
+      ],
+      "Prescott": [
+        11.22,
+        8.94,
+        10.58,
+        30.3,
+        21.04
+      ],
+      "FantBench": [
+        5.3,
+        7.1,
+        8.2,
+        4.5,
+        18.2
+      ]
+    },
+    "tony": {
+      "Taylor": [
+        24.3,
+        null,
+        24,
+        11.8,
+        17.9
+      ],
+      "Brown": [
+        null,
+        null,
+        null,
+        null,
+        5.1
+      ],
+      "BrownBench": [
+        0,
+        0,
+        0,
+        27,
+        null
+      ]
+    },
+    "birch": {
+      "Jackson": [
+        16.62,
+        1.18,
+        null,
+        null,
+        null
+      ],
+      "Andrews": [
+        7,
+        23,
+        31.6,
+        22.5,
+        11.9
+      ],
+      "Jacobs": [
+        19.5,
+        7.5,
+        10.9,
+        10.9,
+        16
+      ]
+    }
+  },
+  "pairedMatchups": [
+    {
+      "week": 14,
+      "thommy": [
+        104.54,
+        144.8,
+        "Stover"
+      ],
+      "tony": null,
+      "birch": null
+    },
+    {
+      "week": 15,
+      "thommy": [
+        84.68,
+        107.7,
+        "Mitch"
+      ],
+      "tony": [
+        94.96,
+        73.44,
+        "Stover"
+      ],
+      "birch": [
+        96.28,
+        109.02,
+        "Evans"
+      ]
+    },
+    {
+      "week": 16,
+      "thommy": null,
+      "tony": [
+        138.28,
+        133.98,
+        "Evans"
+      ],
+      "birch": [
+        118.2,
+        93.24,
+        "Stover"
+      ]
+    },
+    {
+      "week": 17,
+      "allUnpaired": true
+    }
+  ],
+  "limitations": [
+    "Exact continuous ownership and complete season totals not yet reconciled",
+    "Week 14 Tony and Birch singleton scores and Week 17 all singleton scores not counted as head-to-head impact",
+    "Round classifications require canonical bracket confirmation; Tony 2021 champion per established league history",
+    "No final grades",
+    "NFL postseason details not yet fully researched",
+    "Reasons for discretionary bench choices unknown"
+  ],
+  "articles": [
+    {
+      "id": "737360507476066304",
+      "headline": "Tony Buys a Rushing Champion Before the Damn Season Starts",
+      "date": "2021-08-30",
+      "publicationDraft": "Thommy traded Jonathan Taylor and A.J. Brown for a package headlined by Tyreek Hill, with rookie Javonte Williams and Josh Jacobs included. Jacobs was flipped to Birch the following day without a regular-season start for Thommy. Taylor subsequently led the NFL with 1,811 rushing yards, while Williams spent much of the year sharing Denver’s backfield. Tony weathered Corey Davis’s season-ending surgery and Brown’s injured-reserve stint. In Week 16, he even left Brown’s 27 points on the bench and escaped with a 4.30-point win over Evans. Thommy acquired legitimate talent, but Tony secured the more consequential asset. The championship does not excuse every lineup decision, and Jacobs’ downstream value belongs in the separate second transaction.",
+      "sources": [
+        [
+          "https://www.pro-football-reference.com/players/T/TaylJo02.htm",
+          "Taylor rookie production"
+        ],
+        [
+          "https://www.actionnetwork.com/fantasy-football/2021-fantasy-football-rankings-rookies-nfl-draft-schedule-release",
+          "Preseason player rankings"
+        ],
+        [
+          "https://www.nfl.com/stats/player-stats/category/rushing/2021/reg/all/rushingyards/desc",
+          "Taylor and Williams season rushing"
+        ],
+        [
+          "https://www.denverbroncos.com/news/we-can-both-do-it-all-melvin-gordon-iii-javonte-williams-form-one-of-nfl-s-best-",
+          "Williams 178 yards and TD in first start"
+        ],
+        [
+          "https://www.nfl.com/_amp/jets-wr-corey-davis-to-undergo-season-ending-core-muscle-surgery",
+          "Davis surgery"
+        ],
+        [
+          "https://www.tennesseetitans.com/news/titans-activate-wr-a-j-brown-db-chris-jackson-from-injured-reserve",
+          "Brown activated December 23"
+        ]
+      ]
+    },
+    {
+      "id": "738428315181928448",
+      "headline": "Birch Lands the Tight End That Would Not Stop Scoring",
+      "date": "2021-08-31",
+      "publicationDraft": "Thommy swapped Lamar Jackson, Mark Andrews and freshly acquired Josh Jacobs for Dak Prescott, Noah Fant and Antonio Gibson. Prescott’s recovery from ankle surgery and preseason shoulder strain were known risks, but he ultimately threw 37 touchdowns. Birch’s Jackson suffered a season-ending ankle injury in Week 14, while Andrews produced a franchise-record 1,361 receiving yards. Gibson played through a reported shin fracture and was traded to Stew in October, so his later production cannot be credited to Thommy. Fant spent the observed December stretch on Thommy’s bench. Birch lost to Evans in Week 15 despite 42.50 from Andrews and Jacobs. The provisional edge belongs to Birch’s positional value, not an invented championship payoff; Thommy’s Prescott acquisition was hardly a failure.",
+      "sources": [
+        [
+          "https://www.dallascowboys.com/news/dak-prescott-unlikely-to-play-in-preseason",
+          "Known shoulder strain"
+        ],
+        [
+          "https://www.dallascowboys.com/news/for-dak-prescott-what-a-difference-a-year-makes",
+          "Ankle recovery, calf absence, 37 TD"
+        ],
+        [
+          "https://www.baltimoreravens.com/news/lamar-jackson-leaves-cleveland-game-with-ankle-injury",
+          "December 12 injury"
+        ],
+        [
+          "https://www.baltimoreravens.com/news/by-the-numbers-ravens-2021-season",
+          "Andrews franchise records"
+        ],
+        [
+          "https://abcnews.com/Sports/washington-football-team-rb-antonio-gibson-played-hairline/story?id=80755398",
+          "October 24 report of shin fracture; not evidence known August 31"
+        ]
+      ],
+      "onward": {
+        "id": "754024908207583232",
+        "date": "2021-10-13",
+        "GibsonTo": "Stew",
+        "CooperTo": "Thommy"
+      }
+    }
+  ]
+}
