@@ -1,0 +1,192 @@
+{
+  "id": "886267215865982976",
+  "date": "2022-10-13",
+  "status": "investigative-draft-not-certified",
+  "headline": "Six Players, Two Very Different Strategies",
+  "receipt": {
+    "Stilly": [
+      "allen",
+      "higgins",
+      "harris"
+    ],
+    "Thommy": [
+      "metcalf",
+      "lamb",
+      "smith"
+    ]
+  },
+  "weeks": [
+    {
+      "week": 6,
+      "allen": null,
+      "higgins": 7.7,
+      "harris": 11.9,
+      "metcalf": 4.4,
+      "lamb": 10.2,
+      "smith": 12.9
+    },
+    {
+      "week": 7,
+      "allen": 2.1,
+      "higgins": 11.8,
+      "harris": 9.5,
+      "metcalf": 1.7,
+      "lamb": 8.6,
+      "smith": null
+    },
+    {
+      "week": 8,
+      "allen": null,
+      "higgins": 13.4,
+      "harris": 8.96,
+      "metcalf": null,
+      "lamb": 16.3,
+      "smith": 4.8
+    },
+    {
+      "week": 9,
+      "allen": null,
+      "higgins": 9.5,
+      "harris": null,
+      "metcalf": 12.2,
+      "lamb": null,
+      "smith": 3.2
+    },
+    {
+      "week": 10,
+      "allen": null,
+      "higgins": null,
+      "harris": 8.9,
+      "metcalf": 10.1,
+      "lamb": 32.5,
+      "smith": null
+    },
+    {
+      "week": 11,
+      "allen": null,
+      "higgins": 19.3,
+      "harris": 25.6,
+      "metcalf": null,
+      "lamb": 7,
+      "smith": 10.8
+    },
+    {
+      "week": 12,
+      "allen": 13.4,
+      "higgins": 20.9,
+      "harris": 10.4,
+      "metcalf": 14.5,
+      "lamb": 14.7,
+      "smith": 7
+    },
+    {
+      "week": 13,
+      "allen": 17.8,
+      "higgins": 11,
+      "harris": 9.7,
+      "metcalf": 23.7,
+      "lamb": 17.9,
+      "smith": 18.7
+    },
+    {
+      "week": 14,
+      "allen": 15.2,
+      "higgins": 0,
+      "harris": 12,
+      "metcalf": 15.6,
+      "lamb": 5.8,
+      "smith": 15.9
+    },
+    {
+      "week": 15,
+      "allen": 12.6,
+      "higgins": 13.8,
+      "harris": null,
+      "metcalf": 9,
+      "lamb": 16.2,
+      "smith": 16.1
+    },
+    {
+      "week": 16,
+      "allen": 15.9,
+      "higgins": 22.8,
+      "harris": 12.5,
+      "metcalf": 11.6,
+      "lamb": 29,
+      "smith": 27.3
+    },
+    {
+      "week": 17,
+      "allen": 9.3,
+      "higgins": 1.8,
+      "harris": 19.3,
+      "metcalf": 0.8,
+      "lamb": 15.5,
+      "smith": 16
+    }
+  ],
+  "totals": {
+    "individual": {
+      "allen": 86.3,
+      "higgins": 132,
+      "harris": 128.76,
+      "metcalf": 103.6,
+      "lamb": 173.7,
+      "smith": 132.7
+    },
+    "observed": [
+      347.06,
+      410
+    ],
+    "excludeWeek6": [
+      327.46,
+      382.5
+    ],
+    "excludeWeek17": [
+      316.66,
+      377.7
+    ]
+  },
+  "archive": [
+    327.46,
+    382.5
+  ],
+  "week6": {
+    "stilly": 102.18,
+    "thommy": 81.4
+  },
+  "week16": {
+    "stilly": 93.5,
+    "thommy": 115.04,
+    "stillyAcquired": 51.2,
+    "thommyAcquired": 67.9,
+    "swapFrozenLineups": {
+      "stilly": 110.2,
+      "thommy": 98.34
+    },
+    "legalSwap": "Harris occupies FLEX RB, replacement WR eligible; Thommy has two acquired WR slots and one FLEX, Harris can occupy FLEX."
+  },
+  "week17BothUnpaired": true,
+  "sources": [
+    {
+      "url": "https://www.rotoballer.com/fantasy-football-injury-reports-for-nfl-wrs-week-6-updates-for-tyreek-hill-tee-higgins-keenan-allen-michael-thomas-chris-olave-and-rashod-bateman/1080891",
+      "finding": "Oct 12 pretrade Allen hamstring and Higgins ankle context"
+    },
+    {
+      "url": "https://www.fftoday.com/stats/playerstats.php?GameWeek=&LeagueID=17&PosID=30&Season=2022&order_by=Rec&sort_order=DESC",
+      "finding": "Lamb 1359/9, Smith 1196/7, Metcalf 1048/6"
+    },
+    {
+      "url": "https://www.fftoday.com/stats/playerstats.php?GameWeek=Playoffs&LeagueID=5&PosID=30&Season=2022",
+      "finding": "NFL postseason Lamb 185/1, Smith 197/1, Metcalf 136/2 receiving yards/TD"
+    }
+  ],
+  "publicationDraft": "Stilly traded three receivers for Harris, Higgins and Allen while Taylor's ankle was causing problems. Thommy needed receivers and immediately started all three acquisitions. Allen and Higgins carried known injury concerns, but recovered to deliver useful late-season production. All three receivers Thommy acquired cleared 1,000 NFL receiving yards. In their Week 16 rematch, Thommy's trio scored 67.90 against Stilly's 51.20. Swapping those six players back into legal lineup slots would reverse the result with other starters held fixed. Both managers addressed needs; Thommy just bought a hell of a receiving corps.",
+  "limitations": [
+    "Manager motivations inferred",
+    "Full ownership replay and bracket classification pending",
+    "Acquired-side NFL postseason context incomplete",
+    "Week 16 frozen swap is not a full-season simulation",
+    "Final grades withheld"
+  ]
+}
