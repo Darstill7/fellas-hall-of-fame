@@ -41,5 +41,25 @@ export function buildTradeReport(museum,approved=[]){
   if(s.score!==null){m.graded++;m.scoreTotal+=s.score;m[({win:'wins',loss:'losses',draw:'draws',middle:'middle'})[s.outcome]]++}
  }
  for(const m of Object.values(managers)){m.rating=m.graded?round(m.scoreTotal/m.graded):null;m.grade=letterGrade(m.rating);m.ungraded=m.trades.length-m.graded;delete m.scoreTotal}
- return {modelVersion:MODEL_VERSION,trades,managers};
+
+ // Pairwise views reuse the original side grades, never regrade a transaction.
+ const rivalries=Object.create(null);
+ for(const t of trades)for(const a of t.sides)for(const b of t.sides){
+  if(a.manager===b.manager)continue;
+  const group=rivalries[a.manager]??=Object.create(null);
+  const r=group[b.manager]??={manager:a.manager,opponent:b.manager,trades:[],graded:0,wins:0,losses:0,draws:0,scoreTotal:0,opponentScoreTotal:0,rawCompared:0,rawPoints:0,opponentRawPoints:0};
+  const graded=a.score!==null&&b.score!==null;
+  const outcome=graded?Math.abs(a.score-b.score)<=2?'draw':a.score>b.score?'win':'loss':null;
+  r.trades.push({id:t.id,year:t.year,week:t.week,grade:a.grade,opponentGrade:b.grade,score:a.score,opponentScore:b.score,outcome,status:t.status,participantCount:t.sides.length});
+  if(graded){r.graded++;r.scoreTotal+=a.score;r.opponentScoreTotal+=b.score;r[({win:'wins',loss:'losses',draw:'draws'})[outcome]]++}
+  if(t.status!=='incomplete-receipt'&&finite(a.rawStarterPoints)&&finite(b.rawStarterPoints)){r.rawCompared++;r.rawPoints+=a.rawStarterPoints;r.opponentRawPoints+=b.rawStarterPoints}
+ }
+ for(const group of Object.values(rivalries))for(const r of Object.values(group)){
+  r.rating=r.graded?round(r.scoreTotal/r.graded):null;
+  r.opponentRating=r.graded?round(r.opponentScoreTotal/r.graded):null;
+  r.grade=letterGrade(r.rating);r.opponentGrade=letterGrade(r.opponentRating);
+  r.ungraded=r.trades.length-r.graded;r.rawPoints=round(r.rawPoints);r.opponentRawPoints=round(r.opponentRawPoints);r.rawEdge=round(r.rawPoints-r.opponentRawPoints);
+  delete r.scoreTotal;delete r.opponentScoreTotal;
+ }
+ return {modelVersion:MODEL_VERSION,trades,managers,rivalries};
 }
