@@ -1,0 +1,213 @@
+{
+  "status": "INDEPENDENT_STARTER_RECOUNT",
+  "season": 2022,
+  "trade_id": "875965138744864768",
+  "source": "Original Sleeper transactions, draft, finalized matchups weeks 1–17; archived verified playoff bracket",
+  "date": "2022-09-15",
+  "sides": [
+    {
+      "manager": "Stilly",
+      "player": "Jonathan Taylor",
+      "draft": "Mitch 1.01",
+      "weeks": [
+        [
+          2,
+          6.8
+        ],
+        [
+          3,
+          10.6
+        ],
+        [
+          4,
+          2.8
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          8,
+          5.6
+        ],
+        [
+          10,
+          24.3
+        ],
+        [
+          11,
+          14.9
+        ],
+        [
+          12,
+          17.3
+        ],
+        [
+          13,
+          11.8
+        ],
+        [
+          15,
+          1.8
+        ]
+      ],
+      "total": 107.9,
+      "starts": 10
+    },
+    {
+      "manager": "Mitch",
+      "player": "Saquon Barkley",
+      "draft": "Stilly 2.09",
+      "weeks": [
+        [
+          2,
+          10.3
+        ],
+        [
+          3,
+          20.6
+        ],
+        [
+          4,
+          17.2
+        ],
+        [
+          5,
+          20.1
+        ],
+        [
+          6,
+          17
+        ],
+        [
+          7,
+          15.5
+        ],
+        [
+          8,
+          13.7
+        ],
+        [
+          10,
+          22.5
+        ],
+        [
+          11,
+          4.5
+        ],
+        [
+          12,
+          13.2
+        ],
+        [
+          13,
+          16.6
+        ],
+        [
+          14,
+          5.8
+        ],
+        [
+          15,
+          20.5
+        ],
+        [
+          16,
+          23.3
+        ],
+        [
+          17,
+          6.3
+        ]
+      ],
+      "total": 227.1,
+      "starts": 15
+    },
+    {
+      "manager": "Mitch",
+      "player": "Adam Thielen",
+      "draft": "Stilly 9.02",
+      "weeks": [
+        [
+          2,
+          7.2
+        ],
+        [
+          3,
+          15.1
+        ],
+        [
+          4,
+          11.2
+        ],
+        [
+          5,
+          4.7
+        ],
+        [
+          6,
+          13.6
+        ],
+        [
+          9,
+          8.2
+        ],
+        [
+          11,
+          3.5
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          15,
+          11.6
+        ],
+        [
+          16,
+          1.1
+        ],
+        [
+          17,
+          2.1
+        ]
+      ],
+      "total": 94.3,
+      "starts": 11
+    }
+  ],
+  "boundary": {
+    "observed": 24.3,
+    "independent_kickoff_check": "pending"
+  },
+  "quarterfinal": {
+    "actual": {
+      "Stilly": 94.92,
+      "Mitch": 127.9
+    },
+    "rb_swap": {
+      "Stilly": 113.62,
+      "Mitch": 109.2
+    },
+    "scope": "Thielen unchanged; all other starters unchanged"
+  },
+  "later_rounds": {
+    "week16": {
+      "Stilly": 93.5,
+      "Stew": 106.52,
+      "Barkley": 23.3
+    },
+    "week17": {
+      "Stilly": 97.62,
+      "Stover": 99.22,
+      "Barkley": 6.3
+    },
+    "status": "No complete alternate lineup reconstruction"
+  },
+  "limitations": [
+    "No full bench data",
+    "No keeper or injury verification in this pass",
+    "No final grades or production changes"
+  ]
+}
