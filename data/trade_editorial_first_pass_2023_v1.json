@@ -1,0 +1,72 @@
+{
+  "status": "first-editorial-pass-not-publication-ready",
+  "sources": [
+    "data/trade_individual_review_v1.json",
+    "data/trade_par_preview.json"
+  ],
+  "articles": [
+    {
+      "id": "1038099277249245184",
+      "headline": "Lockett Edges Chase in a Modest December Exchange",
+      "analysis": "Kuhl received 15.70 points in two starts from Tyler Lockett, while Evans collected 14.00 across three from Ja'Marr Chase. Neither return was particularly substantial in the recorded window; Chase averaged 4.67 per start against Lockett's 7.85. The positional research excludes the transaction week and ends at Week 14, leaving neither acquisition matched. That absence cannot be interpreted as zero positional value.",
+      "verdict": "Kuhl's 1.70-point advantage is too small to establish a convincing victory. Postseason lineup context and subsequent ownership are especially important for this late-season deal.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1031251467312775168",
+      "headline": "Hall's Efficiency Meets Tony's Two-Player Return",
+      "analysis": "Breece Hall delivered 101.00 points across six starts for Stew, while Amari Cooper and Travis Etienne Jr. supplied Tony with 87.50 across eight. Hall's 16.83 points per start comfortably exceeded Tony's combined average of 10.94. Yet the separate matched research covering Weeks 12–14 gives Tony a narrow edge in aggregate points above benchmark, 25.21 to 21.85, over five player-starts compared with Hall's three. The two windows measure different portions of the transaction.",
+      "verdict": "Stew leads the broader recorded production comparison, while Tony's package has a credible case in the narrower positional window. Neither measure independently settles the lineup-value question.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1031121022772555776",
+      "headline": "Mitch Extracts the Stronger Return From Jefferson and Jacobs",
+      "analysis": "Justin Jefferson and Josh Jacobs contributed 74.60 points across six player-starts for Mitch. Gabe Davis supplied Stew with 25.10 in four, averaging 6.28 against Mitch's 12.43. The narrower matched research reinforces the disparity: Mitch's acquisitions combined for 15.82 points above benchmark, while Davis registered minus 3.39 in one zero-point start. A separate ownership and asset review is needed to establish the full exchange, rather than assuming that the recorded packages describe every relevant consideration.",
+      "verdict": "Mitch has the stronger documented production case; Stew's return was modest, with a demonstrably negative benchmark result in the narrower window.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1028065885325508608",
+      "headline": "Mixon Gives Evans a Clear Scoring Advantage",
+      "analysis": "Joe Mixon returned 111.50 points over seven starts for Evans, more than twice Jordan Addison's 47.60 across six for Stew. The per-start comparison is similarly pronounced at 15.93 against 7.93. Addison's narrower positional research records 4.67 points above benchmark, but Mixon is unmatched in that dataset despite his broader recorded production. This is a source-coverage problem, not proof that Mixon added no value.",
+      "verdict": "Evans has a strong raw production case. A fair cross-position grade requires resolving Mixon's positional evidence and each manager's lineup alternatives.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1023059879336013824",
+      "headline": "Evans and Henry Give Stilly the Stronger Documented Return",
+      "analysis": "Mike Evans and Derrick Henry combined for 261.48 points across eighteen player-starts for Stilly, while Cooper Kupp delivered 85.80 in eight for Tony. Stilly's package led by 175.68 points and also averaged more per start, 14.53 against 10.73. The narrower matched research identifies 132.43 points above benchmark for Stilly's acquisitions versus 27.44 for Kupp. The agreement across these measures is more persuasive than the raw scoring margin alone, although it still does not establish the precise improvement over either manager's alternatives.",
+      "verdict": "Stilly has the stronger documented direct return in this exchange. Final grades must account for the cost of filling two starting positions and verified later asset movement.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1018289561511682048",
+      "headline": "Lamb Drives Birch's Advantage in Four-Player Deal",
+      "analysis": "CeeDee Lamb and Kenny Gainwell supplied Birch with 236.10 points over ten player-starts, compared with 77.50 over ten from Tony Pollard and Jaxon Smith-Njigba for Stew. On identical starting volume, Birch's package averaged 23.61 points against 7.75. In the narrower research window, Lamb alone recorded 134.55 points above benchmark, against 20.64 for Stew's matched package; Gainwell remains unmatched. Lamb also appears in Stew's earlier acquisition from Kuhl, making the ownership chain relevant to both deals.",
+      "verdict": "Birch has a compelling direct-production advantage. Stew's broader return must be examined in the context of his earlier Lamb acquisition and subsequent asset disposition, without double-counting.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1012571602774532096",
+      "headline": "Kuhl's Depth Outlasts Stew's More Efficient Package",
+      "analysis": "James Conner, De'Von Achane and Puka Nacua generated 415.90 points across twenty-nine player-starts for Kuhl. CeeDee Lamb and Travis Etienne Jr. returned 136.60 across eight for Stew. Stew's package averaged 17.08 points per start against Kuhl's 14.34, but Kuhl's much greater starting volume yielded a 279.30-point advantage. The narrower matched positional research also favors Kuhl, 171.03 to 94.95 points above benchmark. Both Lamb and Etienne appear in later documented deals involving Stew, so the original exchange cannot fairly be judged without examining those subsequent returns.",
+      "verdict": "Kuhl has the stronger documented cumulative return, while Stew's efficiency and subsequent transactions complicate any claim that his original acquisition was a failure.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    }
+  ]
+}
