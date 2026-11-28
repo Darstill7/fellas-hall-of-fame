@@ -1,0 +1,224 @@
+{
+  "status": "PARTIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1294724519813988352",
+  "timestamp": 1763049569406,
+  "date": "2025-11-13",
+  "source": "Original Sleeper transactions weeks 1–17, 2025/2026 drafts, finalized matchups weeks 11–17 via Flaim",
+  "source_blobs": {
+    "data/player_starts_2025.json": "edd4ed006cda105f548c4ee681ad311eceb74441",
+    "data/season_weekly_matchups_2016_2026_v1.json": "6dee0794c38c072f30b69d42bd7a2bad92015921"
+  },
+  "sides": [
+    {
+      "manager": "Stew",
+      "players": [
+        [
+          "Ferguson",
+          [
+            9.6,
+            7.6,
+            6.1,
+            8.3,
+            2.6,
+            3.4,
+            7.1
+          ]
+        ],
+        [
+          "Warren",
+          [
+            7.7,
+            12.8,
+            11.4,
+            13.7,
+            6.3,
+            30.1,
+            5.4
+          ]
+        ]
+      ],
+      "weeks": "11–17",
+      "total": 132.1,
+      "starts": 14,
+      "ledger": 114.8,
+      "delta": 17.3
+    },
+    {
+      "manager": "Kuhl",
+      "players": [
+        [
+          "Henry",
+          [
+            20.2,
+            21.8,
+            17.9,
+            10.7,
+            10,
+            22.8,
+            45.6
+          ]
+        ],
+        [
+          "Ertz",
+          [
+            6.2
+          ]
+        ]
+      ],
+      "weeks": "11–17; Ertz week 11 only",
+      "total": 155.2,
+      "starts": 8,
+      "ledger": 128.8,
+      "delta": 26.4
+    }
+  ],
+  "boundary": "Observed week 11 starts included provisionally; NFL kickoff schedule still needs independent verification.",
+  "draft2025": [
+    [
+      "Henry",
+      9,
+      1,
+      6
+    ],
+    [
+      "Warren",
+      9,
+      10,
+      95
+    ],
+    [
+      "Ferguson",
+      4,
+      15,
+      142
+    ]
+  ],
+  "draft2026": [
+    [
+      "Henry",
+      10,
+      2,
+      16,
+      false
+    ],
+    [
+      "Warren",
+      9,
+      6,
+      58,
+      false
+    ],
+    [
+      "Ferguson",
+      2,
+      14,
+      137,
+      false
+    ]
+  ],
+  "provenance": {
+    "Ferguson": [
+      [
+        "Stew",
+        "drop",
+        "2025-09-09",
+        "1271212731524997120"
+      ],
+      [
+        "Kuhl",
+        "waiver $2",
+        "2025-09-17",
+        "1273857310078279680"
+      ]
+    ],
+    "Ertz": [
+      [
+        "JMid",
+        "waiver $5",
+        "2025-09-17"
+      ],
+      [
+        "JMid",
+        "drop",
+        "2025-09-26"
+      ],
+      [
+        "Stew",
+        "add",
+        "2025-10-01"
+      ],
+      [
+        "Stew",
+        "drop",
+        "2025-10-08"
+      ],
+      [
+        "Stilly",
+        "add",
+        "2025-10-17"
+      ],
+      [
+        "Stilly",
+        "drop",
+        "2025-10-31"
+      ],
+      [
+        "Stew",
+        "waiver $0",
+        "2025-11-05"
+      ],
+      [
+        "Kuhl",
+        "drop",
+        "2025-12-10",
+        "1304550321342648320"
+      ]
+    ]
+  },
+  "sensitive": [
+    {
+      "manager": "Kuhl",
+      "week": 11,
+      "points": 26.4,
+      "margin": 26.34,
+      "replacement_to_tie": 0.06
+    },
+    {
+      "manager": "Kuhl",
+      "week": 14,
+      "points": 10.7,
+      "margin": 9.8,
+      "replacement_to_tie": 0.9
+    }
+  ],
+  "playoffs": {
+    "Stew_seed": 5,
+    "quarterfinal_loss": [
+      121.5,
+      148.76
+    ],
+    "acquired_points": 8.9,
+    "Kuhl_qualified": false,
+    "Henry_week17": 45.6
+  },
+  "cycle": {
+    "prior_trade": "1273856224776962053",
+    "Stew_Henry_first_stint": 81.4,
+    "Kuhl_Collins": 179,
+    "Stew_net_given": [
+      "Nico Collins",
+      "Zach Ertz"
+    ],
+    "Stew_net_received": [
+      "Jake Ferguson",
+      "Jaylen Warren"
+    ],
+    "note": "No double counting Henry's separate ownership intervals; raw points not position-adjusted."
+  },
+  "limitations": [
+    "No full bench production, injury context or legal replacement scenario; no final grades",
+    "Week 17 unpaired scoring not championship game",
+    "No production changes"
+  ],
+  "next": "Independent 2025 audit: all eight transactions, boundary eligibility, keeper outcomes and sensitive matchups"
+}
