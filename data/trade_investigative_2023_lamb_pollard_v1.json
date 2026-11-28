@@ -1,0 +1,184 @@
+{
+  "id": "1018289561511682048",
+  "timestamp": 1697143410205,
+  "date": "2023-10-12",
+  "status": "investigative-draft-not-certified",
+  "headline": "Stew Sells CeeDee Lamb at the Worst Possible Time",
+  "receipt": {
+    "Stew": [
+      "Tony Pollard",
+      "Jaxon Smith-Njigba"
+    ],
+    "Birch": [
+      "CeeDee Lamb",
+      "Kenny Gainwell"
+    ]
+  },
+  "weeks": [
+    {
+      "week": 6,
+      "pollardStart": 15,
+      "smithNjigbaStart": null,
+      "lambStart": 15.2,
+      "gainwellStart": null
+    },
+    {
+      "week": 7,
+      "pollardStart": null,
+      "smithNjigbaStart": null,
+      "lambStart": null,
+      "gainwellStart": null
+    },
+    {
+      "week": 8,
+      "pollardStart": 6,
+      "smithNjigbaStart": null,
+      "lambStart": 35,
+      "gainwellStart": null
+    },
+    {
+      "week": 9,
+      "pollardStart": 7.8,
+      "smithNjigbaStart": 9.3,
+      "lambStart": 22.6,
+      "gainwellStart": null
+    },
+    {
+      "week": 10,
+      "pollardStart": null,
+      "smithNjigbaStart": null,
+      "lambStart": 34,
+      "gainwellStart": null
+    },
+    {
+      "week": 11,
+      "pollardStart": null,
+      "smithNjigbaStart": 5.5,
+      "lambStart": 13.5,
+      "gainwellStart": null
+    },
+    {
+      "week": 12,
+      "pollardStart": null,
+      "smithNjigbaStart": 5.1,
+      "lambStart": 15.3,
+      "gainwellStart": null
+    },
+    {
+      "week": 13,
+      "pollardStart": null,
+      "smithNjigbaStart": 9.7,
+      "lambStart": 26.6,
+      "gainwellStart": null
+    },
+    {
+      "week": 14,
+      "pollardStart": null,
+      "smithNjigbaStart": 4.5,
+      "lambStart": 16.1,
+      "gainwellStart": null
+    },
+    {
+      "week": 15,
+      "pollardStart": null,
+      "smithNjigbaStart": 12.8,
+      "lambStart": 15.1,
+      "gainwellStart": null
+    },
+    {
+      "week": 16,
+      "pollardStart": null,
+      "smithNjigbaStart": 9.1,
+      "lambStart": 23.2,
+      "gainwellStart": null
+    },
+    {
+      "week": 17,
+      "pollardStart": null,
+      "smithNjigbaStart": 7.7,
+      "lambStart": 34.7,
+      "gainwellStart": null
+    }
+  ],
+  "totals": {
+    "stew": 92.5,
+    "birch": 251.3,
+    "excludeAcquisition": [
+      77.5,
+      236.1
+    ],
+    "excludeKnownUnpaired": [
+      84.8,
+      216.6
+    ]
+  },
+  "archive": {
+    "stew": 77.5,
+    "birch": 236.1
+  },
+  "ownership": [
+    {
+      "id": "1026923055127437312",
+      "date": "2023-11-05",
+      "BirchDropped": "Gainwell",
+      "added": "Keaontay Ingram"
+    },
+    {
+      "id": "1028057686711058432",
+      "date": "2023-11-08",
+      "StewSentPollardTo": "Thommy",
+      "note": "Three-team deal; separate grading, no double count"
+    }
+  ],
+  "week14": {
+    "stew": 71.54,
+    "birch": 105.44,
+    "lamb": 16.1,
+    "smithNjigba": 4.5
+  },
+  "week15": {
+    "birch": 105.06,
+    "stilly": 146.36,
+    "lamb": 15.1
+  },
+  "week17": {
+    "birch": 91.7,
+    "lamb": 34.7,
+    "stew": 102.82,
+    "bothUnpaired": true
+  },
+  "sources": [
+    {
+      "url": "https://www.fantasypros.com/2023/10/fantasy-football-trade-value-chart-week-6-2023/",
+      "finding": "Pollard 44.7, Lamb 28.7 in Week 6 chart"
+    },
+    {
+      "url": "https://www.fantasypros.com/2023/10/fantasy-football-forecast-waiver-wire-trade-advice-for-week-6-2023/",
+      "finding": "Contemporary advice explicitly buy Pollard and sell Lamb"
+    },
+    {
+      "url": "https://www.thefantasyfootballers.com/analysis/trade-targets-for-week-6-fantasy-football/",
+      "finding": "October 10 Lamb WR20 at time"
+    },
+    {
+      "url": "https://www.seahawks.com/news/jaxon-smith-njigba-set-to-make-nfl-debut-despite-recent-wrist-surgery",
+      "finding": "Preseason wrist fracture surgery; returned for opener as third WR"
+    },
+    {
+      "url": "https://www.nfl.com/news/ceedee-lamb-sets-cowboys-single-season-record-for-receptions-receiving-yards-in-",
+      "finding": "Week 17 13 catches 227 yards and TD, Dallas franchise records"
+    },
+    {
+      "url": "https://www.leaguestation.com/players/577/ceedee-lamb/game-log?season=2023",
+      "finding": "135 catches 1749 yards 12 receiving TD"
+    }
+  ],
+  "publicationDraft": "Stew sold Lamb while Dallas was sputtering, acquiring Pollard and rookie Smith-Njigba. Contemporary analysts actually endorsed buying Pollard and selling Lamb. Then Lamb went nuclear. Birch got 251.30 observed starting points from Lamb alone, while Stew flipped Pollard in a November three-team deal. Gainwell never started and was cut. Birch beat Stew in Week 14, but lost to Stilly in Week 15; Lamb's spectacular Week 17 outing came in an unpaired lineup. Stew's decision was defensible at the time, but the realized return was brutal. Birch bought the dip and got the damn jackpot.",
+  "limitations": [
+    "No championship attribution; Birch lost Week 15 and Week 17 unpaired",
+    "Full ownership replay and all earlier matchup eligibility not checked",
+    "NFL postseason and keeper context incomplete",
+    "No final grades or deployment",
+    "Exact trade chart publication time not independently established"
+  ]
+}
