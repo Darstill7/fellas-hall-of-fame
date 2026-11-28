@@ -1,0 +1,348 @@
+{
+  "status": "INITIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1012571602774532096",
+  "date": "2023-09-27",
+  "timestamp": 1695778528592,
+  "source": "Original Sleeper 2023 finalized matchups weeks 1–17, completed transactions, 2023 and 2024 drafts via Flaim",
+  "historical_rules": {
+    "roster2": "Evan",
+    "roster5": "Koble",
+    "traded_picks": "All voided; zero realized value"
+  },
+  "draft2023": [
+    [
+      "Lamb",
+      9,
+      2,
+      17
+    ],
+    [
+      "Etienne",
+      9,
+      3,
+      24
+    ],
+    [
+      "Conner",
+      4,
+      7,
+      63
+    ],
+    [
+      "Achane",
+      2,
+      11,
+      105
+    ]
+  ],
+  "waiver": [
+    [
+      "Achane",
+      "Evan drop",
+      "2023-09-05",
+      "1004876805947334656"
+    ],
+    [
+      "Achane",
+      "Stew $0",
+      "2023-09-07",
+      "1005174488197169152"
+    ],
+    [
+      "Nacua",
+      "Stew $6",
+      "2023-09-13",
+      "1007480338724450304"
+    ]
+  ],
+  "players": [
+    {
+      "m": "Stew",
+      "p": "Lamb",
+      "v": [
+        [
+          4,
+          12.8
+        ],
+        [
+          5,
+          6.9
+        ]
+      ],
+      "total": 19.7,
+      "reg": 19.7
+    },
+    {
+      "m": "Stew",
+      "p": "Etienne",
+      "v": [
+        [
+          4,
+          8.7
+        ],
+        [
+          5,
+          34.4
+        ],
+        [
+          6,
+          21.8
+        ],
+        [
+          7,
+          21.2
+        ],
+        [
+          8,
+          25.4
+        ],
+        [
+          10,
+          5.4
+        ]
+      ],
+      "total": 116.9,
+      "reg": 116.9
+    },
+    {
+      "m": "Kuhl",
+      "p": "Conner",
+      "v": [
+        [
+          4,
+          6.1
+        ],
+        [
+          5,
+          4.6
+        ],
+        [
+          10,
+          7.3
+        ],
+        [
+          11,
+          7.3
+        ],
+        [
+          12,
+          5.2
+        ],
+        [
+          13,
+          22.5
+        ],
+        [
+          15,
+          17.4
+        ],
+        [
+          16,
+          19.7
+        ],
+        [
+          17,
+          25.8
+        ]
+      ],
+      "total": 115.9,
+      "reg": 53
+    },
+    {
+      "m": "Kuhl",
+      "p": "Achane",
+      "v": [
+        [
+          4,
+          26.5
+        ],
+        [
+          5,
+          22
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          13,
+          23.8
+        ],
+        [
+          14,
+          9.6
+        ],
+        [
+          15,
+          7.7
+        ],
+        [
+          17,
+          22.7
+        ]
+      ],
+      "total": 113.3,
+      "reg": 82.9
+    },
+    {
+      "m": "Kuhl",
+      "p": "Nacua",
+      "v": [
+        [
+          4,
+          26.8
+        ],
+        [
+          5,
+          15.6
+        ],
+        [
+          6,
+          4.6
+        ],
+        [
+          7,
+          19.4
+        ],
+        [
+          8,
+          5.8
+        ],
+        [
+          9,
+          4.7
+        ],
+        [
+          11,
+          16.2
+        ],
+        [
+          12,
+          4.7
+        ],
+        [
+          13,
+          22.9
+        ],
+        [
+          14,
+          11.5
+        ],
+        [
+          15,
+          7.8
+        ],
+        [
+          16,
+          29.5
+        ],
+        [
+          17,
+          17.2
+        ]
+      ],
+      "total": 186.7,
+      "reg": 132.2
+    }
+  ],
+  "downstream": [
+    [
+      "Lamb",
+      "Birch",
+      "2023-10-12",
+      "1018289561511682048"
+    ],
+    [
+      "Etienne",
+      "Tony",
+      "2023-11-17",
+      "1031251467312775168"
+    ]
+  ],
+  "sensitive": [
+    [
+      "Stew",
+      5,
+      "Birch",
+      94.36,
+      66.8,
+      41.3
+    ],
+    [
+      "Kuhl",
+      4,
+      "Evan",
+      120.58,
+      118.26,
+      59.4
+    ],
+    [
+      "Kuhl",
+      13,
+      "Evan",
+      171.6,
+      141.12,
+      69.2
+    ],
+    [
+      "Kuhl",
+      16,
+      "Stew",
+      148.16,
+      125.3,
+      49.2
+    ]
+  ],
+  "head_to_head": {
+    "week": 6,
+    "Stew": 99.12,
+    "Kuhl": 114.44,
+    "Etienne": 21.8,
+    "Nacua": 4.6,
+    "different_positions": "No simple positional swap certified"
+  },
+  "draft2024": [
+    [
+      "Lamb",
+      9,
+      1,
+      3,
+      false
+    ],
+    [
+      "Etienne",
+      2,
+      2,
+      14,
+      false
+    ],
+    [
+      "Nacua",
+      10,
+      2,
+      16,
+      false
+    ],
+    [
+      "Achane",
+      3,
+      3,
+      24,
+      false
+    ],
+    [
+      "Conner",
+      5,
+      4,
+      32,
+      false
+    ]
+  ],
+  "limitations": [
+    "Full bench production and injury context not verified",
+    "No actual 2024 keeper marker for any of five in returned draft",
+    "Ownership scan beyond known trades pending",
+    "Sensitivity is not causal; week 16 consolation"
+  ],
+  "next": "October 12 Lamb/Gainwell–Pollard/Smith-Njigba"
+}
