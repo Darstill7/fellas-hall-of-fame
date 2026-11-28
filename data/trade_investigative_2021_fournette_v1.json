@@ -1,0 +1,154 @@
+{
+  "id": "751504917667168256",
+  "date": "2021-10-07",
+  "status": "investigative-draft-not-certified",
+  "headline": "Kuhl Sells Playoff Lenny Just as the Party Starts",
+  "publicationDraft": "Kuhl sold a reserve running back for DeVonta Smith, fresh off a 122-yard game. Stover dealt from a loaded receiving corps, and the move became crucial when Derrick Henry needed foot surgery in November. Fournette erupted for 40.60 in Stover's Week 12 victory over Kuhl, who got 3.20 from Smith. A December hamstring injury eventually sidelined Fournette, but the damage to Kuhl's trade return was already done. Smith had a respectable rookie season; the roster fit made sense for both managers. Stover simply bought the better asset at the right damn time.",
+  "sources": [
+    {
+      "url": "https://www.fantasypros.com/2021/10/the-primer-week-5-edition-2021-fantasy-football/2/",
+      "finding": "Smith 7 catches 122 yards in Week 4; Week 5 Fournette outlook positive; exact publication timing relative to transaction not established."
+    },
+    {
+      "url": "https://www.fantasypros.com/2021/10/the-game-plan-week-5-edition-2021-fantasy-football/2/",
+      "finding": "Contemporary Week 5 analysis noted expanding Fournette workload."
+    },
+    {
+      "url": "https://www.tennesseetitans.com/news/titans-activate-ol-daniel-munyer-from-injured-reserve-while-placing-rb-derrick-h",
+      "date": "2021-11-01",
+      "finding": "Henry placed on IR and scheduled for foot surgery."
+    },
+    {
+      "url": "https://www.buccaneers.com/news/bucs-activate-leonard-fournette-injured-reserve-roster-moves",
+      "finding": "Fournette 1265 scrimmage yards and 10 TD in 14 games; Week 15 hamstring injury; activated for divisional round after missing wild card."
+    },
+    {
+      "url": "https://www.pro-football-reference.com/teams/phi/2021.htm",
+      "finding": "Smith 64 catches 916 yards five TD; Week 14 bye; wild-card loss four catches 60 yards."
+    },
+    {
+      "url": "https://www.nfl.com/players/leonard-fournette/stats/logs/2021/",
+      "finding": "NFL game logs; Week 12 four touchdowns and divisional postseason return."
+    }
+  ],
+  "leagueEvidence": {
+    "weeks": [
+      {
+        "week": 5,
+        "fournetteStart": 19,
+        "smithStart": 11.2,
+        "smithBench": null
+      },
+      {
+        "week": 6,
+        "fournetteStart": 27.7,
+        "smithStart": 4.1,
+        "smithBench": null
+      },
+      {
+        "week": 7,
+        "fournetteStart": 16,
+        "smithStart": 8.6,
+        "smithBench": null
+      },
+      {
+        "week": 8,
+        "fournetteStart": 5.8,
+        "smithStart": 2,
+        "smithBench": null
+      },
+      {
+        "week": 9,
+        "fournetteStart": null,
+        "smithStart": 20.1,
+        "smithBench": null
+      },
+      {
+        "week": 10,
+        "fournetteStart": 13.2,
+        "smithStart": null,
+        "smithBench": 20.6
+      },
+      {
+        "week": 11,
+        "fournetteStart": 10.4,
+        "smithStart": 8.1,
+        "smithBench": null
+      },
+      {
+        "week": 12,
+        "fournetteStart": 40.6,
+        "smithStart": 3.2,
+        "smithBench": null
+      },
+      {
+        "week": 13,
+        "fournetteStart": 18.7,
+        "smithStart": null,
+        "smithBench": 2.5
+      },
+      {
+        "week": 14,
+        "fournetteStart": 22.2,
+        "smithStart": null,
+        "smithBench": 0
+      },
+      {
+        "week": 15,
+        "fournetteStart": 10.2,
+        "smithStart": 5.5,
+        "smithBench": null
+      },
+      {
+        "week": 16,
+        "fournetteStart": null,
+        "smithStart": 17.5,
+        "smithBench": null
+      },
+      {
+        "week": 17,
+        "fournetteStart": null,
+        "smithStart": 6.9,
+        "smithBench": null
+      }
+    ],
+    "week12": {
+      "stover": 109.98,
+      "kuhl": 104.6,
+      "fournette": 40.6,
+      "smith": 3.2
+    },
+    "week14": {
+      "stover": 144.8,
+      "thommy": 104.54,
+      "kuhl": 109.52,
+      "koble": 73.32
+    },
+    "week15": {
+      "stover": 73.44,
+      "tony": 94.96,
+      "kuhl": 116.7,
+      "stew": 62.76
+    },
+    "week16": {
+      "stover": 93.24,
+      "birch": 118.2,
+      "kuhl": 87.12,
+      "kuhlOpponent": null
+    },
+    "observedTotals": {
+      "fournetteWeeks5to15": 183.8,
+      "smithWeeks5to15": 62.8,
+      "fournetteWeeks6to16": 164.8,
+      "smithWeeks6to16": 69.1
+    },
+    "archiveReproduction": "Both original totals exactly reproduced by weeks 6–16, excluding acquired week 5 and including Kuhl's unpaired Week 16. This is evidence of a scoring-window issue, not proof of original generator logic."
+  },
+  "limitations": [
+    "Continuous ownership not independently replayed",
+    "Exact motives unconfirmed",
+    "No final grades",
+    "Week 16 Kuhl unpaired excluded from paired impact; bracket classification pending",
+    "NFL postseason exact Fournette line not separately inspected this turn"
+  ]
+}
