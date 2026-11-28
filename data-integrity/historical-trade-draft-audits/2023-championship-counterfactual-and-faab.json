@@ -1,0 +1,111 @@
+{
+  "status": "CONDITIONAL_CHAMPIONSHIP_RESEARCH_NOT_CERTIFIED",
+  "season": 2023,
+  "source": "Original Sleeper finalized lineups weeks 15–17 and completed transactions weeks 1–17 via Flaim; commissioner-confirmed historical rules",
+  "historical_rules": {
+    "roster2": "Evans",
+    "roster5": "Koble",
+    "successors_2024": [
+      "JMid",
+      "Scott"
+    ],
+    "traded_picks": "All voided"
+  },
+  "scenarios": [
+    {
+      "week": 16,
+      "actual": {
+        "Tony": 108.58,
+        "Stilly": 141.66
+      },
+      "substitutions": [
+        {
+          "manager": "Tony",
+          "out": "Etienne",
+          "out_points": 4.6,
+          "in": "Hall",
+          "in_points": 37.1
+        },
+        {
+          "manager": "Tony",
+          "out": "Kupp",
+          "out_points": 7.9,
+          "in": "Evans",
+          "in_points": 24.1
+        },
+        {
+          "manager": "Stilly",
+          "out": "Evans",
+          "out_points": 24.1,
+          "in": "Kupp",
+          "in_points": 7.9
+        }
+      ],
+      "adjusted": {
+        "Tony": 157.28,
+        "Stilly": 125.46
+      }
+    },
+    {
+      "week": 17,
+      "actual": {
+        "Tony": 106.44,
+        "Mitch": 90.18
+      },
+      "substitutions": [
+        {
+          "manager": "Tony",
+          "out": "Etienne",
+          "out_points": 25.8,
+          "in": "Hall",
+          "in_points": 23.1
+        },
+        {
+          "manager": "Tony",
+          "out": "Kupp",
+          "out_points": 10.7,
+          "in": "Evans",
+          "in_points": 8.5
+        }
+      ],
+      "adjusted": {
+        "Tony": 101.54,
+        "Mitch": 90.18
+      }
+    }
+  ],
+  "faab": {
+    "manager": "Thommy",
+    "received": 49,
+    "trade_id": "1028057686711058432",
+    "pretrade_paid_bids": [
+      5,
+      60,
+      3,
+      3,
+      6,
+      4,
+      2,
+      2
+    ],
+    "pretrade_sum": 85,
+    "posttrade_paid_bids": [
+      {
+        "date": "2023-11-22",
+        "player": "Isaiah Likely",
+        "amount": 11,
+        "id": "1032686602780307456"
+      }
+    ],
+    "posttrade_sum": 11,
+    "difference": 38,
+    "limitations": "FAAB is fungible; starting budget and any other adjustments not independently established; difference is not verified ending balance."
+  },
+  "limitations": [
+    "Partial swaps, not full reversal: Henry remains Stilly's player, Cooper remains Tony's player, other roster decisions and regular-season seeding unchanged.",
+    "Tony's Week 17 lineup was for placement, not actual championship. Counterfactual lineup choices are unknown.",
+    "Full bench points unavailable. No definitive championship-changing designation.",
+    "No production changes."
+  ],
+  "next": "Complete nine-player trade draft and ownership audit, independent 2023 scoring and editorial checks"
+}

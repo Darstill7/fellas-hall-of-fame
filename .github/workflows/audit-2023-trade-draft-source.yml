@@ -1,0 +1,27 @@
+name: Audit 2023 historical Sleeper trade and draft attribution
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit-2023-trade-draft-source.mjs'
+      - '.github/workflows/audit-2023-trade-draft-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  provenance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reconcile original 2023 trade IDs and lineup PF under correct historical managers
+        run: |
+          node --check scripts/audit-2023-trade-draft-source.mjs
+          node scripts/audit-2023-trade-draft-source.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 2023-historical-trade-source-research
+          retention-days: 30
+          path: data-integrity/historical-trade-draft-audits/2023-original-sleeper-review.json

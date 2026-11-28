@@ -1,0 +1,21 @@
+{
+  "status": "COMMISSIONER_CONFIRMED_HISTORICAL_RULE",
+  "confirmed_date": "2026-11-28",
+  "scope": "All historical traded draft picks in The Fellas",
+  "rule": "All traded draft picks were voided and never honored.",
+  "source": "Direct user correction in Fellas project conversation: 'You have to remember. All draft picks were voided'",
+  "research_policy": {
+    "preserve_original_transaction_receipts": true,
+    "realized_draft_pick_value": 0,
+    "attribute_subsequent_draft_selections_to_voided_picks": false,
+    "keep_FAAB_and_keeper_rights_separate": true,
+    "blockbuster_rating": "May describe nominal original trade terms, clearly label voided picks; do not count them as realized premium assets."
+  },
+  "supersedes": "Draft-pick realization uncertainty in 2023-eight-trade-inventory-and-missing-blockbuster.json and any earlier research suggesting picks were honored.",
+  "historical_identity": {
+    "season": 2023,
+    "roster2": "Evan, not JMid",
+    "roster5": "Koble"
+  },
+  "production_changed": false
+}

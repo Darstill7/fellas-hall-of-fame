@@ -1,0 +1,135 @@
+{
+  "status": "DERIVED_FROM_VERIFIED_TRANSACTION_RECEIPTS",
+  "season": 2023,
+  "manager": "Stew",
+  "trades": [
+    {
+      "id": "1012571602774532096",
+      "date": "2023-09-27",
+      "partners": [
+        "Kuhl"
+      ],
+      "out": [
+        "Conner",
+        "Achane",
+        "Nacua"
+      ],
+      "in": [
+        "Lamb",
+        "Etienne"
+      ]
+    },
+    {
+      "id": "1018289561511682048",
+      "date": "2023-10-12",
+      "partners": [
+        "Birch"
+      ],
+      "out": [
+        "Lamb",
+        "Gainwell"
+      ],
+      "in": [
+        "Pollard",
+        "Smith-Njigba"
+      ]
+    },
+    {
+      "id": "1028057686711058432",
+      "date": "2023-11-08",
+      "partners": [
+        "Stilly",
+        "Thommy"
+      ],
+      "out": [
+        "Adams",
+        "Sutton",
+        "Pollard"
+      ],
+      "in": [
+        "Hopkins",
+        "Cooper",
+        "Jacobs"
+      ],
+      "faab": -49
+    },
+    {
+      "id": "1028065885325508608",
+      "date": "2023-11-08",
+      "partners": [
+        "Evans"
+      ],
+      "out": [
+        "Mixon"
+      ],
+      "in": [
+        "Addison"
+      ]
+    },
+    {
+      "id": "1031121022772555776",
+      "date": "2023-11-17",
+      "partners": [
+        "Mitch"
+      ],
+      "out": [
+        "Jefferson",
+        "Jacobs"
+      ],
+      "in": [
+        "Davis"
+      ]
+    },
+    {
+      "id": "1031251467312775168",
+      "date": "2023-11-17",
+      "partners": [
+        "Tony"
+      ],
+      "out": [
+        "Cooper",
+        "Etienne"
+      ],
+      "in": [
+        "Hall"
+      ]
+    }
+  ],
+  "distinct_partners": [
+    "Kuhl",
+    "Birch",
+    "Stilly",
+    "Thommy",
+    "Evans",
+    "Mitch",
+    "Tony"
+  ],
+  "net_received": [
+    "Smith-Njigba",
+    "Hopkins",
+    "Addison",
+    "Davis",
+    "Hall"
+  ],
+  "net_surrendered": [
+    "Conner",
+    "Achane",
+    "Nacua",
+    "Gainwell",
+    "Adams",
+    "Sutton",
+    "Mixon",
+    "Jefferson"
+  ],
+  "pass_through": [
+    "Lamb",
+    "Etienne",
+    "Pollard",
+    "Cooper",
+    "Jacobs"
+  ],
+  "net_faab": -49,
+  "traded_picks": "All voided in 2024 reset; no realized value",
+  "limits": "Trade-only flow, not final roster or net fantasy points. No attribution of bundled downstream assets to single upstream player.",
+  "historical_identity": "Evans and Koble through 2023; JMid and Scott from 2024"
+}

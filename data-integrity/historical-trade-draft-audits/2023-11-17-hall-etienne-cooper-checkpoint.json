@@ -1,0 +1,202 @@
+{
+  "status": "INITIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1031251467312775168",
+  "timestamp": 1700263493067,
+  "date": "2023-11-17",
+  "source": "Original Sleeper 2023 finalized matchups weeks 1–17, completed transactions weeks 10–17, 2023 and 2024 draft via Flaim",
+  "historical_rules": {
+    "roster2": "Evan, not JMid",
+    "draft_picks": "All voided; zero realized value"
+  },
+  "sides": [
+    {
+      "manager": "Stew",
+      "received": [
+        "Breece Hall",
+        "2024 fifth-round pick (voided)"
+      ],
+      "gave": [
+        "Travis Etienne",
+        "Amari Cooper"
+      ],
+      "players": [
+        {
+          "name": "Hall",
+          "weeks": [
+            [
+              11,
+              15.8
+            ],
+            [
+              12,
+              8.4
+            ],
+            [
+              13,
+              7.5
+            ],
+            [
+              14,
+              22.6
+            ],
+            [
+              15,
+              2.3
+            ],
+            [
+              16,
+              37.1
+            ],
+            [
+              17,
+              23.1
+            ]
+          ],
+          "total": 116.8
+        }
+      ]
+    },
+    {
+      "manager": "Tony",
+      "received": [
+        "Etienne",
+        "Cooper"
+      ],
+      "gave": [
+        "Hall",
+        "2024 fifth-round pick (voided)"
+      ],
+      "players": [
+        {
+          "name": "Etienne",
+          "weeks": [
+            [
+              11,
+              7.4
+            ],
+            [
+              12,
+              10.6
+            ],
+            [
+              13,
+              15.9
+            ],
+            [
+              14,
+              15.2
+            ],
+            [
+              15,
+              7.9
+            ],
+            [
+              16,
+              4.6
+            ],
+            [
+              17,
+              25.8
+            ]
+          ],
+          "total": 87.4
+        },
+        {
+          "name": "Cooper",
+          "weeks": [
+            [
+              11,
+              5.4
+            ],
+            [
+              12,
+              2.6
+            ],
+            [
+              13,
+              4.9
+            ]
+          ],
+          "total": 12.9
+        }
+      ]
+    }
+  ],
+  "ledger": {
+    "Stew": 101,
+    "Tony": 87.5
+  },
+  "boundary": {
+    "week": 11,
+    "observed_restored_points": 28.6,
+    "status": "pending independent NFL kickoff verification"
+  },
+  "draft2023": [
+    [
+      "Etienne",
+      9,
+      3,
+      24
+    ],
+    [
+      "Cooper",
+      3,
+      5,
+      41
+    ],
+    [
+      "Hall",
+      7,
+      6,
+      51
+    ]
+  ],
+  "draft2024": [
+    [
+      "Hall",
+      4,
+      1,
+      6
+    ],
+    [
+      "Etienne",
+      2,
+      2,
+      14
+    ],
+    [
+      "Cooper",
+      3,
+      6,
+      57
+    ]
+  ],
+  "impact": {
+    "sensitive_regular_wins": 0,
+    "Stew_qualified": false,
+    "Tony_seed": 1,
+    "semifinal": {
+      "Tony": 108.58,
+      "Stilly": 141.66,
+      "Etienne": 4.6,
+      "Hall": 37.1,
+      "conditional_RB_swap_Tony": 141.08,
+      "margin_remaining": 0.58,
+      "Cooper_not_started": true
+    },
+    "combined_two_trade_scenario": {
+      "description": "Replace Tony Etienne with Hall, exchange actual Evans and Kupp scores between Tony and Stilly; leave Henry and all other contributions unchanged",
+      "Tony": 157.28,
+      "Stilly": 125.46,
+      "margin": 31.82,
+      "limitation": "Partial multi-trade hypothetical, not full alternate season or championship proof"
+    }
+  },
+  "limitations": [
+    "Complete bench production, injury context and actual alternate lineup choices unavailable",
+    "No keeper marker in returned 2024 draft; eligibility not certified",
+    "Week 11 kickoff eligibility pending",
+    "No production changes or final grades"
+  ],
+  "next": "December 6 Evan–Kuhl Chase–Lockett; complete nine-player blockbuster and independent audit"
+}

@@ -1,0 +1,70 @@
+{
+  "status": "SOURCE_CONTEXT_AUDIT",
+  "season": 2023,
+  "identity": "Evans roster 2, Koble roster 5; JMid and Scott successors in 2024",
+  "injuries": [
+    {
+      "player": "Justin Jefferson",
+      "facts": "Week 5 hamstring injury, IR Oct 11, practice Nov 8, traded Nov 17, activated Nov 28",
+      "sources": [
+        "https://www.vikings.com/news/justin-jefferson-injured-reserve-roster-moves",
+        "https://www.vikings.com/news/justin-jefferson-return-to-practice",
+        "https://www.vikings.com/news/activate-justin-jefferson-wide-receiver-2023"
+      ]
+    },
+    {
+      "player": "Cooper Kupp",
+      "facts": "IR Sep 9 hamstring; practice Oct 4; returned Week 5",
+      "sources": [
+        "https://www.therams.com/news/rams-place-cooper-kupp-and-hunter-long-on-injured-reserve-week-1-seahawks",
+        "https://www.therams.com/news/cooper-kupp-returns-to-practice-week-5-eagles",
+        "https://www.latimes.com/sports/rams/story/2023-10-13/cooper-kupp-hamstring-rams-cardinals"
+      ]
+    },
+    {
+      "player": "De'Von Achane",
+      "facts": "Knee injury IR October after trade; activated Nov 18",
+      "sources": [
+        "https://www.miamidolphins.com/news/miami-dolphins-place-achane-on-injured-reserve",
+        "https://www.miamidolphins.com/team/transactions/2023"
+      ]
+    },
+    {
+      "player": "Ja'Marr Chase",
+      "facts": "Shoulder injury Week 15; inactive Week 16",
+      "sources": [
+        "https://www.nfl.com/news/bengals-wr-ja-marr-chase-shoulder-won-t-play-vs-steelers",
+        "https://www.bengals.com/team/players-roster/ja-marr-chase/logs/2023/reg/"
+      ]
+    },
+    {
+      "player": "Josh Jacobs",
+      "facts": "Quad injury reported Week 15, inactive Dec 14; no playoff starts in league",
+      "sources": [
+        "https://www.raiders.com/news/las-vegas-raiders-nfl-week-15-injury-report-tnf",
+        "https://www.raiders.com/news/las-vegas-raiders-nfl-week-15-inactives-vs-los-angeles-chargers-121423"
+      ]
+    },
+    {
+      "player": "Joe Burrow",
+      "facts": "Season-ending wrist injury Nov 16 after Mixon trade and before Chase trade",
+      "sources": [
+        "https://www.bengals.com/news/burrow-declared-out-of-ravens-game-with-injured-throwing-wrist",
+        "https://www.bengals.com/news/burrow-transitions-from-playmaker-to-playoff-run-counselor-after-season-ending-w"
+      ]
+    }
+  ],
+  "keeper_audit": {
+    "source": "Original 2024 Sleeper draft via Flaim",
+    "picks": 150,
+    "keeper_true": 0,
+    "keeper_false": 0,
+    "keeper_field_missing": 150,
+    "conclusion": "Keeper designation unavailable, not proof of no keepers. Supersedes earlier false/no keeper markers. Same roster selections Waddle and Montgomery (Stilly), Hall (Stew), Jacobs (Mitch) observed; no keeper savings established."
+  },
+  "schedule": {
+    "source": "https://www.pro-football-reference.com/years/2023/games.htm",
+    "status": "Retrieved season schedule; detailed per-player kickoff check not completed in this pass. Earlier schedule verification artifact should be treated as provisional until individual dates independently reviewed."
+  },
+  "limitations": "Not comprehensive injury audit of every player; no production changes or grades."
+}

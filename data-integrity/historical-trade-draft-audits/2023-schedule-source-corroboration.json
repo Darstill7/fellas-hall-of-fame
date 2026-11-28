@@ -1,0 +1,99 @@
+{
+  "status": "SCHEDULE_DATE_CORROBORATION",
+  "season": 2023,
+  "supersedes": "Provisional schedule verification in earlier checkpoints",
+  "source_urls": [
+    "https://www.dallascowboys.com/news/nfl-releases-full-2023-dallas-cowboys-schedule",
+    "https://www.sportingnews.com/us/nfl/news/nfl-schedule-2023-dates-times-tv-channels/bxyvy94ijqlfrtaxi6tcevo7",
+    "https://sports.yahoo.com/nfl-schedule-week-week-011938954.html?src=rss",
+    "https://www.nfl.com/schedules/2023/by-week/week-10",
+    "https://www.nfl.com/schedules/2023/by-week/week-11",
+    "https://www.nfl.com/schedules/2023/by-week/week-14"
+  ],
+  "checks": [
+    {
+      "trade": "Lamb–Pollard",
+      "timestamp": 1697143410205,
+      "games": [
+        [
+          "Lamb",
+          "Pollard",
+          "2023-10-16"
+        ]
+      ],
+      "points": 30.2
+    },
+    {
+      "trade": "Henry/Evans–Kupp",
+      "timestamp": 1698279409969,
+      "games": [
+        [
+          "Evans",
+          "2023-10-26 20:15 ET"
+        ],
+        [
+          "Henry",
+          "Kupp",
+          "2023-10-29"
+        ]
+      ],
+      "points": 29.7
+    },
+    {
+      "trade": "Mixon–Addison",
+      "timestamp": 1699475311775,
+      "games": [
+        [
+          "Mixon",
+          "Addison",
+          "2023-11-12"
+        ]
+      ],
+      "points": 20.4
+    },
+    {
+      "trade": "Jefferson/Jacobs–Davis",
+      "timestamp": 1700228766509,
+      "games": [
+        [
+          "Jacobs",
+          "Davis",
+          "2023-11-19"
+        ]
+      ],
+      "points": 5.6
+    },
+    {
+      "trade": "Hall–Etienne/Cooper",
+      "timestamp": 1700263493067,
+      "games": [
+        [
+          "Hall",
+          "Etienne",
+          "Cooper",
+          "2023-11-19"
+        ]
+      ],
+      "points": 28.6
+    },
+    {
+      "trade": "Chase–Lockett",
+      "timestamp": 1701871720442,
+      "games": [
+        [
+          "Chase",
+          "Lockett",
+          "2023-12-10"
+        ]
+      ],
+      "points": 16.3
+    }
+  ],
+  "total": 130.8,
+  "limitations": [
+    "PFR full page blocked 403; corroborated via alternate NFL and published schedule search results.",
+    "Nine-player trade boundary separate; injury sources and keeper designations remain to be independently verified.",
+    "No production edits."
+  ],
+  "identity": "Evans, not Evan; Koble through 2023; JMid and Scott from 2024; all traded draft picks voided."
+}

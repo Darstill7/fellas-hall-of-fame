@@ -1,0 +1,216 @@
+{
+  "status": "INITIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1031121022772555776",
+  "timestamp": 1700228766509,
+  "date": "2023-11-17",
+  "source": "Original Sleeper 2023 finalized matchups weeks 1–17, transactions weeks 10–17 and original 2023/2024 drafts via Flaim",
+  "historical_rules": {
+    "roster2": "Evan, not JMid",
+    "traded_picks": "All voided; zero realized value"
+  },
+  "sides": [
+    {
+      "manager": "Mitch",
+      "received": [
+        "Justin Jefferson",
+        "Josh Jacobs"
+      ],
+      "gave": [
+        "Gabe Davis",
+        "2024 first-round pick (voided)"
+      ],
+      "players": [
+        {
+          "name": "Jefferson",
+          "weeks": [
+            [
+              14,
+              3.7
+            ],
+            [
+              15,
+              11.9
+            ],
+            [
+              16,
+              23.1
+            ],
+            [
+              17,
+              8.4
+            ]
+          ],
+          "total": 47.1
+        },
+        {
+          "name": "Jacobs",
+          "weeks": [
+            [
+              11,
+              5.6
+            ],
+            [
+              12,
+              21.5
+            ],
+            [
+              14,
+              6
+            ]
+          ],
+          "total": 33.1
+        }
+      ],
+      "total": 80.2,
+      "starts": 7
+    },
+    {
+      "manager": "Stew",
+      "received": [
+        "Gabe Davis",
+        "2024 first-round pick (voided)"
+      ],
+      "gave": [
+        "Justin Jefferson",
+        "Josh Jacobs"
+      ],
+      "players": [
+        {
+          "name": "Davis",
+          "weeks": [
+            [
+              11,
+              0
+            ],
+            [
+              14,
+              0
+            ],
+            [
+              15,
+              0
+            ],
+            [
+              16,
+              22
+            ],
+            [
+              17,
+              3.1
+            ]
+          ],
+          "total": 25.1
+        }
+      ],
+      "total": 25.1,
+      "starts": 5
+    }
+  ],
+  "draft2023": [
+    [
+      "Jefferson",
+      4,
+      1,
+      3
+    ],
+    [
+      "Jacobs",
+      1,
+      2,
+      14
+    ],
+    [
+      "Davis",
+      6,
+      10,
+      95
+    ]
+  ],
+  "draft2024": [
+    [
+      "Jefferson",
+      10,
+      1,
+      5
+    ],
+    [
+      "Jacobs",
+      6,
+      2,
+      19
+    ]
+  ],
+  "ledger": {
+    "Mitch": 74.6,
+    "Stew": 25.1
+  },
+  "boundary": {
+    "week": 11,
+    "observed_restored_points": 5.6,
+    "observed_restored_starts": 2,
+    "eligibility": "pending independent NFL kickoff check"
+  },
+  "impact": {
+    "Mitch_pretrade": "4-6",
+    "Mitch_posttrade": "2-2",
+    "Stew_pretrade": "3-7",
+    "Stew_posttrade": "0-4",
+    "sensitive_wins": 0,
+    "playoffs": [
+      {
+        "week": 15,
+        "opponent": "Evan",
+        "score": 110.32,
+        "opponent_score": 94.22,
+        "Jefferson": 11.9,
+        "margin": 16.1
+      },
+      {
+        "week": 16,
+        "opponent": "Koble",
+        "score": 131.12,
+        "opponent_score": 104.2,
+        "Jefferson": 23.1,
+        "margin": 26.92
+      },
+      {
+        "week": 17,
+        "opponent": "Stilly",
+        "score": 90.18,
+        "opponent_score": 104.96,
+        "Jefferson": 8.4,
+        "margin": -14.78
+      }
+    ],
+    "Jacobs_postseason_starts": 0,
+    "WR_swap_week15": {
+      "Jefferson": 11.9,
+      "Davis": 0,
+      "Mitch_adjusted": 98.42,
+      "opponent": 94.22,
+      "margin": 4.2
+    },
+    "WR_swap_week16": {
+      "Jefferson": 23.1,
+      "Davis": 22,
+      "Mitch_adjusted": 130.02,
+      "opponent": 104.2,
+      "margin": 25.82
+    },
+    "WR_swap_week17": {
+      "Jefferson": 8.4,
+      "Davis": 3.1,
+      "Mitch_adjusted": 84.88,
+      "opponent": 104.96,
+      "margin": -20.08
+    }
+  },
+  "limitations": [
+    "Observed starter production only, no full bench or alternative roster decisions",
+    "WR substitution is conditional, does not reverse whole trade",
+    "Injury context pending independent sourcing",
+    "No keeper marker in returned 2024 draft; actual keeper eligibility not certified",
+    "No production edits or grades"
+  ],
+  "next": "November 17 Hall–Etienne/Cooper"
+}

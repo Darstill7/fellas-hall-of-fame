@@ -1,0 +1,25 @@
+{
+  "status": "USER_CONFIRMED_HISTORICAL_CONTEXT",
+  "confirmed_date": "2026-11-28",
+  "source": "Direct user account in Fellas project conversation",
+  "season": 2023,
+  "events": [
+    "Evan traded future draft capital in pursuit of championship; lost in quarterfinal and subsequently left league.",
+    "Koble also stopped playing.",
+    "JMid replaced Evan and Scott replaced Koble for 2024.",
+    "League reset entire draft board to avoid penalizing incoming managers; all previously traded draft picks voided."
+  ],
+  "identity": {
+    "2023": {
+      "roster2": "Evan",
+      "roster5": "Koble"
+    },
+    "2024": {
+      "roster2": "JMid",
+      "roster5": "Scott"
+    }
+  },
+  "editorial_policy": "Distinguish original negotiated draft-pick value from zero realized value after league-wide reset; do not imply managers knowingly exchanged assets for worthless picks. Preserve actual transactions and distinguish user-confirmed context from provider records. Do not infer motives for departure beyond user's account.",
+  "supersedes": "Any unresolved historical draft-pick realization questions",
+  "production_changed": false
+}
