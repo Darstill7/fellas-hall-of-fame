@@ -1,0 +1,203 @@
+{
+  "status": "PROVIDER_RECOUNT_WITH_BRACKET_CORROBORATION",
+  "season": 2021,
+  "source": "Original Sleeper completed transactions and finalized matchup records weeks 1–17; repository verified playoff bracket and canonical weekly matchups",
+  "chronology": {
+    "regular": "Weeks 1–13 inferred from bracket and week14 paired records",
+    "week14": {
+      "quarterfinals": [
+        [
+          "Evans",
+          162.04,
+          "Mitch",
+          134.82
+        ],
+        [
+          "Stover",
+          144.8,
+          "Thommy",
+          104.54
+        ]
+      ],
+      "unpaired": [
+        "Tony",
+        "Birch"
+      ]
+    },
+    "week15": {
+      "semifinals": [
+        [
+          "Evans",
+          109.02,
+          "Birch",
+          96.28
+        ],
+        [
+          "Tony",
+          94.96,
+          "Stover",
+          73.44
+        ]
+      ]
+    },
+    "week16": {
+      "championship": [
+        "Tony",
+        138.28,
+        "Evans",
+        133.98
+      ],
+      "third": [
+        "Birch",
+        118.2,
+        "Stover",
+        93.24
+      ]
+    },
+    "week17": "All ten rosters unpaired; exclude from competitive trade totals, retain separately as recorded lineup scoring",
+    "canonical_issue": "Main weekly canonical labels week14 regular and weeks15–16 postseason_unclassified; no production changes; historical bracket corroborates reclassification."
+  },
+  "trades": [
+    {
+      "id": "737360507476066304",
+      "date": "2021-08-30",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "players": [
+            [
+              "Tyreek Hill",
+              235.1,
+              15,
+              "Tony 1.10"
+            ],
+            [
+              "Josh Jacobs",
+              0,
+              0,
+              "Tony 3.10"
+            ],
+            [
+              "Javonte Williams",
+              130.6,
+              10,
+              "Tony 6.01"
+            ]
+          ],
+          "total": 365.7,
+          "starts": 25,
+          "week17": 10.9,
+          "old": 333.1,
+          "restored_week1": 32.6
+        },
+        {
+          "manager": "Tony",
+          "players": [
+            [
+              "Jonathan Taylor",
+              328.2,
+              15,
+              "Thommy 2.02"
+            ],
+            [
+              "A.J. Brown",
+              105.5,
+              10,
+              "Thommy 3.09"
+            ],
+            [
+              "Corey Davis",
+              8.3,
+              2,
+              "Thommy 9.09"
+            ]
+          ],
+          "total": 442,
+          "starts": 27,
+          "week17": 23,
+          "old": 414.5,
+          "restored_week1": 27.5
+        }
+      ],
+      "championship": {
+        "Taylor": 11.8,
+        "margin": 4.3,
+        "replacement_to_tie": 7.5
+      },
+      "semifinal": {
+        "Taylor": 24,
+        "margin": 21.52,
+        "replacement_to_tie": 2.48
+      }
+    },
+    {
+      "id": "738428315181928448",
+      "date": "2021-08-31",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "players": [
+            [
+              "Dak Prescott",
+              259.72,
+              14,
+              "Birch 6.06"
+            ],
+            [
+              "Noah Fant",
+              79.6,
+              10,
+              "Birch 10.06"
+            ],
+            [
+              "Antonio Gibson",
+              70.2,
+              5,
+              "Birch 2.06"
+            ]
+          ],
+          "total": 409.52,
+          "starts": 29,
+          "week17": 21.04,
+          "old": 364.6,
+          "restored_week1": 44.92
+        },
+        {
+          "manager": "Birch",
+          "players": [
+            [
+              "Lamar Jackson",
+              236.98,
+              12,
+              "Thommy 5.09"
+            ],
+            [
+              "Mark Andrews",
+              224.2,
+              15,
+              "Thommy 6.02"
+            ],
+            [
+              "Josh Jacobs",
+              153.4,
+              12,
+              "Tony 3.10 via Thommy"
+            ]
+          ],
+          "total": 614.58,
+          "starts": 39,
+          "week17": 27.9,
+          "old": 577.58,
+          "restored_week1": 37
+        }
+      ]
+    }
+  ],
+  "asset_chain": "Jacobs Tony→Thommy Aug30→Birch Aug31; Gibson Birch→Thommy Aug31→Stew Oct13",
+  "limitations": [
+    "Week17 exclusion is consistent with prior ledger and championship bracket, not erasure of raw scores.",
+    "No complete bench or causal playoff reconstruction.",
+    "No independent keeper designation or injury review.",
+    "No production changes."
+  ]
+}
