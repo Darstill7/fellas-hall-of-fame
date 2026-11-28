@@ -1,0 +1,171 @@
+{
+  "id": "751165345997402112",
+  "date": "2021-10-05",
+  "status": "investigative-draft-not-certified",
+  "headline": "Tony Buys the Dip, Koble Tries to Stop the Bleeding",
+  "publicationDraft": "Koble had two injured running backs in Mixon and Montgomery when Tony offered Robinson and Moss. The reinforcements delivered 32.90 points immediately, while Tony could afford to stash Mixon on his bench. The gamble paid off spectacularly: Mixon eventually scored 29.50 in Tony's 4.30-point championship victory over Evans. Koble cut Moss in November, while Robinson endured Jacksonville's coaching circus before tearing his Achilles in Week 16. Koble's emergency depth move made sense; Tony's willingness to absorb short-term injury risk secured the better long-term asset. The championship doesn't make Koble an idiot, but Tony bought a damn good running back at exactly the right moment.",
+  "sources": [
+    {
+      "url": "https://www.thefantasyfootballers.com/articles/fantasy-football-week-4-injury-recap-2021/",
+      "date": "2021-10-05",
+      "finding": "Mixon ankle and Montgomery knee injuries occurred before transaction; exact report time unverified."
+    },
+    {
+      "url": "https://www.pff.com/news/nfl-cincinnati-bengals-rb-joe-mixon-injury-week-5-fantasy-football-waiver-wire-2021",
+      "finding": "Mixon ankle injury; 83 of 92 team RB carries through week four."
+    },
+    {
+      "url": "https://www.nfl.com/news/bills-rb-zack-moss-a-healthy-scratch-vs-steelers",
+      "date": "2021-09-12",
+      "finding": "Moss healthy scratch in opener, role risk known."
+    },
+    {
+      "url": "https://www.buffalobills.com/news/isaiah-mckenzie-zack-moss-headline-bills-inactives-week-12",
+      "date": "2021-11-25",
+      "finding": "Moss inactive after Koble release."
+    },
+    {
+      "url": "https://amp.nfl.com/news/jaguars-rb-james-robinson-heel-won-t-play-vs-bills",
+      "date": "2021-11-07",
+      "finding": "Robinson heel injury explains week nine absence."
+    },
+    {
+      "url": "https://amp.nfl.com/news/tension-boiling-over-between-coach-urban-meyer-jaguars-players-staff",
+      "date": "2021-12-11",
+      "finding": "NFL reporting described coach-directed benching after fumble."
+    },
+    {
+      "url": "https://www.nfl.com/_amp/jaguars-rb-james-robinson-suffers-torn-achilles-vs-jets",
+      "date": "2021-12-26",
+      "finding": "Season-ending Achilles injury."
+    },
+    {
+      "url": "https://abcnews.com/Sports/orleans-saints-rb-alvin-kamara-full-sunday-missing/story?id=81682405",
+      "date": "2021-12-10",
+      "finding": "Kamara missed four games with knee and hamstring injuries."
+    },
+    {
+      "url": "https://www.bengals.com/news/no-hollywood-ending-as-bengals-come-up-short-23-20-in-super-bowl-lvi",
+      "date": "2022-02-13",
+      "finding": "Mixon threw Super Bowl touchdown to Higgins."
+    }
+  ],
+  "leagueEvidence": {
+    "weeks": [
+      {
+        "week": 5,
+        "mixonStart": null,
+        "robinsonStart": 22.2,
+        "mossStart": 10.7
+      },
+      {
+        "week": 6,
+        "mixonStart": 23.8,
+        "robinsonStart": 17.6,
+        "mossStart": 3.9
+      },
+      {
+        "week": 7,
+        "mixonStart": 11.9,
+        "robinsonStart": null,
+        "mossStart": null
+      },
+      {
+        "week": 8,
+        "mixonStart": 24.1,
+        "robinsonStart": 4.4,
+        "mossStart": 8.8
+      },
+      {
+        "week": 9,
+        "mixonStart": 25.5,
+        "robinsonStart": null,
+        "mossStart": 3.4
+      },
+      {
+        "week": 10,
+        "mixonStart": null,
+        "robinsonStart": 16.4,
+        "mossStart": 8.7
+      },
+      {
+        "week": 11,
+        "mixonStart": 24.3,
+        "robinsonStart": 10.8,
+        "mossStart": null
+      },
+      {
+        "week": 12,
+        "mixonStart": 30.3,
+        "robinsonStart": 11,
+        "mossStart": null
+      },
+      {
+        "week": 13,
+        "mixonStart": 9.4,
+        "robinsonStart": 2,
+        "mossStart": null
+      },
+      {
+        "week": 14,
+        "mixonStart": 7.8,
+        "robinsonStart": 0.4,
+        "mossStart": null
+      },
+      {
+        "week": 15,
+        "mixonStart": 6.5,
+        "robinsonStart": 16.3,
+        "mossStart": null
+      },
+      {
+        "week": 16,
+        "mixonStart": 29.5,
+        "robinsonStart": 1,
+        "mossStart": null
+      },
+      {
+        "week": 17,
+        "mixonStart": 12.1,
+        "robinsonStart": null,
+        "mossStart": null
+      }
+    ],
+    "week5MixonBench": 10,
+    "ownershipEvents": [
+      {
+        "id": "767963743245209600",
+        "date": "2021-11-21",
+        "manager": "Koble",
+        "drop": "Zack Moss",
+        "add": "DeVante Parker"
+      }
+    ],
+    "week16": {
+      "tony": 138.28,
+      "evans": 133.98,
+      "mixon": 29.5,
+      "koble": 114,
+      "kobleOpponent": null,
+      "robinson": 1
+    },
+    "week14TonyUnpaired": true,
+    "week17AllUnpaired": true,
+    "totals": {
+      "tonyPaired": 185.29999999999998,
+      "koblePaired": 136.6,
+      "tonyWeeks5to16": 193.1,
+      "kobleWeeks5to16": 137.6
+    },
+    "archive": {
+      "tony": 193.1,
+      "koble": 137.6
+    },
+    "notes": "Weeks 5–16 totals reproduce archived scoring; paired totals exclude Tony week 14 and Koble week 16. Week 17 excluded."
+  },
+  "limitations": [
+    "Continuous ownership not fully replayed; weekly snapshots support presence.",
+    "Exact pregame projections and manager motives unverified.",
+    "Final grades and full historical scoring policy pending."
+  ]
+}
