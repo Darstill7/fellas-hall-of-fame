@@ -1,0 +1,153 @@
+{
+  "status": "INITIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1028065885325508608",
+  "timestamp": 1699475311775,
+  "date": "2023-11-08",
+  "source": "Original Sleeper 2023 finalized matchups weeks 1–17, completed transactions weeks 10–17, 2023 and 2024 draft via Flaim",
+  "historical_rules": {
+    "roster2": "Evan, not JMid",
+    "draft_picks": "All voided; no realized value"
+  },
+  "sides": [
+    {
+      "manager": "Evan",
+      "roster": 2,
+      "received": "Joe Mixon",
+      "gave": [
+        "Jordan Addison",
+        "2024 second-round pick (voided)"
+      ],
+      "weeks": [
+        [
+          10,
+          11.5
+        ],
+        [
+          11,
+          18.5
+        ],
+        [
+          12,
+          7
+        ],
+        [
+          13,
+          26.7
+        ],
+        [
+          14,
+          21
+        ],
+        [
+          15,
+          13.6
+        ],
+        [
+          16,
+          8
+        ],
+        [
+          17,
+          16.7
+        ]
+      ],
+      "total": 123
+    },
+    {
+      "manager": "Stew",
+      "roster": 4,
+      "received": [
+        "Jordan Addison",
+        "2024 second-round pick (voided)"
+      ],
+      "gave": "Joe Mixon",
+      "weeks": [
+        [
+          10,
+          8.9
+        ],
+        [
+          11,
+          5.9
+        ],
+        [
+          12,
+          6.9
+        ],
+        [
+          14,
+          3.7
+        ],
+        [
+          15,
+          26.1
+        ],
+        [
+          16,
+          0.7
+        ],
+        [
+          17,
+          4.3
+        ]
+      ],
+      "total": 56.5
+    }
+  ],
+  "draft2023": [
+    [
+      "Mixon",
+      4,
+      3,
+      23
+    ],
+    [
+      "Addison",
+      2,
+      9,
+      85
+    ]
+  ],
+  "draft2024": [
+    [
+      "Mixon",
+      9,
+      5,
+      43
+    ],
+    [
+      "Addison",
+      7,
+      11,
+      108
+    ]
+  ],
+  "ledger": {
+    "Evan": 111.5,
+    "Stew": 47.6
+  },
+  "boundary": {
+    "week": 10,
+    "restored_observed_points": 20.4,
+    "status": "pending independent NFL kickoff verification"
+  },
+  "impact": {
+    "Evan_posttrade_regular_record": "2-3",
+    "Stew_posttrade_regular_record": "0-5",
+    "sensitive_wins": 0,
+    "quarterfinal": {
+      "Evan": 94.22,
+      "Mitch": 110.32,
+      "Mixon": 13.6
+    },
+    "Evan_seed": 3,
+    "Stew_qualified": false
+  },
+  "limitations": [
+    "Complete bench and all-player production not available",
+    "No keeper marker in returned 2024 draft; eligibility unverified",
+    "No causal result reversal or final grades",
+    "No production changes"
+  ],
+  "next": "November 17 Jefferson/Jacobs–Davis, with voided first-round pick; complete nine-player audit"
+}
