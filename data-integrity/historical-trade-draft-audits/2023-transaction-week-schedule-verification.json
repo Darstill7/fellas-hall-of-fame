@@ -1,0 +1,74 @@
+{
+  "status": "SOURCE_VERIFIED_TRANSACTION_WEEK_CORRECTIONS",
+  "season": 2023,
+  "source": "Original Sleeper transaction timestamps and receiving-roster starters; independently checked NFL historical schedules",
+  "corrections": [
+    {
+      "week": 6,
+      "trade": "Lamb–Pollard",
+      "players": {
+        "Lamb": 15.2,
+        "Pollard": 15
+      },
+      "nfl_date": "2023-10-16",
+      "source": "https://www.nfl.com/schedules/2023/by-week/week-6"
+    },
+    {
+      "week": 8,
+      "trade": "Henry/Evans–Kupp",
+      "players": {
+        "Henry": 14.2,
+        "Evans": 11.4,
+        "Kupp": 4.1
+      },
+      "nfl_dates": [
+        "2023-10-26",
+        "2023-10-29"
+      ],
+      "source": "https://www.nfl.com/schedules/2023/by-week/week-8"
+    },
+    {
+      "week": 10,
+      "trade": "Mixon–Addison",
+      "players": {
+        "Mixon": 11.5,
+        "Addison": 8.9
+      },
+      "nfl_date": "2023-11-12",
+      "source": "https://www.nfl.com/schedules/2023/by-week/week-10"
+    },
+    {
+      "week": 11,
+      "trade": "Jefferson/Jacobs–Davis",
+      "players": {
+        "Jacobs": 5.6,
+        "Davis": 0
+      },
+      "nfl_date": "2023-11-19",
+      "source": "https://www.nfl.com/schedules/2023/by-week/week-11"
+    },
+    {
+      "week": 11,
+      "trade": "Hall–Etienne/Cooper",
+      "players": {
+        "Hall": 15.8,
+        "Etienne": 7.4,
+        "Cooper": 5.4
+      },
+      "nfl_date": "2023-11-19",
+      "source": "https://www.nfl.com/schedules/2023/by-week/week-11"
+    },
+    {
+      "week": 14,
+      "trade": "Chase–Lockett",
+      "players": {
+        "Chase": 4.4,
+        "Lockett": 11.9
+      },
+      "nfl_date": "2023-12-10",
+      "source": "https://www.nfl.com/schedules/2023/by-week/week-14"
+    }
+  ],
+  "total": 130.8,
+  "notes": "Observed receiver-side starts match original roster data and all relevant games occurred after transactions. Missing nine-player transaction is separate. No production changes."
+}
