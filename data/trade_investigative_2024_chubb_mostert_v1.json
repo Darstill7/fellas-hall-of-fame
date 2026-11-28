@@ -1,0 +1,149 @@
+{
+  "id": "1159892809005076480",
+  "timestamp": 1731136665265,
+  "date": "2024-11-09",
+  "status": "investigative-draft-not-certified",
+  "receipt": {
+    "Mitch": [
+      "Raheem Mostert"
+    ],
+    "Kuhl": [
+      "Nick Chubb"
+    ]
+  },
+  "weeks": [
+    {
+      "week": 10,
+      "mostertStart": 4.4,
+      "chubbBench": 0
+    },
+    {
+      "week": 11,
+      "mostertBench": -0.2,
+      "chubbStart": 5
+    },
+    {
+      "week": 12,
+      "mostertBench": 0.7,
+      "chubbStart": 18.5
+    },
+    {
+      "week": 13,
+      "chubbStart": 11.5
+    },
+    {
+      "week": 14,
+      "chubbStart": 4.8
+    },
+    {
+      "week": 15,
+      "chubbBench": 2.1
+    }
+  ],
+  "totals": {
+    "observed": {
+      "Mitch": 4.4,
+      "Kuhl": 39.8
+    },
+    "excludeAcquisition": {
+      "Mitch": 0,
+      "Kuhl": 39.8
+    }
+  },
+  "ownership": [
+    {
+      "id": "1167882687365894144",
+      "date": "2024-11-28",
+      "manager": "Mitch",
+      "dropped": "Mostert"
+    },
+    {
+      "id": "1175173296208297984",
+      "date": "2024-12-18",
+      "manager": "Kuhl",
+      "dropped": "Chubb",
+      "added": "Keon Coleman"
+    }
+  ],
+  "matchups": {
+    "Mitch": [
+      [
+        10,
+        137.54,
+        101.54
+      ],
+      [
+        11,
+        136.78,
+        92.74
+      ],
+      [
+        12,
+        123.1,
+        82.62
+      ],
+      [
+        13,
+        84.28,
+        101.38
+      ],
+      [
+        14,
+        146.66,
+        126.94
+      ]
+    ],
+    "Kuhl": [
+      [
+        10,
+        101.54,
+        87.6
+      ],
+      [
+        11,
+        128.44,
+        96.18
+      ],
+      [
+        12,
+        103.86,
+        115.28
+      ],
+      [
+        13,
+        100.24,
+        162.24
+      ],
+      [
+        14,
+        94.3,
+        105.34
+      ]
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.pff.com/news/fantasy-football-week-10-recap-immediate-takeaways-dolphins-rams-monday-night-football-2024",
+      "finding": "Mostert reduced to third-down role Week10, after trade"
+    },
+    {
+      "url": "https://www.nbcsports.com/fantasy/football/news/2024-week-11-fantasy-football-rankings-rb",
+      "finding": "Mostert zero carries Week10; Week9 fumble"
+    },
+    {
+      "url": "https://www.clevelandbrowns.com/news/nick-chubb-sustains-broken-foot-in-week-15-against-chiefs",
+      "finding": "Week15 broken foot"
+    },
+    {
+      "url": "https://www.clevelandbrowns.com/team/transactions/2024",
+      "finding": "Chubb placed IR Dec18"
+    }
+  ],
+  "publicationDraft": "Mitch swapped Chubb for Mostert, only to watch Miami reduce Mostert's role immediately. One start and 4.40 points later, Mostert never entered Mitch's lineup again and was cut on Thanksgiving. Kuhl received four starts and 39.80 points before Chubb broke his foot in December. Neither asset lasted through the fantasy postseason. Kuhl got the better direct return, but this was a modest exchange between two fading running backs, not a franchise-altering robbery.",
+  "limitations": [
+    "2024 provider standings explicitly show Thommy champion, Stilly runner-up, Mitch and Kuhl missed playoffs; conflicts with established project champion Mitch. Do not publish or overwrite championship history until commissioner/source reconciliation.",
+    "No full alternative lineup or playoff seeding replay; zero claim about championship impact.",
+    "Pretrade valuations, keeper context, NFL postseason and full ownership census pending.",
+    "No grades or deployment"
+  ]
+}
