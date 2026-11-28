@@ -1,0 +1,302 @@
+{
+  "status": "INDEPENDENT_COMPETITIVE_SENSITIVITY_AUDIT",
+  "source": "Original Sleeper finalized matchups weeks 1–17 via Flaim, independently recounted starter evidence, archived bracket screenshots; 2026-11-28",
+  "bracket": {
+    "seeds": [
+      "Mitch",
+      "Scott",
+      "Tony",
+      "Thommy",
+      "Stew",
+      "Birch"
+    ],
+    "semifinalists": [
+      "Mitch",
+      "Thommy",
+      "Scott",
+      "Birch"
+    ],
+    "finalists": [
+      "Thommy",
+      "Scott"
+    ],
+    "champion": "Scott"
+  },
+  "method": "Acquired starter points >= positive actual winning margin; replacement to tie = points minus margin; no causal claim",
+  "cases": [
+    {
+      "trade": "Henry–Collins",
+      "manager": "Stew",
+      "week": 8,
+      "opponent": "Birch",
+      "own": 137.18,
+      "opp": 129.38,
+      "points": 19.1,
+      "stage": "regular",
+      "margin": 7.8,
+      "replacement_to_tie": 11.3
+    },
+    {
+      "trade": "Henry–Collins",
+      "manager": "Kuhl",
+      "week": 14,
+      "opponent": "Birch",
+      "own": 108.14,
+      "opp": 98.34,
+      "points": 16.1,
+      "stage": "regular",
+      "margin": 9.8,
+      "replacement_to_tie": 6.3
+    },
+    {
+      "trade": "Henderson–Jones/Charbonnet",
+      "manager": "Stew",
+      "week": 11,
+      "opponent": "Stilly",
+      "own": 105.94,
+      "opp": 87.2,
+      "points": 29.8,
+      "stage": "regular",
+      "margin": 18.74,
+      "replacement_to_tie": 11.06
+    },
+    {
+      "trade": "Chase–Gibbs",
+      "manager": "Stilly",
+      "week": 4,
+      "opponent": "Birch",
+      "own": 108.98,
+      "opp": 103.86,
+      "points": 13.4,
+      "stage": "regular",
+      "margin": 5.12,
+      "replacement_to_tie": 8.28
+    },
+    {
+      "trade": "Chase–Gibbs",
+      "manager": "Stilly",
+      "week": 12,
+      "opponent": "Tony",
+      "own": 103.36,
+      "opp": 93.92,
+      "points": 14,
+      "stage": "regular",
+      "margin": 9.44,
+      "replacement_to_tie": 4.56
+    },
+    {
+      "trade": "Chase–Gibbs",
+      "manager": "Stilly",
+      "week": 14,
+      "opponent": "Scott",
+      "own": 108.16,
+      "opp": 96.98,
+      "points": 17,
+      "stage": "regular",
+      "margin": 11.18,
+      "replacement_to_tie": 5.82
+    },
+    {
+      "trade": "Chase–Gibbs",
+      "manager": "Stilly",
+      "week": 15,
+      "opponent": "Kuhl",
+      "own": 122.12,
+      "opp": 122,
+      "points": 12.5,
+      "stage": "consolation",
+      "margin": 0.12,
+      "replacement_to_tie": 12.38
+    },
+    {
+      "trade": "Chase–Gibbs",
+      "manager": "Stilly",
+      "week": 16,
+      "opponent": "JMid",
+      "own": 126.76,
+      "opp": 100.46,
+      "points": 30.9,
+      "stage": "consolation",
+      "margin": 26.3,
+      "replacement_to_tie": 4.6
+    },
+    {
+      "trade": "Chase–Gibbs",
+      "manager": "Stew",
+      "week": 8,
+      "opponent": "Birch",
+      "own": 137.18,
+      "opp": 129.38,
+      "points": 24.6,
+      "stage": "regular",
+      "margin": 7.8,
+      "replacement_to_tie": 16.8
+    },
+    {
+      "trade": "Chase–Gibbs",
+      "manager": "Stew",
+      "week": 11,
+      "opponent": "Stilly",
+      "own": 105.94,
+      "opp": 87.2,
+      "points": 24.6,
+      "stage": "regular",
+      "margin": 18.74,
+      "replacement_to_tie": 5.86
+    },
+    {
+      "trade": "Chase–Gibbs",
+      "manager": "Stew",
+      "week": 12,
+      "opponent": "Thommy",
+      "own": 127.96,
+      "opp": 105.08,
+      "points": 52.9,
+      "stage": "regular",
+      "margin": 22.88,
+      "replacement_to_tie": 30.02
+    },
+    {
+      "trade": "Chase–Gibbs",
+      "manager": "Stew",
+      "week": 14,
+      "opponent": "Stover",
+      "own": 124.66,
+      "opp": 85.6,
+      "points": 52.5,
+      "stage": "regular",
+      "margin": 39.06,
+      "replacement_to_tie": 13.44
+    },
+    {
+      "trade": "Addison–Evans",
+      "manager": "Thommy",
+      "week": 8,
+      "opponent": "JMid",
+      "own": 107.36,
+      "opp": 102.9,
+      "points": 10.1,
+      "stage": "regular",
+      "margin": 4.46,
+      "replacement_to_tie": 5.64
+    },
+    {
+      "trade": "Three-team",
+      "manager": "Stilly",
+      "week": 12,
+      "opponent": "Tony",
+      "own": 103.36,
+      "opp": 93.92,
+      "points": 42.56,
+      "stage": "regular",
+      "margin": 9.44,
+      "replacement_to_tie": 33.12
+    },
+    {
+      "trade": "Three-team",
+      "manager": "Stilly",
+      "week": 13,
+      "opponent": "Birch",
+      "own": 118.14,
+      "opp": 99.62,
+      "points": 20.64,
+      "stage": "regular",
+      "margin": 18.52,
+      "replacement_to_tie": 2.12
+    },
+    {
+      "trade": "Three-team",
+      "manager": "Stilly",
+      "week": 14,
+      "opponent": "Scott",
+      "own": 108.16,
+      "opp": 96.98,
+      "points": 28.36,
+      "stage": "regular",
+      "margin": 11.18,
+      "replacement_to_tie": 17.18
+    },
+    {
+      "trade": "Three-team",
+      "manager": "Stilly",
+      "week": 15,
+      "opponent": "Kuhl",
+      "own": 122.12,
+      "opp": 122,
+      "points": 61.42,
+      "stage": "consolation",
+      "margin": 0.12,
+      "replacement_to_tie": 61.3
+    },
+    {
+      "trade": "Three-team",
+      "manager": "Stilly",
+      "week": 16,
+      "opponent": "JMid",
+      "own": 126.76,
+      "opp": 100.46,
+      "points": 33.86,
+      "stage": "consolation",
+      "margin": 26.3,
+      "replacement_to_tie": 7.56
+    },
+    {
+      "trade": "Three-team",
+      "manager": "JMid",
+      "week": 13,
+      "opponent": "Stew",
+      "own": 100.84,
+      "opp": 90.24,
+      "points": 15.5,
+      "stage": "regular",
+      "margin": 10.6,
+      "replacement_to_tie": 4.9
+    },
+    {
+      "trade": "Three-team",
+      "manager": "Thommy",
+      "week": 16,
+      "opponent": "Mitch",
+      "own": 134.28,
+      "opp": 126.3,
+      "points": 14,
+      "stage": "semifinal",
+      "margin": 7.98,
+      "replacement_to_tie": 6.02
+    },
+    {
+      "trade": "Henry return",
+      "manager": "Kuhl",
+      "week": 11,
+      "opponent": "Stover",
+      "own": 112.44,
+      "opp": 86.1,
+      "points": 26.4,
+      "stage": "regular",
+      "margin": 26.34,
+      "replacement_to_tie": 0.06
+    },
+    {
+      "trade": "Henry return",
+      "manager": "Kuhl",
+      "week": 14,
+      "opponent": "Birch",
+      "own": 108.14,
+      "opp": 98.34,
+      "points": 10.7,
+      "stage": "regular",
+      "margin": 9.8,
+      "replacement_to_tie": 0.9
+    }
+  ],
+  "zero_cases": [
+    "Johnston–Tuten",
+    "Thomas–Diggs"
+  ],
+  "limitations": [
+    "No bench scoring or legal alternate lineup; overlapping cases not additive",
+    "Unpaired records excluded from head-to-head impact",
+    "No grades or production changes"
+  ],
+  "next": "2023 original transactions and individual trade research"
+}
