@@ -1,0 +1,117 @@
+{
+  "status": "weekly-snapshot-evidence-not-exact-trade-time",
+  "source": "Sleeper completed transactions and weekly roster snapshots via Flaim, league 946275261279055872",
+  "snapshotCoverage": "30 successful weekly roster reads; underlying snapshots inspected but not separately persisted",
+  "transactions": [
+    {
+      "id": "1012571602774532096",
+      "timestamp": 1695778528592,
+      "analysis": "Stew started Stevenson and Mixon at RB in Week 3, Nacua at FLEX and Conner (18.60) and Achane (51.30) on bench. Week 4 Etienne and Lamb both started (8.70 and 12.80). Kuhl had started Etienne and Lamb in Week 3; Week 4 Achane, Conner and Nacua all started for 59.40 combined. Stew already had Jefferson and Adams at WR; consolidation freed a roster spot but sacrificed three productive options. Kuhl increased starting depth.",
+      "verdict": "Kuhl's observed immediate deployment supports the stronger realized return; Stew's consolidation and onward transfers require separate evaluation."
+    },
+    {
+      "id": "1018289561511682048",
+      "timestamp": 1697143410205,
+      "analysis": "Week 5 Stew started Lamb (6.90), Etienne, Mixon and Stevenson; Gainwell benched. Birch started Pollard (6.40) and Robinson at RB with Smith-Njigba benched. Week 6 Pollard started in Stew's FLEX (15), Smith-Njigba benched (6.80); Lamb started for Birch (15.20), Gainwell benched (2.20). Both retained other starting options; Stew moved a WR starter into RB depth, Birch the reverse.",
+      "verdict": "Birch's stronger recorded direct return is supported by lineup utilization; Stew's decision added a fourth RB starter at a time his WR lineup had changed. Historical availability unknown."
+    },
+    {
+      "id": "1023059879336013824",
+      "timestamp": 1698279409969,
+      "analysis": "Week 7 Stilly started Jacobs (4.60), Mattison (5.20) and Jones (7.20) in RB/FLEX with Kupp at WR (5.90); Week 8 Henry and Evans started (14.20 and 11.40). Tony had started Evans and benched Henry at zero in Week 7, alongside Kamara, Warren and Mostert in RB/FLEX; Week 8 Hall and Kamara started and Kupp entered WR (4.10). Tony had extensive RB options, Stilly gained two immediate starters.",
+      "verdict": "Strong mutual roster rationale, but Stilly extracted substantially more immediate and archived direct production. No unsupported injury or projection claims."
+    },
+    {
+      "id": "1028065885325508608",
+      "timestamp": 1699475311775,
+      "archiveManagerCorrection": "Provider roster 2 is JMidd in 2023, not EvansBrandon as archive labels; verify identity mapping before changing historical manager attribution.",
+      "additionalAssets": "Stew acquired 2024 round 2 pick originally owned by roster 2.",
+      "analysis": "Week 9 roster 2 started Henderson (4.50), Pacheco (6.60), Addison (7.70) in FLEX; Stew started Mixon (15.30) in FLEX and had Etienne on bench. Week 10 Mixon started for roster 2 (11.50), Addison started for Stew (8.90). Stew's lineup also changed through separate three-team transaction. Draft pick changes evaluation materially.",
+      "verdict": "RB need supported for roster 2; Stew acquired receiver help and a future second-round pick. Player-only comparison invalid as full trade grade."
+    },
+    {
+      "id": "1031121022772555776",
+      "timestamp": 1700228766509,
+      "additionalAssets": "Stew acquired 2024 round 1 pick originally owned by roster 6 (Mitch).",
+      "analysis": "Week 10 Mitch started Gibbs (24.70), Singletary (22.60) and Davis (8.60) at WR; Stew started Jacobs (11.70), Jefferson benched at zero. Week 11 Jacobs started for Mitch (5.60), Jefferson benched at zero, Davis started for Stew (0). Stew also made other transactions including Hall deal later same day.",
+      "verdict": "Mitch added starting RB and future WR potential; Stew surrendered established assets for a receiver and first-round pick. Draft asset must be valued; player-only archive cannot establish winner."
+    },
+    {
+      "id": "1031251467312775168",
+      "timestamp": 1700263493067,
+      "additionalAssets": "Stew acquired 2024 round 5 pick originally owned by roster 7 (Tony).",
+      "analysis": "Week 10 Stew started Etienne (5.40), Cooper (12.80), Jacobs and Stevenson; Tony started Hall (9), Kamara, Warren and Spears in RB/FLEX, with Kupp and Higgins benched at zero. Week 11 Hall started for Stew (15.80), Etienne and Cooper started for Tony (7.40 and 5.40). Stew's earlier same-day Jacobs/Jefferson deal changed roster context.",
+      "verdict": "Tony diversified into two starters; Stew consolidated into Hall and acquired future draft capital. Full grade requires pick valuation and combined same-day roster reconstruction."
+    },
+    {
+      "id": "1038099277249245184",
+      "timestamp": 1701871720442,
+      "archiveManagerCorrection": "Provider roster 2 is JMidd in 2023, not EvansBrandon as archive labels; verify identity mapping.",
+      "additionalAssets": "Kuhl acquired 2024 round 1 and 2025 round 2 picks originally owned by roster 2.",
+      "analysis": "Week 13 roster 2 had Lockett benched (7.20), Brown and Allen starting. Kuhl started Chase (27.12) alongside Nacua and had Rice, Thielen and Godwin on bench. Week 14 Chase started in roster 2 FLEX (4.40); Lockett started for Kuhl (11.90). Kuhl retained WR depth and gained two premium future picks.",
+      "verdict": "Player-only 1.70-point archive gap is materially misleading. Kuhl received substantial additional draft assets; evaluate pick lineage and historical trade rules."
+    }
+  ],
+  "missingTrade": {
+    "id": "1028057686711058432",
+    "timestamp": 1699470786745,
+    "date": "2023-11-08",
+    "status": "complete",
+    "sides": [
+      {
+        "manager": "Stilly",
+        "acquired": [
+          "Courtland Sutton",
+          "David Montgomery",
+          "Jaylen Waddle"
+        ],
+        "gaveUp": [
+          "DeAndre Hopkins",
+          "Gus Edwards",
+          "Josh Jacobs"
+        ]
+      },
+      {
+        "manager": "Thommy",
+        "acquired": [
+          "Davante Adams",
+          "Gus Edwards",
+          "Tony Pollard",
+          "2024 round 5 (Stew original)",
+          "49 FAAB"
+        ],
+        "gaveUp": [
+          "Amari Cooper",
+          "David Montgomery",
+          "Jaylen Waddle",
+          "2024 round 3 (Thommy original)"
+        ]
+      },
+      {
+        "manager": "Stew",
+        "acquired": [
+          "DeAndre Hopkins",
+          "Amari Cooper",
+          "Josh Jacobs",
+          "2024 round 3 (Thommy original)"
+        ],
+        "gaveUp": [
+          "Davante Adams",
+          "Courtland Sutton",
+          "Tony Pollard",
+          "2024 round 5 (Stew original)",
+          "49 FAAB"
+        ]
+      }
+    ],
+    "analysis": "Week 9 Stilly started Jacobs, Henry, Edwards and Hopkins; Week 10 Montgomery started (18.60), Sutton (13.30) and Waddle (0) benched. Thommy Week 9 started Waddle and Cooper, Montgomery benched at zero; Week 10 Adams (12.60), Pollard (5.50) and Edwards (9.30) started. Stew Week 9 started Pollard and Adams, Sutton benched; Week 10 Jacobs (11.70), Cooper (12.80), Hopkins (4.20) started. Stew gained a higher-round pick at FAAB cost; Thommy gained FAAB and a lower-round pick. No cumulative production or grade established.",
+    "verdict": "New provider-confirmed completed transaction; not present in original 57-trade ledger. Add through archive reconciliation, not silent overwrite."
+  },
+  "limitations": [
+    "weekly anchors not exact pre/post timestamps",
+    "draft-pick transfers are provider-confirmed; historical rule applicability and later pick disposition unverified",
+    "manager identity conflict unresolved",
+    "archive totals not reconciled",
+    "no final grades"
+  ]
+}
