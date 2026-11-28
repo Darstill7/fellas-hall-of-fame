@@ -1,0 +1,64 @@
+{
+  "status": "BOUNDARY_CORRECTIONS_SUPPORTED_NOT_PUBLISHED",
+  "parent_checkpoint": "bc95ce53101818232dea5e158cd7757a45dd3e91",
+  "source": "Original Sleeper completed transactions and receiving roster starts from prior pass; historical NFL schedule https://www.pro-football-reference.com/years/2024/games.htm",
+  "rows": [
+    {
+      "player": "Malik Nabers",
+      "transaction_timestamp_ms": 1726179384394,
+      "transaction_utc": "2024-09-12T22:16:24.394Z",
+      "scheduled_kickoff": "2024-09-15T13:00:00-04:00",
+      "before_kickoff": true,
+      "points": 23.7,
+      "old_side_total": 171.4,
+      "corrected_side_total": 195.1
+    },
+    {
+      "player": "Davante Adams",
+      "transaction_timestamp_ms": 1726179384394,
+      "transaction_utc": "2024-09-12T22:16:24.394Z",
+      "scheduled_kickoff": "2024-09-15T13:00:00-04:00",
+      "before_kickoff": true,
+      "points": 21.5,
+      "old_side_total": 139,
+      "corrected_side_total": 160.5
+    },
+    {
+      "player": "Travis Kelce",
+      "transaction_timestamp_ms": 1729197433617,
+      "transaction_utc": "2024-10-17T20:37:13.617Z",
+      "scheduled_kickoff": "2024-10-20T16:25:00-04:00",
+      "before_kickoff": true,
+      "points": 3.7,
+      "old_side_total": 107.3,
+      "corrected_side_total": 111
+    },
+    {
+      "player": "Kareem Hunt",
+      "transaction_timestamp_ms": 1729197433617,
+      "transaction_utc": "2024-10-17T20:37:13.617Z",
+      "scheduled_kickoff": "2024-10-20T16:25:00-04:00",
+      "before_kickoff": true,
+      "points": 21.3,
+      "old_side_total": 216.9,
+      "corrected_side_total": 238.2
+    },
+    {
+      "player": "Raheem Mostert",
+      "transaction_timestamp_ms": 1731136665265,
+      "transaction_utc": "2024-11-09T07:17:45.265Z",
+      "scheduled_kickoff": "2024-11-11T20:15:00-05:00",
+      "before_kickoff": true,
+      "points": 4.4,
+      "old_side_total": 0,
+      "corrected_side_total": 4.4
+    }
+  ],
+  "total_restored": 74.6,
+  "limitations": [
+    "Scheduled kickoff sufficient for these multi-day gaps; no exact actual kickoff required",
+    "Corrected totals cover observed starts including postseason-window consolation/unpaired records, not total NFL production or replacement-adjusted value",
+    "No final grades, keeper valuation, championship causality or production changes"
+  ],
+  "next": "2024 competitive impact and ownership audit; advance to 2025 for unresolved bench-scoring gaps"
+}
