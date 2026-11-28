@@ -1,0 +1,259 @@
+{
+  "status": "INITIAL_RESEARCH_WITH_PROVIDER_RECOUNT",
+  "season": 2022,
+  "source": "Original Sleeper transactions and matchups weeks 1–17, 2022 and 2023 draft results via Flaim",
+  "trades": [
+    {
+      "id": "880505837758652416",
+      "date": "2022-09-27",
+      "sides": [
+        {
+          "manager": "Evans",
+          "players": [
+            [
+              "Mike Williams",
+              110.5,
+              9,
+              "4.04 Stew"
+            ],
+            [
+              "James Conner",
+              148.9,
+              10,
+              "3.07 Stew"
+            ],
+            [
+              "James Robinson",
+              6.8,
+              2,
+              "11.07 Stew"
+            ]
+          ],
+          "total": 266.2,
+          "starts": 21
+        },
+        {
+          "manager": "Stew",
+          "players": [
+            [
+              "Justin Jefferson",
+              258.26,
+              13,
+              "1.06 Evans"
+            ],
+            [
+              "Cordarrelle Patterson",
+              9.8,
+              1,
+              "8.05 Evans"
+            ]
+          ],
+          "total": 268.06,
+          "starts": 14
+        }
+      ],
+      "sensitive": [
+        [
+          "Stew",
+          8,
+          146.6,
+          141.6,
+          12.8
+        ],
+        [
+          "Stew",
+          9,
+          127.22,
+          120,
+          23
+        ],
+        [
+          "Stew",
+          10,
+          132.4,
+          111.48,
+          31.3
+        ],
+        [
+          "Stew",
+          12,
+          117.66,
+          109.76,
+          24.84
+        ],
+        [
+          "Stew",
+          14,
+          127.78,
+          116.62,
+          28.8
+        ],
+        [
+          "Stew",
+          16,
+          106.52,
+          92.5,
+          25.3
+        ],
+        [
+          "Evans",
+          10,
+          122.88,
+          115.04,
+          22.1
+        ],
+        [
+          "Evans",
+          14,
+          146.7,
+          134.66,
+          42
+        ],
+        [
+          "Evans",
+          15,
+          130.38,
+          121.32,
+          25.3
+        ],
+        [
+          "Evans",
+          16,
+          125.66,
+          104.18,
+          31.1
+        ]
+      ]
+    },
+    {
+      "id": "896468742987522048",
+      "date": "2022-11-10",
+      "timestamp": 1668098019043,
+      "trade_time_utc": "2022-11-10T16:33:39.043Z",
+      "sides": [
+        {
+          "manager": "Stew",
+          "players": [
+            [
+              "Ja'Marr Chase",
+              63.1,
+              5,
+              "1.10 Birch"
+            ]
+          ],
+          "total": 63.1,
+          "starts": 5
+        },
+        {
+          "manager": "Birch",
+          "players": [
+            [
+              "Cordarrelle Patterson",
+              22,
+              4
+            ],
+            [
+              "Jeff Wilson",
+              54.5,
+              7
+            ],
+            [
+              "Chase Claypool",
+              0,
+              0
+            ]
+          ],
+          "total": 76.5,
+          "starts": 11
+        }
+      ],
+      "boundary": {
+        "week": 10,
+        "points": 23.8,
+        "players": [
+          [
+            "Patterson",
+            2.5,
+            "2022-11-10 20:15 ET"
+          ],
+          [
+            "Wilson",
+            21.3,
+            "2022-11-13 13:00 ET"
+          ]
+        ],
+        "sources": [
+          "https://www.pro-football-reference.com/years/2022/games.htm",
+          "https://www.nfl.com/schedules/2022/by-week/week-10"
+        ]
+      },
+      "sensitive_after_week10": [
+        [
+          "Stew",
+          14,
+          127.78,
+          116.62,
+          23.5
+        ],
+        [
+          "Birch",
+          12,
+          111.36,
+          105.92,
+          20.3
+        ]
+      ],
+      "week10_sensitivity": "Not evaluated in this pass"
+    }
+  ],
+  "asset_flow": {
+    "net_out": [
+      "Conner",
+      "Williams",
+      "Robinson",
+      "Wilson",
+      "Claypool"
+    ],
+    "net_in": [
+      "Jefferson",
+      "Chase"
+    ],
+    "intermediate": "Patterson",
+    "waiver_provenance": [
+      {
+        "player": "Wilson",
+        "date": "2022-09-14",
+        "bid": 11,
+        "id": "875619419815133184"
+      },
+      {
+        "player": "Claypool",
+        "date": "2022-10-19",
+        "bid": 0,
+        "id": "888124448015085568",
+        "original_draft": "Evans 12.05",
+        "drop_by_Evans": "2022-09-28"
+      }
+    ],
+    "Robinson": "Evans to Tony Oct 12; dropped Dec 7"
+  },
+  "keeper": {
+    "next_draft": "Jefferson Stew 1.03; Chase Kuhl 1.04",
+    "markers_available": 0,
+    "conclusion": "No verified keeper status or savings"
+  },
+  "championship": {
+    "Stew": 48.16,
+    "Stover": 99.22,
+    "Jefferson": 2,
+    "Chase": 0,
+    "Chase_context": "Bills-Bengals game canceled; retain official fantasy score, no poor-play attribution",
+    "source": "https://www.nfl.com/_amp/week-17-buffalo-cincinnati-game-will-not-be-resumed-neutral-afc-championship-gam"
+  },
+  "limitations": [
+    "No full bench or causal grade",
+    "Injury chronology before Chase acquisition not yet verified",
+    "Week 15 bye lineup points not competitive wins",
+    "No production changes"
+  ]
+}
