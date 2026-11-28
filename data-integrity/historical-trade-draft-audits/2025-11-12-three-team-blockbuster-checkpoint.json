@@ -1,0 +1,279 @@
+{
+  "status": "PARTIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1294402688213057536",
+  "timestamp": 1762981428712,
+  "date": "2025-11-12",
+  "source": "Original Sleeper 2025 transactions weeks 1–17, draft, finalized matchups weeks 11–17 and 2026 draft via Flaim; NFL schedule https://www.nfl.com/schedules/2025/by-week/week-11",
+  "source_blobs": {
+    "data/player_starts_2025.json": "edd4ed006cda105f548c4ee681ad311eceb74441",
+    "data/season_weekly_matchups_2016_2026_v1.json": "6dee0794c38c072f30b69d42bd7a2bad92015921"
+  },
+  "sides": [
+    {
+      "manager": "Stilly",
+      "players": [
+        [
+          "Goff",
+          [
+            [
+              11,
+              12.1
+            ],
+            [
+              12,
+              17.16
+            ],
+            [
+              13,
+              20.64
+            ],
+            [
+              14,
+              16.16
+            ],
+            [
+              15,
+              25.52
+            ],
+            [
+              16,
+              26.46
+            ],
+            [
+              17,
+              2.08
+            ]
+          ]
+        ],
+        [
+          "St. Brown",
+          [
+            [
+              11,
+              5.2
+            ],
+            [
+              12,
+              25.4
+            ],
+            [
+              13,
+              0
+            ],
+            [
+              14,
+              12.2
+            ],
+            [
+              15,
+              35.9
+            ],
+            [
+              16,
+              7.4
+            ],
+            [
+              17,
+              10.8
+            ]
+          ]
+        ],
+        [
+          "Addison",
+          [
+            [
+              11,
+              9
+            ],
+            [
+              12,
+              0
+            ]
+          ]
+        ]
+      ],
+      "regular": 117.86,
+      "total": 226.02,
+      "starts": 16,
+      "ledger": 199.72,
+      "restored": 26.3
+    },
+    {
+      "manager": "JMid",
+      "players": [
+        [
+          "Chase",
+          [
+            [
+              11,
+              4.5
+            ],
+            [
+              13,
+              15.5
+            ],
+            [
+              14,
+              7.7
+            ],
+            [
+              15,
+              18.2
+            ],
+            [
+              16,
+              15.4
+            ],
+            [
+              17,
+              21.5
+            ]
+          ]
+        ]
+      ],
+      "regular": 27.7,
+      "total": 82.8,
+      "starts": 6,
+      "ledger": 78.3,
+      "restored": 4.5
+    },
+    {
+      "manager": "Thommy",
+      "players": [
+        [
+          "A.J. Brown",
+          [
+            [
+              11,
+              8.4
+            ],
+            [
+              12,
+              21
+            ],
+            [
+              13,
+              30.2
+            ],
+            [
+              14,
+              13
+            ],
+            [
+              15,
+              11.1
+            ],
+            [
+              16,
+              14
+            ],
+            [
+              17,
+              9.3
+            ]
+          ]
+        ]
+      ],
+      "regular": 72.6,
+      "total": 107,
+      "starts": 7,
+      "ledger": 98.6,
+      "restored": 8.4
+    }
+  ],
+  "boundary": "All five played Nov 16 after Nov 12 trade; total restored 39.2",
+  "keeper2026": [
+    [
+      "Chase",
+      "JMid",
+      1,
+      4,
+      true
+    ],
+    [
+      "St. Brown",
+      "Stilly",
+      1,
+      8,
+      true
+    ],
+    [
+      "A.J. Brown",
+      "Kuhl",
+      2,
+      18,
+      false
+    ],
+    [
+      "Addison",
+      "JMid",
+      10,
+      97,
+      false
+    ]
+  ],
+  "Goff_chain": [
+    [
+      "Kuhl",
+      "drop",
+      "2025-10-01",
+      "1278720074449977344"
+    ],
+    [
+      "Tony",
+      "add",
+      "2025-10-05",
+      "1280574738921443328"
+    ],
+    [
+      "Tony",
+      "drop",
+      "2025-10-25",
+      "1287948308467159040"
+    ],
+    [
+      "Thommy",
+      "waiver $5",
+      "2025-10-29",
+      "1289099585909690368"
+    ]
+  ],
+  "sensitivity": [
+    [
+      "Stilly",
+      12,
+      42.56,
+      9.44
+    ],
+    [
+      "Stilly",
+      13,
+      20.64,
+      18.52
+    ],
+    [
+      "Stilly",
+      14,
+      28.36,
+      11.18
+    ],
+    [
+      "JMid",
+      13,
+      15.5,
+      10.6
+    ]
+  ],
+  "semifinal": {
+    "Thommy": 134.28,
+    "Mitch": 126.3,
+    "Brown": 14,
+    "replacement_to_tie": 6.02
+  },
+  "limitations": [
+    "Full bench scores and injury context not established; no causal playoff claims",
+    "2026 draft demonstrates actual keeper retention not hypothetical eligibility",
+    "No production changes or final grades"
+  ],
+  "next": "2025-11-12 Brian Thomas Jr.–Stefon Diggs"
+}
