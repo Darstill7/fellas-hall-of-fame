@@ -1,0 +1,290 @@
+{
+  "status": "INDEPENDENT_STARTER_RECOUNT_AND_SENSITIVITY_COMPLETE",
+  "source": "Original Sleeper finalized matchup records via Flaim, weeks 1–17 all successful, independently grouped by acquired player and receiving roster within documented ownership windows",
+  "historical_identity": {
+    "2": "Evans",
+    "5": "Koble"
+  },
+  "traded_picks": "All voided at 2024 draft board reset",
+  "cases": [
+    {
+      "trade": "Lamb–Etienne",
+      "sides": [
+        {
+          "manager": "Stew",
+          "total": 136.6,
+          "starts": 8,
+          "regular": 136.6
+        },
+        {
+          "manager": "Kuhl",
+          "total": 415.9,
+          "starts": 29,
+          "regular": 268.1
+        }
+      ]
+    },
+    {
+      "trade": "Lamb–Pollard",
+      "sides": [
+        {
+          "manager": "Stew",
+          "total": 92.5,
+          "starts": 11,
+          "regular": 62.9
+        },
+        {
+          "manager": "Birch",
+          "total": 251.3,
+          "starts": 11,
+          "regular": 178.3
+        }
+      ]
+    },
+    {
+      "trade": "Henry/Evans–Kupp",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "total": 287.08,
+          "starts": 20,
+          "regular": 212.7
+        },
+        {
+          "manager": "Tony",
+          "total": 89.9,
+          "starts": 9,
+          "regular": 49.2
+        }
+      ]
+    },
+    {
+      "trade": "Nine-player",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "total": 181.5,
+          "starts": 14,
+          "regular": 114
+        },
+        {
+          "manager": "Thommy",
+          "total": 240.3,
+          "starts": 21,
+          "regular": 133.6
+        },
+        {
+          "manager": "Stew",
+          "total": 106.1,
+          "starts": 10,
+          "regular": 89.3
+        }
+      ]
+    },
+    {
+      "trade": "Mixon–Addison",
+      "sides": [
+        {
+          "manager": "Evans",
+          "total": 123,
+          "starts": 8,
+          "regular": 84.7
+        },
+        {
+          "manager": "Stew",
+          "total": 56.5,
+          "starts": 7,
+          "regular": 25.4
+        }
+      ]
+    },
+    {
+      "trade": "Jefferson/Jacobs–Davis",
+      "sides": [
+        {
+          "manager": "Mitch",
+          "total": 80.2,
+          "starts": 7,
+          "regular": 36.8
+        },
+        {
+          "manager": "Stew",
+          "total": 25.1,
+          "starts": 5,
+          "regular": 0
+        }
+      ]
+    },
+    {
+      "trade": "Hall–Etienne/Cooper",
+      "sides": [
+        {
+          "manager": "Stew",
+          "total": 116.8,
+          "starts": 7,
+          "regular": 54.3
+        },
+        {
+          "manager": "Tony",
+          "total": 100.3,
+          "starts": 10,
+          "regular": 62
+        }
+      ]
+    },
+    {
+      "trade": "Chase–Lockett",
+      "sides": [
+        {
+          "manager": "Evans",
+          "total": 18.4,
+          "starts": 4,
+          "regular": 4.4
+        },
+        {
+          "manager": "Kuhl",
+          "total": 27.6,
+          "starts": 3,
+          "regular": 11.9
+        }
+      ]
+    }
+  ],
+  "sensitive": [
+    {
+      "trade": "Lamb–Etienne",
+      "manager": "Stew",
+      "week": 5,
+      "opponent": "Birch",
+      "score": 94.36,
+      "opp": 66.8,
+      "points": 41.3,
+      "margin": 27.56,
+      "replacement_to_tie": 13.74,
+      "stage": "regular"
+    },
+    {
+      "trade": "Lamb–Etienne",
+      "manager": "Kuhl",
+      "week": 4,
+      "opponent": "Evans",
+      "score": 120.58,
+      "opp": 118.26,
+      "points": 59.4,
+      "margin": 2.32,
+      "replacement_to_tie": 57.08,
+      "stage": "regular"
+    },
+    {
+      "trade": "Lamb–Etienne",
+      "manager": "Kuhl",
+      "week": 13,
+      "opponent": "Evans",
+      "score": 171.6,
+      "opp": 141.12,
+      "points": 69.2,
+      "margin": 30.48,
+      "replacement_to_tie": 38.72,
+      "stage": "regular"
+    },
+    {
+      "trade": "Lamb–Etienne",
+      "manager": "Kuhl",
+      "week": 16,
+      "opponent": "Stew",
+      "score": 148.16,
+      "opp": 125.3,
+      "points": 49.2,
+      "margin": 22.86,
+      "replacement_to_tie": 26.34,
+      "stage": "consolation"
+    },
+    {
+      "trade": "Lamb–Pollard",
+      "manager": "Birch",
+      "week": 6,
+      "opponent": "Stover",
+      "score": 106.98,
+      "opp": 92.38,
+      "points": 15.2,
+      "margin": 14.6,
+      "replacement_to_tie": 0.6,
+      "stage": "regular"
+    },
+    {
+      "trade": "Lamb–Pollard",
+      "manager": "Birch",
+      "week": 8,
+      "opponent": "Mitch",
+      "score": 138.16,
+      "opp": 119.32,
+      "points": 35,
+      "margin": 18.84,
+      "replacement_to_tie": 16.16,
+      "stage": "regular"
+    },
+    {
+      "trade": "Lamb–Pollard",
+      "manager": "Birch",
+      "week": 10,
+      "opponent": "Koble",
+      "score": 170.26,
+      "opp": 138.36,
+      "points": 34,
+      "margin": 31.9,
+      "replacement_to_tie": 2.1,
+      "stage": "regular"
+    },
+    {
+      "trade": "Henry/Evans–Kupp",
+      "manager": "Stilly",
+      "week": 8,
+      "opponent": "Thommy",
+      "score": 120.36,
+      "opp": 117.58,
+      "points": 25.6,
+      "margin": 2.78,
+      "replacement_to_tie": 22.82,
+      "stage": "regular"
+    },
+    {
+      "trade": "Henry/Evans–Kupp",
+      "manager": "Stilly",
+      "week": 16,
+      "opponent": "Tony",
+      "score": 141.66,
+      "opp": 108.58,
+      "points": 44.98,
+      "margin": 33.08,
+      "replacement_to_tie": 11.9,
+      "stage": "semifinal"
+    },
+    {
+      "trade": "Nine-player",
+      "manager": "Thommy",
+      "week": 10,
+      "opponent": "Kuhl",
+      "score": 110.82,
+      "opp": 93.2,
+      "points": 27.4,
+      "margin": 17.62,
+      "replacement_to_tie": 9.78,
+      "stage": "regular"
+    }
+  ],
+  "counts": {
+    "trades": 8,
+    "sides": 17,
+    "player_acquisitions": 31,
+    "regular_sensitive": 8,
+    "championship_bracket_sensitive": 1,
+    "consolation_sensitive": 1
+  },
+  "limitations": [
+    "Ownership windows taken from prior transaction audit; NFL kickoff chronology not independently verified in this pass",
+    "No full bench scoring or causal counterfactual certification",
+    "Earlier checkpoint spellings superseded by Evans correction; original raw identifiers preserved",
+    "No production changes"
+  ],
+  "next": "Stew net trade tree, correct earlier narrative overstatements, verify transaction-week kickoff and injury sources, then 2022"
+}
