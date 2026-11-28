@@ -1,0 +1,158 @@
+{
+  "id": "1038099277249245184",
+  "timestamp": 1701871720442,
+  "date": "2023-12-06",
+  "status": "investigative-draft-not-certified",
+  "headline": "The December Chase Gamble",
+  "historicalIdentity": {
+    "rosterId": 2,
+    "manager": "Evans",
+    "providerDisplayedOwner": "JMidd",
+    "authority": "Commissioner confirmation November 27 2026"
+  },
+  "receipt": {
+    "Evans": {
+      "received": [
+        "Ja'Marr Chase"
+      ],
+      "sent": [
+        "Tyler Lockett",
+        "2024 first-round pick (void)",
+        "2025 second-round pick (void)"
+      ]
+    },
+    "Kuhl": {
+      "received": [
+        "Tyler Lockett",
+        "2024 first-round pick (void)",
+        "2025 second-round pick (void)"
+      ],
+      "sent": [
+        "Ja'Marr Chase"
+      ]
+    }
+  },
+  "weeks": [
+    {
+      "week": 14,
+      "chaseStart": 4.4,
+      "lockettStart": 11.9
+    },
+    {
+      "week": 15,
+      "chaseStart": 8.4,
+      "lockettStart": 3.6
+    },
+    {
+      "week": 16,
+      "chaseStart": 0,
+      "lockettStart": 12.1,
+      "chaseInactive": true
+    },
+    {
+      "week": 17,
+      "chaseStart": 5.6,
+      "lockettBench": 1.5,
+      "unpaired": true
+    }
+  ],
+  "totals": {
+    "observed": {
+      "Evans": 18.4,
+      "Kuhl": 27.6
+    },
+    "excludingAcquisition": {
+      "Evans": 14,
+      "Kuhl": 15.7
+    },
+    "paired": {
+      "Evans": 12.8,
+      "Kuhl": 27.6
+    },
+    "archive": {
+      "Evans": 14,
+      "Kuhl": 15.7
+    }
+  },
+  "matchups": [
+    {
+      "week": 14,
+      "Evans": 90.28,
+      "Stilly": 127.42,
+      "Kuhl": 110.02,
+      "Mitch": 83.84
+    },
+    {
+      "week": 15,
+      "Evans": 94.22,
+      "Mitch": 110.32,
+      "Kuhl": 92.06,
+      "Stover": 109.16
+    },
+    {
+      "week": 16,
+      "Evans": 69.34,
+      "Birch": 136.52,
+      "Kuhl": 148.16,
+      "Stew": 125.3
+    },
+    {
+      "week": 17,
+      "Evans": 66.48,
+      "Kuhl": 174.34,
+      "unpaired": true
+    }
+  ],
+  "counterfactual": {
+    "method": "Direct legal WR/FLEX substitution, other starters and opponents fixed. Week 14 both managers reverse acquisitions; Week 15 both reverse; Week 16 Chase inactive, hypothetical Kuhl uses available bench WR Zay Flowers instead of Lockett; Week 17 unpaired not competitive.",
+    "week14": {
+      "Evans": 97.78,
+      "Kuhl": 102.52,
+      "resultsUnchanged": true,
+      "EvansPFDelta": 7.5,
+      "KuhlPFDelta": -7.5,
+      "standingsUnchanged": true
+    },
+    "week15": {
+      "Evans": 89.42,
+      "Mitch": 110.32,
+      "margin": -20.9,
+      "Kuhl": 96.86,
+      "Stover": 109.16,
+      "resultsUnchanged": true
+    },
+    "week16": {
+      "Evans": 81.44,
+      "Birch": 136.52,
+      "Kuhl": 153.76,
+      "Stew": 125.3,
+      "resultsUnchanged": true
+    },
+    "conclusion": "No tested paired result or playoff qualification changes; Chase was not the cause of Evans' first-round elimination."
+  },
+  "sources": [
+    {
+      "url": "https://www.nfl.com/_amp/bengals-qb-joe-burrow-has-torn-wrist-ligament-to-miss-remainder-of-2023-season",
+      "finding": "November 17 season-ending injury known before trade"
+    },
+    {
+      "url": "https://www.pro-football-reference.com/boxscores/202312040jax.htm",
+      "finding": "December 4 Chase 11 catches 149 yards TD with Browning"
+    },
+    {
+      "url": "https://abcnews.com/Sports/bengals-jamarr-chase-day-day-dj-reader-season/story?id=105728745",
+      "finding": "December 17 shoulder injury"
+    },
+    {
+      "url": "https://www.nfl.com/_amp/bengals-wr-ja-marr-chase-shoulder-won-t-play-vs-steelers",
+      "finding": "December 21 ruled out Week 16"
+    }
+  ],
+  "publicationDraft": "Evans bought Chase two days after his 149-yard explosion with Jake Browning, sending Lockett and two future picks to Kuhl. Burrow's injury was known; Chase's subsequent shoulder injury was not. Chase supplied just 18.40 starting points, including an inactive Week 16 zero, while Lockett delivered 27.60. Reversing the trade would not have saved Evans from his first-round defeat to Mitch. Kuhl got the better immediate return, but those picks eventually became worthless under league policy. Evans bought a superstar for the stretch run and got a damn injury report.",
+  "limitations": [
+    "Completed Week14 receipt conflicts with retrospective Week11 deadline setting; authorization unknown, no misconduct inferred",
+    "Keeper eligibility and complete ownership replay pending",
+    "No final grade or deployment",
+    "No alternate waiver or manager decision simulation"
+  ]
+}
