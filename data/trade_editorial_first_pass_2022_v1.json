@@ -1,0 +1,63 @@
+{
+  "status": "first-editorial-pass-not-publication-ready",
+  "sources": [
+    "data/trade_individual_review_v1.json",
+    "data/trade_par_preview.json"
+  ],
+  "articles": [
+    {
+      "id": "896468742987522048",
+      "headline": "Chase Outproduces Birch's Three-Player Package",
+      "analysis": "Ja'Marr Chase supplied Stew with 63.10 points across five starts, while Cordarrelle Patterson, Jeff Wilson and Chase Claypool combined for 52.70 across nine for Birch. Stew received more production despite using fewer starting appearances, averaging 12.62 against 5.86. The narrower positional research favors Chase, 26.63 to 4.18 above benchmark, but Claypool is unmatched. Patterson also appears in an earlier transaction involving Stew.",
+      "verdict": "Stew has the stronger direct production case. Birch's additional roster pieces and the movement of Patterson require review before judging the complete exchange.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "886267215865982976",
+      "headline": "Thommy's Receiving Trio Outperforms Stilly's Return",
+      "analysis": "DK Metcalf, CeeDee Lamb and DeVonta Smith supplied Thommy with 382.50 points across twenty-eight player-starts. Keenan Allen, Tee Higgins and Najee Harris generated 327.46 across twenty-six for Stilly. Thommy led by 55.04 points and averaged 13.66 per start against 12.59. The narrower matched positional research also favors Thommy, 154.63 to 133.05 above benchmark.",
+      "verdict": "Thommy has the stronger documented production case, but both packages produced substantial returns. The evidence does not justify calling Stilly's acquisition a failure.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "885980047650119680",
+      "headline": "Tony's Efficiency Narrows Evans' Volume Advantage",
+      "analysis": "Alvin Kamara and Gabe Davis supplied Evans with 178.80 points across seventeen player-starts. A.J. Brown and James Robinson returned 170.30 across eleven for Tony. Evans led by only 8.50 points while Tony averaged 15.48 per start against 10.52. The narrower positional research matches Tony's package for 76.86 above benchmark but leaves both of Evans' players unresolved. Kamara and Robinson also appear in other documented transactions that season.",
+      "verdict": "Evans leads raw volume; Tony has the stronger efficiency case. Asset lineage and the missing positional evidence are essential to a fair verdict.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "881580705233195008",
+      "headline": "Fournette's Sustained Return Outweighs Kamara's Single Recorded Start",
+      "analysis": "Leonard Fournette delivered 85.70 points across six starts for Thommy. Alvin Kamara supplied Tony with 21.40 in one. Kamara's superior per-start average is based on a single appearance, while Fournette's broader contribution was more sustained. The matched positional research favors Fournette, 54.71 to 16.26 above benchmark. Kamara appears in Tony's subsequent exchange with Evans.",
+      "verdict": "Thommy leads direct production, but Tony's onward movement of Kamara must be evaluated before closing the original deal.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "880505837758652416",
+      "headline": "Stew's Package Matches Evans' Volume With Fewer Starts",
+      "analysis": "Cordarrelle Patterson and Justin Jefferson returned 268.06 points across fourteen player-starts for Stew. Mike Williams, James Conner and James Robinson supplied Evans with 266.20 across twenty-one. The 1.86-point margin masks a substantial efficiency difference: 19.15 against 12.68 per start. The narrower research records 168.53 above benchmark for Stew but does not match Evans' assets. Patterson and Robinson subsequently appear in other exchanges.",
+      "verdict": "Stew has the stronger recorded efficiency case; the nearly identical cumulative totals and unresolved asset chains warrant a careful lineup and ownership review.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "875965138744864768",
+      "headline": "Mitch's Barkley Package Leaves Taylor Playing Catch-Up",
+      "analysis": "Saquon Barkley and Adam Thielen combined for 303.90 points across twenty-four player-starts for Mitch. Jonathan Taylor supplied Stilly with 101.10 across nine. Mitch's advantage persisted in efficiency, 12.66 to 11.23 per start, and in the narrower matched positional research, 153.78 to 56.55 above benchmark.",
+      "verdict": "Mitch has a compelling documented production advantage. Stilly's smaller return warrants scrutiny of lineup cost and subsequent ownership before final grades.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    }
+  ]
+}
