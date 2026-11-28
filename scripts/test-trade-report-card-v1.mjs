@@ -28,4 +28,15 @@ const tested=buildTradeReport([fixture],[approval]);assert.equal(tested.managers
 assert.throws(()=>buildTradeReport([fixture],[{...approval,scoringThroughWeek:9}]));
 assert.throws(()=>buildTradeReport([fixture,fixture]));
 assert.equal(buildProductionPreview([{...fixture,sides:fixture.sides.map(s=>({...s,raw_starter_points:0}))}]).trades[0].sides[0].grade,null);
-console.log(JSON.stringify({status:preview.status,transactions:raw.length,graded:preview.trades.filter(t=>t.status==='raw-production-preview').length,managers:Object.keys(preview.managers).length,stillyVsThommy:preview.rivalries.Stilly.Thommy},null,2));
+// Regression: a low-impact 12.30–0 trade is not an A+/F trade verdict.
+const brooks=preview.trades.find(t=>t.id==='1399889389147979776');
+assert(brooks,'Brooks transaction missing');
+assert(brooks.sides.every(s=>s.grade===null&&s.rating===null));
+assert(preview.trades.every(t=>t.sides.every(s=>s.grade===null&&s.rating===null)));
+assert(Object.values(preview.managers).every(m=>m.grade===null&&m.graded===0));
+for(const [a,group] of Object.entries(preview.rivalries))for(const [b,r] of Object.entries(group)){
+ assert.equal(r.rawEdge,-preview.rivalries[b][a].rawEdge||0);
+ assert.equal(r.rawCompared,preview.rivalries[b][a].rawCompared);
+ assert.equal(r.grade,null);
+}
+console.log(JSON.stringify({status:preview.status,transactions:raw.length,comparable:preview.trades.filter(t=>t.status==='raw-production-comparison').length,managers:Object.keys(preview.managers).length,stillyVsThommy:preview.rivalries.Stilly.Thommy},null,2));
