@@ -1,0 +1,427 @@
+{
+  "status": "INDEPENDENT_STARTER_RECOUNT_AND_SENSITIVITY_COMPLETE",
+  "season": 2022,
+  "source": "Fresh original Sleeper finalized matchup retrieval weeks 1–17 via Flaim; all successful; previously verified acquisition windows",
+  "cases": [
+    [
+      "Taylor",
+      [
+        [
+          1,
+          107.9,
+          10
+        ],
+        [
+          6,
+          321.4,
+          26
+        ]
+      ]
+    ],
+    [
+      "Jefferson",
+      [
+        [
+          2,
+          266.2,
+          21
+        ],
+        [
+          4,
+          268.06,
+          14
+        ]
+      ]
+    ],
+    [
+      "Fournette",
+      [
+        [
+          3,
+          100.6,
+          7
+        ],
+        [
+          7,
+          21.4,
+          1
+        ]
+      ]
+    ],
+    [
+      "Brown",
+      [
+        [
+          2,
+          209.1,
+          19
+        ],
+        [
+          7,
+          185.5,
+          12
+        ]
+      ]
+    ],
+    [
+      "Six-player",
+      [
+        [
+          1,
+          347.06,
+          28
+        ],
+        [
+          3,
+          410,
+          31
+        ]
+      ]
+    ],
+    [
+      "Chase",
+      [
+        [
+          4,
+          63.1,
+          5
+        ],
+        [
+          10,
+          76.5,
+          11
+        ]
+      ]
+    ]
+  ],
+  "sensitive": [
+    {
+      "trade": "Taylor",
+      "r": 1,
+      "w": 11,
+      "opp": 6,
+      "score": 117.22,
+      "opponentScore": 109.6,
+      "points": 14.9,
+      "margin": 7.62,
+      "stage": "regular"
+    },
+    {
+      "trade": "Taylor",
+      "r": 6,
+      "w": 5,
+      "opp": 10,
+      "score": 114.38,
+      "opponentScore": 100.22,
+      "points": 24.8,
+      "margin": 14.16,
+      "stage": "regular"
+    },
+    {
+      "trade": "Taylor",
+      "r": 6,
+      "w": 6,
+      "opp": 2,
+      "score": 117.2,
+      "opponentScore": 102.7,
+      "points": 30.6,
+      "margin": 14.5,
+      "stage": "regular"
+    },
+    {
+      "trade": "Taylor",
+      "r": 6,
+      "w": 14,
+      "opp": 10,
+      "score": 92.06,
+      "opponentScore": 78.98,
+      "points": 21.8,
+      "margin": 13.08,
+      "stage": "regular"
+    },
+    {
+      "trade": "Jefferson",
+      "r": 2,
+      "w": 10,
+      "opp": 8,
+      "score": 122.88,
+      "opponentScore": 115.04,
+      "points": 22.1,
+      "margin": 7.84,
+      "stage": "regular"
+    },
+    {
+      "trade": "Jefferson",
+      "r": 2,
+      "w": 14,
+      "opp": 1,
+      "score": 146.7,
+      "opponentScore": 134.66,
+      "points": 42,
+      "margin": 12.04,
+      "stage": "regular"
+    },
+    {
+      "trade": "Jefferson",
+      "r": 2,
+      "w": 15,
+      "opp": 7,
+      "score": 130.38,
+      "opponentScore": 121.32,
+      "points": 25.3,
+      "margin": 9.06,
+      "stage": "consolation"
+    },
+    {
+      "trade": "Jefferson",
+      "r": 2,
+      "w": 16,
+      "opp": 5,
+      "score": 125.66,
+      "opponentScore": 104.18,
+      "points": 31.1,
+      "margin": 21.48,
+      "stage": "consolation"
+    },
+    {
+      "trade": "Jefferson",
+      "r": 4,
+      "w": 8,
+      "opp": 5,
+      "score": 146.6,
+      "opponentScore": 141.6,
+      "points": 12.8,
+      "margin": 5,
+      "stage": "regular"
+    },
+    {
+      "trade": "Jefferson",
+      "r": 4,
+      "w": 9,
+      "opp": 9,
+      "score": 127.22,
+      "opponentScore": 120,
+      "points": 23,
+      "margin": 7.22,
+      "stage": "regular"
+    },
+    {
+      "trade": "Jefferson",
+      "r": 4,
+      "w": 10,
+      "opp": 6,
+      "score": 132.4,
+      "opponentScore": 111.48,
+      "points": 31.3,
+      "margin": 20.92,
+      "stage": "regular"
+    },
+    {
+      "trade": "Jefferson",
+      "r": 4,
+      "w": 12,
+      "opp": 2,
+      "score": 117.66,
+      "opponentScore": 109.76,
+      "points": 24.84,
+      "margin": 7.9,
+      "stage": "regular"
+    },
+    {
+      "trade": "Jefferson",
+      "r": 4,
+      "w": 14,
+      "opp": 3,
+      "score": 127.78,
+      "opponentScore": 116.62,
+      "points": 28.8,
+      "margin": 11.16,
+      "stage": "regular"
+    },
+    {
+      "trade": "Jefferson",
+      "r": 4,
+      "w": 16,
+      "opp": 6,
+      "score": 106.52,
+      "opponentScore": 92.5,
+      "points": 25.3,
+      "margin": 14.02,
+      "stage": "championship_bracket"
+    },
+    {
+      "trade": "Brown",
+      "r": 2,
+      "w": 8,
+      "opp": 10,
+      "score": 125.56,
+      "opponentScore": 96.88,
+      "points": 42.8,
+      "margin": 28.68,
+      "stage": "regular"
+    },
+    {
+      "trade": "Brown",
+      "r": 2,
+      "w": 10,
+      "opp": 8,
+      "score": 122.88,
+      "opponentScore": 115.04,
+      "points": 24.3,
+      "margin": 7.84,
+      "stage": "regular"
+    },
+    {
+      "trade": "Brown",
+      "r": 2,
+      "w": 15,
+      "opp": 7,
+      "score": 130.38,
+      "opponentScore": 121.32,
+      "points": 11.4,
+      "margin": 9.06,
+      "stage": "consolation"
+    },
+    {
+      "trade": "Brown",
+      "r": 7,
+      "w": 6,
+      "opp": 4,
+      "score": 106.38,
+      "opponentScore": 95.5,
+      "points": 15.2,
+      "margin": 10.88,
+      "stage": "regular"
+    },
+    {
+      "trade": "Brown",
+      "r": 7,
+      "w": 13,
+      "opp": 2,
+      "score": 89.16,
+      "opponentScore": 67.38,
+      "points": 28.9,
+      "margin": 21.78,
+      "stage": "regular"
+    },
+    {
+      "trade": "Six-player",
+      "r": 1,
+      "w": 11,
+      "opp": 6,
+      "score": 117.22,
+      "opponentScore": 109.6,
+      "points": 44.9,
+      "margin": 7.62,
+      "stage": "regular"
+    },
+    {
+      "trade": "Six-player",
+      "r": 1,
+      "w": 12,
+      "opp": 8,
+      "score": 115.32,
+      "opponentScore": 87.7,
+      "points": 44.7,
+      "margin": 27.62,
+      "stage": "regular"
+    },
+    {
+      "trade": "Six-player",
+      "r": 3,
+      "w": 10,
+      "opp": 10,
+      "score": 125.82,
+      "opponentScore": 90.84,
+      "points": 42.6,
+      "margin": 34.98,
+      "stage": "regular"
+    },
+    {
+      "trade": "Six-player",
+      "r": 3,
+      "w": 12,
+      "opp": 7,
+      "score": 123.66,
+      "opponentScore": 115.04,
+      "points": 36.2,
+      "margin": 8.62,
+      "stage": "regular"
+    },
+    {
+      "trade": "Six-player",
+      "r": 3,
+      "w": 16,
+      "opp": 1,
+      "score": 115.04,
+      "opponentScore": 93.5,
+      "points": 67.9,
+      "margin": 21.54,
+      "stage": "consolation"
+    },
+    {
+      "trade": "Chase",
+      "r": 4,
+      "w": 14,
+      "opp": 3,
+      "score": 127.78,
+      "opponentScore": 116.62,
+      "points": 23.5,
+      "margin": 11.16,
+      "stage": "regular"
+    },
+    {
+      "trade": "Chase",
+      "r": 10,
+      "w": 12,
+      "opp": 9,
+      "score": 111.36,
+      "opponentScore": 105.92,
+      "points": 20.3,
+      "margin": 5.44,
+      "stage": "regular"
+    }
+  ],
+  "counts": {
+    "trades": 6,
+    "sides": 12,
+    "acquisitions": 24,
+    "regular": 21,
+    "championship_bracket": 1,
+    "consolation": 4
+  },
+  "counterfactual": {
+    "scope": "Partial running-back retention only; Thielen unchanged; actual seeds and all other scores unchanged; placement lineups used as proxies; no definitive alternate title",
+    "week15": {
+      "Stilly": 113.62,
+      "Mitch": 109.2,
+      "swap": "Barkley for Taylor on both sides"
+    },
+    "week16": {
+      "Stilly": 111.2,
+      "Stew": 106.52,
+      "swap": "Barkley 23.3 for Sanders 5.6"
+    },
+    "week17": [
+      {
+        "Stilly": 97.82,
+        "Stover": 99.22,
+        "swap": "Barkley 6.3 for Sanders 6.1",
+        "result": "Stover wins"
+      },
+      {
+        "Stilly": 102.12,
+        "Stover": 99.22,
+        "swap": "Barkley 6.3 for Higgins 1.8 in FLEX",
+        "result": "Stilly wins",
+        "warning": "Hindsight substitution; Higgins recorded score affected by canceled game; not an expected decision"
+      }
+    ]
+  },
+  "limitations": [
+    "NFL kickoff and injury source verification pending; no complete bench data",
+    "Trade-level sensitivity overlaps, not distinct wins",
+    "Week 17 canceled-game official result unchanged; no inferred full-game scoring",
+    "No production changes"
+  ]
+}
