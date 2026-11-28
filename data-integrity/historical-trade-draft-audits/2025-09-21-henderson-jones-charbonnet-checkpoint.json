@@ -1,0 +1,171 @@
+{
+  "status": "PARTIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1274473433362604032",
+  "date": "2025-09-21",
+  "timestamp": 1758469374999,
+  "source": "Original Sleeper 2025 completed transaction, draft, weeks 4–14 transaction history, finalized matchups 10,11,15–17 via Flaim; archived regular-season starts and scores",
+  "source_blobs": {
+    "data/player_starts_2025.json": "edd4ed006cda105f548c4ee681ad311eceb74441",
+    "data/season_weekly_matchups_2016_2026_v1.json": "6dee0794c38c072f30b69d42bd7a2bad92015921"
+  },
+  "draft": [
+    [
+      "Henderson",
+      2,
+      4,
+      33
+    ],
+    [
+      "Jones",
+      4,
+      6,
+      59
+    ],
+    [
+      "Charbonnet",
+      4,
+      8,
+      79
+    ]
+  ],
+  "sides": [
+    {
+      "manager": "JMid",
+      "roster": 2,
+      "players": [
+        {
+          "name": "Aaron Jones",
+          "id": "4199",
+          "starts": [
+            [
+              11,
+              8.6
+            ],
+            [
+              12,
+              7.2
+            ],
+            [
+              14,
+              7.6
+            ],
+            [
+              15,
+              8
+            ],
+            [
+              16,
+              10.3
+            ],
+            [
+              17,
+              13.8
+            ]
+          ],
+          "total": 55.5
+        },
+        {
+          "name": "Zach Charbonnet",
+          "id": "9753",
+          "starts": [
+            [
+              5,
+              11.3
+            ]
+          ],
+          "total": 11.3
+        }
+      ],
+      "regular": 34.7,
+      "postseason_window": 32.1,
+      "total": 66.8,
+      "starts": 7
+    },
+    {
+      "manager": "Stew",
+      "roster": 4,
+      "players": [
+        {
+          "name": "TreVeyon Henderson",
+          "id": "12529",
+          "starts": [
+            [
+              5,
+              3.7
+            ],
+            [
+              6,
+              4.1
+            ],
+            [
+              7,
+              0.5
+            ],
+            [
+              9,
+              10.7
+            ],
+            [
+              10,
+              29.5
+            ],
+            [
+              11,
+              29.8
+            ],
+            [
+              12,
+              9.6
+            ],
+            [
+              13,
+              10.1
+            ],
+            [
+              15,
+              31.1
+            ],
+            [
+              16,
+              1.7
+            ],
+            [
+              17,
+              8.2
+            ]
+          ],
+          "total": 139
+        }
+      ],
+      "regular": 98,
+      "postseason_window": 41,
+      "total": 139,
+      "starts": 11
+    }
+  ],
+  "sensitive": {
+    "week": 11,
+    "Stew": 105.94,
+    "Stilly": 87.2,
+    "Henderson": 29.8,
+    "margin": 18.74,
+    "replacement_to_tie": 11.06
+  },
+  "week10": {
+    "Stew": 164.8,
+    "Mitch": 167.82,
+    "Henderson": 29.5
+  },
+  "week15": {
+    "Stew": 121.5,
+    "Thommy": 148.76,
+    "Henderson": 31.1
+  },
+  "ownership": "No relevant moves returned in weeks 4–14; postseason transaction coverage not yet checked.",
+  "limitations": [
+    "Full bench production and injuries not independently verified; no keeper cost or future rights established",
+    "Week 3 kickoff eligibility not material to observed starts but full source coverage not certified",
+    "No causal playoff qualification claim; postseason round classification pending"
+  ],
+  "next": "2025-09-23 Chase/Brown–Gibbs/Harvey"
+}
