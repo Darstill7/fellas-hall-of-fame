@@ -369,5 +369,69 @@
     "Full ownership replay and keeper eligibility pending",
     "No final grades or deployment",
     "2023 roster 2 historical manager is Evans, not retroactively displayed JMid"
-  ]
+  ],
+  "championshipCounterfactual": {
+    "method": "Fixed actual opponents and all other starters; return Hopkins and Edwards to Stilly, Jacobs scored zero while inactive in weeks 15–17. Use actual points from their later rosters. No optimization or inferred pregame choice. Not a full alternate season; subsequent trades dependent on receipt cannot be assumed unchanged.",
+    "weeks": [
+      {
+        "week": 15,
+        "actual": 146.36,
+        "opponent": "Birch",
+        "opponentPoints": 105.06,
+        "remove": {
+          "Montgomery": 9.2,
+          "Waddle": 25.2
+        },
+        "add": {
+          "Edwards": 13.4,
+          "Hopkins": 3.1
+        },
+        "revised": 128.46,
+        "margin": 23.4,
+        "zeroReplacementScore": 111.96,
+        "zeroMargin": 6.9
+      },
+      {
+        "week": 16,
+        "actual": 141.66,
+        "opponent": "Tony",
+        "opponentPoints": 108.58,
+        "remove": {
+          "Montgomery": 13.9,
+          "Waddle": 6.7
+        },
+        "add": {
+          "Edwards": 13.5,
+          "Hopkins": 3
+        },
+        "revised": 137.56,
+        "margin": 28.98,
+        "zeroReplacementScore": 121.06,
+        "zeroMargin": 12.48
+      },
+      {
+        "week": 17,
+        "actual": 104.96,
+        "opponent": "Mitch",
+        "opponentPoints": 90.18,
+        "remove": {
+          "Montgomery": 12.5
+        },
+        "add": {
+          "Edwards": 10.8
+        },
+        "revised": 103.26,
+        "margin": 13.08,
+        "zeroReplacementScore": 92.46,
+        "zeroMargin": 2.28
+      }
+    ],
+    "dependencyNotes": [
+      "November 17 Stew–Mitch Jacobs/Jefferson deal and Stew–Tony Cooper/Etienne deal cannot occur as recorded without initial trade. Do not presume other assets stay fixed in a full replay.",
+      "Tony had Cooper 48 on bench Week16; if he starts Cooper instead of Kupp actual Tony 148.68, but Cooper would remain with Thommy absent downstream transaction unless otherwise acquired.",
+      "Mitch started Jefferson 8.4 in Week17 and benched Jacobs 0; alternative roster unknown.",
+      "Week17 pairing 1 vs 6 observed but official bracket endpoint inaccessible; historical championship designation needs independent confirmation."
+    ],
+    "conclusion": "All three actual paired matchup results survive direct legal substitutions and even zero replacement points for removed acquisitions. Trade helped but necessity not established; alternative seeding and downstream transactions unresolved."
+  }
 }
