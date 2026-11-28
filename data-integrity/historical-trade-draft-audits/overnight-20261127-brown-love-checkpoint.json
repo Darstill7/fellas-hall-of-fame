@@ -1,0 +1,145 @@
+{
+  "status": "PARTIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1146947320588861440",
+  "date": "2024-10-02",
+  "week": 4,
+  "source_blobs": {
+    "data/trade_museum_stage66.json": "742755056566510cd4dd988a1eefcd7288d4f4cd",
+    "data/player_starts_2024.json": "de535bdf07a8ea32a275b1e0bb7a40749284e767",
+    "data/season_weekly_matchups_2016_2026_v1.json": "6dee0794c38c072f30b69d42bd7a2bad92015921"
+  },
+  "archive_counts": {
+    "2020": 5,
+    "2021": 10,
+    "2022": 6,
+    "2023": 7,
+    "2024": 8,
+    "2025": 8,
+    "2026": 13,
+    "total": 57
+  },
+  "research_denominator": "Unresolved 58 reported; 48 older receipts claimed in PR234 vs 44 in current ledger; 30 drafts not located.",
+  "sides": [
+    {
+      "manager": "Stilly",
+      "roster": 1,
+      "player": "Chase Brown",
+      "id": "9224",
+      "starts": [
+        [
+          5,
+          14.9
+        ],
+        [
+          7,
+          6.3
+        ],
+        [
+          8,
+          10.4
+        ],
+        [
+          10,
+          17.9
+        ],
+        [
+          11,
+          16.8
+        ],
+        [
+          13,
+          18.5
+        ],
+        [
+          14,
+          21.3
+        ]
+      ],
+      "regular_points": 106.1,
+      "archived_all_points": 154.4,
+      "archived_all_starts": 10
+    },
+    {
+      "manager": "Thommy",
+      "museum_alias": "Tom",
+      "roster": 3,
+      "player": "Jordan Love",
+      "id": "6804",
+      "starts": [
+        [
+          5,
+          14.96
+        ],
+        [
+          6,
+          25.62
+        ],
+        [
+          7,
+          16.8
+        ],
+        [
+          8,
+          5.74
+        ],
+        [
+          11,
+          20.24
+        ],
+        [
+          12,
+          14.72
+        ],
+        [
+          13,
+          18.96
+        ],
+        [
+          14,
+          14.54
+        ]
+      ],
+      "regular_points": 131.58,
+      "archived_all_points": 174.62,
+      "archived_all_starts": 11
+    }
+  ],
+  "sensitive_games": [
+    {
+      "week": 5,
+      "winner": "Stilly",
+      "loser": "Birch",
+      "margin": 4.58,
+      "brown_points": 14.9
+    },
+    {
+      "week": 10,
+      "winner": "Stilly",
+      "loser": "Thommy",
+      "margin": 6.44,
+      "brown_points": 17.9
+    },
+    {
+      "week": 16,
+      "winner": "Thommy",
+      "loser": "JMid",
+      "margin": 2.3
+    }
+  ],
+  "championship_evidence": {
+    "week17": {
+      "Thommy": 205.3,
+      "Stilly": 114.88
+    },
+    "margin": 90.42,
+    "Mitch_regular_record": "6-8",
+    "status": "Archived matchup path strongly supports Thommy; original winner bracket not yet inspected; postseason unclassified in ledger."
+  },
+  "limitations": [
+    "Regular starter points only independently summed from archived receiving-roster rows, not total player production.",
+    "No original transaction payload or winner bracket inspected in this pass.",
+    "No legal replacement lineup or full ownership continuity verified.",
+    "No championship counterfactual or grade certified."
+  ],
+  "next": "Obtain original 2024 Sleeper winner bracket and transaction payload, weekly full roster points/eligibility and postseason starter rows; reconcile source IDs against archive and locate prior individual draft checkpoint. Evan retains 2023 ownership."
+}
