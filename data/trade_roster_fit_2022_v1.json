@@ -1,0 +1,51 @@
+{
+  "status": "weekly-snapshot-evidence-not-exact-trade-time",
+  "source": "Sleeper completed transactions and historical roster reads via Flaim, league 857125408712310784",
+  "snapshotCoverage": "24 successful historical weekly roster reads; underlying snapshots inspected but not separately persisted",
+  "transactions": [
+    {
+      "id": "875965138744864768",
+      "timestamp": 1663209531115,
+      "analysis": "Week 1 Stilly started McCaffrey (13.70), Barkley (30.40) and Thielen in FLEX (5.10), Sanders benched (17.50). Week 2 Taylor started (6.80), Sanders FLEX (10.10). Mitch started Taylor (25.50), Akers (0) and Edwards-Helaire (20.90) in Week 1; Week 2 Barkley (10.30), Thielen (7.20), Edwards-Helaire and Pollard all started. Mitch diversified two positions while Stilly concentrated backfield talent.",
+      "verdict": "Mitch's immediate and archived utilization supports stronger realized roster fit; Stilly's concentration strategy had significant opportunity cost."
+    },
+    {
+      "id": "880505837758652416",
+      "timestamp": 1664291637734,
+      "analysis": "Week 3 Evans started Jones (4.20), Henderson (1.70), Elliott and Patterson across RB/FLEX, Jefferson and Brown at WR. Week 4 all three incoming players started: Williams 16.50, Conner 9.20, Robinson 1.90. Stew started Conner and Williams with Robinson benched (20.10), and retained Kupp and Diggs; Week 4 Jefferson (27) and Patterson (9.80) started alongside Kupp and Diggs. Both reshaped RB depth and WR quality. Robinson later moved to Tony; Patterson later moved to Birch.",
+      "verdict": "Evans added multiple starting options to a struggling backfield; Stew consolidated around an elite receiving trio. Both have coherent roster fit, with later ownership requiring reconciliation."
+    },
+    {
+      "id": "881580705233195008",
+      "timestamp": 1664549235667,
+      "analysis": "Week 3 Thommy started Harris, Kamara (6.30) and Jacobs with Pierce benched. Tony started Ekeler, Chubb, Fournette (9.50) and Penny. Week 4 Fournette started for Thommy (14.90), Kamara benched at zero for Tony, who started Ekeler, Chubb and Penny. Tony subsequently started Kamara Week 5 (21.40) and moved him to Evans in Week 6.",
+      "verdict": "Like-position trade between deep backfields; Thommy obtained more immediate utilization, Tony's short ownership and subsequent exchange must be considered."
+    },
+    {
+      "id": "886267215865982976",
+      "timestamp": 1665667812973,
+      "analysis": "Week 5 Stilly started McCaffrey, Sanders, Lamb and Metcalf with Taylor and Smith on bench. Week 6 Harris (11.90) and Higgins (7.70) started; Allen benched at zero. Thommy started Pierce, Fournette, Jacobs and Gordon in Week 5, WR Higgins (0) and Smith-Schuster (4.80); Harris and Allen benched. Week 6 Metcalf (4.40), Smith (12.90) and Lamb (10.20) all started. Other roster changes not attributed to trade.",
+      "verdict": "Both addressed observable positional concerns; Thommy's WR need was more pronounced and three acquisitions immediately started. Stilly sacrificed significant receiving depth."
+    },
+    {
+      "id": "885980047650119680",
+      "timestamp": 1665597582411,
+      "analysis": "Week 5 Evans started Jones, Robinson and Conner with Brown at WR, while Tony started Ekeler, Chubb, Kamara and Penny, Davis benched (32.60). Week 6 Kamara (15.40) and Davis (14.90) started for Evans; Brown (15.20) started for Tony, Robinson benched (6). Kamara and Robinson were acquired in earlier trades.",
+      "verdict": "Evans obtained two immediate starters; Tony moved surplus RB and bench WR production into a starting WR and reserve RB. Both positional strategies plausible, with onward attribution required."
+    },
+    {
+      "id": "896468742987522048",
+      "timestamp": 1668098019043,
+      "analysis": "Week 9 Stew started Diggs, Kupp and Jefferson while Patterson (17.80), Wilson (14.70), Claypool (2.70) were benched. Birch started Swift (6.50) and Carter (15.10) with Chase benched at zero. Week 10 Patterson (2.50) and Wilson (21.30) started for Birch, Claypool benched; Chase benched at zero for Stew. Stew concentrated WR depth while Birch addressed immediate backfield needs.",
+      "verdict": "Birch extracted immediate lineup help; Stew acquired another high-profile WR but had no immediate starting return. Later performance and roster availability must be evaluated separately."
+    }
+  ],
+  "limitations": [
+    "weekly anchors not exact pre/post transaction rosters",
+    "archive totals not reconciled",
+    "historical injuries and projections unverified",
+    "raw snapshots not separately persisted",
+    "no certified grades"
+  ],
+  "draftPolicy": "All historical traded picks voided per commissioner; original terms preserved, realized draft value zero. Proposed intent adjustment not approved."
+}
