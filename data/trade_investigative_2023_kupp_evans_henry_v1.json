@@ -1,0 +1,139 @@
+{
+  "id": "1023059879336013824",
+  "timestamp": 1698279409969,
+  "dateProvider": "2023-10-26",
+  "status": "investigative-draft-not-certified",
+  "headline": "Two Veterans for One Superstar",
+  "receipt": {
+    "Stilly": [
+      "Mike Evans",
+      "Derrick Henry"
+    ],
+    "Tony": [
+      "Cooper Kupp"
+    ]
+  },
+  "weeks": [
+    {
+      "week": 8,
+      "henryStart": 14.2,
+      "evansStart": 11.4,
+      "kuppStart": 4.1
+    },
+    {
+      "week": 9,
+      "henryStart": 17.7,
+      "evansStart": 11.7,
+      "kuppStart": 5.8
+    },
+    {
+      "week": 10,
+      "henryStart": 2.5,
+      "evansStart": 24.3,
+      "kuppStart": null
+    },
+    {
+      "week": 11,
+      "henryStart": 4.9,
+      "evansStart": 12.8,
+      "kuppStart": 1.6
+    },
+    {
+      "week": 12,
+      "henryStart": 20.1,
+      "evansStart": 22,
+      "kuppStart": 3.3
+    },
+    {
+      "week": 13,
+      "henryStart": 24.5,
+      "evansStart": 27.7,
+      "kuppStart": 12.9
+    },
+    {
+      "week": 14,
+      "henryStart": 17.6,
+      "evansStart": 1.3,
+      "kuppStart": 21.5
+    },
+    {
+      "week": 15,
+      "henryStart": 3,
+      "evansStart": 13.7,
+      "kuppStart": 22.1
+    },
+    {
+      "week": 16,
+      "henryStart": 20.88,
+      "evansStart": 24.1,
+      "kuppStart": 7.9
+    },
+    {
+      "week": 17,
+      "henryStart": 4.2,
+      "evansStart": 8.5,
+      "kuppStart": 10.7
+    }
+  ],
+  "totals": {
+    "henry": 129.58,
+    "evans": 157.5,
+    "kupp": 89.9,
+    "stilly": 287.08000000000004,
+    "stillyExcludeAcquisition": 261.48,
+    "tonyExcludeAcquisition": 85.8,
+    "tonyExcludeKnownUnpaired": 67.80000000000001
+  },
+  "archive": {
+    "stilly": 261.48,
+    "tony": 85.8
+  },
+  "week15": {
+    "stilly": 146.36,
+    "birch": 105.06,
+    "tonyUnpaired": true
+  },
+  "week16": {
+    "stilly": 141.66,
+    "tony": 108.58,
+    "evans": 24.1,
+    "henry": 20.88,
+    "kupp": 7.9,
+    "stillyBenchMattison": -0.1,
+    "tonyBenchCooper": 48,
+    "stillyFrozenRetainKupp": 104.48,
+    "tonyFrozenRetainEvansHenryReplaceKuppEtienne": 141.06,
+    "tonyCooperInsteadKupp": 148.68
+  },
+  "week17": {
+    "stilly": 104.96,
+    "mitch": 90.18,
+    "evans": 8.5,
+    "henry": 4.2,
+    "kupp": 10.7,
+    "mattisonBench": 4,
+    "stillyFrozenRetainKupp": 106.96
+  },
+  "sources": [
+    {
+      "url": "https://www.fantasypros.com/2023/10/fantasy-football-trade-value-chart-week-8-2023/",
+      "finding": "Kupp 40.1, Henry 29.2, Evans 23.3"
+    },
+    {
+      "url": "https://www.profootballnetwork.com/cooper-kupp-value-week-8-2023/",
+      "finding": "October 24 buy Kupp recommendation, WR3 in consensus week 8 rankings"
+    },
+    {
+      "url": "https://www.latimes.com/sports/rams/story/2023-11-20/rams-seahawks-takeaways-cooper-kupp-injured-ankle-derion-kendrick-key-interception",
+      "finding": "Kupp hamstring IR, two 100-yard games on return, November ankle injury"
+    }
+  ],
+  "publicationDraft": "Tony consolidated Henry and Evans into Kupp, who was still regarded as an elite receiver after returning from injured reserve. Stilly spread his risk across two positions. In their Week 16 showdown, Henry and Evans supplied 44.98 points against Kupp's 7.90. A frozen lineup reversal would change the winner, although Tony also left Amari Cooper's 48 points on his bench. Stilly's acquisitions supplied only 12.70 the next week, so their greatest impact came one round earlier. Tony bought a superstar; Stilly bought two useful starters and got the better damn return.",
+  "limitations": [
+    "Exact bracket labels not independently certified; avoid claiming championship winner pending reconciliation",
+    "Frozen lineup counterfactual assumes same remaining roster and does not establish full no-trade season",
+    "Full ownership replay pending",
+    "NFL postseason and keeper evidence incomplete",
+    "No final grades or deployment"
+  ]
+}
