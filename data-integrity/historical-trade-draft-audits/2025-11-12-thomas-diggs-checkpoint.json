@@ -1,0 +1,163 @@
+{
+  "status": "PARTIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1294424036499025920",
+  "timestamp": 1762981204285,
+  "date": "2025-11-12",
+  "source": "Original Sleeper 2025 transactions weeks 1–17, finalized matchups weeks 11–17, 2025 and 2026 draft via Flaim",
+  "source_blobs": {
+    "data/player_starts_2025.json": "edd4ed006cda105f548c4ee681ad311eceb74441",
+    "data/season_weekly_matchups_2016_2026_v1.json": "6dee0794c38c072f30b69d42bd7a2bad92015921"
+  },
+  "draft": [
+    [
+      "Diggs",
+      9,
+      8,
+      75,
+      false
+    ],
+    [
+      "Thomas",
+      8,
+      9,
+      90,
+      true
+    ]
+  ],
+  "pretrade": {
+    "Diggs": [
+      [
+        6,
+        4.3
+      ],
+      [
+        7,
+        10.4
+      ],
+      [
+        8,
+        8.9
+      ],
+      [
+        9,
+        11.3
+      ],
+      [
+        10,
+        13.1
+      ]
+    ],
+    "Thomas": [
+      [
+        1,
+        8.5
+      ],
+      [
+        2,
+        6.9
+      ],
+      [
+        3,
+        7.5
+      ],
+      [
+        4,
+        8.1
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        19
+      ],
+      [
+        7,
+        4.6
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        10,
+        0
+      ]
+    ]
+  },
+  "sides": [
+    {
+      "manager": "Stilly",
+      "roster": 1,
+      "player": "Brian Thomas Jr.",
+      "starts": [],
+      "total": 0
+    },
+    {
+      "manager": "Stover",
+      "roster": 8,
+      "player": "Stefon Diggs",
+      "starts": [
+        [
+          11,
+          15
+        ],
+        [
+          12,
+          3
+        ],
+        [
+          13,
+          4.1
+        ]
+      ],
+      "total": 22.1,
+      "ledger": 7.1,
+      "restored": 15
+    }
+  ],
+  "boundary": {
+    "game": "2025-11-13 NE vs NYJ",
+    "source": "https://www.pro-football-reference.com/boxscores/202511130nwe.htm",
+    "receiving": "9 catches 105 yards = 15 half PPR points",
+    "trade_before_game": true
+  },
+  "provenance": [
+    [
+      "Kuhl",
+      "drop",
+      "2025-09-24",
+      "1276370543179739136"
+    ],
+    [
+      "Stilly",
+      "free add",
+      "2025-10-01",
+      "1279208192756170753"
+    ]
+  ],
+  "next_draft": [
+    [
+      "Thomas",
+      8,
+      7,
+      61,
+      false
+    ],
+    [
+      "Diggs",
+      7,
+      11,
+      106,
+      false
+    ]
+  ],
+  "impact": "Stover lost all three starts; neither manager qualified for championship bracket; neither player recorded postseason starts for recipient",
+  "limitations": [
+    "Full bench and all-player production, injury context and hypothetical keeper eligibility not verified",
+    "2026 draft confirms neither was retained as keeper, not reason for decision",
+    "No causal wins, grades or production changes"
+  ],
+  "next": "2025-11-13 Henry/Ertz–Ferguson/Warren"
+}
