@@ -1,0 +1,510 @@
+{
+  "status": "PARTIAL_RESEARCH_NOT_CERTIFIED",
+  "source_blobs": {
+    "data/trade_museum_stage66.json": "742755056566510cd4dd988a1eefcd7288d4f4cd",
+    "data/player_starts_2024.json": "de535bdf07a8ea32a275b1e0bb7a40749284e767"
+  },
+  "cases": [
+    {
+      "trade": {
+        "id": "1139340571111256064",
+        "year": 2024,
+        "date": "2024-09-10",
+        "week": 1,
+        "sides": [
+          {
+            "manager": "Tom",
+            "assets": "Tank Dell",
+            "raw_starter_points": 10.5,
+            "started_games": 2,
+            "source_status": "VERIFIED_SOURCE"
+          },
+          {
+            "manager": "Kuhl",
+            "assets": "J.K. Dobbins",
+            "raw_starter_points": 93.8,
+            "started_games": 8,
+            "source_status": "VERIFIED_SOURCE"
+          }
+        ],
+        "comparison_status": "raw_only",
+        "evidence": "Verified starter production. This is not a positional or lineup-adjusted trade verdict."
+      },
+      "players": [
+        {
+          "roster": 3,
+          "name": "Tank Dell",
+          "window": [
+            2,
+            3
+          ],
+          "rows": [
+            [
+              2,
+              "9502",
+              1.8
+            ],
+            [
+              3,
+              "9502",
+              8.7
+            ]
+          ],
+          "starts": 2,
+          "points": 10.5
+        },
+        {
+          "roster": 9,
+          "name": "J.K. Dobbins",
+          "window": [
+            2,
+            14
+          ],
+          "rows": [
+            [
+              3,
+              "6806",
+              6.9
+            ],
+            [
+              4,
+              "6806",
+              7.7
+            ],
+            [
+              7,
+              "6806",
+              8.1
+            ],
+            [
+              8,
+              "6806",
+              14.8
+            ],
+            [
+              9,
+              "6806",
+              23.5
+            ],
+            [
+              10,
+              "6806",
+              7
+            ],
+            [
+              11,
+              "6806",
+              18.4
+            ],
+            [
+              12,
+              "6806",
+              7.4
+            ]
+          ],
+          "starts": 8,
+          "points": 93.8
+        }
+      ]
+    },
+    {
+      "trade": {
+        "id": "1140082401968836608",
+        "year": 2024,
+        "date": "2024-09-12",
+        "week": 2,
+        "sides": [
+          {
+            "manager": "Stew",
+            "assets": "Malik Nabers",
+            "raw_starter_points": 171.4,
+            "started_games": 12,
+            "source_status": "VERIFIED_SOURCE"
+          },
+          {
+            "manager": "Stover",
+            "assets": "Davante Adams",
+            "raw_starter_points": 139,
+            "started_games": 10,
+            "source_status": "VERIFIED_SOURCE"
+          }
+        ],
+        "comparison_status": "raw_only",
+        "evidence": "Verified starter production. This is not a positional or lineup-adjusted trade verdict."
+      },
+      "players": [
+        {
+          "roster": 4,
+          "name": "Malik Nabers",
+          "window": [
+            2,
+            14
+          ],
+          "rows": [
+            [
+              2,
+              "11632",
+              23.7
+            ],
+            [
+              3,
+              "11632",
+              24.2
+            ],
+            [
+              4,
+              "11632",
+              17.1
+            ],
+            [
+              7,
+              "11632",
+              6.1
+            ],
+            [
+              8,
+              "11632",
+              10.6
+            ],
+            [
+              9,
+              "11632",
+              10.4
+            ],
+            [
+              10,
+              "11632",
+              7.8
+            ],
+            [
+              12,
+              "11632",
+              8.4
+            ],
+            [
+              13,
+              "11632",
+              11.3
+            ],
+            [
+              14,
+              "11632",
+              12.4
+            ]
+          ],
+          "starts": 10,
+          "points": 132
+        },
+        {
+          "roster": 8,
+          "name": "Davante Adams",
+          "window": [
+            2,
+            14
+          ],
+          "rows": [
+            [
+              2,
+              "2133",
+              21.5
+            ],
+            [
+              3,
+              "2133",
+              6
+            ],
+            [
+              7,
+              "2133",
+              4.5
+            ],
+            [
+              8,
+              "2133",
+              7.4
+            ],
+            [
+              9,
+              "2133",
+              18.6
+            ],
+            [
+              10,
+              "2133",
+              6.1
+            ],
+            [
+              11,
+              "2133",
+              10.2
+            ],
+            [
+              14,
+              "2133",
+              21.4
+            ]
+          ],
+          "starts": 8,
+          "points": 95.7
+        }
+      ]
+    },
+    {
+      "trade": {
+        "id": "1141777905656143872",
+        "year": 2024,
+        "date": "2024-09-17",
+        "week": 2,
+        "sides": [
+          {
+            "manager": "JMid",
+            "assets": "Calvin Ridley + Kyren Williams",
+            "raw_starter_points": 227,
+            "started_games": 14,
+            "source_status": "VERIFIED_SOURCE"
+          },
+          {
+            "manager": "Stew",
+            "assets": "James Cook III",
+            "raw_starter_points": 204.1,
+            "started_games": 14,
+            "source_status": "VERIFIED_SOURCE"
+          }
+        ],
+        "comparison_status": "raw_only",
+        "evidence": "Verified starter production. This is not a positional or lineup-adjusted trade verdict."
+      },
+      "players": [
+        {
+          "roster": 2,
+          "name": "Calvin Ridley",
+          "window": [
+            3,
+            14
+          ],
+          "rows": [],
+          "starts": 0,
+          "points": 0
+        },
+        {
+          "roster": 2,
+          "name": "Kyren Williams",
+          "window": [
+            3,
+            14
+          ],
+          "rows": [
+            [
+              3,
+              "8150",
+              30.6
+            ],
+            [
+              4,
+              "8150",
+              18.4
+            ],
+            [
+              5,
+              "8150",
+              15
+            ],
+            [
+              7,
+              "8150",
+              19.6
+            ],
+            [
+              8,
+              "8150",
+              20.1
+            ],
+            [
+              9,
+              "8150",
+              9
+            ],
+            [
+              10,
+              "8150",
+              8.7
+            ],
+            [
+              11,
+              "8150",
+              8.6
+            ],
+            [
+              12,
+              "8150",
+              10.2
+            ],
+            [
+              13,
+              "8150",
+              17.8
+            ],
+            [
+              14,
+              "8150",
+              22.7
+            ]
+          ],
+          "starts": 11,
+          "points": 180.7
+        },
+        {
+          "roster": 4,
+          "name": "James Cook III",
+          "window": [
+            3,
+            14
+          ],
+          "rows": [
+            [
+              3,
+              "8138",
+              16.7
+            ],
+            [
+              4,
+              "8138",
+              5.3
+            ],
+            [
+              5,
+              "8138",
+              16.9
+            ],
+            [
+              6,
+              "8138",
+              0
+            ],
+            [
+              7,
+              "8138",
+              9.2
+            ],
+            [
+              8,
+              "8138",
+              26.8
+            ],
+            [
+              9,
+              "8138",
+              9.4
+            ],
+            [
+              10,
+              "8138",
+              15
+            ],
+            [
+              11,
+              "8138",
+              17.2
+            ],
+            [
+              13,
+              "8138",
+              19.5
+            ],
+            [
+              14,
+              "8138",
+              3.9
+            ]
+          ],
+          "starts": 11,
+          "points": 139.9
+        }
+      ]
+    },
+    {
+      "trade": {
+        "id": "1159892809005076480",
+        "year": 2024,
+        "date": "2024-11-09",
+        "week": 10,
+        "sides": [
+          {
+            "manager": "Mitch",
+            "assets": "Raheem Mostert",
+            "raw_starter_points": 0,
+            "started_games": 0,
+            "source_status": "VERIFIED_SOURCE"
+          },
+          {
+            "manager": "Kuhl",
+            "assets": "Nick Chubb",
+            "raw_starter_points": 39.8,
+            "started_games": 4,
+            "source_status": "VERIFIED_SOURCE"
+          }
+        ],
+        "comparison_status": "raw_only",
+        "evidence": "Verified starter production. This is not a positional or lineup-adjusted trade verdict."
+      },
+      "players": [
+        {
+          "roster": 6,
+          "name": "Raheem Mostert",
+          "window": [
+            10,
+            14
+          ],
+          "rows": [
+            [
+              10,
+              "2749",
+              4.4
+            ]
+          ],
+          "starts": 1,
+          "points": 4.4
+        },
+        {
+          "roster": 9,
+          "name": "Nick Chubb",
+          "window": [
+            10,
+            14
+          ],
+          "rows": [
+            [
+              11,
+              "4988",
+              5
+            ],
+            [
+              12,
+              "4988",
+              18.5
+            ],
+            [
+              13,
+              "4988",
+              11.5
+            ],
+            [
+              14,
+              "4988",
+              4.8
+            ]
+          ],
+          "starts": 4,
+          "points": 39.8
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Recorded receiving-roster starts, not total fantasy production; transaction-week kickoff eligibility and ownership intervals not independently verified",
+    "Ridley later recorded on roster 7 in weeks 13 and 14; do not attribute these starts to JMid",
+    "Mostert week 10 recorded on roster 6 despite ledger zero; investigate kickoff eligibility and actual transaction timestamp before crediting",
+    "Postseason, keeper rights, matchup causality and grades not certified"
+  ],
+  "next": "Audit all eight 2024 drafts against original transactions and matchup evidence; investigate Mostert boundary and Ridley ownership; proceed to 2025 where blocked"
+}

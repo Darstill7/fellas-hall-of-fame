@@ -1,0 +1,508 @@
+{
+  "status": "SECOND_PASS_PARTIAL",
+  "source": "Original Sleeper league 1134248931308802048 via Flaim, retrieved 2026-11-28; weeks 15–17 finalized starting lineups, includes consolation and unpaired roster records, not all winners-bracket games",
+  "ledger_blob": "742755056566510cd4dd988a1eefcd7288d4f4cd",
+  "cases": [
+    {
+      "id": "1139340571111256064",
+      "sides": [
+        {
+          "roster": 3,
+          "manager": "Tom",
+          "regular_points": 10.5,
+          "regular_starts": 2,
+          "post_rows": [],
+          "post_points": 0,
+          "observed_total": 10.5,
+          "observed_starts": 2,
+          "ledger_points": 10.5,
+          "ledger_starts": 2,
+          "delta": 0
+        },
+        {
+          "roster": 9,
+          "manager": "Kuhl",
+          "regular_points": 93.8,
+          "regular_starts": 8,
+          "post_rows": [],
+          "post_points": 0,
+          "observed_total": 93.8,
+          "observed_starts": 8,
+          "ledger_points": 93.8,
+          "ledger_starts": 8,
+          "delta": 0
+        }
+      ]
+    },
+    {
+      "id": "1140082401968836608",
+      "sides": [
+        {
+          "roster": 4,
+          "manager": "Stew",
+          "regular_points": 132,
+          "regular_starts": 10,
+          "post_rows": [
+            [
+              15,
+              "11632",
+              "Malik Nabers",
+              19.2
+            ],
+            [
+              16,
+              "11632",
+              "Malik Nabers",
+              10.3
+            ],
+            [
+              17,
+              "11632",
+              "Malik Nabers",
+              33.6
+            ]
+          ],
+          "post_points": 63.1,
+          "observed_total": 195.1,
+          "observed_starts": 13,
+          "ledger_points": 171.4,
+          "ledger_starts": 12,
+          "delta": 23.7
+        },
+        {
+          "roster": 8,
+          "manager": "Stover",
+          "regular_points": 95.7,
+          "regular_starts": 8,
+          "post_rows": [
+            [
+              15,
+              "2133",
+              "Davante Adams",
+              41.3
+            ],
+            [
+              16,
+              "2133",
+              "Davante Adams",
+              16.3
+            ],
+            [
+              17,
+              "2133",
+              "Davante Adams",
+              7.2
+            ]
+          ],
+          "post_points": 64.8,
+          "observed_total": 160.5,
+          "observed_starts": 11,
+          "ledger_points": 139,
+          "ledger_starts": 10,
+          "delta": 21.5
+        }
+      ]
+    },
+    {
+      "id": "1141777905656143872",
+      "sides": [
+        {
+          "roster": 2,
+          "manager": "JMid",
+          "regular_points": 180.7,
+          "regular_starts": 11,
+          "post_rows": [
+            [
+              15,
+              "8150",
+              "Kyren Williams",
+              12.2
+            ],
+            [
+              16,
+              "8150",
+              "Kyren Williams",
+              19.4
+            ],
+            [
+              17,
+              "8150",
+              "Kyren Williams",
+              14.7
+            ]
+          ],
+          "post_points": 46.3,
+          "observed_total": 227,
+          "observed_starts": 14,
+          "ledger_points": 227,
+          "ledger_starts": 14,
+          "delta": 0
+        },
+        {
+          "roster": 4,
+          "manager": "Stew",
+          "regular_points": 139.9,
+          "regular_starts": 11,
+          "post_rows": [
+            [
+              15,
+              "8138",
+              "James Cook III",
+              26.8
+            ],
+            [
+              16,
+              "8138",
+              "James Cook III",
+              26.1
+            ],
+            [
+              17,
+              "8138",
+              "James Cook III",
+              11.3
+            ]
+          ],
+          "post_points": 64.2,
+          "observed_total": 204.1,
+          "observed_starts": 14,
+          "ledger_points": 204.1,
+          "ledger_starts": 14,
+          "delta": 0
+        }
+      ]
+    },
+    {
+      "id": "1144362000575840256",
+      "sides": [
+        {
+          "roster": 1,
+          "manager": "Stilly",
+          "regular_points": 371.2,
+          "regular_starts": 29,
+          "post_rows": [
+            [
+              15,
+              "9226",
+              "De'Von Achane",
+              10.1
+            ],
+            [
+              15,
+              "5927",
+              "Terry McLaurin",
+              22.8
+            ],
+            [
+              16,
+              "9226",
+              "De'Von Achane",
+              29
+            ],
+            [
+              16,
+              "5927",
+              "Terry McLaurin",
+              14.5
+            ],
+            [
+              17,
+              "9226",
+              "De'Von Achane",
+              4.8
+            ],
+            [
+              17,
+              "5927",
+              "Terry McLaurin",
+              1
+            ]
+          ],
+          "post_points": 82.2,
+          "observed_total": 453.4,
+          "observed_starts": 35,
+          "ledger_points": 453.4,
+          "ledger_starts": 35,
+          "delta": 0
+        },
+        {
+          "roster": 3,
+          "manager": "Tom",
+          "regular_points": 187.7,
+          "regular_starts": 15,
+          "post_rows": [
+            [
+              15,
+              "6801",
+              "Tee Higgins",
+              17.3
+            ],
+            [
+              16,
+              "6801",
+              "Tee Higgins",
+              15.8
+            ],
+            [
+              17,
+              "6801",
+              "Tee Higgins",
+              34.6
+            ]
+          ],
+          "post_points": 67.7,
+          "observed_total": 255.4,
+          "observed_starts": 18,
+          "ledger_points": 255.4,
+          "ledger_starts": 18,
+          "delta": 0
+        }
+      ]
+    },
+    {
+      "id": "1146946436173623296",
+      "sides": [
+        {
+          "roster": 3,
+          "manager": "Tom",
+          "regular_points": 21.6,
+          "regular_starts": 2,
+          "post_rows": [],
+          "post_points": 0,
+          "observed_total": 21.6,
+          "observed_starts": 2,
+          "ledger_points": 21.6,
+          "ledger_starts": 2,
+          "delta": 0
+        },
+        {
+          "roster": 4,
+          "manager": "Stew",
+          "regular_points": 38.8,
+          "regular_starts": 6,
+          "post_rows": [
+            [
+              15,
+              "2309",
+              "Amari Cooper",
+              0
+            ],
+            [
+              16,
+              "2309",
+              "Amari Cooper",
+              1.5
+            ],
+            [
+              17,
+              "2309",
+              "Amari Cooper",
+              13.1
+            ]
+          ],
+          "post_points": 14.6,
+          "observed_total": 53.4,
+          "observed_starts": 9,
+          "ledger_points": 53.4,
+          "ledger_starts": 9,
+          "delta": 0
+        }
+      ]
+    },
+    {
+      "id": "1146947320588861440",
+      "sides": [
+        {
+          "roster": 1,
+          "manager": "Stilly",
+          "regular_points": 106.1,
+          "regular_starts": 7,
+          "post_rows": [
+            [
+              15,
+              "9224",
+              "Chase Brown",
+              24.8
+            ],
+            [
+              16,
+              "9224",
+              "Chase Brown",
+              12.4
+            ],
+            [
+              17,
+              "9224",
+              "Chase Brown",
+              11.1
+            ]
+          ],
+          "post_points": 48.3,
+          "observed_total": 154.4,
+          "observed_starts": 10,
+          "ledger_points": 154.4,
+          "ledger_starts": 10,
+          "delta": 0
+        },
+        {
+          "roster": 3,
+          "manager": "Tom",
+          "regular_points": 131.58,
+          "regular_starts": 8,
+          "post_rows": [
+            [
+              15,
+              "6804",
+              "Jordan Love",
+              17.56
+            ],
+            [
+              16,
+              "6804",
+              "Jordan Love",
+              11.48
+            ],
+            [
+              17,
+              "6804",
+              "Jordan Love",
+              14
+            ]
+          ],
+          "post_points": 43.04,
+          "observed_total": 174.62,
+          "observed_starts": 11,
+          "ledger_points": 174.62,
+          "ledger_starts": 11,
+          "delta": 0
+        }
+      ]
+    },
+    {
+      "id": "1152708228883660800",
+      "sides": [
+        {
+          "roster": 3,
+          "manager": "Tom",
+          "regular_points": 82.4,
+          "regular_starts": 8,
+          "post_rows": [
+            [
+              15,
+              "1466",
+              "Travis Kelce",
+              4.7
+            ],
+            [
+              16,
+              "1466",
+              "Travis Kelce",
+              5.5
+            ],
+            [
+              17,
+              "1466",
+              "Travis Kelce",
+              18.4
+            ]
+          ],
+          "post_points": 28.6,
+          "observed_total": 111,
+          "observed_starts": 11,
+          "ledger_points": 107.3,
+          "ledger_starts": 10,
+          "delta": 3.7
+        },
+        {
+          "roster": 7,
+          "manager": "Tony",
+          "regular_points": 200.1,
+          "regular_starts": 14,
+          "post_rows": [
+            [
+              15,
+              "4039",
+              "Cooper Kupp",
+              0
+            ],
+            [
+              15,
+              "7021",
+              "Rico Dowdle",
+              14.9
+            ],
+            [
+              16,
+              "4039",
+              "Cooper Kupp",
+              3.9
+            ],
+            [
+              16,
+              "7021",
+              "Rico Dowdle",
+              6.6
+            ],
+            [
+              17,
+              "4039",
+              "Cooper Kupp",
+              3.4
+            ],
+            [
+              17,
+              "7021",
+              "Rico Dowdle",
+              9.3
+            ]
+          ],
+          "post_points": 38.1,
+          "observed_total": 238.2,
+          "observed_starts": 20,
+          "ledger_points": 216.9,
+          "ledger_starts": 19,
+          "delta": 21.3
+        }
+      ]
+    },
+    {
+      "id": "1159892809005076480",
+      "sides": [
+        {
+          "roster": 6,
+          "manager": "Mitch",
+          "regular_points": 4.4,
+          "regular_starts": 1,
+          "post_rows": [],
+          "post_points": 0,
+          "observed_total": 4.4,
+          "observed_starts": 1,
+          "ledger_points": 0,
+          "ledger_starts": 0,
+          "delta": 4.4
+        },
+        {
+          "roster": 9,
+          "manager": "Kuhl",
+          "regular_points": 39.8,
+          "regular_starts": 4,
+          "post_rows": [],
+          "post_points": 0,
+          "observed_total": 39.8,
+          "observed_starts": 4,
+          "ledger_points": 39.8,
+          "ledger_starts": 4,
+          "delta": 0
+        }
+      ]
+    }
+  ],
+  "transaction_audit": "Weeks 1–17 queried; eight completed trades match ledger IDs. No truncation indicated. Ridley dropped by roster 2 October 17 transaction 1152784110184820736; added by roster 7 October 30 transaction 1157413267321503744. Mostert traded November 9 timestamp 1731136665265; dropped November 28 transaction 1167882687365894144; added by roster 3 December 4 transaction 1169752369916264448.",
+  "limitations": [
+    "Regular inputs taken from saved research calculations; transaction-week game timing not fully checked. Mostert observed 4.4 included provisionally, not certified eligible.",
+    "Postseason window includes all recorded starts, not necessarily competitive playoff games. No bench scoring or legal alternate lineup established.",
+    "Provider current NFL team labels not historical evidence.",
+    "No grade or causal championship claim."
+  ],
+  "next": "Investigate deltas and original kickoff timing; verify week 14/15 classification and keeper ownership; advance 2025 if inaccessible."
+}

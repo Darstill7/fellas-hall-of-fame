@@ -1,0 +1,681 @@
+{
+  "status": "MATCHUP_SENSITIVITY_NOT_CAUSATION",
+  "source_blobs": {
+    "data/season_weekly_matchups_2016_2026_v1.json": "6dee0794c38c072f30b69d42bd7a2bad92015921",
+    "data/player_starts_2024.json": "de535bdf07a8ea32a275b1e0bb7a40749284e767",
+    "data-integrity/historical-trade-draft-audits/2024-original-provider-second-pass.json": "fe816d48d0b6efd11353d2cd6935e385567438ff"
+  },
+  "method": "Subtract recorded acquired starter points from actual winning score; no replacement or opponent changes; ties not treated as losses. Multiple transactions can be sensitive in same game; do not add wins.",
+  "cases": [
+    {
+      "id": "1139340571111256064",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "roster": 3,
+          "sensitive": []
+        },
+        {
+          "manager": "Kuhl",
+          "roster": 9,
+          "sensitive": [
+            {
+              "week": 9,
+              "opponent": "JMid",
+              "own": 128.64,
+              "opp": 114.42,
+              "margin": 14.22,
+              "points": 23.5,
+              "replacement_to_tie": 9.28,
+              "players": [
+                [
+                  "6806",
+                  "J.K. Dobbins",
+                  "RB",
+                  23.5
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1140082401968836608",
+      "sides": [
+        {
+          "manager": "Stew",
+          "roster": 4,
+          "sensitive": [
+            {
+              "week": 7,
+              "opponent": "Birch",
+              "own": 97.34,
+              "opp": 94.92,
+              "margin": 2.42,
+              "points": 6.1,
+              "replacement_to_tie": 3.68,
+              "players": [
+                [
+                  "11632",
+                  "Malik Nabers",
+                  "WR",
+                  6.1
+                ]
+              ]
+            },
+            {
+              "week": 10,
+              "opponent": "Tony",
+              "own": 91.1,
+              "opp": 86.38,
+              "margin": 4.72,
+              "points": 7.8,
+              "replacement_to_tie": 3.08,
+              "players": [
+                [
+                  "11632",
+                  "Malik Nabers",
+                  "WR",
+                  7.8
+                ]
+              ]
+            },
+            {
+              "week": 12,
+              "opponent": "JMid",
+              "own": 106.18,
+              "opp": 102.06,
+              "margin": 4.12,
+              "points": 8.4,
+              "replacement_to_tie": 4.28,
+              "players": [
+                [
+                  "11632",
+                  "Malik Nabers",
+                  "WR",
+                  8.4
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "manager": "Stover",
+          "roster": 8,
+          "sensitive": [
+            {
+              "week": 14,
+              "opponent": "Stew",
+              "own": 117.52,
+              "opp": 96.48,
+              "margin": 21.04,
+              "points": 21.4,
+              "replacement_to_tie": 0.36,
+              "players": [
+                [
+                  "2133",
+                  "Davante Adams",
+                  "WR",
+                  21.4
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1141777905656143872",
+      "sides": [
+        {
+          "manager": "JMid",
+          "roster": 2,
+          "sensitive": [
+            {
+              "week": 3,
+              "opponent": "Stew",
+              "own": 137.38,
+              "opp": 121.58,
+              "margin": 15.8,
+              "points": 30.6,
+              "replacement_to_tie": 14.8,
+              "players": [
+                [
+                  "8150",
+                  "Kyren Williams",
+                  "RB",
+                  30.6
+                ]
+              ]
+            },
+            {
+              "week": 7,
+              "opponent": "Thommy",
+              "own": 107.24,
+              "opp": 103.8,
+              "margin": 3.44,
+              "points": 19.6,
+              "replacement_to_tie": 16.16,
+              "players": [
+                [
+                  "8150",
+                  "Kyren Williams",
+                  "RB",
+                  19.6
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "manager": "Stew",
+          "roster": 4,
+          "sensitive": [
+            {
+              "week": 7,
+              "opponent": "Birch",
+              "own": 97.34,
+              "opp": 94.92,
+              "margin": 2.42,
+              "points": 9.2,
+              "replacement_to_tie": 6.78,
+              "players": [
+                [
+                  "8138",
+                  "James Cook III",
+                  "RB",
+                  9.2
+                ]
+              ]
+            },
+            {
+              "week": 10,
+              "opponent": "Tony",
+              "own": 91.1,
+              "opp": 86.38,
+              "margin": 4.72,
+              "points": 15,
+              "replacement_to_tie": 10.28,
+              "players": [
+                [
+                  "8138",
+                  "James Cook III",
+                  "RB",
+                  15
+                ]
+              ]
+            },
+            {
+              "week": 13,
+              "opponent": "Mitch",
+              "own": 101.38,
+              "opp": 84.28,
+              "margin": 17.1,
+              "points": 19.5,
+              "replacement_to_tie": 2.4,
+              "players": [
+                [
+                  "8138",
+                  "James Cook III",
+                  "RB",
+                  19.5
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1144362000575840256",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "roster": 1,
+          "sensitive": [
+            {
+              "week": 4,
+              "opponent": "Kuhl",
+              "own": 116.72,
+              "opp": 110.7,
+              "margin": 6.02,
+              "points": 19.1,
+              "replacement_to_tie": 13.08,
+              "players": [
+                [
+                  "9226",
+                  "De'Von Achane",
+                  "RB",
+                  4.4
+                ],
+                [
+                  "5927",
+                  "Terry McLaurin",
+                  "WR",
+                  14.7
+                ]
+              ]
+            },
+            {
+              "week": 5,
+              "opponent": "Birch",
+              "own": 99.92,
+              "opp": 95.34,
+              "margin": 4.58,
+              "points": 19.9,
+              "replacement_to_tie": 15.32,
+              "players": [
+                [
+                  "9226",
+                  "De'Von Achane",
+                  "RB",
+                  2.2
+                ],
+                [
+                  "5927",
+                  "Terry McLaurin",
+                  "WR",
+                  12.4
+                ],
+                [
+                  "9502",
+                  "Tank Dell",
+                  "WR",
+                  5.3
+                ]
+              ]
+            },
+            {
+              "week": 6,
+              "opponent": "Stew",
+              "own": 114.16,
+              "opp": 78.92,
+              "margin": 35.24,
+              "points": 35.5,
+              "replacement_to_tie": 0.26,
+              "players": [
+                [
+                  "5927",
+                  "Terry McLaurin",
+                  "WR",
+                  20.3
+                ],
+                [
+                  "9502",
+                  "Tank Dell",
+                  "WR",
+                  15.2
+                ]
+              ]
+            },
+            {
+              "week": 8,
+              "opponent": "JMid",
+              "own": 148.66,
+              "opp": 106.08,
+              "margin": 42.58,
+              "points": 52.2,
+              "replacement_to_tie": 9.62,
+              "players": [
+                [
+                  "9226",
+                  "De'Von Achane",
+                  "RB",
+                  24.7
+                ],
+                [
+                  "5927",
+                  "Terry McLaurin",
+                  "WR",
+                  16
+                ],
+                [
+                  "9502",
+                  "Tank Dell",
+                  "WR",
+                  11.5
+                ]
+              ]
+            },
+            {
+              "week": 10,
+              "opponent": "Thommy",
+              "own": 104.88,
+              "opp": 98.44,
+              "margin": 6.44,
+              "points": 28.3,
+              "replacement_to_tie": 21.86,
+              "players": [
+                [
+                  "5927",
+                  "Terry McLaurin",
+                  "WR",
+                  14.8
+                ],
+                [
+                  "9502",
+                  "Tank Dell",
+                  "WR",
+                  5.8
+                ],
+                [
+                  "9226",
+                  "De'Von Achane",
+                  "RB",
+                  7.7
+                ]
+              ]
+            },
+            {
+              "week": 12,
+              "opponent": "Scott",
+              "own": 140.5,
+              "opp": 107.92,
+              "margin": 32.58,
+              "points": 47.5,
+              "replacement_to_tie": 14.92,
+              "players": [
+                [
+                  "9226",
+                  "De'Von Achane",
+                  "RB",
+                  19.1
+                ],
+                [
+                  "5927",
+                  "Terry McLaurin",
+                  "WR",
+                  19.7
+                ],
+                [
+                  "9502",
+                  "Tank Dell",
+                  "WR",
+                  8.7
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "manager": "Thommy",
+          "roster": 3,
+          "sensitive": [
+            {
+              "week": 4,
+              "opponent": "Birch",
+              "own": 116.94,
+              "opp": 99.7,
+              "margin": 17.24,
+              "points": 26.8,
+              "replacement_to_tie": 9.56,
+              "players": [
+                [
+                  "5937",
+                  "Diontae Johnson",
+                  "WR",
+                  17.8
+                ],
+                [
+                  "6801",
+                  "Tee Higgins",
+                  "WR",
+                  9
+                ]
+              ]
+            },
+            {
+              "week": 11,
+              "opponent": "Scott",
+              "own": 127.24,
+              "opp": 90.86,
+              "margin": 36.38,
+              "points": 38.9,
+              "replacement_to_tie": 2.52,
+              "players": [
+                [
+                  "4034",
+                  "Christian McCaffrey",
+                  "RB",
+                  12.6
+                ],
+                [
+                  "6801",
+                  "Tee Higgins",
+                  "WR",
+                  26.3
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1146946436173623296",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "roster": 3,
+          "sensitive": []
+        },
+        {
+          "manager": "Stew",
+          "roster": 4,
+          "sensitive": [
+            {
+              "week": 7,
+              "opponent": "Birch",
+              "own": 97.34,
+              "opp": 94.92,
+              "margin": 2.42,
+              "points": 14.6,
+              "replacement_to_tie": 12.18,
+              "players": [
+                [
+                  "2309",
+                  "Amari Cooper",
+                  "WR",
+                  14.6
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1146947320588861440",
+      "sides": [
+        {
+          "manager": "Stilly",
+          "roster": 1,
+          "sensitive": [
+            {
+              "week": 5,
+              "opponent": "Birch",
+              "own": 99.92,
+              "opp": 95.34,
+              "margin": 4.58,
+              "points": 14.9,
+              "replacement_to_tie": 10.32,
+              "players": [
+                [
+                  "9224",
+                  "Chase Brown",
+                  "RB",
+                  14.9
+                ]
+              ]
+            },
+            {
+              "week": 10,
+              "opponent": "Thommy",
+              "own": 104.88,
+              "opp": 98.44,
+              "margin": 6.44,
+              "points": 17.9,
+              "replacement_to_tie": 11.46,
+              "players": [
+                [
+                  "9224",
+                  "Chase Brown",
+                  "RB",
+                  17.9
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "manager": "Thommy",
+          "roster": 3,
+          "sensitive": [
+            {
+              "week": 14,
+              "opponent": "Kuhl",
+              "own": 105.34,
+              "opp": 94.3,
+              "margin": 11.04,
+              "points": 14.54,
+              "replacement_to_tie": 3.5,
+              "players": [
+                [
+                  "6804",
+                  "Jordan Love",
+                  "QB",
+                  14.54
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1152708228883660800",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "roster": 3,
+          "sensitive": [
+            {
+              "week": 9,
+              "opponent": "Stew",
+              "own": 102.72,
+              "opp": 89.4,
+              "margin": 13.32,
+              "points": 15,
+              "replacement_to_tie": 1.68,
+              "players": [
+                [
+                  "1466",
+                  "Travis Kelce",
+                  "TE",
+                  15
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "manager": "Tony",
+          "roster": 7,
+          "sensitive": [
+            {
+              "week": 9,
+              "opponent": "Scott",
+              "own": 132.54,
+              "opp": 111.32,
+              "margin": 21.22,
+              "points": 34.1,
+              "replacement_to_tie": 12.88,
+              "players": [
+                [
+                  "4039",
+                  "Cooper Kupp",
+                  "WR",
+                  15.9
+                ],
+                [
+                  "4098",
+                  "Kareem Hunt",
+                  "RB",
+                  18.2
+                ]
+              ]
+            },
+            {
+              "week": 11,
+              "opponent": "Stover",
+              "own": 131.68,
+              "opp": 131.44,
+              "margin": 0.24,
+              "points": 32.6,
+              "replacement_to_tie": 32.36,
+              "players": [
+                [
+                  "4039",
+                  "Cooper Kupp",
+                  "WR",
+                  26.6
+                ],
+                [
+                  "4098",
+                  "Kareem Hunt",
+                  "RB",
+                  6
+                ]
+              ]
+            },
+            {
+              "week": 12,
+              "opponent": "Kuhl",
+              "own": 115.28,
+              "opp": 103.86,
+              "margin": 11.42,
+              "points": 25.2,
+              "replacement_to_tie": 13.78,
+              "players": [
+                [
+                  "4039",
+                  "Cooper Kupp",
+                  "WR",
+                  15
+                ],
+                [
+                  "4098",
+                  "Kareem Hunt",
+                  "RB",
+                  10.2
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1159892809005076480",
+      "sides": [
+        {
+          "manager": "Mitch",
+          "roster": 6,
+          "sensitive": []
+        },
+        {
+          "manager": "Kuhl",
+          "roster": 9,
+          "sensitive": []
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Archived team score and starter joins, not independent original weekly provider confirmation",
+    "No replacement lineup, seeding simulation or causal wins established",
+    "Transaction-week eligibility inherited from previous provisional corrections"
+  ],
+  "next": "Cross-check sensitive games with original Sleeper, then 2025"
+}
