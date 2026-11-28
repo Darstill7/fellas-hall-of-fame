@@ -1,0 +1,112 @@
+{
+  "status": "weekly-snapshot-evidence-not-exact-trade-time",
+  "source": "Sleeper historical roster and completed transaction reads via Flaim, league 1134248931308802048",
+  "snapshotCoverage": "27 successfully retrieved snapshots; raw snapshots not persisted in this commit",
+  "transactions": [
+    {
+      "id": "1159892809005076480",
+      "timestamp": 1731136665265,
+      "status": "complete"
+    },
+    {
+      "id": "1152708228883660800",
+      "timestamp": 1729197433617,
+      "status": "complete"
+    },
+    {
+      "id": "1146947320588861440",
+      "timestamp": 1727871110855,
+      "status": "complete"
+    },
+    {
+      "id": "1146946436173623296",
+      "timestamp": 1727819396936,
+      "status": "complete"
+    },
+    {
+      "id": "1144362000575840256",
+      "timestamp": 1727221199690,
+      "status": "complete"
+    },
+    {
+      "id": "1141777905656143872",
+      "timestamp": 1726584648761,
+      "status": "complete"
+    },
+    {
+      "id": "1140082401968836608",
+      "timestamp": 1726179384394,
+      "status": "complete"
+    },
+    {
+      "id": "1139340571111256064",
+      "timestamp": 1726003333548,
+      "status": "complete"
+    }
+  ],
+  "analysis": [
+    {
+      "id": "1159892809005076480",
+      "headline": "Mitch and Kuhl Rework Backfield Depth",
+      "analysis": "Mitch's Week 9 starters Jacobs and Hubbard scored 32 combined; Chubb was benched for 4. Kuhl started Mixon, Dobbins, Pollard and Mostert across RB/FLEX. Week 10 Mostert started for Mitch (4.40), while Chubb was benched for Kuhl at zero. This contradicts the archived zero-start Mostert receipt if the Week 10 start is eligible; timestamp and lineup lock must be checked.",
+      "verdict": "Mitch obtained an immediate starting option; Kuhl acquired reserve depth in an already deep backfield. The archive's later Chubb advantage is not a complete verdict.",
+      "gradeStatus": "withheld"
+    },
+    {
+      "id": "1152708228883660800",
+      "headline": "Tony Exchanges Tight End Depth for Backfield Help",
+      "analysis": "Week 6 Tony started Bowers at TE (11.60), Kelce benched at zero; Moss and Javonte Williams combined for 3.10 at RB, Ford 1.40 at FLEX. Week 7 Hunt started for 21.30 and Jones for 19.10; Kupp and Dowdle benched at zero. Thommy had Henry and Robinson starting, Hunt and Dowdle benched in Week 6, and Andrews starting at TE (14.10). Week 7 Kelce started (3.70), Andrews benched (18.10), Aiyuk benched (3.30). Dowdle was previously acquired from Stew.",
+      "verdict": "Tony used TE surplus to add RB options. Thommy consolidated backfield reserves into TE/WR options, but already had Andrews. Net benefit depends on alternatives and later ownership.",
+      "gradeStatus": "withheld"
+    },
+    {
+      "id": "1146947320588861440",
+      "headline": "Stilly Converts Quarterback Depth Into Backfield Help",
+      "analysis": "Week 4 still shows Love on Stilly's bench (28.16), Daniels starting (24.02); Brown on Thommy's bench (22.20). Week 5 Brown started for Stilly (14.90), Love started for Thommy (14.96), Prescott benched (16.38). Stilly's Week 4 RBs Achane and Montgomery scored 19.90 combined, Steele at FLEX minus 0.90. Thommy retained Robinson and Henry.",
+      "verdict": "Both converted prior bench assets into observed starters. The position-adjusted comparison favors Stilly despite Thommy's raw total edge; no certified counterfactual.",
+      "gradeStatus": "withheld"
+    },
+    {
+      "id": "1146946436173623296",
+      "headline": "Stew Adds Receiving Options While Thommy Rebuilds Tight End Depth",
+      "analysis": "Week 4 still shows Cooper starting for Thommy (5.50), Likely at TE (3.10); Stew started Ferguson at TE (7.40), Andrews benched at zero, Dowdle starting at RB (12.60) in a four-RB lineup. Week 5 Andrews started for Thommy (7.50), Dowdle benched (17.40), Cooper started for Stew (8.00) as Nabers was benched at zero. Dowdle subsequently transferred to Tony.",
+      "verdict": "Stew traded from RB/TE depth into WR help; Thommy acquired another TE option and a reserve back. Both immediate uses are defensible; onward Dowdle value requires attribution.",
+      "gradeStatus": "withheld"
+    },
+    {
+      "id": "1144362000575840256",
+      "headline": "Stilly Pursues Immediate Production While Thommy Reshapes His Receiving Corps",
+      "analysis": "Week 3 Stilly started Steele and Montgomery at RB, McCaffrey benched at zero; Higgins started (5.40), Johnson benched (22.20). Thommy started Achane, Henry and Robinson at RB/FLEX; Dell started (8.70), McLaurin benched (19). Week 4 Achane and McLaurin started for Stilly (4.40 and 14.70), Dell benched at zero. Higgins and Johnson started for Thommy (9 and 17.80), McCaffrey benched at zero. Thommy retained Henry and Robinson. Dell had previously arrived from Kuhl.",
+      "verdict": "Stilly addressed an observable RB starting opportunity; Thommy retained a strong backfield and added usable receivers. Direct production favors Stilly in archive; availability and long-run lineup alternatives remain unverified.",
+      "gradeStatus": "withheld"
+    },
+    {
+      "id": "1141777905656143872",
+      "headline": "JMid Adds Backfield and Receiver Options as Stew Consolidates",
+      "analysis": "Week 2 JMid started Cook in FLEX (29), Etienne and White at RB; Stew started Williams (13.20) with Hall and had Ridley benched (23.70). Week 3 Williams started for JMid (30.60), Ridley benched (1.40); Cook started for Stew (16.70), alongside Hall and Mason. Both retained multiple RB options.",
+      "verdict": "JMid added depth without sacrificing a starting RB slot; Stew consolidated two assets into a productive starter. The archive totals do not alone establish a winner.",
+      "gradeStatus": "withheld"
+    },
+    {
+      "id": "1140082401968836608",
+      "headline": "Nabers and Adams Exchange Lead Receiver Roles",
+      "analysis": "Week 1 Stew started Adams (8.40) and Collins; Stover started Nabers (9.10) and Evans. Week 2 Nabers started for Stew (23.70), Adams started for Stover (21.50). Both had other receiver options; Stew retained Collins, Stover Evans, Reed and Thomas.",
+      "verdict": "Both made like-position upgrades in their own judgment, not cross-position rebalancing. Stew's archived cumulative edge is modest in efficiency; keeper context unverified.",
+      "gradeStatus": "withheld"
+    },
+    {
+      "id": "1139340571111256064",
+      "headline": "Thommy Converts Reserve Running Back Into Receiver Help",
+      "analysis": "Week 1 Thommy started Robinson, Henry and Achane across RB/FLEX; Dobbins benched (23.40). Kuhl started Mostert (2.90) at RB and Dell (7.40) in FLEX, with Pollard benched (16.90). Week 2 Dell started for Thommy (1.80); Dobbins benched for Kuhl (20.60) behind Mixon and Pollard. Dell subsequently moved to Stilly.",
+      "verdict": "Thommy traded from RB surplus for immediate receiver utilization; Kuhl acquired RB depth that later yielded stronger archived production. Dell's onward trade and Dobbins' actual alternatives matter.",
+      "gradeStatus": "withheld"
+    }
+  ],
+  "limitations": [
+    "weekly anchors not exact trade-time roster",
+    "archive scoring totals not reconciled; Mostert Week 10 apparent discrepancy requires eligibility check",
+    "historical availability and projections unverified",
+    "raw snapshots require separate persistence",
+    "no final grades"
+  ]
+}
