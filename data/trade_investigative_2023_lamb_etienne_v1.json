@@ -1,0 +1,237 @@
+{
+  "id": "1012571602774532096",
+  "timestamp": 1695778528592,
+  "dateProvider": "2023-09-27",
+  "status": "investigative-draft-not-certified",
+  "headline": "Stew Sells the Breakouts Before They Become Superstars",
+  "receipt": {
+    "Stew": [
+      "CeeDee Lamb",
+      "Travis Etienne Jr."
+    ],
+    "Kuhl": [
+      "James Conner",
+      "De'Von Achane",
+      "Puka Nacua"
+    ]
+  },
+  "weeks": [
+    {
+      "week": 4,
+      "lamb": 12.8,
+      "etienne": 8.7,
+      "conner": 6.1,
+      "achane": 26.5,
+      "nacua": 26.8,
+      "paired": true
+    },
+    {
+      "week": 5,
+      "lamb": 6.9,
+      "etienne": 34.4,
+      "conner": 4.6,
+      "achane": 22,
+      "nacua": 15.6,
+      "paired": true
+    },
+    {
+      "week": 6,
+      "lamb": null,
+      "etienne": 21.8,
+      "conner": null,
+      "achane": null,
+      "nacua": 4.6,
+      "paired": true
+    },
+    {
+      "week": 7,
+      "lamb": null,
+      "etienne": 21.2,
+      "conner": null,
+      "achane": null,
+      "nacua": 19.4,
+      "paired": true
+    },
+    {
+      "week": 8,
+      "lamb": null,
+      "etienne": 25.4,
+      "conner": null,
+      "achane": null,
+      "nacua": 5.8,
+      "paired": true
+    },
+    {
+      "week": 9,
+      "lamb": null,
+      "etienne": null,
+      "conner": null,
+      "achane": null,
+      "nacua": 4.7,
+      "paired": true
+    },
+    {
+      "week": 10,
+      "lamb": null,
+      "etienne": 5.4,
+      "conner": 7.3,
+      "achane": null,
+      "nacua": null,
+      "paired": true
+    },
+    {
+      "week": 11,
+      "lamb": null,
+      "etienne": null,
+      "conner": 7.3,
+      "achane": 1,
+      "nacua": 16.2,
+      "paired": true
+    },
+    {
+      "week": 12,
+      "lamb": null,
+      "etienne": null,
+      "conner": 5.2,
+      "achane": null,
+      "nacua": 4.7,
+      "paired": true
+    },
+    {
+      "week": 13,
+      "lamb": null,
+      "etienne": null,
+      "conner": 22.5,
+      "achane": 23.8,
+      "nacua": 22.9,
+      "paired": true
+    },
+    {
+      "week": 14,
+      "lamb": null,
+      "etienne": null,
+      "conner": null,
+      "achane": 9.6,
+      "nacua": 11.5,
+      "paired": true
+    },
+    {
+      "week": 15,
+      "lamb": null,
+      "etienne": null,
+      "conner": 17.4,
+      "achane": 7.7,
+      "nacua": 7.8,
+      "paired": true
+    },
+    {
+      "week": 16,
+      "lamb": null,
+      "etienne": null,
+      "conner": 19.7,
+      "achane": null,
+      "nacua": 29.5,
+      "paired": true
+    },
+    {
+      "week": 17,
+      "lamb": null,
+      "etienne": null,
+      "conner": 25.8,
+      "achane": 22.7,
+      "nacua": 17.2,
+      "paired": false
+    }
+  ],
+  "totals": {
+    "individual": {
+      "lamb": 19.7,
+      "etienne": 116.9,
+      "conner": 115.9,
+      "achane": 113.3,
+      "nacua": 186.7
+    },
+    "stew": 136.6,
+    "kuhl": 415.9,
+    "kuhlPaired": 350.2,
+    "stewPaired": 136.6
+  },
+  "archive": {
+    "stew": 136.6,
+    "kuhl": 415.9
+  },
+  "onward": [
+    {
+      "id": "1018289561511682048",
+      "date": "2023-10-12",
+      "StewSent": [
+        "Lamb",
+        "Gainwell"
+      ],
+      "StewReceived": [
+        "Pollard",
+        "Smith-Njigba"
+      ]
+    },
+    {
+      "id": "1031251467312775168",
+      "date": "2023-11-17",
+      "StewSent": [
+        "Etienne",
+        "Cooper"
+      ],
+      "StewReceived": [
+        "Breece Hall"
+      ],
+      "voidPick": "2024 round 5 Tony"
+    }
+  ],
+  "week6": {
+    "Stew": 99.12,
+    "Kuhl": 114.44,
+    "Etienne": 21.8,
+    "Nacua": 4.6
+  },
+  "week16": {
+    "Stew": 125.3,
+    "Kuhl": 148.16,
+    "KuhlAcquired": 49.2
+  },
+  "week17": {
+    "Stew": 102.82,
+    "Kuhl": 174.34,
+    "KuhlAcquired": 65.7,
+    "unpaired": true
+  },
+  "sources": [
+    {
+      "url": "https://www.fantasypros.com/2023/09/fantasy-football-trade-value-chart-week-4-2023/",
+      "finding": "Achane value 15.6 up 14.6; Nacua WR14 value 28.7; publication timing relative to trade not confirmed"
+    },
+    {
+      "url": "https://www.fantasypros.com/2023/09/fantasy-football-trade-advice-players-to-buy-sell-week-4-2023/",
+      "finding": "Achane 203 rushing yards and four total TDs Week 3 (source phrasing ambiguous on rushing TDs)"
+    },
+    {
+      "url": "https://www.sportsnet.ca/nfl/article/dolphins-place-rookie-rb-devon-achane-on-ir-with-knee-injury/",
+      "finding": "Achane knee IR October 11"
+    },
+    {
+      "url": "https://www.rotoballer.com/fantasy-football-injury-reports-for-nfl-rbs-week-6-updates-for-austin-ekeler-devon-achane-james-conner-javonte-williams",
+      "finding": "Conner knee injury Week 5"
+    },
+    {
+      "url": "https://www.nfl.com/news/rams-wr-puka-nacua-headed-to-injured-reserve-with-sprained-pcl-will-miss-at-least-four-games",
+      "finding": "Retrospective confirmation of Nacua 105 catches and 1486 rookie yards in 2023; article concerns 2024 injury, not 2023"
+    }
+  ],
+  "publicationDraft": "Stew cashed in Achane's four-touchdown breakout and Nacua's scorching rookie start for Lamb and Etienne. Kuhl's gamble initially delivered 59.40 points in Week 4, then both acquired backs suffered knee injuries. Nacua kept the package afloat and eventually broke rookie receiving records. Stew flipped Lamb after two starts and Etienne in November, so judging the deal on their full NFL seasons would be misleading. Kuhl beat Stew twice afterward, including a 148.16–125.30 December win with 49.20 from Conner and Nacua. Stew bought proven talent but barely kept it long enough to enjoy it. Kuhl bought the breakout and rode it.",
+  "limitations": [
+    "No firsthand manager motives",
+    "Full ownership transaction replay and keeper evidence pending",
+    "NFL postseason context not verified",
+    "Week 17 unpaired excluded from head-to-head impact",
+    "No final grades or deployment",
+    "Trade receipt date is provider date; timestamp may fall on prior local calendar day"
+  ]
+}
