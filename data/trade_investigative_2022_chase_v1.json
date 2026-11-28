@@ -1,0 +1,149 @@
+{
+  "id": "896468742987522048",
+  "date": "2022-11-10",
+  "status": "investigative-draft-not-certified",
+  "headline": "Stew Buys an Injured Superstar, Birch Buys Immediate Help",
+  "receipt": {
+    "Stew": [
+      "Ja'Marr Chase"
+    ],
+    "Birch": [
+      "Cordarrelle Patterson",
+      "Jeff Wilson Jr.",
+      "Chase Claypool"
+    ]
+  },
+  "weeks": [
+    {
+      "week": 10,
+      "chaseStart": null,
+      "pattersonStart": 2.5,
+      "wilsonStart": 21.3,
+      "claypoolStart": null
+    },
+    {
+      "week": 11,
+      "chaseStart": null,
+      "pattersonStart": 4.9,
+      "wilsonStart": null,
+      "claypoolStart": null
+    },
+    {
+      "week": 12,
+      "chaseStart": null,
+      "pattersonStart": 8.6,
+      "wilsonStart": 11.7,
+      "claypoolStart": null
+    },
+    {
+      "week": 13,
+      "chaseStart": 14.2,
+      "pattersonStart": 6,
+      "wilsonStart": 0.3,
+      "claypoolStart": null
+    },
+    {
+      "week": 14,
+      "chaseStart": 23.5,
+      "pattersonStart": null,
+      "wilsonStart": 1.6,
+      "claypoolStart": null
+    },
+    {
+      "week": 15,
+      "chaseStart": 15.5,
+      "pattersonStart": null,
+      "wilsonStart": 0,
+      "claypoolStart": null
+    },
+    {
+      "week": 16,
+      "chaseStart": 9.9,
+      "pattersonStart": null,
+      "wilsonStart": 10.5,
+      "claypoolStart": null
+    },
+    {
+      "week": 17,
+      "chaseStart": 0,
+      "pattersonStart": null,
+      "wilsonStart": 9.1,
+      "claypoolStart": null
+    }
+  ],
+  "totals": {
+    "stew": 63.1,
+    "birch": 76.5,
+    "birchExcludingAcquisition": 52.7,
+    "stewExcludingKnownUnpaired": 47.6,
+    "birchExcludingKnownUnpaired": 67.4
+  },
+  "archive": {
+    "stew": 63.1,
+    "birch": 52.7
+  },
+  "week13": {
+    "stew": 114,
+    "birch": 73.5,
+    "chase": 14.2,
+    "patterson": 6,
+    "wilson": 0.3
+  },
+  "week15": {
+    "stewUnpaired": true,
+    "birch": 53.52,
+    "koble": 93.74,
+    "wilsonInactiveStarted": 0,
+    "pattersonBench": 11.7
+  },
+  "week16": {
+    "stew": 106.52,
+    "mitch": 92.5,
+    "chase": 9.9,
+    "birch": 74.7,
+    "tony": 111.86,
+    "wilson": 10.5
+  },
+  "week17": {
+    "stew": 48.16,
+    "stover": 99.22,
+    "chase": 0,
+    "diggs": 3.6,
+    "jefferson": 2,
+    "birchUnpaired": true
+  },
+  "sources": [
+    {
+      "url": "https://abcnews.com/Sports/sources-bengals-jamarr-chase-hip-expected-weeks/story?id=92224502",
+      "finding": "October 27 anticipated 4–6 week absence before trade"
+    },
+    {
+      "url": "https://www.nfl.com/transactions/league/trades/2022/11",
+      "finding": "Wilson and Claypool NFL trades November 1"
+    },
+    {
+      "url": "https://www.bengals.com/team/players-roster/ja-marr-chase/situational/2022/reg/",
+      "finding": "Chase returned December 4 with seven catches for 97 yards"
+    },
+    {
+      "url": "https://www.nfl.com/news/inactive-reports-for-saturday-s-week-15-games-in-2022-nfl-season",
+      "finding": "Wilson inactive week 15"
+    },
+    {
+      "url": "https://www.nfl.com/_amp/nfl-fantasy-football-bills-bengals-scoring-update",
+      "finding": "Week 17 canceled game official fantasy corrections"
+    },
+    {
+      "url": "https://www.bengals.com/team/players-roster/ja-marr-chase/logs/2022/reg/",
+      "finding": "Chase NFL postseason 20 catches 220 yards two TDs"
+    }
+  ],
+  "publicationDraft": "Birch traded an injured Chase for three players, two of whom supplied 23.80 points immediately. Stew could wait, although Kupp's injury soon made Chase's return more important. Chase returned in December and scored 14.20 in Stew's win over Birch. Wilson missed Week 15 and Birch left Patterson's 11.70 on the bench. Claypool never started. Chase's Week 17 zero came from the canceled Bills–Bengals game, not a normal performance. Birch bought usable depth; Stew bought elite upside. The latter produced more per starting slot, but the season's extraordinary ending deserves context rather than a cheap punchline.",
+  "limitations": [
+    "Original Birch total not reproduced until arithmetic checked against archive convention",
+    "Week 17 canceled-game league-specific adjustments and bracket designation not independently certified",
+    "Full ownership replay pending",
+    "No final grade",
+    "Other players NFL postseason context incomplete"
+  ]
+}
