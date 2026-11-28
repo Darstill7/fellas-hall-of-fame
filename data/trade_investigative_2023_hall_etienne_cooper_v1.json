@@ -152,5 +152,38 @@
     "Full alternate season, ownership replay and keeper eligibility pending",
     "NFL postseason individual context incomplete",
     "No final grades or deployment"
-  ]
+  ],
+  "championshipCounterfactual": {
+    "method": "Fixed actual opponents and other starters; Week 16 Hall replaces Etienne, Cooper removed from bench; optional Warren replaces Kamara. Week 17 actual Tony lineup from paired placement game with Hall replacing Etienne, compared against Mitch actual Week 17 score. Not alternate seeding or full roster replay.",
+    "week16": {
+      "actualTony": 108.58,
+      "stilly": 141.66,
+      "noTrade": 141.08,
+      "noTradeMargin": -0.58,
+      "noTradeWarren": 142.98,
+      "noTradeWarrenMargin": 1.32,
+      "tradeCooperOverKupp": 148.68,
+      "tradeCooperOverDiggs": 151.18
+    },
+    "week17": {
+      "actualTony": 106.44,
+      "etienne": 25.8,
+      "hall": 23.1,
+      "noTradeTony": 103.74,
+      "mitch": 90.18,
+      "noTradeMargin": 13.56,
+      "tradeStandsMargin": 16.26
+    },
+    "conclusion": "Tony does not advance with direct trade reversal alone. With an additional legal hindsight substitution he advances and beats Mitch in fixed Week 17 scenario. With trade intact, starting Cooper also advances and actual Week 17 score beats Mitch. Trade not established as cause of championship loss.",
+    "verifiedExternalSource": {
+      "url": "https://www.fantasypros.com/2023/12/fantasy-football-week-16-rankings-grades-start-sit-advice-2023/",
+      "finding": "Kamara RB5, Warren RB27; substitution not favored by pregame rankings"
+    },
+    "limitations": [
+      "Official bracket classification still not independently certified",
+      "Actual Week17 roster may differ if Tony advances",
+      "Full regular season and seeding replay not performed",
+      "Other lineup decisions held fixed"
+    ]
+  }
 }
