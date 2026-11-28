@@ -15,15 +15,15 @@ export function buildHQBriefing(d,personal,date=new Date()){
  const add=(id,kicker,title,detail,href)=>items.push({id,kicker,title,detail,href});
  if(remaining>0)add('playoff','THE PLAYOFF PUSH',remaining===1?'One regular-season week left':remaining+' regular-season weeks remaining','Six playoff spots · two first-round byes. Explore the scenarios, not just the standings.','analytics/playoff-race.html');
  else add('playoff','POSTSEASON','The regular-season archive is complete','Explore the playoff center for verified scenarios and results.','analytics/playoff-race.html');
- if(personal?.opponent&&remaining>0)add('rivalry','YOUR NEXT CHAPTER',personal.team.name+' vs '+personal.opponent.name,'Week '+personal.week+' · explore the history between these franchises.','analytics/rivalry-war-room.html?a='+encodeURIComponent(personal.team.name)+'&b='+encodeURIComponent(personal.opponent.name));
+ if(personal?.opponent&&remaining>0)add('rivalry','UPCOMING MATCHUP',personal.team.name+' vs '+personal.opponent.name,'Week '+personal.week+' · explore the history between these franchises.','analytics/rivalry-war-room.html?a='+encodeURIComponent(personal.team.name)+'&b='+encodeURIComponent(personal.opponent.name));
  if(personal?.team&&typeof personal.team.streak==='string'){
   const code=personal.team.streak[0],count=Number(personal.team.streak.slice(1));
-  if(Number.isInteger(count)&&count>=3&&['W','L'].includes(code))add('personal','FRANCHISE MOMENTUM',personal.team.name+' · '+count+' straight '+(code==='W'?'wins':'losses'),'Your current regular-season streak through Week '+d.week+'. Explore your franchise history.','managers/'+managerSlug(personal.team.name)+'/');
+  if(Number.isInteger(count)&&count>=3&&['W','L'].includes(code))add('personal','YOUR WINNING OR LOSING STREAK',personal.team.name+' · '+count+' straight '+(code==='W'?'wins':'losses'),'Your current regular-season streak through Week '+d.week+'. Explore your franchise history.','managers/'+managerSlug(personal.team.name)+'/');
  }
  const runs=d.standings.filter(r=>r.streak?.startsWith('W')).sort((a,b)=>Number(b.streak.slice(1))-Number(a.streak.slice(1)));
  const best=Number(runs[0]?.streak.slice(1));
- if(best>=3){const leaders=runs.filter(r=>Number(r.streak.slice(1))===best);if(!(leaders.length===1&&leaders[0].name===personal?.team?.name&&items.some(i=>i.id==='personal')))add('run','LEAGUE TALKING POINT',leaders.map(r=>r.name).join(' & ')+' · '+best+' straight wins','Current regular-season streak through Week '+d.week+'. Not an all-game streak.',leaders.length===1?'managers/'+managerSlug(leaders[0].name)+'/':'#league')}
- if(d.leaders?.length&&Number.isFinite(d.leaders[0].latest))add('score','WEEK '+d.week+' SCORING LEAD',d.leaders.map(r=>r.name).join(' & ')+' · '+format(d.leaders[0].latest),'Completed matchup scoring leader'+(d.leaders.length>1?'s':'')+'.','analytics/sportscenter.html');
+ if(best>=3){const leaders=runs.filter(r=>Number(r.streak.slice(1))===best);if(!(leaders.length===1&&leaders[0].name===personal?.team?.name&&items.some(i=>i.id==='personal')))add('run','LEAGUE TALKING POINT',leaders.map(r=>r.name).join(' & ')+' · '+best+' straight wins','Regular-season winning streak through Week '+d.week+'.',leaders.length===1?'managers/'+managerSlug(leaders[0].name)+'/':'#league')}
+ if(d.leaders?.length&&Number.isFinite(d.leaders[0].latest))add('score','WEEK '+d.week+' TOP SCORER',d.leaders.map(r=>r.name).join(' & ')+' · '+format(d.leaders[0].latest),'Most fantasy points in Week '+d.week+'.','analytics/sportscenter.html');
  const order=hqCalendar(date).order;return items.sort((a,b)=>order.indexOf(a.id)-order.indexOf(b.id)).slice(0,3);
 }
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n};
@@ -72,11 +72,11 @@ function loadLegacy(){
 export function renderFranchiseIntelligence(card,p,d){
  const rows=buildRecentForm(d,p.team.name);
  if(rows.length){
-  const form=el('section',null,'hq40-recent-form');form.append(el('h3','Recent form'));
+  const form=el('section',null,'hq40-recent-form');form.append(el('h3','Last '+rows.length+' games'));
   const strip=el('div',null,'hq40-form-strip');strip.setAttribute('aria-label','Last '+rows.length+' completed regular-season matchups');
   const max=Math.max(1,...rows.map(r=>Math.max(0,r.pf)));
   for(const row of rows){const cell=el('div',null,'hq40-form-cell');const track=el('div',null,'hq40-form-track');const bar=el('div',null,'hq40-form-bar '+(row.result==='W'?'win':row.result==='L'?'loss':'tie'));bar.style.height=Math.max(0,row.pf)/max*100+'%';track.append(bar);track.setAttribute('aria-hidden','true');cell.append(el('small','Wk '+row.week),track,el('strong',format(row.pf)),el('span',row.result+' vs '+row.opponent,'hq40-form-result'));strip.append(cell)}
-  form.append(strip,el('p','Points scored · completed regular-season matchups only','source-note'));card.append(form);
+  form.append(strip,el('p','Points scored each week · regular season only','source-note'));card.append(form);
  }
  const legacy=el('section',null,'hq40-legacy');legacy.hidden=true;card.append(legacy);
  void loadLegacy().then(([placements,records])=>{
@@ -84,13 +84,13 @@ export function renderFranchiseIntelligence(card,p,d){
   const metrics=el('div',null,'hq40-legacy-grid');
   const metric=(label,value,href)=>{const a=el('a');a.href=href;a.append(el('strong',String(value)),el('small',label));metrics.append(a)};
   if(data.titles!==null){metric('Championships',data.titles.length,'hall/');metric('Completed seasons',data.completed,'managers/'+managerSlug(data.name)+'/')}
-  if(data.owned)metric('First-place categories',data.owned.count,'analytics/records.html?manager='+encodeURIComponent(data.name)+'&app=1');
+  if(data.owned)metric('League records held',data.owned.count,'analytics/records.html?manager='+encodeURIComponent(data.name)+'&app=1');
   if(!metrics.children.length)return;
-  const summary=el('a',null,'hq40-legacy-glance');summary.href='#my-team-section';const parts=[];if(data.titles!==null)parts.push(data.titles.length+' championship'+(data.titles.length===1?'':'s'));if(data.owned)parts.push(data.owned.count+' archived first-place categories');if(parts.length){summary.append(el('small','FRANCHISE LEGACY'),el('strong',parts.join(' · ')),el('span','Explore your legacy ›'));card.insertBefore(summary,card.querySelector('.hq40-franchise-actions'));}
+  const summary=el('a',null,'hq40-legacy-glance');summary.href='#my-team-section';const parts=[];if(data.titles!==null)parts.push(data.titles.length+' championship'+(data.titles.length===1?'':'s'));if(data.owned)parts.push(data.owned.count+' league record'+(data.owned.count===1?'':'s')+' held (verified archive)');if(parts.length){summary.append(el('small','FRANCHISE LEGACY'),el('strong',parts.join(' · ')),el('span','View career results and league records ›'));card.insertBefore(summary,card.querySelector('.hq40-franchise-actions'));}
   legacy.append(el('h3','Your legacy'),metrics);
   if(data.titles?.length)legacy.append(el('p','Championship years: '+data.titles.join(' · '),'source-note'));
-  if(data.completed!==null)legacy.append(el('p','Final placements · completed seasons 2016–2025','source-note'));
-  if(data.owned)legacy.append(el('p','Record ownership: '+data.owned.scope+' · Shared first place counts once per category.','source-note'));
+  if(data.completed!==null)legacy.append(el('p','Seasons played and championships through 2025.','source-note'));
+  if(data.owned)legacy.append(el('p','Includes outright and shared records. One per category. '+data.owned.scope+'.','source-note'));
   legacy.hidden=false;
  });
 }

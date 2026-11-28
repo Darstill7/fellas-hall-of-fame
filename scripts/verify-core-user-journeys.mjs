@@ -36,11 +36,14 @@ try{
  // 1. Homepage: real discovery path through the manager directory.
  await go('');
  if(await page.locator('#my-manager').count()){
-  await page.locator('.standing:not(.head)').first().waitFor();
-  assert.equal(await page.locator('.standing:not(.head)').count(),10,'Production standings missing managers');
+  await page.locator('.hq40-briefing-item').first().waitFor();
+  assert.equal(await page.locator('.standing:not(.head)').first().isVisible(),false,'HQ should not show the full standings table');
   assert.equal(await page.locator('#my-manager option').count(),11,'Production franchise selection incomplete');
   assert.equal(await page.locator('.fellas-app-nav a').count(),5,'Production primary navigation incomplete');
   assert(await page.locator('#my-manager').evaluate(e=>e.getBoundingClientRect().top<innerHeight*.9),'Franchise selection buried below first screen');
+  await page.locator('.fellas-app-nav a[data-app-tab="league"]').click();
+  await page.locator('.standing:not(.head)').first().waitFor();
+  assert.equal(await page.locator('.standing:not(.head)').count(),10,'League standings missing managers');
   await page.locator('.fellas-app-nav a[data-app-tab="more"]').click();
   await page.locator('#more .archive summary').click();
   await page.locator('#more a[href="home-classic.html"]').click();

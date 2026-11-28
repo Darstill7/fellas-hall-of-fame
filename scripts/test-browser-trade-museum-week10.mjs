@@ -49,14 +49,14 @@ try{
      await page.locator('#results .tm-card').first().waitFor({timeout:10000});
      assert.equal(await page.locator('#results .tm-card').count(),Math.min(12,current.length),'Approved 2026 receipts and pagination');
      const list=await page.locator('#results').innerText();
-     assert.match(list,new RegExp('starter pts verified through W'+week));
+     assert.match(list,new RegExp('starter points through Week '+week));
      for(const trade of current){
       await page.locator('#q').fill(String(trade.id));
       assert.equal(await page.locator('#results .tm-card').count(),1,'Unique trade search '+trade.id);
       const text=await page.locator('#results .tm-card').first().innerText();
       for(const side of trade.sides){
        assert(text.includes(side.manager),'Receiving manager missing '+trade.id+'/'+side.manager);
-       assert(text.includes(Number(side.raw_starter_points).toFixed(1)+' starter pts verified through W'+week),
+       assert(text.includes(Number(side.raw_starter_points).toFixed(1)+' starter points through Week '+week),
         'Updated starter points not shown '+trade.id+'/'+side.manager);
       }
       await page.locator('#results .tm-card').first().click();

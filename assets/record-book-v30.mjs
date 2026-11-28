@@ -80,13 +80,13 @@ export async function mountRecordBookDiscovery(){
  const requested=normalizeManager(new URL(location.href).searchParams.get('manager')||'');
  if(fellasLeague.managers.includes(requested))select.value=requested;else if(!new URL(location.href).searchParams.has('manager')&&fellasLeague.managers.includes(preferred))select.value=preferred;
  const link=document.querySelector('#personal-record-entry-link');
- const sync=()=>{if(!link)return;const name=select.value;link.href='../managers/record-books.html'+(name?'?manager='+encodeURIComponent(name):'')+'#owned-records';link.textContent=name?'Records '+name+' owns →':'Open manager record book →'};
+ const sync=()=>{if(!link)return;const name=select.value;link.href='../managers/record-books.html'+(name?'?manager='+encodeURIComponent(name):'')+'#owned-records';link.textContent=name?'League records held by '+name+' →':'Open manager record book →'};
  select.addEventListener('change',()=>{const url=new URL(location.href);url.searchParams.set('manager',select.value);history.replaceState(null,'',url);sync();paintOwnership();paint();if(selectedKey)paintRanking(false)});
  personal?.insertBefore(label,link);personal?.insertBefore(select,link);sync();
  const search=el('input');search.id='rb30-search';search.type='search';search.placeholder='Try winning streak, scoring or rivalry';
  const searchLabel=el('label','Find a record');searchLabel.htmlFor=search.id;
  const family=el('select');family.id='rb30-family';family.append(new Option('All categories',''));
- const familyLabel=el('label','Record family');familyLabel.htmlFor=family.id;
+ const familyLabel=el('label','Record type');familyLabel.htmlFor=family.id;
  const controls=el('div',null,'rb30-controls');
  for(const [a,b] of [[searchLabel,search],[familyLabel,family]]){const field=el('div');field.append(a,b);controls.append(field)}
  const status=el('p','Loading archived categories…','rb30-status');status.setAttribute('role','status');
@@ -113,7 +113,7 @@ export async function mountRecordBookDiscovery(){
   header.append(heading,close);ranking.append(el('small',c.group),header,el('p',c.description,'rb30-status'));
   if(c.qualifier)ranking.append(el('p','Qualification: '+c.qualifier,'rb30-status'));
   if(d.first.length){
-   const leader=el('div',null,'rb30-ranking-leader');leader.append(el('small',d.holders.length>1?'SHARED FIRST PLACE':'FIRST PLACE'),el('strong',formatMark(d.first[0].value,c.unit)),el('p',d.holders.join(' · ')));
+   const leader=el('div',null,'rb30-ranking-leader');leader.append(el('small',d.holders.length>1?'SHARED LEAGUE RECORD':'FIRST PLACE'),el('strong',formatMark(d.first[0].value,c.unit)),el('p',d.holders.join(' · ')));
    for(const row of d.first){leader.append(el('p',normalizeManager(row.manager)+' · '+archivedContext(row,c),'rb30-status'))}
    ranking.append(leader);
    const stories=d.first.map(row=>archivedStory(row,c)).filter(Boolean);
@@ -121,15 +121,15 @@ export async function mountRecordBookDiscovery(){
   }
   if(select.value){
    const mine=el('div',null,'rb30-ranking-personal');
-   mine.append(el('small',select.value+' · best displayed archive rank'),el('strong',d.personalRank===null?'Not in displayed rankings':'#'+d.personalRank));
+   mine.append(el('small',select.value+' · best rank in this list'),el('strong',d.personalRank===null?'Not in displayed rankings':'#'+d.personalRank));
    for(const row of d.personalMarks)mine.append(el('p',formatMark(row.value,c.unit)+' · '+archivedContext(row,c),'rb30-status'));
    if(d.personalRank===null)mine.append(el('p','This is not proof of ineligibility or a missing personal best. The archive may show only its leading entries.','rb30-status'));
    ranking.append(mine);
   }
   const list=el('ol',null,'rb30-ranking-list');
   for(const row of d.rows){const item=el('li');const copy=el('div');copy.append(el('strong',normalizeManager(row.manager)),el('small',archivedContext(row,c)));item.append(el('span','#'+row.rank),copy,el('strong',formatMark(row.value,c.unit)));if(normalizeManager(row.manager)===select.value)item.classList.add('rb30-ranking-selected');list.append(item)}
-  const fold=el('details');fold.append(el('summary','View '+d.rows.length+' archived leaderboard entries'),list);ranking.append(fold);
-  const full=el('a','Open full category and source context →','rb30-more');full.href=categoryHref(c,select.value);ranking.append(full,el('p',archive.scope+' · Historical ranks may change after certification.','rb30-status'));
+  const fold=el('details');fold.append(el('summary','View '+d.rows.length+' ranked performances'),list);ranking.append(fold);
+  const full=el('a','View full rankings and supporting results →','rb30-more');full.href=categoryHref(c,select.value);ranking.append(full,el('p',archive.scope+' · Historical ranks may change after certification.','rb30-status'));
   if(focus){heading.focus({preventScroll:true});ranking.scrollIntoView({block:'start',behavior:'auto'})}
  }
  function paintOwnership(){
@@ -138,7 +138,7 @@ export async function mountRecordBookDiscovery(){
   if(!archive){ownership.append(el('p','Archived ownership unavailable until the category data loads.','rb30-status'));return}
   const d=managerArchivePortfolio(archive,select.value);
   const metrics=el('div',null,'rb30-metrics');
-  for(const [value,title] of [[d.owned.length,'First-place categories'],[d.podium.length,'Top-three categories']]){
+  for(const [value,title] of [[d.owned.length,'League records held'],[d.podium.length,'Records ranked in top 3']]){
    const card=el('div');card.append(el('strong',String(value)),el('small',title));metrics.append(card);
   }
   ownership.append(metrics,el('p',archive.scope+' · Shared first place counts once per category.','rb30-status'));
@@ -146,11 +146,11 @@ export async function mountRecordBookDiscovery(){
   const format=formatMark;
   for(const c of d.owned){
    const a=el('a');a.href=categoryHref(c,d.manager);
-   const copy=el('span');copy.append(el('strong',c.label),el('small',c.shared?'Shared with '+c.holders.filter(n=>n!==d.manager).join(', '):'Sole first-place manager'));
+   const copy=el('span');copy.append(el('strong',c.label),el('small',c.shared?'Shared with '+c.holders.filter(n=>n!==d.manager).join(', '):'Outright record holder'));
    a.append(copy,el('strong',format(c.marks[0].value,c.unit)));if(c.marks.length>1)copy.append(el('small',c.marks.length+' tied archived entries'));list.append(a);
   }
-  if(!d.owned.length)ownership.append(el('p','No first-place categories in this archive snapshot. Other personal marks remain accessible.','rb30-status'));
-  else{const fold=el('details');fold.append(el('summary','Explore all '+d.owned.length+' first-place categories'),list);ownership.append(fold)}
+  if(!d.owned.length)ownership.append(el('p','No league records held in this collection. You can still explore your personal bests.','rb30-status'));
+  else{const fold=el('details');fold.append(el('summary','View all '+d.owned.length+' league records held'),list);ownership.append(fold)}
  }
  const resetSearch=()=>{limit=8;paint()};search.addEventListener('input',resetSearch);family.addEventListener('change',resetSearch);
  try{const response=await fetch(new URL('../data/expanded_records_verified_v1.json',import.meta.url));if(!response.ok)throw Error('Archive unavailable');const candidate=await response.json();rows=indexPublishedCategories(candidate);for(const name of fellasLeague.managers)managerArchivePortfolio(candidate,name);archive=candidate;

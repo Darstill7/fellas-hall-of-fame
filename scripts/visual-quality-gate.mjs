@@ -93,7 +93,8 @@ try{
        if(audit.loading)
         findings.push(engine+' '+width+' '+key+' first-screen content remains in a loading state');
        if(productionApp&&route===''){
-        await page.locator('.standing:not(.head)').first().waitFor({timeout:15000});
+        await page.locator('.hq40-briefing-item').first().waitFor({timeout:15000});
+        if(await page.locator('.standing:not(.head)').first().isVisible())findings.push(engine+' '+width+' '+key+' HQ shows full standings');
         const app=await page.evaluate(()=>({
           title:document.querySelector('main h1')?.textContent.trim(),
           managers:document.querySelectorAll('#my-manager option').length,
@@ -106,11 +107,16 @@ try{
           watch:!!document.querySelector('#more a[href="home-classic.html#home-record-watch"]'),
           news:document.querySelectorAll('#news [data-news]').length
         }));
-        if(app.title!=='League dashboard'||app.managers!==11||app.standings!==10||app.games!==5||
+        if(app.title!=='League HQ'||app.managers!==11||app.standings!==10||app.games!==5||
            JSON.stringify(app.nav)!==JSON.stringify(['home','team','league','records','more'])||
            app.pickerTop>=app.height*.9||!app.archive||!app.watch||app.news!==2)
           findings.push(engine+' '+width+' '+key+' production dashboard first-screen failure '+JSON.stringify(app));
         await page.screenshot({path:path.join(output,engine+'-'+width+'-production-home.png')});
+        await page.locator('.fellas-app-nav a[data-app-tab="league"]').click();
+        await page.locator('.standing:not(.head)').first().waitFor({timeout:15000});
+        if(await page.locator('.standing:not(.head):visible').count()!==10) findings.push(engine+' '+width+' '+key+' League standings missing');
+        await page.screenshot({path:path.join(output,engine+'-'+width+'-production-league.png')});
+        await page.locator('.fellas-app-nav a[data-app-tab="home"]').click();
        }
        if(route===classicRoute){
         // Classic homepage: league now, six destinations and two editorial stories.
@@ -983,8 +989,9 @@ try{
         if(await page.locator('#cards .card').count()!==1||await page.locator('#cards .keeper').count()!==2)
          throw Error('Manager filter should display two keepers');
         const text=await page.locator('#cards').innerText();
-        if(!text.includes('2026 round')||!text.includes('2027 if kept'))
-         throw Error('Keeper Tracker must present only keeper cost columns');
+        const costColumns=await page.locator('#cards .keeper').evaluateAll(rows=>rows.map(row=>[...row.querySelectorAll(':scope > .round small')].map(label=>label.textContent.trim())));
+        if(costColumns.length!==2||costColumns.some(labels=>JSON.stringify(labels)!==JSON.stringify(['2026 keeper cost','2027 cost if eligible'])))
+         throw Error('Keeper Tracker must present exactly the two labeled keeper cost columns');
         if(/starter points|observed value|peer surplus|decision grade/i.test(text))
          throw Error('Keeper Tracker must not expose keeper performance analysis');
         if(!text.includes('Amon-Ra St. Brown')||!text.includes('R1'))

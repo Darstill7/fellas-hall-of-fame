@@ -54,7 +54,7 @@ try{
      if(width===390||width===1280)await preview.screenshot({path:out+'/'+engine+'-'+width+'-ranking.png'});
      await preview.getByRole('button',{name:'Close preview'}).click();assert(await preview.isHidden());assert(await high.evaluate(e=>document.activeElement===e));
      await search.fill('most recorded regular-season games');await cards.locator('xpath=self::*[@data-category="most-games"]').click();
-     assert.match(await preview.locator('.rb30-ranking-leader').innerText(),/SHARED FIRST PLACE/);
+     assert.match(await preview.locator('.rb30-ranking-leader').innerText(),/SHARED LEAGUE RECORD/);
      await preview.getByRole('button',{name:'Close preview'}).click();
      await search.fill('');await picker.selectOption('Thommy');await page.reload({waitUntil:'domcontentloaded'});await cards.first().waitFor();assert.equal(await picker.inputValue(),'Thommy');
      await picker.selectOption('');await page.reload({waitUntil:'domcontentloaded'});await cards.first().waitFor();assert.equal(await picker.inputValue(),'');
