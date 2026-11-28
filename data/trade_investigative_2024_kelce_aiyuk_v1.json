@@ -1,0 +1,208 @@
+{
+  "id": "1152708228883660800",
+  "timestamp": 1729197433617,
+  "date": "2024-10-17",
+  "status": "investigative-draft-not-certified",
+  "receipt": {
+    "Thommy": [
+      "Travis Kelce",
+      "Brandon Aiyuk"
+    ],
+    "Tony": [
+      "Cooper Kupp",
+      "Kareem Hunt",
+      "Rico Dowdle"
+    ]
+  },
+  "weeks": [
+    {
+      "week": 7,
+      "kelceStart": 3.7,
+      "andrewsBench": 18.1,
+      "kuppStart": null,
+      "huntStart": 21.3,
+      "dowdleStart": null,
+      "thommyPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 8,
+      "kelceStart": 19,
+      "andrewsBench": 12.1,
+      "kuppStart": 13.6,
+      "huntStart": 12.8,
+      "dowdleStart": null,
+      "thommyPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 9,
+      "kelceStart": 15,
+      "andrewsBench": 3.6,
+      "kuppStart": 15.9,
+      "huntStart": 18.2,
+      "dowdleStart": null,
+      "thommyPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 10,
+      "kelceStart": 16.4,
+      "andrewsBench": 15.8,
+      "kuppStart": 11.5,
+      "huntStart": 13.5,
+      "dowdleStart": null,
+      "thommyPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 11,
+      "kelceStart": 1.8,
+      "andrewsBench": 3.2,
+      "kuppStart": 26.6,
+      "huntStart": 6,
+      "dowdleStart": null,
+      "thommyPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 12,
+      "kelceStart": 9.2,
+      "andrewsBench": 13.1,
+      "kuppStart": 15,
+      "huntStart": 10.2,
+      "dowdleStart": null,
+      "thommyPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 13,
+      "kelceStart": 10.3,
+      "andrewsBench": 15.9,
+      "kuppStart": 3.2,
+      "huntStart": null,
+      "dowdleStart": null,
+      "thommyPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 14,
+      "kelceStart": 7,
+      "andrewsBench": 0,
+      "kuppStart": 17.7,
+      "huntStart": null,
+      "dowdleStart": 14.6,
+      "thommyPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 15,
+      "kelceStart": 4.7,
+      "andrewsBench": 9.4,
+      "kuppStart": 0,
+      "huntStart": null,
+      "dowdleStart": 14.9,
+      "thommyPaired": false,
+      "tonyPaired": true
+    },
+    {
+      "week": 16,
+      "kelceStart": 5.5,
+      "andrewsBench": 11.8,
+      "kuppStart": 3.9,
+      "huntStart": null,
+      "dowdleStart": 6.6,
+      "thommyPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 17,
+      "kelceStart": 18.4,
+      "andrewsBench": 14.8,
+      "kuppStart": 3.4,
+      "huntStart": null,
+      "dowdleStart": 9.3,
+      "thommyPaired": true,
+      "tonyPaired": false
+    }
+  ],
+  "totals": {
+    "Kelce": 111,
+    "AndrewsBench": 117.8,
+    "Kupp": 110.8,
+    "Hunt": 82,
+    "Dowdle": 45.4,
+    "Tony": 238.20000000000002
+  },
+  "archive": {
+    "Thommy": 107.3,
+    "Tony": 216.9
+  },
+  "excludeAcquisition": {
+    "Thommy": 107.3,
+    "Tony": 216.9
+  },
+  "paired": {
+    "Thommy": 106.3,
+    "Tony": 225.5
+  },
+  "ownership": [
+    {
+      "id": "1155336062463795200",
+      "date": "2024-10-25",
+      "manager": "Thommy",
+      "dropped": "Aiyuk",
+      "added": "Tyler Allgeier"
+    },
+    {
+      "id": "1172652436616495104",
+      "date": "2024-12-11",
+      "manager": "Tony",
+      "dropped": "Hunt",
+      "added": "Sincere McCormick"
+    },
+    {
+      "id": "1175589005522456576",
+      "date": "2024-12-19",
+      "manager": "Mitch",
+      "added": "Hunt"
+    }
+  ],
+  "counterfactual": {
+    "week16": {
+      "Thommy": 123.38,
+      "JMid": 121.08,
+      "kelce": 5.5,
+      "andrews": 11.8,
+      "revised": 129.68
+    },
+    "week17": {
+      "Thommy": 205.3,
+      "Stilly": 114.88,
+      "kelce": 18.4,
+      "andrews": 14.8,
+      "revised": 201.7
+    },
+    "TonyWeek15": {
+      "actual": 108.54,
+      "JMid": 110.24,
+      "kupp": 0,
+      "addisonBench": 9.8,
+      "revised": 118.34,
+      "method": "Trade retained, alternate WR starter only; not full reversal."
+    }
+  },
+  "sources": [
+    {
+      "url": "https://www.49ers.com/news/kyle-shanahan-confirms-brandon-aiyuk-season-ending-acl-and-mcl-tear",
+      "finding": "Week7 season-ending ACL/MCL injury after trade"
+    }
+  ],
+  "publicationDraft": "Thommy acquired Kelce and Aiyuk, only to lose Aiyuk to a season-ending knee injury three days later. Tony received three usable players, while Thommy started Kelce over Andrews every remaining week. Andrews would have preserved both Thommy's semifinal and championship victories. Tony lost his opening playoff game by 1.70 with Kupp scoring zero and Addison's 9.80 on the bench. Thommy got a trophy, Tony got more starting production, and the trade itself was not shown to be indispensable to the title.",
+  "limitations": [
+    "Regular-season seeding and full two-sided no-trade replay pending",
+    "Hunt reacquisition receipt not yet verified; Week17 bench points not attributed to original trade",
+    "NFL context beyond Aiyuk, keeper value and final grade pending",
+    "No deployment"
+  ]
+}
