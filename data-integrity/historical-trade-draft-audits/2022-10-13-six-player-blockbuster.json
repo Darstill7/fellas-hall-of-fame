@@ -1,0 +1,418 @@
+{
+  "status": "INITIAL_RESEARCH_WITH_PROVIDER_RECOUNT",
+  "season": 2022,
+  "trade_id": "886267215865982976",
+  "timestamp": 1665667812973,
+  "date": "2022-10-13",
+  "source": "Original Sleeper matchups and completed transactions weeks 1–17, 2022 and 2023 draft via Flaim",
+  "sides": [
+    {
+      "manager": "Stilly",
+      "players": [
+        {
+          "name": "Keenan Allen",
+          "draft": "Thommy 3.09",
+          "weeks": [
+            [
+              7,
+              2.1
+            ],
+            [
+              12,
+              13.4
+            ],
+            [
+              13,
+              17.8
+            ],
+            [
+              14,
+              15.2
+            ],
+            [
+              15,
+              12.6
+            ],
+            [
+              16,
+              15.9
+            ],
+            [
+              17,
+              9.3
+            ]
+          ],
+          "total": 86.3,
+          "starts": 7
+        },
+        {
+          "name": "Tee Higgins",
+          "draft": "Thommy 4.02",
+          "weeks": [
+            [
+              6,
+              7.7
+            ],
+            [
+              7,
+              11.8
+            ],
+            [
+              8,
+              13.4
+            ],
+            [
+              9,
+              9.5
+            ],
+            [
+              11,
+              19.3
+            ],
+            [
+              12,
+              20.9
+            ],
+            [
+              13,
+              11
+            ],
+            [
+              14,
+              0
+            ],
+            [
+              15,
+              13.8
+            ],
+            [
+              16,
+              22.8
+            ],
+            [
+              17,
+              1.8
+            ]
+          ],
+          "total": 132,
+          "starts": 11
+        },
+        {
+          "name": "Najee Harris",
+          "draft": "Thommy 1.09",
+          "weeks": [
+            [
+              6,
+              11.9
+            ],
+            [
+              7,
+              9.5
+            ],
+            [
+              8,
+              8.96
+            ],
+            [
+              10,
+              8.9
+            ],
+            [
+              11,
+              25.6
+            ],
+            [
+              12,
+              10.4
+            ],
+            [
+              13,
+              9.7
+            ],
+            [
+              14,
+              12
+            ],
+            [
+              16,
+              12.5
+            ],
+            [
+              17,
+              19.3
+            ]
+          ],
+          "total": 128.76,
+          "starts": 10
+        }
+      ],
+      "total": 347.06,
+      "starts": 28,
+      "regular": 239.06,
+      "post": 108
+    },
+    {
+      "manager": "Thommy",
+      "players": [
+        {
+          "name": "DK Metcalf",
+          "draft": "Stilly 7.02",
+          "weeks": [
+            [
+              6,
+              4.4
+            ],
+            [
+              7,
+              1.7
+            ],
+            [
+              9,
+              12.2
+            ],
+            [
+              10,
+              10.1
+            ],
+            [
+              12,
+              14.5
+            ],
+            [
+              13,
+              23.7
+            ],
+            [
+              14,
+              15.6
+            ],
+            [
+              15,
+              9
+            ],
+            [
+              16,
+              11.6
+            ],
+            [
+              17,
+              0.8
+            ]
+          ],
+          "total": 103.6,
+          "starts": 10
+        },
+        {
+          "name": "CeeDee Lamb",
+          "draft": "Stilly 3.02",
+          "weeks": [
+            [
+              6,
+              10.2
+            ],
+            [
+              7,
+              8.6
+            ],
+            [
+              8,
+              16.3
+            ],
+            [
+              10,
+              32.5
+            ],
+            [
+              11,
+              7
+            ],
+            [
+              12,
+              14.7
+            ],
+            [
+              13,
+              17.9
+            ],
+            [
+              14,
+              5.8
+            ],
+            [
+              15,
+              16.2
+            ],
+            [
+              16,
+              29
+            ],
+            [
+              17,
+              15.5
+            ]
+          ],
+          "total": 173.7,
+          "starts": 11
+        },
+        {
+          "name": "DeVonta Smith",
+          "draft": "Koble 10.03",
+          "weeks": [
+            [
+              6,
+              12.9
+            ],
+            [
+              8,
+              4.8
+            ],
+            [
+              9,
+              3.2
+            ],
+            [
+              11,
+              10.8
+            ],
+            [
+              12,
+              7
+            ],
+            [
+              13,
+              18.7
+            ],
+            [
+              14,
+              15.9
+            ],
+            [
+              15,
+              16.1
+            ],
+            [
+              16,
+              27.3
+            ],
+            [
+              17,
+              16
+            ]
+          ],
+          "total": 132.7,
+          "starts": 10
+        }
+      ],
+      "total": 410,
+      "starts": 31,
+      "regular": 268.5,
+      "post": 141.5
+    }
+  ],
+  "waiver": {
+    "player": "DeVonta Smith",
+    "dropped_by": "Koble",
+    "drop_date": "2022-09-19",
+    "drop_id": "877719562978992128",
+    "acquired_by": "Stilly",
+    "date": "2022-09-21",
+    "bid": 9,
+    "id": "877763748847513600",
+    "dropped": "Isiah Pacheco"
+  },
+  "boundary": {
+    "week": 6,
+    "observed": 47.1,
+    "status": "Independent NFL kickoff verification pending"
+  },
+  "sensitive": [
+    [
+      "Stilly",
+      11,
+      "Mitch",
+      117.22,
+      109.6,
+      44.9
+    ],
+    [
+      "Stilly",
+      12,
+      "Stover",
+      115.32,
+      87.7,
+      44.7
+    ],
+    [
+      "Thommy",
+      10,
+      "Birch",
+      125.82,
+      90.84,
+      42.6
+    ],
+    [
+      "Thommy",
+      12,
+      "Tony",
+      123.66,
+      115.04,
+      36.2
+    ],
+    [
+      "Thommy",
+      16,
+      "Stilly",
+      115.04,
+      93.5,
+      67.9
+    ]
+  ],
+  "postseason": {
+    "both_eliminated_week15": true,
+    "week16": "Consolation",
+    "week16_swapped_packages": {
+      "Stilly": 110.2,
+      "Thommy": 98.34
+    },
+    "scope": "All six were starting; position-eligible RB/WR/FLEX rearrangement assumed; no causal season replay"
+  },
+  "draft2023": [
+    [
+      "Lamb",
+      "Kuhl",
+      "2.07"
+    ],
+    [
+      "Higgins",
+      "Tony",
+      "3.10"
+    ],
+    [
+      "Smith",
+      "Birch",
+      "4.03"
+    ],
+    [
+      "Allen",
+      "Evans",
+      "4.06"
+    ],
+    [
+      "Harris",
+      "Kuhl",
+      "4.07"
+    ],
+    [
+      "Metcalf",
+      "Thommy",
+      "4.10"
+    ]
+  ],
+  "keeper_markers_available": 0,
+  "limitations": [
+    "No bench data; no definitive keeper status",
+    "Higgins Week17 recorded 1.8 in canceled Bills-Bengals game; preserve official points",
+    "Injury and kickoff verification pending",
+    "No production changes or final grades"
+  ]
+}
