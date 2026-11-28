@@ -36,11 +36,15 @@ try{
  // 1. Homepage: real discovery path through the manager directory.
  await go('');
  if(await page.locator('#my-manager').count()){
-  await page.locator('.standing:not(.head)').first().waitFor();
-  assert.equal(await page.locator('.standing:not(.head)').count(),10,'Production standings missing managers');
+  await page.locator('#my-manager').waitFor({state:'visible'});
+  await page.waitForFunction(()=>document.querySelectorAll('#my-manager option').length===11);
   assert.equal(await page.locator('#my-manager option').count(),11,'Production franchise selection incomplete');
   assert.equal(await page.locator('.fellas-app-nav a').count(),5,'Production primary navigation incomplete');
   assert(await page.locator('#my-manager').evaluate(e=>e.getBoundingClientRect().top<innerHeight*.9),'Franchise selection buried below first screen');
+  // HQ is franchise-first: standings are visible after opening the League tab.
+  await page.locator('.fellas-app-nav a[data-app-tab="league"]').click();
+  await page.locator('#standings .standing:not(.head)').first().waitFor({state:'visible'});
+  assert.equal(await page.locator('#standings .standing:not(.head):visible').count(),10,'Production standings missing visible managers');
   await page.locator('.fellas-app-nav a[data-app-tab="more"]').click();
   await page.locator('#more .archive summary').click();
   await page.locator('#more a[href="home-classic.html"]').click();

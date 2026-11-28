@@ -18,6 +18,8 @@ on:
       - 'scripts/build-weekly-shitter-research.mjs'
       - 'scripts/verify-legendary-records.mjs'
       - 'scripts/simulate-week14-stage-migration.mjs'
+      - 'scripts/verify-week14-independent-baseline.mjs'
+      - 'data/provider_week14_2020_2021_pairing_recovery_v1.json'
       - 'data/week14_2020_2021_stage_classification_audit_v1.json'
       - 'data/corrected_2020_2021_regular_standings_projection_v1.json'
       - 'scripts/verify-historical-matchup-sources.mjs'
@@ -40,6 +42,7 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/verify-historical-matchup-sources.mjs > historical-source-parity.json
+      - run: node scripts/verify-week14-independent-baseline.mjs
       - run: node scripts/simulate-week14-stage-migration.mjs > historical-migration-impact.json
       - run: node scripts/verify-record-taxonomy-crosswalk.mjs
       - run: node scripts/verify-record-book-phase2.mjs
