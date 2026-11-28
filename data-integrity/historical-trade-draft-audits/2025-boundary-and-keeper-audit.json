@@ -1,0 +1,418 @@
+{
+  "status": "STARTER_AND_KEEPER_AUDIT_COMPLETE_OTHER_EVIDENCE_PENDING",
+  "recount_blob": "d4811e6d3c60cf3ba4418c6d346c5f25b53177be",
+  "recount_commit": "af2e90b117968428e6541dfab40aac1d0aec9cba",
+  "boundary": {
+    "source": "https://www.nfl.com/schedules/2025/by-week/week-11",
+    "rows": [
+      [
+        "Goff",
+        12.1,
+        "2025-11-12",
+        "2025-11-16"
+      ],
+      [
+        "St. Brown",
+        5.2,
+        "2025-11-12",
+        "2025-11-16"
+      ],
+      [
+        "Addison",
+        9,
+        "2025-11-12",
+        "2025-11-16"
+      ],
+      [
+        "Chase",
+        4.5,
+        "2025-11-12",
+        "2025-11-16"
+      ],
+      [
+        "A.J. Brown",
+        8.4,
+        "2025-11-12",
+        "2025-11-16"
+      ],
+      [
+        "Diggs",
+        15,
+        "2025-11-12",
+        "2025-11-13"
+      ],
+      [
+        "Ferguson",
+        9.6,
+        "2025-11-13",
+        "2025-11-17"
+      ],
+      [
+        "Warren",
+        7.7,
+        "2025-11-13",
+        "2025-11-16"
+      ],
+      [
+        "Henry",
+        20.2,
+        "2025-11-13",
+        "2025-11-16"
+      ],
+      [
+        "Ertz",
+        6.2,
+        "2025-11-13",
+        "2025-11-16"
+      ]
+    ],
+    "total": 97.9
+  },
+  "draft2026": {
+    "source": "Original Sleeper completed 2026 draft via Flaim",
+    "total_picks": 150,
+    "player_ids": [
+      "3198",
+      "7569",
+      "4199",
+      "9753",
+      "12529",
+      "7564",
+      "9224",
+      "9221",
+      "12489",
+      "9756",
+      "2216",
+      "9754",
+      "12490",
+      "3163",
+      "7547",
+      "5859",
+      "11631",
+      "2449",
+      "8110",
+      "8228",
+      "1339"
+    ],
+    "picks": [
+      {
+        "playerId": "7564",
+        "playerName": "Ja'Marr Chase",
+        "playerPosition": "WR",
+        "playerProTeam": "CIN",
+        "round": 1,
+        "overallPick": 4,
+        "selectionInRound": 4,
+        "draftColumn": 4,
+        "selectionTeamId": 2,
+        "originalTeamId": 2,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        },
+        "isKeeper": true
+      },
+      {
+        "playerId": "7547",
+        "playerName": "Amon-Ra St. Brown",
+        "playerPosition": "WR",
+        "playerProTeam": "DET",
+        "round": 1,
+        "overallPick": 8,
+        "selectionInRound": 8,
+        "draftColumn": 8,
+        "selectionTeamId": 1,
+        "originalTeamId": 1,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        },
+        "isKeeper": true
+      },
+      {
+        "playerId": "9221",
+        "playerName": "Jahmyr Gibbs",
+        "playerPosition": "RB",
+        "playerProTeam": "DET",
+        "round": 1,
+        "overallPick": 10,
+        "selectionInRound": 10,
+        "draftColumn": 10,
+        "selectionTeamId": 4,
+        "originalTeamId": 4,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        },
+        "isKeeper": true
+      },
+      {
+        "playerId": "9224",
+        "playerName": "Chase Brown",
+        "playerPosition": "RB",
+        "playerProTeam": "CIN",
+        "round": 2,
+        "overallPick": 11,
+        "selectionInRound": 1,
+        "draftColumn": 10,
+        "selectionTeamId": 4,
+        "originalTeamId": 4,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "3198",
+        "playerName": "Derrick Henry",
+        "playerPosition": "RB",
+        "playerProTeam": "BAL",
+        "round": 2,
+        "overallPick": 16,
+        "selectionInRound": 6,
+        "draftColumn": 5,
+        "selectionTeamId": 10,
+        "originalTeamId": 10,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "5859",
+        "playerName": "A.J. Brown",
+        "playerPosition": "WR",
+        "playerProTeam": "NE",
+        "round": 2,
+        "overallPick": 18,
+        "selectionInRound": 8,
+        "draftColumn": 3,
+        "selectionTeamId": 9,
+        "originalTeamId": 9,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "7569",
+        "playerName": "Nico Collins",
+        "playerPosition": "WR",
+        "playerProTeam": "HOU",
+        "round": 3,
+        "overallPick": 23,
+        "selectionInRound": 3,
+        "draftColumn": 3,
+        "selectionTeamId": 9,
+        "originalTeamId": 9,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        },
+        "isKeeper": true
+      },
+      {
+        "playerId": "12529",
+        "playerName": "TreVeyon Henderson",
+        "playerPosition": "RB",
+        "playerProTeam": "NE",
+        "round": 5,
+        "overallPick": 48,
+        "selectionInRound": 8,
+        "draftColumn": 8,
+        "selectionTeamId": 1,
+        "originalTeamId": 1,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "12490",
+        "playerName": "Bhayshul Tuten",
+        "playerPosition": "RB",
+        "playerProTeam": "JAX",
+        "round": 5,
+        "overallPick": 50,
+        "selectionInRound": 10,
+        "draftColumn": 10,
+        "selectionTeamId": 4,
+        "originalTeamId": 4,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "2216",
+        "playerName": "Mike Evans",
+        "playerPosition": "WR",
+        "playerProTeam": "SF",
+        "round": 6,
+        "overallPick": 56,
+        "selectionInRound": 6,
+        "draftColumn": 5,
+        "selectionTeamId": 10,
+        "originalTeamId": 10,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "8228",
+        "playerName": "Jaylen Warren",
+        "playerPosition": "RB",
+        "playerProTeam": "PIT",
+        "round": 6,
+        "overallPick": 58,
+        "selectionInRound": 8,
+        "draftColumn": 3,
+        "selectionTeamId": 9,
+        "originalTeamId": 9,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "11631",
+        "playerName": "Brian Thomas",
+        "playerPosition": "WR",
+        "playerProTeam": "JAX",
+        "round": 7,
+        "overallPick": 61,
+        "selectionInRound": 1,
+        "draftColumn": 1,
+        "selectionTeamId": 8,
+        "originalTeamId": 8,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "12489",
+        "playerName": "RJ Harvey",
+        "playerPosition": "RB",
+        "playerProTeam": "DEN",
+        "round": 8,
+        "overallPick": 80,
+        "selectionInRound": 10,
+        "draftColumn": 1,
+        "selectionTeamId": 8,
+        "originalTeamId": 8,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "9756",
+        "playerName": "Jordan Addison",
+        "playerPosition": "WR",
+        "playerProTeam": "MIN",
+        "round": 10,
+        "overallPick": 97,
+        "selectionInRound": 7,
+        "draftColumn": 4,
+        "selectionTeamId": 2,
+        "originalTeamId": 2,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "9754",
+        "playerName": "Quentin Johnston",
+        "playerPosition": "WR",
+        "playerProTeam": "LAC",
+        "round": 10,
+        "overallPick": 98,
+        "selectionInRound": 8,
+        "draftColumn": 3,
+        "selectionTeamId": 9,
+        "originalTeamId": 9,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "4199",
+        "playerName": "Aaron Jones",
+        "playerPosition": "RB",
+        "playerProTeam": "MIN",
+        "round": 11,
+        "overallPick": 105,
+        "selectionInRound": 5,
+        "draftColumn": 5,
+        "selectionTeamId": 10,
+        "originalTeamId": 10,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "2449",
+        "playerName": "Stefon Diggs",
+        "playerPosition": "WR",
+        "playerProTeam": "WAS",
+        "round": 11,
+        "overallPick": 106,
+        "selectionInRound": 6,
+        "draftColumn": 6,
+        "selectionTeamId": 7,
+        "originalTeamId": 7,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "9753",
+        "playerName": "Zach Charbonnet",
+        "playerPosition": "RB",
+        "playerProTeam": "SEA",
+        "round": 14,
+        "overallPick": 131,
+        "selectionInRound": 1,
+        "draftColumn": 10,
+        "selectionTeamId": 4,
+        "originalTeamId": 4,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      },
+      {
+        "playerId": "8110",
+        "playerName": "Jake Ferguson",
+        "playerPosition": "TE",
+        "playerProTeam": "DAL",
+        "round": 14,
+        "overallPick": 137,
+        "selectionInRound": 7,
+        "draftColumn": 4,
+        "selectionTeamId": 2,
+        "originalTeamId": 2,
+        "placement": {
+          "status": "confirmed",
+          "source": "provider_pick"
+        }
+      }
+    ],
+    "not_found": [
+      "3163",
+      "1339"
+    ]
+  },
+  "limitations": [
+    "No complete bench scores or alternative lineup decisions; actual keeper outcome not inferred eligibility",
+    "Original 2025 weekly starters independently reconstructed, ownership intervals inherited from earlier investigations",
+    "No final grades, editorial certification or production changes"
+  ],
+  "next": "Independent playoff and matchup impact audit and corrections to narrative claims"
+}
