@@ -1,0 +1,891 @@
+{
+  "status": "weekly-snapshot-evidence-not-exact-trade-time",
+  "source": "Sleeper historical rosters and completed transactions via Flaim",
+  "snapshots": [
+    {
+      "rosterId": "4",
+      "teamName": "Worst Team on Paper!",
+      "snapshot": {
+        "type": "week",
+        "week": 8
+      },
+      "starters": [
+        {
+          "id": "11564",
+          "name": "Drake Maye",
+          "position": "QB",
+          "points": 21.46
+        },
+        {
+          "id": "9221",
+          "name": "Jahmyr Gibbs",
+          "position": "RB",
+          "points": 23.8
+        },
+        {
+          "id": "9224",
+          "name": "Chase Brown",
+          "position": "RB",
+          "points": 12.1
+        },
+        {
+          "id": "8146",
+          "name": "Garrett Wilson",
+          "position": "WR",
+          "points": 11.3
+        },
+        {
+          "id": "9997",
+          "name": "Zay Flowers",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "9484",
+          "name": "Tucker Kraft",
+          "position": "TE",
+          "points": 14.3
+        },
+        {
+          "id": "13287",
+          "name": "Jeremiyah Love",
+          "position": "RB",
+          "points": 2.3
+        },
+        {
+          "id": "12490",
+          "name": "Bhayshul Tuten",
+          "position": "RB",
+          "points": 28.9
+        },
+        {
+          "id": "PIT",
+          "name": "Pittsburgh Steelers",
+          "position": "DEF",
+          "points": 20
+        }
+      ],
+      "bench": [
+        {
+          "id": "13274",
+          "name": "Germie Bernard",
+          "position": "WR",
+          "points": 5.5
+        },
+        {
+          "id": "13293",
+          "name": "Ja'Kobi Lane",
+          "position": "WR",
+          "points": 1.8
+        },
+        {
+          "id": "13345",
+          "name": "Jonah Coleman",
+          "position": "RB",
+          "points": 19.4
+        },
+        {
+          "id": "6804",
+          "name": "Jordan Love",
+          "position": "QB",
+          "points": 21.52
+        },
+        {
+          "id": "9501",
+          "name": "DeMario Douglas",
+          "position": "WR",
+          "points": 16.1
+        },
+        {
+          "id": "9753",
+          "name": "Zach Charbonnet",
+          "position": "RB",
+          "points": 4.4
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "rosterId": "4",
+      "teamName": "Worst Team on Paper!",
+      "snapshot": {
+        "type": "week",
+        "week": 9
+      },
+      "starters": [
+        {
+          "id": "11564",
+          "name": "Drake Maye",
+          "position": "QB",
+          "points": 18.26
+        },
+        {
+          "id": "12490",
+          "name": "Bhayshul Tuten",
+          "position": "RB",
+          "points": 8.9
+        },
+        {
+          "id": "9224",
+          "name": "Chase Brown",
+          "position": "RB",
+          "points": 9
+        },
+        {
+          "id": "11625",
+          "name": "Adonai Mitchell",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "1479",
+          "name": "Keenan Allen",
+          "position": "WR",
+          "points": 4.6
+        },
+        {
+          "id": "9484",
+          "name": "Tucker Kraft",
+          "position": "TE",
+          "points": 1.4
+        },
+        {
+          "id": "13345",
+          "name": "Jonah Coleman",
+          "position": "RB",
+          "points": 16.8
+        },
+        {
+          "id": "9221",
+          "name": "Jahmyr Gibbs",
+          "position": "RB",
+          "points": 13.4
+        },
+        {
+          "id": "CHI",
+          "name": "Chicago Bears",
+          "position": "DEF",
+          "points": 15
+        }
+      ],
+      "bench": [
+        {
+          "id": "10219",
+          "name": "Chris Rodriguez Jr.",
+          "position": "RB",
+          "points": 10.2
+        },
+        {
+          "id": "13274",
+          "name": "Germie Bernard",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "13287",
+          "name": "Jeremiyah Love",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "13337",
+          "name": "Emmett Johnson",
+          "position": "RB",
+          "points": 9.4
+        },
+        {
+          "id": "6804",
+          "name": "Jordan Love",
+          "position": "QB",
+          "points": 36.18
+        },
+        {
+          "id": "8146",
+          "name": "Garrett Wilson",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "9997",
+          "name": "Zay Flowers",
+          "position": "WR",
+          "points": 3.8
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "rosterId": "4",
+      "teamName": "Worst Team on Paper!",
+      "snapshot": {
+        "type": "week",
+        "week": 10
+      },
+      "starters": [
+        {
+          "id": "6804",
+          "name": "Jordan Love",
+          "position": "QB",
+          "points": 10.8
+        },
+        {
+          "id": "13337",
+          "name": "Emmett Johnson",
+          "position": "RB",
+          "points": 31.1
+        },
+        {
+          "id": "9221",
+          "name": "Jahmyr Gibbs",
+          "position": "RB",
+          "points": 41.7
+        },
+        {
+          "id": "9997",
+          "name": "Zay Flowers",
+          "position": "WR",
+          "points": 8.4
+        },
+        {
+          "id": "7569",
+          "name": "Nico Collins",
+          "position": "WR",
+          "points": 19.9
+        },
+        {
+          "id": "9484",
+          "name": "Tucker Kraft",
+          "position": "TE",
+          "points": 2.4
+        },
+        {
+          "id": "12490",
+          "name": "Bhayshul Tuten",
+          "position": "RB",
+          "points": 18.8
+        },
+        {
+          "id": "9224",
+          "name": "Chase Brown",
+          "position": "RB",
+          "points": 24.3
+        },
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "position": "DEF",
+          "points": 4
+        }
+      ],
+      "bench": [
+        {
+          "id": "10219",
+          "name": "Chris Rodriguez Jr.",
+          "position": "RB",
+          "points": 0.5
+        },
+        {
+          "id": "11625",
+          "name": "Adonai Mitchell",
+          "position": "WR",
+          "points": 7.4
+        },
+        {
+          "id": "13274",
+          "name": "Germie Bernard",
+          "position": "WR",
+          "points": 1
+        },
+        {
+          "id": "13287",
+          "name": "Jeremiyah Love",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "13345",
+          "name": "Jonah Coleman",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "8146",
+          "name": "Garrett Wilson",
+          "position": "WR",
+          "points": 12.1
+        },
+        {
+          "id": "CHI",
+          "name": "Chicago Bears",
+          "position": "DEF",
+          "points": 0
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "rosterId": "6",
+      "teamName": "Suck My Njigba",
+      "snapshot": {
+        "type": "week",
+        "week": 8
+      },
+      "starters": [
+        {
+          "id": "4984",
+          "name": "Josh Allen",
+          "position": "QB",
+          "points": 26.56
+        },
+        {
+          "id": "6813",
+          "name": "Jonathan Taylor",
+          "position": "RB",
+          "points": 4.7
+        },
+        {
+          "id": "11584",
+          "name": "Bucky Irving",
+          "position": "RB",
+          "points": 22
+        },
+        {
+          "id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "points": 21.8
+        },
+        {
+          "id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "points": 1.3
+        },
+        {
+          "id": "12518",
+          "name": "Tyler Warren",
+          "position": "TE",
+          "points": 3.8
+        },
+        {
+          "id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "points": 26.9
+        },
+        {
+          "id": "9487",
+          "name": "Parker Washington",
+          "position": "WR",
+          "points": 3.1
+        },
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "position": "DEF",
+          "points": 13
+        }
+      ],
+      "bench": [
+        {
+          "id": "10222",
+          "name": "Jayden Reed",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "11646",
+          "name": "Jalen Coker",
+          "position": "WR",
+          "points": 8.6
+        },
+        {
+          "id": "13424",
+          "name": "Seth McGowan",
+          "position": "RB",
+          "points": 2.9
+        },
+        {
+          "id": "5844",
+          "name": "T.J. Hockenson",
+          "position": "TE",
+          "points": 13.8
+        },
+        {
+          "id": "7567",
+          "name": "Kenny Gainwell",
+          "position": "RB",
+          "points": 14
+        },
+        {
+          "id": "8131",
+          "name": "Isaiah Likely",
+          "position": "TE",
+          "points": 0
+        },
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF",
+          "points": 21
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "rosterId": "6",
+      "teamName": "Suck My Njigba",
+      "snapshot": {
+        "type": "week",
+        "week": 9
+      },
+      "starters": [
+        {
+          "id": "4984",
+          "name": "Josh Allen",
+          "position": "QB",
+          "points": 12.86
+        },
+        {
+          "id": "6813",
+          "name": "Jonathan Taylor",
+          "position": "RB",
+          "points": 6.9
+        },
+        {
+          "id": "11584",
+          "name": "Bucky Irving",
+          "position": "RB",
+          "points": 25.5
+        },
+        {
+          "id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "points": 8.6
+        },
+        {
+          "id": "9487",
+          "name": "Parker Washington",
+          "position": "WR",
+          "points": 14.1
+        },
+        {
+          "id": "12518",
+          "name": "Tyler Warren",
+          "position": "TE",
+          "points": 6.4
+        },
+        {
+          "id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "points": 3.1
+        },
+        {
+          "id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "points": 9.3
+        },
+        {
+          "id": "JAX",
+          "name": "Jacksonville Jaguars",
+          "position": "DEF",
+          "points": 11
+        }
+      ],
+      "bench": [
+        {
+          "id": "10222",
+          "name": "Jayden Reed",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "11646",
+          "name": "Jalen Coker",
+          "position": "WR",
+          "points": 4.6
+        },
+        {
+          "id": "13424",
+          "name": "Seth McGowan",
+          "position": "RB",
+          "points": 10.7
+        },
+        {
+          "id": "7567",
+          "name": "Kenny Gainwell",
+          "position": "RB",
+          "points": 10.1
+        },
+        {
+          "id": "8131",
+          "name": "Isaiah Likely",
+          "position": "TE",
+          "points": 13.8
+        },
+        {
+          "id": "9756",
+          "name": "Jordan Addison",
+          "position": "WR",
+          "points": 3.8
+        },
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "position": "DEF",
+          "points": 6
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "rosterId": "9",
+      "teamName": "Kirko Chains",
+      "snapshot": {
+        "type": "week",
+        "week": 9
+      },
+      "starters": [
+        {
+          "id": "1166",
+          "name": "Kirk Cousins",
+          "position": "QB",
+          "points": 11.64
+        },
+        {
+          "id": "4035",
+          "name": "Alvin Kamara",
+          "position": "RB",
+          "points": 6.4
+        },
+        {
+          "id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "points": 8.2
+        },
+        {
+          "id": "7569",
+          "name": "Nico Collins",
+          "position": "WR",
+          "points": 13.5
+        },
+        {
+          "id": "10213",
+          "name": "Tre Tucker",
+          "position": "WR",
+          "points": 7.5
+        },
+        {
+          "id": "5022",
+          "name": "Dallas Goedert",
+          "position": "TE",
+          "points": 7.5
+        },
+        {
+          "id": "11635",
+          "name": "Ladd McConkey",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "11624",
+          "name": "Xavier Worthy",
+          "position": "WR",
+          "points": 7.8
+        },
+        {
+          "id": "SEA",
+          "name": "Seattle Seahawks",
+          "position": "DEF",
+          "points": 15
+        }
+      ],
+      "bench": [
+        {
+          "id": "12534",
+          "name": "Kyle Monangai",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "13305",
+          "name": "Mike Washington Jr.",
+          "position": "RB",
+          "points": -0.3
+        },
+        {
+          "id": "5849",
+          "name": "Kyler Murray",
+          "position": "QB",
+          "points": 0
+        },
+        {
+          "id": "5859",
+          "name": "A.J. Brown",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "7543",
+          "name": "Travis Etienne Jr.",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "8228",
+          "name": "Jaylen Warren",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "9500",
+          "name": "Josh Downs",
+          "position": "WR",
+          "points": 3.9
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "rosterId": "9",
+      "teamName": "Kirko Chains",
+      "snapshot": {
+        "type": "week",
+        "week": 10
+      },
+      "starters": [
+        {
+          "id": "11564",
+          "name": "Drake Maye",
+          "position": "QB",
+          "points": 3.02
+        },
+        {
+          "id": "8228",
+          "name": "Jaylen Warren",
+          "position": "RB",
+          "points": 5.6
+        },
+        {
+          "id": "7543",
+          "name": "Travis Etienne Jr.",
+          "position": "RB",
+          "points": 4.9
+        },
+        {
+          "id": "10213",
+          "name": "Tre Tucker",
+          "position": "WR",
+          "points": 1.4
+        },
+        {
+          "id": "5859",
+          "name": "A.J. Brown",
+          "position": "WR",
+          "points": 3.7
+        },
+        {
+          "id": "2505",
+          "name": "Darren Waller",
+          "position": "TE",
+          "points": 3.4
+        },
+        {
+          "id": "11579",
+          "name": "Audric Estime",
+          "position": "RB",
+          "points": 1.6
+        },
+        {
+          "id": "9500",
+          "name": "Josh Downs",
+          "position": "WR",
+          "points": 12.3
+        },
+        {
+          "id": "SEA",
+          "name": "Seattle Seahawks",
+          "position": "DEF",
+          "points": 13
+        }
+      ],
+      "bench": [
+        {
+          "id": "11635",
+          "name": "Ladd McConkey",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "1166",
+          "name": "Kirk Cousins",
+          "position": "QB",
+          "points": 15.38
+        },
+        {
+          "id": "12534",
+          "name": "Kyle Monangai",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "9756",
+          "name": "Jordan Addison",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "PIT",
+          "name": "Pittsburgh Steelers",
+          "position": "DEF",
+          "points": -5
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    }
+  ],
+  "transactions": [
+    {
+      "id": "1424524291990450196",
+      "timestamp": 1793995628259,
+      "sides": [
+        {
+          "team_id": "4",
+          "acquired": [
+            {
+              "id": "11625",
+              "name": "Adonai Mitchell",
+              "position": "WR",
+              "team": "NYJ"
+            }
+          ],
+          "gave_up": [
+            {
+              "id": "MIN",
+              "name": "Minnesota Vikings",
+              "position": "DEF",
+              "team": "MIN"
+            }
+          ],
+          "faab_acquired": 2
+        },
+        {
+          "team_id": "6",
+          "acquired": [
+            {
+              "id": "MIN",
+              "name": "Minnesota Vikings",
+              "position": "DEF",
+              "team": "MIN"
+            }
+          ],
+          "gave_up": [
+            {
+              "id": "11625",
+              "name": "Adonai Mitchell",
+              "position": "WR",
+              "team": "NYJ"
+            }
+          ],
+          "faab_gave_up": 2
+        }
+      ]
+    },
+    {
+      "id": "1427488044335788032",
+      "timestamp": 1794706462308,
+      "sides": [
+        {
+          "team_id": "4",
+          "acquired": [
+            {
+              "id": "7569",
+              "name": "Nico Collins",
+              "position": "WR",
+              "team": "HOU"
+            }
+          ],
+          "gave_up": [
+            {
+              "id": "11564",
+              "name": "Drake Maye",
+              "position": "QB",
+              "team": "NE"
+            }
+          ]
+        },
+        {
+          "team_id": "9",
+          "acquired": [
+            {
+              "id": "11564",
+              "name": "Drake Maye",
+              "position": "QB",
+              "team": "NE"
+            }
+          ],
+          "gave_up": [
+            {
+              "id": "7569",
+              "name": "Nico Collins",
+              "position": "WR",
+              "team": "HOU"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "analysis": [
+    {
+      "id": "1424524291990450196",
+      "headline": "Stew Acquires Receiving Depth Without Sacrificing a Starting Defender",
+      "analysis": "Stew's Week 8 lineup used Pittsburgh at DEF; his two WRs scored 11.30 combined. Minnesota and Mitchell do not appear on the respective outgoing managers' Week 8 snapshots, so intervening acquisitions need reconstruction. Mitchell started in Week 9 and scored zero. Mitch used Jacksonville at DEF in Week 9 (11 points), while Minnesota remained on the bench (6 points). Stew received two FAAB units as confirmed in the completed trade receipt. Mitchell's broader archive return of four points in two starts is poor, but the exact dates and scoring discrepancy with adjacent weekly snapshots need reconciliation.",
+      "verdict": "Plausible low-cost receiver depth move for Stew, with modest FAAB benefit. Mitch added a defensive alternative but no recorded starting return; neither side has established meaningful lineup improvement."
+    },
+    {
+      "id": "1427488044335788032",
+      "headline": "Stew Turns Quarterback Depth Into Receiving Help",
+      "analysis": "Week 9 Stew started Maye (18.26) with Jordan Love (36.18) on the bench, while his starting receivers combined for 4.60. Collins started in Week 10 (19.90), while Love replaced Maye at QB (10.80). Kuhl started Cousins (11.64) in Week 9, with Murray (0) on the bench, and Collins was his highest scoring starting WR at 13.50. Maye started in Week 10 (3.02) while Cousins scored 15.38 on the bench. This is a hindsight observation, not a claim Cousins should have been chosen pregame. Kuhl's Week 10 receiving lineup changed considerably, so net change cannot be attributed solely to the trade.",
+      "verdict": "Stew's roster fit is supported by quarterback depth and immediate receiver utilization; Kuhl's QB need is plausible but the cost of his leading prior-week receiver is substantial. No certified net lineup impact."
+    }
+  ],
+  "limitations": [
+    "weekly anchors not exact trade-time ownership",
+    "outgoing Week 9 assets absent from Week 8 snapshots; intervening moves required",
+    "weekly scores not pretrade projections",
+    "archive scoring windows and receiving-roster starter points need reconciliation",
+    "no final grades"
+  ]
+}
