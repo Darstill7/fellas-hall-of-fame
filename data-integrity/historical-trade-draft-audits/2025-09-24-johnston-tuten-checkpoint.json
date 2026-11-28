@@ -1,0 +1,116 @@
+{
+  "status": "PARTIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1276373761972527104",
+  "date": "2025-09-24",
+  "timestamp": 1758674022133,
+  "source": "Original Sleeper 2025 transactions weeks 1–17, draft, finalized matchups weeks 4,5,7,8,9,10,13,15–17 via Flaim",
+  "source_blobs": {
+    "data/player_starts_2025.json": "edd4ed006cda105f548c4ee681ad311eceb74441",
+    "data/season_weekly_matchups_2016_2026_v1.json": "6dee0794c38c072f30b69d42bd7a2bad92015921"
+  },
+  "draft": "Neither player found in returned draft picks",
+  "waiver": {
+    "Johnston": {
+      "winner": "Birch",
+      "bid": 15,
+      "transaction": "1271268370271965184",
+      "failed": [
+        [
+          "Stover",
+          11
+        ],
+        [
+          "JMid",
+          2
+        ],
+        [
+          "Stew",
+          0
+        ]
+      ]
+    },
+    "Tuten": {
+      "manager": "Stew",
+      "transaction": "1271556345039970304",
+      "cost": 0
+    }
+  },
+  "sides": [
+    {
+      "manager": "Stew",
+      "roster": 4,
+      "player": "Quentin Johnston",
+      "starts": [
+        [
+          4,
+          19.8
+        ],
+        [
+          5,
+          4.9
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          13.3
+        ],
+        [
+          10,
+          6.7
+        ],
+        [
+          13,
+          9.8
+        ]
+      ],
+      "total": 64.5
+    },
+    {
+      "manager": "Birch",
+      "roster": 10,
+      "player": "Bhayshul Tuten",
+      "starts": [],
+      "total": 0,
+      "drop": "1284542475385438208",
+      "ownership_end": "2025-10-16"
+    }
+  ],
+  "subsequent": [
+    {
+      "date": "2025-11-21",
+      "manager": "Stilly",
+      "action": "add",
+      "id": "1297640183478370304"
+    },
+    {
+      "date": "2025-11-26",
+      "manager": "Stilly",
+      "action": "drop",
+      "id": "1298763968378073088",
+      "observed_starter_points": 1.7
+    }
+  ],
+  "impact": {
+    "Stew_starter_record": "2-5",
+    "sensitive_wins": 0,
+    "head_to_head": {
+      "week": 8,
+      "Stew": 137.18,
+      "Birch": 129.38,
+      "Johnston": 0,
+      "Tuten": "not rostered by Birch"
+    }
+  },
+  "limitations": [
+    "No complete bench or all-player production, future keeper costs or contemporaneous NFL context verified",
+    "No causal wins or final grades"
+  ],
+  "next": "2025-11-12 three-team blockbuster"
+}
