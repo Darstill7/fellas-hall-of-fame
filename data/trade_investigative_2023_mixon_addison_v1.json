@@ -1,0 +1,203 @@
+{
+  "id": "1028065885325508608",
+  "timestamp": 1699475311775,
+  "date": "2023-11-08",
+  "status": "investigative-draft-not-certified",
+  "headline": "JMid Buys a Workhorse, Stew Bets on a Rookie",
+  "receipt": {
+    "JMid": [
+      "Joe Mixon"
+    ],
+    "Stew": [
+      "Jordan Addison",
+      {
+        "pick": "2024 round 2",
+        "originalRoster": 2,
+        "realizedValue": 0,
+        "status": "void per commissioner policy"
+      }
+    ]
+  },
+  "archiveManagerCorrection": "EvansBrandon is incorrect; original receipt roster 2 owner JMidd",
+  "weeks": [
+    {
+      "week": 10,
+      "mixonStart": 11.5,
+      "addisonStart": 8.9,
+      "paired": true
+    },
+    {
+      "week": 11,
+      "mixonStart": 18.5,
+      "addisonStart": 5.9,
+      "paired": true
+    },
+    {
+      "week": 12,
+      "mixonStart": 7,
+      "addisonStart": 6.9,
+      "paired": true
+    },
+    {
+      "week": 13,
+      "mixonStart": 26.7,
+      "addisonStart": null,
+      "paired": true
+    },
+    {
+      "week": 14,
+      "mixonStart": 21,
+      "addisonStart": 3.7,
+      "paired": true
+    },
+    {
+      "week": 15,
+      "mixonStart": 13.6,
+      "addisonStart": 26.1,
+      "paired": true
+    },
+    {
+      "week": 16,
+      "mixonStart": 8,
+      "addisonStart": 0.7,
+      "paired": true
+    },
+    {
+      "week": 17,
+      "mixonStart": 16.7,
+      "addisonStart": 4.3,
+      "paired": false
+    }
+  ],
+  "totals": {
+    "observed": [
+      123,
+      56.5
+    ],
+    "excludeAcquisition": [
+      111.5,
+      47.6
+    ],
+    "paired": [
+      106.3,
+      52.2
+    ]
+  },
+  "archive": [
+    111.5,
+    47.6
+  ],
+  "pairedResults": {
+    "JMid": [
+      [
+        10,
+        145.32,
+        74.08
+      ],
+      [
+        11,
+        111.3,
+        120.58
+      ],
+      [
+        12,
+        128.5,
+        119.28
+      ],
+      [
+        13,
+        141.12,
+        171.6
+      ],
+      [
+        14,
+        90.28,
+        127.42
+      ],
+      [
+        15,
+        94.22,
+        110.32
+      ],
+      [
+        16,
+        69.34,
+        136.52
+      ]
+    ],
+    "Stew": [
+      [
+        10,
+        85.04,
+        109.72
+      ],
+      [
+        11,
+        72.94,
+        104.6
+      ],
+      [
+        12,
+        92.86,
+        118.58
+      ],
+      [
+        13,
+        70.76,
+        109.6
+      ],
+      [
+        14,
+        71.54,
+        105.44
+      ],
+      [
+        15,
+        72.14,
+        128.42
+      ],
+      [
+        16,
+        125.3,
+        148.16
+      ]
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.fantasypros.com/2023/11/fantasy-football-trade-value-chart-week-10-2023/",
+      "finding": "Mixon 28.6, Addison 19.1; exact publication time relative to receipt not verified"
+    },
+    {
+      "url": "https://www.profootballnetwork.com/fantasy-football-trade-value-chart-week-10-2023/",
+      "finding": "November 7 1:57 PM EST pretrade chart independently favors Mixon"
+    },
+    {
+      "url": "https://www.nfl.com/_amp/nfl-fantasy-football-stats-trends-for-week-9-rookie-rb-renaissance",
+      "finding": "Known Cousins Achilles injury and uncertainty for Addison"
+    },
+    {
+      "url": "https://www.bengals.com/team/players-roster/joe-burrow/splits/2023/reg/",
+      "finding": "Burrow season-ending wrist injury November 16, after trade"
+    },
+    {
+      "url": "https://www.vikings.com/news/jordan-addison-ivan-pace-jr-all-rookie-team-2023",
+      "finding": "Addison 70 catches 911 yards 10 TD, all-rookie team"
+    },
+    {
+      "url": "https://www.vikings.com/news/bengals-game-observations-missed-opportunities-add-up",
+      "finding": "Week 15 Addison two TD 111 yards; Mixon rushing TD in same NFL game"
+    },
+    {
+      "url": "https://www.vikings.com/news/lions-week-16-rehash-2023",
+      "finding": "Addison exited week 16 ankle injury"
+    }
+  ],
+  "publicationDraft": "JMid acquired Mixon while Stew bet on rookie Addison and a second-round pick that ultimately carried no realized value. Addison had impressed in Jefferson's absence, but Cousins' Achilles injury already clouded his outlook. Mixon remained a dependable starter even after Burrow went down. Both players scored touchdowns in the same Week 15 NFL game; Addison's 26.10 was wasted in Stew's 56.28-point loss to Thommy, while JMid lost to Mitch despite Mixon's 13.60. JMid bought the more reliable starter. Stew bought upside, but the pick never paid a damn dividend.",
+  "limitations": [
+    "Full ownership replay and keeper eligibility pending",
+    "Exact bracket classification unverified",
+    "NFL postseason qualification not independently verified",
+    "No final grade or deployment"
+  ]
+}
