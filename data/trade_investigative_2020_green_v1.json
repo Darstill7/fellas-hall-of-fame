@@ -1,0 +1,331 @@
+{
+  "id": "614849640176623616",
+  "date": "2020-09-24",
+  "status": "investigative-draft-not-certified",
+  "headline": "Stew Trades Two Running Backs for Yesterday’s Superstar",
+  "publicationDraft": "Stew gambled on A.J. Green rediscovering his Pro Bowl form, despite a lost 2019 season and an ugly three-catch, 13-target outing the week before the deal. Evans picked up Ronald Jones and Nyheim Hines, two backs with uncertain workloads but genuine opportunity. Jones went on to rush for 978 yards, while Green was dropped, reacquired for free and dropped again. His lone 2.90-point start came after reacquisition, not during the original trade ownership spell. Hines supplied 9.50 observed starter points before Evans cut him, while Jones supplied 82.40. Jones missed Weeks 15–16 with injury/COVID complications. Stew traded for the name; Evans traded for the opportunity. Neither managed every subsequent lineup perfectly.",
+  "sources": [
+    {
+      "url": "https://www.nfl.com/_amp/a-j-green-struggles-in-bengals-loss-to-browns",
+      "date": "2020-09-18",
+      "finding": "3 catches on 13 targets; missed 2019."
+    },
+    {
+      "url": "https://www.nfl.com/news/a-j-green-looks-good-but-bengals-likely-to-monitor-wr-s-snaps-in-week-1",
+      "date": null,
+      "finding": "Pregame workload caution and camp hamstring injury."
+    },
+    {
+      "url": "https://www.colts.com/news/jonathan-taylor-marlon-mack-starting-running-back-minnesota-vikings-week-2",
+      "date": null,
+      "finding": "Mack Achilles injury and Taylor named starter before trade."
+    },
+    {
+      "url": "https://abcnews.com/amp/Sports/buccaneers-coach-bruce-arians-ronald-jones-starter-leonard/story?id=72796808",
+      "date": "2020-09-03",
+      "finding": "Arians affirmed Jones starting role despite Fournette signing."
+    },
+    {
+      "url": "https://www.buccaneers.com/news/ronald-jones-activated-from-reserve-covid-19-list-roster-moves",
+      "date": null,
+      "finding": "Finger fracture surgery and COVID list December 16, missed two games."
+    },
+    {
+      "url": "https://www.buccaneers.com/news/state-of-the-bucs-running-backs-ronald-jones-leonard-fournette-lesean-mccoy",
+      "date": null,
+      "finding": "978 rushing yards and 139 postseason rushing yards in three games."
+    },
+    {
+      "url": "https://www.bengals.com/team/stats/2020/reg",
+      "date": null,
+      "finding": "Green 47 catches 523 yards 2 touchdowns."
+    },
+    {
+      "url": "https://www.pro-football-reference.com/teams/clt/2020.htm",
+      "date": null,
+      "finding": "Hines 380 rushing and 482 receiving yards, seven total TD."
+    },
+    {
+      "url": "https://www.bengals.com/news/bengals-2020-season-in-review",
+      "date": null,
+      "finding": "Burrow season-ending knee injury after 10 games."
+    }
+  ],
+  "leagueEvidence": {
+    "source": "Sleeper via Flaim, historical roster and completed transaction records",
+    "weeks": [
+      {
+        "week": 3,
+        "jones": [
+          "B",
+          8.3
+        ],
+        "hines": [
+          "B",
+          8.1
+        ],
+        "green": [
+          "B",
+          6.1
+        ]
+      },
+      {
+        "week": 4,
+        "jones": [
+          "B",
+          15.8
+        ],
+        "hines": [
+          "S",
+          4.7
+        ],
+        "green": [
+          "B",
+          0.8
+        ]
+      },
+      {
+        "week": 5,
+        "jones": [
+          "B",
+          14
+        ],
+        "hines": [
+          "B",
+          4
+        ],
+        "green": [
+          "B",
+          0
+        ]
+      },
+      {
+        "week": 6,
+        "jones": [
+          "S",
+          25.1
+        ],
+        "hines": [
+          "B",
+          5.2
+        ],
+        "green": [
+          "absent",
+          null
+        ]
+      },
+      {
+        "week": 7,
+        "jones": [
+          "S",
+          10.1
+        ],
+        "hines": [
+          "B",
+          0
+        ],
+        "green": [
+          "B",
+          11.7
+        ]
+      },
+      {
+        "week": 8,
+        "jones": [
+          "S",
+          4.6
+        ],
+        "hines": [
+          "B",
+          19.7
+        ],
+        "green": [
+          "S",
+          2.9
+        ]
+      },
+      {
+        "week": 9,
+        "jones": [
+          "B",
+          3.3
+        ],
+        "hines": [
+          "S",
+          4.8
+        ],
+        "green": [
+          "absent",
+          null
+        ]
+      },
+      {
+        "week": 10,
+        "jones": [
+          "S",
+          25.3
+        ],
+        "hines": [
+          "absent",
+          null
+        ],
+        "green": [
+          "absent",
+          null
+        ]
+      },
+      {
+        "week": 11,
+        "jones": [
+          "S",
+          2.4
+        ],
+        "hines": [
+          "absent",
+          null
+        ],
+        "green": [
+          "absent",
+          null
+        ]
+      },
+      {
+        "week": 12,
+        "jones": [
+          "B",
+          16.8
+        ],
+        "hines": [
+          "absent",
+          null
+        ],
+        "green": [
+          "absent",
+          null
+        ]
+      },
+      {
+        "week": 13,
+        "jones": [
+          "B",
+          0
+        ],
+        "hines": [
+          "absent",
+          null
+        ],
+        "green": [
+          "absent",
+          null
+        ]
+      },
+      {
+        "week": 14,
+        "jones": [
+          "S",
+          14.9
+        ],
+        "hines": [
+          "absent",
+          null
+        ],
+        "green": [
+          "absent",
+          null
+        ]
+      },
+      {
+        "week": 15,
+        "jones": [
+          "B",
+          0
+        ],
+        "hines": [
+          "absent",
+          null
+        ],
+        "green": [
+          "absent",
+          null
+        ]
+      },
+      {
+        "week": 16,
+        "jones": [
+          "B",
+          0
+        ],
+        "hines": [
+          "absent",
+          null
+        ],
+        "green": [
+          "absent",
+          null
+        ]
+      }
+    ],
+    "ownershipEvents": [
+      {
+        "id": "621850196678103040",
+        "date": "2020-10-14",
+        "manager": "Stew",
+        "drop": "A.J. Green",
+        "add": "Chase Claypool",
+        "faab": 21
+      },
+      {
+        "id": "624366327338975232",
+        "date": "2020-10-21",
+        "manager": "Stew",
+        "add": "A.J. Green",
+        "faab": 0
+      },
+      {
+        "id": "629696486346670080",
+        "date": "2020-11-04",
+        "manager": "Stew",
+        "drop": "A.J. Green"
+      },
+      {
+        "id": "632243143634399232",
+        "date": "2020-11-11",
+        "manager": "Evans",
+        "drop": "Nyheim Hines"
+      },
+      {
+        "id": "634503757891207168",
+        "date": "2020-11-18",
+        "manager": "Evans",
+        "attemptedAdd": "Nyheim Hines",
+        "faab": 7,
+        "status": "failed"
+      }
+    ],
+    "observedStarterTotals": {
+      "Jones": 82.4,
+      "Hines": 9.5,
+      "Evans": 91.9,
+      "GreenOriginalSpell": 0,
+      "GreenReacquisition": 2.9
+    },
+    "week14": {
+      "evansScore": 108.72,
+      "stoverScore": 110.84,
+      "jones": 14.9
+    },
+    "week15": {
+      "evansScore": 99.76,
+      "kuhlScore": 101.9,
+      "jonesBench": 0
+    },
+    "archiveCorrection": "Original archive omits Hines and includes Green's second spell. Preserve separate reacquisition; Jones total matches archived value."
+  },
+  "limitations": [
+    "Jones continuous ownership not independently transaction-replayed",
+    "Historical lineup motives and projections unknown",
+    "Playoff round classification pending; Week 16 singleton excluded",
+    "Hines NFL postseason game log not yet verified",
+    "No final grades"
+  ]
+}
