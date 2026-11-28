@@ -1,0 +1,81 @@
+{
+  "status": "first-editorial-pass-not-publication-ready",
+  "sources": [
+    "data/trade_individual_review_v1.json",
+    "data/trade_par_preview.json"
+  ],
+  "articles": [
+    {
+      "id": "1159892809005076480",
+      "headline": "Chubb Supplies the Only Recorded Return in Late-Season Backfield Swap",
+      "analysis": "Nick Chubb contributed 39.80 points over four starts for Kuhl, averaging 9.95. Mitch received no recorded starts from Raheem Mostert. Chubb also generated 14.47 points above the archived positional benchmark in the narrower research window; Mostert remains unmatched there. Kuhl extracted tangible production, though the record does not establish whether it improved his lineup over available alternatives.",
+      "verdict": "Kuhl leads the documented production comparison. Mostert's subsequent ownership and Chubb's actual lineup impact must be verified before final grades.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1152708228883660800",
+      "headline": "Tony's Three-Player Package Outproduces Thommy's Return",
+      "analysis": "Cooper Kupp, Kareem Hunt and Rico Dowdle delivered 216.90 points across nineteen player-starts for Tony. Travis Kelce and Brandon Aiyuk supplied Thommy with 107.30 across ten. Tony's package generated 109.60 more points and a slightly higher average, 11.42 against 10.73. The narrower positional research records 102.44 points above benchmark for Tony's package and 49.55 for Thommy's matched asset, but Aiyuk is unresolved. Dowdle also appears in an earlier trade, requiring ownership-spell reconciliation.",
+      "verdict": "Tony has the stronger recorded production return; the incomplete positional evidence and subsequent asset history prevent a definitive grade.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1146947320588861440",
+      "headline": "Brown's Positional Value Challenges Love's Scoring Advantage",
+      "analysis": "Jordan Love supplied Thommy with 174.62 points across eleven starts, while Chase Brown returned 154.40 across ten for Stilly. Love's raw advantage was 20.22 points, with a narrow efficiency edge of 15.87 against 15.44. In the separate, fully matched positional research window, Brown delivered 57.50 points above benchmark in seven starts, compared with Love's 22.81 in eight. The result illustrates why quarterback and running back totals alone cannot decide the deal.",
+      "verdict": "Both sides generated meaningful recorded production. The positional evidence materially strengthens Stilly's case, but actual lineup improvement, ownership and keeper outcomes remain to be established.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1146946436173623296",
+      "headline": "Cooper's Volume Conceals a Narrower Efficiency Contest",
+      "analysis": "Amari Cooper gave Stew 53.40 points in nine starts, while Mark Andrews and Rico Dowdle supplied Thommy with 21.60 across two. Stew led in cumulative points, but Thommy's package averaged 10.80 per start against 5.93. The narrower research matches Andrews for 12.50 points above benchmark and Cooper for 13.96, leaving Dowdle unresolved. Dowdle appears in a later exchange involving Thommy and Tony; his ownership and subsequent proceeds must be reconciled.",
+      "verdict": "Stew leads raw volume, but the modest efficiency of Cooper's return and unresolved downstream value make a decisive verdict premature.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1144362000575840256",
+      "headline": "Stilly's Depth Delivers in Six-Player Blockbuster",
+      "analysis": "Terry McLaurin, De'Von Achane and Tank Dell combined for 453.40 points across thirty-five player-starts for Stilly. Christian McCaffrey, Diontae Johnson and Tee Higgins returned 255.40 across eighteen for Thommy. Thommy's package averaged 14.19 per start compared with Stilly's 12.95, but Stilly extracted 198 more total points. The narrower matched positional research also favors Stilly, 220.01 to 117.09 points above benchmark. Dell appears in an earlier exchange involving Thommy and Kuhl; his ownership spells require reconciliation.",
+      "verdict": "Stilly has the stronger documented case on cumulative production and positional value. Thommy's higher per-start efficiency deserves recognition, but the final grades require verified lineup improvements and asset lifecycle evidence.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1141777905656143872",
+      "headline": "Williams and Ridley Edge Cook in Equal Starting Volume",
+      "analysis": "Calvin Ridley and Kyren Williams supplied JMid with 227.00 points across fourteen player-starts. James Cook III returned 204.10 in fourteen starts for Stew. JMid led by 22.90 points on equal recorded starting volume, averaging 16.21 against 14.58. The narrower positional research records Williams at 108.77 above benchmark and Cook at 70.31, both across eleven starts, but Ridley remains unmatched.",
+      "verdict": "JMid has a modest advantage in the raw comparison and encouraging partial positional evidence. Ridley's unresolved research record and lineup alternatives must be addressed before grading.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1140082401968836608",
+      "headline": "Nabers Builds a Modest Efficiency Edge Over Adams",
+      "analysis": "Malik Nabers returned 171.40 points across twelve starts for Stew, compared with Davante Adams' 139.00 across ten for Stover. Nabers led by 32.40 points, with a narrow per-start advantage of 14.28 against 13.90. The separate positional research matches Nabers for 68.80 points above benchmark but does not resolve Adams, despite his recorded production in the broader receipt.",
+      "verdict": "Stew leads both documented raw measures. The efficiency gap is small, and the unmatched Adams research prevents a fair positional comparison.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1139340571111256064",
+      "headline": "Dobbins Provides the Return Dell Could Not Match",
+      "analysis": "J.K. Dobbins gave Kuhl 93.80 points in eight starts. Tank Dell supplied Thommy with 10.50 across two, averaging 5.25 against Dobbins' 11.73. The matched positional research reinforces the difference at 41.96 versus 2.28 points above benchmark. Dell appears in Thommy's subsequent blockbuster with Stilly, so the direct production shortfall cannot by itself establish the complete return from this transaction.",
+      "verdict": "Kuhl has the stronger documented direct production case. Thommy's subsequent movement of Dell and any attributable downstream value must be examined without double-counting before final grades.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    }
+  ]
+}
