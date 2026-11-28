@@ -1,0 +1,152 @@
+{
+  "id": "1031121022772555776",
+  "timestamp": 1700228766509,
+  "date": "2023-11-17",
+  "status": "investigative-draft-not-certified",
+  "headline": "Two Stars and a First-Round Pick That Never Paid Out",
+  "receipt": {
+    "Mitch": [
+      "Justin Jefferson",
+      "Josh Jacobs"
+    ],
+    "Stew": [
+      "Gabe Davis",
+      {
+        "pick": "2024 first round Mitch",
+        "realizedValue": 0,
+        "status": "void"
+      }
+    ]
+  },
+  "weeks": [
+    {
+      "week": 11,
+      "jeffersonStart": null,
+      "jacobsStart": 5.6,
+      "davisStart": 0,
+      "stewPaired": true
+    },
+    {
+      "week": 12,
+      "jeffersonStart": null,
+      "jacobsStart": 21.5,
+      "davisStart": null,
+      "stewPaired": true
+    },
+    {
+      "week": 13,
+      "jeffersonStart": null,
+      "jacobsStart": null,
+      "davisStart": null,
+      "stewPaired": true
+    },
+    {
+      "week": 14,
+      "jeffersonStart": 3.7,
+      "jacobsStart": 6,
+      "davisStart": 0,
+      "stewPaired": true
+    },
+    {
+      "week": 15,
+      "jeffersonStart": 11.9,
+      "jacobsStart": null,
+      "davisStart": 0,
+      "stewPaired": true
+    },
+    {
+      "week": 16,
+      "jeffersonStart": 23.1,
+      "jacobsStart": null,
+      "davisStart": 22,
+      "stewPaired": true
+    },
+    {
+      "week": 17,
+      "jeffersonStart": 8.4,
+      "jacobsStart": null,
+      "davisStart": 3.1,
+      "stewPaired": false
+    }
+  ],
+  "totals": {
+    "jefferson": 47.1,
+    "jacobs": 33.1,
+    "mitch": 80.2,
+    "stew": 25.1,
+    "mitchExcludeAcquisition": 74.6,
+    "stewExcludeAcquisition": 25.1,
+    "stewPaired": 22
+  },
+  "archive": {
+    "mitch": 74.6,
+    "stew": 25.1
+  },
+  "week12": {
+    "mitch": 118.58,
+    "stew": 92.86,
+    "jacobs": 21.5,
+    "davisBench": 19.5
+  },
+  "counterfactual": {
+    "method": "Fixed actual remaining starters and opponents; replace Jefferson with retained Davis in same eligible WR/FLEX slot. Jacobs was benched at zero in each December matchup. Not a full alternate season.",
+    "weeks": [
+      {
+        "week": 15,
+        "opponent": "Evans",
+        "actual": 110.32,
+        "opponentPoints": 94.22,
+        "jefferson": 11.9,
+        "davis": 0,
+        "revised": 98.42,
+        "margin": 4.2
+      },
+      {
+        "week": 16,
+        "opponent": "Koble",
+        "actual": 131.12,
+        "opponentPoints": 104.2,
+        "jefferson": 23.1,
+        "davis": 22,
+        "revised": 130.02,
+        "margin": 25.82
+      },
+      {
+        "week": 17,
+        "opponent": "Stilly",
+        "actual": 90.18,
+        "opponentPoints": 104.96,
+        "jefferson": 8.4,
+        "davis": 3.1,
+        "revised": 84.88,
+        "margin": -20.08
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.vikings.com/news/justin-jefferson-injured-reserve-roster-moves",
+      "finding": "Jefferson Week 5 hamstring IR"
+    },
+    {
+      "url": "https://www.fantasypros.com/nfl/news/421976/justin-jefferson-hamstring-unlikely-to-play-week-11.php",
+      "finding": "November 15 pretrade report of unlikely Week 11 return"
+    },
+    {
+      "url": "https://www.vikings.com/news/justin-jefferson-leaves-raiders-game-chest-injury",
+      "finding": "December 10 chest injury after seven missed games"
+    },
+    {
+      "url": "https://www.nfl.com/news/2023-nfl-season-week-14-notable-injuries-news-from-sunday-s-games",
+      "finding": "Both acquired players left same Week 14 NFL game injured"
+    }
+  ],
+  "publicationDraft": "Mitch bought Jefferson's injured upside and Jacobs' backfield production for Gabe Davis and a first-round pick that ultimately carried no realized value. Both stars left the same December NFL game injured. Jefferson returned to contribute 43.40 points across Weeks 15–17, while Jacobs never started again. Davis gave Stew three zero-point starts. Replacing Jefferson with Davis would leave all three of Mitch's December matchup outcomes unchanged. Mitch secured the better direct return, but even two stars couldn't rewrite his final result.",
+  "limitations": [
+    "Official bracket classification not independently certified",
+    "No full alternate seeding or transaction replay",
+    "Keeper eligibility and NFL postseason context outstanding",
+    "No final grades or deployment",
+    "2023 roster 2 historically Evans per commissioner"
+  ]
+}
