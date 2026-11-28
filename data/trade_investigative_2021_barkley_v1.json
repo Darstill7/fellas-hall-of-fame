@@ -1,0 +1,189 @@
+{
+  "id": "746234454665732096",
+  "date": "2021-09-21T23:12:21.445Z",
+  "status": "investigative-draft-not-certified",
+  "headline": "Stew and Kuhl Swap Backfields, Then Both Get Screwed",
+  "publicationDraft": "Stew bought into Barkley’s ACL comeback as his workload recovered, while Kuhl acquired three backs with credible early-season opportunities. Barkley and Edwards-Helaire both suffered injuries on October 10, wrecking each manager’s principal acquisition. Drake and Ty'Son Williams had already been cut on October 6, and Hines never entered an observed Kuhl starting lineup before his November release. Both headline backs returned in Week 11. Edwards-Helaire outscored Barkley 25.70–24.40 in the paired Weeks 14–15, although the managers had different opponents. Neither side could predict the simultaneous injuries. Stew’s consolidation was defensible; Kuhl’s diversification looked better on paper than it did on his bench. Neither acquired the difference-maker he hoped for.",
+  "sources": [
+    {
+      "url": "https://www.giants.com/news/saquon-barkley-thursday-night-football-injury-status-washington-football-team",
+      "date": "2021-09-14",
+      "finding": "ACL recovery and reduced Week 1 workload"
+    },
+    {
+      "url": "https://ftp.fftoday.com/articles/scott/21_usage_notes_wk2.html",
+      "date": "2021-09-21",
+      "finding": "Barkley snap share 48% to 84%; publication time relative to trade not established"
+    },
+    {
+      "url": "https://www.nbcsports.com/fantasy/football/news/article-backfield-report-week-2-backfield-report-september-15-2021",
+      "date": "2021-09-15",
+      "finding": "Williams elevated following preseason backfield injuries"
+    },
+    {
+      "url": "https://www.nbcsports.com/fantasy/football/news/article-backfield-report-week-3-backfield-report-september-22-2021",
+      "date": "2021-09-22",
+      "finding": "Week 2 usage retrospective published after trade"
+    },
+    {
+      "url": "https://www.giants.com/news/daniel-jones-saquon-barkley-injuries-new-york-giants-vs-dallas-cowboys-week-5",
+      "date": "2021-10-10",
+      "finding": "Barkley ankle injury"
+    },
+    {
+      "url": "https://www.nfl.com/news/chiefs-place-rb-clyde-edwards-helaire-mcl-sprain-on-injured-reserve",
+      "date": "2021-10-12",
+      "finding": "CEH MCL sprain and IR"
+    },
+    {
+      "url": "https://www.giants.com/news/saquon-barkley-status-andrew-thomas-mnf-buccaneers-antonio-brown",
+      "date": "2021-11-22",
+      "finding": "Barkley returned Week 11"
+    },
+    {
+      "url": "https://amp.nfl.com/news/chiefs-rb-clyde-edwards-helaire-knee-activated-off-ir-ahead-of-cowboys-game",
+      "date": "2021-11-20",
+      "finding": "CEH activated Week 11"
+    },
+    {
+      "url": "https://www.giants.com/team/stats/2021/reg",
+      "date": null,
+      "finding": "Barkley 593 rushing yards"
+    },
+    {
+      "url": "https://www.dailyherald.com/20220101/pro-sports/chiefs-rb-edwards-helaire-downgraded-to-out-vs-bengals/",
+      "date": "2022-01-01",
+      "finding": "Week 16 shoulder injury"
+    },
+    {
+      "url": "https://www.upi.com/Sports_News/NFL/2021/12/06/Vikings-Thielen-Ravens-Humphrey-Raiders-Drake-among-injured-in-NFLs-Week-13/4431638802486/",
+      "date": "2021-12-06",
+      "finding": "Drake ankle injury after release from Stew"
+    }
+  ],
+  "leagueEvidence": {
+    "source": "Sleeper historical rosters and completed transactions via Flaim; initial Week 3 evidence from roster-fit ledger",
+    "week3": {
+      "Barkley": 18.4,
+      "DrakeBench": 7.2,
+      "CEH": 15.9,
+      "Williams": 2.2,
+      "HinesBench": 16.4
+    },
+    "weeks": [
+      {
+        "week": 4,
+        "barkley": 27.1,
+        "ceh": 18.4,
+        "hinesBench": 0.1
+      },
+      {
+        "week": 5,
+        "barkley": 0.9,
+        "ceh": 2.9,
+        "hinesBench": 1.8
+      },
+      {
+        "week": 6,
+        "barkley": null,
+        "ceh": null,
+        "hinesBench": 2.7
+      },
+      {
+        "week": 7,
+        "barkley": null,
+        "ceh": null,
+        "hinesBench": 1.7
+      },
+      {
+        "week": 8,
+        "barkley": null,
+        "ceh": null,
+        "hinesBench": 4.4
+      },
+      {
+        "week": 9,
+        "barkley": null,
+        "ceh": null,
+        "hinesBench": 18.8
+      },
+      {
+        "week": 10,
+        "barkley": null,
+        "ceh": null,
+        "hinesBench": 3.9
+      },
+      {
+        "week": 11,
+        "barkley": 8.6,
+        "ceh": null,
+        "hinesBench": null
+      },
+      {
+        "week": 12,
+        "barkley": 7.3,
+        "ceh": null,
+        "hinesBench": null
+      },
+      {
+        "week": 13,
+        "barkley": 10.4,
+        "ceh": 9.7,
+        "hinesBench": null
+      },
+      {
+        "week": 14,
+        "barkley": 17,
+        "ceh": 17.7,
+        "hinesBench": null
+      },
+      {
+        "week": 15,
+        "barkley": 7.4,
+        "ceh": 8,
+        "hinesBench": null
+      },
+      {
+        "week": 16,
+        "barkley": 3.3,
+        "ceh": 9.6,
+        "hinesBench": null
+      }
+    ],
+    "cehWeek11Bench": 14.6,
+    "ownershipEvents": [
+      {
+        "id": "751585745763987456",
+        "date": "2021-10-06",
+        "manager": "Stew",
+        "drop": "Kenyan Drake",
+        "add": "Alex Collins"
+      },
+      {
+        "id": "751450400925839360",
+        "date": "2021-10-06",
+        "manager": "Kuhl",
+        "drop": "Ty'Son Williams",
+        "add": "Los Angeles Chargers DEF"
+      },
+      {
+        "id": "768166286810329088",
+        "date": "2021-11-21",
+        "manager": "Kuhl",
+        "drop": "Nyheim Hines"
+      }
+    ],
+    "observedWeeks3to15": {
+      "stew": 97.1,
+      "kuhl": 74.8,
+      "notes": "Barkley 8 starts; CEH 6 starts and Williams one; recompute before certification."
+    },
+    "week16Unpaired": true
+  },
+  "limitations": [
+    "Correct publication draft paired Weeks 14–15 CEH total 25.70, not 35.40 (latter incorrect); Barkley 24.40. Week 16 singleton excluded. Verify cumulative totals before use.",
+    "No independent manager motive or pregame projections",
+    "NFL postseason game logs incomplete",
+    "No final grade"
+  ]
+}
