@@ -1,0 +1,54 @@
+{
+  "status": "first-editorial-pass-not-publication-ready",
+  "sources": [
+    "data/trade_individual_review_v1.json",
+    "data/trade_par_preview.json"
+  ],
+  "articles": [
+    {
+      "id": "629818920752209920",
+      "headline": "Thomas Edges Stover's Two-Player Package",
+      "analysis": "Michael Thomas delivered 53.10 points across five starts for Stew. D.J. Moore and Clyde Edwards-Helaire supplied Stover with 45.00 across six. Stew averaged 10.62 against 7.50. The narrower positional research records Thomas at 32.97 above benchmark but leaves both of Stover's assets unmatched.",
+      "verdict": "Stew has a modest recorded production advantage. A complete positional and ownership review is needed before calling the trade a success.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "629416763662086144",
+      "headline": "Kittle's Single Recorded Start Leaves an Unfinished Trade Story",
+      "analysis": "George Kittle supplied Stilly with 11.20 points in one recorded start. The narrower positional research does not match his contribution. The surviving receipt does not establish the other participant or outgoing assets.",
+      "verdict": "One recorded start is not enough to evaluate this incomplete exchange. Recover the missing transaction details before assigning a grade or winner.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "622492390107738112",
+      "headline": "Stilly's Two-Player Return Meets Murray's Superior Efficiency",
+      "analysis": "Lamar Jackson and J.K. Dobbins supplied Stilly with 264.26 points across fifteen player-starts. Kyler Murray returned 196.10 across eight for Tony, averaging 24.51 against Stilly's 17.62. The narrower matched positional research gives Stilly a smaller advantage, 84.50 to 72.33 above benchmark. The two positions and additional roster slot make a raw scoring comparison insufficient.",
+      "verdict": "Stilly leads cumulative and archived benchmark-adjusted production; Tony's efficiency is noteworthy. Actual lineup improvement will determine how much value each manager received.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "616864423201554432",
+      "headline": "Stilly Holds a Modest Direct Edge in Six-Player Exchange",
+      "analysis": "DeSean Jackson, Travis Kelce and Marquise Brown delivered 290.16 points across twenty player-starts for Stilly. Allen Robinson II, Tyler Higbee and D'Andre Swift supplied Thommy with 266.40 across twenty-one. Stilly averaged 14.51 against 12.69. The narrower partial positional research favors Stilly, 173.40 to 43.03 above benchmark, but Jackson and Robinson remain unmatched and the starting samples differ considerably.",
+      "verdict": "Stilly leads the recorded raw measures. The partial positional result cannot be treated as a complete comparison; verify both packages and subsequent asset history before grading.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "614849640176623616",
+      "headline": "Jones Supplies the Return Green Could Not Match",
+      "analysis": "Ronald Jones delivered 82.40 points across six starts for Evans, while A.J. Green supplied Stew with 2.90 in one. The narrower research places Green at minus 0.93 above benchmark but does not match Jones. The difference in documented volume and efficiency is substantial, though Stew's sample is limited.",
+      "verdict": "Evans has the stronger recorded production case. Confirm both players' ownership spells and lineup alternatives before issuing a final verdict.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    }
+  ]
+}
