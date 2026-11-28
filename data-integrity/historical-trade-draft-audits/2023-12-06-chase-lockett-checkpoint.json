@@ -1,0 +1,147 @@
+{
+  "status": "INITIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1038099277249245184",
+  "timestamp": 1701871720442,
+  "date": "2023-12-06",
+  "source": "Original Sleeper finalized matchups weeks 1–17, transaction week 14 and subsequent transaction weeks 15–17, 2023–2025 drafts via Flaim",
+  "historical_rules": {
+    "roster2": "Evan, not JMid",
+    "draft_picks": "All voided; zero realized value"
+  },
+  "sides": [
+    {
+      "manager": "Evan",
+      "roster": 2,
+      "received": "Ja'Marr Chase",
+      "gave": [
+        "Tyler Lockett",
+        "2024 first-round pick (voided)",
+        "2025 second-round pick (voided)"
+      ],
+      "weeks": [
+        [
+          14,
+          4.4
+        ],
+        [
+          15,
+          8.4
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          17,
+          5.6
+        ]
+      ],
+      "total": 18.4,
+      "starts": 4
+    },
+    {
+      "manager": "Kuhl",
+      "roster": 9,
+      "received": [
+        "Tyler Lockett",
+        "2024 first-round pick (voided)",
+        "2025 second-round pick (voided)"
+      ],
+      "gave": "Ja'Marr Chase",
+      "weeks": [
+        [
+          14,
+          11.9
+        ],
+        [
+          15,
+          3.6
+        ],
+        [
+          16,
+          12.1
+        ]
+      ],
+      "total": 27.6,
+      "starts": 3
+    }
+  ],
+  "draft2023": [
+    [
+      "Chase",
+      9,
+      1,
+      4
+    ],
+    [
+      "Lockett",
+      2,
+      7,
+      65
+    ]
+  ],
+  "draft2024": [
+    [
+      "Chase",
+      2,
+      1,
+      7
+    ],
+    [
+      "Lockett",
+      10,
+      12,
+      116
+    ]
+  ],
+  "draft2025": [
+    [
+      "Chase",
+      4,
+      1,
+      2
+    ]
+  ],
+  "ledger": {
+    "Evan": 14,
+    "Kuhl": 15.7
+  },
+  "boundary": {
+    "week": 14,
+    "observed_restored_points": 16.3,
+    "status": "pending independent NFL kickoff verification"
+  },
+  "impact": {
+    "Evan_seed": 3,
+    "Kuhl_qualified": false,
+    "regular_sensitive_wins": 0,
+    "quarterfinal": {
+      "Evan": 94.22,
+      "Mitch": 110.32,
+      "Chase": 8.4,
+      "Lockett": 3.6,
+      "conditional_WR_substitution": 89.42,
+      "margin": -20.9
+    },
+    "week16": {
+      "Evan": 69.34,
+      "Birch": 136.52,
+      "Chase": 0,
+      "Lockett": 12.1,
+      "conditional_WR_substitution": 81.44
+    },
+    "week14": {
+      "Evan": 90.28,
+      "Stilly": 127.42,
+      "Kuhl": 110.02,
+      "Mitch": 83.84
+    }
+  },
+  "limitations": [
+    "No full bench or alternative roster decisions; no causal result reversal",
+    "2024 roster 2 belongs to JMid, not Evan; no inferred personal keeper retention; returned draft record has no keeper marker",
+    "Injury and kickoff chronology require independent sources",
+    "No production changes or grades"
+  ],
+  "next": "Complete November 8 nine-player blockbuster ownership and FAAB research, then independent 2023 audit"
+}
