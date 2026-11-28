@@ -1,0 +1,38 @@
+{
+  "status": "USER_CONFIRMED_CONTEXT_AND_PROVIDER_LINEUP",
+  "season": 2022,
+  "week": 17,
+  "source": "User describes championship as heavily discussed within league, believes Stew likely would not have won but outcome unknowable; original Sleeper finalized matchup",
+  "official": {
+    "champion": "Stover",
+    "score": 99.22,
+    "runner_up": "Stew",
+    "runner_up_score": 48.16,
+    "margin": 51.06
+  },
+  "affected_starters": [
+    {
+      "manager": "Stew",
+      "player": "Ja'Marr Chase",
+      "recorded": 0
+    },
+    {
+      "manager": "Stew",
+      "player": "Stefon Diggs",
+      "recorded": 3.6
+    },
+    {
+      "manager": "Stover",
+      "player": "Devin Singletary",
+      "recorded": 0.3
+    }
+  ],
+  "counterfactual": {
+    "recorded_affected_net": 3.3,
+    "additional_net_to_win": 51.07,
+    "full_game_combined_stew_minus_stover_to_win": 54.37,
+    "assumptions": "All other recorded scores held fixed; two decimal precision; no prediction or alternate result certified"
+  },
+  "editorial": "Recognize official Stover championship without asterisk or claim Stew was robbed. Acknowledge league discussion and unknowable outcome. Treat canceled game and medical emergency respectfully, not as roast material. Preserve provider scores, do not impute points.",
+  "production_changed": false
+}
