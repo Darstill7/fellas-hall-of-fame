@@ -1,0 +1,163 @@
+{
+  "id": "622492390107738112",
+  "status": "investigative-draft-not-certified",
+  "headline": "Betting on Baltimore: The Lamar Jackson–Kyler Murray Trade",
+  "date": "2020-10-15",
+  "sources": [
+    {
+      "url": "https://www.pff.com/news/fantasy-football-taking-stock-of-every-nfl-backfield-ahead-of-nfl-week-5",
+      "date": "2020-10-06",
+      "finding": "Three-back committee limited Dobbins fantasy usage before trade."
+    },
+    {
+      "url": "https://www.baltimoreravens.com/news/mark-ingram-two-others-ravens-don-t-return-after-injuries",
+      "date": "2020-10-18",
+      "finding": "Ingram ankle injury after trade."
+    },
+    {
+      "url": "https://www.baltimoreravens.com/news/mark-ingram-inactive-jimmy-smith-active-for-ravens",
+      "date": "2020-11-01",
+      "finding": "Ingram inactive, Dobbins averaged 6.2 yards per carry entering game."
+    },
+    {
+      "url": "https://www.baltimoreravens.com/news/real-pro-mark-ingram-never-changes-his-positive-vibe",
+      "date": "2020-12-18",
+      "finding": "Dobbins and Edwards primary backs."
+    },
+    {
+      "url": "https://www.azcardinals.com/news/kyler-murray-will-play-against-patriots",
+      "date": "2020-11-27",
+      "finding": "Murray managing shoulder injury."
+    },
+    {
+      "url": "https://www.baltimoreravens.com/news/ravens-activate-four-from-reserve-covid-19-list",
+      "date": "2020-12-04",
+      "finding": "Dobbins missed Week 12 on COVID list."
+    },
+    {
+      "url": "https://www.baltimoreravens.com/news/lamar-jackson-excels-in-return-from-covid-19",
+      "date": "2020-12-09",
+      "finding": "Jackson returned Week 13 after missing Pittsburgh game."
+    },
+    {
+      "url": "https://www.baltimoreravens.com/team/stats/2020/reg",
+      "date": null,
+      "finding": "Dobbins 805 rushing yards, nine touchdowns, six yards per carry."
+    },
+    {
+      "url": "https://www.baltimoreravens.com/news/a-list-of-the-ravens-records-set-vs-bengals-and-in-2020-season",
+      "date": null,
+      "finding": "Six consecutive appearances with 50+ rushing yards and rushing TD."
+    },
+    {
+      "url": "https://www.baltimoreravens.com/news/lamar-jackson-s-first-playoff-win-thrills-his-teammates-more-than-him",
+      "date": "2021-01-10",
+      "finding": "Jackson 179 passing, 136 rushing yards in wild-card victory."
+    },
+    {
+      "url": "https://www.azcardinals.com/news/kyler-murray-leaves-finale-in-los-angeles-with-ankle-injury",
+      "date": "2021-01-03",
+      "finding": "Ankle injury limited Murray in finale; Arizona eliminated."
+    }
+  ],
+  "leagueEvidence": {
+    "source": "Sleeper via Flaim, historical roster snapshots; prior verified matchup evidence",
+    "weeks": [
+      {
+        "week": 10,
+        "jacksonStart": 21.46,
+        "dobbinsStart": 1.9,
+        "murrayStart": 29.9,
+        "watsonPoints": 14.12,
+        "watsonStarted": false
+      },
+      {
+        "week": 11,
+        "jacksonStart": 16.54,
+        "dobbinsStart": 17.5,
+        "murrayStart": 20.26,
+        "watsonPoints": 31.36,
+        "watsonStarted": false
+      },
+      {
+        "week": 12,
+        "jacksonStart": null,
+        "dobbinsStart": null,
+        "murrayStart": 7.9,
+        "watsonPoints": 33.12,
+        "watsonStarted": false
+      },
+      {
+        "week": 13,
+        "jacksonStart": 24.68,
+        "dobbinsStart": 13.1,
+        "murrayStart": 15.42,
+        "watsonPoints": 18.44,
+        "watsonStarted": false
+      },
+      {
+        "week": 14,
+        "jacksonStart": 35.92,
+        "dobbinsStart": 12.3,
+        "murrayStart": 17.46,
+        "watsonPoints": 16.56,
+        "watsonStarted": false
+      },
+      {
+        "week": 15,
+        "jacksonStart": 27.22,
+        "dobbinsStart": 13.6,
+        "murrayStart": 32.14,
+        "watsonPoints": 23.42,
+        "watsonStarted": false
+      },
+      {
+        "week": 16,
+        "jacksonStart": 21.32,
+        "dobbinsStart": 13.7,
+        "murrayStart": null,
+        "watsonPoints": 25.76,
+        "watsonStarted": true
+      }
+    ],
+    "week16MurrayBench": 15.38,
+    "pairedDecember": [
+      {
+        "week": 14,
+        "stilly": {
+          "score": 115.72,
+          "opponent": "Stew",
+          "opponentScore": 97.64
+        },
+        "tony": {
+          "score": 125.56,
+          "opponent": "Thommy",
+          "opponentScore": 151.32
+        }
+      },
+      {
+        "week": 15,
+        "stilly": {
+          "score": 148.72,
+          "opponent": "Thommy",
+          "opponentScore": 124.46
+        },
+        "tony": {
+          "score": 116.94,
+          "opponent": "Stew",
+          "opponentScore": 118.06
+        }
+      }
+    ],
+    "week16Paired": false
+  },
+  "article": "Stilly exchanged a premium QB for another premium QB and a rookie back stuck in a committee. Ingram's ankle injury three days later accelerated a role change that was not knowable at the time. Dobbins emerged as a reliable December starter. Both Baltimore assets missed Week 12 due to COVID protocols, illustrating concentration risk. Tony's Murray acquisition was a legitimate bet on dual-threat QB production, but Watson already offered a strong alternative: Week 12 Murray started for 7.90 while Watson scored 33.12 on the bench. Stilly's acquired pair combined for 89.04 starter points across paired Weeks 14 and 15; Tony's Murray contributed 49.60. These totals compare different positions and different matchups, not causal wins. Tony's Week 15 loss by 1.12 despite Murray's 32.14 underscores that the QB was not necessarily the problem. NFL postseason: Jackson ran for 136 and passed for 179 in Baltimore's wild-card victory; Arizona missed postseason after Murray's injury-limited finale. No NFL postseason scoring is added to Fellas totals. Stilly secured valuable backfield depth without surrendering a QB slot; Tony acquired a productive quarterback but paid an additional RB asset despite existing QB depth. The verdict favors Stilly provisionally, not a certified grade.",
+  "limitations": [
+    "Original archive totals not reconciled",
+    "Exact ownership spells and projections unverified",
+    "Watson bench opportunity is hindsight, not a proven pregame mistake",
+    "Week 16 singleton excluded from paired impact",
+    "Championship bracket classification not independently confirmed in this draft",
+    "No final grades"
+  ]
+}
