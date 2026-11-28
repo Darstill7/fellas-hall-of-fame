@@ -1,0 +1,241 @@
+{
+  "status": "INITIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1018289561511682048",
+  "timestamp": 1697143410205,
+  "date": "2023-10-12",
+  "source": "Original Sleeper finalized matchups and transactions weeks 1–17, 2023 and 2024 drafts via Flaim",
+  "historical_rules": {
+    "roster2": "Evan",
+    "traded_picks": "All voided"
+  },
+  "draft2023": [
+    [
+      "Pollard",
+      10,
+      2,
+      13
+    ],
+    [
+      "Lamb",
+      9,
+      2,
+      17
+    ],
+    [
+      "Smith-Njigba",
+      10,
+      10,
+      93
+    ],
+    [
+      "Gainwell",
+      4,
+      10,
+      98
+    ]
+  ],
+  "players": [
+    {
+      "m": "Stew",
+      "p": "Pollard",
+      "v": [
+        [
+          6,
+          15
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          9,
+          7.8
+        ]
+      ],
+      "total": 28.8,
+      "reg": 28.8
+    },
+    {
+      "m": "Stew",
+      "p": "Smith-Njigba",
+      "v": [
+        [
+          9,
+          9.3
+        ],
+        [
+          11,
+          5.5
+        ],
+        [
+          12,
+          5.1
+        ],
+        [
+          13,
+          9.7
+        ],
+        [
+          14,
+          4.5
+        ],
+        [
+          15,
+          12.8
+        ],
+        [
+          16,
+          9.1
+        ],
+        [
+          17,
+          7.7
+        ]
+      ],
+      "total": 63.7,
+      "reg": 34.1
+    },
+    {
+      "m": "Birch",
+      "p": "Lamb",
+      "v": [
+        [
+          6,
+          15.2
+        ],
+        [
+          8,
+          35
+        ],
+        [
+          9,
+          22.6
+        ],
+        [
+          10,
+          34
+        ],
+        [
+          11,
+          13.5
+        ],
+        [
+          12,
+          15.3
+        ],
+        [
+          13,
+          26.6
+        ],
+        [
+          14,
+          16.1
+        ],
+        [
+          15,
+          15.1
+        ],
+        [
+          16,
+          23.2
+        ],
+        [
+          17,
+          34.7
+        ]
+      ],
+      "total": 251.3,
+      "reg": 178.3
+    },
+    {
+      "m": "Birch",
+      "p": "Gainwell",
+      "v": [],
+      "total": 0,
+      "reg": 0
+    }
+  ],
+  "ledger": {
+    "Stew": 77.5,
+    "Birch": 236.1
+  },
+  "boundary": "Week 6 observed recipient starts Pollard 15 and Lamb 15.2; NFL kickoff chronology pending",
+  "sensitive": [
+    [
+      "Birch",
+      6,
+      "Stover",
+      106.98,
+      92.38,
+      15.2
+    ],
+    [
+      "Birch",
+      8,
+      "Mitch",
+      138.16,
+      119.32,
+      35
+    ],
+    [
+      "Birch",
+      10,
+      "Koble",
+      170.26,
+      138.36,
+      34
+    ]
+  ],
+  "playoffs": {
+    "Birch_seed": 5,
+    "quarterfinal_loss": [
+      105.06,
+      146.36
+    ],
+    "Lamb": 15.1,
+    "Stew_qualified": false
+  },
+  "ownership": [
+    [
+      "Gainwell",
+      "Birch drop",
+      "2023-11-05",
+      "1026923055127437312"
+    ],
+    [
+      "Pollard",
+      "Thommy trade",
+      "2023-11-08",
+      "1028057686711058432"
+    ]
+  ],
+  "draft2024": [
+    [
+      "Lamb",
+      9,
+      1,
+      3,
+      false
+    ],
+    [
+      "Smith-Njigba",
+      6,
+      9,
+      82,
+      false
+    ],
+    [
+      "Pollard",
+      9,
+      9,
+      83,
+      false
+    ]
+  ],
+  "limitations": [
+    "No full bench scores, total player production or injury context; no causal wins",
+    "Week 6 eligibility not independently checked against NFL schedule",
+    "No production changes or grades"
+  ],
+  "next": "October 26 Evans/Henry–Kupp"
+}
