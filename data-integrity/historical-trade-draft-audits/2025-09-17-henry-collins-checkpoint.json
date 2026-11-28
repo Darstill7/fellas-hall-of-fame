@@ -1,0 +1,225 @@
+{
+  "status": "PARTIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1273856224776962053",
+  "date": "2025-09-17",
+  "timestamp": 1758073619734,
+  "source": "Original Sleeper 2025 transactions weeks 2,3,11; draft; finalized matchups weeks 8,9,14–17 via Flaim; archived starter and matchup files",
+  "source_blobs": {
+    "data/player_starts_2025.json": "edd4ed006cda105f548c4ee681ad311eceb74441",
+    "data/season_weekly_matchups_2016_2026_v1.json": "6dee0794c38c072f30b69d42bd7a2bad92015921"
+  },
+  "draft": [
+    {
+      "player": "Derrick Henry",
+      "roster": 9,
+      "round": 1,
+      "overall": 6,
+      "keeper": false
+    },
+    {
+      "player": "Nico Collins",
+      "roster": 4,
+      "round": 4,
+      "overall": 39,
+      "keeper": true
+    }
+  ],
+  "pretrade": {
+    "Henry": [
+      [
+        1,
+        30.7
+      ],
+      [
+        2,
+        1.3
+      ]
+    ],
+    "Collins": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        12.7
+      ]
+    ]
+  },
+  "sides": [
+    {
+      "manager": "Stew",
+      "roster": 4,
+      "player": "Derrick Henry",
+      "starts": [
+        [
+          3,
+          10.2
+        ],
+        [
+          4,
+          6.8
+        ],
+        [
+          5,
+          9.3
+        ],
+        [
+          6,
+          13.5
+        ],
+        [
+          8,
+          19.1
+        ],
+        [
+          9,
+          12.6
+        ],
+        [
+          10,
+          9.9
+        ]
+      ],
+      "total": 81.4,
+      "ownership_end": "2025-11-13"
+    },
+    {
+      "manager": "Kuhl",
+      "roster": 9,
+      "player": "Nico Collins",
+      "starts": [
+        [
+          3,
+          19.4
+        ],
+        [
+          4,
+          9.9
+        ],
+        [
+          5,
+          14
+        ],
+        [
+          7,
+          4.7
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          10,
+          20.1
+        ],
+        [
+          11,
+          19.7
+        ],
+        [
+          12,
+          7
+        ],
+        [
+          13,
+          19
+        ],
+        [
+          14,
+          16.1
+        ],
+        [
+          15,
+          23
+        ],
+        [
+          16,
+          7.9
+        ],
+        [
+          17,
+          7.2
+        ]
+      ],
+      "total": 179
+    }
+  ],
+  "sensitive": [
+    {
+      "week": 8,
+      "manager": "Stew",
+      "opponent": "Birch",
+      "score": 137.18,
+      "opp": 129.38,
+      "acquired": 19.1,
+      "replacement_to_tie": 11.3
+    },
+    {
+      "week": 14,
+      "manager": "Kuhl",
+      "opponent": "Birch",
+      "score": 108.14,
+      "opp": 98.34,
+      "acquired": 16.1,
+      "replacement_to_tie": 6.3
+    }
+  ],
+  "head_to_head": {
+    "week": 9,
+    "Stew": 126.6,
+    "Kuhl": 92.06,
+    "Henry": 12.6,
+    "Collins": 11,
+    "swap_note": "Different positions; direct isolated swap not legal without other slot changes."
+  },
+  "asset_cycle": {
+    "next_trade": "1294724519813988352",
+    "timestamp": 1763049569406,
+    "Stew_received": [
+      "Jake Ferguson",
+      "Jaylen Warren"
+    ],
+    "Kuhl_received": [
+      "Zach Ertz",
+      "Derrick Henry"
+    ],
+    "Henry_Kuhl_post_return": [
+      [
+        11,
+        20.2
+      ],
+      [
+        12,
+        21.8
+      ],
+      [
+        13,
+        17.9
+      ],
+      [
+        14,
+        10.7
+      ],
+      [
+        15,
+        10
+      ],
+      [
+        16,
+        22.8
+      ],
+      [
+        17,
+        45.6
+      ]
+    ]
+  },
+  "limitations": [
+    "Observed starters only; all-player fantasy production and full historical bench not retrieved",
+    "2025 draft keeper designation verified, future keeper eligibility/cost not established",
+    "Postseason bracket classification unresolved; Week 15 Kuhl loss 122–122.12 not assumed winners bracket",
+    "No grades or causal wins"
+  ],
+  "next": "2025-09-21 Jones/Charbonnet–Henderson; later examine November return trade"
+}
