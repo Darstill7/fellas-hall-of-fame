@@ -1,0 +1,164 @@
+{
+  "id": "881580705233195008",
+  "date": "2022-09-30",
+  "status": "investigative-draft-not-certified",
+  "headline": "Thommy Buys Availability, Tony Buys Upside",
+  "receipt": {
+    "Thommy": "Leonard Fournette",
+    "Tony": "Alvin Kamara"
+  },
+  "leagueEvidence": {
+    "fournetteWeeks": [
+      {
+        "week": 4,
+        "points": 14.9,
+        "started": true
+      },
+      {
+        "week": 5,
+        "points": 30.9,
+        "started": true
+      },
+      {
+        "week": 6,
+        "points": 19.1,
+        "started": true
+      },
+      {
+        "week": 7,
+        "points": 3.6,
+        "started": true
+      },
+      {
+        "week": 8,
+        "points": 13.3,
+        "started": true
+      },
+      {
+        "week": 9,
+        "points": 8.5,
+        "started": true
+      },
+      {
+        "week": 10,
+        "points": 10.3,
+        "started": true
+      },
+      {
+        "week": 11,
+        "points": 0,
+        "started": false
+      },
+      {
+        "week": 12,
+        "points": 0,
+        "started": false
+      },
+      {
+        "week": 13,
+        "points": 11.1,
+        "started": false
+      },
+      {
+        "week": 14,
+        "points": 7.6,
+        "started": false
+      },
+      {
+        "week": 15,
+        "points": 9.4,
+        "started": false
+      },
+      {
+        "week": 16,
+        "points": 21.7,
+        "started": false
+      },
+      {
+        "week": 17,
+        "points": 6.7,
+        "started": false
+      }
+    ],
+    "kamara": [
+      {
+        "week": 4,
+        "points": 0,
+        "started": false
+      },
+      {
+        "week": 5,
+        "points": 21.4,
+        "started": true
+      }
+    ],
+    "observed": {
+      "Thommy": 100.6,
+      "Tony": 21.4
+    },
+    "archive": {
+      "Thommy": 85.7,
+      "Tony": 21.4
+    },
+    "onward": {
+      "id": "885980047650119680",
+      "date": "2022-10-12",
+      "TonySent": [
+        "Kamara",
+        "Gabe Davis"
+      ],
+      "TonyReceived": [
+        "AJ Brown",
+        "James Robinson"
+      ]
+    },
+    "week15": {
+      "Thommy": 122.08,
+      "Kuhl": 143.86,
+      "FournetteBench": 9.4,
+      "Tony": 121.32,
+      "Evans": 130.38,
+      "Brown": 23.6
+    },
+    "week16": {
+      "Thommy": 115.04,
+      "Stilly": 93.5,
+      "FournetteBench": 21.7
+    },
+    "week17BothUnpaired": true
+  },
+  "sources": [
+    [
+      "https://www.neworleanssaints.com/news/saints-injury-report-2022-nfl-week-4-minnesota-vikings-london-thursday-sept-29",
+      "Kamara limited with rib injury before trade"
+    ],
+    [
+      "https://www.nfl.com/news/saints-rb-alvin-kamara-rib-won-t-play-vs-vikings-in-london",
+      "Week 4 inactive"
+    ],
+    [
+      "https://www.buccaneers.com/news/bucs-release-week-13-depth-chart-rachaad-white-every-down-back",
+      "White expanded role"
+    ],
+    [
+      "https://www.buccaneers.com/news/bucs-headlines-updates-december-2022",
+      "Fournette hip injury and return"
+    ],
+    [
+      "https://www.neworleanssaints.com/news/alvin-kamara-new-orleans-saints-2022-recap-running-back",
+      "Kamara season totals"
+    ],
+    [
+      "https://www.pro-football-reference.com/players/F/FourLe00.htm",
+      "Fournette season totals"
+    ]
+  ],
+  "publicationDraft": "Thommy swapped a rib-injured Kamara for Fournette, who gave him seven consecutive starts. Tony waited through Kamara's London absence, got 21.40 points the following week, then packaged him with Gabe Davis for A.J. Brown and James Robinson. Fournette's role diminished as Rachaad White emerged, and Thommy benched him for the rest of the fantasy season. Even a 21.70-point December outing went unused. Thommy bought immediate production; Tony bought a trade chip. The direct scoring gap favors Thommy, but Tony's subsequent deal deserves its own evaluation before anyone calls this a robbery.",
+  "limitations": [
+    "No firsthand motives",
+    "Full ownership replay and all paired matchup eligibility pending",
+    "NFL postseason details incomplete",
+    "Downstream production not double counted",
+    "No final grades"
+  ]
+}
