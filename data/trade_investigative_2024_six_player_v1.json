@@ -1,0 +1,270 @@
+{
+  "id": "1144362000575840256",
+  "date": "2024-09-24",
+  "timestamp": 1727221199690,
+  "status": "investigative-draft-not-certified",
+  "receipt": {
+    "Stilly": [
+      "Achane",
+      "McLaurin",
+      "Dell"
+    ],
+    "Thommy": [
+      "McCaffrey",
+      "Higgins",
+      "Johnson"
+    ]
+  },
+  "weeks": [
+    {
+      "week": 4,
+      "Achane": 4.4,
+      "McLaurin": 14.7,
+      "Dell": null,
+      "McCaffrey": null,
+      "Higgins": 9,
+      "Johnson": 17.8,
+      "thommyPaired": true
+    },
+    {
+      "week": 5,
+      "Achane": 2.2,
+      "McLaurin": 12.4,
+      "Dell": 5.3,
+      "McCaffrey": null,
+      "Higgins": 24.8,
+      "Johnson": 4.4,
+      "thommyPaired": true
+    },
+    {
+      "week": 6,
+      "Achane": null,
+      "McLaurin": 20.3,
+      "Dell": 15.2,
+      "McCaffrey": null,
+      "Higgins": 11.2,
+      "Johnson": 16.8,
+      "thommyPaired": true
+    },
+    {
+      "week": 7,
+      "Achane": 9.5,
+      "McLaurin": 12.8,
+      "Dell": 0,
+      "McCaffrey": null,
+      "Higgins": 16.2,
+      "Johnson": 2.2,
+      "thommyPaired": true
+    },
+    {
+      "week": 8,
+      "Achane": 24.7,
+      "McLaurin": 16,
+      "Dell": 11.5,
+      "McCaffrey": null,
+      "Higgins": null,
+      "Johnson": null,
+      "thommyPaired": true
+    },
+    {
+      "week": 9,
+      "Achane": 28.1,
+      "McLaurin": 14.9,
+      "Dell": 16.6,
+      "McCaffrey": null,
+      "Higgins": null,
+      "Johnson": null,
+      "thommyPaired": true
+    },
+    {
+      "week": 10,
+      "Achane": 7.7,
+      "McLaurin": 14.8,
+      "Dell": 5.8,
+      "McCaffrey": 13.7,
+      "Higgins": null,
+      "Johnson": null,
+      "thommyPaired": true
+    },
+    {
+      "week": 11,
+      "Achane": 18.5,
+      "McLaurin": 1.5,
+      "Dell": 7.8,
+      "McCaffrey": 12.6,
+      "Higgins": 26.3,
+      "Johnson": null,
+      "thommyPaired": true
+    },
+    {
+      "week": 12,
+      "Achane": 19.1,
+      "McLaurin": 19.7,
+      "Dell": 8.7,
+      "McCaffrey": 6.3,
+      "Higgins": null,
+      "Johnson": null,
+      "thommyPaired": true
+    },
+    {
+      "week": 13,
+      "Achane": 17,
+      "McLaurin": 23.3,
+      "Dell": 2.8,
+      "McCaffrey": 7.7,
+      "Higgins": 15.4,
+      "Johnson": null,
+      "thommyPaired": true
+    },
+    {
+      "week": 14,
+      "Achane": 15.9,
+      "McLaurin": null,
+      "Dell": null,
+      "McCaffrey": null,
+      "Higgins": 3.3,
+      "Johnson": null,
+      "thommyPaired": true
+    },
+    {
+      "week": 15,
+      "Achane": 10.1,
+      "McLaurin": 22.8,
+      "Dell": null,
+      "McCaffrey": null,
+      "Higgins": 17.3,
+      "Johnson": null,
+      "thommyPaired": false
+    },
+    {
+      "week": 16,
+      "Achane": 29,
+      "McLaurin": 14.5,
+      "Dell": null,
+      "McCaffrey": null,
+      "Higgins": 15.8,
+      "Johnson": null,
+      "thommyPaired": true
+    },
+    {
+      "week": 17,
+      "Achane": 4.8,
+      "McLaurin": 1,
+      "Dell": null,
+      "McCaffrey": null,
+      "Higgins": 34.6,
+      "Johnson": null,
+      "thommyPaired": true
+    }
+  ],
+  "totals": {
+    "Achane": {
+      "points": 191,
+      "starts": 13
+    },
+    "McLaurin": {
+      "points": 188.7,
+      "starts": 13
+    },
+    "Dell": {
+      "points": 73.7,
+      "starts": 9
+    },
+    "McCaffrey": {
+      "points": 40.3,
+      "starts": 4
+    },
+    "Higgins": {
+      "points": 173.9,
+      "starts": 10
+    },
+    "Johnson": {
+      "points": 41.2,
+      "starts": 4
+    }
+  },
+  "archive": {
+    "Stilly": {
+      "points": 453.4,
+      "starts": 35
+    },
+    "Thommy": {
+      "points": 255.4,
+      "starts": 18
+    }
+  },
+  "ownership": [
+    {
+      "id": "1165880328272072704",
+      "date": "2024-11-23",
+      "manager": "Thommy",
+      "dropped": "Johnson",
+      "added": "Quentin Johnston"
+    },
+    {
+      "id": "1169751903270801408",
+      "date": "2024-12-04",
+      "manager": "Thommy",
+      "dropped": "McCaffrey",
+      "added": "Romeo Doubs"
+    },
+    {
+      "id": "1177061039250345984",
+      "date": "2024-12-25",
+      "manager": "Stilly",
+      "dropped": "Dell",
+      "added": "LAC DEF",
+      "faab": 1
+    }
+  ],
+  "counterfactual": {
+    "method": "Freeze other starters and actual opponents. Week15 Stilly replaces Achane with Edwards and McLaurin with Higgins; Week16 Thommy replaces Higgins with McLaurin or Dell in WR slot. Week17 head-to-head reverse Higgins and McLaurin, Achane replaced by Vidal; Thommy uses Achane in FLEX instead of DeVonta Smith only as sensitivity. All alternative roster moves conditional.",
+    "week15": {
+      "StillyActual": 125.94,
+      "Birch": 122.68,
+      "StillyRevised": 112.64,
+      "margin": -10.04,
+      "withAtlantaDEF": 124.64,
+      "marginWithAtlanta": 1.96
+    },
+    "week16": {
+      "ThommyActual": 123.38,
+      "JMid": 121.08,
+      "McLaurinSub": 122.08,
+      "DellSub": 126.38,
+      "StillyActual": 174.82,
+      "Stover": 130.94,
+      "StillyEdwardsHigginsSub": 167.72
+    },
+    "week17": {
+      "StillyActual": 114.88,
+      "ThommyActual": 205.3,
+      "StillyRevised": 146.08,
+      "ThommyRevised": 171.7,
+      "margin": 25.62,
+      "ThommyAchaneOverSmith": 148.5,
+      "marginSensitivity": 2.42
+    }
+  },
+  "sources": [
+    {
+      "url": "https://apnews.com/article/0748e24ff4d02e3c13ccd21ff84be83f",
+      "finding": "September 23–24 reporting of McCaffrey Achilles specialist visit before trade"
+    },
+    {
+      "url": "https://www.baltimoreravens.com/team/transactions/2024",
+      "finding": "Johnson acquired Oct30, waived Dec20"
+    },
+    {
+      "url": "https://www.baltimoreravens.com/news/diontae-johnson-eddie-jackson-texans-chargers-ravens",
+      "finding": "Dell season-ending injury; Johnson one catch as Raven"
+    }
+  ],
+  "limitations": [
+    "Counterfactual lineups conditional, no alternate seeding replay",
+    "McCaffrey/Johnson waiver replacements may be unavailable in reversal",
+    "Week17 hypothetical final requires Stilly advancing Week15",
+    "Keeper and position-adjusted grades pending",
+    "No deployment"
+  ]
+}
