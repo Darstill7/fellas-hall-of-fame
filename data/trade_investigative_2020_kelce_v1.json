@@ -1,0 +1,111 @@
+{
+  "id": "616864423201554432",
+  "status": "investigative-draft-not-certified",
+  "headline": "The Great Tight End Heist of 2020",
+  "date": "2020-09-30",
+  "sources": [
+    {
+      "url": "https://www.chiefs.com/news/10-quick-facts-about-the-chiefs-week-16-victory-over-atlanta-upon-further-review",
+      "finding": "Kelce set single-season TE receiving yardage record Week 16, 11 TDs."
+    },
+    {
+      "url": "https://www.pro-football-reference.com/years/2020/receiving.htm",
+      "finding": "Kelce 105/1416/11; Robinson 102/1250/6."
+    },
+    {
+      "url": "https://www.philadelphiaeagles.com/news/giants-vs-eagles-inactives-desean-jackson-is-back",
+      "finding": "Jackson injured hamstring Week 3 and missed three games."
+    },
+    {
+      "url": "https://www.philadelphiaeagles.com/news/pederson-desean-jackson-to-miss-significant-time",
+      "finding": "Jackson suffered further injury on October 22 return."
+    },
+    {
+      "url": "https://www.detroitlions.com/news/inactives-lions-vs-packers-golladay-okudah-crosby",
+      "finding": "Swift returned December 13 after missing three games with concussion symptoms and illness."
+    },
+    {
+      "url": "https://www.therams.com/team/stats/2020/reg",
+      "finding": "Higbee 44/521/5."
+    }
+  ],
+  "leagueEvidence": {
+    "source": "Sleeper historical roster snapshots and matchup records via Flaim",
+    "weeks": [
+      {
+        "week": 12,
+        "stilly": {
+          "kelce": 12.2,
+          "brownBench": 17.5
+        },
+        "thommy": {
+          "robinson": 23.4,
+          "swiftBench": 0
+        }
+      },
+      {
+        "week": 13,
+        "stilly": {
+          "kelce": 23.6,
+          "brownBench": 12.4
+        },
+        "thommy": {
+          "robinson": 10.5,
+          "swiftBench": 0
+        }
+      },
+      {
+        "week": 14,
+        "stilly": {
+          "kelce": 23.6,
+          "brown": 13,
+          "score": 115.72,
+          "opponent": "Stew",
+          "opponentScore": 97.64
+        },
+        "thommy": {
+          "robinson": 22.8,
+          "swift": 13,
+          "score": 151.32,
+          "opponent": "Tony",
+          "opponentScore": 125.56
+        }
+      },
+      {
+        "week": 15,
+        "stilly": {
+          "kelce": 18.8,
+          "brownBench": 13.8,
+          "score": 148.72
+        },
+        "thommy": {
+          "robinson": 10.3,
+          "swift": 20.2,
+          "score": 124.46
+        }
+      },
+      {
+        "week": 16,
+        "stilly": {
+          "kelce": 19.3,
+          "brown": 10.5
+        },
+        "thommy": {
+          "robinson": 15.3,
+          "swift": 7
+        },
+        "paired": false
+      }
+    ]
+  },
+  "article": "Stilly landed the defining positional advantage of the deal: Kelce delivered elite receiver production from tight end. DeSean Jackson was already carrying a hamstring injury when acquired, then suffered a further injury on his October return. Thommy did not walk away empty-handed: Robinson became a 1,250-yard receiver and Swift returned from a three-game concussion/illness absence in Week 14. Higbee finished with 521 yards and five touchdowns, a far cry from Kelce's record season. In Week 15 the managers faced each other, and Robinson and Swift combined for 30.50 while Kelce provided 18.80 and Brown sat on the bench. Stilly nevertheless won 148.72–124.46. The trade did not by itself explain the victory; Thommy's acquisitions actually outscored Stilly's in that matchup. The great tight end heist was a victory in positional value, not proof that Thommy got nothing. Decisions: Stilly made a persuasive premium-position investment; Thommy secured meaningful receiver and RB production but accepted a large TE downgrade. Realized return: Stilly has the stronger provisional position-adjusted case; Thommy's return was substantial and should not be graded as a disaster solely from Kelce's exceptional season.",
+  "limitations": [
+    "No confirmed manager motives",
+    "No exact transaction-time roster or complete ownership replay",
+    "Week 15 paired result verified, bracket round classification not independently certified in this draft",
+    "Week 16 singleton scores not paired playoff impact",
+    "DeSean Jackson and Higbee absent from late snapshots; disposition unverified",
+    "NFL postseason game logs not yet added",
+    "No final letter grades"
+  ]
+}
