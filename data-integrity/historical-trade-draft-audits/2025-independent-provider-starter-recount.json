@@ -1,0 +1,1188 @@
+{
+  "status": "INDEPENDENT_STARTER_RECOUNT",
+  "source": "Original Sleeper finalized matchup records weeks 1–17 via Flaim, 2026-11-28",
+  "coverage": [
+    {
+      "week": 1,
+      "success": true
+    },
+    {
+      "week": 2,
+      "success": true
+    },
+    {
+      "week": 3,
+      "success": true
+    },
+    {
+      "week": 4,
+      "success": true
+    },
+    {
+      "week": 5,
+      "success": true
+    },
+    {
+      "week": 6,
+      "success": true
+    },
+    {
+      "week": 7,
+      "success": true
+    },
+    {
+      "week": 8,
+      "success": true
+    },
+    {
+      "week": 9,
+      "success": true
+    },
+    {
+      "week": 10,
+      "success": true
+    },
+    {
+      "week": 11,
+      "success": true
+    },
+    {
+      "week": 12,
+      "success": true
+    },
+    {
+      "week": 13,
+      "success": true
+    },
+    {
+      "week": 14,
+      "success": true
+    },
+    {
+      "week": 15,
+      "success": true
+    },
+    {
+      "week": 16,
+      "success": true
+    },
+    {
+      "week": 17,
+      "success": true
+    }
+  ],
+  "cases": [
+    {
+      "name": "Henry–Collins",
+      "sides": [
+        {
+          "r": 4,
+          "ids": [
+            "3198"
+          ],
+          "lo": 3,
+          "hi": 10,
+          "rows": [
+            {
+              "week": 3,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 10.2
+            },
+            {
+              "week": 4,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 6.8
+            },
+            {
+              "week": 5,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 9.3
+            },
+            {
+              "week": 6,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 13.5
+            },
+            {
+              "week": 8,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 19.1
+            },
+            {
+              "week": 9,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 12.6
+            },
+            {
+              "week": 10,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 9.9
+            }
+          ],
+          "total": 81.4,
+          "starts": 7
+        },
+        {
+          "r": 9,
+          "ids": [
+            "7569"
+          ],
+          "lo": 3,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 3,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 19.4
+            },
+            {
+              "week": 4,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 9.9
+            },
+            {
+              "week": 5,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 14
+            },
+            {
+              "week": 7,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 4.7
+            },
+            {
+              "week": 9,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 11
+            },
+            {
+              "week": 10,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 20.1
+            },
+            {
+              "week": 11,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 19.7
+            },
+            {
+              "week": 12,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 7
+            },
+            {
+              "week": 13,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 19
+            },
+            {
+              "week": 14,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 16.1
+            },
+            {
+              "week": 15,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 23
+            },
+            {
+              "week": 16,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 7.9
+            },
+            {
+              "week": 17,
+              "id": "7569",
+              "name": "Nico Collins",
+              "points": 7.2
+            }
+          ],
+          "total": 179,
+          "starts": 13
+        }
+      ]
+    },
+    {
+      "name": "Henderson–Jones/Charbonnet",
+      "sides": [
+        {
+          "r": 2,
+          "ids": [
+            "4199",
+            "9753"
+          ],
+          "lo": 3,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 5,
+              "id": "9753",
+              "name": "Zach Charbonnet",
+              "points": 11.3
+            },
+            {
+              "week": 11,
+              "id": "4199",
+              "name": "Aaron Jones Sr.",
+              "points": 8.6
+            },
+            {
+              "week": 12,
+              "id": "4199",
+              "name": "Aaron Jones Sr.",
+              "points": 7.2
+            },
+            {
+              "week": 14,
+              "id": "4199",
+              "name": "Aaron Jones Sr.",
+              "points": 7.6
+            },
+            {
+              "week": 15,
+              "id": "4199",
+              "name": "Aaron Jones Sr.",
+              "points": 8
+            },
+            {
+              "week": 16,
+              "id": "4199",
+              "name": "Aaron Jones Sr.",
+              "points": 10.3
+            },
+            {
+              "week": 17,
+              "id": "4199",
+              "name": "Aaron Jones Sr.",
+              "points": 13.8
+            }
+          ],
+          "total": 66.8,
+          "starts": 7
+        },
+        {
+          "r": 4,
+          "ids": [
+            "12529"
+          ],
+          "lo": 3,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 5,
+              "id": "12529",
+              "name": "TreVeyon Henderson",
+              "points": 3.7
+            },
+            {
+              "week": 6,
+              "id": "12529",
+              "name": "TreVeyon Henderson",
+              "points": 4.1
+            },
+            {
+              "week": 7,
+              "id": "12529",
+              "name": "TreVeyon Henderson",
+              "points": 0.5
+            },
+            {
+              "week": 9,
+              "id": "12529",
+              "name": "TreVeyon Henderson",
+              "points": 10.7
+            },
+            {
+              "week": 10,
+              "id": "12529",
+              "name": "TreVeyon Henderson",
+              "points": 29.5
+            },
+            {
+              "week": 11,
+              "id": "12529",
+              "name": "TreVeyon Henderson",
+              "points": 29.8
+            },
+            {
+              "week": 12,
+              "id": "12529",
+              "name": "TreVeyon Henderson",
+              "points": 9.6
+            },
+            {
+              "week": 13,
+              "id": "12529",
+              "name": "TreVeyon Henderson",
+              "points": 10.1
+            },
+            {
+              "week": 15,
+              "id": "12529",
+              "name": "TreVeyon Henderson",
+              "points": 31.1
+            },
+            {
+              "week": 16,
+              "id": "12529",
+              "name": "TreVeyon Henderson",
+              "points": 1.7
+            },
+            {
+              "week": 17,
+              "id": "12529",
+              "name": "TreVeyon Henderson",
+              "points": 8.2
+            }
+          ],
+          "total": 139,
+          "starts": 11
+        }
+      ]
+    },
+    {
+      "name": "Chase–Gibbs",
+      "sides": [
+        {
+          "r": 1,
+          "ids": [
+            "7564"
+          ],
+          "lo": 4,
+          "hi": 10,
+          "rows": [
+            {
+              "week": 4,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 4.8
+            },
+            {
+              "week": 5,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 27
+            },
+            {
+              "week": 6,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 20.1
+            },
+            {
+              "week": 7,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 30.1
+            },
+            {
+              "week": 8,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 15.1
+            },
+            {
+              "week": 9,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 14.1
+            }
+          ],
+          "total": 111.2,
+          "starts": 6
+        },
+        {
+          "r": 1,
+          "ids": [
+            "9224"
+          ],
+          "lo": 4,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 4,
+              "id": "9224",
+              "name": "Chase Brown",
+              "points": 8.6
+            },
+            {
+              "week": 5,
+              "id": "9224",
+              "name": "Chase Brown",
+              "points": 7.3
+            },
+            {
+              "week": 8,
+              "id": "9224",
+              "name": "Chase Brown",
+              "points": 24
+            },
+            {
+              "week": 9,
+              "id": "9224",
+              "name": "Chase Brown",
+              "points": 15.2
+            },
+            {
+              "week": 11,
+              "id": "9224",
+              "name": "Chase Brown",
+              "points": 15.7
+            },
+            {
+              "week": 12,
+              "id": "9224",
+              "name": "Chase Brown",
+              "points": 14
+            },
+            {
+              "week": 13,
+              "id": "9224",
+              "name": "Chase Brown",
+              "points": 14.8
+            },
+            {
+              "week": 14,
+              "id": "9224",
+              "name": "Chase Brown",
+              "points": 17
+            },
+            {
+              "week": 15,
+              "id": "9224",
+              "name": "Chase Brown",
+              "points": 12.5
+            },
+            {
+              "week": 16,
+              "id": "9224",
+              "name": "Chase Brown",
+              "points": 30.9
+            },
+            {
+              "week": 17,
+              "id": "9224",
+              "name": "Chase Brown",
+              "points": 27.6
+            }
+          ],
+          "total": 187.6,
+          "starts": 11
+        },
+        {
+          "r": 4,
+          "ids": [
+            "9221",
+            "12489"
+          ],
+          "lo": 4,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 4,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 16.7
+            },
+            {
+              "week": 5,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 15.7
+            },
+            {
+              "week": 6,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 7
+            },
+            {
+              "week": 7,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 36.3
+            },
+            {
+              "week": 8,
+              "id": "12489",
+              "name": "RJ Harvey",
+              "points": 24.6
+            },
+            {
+              "week": 9,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 4.3
+            },
+            {
+              "week": 10,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 37.7
+            },
+            {
+              "week": 11,
+              "id": "12489",
+              "name": "RJ Harvey",
+              "points": 6.5
+            },
+            {
+              "week": 11,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 18.1
+            },
+            {
+              "week": 12,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 52.9
+            },
+            {
+              "week": 13,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 10.1
+            },
+            {
+              "week": 13,
+              "id": "12489",
+              "name": "RJ Harvey",
+              "points": 19.7
+            },
+            {
+              "week": 14,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 33.5
+            },
+            {
+              "week": 14,
+              "id": "12489",
+              "name": "RJ Harvey",
+              "points": 19
+            },
+            {
+              "week": 15,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 7.8
+            },
+            {
+              "week": 15,
+              "id": "12489",
+              "name": "RJ Harvey",
+              "points": 10.5
+            },
+            {
+              "week": 16,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 16.8
+            },
+            {
+              "week": 16,
+              "id": "12489",
+              "name": "RJ Harvey",
+              "points": 20.1
+            },
+            {
+              "week": 17,
+              "id": "9221",
+              "name": "Jahmyr Gibbs",
+              "points": 5.4
+            },
+            {
+              "week": 17,
+              "id": "12489",
+              "name": "RJ Harvey",
+              "points": 16.1
+            }
+          ],
+          "total": 378.8,
+          "starts": 20
+        }
+      ]
+    },
+    {
+      "name": "Addison–Evans",
+      "sides": [
+        {
+          "r": 3,
+          "ids": [
+            "9756"
+          ],
+          "lo": 4,
+          "hi": 10,
+          "rows": [
+            {
+              "week": 7,
+              "id": "9756",
+              "name": "Jordan Addison",
+              "points": 17.3
+            },
+            {
+              "week": 8,
+              "id": "9756",
+              "name": "Jordan Addison",
+              "points": 10.1
+            },
+            {
+              "week": 9,
+              "id": "9756",
+              "name": "Jordan Addison",
+              "points": 7.4
+            },
+            {
+              "week": 10,
+              "id": "9756",
+              "name": "Jordan Addison",
+              "points": 5
+            }
+          ],
+          "total": 39.8,
+          "starts": 4
+        },
+        {
+          "r": 8,
+          "ids": [
+            "2216"
+          ],
+          "lo": 4,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 7,
+              "id": "2216",
+              "name": "Mike Evans",
+              "points": 0
+            }
+          ],
+          "total": 0,
+          "starts": 1
+        }
+      ]
+    },
+    {
+      "name": "Johnston–Tuten",
+      "sides": [
+        {
+          "r": 4,
+          "ids": [
+            "9754"
+          ],
+          "lo": 4,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 4,
+              "id": "9754",
+              "name": "Quentin Johnston",
+              "points": 19.8
+            },
+            {
+              "week": 5,
+              "id": "9754",
+              "name": "Quentin Johnston",
+              "points": 4.9
+            },
+            {
+              "week": 7,
+              "id": "9754",
+              "name": "Quentin Johnston",
+              "points": 10
+            },
+            {
+              "week": 8,
+              "id": "9754",
+              "name": "Quentin Johnston",
+              "points": 0
+            },
+            {
+              "week": 9,
+              "id": "9754",
+              "name": "Quentin Johnston",
+              "points": 13.3
+            },
+            {
+              "week": 10,
+              "id": "9754",
+              "name": "Quentin Johnston",
+              "points": 6.7
+            },
+            {
+              "week": 13,
+              "id": "9754",
+              "name": "Quentin Johnston",
+              "points": 9.8
+            }
+          ],
+          "total": 64.5,
+          "starts": 7
+        },
+        {
+          "r": 10,
+          "ids": [
+            "12490"
+          ],
+          "lo": 4,
+          "hi": 6,
+          "rows": [],
+          "total": 0,
+          "starts": 0
+        }
+      ]
+    },
+    {
+      "name": "Three-team",
+      "sides": [
+        {
+          "r": 1,
+          "ids": [
+            "3163",
+            "7547",
+            "9756"
+          ],
+          "lo": 11,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 11,
+              "id": "3163",
+              "name": "Jared Goff",
+              "points": 12.1
+            },
+            {
+              "week": 11,
+              "id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 5.2
+            },
+            {
+              "week": 11,
+              "id": "9756",
+              "name": "Jordan Addison",
+              "points": 9
+            },
+            {
+              "week": 12,
+              "id": "3163",
+              "name": "Jared Goff",
+              "points": 17.16
+            },
+            {
+              "week": 12,
+              "id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 25.4
+            },
+            {
+              "week": 12,
+              "id": "9756",
+              "name": "Jordan Addison",
+              "points": 0
+            },
+            {
+              "week": 13,
+              "id": "3163",
+              "name": "Jared Goff",
+              "points": 20.64
+            },
+            {
+              "week": 13,
+              "id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 0
+            },
+            {
+              "week": 14,
+              "id": "3163",
+              "name": "Jared Goff",
+              "points": 16.16
+            },
+            {
+              "week": 14,
+              "id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 12.2
+            },
+            {
+              "week": 15,
+              "id": "3163",
+              "name": "Jared Goff",
+              "points": 25.52
+            },
+            {
+              "week": 15,
+              "id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 35.9
+            },
+            {
+              "week": 16,
+              "id": "3163",
+              "name": "Jared Goff",
+              "points": 26.46
+            },
+            {
+              "week": 16,
+              "id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 7.4
+            },
+            {
+              "week": 17,
+              "id": "3163",
+              "name": "Jared Goff",
+              "points": 2.08
+            },
+            {
+              "week": 17,
+              "id": "7547",
+              "name": "Amon-Ra St. Brown",
+              "points": 10.8
+            }
+          ],
+          "total": 226.02,
+          "starts": 16
+        },
+        {
+          "r": 2,
+          "ids": [
+            "7564"
+          ],
+          "lo": 11,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 11,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 4.5
+            },
+            {
+              "week": 13,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 15.5
+            },
+            {
+              "week": 14,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 7.7
+            },
+            {
+              "week": 15,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 18.2
+            },
+            {
+              "week": 16,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 15.4
+            },
+            {
+              "week": 17,
+              "id": "7564",
+              "name": "Ja'Marr Chase",
+              "points": 21.5
+            }
+          ],
+          "total": 82.8,
+          "starts": 6
+        },
+        {
+          "r": 3,
+          "ids": [
+            "5859"
+          ],
+          "lo": 11,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 11,
+              "id": "5859",
+              "name": "A.J. Brown",
+              "points": 8.4
+            },
+            {
+              "week": 12,
+              "id": "5859",
+              "name": "A.J. Brown",
+              "points": 21
+            },
+            {
+              "week": 13,
+              "id": "5859",
+              "name": "A.J. Brown",
+              "points": 30.2
+            },
+            {
+              "week": 14,
+              "id": "5859",
+              "name": "A.J. Brown",
+              "points": 13
+            },
+            {
+              "week": 15,
+              "id": "5859",
+              "name": "A.J. Brown",
+              "points": 11.1
+            },
+            {
+              "week": 16,
+              "id": "5859",
+              "name": "A.J. Brown",
+              "points": 14
+            },
+            {
+              "week": 17,
+              "id": "5859",
+              "name": "A.J. Brown",
+              "points": 9.3
+            }
+          ],
+          "total": 107,
+          "starts": 7
+        }
+      ]
+    },
+    {
+      "name": "Thomas–Diggs",
+      "sides": [
+        {
+          "r": 1,
+          "ids": [
+            "11631"
+          ],
+          "lo": 11,
+          "hi": 17,
+          "rows": [],
+          "total": 0,
+          "starts": 0
+        },
+        {
+          "r": 8,
+          "ids": [
+            "2449"
+          ],
+          "lo": 11,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 11,
+              "id": "2449",
+              "name": "Stefon Diggs",
+              "points": 15
+            },
+            {
+              "week": 12,
+              "id": "2449",
+              "name": "Stefon Diggs",
+              "points": 3
+            },
+            {
+              "week": 13,
+              "id": "2449",
+              "name": "Stefon Diggs",
+              "points": 4.1
+            }
+          ],
+          "total": 22.1,
+          "starts": 3
+        }
+      ]
+    },
+    {
+      "name": "Henry return",
+      "sides": [
+        {
+          "r": 4,
+          "ids": [
+            "8110",
+            "8228"
+          ],
+          "lo": 11,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 11,
+              "id": "8228",
+              "name": "Jaylen Warren",
+              "points": 7.7
+            },
+            {
+              "week": 11,
+              "id": "8110",
+              "name": "Jake Ferguson",
+              "points": 9.6
+            },
+            {
+              "week": 12,
+              "id": "8110",
+              "name": "Jake Ferguson",
+              "points": 7.6
+            },
+            {
+              "week": 12,
+              "id": "8228",
+              "name": "Jaylen Warren",
+              "points": 12.8
+            },
+            {
+              "week": 13,
+              "id": "8110",
+              "name": "Jake Ferguson",
+              "points": 6.1
+            },
+            {
+              "week": 13,
+              "id": "8228",
+              "name": "Jaylen Warren",
+              "points": 11.4
+            },
+            {
+              "week": 14,
+              "id": "8228",
+              "name": "Jaylen Warren",
+              "points": 13.7
+            },
+            {
+              "week": 14,
+              "id": "8110",
+              "name": "Jake Ferguson",
+              "points": 8.3
+            },
+            {
+              "week": 15,
+              "id": "8110",
+              "name": "Jake Ferguson",
+              "points": 2.6
+            },
+            {
+              "week": 15,
+              "id": "8228",
+              "name": "Jaylen Warren",
+              "points": 6.3
+            },
+            {
+              "week": 16,
+              "id": "8110",
+              "name": "Jake Ferguson",
+              "points": 3.4
+            },
+            {
+              "week": 16,
+              "id": "8228",
+              "name": "Jaylen Warren",
+              "points": 30.1
+            },
+            {
+              "week": 17,
+              "id": "8110",
+              "name": "Jake Ferguson",
+              "points": 7.1
+            },
+            {
+              "week": 17,
+              "id": "8228",
+              "name": "Jaylen Warren",
+              "points": 5.4
+            }
+          ],
+          "total": 132.1,
+          "starts": 14
+        },
+        {
+          "r": 9,
+          "ids": [
+            "3198",
+            "1339"
+          ],
+          "lo": 11,
+          "hi": 17,
+          "rows": [
+            {
+              "week": 11,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 20.2
+            },
+            {
+              "week": 11,
+              "id": "1339",
+              "name": "Zach Ertz",
+              "points": 6.2
+            },
+            {
+              "week": 12,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 21.8
+            },
+            {
+              "week": 13,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 17.9
+            },
+            {
+              "week": 14,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 10.7
+            },
+            {
+              "week": 15,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 10
+            },
+            {
+              "week": 16,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 22.8
+            },
+            {
+              "week": 17,
+              "id": "3198",
+              "name": "Derrick Henry",
+              "points": 45.6
+            }
+          ],
+          "total": 155.2,
+          "starts": 8
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Ownership windows inherited from individual investigations; not a new transaction audit",
+    "Transaction-week eligibility still requires NFL kickoff evidence",
+    "Observed starters only; unpaired postseason records included",
+    "No production edits or final grades"
+  ]
+}
