@@ -141,9 +141,36 @@
   ],
   "publicationDraft": "Mitch swapped Chubb for Mostert, only to watch Miami reduce Mostert's role immediately. One start and 4.40 points later, Mostert never entered Mitch's lineup again and was cut on Thanksgiving. Kuhl received four starts and 39.80 points before Chubb broke his foot in December. Neither asset lasted through the fantasy postseason. Kuhl got the better direct return, but this was a modest exchange between two fading running backs, not a franchise-altering robbery.",
   "limitations": [
-    "2024 provider standings explicitly show Thommy champion, Stilly runner-up, Mitch and Kuhl missed playoffs; conflicts with established project champion Mitch. Do not publish or overwrite championship history until commissioner/source reconciliation.",
     "No full alternative lineup or playoff seeding replay; zero claim about championship impact.",
     "Pretrade valuations, keeper context, NFL postseason and full ownership census pending.",
     "No grades or deployment"
-  ]
+  ],
+  "championshipVerification": {
+    "source": "Sleeper standings explicit final placements and weekly matchup records; corroborated by prior canonical history research",
+    "champion": "Thommy",
+    "runnerUp": "Stilly",
+    "week17": {
+      "Thommy": 205.3,
+      "Stilly": 114.88
+    },
+    "week16": [
+      {
+        "Stilly": 174.82,
+        "Stover": 130.94
+      },
+      {
+        "Thommy": 123.38,
+        "JMid": 121.08
+      }
+    ],
+    "Mitch": {
+      "record": "6-8",
+      "madePlayoffs": false
+    },
+    "Kuhl": {
+      "record": "5-9",
+      "madePlayoffs": false
+    },
+    "note": "Prior assistant claim Mitch champion was erroneous; no canonical championship overwrite warranted."
+  }
 }
