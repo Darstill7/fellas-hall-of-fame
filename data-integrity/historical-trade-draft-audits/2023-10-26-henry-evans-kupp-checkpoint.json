@@ -1,0 +1,271 @@
+{
+  "status": "INITIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1023059879336013824",
+  "timestamp": 1698279409969,
+  "date_utc": "2023-10-26",
+  "timestamp_utc": "2023-10-26T00:16:49.969Z",
+  "source": "Original Sleeper completed transactions weeks 8–17, finalized matchups weeks 1–17, 2023 and 2024 drafts via Flaim; archived championship bracket",
+  "historical_rules": {
+    "roster2": "Evan",
+    "traded_picks": "All voided; zero realized value"
+  },
+  "draft2023": [
+    [
+      "Kupp",
+      1,
+      1,
+      7
+    ],
+    [
+      "Henry",
+      7,
+      2,
+      11
+    ],
+    [
+      "Evans",
+      7,
+      7,
+      70
+    ]
+  ],
+  "pretrade_records": {
+    "Stilly": "2-5",
+    "Tony": "7-0"
+  },
+  "players": [
+    {
+      "manager": "Stilly",
+      "name": "Henry",
+      "weeks": [
+        [
+          8,
+          14.2
+        ],
+        [
+          9,
+          17.7
+        ],
+        [
+          10,
+          2.5
+        ],
+        [
+          11,
+          4.9
+        ],
+        [
+          12,
+          20.1
+        ],
+        [
+          13,
+          24.5
+        ],
+        [
+          14,
+          17.6
+        ],
+        [
+          15,
+          3
+        ],
+        [
+          16,
+          20.88
+        ],
+        [
+          17,
+          4.2
+        ]
+      ],
+      "total": 129.58
+    },
+    {
+      "manager": "Stilly",
+      "name": "Evans",
+      "weeks": [
+        [
+          8,
+          11.4
+        ],
+        [
+          9,
+          11.7
+        ],
+        [
+          10,
+          24.3
+        ],
+        [
+          11,
+          12.8
+        ],
+        [
+          12,
+          22
+        ],
+        [
+          13,
+          27.7
+        ],
+        [
+          14,
+          1.3
+        ],
+        [
+          15,
+          13.7
+        ],
+        [
+          16,
+          24.1
+        ],
+        [
+          17,
+          8.5
+        ]
+      ],
+      "total": 157.5
+    },
+    {
+      "manager": "Tony",
+      "name": "Kupp",
+      "weeks": [
+        [
+          8,
+          4.1
+        ],
+        [
+          9,
+          5.8
+        ],
+        [
+          11,
+          1.6
+        ],
+        [
+          12,
+          3.3
+        ],
+        [
+          13,
+          12.9
+        ],
+        [
+          14,
+          21.5
+        ],
+        [
+          15,
+          22.1
+        ],
+        [
+          16,
+          7.9
+        ],
+        [
+          17,
+          10.7
+        ]
+      ],
+      "total": 89.9
+    }
+  ],
+  "totals": {
+    "Stilly": 287.08,
+    "Tony": 89.9,
+    "ledger_stilly": 261.48,
+    "ledger_tony": 85.8,
+    "restored": 29.7
+  },
+  "boundary": {
+    "source": "https://www.nfl.com/schedules/2023/by-week/week-8",
+    "evans_kickoff": "2023-10-26 20:15 ET",
+    "evans_source": "https://www.buccaneers.com/news/tampa-bay-buccaneers-vs-buffalo-bills-week-8-2023-nfl",
+    "henry_kupp_game_date": "2023-10-29",
+    "trade_before_all_games": true
+  },
+  "injury_source": "https://www.therams.com/news/cooper-kupp-injury-update-will-play-against-eagles-week-5",
+  "sensitive": [
+    {
+      "week": 8,
+      "manager": "Stilly",
+      "opp": "Thommy",
+      "score": 120.36,
+      "opp_score": 117.58,
+      "points": 25.6,
+      "margin": 2.78,
+      "replacement_to_tie": 22.82
+    },
+    {
+      "week": 16,
+      "manager": "Stilly",
+      "opp": "Tony",
+      "score": 141.66,
+      "opp_score": 108.58,
+      "points": 44.98,
+      "margin": 33.08,
+      "replacement_to_tie": 11.9
+    }
+  ],
+  "playoffs": [
+    {
+      "week": 15,
+      "points": 16.7,
+      "margin": 41.3
+    },
+    {
+      "week": 16,
+      "points": 44.98,
+      "margin": 33.08
+    },
+    {
+      "week": 17,
+      "points": 12.7,
+      "margin": 14.78
+    }
+  ],
+  "semifinal_swap": {
+    "method": "Swap Evans and Kupp WR scores only; Henry unchanged",
+    "Stilly": 125.46,
+    "Tony": 124.78,
+    "margin": 0.68,
+    "limitation": "Not full no-trade counterfactual; Henry RB replacement and Tony lineup unknown"
+  },
+  "combined_nov_trade": {
+    "week17_points": 25.2,
+    "margin": 14.78,
+    "replacement_to_tie": 10.42,
+    "limitation": "Combined sensitivity across two trades, not causal championship claim"
+  },
+  "draft2024": [
+    [
+      "Henry",
+      3,
+      2,
+      17,
+      false
+    ],
+    [
+      "Evans",
+      8,
+      3,
+      30,
+      false
+    ],
+    [
+      "Kupp",
+      3,
+      4,
+      37,
+      false
+    ]
+  ],
+  "limitations": [
+    "No full bench scores or complete legal alternative lineup; no definitive championship-changing claim",
+    "2024 keeper markers not established beyond returned draft data",
+    "No production changes or grades"
+  ],
+  "next": "November 8 Mixon–Addison; then complete nine-player trade audit"
+}
