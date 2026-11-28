@@ -1,0 +1,231 @@
+{
+  "status": "INITIAL_RESEARCH_WITH_PROVIDER_RECOUNT",
+  "season": 2021,
+  "trade_id": "746234454665732096",
+  "timestamp": 1632278741445,
+  "date": "2021-09-22",
+  "source": "Original Sleeper transactions and finalized matchups weeks 1–17; 2021 and 2022 drafts via Flaim",
+  "scope": "Weeks 3–16; provider transaction week 2 is after Week 2 games; Week 17 unpaired scores separate",
+  "sides": [
+    {
+      "manager": "Stew",
+      "players": [
+        {
+          "name": "Saquon Barkley",
+          "draft": "Kuhl 1.07",
+          "weeks": [
+            [
+              3,
+              18.4
+            ],
+            [
+              4,
+              27.1
+            ],
+            [
+              5,
+              0.9
+            ],
+            [
+              11,
+              8.6
+            ],
+            [
+              12,
+              7.3
+            ],
+            [
+              13,
+              10.4
+            ],
+            [
+              14,
+              17
+            ],
+            [
+              15,
+              7.4
+            ],
+            [
+              16,
+              3.3
+            ]
+          ],
+          "total": 100.4,
+          "starts": 9
+        },
+        {
+          "name": "Kenyan Drake",
+          "draft": "Kuhl 11.07",
+          "total": 0,
+          "starts": 0
+        }
+      ],
+      "total": 100.4,
+      "starts": 9
+    },
+    {
+      "manager": "Kuhl",
+      "players": [
+        {
+          "name": "Clyde Edwards-Helaire",
+          "draft": "Stew 3.01",
+          "weeks": [
+            [
+              3,
+              15.9
+            ],
+            [
+              4,
+              18.4
+            ],
+            [
+              5,
+              2.9
+            ],
+            [
+              13,
+              9.7
+            ],
+            [
+              14,
+              17.7
+            ],
+            [
+              15,
+              8
+            ],
+            [
+              16,
+              9.6
+            ]
+          ],
+          "total": 82.2,
+          "starts": 7
+        },
+        {
+          "name": "Nyheim Hines",
+          "draft": "Stew 13.01",
+          "total": 0,
+          "starts": 0
+        },
+        {
+          "name": "Ty'Son Williams",
+          "weeks": [
+            [
+              3,
+              2.2
+            ]
+          ],
+          "total": 2.2,
+          "starts": 1
+        }
+      ],
+      "total": 84.4,
+      "starts": 8
+    }
+  ],
+  "waiver": {
+    "player": "Ty'Son Williams",
+    "manager": "Stew",
+    "date": "2021-09-08",
+    "type": "free agent add",
+    "id": "741339102728871936",
+    "dropped": "Malcolm Brown"
+  },
+  "departures": [
+    [
+      "Stew",
+      "Drake",
+      "2021-10-06",
+      "751585745763987456"
+    ],
+    [
+      "Kuhl",
+      "Williams",
+      "2021-10-06",
+      "751450400925839360"
+    ],
+    [
+      "Kuhl",
+      "Hines",
+      "2021-11-21",
+      "768166286810329088"
+    ]
+  ],
+  "sensitive": [
+    [
+      "Kuhl",
+      4,
+      "Stew",
+      117.52,
+      111.16,
+      18.4
+    ],
+    [
+      "Stew",
+      13,
+      "Kuhl",
+      113.42,
+      108.46,
+      10.4
+    ],
+    [
+      "Stew",
+      14,
+      "Stilly",
+      111.32,
+      108.94,
+      17
+    ]
+  ],
+  "rb_swap": [
+    {
+      "week": 4,
+      "Stew": 102.46,
+      "Kuhl": 126.22,
+      "winner": "Kuhl"
+    },
+    {
+      "week": 13,
+      "Stew": 112.72,
+      "Kuhl": 109.16,
+      "winner": "Stew"
+    }
+  ],
+  "week17_separate": [
+    [
+      "Stew",
+      "Barkley",
+      10.2
+    ],
+    [
+      "Kuhl",
+      "Edwards-Helaire",
+      0
+    ]
+  ],
+  "draft2022": [
+    [
+      "Barkley",
+      "Stilly",
+      "2.09"
+    ],
+    [
+      "Edwards-Helaire",
+      "Mitch",
+      "6.10"
+    ],
+    [
+      "Hines",
+      "Evans",
+      "10.05"
+    ]
+  ],
+  "keeper_markers_available": 0,
+  "limitations": [
+    "No independent injury chronology or kickoff review in this pass",
+    "No complete bench data or final grades",
+    "No production changes"
+  ]
+}
