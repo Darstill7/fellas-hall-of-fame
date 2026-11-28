@@ -144,5 +144,54 @@
     "Continuous ownership not independently transaction-replayed.",
     "Paired eligibility for all remaining weeks and postseason logs not yet independently verified.",
     "No final grades."
-  ]
+  ],
+  "championshipCounterfactual": {
+    "week": 16,
+    "actual": {
+      "tony": 138.28,
+      "evans": 133.98,
+      "lamb": 8.4,
+      "huntBench": 0
+    },
+    "replacements": [
+      {
+        "player": "A.J. Brown",
+        "benchPoints": 27,
+        "tonyScore": 156.88,
+        "margin": 22.9
+      },
+      {
+        "player": "Jaylen Waddle",
+        "benchPoints": 20.2,
+        "tonyScore": 150.08,
+        "margin": 16.1
+      }
+    ],
+    "emptySlot": {
+      "score": 129.88,
+      "margin": -4.1
+    },
+    "pregameSources": [
+      {
+        "url": "https://www.pff.com/news/fantasy-football-nfl-week-16-fantasy-football-rankings-2021",
+        "finding": "Lamb WR8, Waddle WR15"
+      },
+      {
+        "url": "https://www.fantasypros.com/2021/12/quick-grades-week-16-fantasy-football-start-or-sit-advice-2021/",
+        "finding": "Lamb must start, Waddle strong start"
+      },
+      {
+        "url": "https://www.fantasypros.com/2021/12/the-primer-week-16-edition-2021-fantasy-football/4/",
+        "finding": "Waddle expected back from COVID absence"
+      }
+    ],
+    "week15": {
+      "tony": 94.96,
+      "stover": 73.44,
+      "lamb": 8,
+      "receiversBrownAndWaddleBench": 0,
+      "withoutLamb": 86.96
+    },
+    "verdict": "Lamb contributed to title but not demonstrably necessary for either paired championship round. Waddle and Brown were legitimate Week 16 alternatives. Frozen roster scenario only, not full no-trade season simulation."
+  }
 }
