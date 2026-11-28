@@ -1,0 +1,77 @@
+{
+  "status": "weekly-snapshot-evidence-not-exact-trade-time",
+  "source": "Sleeper completed transactions, historical rosters and draft via Flaim, league 668633299786244096",
+  "snapshotCoverage": "32 successful historical weekly roster reads; raw snapshots not separately persisted",
+  "transactions": [
+    {
+      "id": "738428315181928448",
+      "timestamp": 1630440158693,
+      "analysis": "Draft baseline Thommy had Jackson, Andrews and Ekeler; Jacobs was acquired from Tony the preceding day. Birch drafted Prescott, Fant, Gibson and Elliott, with Burrow as QB depth. Week 1 Thommy started Prescott (26.42), Fant (9.20), Gibson (9.30); Birch started Jackson (17), Andrews (3.50), Jacobs (16.50). Both changed three starting positions without increasing positional counts.",
+      "verdict": "Both rebuilt their starting core; Birch's stronger archived production must be assessed against equal scoring windows and Jacobs' brief prior ownership."
+    },
+    {
+      "id": "737360507476066304",
+      "timestamp": 1630336326433,
+      "analysis": "Thommy drafted Ekeler, Taylor, Brown and Davis; Tony drafted Hill, Adams, Jacobs, Hunt, Javonte Williams and Robinson. Week 1 Hill started for Thommy (32.60), Javonte benched (4.60), Jacobs already transferred to Birch. Taylor and Brown started for Tony (14.60 and 12.90), Davis benched (24.20). Tony retained Adams; Thommy retained Ekeler and subsequently acquired Gibson.",
+      "verdict": "Both pursued quality changes across RB/WR; Jacobs' next-day transfer must not create duplicate direct production. Tony's stronger archive return alone is insufficient to grade Thommy's combined strategy."
+    },
+    {
+      "id": "746234454665732096",
+      "timestamp": 1632278741445,
+      "analysis": "Week 2 Stew started McCaffrey and Edwards-Helaire (2.60), with Hines and Ty'Son Williams benched. Kuhl started Harris and Henderson while Drake and Barkley were benched. Week 3 Barkley started for Stew (18.40), Drake benched (7.20); Edwards-Helaire (15.90) and Williams (2.20) started for Kuhl, Hines benched (16.40).",
+      "verdict": "Stew consolidated backfield assets into a starter; Kuhl converted two reserves into multiple usable RB options. Both have reasonable fit."
+    },
+    {
+      "id": "748585137259884544",
+      "timestamp": 1632849690195,
+      "correction": "Complete receipt: Stilly acquired AJ Dillon from Mitch for $5 FAAB, no player surrendered. Actual FAAB transfer per provider; spending/disposition unverified.",
+      "analysis": "Week 3 Stilly started Jones and Carson; Murray and Gordon on bench. Mitch started Chubb and Davis; Dillon benched (3.60), Jamaal Williams and Ronald Jones also reserves. Week 4 Dillon was on Stilly's bench (10.20). Archive credits 54.40 across five starts, not reconciled.",
+      "verdict": "Low-cost RB depth acquisition with later recorded use; Mitch converted a reserve into budget flexibility. Neither side should be graded as a zero-return player swap."
+    },
+    {
+      "id": "748312121284149248",
+      "timestamp": 1632774337157,
+      "analysis": "Week 3 Evans started Mahomes (22.90), Swift and Harris; Fournette (4.90) and Aiyuk (12.50) benched. Kuhl started Rodgers (18.54), Allen (15), Thielen, Brown and two TEs. Week 4 Rodgers (24.12) and Allen (7.10) started for Evans; Mahomes (31.72) and Aiyuk (2) started for Kuhl, Fournette benched (15.30). Fournette later moved to Stover.",
+      "verdict": "Evans consolidated reserve depth into two starters; Kuhl added depth and a starting QB. Direct production and onward Fournette value require separate treatment."
+    },
+    {
+      "id": "751165345997402112",
+      "timestamp": 1633454535228,
+      "analysis": "Week 4 Koble started Kamara, Mixon and Montgomery; Tony started Taylor, Robinson, Hunt and Patterson, Moss benched. Week 5 Robinson (22.20) and Moss (10.70) started for Koble; Mixon benched (10) for Tony behind Taylor, Mattison and Patterson. Montgomery recorded zero on Koble's bench.",
+      "verdict": "Koble added immediate RB flexibility while Tony consolidated an already deep group. Later archive favors Tony in scoring, but initial fit supports Koble."
+    },
+    {
+      "id": "751504917667168256",
+      "timestamp": 1633571058087,
+      "analysis": "Week 4 Stover started Henry and Sanders at RB, Metcalf, Jefferson, Smith and Chase at WR/FLEX. Kuhl had Fournette benched (15.30) with Edwards-Helaire and Henderson starting. Week 5 Fournette started for Stover (19), Smith started for Kuhl (11.20).",
+      "verdict": "Both converted positional depth into starters. Stover's larger archived return supports the realized side, not a claim Kuhl's strategy lacked merit."
+    },
+    {
+      "id": "754024908207583232",
+      "timestamp": 1634136227162,
+      "analysis": "Week 5 Thommy started Ekeler and Gibson, with Javonte and Mitchell benched; Stew started Collins and Barkley, McCaffrey benched at zero, Cooper starting at WR. Week 6 Cooper started in Thommy FLEX (8), Javonte at RB; Gibson started for Stew (3.40), alongside Booker, with Barkley/McCaffrey benched at zero.",
+      "verdict": "Stew addressed observable RB availability pressure and Thommy converted backfield depth into WR help. Both immediate fits reasonable; historical injury evidence not established."
+    },
+    {
+      "id": "754017147822415872",
+      "timestamp": 1634134757894,
+      "analysis": "Week 5 Stilly started Jones and Murray (4), Carson benched at zero, with Lamb, Diggs, Moore and Johnson in WR/FLEX. Tony had Hunt benched (23.40), Taylor, Mattison and Patterson starting. Week 6 Hunt started for Stilly (9.30), Lamb for Tony (31.60). Archive credits Hunt only 2.80 in one start, creating apparent same-week eligibility discrepancy.",
+      "verdict": "Both traded from depth into a starting need. Tony obtained stronger immediate and archived production; Hunt's Week 6 score and ownership window require reconciliation before grading."
+    },
+    {
+      "id": "759191673220775936",
+      "timestamp": 1635370780439,
+      "analysis": "Week 7 Tony started Seals-Jones at TE (8.10), Kittle benched at zero and Landry benched (6.20); Kuhl started Kelce (10), Pitts benched (19.80). Week 8 Pitts started for Tony (2.30), Kuhl retained Kelce with Kittle (0) and Landry (7.50) benched.",
+      "verdict": "Tony converted reserve assets into immediate TE utilization; Kuhl dealt TE surplus for depth. Archive favors Kuhl's later production, but the initial roster context supports both strategies."
+    }
+  ],
+  "limitations": [
+    "draft baseline is not exact pretrade roster",
+    "weekly anchors not exact transaction-time rosters",
+    "archive totals not reconciled; Hunt Week 6 eligibility discrepancy",
+    "raw snapshots not separately persisted",
+    "historical availability and projections unverified",
+    "no final grades"
+  ],
+  "draftPolicy": "All traded draft picks voided per commissioner; no draft picks in these ten provider receipts; proposed intent adjustment not approved."
+}
