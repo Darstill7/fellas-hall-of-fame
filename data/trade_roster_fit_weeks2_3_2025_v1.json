@@ -1,0 +1,77 @@
+{
+  "status": "weekly-snapshot-evidence-not-exact-trade-time",
+  "source": "Sleeper historical roster and completed transaction reads via Flaim, season 2025, league 1181421235163095040",
+  "snapshotCoverage": "17 successful reads in weeks 1–3 and seven in week 4; analysis uses weeks 2–4; raw snapshots not persisted in this commit",
+  "transactions": [
+    {
+      "id": "1276026193660899328",
+      "timestamp": 1758629617199,
+      "status": "complete"
+    },
+    {
+      "id": "1276373761972527104",
+      "timestamp": 1758674022133,
+      "status": "complete"
+    },
+    {
+      "id": "1276326233327570944",
+      "timestamp": 1758675766247,
+      "status": "complete"
+    },
+    {
+      "id": "1274473433362604032",
+      "timestamp": 1758469374999,
+      "status": "complete"
+    },
+    {
+      "id": "1273856224776962053",
+      "timestamp": 1758073619734,
+      "status": "complete"
+    }
+  ],
+  "analysis": [
+    {
+      "id": "1276026193660899328",
+      "headline": "Stilly Exchanges Backfield Surplus for Elite Receiving Talent",
+      "analysis": "Week 3 still shows original ownership; Week 4 is the first observed posttrade snapshot. Stilly started Gibbs, Irving and Swift in Week 3 with Judkins and Harvey benched. Week 4 Judkins and Irving started at RB, Chase and Chase Brown at FLEX, Swift on bench. Stew had started Brown and Henry at RB with Chase, London, Egbuka and Nabers at WR/FLEX. Week 4 Gibbs and Henry started, Harvey benched, Johnston entered FLEX after a separate deal. Stilly retained several backfield alternatives; Stew retained strong receiving options. Week 4 Stilly acquisitions scored 13.40, Stew's Gibbs 16.70 with Harvey 17.80 benched. Archived 378.80/20 versus 298.80/17 favors Stew but is not reconciled. Chase later moved to JMid.",
+      "verdict": "Both strategies have roster support. The aggregate points gap does not establish the better decision.",
+      "gradeStatus": "withheld"
+    },
+    {
+      "id": "1276373761972527104",
+      "headline": "Stew Replenishes Receiver Depth as Birch Adds a Reserve Back",
+      "analysis": "Stew's Week 3 snapshot shows Tuten benched and Chase starting. Week 4 Johnston started FLEX for 19.80 alongside London, Egbuka and Nabers after Chase departed. Birch had Johnston on Week 3 bench for 11.90, with Jefferson and Meyers starting and Skattebo/Montgomery in FLEX. Tuten was on Week 4 bench for 2.70. Birch already had considerable RB depth.",
+      "verdict": "Stew restored a starting WR option after trading Chase. Birch added depth but did not realize immediate starting production; archive records zero Tuten starts.",
+      "gradeStatus": "withheld"
+    },
+    {
+      "id": "1276326233327570944",
+      "headline": "Thommy and Stover Swap Receiver Depth With Uneven Early Utilization",
+      "analysis": "Week 3 still shows Evans starting for Thommy (11.30), Addison benched for Stover (0). Week 4 Addison was benched for Thommy (14.40), Evans benched for Stover (0). Both had established WR groups. Addison later moved to Stilly. Archive records 39.80/4 for Thommy and 0/1 for Stover, not reconciled.",
+      "verdict": "A like-position exchange rather than positional rebalancing. Thommy's later recorded usage and onward trade support a stronger documented return.",
+      "gradeStatus": "withheld"
+    },
+    {
+      "id": "1274473433362604032",
+      "headline": "Stew Consolidates Backfield Depth While JMid Adds Two Options",
+      "analysis": "Week 2 JMid started Jacobs, Hubbard and Henderson (5.00); Dowdle and Allgeier on bench. Stew started Chase Brown and Jones, Charbonnet benched. Week 3 Henderson joined Stew's bench (6.20); Jones and Charbonnet were on JMid's bench at zero. Week 4 Henderson benched (11.60), Charbonnet benched (11.40), Jones zero. Archive 139/11 versus 66.80/7 favors Stew in later usage.",
+      "verdict": "Both reworked RB depth. No immediate starting upgrade established.",
+      "gradeStatus": "withheld"
+    },
+    {
+      "id": "1273856224776962053",
+      "headline": "Stew and Kuhl Exchange Positional Strengths",
+      "analysis": "Week 2 still shows Collins starting for Stew (12.70), with Chase, Nabers and London in other WR/FLEX slots and Egbuka benched; Brown and Jones scored 9.80 combined at RB. Kuhl started Henry, Kyren Williams, Kamara and Warren across RB/FLEX; McLaurin and Ridley combined for 14.50 at WR. Week 3 Henry started for Stew (10.20), Collins for Kuhl (19.40). Henry later returned to Kuhl in Week 11. Archive favors Collins 179/13 versus Henry 81.40/7, but ownership horizons differ.",
+      "verdict": "Persuasive mutual roster fit: Stew converted WR depth into RB help, Kuhl converted RB depth into WR help. Raw points alone cannot declare either strategy a failure.",
+      "gradeStatus": "withheld"
+    }
+  ],
+  "limitations": [
+    "provider transaction week is not necessarily first posttrade lineup week",
+    "weekly snapshots not exact transaction-time rosters",
+    "historical injuries and projections unverified",
+    "archive totals not reconciled",
+    "raw snapshots require separate persistence",
+    "no final grades"
+  ]
+}
