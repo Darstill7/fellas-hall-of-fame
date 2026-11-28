@@ -1,0 +1,88 @@
+{
+  "status": "PARTIAL_RESEARCH_NOT_CERTIFIED",
+  "trade_id": "1144362000575840256",
+  "date": "2024-09-24",
+  "source_blobs": {
+    "data/trade_museum_stage66.json": "742755056566510cd4dd988a1eefcd7288d4f4cd",
+    "data/player_starts_2024.json": "de535bdf07a8ea32a275b1e0bb7a40749284e767",
+    "data/championship_player_boxscores_2020_2025_v1.json": "a153a7f8e6125bd303dbac6949a5e0be8b8a06e5"
+  },
+  "regular_season_window": [
+    4,
+    14
+  ],
+  "sides": [
+    {
+      "manager": "Stilly",
+      "roster": 1,
+      "players": [
+        [
+          "Terry McLaurin",
+          10,
+          150.4
+        ],
+        [
+          "De'Von Achane",
+          10,
+          147.1
+        ],
+        [
+          "Tank Dell",
+          9,
+          73.7
+        ]
+      ],
+      "subtotal": 371.2,
+      "starts": 29,
+      "ledger_total": 453.4,
+      "ledger_starts": 35
+    },
+    {
+      "manager": "Thommy",
+      "roster": 3,
+      "players": [
+        [
+          "Christian McCaffrey",
+          4,
+          40.3
+        ],
+        [
+          "Diontae Johnson",
+          4,
+          41.2
+        ],
+        [
+          "Tee Higgins",
+          7,
+          106.2
+        ]
+      ],
+      "subtotal": 187.7,
+      "starts": 15,
+      "ledger_total": 255.4,
+      "ledger_starts": 18
+    }
+  ],
+  "champion_boxscores": {
+    "semifinal": {
+      "week": 16,
+      "score": 123.38,
+      "opponent": 121.08,
+      "higgins": 15.8,
+      "replacement_to_tie": 13.5
+    },
+    "final": {
+      "week": 17,
+      "score": 205.3,
+      "opponent": 114.88,
+      "higgins": 34.6
+    }
+  },
+  "limitations": [
+    "Receiving roster starter points only; not total NFL fantasy production",
+    "Full postseason rosters, replacement legality, ownership intervals and week 15 contributions not independently verified",
+    "No definitive championship counterfactual or trade grade",
+    "Ledger totals not independently recertified beyond weeks 4–14"
+  ],
+  "next_case": "2024-10-01 Andrews/Dowdle–Cooper; revisit postseason gaps when source available"
+}
