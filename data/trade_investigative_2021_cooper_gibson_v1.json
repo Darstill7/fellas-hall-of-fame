@@ -1,0 +1,167 @@
+{
+  "id": "754024908207583232",
+  "date": "2021-10-13",
+  "status": "investigative-draft-not-certified",
+  "headline": "Stew's Hospital Ward Acquires Another Injured Running Back",
+  "publicationDraft": "With McCaffrey and Barkley sidelined, Stew traded Cooper for Gibson, who was already playing through a publicly disclosed shin stress fracture. Thommy had enough backfield depth to add a receiver. Gibson aggravated the injury in his first game for Stew but recovered enough to contribute when McCaffrey went down again. Cooper missed two games with COVID and never delivered a decisive December performance in a paired matchup. In their Week 10 showdown, Thommy won by 30.54 despite Cooper scoring only 7.10; Gibson's 20.80 sat on Stew's bench. Starting Gibson instead of any nonnegative-scoring eligible starter could not have erased that deficit by itself. Both strategies made sense, but Stew bought another medical risk out of necessity. Gibson's later contribution made the gamble defensible.",
+  "sources": [
+    {
+      "url": "https://www.nbcsports.com/fantasy/football/news/article-injuries-depth-injury-report-week-5-october-09-2021",
+      "date": "2021-10-09",
+      "finding": "Gibson shin stress fracture public before trade."
+    },
+    {
+      "url": "https://www.footballguys.com/article/2021-nfl-gameday-injury-expectations-week-05",
+      "finding": "Gibson disclosed fracture; McKissic role expanding."
+    },
+    {
+      "url": "https://www.profootballnetwork.com/fantasy-football-rb-injury-report-barkley-cook-edwards-helaire-2021-nflwk-6/",
+      "date": "2021-10-13",
+      "finding": "McCaffrey missed two games and Barkley injured; McCaffrey possible return then uncertain."
+    },
+    {
+      "url": "https://www.dallascowboys.com/news/amari-cooper-has-bruised-ribs-injury-updates",
+      "date": "2021-09-20",
+      "finding": "Cooper rib injury earlier in season."
+    },
+    {
+      "url": "https://www.ksat.com/sports/2021/10/17/mahomes-chiefs-bounce-back-to-beat-washington-31-13/",
+      "date": "2021-10-17",
+      "finding": "Gibson aggravated shin injury, briefly returned."
+    },
+    {
+      "url": "https://www.pff.com/news/fantasy-football-week-10-recap-immediate-takeaways-analysis-every-week-10-game-2021",
+      "finding": "Gibson 24 carries 64 yards two TD in Week 10; workload recovered."
+    },
+    {
+      "url": "https://www.panthers.com/news/christian-mccaffrey-out-for-season",
+      "date": "2021-11-29",
+      "finding": "McCaffrey ankle injury ended season."
+    },
+    {
+      "url": "https://abcnews.com/Sports/dallas-cowboys-wr-amari-cooper-games-positive-covid/story?id=81287405",
+      "date": "2021-11-19",
+      "finding": "Cooper missed Weeks 11–12 due to COVID."
+    },
+    {
+      "url": "https://www.pro-football-reference.com/teams/was/2021.htm",
+      "finding": "Gibson 1037 rushing, 294 receiving yards, 10 TD."
+    },
+    {
+      "url": "https://www.nfl.com/players/amari-cooper/stats/logs/2021/",
+      "finding": "Cooper NFL game logs; postseason line needs separate verification."
+    }
+  ],
+  "leagueEvidence": {
+    "source": "Sleeper historical roster and matchup reads via Flaim",
+    "weeks": [
+      {
+        "week": 6,
+        "gibsonStarter": 3.4,
+        "cooperStarter": 8
+      },
+      {
+        "week": 7,
+        "gibsonStarter": 5.6,
+        "cooperStarter": null
+      },
+      {
+        "week": 8,
+        "gibsonStarter": 6.9,
+        "cooperStarter": 21.2
+      },
+      {
+        "week": 9,
+        "gibsonStarter": null,
+        "cooperStarter": 4.7
+      },
+      {
+        "week": 10,
+        "gibsonStarter": null,
+        "cooperStarter": 7.1
+      },
+      {
+        "week": 11,
+        "gibsonStarter": 7.5,
+        "cooperStarter": null
+      },
+      {
+        "week": 12,
+        "gibsonStarter": 20.1,
+        "cooperStarter": null
+      },
+      {
+        "week": 13,
+        "gibsonStarter": 19.6,
+        "cooperStarter": 6.1
+      },
+      {
+        "week": 14,
+        "gibsonStarter": 3.1,
+        "cooperStarter": 13.6
+      },
+      {
+        "week": 15,
+        "gibsonStarter": 15.5,
+        "cooperStarter": 1.8
+      },
+      {
+        "week": 16,
+        "gibsonStarter": null,
+        "cooperStarter": 18
+      }
+    ],
+    "gibsonBench": {
+      "10": 20.8,
+      "16": 12.8
+    },
+    "week10": {
+      "thommy": 92.74,
+      "stew": 62.2,
+      "cooper": 7.1,
+      "gibsonBench": 20.8
+    },
+    "week13": {
+      "stew": 113.42,
+      "kuhl": 108.46,
+      "gibson": 19.6
+    },
+    "week14": {
+      "stew": 111.32,
+      "stilly": 108.94,
+      "gibson": 3.1,
+      "thommy": 104.54,
+      "stover": 144.8,
+      "cooper": 13.6
+    },
+    "week15": {
+      "stew": 62.76,
+      "kuhl": 116.7,
+      "gibson": 15.5,
+      "thommy": 84.68,
+      "mitch": 107.7,
+      "cooper": 1.8
+    },
+    "week16BothUnpaired": true,
+    "totals": {
+      "gibsonObserved": 81.7,
+      "cooperObserved": 80.5,
+      "gibsonArchiveWindow": 78.3,
+      "cooperArchiveWindow": 72.5,
+      "gibsonExcludingKnownUnpaired": 81.7,
+      "cooperExcludingKnownUnpaired": 62.5
+    },
+    "archive": {
+      "gibson": 78.3,
+      "cooper": 72.5
+    },
+    "notes": "Archive reproduced by excluding week 6 and including singleton week 16. Full week-by-week matchup eligibility and ownership replay remain pending."
+  },
+  "limitations": [
+    "No firsthand motive confirmation",
+    "No original lineup projections",
+    "Week 10 replacement scenario assumes nonnegative replaced score; full eligible lineup not evaluated",
+    "No final grades",
+    "NFL postseason context incomplete"
+  ]
+}
