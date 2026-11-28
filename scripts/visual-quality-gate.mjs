@@ -989,8 +989,9 @@ try{
         if(await page.locator('#cards .card').count()!==1||await page.locator('#cards .keeper').count()!==2)
          throw Error('Manager filter should display two keepers');
         const text=await page.locator('#cards').innerText();
-        if(!text.includes('2026 round')||!text.includes('2027 if kept'))
-         throw Error('Keeper Tracker must present only keeper cost columns');
+        const costColumns=await page.locator('#cards .keeper').evaluateAll(rows=>rows.map(row=>[...row.querySelectorAll(':scope > .round small')].map(label=>label.textContent.trim())));
+        if(costColumns.length!==2||costColumns.some(labels=>JSON.stringify(labels)!==JSON.stringify(['2026 keeper cost','2027 cost if eligible'])))
+         throw Error('Keeper Tracker must present exactly the two labeled keeper cost columns');
         if(/starter points|observed value|peer surplus|decision grade/i.test(text))
          throw Error('Keeper Tracker must not expose keeper performance analysis');
         if(!text.includes('Amon-Ra St. Brown')||!text.includes('R1'))
