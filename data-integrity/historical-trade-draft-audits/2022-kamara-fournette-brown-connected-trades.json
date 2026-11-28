@@ -1,0 +1,363 @@
+{
+  "status": "INITIAL_RESEARCH_WITH_PROVIDER_RECOUNT",
+  "season": 2022,
+  "source": "Original Sleeper completed transactions and finalized matchups weeks 1–17; 2022 and 2023 drafts via Flaim",
+  "trades": [
+    {
+      "id": "881580705233195008",
+      "date": "2022-09-30",
+      "timestamp": 1664549235667,
+      "sides": [
+        {
+          "manager": "Thommy",
+          "player": "Leonard Fournette",
+          "weeks": [
+            [
+              4,
+              14.9
+            ],
+            [
+              5,
+              30.9
+            ],
+            [
+              6,
+              19.1
+            ],
+            [
+              7,
+              3.6
+            ],
+            [
+              8,
+              13.3
+            ],
+            [
+              9,
+              8.5
+            ],
+            [
+              10,
+              10.3
+            ]
+          ],
+          "total": 100.6,
+          "starts": 7
+        },
+        {
+          "manager": "Tony",
+          "player": "Alvin Kamara",
+          "weeks": [
+            [
+              5,
+              21.4
+            ]
+          ],
+          "total": 21.4,
+          "starts": 1
+        }
+      ],
+      "boundary": {
+        "week": 4,
+        "points": 14.9,
+        "status": "observed; independent kickoff verification pending"
+      },
+      "sensitive": []
+    },
+    {
+      "id": "885980047650119680",
+      "date": "2022-10-12",
+      "timestamp": 1665597582411,
+      "sides": [
+        {
+          "manager": "Evans",
+          "players": [
+            {
+              "name": "Alvin Kamara",
+              "weeks": [
+                [
+                  6,
+                  15.4
+                ],
+                [
+                  7,
+                  14
+                ],
+                [
+                  8,
+                  38.3
+                ],
+                [
+                  9,
+                  7.7
+                ],
+                [
+                  10,
+                  6
+                ],
+                [
+                  11,
+                  10.9
+                ],
+                [
+                  12,
+                  4
+                ],
+                [
+                  13,
+                  4.7
+                ],
+                [
+                  15,
+                  11.4
+                ],
+                [
+                  16,
+                  18
+                ],
+                [
+                  17,
+                  8.5
+                ]
+              ],
+              "total": 138.9,
+              "starts": 11
+            },
+            {
+              "name": "Gabe Davis",
+              "weeks": [
+                [
+                  6,
+                  14.9
+                ],
+                [
+                  8,
+                  4.5
+                ],
+                [
+                  9,
+                  4.3
+                ],
+                [
+                  10,
+                  18.3
+                ],
+                [
+                  11,
+                  9.3
+                ],
+                [
+                  12,
+                  5.8
+                ],
+                [
+                  13,
+                  8.5
+                ],
+                [
+                  14,
+                  4.6
+                ]
+              ],
+              "total": 70.2,
+              "starts": 8
+            }
+          ],
+          "total": 209.1,
+          "starts": 19
+        },
+        {
+          "manager": "Tony",
+          "players": [
+            {
+              "name": "A.J. Brown",
+              "weeks": [
+                [
+                  6,
+                  15.2
+                ],
+                [
+                  8,
+                  37.6
+                ],
+                [
+                  9,
+                  13.9
+                ],
+                [
+                  10,
+                  1.2
+                ],
+                [
+                  11,
+                  6.5
+                ],
+                [
+                  12,
+                  10.6
+                ],
+                [
+                  13,
+                  28.9
+                ],
+                [
+                  14,
+                  15
+                ],
+                [
+                  15,
+                  23.6
+                ],
+                [
+                  16,
+                  14.3
+                ],
+                [
+                  17,
+                  18.7
+                ]
+              ],
+              "total": 185.5,
+              "starts": 11
+            },
+            {
+              "name": "James Robinson",
+              "weeks": [
+                [
+                  7,
+                  0
+                ]
+              ],
+              "total": 0,
+              "starts": 1
+            }
+          ],
+          "total": 185.5,
+          "starts": 12
+        }
+      ],
+      "boundary": {
+        "week": 6,
+        "points": 45.5,
+        "status": "observed; independent kickoff verification pending"
+      },
+      "sensitive": [
+        [
+          "Evans",
+          8,
+          "Birch",
+          125.56,
+          96.88,
+          42.8
+        ],
+        [
+          "Evans",
+          10,
+          "Stover",
+          122.88,
+          115.04,
+          24.3
+        ],
+        [
+          "Evans",
+          15,
+          "Tony",
+          130.38,
+          121.32,
+          11.4
+        ],
+        [
+          "Tony",
+          6,
+          "Stew",
+          106.38,
+          95.5,
+          15.2
+        ],
+        [
+          "Tony",
+          13,
+          "Evans",
+          89.16,
+          67.38,
+          28.9
+        ]
+      ]
+    }
+  ],
+  "draft2022": [
+    [
+      "Kamara",
+      "Thommy",
+      "2.02"
+    ],
+    [
+      "Fournette",
+      "Tony",
+      "3.03"
+    ],
+    [
+      "Brown",
+      "Evans",
+      "4.05"
+    ],
+    [
+      "Davis",
+      "Tony",
+      "7.03"
+    ],
+    [
+      "Robinson",
+      "Stew",
+      "11.07"
+    ]
+  ],
+  "draft2023": [
+    [
+      "Brown",
+      "Evans",
+      "2.06"
+    ],
+    [
+      "Kamara",
+      "Tony",
+      "8.01"
+    ],
+    [
+      "Davis",
+      "Mitch",
+      "10.05"
+    ]
+  ],
+  "keeper_markers_available": 0,
+  "net_tony": {
+    "out": [
+      "Fournette",
+      "Davis"
+    ],
+    "in": [
+      "Brown",
+      "Robinson"
+    ],
+    "intermediate": "Kamara",
+    "intermediate_points": 21.4,
+    "all_acquired_starter_points": 206.9,
+    "all_acquired_starts": 13
+  },
+  "robinson_drop": {
+    "date": "2022-12-07",
+    "id": "906201350784819200"
+  },
+  "regular_records": {
+    "Evans": "4-10",
+    "Tony": "6-8",
+    "Thommy": "7-7"
+  },
+  "playoffs": "Thommy seed 6 lost to Kuhl 122.08–143.86; Tony and Evans consolation only",
+  "limitations": [
+    "No bench or causal verdict",
+    "Keeper designation absent, not false",
+    "Injury chronology and kickoff dates pending independent verification",
+    "No production changes"
+  ]
+}
