@@ -148,10 +148,10 @@
   ],
   "publicationDraft": "Tony exchanged Hall for Etienne and Cooper, a defensible consolidation of value at the time. Cleveland had already lost Watson, but Flacco's arrival transformed Cooper's outlook. On Christmas Eve, Hall scored 37.10 for Stew while Etienne supplied Tony just 4.60. Retaining Hall would have left Tony 0.58 short of beating Stilly. Yet Tony had an even bigger weapon: Cooper's 48 points sat on his bench. Starting him over Kupp would have reversed the result. Pregame rankings favored Kupp, so this was not an obvious blunder at kickoff. Tony had the ammunition; the lineup never fired.",
   "limitations": [
-    "Official bracket classification not independently certified",
     "Full alternate season, ownership replay and keeper eligibility pending",
     "NFL postseason individual context incomplete",
-    "No final grades or deployment"
+    "No final grades or deployment",
+    "Historical postseason finishes and semifinal/final matchups verified; alternate choices remain conditional"
   ],
   "championshipCounterfactual": {
     "method": "Fixed actual opponents and other starters; Week 16 Hall replaces Etienne, Cooper removed from bench; optional Warren replaces Kamara. Week 17 actual Tony lineup from paired placement game with Hall replacing Etienne, compared against Mitch actual Week 17 score. Not alternate seeding or full roster replay.",
@@ -180,10 +180,176 @@
       "finding": "Kamara RB5, Warren RB27; substitution not favored by pregame rankings"
     },
     "limitations": [
-      "Official bracket classification still not independently certified",
-      "Actual Week17 roster may differ if Tony advances",
-      "Full regular season and seeding replay not performed",
-      "Other lineup decisions held fixed"
-    ]
+      "Raw bracket endpoint unavailable; final placements explicit in standings and weekly pairings confirm semifinal and final",
+      "Hypothetical manager choices and waiver activity not knowable",
+      "Week17 lineup held fixed conditional on advancing"
+    ],
+    "bracketCertification": {
+      "source": "Sleeper historical standings via Flaim get_standings, explicit outcomeConfidence; corroborated by weekly matchups",
+      "champion": {
+        "roster": 1,
+        "name": "Stilly",
+        "finalRank": 1
+      },
+      "runnerUp": {
+        "roster": 6,
+        "name": "Mitch",
+        "finalRank": 2
+      },
+      "third": {
+        "roster": 5,
+        "name": "Koble",
+        "finalRank": 3
+      },
+      "fourth": {
+        "roster": 7,
+        "name": "Tony",
+        "finalRank": 4
+      },
+      "semifinalWeek": 16,
+      "championshipWeek": 17,
+      "playoffTeams": 6,
+      "rawBracketEndpointAccessible": false
+    },
+    "regularSeasonReplay": {
+      "Tony": [
+        {
+          "week": 11,
+          "actual": 80.46,
+          "opponent": 135.4,
+          "remove": [
+            7.4,
+            5.4
+          ],
+          "add": [
+            15.8,
+            23
+          ],
+          "replacement": "Hall + Warren (FLEX)",
+          "revised": 106.46,
+          "result": "L"
+        },
+        {
+          "week": 12,
+          "actual": 99.58,
+          "opponent": 173.86,
+          "remove": [
+            10.6,
+            2.6
+          ],
+          "add": [
+            8.4,
+            5.7
+          ],
+          "replacement": "Hall + Warren (FLEX)",
+          "revised": 100.48,
+          "result": "L"
+        },
+        {
+          "week": 13,
+          "actual": 95.88,
+          "opponent": 122.66,
+          "remove": [
+            15.9,
+            4.9
+          ],
+          "add": [
+            7.5,
+            5.1
+          ],
+          "replacement": "Hall + Higgins (WR)",
+          "revised": 87.68,
+          "result": "L"
+        },
+        {
+          "week": 14,
+          "actual": 135.34,
+          "opponent": 89.94,
+          "remove": [
+            15.2
+          ],
+          "add": [
+            22.6
+          ],
+          "replacement": "Hall for Etienne",
+          "revised": 142.74,
+          "result": "W"
+        }
+      ],
+      "Stew": [
+        {
+          "week": 11,
+          "actual": 72.94,
+          "opponent": 104.6,
+          "remove": [
+            15.8,
+            0
+          ],
+          "add": [
+            7.4,
+            5.4
+          ],
+          "replacement": "Etienne for Hall, Cooper for Davis",
+          "revised": 69.94,
+          "result": "L"
+        },
+        {
+          "week": 12,
+          "actual": 92.86,
+          "opponent": 118.58,
+          "remove": [
+            8.4
+          ],
+          "add": [
+            10.6
+          ],
+          "replacement": "Etienne for Hall, Cooper benched",
+          "revised": 95.06,
+          "result": "L"
+        },
+        {
+          "week": 13,
+          "actual": 70.76,
+          "opponent": 109.6,
+          "remove": [
+            7.5,
+            0
+          ],
+          "add": [
+            15.9,
+            4.9
+          ],
+          "replacement": "Etienne for Hall, Cooper for Douglas",
+          "revised": 84.06,
+          "result": "L"
+        },
+        {
+          "week": 14,
+          "actual": 71.54,
+          "opponent": 105.44,
+          "remove": [
+            22.6,
+            0
+          ],
+          "add": [
+            15.2,
+            9.2
+          ],
+          "replacement": "Etienne for Hall, Cooper for Davis",
+          "revised": 73.34,
+          "result": "L"
+        }
+      ],
+      "tonyPFDelta": 26.1,
+      "stewPFDelta": 14.3,
+      "tonyRevisedPF": 1665.2199999999998,
+      "stewRevisedPF": 1360.04,
+      "recordsUnchanged": true,
+      "tonyRecord": "10-4",
+      "stewRecord": "3-11",
+      "koblePF": 1615.88,
+      "seedConclusion": "Under these position-legal substitutions, Tony retains first in wins/PF standings, Koble second, no other record or playoff qualification changes. Actual playoffSeed field null; actual Week15 unpaired and Week16 semifinal verified.",
+      "caveat": "Conditional fixed-lineup replay; substitutions not established as actual manager choices, no waiver or roster butterfly-effect replay."
+    }
   }
 }
