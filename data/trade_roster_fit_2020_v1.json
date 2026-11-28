@@ -1,0 +1,61 @@
+{
+  "status": "weekly-snapshot-evidence-not-exact-trade-time",
+  "source": "Sleeper completed transactions and historical roster reads via Flaim, league 561248176597610496",
+  "snapshotCoverage": "18 successful historical weekly roster reads; raw snapshots not separately persisted",
+  "transactions": [
+    {
+      "id": "629416763662086144",
+      "timestamp": 1604429247272,
+      "correction": "Stilly acquired George Kittle from Stew for $5 FAAB; no player surrendered.",
+      "analysis": "Week 8 Stilly started Kelce (20.90); Stew started Kittle (4.90). Week 9 Kittle was on Stilly bench at zero while Kelce started (21.90); Stew started Jared Cook (2). Archive records Kittle 11.20/1. FAAB disposition unknown.",
+      "verdict": "Low-cost tight end depth for Stilly, budget flexibility for Stew; neither side has certified net return."
+    },
+    {
+      "id": "616864423201554432",
+      "timestamp": 1601478249138,
+      "analysis": "Week 3 Stilly started Higbee (7), Robinson (23.30), Swift benched (2.40). Thommy started Kelce (11.70), Brown (2.30), Jackson benched (2.10). Week 4 Kelce (9.50) and Brown (10.60) started for Stilly; Robinson (19.60) and Higbee (3.50) started for Thommy, Swift benched (13.20).",
+      "verdict": "Stilly targeted TE quality; Thommy added starting receiver and backfield depth. Position-adjusted archive comparison is incomplete; no certified net impact."
+    },
+    {
+      "id": "614849640176623616",
+      "timestamp": 1600967274153,
+      "analysis": "Week 2 Evans started Elliott, Gurley and Green (4.40) at FLEX; reserve backs Breida and Akers. Stew started Edwards-Helaire, Jacobs and Jones (9.70) at FLEX, Montgomery benched (20.20). Week 3 Jones (8.30) and Hines (8.10) benched for Evans, Green (6.10) benched for Stew; Montgomery entered Stew lineup.",
+      "verdict": "Evans acquired reserve RB options, Stew converted RB depth into WR depth; neither immediately started an acquired player."
+    },
+    {
+      "id": "622492390107738112",
+      "timestamp": 1602779024193,
+      "analysis": "Week 5 Stilly started Murray (26.30), Mixon (12.40), Singletary (3.80), Kelley (4.30) in FLEX. Tony started Jackson (13.50), with Watson (24.86) and Dobbins (7) benched. Week 6 Jackson started for Stilly (28.24), Dobbins benched (3.90); Murray started for Tony (28.92). Dobbins started Week 8 for Stilly (12.60).",
+      "verdict": "Stilly added RB depth without removing a QB starter slot; Tony consolidated a reserve back and starting QB into a different QB. Both strategies defensible."
+    },
+    {
+      "id": "629818920752209920",
+      "timestamp": 1604529388114,
+      "analysis": "Week 8 Stew started Edwards-Helaire (4.60), Jacobs, Bernard and Montgomery in RB/FLEX; Moore (7.50) and Green (2.90) at WR. Stover started Gallman, Carson (0), McKinnon in FLEX, Thomas benched at zero. Week 9 Thomas started for Stew (7.60); Moore (2.80) and Edwards-Helaire (10.90) started for Stover alongside Aaron Jones.",
+      "verdict": "Stew consolidated RB depth and receiver into a starting WR; Stover added two immediate starters including needed RB cover. Raw cumulative production comparison alone insufficient."
+    }
+  ],
+  "additionalCompletedTransaction": {
+    "id": "614536176472264704",
+    "timestamp": 1600879392907,
+    "sides": [
+      {
+        "manager": "Stilly",
+        "faabAcquired": 1
+      },
+      {
+        "manager": "Tony",
+        "faabGaveUp": 1
+      }
+    ],
+    "note": "FAAB-only transfer, no players or picks. Preserve in complete transaction census; eligibility for graded trade count requires explicit policy, no grade."
+  },
+  "limitations": [
+    "weekly anchors not exact transaction-time rosters",
+    "archive totals not reconciled",
+    "historical availability and projections unverified",
+    "raw snapshots not separately persisted",
+    "no final grades"
+  ],
+  "draftPolicy": "All traded picks voided per commissioner; no draft picks observed in these receipts."
+}
