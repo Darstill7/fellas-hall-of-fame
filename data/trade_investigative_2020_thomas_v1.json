@@ -1,0 +1,180 @@
+{
+  "id": "629818920752209920",
+  "date": "2020-11-04",
+  "status": "investigative-draft-not-certified",
+  "headline": "Stew Buys the Name, Stover Buys the Depth",
+  "publicationDraft": "Stew bought the reigning Offensive Player of the Year at a discount, but Michael Thomas arrived with more baggage than a holiday flight: ankle and hamstring injuries, six missed games and a disciplinary benching. Stover turned the risk into DJ Moore and Clyde Edwards-Helaire, both immediate starters. The two newcomers combined for 39.50 in Stover’s Week 11 victory over Stew. Thomas returned respectably before landing on injured reserve in December; Moore missed Week 14 on the COVID list, and Edwards-Helaire suffered a late-season injury. Stover even left an officially ruled-out Edwards-Helaire in his Week 16 lineup. The historical snapshots favor Stover’s realized production, contradicting the old archive. Stew's buy-low idea was defensible; the payoff wasn't. Grades withheld pending reconciliation.",
+  "sources": [
+    {
+      "url": "https://www.foxsports.com/articles/nfl/saints-rule-out-wide-receivers-thomas-callaway-vs-bears",
+      "date": "2020-10-30",
+      "finding": "Six missed games, ankle and hamstring injuries, disciplinary absence known before trade."
+    },
+    {
+      "url": "https://www.fox8live.com/2020/11/04/saints-injury-report/",
+      "date": "2020-11-04",
+      "finding": "Limited practice on transaction date; exact report timing relative to deal unverified."
+    },
+    {
+      "url": "https://www.neworleanssaints.com/news/new-orleans-saints-2020-season-recap-michael-thomas",
+      "date": null,
+      "finding": "2019 record 149 catches, 2020 no regular-season touchdowns, returned for wild card with 5 catches 73 yards and TD."
+    },
+    {
+      "url": "https://www.chiefs.com/team/transactions/2020",
+      "date": "2020-10-16",
+      "finding": "Bell signing predates trade; competition known."
+    },
+    {
+      "url": "https://www.panthers.com/news/dj-moore-activated-from-reserve-covid-19-list",
+      "date": "2020-12-16",
+      "finding": "Moore missed Week 14, activated before Week 15."
+    },
+    {
+      "url": "https://www.cbssports.com/fantasy/football/news/chiefs-clyde-edwards-helaire-active-but-no-snaps-week-13/",
+      "date": "2020-12-07",
+      "finding": "Illness, active but emergency-only, zero snaps Week 13."
+    },
+    {
+      "url": "https://www.nfl.com/news/chiefs-rb-clyde-edwards-helaire-leg-hip-to-be-further-evaluated-after-exiting-la",
+      "date": "2020-12-21",
+      "finding": "Injury occurred Week 15."
+    },
+    {
+      "url": "https://www.nfl.com/news/injury-report-for-week-16-slate-of-nfl-action",
+      "date": null,
+      "finding": "CEH officially out Week 16."
+    },
+    {
+      "url": "https://www.neworleanssaints.com/news/new-orleans-saints-announce-roster-moves-12192020",
+      "date": "2020-12-19",
+      "finding": "Thomas placed on IR."
+    },
+    {
+      "url": "https://www.panthers.com/news/2020-statistical-season-in-review",
+      "date": null,
+      "finding": "Moore 1193 receiving yards."
+    },
+    {
+      "url": "https://www.neworleanssaints.com/news/zatarain-s-game-recap-new-orleans-saints-fall-to-tampa-bay-buccaneers-in-divisio",
+      "date": "2021-01-17",
+      "finding": "Thomas zero catches in divisional loss."
+    },
+    {
+      "url": "https://www.chiefs.com/news/10-quick-facts-about-the-chiefs-afc-championship-game-victory-over-buffalo-upon-",
+      "date": "2021-01-25",
+      "finding": "CEH scored in AFC title game."
+    },
+    {
+      "url": "https://www.fanduel.com/research/theduel/2020-nfl-bye-week-schedule-for-fantasy-football-01ee60ehegsj/",
+      "date": null,
+      "finding": "KC W10 and Carolina W13 byes."
+    }
+  ],
+  "leagueEvidence": {
+    "source": "Sleeper via Flaim weekly roster and matchup reads",
+    "weeks": [
+      {
+        "week": 9,
+        "thomasStarterPoints": 7.6,
+        "mooreStarterPoints": 2.8,
+        "cehStarterPoints": 10.9,
+        "stewScore": 102.06,
+        "stewOpponentScore": 69.9,
+        "stoverScore": 100.2,
+        "stoverOpponentScore": 91.12
+      },
+      {
+        "week": 10,
+        "thomasStarterPoints": 3.7,
+        "mooreStarterPoints": 17.6,
+        "cehStarterPoints": null,
+        "stewScore": 93.88,
+        "stewOpponentScore": 102.28,
+        "stoverScore": 90.02,
+        "stoverOpponentScore": 153.64
+      },
+      {
+        "week": 11,
+        "thomasStarterPoints": 14.9,
+        "mooreStarterPoints": 19.3,
+        "cehStarterPoints": 20.2,
+        "stewScore": 96.58,
+        "stewOpponentScore": 117.38,
+        "stoverScore": 117.38,
+        "stoverOpponentScore": 96.58
+      },
+      {
+        "week": 12,
+        "thomasStarterPoints": 7.1,
+        "mooreStarterPoints": 8.1,
+        "cehStarterPoints": 4.4,
+        "stewScore": 82.92,
+        "stewOpponentScore": 119.64,
+        "stoverScore": 84.2,
+        "stoverOpponentScore": 130.88
+      },
+      {
+        "week": 13,
+        "thomasStarterPoints": 15,
+        "mooreStarterPoints": null,
+        "cehStarterPoints": 0,
+        "stewScore": 113.04,
+        "stewOpponentScore": 107.72,
+        "stoverScore": 137.82,
+        "stoverOpponentScore": 120.58
+      },
+      {
+        "week": 14,
+        "thomasStarterPoints": 12.4,
+        "mooreStarterPoints": null,
+        "cehStarterPoints": 11.6,
+        "stewScore": 97.64,
+        "stewOpponentScore": 115.72,
+        "stoverScore": 110.84,
+        "stoverOpponentScore": 108.72
+      },
+      {
+        "week": 15,
+        "thomasStarterPoints": null,
+        "mooreStarterPoints": 17.2,
+        "cehStarterPoints": 8.8,
+        "stewScore": 118.06,
+        "stewOpponentScore": 116.94,
+        "stoverScore": 112.14,
+        "stoverOpponentScore": 140.96
+      },
+      {
+        "week": 16,
+        "thomasStarterPoints": null,
+        "mooreStarterPoints": 6.2,
+        "cehStarterPoints": 0,
+        "stewScore": 91.8,
+        "stewOpponentScore": null,
+        "stoverScore": 78.9,
+        "stoverOpponentScore": 110.24
+      }
+    ],
+    "observedTotals": {
+      "thomas": 60.7,
+      "moore": 71.2,
+      "ceh": 55.9,
+      "stover": 127.1,
+      "thomasStarts": 6,
+      "mooreStarts": 6,
+      "cehStarts": 7
+    },
+    "archiveComparison": {
+      "stew": 53.1,
+      "stover": 45,
+      "status": "different scoring windows or missing starts; reconcile before replacing"
+    }
+  },
+  "limitations": [
+    "No verified exact manager motive or contemporaneous lineup projections",
+    "Weekly snapshots not exact continuous ownership ledger",
+    "Week 16 Stew singleton excluded from H2H; Stover paired but round classification unresolved",
+    "NFL postseason not part of Fellas scoring",
+    "No final grades"
+  ]
+}
