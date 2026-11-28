@@ -1,0 +1,191 @@
+{
+  "id": "748312121284149248",
+  "date": "2021-09-27",
+  "status": "investigative-draft-not-certified",
+  "headline": "Evans Trades Aiyuk, Then Gets Him Back for Pocket Change",
+  "publicationDraft": "Evans consolidated Mahomes and two reserve players into Rodgers and Allen. Kuhl acquired Fournette just as Tampa Bay promoted him over Ronald Jones, but flipped him to Stover before his breakout. Aiyuk’s preseason hamstring trouble and reduced role were public knowledge; Kuhl cut him October 13. Evans reclaimed him for $4, cut him, then picked him up again in November. By Week 14, Rodgers and Aiyuk combined for 44.24 in Evans’ victory over Mitch while Allen missed the game with COVID. Rodgers ultimately won MVP, and Evans reached the championship. Kuhl had a fine quarterback in Mahomes, but his handling of the supporting assets left plenty of value on the table. The Aiyuk reunion is separate waiver value, not direct trade production.",
+  "sources": [
+    {
+      "url": "https://www.nfl.com/news/buccaneers-rb-leonard-fournette-to-start-vs-rams",
+      "date": "2021-09-26",
+      "finding": "Fournette promoted over Jones before trade"
+    },
+    {
+      "url": "https://www.nfl.com/_amp/shanahan-brandon-aiyuk-not-in-49ers-doghouse-after-limited-role-in-week-1",
+      "date": "2021-09",
+      "finding": "Aiyuk hamstring and reduced early role"
+    },
+    {
+      "url": "https://www.pro-football-reference.com/years/2021/passing.htm",
+      "date": null,
+      "finding": "Rodgers MVP, 4115 yards and 37 TD; Mahomes 4839 yards and 37 TD"
+    },
+    {
+      "url": "https://amp.nfl.com/news/packers-qb-aaron-rodgers-tests-positive-for-covid-19-will-not-play-in-week-9-ver",
+      "date": "2021-11-03",
+      "finding": "Rodgers missed Week 9"
+    },
+    {
+      "url": "https://www.latimes.com/sports/chargers/story/2021-12-10/chargers-keenan-allen-will-not-play-against-giants",
+      "date": "2021-12-10",
+      "finding": "Allen missed Week 14 with COVID"
+    },
+    {
+      "url": "https://www.nfl.com/players/leonard-fournette/stats/logs/2021/",
+      "date": null,
+      "finding": "Fournette 107 scrimmage yards, two TD in divisional round following injury absence"
+    }
+  ],
+  "leagueEvidence": {
+    "source": "Sleeper via Flaim, weekly rosters, completed transactions and previously verified matchup records",
+    "weeks4to16Evans": {
+      "RodgersStarts": [
+        24.12,
+        19.76,
+        23.7,
+        24.66,
+        15.66,
+        null,
+        9.48,
+        32.5,
+        26.28,
+        null,
+        28.64,
+        23.82,
+        19.98
+      ],
+      "AllenStarts": [
+        7.1,
+        10.5,
+        7.5,
+        null,
+        17.7,
+        16.4,
+        13.8,
+        15.7,
+        12,
+        19.9,
+        null,
+        16.8,
+        5.5
+      ]
+    },
+    "kuhl": {
+      "week4": {
+        "Mahomes": 31.72,
+        "Aiyuk": 2,
+        "FournetteBench": 15.3
+      },
+      "week5": {
+        "Mahomes": 18.98,
+        "AiyukBench": 4.2
+      },
+      "weeks10to16MahomesStarts": [
+        36.24,
+        7.5,
+        null,
+        12.56,
+        19.32,
+        29.6,
+        21.32
+      ]
+    },
+    "aiyukEvansWeeks10to16": [
+      {
+        "week": 10,
+        "bench": 4.1
+      },
+      {
+        "week": 11,
+        "start": 18
+      },
+      {
+        "week": 12,
+        "start": 11
+      },
+      {
+        "week": 13,
+        "start": 7
+      },
+      {
+        "week": 14,
+        "start": 15.6
+      },
+      {
+        "week": 15,
+        "start": 4.1
+      },
+      {
+        "week": 16,
+        "bench": 12
+      }
+    ],
+    "ownershipEvents": [
+      {
+        "id": "751504917667168256",
+        "date": "2021-10-07",
+        "FournetteTo": "Stover",
+        "SmithTo": "Kuhl"
+      },
+      {
+        "id": "753975854740164608",
+        "date": "2021-10-13",
+        "manager": "Kuhl",
+        "drop": "Aiyuk",
+        "add": "Rondale Moore"
+      },
+      {
+        "id": "754019532825325568",
+        "date": "2021-10-15",
+        "manager": "Evans",
+        "add": "Aiyuk",
+        "faab": 4
+      },
+      {
+        "id": "758091876904947712",
+        "date": "2021-10-24",
+        "manager": "Evans",
+        "drop": "Aiyuk",
+        "add": "Christian Kirk"
+      },
+      {
+        "id": "761787008963219456",
+        "date": "2021-11-04",
+        "manager": "Evans",
+        "add": "Aiyuk"
+      }
+    ],
+    "december": {
+      "week14": {
+        "evans": 162.04,
+        "opponent": "Mitch",
+        "opponentScore": 134.82,
+        "kuhl": 109.52,
+        "kuhlOpponent": "Koble",
+        "kuhlOpponentScore": 73.32
+      },
+      "week15": {
+        "evans": 109.02,
+        "opponent": "Birch",
+        "opponentScore": 96.28,
+        "kuhl": 116.7,
+        "kuhlOpponent": "Stew",
+        "kuhlOpponentScore": 62.76
+      },
+      "week16": {
+        "evans": 133.98,
+        "opponent": "Tony",
+        "opponentScore": 138.28,
+        "kuhlUnpaired": true
+      }
+    }
+  },
+  "limitations": [
+    "Kuhl Weeks 6–9 roster scores not retrieved this pass; no complete total",
+    "Aiyuk later Evans points separate waiver acquisitions",
+    "Fournette onward value not double counted",
+    "No confirmed discretionary lineup motives",
+    "NFL postseason logs incomplete",
+    "Final grade withheld"
+  ]
+}
