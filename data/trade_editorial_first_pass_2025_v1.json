@@ -1,0 +1,81 @@
+{
+  "status": "first-editorial-pass-not-publication-ready",
+  "sources": [
+    "data/trade_individual_review_v1.json",
+    "data/trade_par_preview.json"
+  ],
+  "articles": [
+    {
+      "id": "1294724519813988352",
+      "headline": "Kuhl Finds More Production in Half the Starts",
+      "analysis": "Kuhl's return of Zach Ertz and Derrick Henry yielded 128.80 points in six player-starts, compared with 114.80 across twelve from Jake Ferguson and Jaylen Warren for Stew. The difference in efficiency is more striking than the 14-point gap in cumulative scoring: Kuhl averaged 21.47 per start, Stew 9.57. The positional research has not resolved Ertz's contribution, however, and its shorter window cannot be blended with these totals.",
+      "verdict": "Kuhl has the stronger recorded return; the extent of his actual lineup upgrade remains unverified.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1294424036499025920",
+      "headline": "A Late-Season Exchange That Delivered Little",
+      "analysis": "Stilly received no recorded starts from Brian Thomas Jr., while Stefon Diggs supplied Stover with 7.10 points in two starts. At 3.55 points per start, Diggs offered little scoring return in the documented window. Neither manager's ownership history or subsequent use of the acquired asset is established here.",
+      "verdict": "Neither side demonstrated a substantial starting-lineup return. Stover's narrow scoring advantage is not sufficient to establish a successful trade.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1294402688213057536",
+      "headline": "Three Managers, Three Different Measures of Return",
+      "analysis": "Stilly's package of Amon-Ra St. Brown, Jordan Addison and Jared Goff delivered 199.72 points in thirteen player-starts. JMid received 78.30 across five from Ja'Marr Chase, while Thommy collected 98.60 across six from A.J. Brown. Stilly led in volume, but Thommy led in efficiency at 16.43 per start, ahead of JMid's 15.66 and Stilly's 15.36. The narrower positional research also favors Thommy in recorded points above its benchmark (53.76 versus 47.44 for Stilly and 16.64 for JMid), although the three-team comparison is not certified complete.",
+      "verdict": "Stilly's breadth of production and Thommy's efficiency deserve separate recognition. The deal needs one shared evaluation of all three participants, including keeper and onward asset movement, before declaring an overall winner.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1276373761972527104",
+      "headline": "Johnston Provides the Only Recorded Starting Return",
+      "analysis": "Quentin Johnston gave Stew 64.50 points across seven starts, averaging 9.21. Birch recorded no starts from Bhayshul Tuten. Stew therefore has the documented production advantage, but the magnitude of his upgrade and Birch's subsequent use or disposal of Tuten remain unverified.",
+      "verdict": "Stew received tangible starting production; Birch's realized return was absent in this snapshot. Neither fact alone determines the quality of the acquisition.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1276326233327570944",
+      "headline": "Addison Supplies a Return Where Evans Does Not",
+      "analysis": "Jordan Addison contributed 39.80 points across four starts for Thommy, an average of 9.95. Mike Evans recorded zero points in one start for Stover. That is a genuine zero-point starting appearance, not an absence of starts. The underlying circumstances and later ownership must be established rather than inferred from the box score.",
+      "verdict": "Thommy has the stronger recorded return, though the archive does not yet establish the full cost or consequence of the exchange.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1276026193660899328",
+      "headline": "Stew's Gibbs Package Outproduces Stilly's Chase Return",
+      "analysis": "Jahmyr Gibbs and RJ Harvey supplied Stew with 378.80 points over twenty player-starts, while Ja'Marr Chase and Chase Brown produced 298.80 over seventeen for Stilly. Both packages delivered substantial recorded volume, with Stew ahead by 80 points and 1.36 points per start. In the separate matched positional research, Stew also led 219.38 to 152.23 points above the archived benchmark, with fourteen starts on each side in that narrower window.",
+      "verdict": "Stew leads across both available production measures. Stilly's sizable return deserves credit independently; the evidence does not support treating his side as a failure merely because Stew extracted more.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1274473433362604032",
+      "headline": "Henderson Outpaces JMid's Two-Back Package",
+      "analysis": "TreVeyon Henderson returned 139.00 points in eleven starts for Stew. Aaron Jones Sr. and Zach Charbonnet supplied JMid with 66.80 across seven combined starts. Stew led by 72.20 points and averaged 12.64 per start against 9.54. The matched positional research independently points in the same direction, at 52.60 versus 11.48 above its benchmark in a shorter window.",
+      "verdict": "Stew has the stronger recorded production case. Actual lineup improvement and the disposition of all three backs remain necessary for final grades.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    },
+    {
+      "id": "1273856224776962053",
+      "headline": "Collins Builds a Sustained Advantage Over Henry's Return",
+      "analysis": "Nico Collins generated 179.00 points across thirteen starts for Kuhl, while Derrick Henry supplied Stew with 81.40 across seven. Kuhl led in both volume and efficiency, 13.77 to 11.63 per start. The matched positional research also favors Kuhl, 100.65 to 38.33 points above its benchmark, but uses a distinct evaluation window.",
+      "verdict": "Kuhl has the stronger documented return on multiple measures. The final assessment must account for the different positions and each manager's lineup alternatives.",
+      "gradeStatus": "withheld",
+      "secondPass": "pending",
+      "ownershipVerified": false
+    }
+  ]
+}
