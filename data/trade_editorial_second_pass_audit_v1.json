@@ -1,0 +1,1259 @@
+{
+  "status": "second-pass-source-screen-not-provider-certified",
+  "receiptCount": 57,
+  "articleCount": 57,
+  "uniqueArticleIds": 57,
+  "checks": [
+    "exact transaction ID coverage",
+    "nonzero raw points literal screen (one written-out four-point value)",
+    "points-per-start arithmetic",
+    "all final grades withheld"
+  ],
+  "limitations": [
+    "literal checks do not certify prose accuracy",
+    "ownership dates and receiving roster starts not independently verified",
+    "same-day transfers require timestamps",
+    "historical Week 14 phase requires reconciliation"
+  ],
+  "candidateLinks": [
+    {
+      "asset": "Christian Watson",
+      "year": 2026,
+      "firstId": "1411009536306733056",
+      "nextId": "1411012593170010112",
+      "firstRecipient": "Stew",
+      "nextRecipient": "JMid",
+      "firstDate": "2026-09-30",
+      "nextDate": "2026-09-30",
+      "status": "same-day-order-unverified"
+    },
+    {
+      "asset": "Drake Maye",
+      "year": 2026,
+      "firstId": "1411009536306733056",
+      "nextId": "1427488044335788032",
+      "firstRecipient": "Stew",
+      "nextRecipient": "Kuhl",
+      "firstDate": "2026-09-30",
+      "nextDate": "2026-11-15",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Ladd McConkey",
+      "year": 2026,
+      "firstId": "1400522174271340544",
+      "nextId": "1411009536306733056",
+      "firstRecipient": "Stew",
+      "nextRecipient": "Kuhl",
+      "firstDate": "2026-09-01",
+      "nextDate": "2026-09-30",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Jordan Addison",
+      "year": 2025,
+      "firstId": "1276326233327570944",
+      "nextId": "1294402688213057536",
+      "firstRecipient": "Thommy",
+      "nextRecipient": "Stilly",
+      "firstDate": "2025-09-24",
+      "nextDate": "2025-11-12",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Ja'Marr Chase",
+      "year": 2025,
+      "firstId": "1276026193660899328",
+      "nextId": "1294402688213057536",
+      "firstRecipient": "Stilly",
+      "nextRecipient": "JMid",
+      "firstDate": "2025-09-23",
+      "nextDate": "2025-11-12",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Derrick Henry",
+      "year": 2025,
+      "firstId": "1273856224776962053",
+      "nextId": "1294724519813988352",
+      "firstRecipient": "Stew",
+      "nextRecipient": "Kuhl",
+      "firstDate": "2025-09-17",
+      "nextDate": "2025-11-13",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Rico Dowdle",
+      "year": 2024,
+      "firstId": "1146946436173623296",
+      "nextId": "1152708228883660800",
+      "firstRecipient": "Thommy",
+      "nextRecipient": "Tony",
+      "firstDate": "2024-10-01",
+      "nextDate": "2024-10-17",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Tank Dell",
+      "year": 2024,
+      "firstId": "1139340571111256064",
+      "nextId": "1144362000575840256",
+      "firstRecipient": "Thommy",
+      "nextRecipient": "Stilly",
+      "firstDate": "2024-09-10",
+      "nextDate": "2024-09-24",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "CeeDee Lamb",
+      "year": 2023,
+      "firstId": "1012571602774532096",
+      "nextId": "1018289561511682048",
+      "firstRecipient": "Stew",
+      "nextRecipient": "Birch",
+      "firstDate": "2023-09-27",
+      "nextDate": "2023-10-12",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Travis Etienne Jr.",
+      "year": 2023,
+      "firstId": "1012571602774532096",
+      "nextId": "1031251467312775168",
+      "firstRecipient": "Stew",
+      "nextRecipient": "Tony",
+      "firstDate": "2023-09-27",
+      "nextDate": "2023-11-17",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Alvin Kamara",
+      "year": 2022,
+      "firstId": "881580705233195008",
+      "nextId": "885980047650119680",
+      "firstRecipient": "Tony",
+      "nextRecipient": "Evans",
+      "firstDate": "2022-09-30",
+      "nextDate": "2022-10-12",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "James Robinson",
+      "year": 2022,
+      "firstId": "880505837758652416",
+      "nextId": "885980047650119680",
+      "firstRecipient": "Evans",
+      "nextRecipient": "Tony",
+      "firstDate": "2022-09-27",
+      "nextDate": "2022-10-12",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Cordarrelle Patterson",
+      "year": 2022,
+      "firstId": "880505837758652416",
+      "nextId": "896468742987522048",
+      "firstRecipient": "Stew",
+      "nextRecipient": "Birch",
+      "firstDate": "2022-09-27",
+      "nextDate": "2022-11-10",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Leonard Fournette",
+      "year": 2021,
+      "firstId": "748312121284149248",
+      "nextId": "751504917667168256",
+      "firstRecipient": "Kuhl",
+      "nextRecipient": "Stover",
+      "firstDate": "2021-09-27",
+      "nextDate": "2021-10-07",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Antonio Gibson",
+      "year": 2021,
+      "firstId": "738428315181928448",
+      "nextId": "754024908207583232",
+      "firstRecipient": "Thommy",
+      "nextRecipient": "Stew",
+      "firstDate": "2021-08-31",
+      "nextDate": "2021-10-13",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    },
+    {
+      "asset": "Josh Jacobs",
+      "year": 2021,
+      "firstId": "737360507476066304",
+      "nextId": "738428315181928448",
+      "firstRecipient": "Thommy",
+      "nextRecipient": "Birch",
+      "firstDate": "2021-08-30",
+      "nextDate": "2021-08-31",
+      "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "1428927046507069440",
+      "year": 2026,
+      "week": 11,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1428887570439245824",
+      "year": 2026,
+      "week": 11,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1428878310045151232",
+      "year": 2026,
+      "week": 11,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1428829144581406720",
+      "year": 2026,
+      "week": 11,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1427488044335788032",
+      "year": 2026,
+      "week": 10,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Drake Maye",
+          "year": 2026,
+          "firstId": "1411009536306733056",
+          "nextId": "1427488044335788032",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Kuhl",
+          "firstDate": "2026-09-30",
+          "nextDate": "2026-11-15",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1424524291990450196",
+      "year": 2026,
+      "week": 9,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1414340723225976832",
+      "year": 2026,
+      "week": 5,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1413584172332654592",
+      "year": 2026,
+      "week": 5,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1411012593170010112",
+      "year": 2026,
+      "week": 4,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Christian Watson",
+          "year": 2026,
+          "firstId": "1411009536306733056",
+          "nextId": "1411012593170010112",
+          "firstRecipient": "Stew",
+          "nextRecipient": "JMid",
+          "firstDate": "2026-09-30",
+          "nextDate": "2026-09-30",
+          "status": "same-day-order-unverified"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1411009536306733056",
+      "year": 2026,
+      "week": 4,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Christian Watson",
+          "year": 2026,
+          "firstId": "1411009536306733056",
+          "nextId": "1411012593170010112",
+          "firstRecipient": "Stew",
+          "nextRecipient": "JMid",
+          "firstDate": "2026-09-30",
+          "nextDate": "2026-09-30",
+          "status": "same-day-order-unverified"
+        },
+        {
+          "asset": "Drake Maye",
+          "year": 2026,
+          "firstId": "1411009536306733056",
+          "nextId": "1427488044335788032",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Kuhl",
+          "firstDate": "2026-09-30",
+          "nextDate": "2026-11-15",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        },
+        {
+          "asset": "Ladd McConkey",
+          "year": 2026,
+          "firstId": "1400522174271340544",
+          "nextId": "1411009536306733056",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Kuhl",
+          "firstDate": "2026-09-01",
+          "nextDate": "2026-09-30",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1405999320708268032",
+      "year": 2026,
+      "week": 2,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1400522174271340544",
+      "year": 2026,
+      "week": 1,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Ladd McConkey",
+          "year": 2026,
+          "firstId": "1400522174271340544",
+          "nextId": "1411009536306733056",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Kuhl",
+          "firstDate": "2026-09-01",
+          "nextDate": "2026-09-30",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1399889389147979776",
+      "year": 2026,
+      "week": 1,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1294724519813988352",
+      "year": 2025,
+      "week": 11,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Derrick Henry",
+          "year": 2025,
+          "firstId": "1273856224776962053",
+          "nextId": "1294724519813988352",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Kuhl",
+          "firstDate": "2025-09-17",
+          "nextDate": "2025-11-13",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1294424036499025920",
+      "year": 2025,
+      "week": 11,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1294402688213057536",
+      "year": 2025,
+      "week": 11,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Jordan Addison",
+          "year": 2025,
+          "firstId": "1276326233327570944",
+          "nextId": "1294402688213057536",
+          "firstRecipient": "Thommy",
+          "nextRecipient": "Stilly",
+          "firstDate": "2025-09-24",
+          "nextDate": "2025-11-12",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        },
+        {
+          "asset": "Ja'Marr Chase",
+          "year": 2025,
+          "firstId": "1276026193660899328",
+          "nextId": "1294402688213057536",
+          "firstRecipient": "Stilly",
+          "nextRecipient": "JMid",
+          "firstDate": "2025-09-23",
+          "nextDate": "2025-11-12",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1276373761972527104",
+      "year": 2025,
+      "week": 3,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1276326233327570944",
+      "year": 2025,
+      "week": 3,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Jordan Addison",
+          "year": 2025,
+          "firstId": "1276326233327570944",
+          "nextId": "1294402688213057536",
+          "firstRecipient": "Thommy",
+          "nextRecipient": "Stilly",
+          "firstDate": "2025-09-24",
+          "nextDate": "2025-11-12",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1276026193660899328",
+      "year": 2025,
+      "week": 3,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Ja'Marr Chase",
+          "year": 2025,
+          "firstId": "1276026193660899328",
+          "nextId": "1294402688213057536",
+          "firstRecipient": "Stilly",
+          "nextRecipient": "JMid",
+          "firstDate": "2025-09-23",
+          "nextDate": "2025-11-12",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1274473433362604032",
+      "year": 2025,
+      "week": 3,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1273856224776962053",
+      "year": 2025,
+      "week": 2,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Derrick Henry",
+          "year": 2025,
+          "firstId": "1273856224776962053",
+          "nextId": "1294724519813988352",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Kuhl",
+          "firstDate": "2025-09-17",
+          "nextDate": "2025-11-13",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1159892809005076480",
+      "year": 2024,
+      "week": 10,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1152708228883660800",
+      "year": 2024,
+      "week": 7,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Rico Dowdle",
+          "year": 2024,
+          "firstId": "1146946436173623296",
+          "nextId": "1152708228883660800",
+          "firstRecipient": "Thommy",
+          "nextRecipient": "Tony",
+          "firstDate": "2024-10-01",
+          "nextDate": "2024-10-17",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1146947320588861440",
+      "year": 2024,
+      "week": 4,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1146946436173623296",
+      "year": 2024,
+      "week": 4,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Rico Dowdle",
+          "year": 2024,
+          "firstId": "1146946436173623296",
+          "nextId": "1152708228883660800",
+          "firstRecipient": "Thommy",
+          "nextRecipient": "Tony",
+          "firstDate": "2024-10-01",
+          "nextDate": "2024-10-17",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1144362000575840256",
+      "year": 2024,
+      "week": 3,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Tank Dell",
+          "year": 2024,
+          "firstId": "1139340571111256064",
+          "nextId": "1144362000575840256",
+          "firstRecipient": "Thommy",
+          "nextRecipient": "Stilly",
+          "firstDate": "2024-09-10",
+          "nextDate": "2024-09-24",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1141777905656143872",
+      "year": 2024,
+      "week": 2,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1140082401968836608",
+      "year": 2024,
+      "week": 2,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1139340571111256064",
+      "year": 2024,
+      "week": 1,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Tank Dell",
+          "year": 2024,
+          "firstId": "1139340571111256064",
+          "nextId": "1144362000575840256",
+          "firstRecipient": "Thommy",
+          "nextRecipient": "Stilly",
+          "firstDate": "2024-09-10",
+          "nextDate": "2024-09-24",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1038099277249245184",
+      "year": 2023,
+      "week": 14,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1031251467312775168",
+      "year": 2023,
+      "week": 11,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Travis Etienne Jr.",
+          "year": 2023,
+          "firstId": "1012571602774532096",
+          "nextId": "1031251467312775168",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Tony",
+          "firstDate": "2023-09-27",
+          "nextDate": "2023-11-17",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1031121022772555776",
+      "year": 2023,
+      "week": 11,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1028065885325508608",
+      "year": 2023,
+      "week": 10,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1023059879336013824",
+      "year": 2023,
+      "week": 8,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "1018289561511682048",
+      "year": 2023,
+      "week": 6,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "CeeDee Lamb",
+          "year": 2023,
+          "firstId": "1012571602774532096",
+          "nextId": "1018289561511682048",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Birch",
+          "firstDate": "2023-09-27",
+          "nextDate": "2023-10-12",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "1012571602774532096",
+      "year": 2023,
+      "week": 3,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "CeeDee Lamb",
+          "year": 2023,
+          "firstId": "1012571602774532096",
+          "nextId": "1018289561511682048",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Birch",
+          "firstDate": "2023-09-27",
+          "nextDate": "2023-10-12",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        },
+        {
+          "asset": "Travis Etienne Jr.",
+          "year": 2023,
+          "firstId": "1012571602774532096",
+          "nextId": "1031251467312775168",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Tony",
+          "firstDate": "2023-09-27",
+          "nextDate": "2023-11-17",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "896468742987522048",
+      "year": 2022,
+      "week": 10,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Cordarrelle Patterson",
+          "year": 2022,
+          "firstId": "880505837758652416",
+          "nextId": "896468742987522048",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Birch",
+          "firstDate": "2022-09-27",
+          "nextDate": "2022-11-10",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "886267215865982976",
+      "year": 2022,
+      "week": 6,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "885980047650119680",
+      "year": 2022,
+      "week": 6,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Alvin Kamara",
+          "year": 2022,
+          "firstId": "881580705233195008",
+          "nextId": "885980047650119680",
+          "firstRecipient": "Tony",
+          "nextRecipient": "Evans",
+          "firstDate": "2022-09-30",
+          "nextDate": "2022-10-12",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        },
+        {
+          "asset": "James Robinson",
+          "year": 2022,
+          "firstId": "880505837758652416",
+          "nextId": "885980047650119680",
+          "firstRecipient": "Evans",
+          "nextRecipient": "Tony",
+          "firstDate": "2022-09-27",
+          "nextDate": "2022-10-12",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "881580705233195008",
+      "year": 2022,
+      "week": 4,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Alvin Kamara",
+          "year": 2022,
+          "firstId": "881580705233195008",
+          "nextId": "885980047650119680",
+          "firstRecipient": "Tony",
+          "nextRecipient": "Evans",
+          "firstDate": "2022-09-30",
+          "nextDate": "2022-10-12",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "880505837758652416",
+      "year": 2022,
+      "week": 3,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "James Robinson",
+          "year": 2022,
+          "firstId": "880505837758652416",
+          "nextId": "885980047650119680",
+          "firstRecipient": "Evans",
+          "nextRecipient": "Tony",
+          "firstDate": "2022-09-27",
+          "nextDate": "2022-10-12",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        },
+        {
+          "asset": "Cordarrelle Patterson",
+          "year": 2022,
+          "firstId": "880505837758652416",
+          "nextId": "896468742987522048",
+          "firstRecipient": "Stew",
+          "nextRecipient": "Birch",
+          "firstDate": "2022-09-27",
+          "nextDate": "2022-11-10",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "875965138744864768",
+      "year": 2022,
+      "week": 2,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "759191673220775936",
+      "year": 2021,
+      "week": 8,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "754024908207583232",
+      "year": 2021,
+      "week": 6,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Antonio Gibson",
+          "year": 2021,
+          "firstId": "738428315181928448",
+          "nextId": "754024908207583232",
+          "firstRecipient": "Thommy",
+          "nextRecipient": "Stew",
+          "firstDate": "2021-08-31",
+          "nextDate": "2021-10-13",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "754017147822415872",
+      "year": 2021,
+      "week": 6,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "751504917667168256",
+      "year": 2021,
+      "week": 5,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Leonard Fournette",
+          "year": 2021,
+          "firstId": "748312121284149248",
+          "nextId": "751504917667168256",
+          "firstRecipient": "Kuhl",
+          "nextRecipient": "Stover",
+          "firstDate": "2021-09-27",
+          "nextDate": "2021-10-07",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "751165345997402112",
+      "year": 2021,
+      "week": 4,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "748585137259884544",
+      "year": 2021,
+      "week": 3,
+      "receiptComplete": false,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "748312121284149248",
+      "year": 2021,
+      "week": 3,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Leonard Fournette",
+          "year": 2021,
+          "firstId": "748312121284149248",
+          "nextId": "751504917667168256",
+          "firstRecipient": "Kuhl",
+          "nextRecipient": "Stover",
+          "firstDate": "2021-09-27",
+          "nextDate": "2021-10-07",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "746234454665732096",
+      "year": 2021,
+      "week": 2,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "738428315181928448",
+      "year": 2021,
+      "week": 1,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Antonio Gibson",
+          "year": 2021,
+          "firstId": "738428315181928448",
+          "nextId": "754024908207583232",
+          "firstRecipient": "Thommy",
+          "nextRecipient": "Stew",
+          "firstDate": "2021-08-31",
+          "nextDate": "2021-10-13",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        },
+        {
+          "asset": "Josh Jacobs",
+          "year": 2021,
+          "firstId": "737360507476066304",
+          "nextId": "738428315181928448",
+          "firstRecipient": "Thommy",
+          "nextRecipient": "Birch",
+          "firstDate": "2021-08-30",
+          "nextDate": "2021-08-31",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "737360507476066304",
+      "year": 2021,
+      "week": 1,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [
+        {
+          "asset": "Josh Jacobs",
+          "year": 2021,
+          "firstId": "737360507476066304",
+          "nextId": "738428315181928448",
+          "firstRecipient": "Thommy",
+          "nextRecipient": "Birch",
+          "firstDate": "2021-08-30",
+          "nextDate": "2021-08-31",
+          "status": "candidate-onward-transfer-not-continuous-ownership-proof"
+        }
+      ],
+      "grade": "withheld"
+    },
+    {
+      "id": "629818920752209920",
+      "year": 2020,
+      "week": 9,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "629416763662086144",
+      "year": 2020,
+      "week": 8,
+      "receiptComplete": false,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "622492390107738112",
+      "year": 2020,
+      "week": 6,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "616864423201554432",
+      "year": 2020,
+      "week": 3,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    },
+    {
+      "id": "614849640176623616",
+      "year": 2020,
+      "week": 3,
+      "receiptComplete": true,
+      "articleCoverage": "matched",
+      "numericScreen": "pass",
+      "editorialCertification": "pending",
+      "ownership": "unverified",
+      "candidateOnwardLinks": [],
+      "grade": "withheld"
+    }
+  ]
+}
