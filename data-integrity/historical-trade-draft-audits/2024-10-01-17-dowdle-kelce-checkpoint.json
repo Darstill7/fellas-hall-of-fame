@@ -1,0 +1,267 @@
+{
+  "status": "PARTIAL_RESEARCH_NOT_CERTIFIED",
+  "source_blobs": {
+    "data/trade_museum_stage66.json": "742755056566510cd4dd988a1eefcd7288d4f4cd",
+    "data/player_starts_2024.json": "de535bdf07a8ea32a275b1e0bb7a40749284e767",
+    "data/championship_player_boxscores_2020_2025_v1.json": "a153a7f8e6125bd303dbac6949a5e0be8b8a06e5"
+  },
+  "cases": [
+    {
+      "trade_id": "1146946436173623296",
+      "date": "2024-10-01",
+      "sides": [
+        {
+          "manager": "Thommy",
+          "roster": 3,
+          "ledger_points": 21.6,
+          "ledger_starts": 2,
+          "players": [
+            {
+              "name": "Mark Andrews",
+              "id": "5012",
+              "weeks": [
+                [
+                  5,
+                  7.5
+                ],
+                [
+                  6,
+                  14.1
+                ]
+              ],
+              "points": 21.6
+            },
+            {
+              "name": "Rico Dowdle",
+              "weeks": [],
+              "points": 0,
+              "window": [
+                5,
+                7
+              ]
+            }
+          ]
+        },
+        {
+          "manager": "Stew",
+          "roster": 4,
+          "ledger_points": 53.4,
+          "ledger_starts": 9,
+          "players": [
+            {
+              "name": "Amari Cooper",
+              "id": "2309",
+              "weeks": [
+                [
+                  5,
+                  8
+                ],
+                [
+                  6,
+                  6.2
+                ],
+                [
+                  7,
+                  14.6
+                ],
+                [
+                  8,
+                  0.8
+                ],
+                [
+                  11,
+                  6.5
+                ],
+                [
+                  13,
+                  2.7
+                ]
+              ],
+              "points": 38.8
+            }
+          ]
+        }
+      ],
+      "regular_window": [
+        5,
+        14
+      ],
+      "chain": "Dowdle appears as an outgoing Thommy asset in October 17 transaction; do not credit all downstream Kelce points to both trades."
+    },
+    {
+      "trade_id": "1152708228883660800",
+      "date": "2024-10-17",
+      "regular_window": [
+        7,
+        14
+      ],
+      "sides": [
+        {
+          "manager": "Thommy",
+          "roster": 3,
+          "ledger_points": 107.3,
+          "ledger_starts": 10,
+          "players": [
+            {
+              "name": "Travis Kelce",
+              "id": "1466",
+              "weeks": [
+                [
+                  7,
+                  3.7
+                ],
+                [
+                  8,
+                  19
+                ],
+                [
+                  9,
+                  15
+                ],
+                [
+                  10,
+                  16.4
+                ],
+                [
+                  11,
+                  1.8
+                ],
+                [
+                  12,
+                  9.2
+                ],
+                [
+                  13,
+                  10.3
+                ],
+                [
+                  14,
+                  7
+                ]
+              ],
+              "points": 82.4
+            },
+            {
+              "name": "Brandon Aiyuk",
+              "weeks": [],
+              "points": 0
+            }
+          ],
+          "subtotal": 82.4,
+          "starts": 8
+        },
+        {
+          "manager": "Tony",
+          "roster": 7,
+          "ledger_points": 216.9,
+          "ledger_starts": 19,
+          "players": [
+            {
+              "name": "Cooper Kupp",
+              "id": "4039",
+              "weeks": [
+                [
+                  8,
+                  13.6
+                ],
+                [
+                  9,
+                  15.9
+                ],
+                [
+                  10,
+                  11.5
+                ],
+                [
+                  11,
+                  26.6
+                ],
+                [
+                  12,
+                  15
+                ],
+                [
+                  13,
+                  3.2
+                ],
+                [
+                  14,
+                  17.7
+                ]
+              ],
+              "points": 103.5
+            },
+            {
+              "name": "Kareem Hunt",
+              "id": "4098",
+              "weeks": [
+                [
+                  7,
+                  21.3
+                ],
+                [
+                  8,
+                  12.8
+                ],
+                [
+                  9,
+                  18.2
+                ],
+                [
+                  10,
+                  13.5
+                ],
+                [
+                  11,
+                  6
+                ],
+                [
+                  12,
+                  10.2
+                ]
+              ],
+              "points": 82
+            },
+            {
+              "name": "Rico Dowdle",
+              "id": "7021",
+              "weeks": [
+                [
+                  14,
+                  14.6
+                ]
+              ],
+              "points": 14.6
+            }
+          ],
+          "subtotal": 200.1,
+          "starts": 14
+        }
+      ],
+      "champion_boxscores": {
+        "semifinal": {
+          "week": 16,
+          "score": 123.38,
+          "opponent": 121.08,
+          "kelce": 5.5,
+          "replacement_to_tie": 3.2
+        },
+        "final": {
+          "week": 17,
+          "score": 205.3,
+          "opponent": 114.88,
+          "kelce": 18.4
+        }
+      },
+      "kelce_regular_plus_verified_championship_rounds": 106.3,
+      "ledger_minus_reconstructed_kelce_points": 1
+    }
+  ],
+  "limitations": [
+    "Week 7 transaction-day eligibility not independently verified; archive observed starts only",
+    "Full roster ownership intervals, nonstarter production, postseason opponent and alternative lineup evidence unavailable in retrieved sources",
+    "Kelce ledger total differs by 1.00 from reconstructed regular-season plus semifinal and final totals; investigate rather than infer missing scoring",
+    "No final grades or championship causation claims"
+  ],
+  "next_case": "2024-09-10 Dell–Dobbins, then remaining September trades and November Mostert–Chubb"
+}
