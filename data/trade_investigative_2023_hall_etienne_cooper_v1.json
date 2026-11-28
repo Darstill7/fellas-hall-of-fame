@@ -1,0 +1,156 @@
+{
+  "id": "1031251467312775168",
+  "timestamp": 1700263493067,
+  "date": "2023-11-17",
+  "status": "investigative-draft-not-certified",
+  "headline": "Tony Trades Away the Points That Could Have Beaten Stilly",
+  "receipt": {
+    "Stew": [
+      "Breece Hall",
+      {
+        "pick": "2024 fifth round Tony",
+        "realizedValue": 0,
+        "status": "void"
+      }
+    ],
+    "Tony": [
+      "Travis Etienne Jr.",
+      "Amari Cooper"
+    ]
+  },
+  "weeks": [
+    {
+      "week": 11,
+      "hallStart": 15.8,
+      "etienneStart": 7.4,
+      "cooperStart": 5.4,
+      "stewPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 12,
+      "hallStart": 8.4,
+      "etienneStart": 10.6,
+      "cooperStart": 2.6,
+      "stewPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 13,
+      "hallStart": 7.5,
+      "etienneStart": 15.9,
+      "cooperStart": 4.9,
+      "stewPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 14,
+      "hallStart": 22.6,
+      "etienneStart": 15.2,
+      "cooperStart": null,
+      "stewPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 15,
+      "hallStart": 2.3,
+      "etienneStart": 7.9,
+      "cooperStart": null,
+      "stewPaired": true,
+      "tonyPaired": false
+    },
+    {
+      "week": 16,
+      "hallStart": 37.1,
+      "etienneStart": 4.6,
+      "cooperStart": null,
+      "stewPaired": true,
+      "tonyPaired": true
+    },
+    {
+      "week": 17,
+      "hallStart": 23.1,
+      "etienneStart": 25.8,
+      "cooperStart": null,
+      "stewPaired": false,
+      "tonyPaired": true
+    }
+  ],
+  "cooperBench": {
+    "14": 9.2,
+    "15": 20.9,
+    "16": 48,
+    "17": 0
+  },
+  "totals": {
+    "hall": 116.8,
+    "etienne": 87.4,
+    "cooper": 12.9,
+    "tony": 100.30000000000001,
+    "excludeAcquisition": [
+      101,
+      87.5
+    ],
+    "paired": [
+      93.7,
+      92.4
+    ]
+  },
+  "archive": {
+    "stew": 101,
+    "tony": 87.5
+  },
+  "week16": {
+    "stilly": 141.66,
+    "tony": 108.58,
+    "etienne": 4.6,
+    "hall": 37.1,
+    "cooperBench": 48,
+    "kupp": 7.9,
+    "diggs": 5.4,
+    "kamara": 6,
+    "warrenBench": 7.9,
+    "retainHallReplaceEtienne": 141.08,
+    "retainHallAndWarrenReplaceKamara": 142.98,
+    "startCooperReplaceKupp": 148.68,
+    "startCooperReplaceDiggs": 151.18,
+    "method": "Frozen other starters and actual opponent; Hall scenario removes both acquired assets (Cooper benched); Cooper scenarios retain trade. Warren substitution hindsight, not pregame optimal."
+  },
+  "sources": [
+    {
+      "url": "https://www.fantasypros.com/2023/11/fantasy-football-trade-value-chart-week-11-2023/",
+      "finding": "Week11 Etienne RB2, Hall RB5"
+    },
+    {
+      "url": "https://www.fantasypros.com/2023/11/fantasy-football-week-11-rankings-grades-start-sit-advice-2023/",
+      "finding": "Hall averaged 19.2 touches, 103 scrimmage yards since Week5"
+    },
+    {
+      "url": "https://www.clevelandbrowns.com/news/browns-announce-qb-deshaun-watson-is-out-for-the-season",
+      "finding": "November15 Watson season-ending shoulder surgery announced before trade"
+    },
+    {
+      "url": "https://www.nfl.com/news/browns-qb-joe-flacco-to-start-vs-rams-dorian-thompson-robinson-concussion-ruled-",
+      "finding": "Flacco first start December, later development"
+    },
+    {
+      "url": "https://www.statmuse.com/nfl/player/breece-hall-29534/game-log?seasonYear=2023",
+      "finding": "Week16 Hall 191 scrimmage yards two rushing TDs"
+    },
+    {
+      "url": "https://www.statmuse.com/nfl/ask/player-most-receiving-yards-in-week-16-2023",
+      "finding": "Cooper 265 receiving yards, 11 catches, two TDs"
+    },
+    {
+      "url": "https://www.fantasypros.com/2023/12/fantasy-football-week-16-rankings-grades-start-sit-advice-2023/",
+      "finding": "Pregame ranks Kamara RB5, Etienne RB9, Hall RB16, Warren RB27; Diggs WR6, Kupp WR10, Cooper WR20. Actual lineup defensible, alternatives hindsight."
+    }
+  ],
+  "publicationDraft": "Tony exchanged Hall for Etienne and Cooper, a defensible consolidation of value at the time. Cleveland had already lost Watson, but Flacco's arrival transformed Cooper's outlook. On Christmas Eve, Hall scored 37.10 for Stew while Etienne supplied Tony just 4.60. Retaining Hall would have left Tony 0.58 short of beating Stilly. Yet Tony had an even bigger weapon: Cooper's 48 points sat on his bench. Starting him over Kupp would have reversed the result. Pregame rankings favored Kupp, so this was not an obvious blunder at kickoff. Tony had the ammunition; the lineup never fired.",
+  "limitations": [
+    "Official bracket classification not independently certified",
+    "Full alternate season, ownership replay and keeper eligibility pending",
+    "NFL postseason individual context incomplete",
+    "No final grades or deployment"
+  ]
+}
