@@ -1,0 +1,456 @@
+{
+  "status": "weekly-snapshot-evidence-not-exact-trade-time",
+  "transactionId": "1428887570439245824",
+  "sources": "Sleeper historical roster snapshots via Flaim",
+  "snapshots": [
+    {
+      "rosterId": 1,
+      "teamName": "Harry Woody",
+      "snapshot": {
+        "type": "week",
+        "week": 10
+      },
+      "starters": [
+        {
+          "id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "points": 20.76
+        },
+        {
+          "id": "12474",
+          "name": "Woody Marks",
+          "position": "RB",
+          "points": 7
+        },
+        {
+          "id": "12495",
+          "name": "Ollie Gordon II",
+          "position": "RB",
+          "points": 13.5
+        },
+        {
+          "id": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "points": 29.6
+        },
+        {
+          "id": "6786",
+          "name": "CeeDee Lamb",
+          "position": "WR",
+          "points": 16.7
+        },
+        {
+          "id": "10859",
+          "name": "Sam LaPorta",
+          "position": "TE",
+          "points": 2.1
+        },
+        {
+          "id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "points": 24.8
+        },
+        {
+          "id": "8132",
+          "name": "Tyler Allgeier",
+          "position": "RB",
+          "points": 1.4
+        },
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF",
+          "points": 7
+        }
+      ],
+      "bench": [
+        {
+          "id": "12492",
+          "name": "Pat Bryant",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "12529",
+          "name": "TreVeyon Henderson",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "13281",
+          "name": "Jordyn Tyson",
+          "position": "WR",
+          "points": 13.5
+        },
+        {
+          "id": "5850",
+          "name": "Josh Jacobs",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "9479",
+          "name": "Darnell Washington",
+          "position": "TE",
+          "points": 1
+        },
+        {
+          "id": "9480",
+          "name": "Brenton Strange",
+          "position": "TE",
+          "points": 7.9
+        },
+        {
+          "id": "9501",
+          "name": "DeMario Douglas",
+          "position": "WR",
+          "points": 0.9
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "rosterId": 1,
+      "teamName": "Harry Woody",
+      "snapshot": {
+        "type": "week",
+        "week": 11
+      },
+      "starters": [
+        {
+          "id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "points": 18.06
+        },
+        {
+          "id": "12495",
+          "name": "Ollie Gordon II",
+          "position": "RB",
+          "points": 7.7
+        },
+        {
+          "id": "8138",
+          "name": "James Cook III",
+          "position": "RB",
+          "points": 16.2
+        },
+        {
+          "id": "6786",
+          "name": "CeeDee Lamb",
+          "position": "WR",
+          "points": 24.7
+        },
+        {
+          "id": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "points": 5.6
+        },
+        {
+          "id": "10859",
+          "name": "Sam LaPorta",
+          "position": "TE",
+          "points": 8.7
+        },
+        {
+          "id": "12492",
+          "name": "Pat Bryant",
+          "position": "WR",
+          "points": 4.7
+        },
+        {
+          "id": "13281",
+          "name": "Jordyn Tyson",
+          "position": "WR",
+          "points": 1.5
+        },
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "position": "DEF",
+          "points": 17
+        }
+      ],
+      "bench": [
+        {
+          "id": "11199",
+          "name": "Emari Demercado",
+          "position": "RB",
+          "points": 3.9
+        },
+        {
+          "id": "12474",
+          "name": "Woody Marks",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "12529",
+          "name": "TreVeyon Henderson",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "5850",
+          "name": "Josh Jacobs",
+          "position": "RB",
+          "points": 0
+        },
+        {
+          "id": "8132",
+          "name": "Tyler Allgeier",
+          "position": "RB",
+          "points": 2.3
+        },
+        {
+          "id": "9480",
+          "name": "Brenton Strange",
+          "position": "TE",
+          "points": 3.1
+        },
+        {
+          "id": "9501",
+          "name": "DeMario Douglas",
+          "position": "WR",
+          "points": 0
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "rosterId": 10,
+      "teamName": "Nacua Matata",
+      "snapshot": {
+        "type": "week",
+        "week": 10
+      },
+      "starters": [
+        {
+          "id": "4046",
+          "name": "Patrick Mahomes",
+          "position": "QB",
+          "points": 35.42
+        },
+        {
+          "id": "7594",
+          "name": "Chuba Hubbard",
+          "position": "RB",
+          "points": 31.7
+        },
+        {
+          "id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 16.5
+        },
+        {
+          "id": "10229",
+          "name": "Rashee Rice",
+          "position": "WR",
+          "points": 11.7
+        },
+        {
+          "id": "5846",
+          "name": "DK Metcalf",
+          "position": "WR",
+          "points": 14.4
+        },
+        {
+          "id": "8130",
+          "name": "Trey McBride",
+          "position": "TE",
+          "points": 6.2
+        },
+        {
+          "id": "8138",
+          "name": "James Cook III",
+          "position": "RB",
+          "points": 22.7
+        },
+        {
+          "id": "12481",
+          "name": "Cam Skattebo",
+          "position": "RB",
+          "points": 25.7
+        },
+        {
+          "id": "IND",
+          "name": "Indianapolis Colts",
+          "position": "DEF",
+          "points": 14
+        }
+      ],
+      "bench": [
+        {
+          "id": "11610",
+          "name": "Malik Washington",
+          "position": "WR",
+          "points": 11.86
+        },
+        {
+          "id": "1466",
+          "name": "Travis Kelce",
+          "position": "TE",
+          "points": 4
+        },
+        {
+          "id": "2216",
+          "name": "Mike Evans",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "4037",
+          "name": "Chris Godwin Jr.",
+          "position": "WR",
+          "points": 0
+        },
+        {
+          "id": "4199",
+          "name": "Aaron Jones Sr.",
+          "position": "RB",
+          "points": 12
+        },
+        {
+          "id": "4881",
+          "name": "Lamar Jackson",
+          "position": "QB",
+          "points": 0
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    },
+    {
+      "rosterId": 10,
+      "teamName": "Nacua Matata",
+      "snapshot": {
+        "type": "week",
+        "week": 11
+      },
+      "starters": [
+        {
+          "id": "4046",
+          "name": "Patrick Mahomes",
+          "position": "QB",
+          "points": 24.96
+        },
+        {
+          "id": "7594",
+          "name": "Chuba Hubbard",
+          "position": "RB",
+          "points": 26
+        },
+        {
+          "id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "points": 17.1
+        },
+        {
+          "id": "10229",
+          "name": "Rashee Rice",
+          "position": "WR",
+          "points": 8.3
+        },
+        {
+          "id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "points": 12.2
+        },
+        {
+          "id": "8130",
+          "name": "Trey McBride",
+          "position": "TE",
+          "points": 10.3
+        },
+        {
+          "id": "2216",
+          "name": "Mike Evans",
+          "position": "WR",
+          "points": 19.9
+        },
+        {
+          "id": "12481",
+          "name": "Cam Skattebo",
+          "position": "RB",
+          "points": 4.3
+        },
+        {
+          "id": "CAR",
+          "name": "Carolina Panthers",
+          "position": "DEF",
+          "points": 4
+        }
+      ],
+      "bench": [
+        {
+          "id": "11610",
+          "name": "Malik Washington",
+          "position": "WR",
+          "points": 5.6
+        },
+        {
+          "id": "12540",
+          "name": "Chimere Dike",
+          "position": "WR",
+          "points": 9.3
+        },
+        {
+          "id": "1466",
+          "name": "Travis Kelce",
+          "position": "TE",
+          "points": 22.4
+        },
+        {
+          "id": "4037",
+          "name": "Chris Godwin Jr.",
+          "position": "WR",
+          "points": 2.8
+        },
+        {
+          "id": "4199",
+          "name": "Aaron Jones Sr.",
+          "position": "RB",
+          "points": 10.8
+        },
+        {
+          "id": "4881",
+          "name": "Lamar Jackson",
+          "position": "QB",
+          "points": 0
+        },
+        {
+          "id": "5846",
+          "name": "DK Metcalf",
+          "position": "WR",
+          "points": 0.7
+        }
+      ],
+      "limitations": {
+        "reserveAndTaxiClassificationAvailable": false,
+        "playerProTeamAvailable": false
+      }
+    }
+  ],
+  "reportedRationale": {
+    "Stilly": "needed RB",
+    "Birch": "needed WR",
+    "source": "commissioner report"
+  },
+  "review": "Both positional needs supported by observed lineup structure. Stilly retained Chase/Lamb but surrendered elite FLEX production; Birch retained Hubbard/Henry/Skattebo but surrendered Cook's FLEX contribution. Do not attribute unrelated moves or weekly scoring changes to trade.",
+  "gradeStatus": "withheld"
+}
