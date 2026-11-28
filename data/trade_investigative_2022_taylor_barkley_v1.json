@@ -1,0 +1,186 @@
+{
+  "id": "875965138744864768",
+  "date": "2022-09-15",
+  "status": "investigative-draft-not-certified",
+  "headline": "Stilly Buys Last Year's Rushing Champion",
+  "publicationDraft": "Stilly paired McCaffrey with the reigning rushing champion, sending Barkley and Thielen to Mitch. Taylor was still valued above Barkley in contemporary rankings, but Barkley's 194-yard Week 1 resurgence was already public knowledge. Taylor's recurring ankle injuries wrecked the investment, culminating in a Week 15 exit against Minnesota. That same week Mitch beat Stilly 127.90–94.92, with Barkley and Thielen supplying 32.10 and Taylor just 1.80. Mitch's acquisitions stayed useful into December. Stilly's bet on elite talent was understandable, but paying a starting receiver to upgrade a resurgent Barkley was a costly gamble. Mitch bought two starters; Stilly bought last year's headlines.",
+  "sources": [
+    {
+      "url": "https://www.giants.com/news/saquon-barkley-highlights-week-1-nfl-tennessee-titans-brian-daboll-head-coach",
+      "finding": "Barkley 194 scrimmage yards in Week 1."
+    },
+    {
+      "url": "https://www.fantasypros.com/2022/09/fantasy-football-trade-value-chart-week-2-2022/",
+      "finding": "Contemporary trade chart Taylor 69.1, Barkley 55.4; exact release time relative to transaction not established."
+    },
+    {
+      "url": "https://www.colts.com/news/jonathan-taylor-ankle-zack-moss-deon-jackson-running-back-2022",
+      "finding": "Taylor missed Weeks 5,6,9,16–18 due to ankle injuries."
+    },
+    {
+      "url": "https://www.colts.com/news/jonathan-taylor-injured-reserve-ankle-season-ending-jordan-wilkins-running-back",
+      "finding": "Week 15 reinjury, placed on IR December 20."
+    },
+    {
+      "url": "https://www.giants.com/news/rb-saquon-barkley-contract-franchise-tag-nfl-training-camp-stats-roster",
+      "finding": "Barkley postseason 191 scrimmage yards two TD."
+    },
+    {
+      "url": "https://www.giants.com/news/daniel-jones-kirk-cousins-saquon-barkley-justin-jefferson-playoffs-wild-card",
+      "finding": "1312 rushing yards and 10 TD."
+    },
+    {
+      "url": "https://www.vikings.com/news/position-recap-wide-receivers-2022-nfl-season",
+      "finding": "Thielen started all 17 regular season games, 70 catches 716 yards six TD."
+    },
+    {
+      "url": "https://www.colts.com/news/jonathan-taylor-alec-pierce-shane-steichen-veteran-minicamp-training-camp-2023",
+      "finding": "Taylor 861 yards four rushing TD, 10 games."
+    }
+  ],
+  "leagueEvidence": {
+    "source": "Sleeper via Flaim historical rosters and matchup records",
+    "weeks": [
+      {
+        "week": 2,
+        "taylorStart": 6.8,
+        "barkleyStart": 10.3,
+        "thielenStart": 7.2
+      },
+      {
+        "week": 3,
+        "taylorStart": 10.6,
+        "barkleyStart": 20.6,
+        "thielenStart": 15.1
+      },
+      {
+        "week": 4,
+        "taylorStart": 2.8,
+        "barkleyStart": 17.2,
+        "thielenStart": 11.2
+      },
+      {
+        "week": 5,
+        "taylorStart": null,
+        "barkleyStart": 20.1,
+        "thielenStart": 4.7
+      },
+      {
+        "week": 6,
+        "taylorStart": null,
+        "barkleyStart": 17,
+        "thielenStart": 13.6
+      },
+      {
+        "week": 7,
+        "taylorStart": 12,
+        "barkleyStart": 15.5,
+        "thielenStart": null
+      },
+      {
+        "week": 8,
+        "taylorStart": 5.6,
+        "barkleyStart": 13.7,
+        "thielenStart": null
+      },
+      {
+        "week": 9,
+        "taylorStart": null,
+        "barkleyStart": null,
+        "thielenStart": 8.2
+      },
+      {
+        "week": 10,
+        "taylorStart": 24.3,
+        "barkleyStart": 22.5,
+        "thielenStart": null
+      },
+      {
+        "week": 11,
+        "taylorStart": 14.9,
+        "barkleyStart": 4.5,
+        "thielenStart": 3.5
+      },
+      {
+        "week": 12,
+        "taylorStart": 17.3,
+        "barkleyStart": 13.2,
+        "thielenStart": null
+      },
+      {
+        "week": 13,
+        "taylorStart": 11.8,
+        "barkleyStart": 16.6,
+        "thielenStart": null
+      },
+      {
+        "week": 14,
+        "taylorStart": null,
+        "barkleyStart": 5.8,
+        "thielenStart": 16
+      },
+      {
+        "week": 15,
+        "taylorStart": 1.8,
+        "barkleyStart": 20.5,
+        "thielenStart": 11.6
+      },
+      {
+        "week": 16,
+        "taylorStart": null,
+        "barkleyStart": 23.3,
+        "thielenStart": 1.1
+      },
+      {
+        "week": 17,
+        "taylorStart": null,
+        "barkleyStart": 6.3,
+        "thielenStart": 2.1
+      }
+    ],
+    "totals": {
+      "taylorObserved": 107.9,
+      "barkleyObserved": 227.1,
+      "thielenObserved": 94.3,
+      "mitchObserved": 321.4,
+      "taylorWeeks3to17": 101.1,
+      "mitchWeeks3to17": 303.9
+    },
+    "archive": {
+      "stilly": 101.1,
+      "mitch": 303.9
+    },
+    "matches": [
+      {
+        "week": 2,
+        "stilly": 94.78,
+        "mitch": 122.86
+      },
+      {
+        "week": 15,
+        "stilly": 94.92,
+        "mitch": 127.9
+      },
+      {
+        "week": 16,
+        "stilly": 93.5,
+        "thommy": 115.04,
+        "mitch": 92.5,
+        "stew": 106.52
+      },
+      {
+        "week": 17,
+        "stillyUnpaired": true,
+        "mitch": 85.18,
+        "kuhl": 138.82
+      }
+    ]
+  },
+  "limitations": [
+    "Exact trade-time motive unconfirmed",
+    "Complete ownership transaction replay not done",
+    "Bracket classification and all paired weeks not certified",
+    "Thielen NFL postseason individual line not checked",
+    "No final grade"
+  ]
+}
