@@ -1,0 +1,148 @@
+{
+  "id": "754017147822415872",
+  "date": "2021-10-13",
+  "status": "investigative-draft-not-certified",
+  "headline": "Stilly Puts Out a Fire, Then the Fire Truck Breaks Down",
+  "publicationDraft": "With Chris Carson sidelined by a neck injury, Stilly dealt from a receiving corps featuring Diggs, Moore, Lamb and Diontae Johnson to acquire Kareem Hunt. Tony had just benched Hunt's 23.40-point outing. Four days later, Hunt injured his calf while starting for Cleveland; Lamb delivered 31.60 for Tony that same week. Hunt returned in November, then injured his ankle in December. His two observed starts supplied just 12.10 points, while Lamb contributed 109.70 in paired matchups, including 8.40 in Tony's narrow championship win. The roster logic was sound, but the return was a disaster. Stilly bought a fire extinguisher that caught fire.",
+  "sources": [
+    {
+      "url": "https://www.seahawks.com/news/chris-carson-inactive-for-seahawks-week-5-game-vs-rams",
+      "date": "2021-10-07",
+      "finding": "Carson inactive due to neck injury before deal."
+    },
+    {
+      "url": "https://amp.nfl.com/news/seahawks-rb-chris-carson-neck-will-not-play-vs-rams-on-thursday",
+      "date": "2021-10-07",
+      "finding": "Carroll described chronic condition."
+    },
+    {
+      "url": "https://abcnews.com/amp/Sports/cleveland-browns-rb-nick-chubb-ruled-calf-injury/story?id=80607502",
+      "date": "2021-10-15",
+      "finding": "Chubb ruled out after trade; Hunt to start."
+    },
+    {
+      "url": "https://www.clevelandbrowns.com/news/news-notes-kareem-hunt-jeremiah-owusu-koramoah-out-multiple-weeks-with-injuries",
+      "date": "2021-10-18",
+      "finding": "Calf injury, five TD and 522 scrimmage yards through six games."
+    },
+    {
+      "url": "https://www.clevelandbrowns.com/news/kareem-hunt-healthy-and-ready-to-go",
+      "finding": "Week 12 return, Week 14 ankle injury, next three games missed."
+    },
+    {
+      "url": "https://amp.nfl.com/news/cowboys-wr-ceedee-lamb-out-for-thanksgiving-tilt-vs-raiders",
+      "date": "2021-11-25",
+      "finding": "Lamb concussion Week 11, inactive Week 12."
+    },
+    {
+      "url": "https://www.nfl.com/players/ceedee-lamb/stats/logs/2021/",
+      "finding": "NFL regular season and postseason logs; postseason details still to inspect."
+    },
+    {
+      "url": "https://www.pro-football-reference.com/players/L/LambCe00.htm",
+      "finding": "79 receptions, 1102 yards, six TD."
+    }
+  ],
+  "leagueEvidence": {
+    "source": "Sleeper via Flaim historical roster and matchup records",
+    "weeks": [
+      {
+        "week": 6,
+        "huntStart": 9.3,
+        "lambStart": 31.6
+      },
+      {
+        "week": 7,
+        "huntStart": null,
+        "lambStart": null
+      },
+      {
+        "week": 8,
+        "huntStart": null,
+        "lambStart": 14.2
+      },
+      {
+        "week": 9,
+        "huntStart": null,
+        "lambStart": 3.3
+      },
+      {
+        "week": 10,
+        "huntStart": null,
+        "lambStart": 25.6
+      },
+      {
+        "week": 11,
+        "huntStart": null,
+        "lambStart": 2.9
+      },
+      {
+        "week": 12,
+        "huntStart": null,
+        "lambStart": null
+      },
+      {
+        "week": 13,
+        "huntStart": null,
+        "lambStart": 15.7
+      },
+      {
+        "week": 14,
+        "huntStart": 2.8,
+        "lambStart": 11.1
+      },
+      {
+        "week": 15,
+        "huntStart": null,
+        "lambStart": 8
+      },
+      {
+        "week": 16,
+        "huntStart": null,
+        "lambStart": 8.4
+      }
+    ],
+    "huntWeek12Bench": 2,
+    "week6": {
+      "stilly": 103.58,
+      "koble": 134.96,
+      "tony": 167.14,
+      "thommy": 139.2
+    },
+    "week14": {
+      "stilly": 108.94,
+      "stew": 111.32,
+      "tonyUnpaired": true
+    },
+    "week15": {
+      "stilly": 88.68,
+      "koble": 98.18,
+      "tony": 94.96,
+      "stover": 73.44
+    },
+    "week16": {
+      "tony": 138.28,
+      "evans": 133.98,
+      "stillyUnpaired": true
+    },
+    "totals": {
+      "huntObserved": 12.1,
+      "lambObserved": 120.8,
+      "huntArchiveReproduction": 2.8,
+      "lambArchiveReproduction": 89.2,
+      "huntPaired": 12.1,
+      "lambPaired": 109.7
+    },
+    "archive": {
+      "hunt": 2.8,
+      "lamb": 89.2
+    },
+    "reconciliation": "Both archive totals reproduced by excluding acquisition week 6; Lamb Week 14 unpaired included in archived total. Paired totals assume remaining observed starts paired; verify Weeks 8–13 matchup records before certifying."
+  },
+  "limitations": [
+    "No firsthand Stilly confirmation of motive for this specific trade.",
+    "Continuous ownership not independently transaction-replayed.",
+    "Paired eligibility for all remaining weeks and postseason logs not yet independently verified.",
+    "No final grades."
+  ]
+}
